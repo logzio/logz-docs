@@ -14,14 +14,14 @@ firstLevel:
 
   secondLevel:
   - title: Overview
-    url: /getting-started/overview/index.html
+    # url: /getting-started/overview/index.html
 
   - title: Quickstart
-    url: /getting-started/quickstart/index.html
+    # url: /getting-started/quickstart/index.html
 
     thirdLevel:
     - title: Ship sample logs with Filebeat
-      url: /placeholder.html
+      # url: /placeholder.html
     - title: Discover data in Kibana
     - title: Install ELK Apps
     - title: Explore Insights
@@ -66,7 +66,7 @@ firstLevel:
 - title: Account tools
   secondLevel:
   - title: Manage accounts and usage
-    url: /account-settings/accounts-and-usage/index.html
+    # url: /account-settings/accounts-and-usage/index.html
     thirdLevel:
     - title: Manage accounts
     - title: Usage and billing

@@ -1,0 +1,51 @@
+---
+---
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {% include head.html %}
+  <body>
+    <iframe class="header-frame" src="{{ site.baseurl }}/api-src/iframe-header.html" scrolling="no"></iframe>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
+
+    <div id="redoc-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+
+    <script>
+      Redoc.init('{{ site.baseurl }}/api-src/logzio-public-api.yaml', {
+        theme: {
+          colors: {
+            main: '#296386'
+          },
+          baseFont: {
+            size: '14px',
+            lineHeight: '1.5',
+            weight: '300',
+            family: 'Nunito Sans, sans-serif',
+            smoothing: 'antialiased',
+            optimizeSpeed: true
+          },
+          headingsFont: {
+            family: 'Nunito Sans, sans-serif'
+          },
+          code: {
+            fontFamily: 'Fira Mono, monospace'
+          },
+          links: {
+            color: '#009cbd',
+            visited: '#009cbd',
+            hover: '#009cbd'
+          }
+        },
+        scrollYOffset: 'iframe.header-frame',
+        expandResponses: 'all',
+        pathInMiddlePanel: true,
+        hideLoading: true
+      }, document.getElementById('redoc-container'))
+    </script>
+
+    <iframe class="footer" src="{{ site.baseurl }}/api-src/iframe-footer.html" scrolling="no"></iframe>
+  </body>
+
+</html>

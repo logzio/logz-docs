@@ -1,0 +1,106 @@
+# This file is NOT reloaded automatically when you use 'bundle exec jekyll
+# serve'. If you change this file, restart the server.
+
+
+# ===== SITE SETTINGS =====
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, etc.
+# Liquid tags.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Logz.io Docs
+copyright: 2018 Logz.io, all rights reserved.
+description: >- # this means to ignore newlines until "baseurl:"
+  Parse, visualize, set up alerts & leverage AI with cloud-based ELK.
+  AWS Integration · Long-term Data Retention · Essential DevOps Tool · Multi-role Definitions
+  Services: Log Analytics, DevOps Automation, Critical Event Prediction
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://dev-logz-docs.pantheonsite.io" # the base hostname & protocol for your site, e.g. http://example.com
+favicon: https://logz.io/wp-content/uploads/2016/04/favicon.png
+
+# Community buttons
+public: false
+edit_enabled: false
+api_only: false
+
+# Social
+facebook_url: https://www.facebook.com/logz.io
+twitter_url: https://twitter.com/logzio
+youtube_url: https://www.youtube.com/channel/UC9Rc1hpWHUju8O2rYHAUVXA
+google_plus_url: https://plus.google.com/+LogzIo/
+linkedin_url: https://www.linkedin.com/company/4831888
+
+# If true, the Atom/RSS icon will link to feed.xml
+show_atom_feed: false
+
+# GitHub repository paths - Leave beginning slashes, unless field is empty.
+github:
+  org_url:  https://github.com/logzio # only edit username - leave base URL
+  repo_name: /logz-docs
+  edit_branch: /develop # which branch do you want users to edit?
+
+# Slackin - shows Slack community button
+slackin_enabled: false
+
+# if you wish to integrate disqus on pages set your shortname here
+disqus:
+  shortname: ''
+  site_url: ''
+
+# if you use google analytics, add your tracking id here. To disable, remove or comment out the line
+google_analytics_id: ''
+
+# if you use Intercom, add app id here. To disable, remove or comment out the line
+intercom_app_id: bkz9ugqv
+
+# ===== COLLECTIONS =====
+# Collections are the highest-level categories of Logz.io content.
+
+collections_dir: logzio_content # all collections are contained in this directory
+
+collections:
+  getting-started:
+    output: true
+  ship-and-parse-logs:
+    output: true
+  monitor-logs:
+    output: true
+  account-settings:
+    output: true
+  # integrations:
+    # output: true
+  developer-center:
+   output: true
+  troubleshooting:
+    output: true
+
+# ===== BUILD SETTINGS =====
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-menus
+  - jekyll-octicons
+
+
+kramdown:
+  # auto_ids: true
+
+# These items will not be processed, by default. Add new items as array entries.
+exclude:
+  - .DS_Store
+
+
+# ===== SOURCE AND DESTINATION =====
+# Don't mess with these, unless you're willing to move a lot of files around.
+source: ./_source
+destination: ./_site
+
+# ===== SEARCH =====
+addsearch_key: 1ba69fa167bc606aaf17e3ec81fb7695
+# algolia:
+#   application_id:
+#   index_name:
+#   search_only_api_key:

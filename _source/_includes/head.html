@@ -1,0 +1,36 @@
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+
+  <!-- font awesome 5 js -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+  <!-- font awesome 5 css, for pseudo-styles -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="{{ site.favicon }}" />
+
+  <script type="text/javascript" src="{{ "./js/jquery-3.3.1.min.js" | relative_url }}"></script>
+  <script type="text/javascript" src="{{ "./js/jquery-ui-widget-1.12.1.min.js" | relative_url }}"></script>
+  <script type="text/javascript" src="{{ "./js/logz-docs.js" | relative_url }}"></script>
+  <script type="text/javascript" src="{{ "./js/anchor.min.js" | relative_url }}"></script>
+
+
+  <!-- github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <!-- the one stylesheet to rule them all -->
+  {% if page.layout=="api-ref" %}
+    <link rel="stylesheet" href="{{ "./css/logz-api-ref.css" | relative_url }}">
+  {%- else -%}
+  <link rel="stylesheet" href="{{ "./css/logz-docs.css" | relative_url }}">
+  {% endif %}
+
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' -%}
+    {%- if site.google_analytics_id -%}{%- include google-analytics.html -%}{%- endif -%}
+    {%- if site.intercom_app_id -%}{%- include intercom.html -%}{%- endif -%}
+  {%- endif -%}
+  {% seo %}
+</head>

@@ -1,0 +1,36 @@
+settings:
+  blog_baseurl: https://logz.io/blog
+
+this_year:
+  - title: feature-1
+    date: 5 Jun 2018
+    description: This is our new feature! We're really excited to share it with you. With this change, you can ....
+    blog: /docker-vs-kubernetes/
+
+  - title: feature 2
+    date: 10 Jun 2018
+    description: New feature \#2, shown here
+    blog: /grafana-integration/
+
+previous_years:
+  y2017:
+    - title: feature-1
+      date: 5 Jun 2017
+      description: This is our new feature! We're really excited to share it with you. With this change, you can ....
+      blog: /docker-vs-kubernetes/
+
+    - title: feature 2
+      date: 10 Jun 2017
+      description: New feature \#2, shown here
+      blog: /grafana-integration/
+
+  y2016:
+    - title: feature 1
+      date: 5 Jun 2016
+      description: This is our new feature! We're really excited to share it with you. With this change, you can ....
+      blog: /docker-vs-kubernetes/
+
+    - title: feature 2
+      date: 10 Jun 2016
+      description: New feature \#2, shown here
+      blog: /grafana-integration/

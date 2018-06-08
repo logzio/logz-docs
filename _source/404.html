@@ -1,0 +1,30 @@
+---
+layout: default
+related-links: false
+---
+
+{%- capture repo_path -%}
+{{site.github.org_url | append: site.github.repo_name}}
+{%- endcapture -%}
+
+
+<style type="text/css" media="screen">
+  .container {
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  h1 {
+    margin: 30px 0;
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+</style>
+
+<div class="container">
+  <h1>404. Ridoculous.</h1>
+
+  <p><strong>We couldn't find the page you were looking for.</strong></p>
+  <p>Maybe it moved, maybe it never existed. Either way, please try another page, or <a href="{{ repo_path }}/issues">let us know</a> about the issue so we can fix it.</p>
+</div>

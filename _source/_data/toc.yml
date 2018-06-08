@@ -1,0 +1,106 @@
+# *** Logz.io template can handle 3 levels max ***
+# 3-level hierarchy:
+# firstLevel
+#   secondLevel
+#     thirdLevel
+
+# Each entry should contain 'title' and 'url'
+# Add `external: true` if an entry links to outside docs
+
+firstLevel:
+
+  # ===== GETTING STARTED =====
+- title: Getting Started
+
+  secondLevel:
+  - title: Overview
+    url: /getting-started/overview/index.html
+
+  - title: Quickstart
+    url: /getting-started/quickstart/index.html
+
+    thirdLevel:
+    - title: Ship sample logs with Filebeat
+      url: /placeholder.html
+    - title: Discover data in Kibana
+    - title: Install ELK Apps
+    - title: Explore Insights
+
+
+  # ===== SHIP AND PARSE LOGS =====
+- title: Ship and parse logs
+  secondLevel:
+  - title: Log shipping
+    thirdLevel:
+    - title: Best practice- know your type
+  - title: Map and parse data
+    thirdLevel:
+    - title: Data Parsing Wizard
+    - title: Field mapping
+
+  # ===== MONITOR LOGS =====
+- title: Monitor logs
+  secondLevel:
+  - title: Kibana
+    thirdLevel:
+    - title: The Kibana UI
+    - title: Discover
+    - title: Filter
+    - title: Search
+    - title: Create a visualization
+    - title: Work with dashboards
+    - title: Share visualizations & dashboards
+    - title: ELK Apps
+  - title: Live Tail
+  - title: Alerts
+    thirdLevel:
+    - title: Simple alerts
+    - title: Compound alerts
+    - title: One-click alerts
+  - title: Insights
+    thirdLevel:
+    - title: Application Insights
+    - title: Cognitive Insights
+
+  # ===== ACCOUNT TOOLS =====
+- title: Account tools
+  secondLevel:
+  - title: Manage accounts and usage
+    url: /account-settings/accounts-and-usage/index.html
+    thirdLevel:
+    - title: Manage accounts
+    - title: Usage and billing
+    - title: Archive and restore
+    - title: Sub accounts
+    - title: Timeless accounts
+    - title: Data Optimizer
+  - title: Access and authentication
+    thirdLevel:
+    - title: Manage self
+    - title: Manage other users
+    - title: Manage shared tokens
+
+  # ===== INTEGRATIONS =====
+- title: Integrations
+
+
+  # ===== DEVELOPER CENTER =====
+- title: Developer center
+  secondLevel:
+  - title: Quickstarts
+    thirdLevel:
+    - title: Create API token & make a test call
+  - title: API
+    url: /api/index.html
+    external: true
+  - title: API cookbook
+    thirdLevel:
+    - title: Create alert
+    - title: Kibana export
+    - title: Kibana import
+    - title: Create snapshots
+    - title: Allocate account volume
+    - title: Create a user
+
+  # ===== TROUBLESHOOTING =====
+- title: Troubleshooting

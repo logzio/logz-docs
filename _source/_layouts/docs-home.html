@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+{% include head.html %}
+
+<body>
+
+{% include header.html %}
+
+<div class="home-page-container full-width">
+{% include left-toc.html %}
+
+  <div class="card-container">
+    {% for card in page.cards %}
+    <a href="{{ card.url | prepend: site.baseurl }}">
+      <div class="card">
+        <img class="card-img-top" src="{{ card.icon | prepend: site.baseurl | prepend: "/img/home-icons/" }}" alt="Card image cap">
+        <div class="card-text">
+          <h5 class="card-title">{{ card.title }}</h5>
+          <p>{{ card.description }}</p>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+
+  <div class=" card-container half-card-container">
+    {% for card in page.half-cards %}
+    <a href="{{ card.url | prepend: site.baseurl }}">
+      <div class="card half-card">
+        <div class="card-text">
+          <h5 class="card-title">{{ card.title }}</h5>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% include footer.html %}
+</body>
+
+</html>

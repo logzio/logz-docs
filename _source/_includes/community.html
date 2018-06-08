@@ -1,0 +1,48 @@
+<div class="article-info-container">
+  {% if page.contributors %}
+  <div class="contributor-list"><i class="fas fa-users"></i>
+    {%- for contributor in page.contributors -%}
+    {% assign person = site.data.contributors[contributor] %}
+    <a href="{{ person.github | prepend: 'https://www.github.com/' }}">{{ person.name }}</a>
+    {%- unless forloop.last -%},&nbsp;&nbsp;{%- endunless -%}
+    {%- endfor -%}
+  </div>
+  {% endif %}
+  
+  {% if site.public == true %}
+  {%- capture repo_path -%}
+  {{site.github.org_url | append: site.github.repo_name}}
+  {%- endcapture -%}
+  
+  {%- capture edit_path -%}
+  {{ repo_path | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}{% if site.collections_dir %}{{site.collections_dir | prepend: "/" }}{% endif %}
+  {%- endcapture -%}
+  
+  <div class="community-container">
+    {% unless page.community-info == false %}
+    {% if site.edit_enabled == true and page.collection %}
+    <a href="{{ edit_path }}/{{ page.relative_path }}">
+      <span class="community button edit">
+        {% octicon pencil %} Edit
+      </span>
+    </a>
+    {% endif %}
+
+    <a href="{{ repo_path }}/issues">
+      <span class="community button issue">
+        {% octicon issue-opened %} Issue
+      </span>
+    </a>
+
+  {% if site.slackin_enabled == true %}
+  <!-- <a href=""> -->
+    <span class="community button">
+      Slackin placeholder
+    </span>
+  <!-- </a> -->
+  {% endif %}
+
+  {% endunless %}
+</div>
+{% endif %}
+</div>

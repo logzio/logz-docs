@@ -1,0 +1,15 @@
+---
+---
+[
+  {% for article in site.collections %}
+    {
+
+      "title"    : "{{ article.title | escape }}",
+      "url"      : "{{ site.baseurl }}{{ article.url }}",
+      "category" : "{{ article.category }}",
+      "tags"     : "{{ article.tags | join: ', ' }}",
+      "date"     : "{{ article.date }}"
+
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

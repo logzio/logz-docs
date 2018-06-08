@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="post">
+
+  <div class="post-content">
+    {{ content }}
+
+    {% assign plan = page.feature-plan %}
+    {% if plan == "community" or plan == "pro" or plan == "enterprise" %}
+      <div class="feature-box {{ page.feature-plan }}"></div>
+    {% endif %}
+  </div>
+
+</article>

@@ -312,6 +312,7 @@ paths:
                   * `wildcard` cannot start with `*` or `?`
 
                   * Cannot contain `fuzzy_max_expansions`, `max_expansions`, or `max_determinized_states`
+                example: { "bool": { "must": [{ "range": { "@timestamp": { "gte": "now-5m", "lte": "now" } } }] } }
               from:
                 type: integer
                 minimum: 0
@@ -359,7 +360,7 @@ paths:
                   * Aggregation type `significant_terms` can't be used
 
                   **Note:** You can use `aggs` or `aggregations` as the field name
-                example: '{ \"byType\": { \"terms\": { \"field\": \"type\", \"size\": 5 } } }'
+                example: { "byType": { "terms": { "field": "type", "size": 5 } } }
       x-code-samples:
         - lang: cURL
           source: >-
@@ -394,7 +395,7 @@ paths:
           description: successful query
           schema:
             type: object
-            example: '{ "hits": { "total": 339604, "max_score": 0, "hits": [] }, "aggregations": { "byType": { "doc_count_error_upper_bound": 0, "sum_other_doc_count": 44879, "buckets": [ { "key": "web-app", "doc_count": 163690 }, { "key": "core-service", "doc_count": 64893 } ] } } }'
+            example: { "hits": { "total": 339604, "max_score": 0, "hits": [] }, "aggregations": { "byType": { "doc_count_error_upper_bound": 0, "sum_other_doc_count": 44879, "buckets": [ { "key": "web-app", "doc_count": 163690 }, { "key": "core-service", "doc_count": 64893 } ] } } }
         400:
           description: invalid query
         403:

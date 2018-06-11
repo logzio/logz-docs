@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Monitor logs
+title: Monitor your logs
 collection: monitor-logs
 ---
 

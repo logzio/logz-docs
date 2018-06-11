@@ -44,7 +44,6 @@ firstLevel:
   - title: Kibana
     url: /monitor-logs/kibana/index.html
     thirdLevel:
-    - title: The Kibana UI
     - title: Discover
     - title: Filter
     - title: Search

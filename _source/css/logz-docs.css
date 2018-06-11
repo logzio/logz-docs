@@ -145,8 +145,6 @@ div.card div.card-text {
 
 div.card img {
   width: 100px;
-  /* grid-row: span 2; */
-  /* grid-column: 1/2 */
   grid-area: c-icon;
   margin: 0 auto;
   vertical-align: middle;
@@ -216,6 +214,10 @@ h6 { /* We use h6 to introduce procedures. If you need a regular heading, use h5
 
 h6:before {
   content: "> "
+}
+
+main.page-content img {
+  max-width: 100%
 }
 
 /* Alpha nested ordered lists */

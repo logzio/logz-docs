@@ -14,7 +14,7 @@
     {% for card in page.cards %}
     <a href="{{ card.url | prepend: site.baseurl }}">
       <div class="card">
-        <img class="card-img-top" src="{{ card.icon | prepend: site.baseurl | prepend: "/img/home-icons/" }}" alt="Card image cap">
+        <img class="card-img-top" src="{{ card.icon | prepend: site.baseurl | prepend: "/images/home-icons/" }}" alt="Card image cap">
         <div class="card-text">
           <h5 class="card-title">{{ card.title }}</h5>
           <p>{{ card.description }}</p>

@@ -33,7 +33,7 @@ cards:
     icon: blocks.svg
 
 half-cards:
-  - title: Troubleshooting
+  - title: Knowledge Base
     description: Solutions to common problems
     url: "#"
 

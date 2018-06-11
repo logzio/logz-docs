@@ -38,10 +38,11 @@ firstLevel:
     - title: Data Parsing Wizard
     - title: Field mapping
 
-  # ===== MONITOR LOGS =====
-- title: Monitor logs
+  # ===== MONITOR YOUR LOGS =====
+- title: Monitor your logs
   secondLevel:
   - title: Kibana
+    url: /monitor-logs/kibana/index.html
     thirdLevel:
     - title: The Kibana UI
     - title: Discover
@@ -102,5 +103,12 @@ firstLevel:
     - title: Allocate account volume
     - title: Create a user
 
-  # ===== TROUBLESHOOTING =====
-- title: Troubleshooting
+  # ===== KNOWLEDGE BASE =====
+- title: Knowledge Base
+
+  secondLevel:
+  - title: AWS
+
+    thirdLevel:
+    - title: Make an IAM role for Logz.io
+      url: /knowledge-base/aws/make-an-iam-role-for-logzio.html

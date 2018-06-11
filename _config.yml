@@ -71,7 +71,7 @@ collections:
     # output: true
   developer-center:
    output: true
-  troubleshooting:
+  knowledge-base:
     output: true
 
 # ===== BUILD SETTINGS =====

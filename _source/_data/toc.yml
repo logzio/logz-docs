@@ -52,6 +52,7 @@ firstLevel:
     - title: Share visualizations & dashboards
     - title: ELK Apps
   - title: Live Tail
+    url: /monitor-logs/live-tail/index.html
   - title: Alerts
     thirdLevel:
     - title: Simple alerts

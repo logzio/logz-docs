@@ -4,6 +4,12 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
+/* Logz.io icons */
+@font-face {
+  font-family: "Logzio Icons";
+  src: url(../fonts/logzio-icon-font.ttf);
+}
+
 /* ===== PAGE LAYOUT ===== */
 
 body {
@@ -170,7 +176,7 @@ code, pre {
   font-size: .8rem;
 }
 
-h1, h2, h3, h4, h5, .site-title, .post-title {
+h1, h2, h3, h4, h5, h6, .site-title, .post-title {
   font-family: 'Titillium Web', sans-serif;
   font-weight: 400;
   padding: 0;
@@ -235,6 +241,12 @@ ol img {
 a, a:hover {
   color: #009cbd;
   text-decoration: none;
+}
+
+svg.svg-inline--fa, i.li {
+  /* add some breathing room to inline font awesome icons */
+  padding-left: .25rem;
+  padding-right: .25rem;
 }
 
 p code {
@@ -936,3 +948,30 @@ div.related-links-container span {
     color: #5fb3b3; }
   .highlight .il {
     color: #5fb3b3; }
+
+
+/* ===== LOGZIO ICON FONT ===== */
+
+i.li {
+  font-family: "Logzio Icons";
+  font-style: normal;
+  font-size: .85rem;
+  vertical-align: text-top;
+}
+
+i.li-scroll::before {
+  content: "\e953";
+  font-size: 1.1rem;
+}
+
+i.li-play::before {
+  content: "\e956"
+}
+
+i.li-stop::before {
+  content: "\e957"
+}
+
+i.li-clear::before {
+  content: "\e927"
+}

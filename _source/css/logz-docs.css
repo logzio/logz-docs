@@ -243,7 +243,7 @@ a, a:hover {
   text-decoration: none;
 }
 
-svg.svg-inline--fa, i.li {
+svg.svg-inline--fa, i.li, i.ll {
   /* add some breathing room to inline font awesome icons */
   padding-left: .25rem;
   padding-right: .25rem;
@@ -984,4 +984,49 @@ i.li-stop::before {
 
 i.li-clear::before {
   content: "\e927"
+}
+
+/* ===== LETTER LABELS =====  */
+
+i.ll {
+  display: inline-block;
+  margin-bottom: -.3rem;
+
+  width: 1.2rem;
+  height: 1.2rem;
+  background-size: 1.2rem 1.2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+i.ll-a {
+  background-image: url(../images/letter-icons/a.svg);
+}
+
+i.ll-b {
+  background-image: url(../images/letter-icons/b.svg);
+}
+
+i.ll-c {
+  background-image: url(../images/letter-icons/c.svg);
+}
+
+i.ll-d {
+  background-image: url(../images/letter-icons/d.svg);
+}
+
+i.ll-e {
+  background-image: url(../images/letter-icons/e.svg);
+}
+
+i.ll-f {
+  background-image: url(../images/letter-icons/f.svg);
+}
+
+i.ll-g {
+  background-image: url(../images/letter-icons/g.svg);
+}
+
+i.ll-h {
+  background-image: url(../images/letter-icons/h.svg);
 }

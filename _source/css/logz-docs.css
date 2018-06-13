@@ -162,7 +162,7 @@ html {
   font-size: 16px;
 }
 
-body, h6, h5 {
+body {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -209,23 +209,23 @@ h4 {
   font-size: 1.25rem;
 }
 
-h5 {
+h5, h6 {
+  font-size: 1rem;
   font-weight: 700;
 }
 
 /* Use h6 to introduce procedures. If you need a regular heading, use h5 */
 h6 { 
-  font-weight: 700;
   color: #ff971c;
 }
 
-h6:before {
+/* h6:before {
   font-family: "Font Awesome 5 Free";
   font-size: .8rem;
   margin-right: 10px;
   content: "\f04b";
   color: #ff971c;
-}
+} */
 
 main.page-content img {
   display: block;
@@ -243,7 +243,7 @@ a, a:hover {
   text-decoration: none;
 }
 
-svg.svg-inline--fa, i.li, i.ll {
+svg.svg-inline--fa, i.li {
   /* add some breathing room to inline font awesome icons */
   margin-left: .1rem;
   margin-right: .1rem;
@@ -302,51 +302,15 @@ dd {
 }
 
 /* numbers for annotated images */
-dl.annotations {
-  counter-reset: annotation;
+dl.letter-labels {
+  counter-reset: letter-label;
 }
 
-dl.annotations div {
-  display: grid;
-  grid-template-columns: 40px auto;
-  grid-template-rows: auto auto;
-  grid-column-gap: 15px;
-  grid-row-gap: 0;
-  grid-template-areas: 
-    "def-num dt"
-    "def-num dd";
-
-  margin-bottom: 1.5rem;
+dl.letter-labels dt::before {
+  content: counter(letter-label, upper-alpha);
+  counter-increment: letter-label;
+  margin-right: .25rem;
 }
-
-dl.annotations dt, dl.annotations dd {
-  margin: 0;
-}
-
-dl.annotations dt {
-  grid-area: dt;
-  font-weight: 700;
-}
-
-dl.annotations dd {
-  grid-area: dd;
-}
-
-
-dl.annotations div::before {
-  grid-area: def-num;
-  align-self: center;
-  justify-self: center;
-
-  content: counter(annotation, upper-alpha);
-  counter-increment: annotation;
-
-  color: #ff971c;
-  font-weight: 900;
-  font-size: 2rem;
-  text-align: right;
-}
-
 
 /* ===== SEARCH ===== */
 
@@ -988,7 +952,7 @@ i.li-clear::before {
 
 /* ===== LETTER LABELS =====  */
 
-i.ll {
+i.ll, dl.letter-labels dt::before {
   display: inline-block;
   width: 1.2rem;
   height: 1.2rem;
@@ -1001,9 +965,4 @@ i.ll {
   font-weight: 700;
   color: white;
   font-style: normal;
-
-}
-
-i.ll::before, i.ll::after {
-  content: "\200D";
 }

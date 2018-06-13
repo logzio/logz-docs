@@ -291,6 +291,16 @@ ul.horizontal-list li {
   display: inline;
 }
 
+/* normal def lists */
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
 /* numbers for annotated images */
 dl.annotations {
   counter-reset: annotation;
@@ -328,7 +338,7 @@ dl.annotations div::before {
   align-self: center;
   justify-self: center;
 
-  content: counter(annotation);
+  content: counter(annotation, upper-alpha);
   counter-increment: annotation;
 
   color: #ff971c;

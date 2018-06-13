@@ -1,19 +1,23 @@
 # This file contains github and name information of all contributors to docs.
 
-sboroda:
-  name: Shalom Boroda
-  github: imnotashrimp
-  linkedin: sboroda
+ayigal:
+  name: Asaf Yigal
+  github: ayigal
 
 dberman:
   name: Daniel Berman
   github: proudboffin
   twitter: proudboffin
 
-tdrios:
-  name: Thiago Del Rios
-  github: tdelrios
-
 dyerushalmi:
   name: David Yerushalmi
   github: davidyer
+
+sboroda:
+  name: Shalom Boroda
+  github: imnotashrimp
+  linkedin: sboroda
+
+tdrios:
+  name: Thiago Del Rios
+  github: tdelrios

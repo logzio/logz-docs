@@ -219,19 +219,13 @@ h6 {
   color: #ff971c;
 }
 
-/* h6:before {
-  font-family: "Font Awesome 5 Free";
-  font-size: .8rem;
-  margin-right: 10px;
-  content: "\f04b";
-  color: #ff971c;
-} */
-
 main.page-content img {
   display: block;
   max-width: 80%;
   min-width: 400px;
   margin: 1.5rem auto;
+  border: 1px solid #009cbd;
+  border-radius: 2px;
 }
 
 ol img {
@@ -412,7 +406,7 @@ div.info-box {
   width: 400px;
   margin: auto;
   display: grid;
-  grid-template-columns: 2rem, auto;
+  grid-template-columns: 2rem auto;
   grid-template-areas: "icon info";
   border-top: 1px solid;
   border-bottom: 1px solid;

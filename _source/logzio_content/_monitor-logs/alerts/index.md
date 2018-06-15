@@ -10,17 +10,17 @@ Logz.io alerts start as a search query in Kibana. By customizing alerts and sett
 
 ![Alert definitions]({{ site.baseurl }}/images/alerts/alert-definitions-annotated.png)
 
-To reach this page, select **Alerts > Alert Definitions** from the top menu.
+To reach this page, select [**Alerts > Alert definitions**](https://app.logz.io/#/dashboard/triggers/alert-definitions) from the top menu.
 
 <dl class="letter-labels">
 
-  <dt>Disabled alert definition</dt>
-  <dd>An alert definition appears as light gray when it's disabled</dd>
+  <dt>Disabled alert</dt>
+  <dd>An alert appears as light gray when it's disabled</dd>
 
-  <dt>Enabled alert definition</dt>
-  <dd>An alert definition with dark text shows that it's enabled</dd>
+  <dt>Enabled alert</dt>
+  <dd>An alert with dark text shows that it's enabled</dd>
 
-  <dt>Alert definition options</dt>
+  <dt>Alert options</dt>
   <dd>Use the switch to enable or disable an alert, or click the menu to see more options</dd>
 
 </dl>

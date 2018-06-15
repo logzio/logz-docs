@@ -22,7 +22,7 @@ firstLevel:
     thirdLevel:
     - title: Ship sample logs with Filebeat
       # url: /placeholder.html
-    - title: Discover data in Kibana
+    - title: Discover
     - title: Install ELK Apps
     - title: Explore Insights
 
@@ -31,8 +31,8 @@ firstLevel:
 - title: Ship and parse logs
   secondLevel:
   - title: Log shipping
-    thirdLevel:
-    - title: Best practice- know your type
+    # thirdLevel:
+    # - title: Best practice- know your type
   - title: Map and parse data
     thirdLevel:
     - title: Data Parsing Wizard
@@ -53,11 +53,17 @@ firstLevel:
     - title: ELK Apps
   - title: Live Tail
     url: /monitor-logs/live-tail/index.html
+
   - title: Alerts
+    url: /monitor-logs/alerts/index.html
     thirdLevel:
-    - title: Simple alerts
-    - title: Compound alerts
-    - title: One-click alerts
+    # - title: Simple alerts
+    # - title: Compound alerts
+    # - title: One-click alerts
+    - title: Configure alerts
+      url: /monitor-logs/alerts/configure-alerts.html
+    - title: View triggered alerts
+      url: /monitor-logs/alerts/view-triggered-alerts.html
   - title: Insights
     thirdLevel:
     - title: Application Insights
@@ -74,7 +80,14 @@ firstLevel:
     - title: Archive and restore
     - title: Sub accounts
     - title: Timeless accounts
-    - title: Data Optimizer
+
+  - title: Optimizers
+    url: /account-settings/optimizers/index.html
+    
+    thirdLevel:
+    - title: Configure optimizers
+      url: /account-settings/optimizers/configure-optimizers.html
+
   - title: Access and authentication
     thirdLevel:
     - title: Manage self
@@ -112,3 +125,9 @@ firstLevel:
     thirdLevel:
     - title: Make an IAM role for Logz.io
       url: /knowledge-base/aws/make-an-iam-role-for-logzio.html
+
+  - title: Reference
+
+    thirdLevel:
+    - title: Terms and concepts
+      url: /knowledge-base/reference/terms-and-concepts.html

@@ -35,6 +35,8 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
 
 ###### To find and highlight terms
 
-* To show all instances of a term in yellow, type the term in the **Find** box.
+  ![Live Tail highlight bar]({{site.baseurl}}/videos/live-tail/live-tail-highlight-bar.gif)
+
+* To show all instances of a term in yellow, use the **Find** box.
 
 * To highlight different phrases, click **Settings** (<i class="fas fa-ellipsis-h"></i>), and then type the word or phrase you want to highlight. You can add as many highlighted terms as you need. To remove a highlight, click the highlighted term.

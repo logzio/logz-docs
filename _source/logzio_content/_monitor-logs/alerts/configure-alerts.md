@@ -64,4 +64,4 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
     If you choose Custom format, click **\+** to add a column to the table, and then choose a field to show in the new column.
 
-Click **Save** to have your alert. If the thresholds are passed and the alert is triggered, Logz.io will log the alert and send the configured notifications.
+Click **Save** to save your alert. If the thresholds are passed and the alert is triggered, Logz.io will log the alert and send the configured notifications.

@@ -63,13 +63,18 @@ firstLevel:
 
   - title: Alerts
     url: /user-guide/alerts/
-
     thirdLevel:
     - title: Configure alerts
       url: /user-guide/alerts/configure-alerts.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
 
+  - title: Optimizers
+    url: /user-guide/optimizers/
+    thirdLevel:
+    - title: Configure optimizers
+      url: /user-guide/optimizers/configure-optimizers.html
+  
   - title: Manage accounts
 
     thirdLevel:
@@ -78,12 +83,6 @@ firstLevel:
     - title: Timeless accounts
 
   - title: Archive and restore
-
-  - title: Optimizers
-    url: /user-guide/optimizers/
-    thirdLevel:
-    - title: Configure optimizers
-      url: /user-guide/optimizers/configure-optimizers.html
 
   - title: Access and authentication
     thirdLevel:

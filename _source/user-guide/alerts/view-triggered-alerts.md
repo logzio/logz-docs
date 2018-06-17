@@ -1,7 +1,6 @@
 ---
 layout: article
 title: View triggered alerts
-collection: monitor-logs
 contributors:
   - sboroda
 ---

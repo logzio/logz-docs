@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Alerts
-collection: monitor-logs
 contributors:
   - sboroda
 ---

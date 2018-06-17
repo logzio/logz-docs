@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Kibana
-collection: monitor-logs
 contributors:
   - sboroda
 ---

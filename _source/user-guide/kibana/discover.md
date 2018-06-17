@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Discover
-collection: monitor-logs
 contributors:
   - sboroda
   - ayigal

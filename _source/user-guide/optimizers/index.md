@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Optimizers
-collection: account-settings
 contributors:
   - sboroda
 ---

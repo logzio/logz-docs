@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Contributing to docs
-collection: about
 contributors:
 - sboroda
 ---

@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Configure alerts
-collection: monitor-logs
 contributors:
   - sboroda
 ---

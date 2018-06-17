@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Configure optimizers
-collection: monitor-logs
 contributors:
   - sboroda
 ---

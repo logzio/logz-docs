@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Live Tail
-collection: monitor-logs
 contributors:
   - sboroda
 ---

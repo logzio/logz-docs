@@ -27,20 +27,19 @@ firstLevel:
     - title: Explore Insights
 
 
-  # ===== SHIP AND PARSE LOGS =====
-- title: Ship and parse logs
+  # ===== USER GUIDE =====
+- title: User guide
+
   secondLevel:
   - title: Log shipping
-    # thirdLevel:
-    # - title: Best practice- know your type
-  - title: Map and parse data
-    thirdLevel:
-    - title: Data Parsing Wizard
-    - title: Field mapping
+  # thirdLevel:
+  # - title: Best practice- know your type
 
-  # ===== MONITOR YOUR LOGS =====
-- title: Monitor your logs
-  secondLevel:
+  - title: Field mapping and data parsing
+    thirdLevel:
+    - title: Field mapping
+    - title: Data Parsing Wizard
+
   - title: Kibana
     url: /monitor-logs/kibana/index.html
     thirdLevel:
@@ -51,39 +50,35 @@ firstLevel:
     - title: Work with dashboards
     - title: Share visualizations & dashboards
     - title: ELK Apps
-  - title: Live Tail
-    url: /monitor-logs/live-tail/index.html
 
-  - title: Alerts
-    url: /monitor-logs/alerts/index.html
-    thirdLevel:
-    # - title: Simple alerts
-    # - title: Compound alerts
-    # - title: One-click alerts
-    - title: Configure alerts
-      url: /monitor-logs/alerts/configure-alerts.html
-    - title: View triggered alerts
-      url: /monitor-logs/alerts/view-triggered-alerts.html
   - title: Insights
     thirdLevel:
     - title: Application Insights
     - title: Cognitive Insights
 
-  # ===== ACCOUNT TOOLS =====
-- title: Account tools
-  secondLevel:
-  - title: Manage accounts and usage
-    # url: /account-settings/accounts-and-usage/index.html
+  - title: Live Tail
+    url: /monitor-logs/live-tail/index.html
+
+  - title: Alerts
+    url: /monitor-logs/alerts/index.html
+
     thirdLevel:
-    - title: Manage accounts
+    - title: Configure alerts
+      url: /monitor-logs/alerts/configure-alerts.html
+    - title: View triggered alerts
+      url: /monitor-logs/alerts/view-triggered-alerts.html
+
+  - title: Manage accounts
+
+    thirdLevel:
     - title: Usage and billing
-    - title: Archive and restore
     - title: Sub accounts
     - title: Timeless accounts
 
+  - title: Archive and restore
+
   - title: Optimizers
     url: /account-settings/optimizers/index.html
-    
     thirdLevel:
     - title: Configure optimizers
       url: /account-settings/optimizers/configure-optimizers.html

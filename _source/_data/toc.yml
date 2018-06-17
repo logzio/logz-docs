@@ -28,6 +28,7 @@ firstLevel:
 
 
   # ===== USER GUIDE =====
+  # These docs are in the /user-guide folder
 - title: User guide
 
   secondLevel:
@@ -41,9 +42,10 @@ firstLevel:
     - title: Data Parsing Wizard
 
   - title: Kibana
-    url: /monitor-logs/kibana/index.html
+    url: /user-guide/kibana/
     thirdLevel:
     - title: Discover
+      url: /user-guide/kibana/discover.html
     - title: Filter
     - title: Search
     - title: Create a visualization
@@ -57,16 +59,16 @@ firstLevel:
     - title: Cognitive Insights
 
   - title: Live Tail
-    url: /monitor-logs/live-tail/index.html
+    url: /user-guide/live-tail/
 
   - title: Alerts
-    url: /monitor-logs/alerts/index.html
+    url: /user-guide/alerts/
 
     thirdLevel:
     - title: Configure alerts
-      url: /monitor-logs/alerts/configure-alerts.html
+      url: /user-guide/alerts/configure-alerts.html
     - title: View triggered alerts
-      url: /monitor-logs/alerts/view-triggered-alerts.html
+      url: /user-guide/alerts/view-triggered-alerts.html
 
   - title: Manage accounts
 
@@ -78,10 +80,10 @@ firstLevel:
   - title: Archive and restore
 
   - title: Optimizers
-    url: /account-settings/optimizers/index.html
+    url: /user-guide/optimizers/
     thirdLevel:
     - title: Configure optimizers
-      url: /account-settings/optimizers/configure-optimizers.html
+      url: /user-guide/optimizers/configure-optimizers.html
 
   - title: Access and authentication
     thirdLevel:

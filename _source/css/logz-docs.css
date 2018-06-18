@@ -934,6 +934,12 @@ i.li {
   vertical-align: text-top;
 }
 
+i.li-ellipsis-v::before {
+  content: "\e906";
+  padding-left: .2rem;
+  padding-right: .2rem;
+}
+
 i.li-scroll::before {
   content: "\e953";
   font-size: 1.1rem;

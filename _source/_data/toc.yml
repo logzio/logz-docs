@@ -54,9 +54,14 @@ firstLevel:
     - title: ELK Apps
 
   - title: Insights
+    url: /user-guide/insights/
     thirdLevel:
-    - title: Application Insights
-    - title: Cognitive Insights
+    - title: Exploring insights
+      url: /user-guide/insights/exploring-insights.html
+    - title: Markers
+      url: /user-guide/insights/markers.html
+    - title: Insights notifications
+      url: /user-guide/insights/insights-notifications.html
 
   - title: Live Tail
     url: /user-guide/live-tail/

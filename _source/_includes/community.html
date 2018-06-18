@@ -4,7 +4,7 @@
     {%- for contributor in page.contributors -%}
     {% assign person = site.data.contributors[contributor] %}
     <a href="{{ person.github | prepend: 'https://www.github.com/' }}">{{ person.name }}</a>
-    {%- unless forloop.last -%},&nbsp;&nbsp;{%- endunless -%}
+    {%- unless forloop.last -%}, {%- endunless -%}
     {%- endfor -%}
   </div>
   {% endif %}

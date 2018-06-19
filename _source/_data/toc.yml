@@ -87,13 +87,15 @@ firstLevel:
     - title: Sub accounts
     - title: Timeless accounts
 
-  - title: Archive and restore
+  # - title: Archive and restore
 
   - title: Access and authentication
+    url: /user-guide/access-and-authentication/
     thirdLevel:
-    - title: Manage self
-    - title: Manage other users
+    - title: Manage users
+      url: /user-guide/access-and-authentication/manage-users.html
     - title: Manage shared tokens
+      url: /user-guide/access-and-authentication/shared-tokens.html
 
   # ===== INTEGRATIONS =====
 - title: Integrations

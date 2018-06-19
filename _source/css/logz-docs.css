@@ -906,6 +906,14 @@ i.li-ellipsis-v::before {
   padding-right: .2rem;
 }
 
+i.li-pencil::before {
+  content: "\e907";
+}
+
+i.li-trash::before {
+  content: "\e912";
+}
+
 i.li-gear::before {
   content: "\e940";
 }

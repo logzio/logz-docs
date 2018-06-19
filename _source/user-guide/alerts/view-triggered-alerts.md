@@ -13,7 +13,7 @@ To view triggered alerts, select [**Alerts > Triggered alerts**](https://app.log
 
 ###### View a triggered alert in Kibana
 
-To see a triggered alert in Kibana, roll over the alert, and then click **View in Kibana**.
+To see a triggered alert in Kibana, hover over the alert, and then click **View in Kibana**.
 
 ![View triggered alert in Kibana]({{site.baseurl}}/images/alerts/alerts--view-in-kibana.png)
 

@@ -73,6 +73,8 @@ firstLevel:
       url: /user-guide/alerts/configure-alerts.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
+    - title: Alert endpoints
+      url: /user-guide/alerts/alert-endpoints.html
 
   - title: Optimizers
     url: /user-guide/optimizers/

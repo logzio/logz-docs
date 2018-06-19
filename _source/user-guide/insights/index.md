@@ -23,6 +23,6 @@ To see this page, select [Insights](https://app.logz.io/#/dashboard/insights) fr
 <dd>This table gives more complete information on the insights shown in the chart</dd>
 
 <dt>Notifications control</dt>
-<dd>Allows you to set emails or notification endpoints that will receive a message when Logz.io finds new insights in your account</dd>
+<dd>Allows you to set emails or alert endpoints that will receive a message when Logz.io finds new insights in your account</dd>
 
 </dl>

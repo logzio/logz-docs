@@ -10,21 +10,21 @@
 firstLevel:
 
   # ===== GETTING STARTED =====
-- title: Getting Started
+# - title: Getting Started
 
-  secondLevel:
-  - title: Overview
-    # url: /getting-started/overview/index.html
+#   secondLevel:
+#   - title: Overview
+#     # url: /getting-started/overview/index.html
 
-  - title: Quickstart
-    # url: /getting-started/quickstart/index.html
+#   - title: Quickstart
+#     # url: /getting-started/quickstart/index.html
 
-    thirdLevel:
-    - title: Ship sample logs with Filebeat
-      # url: /placeholder.html
-    - title: Discover
-    - title: Install ELK Apps
-    - title: Explore Insights
+#     thirdLevel:
+#     - title: Ship sample logs with Filebeat
+#       # url: /placeholder.html
+#     - title: Discover
+#     - title: Install ELK Apps
+#     - title: Explore Insights
 
 
   # ===== USER GUIDE =====
@@ -100,26 +100,26 @@ firstLevel:
       url: /user-guide/access-and-authentication/shared-tokens.html
 
   # ===== INTEGRATIONS =====
-- title: Integrations
+# - title: Integrations
 
 
-  # ===== DEVELOPER CENTER =====
-- title: Developer center
+  # ===== DEVELOPERS =====
+- title: Developers
   secondLevel:
-  - title: Quickstarts
-    thirdLevel:
-    - title: Create API token & make a test call
+  # - title: Quickstarts
+  #   thirdLevel:
+  #   - title: Create API token & make a test call
   - title: API
     url: /api/index.html
     external: true
-  - title: API cookbook
-    thirdLevel:
-    - title: Create alert
-    - title: Kibana export
-    - title: Kibana import
-    - title: Create snapshots
-    - title: Allocate account volume
-    - title: Create a user
+  # - title: API cookbook
+  #   thirdLevel:
+  #   - title: Create alert
+  #   - title: Kibana export
+  #   - title: Kibana import
+  #   - title: Create snapshots
+  #   - title: Allocate account volume
+  #   - title: Create a user
 
   # ===== KNOWLEDGE BASE =====
 - title: Knowledge Base

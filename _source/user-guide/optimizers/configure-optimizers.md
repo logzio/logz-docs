@@ -51,6 +51,6 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
     <div class="info-box note">If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.</div>
 
-    If you choose Custom format, click **\+** to add a column to the table, and then choose a field to show in the new column.
+    If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
 
 Click **Save** to save your optimizer. Logz.io will start sending your logs to the configured timeless account.

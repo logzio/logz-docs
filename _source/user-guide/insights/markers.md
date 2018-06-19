@@ -17,7 +17,7 @@ Markers are based on actual log messages coming in to Logz.io. When the conditio
 
 1. Configure your system to log a specific message that will serve as your marker's trigger. Run a test query in Kibana, and make sure your query returned the expected results.
 
-2. Below the [Insights](https://app.logz.io/#/dashboard/insights) chart, click **Markers**, and then click **\+ Create marker**
+2. Below the [Insights](https://app.logz.io/#/dashboard/insights) chart, click **Markers**, and then click **<i class="li li-plus"></i> Create marker**
 
     ![Create a marker]({{site.baseurl}}/images/insights/insights--create-marker.png)
 

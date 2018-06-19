@@ -41,13 +41,11 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
     ![Alert trigger thresholds]({{site.baseurl}}/images/alerts/alerts-trigger-settings.png)
 
-5. _(Optional)_ If you want to receive notifications or emails when the alert is triggered, choose a notification endpoint. If you don't choose an endpoint, triggered alerts will still be logged:
+5. _(Optional)_ If you want to receive notifications or emails when the alert is triggered, choose an alert endpoint. If you don't choose an endpoint, triggered alerts will still be logged:
 
     ![Alert notification actions]({{site.baseurl}}/images/alerts/alerts-notification-action.png)
 
-    1. Choose the endpoints or email addresses to notify.
-
-        To add a new endpoint, see **XXXXXXXXXXXXX**.
+    1. Choose the endpoints or email addresses to notify. If you need help adding a new endpoint, see [Alert endpoints]({{site.baseurl}}/user-guide/alerts/alert-endpoints.html).
 
     2. Choose a time period to suppress notifications.
 
@@ -57,10 +55,10 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
     ![Custom format]({{site.baseurl}}/videos/alerts/alerts-custom-format.gif)
 
-    To send raw JSON documents to your notification endpoints, choose **Default format**. To send a summary table, choose **Custom format**.
+    To send raw JSON documents to your alert endpoints, choose **Default format**. To send a summary table, choose **Custom format**.
 
     <div class="info-box note">If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.</div>
 
-    If you choose Custom format, click **\+** to add a column to the table, and then choose a field to show in the new column.
+    If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
 
 Click **Save** to save your alert. If the thresholds are passed and the alert is triggered, Logz.io will log the alert and send the configured notifications.

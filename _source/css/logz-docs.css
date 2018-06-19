@@ -914,6 +914,14 @@ i.li-trash::before {
   content: "\e912";
 }
 
+i.li-plus::before {
+  content: "\e913";
+}
+
+i.li-x::before {
+  content: "\e918";
+}
+
 i.li-gear::before {
   content: "\e940";
 }

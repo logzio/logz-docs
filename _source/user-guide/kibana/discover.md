@@ -14,9 +14,7 @@ The Discover page offers enough flexibility to explore your recent logs through 
 
 You'll find the query bar at the top of the Discover page. Type your query using the [Lucene query syntax](https://www.elastic.co/guide/en/elasticsearch/reference/5.5/query-dsl-query-string-query.html#query-string-syntax), and then press Enter. The results of your search are shown in the document table and the histogram.
 
-<div class="info-box tip">
-  If you're new to Kibana, learn about searching in part 1 of our [Kibana tutorial](https://logz.io/blog/kibana-tutorial/#kibana-searching)
-</div>
+<div class="info-box tip">If you're new to Kibana, learn about searching in part 1 of our <a href="https://logz.io/blog/kibana-tutorial/#kibana-searching">Kibana tutorial</a>.</div>
 
 ## Filter
 

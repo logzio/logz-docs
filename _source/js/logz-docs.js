@@ -8,7 +8,7 @@ $('div.feature-box').ready(function() {
 
 // Auto-structure .info-box divs
 $('div.info-box').ready( function() {
-  $('div.info-box').contents().wrap('<p></p>');
+  $('div.info-box').wrapInner('<p></p>');
 });
 
 // Show/hide animations for left-side TOC. Also animates caret icon.

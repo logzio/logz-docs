@@ -409,41 +409,31 @@ span.enterprise.yes {
 div.info-box {
   width: 400px;
   margin: auto;
-  display: grid;
-  grid-template-columns: 2rem auto;
-  grid-template-areas: "icon info";
   border-top: 1px solid;
   border-bottom: 1px solid;
-  padding-top: .5rem;
-}
-
-div.info-box::before {
-  font-family: "Font Awesome 5 Free";
-  font-size: 1.25rem;
-  grid-area: icon;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+  padding: .5rem;
 }
 
 div.info-box > p::before {
   font-weight: 700;
-  white-space: pre;
+  display: block;
+  margin-bottom: .5rem;
 }
 
 div.info-box > p {
-  grid-area: info;
   margin: 0;
-  padding: 0 .5rem .5rem .5rem;
-
   font-size: .85rem;
   line-height: 1.2rem;
 }
 
+div.info-box > p > p {
+  margin-top: .5rem;
+  margin-bottom: 0;
+}
+
 /* --- info-box colors ---
                   color
-gotcha (orange)   #ffa64c
+gotcha (orange)   #ff971c
 warning (red)     #d94141
 tip (green)       #5abf4d
 note (blue)       #2e97e5   */
@@ -451,12 +441,6 @@ note (blue)       #2e97e5   */
 /* .warning */
 div.info-box.warning {
   border-color: #d94141;
-}
-
-div.info-box.warning::before {
-  content: "\f071";
-  color: #d94141;
-  font-weight: 900;
 }
 
 div.info-box.warning > p::before {
@@ -469,12 +453,6 @@ div.info-box.note {
   border-color: #2e97e5;
 }
 
-div.info-box.note::before {
-  content: "\f249";
-  color: #2e97e5;
-  font-weight: 900;
-}
-
 div.info-box.note > p::before {
   content: "Note   ";
   color: #2e97e5;
@@ -482,29 +460,17 @@ div.info-box.note > p::before {
 
 /* .gotcha */
 div.info-box.gotcha {
-  border-color: #ffa64c;
-}
-
-div.info-box.gotcha::before {
-  content: "\f06a";
-  font-weight: 900;
-  color: #ffa64c;
+  border-color: #ff971c;
 }
 
 div.info-box.gotcha > p::before {
   content: "Gotcha   ";
-  color: #ffa64c;
+  color: #ff971c;
 }
 
 /* .tip */
 div.info-box.tip {
   border-color: #5abf4d;
-}
-
-div.info-box.tip::before {
-  content: "\f46c";
-  font-weight: 900;
-  color: #5abf4d;
 }
 
 div.info-box.tip > p::before {
@@ -938,6 +904,10 @@ i.li-ellipsis-v::before {
   content: "\e906";
   padding-left: .2rem;
   padding-right: .2rem;
+}
+
+i.li-gear::before {
+  content: "\e940";
 }
 
 i.li-scroll::before {

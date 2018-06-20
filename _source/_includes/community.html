@@ -20,7 +20,7 @@
   
   <div class="community-container">
     {% unless page.community-info == false %}
-    {% if site.edit_enabled == true and page.collection %}
+    {% if site.edit_enabled == true %}
     <a href="{{ edit_path }}/{{ page.relative_path }}">
       <span class="community button edit">
         {% octicon pencil %} Edit

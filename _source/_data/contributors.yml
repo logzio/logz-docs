@@ -1,8 +1,17 @@
 # This file contains github and name information of all contributors to docs.
 
+sboroda:
+  name: Shalom Boroda
+  github: imnotashrimp
+  linkedin: sboroda
+
 ayigal:
   name: Asaf Yigal
   github: ayigal
+
+aduani:
+  name: Amos Etzion Duani
+  github: amosd92
 
 dberman:
   name: Daniel Berman
@@ -13,14 +22,14 @@ dyerushalmi:
   name: David Yerushalmi
   github: davidyer
 
+
+jschnitzer:
+  name: Josh Schnitzer
+  github: schwin007
+
 qanx:
   name: Quintessence Anx
   github: quintessence
-
-sboroda:
-  name: Shalom Boroda
-  github: imnotashrimp
-  linkedin: sboroda
 
 tdrios:
   name: Thiago Del Rios

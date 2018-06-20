@@ -12,59 +12,47 @@ firstLevel:
   # ===== GETTING STARTED =====
 # - title: Getting Started
 
-#   secondLevel:
-#   - title: Overview
-#     # url: /getting-started/overview/index.html
+  # secondLevel:
+  # - title: Overview
+    # url: /getting-started/overview/index.html
 
-#   - title: Quickstart
-#     # url: /getting-started/quickstart/index.html
+  # - title: Quickstart
+    # url: /getting-started/quickstart/index.html
 
-#     thirdLevel:
-#     - title: Ship sample logs with Filebeat
-#       # url: /placeholder.html
-#     - title: Discover
-#     - title: Install ELK Apps
-#     - title: Explore Insights
+    # thirdLevel:
+    # - title: Ship sample logs with Filebeat
+      # url: /placeholder.html
+    # - title: Discover
+    # - title: Install ELK Apps
+    # - title: Explore Insights
 
 
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
-- title: User guide
+- title: Working with logs
 
   secondLevel:
-  - title: Log shipping
+  # - title: Log shipping
   # thirdLevel:
   # - title: Best practice- know your type
 
   - title: Field mapping and data parsing
     thirdLevel:
     - title: Field mapping
-    - title: Data Parsing Wizard
+    - title: Data parsing
+      url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
   - title: Kibana
     url: /user-guide/kibana/
-    thirdLevel:
-    - title: Discover
-      url: /user-guide/kibana/discover.html
-    - title: Filter
-    - title: Search
-    - title: Create a visualization
-    - title: Work with dashboards
-    - title: Share visualizations & dashboards
-    - title: ELK Apps
-
-  - title: Insights
-    url: /user-guide/insights/
-    thirdLevel:
-    - title: Exploring insights
-      url: /user-guide/insights/exploring-insights.html
-    - title: Markers
-      url: /user-guide/insights/markers.html
-    - title: Insights notifications
-      url: /user-guide/insights/insights-notifications.html
-
-  - title: Live Tail
-    url: /user-guide/live-tail/
+    # thirdLevel:
+    # - title: Discover
+    #   url: /user-guide/kibana/discover.html
+    # - title: Filter
+    # - title: Search
+    # - title: Create a visualization
+    # - title: Work with dashboards
+    # - title: Share visualizations & dashboards
+    # - title: ELK Apps
 
   - title: Alerts
     url: /user-guide/alerts/
@@ -81,7 +69,22 @@ firstLevel:
     thirdLevel:
     - title: Configure optimizers
       url: /user-guide/optimizers/configure-optimizers.html
+
+  - title: Insights
+    url: /user-guide/insights/
+    thirdLevel:
+    - title: Exploring insights
+      url: /user-guide/insights/exploring-insights.html
+    - title: Markers
+      url: /user-guide/insights/markers.html
+    - title: Insights notifications
+      url: /user-guide/insights/insights-notifications.html
+
+  - title: Live Tail
+    url: /user-guide/live-tail/
   
+- title: Admin tools
+  secondLevel:
   - title: Manage accounts
 
     thirdLevel:
@@ -89,7 +92,7 @@ firstLevel:
     - title: Sub accounts
     - title: Timeless accounts
 
-  # - title: Archive and restore
+  - title: Archive and restore
 
   - title: Access and authentication
     url: /user-guide/access-and-authentication/
@@ -106,20 +109,20 @@ firstLevel:
   # ===== DEVELOPERS =====
 - title: Developers
   secondLevel:
-  # - title: Quickstarts
-  #   thirdLevel:
-  #   - title: Create API token & make a test call
+  - title: Quickstarts
+    thirdLevel:
+    - title: Create API token & make a test call
   - title: API
     url: /api/index.html
     external: true
-  # - title: API cookbook
-  #   thirdLevel:
-  #   - title: Create alert
-  #   - title: Kibana export
-  #   - title: Kibana import
-  #   - title: Create snapshots
-  #   - title: Allocate account volume
-  #   - title: Create a user
+  - title: API cookbook
+    thirdLevel:
+    - title: Create alert
+    - title: Kibana export
+    - title: Kibana import
+    - title: Create snapshots
+    - title: Allocate account volume
+    - title: Create a user
 
   # ===== KNOWLEDGE BASE =====
 - title: Knowledge Base
@@ -131,8 +134,14 @@ firstLevel:
     - title: Make an IAM role for Logz.io
       url: /knowledge-base/aws/make-an-iam-role-for-logzio.html
 
-  - title: Reference
+  - title: Log shipping
 
     thirdLevel:
-    - title: Terms and concepts
-      url: /knowledge-base/reference/terms-and-concepts.html
+    - title: Built-in log types
+      url: /knowledge-base/log-shipping/built-in-log-types.html
+
+  # - title: Reference
+
+  #   thirdLevel:
+  #   - title: Terms and concepts
+  #     url: /knowledge-base/reference/terms-and-concepts.html

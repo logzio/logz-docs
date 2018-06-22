@@ -638,11 +638,10 @@ nav.all-pages-toc a {
 }
 
 .external-link::after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 700;
-  content: "\f360";
+  font-family: "Logzio Icons";
+  content: "\e921";
   color: silver;
-  font-size: .85rem;
+  font-size: .7rem;
   margin-left: .25rem;
 }
 

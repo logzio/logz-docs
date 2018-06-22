@@ -15,13 +15,13 @@
   {%- endcapture -%}
   
   {%- capture edit_path -%}
-  {{ repo_path | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}{% if site.collections_dir %}{{site.collections_dir | prepend: "/" }}{% endif %}
+  {{ repo_path | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}{% if site.collections_dir and page.collection %}{{site.collections_dir | prepend: "/" }}{% endif %}
   {%- endcapture -%}
   
   <div class="community-container">
     {% unless page.community-info == false %}
     {% if site.edit_enabled == true %}
-    <a href="{{ edit_path }}/{{ page.relative_path }}">
+    <a href="{{ edit_path }}/{{ page.path }}">
       <span class="community button edit">
         {% octicon pencil %} Edit
       </span>

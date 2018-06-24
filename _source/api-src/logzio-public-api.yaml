@@ -14,17 +14,21 @@ info:
 
     We update this document regularly to reflect changes and improvements to the Logz.io API. If you'd like to suggest corrections or improvements to this document, please email us at [help@logz.io](mailto:help@logz.io) or submit a ticket in the GitHub repository.
 
+    #### Notes on this document
+
+    Please note that alerting is not yet covered in this document. For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
+
     # Authentication
 
     The Logz.io API is available to Enterprise plan subscribers. You can create new tokens in your [account settings](https://app.logz.io/#/dashboard/settings/manage-accounts_). You can also set and revoke API permissions at any time.
 
-    If you don't have an Enterprise account, we encourage you to sign up for a [free trial](https://logz.io/signup/freetrial.php).
+    If you don't have an Enterprise account, please contact your account executive.
 
     <!-- ReDoc-Inject: <security-definitions> -->
 
     # Rate limiting
 
-    API call and response rates are limited per individual account. To find out your rate limits or to make changes to your account plan, please email [our Support team](mailto:help@logz.io).
+    API call and response rates are limited per individual account. To find out your rate limits or to make changes to your account plan, please contact your account executive.
 
 
   version: v1
@@ -78,8 +82,6 @@ x-tagGroups:
   - name: Data security
     tags:
       - Retrieve audit trail
-      - Manage shared tokens
-      - Manage users
   - name: AWS security and audit
     tags:
       - Manage CloudTrail links

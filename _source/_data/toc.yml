@@ -32,7 +32,8 @@ firstLevel:
 - title: Working with your logs
 
   secondLevel:
-  # - title: Log shipping
+  - title: Log shipping
+    url: /user-guide/log-shipping/
   # thirdLevel:
   # - title: Best practice- know your type
 

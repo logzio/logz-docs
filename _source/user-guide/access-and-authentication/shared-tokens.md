@@ -6,10 +6,6 @@ contributors:
   - dberman
 ---
 
-<div class="info-box note">
-    You need to be an admin to use this feature
-</div>
-
 Using shared tokens, you can share Kibana visualization and dashboard snapshots. If your plan includes API access, you can also use shared tokens for your integrations.
 
 Token filters allow you to limit the data available to a shared token.

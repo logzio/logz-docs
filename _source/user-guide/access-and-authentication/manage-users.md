@@ -5,8 +5,6 @@ contributors:
   - sboroda
 ---
 
-<div class="info-box note">You need to be an admin to use this feature</div>
-
 To maintain your account's security, account admins can add and remove users as needed. You can change users' access permissions at any time.
 
 Users who are part of the main account will have access to all sub accounts and timeless accounts. To limit user access, consider adding users only to the sub accounts and timeless accounts that they will need to search. 

@@ -7,6 +7,8 @@ contributors:
 
 To create a new optimizer, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Optimizer page, where you can configure the optimizer settings.
 
+<div class="info-box note">Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see <a href="{{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html">Manage timeless accounts</a>.</div>
+
 If you want help updating an existing optimizer, you can [skip the first part of this page](#to-configure-an-optimizer).
 
 ###### To start a new optimizer

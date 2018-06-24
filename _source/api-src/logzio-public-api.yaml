@@ -387,15 +387,7 @@ paths:
           description: successful query
           schema:
             type: object
-            example: { "hits": { "total": 339604, "max_score": 0, "hits": [] }, "aggregations": { "byType": { "doc_count_error_upper_bound": 0, "sum_other_doc_count": 44879, "buckets": [ { "key": "web-app", "doc_count": 163690 }, { "key": "core-service", "doc_count": 64893 } ] } } }
-        400:
-          description: invalid query
-        403:
-          description: access forbidden
-        429:
-          description: rate limit exceeded
-        503:
-          description: service unavailable
+            example: "{ \"hits\": { \"total\": 339604, \"max_score\": 0, \"hits\": [] }, \"aggregations\": { \"byType\": { \"doc_count_error_upper_bound\": 0, \"sum_other_doc_count\": 44879, \"buckets\": [ { \"key\": \"web-app\", \"doc_count\": 163690 }, { \"key\": \"core-service\", \"doc_count\": 64893 } ] } } }"
 
   /scroll:
     post:
@@ -448,14 +440,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/ScrollResponse'
-        400:
-          description: invalid query
-        403:
-          description: access forbidden
-        429:
-          description: rate limit exceeded
-        503:
-          description: service unavailable
 
   # ::::: AUDIT TRAIL
   /audit-trail/event-types:
@@ -1218,9 +1202,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support Team for access to this API feature.
-        503:
-          description: service temporarily unavailable. please try again.
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
     post:
       operationId: createFilter
       summary: Create a token filter
@@ -1259,9 +1241,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support Team for access to this API feature.
-        503:
-          description: service temporarily unavailable. please try again.
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
   /shared-tokens/filters/{id}:
     get:
       operationId: getFilter
@@ -1305,9 +1285,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support Team for access to this API feature.
-        503:
-          description: service temporarily unavailable. please try again.
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
     delete:
       operationId: deleteFilter
       summary: Delete a token filter
@@ -1351,9 +1329,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support Team for access to this API feature.
-        503:
-          description: service temporarily unavailable. please try again.
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
   /shared-tokens/{id}:
     get:
       operationId: getToken
@@ -1397,9 +1373,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support Team for access to this API feature.
-        503:
-          description: service temporarily unavailable. please try again.
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
     put:
       operationId: updateToken
       summary: Update a shared token
@@ -1449,9 +1423,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support Team for access to this API feature.
-        503:
-          description: service temporarily unavailable. please try again.
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
     delete:
       operationId: deleteToken
       summary: Delete a shared token
@@ -1495,9 +1467,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support Team for access to this API feature.
-        503:
-          description: service temporarily unavailable. please try again.
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
   /shared-tokens:
     get:
       operationId: getAllTokens
@@ -1534,9 +1504,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support Team for access to this API feature.
-        503:
-          description: service temporarily unavailable. please try again.
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
       x-code-samples:
         - lang: cURL
           source: 'curl -X GET "https://api.logz.io/v1/shared-tokens" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>"'
@@ -1578,9 +1546,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support Team for access to this API feature.
-        503:
-          description: service temporarily unavailable. please try again.
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
       x-code-samples:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/shared-tokens" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"Support shared token\", \"filters\":[339]}"'

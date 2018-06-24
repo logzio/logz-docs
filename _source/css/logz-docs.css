@@ -215,7 +215,7 @@ h6 {
   color: #ff971c;
 }
 
-main.page-content img {
+main.page-content img, main.page-content video {
   display: block;
   max-width: 80%;
   min-width: 400px;
@@ -224,7 +224,7 @@ main.page-content img {
   border-radius: 2px;
 }
 
-ol img {
+ol img, ol video {
   margin-left: inherit !important;
 }
 

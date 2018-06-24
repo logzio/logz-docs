@@ -224,7 +224,7 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/TimeBasedAccountUpsertRequest'
+            $ref: '#/definitions/TimeBasedAccountUpdateRequest'
       responses:
         204:
           description: successful operation
@@ -236,7 +236,6 @@ paths:
           -H "accept: application/json" -H "content-type: application/json" \
           -H "X-API-TOKEN: <token>" \
           -d "{
-            \"email\": \"help@logz.io\",
             \"accountName\": \"AWS Lambda svr 3\",
             \"maxDailyGB\": 5,
             \"retentionDays\": 5,
@@ -1827,6 +1826,42 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/LHDailyCount'
+  TimeBasedAccountUpdateRequest:
+    type: object
+    required:
+      - accountName
+      - sharingObjectsAccounts
+    properties:
+      accountName:
+        type: string
+        description: Name of the account
+        example: AWS Lambda svr 3
+      maxDailyGB:
+        type: number
+        format: float
+        description: Maximum daily usage, in GB
+        example: 5
+      retentionDays:
+        type: integer
+        format: int32
+        description: Data retention time, in days
+        minimum: 1
+        example: 5
+      searchable:
+        $ref: "#/definitions/Searchable"
+      accessible:
+        $ref: "#/definitions/Accessible"
+      sharingObjectsAccounts:
+        type: array
+        items:
+          type: integer
+          format: int32
+          example: [ 88888, 55555 ]
+        description: IDs of accounts that can access this account's data
+      docSizeSetting:
+        $ref: '#/definitions/DocSizeSetting'
+      utilizationSettings:
+        $ref: '#/definitions/AccountUtilizationSettings'
   DetailedTimeBasedAccount:
     type: object
     properties:

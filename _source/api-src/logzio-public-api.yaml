@@ -114,7 +114,7 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/TimeBasedAccountUpsertRequest'
+            $ref: '#/definitions/TimeBasedAccountCreateRequest'
       responses:
         200:
           description: successful operation
@@ -1888,6 +1888,49 @@ definitions:
       bytes:
         type: integer
         format: int64
+  TimeBasedAccountCreateRequest:
+    type: object
+    required:
+      - accountName
+      - email
+      - sharingObjectsAccounts
+    properties:
+      email:
+        type: string
+        pattern: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
+        description: Account administrator's email address
+        example: help@logz.io
+      accountName:
+        type: string
+        description: Name of the account
+        example: AWS Lambda svr 3
+      maxDailyGB:
+        type: number
+        format: float
+        description: Maximum daily usage, in GB
+        example: 5
+        default: 1
+      retentionDays:
+        type: integer
+        format: int32
+        description: Data retention time, in days
+        minimum: 1
+        example: 5
+      searchable:
+        $ref: "#/definitions/Searchable"
+      accessible:
+        $ref: "#/definitions/Accessible"
+      sharingObjectsAccounts:
+        type: array
+        items:
+          type: integer
+          format: int32
+          example: [ 88888, 55555 ]
+        description: IDs of accounts that can access this account's data
+      docSizeSetting:
+        $ref: '#/definitions/DocSizeSetting'
+      utilizationSettings:
+        $ref: '#/definitions/AccountUtilizationSettings'
   SharingAccount:
     type: object
     properties:
@@ -1964,7 +2007,7 @@ definitions:
         example: 404 errors
       accountToken:
         type: string
-        description: Account token (unique to this account)
+        description: Account log shipping token (unique to this account)
         example: f483abe93b
       maxDailyGB:
         type: number
@@ -1999,52 +2042,8 @@ definitions:
         example: 99999
       accountToken:
         type: string
-        description: Account token (unique to this account)
+        description: Account log shipping token (unique to this account)
         example: x93afghvexbn841h45vkjn5
-  TimeBasedAccountUpsertRequest:
-    type: object
-    required:
-      - email
-      - accountName
-      - sharingObjectsAccounts
-      - retentionDays
-    properties:
-      email:
-        type: string
-        pattern: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
-        description: Account administrator's email address
-        example: help@logz.io
-      accountName:
-        type: string
-        description: Name of the account
-        example: AWS Lambda svr 3
-      maxDailyGB:
-        type: number
-        format: float
-        description: Maximum daily usage, in GB
-        example: 5
-        default: 1
-      retentionDays:
-        type: integer
-        format: int32
-        description: Data retention time, in days
-        minimum: 1
-        example: 5
-      searchable:
-        $ref: "#/definitions/Searchable"
-      accessible:
-        $ref: "#/definitions/Accessible"
-      sharingObjectsAccounts:
-        type: array
-        items:
-          type: integer
-          format: int32
-          example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data
-      docSizeSetting:
-        $ref: '#/definitions/DocSizeSetting'
-      utilizationSettings:
-        $ref: '#/definitions/AccountUtilizationSettings'
   Searchable:
     type: boolean
     description: If other accounts can search this account's logs, `true`. Otherwise, `false`.

@@ -8,7 +8,9 @@ contributors:
 
 The insights chart at the top of the page shows a 7-day summary summary of all the different identified insights. Both Application Insights and Cognitive Insights are included in the chart.
 
-![Interacting with the insights chart]({{site.baseurl}}/videos/insights/insights--chart-interaction.gif)
+<video autoplay loop>
+  <source src="{{site.baseurl}}/videos/insights/insights--chart-interaction.mp4" type="video/mp4" />
+</video>
 
 Below the graph is the insights list, which shows the insights identified by Logz.io. By default, the list shows only new insights identified. You can toggle the **Only new** switch to see older events.
 

@@ -34,7 +34,9 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
 
 ###### To find and highlight terms
 
-  ![Live Tail highlight bar]({{site.baseurl}}/videos/live-tail/live-tail-highlight-bar.gif)
+  <video autoplay loop>
+    <source src="{{site.baseurl}}/videos/live-tail/live-tail--highlight-bar.mp4" type="video/mp4" />
+  </video>
 
 * To show all instances of a term in yellow, use the **Find** box.
 

@@ -53,7 +53,9 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
 6. Choose an **Output**.
 
-    ![Custom format]({{site.baseurl}}/videos/alerts/alerts-custom-format.gif)
+    <video autoplay loop>
+        <source src="{{site.baseurl}}/videos/alerts/alerts--custom-format.mp4" type="video/mp4" />
+    </video>
 
     To send raw JSON documents to your alert endpoints, choose **Default format**. To send a summary table, choose **Custom format**.
 

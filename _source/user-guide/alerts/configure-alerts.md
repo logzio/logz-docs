@@ -11,7 +11,7 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
 ###### To start a new alert
 
-![Kibana query bar]({{site.baseurl}}/images/kibana/kibana-query-bar.png)
+![Kibana query bar]({{site.baseurl}}/images/kibana/kibana--query-bar.png)
 
 1. In Kibana, type a query in the query bar, and press Enter. Review the results in the histogram and the document table, and make sure your query returned the expected results.
 
@@ -19,7 +19,7 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
 ###### To configure an alert {#to-configure-an-alert}
 
-![Configure an Alert]({{site.baseurl}}/images/alerts/configure-alert.png)
+![Configure an Alert]({{site.baseurl}}/images/alerts/alerts--configure-alert.png)
 
 1. Type a **Name** and a detailed **Description**. 
 
@@ -29,7 +29,7 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
 3. _(Optional)_ If you want to group logs in the alert notification:
 
-    ![Group alert fields]({{site.baseurl}}/images/alerts/alerts-group-by.png)
+    ![Group alert fields]({{site.baseurl}}/images/alerts/alerts--group-by.png)
     
     1. Click **Add group by** to add up to 3 groups.
 
@@ -39,11 +39,11 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
 4. Set your threshold and severity levels in the **Trigger** section. Click **Add multiple conditions** to add up to 3 threshold levels.
 
-    ![Alert trigger thresholds]({{site.baseurl}}/images/alerts/alerts-trigger-settings.png)
+    ![Alert trigger thresholds]({{site.baseurl}}/images/alerts/alerts--trigger-settings.png)
 
 5. _(Optional)_ If you want to receive notifications or emails when the alert is triggered, choose an alert endpoint. If you don't choose an endpoint, triggered alerts will still be logged:
 
-    ![Alert notification actions]({{site.baseurl}}/images/alerts/alerts-notification-action.png)
+    ![Alert notification actions]({{site.baseurl}}/images/alerts/alerts--notification-action.png)
 
     1. Choose the endpoints or email addresses to notify. If you need help adding a new endpoint, see [Alert endpoints]({{site.baseurl}}/user-guide/alerts/alert-endpoints.html).
 

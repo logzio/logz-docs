@@ -13,7 +13,7 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
 ###### To start a new optimizer
 
-![Kibana query bar]({{site.baseurl}}/images/kibana/kibana-query-bar.png)
+![Kibana query bar]({{site.baseurl}}/images/kibana/kibana--query-bar.png)
 
 1. In Kibana, type a query in the query bar, and press Enter. Review the results in the histogram and the document table, and make sure your query returned the expected results.
 
@@ -21,7 +21,7 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
 ###### To configure an optimizer {#to-configure-an-optimizer}
 
-![Configure an Optimizer]({{site.baseurl}}/images/alerts/configure-alert.png)
+![Configure an Optimizer]({{site.baseurl}}/images/alerts/alerts--configure-alert.png)
 
 1. Type a **Name** and a detailed **Description**. 
 
@@ -31,7 +31,7 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
 3. _(Optional)_ If you want to store aggregate values:
 
-    ![Group alert fields]({{site.baseurl}}/images/alerts/alerts-group-by.png)
+    ![Group alert fields]({{site.baseurl}}/images/alerts/alerts--group-by.png)
     
     1. Click **Add group by** to add up to 3 groups.
 

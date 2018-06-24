@@ -7,7 +7,7 @@ contributors:
 
 Live Tail gives you a live view of your logs as they come into Logz.io, eliminating the need to SSH into a remote machine.
 
-![Live Tail]({{site.baseurl}}/images/live-tail/live-tail-annotated.png)
+![Live Tail]({{site.baseurl}}/images/live-tail/live-tail--live-tail-annotated.png)
 
 <dl class="letter-labels">
 

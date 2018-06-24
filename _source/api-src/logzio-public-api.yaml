@@ -20,15 +20,15 @@ info:
 
     # Authentication
 
-    The Logz.io API is available to Enterprise plan subscribers. You can create new tokens in your [account settings](https://app.logz.io/#/dashboard/settings/manage-accounts_). You can also set and revoke API permissions at any time.
+    The Logz.io API is available to Enterprise plan subscribers. You can create new tokens in your [account settings](https://app.logz.io/#/dashboard/settings/shared-tokens). You can also set and revoke API permissions at any time.
 
-    If you don't have an Enterprise account, please contact your account executive.
+    If you don't have an Enterprise account, please contact your account executive or our [Customer Success team](mailto:help@logz.io).
 
     <!-- ReDoc-Inject: <security-definitions> -->
 
     # Rate limiting
 
-    API call and response rates are limited per individual account. To find out your rate limits or to make changes to your account plan, please contact your account executive.
+    API call and response rates are limited per individual account. To find out your rate limits or to make changes to your account plan, please contact your account executive or our [Customer Success team](mailto:help@logz.io).
 
 
   version: v1

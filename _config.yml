@@ -99,8 +99,4 @@ source: ./_source
 destination: ./_site
 
 # ===== SEARCH =====
-addsearch_key: 1ba69fa167bc606aaf17e3ec81fb7695
-# algolia:
-#   application_id:
-#   index_name:
-#   search_only_api_key:
+# addsearch_key: 

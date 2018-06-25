@@ -61,6 +61,18 @@ collections_dir: logzio_collections # all collections are contained in this dire
 collections:
   knowledge-base:
     output: true
+    permalink: /knowledge-base/:path
+  contributors:
+    output: true
+    permalink: /contributors/:name
+
+defaults:
+  - scope:
+      path: ''
+      type: contributors
+    values:
+      layout: article
+      community-info: false
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

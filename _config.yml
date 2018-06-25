@@ -56,21 +56,9 @@ intercom_app_id: bkz9ugqv
 # ===== COLLECTIONS =====
 # Collections are the highest-level categories of Logz.io content.
 
-collections_dir: logzio_content # all collections are contained in this directory
+collections_dir: logzio_collections # all collections are contained in this directory
 
 collections:
-  getting-started:
-    output: true
-  ship-and-parse-logs:
-    output: true
-  monitor-logs:
-    output: true
-  account-settings:
-    output: true
-  # integrations:
-    # output: true
-  developer-center:
-   output: true
   knowledge-base:
     output: true
 

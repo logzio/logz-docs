@@ -1,8 +1,6 @@
 ---
 layout: article
 title: Contributing to docs
-contributors:
-- sboroda
 ---
 
 ## Logz.io feature graphics

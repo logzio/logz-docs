@@ -40,7 +40,7 @@ github:
   edit_branch: /develop # which branch do you want users to edit?
 
 # Slackin - shows Slack community button
-slackin_enabled: false
+slackin_enabled: true
 
 # if you wish to integrate disqus on pages set your shortname here
 disqus:

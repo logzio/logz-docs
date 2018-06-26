@@ -1,13 +1,14 @@
 <div class="article-info-container">
+  <div class="contributor-list">
   {% if page.contributors %}
-  <div class="contributor-list"><i class="fas fa-users"></i>
+    <i class="fas fa-users"></i>
     {%- for contributor in page.contributors -%}
       {% assign contributor_page = site.contributors | where: 'slug', contributor | first %}
       <a href="{{ contributor_page.url }}">{{ contributor_page.title }}</a>
       {%- unless forloop.last -%}, {%- endunless -%}
     {%- endfor -%}
-  </div>
   {% endif %}
+  </div>
   
   {% if site.public == true %}
   {%- capture repo_path -%}
@@ -35,11 +36,9 @@
     </a>
 
   {% if site.slackin_enabled == true %}
-  <!-- <a href=""> -->
-    <span class="community button">
-      Slackin placeholder
+    <span class="community button slackin">
+        <script async defer src="//community-slack.logz.io/slackin.js"></script>
     </span>
-  <!-- </a> -->
   {% endif %}
 
   {% endunless %}

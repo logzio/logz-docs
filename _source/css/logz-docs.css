@@ -669,12 +669,16 @@ ul.toc-child li span.toc-heading:hover {
   background-color: #e1e1e1;
 }
 
-/* ===== CONTRIBUTORS ===== */
+/* ===== CONTRIBUTORS LIST ===== */
+
 div.article-info-container {
-  font-size: .75rem;
+  font-size: .9rem;
   margin-top: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 div.contributor-list svg {
@@ -684,6 +688,37 @@ div.contributor-list svg {
 div.contributor-list {
   line-height: 1.25rem;
   margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+/* ===== CONTRIBUTOR PROFILE PAGES ===== */
+
+div.contributor-title {
+  font-size: 1.2rem;
+  color: #263238;
+}
+
+div.contributor.icons {
+  font-size: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: .25rem;
+}
+
+div.contributor.icons a {
+  margin-right: .5rem;
+}
+
+div.contributions {
+  margin-top: 1.5rem;
+}
+
+div.contributions ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+div.contributions ul > li {
+  padding-bottom: .5rem;
 }
 
 /* ===== GITHUB BUTTONS ===== */
@@ -708,6 +743,10 @@ span.community.button {
 
 span.community.button:hover {
   border-bottom: 2px solid currentColor;
+}
+
+span.community.button.slackin {
+  border-bottom: none;
 }
 
 span.community.button * {

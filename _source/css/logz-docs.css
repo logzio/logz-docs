@@ -163,7 +163,8 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.4rem;
-  color: #263238;
+  /* color: #263238; */
+  color: #53585f;
   margin-bottom: 1rem;
 }
 
@@ -248,8 +249,8 @@ code {
 }
 
 div.highlighter-rouge, code {
-  border: 1px solid #2632381a;
-  background-color: #2632380a;
+  border: 1px solid #53585f1a;
+  background-color: #53585f0a;
   padding: 2.75px 3.25px;
   margin-left: .1rem;
   margin-right: .1rem;
@@ -536,6 +537,7 @@ nav.site-links a, nav.site-actions a {
   padding: 0;
   display: block;
   text-align: center;
+  color: #656565;
 }
 
 li.free-trial-btn a {
@@ -580,7 +582,7 @@ nav.all-pages-toc {
   top: 0;
 
   /* text */
-  color: #263238;
+  color: #53585f;
   font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -633,7 +635,7 @@ li.toc-active > span.toc-heading {
 }
 
 nav.all-pages-toc a {
-  color: #263238;
+  color: #53585f;
   padding: .1rem .25rem .1rem 0;
 }
 

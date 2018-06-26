@@ -5,7 +5,7 @@ contributors:
   - sboroda
 ---
 
-Optimizers are scheduled events that you can set to export logs and aggregations to a timeless account. This way, you can retain important data for as long as you have a Logz.io account, giving you visibility into long-term trends.
+Optimizers are query-based rules that allow you to store logs and aggregations to a timeless account for extended retention. This way, you can retain important data for as long as you like for long term visibility. 
 
 ![Optimizer definitions]({{ site.baseurl }}/images/optimizers/optimizers--optimizer-definitions-annotated.png)
 

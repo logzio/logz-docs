@@ -4,9 +4,9 @@
     <i class="fas fa-users"></i>
     {%- for contributor in page.contributors -%}
       {% assign contributor_page = site.contributors | where: 'slug', contributor | first %}
-      {% unless contributor_page == null %}
-        {%- unless forloop.first -%}, {% endunless %}
-      {% endunless %}
+      {%- unless contributor_page == null -%}
+        {% unless forloop.first %}, {% endunless %}
+      {%- endunless -%}
       <a href="{{ contributor_page.url }}">{{ contributor_page.title }}</a>
     {%- endfor -%}
   {% endif %}
@@ -29,7 +29,7 @@
   {%- endcapture -%}
   
   <div class="community-container">
-    {% unless page.community-info == false %}
+    {% unless page.community-info == false or layout.community-info == false %}
     {% if site.edit_enabled == true %}
     <a href="{{ edit_path }}/{{ page.path }}" target="_blank">
       <span class="community button edit">

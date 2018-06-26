@@ -1,15 +1,9 @@
 ---
 layout: article
 title: Make an IAM role for Logz.io
-collection: knowledge-base
 contributors:
   - dyerushalmi
   - sboroda
-kb-tags: 
-  - aws
-  - iam
-  - s3
-  - archive-and-restore
 ---
 
 To archive your data, Logz.io needs access to your AWS S3 bucket. Using Identity & Access Management (IAM) role delegation, you can grant the right level of access while keeping your account secure.

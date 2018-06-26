@@ -34,8 +34,10 @@ firstLevel:
   secondLevel:
   - title: Log shipping
     url: /user-guide/log-shipping/
-  # thirdLevel:
-  # - title: Best practice- know your type
+    thirdLevel:
+    # - title: Best practice- know your type
+    - title: Built-in log types
+      url: /user-guide/log-shipping/built-in-log-types.html
 
   # - title: Field mapping and data parsing
     # thirdLevel:
@@ -100,6 +102,11 @@ firstLevel:
 
   # - title: Archive and restore
 
+  #   thirdLevel:
+  #   - title: Make an IAM role for Logz.io
+  #     url: /user-guide/archive-and-restore/make-an-iam-role-for-logzio.html
+
+
   - title: Access and authentication
     url: /user-guide/access-and-authentication/
     thirdLevel:
@@ -129,25 +136,3 @@ firstLevel:
   #   - title: Create snapshots
   #   - title: Allocate account volume
   #   - title: Create a user
-
-  # ===== KNOWLEDGE BASE =====
-- title: Knowledge Base
-
-  secondLevel:
-  - title: AWS
-
-    thirdLevel:
-    - title: Make an IAM role for Logz.io
-      url: /knowledge-base/aws/make-an-iam-role-for-logzio.html
-
-  - title: Log shipping
-
-    thirdLevel:
-    - title: Built-in log types
-      url: /knowledge-base/log-shipping/built-in-log-types.html
-
-  # - title: Reference
-
-  #   thirdLevel:
-  #   - title: Terms and concepts
-  #     url: /knowledge-base/reference/terms-and-concepts.html

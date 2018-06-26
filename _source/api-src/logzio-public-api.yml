@@ -383,13 +383,35 @@ paths:
                   }
                 }
               }
-            }'
+            }' '
       responses:
         200:
           description: successful query
           schema:
             type: object
-            example: "{ \"hits\": { \"total\": 339604, \"max_score\": 0, \"hits\": [] }, \"aggregations\": { \"byType\": { \"doc_count_error_upper_bound\": 0, \"sum_other_doc_count\": 44879, \"buckets\": [ { \"key\": \"web-app\", \"doc_count\": 163690 }, { \"key\": \"core-service\", \"doc_count\": 64893 } ] } } }"
+            example: >-
+              { 
+                "hits": {
+                  "total": 339604, 
+                  "max_score": 0, 
+                  "hits": [ ] 
+                }, 
+                "aggregations": { 
+                  "byType": { 
+                    "doc_count_error_upper_bound": 0, 
+                    "sum_other_doc_count": 44879, 
+                    "buckets": [ 
+                      { 
+                        "key": "web-app", 
+                        "doc_count": 163690 
+                      }, { 
+                        "key": \"core-service\", 
+                        "doc_count": 64893 
+                      } 
+                    ] 
+                  } 
+                } 
+              }
 
   /scroll:
     post:

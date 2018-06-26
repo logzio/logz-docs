@@ -2,7 +2,7 @@
 /* Roboto (body) and Titillium (heading) */
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,700');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
-@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 /* Logz.io icons */
 @font-face {
@@ -169,7 +169,7 @@ body {
 }
 
 code, pre {
-  font-family: "Fira Mono", monospace;
+  font-family: "Source Code Pro", monospace;
   font-size: .8rem;
 }
 

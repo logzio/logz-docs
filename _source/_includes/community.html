@@ -18,18 +18,25 @@
   {%- capture edit_path -%}
   {{ repo_path | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}{% if site.collections_dir and page.collection %}{{site.collections_dir | prepend: "/" }}{% endif %}
   {%- endcapture -%}
+
+  {%- capture issue_path -%}
+  {{ repo_path | append: "/issues/new" }}
+  {%- if site.github.issue_template -%}
+  ?template={{site.github.issue_template}}.md
+  {%- endif -%} 
+  {%- endcapture -%}
   
   <div class="community-container">
     {% unless page.community-info == false %}
     {% if site.edit_enabled == true %}
-    <a href="{{ edit_path }}/{{ page.path }}">
+    <a href="{{ edit_path }}/{{ page.path }}" target="_blank">
       <span class="community button edit">
         {% octicon pencil %} Edit
       </span>
     </a>
     {% endif %}
 
-    <a href="{{ repo_path }}/issues">
+    <a href="{{ issue_path }}" target="_blank">
       <span class="community button issue">
         {% octicon issue-opened %} Issue
       </span>

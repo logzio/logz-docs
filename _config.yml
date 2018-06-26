@@ -38,6 +38,7 @@ github:
   org_url:  https://github.com/logzio # only edit username - leave base URL
   repo_name: /logz-docs
   edit_branch: /develop # which branch do you want users to edit?
+  issue_template: docs-issue # GitHub template for new issues, without the .md extension. Leave blank if no template.
 
 # Slackin - shows Slack community button
 slackin_enabled: true

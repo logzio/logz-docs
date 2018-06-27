@@ -22,9 +22,9 @@ cards:
     url: "#" #/insights/index.html
     icon: blocks.svg
 
-  - title: Developer Center
-    description: Grow your own integration using our API documentation and cookbooks
-    url: "#" #/developer-center/index.html
+  - title: API
+    description: Grow your own integration using our API documentation
+    url: "/api/" #/developer-center/index.html
     icon: blocks.svg
 
   - title: Account tools
@@ -33,13 +33,14 @@ cards:
     icon: blocks.svg
 
 half-cards:
-  - title: Knowledge Base
-    description: Solutions to common problems
-    url: "#"
+  - title: Blog
+    url: "https://logz.io/blog/"
 
   - title: Videos
-    description: Videos killed the radio star
-    url: "#"
+    url: "https://logz.io/learn/video/"
+
+  - title: Academy
+    url: "http://academy.logz.io/"
 ---
 
 <!-- No content here.

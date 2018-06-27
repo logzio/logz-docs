@@ -5,20 +5,23 @@
     <a href="https://logz.io/" alt="Logz.io logo" target="_top">
       <img class="logz-logo" alt="Logz.io logo" src="https://logz.io/wp-content/themes/Avada-Child-Theme/images/logz-logo.svg" height="35">
     </a>
+
+    <span class="docs-home-logo">
+      <a href="{{site.baseurl}}">Docs</a>
+    </span>
   </div>
 
   <nav class="site-links">
     <ul>
-      {% if site.api_only == false %}<li><a href="{{ site.baseurl }}/" target="_top">Docs Home</a></li>{% endif %}
+      <li><a href="{{ site.baseurl }}/" target="_top">Docs Home</a></li>
       <li><a href="{{ site.baseurl }}/api/index.html" target="_top">API</a></li>
-      {% if site.api_only == false %}<li><a href="https://logz.io/blog/" target="_top">Blog</a></li>{% endif %}
-      {% if site.api_only == false %}<li><a href="http://academy.logz.io/" target="_top">Academy</a></li>{% endif %}
+      <li><a href="https://logz.io/blog/" target="_top">Blog</a></li>
+      <li><a href="http://academy.logz.io/" target="_top">Academy</a></li>
     </ul>
   </nav>
 
   <nav class="site-actions">
     <ul>
-      <li class="free-trial-btn" target="_top"><a href="https://logz.io/freetrial/">Free Trial</a></li>
       <li>{% include addsearch.html %}</li>
       <li><a href="https://app.logz.io" target="_top">Log In</a></li>
     </ul>

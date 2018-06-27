@@ -16,7 +16,7 @@
       <div class="card">
         <img class="card-img-top" src="{{ card.icon | prepend: site.baseurl | prepend: "/images/home-icons/" }}" alt="Card image cap">
         <div class="card-text">
-          <h5 class="card-title">{{ card.title }}</h5>
+          <span class="card-title">{{ card.title }}</span>
           <p>{{ card.description }}</p>
         </div>
       </div>
@@ -27,10 +27,10 @@
 
   <div class=" card-container half-card-container">
     {% for card in page.half-cards %}
-    <a href="{{ card.url | prepend: site.baseurl }}">
+    <a href="{{ card.url }}">
       <div class="card half-card">
         <div class="card-text">
-          <h5 class="card-title">{{ card.title }}</h5>
+          <span class="card-title">{{ card.title }}</span>
         </div>
       </div>
     </a>

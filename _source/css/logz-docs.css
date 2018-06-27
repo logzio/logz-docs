@@ -1,7 +1,7 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,700');
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,600');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 /* Logz.io icons */
@@ -103,7 +103,6 @@ div.half-card-container {
   display: flex;
   grid-area: half-cards;
   margin-top: 0;
-  margin-bottom: 2rem;
 }
 
 div.card-container a {
@@ -111,45 +110,55 @@ div.card-container a {
 }
 
 div.card {
-  border: 1px solid #757c86;
-  border-radius: 3px;
-  padding: 10px;
+  border: 1px solid #e1e1e1;
+  border-radius: 6px;
+  padding: 14px;
   margin: 0;
   width: 250px;
-  height: 200px;
+  height: 170px;
 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas:
-    "c-icon c-text c-text";
-  grid-column-gap: 25px;
-  align-items: center;
+  text-align: center;
+}
+
+div.card:hover {
+  border-color: #53585f;
 }
 
 div.half-card {
   width: 250px;
   height: 50px;
   text-align: center;
-
-  grid-template-areas:
-    "c-text c-text c-text";
 }
 
 div.card p {
-  text-align: left;
   font-size: .85rem;
+  line-height: 1.2rem;
+  width: 85%;
+  margin: auto;
+  color: #53585f;
 }
 
 div.card div.card-text {
-  grid-area: c-text;
-  align-self: start;
+  display: block;
+  margin-top: 0;
+  padding: 0;
+}
+
+div.card div.card-text span.card-title {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
+  color: #296386;
+  margin-top: 14px;
+}
+
+div.card.half-card div.card-text span.card-title {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 div.card img {
-  width: 100px;
-  grid-area: c-icon;
-  margin: 0 auto;
-  vertical-align: middle;
+  width: 50px;
+  height: 50px;
 }
 
 /* ===== BASE STYLES ===== */
@@ -163,7 +172,6 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.4rem;
-  /* color: #263238; */
   color: #53585f;
   margin-bottom: 1rem;
 }
@@ -509,6 +517,32 @@ div.info-box.tip > p::before {
 
 /* ===== SITE HEADER ===== */
 
+div.site-logo img {
+  vertical-align: middle;
+}
+
+div.site-logo span.docs-home-logo {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.3rem;
+  vertical-align: middle;
+  padding-left: 10px;
+  margin-left: 10px;
+  color: #0089b1;
+  border-left: 2px solid currentColor;
+}
+
+span.docs-home-logo a {
+  color: #0089b1;
+}
+
+span.docs-home-logo a:hover {
+  color: #009cbd;
+}
+
+div.site-logo img:hover {
+  fill: #009cbd;
+}
+
 nav.site-links, nav.site-actions {
   font-size: .85rem;
 }
@@ -534,14 +568,6 @@ nav.site-links a, nav.site-actions a {
   display: block;
   text-align: center;
   color: #656565;
-}
-
-li.free-trial-btn a {
-  /* background-color: rgb(255, 192, 4);
-  color: white;
-  padding: 6px 20px;
-  border-radius: 3px; */
-  display: none;
 }
 
 /* ===== SITE FOOTER ===== */

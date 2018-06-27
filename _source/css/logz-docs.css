@@ -517,13 +517,13 @@ div.info-box.tip > p::before {
 
 /* ===== SITE HEADER ===== */
 
-div.site-logo img {
+div.site-badge img {
   vertical-align: middle;
 }
 
-div.site-logo span.docs-home-logo {
+span.docs-home-link {
   font-family: 'Titillium Web', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   vertical-align: middle;
   padding-left: 10px;
   margin-left: 10px;
@@ -531,16 +531,8 @@ div.site-logo span.docs-home-logo {
   border-left: 2px solid currentColor;
 }
 
-span.docs-home-logo a {
-  color: #0089b1;
-}
-
-span.docs-home-logo a:hover {
-  color: #009cbd;
-}
-
-div.site-logo img:hover {
-  fill: #009cbd;
+span.docs-home-link a {
+  color: currentColor;
 }
 
 nav.site-links, nav.site-actions {

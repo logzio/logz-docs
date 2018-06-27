@@ -1,13 +1,15 @@
 <header>
   {%- assign default_paths = site.pages | map: "path" -%}
   {%- assign page_paths = site.header_pages | default: default_paths -%}
-  <div class="site-logo">
+  <div class="site-badge">
+    <span class="logz-logo">
     <a href="https://logz.io/" alt="Logz.io logo" target="_top">
       <img class="logz-logo" alt="Logz.io logo" src="https://logz.io/wp-content/themes/Avada-Child-Theme/images/logz-logo.svg" height="35">
     </a>
+    </span>
 
-    <span class="docs-home-logo">
-      <a href="{{site.baseurl}}">Docs</a>
+    <span class="docs-home-link">
+      <a href="{{site.baseurl}}" target="_top">Docs</a>
     </span>
   </div>
 

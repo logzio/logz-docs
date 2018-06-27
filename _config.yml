@@ -19,9 +19,8 @@ url: "http://dev-logz-docs.pantheonsite.io" # the base hostname & protocol for y
 favicon: https://logz.io/wp-content/uploads/2016/04/favicon.png
 
 # Community buttons
-public: false
-edit_enabled: false
-api_only: false
+public: true
+edit_enabled: true
 
 # Social
 facebook_url: https://www.facebook.com/logz.io

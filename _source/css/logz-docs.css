@@ -186,12 +186,8 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
   margin-top: 1rem;
 }
 
-h1, .site-title, .post-title {
+h1, .post-title {
   font-size: 2rem;
-}
-
-.post-title {
-  text-transform: uppercase;
 }
 
 h2 {

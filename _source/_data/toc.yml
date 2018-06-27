@@ -127,7 +127,6 @@ firstLevel:
   #   - title: Create API token & make a test call
   - title: API
     url: /api/index.html
-    external: true
   # - title: API cookbook
   #   thirdLevel:
   #   - title: Create alert

@@ -725,7 +725,7 @@ div.contributions ul > li {
 
 div.community-container a {
   display: inline-block;
-  margin-right: 5px;
+  margin-left: 5px;
 }
 
 span.community.button svg {
@@ -746,6 +746,7 @@ span.community.button:hover {
 
 span.community.button.slackin {
   border-bottom: none;
+  padding: 0;
 }
 
 span.community.button * {

@@ -525,14 +525,18 @@ span.docs-home-link {
   font-family: 'Titillium Web', sans-serif;
   font-size: 1.4rem;
   vertical-align: middle;
-  padding-left: 10px;
   margin-left: 10px;
+  padding-left: 13px;
   color: #0089b1;
   border-left: 2px solid currentColor;
 }
 
 span.docs-home-link a {
   color: currentColor;
+}
+
+div.site-badge a:hover {
+  opacity: .5;
 }
 
 nav.site-links, nav.site-actions {

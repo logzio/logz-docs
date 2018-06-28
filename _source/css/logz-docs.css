@@ -20,18 +20,10 @@ body {
 div.big-container, div.home-page-container {
   display: grid;
   grid-template-columns: 300px auto;
-  grid-template-rows: auto;
   grid-template-areas:
     "toc content";
-  grid-column-gap: 3.5rem;
+  grid-column-gap: 50px;
   align-items: start;
-}
-
-div.home-page-container {
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "toc cards"
-    "toc half-cards";
 }
 
 header {
@@ -92,21 +84,17 @@ div.body-container {
 /* ===== DOCS HOME CARDS ===== */
 div.card-container {
   margin-top: 2rem;
-  grid-area: cards;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-div.half-card-container {
-  display: flex;
-  grid-area: half-cards;
-  margin-top: 0;
+  grid-area: content;
 }
 
 div.card-container a {
   margin: 10px;
+}
+
+div.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 div.card {
@@ -115,8 +103,6 @@ div.card {
   padding: 14px;
   margin: 0;
   width: 250px;
-  height: 170px;
-
   text-align: center;
 }
 
@@ -124,10 +110,31 @@ div.card:hover {
   border-color: #53585f;
 }
 
+div.full-card {
+  height: 170px;
+}
+
 div.half-card {
-  width: 250px;
   height: 50px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+div.full-card div.card-text {
+  display: block;
+  margin-top: 0;
+  padding: 0;
+}
+
+span.card-title {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
+  color: #296386;
+  margin: auto;
+}
+
+div.full-card span.card-title {
+  margin-top: 14px;
 }
 
 div.card p {
@@ -136,24 +143,6 @@ div.card p {
   width: 85%;
   margin: auto;
   color: #53585f;
-}
-
-div.card div.card-text {
-  display: block;
-  margin-top: 0;
-  padding: 0;
-}
-
-div.card div.card-text span.card-title {
-  font-family: 'Titillium Web', sans-serif;
-  font-weight: 600;
-  color: #296386;
-  margin-top: 14px;
-}
-
-div.card.half-card div.card-text span.card-title {
-  display: inline-block;
-  vertical-align: middle;
 }
 
 div.card img {

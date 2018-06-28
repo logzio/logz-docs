@@ -7,34 +7,36 @@
 
 {% include header.html %}
 
-<div class="home-page-container full-width">
+<div class="big-container full-width">
 {% include left-toc.html %}
 
   <div class="card-container">
+
+    <div class="cards full-cards">
     {% for card in page.cards %}
-    <a href="{{ card.url | prepend: site.baseurl }}">
-      <div class="card">
-        <img class="card-img-top" src="{{ card.icon | prepend: site.baseurl | prepend: "/images/home-icons/" }}" alt="Card image cap">
-        <div class="card-text">
-          <span class="card-title">{{ card.title }}</span>
-          <p>{{ card.description }}</p>
+      <a href="{{ card.url | prepend: site.baseurl }}">
+        <div class="card full-card">
+          <img class="card-img-top" src="{{ card.icon | prepend: site.baseurl | prepend: "/images/home-icons/" }}" alt="Card image cap">
+          <div class="card-text">
+            <span class="card-title">{{ card.title }}</span>
+            <p>{{ card.description }}</p>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
     {% endfor %}
-  </div>
+    </div>
 
 
-  <div class=" card-container half-card-container">
-    {% for card in page.half-cards %}
-    <a href="{{ card.url }}">
-      <div class="card half-card">
-        <div class="card-text">
+    <div class="cards half-cards">
+      {% for card in page.half-cards %}
+      <a href="{{ card.url }}">
+        <div class="card half-card">
           <span class="card-title">{{ card.title }}</span>
         </div>
-      </div>
-    </a>
-    {% endfor %}
+      </a>
+      {% endfor %}
+    </div>
+
   </div>
 
 </div>

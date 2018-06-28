@@ -60,6 +60,8 @@ footer {
   font-size: .8rem;
   border-top: 1px solid #dddddd;
   padding: 10px 50px;
+  height: 30px;
+  line-height: 30px;
 }
 
 div.toc-container {
@@ -74,18 +76,22 @@ div.full-width {
 }
 
 div.body-container {
-  grid-area: content;
   max-width: 800px;
-  margin-top: 2rem;
+}
+
+div.card-container {
+  max-width: 1000px;
+}
+
+div.body-container, div.card-container {
   vertical-align: top;
+  padding-bottom: 200px;
+  margin-top: 2rem;
+  grid-area: content;
   justify-self: start;
 }
 
 /* ===== DOCS HOME CARDS ===== */
-div.card-container {
-  margin-top: 2rem;
-  grid-area: content;
-}
 
 div.card-container a {
   margin: 10px;
@@ -162,7 +168,6 @@ body {
   font-weight: 400;
   line-height: 1.4rem;
   color: #53585f;
-  margin-bottom: 1rem;
 }
 
 code, pre {

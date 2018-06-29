@@ -9,18 +9,16 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
 
 ![Live Tail]({{site.baseurl}}/images/live-tail/live-tail--live-tail-annotated.png)
 
-<dl class="letter-labels">
+{: .letter-labels }
 
-  <dt>Search bar</dt>
-  <dd>Contains controls to filter log lines, start and stop Live Tail, and to quickly find a word or phrase in the logs</dd>
+  Search bar
+  : Contains controls to filter log lines, start and stop Live Tail, and to quickly find a word or phrase in the logs
 
-  <dt>Highlight bar</dt>
-  <dd>Lets you highlight specific terms in the logs</dd>
+  Highlight bar
+  : Lets you highlight specific terms in the logs
 
-  <dt>Live Tail view</dt>
-  <dd>Shows live scrolling view of your logs</dd>
-
-</dl>
+  Live Tail view
+  : Shows live scrolling view of your logs
 
 ###### To start, stop, scroll, and clear
 

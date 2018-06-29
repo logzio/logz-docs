@@ -11,15 +11,13 @@ Optimizers are scheduled events that you can set to export logs and aggregations
 
 To reach this page, select [**Alerts > Optimizer definitions**](https://app.logz.io/#/dashboard/triggers/optimizer-definitions) from the top menu.
 
-<dl class="letter-labels">
+{: .letter-labels }
 
-  <dt>Disabled optimizer</dt>
-  <dd>An optimizer appears as light gray when it's disabled</dd>
+  Disabled optimizer
+  : An optimizer appears as light gray when it's disabled
 
-  <dt>Enabled optimizer</dt>
-  <dd>An optimizer with dark text shows that it's enabled</dd>
+  Enabled optimizer
+  : An optimizer with dark text shows that it's enabled
 
-  <dt>Optimizer options</dt>
-  <dd>Use the switch to enable or disable an optimizer, or click the menu to see more options</dd>
-
-</dl>
+  Optimizer options
+  : Use the switch to enable or disable an optimizer, or click the menu to see more options

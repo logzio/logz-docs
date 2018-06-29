@@ -6,24 +6,20 @@ contributors:
   - sboroda
 ---
 
-<dl>
-
-  <dt>Application Insights</dt>
-  <dd></dd>
+  Application Insights
+  : 
   
-  <dt>Cognitive Insight</dt>
-  <dd></dd>
+  Cognitive Insight
+  : 
 
-  <dt>document</dt>
-  <dd>one JSON object and its _source field</dd>
+  document
+  : one JSON object and its _source field
 
-  <dt>field</dt>
-  <dd>collection of key-value pairs</dd>
+  field
+  : collection of key-value pairs
 
-  <dt>Insight</dt>
-  <dd></dd>
+  Insight
+  : 
 
-  <dt>index</dt>
-  <dd>collection of documents</dd>
-
-</dl>
+  index
+  : collection of documents

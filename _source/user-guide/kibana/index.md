@@ -9,21 +9,19 @@ When you first sign in to Logz.io, you'll find yourself at the Discover page. Yo
 
 ![Kibana UI in Logz.io]({{ site.baseurl }}/images/kibana/kibana--discover-annotated.png)
 
-<dl class="letter-labels">
+{: .letter-labels }
 
-  <dt>Query bar</dt>
-  <dd>This is where you type your Elasticsearch query</dd>
+  Query bar
+  : This is where you type your Elasticsearch query
 
-  <dt>Field and account selection</dt>
-  <dd>Choose the accounts to search and the fields that will get a table column</dd>
+  Field and account selection
+  : Choose the accounts to search and the fields that will get a table column
 
-  <dt>Histogram</dt>
-  <dd>Time-limited view of your search query</dd>
+  Histogram
+  : Time-limited view of your search query
 
-  <dt>Cognitive Insights</dt>
-  <dd>If we notice patterns or anomalies in your logs, we'll highlight them with Cognitive Insights</dd>
+  Cognitive Insights
+  : If we notice patterns or anomalies in your logs, we'll highlight them with Cognitive Insights
 
-  <dt>Document table</dt>
-  <dd>A text view of the results of your search query</dd>
-
-</dl>
+  Document table
+  : A text view of the results of your search query

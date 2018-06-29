@@ -1,0 +1,124 @@
+---
+layout: article
+title: Log shipping troubleshooting
+contributors:
+  - jschnitzer
+  - sboroda
+---
+
+The process of getting logs from your system to Kibana can be tricky, and it can be difficult to pinpoint the exact problem. In this article, we'll walk through troubleshooting some common problems.
+
+Before doing anything, make sure you give Logz.io some time to parse and index your logs. Normally, this takes a few seconds to a minute. Sometimes, this can take longer.
+
+<div class="accordion">
+
+### 1. Check Logz.io's status
+
+<div>
+
+Visit our [status page](http://status.logz.io/) to confirm everything is working normally. (If you're not already signed up for status updates, go ahead and subscribe while you're there.)
+
+##### If the status is "All systems Operational" 
+
+If you see "All Systems Operational", Logz.io is operating normally. You can move on to the next step.
+
+##### If the status is something else
+
+On rare occasions, there may be an issue with our production environment. If this happens, you'll need to wait until we fix the problem before you can ship your logs.
+
+</div>
+
+### 2. Check your shipper's connectivity 
+
+<div>
+
+To make sure your log shipper can connect to Logz.io listeners, run `telnet listener.logz.io <port>` from the device that you're shipping from. You can find the correct port for your shipping method in the table below.
+
+<div class="info-box note">
+  As of macOS High Sierra (10.13), telnet is not installed by default. You'll need to install telnet before proceeding.
+</div>
+
+| Shipping method                         | Port |
+|-----------------------------------------|------|
+| Beats                                   | 5015 |
+| Cloud Foundry drain over HTTPS          | 8081 |
+| Filebeat                                | 5015 |
+| Heroku drain over HTTP                  | 8080 |
+| Heroku drain over HTTPS                 | 8081 |
+| JSON file upload over HTTP              | 8070 |
+| JSON file upload over HTTPS             | 8071 |
+| log file upload over HTTP               | 8021 |
+| log file upload over HTTPS              | 8022 |
+| Logstash                                | 5050 |
+| Logstash-forwarder                      | 5005 |
+| Logstash over SSL                       | 5006 |
+| NXLog                                   | 8010 |
+| rsyslog                                 | 5000 |
+| rsyslog over TLS                        | 5001 |
+| TLS/SSL over TCP                        | 5052 |
+
+
+##### If you see "Connected to listener-group.logz.io"
+
+If you see `Connected to listener-group.logz.io`, your shipper can connect to the Logz.io listener.
+
+To exit telnet, type Ctrl+], and then type `quit`. You can move on to the next troubleshooting step.
+
+##### If the status remains "Trying xxx.xxx.xxx.xxx..."
+
+If you see `Trying xxx.xxx.xxx.xxx...` for more than 10 seconds, your machine is having trouble connecting to the Logz.io listener.
+
+Confirm that your firewall and network settings allow communication with the Logz.io [listener IP address]({{site.baseurl}}/user-guide/log-shipping/log-shipping-ip-addresses.html) and port.
+
+</div>
+
+### 3. Check your log shipping configuration for the correct token
+
+<div>
+
+Logz.io uses your account token to send incoming logs to the correct account. If you're not using the right account token, your logs won't be indexed to your account. 
+
+**Find your account token** \\
+To find your account token, go to your [admin settings](https://app.logz.io/#/dashboard/settings/general) (<i class="li li-gear"></i> in the top menu). Your account token is in the Account Settings section of the page.
+
+**Find the token you're sending with your logs** \\
+Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs. 
+
+<div class="info-box tip">
+  In most cases, the token is stored in a configuration file or in as a query parameter in the URL you're shipping logs to. You can usually find it by searching for the word "token".
+</div>
+
+**Compare the tokens** \\
+Compare your account token to the token you're shipping with your logs.
+
+##### If the tokens match
+
+If the tokens match, your logs will be sent to your account. Move on to the next troubleshooting step.
+
+##### If the tokens don't match
+
+If the tokens don't match, your logs won't be sent to your account. Copy your acount token to your shipper configuration, and restart your shipper if you need to. 
+
+If your logs still don't appear in Kibana after a few minutes, move on to the next troubleshooting step.
+
+</div>
+
+### 4. Check the logs of your log shipper
+
+<div>
+
+Next, you'll need to check your log shipper's logs. If you're not sure where to find the logs, see your log shipper's documentation. 
+
+When reviewing the logs, check for any errors that could indicate your logs aren't being shipped.
+
+Also confirm that the log shipper is running. If it's not running, you'll need to troubleshoot the shipper. 
+
+Here are fixes for some common issues:
+* Make sure your shipper has one configuration 
+* If it has more than one configuration, remove or comment out extra configurations
+* Make sure that all the paths in the configuration are correct
+* Make sure the shipper has the correct permissions to access configured paths
+
+</div>
+
+</div>

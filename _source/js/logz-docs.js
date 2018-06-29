@@ -1,5 +1,5 @@
 // Auto-populate .feature-box divs. These are the "available in Pro, Enterprise, Community" graphics
-$('div.feature-box').ready(function() {
+$(function() {
   $('div.feature-box.enterprise').append('<span class="available-in">Available in</span><span class="community">Community</span><span class="pro">Pro</span><span class="enterprise yes">Enterprise</span>');
   $('div.feature-box.pro').append('<span class="available-in">Available in</span><span class="community">Community</span><span class="pro yes">Pro</span><span class="enterprise yes">Enterprise</span>');
   $('div.feature-box.community').append('<span class="available-in">Available in</span><span class="community yes">Community</span><span class="pro yes">Pro</span><span class="enterprise yes">Enterprise</span>');
@@ -7,12 +7,12 @@ $('div.feature-box').ready(function() {
 
 
 // Auto-structure .info-box divs
-$('div.info-box').ready( function() {
+$( function() {
   $('div.info-box').wrapInner('<p></p>');
 });
 
 // Show/hide animations for left-side TOC. Also animates caret icon.
-$('nav.all-pages-toc').ready( function() {
+$( function() {
   $('ul.toc-child > li.toc-active').find('ul.toc-grandchild').show().addClass('show').siblings('span.toc-heading').find('span.collapse-button').addClass('show');
   $('ul.toc-grandchild > li.toc-active').parent('ul.toc-grandchild').show().addClass('show').siblings('span.toc-heading').find('span.collapse-button').addClass('show');
 
@@ -32,16 +32,19 @@ $('nav.all-pages-toc').ready( function() {
 });
 
 // tablesorter
-$("table").ready( function() {
-  $("table").tablesorter({ sortList: [[0,0]] });
+$( function() {
+  $('table').tablesorter({ sortList: [[0,0]] });
 });
 
 // accordion
 $( function() {
-  $( ".accordion" ).accordion({
+  $( '.accordion' ).accordion({
     active: false,
     collapsible: true,
-    heightStyle: "content",
-    icons: { "header": "ui-icon-caret-1-e", "activeHeader": "ui-icon-caret-1-s" }
+    heightStyle: 'content',
+    icons: { 'header': 'ui-icon-caret-1-e', 'activeHeader': 'ui-icon-caret-1-s' }
   });
 } );
+
+// accordion test to expand the section you're writing. comment this out when you're done writing.
+// $( function() { $('.accordion').accordion({ active: 3 }) });

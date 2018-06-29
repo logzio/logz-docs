@@ -86,6 +86,7 @@ plugins:
 
 
 kramdown:
+  parse_block_html: true
   # auto_ids: true
 
 # These items will not be processed, by default. Add new items as array entries.

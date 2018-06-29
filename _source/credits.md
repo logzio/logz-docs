@@ -6,7 +6,7 @@ community-info: false
 
 <div class="contributions">
 
-  <h3>Here are our contributors</h3>
+### Here are our contributors
 
   <ul>
   {% for contributor in site.contributors %}
@@ -14,14 +14,12 @@ community-info: false
   {% endfor %}
   </ul>
 
-  <h3> And the open source stuff we used in docs </h3>
+### And the open source stuff we used in docs
 
-  <ul>
-    <li><a href="https://fontawesome.com/">Font Awesome 5 Free</a></li>
-    <li><a href="https://jquery.com/">jQuery</a></li>
-    <li><a href="https://jekyllrb.com/">Jekyll</a></li>
-    <li><a href="https://www.bryanbraun.com/anchorjs/">AnchorJS</a></li>
-    <li><a href="https://github.com/mottie/tablesorter">tablesorter</a></li>
-  </ul>
+  * [Font Awesome 5 Free](https://fontawesome.com/)
+  * [jQuery](https://jquery.com/)
+  * [Jekyll](https://jekyllrb.com/)
+  * [AnchorJS](https://www.bryanbraun.com/anchorjs/)
+  * [tablesorter](https://github.com/mottie/tablesorter)
 
 </div>

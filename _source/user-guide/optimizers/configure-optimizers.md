@@ -7,7 +7,9 @@ contributors:
 
 To create a new optimizer, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Optimizer page, where you can configure the optimizer settings.
 
-<div class="info-box note">Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see <a href="{{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html">Manage timeless accounts</a>.</div>
+<div class="info-box note">
+  Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
+</div>
 
 If you want help updating an existing optimizer, you can [skip the first part of this page](#to-configure-an-optimizer).
 
@@ -27,7 +29,9 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
 2. If you need to, change your optimizer **Query** and the **Accounts** that the query will search.
 
-    <div class="info-box gotcha">If you use an invalid query, the optimizer will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.</div>
+    <div class="info-box gotcha">
+      If you use an invalid query, the optimizer will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
+    </div>
 
 3. _(Optional)_ If you want to store aggregate values:
 
@@ -53,7 +57,9 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
     To send the raw JSON documents to your timeless account, choose **Default format**. To send a summary table, choose **Custom format**.
 
-    <div class="info-box note">If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.</div>
+    <div class="info-box note">
+      If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.
+    </div>
 
     If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
 

@@ -16,7 +16,11 @@ Sub accounts help you control data usage and manage user access to your logs. By
 
 2. If you need to adjust the **Total daily volume** or **Retention**, either type in the text box, or use <i class="li li-plus"></i> and <i class="li li-minus"></i>.
 
-    <div class="info-box note">Your plan allows for a maximum total daily volume (in GB) and retention period (in days). Keep these limits in mind when you allocate resources to your sub accounts—you won't be able to exceed the limits of your plan. If you need to increase these limits, please reach out to your Logz.io sales representative.</div>
+    <div class="info-box note">
+      Your plan allows for a maximum total daily volume (in GB) and retention period (in days). Keep these limits in mind when you allocate resources to your sub accounts—you won't be able to exceed the limits of your plan. 
+      
+      If you need to increase these limits, please reach out to your Logz.io account executive.
+    </div>
 
 2. To allow main account users to switch to this sub account, select **Enable main account users to access this account**. 
 

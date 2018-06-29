@@ -17,7 +17,9 @@ You can analyze a set of sample logs in the data parsing wizard, simplifying the
 
 You can find the data parsing wizard by selecting [**Log Shipping > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the top menu.
 
-<div class="info-box note">The data parsing wizard is a beta feature.</div>
+<div class="info-box note">
+  The data parsing wizard is a beta feature.
+</div>
 
 ## Using the data parsing wizard
 
@@ -25,7 +27,9 @@ You can find the data parsing wizard by selecting [**Log Shipping > Data Parsing
 
 1. Choose the log type you want to parse from the **Select log type** list.
 
-    <div class="info-box note">If the log type you want to parse is disabled, then Logz.io automatically parses it. If you want to override the default parsing, change the log type in your log shipper.</div>
+    <div class="info-box note">
+      If the log type you want to parse is disabled, then Logz.io automatically parses it. If you want to override the default parsing, change the log type in your log shipper.
+    </div>
 
 2. Click **Next** to continue.
 
@@ -37,15 +41,17 @@ You can find the data parsing wizard by selecting [**Log Shipping > Data Parsing
 
 2. Type your grok pattern in the **Parse method** text box. 
 
-    <div class="info-box note notes"><ul>
-    <li>As you type, your parsed log lines are shown in the <strong>Parse results</strong> table. Use the colors to help you match the fields in the log lines with your parsing results.</li>
-    <li>To omit data, do not name the fields.</li>
-    <li>To override the log's existing message field, name one or more fields <code>message</code> in the grok pattern. If more than one is used, all message fields are concatenated into a single message field. If you don't use this field name, the log's existing message field will be used.</li>
-    <li>After entering your grok pattern, you can define a field type for each field that you parse.</li>
-    <li>You can let Logz.io detect each field's data type by leaving the default Automatic settings. Otherwise, you can define other data types, such as boolean, date, IP, and byte. For geo-enrichment, for example, you need to select the <strong>Geo-Enrichment</strong> field type.</li>
-    </ul></div>
+    <div class="info-box note notes">
+    * As you type, your parsed log lines are shown in the **Parse results** table. Use the colors to help you match the fields in the log lines with your parsing results.
+    * To omit data, do not name the fields.
+    * To override the log's existing message field, name one or more fields `message` in the grok pattern. If more than one is used, all message fields are concatenated into a single message field. If you don't use this field name, the log's existing message field will be used.
+    * After entering your grok pattern, you can define a field type for each field that you parse.
+    * You can let Logz.io detect each field's data type by leaving the default Automatic settings. Otherwise, you can define other data types, such as boolean, date, IP, and byte. For geo-enrichment, for example, you need to select the **Geo-Enrichment** field type.
+    </div>
 
-    <div class="info-box tip">To help make the best grok pattern for your logs, read the <a href="https://github.com/elastic/logstash/blob/v1.4.2/patterns/grok-patterns">Elasticsearch grok patterns</a> and use the <a href="https://grokdebug.herokuapp.com/">Grok Debugger</a>.</div>
+    <div class="info-box tip">
+      To help make the best grok pattern for your logs, read the [Elasticsearch grok patterns](https://github.com/elastic/logstash/blob/v1.4.2/patterns/grok-patterns) and use the [Grok Debugger](https://grokdebug.herokuapp.com/).
+    </div>
 
 3. Click **Next** to continue.
 

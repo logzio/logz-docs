@@ -24,12 +24,16 @@ You can get to this page by clicking [**Shared Tokens**](https://app.logz.io/#/d
 
 * To delete a token, click the token's <i class="li li-x"></i>.
 
-<div class="info-box gotcha">Changing the filters attached to a token, or deleting a token, will affect any integrations that use that token. Make sure you test your integrations when you make these changes.</div>
+<div class="info-box gotcha">
+  Changing the filters attached to a token, or deleting a token, will affect any integrations that use that token. Make sure you test your integrations when you make these changes.
+</div>
 
 ###### Working with token filters {#working-with-token-filters}
 
 * To create a filter, type a brief **description**, type the name of a **field** and the **value** to filter the field by, and then click **Save**. You can attach your new filter to any of your shared tokens.
 
-<div class="info-box tip">Test new filters in Kibana to make sure you get the expected results.</div>
+<div class="info-box tip">
+  Test new filters in Kibana to make sure you get the expected results.
+</div>
 
 * To delete a filter, click the filter's <i class="li li-x"></i>.

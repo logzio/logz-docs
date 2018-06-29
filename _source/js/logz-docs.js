@@ -30,3 +30,8 @@ $('nav.all-pages-toc').ready( function() {
   });
 
 });
+
+// tablesorter
+$("table").ready( function() {
+  $("table").tablesorter({ sortList: [[0,0]] });
+});

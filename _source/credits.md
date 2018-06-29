@@ -21,6 +21,7 @@ community-info: false
     <li><a href="https://jquery.com/">jQuery</a></li>
     <li><a href="https://jekyllrb.com/">Jekyll</a></li>
     <li><a href="https://www.bryanbraun.com/anchorjs/">AnchorJS</a></li>
+    <li><a href="https://github.com/mottie/tablesorter">tablesorter</a></li>
   </ul>
 
 </div>

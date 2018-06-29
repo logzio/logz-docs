@@ -11,20 +11,22 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="{{ site.favicon }}" />
 
-  <script type="text/javascript" src="{{ "./js/jquery-3.3.1.min.js" | relative_url }}"></script>
-  <script type="text/javascript" src="{{ "./js/jquery-ui-widget-1.12.1.min.js" | relative_url }}"></script>
-  <script type="text/javascript" src="{{ "./js/logz-docs.js" | relative_url }}"></script>
-  <script type="text/javascript" src="{{ "./js/anchor.min.js" | relative_url }}"></script>
+  <script type="text/javascript" src="{{site.baseurl}}/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="{{site.baseurl}}/js/jquery-ui-widget-1.12.1.min.js"></script>
+  <script type="text/javascript" src="{{site.baseurl}}/js/logz-docs.js"></script>
+  <script type="text/javascript" src="{{site.baseurl}}/js/anchor.min.js"></script>
 
+  <!-- jquery table sorter -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.30.6/js/jquery.tablesorter.min.js"></script>
 
   <!-- github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   <!-- the one stylesheet to rule them all -->
   {% if page.layout=="api-ref" %}
-    <link rel="stylesheet" href="{{ "./css/logz-api-ref.css" | relative_url }}">
+    <link rel="stylesheet" href="{{site.baseurl}}/css/logz-api-ref.css">
   {%- else -%}
-  <link rel="stylesheet" href="{{ "./css/logz-docs.css" | relative_url }}">
+  <link rel="stylesheet" href="{{site.baseurl}}/css/logz-docs.css">
   {% endif %}
 
   {%- feed_meta -%}

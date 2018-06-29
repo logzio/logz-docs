@@ -288,6 +288,25 @@ td {
 }
 
 
+/* tablesorter styling */
+th.tablesorter-header:focus {
+  outline: none;
+}
+
+.tablesorter-header-inner::after {
+  font-family: "Font Awesome 5 Free";
+  padding-left: 10px;
+  color: #009cbd;
+}
+
+.tablesorter-headerAsc .tablesorter-header-inner::after {
+  content: "\f0d7";
+}
+
+.tablesorter-headerDesc .tablesorter-header-inner::after {
+  content: "\f0d8"
+}
+
 
 /* ===== LISTS ===== */
 

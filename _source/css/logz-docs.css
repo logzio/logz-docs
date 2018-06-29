@@ -162,7 +162,7 @@ html {
   font-size: 16px;
 }
 
-body {
+body, .ui-accordion-content > *:not(h5):not(h6)  {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1rem;
   font-weight: 400;
@@ -231,7 +231,7 @@ img.no-border {
   border: none;
 }
 
-a, a:hover {
+a, a:hover, .ui-accordion-content a {
   color: #009cbd;
   text-decoration: none;
 }
@@ -242,8 +242,14 @@ svg.svg-inline--fa, i.li {
   margin-right: .1rem;
 }
 
+/* ===== CODE BLOCKS ===== */
+
 code {
   color: #e53935;
+}
+
+div.highlighter-rouge {
+  margin: 2rem auto;
 }
 
 div.highlighter-rouge, code {
@@ -276,6 +282,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 
+  margin: 2rem auto;
+
   text-align: left;
 }
 
@@ -289,6 +297,10 @@ td {
 
 
 /* tablesorter styling */
+th.tablesorter-header {
+  min-width: 65px;
+}
+
 th.tablesorter-header:focus {
   outline: none;
 }
@@ -450,7 +462,7 @@ span.enterprise.yes {
 
 div.info-box {
   width: 400px;
-  margin: 1rem auto;
+  margin: 2rem auto;
   border-top: 1px solid;
   border-bottom: 1px solid;
   padding: .5rem;
@@ -1025,4 +1037,19 @@ i.ll, dl.letter-labels dt::before {
   font-weight: 700;
   color: white;
   font-style: normal;
+}
+
+/* ===== ACCORDION OVERRIDES ===== */
+/* Accordion is styled from jquery ui base css.
+  The styles here override the defaults */
+
+.ui-accordion-header-active {
+  background-color: #296386;
+  color: white;
+  border: none;
+}
+
+.ui-accordion-content p {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem
 }

@@ -19,7 +19,6 @@ community-info: false
   * [Font Awesome 5 Free](https://fontawesome.com/)
   * [jQuery](https://jquery.com/)
   * [Jekyll](https://jekyllrb.com/)
-  * [AnchorJS](https://www.bryanbraun.com/anchorjs/)
   * [tablesorter](https://github.com/mottie/tablesorter)
 
 </div>

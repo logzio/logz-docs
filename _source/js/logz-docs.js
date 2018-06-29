@@ -35,3 +35,13 @@ $('nav.all-pages-toc').ready( function() {
 $("table").ready( function() {
   $("table").tablesorter({ sortList: [[0,0]] });
 });
+
+// accordion
+$( function() {
+  $( ".accordion" ).accordion({
+    active: false,
+    collapsible: true,
+    heightStyle: "content",
+    icons: { "header": "ui-icon-caret-1-e", "activeHeader": "ui-icon-caret-1-s" }
+  });
+} );

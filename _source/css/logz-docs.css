@@ -291,6 +291,10 @@ td, th {
   padding: .25rem;
 }
 
+th {
+  color: #296386;
+}
+
 td {
   border-bottom: 1px solid silver;
 }

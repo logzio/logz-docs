@@ -12,7 +12,7 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
 
 <div class="accordion">
 
-### 1. Check Logz.io's status
+### 1. Check the Logz.io status page
 
 <div>
 
@@ -78,18 +78,15 @@ Confirm that your firewall and network settings allow communication with the Log
 
 Logz.io uses your account token to send incoming logs to the correct account. If you're not using the right account token, your logs won't be indexed to your account. 
 
-**Find your account token** \\
-To find your account token, go to your [admin settings](https://app.logz.io/#/dashboard/settings/general) (<i class="li li-gear"></i> in the top menu). Your account token is in the Account Settings section of the page.
+1. Find your account token in your [admin settings](https://app.logz.io/#/dashboard/settings/general) (<i class="li li-gear"></i> in the top menu). Your account token is in the Account Settings section.
 
-**Find the token you're sending with your logs** \\
-Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs. 
+2. Find the token you're sending with your logs. Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs. 
 
 <div class="info-box tip">
   In most cases, the token is stored in a configuration file or in as a query parameter in the URL you're shipping logs to. You can usually find it by searching for the word "token".
 </div>
 
-**Compare the tokens** \\
-Compare your account token to the token you're shipping with your logs.
+3. Compare your account token to the token you're shipping with your logs.
 
 ##### If the tokens match
 

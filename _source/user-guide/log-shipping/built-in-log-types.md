@@ -8,7 +8,7 @@ contributors:
 
 The `type` field identifies your log type. Logz.io parses logs based on `type`. For example, if a log type is `apache_access`, Logz.io automatically parses these logs as Apache access logs.
 
-This table shows the built-in log types that Logz.io supports. If you don't see your log type here, you can create custom data parsing using the [data parsing wizard](https://app.logz.io/#/dashboard/data-parsing/step1).
+This table shows the built-in log types that Logz.io supports. If you don't see your log type here, you can create custom data parsing using the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).
 
 | Description           | Type                                       |
 |-----------------------|--------------------------------------------|

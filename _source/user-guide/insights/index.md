@@ -12,7 +12,7 @@ You can use insights to sift through the noise in your logging infrastructure so
 
 ![Insights]({{site.baseurl}}/images/insights/insights--insights-annotated.png)
 
-To see this page, select [Insights](https://app.logz.io/#/dashboard/insights) from the top menu.
+To see this page, select [**Insights**](https://app.logz.io/#/dashboard/insights) from the top menu.
 
 {: .letter-labels }
 

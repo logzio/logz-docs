@@ -24,7 +24,7 @@ Sub accounts help you control data usage and manage user access to your logs. By
 
 2. To allow main account users to switch to this sub account, select **Enable main account users to access this account**. 
 
-3. To allow main account users to search this account's logs from Kibana, select **Searchable from the main account**.
+3. To allow main account users to search this account's logs, select **Searchable from the main account**.
 
 4. To make account utilization metrics available in Kibana, select **Save account utilization metrics**, and choose a time interval (10, 30, or 60 minutes). If you select this check box, you can find utilization metrics in Kibana by searching for `type:logzio_account_utilization`.
 

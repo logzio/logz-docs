@@ -38,10 +38,10 @@ firstLevel:
     # - title: Best practice- know your type
     - title: Built-in log types
       url: /user-guide/log-shipping/built-in-log-types.html
-    - title: Log shipping IP addresses
-      url: /user-guide/log-shipping/log-shipping-ip-addresses.html
     - title: Log shipping troubleshooting
       url: /user-guide/log-shipping/log-shipping-troubleshooting.html
+    - title: Listener IP addresses
+      url: /user-guide/log-shipping/listener-ip-addresses.html
 
   # - title: Field mapping and data parsing
     # thirdLevel:

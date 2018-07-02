@@ -21,7 +21,7 @@ When you first sign in to Logz.io, you'll find yourself at the Discover page. Yo
   : Time-limited view of your search query
 
   Cognitive Insights
-  : If we notice patterns or anomalies in your logs, we'll highlight them with Cognitive Insights
+  : If Logz.io notices patterns or anomalies in your logs, it will notify you with Cognitive Insights
 
   Document table
   : A text view of the results of your search query

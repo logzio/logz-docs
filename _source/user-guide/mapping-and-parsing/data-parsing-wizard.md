@@ -7,7 +7,7 @@ contributors:
   - sboroda
 ---
 
-Parsing is the process of breaking down your log message into smaller chunks of data, placing each chunk into its own specific named field, and enriching data with additional information such as geolocation. Parsed logs can be more easily analyzed than raw data, allowing you to create richer visualizations and more helpful alerts.
+Parsing is the process of breaking down your log message into smaller chunks of data, placing each chunk into its own specific named field, and enriching data with additional information such as geolocation. Parsed logs can be more easily analyzed than raw data, allowing you to create rich visualizations and helpful alerts.
 
 Parsing is not necessary for all types of logs. But if you use a custom or uncommon log type, parsing can be an invaluable tool. 
 
@@ -59,7 +59,7 @@ You can find the data parsing wizard by selecting [**Log Shipping > Data Parsing
 
 ![Step 3: Enrich]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-3-enrich.png)
 
-1. If any fields are parsed as geo IP, choose which geo enrichment fields to include in your logs, such as continent_code or country_name.
+1. If any fields are parsed as geo IP, choose which geo enrichment fields to add to your logs, such as continent_code or country_name.
 
 2. Configure any timestamp fields. If there are more than one timestamp field, choose a **Leading timestamp**.
 

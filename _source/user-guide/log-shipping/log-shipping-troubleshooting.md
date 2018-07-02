@@ -6,7 +6,7 @@ contributors:
   - sboroda
 ---
 
-The process of getting logs from your system to Kibana can be tricky, and it can be difficult to pinpoint the exact problem. In this article, we'll walk through troubleshooting some common problems.
+The process of getting logs from your system to Logz.io can be tricky, and it can be difficult to pinpoint the exact issue. In this article, we'll walk through troubleshooting some common problems.
 
 Before doing anything, make sure you give Logz.io some time to parse and index your logs. Normally, this takes a few seconds to a minute. Sometimes, this can take longer.
 
@@ -100,21 +100,23 @@ If your logs still don't appear in Kibana after a few minutes, move on to the ne
 
 </div>
 
-### 4. Check the logs of your log shipper
+### 4. Check your log shipper's logs
 
 <div>
 
 Next, you'll need to check your log shipper's logs. If you're not sure where to find the logs, see your log shipper's documentation. 
 
-When reviewing the logs, check for any errors that could indicate your logs aren't being shipped.
+When reviewing the logs, look for errors indicating that your logs aren't being shipped.
 
 Also confirm that the log shipper is running. If it's not running, you'll need to troubleshoot the shipper. 
 
-Here are fixes for some common issues:
-* Make sure your shipper has one configuration 
-* If it has more than one configuration, remove or comment out extra configurations
-* Make sure that all the paths in the configuration are correct
-* Make sure the shipper has the correct permissions to access configured paths
+##### Common log shipper issues and fixes
+
+* _Multiple configurations:_ Make sure your shipper has one configuration. If it has more than one configuration, remove or comment out extra configurations.
+
+* _Incorrect paths:_ Make sure all the paths in the configuration are correct
+ 
+* _Incorrect permissions:_ Make sure your shipper has the correct permissions to access configured paths
 
 </div>
 

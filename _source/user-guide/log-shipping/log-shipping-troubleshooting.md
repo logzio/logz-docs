@@ -68,7 +68,7 @@ To exit telnet, type Ctrl+], and then type `quit`. You can move on to the next t
 
 If you see `Trying xxx.xxx.xxx.xxx...` for more than 10 seconds, your machine is having trouble connecting to the Logz.io listener.
 
-Confirm that your firewall and network settings allow communication with the Logz.io [listener IP address]({{site.baseurl}}/user-guide/log-shipping/log-shipping-ip-addresses.html) and port.
+Confirm that your firewall and network settings allow communication with the right outbound port and the Logz.io [listener IP addresses]({{site.baseurl}}/user-guide/log-shipping/listener-ip-addresses.html) for your region.
 
 </div>
 
@@ -82,9 +82,9 @@ Logz.io uses your account token to send incoming logs to the correct account. If
 
 2. Find the token you're sending with your logs. Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs. 
 
-<div class="info-box tip">
-  In most cases, the token is stored in a configuration file or in as a query parameter in the URL you're shipping logs to. You can usually find it by searching for the word "token".
-</div>
+    <div class="info-box tip">
+      In most cases, the token is stored in a configuration file or as a query parameter in the URL you're shipping logs to. You can usually find it by searching for "token".
+    </div>
 
 3. Compare your account token to the token you're shipping with your logs.
 

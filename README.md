@@ -21,7 +21,7 @@ We merge the `develop` branch as needed. Docs are released to docs.logz.io from 
 
 ## Contributions
 
-Before you make your first contribution: Please read [CONTRIBUTING.md](contributing.md), which has instructions for first-time setup.
+Please folow the [Setup](#setup) instructions so you can start
 
 Submit all pull requests to the `develop` branch.
 
@@ -45,7 +45,7 @@ Please note we reserve the right to decline a pull request for any reason.
 
 If you haven't contributed to logz-docs before, follow these steps to get started.
 
-You'll need a GitHub account. [Join GitHub](https://github.com/join) if you don't already have one.
+[Join GitHub](https://github.com/join) if you don't already have an account.
 
 **Install dependencies:**
 
@@ -149,25 +149,31 @@ Indent content on its own lines between the `<div>` tags.
 
 **Notes**
 
-```
+```html
 <div class="info-box note">
-  Notes are generally non-actionable. They’re more important than the surrounding text but less important than warnings. Could something bad happen if the user ignores this? If no, then it’s a note. Otherwise, it’s a gotcha.
+  Notes are generally non-actionable. They’re more important
+  than the surrounding text but less important than
+  warnings. Could something bad happen if the user ignores
+  this? If no, then it’s a note. Otherwise, it’s a gotcha.
 </div>
 ```
 
 **Tips**
 
-```
+```html
 <div class="info-box tip">
-  Pro tips convey best practices and good actions to ensure success. Think of these as more proactive than gotchas.
+  Pro tips convey best practices and good actions to ensure
+  success. Think of these as more proactive than gotchas.
 </div>
 ```
 
 **Gotchas**
 
-```
+```html
 <div class="info-box gotcha">
-  Gotchas help the user work through common trip-up points. If the user could cause damage by ignoring the gotcha, consider a warning instead.
+  Gotchas help the user work through common trip-up points.
+  If the user could cause damage by ignoring the gotcha,
+  consider a warning instead.
 </div>
 ```
 
@@ -175,7 +181,10 @@ Indent content on its own lines between the `<div>` tags.
 
 ```
 <div class="info-box warning">
-  Use warnings when the user could cause damage that’s difficult or impossible to recover from. If you need something less severe than a warning, consider a gotcha or a note.
+  Use warnings when the user could cause damage that’s
+  difficult or impossible to recover from. If you need
+  something less severe than a warning, consider a gotcha
+  or a note.
 </div>
 ```
 

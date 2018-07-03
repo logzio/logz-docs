@@ -139,3 +139,19 @@ firstLevel:
   #   - title: Create snapshots
   #   - title: Allocate account volume
   #   - title: Create a user
+
+  # ===== MORE =====
+- title: ""
+  secondLevel:
+  - title: Logz.io status
+    url: http://status.logz.io/
+    external: true
+  - title: Logz.io blog
+    url: https://logz.io/blog/
+    external: true
+  - title: Logz.io academy
+    url: http://academy.logz.io/
+    external: true
+  - title: Videos
+    url: https://logz.io/learn/video/
+    external: true

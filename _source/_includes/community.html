@@ -1,7 +1,7 @@
 <div class="article-info-container">
   <div class="contributor-list">
   {% if page.contributors %}
-    <i class="fas fa-users"></i>
+    <i class="fas fa-users"></i> Contributors:&nbsp;
     {%- for contributor in page.contributors -%}
       {% assign contributor_page = site.contributors | where: 'slug', contributor | first %}
       {%- unless contributor_page == null -%}
@@ -11,12 +11,12 @@
     {%- endfor -%}
   {% endif %}
   </div>
-  
+
   {% if site.public == true %}
   {%- capture repo_path -%}
   {{site.github.org_url | append: site.github.repo_name}}
   {%- endcapture -%}
-  
+
   {%- capture edit_path -%}
   {{ repo_path | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}{% if site.collections_dir and page.collection %}{{site.collections_dir | prepend: "/" }}{% endif %}
   {%- endcapture -%}
@@ -25,9 +25,9 @@
   {{ repo_path | append: "/issues/new" }}
   {%- if site.github.issue_template -%}
   ?template={{site.github.issue_template}}.md
-  {%- endif -%} 
+  {%- endif -%}
   {%- endcapture -%}
-  
+
   <div class="community-container">
     {% unless page.community-info == false or layout.community-info == false %}
     {% if site.edit_enabled == true %}

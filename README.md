@@ -1,4 +1,5 @@
-![Logz.io](_source/images/logo/logo_horizontal_color.svg)
+<img width="400" src="_source/images/logo/logo_horizontal_color.svg">
+
 
 # Logz.io Docs
 

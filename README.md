@@ -1,4 +1,4 @@
-![Logz.io](https://logz.io/wp-content/themes/Avada-Child-Theme/images/logz-logo.svg)
+![Logz.io](_source/images/logo/logo_horizontal_color.svg)
 
 # Logz.io Docs
 
@@ -21,7 +21,7 @@ We merge the `develop` branch as needed. Docs are released to docs.logz.io from 
 
 ## Contributions
 
-Please folow the [Setup](#setup) instructions so you can start
+Please follow the [Setup](#setup) instructions so you can start
 
 Submit all pull requests to the `develop` branch.
 

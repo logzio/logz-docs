@@ -577,10 +577,8 @@ span.docs-home-link {
   font-family: 'Titillium Web', sans-serif;
   font-size: 1.4rem;
   vertical-align: middle;
-  margin-left: 10px;
-  padding-left: 13px;
+  margin-left: 5px;
   color: #0089b1;
-  border-left: 2px solid currentColor;
 }
 
 span.docs-home-link a {

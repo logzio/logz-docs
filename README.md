@@ -54,9 +54,9 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
 
 2. [Xcode](https://developer.apple.com/xcode/)
 
-3. Xcode command line tools: **Xcode > Preferences > Downloads** (These are bundled in Xcode as of OS X 10.9). You may need to run `xcode-select --install`.
+3. Xcode command line tools: `xcode-select --install`.
 
-4. [RVM with Ruby](https://rvm.io/rvm/install): `\curl -sSL https://get.rvm.io | bash -s stable --ruby`
+4. [RVM with Ruby](https://rvm.io/rvm/install): `curl -sSL https://get.rvm.io | bash -s stable --ruby`
 
 5. [Homebrew](https://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
@@ -72,9 +72,9 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
     git checkout develop
     ```
 
-9. [Jekyll](https://jekyllrb.com/): `gem install bundler jekyll`
+9. [Jekyll](https://jekyllrb.com/): `sudo gem install bundler jekyll`
 
-10. Install logz-docs Ruby gems: `bundle install`
+10. Install logz-docs Ruby gems: `sudo bundle install`
 
 ### Making your first pull request
 
@@ -206,10 +206,3 @@ For example, for HTML:
 </div>
 ```
 ````
-
-
-_Copyright 2018 Logz.io_
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0

@@ -406,7 +406,7 @@ div.search-container {
   height: 35px;
 }
 
-div.search-container input.addsearch {
+div.search-container input.addsearch, input.search {
   height: 35px;
   width: 270px;
   background: #f0f0f0;
@@ -424,6 +424,17 @@ div.search-container svg {
   margin-left: 10px;
   vertical-align: middle;
   z-index: 1;
+}
+
+div.search-results-header {
+  top: 45px;
+  position: absolute;
+  background: white;
+  overflow: scroll;
+  height: 300px;
+  border: 1px solid black;
+  right: 10px;
+  width: 500px;
 }
 
 /* ===== FEATURE BOXES ===== */

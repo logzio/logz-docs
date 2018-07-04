@@ -1,4 +1,4 @@
-<script src="/js/lunr.js"></script>
+<script src="{{site.baseurl}}/js/lunr.js"></script>
 
 <script>
 {% assign counter = 0 %}
@@ -52,18 +52,15 @@ function lunr_search(term) {
     return false;
 }
 </script>
-<style>
-    .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
-    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-    .lunrsearchresult a:hover .title {text-decoration: underline;}
-</style>
 
+<div class="search-container">
+  <form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <i class="fa fa-search"></i>
+    <input type="text" class="search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search docs..." />
+  </form>
 
-<form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <p><input type="text" class="form-control" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search via Lunr.js" /></p>
-</form>
-<div id="lunrsearchresults">
+</div>
+
+<div id="lunrsearchresults" class="search-results-header">
     <ul></ul>
 </div>

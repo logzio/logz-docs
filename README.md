@@ -66,7 +66,7 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
 
 8. Clone the logz-docs fork, switch to the logz-docs folder on your machine, and checkout the `develop` branch:
 
-    ```
+    ```shell
     git clone https://github.com/<your_github>/logz-docs.git
     cd logz-docs
     git checkout develop
@@ -86,7 +86,7 @@ We like to give contributors credit for their work, so go ahead and add yourself
 
 2. Copy this YAML content to the file, and add your information. If something doesn't apply to you, delete the line:
 
-    ```
+    ```yaml
     ---
     title: <your name>
     website: <your website url>
@@ -180,7 +180,7 @@ Indent content on its own lines between the `<div>` tags.
 
 **Warnings**
 
-```
+```html
 <div class="info-box warning">
   Use warnings when the user could cause damage that’s
   difficult or impossible to recover from. If you need

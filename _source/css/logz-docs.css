@@ -128,7 +128,6 @@ div.half-card {
 
 div.full-card div.card-text {
   display: block;
-  margin-top: 0;
   padding: 0;
 }
 
@@ -151,9 +150,23 @@ div.card p {
   color: #53585f;
 }
 
-div.card img {
-  width: 50px;
-  height: 50px;
+div.card-icon {
+  display: block;
+  margin: 14px auto;
+  padding: 0;
+}
+
+div.card-icon i {
+  width: 50;
+  height: 50;
+  vertical-align: middle;
+}
+
+div.card-icon i::before {
+  color: #009cbd77;
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
 }
 
 /* ===== BASE STYLES ===== */
@@ -993,6 +1006,14 @@ i.li {
   vertical-align: text-top;
 }
 
+i.li-bar-graph::before {
+  content: "\1f31b";
+}
+
+i.li-eye::before {
+  content: "\1f366";
+}
+
 i.li-ellipsis-v::before {
   content: "\e906";
   padding-left: .2rem;
@@ -1011,8 +1032,24 @@ i.li-plus::before {
   content: "\e913";
 }
 
+i.li-wrench::before {
+  content: "\e915";
+}
+
 i.li-x::before {
   content: "\e918";
+}
+
+i.li-plane::before {
+  content: "\e93b";
+}
+
+i.li-bell::before {
+  content: "\e93c";
+}
+
+i.li-signal::before {
+  content: "\e93f";
 }
 
 i.li-gear::before {

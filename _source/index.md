@@ -10,32 +10,32 @@ cards:
   - title: Ship your logs
     description: All the different ways you can feed the ELK machine
     url: /user-guide/log-shipping/
-    icon: blocks.svg
+    li-class: li-plane
 
   - title: Explore your logs in Kibana
     description: Stay on top of your logs with rich visualizations and dashboards
     url: /user-guide/kibana/
-    icon: blocks.svg
+    li-class: li-bar-graph
 
   - title: Insights
     description: Use AI-powered Insights to find patterns and potential issues in your logs
     url: /user-guide/insights/
-    icon: blocks.svg
+    li-class: li-eye
 
   - title: API
     description: Grow your own integration using our API documentation
     url: /api/
-    icon: blocks.svg
+    li-class: li-wrench
 
   - title: Alerting
     description: Set up alerts for critical events, or flag notable events for review
     url: /user-guide/alerts/
-    icon: blocks.svg
+    li-class: li-bell
 
   - title: Live Tail
     description: See your incoming logs in real time
     url: /user-guide/live-tail/
-    icon: blocks.svg
+    li-class: li-signal
 
 half-cards:
   - title: Blog

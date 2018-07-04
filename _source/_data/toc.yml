@@ -143,15 +143,15 @@ firstLevel:
   # ===== MORE =====
 - title: ""
   secondLevel:
-  - title: Logz.io status
-    url: http://status.logz.io/
-    external: true
-  - title: Logz.io blog
+  - title: Blog
     url: https://logz.io/blog/
     external: true
-  - title: Logz.io academy
+  - title: Academy
     url: http://academy.logz.io/
     external: true
   - title: Videos
     url: https://logz.io/learn/video/
+    external: true
+  - title: Status
+    url: http://status.logz.io/
     external: true

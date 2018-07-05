@@ -15,7 +15,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   AWS Integration · Long-term Data Retention · Essential DevOps Tool · Multi-role Definitions
   Services: Log Analytics, DevOps Automation, Critical Event Prediction
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://dev-logz-docs.pantheonsite.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://docs.logz.io" # the base hostname & protocol for your site, e.g. http://example.com
 favicon: https://logz.io/wp-content/uploads/2016/04/favicon.png
 
 # Community buttons

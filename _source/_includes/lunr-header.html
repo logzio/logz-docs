@@ -1,0 +1,9 @@
+<script src="{{site.baseurl}}/js/lunr.js"></script>
+<script src="{{site.baseurl}}/js/search-index.js"></script>
+
+<div class="search-container">
+  <form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);" id="lunr-form">
+    <i class="fa fa-search"></i>
+    <input type="text" class="search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search docs..." autocomplete="off" />
+  </form>
+</div>

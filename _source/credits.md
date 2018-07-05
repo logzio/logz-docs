@@ -2,6 +2,7 @@
 layout: article
 title: Contributors & credits
 community-info: false
+search: false
 ---
 
 <div class="contributions">

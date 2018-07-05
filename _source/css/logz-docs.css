@@ -406,7 +406,7 @@ div.search-container {
   height: 35px;
 }
 
-div.search-container input.addsearch {
+div.search-container input.addsearch, input.search {
   height: 35px;
   width: 270px;
   background: #f0f0f0;
@@ -416,6 +416,7 @@ div.search-container input.addsearch {
   float: left;
   color: #63717f;
   padding-left: 30px;
+  outline: none;
 }
 
 div.search-container svg {
@@ -424,6 +425,59 @@ div.search-container svg {
   margin-left: 10px;
   vertical-align: middle;
   z-index: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+div.search-results-header {
+  position: fixed;
+  top: 50px;
+  bottom: 15px;
+  padding: 1rem;
+  width: 75%;
+  left: 50%;
+  margin-left: -37.5%;
+
+  background-color: #fafafa;
+  border: 1px solid #63717f;
+  border-radius: 3px;
+  z-index: 500;
+
+  overflow: auto !important;
+}
+
+div.search-results-header > p {
+  padding: 0;
+  margin: 0;
+  font-size: .75rem;
+  color: #c5c5c5;
+  font-style: italic;
+}
+
+div.search-results-header > ul {
+  list-style: none;
+  padding: 0;
+}
+
+li.lunrsearchresult {
+  line-height: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+li.lunrsearchresult .title {
+  /* font-size: 1rem; */
+  font-weight: 700;
+}
+
+li.lunrsearchresult .body {
+  font-size: .85rem;
+  line-height: 1.15rem;
+}
+
+li.lunrsearchresult .url {
+  font-size: .75rem;
 }
 
 /* ===== FEATURE BOXES ===== */

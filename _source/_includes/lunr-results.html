@@ -1,3 +1,16 @@
-<div id="lunrsearchresults" class="search-results-header">
-    <ul class="search-results"></ul>
+<div id="lunrsearchresults" class="search-results-header hidden">
+    <ul></ul>
 </div>
+
+<script>
+    // listen for typing in search box
+    $('#lunrsearch').keyup( function() {
+        console.log('search box contains ' + $('#lunrsearch').text() );
+        if ($('#lunrsearch').val() !== "") {
+            $('#lunrsearchresults').fadeIn();
+            return lunr_search(document.getElementById('lunrsearch').value);
+        } else {
+            $('#lunrsearchresults').fadeOut();
+        }
+    });
+</script>

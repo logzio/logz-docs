@@ -416,6 +416,7 @@ div.search-container input.addsearch, input.search {
   float: left;
   color: #63717f;
   padding-left: 30px;
+  outline: none;
 }
 
 div.search-container svg {
@@ -426,18 +427,23 @@ div.search-container svg {
   z-index: 1;
 }
 
+.hidden {
+  display: none;
+}
+
 div.search-results-header {
-  position: fixed !important;
-  top: 42px;
+  position: fixed;
+  top: 50px;
   bottom: 15px;
-  right: 15px;
-  max-width: 650px;
   padding: 1rem;
-  background-color: white;
-  border: 1px solid black;
+  width: 75%;
+  left: 50%;
+  margin-left: -37.5%;
+
+  background-color: #fafafa;
+  border: 1px solid #63717f;
   border-radius: 3px;
   z-index: 500;
-  /* display: none; */
 
   overflow: auto !important;
 }

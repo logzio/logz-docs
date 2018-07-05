@@ -146,9 +146,9 @@ firstLevel:
   - title: Blog
     url: https://logz.io/blog/
     external: true
-  - title: Academy
-    url: http://academy.logz.io/
-    external: true
+  # - title: Academy
+  #   url: http://academy.logz.io/
+  #   external: true
   - title: Videos
     url: https://logz.io/learn/video/
     external: true

@@ -45,8 +45,8 @@ half-cards:
   - title: Videos
     url: "https://logz.io/learn/video/"
 
-  - title: Academy
-    url: "http://academy.logz.io/"
+  # - title: Academy
+  #   url: "http://academy.logz.io/"
 ---
 
 <!-- No content here.

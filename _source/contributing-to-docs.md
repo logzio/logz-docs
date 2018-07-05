@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Contributing to docs
+search: false
 ---
 
 ## Logz.io feature graphics

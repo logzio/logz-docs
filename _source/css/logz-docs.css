@@ -14,7 +14,7 @@
 
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 
 div.big-container, div.home-page-container {
@@ -89,6 +89,35 @@ div.body-container, div.card-container {
   margin-top: 2rem;
   grid-area: content;
   justify-self: start;
+}
+
+/* media queries */
+
+@media (max-width: 975px) {
+  div.big-container, div.home-page-container {
+    grid-template-columns: 100%;
+    grid-template-areas: "content";
+  }
+
+  div#toc-collapse-btn {
+    display: inline-block !important;
+  }
+
+  div.toc-container {
+    position: absolute;
+    width: 300px;
+    display: none;
+    top: 45px;
+    left: 0;
+  }
+
+  div.site-badge img.logz-logo {
+    display: none;
+  }
+
+  div.site-badge img.logz-symbol {
+    display: inline !important;
+  }
 }
 
 /* ===== DOCS HOME CARDS ===== */
@@ -629,15 +658,31 @@ div.info-box.tip > p::before {
 
 /* ===== SITE HEADER ===== */
 
+div#toc-collapse-btn {
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  vertical-align: center;
+  display: none;
+}
+
+div#toc-collapse-btn * {
+  vertical-align: middle;
+}
+
 div.site-badge {
   min-width: 190px;
-  max-width: 190px;
+  max-width: 230px;
   min-height: 35px;
   max-height: 35px;
 }
 
 div.site-badge img {
   vertical-align: middle;
+}
+
+div.site-badge img.logz-symbol {
+  display: none;
 }
 
 span.docs-home-link {

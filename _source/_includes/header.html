@@ -2,9 +2,13 @@
   {%- assign default_paths = site.pages | map: "path" -%}
   {%- assign page_paths = site.header_pages | default: default_paths -%}
   <div class="site-badge">
+    <div id="toc-collapse-btn">
+      <i class="fas fa-ellipsis-v"></i>
+    </div>
     <span class="logz-logo">
     <a href="https://logz.io/" alt="Logz.io logo" target="_top">
-      <img class="logz-logo" alt="Logz.io logo" src="https://logz.io/wp-content/themes/Avada-Child-Theme/images/logz-logo.svg" height="35">
+      <img class="logz-logo" alt="Logz.io logo" src="{{site.baseurl}}/images/logo/logz-logo.svg" height="35">
+      <img class="logz-symbol" alt="Logz.io logo" src="{{site.baseurl}}/images/logo/logz-symbol.svg" height="35">
     </a>
     </span>
 

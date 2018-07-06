@@ -2,9 +2,11 @@
   {%- assign default_paths = site.pages | map: "path" -%}
   {%- assign page_paths = site.header_pages | default: default_paths -%}
   <div class="site-badge">
+  {% unless page.toc == false %}
     <div id="toc-collapse-btn">
       <i class="fas fa-ellipsis-v"></i>
     </div>
+  {% endunless %}
     <span class="logz-logo">
     <a href="https://logz.io/" alt="Logz.io logo" target="_top">
       <img class="logz-logo" alt="Logz.io logo" src="{{site.baseurl}}/images/logo/logz-logo.svg" height="35">

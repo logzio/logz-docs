@@ -48,3 +48,9 @@ $( function() {
 
 // accordion test to expand the section you're writing. comment this out when you're done writing.
 // $( function() { $('.accordion').accordion({ active: 3 }) });
+
+$( function() {
+  $('#toc-collapse-btn').click( function() {
+    $('.toc-container').toggle('slide');
+  });
+});

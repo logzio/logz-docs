@@ -1,7 +1,10 @@
 <footer>
-  <div class="copyright-footer">
+  <div class="copyright">
+    &copy; {{ site.copyright }}
+  </div>
+
+  <div class="footer-links">
     <ul class="horizontal-list">
-      {% if site.copyright %}<li>&copy; {{ site.copyright }}</li>{% endif %}
       <li><a href="https://logz.io/about-us/privacy-policy/" target="_top">Privacy policy</a></li>
       <li><a href="https://logz.io/about-us/terms-of-use/" target="_top">Terms of use</a></li>
       <li><a href="{{ site.baseurl }}/credits.html" target="_top">Contributors & credits</a></li>

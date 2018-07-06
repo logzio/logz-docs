@@ -14,7 +14,7 @@
 
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 
 div.big-container, div.home-page-container {
@@ -24,6 +24,7 @@ div.big-container, div.home-page-container {
     "toc content";
   grid-column-gap: 50px;
   align-items: start;
+  margin-right: 50px;
 }
 
 header {
@@ -50,8 +51,9 @@ footer {
   /* flex */
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
   align-items: center;
 
   /* position & style */
@@ -81,6 +83,8 @@ div.body-container {
 
 div.card-container {
   max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.body-container, div.card-container {
@@ -89,6 +93,68 @@ div.body-container, div.card-container {
   margin-top: 2rem;
   grid-area: content;
   justify-self: start;
+}
+
+/* media queries */
+
+@media (max-width: 630px) {
+  #log-in {
+    display: none;
+  }
+}
+
+@media (max-width: 975px) {
+  header, footer {
+    padding: 0 10px;
+  }
+
+  div.site-badge {
+    min-width: 145px !important;
+  }
+
+  div.big-container, div.home-page-container {
+    display: block;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  div#toc-collapse-btn {
+    display: inline-block !important;
+  }
+
+  div.toc-container {
+    position: absolute;
+    width: 300px;
+    display: none;
+    top: 45px;
+    left: 0;
+  }
+
+  div.site-badge img.logz-logo {
+    display: none;
+  }
+
+  div.site-badge img.logz-symbol {
+    display: inline !important;
+  }
+}
+
+@media (max-width: 1210px) {
+  nav.site-links {
+    display: none;
+  }
+
+  nav.site-actions {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1440px) {
+  div.body-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
 /* ===== DOCS HOME CARDS ===== */
@@ -101,6 +167,7 @@ div.cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 div.card {
@@ -629,15 +696,31 @@ div.info-box.tip > p::before {
 
 /* ===== SITE HEADER ===== */
 
+div#toc-collapse-btn {
+  min-width: 50px;
+  height: 44px;
+  text-align: center;
+  vertical-align: center;
+  display: none;
+}
+
+div#toc-collapse-btn * {
+  vertical-align: middle;
+}
+
 div.site-badge {
   min-width: 190px;
-  max-width: 190px;
+  max-width: 230px;
   min-height: 35px;
   max-height: 35px;
 }
 
 div.site-badge img {
   vertical-align: middle;
+}
+
+div.site-badge img.logz-symbol {
+  display: none;
 }
 
 span.docs-home-link {
@@ -658,6 +741,10 @@ div.site-badge a:hover {
 
 nav.site-links, nav.site-actions {
   font-size: .85rem;
+}
+
+nav.site-actions ul {
+  padding-left: 0;
 }
 
 nav.site-links li, nav.site-actions li {
@@ -690,9 +777,16 @@ footer * {
   display: inline-block;
 }
 
-footer li {
+footer > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer li:not(:last-child), div.copyright-footer > div {
   margin-right: 1.25rem;
 }
+
+
 
 div.social-icons li.icon {
   font-size: 1.25rem;

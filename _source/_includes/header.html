@@ -2,9 +2,15 @@
   {%- assign default_paths = site.pages | map: "path" -%}
   {%- assign page_paths = site.header_pages | default: default_paths -%}
   <div class="site-badge">
+  {% unless page.toc == false %}
+    <div id="toc-collapse-btn">
+      <i class="fas fa-ellipsis-v"></i>
+    </div>
+  {% endunless %}
     <span class="logz-logo">
     <a href="https://logz.io/" alt="Logz.io logo" target="_top">
-      <img class="logz-logo" alt="Logz.io logo" src="https://logz.io/wp-content/themes/Avada-Child-Theme/images/logz-logo.svg" height="35">
+      <img class="logz-logo" alt="Logz.io logo" src="{{site.baseurl}}/images/logo/logz-logo.svg" height="35">
+      <img class="logz-symbol" alt="Logz.io logo" src="{{site.baseurl}}/images/logo/logz-symbol.svg" height="35">
     </a>
     </span>
 
@@ -26,7 +32,7 @@
     {% unless page.searchbox == false %}
       <li>{% include lunr-header.html %}</li>
     {% endunless %}
-      <li><a href="https://app.logz.io" target="_top">Log In</a></li>
+      <li id="log-in"><a href="https://app.logz.io" target="_top">Log In</a></li>
     </ul>
   </nav>
 {% include lunr-results.html %}

@@ -2,8 +2,8 @@
 layout: article
 title: Log shipping troubleshooting
 contributors:
-  - jschnitzer
-  - sboroda
+  - schwin007
+  - imnotashrimp
 ---
 
 The process of getting logs from your system to Logz.io can be tricky, and it can be difficult to pinpoint the exact issue. In this article, we'll walk through troubleshooting some common problems.

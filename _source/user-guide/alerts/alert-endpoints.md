@@ -2,7 +2,7 @@
 layout: article
 title: Alert endpoints
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 Alert endpoints can receive notifications when an alert is triggered, a user shares a Kibana object, or when Logz.io finds new insights in your logs. Logz.io supports sending notifications to BigPanda, Datadog, PagerDuty, Slack, VictorOps, and your own custom endpoint.

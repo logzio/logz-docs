@@ -2,7 +2,7 @@
 layout: article
 title: Kibana
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 When you first sign in to Logz.io, you'll find yourself at the Discover page. You can use the Discover page to filter recent logs, search for specific events, and create alerts based on your search queries.

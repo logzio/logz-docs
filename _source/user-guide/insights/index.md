@@ -2,7 +2,7 @@
 layout: article
 title: Insights
 contributors:
-  - sboroda
+  - imnotashrimp
   - ayigal
 ---
 

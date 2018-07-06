@@ -2,7 +2,7 @@
 layout: article
 title: Manage the main account
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 Users in your main account have access to your data in sub accounts and timeless accounts. Admin users of the main account also have these permissions:

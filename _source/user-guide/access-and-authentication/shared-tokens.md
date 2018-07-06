@@ -2,8 +2,8 @@
 layout: article
 title: Shared tokens
 contributors:
-  - sboroda
-  - dberman
+  - imnotashrimp
+  - proudboffin
 ---
 
 Using shared tokens, you can share Kibana visualization and dashboard snapshots. If your plan includes API access, you can also use shared tokens for your integrations.

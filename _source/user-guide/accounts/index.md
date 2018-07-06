@@ -2,7 +2,7 @@
 layout: article
 title: Accounts
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 Each Logz.io plan has one main account, from which admin users can create and manage sub accounts. You can control access to different sets of data by shipping your logs to different sub accounts, each with its own set of users who can access it.

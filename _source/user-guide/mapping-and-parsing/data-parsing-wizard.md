@@ -2,9 +2,9 @@
 layout: article
 title: The data parsing wizard
 contributors:
-  - aduani
-  - tdrios
-  - sboroda
+  - amosd92
+  - tdelrios
+  - imnotashrimp
 ---
 
 Parsing is the process of breaking down your log message into smaller chunks of data, placing each chunk into its own specific named field, and enriching data with additional information such as geolocation. Parsed logs can be more easily analyzed than raw data, allowing you to create rich visualizations and helpful alerts.

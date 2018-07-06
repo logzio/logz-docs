@@ -2,7 +2,7 @@
 layout: article
 title: Configure alerts
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 To create a new alert, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Alert page, where you can configure the alert and notification settings.

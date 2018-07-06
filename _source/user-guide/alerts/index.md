@@ -2,7 +2,7 @@
 layout: article
 title: Alerts
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 Logz.io alerts are based on a search query in Kibana. By customizing alerts and setting threshold levels, you can ensure that you're notified of critical events. You can still see non-urgent events in Kibana, reducing alert fatigue while still having a complete view of noteworthy events.

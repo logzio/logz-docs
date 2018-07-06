@@ -2,7 +2,7 @@
 layout: article
 title: Manage sub accounts
 contributors:
-  - sboroda
+  - imnotashrimp
   - ayigal
 ---
 

@@ -50,8 +50,9 @@ footer {
   /* flex */
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
   align-items: center;
 
   /* position & style */
@@ -100,7 +101,7 @@ div.body-container, div.card-container {
 }
 
 @media (max-width: 975px) {
-  header {
+  header, footer {
     padding: 0 10px;
   }
 
@@ -763,9 +764,16 @@ footer * {
   display: inline-block;
 }
 
-footer li {
+footer > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer li:not(:last-child), div.copyright-footer > div {
   margin-right: 1.25rem;
 }
+
+
 
 div.social-icons li.icon {
   font-size: 1.25rem;

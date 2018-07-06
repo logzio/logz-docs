@@ -83,6 +83,8 @@ div.body-container {
 
 div.card-container {
   max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.body-container, div.card-container {
@@ -111,8 +113,7 @@ div.body-container, div.card-container {
   }
 
   div.big-container, div.home-page-container {
-    grid-template-columns: 100%;
-    grid-template-areas: "content";
+    display: block;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -149,6 +150,13 @@ div.body-container, div.card-container {
   }
 }
 
+@media (min-width: 1440px) {
+  div.body-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
 /* ===== DOCS HOME CARDS ===== */
 
 div.card-container a {
@@ -159,6 +167,7 @@ div.cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 div.card {

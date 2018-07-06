@@ -80,9 +80,9 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
 
 We like to give contributors credit for their work, so go ahead and add yourself as a contributor in your first pull request.
 
-1. In the logz-docs folder on your machine, find the contributors folder (`logz-docs/_source/logzio_collections/_contributors`). Add a new Markdown file with your first initial and last name, and the `.md` extension. 
+1. In the logz-docs folder on your machine, find the contributors folder (`logz-docs/_source/logzio_collections/_contributors`). Add a new Markdown file named with your GitHub username and the `.md` extension. 
 
-    So if your name is Allen Grant, your file is named `agrant.md`. This is your identifier.
+    So if your GitHub username is agrant, your file is named `agrant.md`. This is your identifier when you contribute to docs.
 
 2. Copy this YAML content to the file, and add your information. If something doesn't apply to you, delete the line:
 
@@ -98,9 +98,9 @@ We like to give contributors credit for their work, so go ahead and add yourself
 
 3. Save and commit.
 
-4. Include this file when you make your first pull request. If you're authoring a file, add your identifier to the `contributors` list (first name, last initial). 
+4. Include this file when you make your first pull request. If you're authoring a file, add your identifier to the `contributors` list (GitHub username).
 
-    So if your name is Ian Malcolm, you'll add `- imalcolm` to the `contributors` list.
+    So if your username is chaostheory, you'll add `- chaostheory` to the `contributors` list.
 
 ## Previewing locally
 

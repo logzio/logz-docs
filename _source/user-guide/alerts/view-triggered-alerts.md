@@ -2,7 +2,7 @@
 layout: article
 title: View triggered alerts
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 Logz.io creates a log entry every time an alert is triggered, even if no notification is sent out. So if an alert is triggered while notifications are suppressed, or if you configured a non-critical alert without notifications, the alert is still logged.

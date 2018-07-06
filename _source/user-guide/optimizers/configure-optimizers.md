@@ -2,7 +2,7 @@
 layout: article
 title: Configure optimizers
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 To create a new optimizer, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Optimizer page, where you can configure the optimizer settings.

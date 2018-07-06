@@ -2,8 +2,8 @@
 layout: article
 title: Built-in log types
 contributors:
-  - jschnitzer
-  - sboroda
+  - schwin007
+  - imnotashrimp
 ---
 
 The `type` field identifies your log type. Logz.io parses logs based on `type`. For example, if a log type is `apache_access`, Logz.io automatically parses these logs as Apache access logs.

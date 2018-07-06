@@ -2,7 +2,7 @@
 layout: article
 title: Manage users
 contributors: 
-  - sboroda
+  - imnotashrimp
 ---
 
 To maintain your account's security, account admins can add and remove users as needed. You can change users' access permissions at any time.

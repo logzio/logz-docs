@@ -2,7 +2,7 @@
 layout: article
 title: Insights notifications
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 You can configure Logz.io to send a notification when new insights are discovered. The notificaton endpoints that you use for alerts are also available for Insights.

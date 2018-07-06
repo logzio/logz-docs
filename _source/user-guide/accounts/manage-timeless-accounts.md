@@ -2,7 +2,7 @@
 layout: article
 title: Manage timeless accounts
 contributors:
-  - sboroda
+  - imnotashrimp
   - ayigal
 ---
 

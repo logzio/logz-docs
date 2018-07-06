@@ -2,9 +2,9 @@
 layout: article
 title: Markers
 contributors:
-  - sboroda
-  - dberman
-  - qanx
+  - imnotashrimp
+  - proudboffin
+  - quintessence
 ---
 
 To help you understand the context surrounding your insights, you can add markers. Markers reflect significant events that could be potential catalysts for issues, such as new deployments, rollbacks, and specific alerts that may have been triggered.

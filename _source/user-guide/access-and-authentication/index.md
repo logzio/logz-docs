@@ -2,7 +2,7 @@
 layout: article
 title: Access and authentication
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 If you're an account administrator, you can manage user and API access to data in your main account, sub accounts, and timeless accounts.

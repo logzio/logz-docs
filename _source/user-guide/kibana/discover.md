@@ -2,7 +2,7 @@
 layout: article
 title: Discover
 contributors:
-  - sboroda
+  - imnotashrimp
   - ayigal
 ---
 

@@ -3,7 +3,7 @@ layout: article
 title: Terms and concepts
 collection: getting-started
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
   Application Insights

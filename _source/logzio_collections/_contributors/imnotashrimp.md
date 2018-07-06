@@ -1,6 +1,6 @@
 ---
 title: Shalom Boroda
-linkedin: sboroda
+linkedin: imnotashrimp
 github: imnotashrimp
 
 logzio-role: Keeper of the Docs

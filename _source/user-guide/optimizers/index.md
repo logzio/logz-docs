@@ -2,7 +2,7 @@
 layout: article
 title: Optimizers
 contributors:
-  - sboroda
+  - imnotashrimp
 ---
 
 Optimizers are query-based rules that allow you to store logs and aggregations to a timeless account for extended retention. This way, you can retain important data for as long as you like for long term visibility. 

@@ -2,8 +2,8 @@
 layout: article
 title: Exploring insights
 contributors:
-  - dberman
-  - sboroda
+  - proudboffin
+  - imnotashrimp
 ---
 
 The insights chart at the top of the page shows a 7-day summary summary of all the different identified insights. Both Application Insights and Cognitive Insights are included in the chart.

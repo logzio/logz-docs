@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Access and authentication
+permalink: /user-guide/access-and-authentication/
 contributors:
   - imnotashrimp
 ---

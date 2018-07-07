@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Alert endpoints
+permalink: /user-guide/alerts/alert-endpoints.html
 contributors:
   - imnotashrimp
 ---

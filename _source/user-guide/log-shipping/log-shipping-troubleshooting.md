@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Log shipping troubleshooting
+permalink: /user-guide/log-shipping/log-shipping-troubleshooting.html
 contributors:
   - schwin007
   - imnotashrimp

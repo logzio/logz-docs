@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Manage timeless accounts
+permalink: /user-guide/accounts/manage-timeless-accounts.html
 contributors:
   - imnotashrimp
   - ayigal

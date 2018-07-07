@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Alerts
+permalink: /user-guide/alerts/
 contributors:
   - imnotashrimp
 ---

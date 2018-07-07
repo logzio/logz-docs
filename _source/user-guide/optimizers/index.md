@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Optimizers
+permalink: /user-guide/optimizers/
 contributors:
   - imnotashrimp
 ---

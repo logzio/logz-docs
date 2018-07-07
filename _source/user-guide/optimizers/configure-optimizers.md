@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Configure optimizers
+permalink: /user-guide/optimizers/configure-optimizers.html
 contributors:
   - imnotashrimp
 ---

@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Insights notifications
+permalink: /user-guide/insights/insights-notifications.html
 contributors:
   - imnotashrimp
 ---

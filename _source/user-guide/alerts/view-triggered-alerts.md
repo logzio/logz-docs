@@ -1,6 +1,7 @@
 ---
 layout: article
 title: View triggered alerts
+permalink: /user-guide/alerts/view-triggered-alerts.html
 contributors:
   - imnotashrimp
 ---

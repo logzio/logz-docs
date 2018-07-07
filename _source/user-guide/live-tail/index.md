@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Live Tail
+permalink: /user-guide/live-tail/
 contributors:
   - imnotashrimp
 ---

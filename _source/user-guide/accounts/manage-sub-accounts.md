@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Manage sub accounts
+permalink: /user-guide/accounts/manage-sub-accounts.html
 contributors:
   - imnotashrimp
   - ayigal

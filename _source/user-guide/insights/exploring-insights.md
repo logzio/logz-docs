@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Exploring insights
+permalink: /user-guide/insights/exploring-insights.html
 contributors:
   - proudboffin
   - imnotashrimp

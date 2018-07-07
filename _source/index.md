@@ -2,6 +2,7 @@
 layout: docs-home
 title: Logz.io Docs
 search: false
+permalink: /index.html
 cards:
   # - title: Logz.io overview
     # description: Get comfortable with Logz.io and the ELK stack

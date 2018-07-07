@@ -1,6 +1,7 @@
 ---
 layout: article
 title: The data parsing wizard
+permalink: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 contributors:
   - amosd92
   - tdelrios

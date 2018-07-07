@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Accounts
+permalink: /user-guide/accounts/
 contributors:
   - imnotashrimp
 ---

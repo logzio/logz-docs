@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Insights
+permalink: /user-guide/insights/
 contributors:
   - imnotashrimp
   - ayigal

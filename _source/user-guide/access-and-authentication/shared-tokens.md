@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Shared tokens
+permalink: /user-guide/access-and-authentication/shared-tokens.html
 contributors:
   - imnotashrimp
   - proudboffin

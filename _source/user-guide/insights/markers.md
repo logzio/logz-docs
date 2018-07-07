@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Markers
+permalink: /user-guide/insights/markers.html
 contributors:
   - imnotashrimp
   - proudboffin

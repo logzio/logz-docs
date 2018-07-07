@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Discover
+permalink: /user-guide/kibana/discover.html
 contributors:
   - imnotashrimp
   - ayigal

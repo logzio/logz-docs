@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Configure alerts
+permalink: /user-guide/alerts/configure-alerts.html
 contributors:
   - imnotashrimp
 ---

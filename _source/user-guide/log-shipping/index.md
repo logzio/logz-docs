@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Log shipping
+permalink: /user-guide/log-shipping/
 contributors:
   - imnotashrimp
   - schwin007

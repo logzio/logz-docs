@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Kibana
+permalink: /user-guide/kibana/
 contributors:
   - imnotashrimp
 ---

@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Built-in log types
+permalink: /user-guide/log-shipping/built-in-log-types.html
 contributors:
   - schwin007
   - imnotashrimp

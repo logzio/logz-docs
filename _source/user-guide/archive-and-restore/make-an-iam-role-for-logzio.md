@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Make an IAM role for Logz.io
+permalink: /user-guide/archive-and-restore/make-an-iam-role-for-logzio.html
 contributors:
   - davidyer
   - imnotashrimp

@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Manage users
+permalink: /user-guide/access-and-authentication/manage-users.html
 contributors: 
   - imnotashrimp
 ---

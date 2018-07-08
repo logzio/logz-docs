@@ -11,9 +11,11 @@ We merge the `develop` branch as needed. Docs are released to docs.logz.io from 
 
 * [Contributions](#contributions)
   * [What pull requests we can't merge](#what-pull-requests-we-cant-merge)
+  * [Community guidelines](#community-guidelines)
 * [Setup](#setup)
   * [Making your first pull request](#making-your-first-pull-request)
 * [Previewing locally](#previewing-locally)
+* [Keeping your fork synchronized](#keeping-your-fork-synchronized)
 * [Working in Markdown](#working-in-markdown)
   * [Headings](#headings)
   * [Procedures](#procedures)
@@ -41,6 +43,10 @@ We need to reject any pull requests that include these changes:
 If you want to suggest a change or report an error in any of these files, please [open an issue](https://github.com/logzio/logz-docs/issues/new?template=docs-issue.md).
 
 Please note we reserve the right to decline a pull request for any reason.
+
+### Community guidelines
+
+Please review the [Logz.io Community Code of Conduct](CODE_OF_CONDUCT.md)
 
 ## Setup
 
@@ -116,6 +122,28 @@ We also ask that you check your work for errors and readability.
 1. Run `jekyll serve`
 
 2. Point your browser to [http://localhost:4000/](http://localhost:4000/)
+
+## Keeping your fork synchronized
+
+If you want to continue contributing, you'll need to keep your fork up to date with the logz-docs repo. This is a pretty simple process.
+
+**To set logz-docs as a remote upstream repo:**
+
+You'll only need to do this once. After this, you can simply pull remote changes into your local fork.
+
+1. Open a terminal window, and `cd` into your logz-docs fork folder.
+2. Add logzio/logz-docs as a remote upstream repo:
+    ```shell
+    git remote add upstream https://github.com/logzio/logz-docs.git
+    git fetch upstream
+    ```
+
+**To pull changes from logz-docs into your fork:**
+
+1. Open a terminal window, and `cd` into your logz-docs fork folder.
+2. Checkout the develop branch: `git checkout develop`
+3. Pull the logzio/logz-docs develop branch: `git pull upstream develop`
+4. Push the updated develop branch to your GitHub repo: `git push`
 
 ## Working in Markdown
 

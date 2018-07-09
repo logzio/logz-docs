@@ -17,14 +17,13 @@ body {
   margin: 0 auto;
 }
 
-div.big-container, div.home-page-container {
-  display: grid;
-  grid-template-columns: 300px auto;
-  grid-template-areas:
-    "toc content";
-  grid-column-gap: 50px;
-  align-items: start;
-  margin-right: 50px;
+div.big-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
 }
 
 header {
@@ -67,18 +66,17 @@ footer {
 }
 
 div.toc-container {
-  grid-area: toc;
   align-self: stretch;
   background-color: #fafafa;
-  padding-left: 1rem;
-}
-
-div.full-width {
-  grid-column: 1 / -1 !important;
+  width: 300px;
 }
 
 div.body-container {
-  max-width: 800px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 div.card-container {
@@ -91,7 +89,6 @@ div.body-container, div.card-container {
   vertical-align: top;
   padding-bottom: 200px;
   margin-top: 2rem;
-  grid-area: content;
   justify-self: start;
 }
 
@@ -110,13 +107,6 @@ div.body-container, div.card-container {
 
   div.site-badge {
     min-width: 145px !important;
-  }
-
-  div.big-container, div.home-page-container {
-    display: block;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   div#toc-collapse-btn {
@@ -149,13 +139,6 @@ div.body-container, div.card-container {
 
   nav.site-actions {
     padding: 0;
-  }
-}
-
-@media (min-width: 1440px) {
-  div.body-container {
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 }
 
@@ -810,6 +793,7 @@ nav.all-pages-toc {
   height: 100%;
   margin: 0;
   top: 0;
+  padding-left: 25px;
 
   /* text */
   color: #53585f;

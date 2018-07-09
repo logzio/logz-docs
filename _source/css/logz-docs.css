@@ -766,7 +766,7 @@ footer > * {
   margin-right: auto;
 }
 
-footer li:not(:last-child), div.copyright-footer > div {
+footer li:not(:last-child) {
   margin-right: 1.25rem;
 }
 
@@ -905,7 +905,7 @@ div.contributor-list {
   align-self: flex-start;
 }
 
-/* ===== CONTRIBUTOR PROFILE PAGES ===== */
+/* ===== CONTRIBUTORS ===== */
 
 div.contributor-title {
   font-size: 1.2rem;
@@ -929,17 +929,18 @@ div.contributions {
 div.contributions ul {
   padding-left: 0;
   list-style-type: none;
+  margin-right: 5px;
 }
 
 div.contributions ul > li {
   padding-bottom: .5rem;
 }
 
-/* ===== GITHUB BUTTONS ===== */
+/* ===== COMMUNITY BUTTONS ===== */
 
-div.community-container a {
+div.community-container > a {
   display: inline-block;
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
 span.community.button svg {

@@ -124,11 +124,13 @@ div.body-container, div.card-container {
   }
 
   div.toc-container {
-    position: absolute;
+    position: fixed;
     width: 300px;
     display: none;
-    top: 45px;
+    top: 25px;
     left: 0;
+    bottom: 0;
+    overflow-y: auto;
   }
 
   div.site-badge img.logz-logo {

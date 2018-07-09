@@ -299,8 +299,7 @@ h6 {
 
 main.page-content img, main.page-content video {
   display: block;
-  max-width: 80%;
-  min-width: 400px;
+  max-width: 100%;
   margin: 1.5rem auto;
   border: 1px solid #296386;
   border-radius: 2px;

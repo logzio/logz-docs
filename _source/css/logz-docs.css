@@ -69,6 +69,7 @@ div.toc-container {
   align-self: stretch;
   background-color: #fafafa;
   width: 300px;
+  min-width: 300px;
 }
 
 div.body-container {
@@ -101,6 +102,8 @@ div.body-container, div.card-container {
 }
 
 @media (max-width: 975px) {
+/* toc hides at this size */
+
   header, footer {
     padding: 0 10px;
   }
@@ -113,10 +116,14 @@ div.body-container, div.card-container {
     display: inline-block !important;
   }
 
+  .toc-visibility {
+    visibility: hidden !important;
+  }
+
   div.toc-container {
     position: fixed;
     width: 300px;
-    display: none;
+    display: block;
     top: 25px;
     left: 0;
     bottom: 0;
@@ -783,6 +790,10 @@ a.atom-feed {
 }
 
 /* ===== ALL-PAGES TOC STYLING ===== */
+
+.toc-visibility {
+  visibility: visible;
+}
 
 nav.all-pages-toc {
   /* positioning */

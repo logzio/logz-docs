@@ -1,19 +1,21 @@
-<img width="400" src="_source/images/logo/logz-logo.svg">
+<img width="200" src="_source/images/logo/logz-logo.svg">
 
 
 # Logz.io Docs
 
-Welcome to the source repo for Logz.io Docs! Our site is built on Jekyll. 
+Welcome to the source repo for Logz.io Docs!
 
-We merge the `develop` branch as needed. Docs are released to docs.logz.io from `master`.
+Our site is built on Jekyll. We merge the `develop` branch as needed. Docs are released to docs.logz.io from `master`.
 
 #### Contents
 
 * [Contributions](#contributions)
   * [What pull requests we can't merge](#what-pull-requests-we-cant-merge)
+  * [Community guidelines](#community-guidelines)
 * [Setup](#setup)
   * [Making your first pull request](#making-your-first-pull-request)
 * [Previewing locally](#previewing-locally)
+* [Keeping your fork synchronized](#keeping-your-fork-synchronized)
 * [Working in Markdown](#working-in-markdown)
   * [Headings](#headings)
   * [Procedures](#procedures)
@@ -22,13 +24,13 @@ We merge the `develop` branch as needed. Docs are released to docs.logz.io from 
 
 ## Contributions
 
-Please follow the [Setup](#setup) instructions so you can start
+Please follow the [Setup](#setup) instructions so you can start.
 
 Submit all pull requests to the `develop` branch.
 
-If you just want to submit a quick edit suggestion, you can [open an issue](https://github.com/logzio/logz-docs/issues/new?template=docs-issue.md) or submit a pull request.
+If you just want to submit a quick edit suggestion, you can [open an issue](https://github.com/logzio/logz-docs/issues/new?template=docs-issue.md).
 
-Please preview your changes locally before submitting pull requests.
+Please [preview](#previewing-locally) your changes locally before submitting pull requests.
 
 ### What pull requests we can't merge
 
@@ -36,11 +38,15 @@ We need to reject any pull requests that include these changes:
 
   * Changes to our OpenAPI file
   * Changes to our config file
-  * Changes to contributors information other than your own
+  * Changes to contributor information, other than your own
 
 If you want to suggest a change or report an error in any of these files, please [open an issue](https://github.com/logzio/logz-docs/issues/new?template=docs-issue.md).
 
-Please note we reserve the right to decline a pull request for any reason.
+Please note we reserve the right to decline or change a pull request for any reason.
+
+### Community guidelines
+
+Please review the [Logz.io Community Code of Conduct](CODE_OF_CONDUCT.md)
 
 ## Setup
 
@@ -80,7 +86,7 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
 
 We like to give contributors credit for their work, so go ahead and add yourself as a contributor in your first pull request.
 
-1. In the logz-docs folder on your machine, find the contributors folder (`logz-docs/_source/logzio_collections/_contributors`). Add a new Markdown file named with your GitHub username and the `.md` extension. 
+1. Find the contributors folder on your machine at `logz-docs/_source/logzio_collections/_contributors`. Add a new Markdown file named with your GitHub username and the `.md` extension.
 
     So if your GitHub username is agrant, your file is named `agrant.md`. This is your identifier when you contribute to docs.
 
@@ -98,18 +104,18 @@ We like to give contributors credit for their work, so go ahead and add yourself
 
 3. Save and commit.
 
-4. Include this file when you make your first pull request. If you're authoring a file, add your identifier to the `contributors` list (GitHub username).
+4. Include this file when you make your first pull request. If you're authoring a file, add your identifier (GitHub username) to the `contributors` list.
 
     So if your username is chaostheory, you'll add `- chaostheory` to the `contributors` list.
 
 ## Previewing locally
 
-Before submitting pull requests, we ask that you preview your changes locally. This does a few things to help you catch mistakes:
+Before submitting pull requests, preview your changes locally. This does a few things to help you catch mistakes:
 
 * Seeing the formatted text, outside of a text editor and without all the markup, gives you a fresh look at your content.
 * You can be sure that your Markdown is formatted correctly and converts to HTML just as you meant it to.
 
-We also ask that you check your work for errors and readability.
+We ask that you check your work for errors and readability.
 
 **To preview locally:**
 
@@ -117,21 +123,50 @@ We also ask that you check your work for errors and readability.
 
 2. Point your browser to [http://localhost:4000/](http://localhost:4000/)
 
+## Keeping your fork synchronized
+
+If you want to continue contributing, you'll need to keep your fork up to date with the logz-docs repo. This is a pretty simple process.
+
+**To set logz-docs as a remote upstream repo:**
+
+You'll only need to do this once. After this, you can simply pull remote changes into your local fork.
+
+1. Open a terminal window, and `cd` into your logz-docs folder.
+2. Make sure you haven't already set your remote upstream: `git remote -v`
+
+    If you see two `origin` and two `upstream` lines, you already have an upstream repo. You can skip ahead 👇👇👇 and pull changes from logz-docs into your fork.
+
+3. Add logzio/logz-docs as a remote upstream repo:
+    ```shell
+    git remote add upstream https://github.com/logzio/logz-docs.git
+    git fetch upstream
+    ```
+
+**To pull changes from logz-docs into your fork:**
+
+1. Open a terminal window, and `cd` into your logz-docs folder.
+2. Checkout your local develop branch, pull the logzio/logz-docs develop branch, and push the updates to your fork:
+    ```shell
+    git checkout develop
+    git pull upstream develop
+    git push
+    ```
+
 ## Working in Markdown
 
 Logz.io docs use kramdown-flavored Markdown. Where possible, avoid HTML tags.
 
 Some notes:
 
-* Leave a blank line between blocks.
-* Indents are two spaces (not tabs). To nest blocks in a list, add another indent. This keeps nested items from breaking a list.
+* Leave a blank line between text blocks.
+* Indents are two spaces (not tabs). To nest blocks in a list, indent twice (four spaces). This keeps nested items from breaking a list.
 * You _can_ put Markdown formatting in an HTML container, but please preview your code locally to make sure nothing unexpected is happening with the HTML conversion.
 
 ### Headings
 
-* Our template reserves `#` (h1) for page titles. Don't use.
 * Use `##` through `#####` (h2 through h5) for normal headings.
 * Use `######` (h6) to introduce procedures and how-tos.
+* Our template reserves `#` (h1) for page titles. Don't use.
 
 ### Procedures
 
@@ -144,7 +179,7 @@ Some notes:
 
 Info boxes need a `<div class="info-box">` container.
 
-Info boxes come in 3 CSS classes: `note`, `tip`, `gotcha`, `warning`. CSS handles the styling and adds a header.
+Info boxes come in three CSS classes: `note`, `tip`, `gotcha`, `warning`. CSS handles the styling and adds a header.
 
 Indent content on its own lines between the `<div>` tags.
 

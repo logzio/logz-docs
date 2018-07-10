@@ -43,6 +43,6 @@ $( function() {
 
 $( function() {
   $('#toc-collapse-btn').click( function() {
-    $('.toc-container').toggle('slide');
+    $('.toc-container').toggleClass('toc-visibility');
   });
 });

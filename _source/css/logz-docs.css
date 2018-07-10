@@ -531,53 +531,66 @@ li.lunrsearchresult .url {
   font-size: .75rem;
 }
 
-/* ===== FEATURE BOXES ===== */
+/* ===== PAGE FLAGS ===== */
+
+div.page-flags {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  font-weight: 400;
+  font-size: .75rem;
+  line-height: 1rem;
+}
+
+.flag {
+  display: inline-block;
+  border-radius: 6px;
+  width: fit-content;
+  padding: 0 .35rem;
+  margin-top: 16px;
+  color: white;
+}
+
+.flag.admin {
+  color: #2e97e5;
+  border: 1px solid currentColor;
+}
+
+.flag.beta {
+  color: #ff971c;
+  border: 1px solid currentColor;
+}
+
+/* feature boxes */
 
 div.feature-box {
   width: fit-content;
-  border: 1px solid gray;
-  padding: 0 .5rem;
-  border-radius: 6px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: baseline;
-  color: #dfdfdf;
-  font-weight: 400;
-  font-size: .75rem;
-}
-
-div.feature-box > * {
-  flex: none;
 }
 
 div.feature-box > span {
-  margin-left: 20px;
+  margin-left: 10px;
+  padding: 0;
+  color: #dfdfdf;
 }
 
-.available-in {
-  color: gray;
-}
-
-div.feature-box > span::before {
-  font-family: "Font Awesome 5 Free";
-  white-space: pre;
-  font-size: 1rem;
-  content: "\f058";
-  margin-right: .3rem;
-  font-weight: 900;
-}
-
-span.community.yes {
+.feature-box.community .community-plan {
   color: #5eb4e5;
+  font-weight: 700;
 }
 
-span.pro.yes {
+.feature-box.pro .pro-plan, .feature-box.community .pro-plan {
   color: #ffbd1f;
+  font-weight: 700;
 }
 
-span.enterprise.yes {
+.feature-box.enterprise .enterprise-plan, .feature-box.pro .enterprise-plan, .feature-box.community .enterprise-plan {
   color: #53cbb2;
+  font-weight: 700;
 }
 
 /* ===== INFO BOXES ===== */
@@ -924,40 +937,46 @@ div.contributions ul > li {
 
 div.community-container > a {
   display: inline-block;
+  vertical-align: top;
   margin-right: 5px;
+  color: black;
 }
 
-span.community.button svg {
-  fill: currentColor;
+.community.button {
+  display: inline-block;
+}
+
+.community.button:not(.slackin) svg {
+  margin-top: 1px;
   margin-right: 1px;
-  margin-bottom: 2px;
 }
 
-span.community.button {
+.community.button:not(.slackin) {
+  padding-left: 5px;
+  padding-right: 5px;
+  background: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  height: 19px;
+}
+
+.community.button:not(.slackin) span {
   font-size: 11px;
   font-weight: 700;
-  padding: 3px 5px;
+  vertical-align: top;
 }
 
-span.community.button:hover {
-  border-bottom: 2px solid currentColor;
+.community.button:not(.slackin):hover {
+  background: linear-gradient(#eee, #ddd);
+  border-color: #ccc;
 }
 
-span.community.button.slackin {
-  border-bottom: none;
-  padding: 0;
+.community.button.edit svg {
+  fill: #2e97e5;
 }
 
-span.community.button * {
-  vertical-align: middle;
-}
-
-span.community.button.edit {
-  color: #2e97e5;
-}
-
-span.community.button.issue {
-  color: #d94141;
+.community.button.issue svg {
+  fill: #d94141;
 }
 
 /* ===== RELATED LINKS ===== */

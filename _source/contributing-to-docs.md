@@ -2,40 +2,32 @@
 layout: article
 title: Contributing to docs
 search: false
+flags:
+  admin: true
+  beta: true
+  logzio-plan: pro
 ---
 
-## Logz.io feature graphics
-To make a feature create, create an empty `<div class="feature-box">` container.
+### Page flags
 
-Like so: `<div class="feature-box"></div>`
+Page flags appear at the top of the page. They come in two groups.
 
-<div class="feature-box"></div>
+You can set page flags in the YAML front matter on each page under the `flags` object. Flags are only shown if they're included in the front matter.
 
-See that gray line? That's the feature box. This box has no content, so we'll add one of three classes (`enterprise`, `pro`, or `community`). A linked javascript file takes care of all the content. The samples below show how it's done.
+On the left, you'll see the labels of "Beta feature" and "Account admin only". These are set using the `beta` and `admin` properties:
 
-#### Enterprise plan
-
-```html
-<div class="feature-box enterprise"></div>
+```yaml
+flags:
+  admin: true
+  beta: true
 ```
-<p> </p>
-<div class="feature-box enterprise"></div>
 
-#### Pro plan
+On the right, you'll see the plans a feature is included in. To use the feature box, set the `logzio-plan` property to `community`, `enterprise`, or `pro`:
 
-```html
-<div class="feature-box pro"></div>
+```yaml
+flags:
+  logzio-plan: pro
 ```
-<p> </p>
-<div class="feature-box pro"></div>
-
-#### Community plan
-
-```html
-<div class="feature-box community"></div>
-```
-<p> </p>
-<div class="feature-box community"></div>
 
 ### Info boxes
 

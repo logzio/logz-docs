@@ -1,11 +1,3 @@
-// Auto-populate .feature-box divs. These are the "available in Pro, Enterprise, Community" graphics
-$(function() {
-  $('div.feature-box.enterprise').append('<div class="available-in">Available in</div><span class="community">Community</span><span class="pro">Pro</span><span class="enterprise yes">Enterprise</span>');
-  $('div.feature-box.pro').append('<div class="available-in">Available in</div><span class="community">Community</span><span class="pro yes">Pro</span><span class="enterprise yes">Enterprise</span>');
-  $('div.feature-box.community').append('<div class="available-in">Available in</div><span class="community yes">Community</span><span class="pro yes">Pro</span><span class="enterprise yes">Enterprise</span>');
-});
-
-
 // Auto-structure .info-box divs
 $( function() {
   $('div.info-box').wrapInner('<p></p>');

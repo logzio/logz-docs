@@ -17,14 +17,13 @@ body {
   margin: 0 auto;
 }
 
-div.big-container, div.home-page-container {
-  display: grid;
-  grid-template-columns: 300px auto;
-  grid-template-areas:
-    "toc content";
-  grid-column-gap: 50px;
-  align-items: start;
-  margin-right: 50px;
+div.big-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
 }
 
 header {
@@ -67,18 +66,17 @@ footer {
 }
 
 div.toc-container {
-  grid-area: toc;
   align-self: stretch;
   background-color: #fafafa;
-  padding-left: 1rem;
-}
-
-div.full-width {
-  grid-column: 1 / -1 !important;
+  width: 300px;
 }
 
 div.body-container {
-  max-width: 800px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 div.card-container {
@@ -91,7 +89,6 @@ div.body-container, div.card-container {
   vertical-align: top;
   padding-bottom: 200px;
   margin-top: 2rem;
-  grid-area: content;
   justify-self: start;
 }
 
@@ -112,23 +109,18 @@ div.body-container, div.card-container {
     min-width: 145px !important;
   }
 
-  div.big-container, div.home-page-container {
-    display: block;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   div#toc-collapse-btn {
     display: inline-block !important;
   }
 
   div.toc-container {
-    position: absolute;
+    position: fixed;
     width: 300px;
     display: none;
-    top: 45px;
+    top: 25px;
     left: 0;
+    bottom: 0;
+    overflow-y: auto;
   }
 
   div.site-badge img.logz-logo {
@@ -147,13 +139,6 @@ div.body-container, div.card-container {
 
   nav.site-actions {
     padding: 0;
-  }
-}
-
-@media (min-width: 1440px) {
-  div.body-container {
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 }
 
@@ -297,8 +282,7 @@ h6 {
 
 main.page-content img, main.page-content video {
   display: block;
-  max-width: 80%;
-  min-width: 400px;
+  max-width: 100%;
   margin: 1.5rem auto;
   border: 1px solid #296386;
   border-radius: 2px;
@@ -547,69 +531,66 @@ li.lunrsearchresult .url {
   font-size: .75rem;
 }
 
-/* ===== FEATURE BOXES ===== */
+/* ===== PAGE FLAGS ===== */
+
+div.page-flags {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  font-weight: 400;
+  font-size: .75rem;
+  line-height: 1rem;
+}
+
+.flag {
+  display: inline-block;
+  border-radius: 6px;
+  width: fit-content;
+  padding: 0 .35rem;
+  margin-top: 16px;
+  color: white;
+}
+
+.flag.admin {
+  color: #2e97e5;
+  border: 1px solid currentColor;
+}
+
+.flag.beta {
+  color: #ff971c;
+  border: 1px solid currentColor;
+}
+
+/* feature boxes */
 
 div.feature-box {
-  width: 300px;
-  border: 1px solid gray;
-  margin: auto;
-  padding: 0 .5rem;
-  border-radius: 10px;
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas:
-    "availability availability availability"
-    "community pro enterprise";
-  color: #dfdfdf;
+  width: fit-content;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: baseline;
 }
 
 div.feature-box > span {
-  text-align: center;
-  font-weight: 400;
-  font-size: .75rem;
+  margin-left: 10px;
+  padding: 0;
+  color: #dfdfdf;
 }
 
-span.available-in {
-  grid-area: availability;
-  color: gray;
-}
-
-span.available-in::before {
-  content: "" !important;
-}
-
-div.feature-box > span::before {
-  font-family: "Font Awesome 5 Free";
-  white-space: pre;
-  font-size: 1rem;
-  content: "\f058";
-  margin-right: .3rem;
-  font-weight: 900;
-}
-
-span.community {
-  grid-area: community;
-}
-
-span.community.yes {
+.feature-box.community .community-plan {
   color: #5eb4e5;
+  font-weight: 700;
 }
 
-span.pro {
-  grid-area: pro;
-}
-
-span.pro.yes {
+.feature-box.pro .pro-plan, .feature-box.community .pro-plan {
   color: #ffbd1f;
+  font-weight: 700;
 }
 
-span.enterprise {
-  grid-area: enterprise;
-}
-
-span.enterprise.yes {
+.feature-box.enterprise .enterprise-plan, .feature-box.pro .enterprise-plan, .feature-box.community .enterprise-plan {
   color: #53cbb2;
+  font-weight: 700;
 }
 
 /* ===== INFO BOXES ===== */
@@ -782,7 +763,7 @@ footer > * {
   margin-right: auto;
 }
 
-footer li:not(:last-child), div.copyright-footer > div {
+footer li:not(:last-child) {
   margin-right: 1.25rem;
 }
 
@@ -809,6 +790,7 @@ nav.all-pages-toc {
   height: 100%;
   margin: 0;
   top: 0;
+  padding-left: 25px;
 
   /* text */
   color: #53585f;
@@ -920,7 +902,7 @@ div.contributor-list {
   align-self: flex-start;
 }
 
-/* ===== CONTRIBUTOR PROFILE PAGES ===== */
+/* ===== CONTRIBUTORS ===== */
 
 div.contributor-title {
   font-size: 1.2rem;
@@ -929,8 +911,8 @@ div.contributor-title {
 
 div.contributor.icons {
   font-size: 1.5rem;
-  padding-top: 1.5rem;
-  padding-bottom: .25rem;
+  padding-bottom: 1.5rem;
+  padding-top: .25rem;
 }
 
 div.contributor.icons a {
@@ -944,50 +926,57 @@ div.contributions {
 div.contributions ul {
   padding-left: 0;
   list-style-type: none;
+  margin-right: 5px;
 }
 
 div.contributions ul > li {
   padding-bottom: .5rem;
 }
 
-/* ===== GITHUB BUTTONS ===== */
+/* ===== COMMUNITY BUTTONS ===== */
 
-div.community-container a {
+div.community-container > a {
   display: inline-block;
-  margin-left: 5px;
+  vertical-align: top;
+  margin-right: 5px;
+  color: black;
 }
 
-span.community.button svg {
-  fill: currentColor;
+.community.button {
+  display: inline-block;
+}
+
+.community.button:not(.slackin) svg {
+  margin-top: 1px;
   margin-right: 1px;
-  margin-bottom: 2px;
 }
 
-span.community.button {
+.community.button:not(.slackin) {
+  padding-left: 5px;
+  padding-right: 5px;
+  background: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  height: 19px;
+}
+
+.community.button:not(.slackin) span {
   font-size: 11px;
   font-weight: 700;
-  padding: 3px 5px;
+  vertical-align: top;
 }
 
-span.community.button:hover {
-  border-bottom: 2px solid currentColor;
+.community.button:not(.slackin):hover {
+  background: linear-gradient(#eee, #ddd);
+  border-color: #ccc;
 }
 
-span.community.button.slackin {
-  border-bottom: none;
-  padding: 0;
+.community.button.edit svg {
+  fill: #2e97e5;
 }
 
-span.community.button * {
-  vertical-align: middle;
-}
-
-span.community.button.edit {
-  color: #2e97e5;
-}
-
-span.community.button.issue {
-  color: #d94141;
+.community.button.issue svg {
+  fill: #d94141;
 }
 
 /* ===== RELATED LINKS ===== */

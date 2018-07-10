@@ -534,33 +534,29 @@ li.lunrsearchresult .url {
 /* ===== FEATURE BOXES ===== */
 
 div.feature-box {
-  width: 300px;
+  width: fit-content;
   border: 1px solid gray;
-  margin: auto;
   padding: 0 .5rem;
-  border-radius: 10px;
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas:
-    "availability availability availability"
-    "community pro enterprise";
+  border-radius: 6px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: baseline;
   color: #dfdfdf;
-}
-
-div.feature-box > span {
-  text-align: center;
   font-weight: 400;
   font-size: .75rem;
 }
 
-span.available-in {
-  grid-area: availability;
-  color: gray;
+div.feature-box > * {
+  flex: none;
 }
 
-span.available-in::before {
-  content: "" !important;
+div.feature-box > span {
+  margin-left: 20px;
+}
+
+.available-in {
+  color: gray;
 }
 
 div.feature-box > span::before {
@@ -572,24 +568,12 @@ div.feature-box > span::before {
   font-weight: 900;
 }
 
-span.community {
-  grid-area: community;
-}
-
 span.community.yes {
   color: #5eb4e5;
 }
 
-span.pro {
-  grid-area: pro;
-}
-
 span.pro.yes {
   color: #ffbd1f;
-}
-
-span.enterprise {
-  grid-area: enterprise;
 }
 
 span.enterprise.yes {

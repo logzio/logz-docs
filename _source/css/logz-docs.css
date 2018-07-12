@@ -552,7 +552,7 @@ div.page-flags {
 
 .flag {
   display: inline-block;
-  border-radius: 6px;
+  border-radius: 15px;
   width: fit-content;
   padding: 0 .35rem;
   margin-top: 16px;

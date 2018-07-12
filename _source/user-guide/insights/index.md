@@ -2,6 +2,8 @@
 layout: article
 title: Insights
 permalink: /user-guide/insights/
+flags:
+  logzio-plan: community
 contributors:
   - imnotashrimp
   - ayigal

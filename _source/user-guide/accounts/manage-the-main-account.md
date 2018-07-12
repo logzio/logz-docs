@@ -2,6 +2,9 @@
 layout: article
 title: Manage the main account
 permalink: /user-guide/accounts/manage-the-main-account.html
+flags:
+  admin: true
+  logzio-plan: community
 contributors:
   - imnotashrimp
 ---

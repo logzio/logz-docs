@@ -2,6 +2,9 @@
 layout: article
 title: Shared tokens
 permalink: /user-guide/access-and-authentication/shared-tokens.html
+flags:
+  admin: true
+  logzio-plan: enterprise
 contributors:
   - imnotashrimp
   - proudboffin

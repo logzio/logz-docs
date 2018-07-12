@@ -2,6 +2,8 @@
 layout: article
 title: View triggered alerts
 permalink: /user-guide/alerts/view-triggered-alerts.html
+flags:
+  logzio-plan: community
 contributors:
   - imnotashrimp
 ---

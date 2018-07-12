@@ -117,7 +117,7 @@ div.body-container, div.card-container {
   }
 
   .toc-visibility {
-    visibility: hidden !important;
+    display: none !important;
   }
 
   div.toc-container {
@@ -792,7 +792,7 @@ a.atom-feed {
 /* ===== ALL-PAGES TOC STYLING ===== */
 
 .toc-visibility {
-  visibility: visible;
+  display: auto;
 }
 
 nav.all-pages-toc {

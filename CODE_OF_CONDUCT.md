@@ -40,11 +40,7 @@ You can reach us at [community@logz.io](mailto:community@logz.io) or anonymously
 
 #### How to Report on Slack
 
-This method should only be used if the policy violation happens in our Slack org. Please either DM the admins (@quintessence and @daniel) or report via email or web as above. If you need to link to a message in Slack, please find and share the message and copy the link, as shown:
-
-![Slack share message button](images/link-slack-msg-step1.png)
-
-![Slack copy a message link](images/link-slack-msg-step2.png)
+This method should only be used if the policy violation happens in our Slack org. Please either DM the admins (@quintessence and @daniel) or report via email or web as above. If you need to link to a message in Slack, please find and share the message and copy the link.
 
 Policy violations in our Slack org don't need to be reported in Slack. If you submit a policy violation from Slack to either our email alias or via the [form](https://goo.gl/forms/FiL1lv18yYb2R5ln2), please still include a link to the violation so we can find it and handle it efficiently.
 

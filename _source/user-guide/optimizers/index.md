@@ -2,6 +2,9 @@
 layout: article
 title: Optimizers
 permalink: /user-guide/optimizers/
+flags:
+  beta: true
+  logzio-plan: pro
 contributors:
   - imnotashrimp
 ---

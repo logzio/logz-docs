@@ -2,6 +2,8 @@
 layout: article
 title: Markers
 permalink: /user-guide/insights/markers.html
+flags:
+  logzio-plan: community
 contributors:
   - imnotashrimp
   - proudboffin

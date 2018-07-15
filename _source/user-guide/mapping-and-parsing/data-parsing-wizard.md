@@ -2,6 +2,9 @@
 layout: article
 title: The data parsing wizard
 permalink: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+flags:
+  beta: true
+  logzio-plan: community
 contributors:
   - amosd92
   - tdelrios
@@ -10,17 +13,13 @@ contributors:
 
 Parsing is the process of breaking down your log message into smaller chunks of data, placing each chunk into its own specific named field, and enriching data with additional information such as geolocation. Parsed logs can be more easily analyzed than raw data, allowing you to create rich visualizations and helpful alerts.
 
-Parsing is not necessary for all types of logs. But if you use a custom or uncommon log type, parsing can be an invaluable tool. 
+Parsing is not necessary for all types of logs. But if you use a custom or uncommon log type, parsing can be an invaluable tool.
 
 You can analyze a set of sample logs in the data parsing wizard, simplifying the process.
 
 ![Data parsing wizard]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--data-parsing-wizard.png)
 
 You can find the data parsing wizard by selecting [**Log Shipping > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the top menu.
-
-<div class="info-box note">
-  The data parsing wizard is a beta feature.
-</div>
 
 ## Using the data parsing wizard
 

@@ -2,6 +2,9 @@
 layout: article
 title: Manage sub accounts
 permalink: /user-guide/accounts/manage-sub-accounts.html
+flags:
+  admin: true
+  logzio-plan: pro
 contributors:
   - imnotashrimp
   - ayigal
@@ -23,14 +26,14 @@ Sub accounts help you control data usage and manage user access to your logs. By
       If you need to increase these limits, please reach out to your Logz.io account executive.
     </div>
 
-2. To allow main account users to switch to this sub account, select **Enable main account users to access this account**. 
+3. To allow main account users to switch to this sub account, select **Enable main account users to access this account**. 
 
-3. To allow main account users to search this account's logs, select **Searchable from the main account**.
+4. To allow main account users to search this account's logs, select **Searchable from the main account**.
 
-4. To make account utilization metrics available in Kibana, select **Save account utilization metrics**, and choose a time interval (10, 30, or 60 minutes). If you select this check box, you can find utilization metrics in Kibana by searching for `type:logzio_account_utilization`.
+5. To make account utilization metrics available in Kibana, select **Save account utilization metrics**, and choose a time interval (10, 30, or 60 minutes). If you select this check box, you can find utilization metrics in Kibana by searching for `type:logzio_account_utilization`.
 
-5. To make the log size available in Kibana, select **Save log size**. If you select this check box, you can find log size in Kibana by searching for the `logSizeEnabled` field.
+6. To make the log size available in Kibana, select **Save log size**. If you select this check box, you can find log size in Kibana by searching for the `logSizeEnabled` field.
 
-6. To use Kibana visualizations and dashboards from other accounts, add accounts to the **Use objects from the selected accounts** box.
+7. To use Kibana visualizations and dashboards from other accounts, add accounts to the **Use objects from the selected accounts** box.
 
-7. Click **Apply** to save your changes.
+8. Click **Apply** to save your changes.

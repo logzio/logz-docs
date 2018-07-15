@@ -2,6 +2,9 @@
 layout: article
 title: Accounts
 permalink: /user-guide/accounts/
+flags:
+  admin: true
+  logzio-plan: community
 contributors:
   - imnotashrimp
 ---

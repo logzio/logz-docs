@@ -2,11 +2,17 @@
 layout: article
 title: Configure alerts
 permalink: /user-guide/alerts/configure-alerts.html
+flags:
+  logzio-plan: community
 contributors:
   - imnotashrimp
 ---
 
 To create a new alert, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Alert page, where you can configure the alert and notification settings.
+
+<div class="info-box note">
+  Community plans have a maximum of 50 alerts.
+</div>
 
 If you want help updating an existing alert, you can [skip the first part of this page](#to-configure-an-alert).
 
@@ -16,7 +22,7 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
 1. In Kibana, type a query in the query bar, and press Enter. Review the results in the histogram and the document table, and make sure your query returned the expected results.
 
-2. Click **Create Alert** (to the right of the query bar). The Create Alert Definition page is shown. Continue with [To configure an alert](#to-configure-an-alert)
+2. Click **Create Alert** (to the right of the query bar). The Create Alert Definition page is shown. Continue with [To configure an alert](#to-configure-an-alert).
 
 ###### To configure an alert {#to-configure-an-alert}
 

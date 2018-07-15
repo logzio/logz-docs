@@ -2,6 +2,8 @@
 layout: article
 title: Alerts
 permalink: /user-guide/alerts/
+flags:
+  logzio-plan: community
 contributors:
   - imnotashrimp
 ---

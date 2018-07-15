@@ -2,6 +2,9 @@
 layout: article
 title: Access and authentication
 permalink: /user-guide/access-and-authentication/
+flags:
+  admin: true
+  logzio-plan: community
 contributors:
   - imnotashrimp
 ---

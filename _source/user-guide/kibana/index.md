@@ -2,6 +2,8 @@
 layout: article
 title: Kibana
 permalink: /user-guide/kibana/
+flags:
+  logzio-plan: community
 contributors:
   - imnotashrimp
 ---

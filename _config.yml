@@ -47,8 +47,9 @@ disqus:
   shortname: ''
   site_url: ''
 
-# if you use google analytics, add your tracking id here. To disable, remove or comment out the line
-google_analytics_id: ''
+# if you use google analytics or tag manager, add your tracking id here. To disable, remove or comment out the line
+# google_analytics_id: ''
+google_tag_manager_id: GTM-NH9MTDW
 
 # if you use Intercom, add app id here. To disable, remove or comment out the line
 intercom_app_id: bkz9ugqv

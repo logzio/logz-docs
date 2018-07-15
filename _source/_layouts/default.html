@@ -4,6 +4,9 @@
   {% include head.html %}
 
   <body>
+    {% if jekyll.environment == "production" and site.google_tag_manager_id -%}
+    {% include google-tag-manager-body.html %}
+    {%- endif %}
 
     {% include header.html %}
 <div class="big-container">

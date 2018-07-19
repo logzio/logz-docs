@@ -1,13 +1,12 @@
 ---
 layout: article
-title: Contributors & credits
+title: Our contributors
+permalink: /credits.html
 community-info: false
 search: false
 ---
 
 <div class="contributions">
-
-### Our contributors
 
   <ul>
   {% for contributor in site.contributors %}
@@ -15,12 +14,12 @@ search: false
   {% endfor %}
   </ul>
 
-### Open source stuff we used in docs
+<!-- ### Open source stuff we used in docs
 
   * [Font Awesome 5 Free](https://fontawesome.com/)
   * [jQuery](https://jquery.com/)
   * [Jekyll](https://jekyllrb.com/)
   * [Lunr](https://lunrjs.com/)
-  * [tablesorter](https://github.com/mottie/tablesorter)
+  * [tablesorter](https://github.com/mottie/tablesorter) -->
 
 </div>

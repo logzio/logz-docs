@@ -9,18 +9,18 @@ contributors:
   - imnotashrimp
 ---
 
-To maintain your account's security, account admins can add and remove users as needed. You can change users' access permissions at any time.
+To maintain your account's security, account admins can add and remove users as needed. You can change user access permissions at any time.
 
 Users who are part of the main account will have access to all sub accounts and timeless accounts. To limit user access, consider adding users only to the sub accounts and timeless accounts that they will need to search.
 
-To keep your data even more secure, limit the number of admins in each of your accounts.
+To keep your data even more secure, limit the number of admins in each account.
 
 ![Manage users]({{site.baseurl}}/images/access-and-authentication/access-and-authentication--manage-users.png)
 
-You can get to this page by clicking [**Manage Users**](https://app.logz.io/#/dashboard/settings/manage-users) in your admin settings (<i class="li li-gear"></i> in the top menu).
+You can get to this page by selecting [**<i class="li li-gear"></i> > Settings > User management**](https://app.logz.io/#/dashboard/settings/manage-users) in the top menu.
 
 <div class="info-box note">
-  Community plans have a maximum of 50 alerts.
+  Community plans have a maximum of 50 users.
 </div>
 
 ###### To add or remove users
@@ -31,4 +31,4 @@ You can get to this page by clicking [**Manage Users**](https://app.logz.io/#/da
 
 ###### To suspend or unsuspend users
 
-To suspend or unsuspend a user from, click the user's menu (<i class="fas fa-bars"></i>), and then click **Suspend** or **Unsuspend**. If a user is suspended, its icon is red.
+To suspend or unsuspend a user, click the user's menu (<i class="fas fa-bars"></i>), and then click **Suspend** or **Unsuspend**. If a user is suspended, its icon is red.

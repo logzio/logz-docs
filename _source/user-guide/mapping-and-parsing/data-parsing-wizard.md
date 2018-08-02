@@ -19,7 +19,7 @@ You can analyze a set of sample logs in the data parsing wizard, simplifying the
 
 ![Data parsing wizard]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--data-parsing-wizard.png)
 
-You can find the data parsing wizard by selecting [**Log Shipping > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the top menu.
+You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> > Tools > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the top menu.
 
 ## Using the data parsing wizard
 

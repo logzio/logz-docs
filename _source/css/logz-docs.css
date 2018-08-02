@@ -662,13 +662,13 @@ div.info-box.note.notes > p::before {
   content: "Notes";
 }
 
-/* .gotcha */
-div.info-box.gotcha {
+/* .gotcha, .important */
+div.info-box.gotcha, div.info-box.important {
   border-color: #ff971c;
 }
 
-div.info-box.gotcha > p::before {
-  content: "Gotcha   ";
+div.info-box.gotcha > p::before, div.info-box.important > p::before {
+  content: "Important   ";
   color: #ff971c;
 }
 

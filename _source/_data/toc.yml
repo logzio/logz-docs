@@ -89,7 +89,7 @@ firstLevel:
 
   - title: Live Tail
     url: /user-guide/live-tail/
-  
+
 - title: Admin tools
   secondLevel:
   - title: Accounts
@@ -118,6 +118,8 @@ firstLevel:
       url: /user-guide/access-and-authentication/manage-users.html
     - title: Manage shared tokens
       url: /user-guide/access-and-authentication/shared-tokens.html
+    - title: Manage API tokens
+      url: /user-guide/access-and-authentication/api-tokens.html
 
   # ===== INTEGRATIONS =====
 # - title: Integrations

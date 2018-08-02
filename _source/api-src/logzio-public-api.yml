@@ -20,7 +20,7 @@ info:
 
     # Authentication
 
-    The Logz.io API is available to Enterprise plan subscribers. You can create new tokens in your [account settings](https://app.logz.io/#/dashboard/settings/shared-tokens). You can also set and revoke API permissions at any time.
+    The Logz.io API is available to Enterprise plan subscribers. You can create new API tokens in the [Logz.io app](https://app.logz.io/#/dashboard/settings/api-tokens). You can revoke API permissions at any time.
 
     If you don't have an Enterprise account, please contact your account executive or our [Customer Success team](mailto:help@logz.io).
 
@@ -43,7 +43,11 @@ info:
 
 securityDefinitions:
   X-API-TOKEN:
-    description: You can manage your tokens in your Logz.io account settings. Tokens are tied to individual accounts, including sub accounts. Tokens carry privileges to make changes to users and accounts, so it's important to keep your tokens secure.
+    description: >-
+      You can manage your API tokens in your Logz.io account settings. API tokens are tied to individual accounts and sub accounts.
+      
+      
+      API tokens carry privileges to make changes to users and accounts, so it's important to keep your tokens secure. If you believe an API token has been compromised, delete the compromised token, and replace it with a new token in your integrations.
     type: apiKey
     in: header
     name: X-API-TOKEN
@@ -55,7 +59,7 @@ tags:
     description: Use these API requests to create, update, retrieve, or delete sub accounts.
   - name: Search logs
     description: >-
-      Use the Elasticsearch Search API DSL query language to search your Logz.io data. 
+      Use the Elasticsearch Search API DSL query language to search your Logz.io data.
       
       
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
@@ -360,7 +364,7 @@ paths:
           source: >-
             curl -X POST https://api.logz.io/v1/search \
               -H 'Content-Type: application/json' \
-              -H 'X-USER-TOKEN: <token>' \
+              -H 'X-API-TOKEN: <token>' \
               -d '{
               "size": 10,
               "query": {
@@ -1190,9 +1194,9 @@ paths:
   /shared-tokens/filters:
     get:
       operationId: getAllFilters
-      summary: Retrieve all token filters
+      summary: Retrieve all shared token filters
       description: >-
-        Returns an array of JSON objects, where each object shows information for one token filter.
+        Returns an array of JSON objects, where each object shows information for a shared token filter.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
@@ -1229,9 +1233,9 @@ paths:
                 description: Insufficient privileges. Contact our Support team for access to this API feature.
     post:
       operationId: createFilter
-      summary: Create a token filter
+      summary: Create a shared token filter
       description: >-
-        Creates a new token filter.
+        Creates a new shared token filter.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
@@ -1269,9 +1273,9 @@ paths:
   /shared-tokens/filters/{id}:
     get:
       operationId: getFilter
-      summary: Retrieve a token filter by ID
+      summary: Retrieve a shared token filter by ID
       description: >-
-        Returns a token filter as a JSON object.
+        Returns a shared token filter as a JSON object.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
@@ -1283,7 +1287,7 @@ paths:
           required: true
           type: integer
           format: int32
-          description: ID of the token filter
+          description: ID of the shared token filter
       x-code-samples:
         - lang: cURL
           source: 'curl -X GET "https://api.logz.io/v1/shared-tokens/filters/345" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>"'
@@ -1312,12 +1316,9 @@ paths:
                 description: Insufficient privileges. Contact our Support team for access to this API feature.
     delete:
       operationId: deleteFilter
-      summary: Delete a token filter
+      summary: Delete a shared token filter
       description: >-
-        Deletes a token filter.
-
-
-        <span style='color: red'>**Warning:**</span> Deleting a token filter can change the behavior of your integrations. As a best practice, test all integrations when updating or deleting shared tokens or filters.
+        Deletes a shared token filter.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
@@ -1329,7 +1330,7 @@ paths:
           required: true
           type: integer
           format: int32
-          description: ID of the token filter
+          description: ID of the shared token filter
       x-code-samples:
         - lang: cURL
           source: 'curl -X DELETE "https://api.logz.io/v1/shared-tokens/filters/345" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>"'
@@ -1405,9 +1406,6 @@ paths:
         Changes the filters attached to a shared token.
 
 
-        <span style='color: red'>**Warning:**</span> Updating a shared token can change the behavior of your integrations. As a best practice, test all integrations when updating or deleting shared tokens or filters.
-
-
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Manage shared tokens
@@ -1455,9 +1453,6 @@ paths:
         Deletes a shared token.
 
 
-        <span style='color: red'>**Warning:**</span> Deleting a shared token can change the behavior of your integrations. As a best practice, test all integrations when updating or deleting shared tokens or filters.
-
-
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Manage shared tokens
@@ -1497,7 +1492,7 @@ paths:
       operationId: getAllTokens
       summary: Retrieve all shared tokens
       description: >-
-        Returns an array of JSON objects, where each object shows information for one token.
+        Returns an array of JSON objects, where each object shows information for a shared token.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
@@ -2621,7 +2616,7 @@ definitions:
       id:
         type: integer
         format: int32
-        description: ID of the token filter
+        description: ID of the shared token filter
         example: 339
       field:
         type: string

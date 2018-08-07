@@ -30,6 +30,19 @@ $( '.accordion' ).accordion({
   icons: { 'header': 'ui-icon-caret-1-e', 'activeHeader': 'ui-icon-caret-1-s' }
 });
 
+$('.branching-container').easytabs({
+  updateHash: false
+});
+
+
+// TODO
+// - Rewrite URL hash string based on active buttons
+// - Read URL hash string on page load
+
+// $('.branching-container').bind('easytabs:after', function(e, element) {
+//   console.log(e);
+//   console.log(element);
+// });
 
 // toc collapse button for smaller screens
 $('#toc-collapse-btn').click( function() {

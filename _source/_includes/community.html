@@ -18,7 +18,7 @@
   {%- endcapture -%}
 
   {%- capture edit_path -%}
-  {{ repo_path | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}{% if site.collections_dir and page.collection %}{{site.collections_dir | prepend: "/" }}{% endif %}
+  {{ repo_path | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}
   {%- endcapture -%}
 
   {%- capture issue_path -%}

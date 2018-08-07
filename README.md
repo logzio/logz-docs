@@ -8,19 +8,19 @@ Our site is built on Jekyll. We merge the `develop` branch as needed. Docs are r
 
 #### Contents
 
-* [Contributions](#contributions)
-  * [What pull requests we can't merge](#what-pull-requests-we-cant-merge)
-  * [Community guidelines](#community-guidelines)
-* [Setup](#setup)
-* [Changes and pull requests](#changes-and-pull-requests)
-  * [Syncing your fork](#syncing-your-fork)
-  * [Previewing locally](#previewing-locally)
-  * [Making your first pull request](#making-your-first-pull-request)
-* [Working in Markdown](#working-in-markdown)
-  * [Headings](#headings)
-  * [Procedures](#procedures)
-  * [Info boxes](#info-boxes)
-  * [Code highlighting](#code-highlighting)
+  * [Contributions](#contributions)
+    * [What pull requests we can't merge](#what-pull-requests-we-cant-merge)
+    * [Community guidelines](#community-guidelines)
+  * [Setup](#setup)
+  * [Changes and pull requests](#changes-and-pull-requests)
+    * [Syncing your fork](#syncing-your-fork)
+    * [Previewing locally](#previewing-locally)
+    * [Making your first pull request](#making-your-first-pull-request)
+  * [Working in Markdown](#working-in-markdown)
+    * [Headings](#headings)
+    * [Procedures](#procedures)
+    * [Info boxes](#info-boxes)
+    * [Code highlighting](#code-highlighting)
 
 ## Contributions
 
@@ -182,7 +182,7 @@ Some notes:
 
 Info boxes need a `<div class="info-box">` container.
 
-Info boxes come in three CSS classes: `note`, `tip`, `gotcha`, `warning`. CSS handles the styling and adds a header.
+Info boxes come in three CSS classes: `note`, `tip`, `important`, `warning`. CSS handles the styling and adds a header.
 
 Indent content on its own lines between the `<div>` tags.
 
@@ -193,7 +193,7 @@ Indent content on its own lines between the `<div>` tags.
   Notes are generally non-actionable. They’re more important
   than the surrounding text but less important than
   warnings. Could something bad happen if the user ignores
-  this? If no, then it’s a note. Otherwise, it’s a gotcha.
+  this? If no, then it’s a note. Otherwise, it’s an important note.
 </div>
 ```
 
@@ -202,16 +202,16 @@ Indent content on its own lines between the `<div>` tags.
 ```html
 <div class="info-box tip">
   Pro tips convey best practices and good actions to ensure
-  success. Think of these as more proactive than gotchas.
+  success. Think of these as more proactive than important notes.
 </div>
 ```
 
-**Gotchas**
+**Important notes**
 
 ```html
-<div class="info-box gotcha">
-  Gotchas help the user work through common trip-up points.
-  If the user could cause damage by ignoring the gotcha,
+<div class="info-box important">
+  Important notes help the user work through common trip-up points.
+  If the user could cause damage by ignoring the important note,
   consider a warning instead.
 </div>
 ```
@@ -222,7 +222,7 @@ Indent content on its own lines between the `<div>` tags.
 <div class="info-box warning">
   Use warnings when the user could cause damage that’s
   difficult or impossible to recover from. If you need
-  something less severe than a warning, consider a gotcha
+  something less severe than a warning, consider an important note
   or a note.
 </div>
 ```

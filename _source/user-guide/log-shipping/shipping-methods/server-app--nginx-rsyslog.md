@@ -17,7 +17,9 @@ contributors:
 
 ###### Configure rsyslog to ship NGINX logs
 
-1. Configure rsyslog to monitor NGINX files. {% include your-account-token.html %}
+1. Configure rsyslog to monitor NGINX files. 
+
+    {% include your-account-token.html %}
 
     ```shell
     curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t nginx -a "{your-account-token}"

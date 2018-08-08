@@ -22,7 +22,9 @@ This article is for automatic installation of your Filebeat configuration file. 
     wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt && sudo mkdir -p /etc/pki/tls/certs && sudo mv COMODORSADomainValidationSecureServerCA.crt /etc/pki/tls/certs/
     ```
 
-2. Download Logz.io Filebeat configuration to the Filebeat folder. {% include your-account-token.html %}
+2. Download Logz.io Filebeat configuration to the Filebeat folder. 
+
+    {% include your-account-token.html %}
 
     ```shell
     sudo curl -o filebeat.yml -s https://raw.githubusercontent.com/logzio/filebeat-templates/master/nginx-filebeat.yml && sudo sed -i 's/LOGZIO-TOKEN/{your-account-token}/g' ./filebeat.yml

@@ -22,7 +22,9 @@ This article is for automatic installation of your Filebeat configuration file. 
     wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt && sudo mkdir -p /etc/pki/tls/certs && sudo cp COMODORSADomainValidationSecureServerCA.crt /etc/pki/tls/certs/
     ```
 
-2. Download Logz.io Filebeat configuration to the Filebeat folder. {% include your-account-token.html %}
+2. Download Logz.io Filebeat configuration to the Filebeat folder. 
+
+    {% include your-account-token.html %}
 
     ```shell
     sudo curl -o filebeat.yml -s https://raw.githubusercontent.com/logzio/filebeat-templates/master/apache-filebeat.yml && sudo sed -i 's/LOGZIO-TOKEN/{your-account-token}/g' ./filebeat.yml
@@ -30,7 +32,7 @@ This article is for automatic installation of your Filebeat configuration file. 
     sudo mv filebeat.yml /etc/filebeat/filebeat.yml
     ```
 
-3. If they're not already running, start Filebeat and Apache.
+5. If they're not already running, start Filebeat and Apache.
 
     ```shell
     sudo systemctl start filebeat
@@ -38,6 +40,6 @@ This article is for automatic installation of your Filebeat configuration file. 
     sudo service apache2 start
     ```
 
-4. Confirm you're shipping logs by opening an Apache-hosted webpage in your browser. Give your logs a minute to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+6. Confirm you're shipping logs by opening an Apache-hosted webpage in your browser. Give your logs a minute to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

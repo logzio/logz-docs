@@ -122,7 +122,10 @@ firstLevel:
       url: /user-guide/access-and-authentication/api-tokens.html
 
   # ===== INTEGRATIONS =====
-# - title: Integrations
+- title: Integrations
+  secondLevel:
+  - title: Alice, Slack chatbot
+    url: /user-guide/integrations/alice-slack-chatbot.html
 
 
   # ===== DEVELOPERS =====

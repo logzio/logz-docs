@@ -296,11 +296,12 @@ main.page-content img, main.page-content video {
 }
 
 ol img, ol video {
-  margin-left: inherit !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img.no-border {
-  border: none;
+  border: none !important;
 }
 
 a, a:hover, .ui-accordion-content a {

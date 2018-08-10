@@ -2933,5 +2933,5 @@ definitions:
         items:
           type: integer
           format: int32
-        description: For admin access, `2`. For user access, `3`.
+        description: For user access, `2`. For admin access, `3`.
         example: [2]

@@ -32,6 +32,6 @@ This table shows the built-in log types that Logz.io supports. If you don't see 
 | Mysql slow query      | `mysql_slow_query`                         |
 | Mysql monitor         | `mysql_monitor`                            |
 | Nagios                | `nagios`                                   |
-| Nginx access          | `nginx`, `nginx_access`, `nginx-access`    |
-| Nginx error           | `nginx-error`                              |
+| nginx access          | `nginx`, `nginx_access`, `nginx-access`    |
+| nginx error           | `nginx-error`                              |
 | OSSEC                 | `ossec`                                    |

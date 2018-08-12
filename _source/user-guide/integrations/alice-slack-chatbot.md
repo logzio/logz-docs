@@ -11,6 +11,8 @@ contributors:
 
 Alice is a chatbot who lives in your Slack workspace. You can ask Alice to perform Elasticsearch queries, see the alerts triggered in your environment, and get a snapshot of Kibana visualizations and dashboards.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dNPhfyjaBTw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ##### Assign Alice an API token
 
 If you're an Enterprise user, you can create an API token from [**<i class="li li-gear"></i> > Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens). We recommend creating a token for use only with Alice.

@@ -287,7 +287,7 @@ h6 {
   color: #ff971c;
 }
 
-main.page-content img, main.page-content video {
+main.page-content img, main.page-content video, .post-content iframe {
   display: block;
   max-width: 100%;
   margin: 1.5rem auto;

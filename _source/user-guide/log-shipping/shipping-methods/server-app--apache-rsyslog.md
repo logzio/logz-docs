@@ -18,19 +18,19 @@ contributors:
 </div>
 </div>
 
+<div class="info-box note">
+  We recommend [using Filebeat](server-app--apache-filebeat.html) to ship your logs.
+</div>
+
 ## Manual configuration
 
 If you're manually configuring log shipping, use these details to route your to your account.
 
+| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 5000 |
 | **Default log location** | Ubuntu, Debian: `/var/log/apache2/access.log` <br /> macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
 | **Log type** <br /> _for automatic parsing_ | `apache`, `apache_access`, or `apache-access` |
-| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
-
-<div class="info-box note">
-  We recommend [using Filebeat](server-app--apache-filebeat.html) to ship your logs.
-</div>
 
 ## Guided configuration
 

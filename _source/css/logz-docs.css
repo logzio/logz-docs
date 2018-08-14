@@ -359,7 +359,6 @@ pre.highlight {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-
   margin: 2rem auto 2rem 0;
 
   text-align: left;
@@ -375,6 +374,20 @@ th {
 
 td {
   border-bottom: 1px solid silver;
+}
+
+.summary-table td {
+  border: none;
+  padding-left: 0;
+  padding-right: 1.5rem;
+  color: silver;
+}
+
+.summary-table td span {
+  color: black;
+  font-weight: 700;
+  padding-left: .25rem;
+  padding-right: .25rem;
 }
 
 

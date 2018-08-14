@@ -1,6 +1,6 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300, 300i,700, 700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,600');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
@@ -238,7 +238,7 @@ html {
 body, .ui-accordion-content > *:not(h5):not(h6)  {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.4rem;
   color: #53585f;
 }
@@ -559,12 +559,14 @@ li.lunrsearchresult .url {
 
 /* ===== PAGE FLAGS ===== */
 
+/* Flags for admin-only or beta feature */
+
 div.page-flags {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 
-  font-weight: 400;
+  font-weight: 300;
   font-size: .75rem;
   line-height: 1rem;
 }

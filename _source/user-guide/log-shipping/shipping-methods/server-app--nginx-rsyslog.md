@@ -6,8 +6,17 @@ contributors:
   - imnotashrimp
 ---
 
-{: .summary-table }
-| Data source <span>nginx</span> | Shipper <span>rsyslog</span> | OS <span>Linux</span> |
+<div class="shipping-summary">
+<div>
+  Data source <span>nginx</span>
+</div>
+<div>
+  Shipper <span>rsyslog</span>
+</div>
+<div>
+  OS <span>Linux</span>
+</div>
+</div>
 
 <div class="info-box note">
   We recommend [using Filebeat](server-app--nginx-filebeat.html) to ship your logs.
@@ -20,7 +29,7 @@ If you're manually configuring log shipping, use these details to route your to 
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 5000 |
 | **Default log location** | `/var/log/nginx/access.log` |
-| **Log type** <br /> (for automatic parsing) | Access log: `nginx`, `nginx_access`, or `nginx-access` <br /> Error log: `nginx-error` |
+| **Log type** <br /> _for automatic parsing_ | Access log: `nginx`, `nginx_access`, or `nginx-access` <br /> Error log: `nginx-error` |
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
 
 ## Guided configuration
@@ -37,6 +46,6 @@ If you're manually configuring log shipping, use these details to route your to 
     curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t nginx -a "{account-token}" -l "{listener-url}"
     ```
 
-2. Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs a minute to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
+2. Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

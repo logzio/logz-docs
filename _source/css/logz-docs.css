@@ -1334,3 +1334,33 @@ i.ll, dl.letter-labels dt::before {
   margin: 25px auto;
   padding: 15px !important;
 }
+
+/* ===== LOG SHIPPING PAGES ===== */
+
+.shipping-summary {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-top: 2rem;
+
+  border: 1px solid #296386;
+  border-radius: 3px;
+  padding: 0;
+  color: silver;
+}
+
+.shipping-summary div {
+  margin: 3px 25px 3px 12px ;
+  padding: 0;
+  display: inline-block;
+}
+
+.shipping-summary div p {
+  margin: 0;
+}
+
+.shipping-summary div span {
+  color: #296386;
+  display: block;
+}

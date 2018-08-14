@@ -26,11 +26,11 @@ contributors:
 
 If you're manually configuring log shipping, use these details to route your to your account.
 
+| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 5000 |
 | **Default log location** | `/var/log/nginx/access.log` |
 | **Log type** <br /> _for automatic parsing_ | Access log: `nginx`, `nginx_access`, or `nginx-access` <br /> Error log: `nginx-error` |
-| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
 
 ## Guided configuration
 

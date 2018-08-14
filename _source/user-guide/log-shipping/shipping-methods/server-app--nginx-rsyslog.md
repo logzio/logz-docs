@@ -1,36 +1,42 @@
 ---
 layout: article
-title: NGINX-rsyslog log shipping
+title: nginx + rsyslog log shipping
 permalink: /user-guide/log-shipping/shipping-methods/server-app--nginx-rsyslog.html
 contributors:
   - imnotashrimp
 ---
 
-<div class="info-box tip">
-  We recommend [using Filebeat to ship your logs]({{site.baseurl}}/user-guide/log-shipping/shipping-methods/server-app--nginx-filebeat.html).
+{: .summary-table }
+| Data source <span>nginx</span> | Shipper <span>rsyslog</span> | OS <span>Linux</span> |
+
+<div class="info-box note">
+  We recommend [using Filebeat](server-app--nginx-filebeat.html) to ship your logs.
 </div>
 
-##### Requirements
+## Manual configuration
 
-* You have sudo access
-* You can send outgoing traffic to destination port 5000
+If you're manually configuring log shipping, use these details to route your to your account.
 
-###### Configure rsyslog to ship NGINX logs
+| **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
+| **Listener port** | 5000 |
+| **Default log location** | `/var/log/nginx/access.log` |
+| **Log type** <br /> (for automatic parsing) | Access log: `nginx`, `nginx_access`, or `nginx-access` <br /> Error log: `nginx-error` |
+| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
 
-1. Configure rsyslog to monitor NGINX files. 
+## Guided configuration
 
-    {% include your-account-token.html %}
+**Requirements:** root access
+
+1. Run the Logz.io rsyslog configuration script.
+
+    {% include log-shipping/your-account-token.html %}
+
+    {% include log-shipping/your-listener-url.html %}
 
     ```shell
-    curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t nginx -a "{your-account-token}"
+    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t nginx -a "{account-token}" -l "{listener-url}"
     ```
 
-2. If it's not already running, start NGINX.
-
-    ```shell
-    sudo systemctl start nginx
-    ```
-
-3. Confirm you're shipping logs by opening an NGINX-hosted webpage in your browser. Give your logs a minute to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+2. Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs a minute to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

@@ -116,6 +116,8 @@ firstLevel:
     thirdLevel:
     - title: Manage users
       url: /user-guide/access-and-authentication/manage-users.html
+    - title: Multi-factor authentication
+      url: /user-guide/access-and-authentication/multi-factor-authentication.html
     - title: Manage shared tokens
       url: /user-guide/access-and-authentication/shared-tokens.html
     - title: Manage API tokens

@@ -29,13 +29,18 @@ firstLevel:
 
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
-- title: Working with your logs
 
+- title: Shipping and parsing
   secondLevel:
-  - title: Log shipping
+  - title: Server apps
+    thirdLevel:
+    - title: Apache + rsyslog
+      url: /user-guide/log-shipping/shipping-methods/server-app--apache-rsyslog.html
+    - title: nginx + rsyslog
+      url: /user-guide/log-shipping/shipping-methods/server-app--nginx-rsyslog.html
+  - title: Shipping info and troubleshooting
     url: /user-guide/log-shipping/
     thirdLevel:
-    # - title: Best practice- know your type
     - title: Built-in log types
       url: /user-guide/log-shipping/built-in-log-types.html
     - title: Log shipping troubleshooting
@@ -49,6 +54,10 @@ firstLevel:
   - title: Data parsing
     url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
+
+- title: Working with your logs
+
+  secondLevel:
   - title: Kibana
     url: /user-guide/kibana/
     # thirdLevel:

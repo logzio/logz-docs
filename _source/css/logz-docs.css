@@ -1,6 +1,6 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,600');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
@@ -74,6 +74,7 @@ div.toc-container {
 
 div.body-container {
   max-width: 850px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 25px;
@@ -237,7 +238,7 @@ html {
 body, .ui-accordion-content > *:not(h5):not(h6)  {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.4rem;
   color: #53585f;
 }
@@ -304,7 +305,7 @@ img.no-border {
   border: none !important;
 }
 
-a, a:hover, .ui-accordion-content a {
+a, a:hover, .ui-accordion-content a, .ui-tabs a {
   color: #009cbd;
   text-decoration: none;
 }
@@ -321,6 +322,10 @@ code {
   color: #e53935;
 }
 
+code.highlighter-rouge {
+  padding: 1px 5px;
+}
+
 div.highlighter-rouge {
   margin: 2rem auto;
 }
@@ -328,15 +333,15 @@ div.highlighter-rouge {
 div.highlighter-rouge, code {
   border: 1px solid #53585f1a;
   background-color: #53585f0a;
-  padding: 1px 2px;
-  margin-left: .1rem;
   margin-right: .1rem;
   border-radius: 2px;
+  /* overflow-x: auto; */
 }
 
-div.highlighter-rouge code {
+div.highlighter-rouge code, div.highlighter-rouge code span {
   background: none;
   border: none;
+  white-space: pre-line;
 }
 
 pre.highlight {
@@ -354,8 +359,7 @@ pre.highlight {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-
-  margin: 2rem auto;
+  margin: 2rem auto 2rem 0;
 
   text-align: left;
 }
@@ -369,9 +373,8 @@ th {
 }
 
 td {
-  border-bottom: 1px solid silver;
+  border-bottom: 1px solid #e5e5e5;
 }
-
 
 /* tablesorter styling */
 th.tablesorter-header {
@@ -541,12 +544,14 @@ li.lunrsearchresult .url {
 
 /* ===== PAGE FLAGS ===== */
 
+/* Flags for admin-only or beta feature */
+
 div.page-flags {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 
-  font-weight: 400;
+  font-weight: 300;
   font-size: .75rem;
   line-height: 1rem;
 }
@@ -855,6 +860,7 @@ ul.toc-grandchild span.toc-heading {
 
 li.toc-active > span.toc-heading {
   background-color: #e1e1e1;
+  font-weight: 700;
 }
 
 nav.all-pages-toc a {
@@ -1247,13 +1253,94 @@ i.ll, dl.letter-labels dt::before {
 /* Accordion is styled from jquery ui base css.
   The styles here override the defaults */
 
-.ui-accordion-header-active {
-  background-color: #296386;
-  color: white;
-  border: none;
+  .ui-accordion-header-active {
+    background-color: #296386 !important;
+    color: white;
+  }
+
+  .ui-accordion-content p  {
+    font-family: unset;
+    font-size: unset;
+  }
+
+  .branching-container {
+    width: 100%;
+  }
+
+  .branching-container > h3 {
+    text-align: center;
+  }
+
+  .branching-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 50px 0;
+    padding: 0;
+
+    background: none;
+    border-bottom: 1px solid #296386;
+    list-style-type: none;
+  }
+
+  .branching-tabs li {
+    display: inline-block;
+    margin: 0;
+    padding: 0 15px 3px 15px;
+  }
+
+  .branching-tabs li.active {
+    border-bottom: 3px solid currentColor;
+    color: #296386;
+    font-weight: 700;
+  }
+
+  .branching-tabs li > a {
+    color: unset;
+  }
+
+  .ui-tabs-panel.tab-panel {
+    padding: 0;
+  }
+
+  .branching-step {
+    border: 1px solid #e1e1e1 !important;
+    border-radius: 6px;
+    margin: 25px auto;
+    padding: 15px !important;
+  }
+
+
+/* ===== LOG SHIPPING PAGES ===== */
+
+.shipping-summary {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-top: 2rem;
+  padding: 0;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+
+  color: silver;
+  line-height: 1.25rem;
 }
 
-.ui-accordion-content p:not(info-box p)  {
-  font-family: 'Nunito Sans', sans-serif;
+.shipping-summary div {
+  margin: 3px 25px 3px 12px ;
+  padding: 0;
+  display: inline-block;
+  font-size: .75rem;
+}
+
+.shipping-summary div p {
+  margin: 0;
+}
+
+.shipping-summary div span {
+  color: #53585f;
+  display: block;
   font-size: 1rem;
 }

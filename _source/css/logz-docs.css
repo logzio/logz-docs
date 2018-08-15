@@ -1,6 +1,6 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300, 300i,700, 700i');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,600');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
@@ -1343,17 +1343,20 @@ i.ll, dl.letter-labels dt::before {
   flex-wrap: wrap;
 
   margin-top: 2rem;
+  padding: 0;
 
   border: 1px solid #296386;
   border-radius: 3px;
-  padding: 0;
+
   color: silver;
+  line-height: 1.25rem;
 }
 
 .shipping-summary div {
   margin: 3px 25px 3px 12px ;
   padding: 0;
   display: inline-block;
+  font-size: .75rem;
 }
 
 .shipping-summary div p {
@@ -1363,4 +1366,5 @@ i.ll, dl.letter-labels dt::before {
 .shipping-summary div span {
   color: #296386;
   display: block;
+  font-size: 1rem;
 }

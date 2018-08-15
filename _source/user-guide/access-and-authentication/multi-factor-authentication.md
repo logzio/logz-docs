@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Two-factor authentication
+title: Multi-factor authentication
 permalink: /user-guide/access-and-authentication/multi-factor-authentication.html
 flags:
   admin: true

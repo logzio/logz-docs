@@ -860,6 +860,7 @@ ul.toc-grandchild span.toc-heading {
 
 li.toc-active > span.toc-heading {
   background-color: #e1e1e1;
+  font-weight: 700;
 }
 
 nav.all-pages-toc a {

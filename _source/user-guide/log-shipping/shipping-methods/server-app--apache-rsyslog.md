@@ -24,7 +24,7 @@ contributors:
 
 ## Manual configuration
 
-If you're manually configuring log shipping, use these details to route your to your account.
+If you're manually configuring log shipping, use these details to route your logs to your account.
 
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |

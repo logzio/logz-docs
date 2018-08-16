@@ -11,7 +11,7 @@ contributors:
   Data source <span>Apache HTTPS Server 2 (httpd)</span>
 </div>
 <div>
-  Shipper <span>rsyslog</span>
+  Shipper <span>rsyslog <a href="server-app--apache-filebeat.html">(Filebeat recommended)</a></span>
 </div>
 <div>
   OS <span>macOS or Linux</span>

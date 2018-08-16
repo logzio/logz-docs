@@ -1382,3 +1382,8 @@ i.ll, dl.letter-labels dt::before {
   display: block;
   font-size: 1rem;
 }
+
+.shipping-summary div span a {
+  font-size: .75rem;
+  font-style: italic;
+}

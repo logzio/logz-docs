@@ -11,7 +11,7 @@ contributors:
   Data source <span>nginx</span>
 </div>
 <div>
-  Shipper <span>rsyslog</span>
+  Shipper <span>rsyslog <a href="server-app--nginx-filebeat.html">(Filebeat recommended)</a></span>
 </div>
 <div>
   OS <span>Linux</span>

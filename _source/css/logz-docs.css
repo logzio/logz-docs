@@ -153,7 +153,7 @@ div.body-container, div.card-container {
 /* ===== DOCS HOME CARDS ===== */
 
 div.card-container a {
-  margin: 10px;
+  margin: 12px;
 }
 
 div.cards {
@@ -170,10 +170,15 @@ div.card {
   margin: 0;
   width: 250px;
   text-align: center;
+
+  box-shadow: none;
+  transition: box-shadow 500ms;
+
 }
 
 div.card:hover {
-  border-color: #53585f;
+  box-shadow: 5px 10px 25px 0 #c1c1c17a;
+  transition: box-shadow 500ms;
 }
 
 div.full-card {

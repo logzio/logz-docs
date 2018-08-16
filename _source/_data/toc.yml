@@ -36,6 +36,8 @@ firstLevel:
     thirdLevel:
     - title: Apache + rsyslog
       url: /user-guide/log-shipping/shipping-methods/server-app--apache-rsyslog.html
+    - title: HAProxy + rsyslog
+      url: /user-guide/log-shipping/shipping-methods/server-app--haproxy-rsyslog.html
     - title: nginx + rsyslog
       url: /user-guide/log-shipping/shipping-methods/server-app--nginx-rsyslog.html
   - title: Shipping info and troubleshooting

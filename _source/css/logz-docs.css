@@ -1253,62 +1253,95 @@ i.ll, dl.letter-labels dt::before {
 /* Accordion is styled from jquery ui base css.
   The styles here override the defaults */
 
-  .ui-accordion-header-active {
-    background-color: #296386 !important;
-    color: white;
-  }
+.ui-accordion-header {
+  background-color: #fafafa;
+  border: 1px solid #e5e5e5;
+  outline: none;
+}
 
-  .ui-accordion-content p  {
-    font-family: unset;
-    font-size: unset;
-  }
+.ui-accordion-header-active {
+  background-color: #f0f0f0;
+  color: #296386;
+  font-weight: 700;
+  border-bottom: 3px solid currentColor;
+}
 
-  .branching-container {
-    width: 100%;
-  }
+.ui-accordion-header::before, .ui-accordion-header-active::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  font-size: .7rem;
+}
 
-  .branching-container > h3 {
-    text-align: center;
-  }
+.ui-accordion-header::before {
+  content: "\f054";
+  margin-right: 15px;
+}
 
-  .branching-tabs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    margin: 50px 0;
-    padding: 0;
+.ui-accordion-header-active::before {
+  content: "\f078";
+  margin-right: 12px;
+}
 
-    background: none;
-    border-bottom: 1px solid #296386;
-    list-style-type: none;
-  }
+.ui-accordion-content p  {
+  font-family: unset;
+  font-size: unset;
+}
 
-  .branching-tabs li {
-    display: inline-block;
-    margin: 0;
-    padding: 0 15px 3px 15px;
-  }
+.branching-container {
+  width: 100%;
+}
 
-  .branching-tabs li.active {
-    border-bottom: 3px solid currentColor;
-    color: #296386;
-    font-weight: 700;
-  }
+.branching-container > h3 {
+  text-align: center;
+}
 
-  .branching-tabs li > a {
-    color: unset;
-  }
+.branching-tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 50px 0 0 0;
+  padding: 0;
 
-  .ui-tabs-panel.tab-panel {
-    padding: 0;
-  }
+  background: none;
+  list-style-type: none;
+}
 
-  .branching-step {
-    border: 1px solid #e1e1e1 !important;
-    border-radius: 6px;
-    margin: 25px auto;
-    padding: 15px !important;
-  }
+.branching-tabs li {
+  display: inline-block;
+  margin: 0;
+  padding: 15px 15px 3px 15px;
+  background-color: #fafafa;
+}
+
+.branching-tabs li:first-child {
+  border-top-left-radius: 5px;
+}
+
+.branching-tabs li:last-child {
+  border-top-right-radius: 5px;
+}
+
+.branching-tabs li.active {
+  border-bottom: 3px solid currentColor;
+  color: #296386;
+  background-color: #f0f0f0;
+  font-weight: 700;
+}
+
+.branching-tabs li > a {
+  color: unset;
+}
+
+.branching-container > div {
+  border: 1px solid #e5e5e5;
+  border-radius: 0 0 5px 5px;
+  padding: 12px;
+}
+
+.branching-container > div table td:first-child {
+  font-size: .8rem;
+  line-height: 1rem;
+}
 
 
 /* ===== LOG SHIPPING PAGES ===== */

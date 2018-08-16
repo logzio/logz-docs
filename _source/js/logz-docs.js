@@ -27,7 +27,7 @@ $( '.accordion' ).accordion({
   active: false,
   collapsible: true,
   heightStyle: 'content',
-  icons: { 'header': 'ui-icon-caret-1-e', 'activeHeader': 'ui-icon-caret-1-s' }
+  icons: false
 });
 
 $('.branching-container').easytabs({

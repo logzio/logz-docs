@@ -18,11 +18,16 @@ contributors:
 </div>
 </div>
 
-<div class="info-box note">
-  We recommend [using Filebeat](server-app--apache-filebeat.html) to ship your logs.
-</div>
+<div class="branching-container">
 
-## Manual configuration
+{: .branching-tabs }
+* [Manual configuration](#manual)
+* [Guided configuration](#guided)
+
+
+<div id="manual">
+
+### Manual configuration
 
 If you're manually configuring log shipping, use these details to route your logs to your account.
 
@@ -32,7 +37,12 @@ If you're manually configuring log shipping, use these details to route your log
 | **Default log location** | Ubuntu, Debian: `/var/log/apache2/access.log` <br /> macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
 | **Log type** <br /> _for automatic parsing_ | `apache`, `apache_access`, or `apache-access` |
 
-## Guided configuration
+</div>
+
+
+<div id="guided">
+
+### Guided configuration
 
 **Requirements:** root access
 
@@ -49,3 +59,7 @@ If you're manually configuring log shipping, use these details to route your log
 2. Confirm you're shipping logs by opening an Apache-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+
+</div>

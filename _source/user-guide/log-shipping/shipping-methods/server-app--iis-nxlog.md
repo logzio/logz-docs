@@ -1,26 +1,34 @@
 ---
 layout: article
-title: IIS-NXLog log shipping
+title: IIS + NXLog log shipping
 permalink: /user-guide/log-shipping/shipping-methods/server-app--iis-nxlog.html
 contributors:
   - imnotashrimp
 ---
 
-##### Requirements
+<div class="shipping-summary">
+<div>
+  Data source <span>IIS</span>
+</div>
+<div>
+  Shipper <span>NXLog</span>
+</div>
+<div>
+  OS <span>Windows</span>
+</div>
+</div>
 
-* You have admin access
-* NXLog is [installed](https://nxlog.co/products/nxlog-community-edition/download)
-* You can send outgoing traffic to destination port 8010
+### Configuration
 
-###### Configure NXLog to ship IIS logs
+**Requirements:** Admin access
 
-1. Copy this code into your configuration file (at `C:\Program Files (x86)\nxlog\conf\nxlog.conf`).
+1. Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
-    {% include your-account-token.html %}
+    {% include log-shipping/your-account-token.html %}
 
-    {% include your-listener-url.html %}
+    {% include log-shipping/your-listener-url.html %}
 
-    ```
+    ```conf
     define ROOT C:\\Program Files (x86)\\nxlog
     define ROOT_STRING C:\\Program Files (x86)\\nxlog
     define CERTDIR %ROOT%\\cert
@@ -40,7 +48,7 @@ contributors:
         SavePos TRUE
         Exec if $raw_event =~ /^#/ drop();
         Exec convert_fields("AUTO", "utf-8");
-        Exec $raw_event = '[{your-account-token}][type=iis]' + $raw_event;
+        Exec $raw_event = '[{account-token}][type=iis]' + $raw_event;
     </Input>
     <Output out>
         Module  om_tcp

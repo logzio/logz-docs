@@ -38,6 +38,8 @@ firstLevel:
       url: /user-guide/log-shipping/shipping-methods/server-app--apache-rsyslog.html
     - title: HAProxy + rsyslog
       url: /user-guide/log-shipping/shipping-methods/server-app--haproxy-rsyslog.html
+    - title: IIS + NXLog
+      url: /user-guide/log-shipping/shipping-methods/server-app--iis-nxlog.html
     - title: nginx + rsyslog
       url: /user-guide/log-shipping/shipping-methods/server-app--nginx-rsyslog.html
   - title: Shipping info and troubleshooting

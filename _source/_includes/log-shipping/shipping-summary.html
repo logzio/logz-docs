@@ -1,0 +1,60 @@
+{%- assign data-source = page.shipping-summary.data-source -%}
+{%- assign log-shippers = page.shipping-summary.log-shippers -%}
+{%- assign metrics-shippers = page.shipping-summary.metrics-shippers -%}
+{%- assign appenders = page.shipping-summary.appenders -%}
+{%- assign os = page.shipping-summary.os -%}
+
+{% if log-shippers -%}
+{%- capture log-shippers-block -%}
+<div>Log shippers <span>
+{%- for shipper in log-shippers -%}
+{%- if shipper.recommended -%}
+  {{shipper.recommended}} <span class="sm">(recommended)</span>
+{%- else -%}
+  {{shipper}}
+{%- endif -%}
+{%- unless forloop.last %}, {% endunless -%}
+{%- endfor -%}
+</span></div>
+{%- endcapture -%}
+{%- endif %}
+
+{% if metrics-shippers -%}
+{%- capture metrics-shippers-block -%}
+<div>Metrics shippers <span>
+{%- for shipper in metrics-shippers -%}
+{%- if shipper.recommended -%}
+  {{shipper.recommended}} <span class="sm">(recommended)</span>
+{%- else -%}
+  {{shipper}}
+{%- endif -%}
+{%- unless forloop.last %}, {% endunless -%}
+{%- endfor -%}
+</span></div>
+{%- endcapture -%}
+{%- endif %}
+
+{% if appenders -%}
+{%- capture appenders-block -%}
+<div>Log appenders <span>
+{%- for appender in appenders -%}
+{%- if appender.recommended -%}
+  {{appender.recommended}} <span class="sm">(recommended)</span>
+{%- else -%}
+  {{appender}}
+{%- endif -%}
+{%- unless forloop.last %}, {% endunless -%}
+{%- endfor -%}
+</span></div>
+{%- endcapture -%}
+{%- endif %}
+
+<div class="shipping-summary">
+<div>Data source <span>{{data-source}}</span></div>
+{{log-shippers-block}}
+{{metrics-shippers-block}}
+{{appenders-block}}
+{% if os %}
+<div>OS <span>{{os}}</span></div>
+{% endif %}
+</div>

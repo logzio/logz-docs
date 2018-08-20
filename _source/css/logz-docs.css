@@ -258,8 +258,8 @@ h1, h2, h3, h4, h5, h6, .site-title, .post-title {
   font-weight: 400;
   padding: 0;
   color: #296386;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: .5rem;
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
@@ -286,6 +286,7 @@ h4 {
 h5, h6 {
   font-size: 1rem;
   font-weight: 700;
+  margin-bottom: .25rem;
 }
 
 /* Use h6 to introduce procedures. If you need a regular heading, use h5 */
@@ -321,6 +322,15 @@ svg.svg-inline--fa, i.li {
   margin-right: .1rem;
 }
 
+/* special formatting */
+.sm {
+  font-size: .8rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
 /* ===== CODE BLOCKS ===== */
 
 code {
@@ -328,11 +338,12 @@ code {
 }
 
 code.highlighter-rouge {
-  padding: 1px 5px;
+  padding: 0 1px;
+  margin: 0 1px;
 }
 
 div.highlighter-rouge {
-  margin: 2rem auto;
+  margin: .5rem auto;
 }
 
 div.highlighter-rouge, code {
@@ -377,7 +388,7 @@ th {
   color: #296386;
 }
 
-td {
+tr {
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -416,6 +427,38 @@ ol ul {
   list-style-type: disc;
 }
 
+
+/* tasklist formatting */
+.tasklist {
+  counter-reset(tasklist);
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.tasklist > li {
+  counter-increment: tasklist;
+  position: relative;
+  clear: both;
+  margin-left: 45px;
+}
+
+.tasklist > li:not(:first-child) {
+  margin-top: 3rem;
+}
+
+.tasklist > li:before {
+  content: counter(tasklist);
+  position: absolute;
+  display: inline-block;
+  margin-left: -45px;
+
+  font-size: 1.5rem;
+  color: #ff971c;
+  padding: 3px;
+  font-weight: 700;
+  opacity: .5;
+}
+
 /* horizontal lists */
 ul.horizontal-list {
   list-style: none;
@@ -444,7 +487,6 @@ dt {
 dd {
   grid-column: 2 / 3;
   margin-left: 0;
-  float: left;
 }
 
 /* numbers for annotated images */
@@ -462,6 +504,23 @@ dl.letter-labels dt::before {
   counter-increment: letter-label;
   text-indent: 0;
   margin-right: .3rem;
+}
+
+/* parameter lists */
+.parameter-list {
+  display: unset;
+}
+
+.parameter-list dt {
+  margin-top: 15px;
+}
+.parameter-list dd {
+  margin-left: 15px
+}
+
+.parameter-list dt:not(:first-child) {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 10px;
 }
 
 /* ===== SEARCH ===== */
@@ -1309,12 +1368,13 @@ i.ll, dl.letter-labels dt::before {
 
   background: none;
   list-style-type: none;
+  font-size: .8rem;
 }
 
 .branching-tabs li {
   display: inline-block;
   margin: 0;
-  padding: 15px 15px 3px 15px;
+  padding: 10px 10px 3px 10px;
   background-color: #fafafa;
 }
 
@@ -1324,6 +1384,10 @@ i.ll, dl.letter-labels dt::before {
 
 .branching-tabs li:last-child {
   border-top-right-radius: 5px;
+}
+
+.branching-tabs li:hover {
+  background-color: #f0f0f0;
 }
 
 .branching-tabs li.active {
@@ -1342,12 +1406,6 @@ i.ll, dl.letter-labels dt::before {
   border-radius: 0 0 5px 5px;
   padding: 12px;
 }
-
-.branching-container > div table td:first-child {
-  font-size: .8rem;
-  line-height: 1rem;
-}
-
 
 /* ===== LOG SHIPPING PAGES ===== */
 
@@ -1383,7 +1441,7 @@ i.ll, dl.letter-labels dt::before {
   font-size: 1rem;
 }
 
-.shipping-summary div span a {
+.shipping-summary div span span {
+  display: inline;
   font-size: .75rem;
-  font-style: italic;
 }

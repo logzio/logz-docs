@@ -32,16 +32,22 @@ firstLevel:
 
 - title: Shipping and parsing
   secondLevel:
-  - title: Server apps
+  - title: Server app log shipping
     thirdLevel:
-    - title: Apache + rsyslog
-      url: /user-guide/log-shipping/shipping-methods/server-app--apache-rsyslog.html
-    - title: HAProxy + rsyslog
-      url: /user-guide/log-shipping/shipping-methods/server-app--haproxy-rsyslog.html
-    - title: IIS + NXLog
-      url: /user-guide/log-shipping/shipping-methods/server-app--iis-nxlog.html
-    - title: nginx + rsyslog
-      url: /user-guide/log-shipping/shipping-methods/server-app--nginx-rsyslog.html
+    - title: Apache
+      url: /user-guide/log-shipping/shipping-methods/server-app--apache.html
+    - title: HAProxy
+      url: /user-guide/log-shipping/shipping-methods/server-app--haproxy.html
+    - title: IIS
+      url: /user-guide/log-shipping/shipping-methods/server-app--iis.html
+    - title: nginx
+      url: /user-guide/log-shipping/shipping-methods/server-app--nginx.html
+
+  - title: Custom code log shipping
+    thirdLevel:
+    - title: Java
+      url: /user-guide/log-shipping/shipping-methods/code-library--java.html
+
   - title: Shipping info and troubleshooting
     url: /user-guide/log-shipping/
     thirdLevel:

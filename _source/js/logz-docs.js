@@ -36,9 +36,4 @@ $('#toc-collapse-btn').click( function() {
   $('.toc-container').toggleClass('toc-visibility');
 });
 
-// hide draft-watermark on hide-draft button click
-$('#hide-draft').click(function() {
-  $('#draft-watermark').hide();
-});
-
 });

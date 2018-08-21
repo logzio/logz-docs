@@ -1257,3 +1257,32 @@ i.ll, dl.letter-labels dt::before {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1rem;
 }
+
+/* ===== DRAFT WATERMARK ===== */
+
+#draft-watermark {
+  z-index: 1000;
+  padding: 8px 10px;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 45%;
+  min-width: 100px;
+  color: red;
+  background-color: #ffffff;
+  font-weight: 700;
+  border: 4px solid;
+  text-align: center;
+}
+
+#hide-draft {
+  position: absolute;
+  height: fit-content;
+  top: -4px;
+  right: 0;
+  padding: 0 2px;
+  font-size: .8rem;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}

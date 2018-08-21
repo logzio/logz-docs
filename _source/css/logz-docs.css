@@ -1163,6 +1163,14 @@ i.li-eye::before {
   content: "\1f366";
 }
 
+i.li-left-arrow::before {
+  content: "\e5c4";
+}
+
+i.li-right-arrow::before {
+  content: "\e5c8";
+}
+
 i.li-ellipsis-v::before {
   content: "\e906";
   padding-left: .2rem;

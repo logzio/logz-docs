@@ -1445,3 +1445,45 @@ i.ll, dl.letter-labels dt::before {
   display: inline;
   font-size: .75rem;
 }
+
+/* ===== COPY BUTTON ===== */
+
+div.highlighter-rouge {
+  position: relative;
+}
+
+.copy-btn {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 1px;
+  margin: 0;
+
+  opacity: .25;
+}
+
+.copy-btn:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.copy-btn::before {
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 0 3px;
+}
+
+.copy-btn:hover::before {
+  content: "Copy";
+}
+
+.copy-btn.copied {
+  opacity: 1;
+}
+
+.copy-btn.copied::before {
+  content: "Copied!"
+}

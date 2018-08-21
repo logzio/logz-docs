@@ -49,9 +49,23 @@ $('#toc-collapse-btn').click( function() {
   $('.toc-container').toggleClass('toc-visibility');
 });
 
-// hide draft-watermark on hide-draft button click
-$('#hide-draft').click(function() {
-  $('#draft-watermark').hide();
+// add copy button to all <pre> blocks
+$('pre').parent().parent().prepend('<div class="copy-btn"><i class="fas fa-copy"></i></div>');
+
+// clipboard js
+new ClipboardJS('.copy-btn', {
+  target: function(trigger) {
+    return trigger.nextElementSibling;
+  }
 });
+
+// change copy icon to "Copied!" for 1s after click
+$('.copy-btn').click( function() {
+  $(this).addClass('copied');
+  setTimeout(function () {
+    $('.copied').removeClass('copied');
+  }, 1000);
+});
+
 
 });

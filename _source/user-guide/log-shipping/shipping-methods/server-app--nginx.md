@@ -27,7 +27,7 @@ contributors:
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/filebeat-templates/master/nginx-filebeat.yml) <br /> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 5015 |
-| **Default log locations** |  Ubuntu, Debian: `/var/log/nginx/access.log` <br /> macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
+| **Default log locations** |  `/var/log/nginx/access.log` or `/var/log/nginx/error.log` |
 | **Log type** <br /> _for automatic parsing_ | Access log: `nginx`, `nginx_access`, or `nginx-access` <br /> Error log: `nginx-error` |
 
 ###### Guided configuration
@@ -75,7 +75,7 @@ contributors:
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 5000 |
-| **Default log location** | `/var/log/nginx/access.log` |
+| **Default log locations** |  `/var/log/nginx/access.log` or `/var/log/nginx/error.log` |
 | **Log type** <br /> _for automatic parsing_ | Access log: `nginx`, `nginx_access`, or `nginx-access` <br /> Error log: `nginx-error` |
 
 

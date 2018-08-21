@@ -1,22 +1,15 @@
 ---
 layout: article
-title: IIS + NXLog log shipping
-permalink: /user-guide/log-shipping/shipping-methods/server-app--iis-nxlog.html
+title: IIS log shipping
+permalink: /user-guide/log-shipping/shipping-methods/server-app--iis.html
+shipping-summary:
+  data-source: Microsoft IIS
+  log-shippers:
+    - NXLog
+  os: Windows
 contributors:
   - imnotashrimp
 ---
-
-<div class="shipping-summary">
-<div>
-  Data source <span>IIS</span>
-</div>
-<div>
-  Shipper <span>NXLog</span>
-</div>
-<div>
-  OS <span>Windows</span>
-</div>
-</div>
 
 ### Configuration
 

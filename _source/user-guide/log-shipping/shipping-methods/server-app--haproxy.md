@@ -1,28 +1,19 @@
 ---
 layout: article
-title: HAProxy-rsyslog log shipping
-permalink: /user-guide/log-shipping/shipping-methods/server-app--haproxy-rsyslog.html
+title: HAProxy log shipping
+permalink: /user-guide/log-shipping/shipping-methods/server-app--haproxy.html
+shipping-summary:
+  data-source: HAProxy
+  log-shippers:
+    - rsyslog
+  os: Linux
 contributors:
   - imnotashrimp
 ---
 
-<div class="shipping-summary">
-<div>
-  Data source <span>HAProxy</span>
-</div>
-<div>
-  Shipper <span>rsyslog</span>
-</div>
-<div>
-  OS <span>Linux</span>
-</div>
-</div>
-
 ### Configuration
 
-**Requirements:**
-* root access
-* rsyslog 5.8.0 or later
+**Requirements:** root access, rsyslog 5.8.0 or later
 
 1. Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
 
@@ -91,6 +82,6 @@ contributors:
     sudo service rsyslog restart
     ```
 
-4. Give your logs a minute to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+4. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

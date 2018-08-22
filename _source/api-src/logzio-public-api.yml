@@ -44,9 +44,9 @@ info:
 securityDefinitions:
   X-API-TOKEN:
     description: >-
-      You can manage your API tokens in your Logz.io account settings. API tokens are tied to individual accounts and sub accounts.
-      
-      
+      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page. To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+
+
       API tokens carry privileges to make changes to users and accounts, so it's important to keep your tokens secure. If you believe an API token has been compromised, delete the compromised token, and replace it with a new token in your integrations.
     type: apiKey
     in: header

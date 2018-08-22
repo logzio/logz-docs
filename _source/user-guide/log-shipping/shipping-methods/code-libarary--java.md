@@ -44,16 +44,18 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
 
 #### Configuration
 
-* {% include log-shipping/your-account-token.html %}
-* {% include log-shipping/your-listener-url.html %}
-* For a complete list of all options, see [Configuration parameters](#log4j-config-params) below
+{% include log-shipping/your-account-token.html %}
+
+{% include log-shipping/your-listener-url.html %}
+
+For a complete list of all options, see the configuration parameters below this code block. 👇
 
 ```xml
 <Appenders>
   <LogzioAppender name="Logzio">
     <logzioToken>{account-token}</logzioToken>
     <logzioUrl>https://{listener-url}:8071</logzioUrl>
-    <logzioType>myAwesomeType</logzioType> <!-- Name of your log type, used by Logz.io for consistent log parsing. Can't contain spaces. -->
+    <logzioType>myAwesomeType</logzioType>
   </LogzioAppender>
 </Appenders>
 
@@ -64,7 +66,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
 </Loggers>
 ```
 
-##### Configuration parameters {#log4j-config-params}
+##### Configuration parameters
 
 {: .parameter-list }
 logzioToken
@@ -213,9 +215,11 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
 
 #### Configuration
 
-* {% include log-shipping/your-account-token.html %}
-* {% include log-shipping/your-listener-url.html %}
-* For a complete list of all options, see [Configuration parameters](#logback-config-params) below
+{% include log-shipping/your-account-token.html %}
+
+{% include log-shipping/your-listener-url.html %}
+
+For a complete list of all options, see the configuration parameters below this code block. 👇
 
 ```xml
 <configuration>
@@ -235,7 +239,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
 </configuration>
 ```
 
-##### Configuration parameters {#logback-config-params}
+##### Configuration parameters
 
 {: .parameter-list }
 token
@@ -279,6 +283,7 @@ logzioUrl
 
 socketTimeout
   : Socket timeout during log shipment, in milliseconds <br /> <span class="sm bold">Default:</span> `10 * 1000`
+
 
 ##### Code sample
 

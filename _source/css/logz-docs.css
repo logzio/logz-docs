@@ -1,6 +1,6 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,600');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
@@ -924,7 +924,7 @@ ul.toc-grandchild span.toc-heading {
 
 li.toc-active > span.toc-heading {
   background-color: #e1e1e1;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 nav.all-pages-toc a {
@@ -1323,10 +1323,15 @@ i.ll, dl.letter-labels dt::before {
   outline: none;
 }
 
+.ui-accordion-header:hover {
+  font-weight: 400;
+  background-color: #f0f0f0;
+}
+
 .ui-accordion-header-active {
   background-color: #f0f0f0;
   color: #296386;
-  font-weight: 700;
+  font-weight: 400;
   border-bottom: 3px solid currentColor;
 }
 
@@ -1368,14 +1373,16 @@ i.ll, dl.letter-labels dt::before {
 
   background: none;
   list-style-type: none;
-  font-size: .8rem;
+  border-bottom: 3px solid #e5e5e5;
 }
 
 .branching-tabs li {
   display: inline-block;
-  margin: 0;
-  padding: 10px 10px 3px 10px;
+  margin: 0 0 -3px 0;
+  padding: 10px;
   background-color: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-bottom: 3px solid #e5e5e5;
 }
 
 .branching-tabs li:first-child {
@@ -1387,14 +1394,14 @@ i.ll, dl.letter-labels dt::before {
 }
 
 .branching-tabs li:hover {
-  background-color: #f0f0f0;
+  background-color: #29638610;
+  border-bottom: 3px solid #29638610;
 }
 
 .branching-tabs li.active {
-  border-bottom: 3px solid currentColor;
-  color: #296386;
+  font-weight: 400;
+  border-bottom: 3px solid #296386;
   background-color: #f0f0f0;
-  font-weight: 700;
 }
 
 .branching-tabs li > a {
@@ -1417,10 +1424,9 @@ i.ll, dl.letter-labels dt::before {
   margin-top: 2rem;
   padding: 0;
 
-  border: 1px solid #e5e5e5;
+  border: 2px solid #e5e5e5;
   border-radius: 3px;
 
-  color: silver;
   line-height: 1.25rem;
 }
 

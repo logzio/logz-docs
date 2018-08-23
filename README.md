@@ -21,8 +21,8 @@ Our site is built on Jekyll. We merge the `develop` branch as needed. Docs are r
   * [Procedures](#procedures)
   * [Info boxes](#info-boxes)
   * [Code highlighting](#code-highlighting)
-* [Credits and contributors {#credits-and-contributors}](#credits-and-contributors-credits-and-contributors)
-  * [Open source projects used in the docs](#open-source-projects-used-in-the-docs)
+* [Credits and contributors](#credits-and-contributors)
+  * [Open source software used in Docs](#open-source-software-used-in-docs)
 
 ## Contributions
 
@@ -247,16 +247,17 @@ For example, for HTML:
 ```
 ````
 
-## Credits and contributors {#credits-and-contributors}
+## Credits and contributors
 
 We invite contributions to docs, and we maintain a [list of contributors](https://docs.logz.io/credits.html) at the Logz.io Docs site.
 
-### Open source projects used in the docs
+### Open source software used in Docs
 
 * [clipboard.js](https://clipboardjs.com/)
 * [Easytabs](https://os.alfajango.com/easytabs/)
 * [Font Awesome 5 Free](https://fontawesome.com/)
 * [GitHub Octicons](https://github.com/primer/octicons/)
-* [jQuery](https://jquery.com/) & [jQuery UI](https://jqueryui.com/)
+* [Jekyll](https://jekyllrb.com/)
+* [jQuery](https://jquery.com/) and [jQuery UI](https://jqueryui.com/)
 * [Lunr](https://lunrjs.com/)
 * [tablesorter](http://tablesorter.com/docs/)

@@ -8,19 +8,21 @@ Our site is built on Jekyll. We merge the `develop` branch as needed. Docs are r
 
 #### Contents
 
-  * [Contributions](#contributions)
-    * [What pull requests we can't merge](#what-pull-requests-we-cant-merge)
-    * [Community guidelines](#community-guidelines)
-  * [Setup](#setup)
-  * [Changes and pull requests](#changes-and-pull-requests)
-    * [Syncing your fork](#syncing-your-fork)
-    * [Previewing locally](#previewing-locally)
-    * [Making your first pull request](#making-your-first-pull-request)
-  * [Working in Markdown](#working-in-markdown)
-    * [Headings](#headings)
-    * [Procedures](#procedures)
-    * [Info boxes](#info-boxes)
-    * [Code highlighting](#code-highlighting)
+* [Contributions](#contributions)
+  * [What pull requests we can't merge](#what-pull-requests-we-cant-merge)
+  * [Community guidelines](#community-guidelines)
+* [Setup](#setup)
+* [Changes and pull requests](#changes-and-pull-requests)
+  * [Syncing your fork](#syncing-your-fork)
+  * [Previewing locally](#previewing-locally)
+  * [Making your first pull request](#making-your-first-pull-request)
+* [Working in Markdown](#working-in-markdown)
+  * [Headings](#headings)
+  * [Procedures](#procedures)
+  * [Info boxes](#info-boxes)
+  * [Code highlighting](#code-highlighting)
+* [Credits and contributors {#credits-and-contributors}](#credits-and-contributors-credits-and-contributors)
+  * [Open source projects used in the docs](#open-source-projects-used-in-the-docs)
 
 ## Contributions
 
@@ -244,3 +246,17 @@ For example, for HTML:
 </div>
 ```
 ````
+
+## Credits and contributors {#credits-and-contributors}
+
+We invite contributions to docs, and we maintain a [list of contributors](https://docs.logz.io/credits.html) at the Logz.io Docs site.
+
+### Open source projects used in the docs
+
+* [clipboard.js](https://clipboardjs.com/)
+* [Easytabs](https://os.alfajango.com/easytabs/)
+* [Font Awesome 5 Free](https://fontawesome.com/)
+* [GitHub Octicons](https://github.com/primer/octicons/)
+* [jQuery](https://jquery.com/) & [jQuery UI](https://jqueryui.com/)
+* [Lunr](https://lunrjs.com/)
+* [tablesorter](http://tablesorter.com/docs/)

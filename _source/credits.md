@@ -14,12 +14,6 @@ search: false
   {% endfor %}
   </ul>
 
-<!-- ### Open source stuff we used in docs
-
-  * [Font Awesome 5 Free](https://fontawesome.com/)
-  * [jQuery](https://jquery.com/)
-  * [Jekyll](https://jekyllrb.com/)
-  * [Lunr](https://lunrjs.com/)
-  * [tablesorter](https://github.com/mottie/tablesorter) -->
-
 </div>
+
+[Open source software used in the Docs](https://github.com/logzio/logz-docs#open-source-software-used-in-docs)

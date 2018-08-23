@@ -37,8 +37,10 @@
   </nav>
 {% include lunr-results.html %}
 
+  {% comment %}
   {% unless jekyll.environment == "production" -%}
   <div id="draft-watermark">Draft <div id="hide-draft">x</div></div>
   {%- endunless %}
+  {% endcomment %}
 
 </header>

@@ -11,7 +11,7 @@ contributors:
   - imnotashrimp
 ---
 
-### Configuration
+### IIS + NXLog
 
 **Requirements:** Admin access
 

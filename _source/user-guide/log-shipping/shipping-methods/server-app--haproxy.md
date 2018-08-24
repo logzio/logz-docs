@@ -11,7 +11,7 @@ contributors:
   - imnotashrimp
 ---
 
-### Configuration
+### HAProxy + rsyslog
 
 **Requirements:** root access, rsyslog 5.8.0 or later
 

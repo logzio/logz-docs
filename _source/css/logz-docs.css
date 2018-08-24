@@ -1,7 +1,7 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i');
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,600');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
 /* Logz.io icons */
@@ -255,7 +255,7 @@ code, pre {
 
 h1, h2, h3, h4, h5, h6, .site-title, .post-title {
   font-family: 'Titillium Web', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   padding: 0;
   color: #296386;
   margin-top: 2rem;
@@ -1317,23 +1317,26 @@ i.ll, dl.letter-labels dt::before {
 /* Accordion is styled from jquery ui base css.
   The styles here override the defaults */
 
-.ui-accordion-header {
-  background-color: #fafafa;
-  border: 1px solid #e5e5e5;
-  outline: none;
-}
+  .ui-accordion-header {
+    background-color: unset;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    outline: none;
+    font-weight: 300;
+  }
 
-.ui-accordion-header:hover {
-  font-weight: 400;
-  background-color: #f0f0f0;
-}
+  .ui-accordion-header:not(.ui-accordion-header-active):hover {
+    color: #296386be;
+    border-bottom-color: currentColor;
+    font-weight: 400;
+  }
 
-.ui-accordion-header-active {
-  background-color: #f0f0f0;
-  color: #296386;
-  font-weight: 400;
-  border-bottom: 3px solid currentColor;
-}
+  .ui-accordion-header-active {
+    color: #296386;
+    font-weight: 400;
+    border-bottom: 3px solid currentColor;
+  }
 
 .ui-accordion-header::before, .ui-accordion-header-active::before {
   font-family: "Font Awesome 5 Free";
@@ -1360,10 +1363,6 @@ i.ll, dl.letter-labels dt::before {
   width: 100%;
 }
 
-.branching-container > h3 {
-  text-align: center;
-}
-
 .branching-tabs {
   display: flex;
   flex-direction: row;
@@ -1373,35 +1372,26 @@ i.ll, dl.letter-labels dt::before {
 
   background: none;
   list-style-type: none;
-  border-bottom: 3px solid #e5e5e5;
+  border-bottom: 2px solid #e5e5e5;
 }
 
 .branching-tabs li {
   display: inline-block;
   margin: 0 0 -3px 0;
   padding: 10px;
-  background-color: #fafafa;
-  border: 1px solid #e5e5e5;
+  color: #969696;
   border-bottom: 3px solid #e5e5e5;
 }
 
-.branching-tabs li:first-child {
-  border-top-left-radius: 5px;
-}
-
-.branching-tabs li:last-child {
-  border-top-right-radius: 5px;
-}
-
 .branching-tabs li:hover {
-  background-color: #29638610;
-  border-bottom: 3px solid #29638610;
+  color: #29638680;
+  border-bottom: 3px solid currentColor;
 }
 
 .branching-tabs li.active {
   font-weight: 400;
-  border-bottom: 3px solid #296386;
-  background-color: #f0f0f0;
+  color: #296386;
+  border-bottom: 3px solid currentColor;
 }
 
 .branching-tabs li > a {

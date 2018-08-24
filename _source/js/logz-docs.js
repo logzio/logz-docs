@@ -31,6 +31,7 @@ $( '.accordion' ).accordion({
 });
 
 $('.branching-container').easytabs({
+  animate: false,
   updateHash: true
 });
 

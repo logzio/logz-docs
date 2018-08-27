@@ -1377,26 +1377,23 @@ i.ll, dl.letter-labels dt::before {
 
   background: none;
   list-style-type: none;
-  border-bottom: 2px solid #e5e5e5;
 }
 
 .branching-tabs li {
   display: inline-block;
-  margin: 0 0 -3px 0;
   padding: 10px;
   color: #969696;
-  border-bottom: 3px solid #e5e5e5;
 }
 
 .branching-tabs li:hover {
   color: #29638680;
-  border-bottom: 3px solid currentColor;
+  border-bottom: 2px solid currentColor;
 }
 
 .branching-tabs li.active {
   font-weight: 400;
   color: #296386;
-  border-bottom: 3px solid currentColor;
+  border-bottom: 4px solid currentColor;
 }
 
 .branching-tabs li > a {

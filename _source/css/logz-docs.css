@@ -172,13 +172,13 @@ div.card {
   text-align: center;
 
   box-shadow: none;
-  transition: box-shadow 500ms;
+  transition: box-shadow 200ms;
 
 }
 
 div.card:hover {
   box-shadow: 5px 10px 25px 0 #c1c1c17a;
-  transition: box-shadow 500ms;
+  transition: box-shadow 200ms;
 }
 
 div.full-card {
@@ -673,11 +673,10 @@ div.feature-box > span {
 /* ===== INFO BOXES ===== */
 
 div.info-box {
-  width: 400px;
+  width: 450px;
   margin: 2rem auto;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
-  padding: .5rem;
+  border-radius: 2px;
+  padding: 10px;
 }
 
 div.info-box ul {
@@ -686,8 +685,14 @@ div.info-box ul {
 
 div.info-box > p::before {
   font-weight: 700;
+  color: white;
+  opacity: .75;
+
   display: block;
-  margin-bottom: .5rem;
+  width: fit-content;
+  margin: auto auto auto -20px;
+  padding-left: 20px;
+  padding-right: 15px;
 }
 
 div.info-box > p {
@@ -710,22 +715,22 @@ note (blue)       #2e97e5   */
 
 /* .warning */
 div.info-box.warning {
-  border-color: #d94141;
+  background-color: #d9414110;
 }
 
 div.info-box.warning > p::before {
   content: "Warning   ";
-  color: #d94141;
+  background-color: #d94141;
 }
 
 /* .note */
 div.info-box.note {
-  border-color: #2e97e5;
+  background-color: #2e97e510;
 }
 
 div.info-box.note > p::before {
   content: "Note   ";
-  color: #2e97e5;
+  background-color: #2e97e5;
 }
 
 div.info-box.note.notes > p::before {
@@ -734,22 +739,22 @@ div.info-box.note.notes > p::before {
 
 /* .gotcha, .important */
 div.info-box.gotcha, div.info-box.important {
-  border-color: #ff971c;
+  background-color: #ff971c10;
 }
 
 div.info-box.gotcha > p::before, div.info-box.important > p::before {
   content: "Important   ";
-  color: #ff971c;
+  background-color: #ff971c;
 }
 
 /* .tip */
 div.info-box.tip {
-  border-color: #5abf4d;
+  background-color: #5abf4d10;
 }
 
 div.info-box.tip > p::before {
   content: "Pro Tip   ";
-  color: #5abf4d;
+  background-color: #5abf4d;
 }
 
 /* ===== SITE HEADER ===== */

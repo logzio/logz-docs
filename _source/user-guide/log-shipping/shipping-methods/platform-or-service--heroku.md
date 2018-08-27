@@ -26,7 +26,7 @@ If you've already installed Heroku CLI, the CLI installation is the simplest way
 
 ###### Installation from CLI
 
-**Requirements:** Heroku CLI
+**You'll need:** Heroku CLI
 
 {: .tasklist }
 1. In a terminal window, run `heroku addons:create logzio:r2d2`.
@@ -49,7 +49,7 @@ If you've already installed Heroku CLI, the CLI installation is the simplest way
 
 ## Heroku log drain
 
-**Requirements:** Heroku CLI
+**You'll need:** Heroku CLI
 
 {: .tasklist }
 1. Run this command in a terminal window.

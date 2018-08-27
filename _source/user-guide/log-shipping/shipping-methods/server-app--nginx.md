@@ -32,7 +32,7 @@ contributors:
 
 ###### Guided configuration
 
-**Requirements:** root access
+**You'll need:** root access
 
 {: .tasklist }
 1. For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
@@ -81,7 +81,7 @@ contributors:
 
 ###### Guided configuration
 
-**Requirements:** root access
+**You'll need:** root access
 
 {: .tasklist }
 1. Run the Logz.io rsyslog configuration script.

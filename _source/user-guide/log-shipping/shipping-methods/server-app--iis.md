@@ -13,7 +13,7 @@ contributors:
 
 ### IIS + NXLog
 
-**Requirements:** Admin access
+**You'll need:** Admin access
 
 1. Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 

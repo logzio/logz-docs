@@ -78,7 +78,7 @@ contributors:
 
 ###### Guided configuration
 
-**Requirements:** root access
+**You'll need:** root access
 
 {: .tasklist }
 1. Run the Logz.io rsyslog configuration script.

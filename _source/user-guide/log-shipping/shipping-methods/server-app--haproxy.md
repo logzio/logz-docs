@@ -13,7 +13,7 @@ contributors:
 
 ### HAProxy + rsyslog
 
-**Requirements:** root access, rsyslog 5.8.0 or later
+**You'll need:** root access, rsyslog 5.8.0 or later
 
 1. Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
 

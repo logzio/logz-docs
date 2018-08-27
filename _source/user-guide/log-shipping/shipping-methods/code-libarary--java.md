@@ -25,7 +25,7 @@ The Logz.io Log4j 2 appender sends logs using non-blocking threading, bulks, and
 
 This appender uses LogzioSender. Logs queue in the buffer and are 100% non-blocking. A background task handles log shipping. To help manage dependencies, this .jar shades LogzioSender, BigQueue, Gson, and Guava.
 
-**Requirements:** Log4j 2.7 or higher, Java 8 or higher
+**You'll need:** Log4j 2.7 or higher, Java 8 or higher
 
 
 ### Installation in your code
@@ -197,7 +197,7 @@ Logback sends logs to your Logz.io account using non-blocking threading, bulks, 
 
 This appender uses BigQueue implementation of persistent queue, so all logs are backed up to a local file system before being sent. Once you send a log, it will be enqueued in the buffer and 100% non-blocking. A background task  handles the log shipment. To help manage dependencies, this .jar shades BigQueue, Gson, and Guava.
 
-**Requirements:** Logback 1.1.7 or higher, Java 8 or higher
+**You'll need:** Logback 1.1.7 or higher, Java 8 or higher
 
 ### Installation in your code
 

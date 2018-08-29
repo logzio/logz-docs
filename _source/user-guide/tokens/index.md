@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Access and authentication
-permalink: /user-guide/access-and-authentication/
+permalink: /user-guide/tokens/
 flags:
   admin: true
   logzio-plan: community

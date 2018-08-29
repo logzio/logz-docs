@@ -111,17 +111,18 @@ firstLevel:
   #     url: /user-guide/archive-and-restore/make-an-iam-role-for-logzio.html
 
 
-  - title: Access and authentication
-    url: /user-guide/access-and-authentication/
+  - title: Users
+    url: /user-guide/users/
     thirdLevel:
-    - title: Manage users
-      url: /user-guide/access-and-authentication/manage-users.html
     - title: Multi-factor authentication
-      url: /user-guide/access-and-authentication/multi-factor-authentication.html
+      url: /user-guide/users/multi-factor-authentication.html
+  - title: Tokens
+    url: /user-guide/tokens/
+    thirdLevel:
     - title: Manage shared tokens
-      url: /user-guide/access-and-authentication/shared-tokens.html
+      url: /user-guide/tokens/shared-tokens.html
     - title: Manage API tokens
-      url: /user-guide/access-and-authentication/api-tokens.html
+      url: /user-guide/tokens/api-tokens.html
 
   # ===== INTEGRATIONS =====
 - title: Integrations

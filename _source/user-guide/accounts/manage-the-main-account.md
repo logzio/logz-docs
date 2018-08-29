@@ -17,7 +17,7 @@ Users in your main account have access to your data in sub accounts and timeless
 
 * Create, view, update, and delete timeless accounts
 
-* Create and delete shared tokens and token filters
+* Create and delete shared tokens, token filters, and API tokens
 
 ![Manage the main account]({{site.baseurl}}/images/accounts/accounts--manage-main-account.png)
 

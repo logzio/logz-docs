@@ -55,10 +55,13 @@ info:
   termsOfService: 'https://logz.io/about-us/terms-of-use/'
   contact:
     email: help@logz.io
-    url: https://logz.io/
+    url: https://docs.logz.io/
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: https://logz.io/wp-content/themes/Avada-Child-Theme/images/logz-logo.svg
+    altText: Logz.io
 
 securityDefinitions:
   X-API-TOKEN:

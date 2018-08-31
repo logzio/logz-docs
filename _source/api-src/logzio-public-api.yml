@@ -1,12 +1,17 @@
 swagger: '2.0'
 schemes: [ https ]
 host: api.logz.io
+x-servers:
+  - url: https://api.logz.io
+    description: US region
+  - url: https://api-eu.logz.io
+    description: EU region
 basePath: /v1
 produces: [ application/json ]
 consumes: [ application/json ]
 info:
   description: >-
-    ## Introduction
+    # Introduction
 
     This API is documented using the **OpenAPI 2.0** specification. You can browse the API documentation on this page, or you can download the specification file.
 
@@ -14,9 +19,23 @@ info:
 
     We update this document regularly to reflect changes and improvements to the Logz.io API. If you'd like to suggest corrections or improvements to this document, please email us at [help@logz.io](mailto:help@logz.io) or submit a ticket in the GitHub repository.
 
-    #### Notes on this document
+    #### Notes on alerting
 
     Please note that alerting is not yet covered in this document. For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
+
+    # Account region and your API URL
+
+    We host accounts in the US and EU regions. You'll need to route API calls to the same region where your account is hosted.
+
+
+    If you don't know your account region, check your Logz.io login URL. If your login URL is app.logz.io, your account is hosted in the US region. If your login URL is app-eu.logz.io, your account is hosted in the EU region.
+
+
+    #### API region URLs
+
+    * US: `api.logz.io`
+
+    * EU: `api-eu.logz.io`
 
     # Authentication
 
@@ -286,7 +305,7 @@ paths:
         Searches your account data using the Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language. 
 
 
-        **Note:** To ensure speed and availability of your logs, we've restricted some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
+        **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
       tags:
         - Search logs
       parameters:
@@ -307,9 +326,9 @@ paths:
 
                   * When using `query_string`, `allow_leading_wildcard` must be set to `false`
 
-                  * `wildcard` cannot start with `*` or `?`
+                  * `wildcard` can't start with `*` or `?`
 
-                  * Cannot contain `fuzzy_max_expansions`, `max_expansions`, or `max_determinized_states`
+                  * Can't contain `fuzzy_max_expansions`, `max_expansions`, or `max_determinized_states`
                 example: { "bool": { "must": [{ "range": { "@timestamp": { "gte": "now-5m", "lte": "now" } } }] } }
               from:
                 type: integer
@@ -327,7 +346,7 @@ paths:
                 description: >-
                   #### Limitations
 
-                  * Cannot sort or aggregate on `message`
+                  * Can't sort or aggregate on `message`
                 items:
                   type: object
               _source:
@@ -356,6 +375,7 @@ paths:
                   * Can't sort or aggregate on the `message` field
 
                   * Aggregation type `significant_terms` can't be used
+
 
                   **Note:** You can use `aggs` or `aggregations` as the field name
                 example: { "byType": { "terms": { "field": "type", "size": 5 } } }
@@ -426,7 +446,7 @@ paths:
         Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
 
 
-        **Note:** To ensure speed and availability of your logs, we've restricted some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
+        **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
       operationId: scroll
       parameters:
         - in: body
@@ -2544,9 +2564,9 @@ definitions:
 
           * When using `query_string`, `allow_leading_wildcard` must be set to `false`
 
-          * `wildcard` cannot start with `*` or `?`
+          * `wildcard` can't start with `*` or `?`
 
-          * Cannot use `fuzzy_max_expansions`,  `max_expansions`, or `max_determinized_states`
+          * Can't use `fuzzy_max_expansions`,  `max_expansions`, or `max_determinized_states`
       size:
         type: integer
         format: int32
@@ -2565,7 +2585,7 @@ definitions:
         description: >-
           #### Limitations
 
-          * Cannot sort on `message`
+          * Can't sort on `message`
       _source:
         type: array
         description: >-

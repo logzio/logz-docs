@@ -4,7 +4,7 @@
 
   {% include head.html %}
   <body>
-    <!--<iframe class="header-frame" src="{{ site.baseurl }}/api-src/iframe-header.html" scrolling="no"></iframe>-->
+    <iframe class="header-frame" src="{{ site.baseurl }}/api-src/iframe-header.html" scrolling="no"></iframe>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Nunito+Sans:300,400,700" rel="stylesheet">
 
     <div id="redoc-container"></div>
@@ -37,14 +37,14 @@
             hover: '#009cbd'
           }
         },
-        /* scrollYOffset: 'iframe.header-frame', */
+        scrollYOffset: 'iframe.header-frame',
         expandResponses: 'all',
         pathInMiddlePanel: true,
         hideLoading: true
       }, document.getElementById('redoc-container'))
     </script>
 
-    <!-- <iframe class="footer" src="{{ site.baseurl }}/api-src/iframe-footer.html" scrolling="no"></iframe> -->
+    <iframe class="footer" src="{{ site.baseurl }}/api-src/iframe-footer.html" scrolling="no"></iframe>
   </body>
 
 </html>

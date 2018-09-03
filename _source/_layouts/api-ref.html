@@ -4,8 +4,8 @@
 
   {% include head.html %}
   <body>
-    <!--<iframe class="header-frame" src="{{ site.baseurl }}/api-src/iframe-header.html" scrolling="no"></iframe>-->
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Nunito+Sans:300,400,700" rel="stylesheet">
+    <iframe class="header-frame" src="{{ site.baseurl }}/api-src/iframe-header.html" scrolling="no"></iframe>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Nunito+Sans:300,300i,400,400i,700" rel="stylesheet">
 
     <div id="redoc-container"></div>
 
@@ -15,36 +15,45 @@
       Redoc.init('{{ site.baseurl }}/api-src/logzio-public-api.yml', {
         theme: {
           colors: {
-            main: '#296386'
+            primary: {
+              main: '#296386'
+            },
+            text: {
+              primary: '#53585f',
+              secondary: '#296386'
+            }
           },
-          baseFont: {
-            size: '14px',
+          typography: {
+            fontSize: '14px',
             lineHeight: '1.5',
-            weight: '300',
-            family: 'Nunito Sans, sans-serif',
+            fontWeightRegular: '400',
+            fontWeightBold: '700',
+            fontWeightLight: '700',
+            fontFamily: 'Nunito Sans, sans-serif',
             smoothing: 'antialiased',
-            optimizeSpeed: true
+            optimizeSpeed: true,
+            headings: {
+              fontFamily: 'Nunito Sans, sans-serif'
+            },
+            code: {
+              fontFamily: 'Source Code Pro, monospace',
+              fontSize: '11px'
+            },
+            links: {
+              color: '#009cbd',
+              visited: '#009cbd',
+              hover: '#009cbd'
+            }
           },
-          headingsFont: {
-            family: 'Nunito Sans, sans-serif'
-          },
-          code: {
-            fontFamily: 'Source Code Pro, monospace'
-          },
-          links: {
-            color: '#009cbd',
-            visited: '#009cbd',
-            hover: '#009cbd'
-          }
         },
-        /* scrollYOffset: 'iframe.header-frame', */
+        scrollYOffset: 'iframe.header-frame',
         expandResponses: 'all',
         pathInMiddlePanel: true,
         hideLoading: true
       }, document.getElementById('redoc-container'))
     </script>
 
-    <!-- <iframe class="footer" src="{{ site.baseurl }}/api-src/iframe-footer.html" scrolling="no"></iframe> -->
+    <iframe class="footer" src="{{ site.baseurl }}/api-src/iframe-footer.html" scrolling="no"></iframe>
   </body>
 
 </html>

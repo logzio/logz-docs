@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Multi-factor authentication
-permalink: /user-guide/access-and-authentication/multi-factor-authentication.html
+permalink: /user-guide/users/multi-factor-authentication.html
 flags:
   admin: true
   logzio-plan: community

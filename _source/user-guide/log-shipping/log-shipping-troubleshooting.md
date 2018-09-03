@@ -73,15 +73,15 @@ Confirm that your firewall and network settings allow communication with the rig
 
 </div>
 
-### 3. Check your log shipping configuration for the correct token
+### 3. Check your log shipping configuration for the right account token
 
 <div>
 
-Logz.io uses your account token to send incoming logs to the correct account. If you're not using the right account token, your logs won't be indexed to your account. 
+Logz.io uses your account token to send incoming logs to the correct account. If you're not using the right account token, your logs won't be indexed to your account.
 
-1. Find your account token in your [admin settings](https://app.logz.io/#/dashboard/settings/general) (<i class="li li-gear"></i> in the top menu). Your account token is in the Account Settings section.
+1. Find your account token in your [account settings](https://app.logz.io/#/dashboard/settings/general) (**<i class="li li-gear"></i> > Settings > General** in the top menu).
 
-2. Find the token you're sending with your logs. Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs. 
+2. Find the token you're sending with your logs. Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs.
 
     <div class="info-box tip">
       In most cases, the token is stored in a configuration file or as a query parameter in the URL you're shipping logs to. You can usually find it by searching for "token".
@@ -95,7 +95,7 @@ If the tokens match, your logs will be sent to your account. Move on to the next
 
 ##### If the tokens don't match
 
-If the tokens don't match, your logs won't be sent to your account. Copy your acount token to your shipper configuration, and restart your shipper if you need to. 
+If the tokens don't match, your logs won't be sent to your account. Copy your acount token to your shipper configuration, and restart your shipper if you need to.
 
 If your logs still don't appear in Kibana after a few minutes, move on to the next troubleshooting step.
 
@@ -105,7 +105,7 @@ If your logs still don't appear in Kibana after a few minutes, move on to the ne
 
 <div>
 
-Next, you'll need to check your log shipper's logs. If you're not sure where to find the logs, see your log shipper's documentation. 
+Next, you'll need to check your log shipper's logs. If you're not sure where to find the logs, see your log shipper's documentation.
 
 When reviewing the logs, look for errors indicating that your logs aren't being shipped.
 
@@ -116,7 +116,7 @@ Also confirm that the log shipper is running. If it's not running, you'll need t
 * _Multiple configurations:_ Make sure your shipper has one configuration. If it has more than one configuration, remove or comment out extra configurations.
 
 * _Incorrect paths:_ Make sure all the paths in the configuration are correct
- 
+
 * _Incorrect permissions:_ Make sure your shipper has the correct permissions to access configured paths
 
 </div>

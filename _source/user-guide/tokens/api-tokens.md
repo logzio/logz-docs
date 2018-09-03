@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Manage API tokens
-permalink: /user-guide/access-and-authentication/api-tokens.html
+permalink: /user-guide/tokens/api-tokens.html
 flags:
   admin: true
   logzio-plan: enterprise

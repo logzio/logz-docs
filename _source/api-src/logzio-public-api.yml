@@ -2,9 +2,9 @@ swagger: '2.0'
 schemes: [ https ]
 host: api.logz.io
 x-servers:
-  - url: https://api.logz.io
+  - url: https://api.logz.io/v1
     description: US region
-  - url: https://api-eu.logz.io
+  - url: https://api-eu.logz.io/v1
     description: EU region
 basePath: /v1
 produces: [ application/json ]

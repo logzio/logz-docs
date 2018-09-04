@@ -1,6 +1,6 @@
 ---
 layout: article
-title: nginx log shipping
+title: nginx data
 permalink: /user-guide/log-shipping/shipping-methods/server-app--nginx.html
 shipping-summary:
   data-source: nginx
@@ -15,8 +15,8 @@ contributors:
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [Filebeat](#filebeat-config)
-  * [rsyslog](#rsyslog-config)
+  * [Filebeat (logs)](#filebeat-config)
+  * [rsyslog (logs)](#rsyslog-config)
 
 <div id="filebeat-config">
 

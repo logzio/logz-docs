@@ -1415,10 +1415,7 @@ i.ll, dl.letter-labels dt::before {
 
   margin-top: 2rem;
   padding: 0;
-
-  border: 2px solid #e5e5e5;
-  border-radius: 3px;
-
+  border-bottom: 2px solid #e5e5e5;
   line-height: 1.25rem;
 }
 

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Apache log shipping
+title: Apache data
 permalink: /user-guide/log-shipping/shipping-methods/server-app--apache.html
 shipping-summary:
   data-source: Apache HTTPS Server 2 (httpd)
@@ -15,8 +15,8 @@ contributors:
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [Filebeat](#filebeat-config)
-  * [rsyslog](#rsyslog-config)
+  * [Filebeat (logs)](#filebeat-config)
+  * [rsyslog (logs)](#rsyslog-config)
 
 <div id="filebeat-config">
 

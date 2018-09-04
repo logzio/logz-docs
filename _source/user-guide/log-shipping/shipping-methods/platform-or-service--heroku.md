@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Heroku log shipping
+title: Heroku data
 permalink: /user-guide/log-shipping/shipping-methods/platform-or-service--heroku.html
 shipping-summary:
   data-source: Heroku
@@ -14,8 +14,8 @@ contributors:
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [Logz.io add-on](#logzio-add-on-config)
-  * [Log drain](#log-drain-config)
+  * [Logz.io add-on (logs)](#logzio-add-on-config)
+  * [Log drain (logs)](#log-drain-config)
 
 
 <div id="logzio-add-on-config">

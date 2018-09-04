@@ -1,6 +1,6 @@
 ---
 layout: article
-title: HAProxy log shipping
+title: HAProxy data
 permalink: /user-guide/log-shipping/shipping-methods/server-app--haproxy.html
 shipping-summary:
   data-source: HAProxy
@@ -15,8 +15,8 @@ contributors:
 
 **You'll need:** root access, rsyslog 5.8.0 or later
 
+{: .tasklist }
 1. Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
-
 
     ```conf
     global

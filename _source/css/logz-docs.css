@@ -13,6 +13,12 @@
 /* ===== VARIABLES ===== */
 
 :root {
+  /* FONTS */
+  --heading-font: 'Titillium Web', sans-serif;
+  --body-font: 'Nunito Sans', sans-serif;
+  --mono-font: 'Source Code Pro', monospace;
+
+  /* COLORS */
   --logz-logo-normal: #0089b1;
 
   --text-normal: #53585f;
@@ -231,7 +237,7 @@ div.full-card div.card-text {
 }
 
 span.card-title {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: var(--heading-font);
   font-weight: 600;
   color: var(--heading-normal);
   margin: auto;
@@ -276,7 +282,7 @@ html {
 }
 
 body, .ui-accordion-content > *:not(h5):not(h6)  {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: var(--body-font);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.4rem;
@@ -284,12 +290,12 @@ body, .ui-accordion-content > *:not(h5):not(h6)  {
 }
 
 code, pre {
-  font-family: "Source Code Pro", monospace;
+  font-family: var(--mono-font);
   font-size: .8rem;
 }
 
 h1, h2, h3, h4, h5, h6, .site-title, .post-title {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: var(--heading-font);
   font-weight: 400;
   padding: 0;
   color: var(--heading-normal);
@@ -753,7 +759,7 @@ div.site-badge img.logz-symbol {
 }
 
 span.docs-home-link {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: var(--heading-font);
   font-size: 1.4rem;
   vertical-align: middle;
   margin-left: 5px;
@@ -846,7 +852,7 @@ nav.all-pages-toc {
 
   /* text */
   color: var(--text-normal);
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: var(--body-font);
 }
 
 nav.all-pages-toc ul {
@@ -1337,7 +1343,7 @@ i.ll, dl.letter-labels dt::before {
 }
 
 .ui-accordion-content p:not(info-box p)  {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: var(--body-font);
   font-size: 1rem;
 }
 

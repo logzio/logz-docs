@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Manage shared tokens
-permalink: /user-guide/access-and-authentication/shared-tokens.html
+permalink: /user-guide/tokens/shared-tokens.html
 flags:
   admin: true
   logzio-plan: community

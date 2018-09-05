@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Manage users
-permalink: /user-guide/access-and-authentication/manage-users.html
+permalink: /user-guide/users/
 flags:
   admin: true
   logzio-plan: community

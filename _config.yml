@@ -94,6 +94,8 @@ kramdown:
 exclude:
   - .DS_Store
 
+include:
+  - _redirects
 
 # ===== SOURCE AND DESTINATION =====
 # Don't mess with these, unless you're willing to move a lot of files around.

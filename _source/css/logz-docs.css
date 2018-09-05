@@ -34,8 +34,7 @@
   --heading-normal-75: #296386be;
   --heading-normal-50: #29638680;
 
-  --tasklist-heading: var(--app-orange-primary);
-  /* --tasklist-number: TBD */
+  --tasklist-heading: rgb(var(--app-orange-primary));
   --dl-letter: var(--app-orange-dark);
 
   --infobox-note: rgb(var(--app-blue-primary));
@@ -513,7 +512,7 @@ ol ul {
   margin-left: -45px;
 
   font-size: 1.5rem;
-  color: #ff971c;
+  color: var(--tasklist-heading);
   padding: 3px;
   font-weight: 700;
   opacity: .5;
@@ -1137,7 +1136,7 @@ div.related-links-container span {
 /* ===== SYNTAX HIGHLIGHTING ===== */
 
   .highlight .c {
-    color: #fac863;
+    color: #f7a708;
     font-style: italic; }
   .highlight .err {
     color: #a61717;
@@ -1147,16 +1146,16 @@ div.related-links-container span {
   .highlight .o {
     font-weight: bold; }
   .highlight .cm {
-    color: #fac863;
+    color: #f7a708;
     font-style: italic; }
   .highlight .cp {
-    color: #fac863;
+    color: #f7a708;
     font-weight: bold; }
   .highlight .c1 {
-    color: #fac863;
+    color: #f7a708;
     font-style: italic; }
   .highlight .cs {
-    color: #fac863;
+    color: #f7a708;
     font-weight: bold;
     font-style: italic; }
   .highlight .gd {
@@ -1170,7 +1169,7 @@ div.related-links-container span {
   .highlight .gr {
     color: #e15a60; }
   .highlight .gh {
-    color: #fac863; }
+    color: #f7a708; }
   .highlight .gi {
     color: #000;
     background-color: #dfd; }
@@ -1260,7 +1259,7 @@ div.related-links-container span {
   .highlight .ss {
     color: #c594c5; }
   .highlight .bp {
-    color: #fac863; }
+    color: #f7a708; }
   .highlight .vc {
     color: #5fb3b3; }
   .highlight .vg {

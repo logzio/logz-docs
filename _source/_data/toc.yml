@@ -52,6 +52,8 @@ firstLevel:
     thirdLevel:
     - title: Java
       url: /user-guide/log-shipping/shipping-methods/code-library--java.html
+    - title: Node.js
+      url: /user-guide/log-shipping/shipping-methods/code-library--nodejs.html
 
   - title: Shipping info and troubleshooting
     url: /user-guide/log-shipping/

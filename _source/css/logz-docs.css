@@ -1442,17 +1442,19 @@ i.ll, dl.letter-labels dt::before {
 
   background: none;
   list-style-type: none;
+  border-bottom: 4px solid var(--border-very-light);
 }
 
 .branching-tabs li {
   display: inline-block;
-  padding: 10px;
+  padding: 10px 20px;
+  margin-bottom: -4px;
   color: var(--text-light);
 }
 
 .branching-tabs li:hover {
   color: var(--heading-normal-50);
-  border-bottom: 2px solid currentColor;
+  border-bottom: 4px solid currentColor;
 }
 
 .branching-tabs li.active {
@@ -1466,9 +1468,7 @@ i.ll, dl.letter-labels dt::before {
 }
 
 .branching-container > div {
-  border: 1px solid var(--border-very-light);
-  border-radius: 0 0 5px 5px;
-  padding: 12px;
+  padding-top: 12px;
 }
 
 /* ===== LOG SHIPPING PAGES ===== */

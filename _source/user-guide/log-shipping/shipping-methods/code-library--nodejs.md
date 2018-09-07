@@ -45,7 +45,7 @@ For a complete list of all options, see the configuration parameters below this 
 
 ```js
 var logger = require('logzio-nodejs').createLogger({
-    token: '{api-token}',
+    token: '{account-token}',
     host: '{listener-url}',
     type: 'YourLogType'
 });
@@ -153,7 +153,7 @@ For a complete list of all options, see the configuration parameters below this 
 var winston = require('winston');
 var logzioWinstonTransport = require('winston-logzio');
 var loggerOptions = {
-    token: '{api-token}',
+    token: '{account-token}',
     host: '{listener-url}',
     type: 'YourLogType'
 };

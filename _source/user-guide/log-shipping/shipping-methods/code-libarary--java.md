@@ -225,7 +225,7 @@ For a complete list of all options, see the configuration parameters below this 
 <configuration>
   <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/> <!-- Closes gracefully and finishes the log drain -->
   <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
-    <token>{api-token}</token>
+    <token>{account-token}</token>
     <logzioUrl>{listener-url}:8071</logzioUrl>
     <logzioType>myType</logzioType> <!-- Name of your log type, used by Logz.io for consistent log parsing. Can't contain spaces. -->
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">

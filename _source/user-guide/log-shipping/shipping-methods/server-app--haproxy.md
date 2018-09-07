@@ -70,7 +70,7 @@ contributors:
     $WorkDirectory /var/spool/rsyslog
 
     # the logz.io syslog template,
-    $template HAProxyLogzioFormat,"[{api-token}] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
+    $template HAProxyLogzioFormat,"[{account-token}] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
 
     # Send messages to Logz over TCP using the template.
     *.* @@{listener-url}:5000;HAProxyLogzioFormat

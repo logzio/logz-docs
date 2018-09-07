@@ -47,7 +47,7 @@ class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
 # args must be set in order. See the configuration arguments below this code block.
-args=('{account-token}', '{log-type}', {sleep-time}, '{listener-url}:8071', {debug-flag})
+args=('{account-token}', '{log-type}', {timeout}, '{listener-url}:8071', {debug-flag})
 
 [formatters]
 keys=logzioFormat
@@ -76,8 +76,8 @@ account-token
 log-type
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. <br /> <span class="sm bold">Default:</span> `python`
 
-sleep-time
-  : Time to sleep between log draining attempts, in seconds. <br /> <span class="sm bold">Default:</span> `3`
+timeout
+  : Time to wait between log draining attempts, in seconds. <br /> <span class="sm bold">Default:</span> `3`
 
 listener-url
   : Listener URL. <br /> {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
@@ -143,7 +143,7 @@ logzio_type
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. <br /> <span class="sm bold">Default:</span> `python`
 
 logs_drain_timeout
-  : Time to sleep between log draining attempts, in seconds. <br /> <span class="sm bold">Default:</span> `3`
+  : Time to wait between log draining attempts, in seconds. <br /> <span class="sm bold">Default:</span> `3`
 
 url
   : Listener URL. <br /> {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io:8071`

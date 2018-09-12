@@ -38,16 +38,16 @@
   --dl-letter: var(--app-orange-dark);
 
   --infobox-note: rgb(var(--app-blue-primary));
-  --infobox-note-10: rgba(var(--app-blue-primary), .1);
+  --infobox-note-light: rgba(var(--app-blue-primary), .05);
 
   --infobox-important: rgb(var(--app-orange-primary));
-  --infobox-important-10: rgba(var(--app-orange-primary), .1);
+  --infobox-important-light: rgba(var(--app-orange-primary), .05);
 
   --infobox-warning: rgb(var(--app-red-primary));
-  --infobox-warning-10: rgba(var(--app-red-primary), .1);
+  --infobox-warning-light: rgba(var(--app-red-primary), .05);
 
   --infobox-tip: rgb(var(--app-green-primary));
-  --infobox-tip-10: rgba(var(--app-green-primary), .1);
+  --infobox-tip-light: rgba(var(--app-green-primary), .05);
 
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
@@ -765,7 +765,7 @@ div.info-box > p > p {
 
 /* .warning */
 div.info-box.warning {
-  background-color: var(--infobox-warning-10);
+  background-color: var(--infobox-warning-light);
 }
 
 div.info-box.warning > p::before {
@@ -775,7 +775,7 @@ div.info-box.warning > p::before {
 
 /* .note */
 div.info-box.note {
-  background-color: var(--infobox-note-10);
+  background-color: var(--infobox-note-light);
 }
 
 div.info-box.note > p::before {
@@ -789,7 +789,7 @@ div.info-box.note.notes > p::before {
 
 /* .gotcha, .important */
 div.info-box.gotcha, div.info-box.important {
-  background-color: var(--infobox-important-10);
+  background-color: var(--infobox-important-light);
 }
 
 div.info-box.gotcha > p::before, div.info-box.important > p::before {
@@ -799,7 +799,7 @@ div.info-box.gotcha > p::before, div.info-box.important > p::before {
 
 /* .tip */
 div.info-box.tip {
-  background-color: var(--infobox-tip-10);
+  background-color: var(--infobox-tip-light);
 }
 
 div.info-box.tip > p::before {

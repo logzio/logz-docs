@@ -65,8 +65,7 @@ protocol
   : `http`, `https`, or `udp`. If using UDP, see [Notes on using UDP](#notes-on-using-udp), below. <br /> <span class="sm bold">Default:</span> `http`
 
 host
-  : Listener URL. <br /> {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io`
-
+  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io`
 
 port
   : Destination port. Default port depends on protocol. <br /> <span class="sm bold">Default for UDP:</span> `5050` <br /> <span class="sm bold">Default for HTTP:</span> `8070` <br /> <span class="sm bold">Default for HTTPS:</span> `8071`
@@ -174,7 +173,7 @@ protocol
   : `http`, `https`, or `udp`. If using UDP, see [Notes on using UDP](#notes-on-using-udp), below. <br /> <span class="sm bold">Default:</span> `http`
 
 host
-  : Listener URL. <br /> {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io`
+  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io`
 
 
 port

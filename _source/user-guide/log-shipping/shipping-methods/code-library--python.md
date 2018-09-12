@@ -80,7 +80,7 @@ timeout
   : Time to wait between log draining attempts, in seconds. <br /> <span class="sm bold">Default:</span> `3`
 
 listener-url
-  : Listener URL. <br /> {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 debug-flag
   : Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. <br /> <span class="sm bold">Default:</span> `False`
@@ -146,7 +146,7 @@ logs_drain_timeout
   : Time to wait between log draining attempts, in seconds. <br /> <span class="sm bold">Default:</span> `3`
 
 url
-  : Listener URL. <br /> {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 debug
   : Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. <br /> <span class="sm bold">Default:</span> `False`

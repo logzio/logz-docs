@@ -7,6 +7,9 @@ layout: default
     {% if page.shipping-summary %}
       {% include log-shipping/shipping-summary.html %}
     {% endif %}
+    {% if page.third-party-homepage %}
+      {% include third-party-homepage.html %}
+    {% endif %}
     {{ content }}
   </div>
 

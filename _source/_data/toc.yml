@@ -159,6 +159,10 @@ firstLevel:
   secondLevel:
   - title: Alice, Slack chatbot
     url: /user-guide/integrations/alice-slack-chatbot.html
+  - title: Community integrations
+    thirdLevel:
+    - title: Ruby data shipping
+      url: /user-guide/integrations/community-integrations/code-library--ruby.html
 
 
   # ===== DEVELOPERS =====

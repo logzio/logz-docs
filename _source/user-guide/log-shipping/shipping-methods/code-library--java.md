@@ -124,7 +124,7 @@ public class LogzioLog4j2Example {
 
 ### Optional additions
 
-##### Mapped diagnostic context
+##### MDC
 
 You can add mapped diagnostic context (MDC) to your logs. Each key-value pair you define is added to every log line while the thread is alive.
 
@@ -303,7 +303,7 @@ public class LogzioLogbackExample {
 
 ### Optional additions
 
-##### Mapped diagnostic context
+##### MDC
 
 You can add mapped diagnostic context (MDC) to your logs. Each key-value pair you define is added to every log line while the thread is alive.
 

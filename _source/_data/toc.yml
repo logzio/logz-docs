@@ -52,6 +52,8 @@ firstLevel:
     thirdLevel:
     - title: .NET
       url: /user-guide/log-shipping/shipping-methods/code-library--dotnet.html
+    - title: Go
+      url: /user-guide/log-shipping/shipping-methods/code-library--go.html
     - title: Java
       url: /user-guide/log-shipping/shipping-methods/code-library--java.html
     - title: Node.js

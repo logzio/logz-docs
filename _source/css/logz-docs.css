@@ -807,8 +807,6 @@ div.info-box.tip > p::before {
   background-color: var(--infobox-tip);
 }
 
-/* ===== SITE HEADER ===== */
-
 div#toc-collapse-btn {
   min-width: 50px;
   height: 44px;

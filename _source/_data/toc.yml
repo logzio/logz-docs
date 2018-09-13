@@ -50,6 +50,8 @@ firstLevel:
 
   - title: Custom code log shipping
     thirdLevel:
+    - title: .NET
+      url: /user-guide/log-shipping/shipping-methods/code-library--dotnet.html
     - title: Java
       url: /user-guide/log-shipping/shipping-methods/code-library--java.html
     - title: Node.js

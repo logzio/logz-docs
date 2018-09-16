@@ -1,12 +1,12 @@
 ---
 layout: article
-title: Node.js data
+title: Ship Node.js data
 permalink: /user-guide/log-shipping/shipping-methods/code-library--nodejs.html
 shipping-summary:
   data-source: Node.js code
   appenders:
     - logzio-nodejs
-    - winston
+    - winston-logzio
 contributors:
   - imnotashrimp
 ---
@@ -15,35 +15,36 @@ contributors:
 
 {: .branching-tabs }
   * [logzio-nodejs (logs)](#logzio-nodejs-config)
-  * [winston (logs)](#winston-config)
+  * [winston-logzio (logs)](#winston-config)
 
 <div id="logzio-nodejs-config">
 
-## logzio-nodejs
+## logzio-nodejs setup
 
-logzio-nodejs collects log messages in an array, which is sent asynchronously when it reaches its size limit or time limit (100 messages or 10 seconds), whichever comes first. It contains a simple retry mechanism which upon connection reset or client timeout, tries to send a waiting bulk (2 seconds default). It's asynchronous, so it doesn't block other messages from being collected and sent. The interval increases by a factor of 2 between each retry until it reaches the maximum allowed attempts (3).
+logzio-nodejs collects log messages in an array, which is sent asynchronously when it reaches its size limit or time limit (100 messages or 10 seconds), whichever comes first.
+It contains a simple retry mechanism which upon connection reset or client timeout, tries to send a waiting bulk (2 seconds default).
+It's asynchronous, so it doesn't block other messages from being collected and sent.
+The interval increases by a factor of 2 between each retry until it reaches the maximum allowed attempts (3).
 
-By default, any error is logged to the console. You can change this by using a callback function.
+By default, any error is logged to the console.
+You can change this by using a callback function.
 
-### Installation in your code
+### Add the dependency to your project
 
-#### Dependency
-
-Add logzio-nodejs from npm.
+Navigate to your project's folder in the command line, and run this command to install the dependency.
 
 ```shell
 npm install logzio-nodejs
 ```
 
-#### Configuration
+### Configure your project
 
-{% include log-shipping/your-account-token.html %}
+Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
-{% include log-shipping/your-listener-url.html %}
-
-For a complete list of all options, see the configuration parameters below this code block. 👇
+For a complete list of options, see the configuration parameters below the code block.👇
 
 ```js
+// Replace these parameters with your configuration
 var logger = require('logzio-nodejs').createLogger({
     token: '{account-token}',
     host: '{listener-url}',
@@ -51,49 +52,71 @@ var logger = require('logzio-nodejs').createLogger({
 });
 ```
 
-##### Configuration parameters
+##### Parameters
 
 {: .parameter-list }
 token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general)
-
+  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
 
 type
-  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. <br /> <span class="sm bold">Default:</span> `nodejs`
+  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+  Used by Logz.io for consistent parsing.
+  Can't contain spaces. <br />
+  <span class="sm bold">Default:</span> `nodejs`
 
 protocol
-  : `http`, `https`, or `udp`. If using UDP, see [Notes on using UDP](#notes-on-using-udp), below. <br /> <span class="sm bold">Default:</span> `http`
+  : `http`, `https`, or `udp`.
+  If using UDP, see [Notes on using UDP](#notes-on-using-udp), below. <br />
+  <span class="sm bold">Default:</span> `http`
 
 host
-  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io`
+  : Listener URL. {% include log-shipping/your-listener-url.html %} <br />
+  <span class="sm bold">Default:</span> `https://listener.logz.io`
 
 port
-  : Destination port. Default port depends on protocol. <br /> <span class="sm bold">Default for UDP:</span> `5050` <br /> <span class="sm bold">Default for HTTP:</span> `8070` <br /> <span class="sm bold">Default for HTTPS:</span> `8071`
+  : Destination port.
+  Default port depends on protocol. <br />
+  <span class="sm bold">Default for UDP:</span> `5050` <br />
+  <span class="sm bold">Default for HTTP:</span> `8070` <br />
+  <span class="sm bold">Default for HTTPS:</span> `8071`
 
 sendIntervalMs
-  : Time to wait between retry attempts, in milliseconds. <br /> <span class="sm bold">Default:</span> `2000` (2 seconds)
+  : Time to wait between retry attempts, in milliseconds. <br />
+  <span class="sm bold">Default:</span> `2000` (2 seconds)
 
 bufferSize
-  : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br /> If you're sending logs over UDP, bulk is not available. See notes on UDP [buffering](#buffering), below. <br /> <span class="sm bold">Default:</span> `100`
+  : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
+  If you're sending logs over UDP, bulk is not available.
+  See notes on UDP [buffering](#buffering), below. <br />
+  <span class="sm bold">Default:</span> `100`
 
 numberOfRetries
-  : Maximum number of retry attempts. <br /> <span class="sm bold">Default:</span> `3`
+  : Maximum number of retry attempts. <br />
+  <span class="sm bold">Default:</span> `3`
 
 debug
-  : To print debug messsages to the console, `true`. Otherwise, `false`. <br /> <span class="sm bold">Default:</span> `false`
+  : To print debug messsages to the console, `true`.
+  Otherwise, `false`. <br />
+  <span class="sm bold">Default:</span> `false`
 
 callback
-  : A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object.
+  : A callback function to call when the logger encounters an unrecoverable error.
+  The function API is `function(err)`, where `err` is the Error object.
 
 timeout
   : Read/write/connection timeout, in milliseconds.
 
 addTimestampWithNanoSecs
-  : Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. <br /> If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence. <br /> <span class="sm bold">Default:</span> `false`
+  : Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds.
+  To add this field, `true`.
+  Otherwise, `false`. <br />
+  If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence. <br />
+  <span class="sm bold">Default:</span> `false`
 
 ##### Code sample
 
-You can send log lines as a raw string or as an object. For more consistent and reliable parsing, we recommend sending logs as objects.
+You can send log lines as a raw string or as an object.
+For more consistent and reliable parsing, we recommend sending logs as objects.
 
 
 To send an object (recommended):
@@ -126,79 +149,99 @@ Include this line if you're using logzio-nodejs in a severless environment, such
 
 <div id="winston-config">
 
-## winston
+## winston-logzio setup
 
-winston-logzio is a winston plugin and wrapper for the logzio-nodejs appender. With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
+winston-logzio is a winston plugin and wrapper for the logzio-nodejs appender.
+With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
 
-### Installation in your code
+### Add the dependency to your project
 
-#### Dependency
-
-Add winston-logzio from npm.
+Navigate to your project's folder in the command line, and run this command to install the dependency.
 
 ```shell
 npm install winston-logzio --save
 ```
 
-#### Configuration
+### Configure your project
 
-{% include log-shipping/your-account-token.html %}
+Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
-{% include log-shipping/your-listener-url.html %}
-
-For a complete list of all options, see the configuration parameters below this code block. 👇
+For a complete list of options, see the configuration parameters below the code block.👇
 
 ```js
 var winston = require('winston');
 var logzioWinstonTransport = require('winston-logzio');
+
+// Replace these parameters with your configuration
 var loggerOptions = {
     token: '{account-token}',
     host: '{listener-url}',
     type: 'YourLogType'
 };
+
 winston.add(logzioWinstonTransport, loggerOptions);
 ```
 
-##### Configuration parameters
+##### Parameters
 
 {: .parameter-list }
 token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general)
-
+  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
 
 type
-  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. <br /> <span class="sm bold">Default:</span> `nodejs`
+  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+  Used by Logz.io for consistent parsing.
+  Can't contain spaces. <br />
+  <span class="sm bold">Default:</span> `nodejs`
 
 protocol
-  : `http`, `https`, or `udp`. If using UDP, see [Notes on using UDP](#notes-on-using-udp), below. <br /> <span class="sm bold">Default:</span> `http`
+  : `http`, `https`, or `udp`.
+  If using UDP, see [Notes on using UDP](#notes-on-using-udp), below. <br />
+  <span class="sm bold">Default:</span> `http`
 
 host
-  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io`
-
+  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br />
+  <span class="sm bold">Default:</span> `https://listener.logz.io`
 
 port
-  : Destination port. Default port depends on protocol. <br /> <span class="sm bold">Default for UDP:</span> `5050` <br /> <span class="sm bold">Default for HTTP:</span> `8070` <br /> <span class="sm bold">Default for HTTPS:</span> `8071`
+  : Destination port.
+  Default port depends on protocol. <br />
+  <span class="sm bold">Default for UDP:</span> `5050` <br />
+  <span class="sm bold">Default for HTTP:</span> `8070` <br />
+  <span class="sm bold">Default for HTTPS:</span> `8071`
 
 sendIntervalMs
-  : Time to wait between retry attempts, in milliseconds. <br /> <span class="sm bold">Default:</span> `2000` (2 seconds)
+  : Time to wait between retry attempts, in milliseconds. <br />
+  <span class="sm bold">Default:</span> `2000` (2 seconds)
 
 bufferSize
-  : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br /> If you're sending logs over UDP, bulk is not available. See notes on UDP [buffering](#buffering), below. <br /> <span class="sm bold">Default:</span> `100`
+  : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
+  If you're sending logs over UDP, bulk is not available.
+  See notes on UDP [buffering](#buffering), below. <br />
+  <span class="sm bold">Default:</span> `100`
 
 numberOfRetries
-  : Maximum number of retry attempts. <br /> <span class="sm bold">Default:</span> `3`
+  : Maximum number of retry attempts. <br />
+  <span class="sm bold">Default:</span> `3`
 
 debug
-  : To print debug messsages to the console, `true`. Otherwise, `false`. <br /> <span class="sm bold">Default:</span> `false`
+  : To print debug messsages to the console, `true`.
+  Otherwise, `false`. <br />
+  <span class="sm bold">Default:</span> `false`
 
 callback
-  : A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object.
+  : A callback function to call when the logger encounters an unrecoverable error.
+  The function API is `function(err)`, where `err` is the Error object.
 
 timeout
   : Read/write/connection timeout, in milliseconds.
 
 addTimestampWithNanoSecs
-  : Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. <br /> If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence. <br /> <span class="sm bold">Default:</span> `false`
+  : Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds.
+  To add this field, `true`.
+  Otherwise, `false`. <br />
+  If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence. <br />
+  <span class="sm bold">Default:</span> `false`
 
 ##### Code samples
 
@@ -208,7 +251,8 @@ To send a log line:
 winston.log('info', 'winston logger configured with logzio transport');
 ```
 
-winston sends logs to the console by default. To disable this behavior:
+winston sends logs to the console by default.
+To disable this behavior:
 
 ```js
 winston.remove(winston.transports.Console);
@@ -236,7 +280,6 @@ process.on('uncaughtException', function (err) {
 });
 ```
 
-
 </div>
 
 </div>
@@ -245,7 +288,9 @@ process.on('uncaughtException', function (err) {
 
 #### Limitations
 
-If you send data over UDP, there is no confirmation in your system that Logz.io received the logs. Each message is sent separately, as UDP doesn't use the bulk API. Because of these limitations, we don't recommend using the UDP protocol.
+If you send data over UDP, there is no confirmation in your system that Logz.io received the logs.
+Each message is sent separately, as UDP doesn't use the bulk API.
+Because of these limitations, we don't recommend using the UDP protocol.
 
 #### Buffering {#buffering}
 

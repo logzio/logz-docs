@@ -65,8 +65,7 @@ type
   <span class="sm bold">Default:</span> `nodejs`
 
 protocol
-  : `http`, `https`, or `udp`.
-  If using UDP, see [Notes on using UDP](#notes-on-using-udp), below. <br />
+  : `http` or `https`. <br />
   <span class="sm bold">Default:</span> `http`
 
 host
@@ -76,7 +75,6 @@ host
 port
   : Destination port.
   Default port depends on protocol. <br />
-  <span class="sm bold">Default for UDP:</span> `5050` <br />
   <span class="sm bold">Default for HTTP:</span> `8070` <br />
   <span class="sm bold">Default for HTTPS:</span> `8071`
 
@@ -86,8 +84,6 @@ sendIntervalMs
 
 bufferSize
   : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
-  If you're sending logs over UDP, bulk is not available.
-  See notes on UDP [buffering](#buffering), below. <br />
   <span class="sm bold">Default:</span> `100`
 
 numberOfRetries
@@ -195,8 +191,7 @@ type
   <span class="sm bold">Default:</span> `nodejs`
 
 protocol
-  : `http`, `https`, or `udp`.
-  If using UDP, see [Notes on using UDP](#notes-on-using-udp), below. <br />
+  : `http` or `https` <br />
   <span class="sm bold">Default:</span> `http`
 
 host
@@ -206,7 +201,6 @@ host
 port
   : Destination port.
   Default port depends on protocol. <br />
-  <span class="sm bold">Default for UDP:</span> `5050` <br />
   <span class="sm bold">Default for HTTP:</span> `8070` <br />
   <span class="sm bold">Default for HTTPS:</span> `8071`
 
@@ -216,8 +210,6 @@ sendIntervalMs
 
 bufferSize
   : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
-  If you're sending logs over UDP, bulk is not available.
-  See notes on UDP [buffering](#buffering), below. <br />
   <span class="sm bold">Default:</span> `100`
 
 numberOfRetries
@@ -283,19 +275,3 @@ process.on('uncaughtException', function (err) {
 </div>
 
 </div>
-
-### Notes on using UDP {#notes-on-using-udp}
-
-#### Limitations
-
-If you send data over UDP, there is no confirmation in your system that Logz.io received the logs.
-Each message is sent separately, as UDP doesn't use the bulk API.
-Because of these limitations, we don't recommend using the UDP protocol.
-
-#### Buffering {#buffering}
-
-UDP doesn't use the bulk API, so the `bufferSize` parameter doesn't behave the same as when you use HTTP or HTTPS.
-
-If you set `bufferSize` higher than 1, the messages will still be sent separately, but the logger will wait for the buffer to reach the size specified before sending out all the messages.
-
-If you want each message to be sent out immediately, then set `bufferSize` to 1.

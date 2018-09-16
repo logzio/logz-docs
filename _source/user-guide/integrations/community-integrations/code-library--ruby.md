@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ruby data
+title: Ship Ruby data
 permalink: /user-guide/integrations/community-integrations/code-library--ruby.html
 shipping-summary:
   data-source: Ruby code
@@ -11,13 +11,12 @@ contributors:
   - imnotashrimp
 ---
 
-## Ruby LogstashLogger
+## Ruby LogstashLogger setup
 
 LogstashLogger sends JSON logs to Logstash using the Ruby `Logger` class.
 
-### Installation in your code
 
-#### Dependency
+### Add the dependency to your project
 
 {: .tasklist}
 1. Add LogstashLogger to your Gemfile.
@@ -32,7 +31,7 @@ LogstashLogger sends JSON logs to Logstash using the Ruby `Logger` class.
     bundle
     ```
 
-### Configuration
+### Configure your project
 
 {% include log-shipping/your-account-token.html %}
 

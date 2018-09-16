@@ -32,7 +32,7 @@ firstLevel:
 
 - title: Shipping and parsing
   secondLevel:
-  - title: Server app log shipping
+  - title: Server application shipping
     thirdLevel:
     - title: Apache
       url: /user-guide/log-shipping/shipping-methods/server-app--apache.html
@@ -43,12 +43,12 @@ firstLevel:
     - title: nginx
       url: /user-guide/log-shipping/shipping-methods/server-app--nginx.html
 
-  - title: Platform or service log shipping
+  - title: Platform or service shipping
     thirdLevel:
     - title: Heroku
       url: /user-guide/log-shipping/shipping-methods/platform-or-service--heroku.html
 
-  - title: Custom code log shipping
+  - title: Custom code shipping
     thirdLevel:
     - title: .NET
       url: /user-guide/log-shipping/shipping-methods/code-library--dotnet.html

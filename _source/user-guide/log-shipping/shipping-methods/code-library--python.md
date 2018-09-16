@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Python data
+title: Ship Python data
 permalink: /user-guide/log-shipping/shipping-methods/code-library--python.html
 shipping-summary:
   data-source: Python code
@@ -16,17 +16,17 @@ contributors:
   * [Python configuration (logs)](#python-config)
   * [Django configuration (logs)](#django-config)
 
-## Logz.io Python Handler
+## Logz.io Python Handler setup
 
-Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io. Logs are grouped into bulks based on their size.
+Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.
+Logs are grouped into bulks based on their size.
 
-If the main thread quits, the handler tries to consume the remaining logs and then exit. If the handler can't send the remaining logs, they are written to the local file system for later retrieval.
+If the main thread quits, the handler tries to consume the remaining logs and then exits.
+If the handler can't send the remaining logs, they are written to the local file system for later retrieval.
 
-### Installation in your code
+### Add the dependency to your project
 
-#### Dependency
-
-Add Logz.io Python Handler from pip.
+Navigate to your project's folder in the command line, and run this command to install the dependency.
 
 ```shell
 pip install logzio-python-handler
@@ -34,9 +34,11 @@ pip install logzio-python-handler
 
 <div id="python-config">
 
-#### Python configuration
+### Configure your project using Python
 
-For a complete list of all options, see the configuration arguments below this code block. 👇
+Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
+
+For a complete list of options, see the configuration parameters below the code block.👇
 
 ```python
 [handlers]
@@ -46,7 +48,7 @@ keys=LogzioHandler
 class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
-# args must be set in order. See the configuration arguments below this code block.
+# Parameters must be set in order. Replace these parameters with your configuration.
 args=('{account-token}', '{log-type}', {timeout}, '{listener-url}:8071', {debug-flag})
 
 [formatters]
@@ -63,10 +65,11 @@ level=INFO
 format={"additional_field": "value"}
 ```
 
-##### Configuration arguments
+##### Parameters
 
 <div class="info-box important">
-  Arguments must be configured in the order shown. If you want to set the debug flag (which is the last option) to `True`, you'll need to set every argument that comes before it.
+  Arguments must be configured in the order shown.
+  If you want to set the debug flag (which is the last option) to `True`, you'll need to set every argument that comes before it.
 </div>
 
 {: .parameter-list }
@@ -74,24 +77,34 @@ account-token
   : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
 
 log-type
-  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. <br /> <span class="sm bold">Default:</span> `python`
+  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+  Used by Logz.io for consistent parsing.
+  Can't contain spaces. <br />
+  <span class="sm bold">Default:</span> `python`
 
 timeout
-  : Time to wait between log draining attempts, in seconds. <br /> <span class="sm bold">Default:</span> `3`
+  : Time to wait between log draining attempts, in seconds. <br />
+  <span class="sm bold">Default:</span> `3`
 
 listener-url
-  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port. {% include log-shipping/your-listener-url.html %} <br />
+  <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 debug-flag
-  : Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. <br /> <span class="sm bold">Default:</span> `False`
+  : Debug flag.
+  To print debug messages to stdout, `True`.
+  Otherwise, `False`. <br />
+  <span class="sm bold">Default:</span> `False`
 
 </div>
 
 <div id="django-config">
 
-#### Django configuration
+### Configure your project using Django
 
-For a complete list of all options, see the configuration arguments below this code block. 👇
+Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
+
+For a complete list of options, see the configuration parameters below the code block.👇
 
 ```python
 LOGGING = {
@@ -111,6 +124,8 @@ LOGGING = {
       'level': 'DEBUG',
       'formatter': 'verbose'
     },
+
+    # Replace these parameters with your configuration
     'logzio': {
       'class': 'logzio.handler.LogzioHandler',
       'level': 'INFO',
@@ -140,16 +155,24 @@ token
   : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
 
 logzio_type
-  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. <br /> <span class="sm bold">Default:</span> `python`
+  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+  Used by Logz.io for consistent parsing.
+  Can't contain spaces. <br />
+  <span class="sm bold">Default:</span> `python`
 
 logs_drain_timeout
-  : Time to wait between log draining attempts, in seconds. <br /> <span class="sm bold">Default:</span> `3`
+  : Time to wait between log draining attempts, in seconds. <br />
+  <span class="sm bold">Default:</span> `3`
 
 url
-  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br /> <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port. {% include log-shipping/your-listener-url.html %} <br />
+  <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 debug
-  : Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. <br /> <span class="sm bold">Default:</span> `False`
+  : Debug flag.
+  To print debug messages to stdout, `True`.
+  Otherwise, `False`. <br />
+  <span class="sm bold">Default:</span> `False`
 
 </div>
 
@@ -175,7 +198,9 @@ except:
     logger.exception("Supporting exceptions too!")
 ```
 
-To add dynamic metadata to your logger other than the constant metadata from the formatter, you can use the `extra` parameter. Key-value pairs passed in `extra` are shown as new fields in Logz.io. Please note that you can't override default fields from the python logger, such as `lineno` or `thread`.
+To add dynamic metadata to your logger other than the constant metadata from the formatter, you can use the `extra` parameter.
+Key-value pairs passed in `extra` are shown as new fields in Logz.io.
+Please note that you can't override default fields from the python logger, such as `lineno` or `thread`.
 
 ```python
 logger.info('Warning', extra={'extra_key':'extra_value'})

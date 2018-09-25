@@ -49,6 +49,9 @@
   --infobox-tip: rgb(var(--app-green-primary));
   --infobox-tip-light: rgba(var(--app-green-primary), .05);
 
+  --infobox-read: rgb(var(--app-gray-primary));
+  --infobox-read-light: rgba(var(--app-gray-primary), .1);
+
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
   --border-dark: var(--heading-normal);
@@ -64,6 +67,7 @@
   --app-green-primary: 76, 175, 80;
   --app-red-primary: 244, 67, 54;
   --app-blue-primary: 0, 189, 223;
+  --app-gray-primary: 159, 171, 188;
 }
 
 /* ===== PAGE LAYOUT ===== */
@@ -808,6 +812,17 @@ div.info-box.tip > p::before {
   background-color: var(--infobox-tip);
 }
 
+/* .tip */
+div.info-box.read {
+  background-color: var(--infobox-read-light);
+}
+
+div.info-box.read > p::before {
+  content: "Read more   ";
+  background-color: var(--infobox-read);
+}
+
+
 div#toc-collapse-btn {
   min-width: 50px;
   height: 44px;
@@ -1479,8 +1494,10 @@ i.ll, dl.letter-labels dt::before {
 
   margin-top: 2rem;
   padding: 0;
-  border-bottom: 2px solid var(--border-very-light);
   line-height: 1.25rem;
+  background-color: var(--background-very-light);
+  border: 1px solid var(--border-very-light);
+  border-radius: 5px;
 }
 
 .shipping-summary div {
@@ -1522,6 +1539,7 @@ div.highlighter-rouge {
   margin: 0;
 
   opacity: .25;
+  transition: opacity .5s ease;
 }
 
 .copy-btn:hover {
@@ -1530,13 +1548,10 @@ div.highlighter-rouge {
 }
 
 .copy-btn::before {
+  content: "Copy";
   font-size: .75rem;
   font-weight: 700;
   padding: 0 3px;
-}
-
-.copy-btn:hover::before {
-  content: "Copy";
 }
 
 .copy-btn.copied {
@@ -1544,5 +1559,5 @@ div.highlighter-rouge {
 }
 
 .copy-btn.copied::before {
-  content: "Copied!"
+  content: "Copied!";
 }

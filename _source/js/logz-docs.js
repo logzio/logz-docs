@@ -56,7 +56,7 @@ $('.copy-btn').click( function() {
   $(this).addClass('copied');
   setTimeout(function () {
     $('.copied').removeClass('copied');
-  }, 1000);
+  }, 1500);
 });
 
 

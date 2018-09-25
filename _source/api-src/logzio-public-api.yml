@@ -13,7 +13,8 @@ info:
   description: >-
     # Introduction
 
-    This API is documented using the **OpenAPI 2.0** specification. You can browse the API documentation on this page, or you can download the specification file.
+    This API is documented using the **OpenAPI 2.0** specification.
+    You can browse the API documentation on this page, or you can download the specification file by clicking **Download** at the top of this page.
 
     ### Updates and improvements
 
@@ -2586,26 +2587,14 @@ definitions:
           #### Limitations
 
           * Can't sort on `message`
-      _source:
-        type: array
-        description: >-
-          * _Option 1:_ A single item to say whether you want to return the `_source` field.
-
-          * _Option 2:_ An array of fields to return.
-        items:
-          - type: boolean
-            description: To return the `_source` field, `true`. Otherwise, `false`.
-            example: true
-          - type: string
-            description: Fields to return
       post_filter:
         type: object
       scroll_id:
         type: string
         description: >-
-          This is `scrollId` that was returned in the previous scroll request. 
-          
-          
+          This is `scrollId` that was returned in the previous scroll request.
+
+
           If you use `scroll_id`, Elasticsearch searches the same query and data as was used in the initial request of the scroll series. In other words, in a single scroll series, use `query` in the first request, and use `scroll_id` in all subsequent requests.
       scroll:
         type: string

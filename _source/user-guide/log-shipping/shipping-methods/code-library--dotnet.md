@@ -25,20 +25,26 @@ contributors:
 
 ### Add the dependency to your project
 
-Navigate to your project's folder in the command line, and run this command to install the dependency.
+If you're on Windows, navigate to your project's folder in the command line, and run this command to install the dependency.
 
 ```
 Install-Package Logzio.DotNet.Log4net
 ```
 
-### Configure your project
+If you're on a Mac or Linux machine, you can install the package using Visual Studio. Select **Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.Log4net`.
+
+### Configure log4net
 
 You can configure the appender in a configuration file or directly in the code.
 Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs.
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-_Option 1: In your project configuration file_
+<div class="info-box read">
+  See the [log4net documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the log4net configuration file.
+</div>
+
+_Option 1: In a configuration file_
 
 ```xml
 <log4net>
@@ -120,6 +126,37 @@ debug
   <span class="sm bold">Default:</span> `false`
 
 
+##### Code sample
+
+```csharp
+using System.IO;
+using log4net;
+using log4net.Config;
+using System.Reflection;
+
+namespace dotnet_log4net
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      var logger = LogManager.GetLogger(typeof(Program));
+      var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+
+      // Replace "App.config" with the config file that holds your log4net configuration
+      XmlConfigurator.Configure(logRepository, new FileInfo("App.config"));
+
+      logger.Info("Now I don't blame him 'cause he run and hid");
+      logger.Info("But the meanest thing he ever did");
+      logger.Info("Before he left was he went and named me Sue");
+
+      LogManager.Shutdown();
+    }
+  }
+}
+```
+
+
 ### Custom fields
 
 You can add static keys and values to be added to all log messages.
@@ -167,20 +204,26 @@ For the example above, you'd use `MyAppLogzioAppender`.
 
 ### Add the dependency to your project
 
-Navigate to your project's folder in the command line, and run this command to install the dependency.
+If you're on Windows, navigate to your project's folder in the command line, and run this command to install the dependency.
 
 ```
 Install-Package Logzio.DotNet.NLog
 ```
 
-### Configure your project
+If you’re on a Mac or Linux machine, you can install the package using Visual Studio. **Select Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.NLog`.
+
+### Configure NLog
 
 You can configure the appender in a configuration file or directly in the code.
 Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs.
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-_Option 1: In your project configuration file_
+<div class="info-box read">
+  See the [NLog documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the NLog configuration file.
+</div>
+
+_Option 1: In a configuration file_
 
 ```xml
 <nlog>
@@ -266,6 +309,38 @@ retriesInterval
 debug
   : To print debug messsages to the console and trace log, `true`. Otherwise, `false`. <br />
   <span class="sm bold">Default:</span> `false`
+
+
+##### Code sample
+
+```csharp
+using System;
+using System.IO;
+using Logzio.DotNet.NLog;
+using NLog;
+using NLog.Config;
+using NLog.Fluent;
+
+namespace LogzioNLogSampleApplication
+{
+  public class Program
+  {
+    static void Main(string[] args)
+    {
+      var logger = LogManager.GetCurrentClassLogger();
+
+      logger.Info()
+        .Message("If you'll be my bodyguard")
+        .Property("iCanBe", "your long lost pal")
+        .Property("iCanCallYou", "Betty, and Betty when you call me")
+        .Property("youCanCallMe", "Al")
+        .Write();
+
+      LogManager.Shutdown();
+    }
+  }
+}
+```
 
 
 ### Context properties

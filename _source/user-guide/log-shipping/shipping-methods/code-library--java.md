@@ -36,18 +36,24 @@ To help manage dependencies, this .jar shades LogzioSender, BigQueue, Gson, and 
 Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project).
 
 ```xml
-<dependency>
-  <groupId>io.logz.log4j2</groupId>
-  <artifactId>logzio-log4j2-appender</artifactId>
-  <version>1.0.10</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>io.logz.log4j2</groupId>
+    <artifactId>logzio-log4j2-appender</artifactId>
+    <version>1.0.10</version>
+  </dependency>
+</dependencies>
 ```
 
-### Configure your project
+### Configure Log4j
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
 For a complete list of options, see the configuration parameters below the code block.👇
+
+<div class="info-box read">
+  See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
+</div>
 
 ```xml
 <Appenders>
@@ -224,30 +230,37 @@ To help manage dependencies, this .jar shades BigQueue, Gson, and Guava.
 
 **You'll need:** Logback 1.1.7 or higher, Java 8 or higher
 
-#### Add the dependency to your project
+### Add the dependency to your project
 
 Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project).
 
 ```xml
-<dependency>
-  <groupId>io.logz.logback</groupId>
-  <artifactId>logzio-logback-appender</artifactId>
-  <version>1.1.7</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>io.logz.logback</groupId>
+    <artifactId>logzio-logback-appender</artifactId>
+    <version>1.0.20</version>
+  </dependency>
+</dependencies>
 ```
 
-#### Configure your project
+### Configure Logback
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
+<div class="info-box read">
+  See the [Logback documentation](https://logback.qos.ch/manual/configuration.html) for more information on the Logback configuration file.
+</div>
+
 ```xml
 <configuration>
-  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/> <!-- Closes gracefully and finishes the log drain -->
+  <!-- Closes gracefully and finishes the log drain -->
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
 
-  <!-- Replace these parameters with your configuration -->
   <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+    <!-- Replace these parameters with your configuration -->
     <token>{account-token}</token>
     <logzioUrl>{listener-url}:8071</logzioUrl>
     <logzioType>myType</logzioType>
@@ -258,7 +271,8 @@ For a complete list of options, see the configuration parameters below the code 
   </appender>
 
   <root level="debug">
-    <appender-ref ref="LogzioLogbackAppender"/> <!-- IMPORTANT: This line is required -->
+    <!-- IMPORTANT: This line is required -->
+    <appender-ref ref="LogzioLogbackAppender"/>
   </root>
 </configuration>
 ```

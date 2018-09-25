@@ -37,7 +37,7 @@ Navigate to your project's folder in the command line, and run this command to i
 npm install logzio-nodejs
 ```
 
-### Configure your project
+### Configure logzio-nodejs
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -46,9 +46,11 @@ For a complete list of options, see the configuration parameters below the code 
 ```js
 // Replace these parameters with your configuration
 var logger = require('logzio-nodejs').createLogger({
-    token: '{account-token}',
-    host: '{listener-url}',
-    type: 'YourLogType'
+  token: '{account-token}',
+  protocol: 'https',
+  host: '{listener-url}',
+  port: '8071',
+  type: 'YourLogType'
 });
 ```
 
@@ -158,7 +160,7 @@ Navigate to your project's folder in the command line, and run this command to i
 npm install winston-logzio --save
 ```
 
-### Configure your project
+### Configure winston-logzio
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -171,7 +173,9 @@ var logzioWinstonTransport = require('winston-logzio');
 // Replace these parameters with your configuration
 var loggerOptions = {
     token: '{account-token}',
+    protocol: 'https',
     host: '{listener-url}',
+    port: '8071',
     type: 'YourLogType'
 };
 

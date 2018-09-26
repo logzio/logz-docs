@@ -26,7 +26,7 @@ Navigate to your project's folder in the command line, and run this command to i
 go get -u github.com/logzio/logzio-go
 ```
 
-### Configure your project
+### Configure Logz.io Golang API client
 
 Use the sample in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -34,30 +34,32 @@ For a complete list of options, see the configuration parameters below the code 
 
 ```go
 package main
+
 import (
   "fmt"
-  "github.com/logzio/logzio-go"
   "os"
   "time"
+  "github.com/logzio/logzio-go"
 )
-func main() {
 
+func main() {
   // Replace these parameters with your configuration
   l, err := logzio.New(
     "{account-token}",
-    SetDebug(os.Stderr),
-    SetUrl("{listener-url}:8071"),
-    SetDrainDuration(time.Minute*10),
-    SetTempDirectory("myQueue"),
-    SetDrainDiskThreshold(99)
+    logzio.SetDebug(os.Stderr),
+    logzio.SetUrl("{listener-url}:8071"),
+    logzio.SetDrainDuration(time.Second * 5),
+    logzio.SetTempDirectory("myQueue"),
+    logzio.SetDrainDiskThreshold(99),
   )
-
-  msg := fmt.Sprintf("{ \"%s\": \"%s\"}", "message", time.Now().UnixNano())
-  err = l.Send([]byte(msg))
   if err != nil {
-     panic(err)
+    panic(err)
   }
-  l.Stop() // Drains the log buffer
+
+  // Because you're configuring directly in the code,
+  // you can paste the code sample here to send a test log.
+  //
+  // The code sample is below the parameters list. 👇
 }
 ```
 
@@ -84,3 +86,15 @@ SetCheckDiskSpace
 
 SetDrainDiskThreshold
   : Maximum file system usage, in percent. Used only if `SetCheckDiskSpace` is set to `true`. <br /> If the file system storage exceeds this threshold, buffering stops and new logs are dropped. Buffering resumes if used space drops below the threshold. <br /> <span class="sm bold">Default:</span> `70.0`
+
+##### Code sample
+
+```go
+msg := fmt.Sprintf("{\"%s\": \"%d\"}", "message", time.Now().UnixNano())
+err = l.Send([]byte(msg))
+if err != nil {
+  panic(err)
+}
+
+l.Stop() // Drains the log buffer
+```

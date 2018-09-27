@@ -79,14 +79,16 @@ tags:
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.
-      
-      
+
+
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage notification endpoints
   - name: Import or export Kibana objects
   - name: Manage shared tokens
+    description: >-
+      **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
 

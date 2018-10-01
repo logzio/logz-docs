@@ -61,6 +61,11 @@ firstLevel:
     - title: Python
       url: /user-guide/log-shipping/shipping-methods/code-library--python.html
 
+  - title: OS shipping
+    thirdLevel:
+    - title: Windows
+      url: /user-guide/log-shipping/shipping-methods/os--windows.html
+
   - title: Shipping info and troubleshooting
     url: /user-guide/log-shipping/
     thirdLevel:

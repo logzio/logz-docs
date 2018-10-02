@@ -14,8 +14,8 @@ contributors:
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [Log4j 2 (logs)](#log4j2-config)
-  * [Logback (logs)](#logback-config)
+  * [Log4j 2](#log4j2-config)
+  * [Logback](#logback-config)
 
 <div id="log4j2-config">
 

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Heroku data
+title: Ship Heroku data
 permalink: /user-guide/log-shipping/shipping-methods/platform-or-service--heroku.html
 shipping-summary:
   data-source: Heroku
@@ -14,13 +14,13 @@ contributors:
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [Logz.io add-on (logs)](#logzio-add-on-config)
-  * [Log drain (logs)](#log-drain-config)
+  * [Logz.io add-on](#logzio-add-on-config)
+  * [Log drain](#log-drain-config)
 
 
 <div id="logzio-add-on-config">
 
-## Heroku + Logz.io add-on
+## Heroku + Logz.io add-on setup
 
 If you've already installed Heroku CLI, the CLI installation is the simplest way to install the add-on. Otherwise, you can install directly from the add-on page.
 
@@ -47,7 +47,7 @@ If you've already installed Heroku CLI, the CLI installation is the simplest way
 
 <div id="log-drain-config">
 
-## Heroku log drain
+## Heroku log drain setup
 
 **You'll need:** Heroku CLI
 

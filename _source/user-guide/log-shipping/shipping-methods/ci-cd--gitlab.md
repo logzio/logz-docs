@@ -108,10 +108,10 @@ contributors:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. If it's not already running, start Filebeat.
+4. Restart Filebeat.
 
     ```shell
-    sudo systemctl start filebeat
+    sudo systemctl restart filebeat
     ```
 
 5. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: HAProxy data
+title: Ship HAProxy data
 permalink: /user-guide/log-shipping/shipping-methods/server-app--haproxy.html
 shipping-summary:
   data-source: HAProxy
@@ -11,7 +11,7 @@ contributors:
   - imnotashrimp
 ---
 
-### HAProxy + rsyslog
+## HAProxy + rsyslog setup
 
 **You'll need:** root access, rsyslog 5.8.0 or later
 

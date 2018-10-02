@@ -3,7 +3,7 @@ layout: article
 title: Ship .NET data
 permalink: /user-guide/log-shipping/shipping-methods/code-library--dotnet.html
 shipping-summary:
-  data-source: Java code
+  data-source: .NET code
   appenders:
     - log4net
     - NLog
@@ -14,8 +14,8 @@ contributors:
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [log4net (logs)](#log4net-config)
-  * [NLog (logs)](#nlog-config)
+  * [log4net](#log4net-config)
+  * [NLog](#nlog-config)
 
 <div id="log4net-config">
 

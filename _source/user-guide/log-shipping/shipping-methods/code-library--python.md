@@ -13,8 +13,8 @@ contributors:
 <div class="branching-container">
 
 {: .branching-tabs}
-  * [Python configuration (logs)](#python-config)
-  * [Django configuration (logs)](#django-config)
+  * [Standard Python configuration](#python-config)
+  * [Django configuration](#django-config)
 
 ## Logz.io Python Handler setup
 
@@ -34,7 +34,7 @@ pip install logzio-python-handler
 
 <div id="python-config">
 
-### Configure your project using Python
+### Configure Logz.io Python Handler for a standard Python project
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -100,9 +100,9 @@ debug-flag
 
 <div id="django-config">
 
-### Configure your project using Django
+### Configure Logz.io Python Handler for a Django project
 
-Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
+Add the code block below to your Django app's file (`settings.py` by default). Use the samples in the `logzio` block as a starting point, and replace the sample with a configuration that matches your needs.
 
 For a complete list of options, see the configuration parameters below the code block.👇
 

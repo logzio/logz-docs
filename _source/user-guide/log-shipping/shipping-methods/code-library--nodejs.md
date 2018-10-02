@@ -14,8 +14,8 @@ contributors:
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [logzio-nodejs (logs)](#logzio-nodejs-config)
-  * [winston-logzio (logs)](#winston-config)
+  * [logzio-nodejs](#logzio-nodejs-config)
+  * [winston-logzio](#winston-config)
 
 <div id="logzio-nodejs-config">
 

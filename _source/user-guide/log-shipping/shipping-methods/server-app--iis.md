@@ -1,6 +1,6 @@
 ---
 layout: article
-title: IIS data
+title: Ship IIS data
 permalink: /user-guide/log-shipping/shipping-methods/server-app--iis.html
 shipping-summary:
   data-source: Microsoft IIS
@@ -11,7 +11,7 @@ contributors:
   - imnotashrimp
 ---
 
-### IIS + NXLog
+## IIS + NXLog setup
 
 **You'll need:** Admin access
 
@@ -34,6 +34,7 @@ contributors:
         Module xm_charconv
         AutodetectCharsets utf-8, euc-jp, utf-16, utf-32, iso8859-2
     </Extension>
+
     #create one for each application
     <Input IIS_Site1>
         Module im_file
@@ -54,8 +55,8 @@ contributors:
     </Route>
     ```
 
-2. Restart NXLog using the Services tool.
+2. Start or restart NXLog using Windows Services Manager.
 
-3. Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs a minute to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+3. Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

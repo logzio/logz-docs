@@ -48,6 +48,11 @@ firstLevel:
     - title: Heroku
       url: /user-guide/log-shipping/shipping-methods/platform-or-service--heroku.html
 
+  - title: CI/CD shipping
+    thirdLevel:
+    - title: Jenkins
+      url: /user-guide/log-shipping/shipping-methods/ci-cd--jenkins.html
+
   - title: Custom code shipping
     thirdLevel:
     - title: .NET

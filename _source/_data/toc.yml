@@ -65,6 +65,8 @@ firstLevel:
     thirdLevel:
     - title: Windows
       url: /user-guide/log-shipping/shipping-methods/os--windows.html
+    - title: Linux
+      url: /user-guide/log-shipping/shipping-methods/os--linux.html
 
   - title: Shipping info and troubleshooting
     url: /user-guide/log-shipping/

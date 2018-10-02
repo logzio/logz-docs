@@ -54,6 +54,8 @@ firstLevel:
       url: /user-guide/log-shipping/shipping-methods/ci-cd--gitlab.html
     - title: Jenkins
       url: /user-guide/log-shipping/shipping-methods/ci-cd--jenkins.html
+    - title: Puppet
+      url: /user-guide/log-shipping/shipping-methods/ci-cd--puppet.html
 
   - title: Custom code shipping
     thirdLevel:

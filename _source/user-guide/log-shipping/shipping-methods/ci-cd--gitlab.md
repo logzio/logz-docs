@@ -1,7 +1,7 @@
 ---
 layout: article
-title: Ship Jenkins data
-permalink: /user-guide/log-shipping/shipping-methods/ci-cd--jenkins.html
+title: Ship GitLab data
+permalink: /user-guide/log-shipping/shipping-methods/ci-cd--gitlab.html
 shipping-summary:
   data-source: Linux
   log-shippers:
@@ -11,17 +11,17 @@ contributors:
   - imnotashrimp
 ---
 
-## Jenkins + Filebeat setup
+## GitLab + Filebeat setup
 
-**You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
+**You'll need:** [GitLab](https://about.gitlab.com/installation/) installed locally, [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher
 
 ###### Manual configuration
 
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br /> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 5015 |
-| **Default log location** | `/var/log/jenkins/jenkins.log` |
-| **Log type** <br /> _for automatic parsing_ | `jenkins` |
+| **Default log locations** | If installed from Omnibus packages: `/var/log/gitlab/...` <br /> If installed from source: `/home/git/gitlab/log/...` <br /> _(See [GitLab log system documentation](https://docs.gitlab.com/ee/administration/logs.html) for details)_ |
+| **Log type** <br /> _for automatic parsing_ | Production, JSON: `gitlab-production-json` <br /> Production, plain text: `gitlab-production` <br /> API: `gitlab-api-json` <br /> Application: `gitlab-application` |
 
 ###### Guided configuration
 
@@ -40,21 +40,47 @@ contributors:
     filebeat.inputs:
     - type: log
       paths:
-      - /var/log/jenkins/jenkins.log
+      - /var/log/gitlab/gitlab-rails/production_json.log
       fields:
-        logzio_codec: plain
-
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        logzio_codec: json
         token: {account-token}
-        type: jenkins
+        type: gitlab-production-json
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
-      multiline:
-        pattern: '^[A-Z]{1}[a-z]{2} {1,2}[0-9]{1,2}, [0-9]{4} {1,2}[0-9]{1,2}:[0-9]{2}:[0-9]{2}'
-        negate: true
-        match: after
+
+    - type: log
+      paths:
+      - /var/log/gitlab/gitlab-rails/production.log
+      fields:
+        logzio_codec: plain
+        token: {account-token}
+        type: gitlab-production
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
+
+    - type: log
+      paths:
+      - /var/log/gitlab/gitlab-rails/api_json.log
+      fields:
+        logzio_codec: json
+        token: {account-token}
+        type: gitlab-api-json
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
+
+    - type: log
+      paths:
+      - /var/log/gitlab/gitlab-rails/application.log
+      fields:
+        logzio_codec: json
+        token: {account-token}
+        type: gitlab-application
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
 
     registry_file: /var/lib/filebeat/registry
     ```
@@ -70,15 +96,13 @@ contributors:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. If they're not already running, start Filebeat and Jenkins.
+4. If it's not already running, start Filebeat.
 
     ```shell
     sudo systemctl start filebeat
-
-    sudo systemctl start jenkins
     ```
 
-4. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+5. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

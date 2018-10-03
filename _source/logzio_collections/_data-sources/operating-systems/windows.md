@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Ship Windows data
+logofile: windows.svg
+vertical-logo: true
 shipping-summary:
   data-source: Windows
   log-shippers:

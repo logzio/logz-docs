@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Ship Go data
+logofile: go.svg
 shipping-summary:
   data-source: Go code
   log-shippers:

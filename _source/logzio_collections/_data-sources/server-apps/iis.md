@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Ship IIS data
+logofile: iis.png
 shipping-summary:
   data-source: Microsoft IIS
   log-shippers:

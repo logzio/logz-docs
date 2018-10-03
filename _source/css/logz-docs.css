@@ -215,7 +215,7 @@ div.body-container, div.card-container {
   }
 }
 
-/* ===== DOCS HOME CARDS ===== */
+/* ===== CARDS ===== */
 
 div.card-container a {
   margin: 12px;
@@ -238,7 +238,6 @@ div.card {
 
   box-shadow: none;
   transition: box-shadow 200ms;
-
 }
 
 div.card:hover {
@@ -256,6 +255,12 @@ div.half-card {
   align-items: center;
 }
 
+div.mini-card {
+  padding: 5px;
+  width: 130px;
+  height: 130px;
+}
+
 div.full-card div.card-text {
   display: block;
   padding: 0;
@@ -266,6 +271,11 @@ span.card-title {
   font-weight: 600;
   color: var(--heading-normal);
   margin: auto;
+}
+
+.mini-card .card-title {
+  font-family: var(--body-font);
+  line-height: 0px;
 }
 
 div.full-card span.card-title {
@@ -281,9 +291,20 @@ div.card p {
 }
 
 div.card-icon {
-  display: block;
   margin: 14px auto;
   padding: 0;
+}
+
+.mini-card .card-icon {
+  margin: 5px auto;
+  height: 65px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% auto;
+}
+
+.mini-card .card-icon.vertical {
+  background-size: auto 100%;
 }
 
 div.card-icon i {

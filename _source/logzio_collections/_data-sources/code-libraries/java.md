@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Ship Java data
+logofile: java.svg
+vertical-logo: true
 shipping-summary:
   data-source: Java code
   appenders:

@@ -1,8 +1,10 @@
 ---
 layout: article
 title: Ship GitLab data
+logofile: gitlab.svg
+vertical-logo: true
 shipping-summary:
-  data-source: Linux
+  data-source: GitLab
   log-shippers:
     - Filebeat
   os: Linux

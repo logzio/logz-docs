@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Ship Heroku data
+logofile: heroku.svg
+vertical-logo: true
 shipping-summary:
   data-source: Heroku
   log-shippers:

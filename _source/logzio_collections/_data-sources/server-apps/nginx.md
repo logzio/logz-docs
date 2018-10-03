@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Ship nginx data
+logofile: nginx.svg
 shipping-summary:
   data-source: nginx
   log-shippers:

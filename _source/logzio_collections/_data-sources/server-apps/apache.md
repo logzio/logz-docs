@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Ship Apache data
+logofile: apache.svg
+vertical-logo: true
 shipping-summary:
   data-source: Apache HTTPS Server 2
   log-shippers:
@@ -102,7 +104,7 @@ contributors:
     sudo systemctl restart filebeat
     ```
 
-4. Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
+5. Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
 Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

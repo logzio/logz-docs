@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Ship Python data
+logofile: python.svg
 shipping-summary:
   data-source: Python code
   appenders:

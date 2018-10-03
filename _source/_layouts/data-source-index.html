@@ -3,19 +3,42 @@ layout: default
 community-info: false
 ---
 
-<div class="big-container">
-
 {%- assign this-shipping-category = page.shipping-category -%}
 {%- assign shippers-in-this-category = site.data-sources | where: "shipping-category", this-shipping-category -%}
 
-<ul>
+<div class="big-container">
+
+<div class="card-container">
+
+  <div class="cards mini-cards">
+    {%- for shipper in shippers-in-this-category %}
+    {%- unless shipper.url == page.url -%}
+      <a href="{{ shipper.url }}">
+        <div class="card mini-card">
+        {% if shipper.vertical-logo == true -%}
+          {%- assign logo-class = "card-icon vertical" -%}
+        {%- else -%}
+          {%- assign logo-class = "card-icon horizontal" -%}
+        {%- endif -%}
+          <div class="{{logo-class}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{shipper.logofile}}');" alt="{{shipper.shipping-summary.data-source}} logo">
+          </div>
+          <div class="card-text">
+            <span class="card-title">{{ shipper.shipping-summary.data-source }}</span>
+            <p>{{ card.description }}</p>
+          </div>
+        </div>
+      </a>
+    {%- endunless -%}
+    {%- endfor %}
+    </div>
+
+{%- comment -%} <ul>
 {%- for shipper in shippers-in-this-category -%}
 {%- unless shipper.url == page.url -%}
-  <li><a href="{{shipper.url}}">{{shipper.title}}</a></li>
+  <li><a href="{{shipper.url}}">{{shipper.shipping-summary.data-source}}</a></li>
 {%- endunless -%}
 {%- endfor -%}
-</ul>
+</ul> {%- endcomment -%}
 
-{%- comment -%} <div class="test">Shippers in this category: {{shippers-in-this-category}}</div> {%- endcomment -%}
-
+</div>
 </div>

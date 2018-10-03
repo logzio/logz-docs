@@ -1,8 +1,10 @@
 ---
 layout: article
 title: Ship Puppet data
+logofile: puppet.png
+vertical-logo: true
 shipping-summary:
-  data-source: Linux
+  data-source: Puppet
   log-shippers:
     - Filebeat
   os: Linux

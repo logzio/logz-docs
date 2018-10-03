@@ -1,8 +1,10 @@
 ---
 layout: article
 title: Ship Jenkins data
+logofile: jenkins.png
+vertical-logo: true
 shipping-summary:
-  data-source: Linux
+  data-source: Jenkins
   log-shippers:
     - Filebeat
   os: Linux

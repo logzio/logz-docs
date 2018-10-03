@@ -1,7 +1,9 @@
 ---
 layout: article
 title: Ship HAProxy data
-logofile: haproxy.png
+logo:
+  logofile: haproxy.png
+  orientation: horizontal
 shipping-summary:
   data-source: HAProxy
   log-shippers:

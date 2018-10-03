@@ -1,8 +1,9 @@
 ---
 layout: article
 title: Ship Jenkins data
-logofile: jenkins.png
-vertical-logo: true
+logo:
+  logofile: jenkins.png
+  orientation: vertical
 shipping-summary:
   data-source: Jenkins
   log-shippers:

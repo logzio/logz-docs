@@ -1,7 +1,9 @@
 ---
 layout: article
 title: Ship Node.js data
-logofile: nodejs.png
+logo:
+  logofile: nodejs.png
+  orientation: horizontal
 shipping-summary:
   data-source: Node.js code
   appenders:

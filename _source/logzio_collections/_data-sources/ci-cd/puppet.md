@@ -1,8 +1,9 @@
 ---
 layout: article
 title: Ship Puppet data
-logofile: puppet.png
-vertical-logo: true
+logo:
+  logofile: puppet.png
+  orientation: vertical
 shipping-summary:
   data-source: Puppet
   log-shippers:

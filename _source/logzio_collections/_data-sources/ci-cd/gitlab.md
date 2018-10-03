@@ -1,8 +1,9 @@
 ---
 layout: article
 title: Ship GitLab data
-logofile: gitlab.svg
-vertical-logo: true
+logo:
+  logofile: gitlab.svg
+  orientation: vertical
 shipping-summary:
   data-source: GitLab
   log-shippers:

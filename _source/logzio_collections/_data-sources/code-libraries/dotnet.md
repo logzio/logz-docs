@@ -1,8 +1,9 @@
 ---
 layout: article
 title: Ship .NET data
-logofile: dotnet.svg
-vertical-logo: true
+logo:
+  logofile: dotnet.svg
+  orientation: vertical
 shipping-summary:
   data-source: .NET code
   appenders:

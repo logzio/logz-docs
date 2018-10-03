@@ -1,7 +1,9 @@
 ---
 layout: article
 title: Ship Go data
-logofile: go.svg
+logo:
+  logofile: go.svg
+  orientation: horizontal
 shipping-summary:
   data-source: Go code
   log-shippers:

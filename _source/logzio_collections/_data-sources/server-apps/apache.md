@@ -1,8 +1,9 @@
 ---
 layout: article
 title: Ship Apache data
-logofile: apache.svg
-vertical-logo: true
+logo:
+  logofile: apache.svg
+  orientation: vertical
 shipping-summary:
   data-source: Apache HTTPS Server 2
   log-shippers:

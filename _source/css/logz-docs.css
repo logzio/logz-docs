@@ -300,6 +300,9 @@ div.card-icon {
   height: 65px;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.mini-card .card-icon.horizontal {
   background-size: 100% auto;
 }
 

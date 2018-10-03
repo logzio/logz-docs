@@ -1,7 +1,9 @@
 ---
 layout: article
 title: Ship Java data
-logofile: java.svg
+logo:
+  logofile: java.svg
+  orientation: vertical
 vertical-logo: true
 shipping-summary:
   data-source: Java code

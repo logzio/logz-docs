@@ -15,12 +15,7 @@ community-info: false
     {%- unless shipper.url == page.url -%}
       <a href="{{ shipper.url }}">
         <div class="card mini-card">
-        {% if shipper.vertical-logo == true -%}
-          {%- assign logo-class = "card-icon vertical" -%}
-        {%- else -%}
-          {%- assign logo-class = "card-icon horizontal" -%}
-        {%- endif -%}
-          <div class="{{logo-class}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{shipper.logofile}}');" alt="{{shipper.shipping-summary.data-source}} logo">
+          <div class="card-icon {{shipper.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{shipper.logo.logofile}}');" alt="{{shipper.shipping-summary.data-source}} logo">
           </div>
           <div class="card-text">
             <span class="card-title">{{ shipper.shipping-summary.data-source }}</span>

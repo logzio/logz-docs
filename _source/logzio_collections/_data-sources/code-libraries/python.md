@@ -1,7 +1,9 @@
 ---
 layout: article
 title: Ship Python data
-logofile: python.svg
+logo:
+  logofile: python.svg
+  orientation: horizontal
 shipping-summary:
   data-source: Python code
   appenders:

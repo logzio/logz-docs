@@ -1,8 +1,9 @@
 ---
 layout: article
 title: Ship Linux data
-logofile: linux.svg
-vertical-logo: true
+logo:
+  logofile: linux.svg
+  orientation: vertical
 shipping-summary:
   data-source: Linux
   log-shippers:

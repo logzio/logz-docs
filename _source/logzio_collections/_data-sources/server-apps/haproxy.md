@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship HAProxy data
-permalink: /user-guide/log-shipping/shipping-methods/server-app--haproxy.html
 shipping-summary:
   data-source: HAProxy
   log-shippers:

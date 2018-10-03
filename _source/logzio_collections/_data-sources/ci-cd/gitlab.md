@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship GitLab data
-permalink: /user-guide/log-shipping/shipping-methods/ci-cd--gitlab.html
 shipping-summary:
   data-source: Linux
   log-shippers:

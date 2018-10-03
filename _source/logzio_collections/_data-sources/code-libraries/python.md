@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship Python data
-permalink: /user-guide/log-shipping/shipping-methods/code-library--python.html
 shipping-summary:
   data-source: Python code
   appenders:

@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship Java data
-permalink: /user-guide/log-shipping/shipping-methods/code-library--java.html
 shipping-summary:
   data-source: Java code
   appenders:

@@ -66,6 +66,9 @@ collections:
   contributors:
     output: true
     permalink: /contributors/:name
+  data-sources:
+    output: true
+    permalink: /data-sources/:path.html
 
 defaults:
   - scope:

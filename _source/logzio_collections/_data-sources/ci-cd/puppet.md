@@ -1,7 +1,6 @@
 ---
 layout: article
-title: Ship Jenkins data
-permalink: /user-guide/log-shipping/shipping-methods/ci-cd--jenkins.html
+title: Ship Puppet data
 shipping-summary:
   data-source: Linux
   log-shippers:
@@ -11,7 +10,7 @@ contributors:
   - imnotashrimp
 ---
 
-## Jenkins + Filebeat setup
+## Puppet + Filebeat setup
 
 **You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
 
@@ -20,8 +19,8 @@ contributors:
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br /> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 5015 |
-| **Default log location** | `/var/log/jenkins/jenkins.log` |
-| **Log type** <br /> _for automatic parsing_ | `jenkins` |
+| **Default log location** | _See Puppet docs on [where log files are installed](https://puppet.com/docs/pe/2018.1/what_gets_installed_and_where.html#log-files-installed)_ |
+| **Log type** <br /> _for automatic parsing_ | Puppet server: `puppetserver` <br /> Puppet server access: `puppetserver-access`|
 
 ###### Guided configuration
 
@@ -32,7 +31,11 @@ contributors:
     wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt && sudo mkdir -p /etc/pki/tls/certs && sudo mv COMODORSADomainValidationSecureServerCA.crt /etc/pki/tls/certs/
     ```
 
-2. In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
+2. In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Puppet to the filebeat.inputs section.
+
+    <div class="info-box tip">
+      We recommend configuring Puppet to output JSON logs. [Read more](https://puppet.com/docs/puppetserver/5.1/config_logging_advanced.html)
+    </div>
 
     {% include log-shipping/your-account-token.html %}
 
@@ -40,21 +43,45 @@ contributors:
     filebeat.inputs:
     - type: log
       paths:
-      - /var/log/jenkins/jenkins.log
+
+      # If you configured Puppet to output JSON logs, replace the filename with
+      #  `puppetserver.log.json`
+      - /var/log/puppetlabs/puppetserver/puppetserver.log
+
       fields:
+
+        # If you configured Puppet to output JSON logs, set logzio_codec to
+        #  `json`
         logzio_codec: plain
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
         token: {account-token}
-        type: jenkins
+        type: puppetserver
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
-      multiline:
-        pattern: '^[A-Z]{1}[a-z]{2} {1,2}[0-9]{1,2}, [0-9]{4} {1,2}[0-9]{1,2}:[0-9]{2}:[0-9]{2}'
-        negate: true
-        match: after
+
+    - type: log
+      paths:
+
+      # If you configured Puppet to output JSON logs, replace the filename with
+      #  `puppetserver-access.log.json`
+      - /var/log/puppetlabs/puppetserver/puppetserver-access.log
+
+      fields:
+
+        # If you configured Puppet to output JSON logs, set logzio_codec to
+        #  `json`
+        logzio_codec: plain
+
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: {account-token}
+        type: puppetserver-access
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
 
     registry_file: /var/lib/filebeat/registry
     ```
@@ -76,7 +103,7 @@ contributors:
     sudo systemctl restart filebeat
     ```
 
-4. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+5. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

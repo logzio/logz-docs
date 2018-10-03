@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship Windows data
-permalink: /user-guide/log-shipping/shipping-methods/os--windows.html
 shipping-summary:
   data-source: Windows
   log-shippers:

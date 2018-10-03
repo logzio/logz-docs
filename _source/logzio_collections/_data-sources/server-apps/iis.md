@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship IIS data
-permalink: /user-guide/log-shipping/shipping-methods/server-app--iis.html
 shipping-summary:
   data-source: Microsoft IIS
   log-shippers:

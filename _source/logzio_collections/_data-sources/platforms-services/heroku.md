@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship Heroku data
-permalink: /user-guide/log-shipping/shipping-methods/platform-or-service--heroku.html
 shipping-summary:
   data-source: Heroku
   log-shippers:

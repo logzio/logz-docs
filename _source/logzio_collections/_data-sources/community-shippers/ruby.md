@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship Ruby data
-permalink: /user-guide/integrations/community-integrations/code-library--ruby.html
 shipping-summary:
   data-source: Ruby code
   appenders:

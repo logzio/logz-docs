@@ -1,13 +1,12 @@
 ---
 layout: article
-title: Ship nginx data
-permalink: /user-guide/log-shipping/shipping-methods/server-app--nginx.html
+title: Ship Apache data
 shipping-summary:
-  data-source: nginx
+  data-source: Apache HTTPS Server 2
   log-shippers:
     - recommended: Filebeat
     - rsyslog
-  os: Linux
+  os: macOS or Linux
 contributors:
   - imnotashrimp
 ---
@@ -20,7 +19,7 @@ contributors:
 
 <div id="filebeat-config">
 
-## nginx + Filebeat setup
+## Apache + Filebeat setup
 
 **You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
 
@@ -29,8 +28,8 @@ contributors:
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br /> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 5015 |
-| **Default log locations** |  `/var/log/nginx/access.log` or `/var/log/nginx/error.log` |
-| **Log type** <br /> _for automatic parsing_ | Access log: `nginx`, `nginx_access`, or `nginx-access` <br /> Error log: `nginx-error` |
+| **Default log locations** |  Ubuntu, Debian: `/var/log/apache2/access.log` <br /> macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
+| **Log type** <br /> _for automatic parsing_ | `apache`, `apache_access`, or `apache-access` |
 
 ###### Guided configuration
 
@@ -48,8 +47,11 @@ contributors:
     ```yaml
     filebeat.inputs:
     - type: log
+
       paths:
-      - /var/log/nginx/access.log
+      # Ubuntu, Debian: `/var/log/apache2/access.log`
+      #  macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log`
+      - /var/log/apache2/access.log
 
       fields:
         logzio_codec: plain
@@ -57,14 +59,17 @@ contributors:
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
         token: {account-token}
-        type: nginx_access
+        type: apache_access
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
 
     - type: log
+
       paths:
-      - /var/log/nginx/error.log
+      # Ubuntu, Debian: `/var/log/apache2/error.log`
+      #  macOS, RHEL, CentOS, Fedora: `/var/log/httpd/error_log`
+      - /var/log/apache2/error.log
 
       fields:
         logzio_codec: plain
@@ -72,7 +77,7 @@ contributors:
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
         token: {account-token}
-        type: nginx_error
+        type: apache_error
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
@@ -97,25 +102,24 @@ contributors:
     sudo systemctl restart filebeat
     ```
 
-4. Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+4. Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
+Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
 
 </div>
 
 <div id="rsyslog-config">
 
-## nginx + rsyslog setup
+## Apache + rsyslog setup
 
 ###### Manual configuration
 
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 5000 |
-| **Default log locations** |  `/var/log/nginx/access.log` or `/var/log/nginx/error.log` |
-| **Log type** <br /> _for automatic parsing_ | Access log: `nginx`, `nginx_access`, or `nginx-access` <br /> Error log: `nginx-error` |
-
+| **Default log location** | Ubuntu, Debian: `/var/log/apache2/access.log` <br /> macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
+| **Log type** <br /> _for automatic parsing_ | `apache`, `apache_access`, or `apache-access` |
 
 ###### Guided configuration
 
@@ -129,10 +133,11 @@ contributors:
     {% include log-shipping/your-listener-url.html %}
 
     ```shell
-    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t nginx -a "{account-token}" -l "{listener-url}"
+    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t apache -a "{account-token}" -l "{listener-url}"
     ```
 
-2. Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
+2. Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
+  Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

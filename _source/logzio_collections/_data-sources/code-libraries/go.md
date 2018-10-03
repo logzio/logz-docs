@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship Go data
-permalink: /user-guide/log-shipping/shipping-methods/code-library--go.html
 shipping-summary:
   data-source: Go code
   log-shippers:

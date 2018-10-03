@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship .NET data
-permalink: /user-guide/log-shipping/shipping-methods/code-library--dotnet.html
 shipping-summary:
   data-source: .NET code
   appenders:

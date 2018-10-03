@@ -35,47 +35,47 @@ firstLevel:
   - title: Server application shipping
     thirdLevel:
     - title: Apache
-      url: /user-guide/log-shipping/shipping-methods/server-app--apache.html
+      url: /data-sources/server-apps/apache.html
     - title: HAProxy
-      url: /user-guide/log-shipping/shipping-methods/server-app--haproxy.html
+      url: /data-sources/server-apps/haproxy.html
     - title: IIS
-      url: /user-guide/log-shipping/shipping-methods/server-app--iis.html
+      url: /data-sources/server-apps/iis.html
     - title: nginx
-      url: /user-guide/log-shipping/shipping-methods/server-app--nginx.html
+      url: /data-sources/server-apps/nginx.html
 
   - title: Platform or service shipping
     thirdLevel:
     - title: Heroku
-      url: /user-guide/log-shipping/shipping-methods/platform-or-service--heroku.html
+      url: /data-sources/platforms-services/heroku.html
 
   - title: CI/CD shipping
     thirdLevel:
     - title: GitLab
-      url: /user-guide/log-shipping/shipping-methods/ci-cd--gitlab.html
+      url: /data-sources/ci-cd/gitlab.html
     - title: Jenkins
-      url: /user-guide/log-shipping/shipping-methods/ci-cd--jenkins.html
+      url: /data-sources/ci-cd/jenkins.html
     - title: Puppet
-      url: /user-guide/log-shipping/shipping-methods/ci-cd--puppet.html
+      url: /data-sources/ci-cd/puppet.html
 
   - title: Custom code shipping
     thirdLevel:
     - title: .NET
-      url: /user-guide/log-shipping/shipping-methods/code-library--dotnet.html
+      url: /data-sources/code-libraries/dotnet.html
     - title: Go
-      url: /user-guide/log-shipping/shipping-methods/code-library--go.html
+      url: /data-sources/code-libraries/go.html
     - title: Java
-      url: /user-guide/log-shipping/shipping-methods/code-library--java.html
+      url: /data-sources/code-libraries/java.html
     - title: Node.js
-      url: /user-guide/log-shipping/shipping-methods/code-library--nodejs.html
+      url: /data-sources/code-libraries/nodejs.html
     - title: Python
-      url: /user-guide/log-shipping/shipping-methods/code-library--python.html
+      url: /data-sources/code-libraries/python.html
 
   - title: OS shipping
     thirdLevel:
     - title: Windows
-      url: /user-guide/log-shipping/shipping-methods/os--windows.html
+      url: /data-sources/operating-systems/windows.html
     - title: Linux
-      url: /user-guide/log-shipping/shipping-methods/os--linux.html
+      url: /data-sources/operating-systems/linux.html
 
   - title: Shipping info and troubleshooting
     url: /user-guide/log-shipping/
@@ -180,7 +180,7 @@ firstLevel:
   - title: Community integrations
     thirdLevel:
     - title: Ruby data shipping
-      url: /user-guide/integrations/community-integrations/code-library--ruby.html
+      url: /data-sources/community-shippers/ruby.html
 
 
   # ===== DEVELOPERS =====
@@ -206,9 +206,9 @@ firstLevel:
   - title: Blog
     url: https://logz.io/blog/
     external: true
-  # - title: Academy
-  #   url: http://academy.logz.io/
-  #   external: true
+  - title: Academy
+    url: http://academy.logz.io/
+    external: true
   - title: Videos
     url: https://logz.io/learn/video/
     external: true

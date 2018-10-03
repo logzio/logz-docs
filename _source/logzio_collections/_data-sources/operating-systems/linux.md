@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship Linux data
-permalink: /user-guide/log-shipping/shipping-methods/os--linux.html
 shipping-summary:
   data-source: Linux
   log-shippers:

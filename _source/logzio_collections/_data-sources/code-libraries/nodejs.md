@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Ship Node.js data
-permalink: /user-guide/log-shipping/shipping-methods/code-library--nodejs.html
 shipping-summary:
   data-source: Node.js code
   appenders:

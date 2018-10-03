@@ -1,6 +1,10 @@
 ---
 layout: article
 title: Ship Ruby data
+tags:
+  - community-integrations
+  - community-shippers
+  - code-libraries
 shipping-summary:
   data-source: Ruby code
   appenders:
@@ -13,7 +17,6 @@ contributors:
 ## Ruby LogstashLogger setup
 
 LogstashLogger sends JSON logs to Logstash using the Ruby `Logger` class.
-
 
 ### Add the dependency to your project
 

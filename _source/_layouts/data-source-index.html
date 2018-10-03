@@ -1,0 +1,21 @@
+---
+layout: default
+community-info: false
+---
+
+<div class="big-container">
+
+{%- assign this-shipping-category = page.shipping-category -%}
+{%- assign shippers-in-this-category = site.data-sources | where: "shipping-category", this-shipping-category -%}
+
+<ul>
+{%- for shipper in shippers-in-this-category -%}
+{%- unless shipper.url == page.url -%}
+  <li><a href="{{shipper.url}}">{{shipper.title}}</a></li>
+{%- endunless -%}
+{%- endfor -%}
+</ul>
+
+{%- comment -%} <div class="test">Shippers in this category: {{shippers-in-this-category}}</div> {%- endcomment -%}
+
+</div>

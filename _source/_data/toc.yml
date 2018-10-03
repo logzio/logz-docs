@@ -33,6 +33,7 @@ firstLevel:
 - title: Shipping and parsing
   secondLevel:
   - title: Server application shipping
+    url: /data-sources/server-apps/
     thirdLevel:
     - title: Apache
       url: /data-sources/server-apps/apache.html
@@ -44,11 +45,13 @@ firstLevel:
       url: /data-sources/server-apps/nginx.html
 
   - title: Platform or service shipping
+    url: /data-sources/platforms-services/
     thirdLevel:
     - title: Heroku
       url: /data-sources/platforms-services/heroku.html
 
   - title: CI/CD shipping
+    url: /data-sources/ci-cd/
     thirdLevel:
     - title: GitLab
       url: /data-sources/ci-cd/gitlab.html
@@ -58,6 +61,7 @@ firstLevel:
       url: /data-sources/ci-cd/puppet.html
 
   - title: Custom code shipping
+    url: /data-sources/code-libraries/
     thirdLevel:
     - title: .NET
       url: /data-sources/code-libraries/dotnet.html
@@ -71,6 +75,7 @@ firstLevel:
       url: /data-sources/code-libraries/python.html
 
   - title: OS shipping
+    url: /data-sources/operating-systems/
     thirdLevel:
     - title: Windows
       url: /data-sources/operating-systems/windows.html
@@ -177,7 +182,8 @@ firstLevel:
   secondLevel:
   - title: Alice, Slack chatbot
     url: /user-guide/integrations/alice-slack-chatbot.html
-  - title: Community integrations
+  - title: Community-recommended shipping
+    url: /data-sources/community-shippers/
     thirdLevel:
     - title: Ruby data shipping
       url: /data-sources/community-shippers/ruby.html

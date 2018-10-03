@@ -71,12 +71,43 @@ collections:
     permalink: /data-sources/:path.html
 
 defaults:
-  - scope:
+  -
+    scope:
       path: ''
       type: contributors
     values:
       layout: contributor-profile
       community-info: false
+  -
+    scope:
+      path: _data-sources/ci-cd
+    values:
+      shipping-category: CI/CD
+  -
+    scope:
+      path: _data-sources/code-libraries
+    values:
+      shipping-category: Code libraries
+  -
+    scope:
+      path: _data-sources/community-shippers
+    values:
+      shipping-category: Created by the community
+  -
+    scope:
+      path: _data-sources/operating-systems
+    values:
+      shipping-category: Operating systems
+  -
+    scope:
+      path: _data-sources/platforms-services
+    values:
+      shipping-category: Platforms and services
+  -
+    scope:
+      path: _data-sources/server-apps
+    values:
+      shipping-category: Server apps
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

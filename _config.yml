@@ -87,11 +87,6 @@ defaults:
       shipping-category: Code libraries
   -
     scope:
-      path: _data-sources/community-shippers
-    values:
-      shipping-category: Community-maintained shippers
-  -
-    scope:
       path: _data-sources/operating-systems
     values:
       shipping-category: Operating systems

@@ -32,6 +32,8 @@ firstLevel:
 
 - title: Shipping and parsing
   secondLevel:
+  - title: All log shipping data sources
+    url: /data-sources/
   - title: Server application shipping
     url: /data-sources/server-apps/
     thirdLevel:

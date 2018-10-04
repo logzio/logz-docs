@@ -5,6 +5,9 @@ tags:
   - community-integrations
   - community-shippers
   - code-libraries
+logo:
+  logofile: ruby.svg
+  orientation: vertical
 shipping-summary:
   data-source: Ruby code
   appenders:

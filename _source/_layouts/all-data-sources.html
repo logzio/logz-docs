@@ -1,0 +1,25 @@
+---
+layout: default
+community-info: false
+---
+
+{%- assign site-defaults = site.defaults -%}
+{%- assign defaults-list = "" -%}
+{%- assign this-collection = page.collection | prepend: "_" -%}
+
+{%- for item in site-defaults -%}
+    {%- assign defaults-path = item.scope.path | split: "/" | join: " " | truncatewords: 1, "" -%}
+    {%- if defaults-path == this-collection -%}
+      {%- assign this-category = item.values.shipping-category | split: "%" -%}
+      {%- assign collection-categories = collection-categories | concat: this-category -%}
+    {%- endif -%}
+{%- endfor -%}
+
+{%- for category in collection-categories %}
+<h2 class="padding-top-10">{{category}}</h2>
+
+{%- assign this-shipping-category = category -%}
+{%- assign shippers-in-this-category = site.data-sources | where: "shipping-category", this-shipping-category %}
+
+{%- include log-shipping/shipping-cards.html -%}
+{%- endfor -%}

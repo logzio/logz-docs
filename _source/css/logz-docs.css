@@ -143,17 +143,18 @@ div.body-container {
   margin-right: auto;
   padding-left: 25px;
   padding-right: 25px;
+  padding-bottom: 200px;
 }
 
 div.card-container {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 50px;
 }
 
 div.body-container, div.card-container {
   vertical-align: top;
-  padding-bottom: 200px;
   margin-top: 2rem;
   justify-self: start;
 }
@@ -219,6 +220,14 @@ div.body-container, div.card-container {
 
 div.card-container a {
   margin: 12px;
+}
+
+.card-container.align-left {
+  margin-left: -12px;
+}
+
+.card-container.align-left .cards {
+  justify-content: flex-start;
 }
 
 div.cards {
@@ -412,13 +421,17 @@ svg.svg-inline--fa, i.li {
   margin-right: .1rem;
 }
 
-/* special formatting */
+/* ===== ONE-OFFS ===== */
 .sm {
   font-size: .8rem;
 }
 
 .bold {
   font-weight: 700;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
 }
 
 /* ===== CODE BLOCKS ===== */

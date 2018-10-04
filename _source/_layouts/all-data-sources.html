@@ -15,8 +15,10 @@ community-info: false
     {%- endif -%}
 {%- endfor -%}
 
+<nav id="category-links"><ul></ul></nav>
+
 {%- for category in collectionCategories %}
-<h2 class="padding-top-10">{{category}}</h2>
+<h2 class="category padding-top-10" id="category-{{forloop.index}}">{{category}}</h2>
 
 {%- assign thisShippingCategory = category -%}
 {%- assign shippersInThisCategory = site.data-sources | where: "shipping-category", thisShippingCategory %}

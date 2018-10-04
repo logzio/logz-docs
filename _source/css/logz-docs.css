@@ -265,9 +265,9 @@ div.half-card {
 }
 
 div.mini-card {
-  padding: 0px;
-  width: 130px;
-  height: 130px;
+  padding: 0 5px;
+  width: 150px;
+  height: 160px;
 
   display: flex;
   flex-direction: column;
@@ -349,7 +349,7 @@ div.card-icon i::before {
   font-size: .75rem;
   font-weight: 700;
 
-  margin-bottom: -2px;
+  margin: 0 -5px -8px -5px;
 }
 
 /* ===== BASE STYLES ===== */
@@ -934,10 +934,21 @@ nav.site-actions ul {
   padding-left: 0;
 }
 
-nav.site-links li, nav.site-actions li {
+nav.site-links li, nav.site-actions li, #category-links li {
   display: inline-block;
   padding: 1rem;
   vertical-align: middle;
+}
+
+#category-links li {
+  padding: 5px;
+  margin: auto 5px;
+  border-radius: 5px;
+  border: 1px solid var(--border-dark);
+}
+
+#category-links a {
+  color: var(--text-normal);
 }
 
 nav.site-links li {

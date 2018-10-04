@@ -89,7 +89,7 @@ defaults:
     scope:
       path: _data-sources/community-shippers
     values:
-      shipping-category: Created by the community
+      shipping-category: Community-maintained shippers
   -
     scope:
       path: _data-sources/operating-systems

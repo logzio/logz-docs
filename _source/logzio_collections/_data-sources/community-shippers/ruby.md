@@ -4,7 +4,7 @@ title: Ship Ruby data
 tags:
   - community-integrations
   - community-shippers
-  - code-libraries
+community-project: true
 logo:
   logofile: ruby.svg
   orientation: vertical

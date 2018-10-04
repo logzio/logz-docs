@@ -5,7 +5,9 @@
     {%- assign last-char-in-url = shipper.url | split: "" | last -%}
     {%- unless last-char-in-url == "/" -%}
       <a href="{{ shipper.url }}">
-        <div class="card mini-card">
+        <div class="card mini-card
+        {%- if shipper.community-project == true %} community-project {%- endif -%}
+        ">
           <div class="card-icon {{shipper.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{shipper.logo.logofile}}');" alt="{{shipper.shipping-summary.data-source}} logo">
           </div>
           <div class="card-text">

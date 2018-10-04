@@ -1,5 +1,5 @@
 ---
 layout: data-source-index
-title: Shipping from code libraries
+title: Shipping from custom code
 permalink: /data-sources/code-libraries/
 ---

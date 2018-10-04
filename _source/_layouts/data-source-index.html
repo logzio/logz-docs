@@ -3,7 +3,7 @@ layout: default
 community-info: false
 ---
 
-{%- assign this-shipping-category = page.shipping-category -%}
-{%- assign shippers-in-this-category = site.data-sources | where: "shipping-category", this-shipping-category -%}
+{%- assign thisShippingCategory = page.shipping-category -%}
+{%- assign shippersInThisCategory = site.data-sources | where: "shipping-category", thisShippingCategory -%}
 
 {%- include log-shipping/shipping-cards.html -%}

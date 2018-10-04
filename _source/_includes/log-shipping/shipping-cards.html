@@ -1,19 +1,21 @@
 <div class="card-container align-left">
 
   <div class="cards mini-cards">
-    {%- for shipper in shippers-in-this-category %}
-    {%- assign last-char-in-url = shipper.url | split: "" | last -%}
-    {%- unless last-char-in-url == "/" -%}
-      <a href="{{ shipper.url }}">
-        <div class="card mini-card
-        {%- if shipper.community-project == true %} community-project {%- endif -%}
-        ">
+    {%- for shipper in shippersInThisCategory  %}
+    {%- assign shipperUrl = shipper.project-url | default: shipper.url -%}
+
+    {%- assign lastCharInUrl = shipper.url | split: "" | last -%}
+    {%- unless lastCharInUrl == "/" -%}
+      <a href="{{ shipperUrl }}">
+        <div class="card mini-card">
           <div class="card-icon {{shipper.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{shipper.logo.logofile}}');" alt="{{shipper.shipping-summary.data-source}} logo">
           </div>
           <div class="card-text">
             <span class="card-title">{{ shipper.shipping-summary.data-source }}</span>
-            <p>{{ card.description }}</p>
           </div>
+          {%- if shipper.community-project == true -%}
+          <div class="community-project-label">Community project</div>
+          {%- endif %}
         </div>
       </a>
     {%- endunless -%}

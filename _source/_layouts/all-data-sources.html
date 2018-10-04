@@ -3,23 +3,23 @@ layout: default
 community-info: false
 ---
 
-{%- assign site-defaults = site.defaults -%}
-{%- assign defaults-list = "" -%}
-{%- assign this-collection = page.collection | prepend: "_" -%}
+{%- assign siteDefaults = site.defaults -%}
+{%- assign defaultsList = "" -%}
+{%- assign thisCollection = page.collection | prepend: "_" -%}
 
-{%- for item in site-defaults -%}
-    {%- assign defaults-path = item.scope.path | split: "/" | join: " " | truncatewords: 1, "" -%}
-    {%- if defaults-path == this-collection -%}
-      {%- assign this-category = item.values.shipping-category | split: "%" -%}
-      {%- assign collection-categories = collection-categories | concat: this-category -%}
+{%- for item in siteDefaults -%}
+    {%- assign defaultsPath = item.scope.path | split: "/" | join: " " | truncatewords: 1, "" -%}
+    {%- if defaultsPath == thisCollection -%}
+      {%- assign thisCategory = item.values.shipping-category | split: "%" -%}
+      {%- assign collectionCategories = collectionCategories | concat: thisCategory -%}
     {%- endif -%}
 {%- endfor -%}
 
-{%- for category in collection-categories %}
+{%- for category in collectionCategories %}
 <h2 class="padding-top-10">{{category}}</h2>
 
-{%- assign this-shipping-category = category -%}
-{%- assign shippers-in-this-category = site.data-sources | where: "shipping-category", this-shipping-category %}
+{%- assign thisShippingCategory = category -%}
+{%- assign shippersInThisCategory = site.data-sources | where: "shipping-category", thisShippingCategory %}
 
 {%- include log-shipping/shipping-cards.html -%}
 {%- endfor -%}

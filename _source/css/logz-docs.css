@@ -347,7 +347,6 @@ div.card-icon i::before {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   font-size: .75rem;
-  font-weight: 700;
 
   margin: 0 -5px -8px -5px;
 }
@@ -940,15 +939,12 @@ nav.site-links li, nav.site-actions li, #category-links li {
   vertical-align: middle;
 }
 
-#category-links li {
-  padding: 5px;
-  margin: auto 5px;
-  border-radius: 5px;
-  border: 1px solid var(--border-dark);
+#category-links {
+  margin: inherit auto;
 }
 
-#category-links a {
-  color: var(--text-normal);
+#category-links li {
+  padding: 15px;
 }
 
 nav.site-links li {

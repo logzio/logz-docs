@@ -14,7 +14,9 @@ community-info: false
     {%- endif -%}
 {%- endfor -%}
 
-<nav id="category-links"><ul></ul></nav>
+<nav id="category-links">
+  <ul></ul>
+</nav>
 
 {%- for category in collectionCategories %}
 <h2 class="category padding-top-10" id="category-{{forloop.index}}">{{category}}</h2>

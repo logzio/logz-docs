@@ -61,7 +61,7 @@ $('.copy-btn').click( function() {
 
 // create links to all categories on a shipping page
 $('.category').each(function() {
-  $('#category-links').append('<li><a href="#' + $(this).attr('id') + '">' + $(this).text() + '</a></li>');
+  $('#category-links ul').append('<li><a href="#' + $(this).attr('id') + '">' + $(this).text() + '</a></li>');
 });
 
 });

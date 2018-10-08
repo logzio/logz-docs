@@ -933,18 +933,10 @@ nav.site-actions ul {
   padding-left: 0;
 }
 
-nav.site-links li, nav.site-actions li, #category-links li {
+nav.site-links li, nav.site-actions li {
   display: inline-block;
   padding: 1rem;
   vertical-align: middle;
-}
-
-#category-links {
-  margin: inherit auto;
-}
-
-#category-links li {
-  padding: 15px;
 }
 
 nav.site-links li {
@@ -1561,12 +1553,19 @@ i.ll, dl.letter-labels dt::before {
   flex-direction: row;
   flex-wrap: wrap;
 
-  margin-top: 2rem;
   padding: 0;
+  margin-top: 2rem;
   line-height: 1.25rem;
+}
+
+.shipping-summary, #on-this-page-toc {
   background-color: var(--background-very-light);
   border: 1px solid var(--border-very-light);
   border-radius: 5px;
+}
+
+#on-this-page-toc {
+  padding-left: 15px;
 }
 
 .shipping-summary div {

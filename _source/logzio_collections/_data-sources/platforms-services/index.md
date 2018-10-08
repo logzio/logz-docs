@@ -1,5 +1,5 @@
 ---
 layout: one-data-source
-title: Shipping from platforms or services
+title: Platform or service logs
 permalink: /data-sources/platforms-services/
 ---

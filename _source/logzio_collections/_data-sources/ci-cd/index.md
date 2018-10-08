@@ -1,5 +1,5 @@
 ---
 layout: one-data-source
-title: Shipping from CI/CD
+title: CI/CD logs
 permalink: /data-sources/ci-cd/
 ---

@@ -77,29 +77,29 @@ defaults:
       community-info: false
   -
     scope:
-      path: _data-sources/ci-cd
+      path: _data-sources/os-logs
     values:
-      shipping-category: CI/CD
+      shipping-category: OS logs
   -
     scope:
-      path: _data-sources/code-libraries
+      path: _data-sources/server-app-logs
     values:
-      shipping-category: Code libraries
+      shipping-category: Server app logs
   -
     scope:
-      path: _data-sources/operating-systems
+      path: _data-sources/custom-code
     values:
-      shipping-category: Operating systems
+      shipping-category: Custom code logs
   -
     scope:
       path: _data-sources/platforms-services
     values:
-      shipping-category: Platforms and services
+      shipping-category: Platform and service logs
   -
     scope:
-      path: _data-sources/server-apps
+      path: _data-sources/ci-cd
     values:
-      shipping-category: Server apps
+      shipping-category: CI/CD logs
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

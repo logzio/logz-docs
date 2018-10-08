@@ -30,29 +30,52 @@ firstLevel:
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
 
-- title: Shipping and parsing
+- title: Log shipping
   secondLevel:
   - title: All log shipping data sources
     url: /data-sources/
-  - title: Server application shipping
-    url: /data-sources/server-apps/
+
+  - title: OS logs
+    url: /data-sources/os-logs/
+    thirdLevel:
+    - title: Windows
+      url: /data-sources/os-logs/windows.html
+    - title: Linux
+      url: /data-sources/os-logs/linux.html
+
+  - title: Server app logs
+    url: /data-sources/server-app-logs/
     thirdLevel:
     - title: Apache
-      url: /data-sources/server-apps/apache.html
+      url: /data-sources/server-app-logs/apache.html
     - title: HAProxy
-      url: /data-sources/server-apps/haproxy.html
+      url: /data-sources/server-app-logs/haproxy.html
     - title: IIS
-      url: /data-sources/server-apps/iis.html
+      url: /data-sources/server-app-logs/iis.html
     - title: nginx
-      url: /data-sources/server-apps/nginx.html
+      url: /data-sources/server-app-logs/nginx.html
 
-  - title: Platform or service shipping
+  - title: Custom code logs
+    url: /data-sources/custom-code/
+    thirdLevel:
+    - title: .NET
+      url: /data-sources/custom-code/dotnet.html
+    - title: Go
+      url: /data-sources/custom-code/go.html
+    - title: Java
+      url: /data-sources/custom-code/java.html
+    - title: Node.js
+      url: /data-sources/custom-code/nodejs.html
+    - title: Python
+      url: /data-sources/custom-code/python.html
+
+  - title: Platform or service logs
     url: /data-sources/platforms-services/
     thirdLevel:
     - title: Heroku
       url: /data-sources/platforms-services/heroku.html
 
-  - title: CI/CD shipping
+  - title: CI/CD logs
     url: /data-sources/ci-cd/
     thirdLevel:
     - title: GitLab
@@ -62,29 +85,7 @@ firstLevel:
     - title: Puppet
       url: /data-sources/ci-cd/puppet.html
 
-  - title: Custom code shipping
-    url: /data-sources/code-libraries/
-    thirdLevel:
-    - title: .NET
-      url: /data-sources/code-libraries/dotnet.html
-    - title: Go
-      url: /data-sources/code-libraries/go.html
-    - title: Java
-      url: /data-sources/code-libraries/java.html
-    - title: Node.js
-      url: /data-sources/code-libraries/nodejs.html
-    - title: Python
-      url: /data-sources/code-libraries/python.html
-
-  - title: OS shipping
-    url: /data-sources/operating-systems/
-    thirdLevel:
-    - title: Windows
-      url: /data-sources/operating-systems/windows.html
-    - title: Linux
-      url: /data-sources/operating-systems/linux.html
-
-  - title: Shipping info and troubleshooting
+  - title: Log shipping info and troubleshooting
     url: /user-guide/log-shipping/
     thirdLevel:
     - title: Built-in log types
@@ -94,16 +95,15 @@ firstLevel:
     - title: Listener IP addresses
       url: /user-guide/log-shipping/listener-ip-addresses.html
 
-  # - title: Field mapping and data parsing
+- title: Working with your logs
+
+  secondLevel:
+    # - title: Field mapping and data parsing
     # thirdLevel:
     # - title: Field mapping
   - title: Data parsing
     url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
-
-- title: Working with your logs
-
-  secondLevel:
   - title: Kibana
     url: /user-guide/kibana/
     # thirdLevel:

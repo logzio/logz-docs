@@ -2,8 +2,8 @@
 layout: article
 title: Ship Node.js logs
 logo:
-  logofile: nodejs.png
-  orientation: horizontal
+  logofile: nodejs.svg
+  orientation: vertical
 shipping-summary:
   data-source: Node.js code
   appenders:

@@ -19,10 +19,17 @@ community-info: false
 </nav>
 
 {%- for category in collectionCategories %}
-<h2 class="category padding-top-10" id="category-{{forloop.index}}">{{category}}</h2>
+<h2 class="category padding-top-10" id="category-{{category | replace: ' ', '-' | downcase}}">{{category}}</h2>
 
 {%- assign thisShippingCategory = category -%}
 {%- assign shippersInThisCategory = site.data-sources | where: "shipping-category", thisShippingCategory %}
+
+{%- for shipper in shippersInThisCategory -%}
+  {%- assign fileName = shipper.path | slice: -8, 8 -%}
+  {%- if fileName == "index.md" -%}
+    {{shipper.content}}
+  {%- endif -%}
+{%- endfor -%}
 
 {%- include log-shipping/shipping-cards.html -%}
 {%- endfor -%}

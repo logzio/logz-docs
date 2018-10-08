@@ -1,10 +1,13 @@
 <div class="card-container align-left">
 
-  <div class="cards mini-cards">
+  <div class="cards mini-cards
+    {%- if shipper.community-project == true %} community-project-card{%- endif -%}
+  ">
     {%- for shipper in shippersInThisCategory  %}
     {%- assign shipperUrl = shipper.project-url | default: shipper.url -%}
 
     {%- assign lastCharInUrl = shipper.url | split: "" | last -%}
+
     {%- unless lastCharInUrl == "/" -%}
       <a href="{{ shipperUrl }}">
         <div class="card mini-card">
@@ -12,6 +15,9 @@
           </div>
           <div class="card-text">
             <span class="card-title">{{ shipper.shipping-summary.data-source }}</span>
+            {%- if shipper.community-project == true %}
+            <p>{{shipper.title}}</p>
+            {%- endif %}
           </div>
           {%- if shipper.community-project == true -%}
           <div class="community-project-label">Community project</div>

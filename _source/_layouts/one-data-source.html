@@ -6,4 +6,6 @@ community-info: false
 {%- assign thisShippingCategory = page.shipping-category -%}
 {%- assign shippersInThisCategory = site.data-sources | where: "shipping-category", thisShippingCategory -%}
 
+{{content}}
+
 {%- include log-shipping/shipping-cards.html -%}

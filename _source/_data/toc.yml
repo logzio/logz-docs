@@ -32,61 +32,22 @@ firstLevel:
 
 - title: Log shipping
   secondLevel:
-  - title: All log shipping data sources
+  - title: Log shipping data sources
     url: /data-sources/
 
-  - title: OS logs
-    url: /data-sources/os-logs/
     thirdLevel:
-    - title: Linux
-      url: /data-sources/os-logs/linux.html
-    - title: Windows
-      url: /data-sources/os-logs/windows.html
-
-  - title: Server app logs
-    url: /data-sources/server-app-logs/
-    thirdLevel:
-    - title: Apache
-      url: /data-sources/server-app-logs/apache.html
-    - title: HAProxy
-      url: /data-sources/server-app-logs/haproxy.html
-    - title: IIS
-      url: /data-sources/server-app-logs/iis.html
-    - title: nginx
-      url: /data-sources/server-app-logs/nginx.html
-
-  - title: Custom code logs
-    url: /data-sources/custom-code/
-    thirdLevel:
-    - title: .NET
-      url: /data-sources/custom-code/dotnet.html
-    - title: Go
-      url: /data-sources/custom-code/go.html
-    - title: Java
-      url: /data-sources/custom-code/java.html
-    - title: Node.js
-      url: /data-sources/custom-code/nodejs.html
-    - title: Python
-      url: /data-sources/custom-code/python.html
-    - title: Ruby
-      url: https://github.com/dwbutler/logstash-logger
-      external: true
-
-  - title: Platform or service logs
-    url: /data-sources/platforms-services/
-    thirdLevel:
-    - title: Heroku
-      url: /data-sources/platforms-services/heroku.html
-
-  - title: CI/CD logs
-    url: /data-sources/ci-cd/
-    thirdLevel:
-    - title: GitLab
-      url: /data-sources/ci-cd/gitlab.html
-    - title: Jenkins
-      url: /data-sources/ci-cd/jenkins.html
-    - title: Puppet
-      url: /data-sources/ci-cd/puppet.html
+    - title: OS logs
+      url: /data-sources/os-logs/
+    - title: Server app logs
+      url: /data-sources/server-app-logs/
+    - title: Custom code logs
+      url: /data-sources/custom-code/
+    - title: Platform or service logs
+      url: /data-sources/platforms-services/
+    - title: CI/CD logs
+      url: /data-sources/ci-cd/
+  - title: Community-created log shippers
+    url: /data-sources/community-projects/
 
   - title: Log shipping info and troubleshooting
     url: /user-guide/log-shipping/
@@ -187,8 +148,8 @@ firstLevel:
   secondLevel:
   - title: Alice, Slack chatbot
     url: /user-guide/integrations/alice-slack-chatbot.html
-  - title: Community-recommended shipping
-    url: /data-sources/community-shippers/
+  - title: Community-maintained log shipping
+    # url: /data-sources/community-shippers/
     thirdLevel:
     - title: Ruby data shipping
       url: /data-sources/community-shippers/ruby.html

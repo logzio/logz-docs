@@ -94,12 +94,17 @@ defaults:
     scope:
       path: _data-sources/platform-service-logs
     values:
-      shipping-category: Platform and service logs
+      shipping-category: Platform or service logs
   -
     scope:
       path: _data-sources/ci-cd-logs
     values:
       shipping-category: CI/CD logs
+  -
+    scope:
+      path: _data-sources/community-projects
+    values:
+      shipping-category: Community-created log shippers
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

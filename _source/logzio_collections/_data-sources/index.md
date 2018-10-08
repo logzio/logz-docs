@@ -1,5 +1,5 @@
 ---
 layout: all-data-sources
-title: Data sources for log shipping
+title: Log shipping data sources
 permalink: /data-sources/
 ---

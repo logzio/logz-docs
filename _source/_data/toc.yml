@@ -68,6 +68,9 @@ firstLevel:
       url: /data-sources/custom-code/nodejs.html
     - title: Python
       url: /data-sources/custom-code/python.html
+    - title: Ruby
+      url: https://github.com/dwbutler/logstash-logger
+      external: true
 
   - title: Platform or service logs
     url: /data-sources/platforms-services/

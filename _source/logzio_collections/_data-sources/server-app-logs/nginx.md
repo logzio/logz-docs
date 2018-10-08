@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship nginx data
+title: Ship nginx logs
 logo:
   logofile: nginx.svg
   orientation: horizontal

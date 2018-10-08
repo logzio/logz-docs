@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship Linux data
+title: Ship Linux logs
 logo:
   logofile: linux.svg
   orientation: vertical

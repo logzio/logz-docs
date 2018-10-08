@@ -1,6 +1,6 @@
 ---
 community-project: true
-title: Ship Ruby data
+title: Ship Ruby logs
 project-url: https://github.com/dwbutler/logstash-logger
 logo:
   logofile: ruby.svg

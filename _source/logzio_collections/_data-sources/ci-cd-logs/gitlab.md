@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship GitLab data
+title: Ship GitLab logs
 logo:
   logofile: gitlab.svg
   orientation: vertical

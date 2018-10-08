@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship Go data
+title: Ship Go logs
 logo:
   logofile: go.svg
   orientation: horizontal

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship .NET data
+title: Ship .NET logs
 logo:
   logofile: dotnet.svg
   orientation: vertical

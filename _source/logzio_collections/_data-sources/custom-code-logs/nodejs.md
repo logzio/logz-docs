@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship Node.js data
+title: Ship Node.js logs
 logo:
   logofile: nodejs.png
   orientation: horizontal

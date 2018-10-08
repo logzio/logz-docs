@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship Apache data
+title: Ship Apache logs
 logo:
   logofile: apache.svg
   orientation: vertical

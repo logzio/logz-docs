@@ -38,10 +38,10 @@ firstLevel:
   - title: OS logs
     url: /data-sources/os-logs/
     thirdLevel:
-    - title: Windows
-      url: /data-sources/os-logs/windows.html
     - title: Linux
       url: /data-sources/os-logs/linux.html
+    - title: Windows
+      url: /data-sources/os-logs/windows.html
 
   - title: Server app logs
     url: /data-sources/server-app-logs/

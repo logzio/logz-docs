@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship Heroku data
+title: Ship Heroku logs
 logo:
   logofile: heroku.svg
   orientation: vertical

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship Python data
+title: Ship Python logs
 logo:
   logofile: python.svg
   orientation: horizontal

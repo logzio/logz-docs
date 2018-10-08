@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship Java data
+title: Ship Java logs
 logo:
   logofile: java.svg
   orientation: vertical

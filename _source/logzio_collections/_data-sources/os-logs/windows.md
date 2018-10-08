@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Ship Windows data
+title: Ship Windows logs
 logo:
   logofile: windows.svg
   orientation: vertical

@@ -46,8 +46,8 @@ firstLevel:
       url: /data-sources/platforms-services/
     - title: CI/CD logs
       url: /data-sources/ci-cd/
-  - title: Community-created log shippers
-    url: /data-sources/community-projects/
+    - title: Community-created log shippers
+      url: /data-sources/community-log-shippers/
 
   - title: Log shipping info and troubleshooting
     url: /user-guide/log-shipping/
@@ -149,10 +149,10 @@ firstLevel:
   - title: Alice, Slack chatbot
     url: /user-guide/integrations/alice-slack-chatbot.html
   - title: Community-maintained log shipping
-    # url: /data-sources/community-shippers/
+    # url: /data-sources/community-log-shippers/
     thirdLevel:
     - title: Ruby data shipping
-      url: /data-sources/community-shippers/ruby.html
+      url: /data-sources/community-log-shippers/ruby.html
 
 
   # ===== DEVELOPERS =====

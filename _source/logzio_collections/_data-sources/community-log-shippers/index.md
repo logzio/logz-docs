@@ -1,7 +1,7 @@
 ---
 layout: one-data-source
 title: Community-created log shippers
-permalink: /data-sources/community-projects/
+permalink: /data-sources/community-log-shippers/
 ---
 
 <div class="info-box important">

@@ -102,7 +102,7 @@ defaults:
       shipping-category: CI/CD logs
   -
     scope:
-      path: _data-sources/community-projects
+      path: _data-sources/community-log-shippers
     values:
       shipping-category: Community-created log shippers
 

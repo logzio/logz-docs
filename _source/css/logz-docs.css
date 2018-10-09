@@ -630,18 +630,18 @@ dl.letter-labels dt::before {
 }
 
 /* parameter lists */
-.parameter-list {
+.parameter-list, .glossary-list {
   display: unset;
 }
 
-.parameter-list dt {
+.parameter-list dt, .glossary-list dt {
   margin-top: 15px;
 }
-.parameter-list dd {
+.parameter-list dd, .glossary-list dd {
   margin-left: 15px
 }
 
-.parameter-list dt:not(:first-child) {
+.parameter-list dt:not(:first-child), .glossary-list dt:not(:first-child) {
   border-top: 1px solid #e5e5e5;
   padding-top: 10px;
 }

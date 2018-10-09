@@ -11,23 +11,49 @@ search: false
 
 
 <style type="text/css" media="screen">
+  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,400');
+
   .container {
     margin: 10px auto;
     max-width: 600px;
     text-align: center;
     padding-bottom: 400px;
   }
-  h1 {
-    margin: 30px 0;
-    font-size: 3em;
-    font-weight: 600;
+
+  .four-oh-four, .ridoculous {
+    font-weight: 200;
+    margin: 0;
     line-height: 1;
+    color: #0089b1;
   }
+
+  .four-oh-four {
+    margin-top: 30px;
+    font-size: 100px;
+  }
+
+  .ridoculous {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .logz-symbol-404 {
+    border: none !important;
+    display: inline !important;
+    height: 70px !important;
+    margin: 0 5px !important;
+  }
+
 </style>
 
 <div class="container">
-  <h1>404. Ridoculous.</h1>
+  <div class="four-oh-four">
+    4<img class="logz-symbol-404" alt="Logz.io logo" src="{{site.baseurl}}/images/logo/logz-symbol.svg">4.
+  </div>
+  <div class="ridoculous">
+    Ridoculous.
+  </div>
 
-  <p><strong>Sorry, we couldn't find the page you were looking for</strong></p>
+  <p><strong>Sorry, we couldn't find the page you were looking for.</strong></p>
   <p>Maybe it moved, maybe it never existed. Either way, please try another page, or <a href="{{ repo_path }}/issues">let us know</a> about the issue so we can fix it.</p>
 </div>

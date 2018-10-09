@@ -26,8 +26,7 @@ community-info: false
 {%- assign shippersInThisCategory = site.data-sources | where: "shipping-category", thisShippingCategory %}
 
 {%- for shipper in shippersInThisCategory -%}
-  {%- assign fileName = shipper.path | slice: -8, 8 -%}
-  {%- if fileName == "index.md" -%}
+  {%- if shipper.path contains "index.md" -%}
     {{shipper.content}}
   {%- endif -%}
 {%- endfor -%}

@@ -274,6 +274,10 @@ div.mini-card {
   justify-content: space-around;
 }
 
+div.mini-card.community-project-card {
+  height: 180px;
+}
+
 div.full-card div.card-text {
   display: block;
   padding: 0;
@@ -338,7 +342,7 @@ div.card-icon i::before {
   margin: 0;
 }
 
-.mini-card.community-project::after, .mini-card .community-project-label {
+.mini-card .community-project-label {
   content: "Community project";
 
   background-color: rgb(var(--app-green-primary));

@@ -1,8 +1,6 @@
 <div class="card-container align-left">
 
-  <div class="cards mini-cards
-    {%- if shipper.community-project == true %} community-project-card{%- endif -%}
-  ">
+  <div class="cards mini-cards">
     {%- for shipper in shippersInThisCategory  %}
     {%- assign shipperUrl = shipper.project-url | default: shipper.url -%}
 
@@ -10,7 +8,9 @@
 
     {%- unless lastCharInUrl == "/" -%}
       <a href="{{ shipperUrl }}">
-        <div class="card mini-card">
+        <div class="card mini-card
+          {%- if shipper.community-project == true %} community-project-card{%- endif -%}
+        ">
           <div class="card-icon {{shipper.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{shipper.logo.logofile}}');" alt="{{shipper.shipping-summary.data-source}} logo">
           </div>
           <div class="card-text">

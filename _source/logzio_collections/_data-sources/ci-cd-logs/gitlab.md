@@ -29,13 +29,17 @@ contributors:
 ###### Guided configuration
 
 {: .tasklist }
-1. For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+1. <span class="firstline"> Download the Logz.io certificate </span>
+
+    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
     ```shell
     wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt && sudo mkdir -p /etc/pki/tls/certs && sudo mv COMODORSADomainValidationSecureServerCA.crt /etc/pki/tls/certs/
     ```
 
-2. In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
+2. <span class="firstline"> Add GitLab as an input </span>
+
+    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add GitLab to the filebeat.inputs section.
 
     {% include log-shipping/your-account-token.html %}
 
@@ -100,7 +104,9 @@ contributors:
     registry_file: /var/lib/filebeat/registry
     ```
 
-3. If Logz.io is not an output, add it now.
+3. <span class="firstline"> Add Logz.io as an output </span>
+
+    If Logz.io is not an output, add it now.
 
     {% include log-shipping/your-listener-url.html %}
 
@@ -111,13 +117,15 @@ contributors:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. Restart Filebeat.
+4. <span class="firstline"> Restart Filebeat </span>
 
     ```shell
     sudo systemctl restart filebeat
     ```
 
-5. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+5. <span class="firstline">Test your configuration</span>
+
+    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

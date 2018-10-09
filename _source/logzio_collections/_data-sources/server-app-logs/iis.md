@@ -17,7 +17,12 @@ contributors:
 
 **You'll need:** Admin access
 
-1. Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
+###### Guided configuration
+
+{: .tasklist}
+1. <span class="firstline"> Configure NXLog </span>
+
+    Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
     {% include log-shipping/your-account-token.html %}
 
@@ -57,8 +62,14 @@ contributors:
     </Route>
     ```
 
-2. Start or restart NXLog using Windows Services Manager.
+2. <span class="firstline"> Restart NXLog </span>
 
-3. Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+    ```powershell
+    PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
+    ```
+
+3. <span class="firstline"> Test your configuration </span>
+
+    Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

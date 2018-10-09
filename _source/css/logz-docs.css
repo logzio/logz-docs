@@ -35,6 +35,7 @@
   --heading-normal-50: #29638680;
 
   --tasklist-heading: rgb(var(--app-orange-primary));
+  --tasklist-light: rgba(var(--app-orange-primary), .5);
   --dl-letter: var(--app-orange-dark);
 
   --infobox-note: rgb(var(--app-blue-primary));
@@ -570,20 +571,29 @@ ol ul {
 }
 
 .tasklist > li:not(:first-child) {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
-.tasklist > li:before {
+.tasklist > li::before {
   content: counter(tasklist);
   position: absolute;
   display: inline-block;
   margin-left: -45px;
 
   font-size: 1.5rem;
-  color: var(--tasklist-heading);
-  padding: 3px;
+  color: var(--tasklist-light);
   font-weight: 700;
-  opacity: .5;
+}
+
+.tasklist > li:first-child::before {
+  padding-top: 0;
+}
+
+.tasklist .firstline {
+  font-weight: 400;
+  font-size: 1.2rem;
+  display: block;
+  border-bottom: 1px solid var(--tasklist-light);
 }
 
 /* horizontal lists */

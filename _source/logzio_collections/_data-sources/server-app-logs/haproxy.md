@@ -17,8 +17,12 @@ contributors:
 
 **You'll need:** root access, rsyslog 5.8.0 or later
 
+###### Guided configuration
+
 {: .tasklist }
-1. Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
+1. <span class="firstline">Configure HAProxy</span>
+
+    Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
 
     ```conf
     global
@@ -47,7 +51,9 @@ contributors:
       server SERVER_NAME SERVER_ADDRESS:PORT
     ```
 
-2. Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
+3. <span class="firstline">Configure rsyslog</span>
+
+    Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
     {% include log-shipping/your-account-token.html %}
 
@@ -78,12 +84,14 @@ contributors:
     *.* @@{listener-url}:5000;HAProxyLogzioFormat
     ```
 
-3. Restart rsyslog.
+5. <span class="firstline">Restart rsyslog</span>
 
     ```shell
     sudo service rsyslog restart
     ```
 
-4. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+5. <span class="firstline">Test your configuration</span>
+
+    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

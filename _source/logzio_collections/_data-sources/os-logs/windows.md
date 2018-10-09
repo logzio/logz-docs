@@ -26,10 +26,14 @@ contributors:
 **You'll need:** [Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
 
 {: .tasklist }
-1. For HTTPS shipping, download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
-We'll place the certificate in `C:\logzio_cert\COMODORSADomainValidationSecureServerCA.crt` for this example.
+1. <span class="firstline"> Download the Logz.io certificate </span>
 
-2. In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add this code block to the root level.
+    For HTTPS shipping, download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
+    We'll place the certificate in `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
+
+2. <span class="firstline"> Configure Windows input </span>
+
+    In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add this code block to the root level.
 
     {% include log-shipping/your-account-token.html %}
 
@@ -40,7 +44,9 @@ We'll place the certificate in `C:\logzio_cert\COMODORSADomainValidationSecureSe
     fields_under_root: true
     ```
 
-3. If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
+3. <span class="firstline"> Add Logz.io as an output </span>
+
+    If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
 
     {% include log-shipping/your-listener-url.html %}
 
@@ -48,10 +54,12 @@ We'll place the certificate in `C:\logzio_cert\COMODORSADomainValidationSecureSe
     output.logstash:
       hosts: ["{listener-url}:5015"]
       ssl:
-        certificate_authorities: ['C:\logzio_cert\COMODORSADomainValidationSecureServerCA.crt']
+        certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
+4. <span class="firstline"> Remove remaining default blocks </span>
+
+    If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
 
     ```yaml
     # Remove this block if it's still in the config file
@@ -65,9 +73,15 @@ We'll place the certificate in `C:\logzio_cert\COMODORSADomainValidationSecureSe
       hosts: ["localhost:9200"]
     ```
 
-5. Start or restart Winlogbeat using Windows Services Manager.
+5. <span class="firstline"> Restart Winlogbeat </span>
 
-6. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+    ```powershell
+    PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
+    ```
+
+6. <span class="firstline">Test your configuration</span>
+
+    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
@@ -78,7 +92,9 @@ We'll place the certificate in `C:\logzio_cert\COMODORSADomainValidationSecureSe
 ## Windows + NXLog setup
 
 {: .tasklist }
-1. Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
+1. <span class="firstline">Configure NXLog basics</span>
+
+    Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
     ```conf
     define ROOT C:\\Program Files (x86)\\nxlog
@@ -95,7 +111,9 @@ We'll place the certificate in `C:\logzio_cert\COMODORSADomainValidationSecureSe
     </Extension>
     ```
 
-2. Add an `Input` block to append your account token to log records.
+2. <span class="firstline">Add Windows as an input</span>
+
+    Add an `Input` block to append your account token to log records.
 
     {% include log-shipping/your-account-token.html %}
 
@@ -112,7 +130,9 @@ We'll place the certificate in `C:\logzio_cert\COMODORSADomainValidationSecureSe
     </Input>
     ```
 
-3. Add the Logz.io listener in the `Output` block.
+3. <span class="firstline"> Add Logz.io as an output </span>
+
+    Add the Logz.io listener in the `Output` block.
 
     {% include log-shipping/your-listener-url.html %}
 
@@ -127,9 +147,14 @@ We'll place the certificate in `C:\logzio_cert\COMODORSADomainValidationSecureSe
     </Route>
     ```
 
-3. Start or Restart NXLog using Windows Services Manager.
+4. <span class="firstline"> Restart NXLog </span>
 
-4. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+    ```powershell
+    PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
+    ```
+5. <span class="firstline">Test your configuration</span>
+
+    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 </div>
 

@@ -36,6 +36,8 @@ firstLevel:
     url: /data-sources/
 
     thirdLevel:
+    - title: Log shippers
+      url: /data-sources/log-shippers/
     - title: OS logs
       url: /data-sources/os-logs/
     - title: Server app logs
@@ -59,7 +61,7 @@ firstLevel:
     - title: Listener IP addresses
       url: /user-guide/log-shipping/listener-ip-addresses.html
 
-- title: Working with your logs
+- title: Working in Logz.io
 
   secondLevel:
     # - title: Field mapping and data parsing

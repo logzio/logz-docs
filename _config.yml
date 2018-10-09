@@ -77,6 +77,11 @@ defaults:
       community-info: false
   -
     scope:
+      path: _data-sources/log-shippers
+    values:
+      shipping-category: Log shippers
+  -
+    scope:
       path: _data-sources/os-logs
     values:
       shipping-category: OS logs

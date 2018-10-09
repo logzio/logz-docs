@@ -10,6 +10,7 @@ shipping-summary:
     - Filebeat
   os: Linux
 contributors:
+  - amosd92
   - imnotashrimp
 ---
 

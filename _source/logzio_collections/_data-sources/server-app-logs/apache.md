@@ -11,6 +11,7 @@ shipping-summary:
     - rsyslog
   os: macOS or Linux
 contributors:
+  - amosd92
   - imnotashrimp
 ---
 

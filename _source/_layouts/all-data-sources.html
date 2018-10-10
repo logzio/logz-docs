@@ -22,8 +22,7 @@ community-info: false
 {%- for category in collectionCategories %}
 <h2 class="category padding-top-10" id="category-{{category | replace: ' ', '-' | downcase}}">{{category}}</h2>
 
-{%- assign thisShippingCategory = category -%}
-{%- assign shippersInThisCategory = site.data-sources | where: "shipping-category", thisShippingCategory %}
+{%- assign shippersInThisCategory = site.data-sources | where: "shipping-category", category %}
 
 {%- for shipper in shippersInThisCategory -%}
   {%- if shipper.path contains "index.md" -%}

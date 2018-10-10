@@ -43,11 +43,11 @@ firstLevel:
     - title: Server app logs
       url: /data-sources/server-app-logs/
     - title: Custom code logs
-      url: /data-sources/custom-code/
+      url: /data-sources/custom-code-logs/
     - title: Platform or service logs
-      url: /data-sources/platforms-services/
+      url: /data-sources/platform-service-logs/
     - title: CI/CD logs
-      url: /data-sources/ci-cd/
+      url: /data-sources/ci-cd-logs/
     - title: Community-maintained log shippers
       url: /data-sources/community-log-shippers/
 

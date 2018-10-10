@@ -12,6 +12,8 @@ contributors:
   - amosd92
 ---
 
+## Setup
+
 **You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
 
 ###### Manual configuration
@@ -41,9 +43,9 @@ contributors:
 
     Make your configuration file using the Filebeat configuration wizard.
 
-    <!-- logzio-filebeat-config-wizard -->
+    <!-- logzio:filebeat-wizard -->
 
-    {% include log-shipping/in-app-configuration.html toolId="filebeat" -%}
+    {% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" -%}
 
 3. <span class="firstline"> Move the configuration file to the Filebeat folder </span>
 

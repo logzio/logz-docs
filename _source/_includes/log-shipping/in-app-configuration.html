@@ -1,16 +1,18 @@
 {%- comment -%}
 *
 *  This include takes these arguments:
-*    toolId: can be `filebeat` or `s3`
+*    toolId: can be `filebeat-wizard` or `s3-config`
 *
 {%- endcomment -%}
 
 {%- case include.toolId -%}
-  {%- when "filebeat" -%}
+  {%- when "filebeat-wizard" -%}
     {%- assign tool = "Filebeat configuration wizard" -%}
     {%- assign action = "click **Configuration wizard**" -%}
-  {%- when "s3" -%}
+  {%- when "s3-config" -%}
     {%- assign tool = "S3 configuration tool" -%}
+    {%- assign action = "fill out the S3 bucket information" -%}
 {%- endcase -%}
 
 To use the {{tool}}, {{action}} on the [{{page.shipping-summary.data-source}} log shipping]({{page.logzio-app-url}}) page.
+You must be logged in to Logz.io.

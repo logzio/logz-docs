@@ -1,5 +1,5 @@
 ---
 layout: one-data-source
 title: CI/CD logs
-permalink: /data-sources/ci-cd/
+permalink: /data-sources/ci-cd-logs/
 ---

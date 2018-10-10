@@ -1,6 +1,6 @@
 ---
 layout: one-data-source
-title: Community-created log shippers
+title: Community-maintained log shippers
 permalink: /data-sources/community-log-shippers/
 ---
 

@@ -102,6 +102,11 @@ defaults:
       shipping-category: Platform or service logs
   -
     scope:
+      path: _data-sources/aws-logs
+    values:
+      shipping-category: AWS logs
+  -
+    scope:
       path: _data-sources/ci-cd-logs
     values:
       shipping-category: CI/CD logs
@@ -109,7 +114,7 @@ defaults:
     scope:
       path: _data-sources/community-log-shippers
     values:
-      shipping-category: Community-created log shippers
+      shipping-category: Community-maintained log shippers
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

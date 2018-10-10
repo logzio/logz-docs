@@ -3,7 +3,7 @@ layout: article
 title: Ship Python logs
 logo:
   logofile: python.svg
-  orientation: horizontal
+  orientation: vertical
 shipping-summary:
   data-source: Python code
   appenders:

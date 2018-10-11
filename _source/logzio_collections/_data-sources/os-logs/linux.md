@@ -26,8 +26,8 @@ contributors:
 
 **You'll need:** root access
 
-{: .tasklist }
-1. <span class="firstline">Run the rsyslog configuration script</span>
+{: .tasklist .firstline-headline }
+1. Run the rsyslog configuration script
 
     {% include log-shipping/your-account-token.html %}
 
@@ -37,7 +37,7 @@ contributors:
     curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t linux -a "{account-token}" -l "{listener-url}"
     ```
 
-2. <span class="firstline">Test your configuration</span>
+2. Test your configuration
 
     Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
     Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).

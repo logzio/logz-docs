@@ -46,6 +46,8 @@ firstLevel:
       url: /data-sources/custom-code-logs/
     - title: Platform or service logs
       url: /data-sources/platform-service-logs/
+    - title: AWS logs
+      url: /data-sources/aws-logs/
     - title: CI/CD logs
       url: /data-sources/ci-cd-logs/
     - title: Community-maintained log shippers

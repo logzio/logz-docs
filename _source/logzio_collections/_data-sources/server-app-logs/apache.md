@@ -37,8 +37,8 @@ contributors:
 
 ###### Guided configuration
 
-{: .tasklist }
-1. <span class="firstline"> Download the Logz.io certificate </span>
+{: .tasklist .firstline-headline }
+1. Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -46,7 +46,7 @@ contributors:
     wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt && sudo mkdir -p /etc/pki/tls/certs && sudo mv COMODORSADomainValidationSecureServerCA.crt /etc/pki/tls/certs/
     ```
 
-2. <span class="firstline"> Add Apache as an input </span>
+2. Add Apache as an input
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to the filebeat.inputs section.
 
@@ -93,7 +93,7 @@ contributors:
     registry_file: /var/lib/filebeat/registry
     ```
 
-3. <span class="firstline"> Add Logz.io as an output </span>
+3. Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
 
@@ -106,13 +106,13 @@ contributors:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. <span class="firstline"> Restart Filebeat </span>
+4. Restart Filebeat
 
     ```shell
     sudo systemctl restart filebeat
     ```
 
-5. <span class="firstline">Test your configuration</span>
+5. Test your configuration
 
     Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
@@ -137,8 +137,8 @@ contributors:
 
 **You'll need:** root access
 
-{: .tasklist }
-1. <span class="firstline">Run the rsyslog configuration script</span>
+{: .tasklist .firstline-headline }
+1. Run the rsyslog configuration script
 
     {% include log-shipping/your-account-token.html %}
 
@@ -148,7 +148,7 @@ contributors:
     curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t apache -a "{account-token}" -l "{listener-url}"
     ```
 
-2. <span class="firstline">Test your configuration</span>
+2. Test your configuration
 
     Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
     Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).

@@ -19,8 +19,8 @@ contributors:
 
 ###### Guided configuration
 
-{: .tasklist }
-1. <span class="firstline">Configure HAProxy</span>
+{: .tasklist .firstline-headline }
+1. Configure HAProxy
 
     Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
 
@@ -51,7 +51,7 @@ contributors:
       server SERVER_NAME SERVER_ADDRESS:PORT
     ```
 
-3. <span class="firstline">Configure rsyslog</span>
+2. Configure rsyslog
 
     Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
@@ -84,13 +84,13 @@ contributors:
     *.* @@{listener-url}:5000;HAProxyLogzioFormat
     ```
 
-5. <span class="firstline">Restart rsyslog</span>
+3. Restart rsyslog
 
     ```shell
     sudo service rsyslog restart
     ```
 
-5. <span class="firstline">Test your configuration</span>
+4. Test your configuration
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

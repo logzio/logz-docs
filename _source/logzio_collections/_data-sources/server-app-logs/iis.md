@@ -19,8 +19,8 @@ contributors:
 
 ###### Guided configuration
 
-{: .tasklist}
-1. <span class="firstline"> Configure NXLog </span>
+{: .tasklist .firstline-headline }
+1. Configure NXLog
 
     Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
@@ -62,13 +62,13 @@ contributors:
     </Route>
     ```
 
-2. <span class="firstline"> Restart NXLog </span>
+2. Restart NXLog
 
     ```powershell
     PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
     ```
 
-3. <span class="firstline"> Test your configuration </span>
+3. Test your configuration
 
     Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

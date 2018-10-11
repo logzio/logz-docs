@@ -1,3 +1,5 @@
+{%- unless page.shipping-summary.hidden == true -%}
+
 {%- assign data-source = page.shipping-summary.data-source -%}
 {%- assign log-shippers = page.shipping-summary.log-shippers -%}
 {%- assign metrics-shippers = page.shipping-summary.metrics-shippers -%}
@@ -58,3 +60,4 @@
 <div>OS <span>{{os}}</span></div>
 {% endif %}
 </div>
+{%- endunless -%}

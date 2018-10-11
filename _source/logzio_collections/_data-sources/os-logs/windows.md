@@ -25,13 +25,13 @@ contributors:
 
 **You'll need:** [Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
 
-{: .tasklist }
-1. <span class="firstline"> Download the Logz.io certificate </span>
+{: .tasklist .firstline-headline }
+1. Download the Logz.io certificate
 
     For HTTPS shipping, download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
     We'll place the certificate in `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
 
-2. <span class="firstline"> Configure Windows input </span>
+2. Configure Windows input
 
     In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add this code block to the root level.
 
@@ -44,7 +44,7 @@ contributors:
     fields_under_root: true
     ```
 
-3. <span class="firstline"> Add Logz.io as an output </span>
+3. Add Logz.io as an output
 
     If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
 
@@ -57,7 +57,7 @@ contributors:
         certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. <span class="firstline"> Remove remaining default blocks </span>
+4. Remove remaining default blocks
 
     If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
 
@@ -73,13 +73,13 @@ contributors:
       hosts: ["localhost:9200"]
     ```
 
-5. <span class="firstline"> Restart Winlogbeat </span>
+5. Restart Winlogbeat
 
     ```powershell
     PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
     ```
 
-6. <span class="firstline">Test your configuration</span>
+6. Test your configuration
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -91,8 +91,10 @@ contributors:
 
 ## Windows + NXLog setup
 
-{: .tasklist }
-1. <span class="firstline">Configure NXLog basics</span>
+**You'll need:** [NXLog](https://nxlog.co/products/nxlog-community-edition/download)
+
+{: .tasklist .firstline-headline }
+1. Configure NXLog basics
 
     Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
@@ -111,7 +113,7 @@ contributors:
     </Extension>
     ```
 
-2. <span class="firstline">Add Windows as an input</span>
+2. Add Windows as an input
 
     Add an `Input` block to append your account token to log records.
 
@@ -130,7 +132,7 @@ contributors:
     </Input>
     ```
 
-3. <span class="firstline"> Add Logz.io as an output </span>
+3. Add Logz.io as an output
 
     Add the Logz.io listener in the `Output` block.
 
@@ -147,12 +149,12 @@ contributors:
     </Route>
     ```
 
-4. <span class="firstline"> Restart NXLog </span>
+4. Restart NXLog
 
     ```powershell
     PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
     ```
-5. <span class="firstline">Test your configuration</span>
+5. Test your configuration
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

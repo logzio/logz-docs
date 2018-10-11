@@ -1,11 +1,12 @@
 ---
 layout: article
-title: Filebeat
+title: Configure Filebeat
 logo:
   logofile: beats.svg
   orientation: vertical
 shipping-summary:
-  data-source: Filebeat
+  data-source: Configure Filebeat
+  hidden: true
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Filebeat
 contributors:
   - imnotashrimp
@@ -24,8 +25,8 @@ contributors:
 
 ###### Configuration wizard
 
-{: .tasklist }
-1. <span class="firstline"> Download the Logz.io certificate </span>
+{: .tasklist .firstline-headline }
+1. Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -39,23 +40,23 @@ contributors:
 
     Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine. We recommend saving to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`.
 
-2. <span class="firstline"> Make your configuration file </span>
+2. Make your configuration file
 
     Make your configuration file using the Filebeat configuration wizard.
 
     <!-- logzio:filebeat-wizard -->
 
-    {% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" -%}
+    {% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
 
-3. <span class="firstline"> Move the configuration file to the Filebeat folder </span>
+3. Move the configuration file to the Filebeat folder
 
     **Mac/Linux:** Move the configuration file to `/etc/filebeat/filebeat.yml`.
 
     **Windows:** Move the configuration file to `C:\Program Files\Filebeat\filebeat.yml`.
 
-5. <span class="firstline"> Restart Filebeat </span>
+4. Restart Filebeat
 
-    **Max/Linux:**
+    **Mac/Linux:**
 
     ```shell
     sudo systemctl restart filebeat
@@ -67,7 +68,7 @@ contributors:
     PS C:\Program Files\Filebeat> Restart-Service filebeat
     ```
 
-7. <span class="firstline">Test your configuration</span>
+5. Test your configuration
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

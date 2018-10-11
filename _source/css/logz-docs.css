@@ -1,6 +1,6 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,500,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i');
 
@@ -35,7 +35,7 @@
   --heading-normal-50: #29638680;
 
   --tasklist-heading: rgb(var(--app-orange-primary));
-  --tasklist-light: rgba(var(--app-orange-primary), .5);
+  --tasklist-light: rgb(var(--app-gray-primary));
   --dl-letter: var(--app-orange-dark);
 
   --infobox-note: rgb(var(--app-blue-primary));
@@ -589,11 +589,13 @@ ol ul {
   padding-top: 0;
 }
 
-.tasklist .firstline {
+.tasklist .firstline, .tasklist.firstline-headline > li > p:first-child {
   font-weight: 400;
   font-size: 1.2rem;
   display: block;
   border-bottom: 1px solid var(--tasklist-light);
+  margin-left: -45px;
+  padding-left:  45px;
 }
 
 /* horizontal lists */
@@ -1023,6 +1025,7 @@ nav.all-pages-toc {
 nav.all-pages-toc ul {
   list-style: none;
   padding: 0;
+  font-weight: 400;
 }
 
 ul.toc-parent {
@@ -1066,7 +1069,7 @@ ul.toc-grandchild span.toc-heading {
 
 li.toc-active > span.toc-heading {
   background-color: var(--border-light);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 nav.all-pages-toc a {
@@ -1562,7 +1565,7 @@ i.ll, dl.letter-labels dt::before {
 
 /* ===== LOG SHIPPING PAGES ===== */
 
-.shipping-summary {
+.shipping-summary, #on-this-page-toc div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1593,10 +1596,19 @@ i.ll, dl.letter-labels dt::before {
   margin: 0;
 }
 
-.shipping-summary div span {
+.shipping-summary div span, #on-this-page-toc div span {
   color: var(--text-normal);
   display: block;
   font-size: 1rem;
+}
+
+#on-this-page-toc div {
+  margin-top: 1rem;
+}
+
+#on-this-page-toc div span {
+  margin-right: 20px;
+  margin-bottom: 15px;
 }
 
 .shipping-summary div span span {

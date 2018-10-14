@@ -1,1 +1,5 @@
-Replace `{account-token}` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+{%- if include.replaceToken == false -%}
+  The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+{%- else -%}
+  Replace `{account-token}` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+{%- endif -%}

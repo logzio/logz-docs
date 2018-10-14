@@ -75,8 +75,9 @@ format={"additional_field": "value"}
 </div>
 
 {: .parameter-list }
-account-token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
+account-token <span class="required-param">Required</span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
+    {% include log-shipping/your-account-token.html %}
 
 log-type
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
@@ -89,8 +90,9 @@ timeout
   <span class="sm bold">Default:</span> `3`
 
 listener-url
-  : Listener URL and port. {% include log-shipping/your-listener-url.html %} <br />
-  <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port.
+    {% include log-shipping/your-listener-url.html %} <br />
+    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 debug-flag
   : Debug flag.
@@ -153,8 +155,9 @@ LOGGING = {
 ```
 
 {: .parameter-list }
-token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
+token <span class="required-param">Required</span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
+    {% include log-shipping/your-account-token.html %}
 
 logzio_type
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
@@ -167,14 +170,15 @@ logs_drain_timeout
   <span class="sm bold">Default:</span> `3`
 
 url
-  : Listener URL and port. {% include log-shipping/your-listener-url.html %} <br />
-  <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port.
+    {% include log-shipping/your-listener-url.html %} <br />
+    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 debug
   : Debug flag.
-  To print debug messages to stdout, `True`.
-  Otherwise, `False`. <br />
-  <span class="sm bold">Default:</span> `False`
+    To print debug messages to stdout, `True`.
+    Otherwise, `False`. <br />
+    <span class="sm bold">Default:</span> `False`
 
 </div>
 

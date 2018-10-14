@@ -59,8 +59,9 @@ var logger = require('logzio-nodejs').createLogger({
 ##### Parameters
 
 {: .parameter-list }
-token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
+token <span class="required-param">Required</span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
+    {% include log-shipping/your-account-token.html %}
 
 type
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
@@ -73,7 +74,8 @@ protocol
   <span class="sm bold">Default:</span> `http`
 
 host
-  : Listener URL. {% include log-shipping/your-listener-url.html %} <br />
+  : Listener URL.
+  {% include log-shipping/your-listener-url.html %} <br />
   <span class="sm bold">Default:</span> `https://listener.logz.io`
 
 port
@@ -187,8 +189,9 @@ winston.add(logzioWinstonTransport, loggerOptions);
 ##### Parameters
 
 {: .parameter-list }
-token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
+token <span class="required-param">Required</span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
+    {% include log-shipping/your-account-token.html %}
 
 type
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
@@ -201,7 +204,8 @@ protocol
   <span class="sm bold">Default:</span> `http`
 
 host
-  : Listener URL.  {% include log-shipping/your-listener-url.html %} <br />
+  : Listener URL.
+  {% include log-shipping/your-listener-url.html %} <br />
   <span class="sm bold">Default:</span> `https://listener.logz.io`
 
 port

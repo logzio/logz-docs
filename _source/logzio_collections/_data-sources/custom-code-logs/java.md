@@ -80,8 +80,9 @@ For a complete list of options, see the configuration parameters below the code 
 ##### Parameters
 
 {: .parameter-list }
-logzioToken
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %} <br />
+logzioToken <span class="required-param">Required</span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
+  {% include log-shipping/your-account-token.html %} <br />
   Begin with `$` to use an environment variable or system property with the specified name.
   For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
 
@@ -283,8 +284,9 @@ For a complete list of options, see the configuration parameters below the code 
 ##### Parameters
 
 {: .parameter-list }
-token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %} <br />
+token <span class="required-param">Required</span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
+  {% include log-shipping/your-account-token.html %} <br />
   Begin with `$` to use an environment variable or system property with the specified name.
   For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
 

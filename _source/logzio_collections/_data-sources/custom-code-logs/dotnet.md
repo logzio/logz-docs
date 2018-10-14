@@ -94,8 +94,8 @@ hierarchy.Configured = true;
 ##### Parameters
 
 {: .parameter-list }
-token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
+token <span class="required-param">Required</span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
   {% include log-shipping/your-account-token.html %}
 
 type
@@ -280,13 +280,14 @@ LogManager.Configuration = config;
 ##### Parameters
 
 {: .parameter-list }
-token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
-  {% include log-shipping/your-account-token.html %}
+token <span class="required-param">Required</span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
+    {% include log-shipping/your-account-token.html %}
 
 logzioType
-  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. <br />
-  <span class="sm bold">Default:</span> `nlog`
+  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+    Used by Logz.io for consistent parsing. Can't contain spaces. <br />
+    <span class="sm bold">Default:</span> `nlog`
 
 listenerUrl
   : Listener URL and port. {% include log-shipping/your-listener-url.html %} <br />

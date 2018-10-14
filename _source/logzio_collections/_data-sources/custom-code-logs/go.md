@@ -68,8 +68,8 @@ func main() {
 ##### Parameters
 
 {: .parameter-list }
-token
-  : _(Required)_ Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
+token <span class="required-param">Required</span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/your-account-token.html %}
 
 SetDebug
   : Debug flag. <br /> <span class="sm bold">Default:</span> `false`

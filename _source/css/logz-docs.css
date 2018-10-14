@@ -662,6 +662,14 @@ dl.letter-labels dt::before {
   padding-top: 10px;
 }
 
+.required-param {
+  font-size: .8rem;
+  color: rgb(var(--app-orange-primary));
+  font-weight: 400;
+  font-style: italic;
+  margin-left: 5px;
+}
+
 /* ===== SEARCH ===== */
 
 div.search-container {

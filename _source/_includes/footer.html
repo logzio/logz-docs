@@ -22,4 +22,26 @@
       <li class="icon"><a href="{{ site.github.org_url }}" target="_top"><i class="fab fa-github"></i></a></li>
     </ul>
   </div>
+
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]', {	// Selectors
+	ignore: '[data-scroll-ignore], .branching-tabs > li > a', // Selector for links to ignore (must be a valid CSS selector)
+	topOnEmptyHash: true, // Scroll to the top of the page for links with href="#"
+
+	// Speed & Easing
+	speed: 500, // Integer. How fast to complete the scroll in milliseconds
+	clip: true, // If true, adjust scroll distance to prevent abrupt stops near the bottom of the page
+	offset: 50,
+	easing: 'easeInOutCubic', // Easing pattern to use
+	customEasing: function (time) {
+		// If this is set to anything other than null, will override the easing option above
+		return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
+	},
+
+	// History
+	updateURL: false, // Update the URL on scroll
+	popstate: false, // Animate scrolling with the forward/backward browser buttons (requires updateURL to be true)
+
+});
+</script>
 </footer>

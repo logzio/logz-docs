@@ -1,7 +1,7 @@
 ---
 title: Daniel Berman
 twitter: proudboffin
-github: proudboffin
+github: DanielBerman
 
-logzio-role: Product Evangelist
+logzio-role: Product Marketing Manager
 ---

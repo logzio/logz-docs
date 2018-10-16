@@ -6,7 +6,7 @@ flags:
   logzio-plan: community
 contributors:
   - imnotashrimp
-  - proudboffin
+  - danielberman
   - quintessence
 ---
 

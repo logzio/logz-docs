@@ -5,7 +5,7 @@ permalink: /user-guide/insights/exploring-insights.html
 flags:
   logzio-plan: community
 contributors:
-  - proudboffin
+  - danielberman
   - imnotashrimp
 ---
 

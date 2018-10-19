@@ -1,0 +1,67 @@
+---
+---
+
+{%- comment -%}
+* Initialize empty arrays
+*         {%- endcomment -%}
+{%- assign siteTags = "" | split: "" -%}
+{%- assign shippingDataSources = "" | split: "" -%}
+
+{%- comment -%}
+* shippingDataSources is a placeholder for the data-sources collection.
+* If Jekyll can't find data-sources, it defaults to an empty array (initialized
+*   above) so it doesn't break the remaining code.
+*         {%- endcomment -%}
+{%- assign shippingDataSources = site.data-sources | where_exp: "page", "page.community-project != true" | default: shippingDataSources -%}
+{%- assign mdPages = site.pages | where_exp: "page", "page.path contains '.md'" -%}
+
+{%- assign untaggedDataSources = shippingDataSources | where_exp: "page", "page.tags.size == 0" -%}
+{%- assign untaggedPages = mdPages | where_exp: "page", "page.tags == nil" | concat: untaggedDataSources | sort: "title" -%}
+
+{%- assign taggedDataSources = shippingDataSources | where_exp: "page", "page.tags.size > 0" -%}
+{%- assign taggedPages = mdPages | where_exp: "page", "page.tags" | concat: taggedDataSources | sort: "title" -%}
+
+{%- comment -%}
+* Gather all tags in siteTags array.
+*         {%- endcomment -%}
+{% for page in taggedPages -%}
+  {%- for tag in page.tags -%}
+    {%- assign siteTags = tag | concat: siteTags -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- comment -%}
+* Remove duplicate tags and sort the tags
+*         {%- endcomment -%}
+{%- assign siteTags = siteTags | uniq | sort -%}
+
+{
+{%- comment -%}
+* Gather all pages into the JSON object, grouped by tag
+*         {%- endcomment -%}
+{%- for tag in siteTags %}
+  "{{tag}}": [
+  {%- assign pagesWithThisTag = taggedPages | where: "tags", tag -%}
+  {%- for page in pagesWithThisTag %}
+    {
+      "title": "{{page.title}}",
+      "url": "{{page.url}}"
+    }
+    {%- unless forloop.last -%} , {%- endunless -%}
+  {%- endfor %}
+  ],
+{%- endfor -%}
+
+{%- comment -%}
+* Add untagged pages to the JSON object
+*         {%- endcomment -%}
+  "untagged": [
+  {%- for page in untaggedPages -%}
+    {
+      "title": "{{page.title}}",
+      "url": "{{page.url}}"
+    }
+    {%- unless forloop.last -%} , {%- endunless -%}
+  {%- endfor -%}
+  ]
+}

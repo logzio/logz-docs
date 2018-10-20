@@ -2,6 +2,7 @@
 layout: docs-home
 title: Logz.io Docs
 search: false
+tags: false
 permalink: /index.html
 cards:
   # - title: Logz.io overview
@@ -25,12 +26,12 @@ cards:
     li-class: li-eye
 
   - title: API
-    description: Grow your own integration using our API documentation
+    description: Grow your own integration
     url: /api/
     li-class: li-wrench
 
   - title: Alerting
-    description: Set up alerts for critical events, or flag notable events for review
+    description: Set up alerts for critical events or flag notable events for review
     url: /user-guide/alerts/
     li-class: li-bell
 

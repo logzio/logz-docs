@@ -3,7 +3,6 @@ layout: article
 title: Our contributors
 permalink: /credits.html
 community-info: false
-search: false
 ---
 
 {%- assign contributors = site.contributors | sort: "title" %}

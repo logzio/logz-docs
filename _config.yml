@@ -69,6 +69,10 @@ collections:
 
 defaults:
   - scope:
+      path: '/no-search/*'
+    values:
+      search: false
+  - scope:
       path: ''
       type: contributors
     values:

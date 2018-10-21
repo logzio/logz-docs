@@ -26,7 +26,7 @@ contributors:
 
 If you've already installed Heroku CLI, the CLI installation is the simplest way to install the add-on. Otherwise, you can install directly from the add-on page.
 
-###### Installation from CLI
+###### Installation from the CLI
 
 **You'll need:** Heroku CLI
 
@@ -35,7 +35,7 @@ If you've already installed Heroku CLI, the CLI installation is the simplest way
 
 2. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana) to confirm you're shipping logs.
 
-###### Installation from add-on page
+###### Installation from the add-on page
 
 {: .tasklist }
 1. Find the installation instructions on the [Logz.io add-on page](https://elements.heroku.com/addons/logzio) by clicking **Install Logz.io**.

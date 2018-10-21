@@ -13,13 +13,13 @@
 *   above) so it doesn't break the remaining code.
 *         {%- endcomment -%}
 {%- assign shippingDataSources = site.data-sources | where_exp: "page", "page.community-project != true" | default: shippingDataSources -%}
-{%- assign mdPages = site.pages | where_exp: "page", "page.path contains '.md'" -%}
+{%- assign htmlPages = site.html_pages -%}
 
 {%- assign untaggedDataSources = shippingDataSources | where_exp: "page", "page.tags.size == 0" -%}
-{%- assign untaggedPages = mdPages | where_exp: "page", "page.tags == nil" | concat: untaggedDataSources | sort: "title" -%}
+{%- assign untaggedPages = htmlPages | where_exp: "page", "page.tags == nil" | concat: untaggedDataSources -%}
 
 {%- assign taggedDataSources = shippingDataSources | where_exp: "page", "page.tags.size > 0" -%}
-{%- assign taggedPages = mdPages | where_exp: "page", "page.tags" | concat: taggedDataSources | sort: "title" -%}
+{%- assign taggedPages = htmlPages | where_exp: "page", "page.tags" | concat: taggedDataSources -%}
 
 {%- comment -%}
 * Gather all tags in siteTags array.

@@ -981,12 +981,12 @@ nav.site-links a, nav.site-actions a {
 
 /* ===== SITE FOOTER ===== */
 
-footer * {
+footer div {
   vertical-align: middle;
   display: inline-block;
 }
 
-footer > * {
+footer > div {
   margin-left: auto;
   margin-right: auto;
 }

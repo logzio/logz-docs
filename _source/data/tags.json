@@ -26,14 +26,14 @@
 *         {%- endcomment -%}
 {% for page in taggedPages -%}
   {%- for tag in page.tags -%}
-    {%- assign siteTags = tag | concat: siteTags -%}
+    {%- assign siteTags = tag | concat: siteTags | uniq -%}
   {%- endfor -%}
 {%- endfor -%}
 
 {%- comment -%}
-* Remove duplicate tags and sort the tags
+* Sort the tags
 *         {%- endcomment -%}
-{%- assign siteTags = siteTags | uniq | sort -%}
+{%- assign siteTags = siteTags | sort -%}
 
 {%- capture formattedJson -%}
 {

@@ -35,7 +35,7 @@
 *         {%- endcomment -%}
 {%- assign siteTags = siteTags | sort -%}
 
-{%- capture formattedJson -%}
+{%- capture json -%}
 {
 {%- comment -%}
 * Gather all pages into the JSON object, grouped by tag
@@ -68,12 +68,4 @@
 }
 {%- endcapture -%}
 
-{%- assign workingJson = formattedJson | newline_to_br | split: "<br />" -%}
-{%- assign cleanJson = "" -%}
-
-{%- for item in workingJson -%}
-  {%- assign cleanItem = item | strip -%}
-  {%- assign cleanJson = cleanJson | append: cleanItem -%}
-{%- endfor -%}
-
-{{cleanJson }}
+{{- json | normalize_whitespace -}}

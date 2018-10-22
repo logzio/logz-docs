@@ -36,8 +36,8 @@ firstLevel:
     url: /data-sources/
 
     thirdLevel:
-    - title: Log shippers
-      url: /data-sources/log-shippers/
+    - title: Log shipping utilities
+      url: /data-sources/log-shipping-utilities/
     - title: OS logs
       url: /data-sources/os-logs/
     - title: Server app logs

@@ -11,7 +11,7 @@
 <div>Log shippers <span>
 {%- for shipper in log-shippers -%}
 {%- if shipper.recommended -%}
-  {{shipper.recommended}} <span class="sm">(recommended)</span>
+  {{shipper.recommended}} <span class="sm ital">(recommended)</span>
 {%- else -%}
   {{shipper}}
 {%- endif -%}
@@ -26,7 +26,7 @@
 <div>Metrics shippers <span>
 {%- for shipper in metrics-shippers -%}
 {%- if shipper.recommended -%}
-  {{shipper.recommended}} <span class="sm">(recommended)</span>
+  {{shipper.recommended}} <span class="sm ital">(recommended)</span>
 {%- else -%}
   {{shipper}}
 {%- endif -%}
@@ -41,7 +41,7 @@
 <div>Log appenders <span>
 {%- for appender in appenders -%}
 {%- if appender.recommended -%}
-  {{appender.recommended}} <span class="sm">(recommended)</span>
+  {{appender.recommended}} <span class="sm ital">(recommended)</span>
 {%- else -%}
   {{appender}}
 {%- endif -%}

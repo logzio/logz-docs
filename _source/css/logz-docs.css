@@ -453,6 +453,10 @@ svg.svg-inline--fa, i.li {
   font-weight: 700;
 }
 
+.ital {
+  font-style: italic;
+}
+
 .padding-top-10 {
   padding-top: 10px;
 }

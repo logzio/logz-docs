@@ -68,31 +68,35 @@ func main() {
 ##### Parameters
 
 {: .parameter-list }
-token <span class="required-param">Required</span>
+token <span class="required-param"></span>
   : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
     {%- include log-shipping/replace-vars.html token=true %}
 
 SetDebug
   : Debug flag. <br />
-    <span class="sm bold">Default:</span> `false`
+    <span class="default-param">`false`</span>
 
 SetUrl
   : Listener URL and port. <br />
     {%- include log-shipping/replace-vars.html listener=true %} <br />
-    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+    <span class="default-param">`https://listener.logz.io:8071`</span>
 
 SetDrainDuration
   : Time to wait between log draining attempts. <br />
-    <span class="sm bold">Default:</span> `5 * time.Second`
+    <span class="default-param">`5 * time.Second`</span>
 
 SetTempDirectory
   : Filepath where the logs are buffered.
 
 SetCheckDiskSpace
-  : To enable `SetDrainDiskThreshold`, set to `true`. Otherwise, `false`. <br /> <span class="sm bold">Default:</span> `true`
+  : To enable `SetDrainDiskThreshold`, set to `true`. Otherwise, `false`. <br /> <span class="default-param"></span> `true`
 
 SetDrainDiskThreshold
-  : Maximum file system usage, in percent. Used only if `SetCheckDiskSpace` is set to `true`. <br /> If the file system storage exceeds this threshold, buffering stops and new logs are dropped. Buffering resumes if used space drops below the threshold. <br /> <span class="sm bold">Default:</span> `70.0`
+  : Maximum file system usage, in percent.
+    Used only if `SetCheckDiskSpace` is set to `true`. <br />
+    If the file system storage exceeds this threshold, buffering stops and new logs are dropped.
+    Buffering resumes if used space drops below the threshold. <br />
+    <span class="default-param">`70.0`</span>
 
 ##### Code sample
 

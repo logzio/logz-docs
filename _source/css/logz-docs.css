@@ -666,12 +666,22 @@ dl.letter-labels dt::before {
   padding-top: 10px;
 }
 
-.required-param {
+.required-param::before, .default-param::before {
   font-size: .8rem;
+}
+
+.required-param::before {
+  content: "Required";
   color: rgb(var(--app-orange-primary));
   font-weight: 400;
   font-style: italic;
-  margin-left: 5px;
+  margin-left: 10px;
+}
+
+.default-param::before {
+  content: "Default:";
+  font-weight: 700;
+  margin-right: 10px;
 }
 
 /* ===== SEARCH ===== */

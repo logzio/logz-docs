@@ -51,7 +51,7 @@ class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
 # Parameters must be set in order. Replace these parameters with your configuration.
-args=('{account-token}', '{log-type}', {timeout}, '{listener-url}:8071', {debug-flag})
+args=('{ACCOUNT-TOKEN}', '{log-type}', {timeout}, '{LISTENER-URL}:8071', {debug-flag})
 
 [formatters]
 keys=logzioFormat
@@ -75,30 +75,30 @@ format={"additional_field": "value"}
 </div>
 
 {: .parameter-list }
-account-token <span class="required-param">Required</span>
-  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
-    {% include log-shipping/your-account-token.html %}
+account-token <span class="required-param"></span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
+    {%- include log-shipping/replace-vars.html token=true %}
 
 log-type
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing.
-  Can't contain spaces. <br />
-  <span class="sm bold">Default:</span> `python`
+    Used by Logz.io for consistent parsing.
+    Can't contain spaces. <br />
+    <span class="default-param">`python`</span>
 
 timeout
   : Time to wait between log draining attempts, in seconds. <br />
-  <span class="sm bold">Default:</span> `3`
+    <span class="default-param">`3`</span>
 
 listener-url
-  : Listener URL and port.
-    {% include log-shipping/your-listener-url.html %} <br />
-    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port. <br />
+    {%- include log-shipping/replace-vars.html listener=true %} <br />
+    <span class="default-param">`https://listener.logz.io:8071`</span>
 
 debug-flag
   : Debug flag.
-  To print debug messages to stdout, `True`.
-  Otherwise, `False`. <br />
-  <span class="sm bold">Default:</span> `False`
+    To print debug messages to stdout, `True`.
+    Otherwise, `False`. <br />
+    <span class="default-param">`False`</span>
 
 </div>
 
@@ -134,10 +134,10 @@ LOGGING = {
       'class': 'logzio.handler.LogzioHandler',
       'level': 'INFO',
       'formatter': 'logzioFormat',
-      'token': '{account-token}',
+      'token': '{ACCOUNT-TOKEN}',
       'logzio_type': "django",
       'logs_drain_timeout': 5,
-      'url': '{listener-url}:8071',
+      'url': '{LISTENER-URL}:8071',
       'debug': True
     },
   },
@@ -155,36 +155,36 @@ LOGGING = {
 ```
 
 {: .parameter-list }
-token <span class="required-param">Required</span>
-  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
-    {% include log-shipping/your-account-token.html %}
+token <span class="required-param"></span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
+    {%- include log-shipping/replace-vars.html token=true %}
 
 logzio_type
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing.
-  Can't contain spaces. <br />
-  <span class="sm bold">Default:</span> `python`
+    Used by Logz.io for consistent parsing.
+    Can't contain spaces. <br />
+    <span class="default-param">`python`</span>
 
 logs_drain_timeout
   : Time to wait between log draining attempts, in seconds. <br />
-  <span class="sm bold">Default:</span> `3`
+    <span class="default-param">`3`</span>
 
 url
-  : Listener URL and port.
-    {% include log-shipping/your-listener-url.html %} <br />
-    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port. <br />
+    {%- include log-shipping/replace-vars.html listener=true %} <br />
+    <span class="default-param">`https://listener.logz.io:8071`</span>
 
 debug
   : Debug flag.
     To print debug messages to stdout, `True`.
     Otherwise, `False`. <br />
-    <span class="sm bold">Default:</span> `False`
+    <span class="default-param">`False`</span>
 
 </div>
 
 </div>
 
-##### Code sample
+##### Code sample - python only, need one for django (no need to configure)
 
 ```python
 import logging

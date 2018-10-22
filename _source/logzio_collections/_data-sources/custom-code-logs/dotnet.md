@@ -94,39 +94,39 @@ hierarchy.Configured = true;
 ##### Parameters
 
 {: .parameter-list }
-token <span class="required-param">Required</span>
+token <span class="required-param"></span>
   : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
     {%- include log-shipping/replace-vars.html token=true %}
 
 type
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
     Used by Logz.io for consistent parsing. Can't contain spaces. <br />
-    <span class="sm bold">Default:</span> `log4net`
+    <span class="default-param">`log4net`</span>
 
 listenerUrl
   : Listener URL and port. <br />
     {%- include log-shipping/replace-vars.html listener=true %} <br />
-    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+    <span class="default-param">`https://listener.logz.io:8071`</span>
 
 bufferSize
   : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
-    <span class="sm bold">Default:</span> `100`
+    <span class="default-param">`100`</span>
 
 bufferTimeout
   : Maximum time to wait for more log lines, as _hh:mm:ss.fff_. <br />
-    <span class="sm bold">Default:</span> `00:00:05`
+    <span class="default-param">`00:00:05`</span>
 
 retriesMaxAttempts
   : Maximum number of attempts to connect to Logz.io. <br />
-    <span class="sm bold">Default:</span> `3`
+    <span class="default-param">`3`</span> 
 
 retriesInterval
   : Time to wait between retries, as _hh:mm:ss.fff_. <br />
-    <span class="sm bold">Default:</span> `00:00:02`
+    <span class="default-param">`00:00:02`</span>
 
 debug
   : To print debug messsages to the console and trace log, `true`. Otherwise, `false`. <br />
-    <span class="sm bold">Default:</span> `false`
+    <span class="default-param">`false`</span>
 
 
 ##### Code sample
@@ -281,39 +281,39 @@ LogManager.Configuration = config;
 ##### Parameters
 
 {: .parameter-list }
-token <span class="required-param">Required</span>
-  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
+token <span class="required-param"></span>
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
     {%- include log-shipping/replace-vars.html token=true %}
 
 logzioType
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
     Used by Logz.io for consistent parsing. Can't contain spaces. <br />
-    <span class="sm bold">Default:</span> `nlog`
+    <span class="default-param">`nlog`</span>
 
 listenerUrl
   : Listener URL and port. <br />
     {%- include log-shipping/replace-vars.html listener=true %} <br />
-    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+    <span class="default-param">`https://listener.logz.io:8071`</span>
 
 bufferSize
   : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
-    <span class="sm bold">Default:</span> `100`
+    <span class="default-param">`100`</span>
 
 bufferTimeout
   : Maximum time to wait for more log lines, as _hh:mm:ss.fff_. <br />
-    <span class="sm bold">Default:</span> `00:00:05`
+    <span class="default-param">`00:00:05`</span>
 
 retriesMaxAttempts
   : Maximum number of attempts to connect to Logz.io. <br />
-    <span class="sm bold">Default:</span> `3`
+    <span class="default-param">`3`</span>
 
 retriesInterval
   : Time to wait between retries, as _hh:mm:ss.fff_. <br />
-    <span class="sm bold">Default:</span> `00:00:02`
+    <span class="default-param">`00:00:02`</span>
 
 debug
   : To print debug messsages to the console and trace log, `true`. Otherwise, `false`. <br />
-    <span class="sm bold">Default:</span> `false`
+    <span class="default-param">`false`</span>
 
 
 ##### Code sample

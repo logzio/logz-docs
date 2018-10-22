@@ -55,9 +55,7 @@ contributors:
 
     Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
-    {% include log-shipping/your-account-token.html %}
-
-    {% include log-shipping/your-listener-url.html %}
+    {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```conf
     $ModLoad imuxsock # provides support for local system logging
@@ -78,10 +76,10 @@ contributors:
     $WorkDirectory /var/spool/rsyslog
 
     # the logz.io syslog template,
-    $template HAProxyLogzioFormat,"[{account-token}] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
+    $template HAProxyLogzioFormat,"[{ACCOUNT-TOKEN}] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
 
     # Send messages to Logz over TCP using the template.
-    *.* @@{listener-url}:5000;HAProxyLogzioFormat
+    *.* @@{LISTENER-URL}:5000;HAProxyLogzioFormat
     ```
 
 3. Restart rsyslog

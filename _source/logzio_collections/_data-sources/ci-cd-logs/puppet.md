@@ -42,10 +42,11 @@ contributors:
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Puppet to the filebeat.inputs section.
 
     <div class="info-box tip">
-      We recommend configuring Puppet to output JSON logs. [Read more](https://puppet.com/docs/puppetserver/5.1/config_logging_advanced.html)
+      We recommend configuring Puppet to output JSON logs.
+      See [Advanced Logging Configuration](https://puppet.com/docs/puppetserver/5.1/config_logging_advanced.html) from Puppet for more information.
     </div>
 
-    {% include log-shipping/your-account-token.html %}
+    {% include log-shipping/replace-vars.html token=true %}
 
     ```yaml
     filebeat.inputs:
@@ -64,7 +65,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {account-token}
+        token: {ACCOUNT-TOKEN}
         type: puppetserver
       fields_under_root: true
       encoding: utf-8
@@ -85,7 +86,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {account-token}
+        token: {ACCOUNT-TOKEN}
         type: puppetserver-access
       fields_under_root: true
       encoding: utf-8
@@ -94,11 +95,11 @@ contributors:
     registry_file: /var/lib/filebeat/registry
     ```
 
-3. Add Logz.io as an output
+1. Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
 
-    {% include log-shipping/your-listener-url.html %}
+    {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
     output.logstash:
@@ -107,13 +108,13 @@ contributors:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. Restart Filebeat
+1. Restart Filebeat
 
     ```shell
     sudo systemctl restart filebeat
     ```
 
-5. Test your configuration
+2. Test your configuration
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

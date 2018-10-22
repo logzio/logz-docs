@@ -53,9 +53,9 @@ _Option 1: In a configuration file_
   <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
 
     <!-- Replace these parameters with your configuration -->
-    <token>{account-token}</token>
+    <token>{ACCOUNT-TOKEN}</token>
     <type>log4net</type>
-    <listenerUrl>{listener-url}:8071</listenerUrl>
+    <listenerUrl>{LISTENER-URL}:8071</listenerUrl>
     <bufferSize>100</bufferSize>
     <bufferTimeout>00:00:05</bufferTimeout>
     <retriesMaxAttempts>3</retriesMaxAttempts>
@@ -78,9 +78,9 @@ var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 
 // Replace these parameters with your configuration
-logzioAppender.AddToken("{account-token}");
+logzioAppender.AddToken("{ACCOUNT-TOKEN}");
 logzioAppender.AddType("log4net");
-logzioAppender.AddListenerUrl("{listener-url}:8071");
+logzioAppender.AddListenerUrl("{LISTENER-URL}:8071");
 logzioAppender.AddBufferSize("100");
 logzioAppender.AddBufferTimeout("00:00:05");
 logzioAppender.AddRetriesMaxAttempts("3");
@@ -95,37 +95,38 @@ hierarchy.Configured = true;
 
 {: .parameter-list }
 token <span class="required-param">Required</span>
-  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
-  {% include log-shipping/your-account-token.html %}
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
+    {%- include log-shipping/replace-vars.html token=true %}
 
 type
-  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. <br />
-  <span class="sm bold">Default:</span> `log4net`
+  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+    Used by Logz.io for consistent parsing. Can't contain spaces. <br />
+    <span class="sm bold">Default:</span> `log4net`
 
 listenerUrl
-  : Listener URL and port.
-  {% include log-shipping/your-listener-url.html %} <br />
-  <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port. <br />
+    {%- include log-shipping/replace-vars.html listener=true %} <br />
+    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 bufferSize
   : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
-  <span class="sm bold">Default:</span> `100`
+    <span class="sm bold">Default:</span> `100`
 
 bufferTimeout
   : Maximum time to wait for more log lines, as _hh:mm:ss.fff_. <br />
-  <span class="sm bold">Default:</span> `00:00:05`
+    <span class="sm bold">Default:</span> `00:00:05`
 
 retriesMaxAttempts
   : Maximum number of attempts to connect to Logz.io. <br />
-  <span class="sm bold">Default:</span> `3`
+    <span class="sm bold">Default:</span> `3`
 
 retriesInterval
   : Time to wait between retries, as _hh:mm:ss.fff_. <br />
-  <span class="sm bold">Default:</span> `00:00:02`
+    <span class="sm bold">Default:</span> `00:00:02`
 
 debug
   : To print debug messsages to the console and trace log, `true`. Otherwise, `false`. <br />
-  <span class="sm bold">Default:</span> `false`
+    <span class="sm bold">Default:</span> `false`
 
 
 ##### Code sample
@@ -236,9 +237,9 @@ _Option 1: In a configuration file_
 
     <!-- Replace these parameters with your configuration -->
     <target name="logzio" type="Logzio"
-      token="{account-token}"
+      token="{ACCOUNT-TOKEN}"
       logzioType="nlog"
-      listenerUrl="{listener-url}:8071"
+      listenerUrl="{LISTENER-URL}:8071"
       bufferSize="100"
       bufferTimeout="00:00:05"
       retriesMaxAttempts="3"
@@ -262,9 +263,9 @@ var config = new LoggingConfiguration();
 
 // Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
-  Token = "{account-token}",
+  Token = "{ACCOUNT-TOKEN}",
   LogzioType = "nlog",
-  ListenerUrl = "{listener-url}:8071",
+  ListenerUrl = "{LISTENER-URL}:8071",
   BufferSize = "100",
   BufferTimeout = "00:00:05",
   RetriesMaxAttempts = "3",
@@ -282,7 +283,7 @@ LogManager.Configuration = config;
 {: .parameter-list }
 token <span class="required-param">Required</span>
   : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
-    {% include log-shipping/your-account-token.html %}
+    {%- include log-shipping/replace-vars.html token=true %}
 
 logzioType
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
@@ -290,28 +291,29 @@ logzioType
     <span class="sm bold">Default:</span> `nlog`
 
 listenerUrl
-  : Listener URL and port. {% include log-shipping/your-listener-url.html %} <br />
-  <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port. <br />
+    {%- include log-shipping/replace-vars.html listener=true %} <br />
+    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 bufferSize
   : Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
-  <span class="sm bold">Default:</span> `100`
+    <span class="sm bold">Default:</span> `100`
 
 bufferTimeout
   : Maximum time to wait for more log lines, as _hh:mm:ss.fff_. <br />
-  <span class="sm bold">Default:</span> `00:00:05`
+    <span class="sm bold">Default:</span> `00:00:05`
 
 retriesMaxAttempts
   : Maximum number of attempts to connect to Logz.io. <br />
-  <span class="sm bold">Default:</span> `3`
+    <span class="sm bold">Default:</span> `3`
 
 retriesInterval
   : Time to wait between retries, as _hh:mm:ss.fff_. <br />
-  <span class="sm bold">Default:</span> `00:00:02`
+    <span class="sm bold">Default:</span> `00:00:02`
 
 debug
   : To print debug messsages to the console and trace log, `true`. Otherwise, `false`. <br />
-  <span class="sm bold">Default:</span> `false`
+    <span class="sm bold">Default:</span> `false`
 
 
 ##### Code sample
@@ -354,7 +356,7 @@ You can configure the target to include your own custom values when forwarding t
 <nlog>
   <variable name="site" value="New Zealand" />
   <variable name="rings" value="one" />
-  <target name="logzio" type="Logzio" token="{account-token}">
+  <target name="logzio" type="Logzio" token="{ACCOUNT-TOKEN}">
     <contextproperty name="site" layout="${site}" />
     <contextproperty name="rings" layout="${rings}" />
   </target>

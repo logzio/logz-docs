@@ -63,8 +63,8 @@ For a complete list of options, see the configuration parameters below the code 
 
   <!-- Replace these parameters with your configuration -->
   <LogzioAppender name="Logzio">
-    <logzioToken>{account-token}</logzioToken>
-    <logzioUrl>https://{listener-url}:8071</logzioUrl>
+    <logzioToken>{ACCOUNT-TOKEN}</logzioToken>
+    <logzioUrl>https://{LISTENER-URL}:8071</logzioUrl>
     <logzioType>myAwesomeType</logzioType>
   </LogzioAppender>
 
@@ -81,62 +81,65 @@ For a complete list of options, see the configuration parameters below the code 
 
 {: .parameter-list }
 logzioToken <span class="required-param">Required</span>
-  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
-  {% include log-shipping/your-account-token.html %} <br />
-  Begin with `$` to use an environment variable or system property with the specified name.
-  For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
+    {%- include log-shipping/replace-vars.html token=true %} <br />
+    Begin with `$` to use an environment variable or system property with the specified name.
+    For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
 
 addHostname
   : Boolean. Indicates whether to add `hostname` field to logs. This field holds the machine's host name. <br />
-  Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. <br />
-  <span class="sm bold">Default:</span> `false`
+    Set to `true` to include hostname.
+    Set to `false` to leave it off.
+    If a host name can't be found, this field is not added. <br />
+    <span class="sm bold">Default:</span> `false`
 
 additionalFields
   : Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. <br />
-  Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`.
-  The environment variable should be the only value in the key-value pair.
-  If the environment variable can't be resolved, the field is omitted.
+    Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`.
+    The environment variable should be the only value in the key-value pair.
+    If the environment variable can't be resolved, the field is omitted.
 
 bufferDir
   : Filepath where the appender stores the buffer <br />
-  <span class="sm bold">Default:</span> `System.getProperty("java.io.tmpdir")`
+    <span class="sm bold">Default:</span> `System.getProperty("java.io.tmpdir")`
 
 compressRequests
   : Boolean. Set to `true` if you're sending gzip-compressed logs.
-  Set to `false` if sending uncompressed logs. <br />
-  <span class="sm bold">Default:</span> `false`
+    Set to `false` if sending uncompressed logs. <br />
+    <span class="sm bold">Default:</span> `false`
 
 connectTimeoutMs
   : Connection timeout during log shipment, in milliseconds. <br />
-  <span class="sm bold">Default:</span> `10 * 1000`
+    <span class="sm bold">Default:</span> `10 * 1000`
 
 debug
   : Set to `true` to print debug messages to stdout. <br />
-  <span class="sm bold">Default:</span> `false`
+    <span class="sm bold">Default:</span> `false`
 
 drainTimeoutSec
   : How often the appender drains the buffer, in seconds. <br />
-  <span class="sm bold">Default:</span> `5`
+    <span class="sm bold">Default:</span> `5`
 
 fileSystemFullPercentThreshold
   : Identifies a maximum file system usage, in percent. Set to `-1` to disable. <br />
-  If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs.
-  Buffering resumes if used space drops below the threshold. <br />
-  <span class="sm bold">Default:</span> `98`
+    If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs.
+    Buffering resumes if used space drops below the threshold. <br />
+    <span class="sm bold">Default:</span> `98`
 
 logzioType
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing.
-  Can't contain spaces. <br />
-  <span class="sm bold">Default:</span> `java`
+    Used by Logz.io for consistent parsing.
+    Can't contain spaces. <br />
+    <span class="sm bold">Default:</span> `java`
 
 logzioUrl
-  : Listener URL and port. {% include log-shipping/your-listener-url.html %} <br />
-  <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port. <br />
+    {%- include log-shipping/replace-vars.html listener=true %} <br />
+    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 socketTimeoutMs
   : Socket timeout during log shipment, in milliseconds. <br />
-  <span class="sm bold">Default:</span> `10 * 1000`
+    <span class="sm bold">Default:</span> `10 * 1000`
 
 
 ##### Code sample
@@ -265,8 +268,8 @@ For a complete list of options, see the configuration parameters below the code 
 
   <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
     <!-- Replace these parameters with your configuration -->
-    <token>{account-token}</token>
-    <logzioUrl>{listener-url}:8071</logzioUrl>
+    <token>{ACCOUNT-TOKEN}</token>
+    <logzioUrl>{LISTENER-URL}:8071</logzioUrl>
     <logzioType>myType</logzioType>
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -285,76 +288,77 @@ For a complete list of options, see the configuration parameters below the code 
 
 {: .parameter-list }
 token <span class="required-param">Required</span>
-  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).
-  {% include log-shipping/your-account-token.html %} <br />
-  Begin with `$` to use an environment variable or system property with the specified name.
-  For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
+  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
+    {% include log-shipping/replace-vars.html token=true %} <br />
+    Begin with `$` to use an environment variable or system property with the specified name.
+    For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
 
 addHostname
   : Indicates whether to add `hostname` field to logs.
-  This field holds the machine's host name. <br />
-  Set to `true` to include hostname.
-  Set to `false` to leave it off.
-  If a host name can't be found, this field is not added. <br />
-  <span class="sm bold">Default:</span> `false`
+    This field holds the machine's host name. <br />
+    Set to `true` to include hostname.
+    Set to `false` to leave it off.
+    If a host name can't be found, this field is not added. <br />
+    <span class="sm bold">Default:</span> `false`
 
 additionalFields
   : Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. <br />
-  Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`.
-  The environment variable should be the only value in the key-value pair.
-  If the environment variable can't be resolved, the field is omitted.
+    Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`.
+    The environment variable should be the only value in the key-value pair.
+    If the environment variable can't be resolved, the field is omitted.
 
 bufferDir
   : Filepath where the appender stores the buffer. <br />
-  <span class="sm bold">Default:</span> `System.getProperty("java.io.tmpdir")`
+    <span class="sm bold">Default:</span> `System.getProperty("java.io.tmpdir")`
 
 compressRequests
   : Boolean. Set to `true` if you're sending gzip-compressed logs.
-  Set to `false` if sending uncompressed logs. <br />
-  <span class="sm bold">Default:</span> `false`
+    Set to `false` if sending uncompressed logs. <br />
+    <span class="sm bold">Default:</span> `false`
 
 connectTimeout
   : Connection timeout during log shipment, in milliseconds. <br />
-  <span class="sm bold">Default:</span> `10 * 1000`
+    <span class="sm bold">Default:</span> `10 * 1000`
 
 debug
   : Boolean. Set to `true` to print debug messages to stdout. <br />
-  <span class="sm bold">Default:</span> `false`
+    <span class="sm bold">Default:</span> `false`
 
 drainTimeoutSec
   : How often the appender drains the buffer, in seconds. <br />
-  <span class="sm bold">Default:</span> `5`
+    <span class="sm bold">Default:</span> `5`
 
 fileSystemFullPercentThreshold
   : Integer. Identifies a maximum file system usage, in percent.
-  Set to `-1` to disable. <br />
-  If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs.
-  Buffering resumes if used space drops below the threshold. <br />
-  <span class="sm bold">Default:</span> `98`
+    Set to `-1` to disable. <br />
+    If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs.
+    Buffering resumes if used space drops below the threshold. <br />
+    <span class="sm bold">Default:</span> `98`
 
 format
   : Set to `json` if the log message is to be sent as JSON, so that each JSON node is a field in Logz.io.
-  Set to `text` to send the log message as plain text. <br />
-  <span class="sm bold">Default:</span> `text`
+    Set to `text` to send the log message as plain text. <br />
+    <span class="sm bold">Default:</span> `text`
 
 line
   : Boolean. Set to `true` to print the line number of the code that generated this log message.
-  Set to `false` to leave the line number out. <br />
-  <span class="sm bold">Default:</span> `false`
+    Set to `false` to leave the line number out. <br />
+    <span class="sm bold">Default:</span> `false`
 
 logzioType
   : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing.
-  Can't contain spaces. <br />
-  <span class="sm bold">Default:</span> `java`
+    Used by Logz.io for consistent parsing.
+    Can't contain spaces. <br />
+    <span class="sm bold">Default:</span> `java`
 
 logzioUrl
-  : Listener URL and port. {% include log-shipping/your-listener-url.html %} <br />
-  <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
+  : Listener URL and port. <br />
+    {%- include log-shipping/replace-vars.html listener=true %} <br />
+    <span class="sm bold">Default:</span> `https://listener.logz.io:8071`
 
 socketTimeout
   : Socket timeout during log shipment, in milliseconds. <br />
-  <span class="sm bold">Default:</span> `10 * 1000`
+    <span class="sm bold">Default:</span> `10 * 1000`
 
 
 ##### Code sample

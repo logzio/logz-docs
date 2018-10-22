@@ -24,9 +24,7 @@ contributors:
 
     Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
-    {% include log-shipping/your-account-token.html %}
-
-    {% include log-shipping/your-listener-url.html %}
+    {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```conf
     define ROOT C:\\Program Files (x86)\\nxlog
@@ -49,11 +47,11 @@ contributors:
         SavePos TRUE
         Exec if $raw_event =~ /^#/ drop();
         Exec convert_fields("AUTO", "utf-8");
-        Exec $raw_event = '[{account-token}][type=iis]' + $raw_event;
+        Exec $raw_event = '[{ACCOUNT-TOKEN}][type=iis]' + $raw_event;
     </Input>
     <Output out>
         Module  om_tcp
-        Host    {listener-url}
+        Host    {LISTENER-URL}
         Port    8010
     </Output>
 
@@ -62,13 +60,13 @@ contributors:
     </Route>
     ```
 
-2. Restart NXLog
+1. Restart NXLog
 
     ```powershell
     PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
     ```
 
-3. Test your configuration
+2. Test your configuration
 
     Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

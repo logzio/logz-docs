@@ -35,12 +35,12 @@ contributors:
 
     In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add this code block to the root level.
 
-    {% include log-shipping/your-account-token.html %}
+    {% include log-shipping/replace-vars.html token=true %}
 
     ```yaml
     fields:
       logzio_codec: json
-      token: {account-token}
+      token: {ACCOUNT-TOKEN}
     fields_under_root: true
     ```
 
@@ -48,16 +48,16 @@ contributors:
 
     If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
 
-    {% include log-shipping/your-listener-url.html %}
+    {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
     output.logstash:
-      hosts: ["{listener-url}:5015"]
+      hosts: ["{LISTENER-URL}:5015"]
       ssl:
         certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. Remove remaining default blocks
+1. Remove remaining default blocks
 
     If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
 
@@ -73,13 +73,13 @@ contributors:
       hosts: ["localhost:9200"]
     ```
 
-5. Restart Winlogbeat
+2. Restart Winlogbeat
 
     ```powershell
     PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
     ```
 
-6. Test your configuration
+3. Test your configuration
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -117,7 +117,7 @@ contributors:
 
     Add an `Input` block to append your account token to log records.
 
-    {% include log-shipping/your-account-token.html %}
+    {% include log-shipping/replace-vars.html token=true %}
 
     ```conf
     <Input eventlog>
@@ -128,7 +128,7 @@ contributors:
 
         Exec if $raw_event =~ /^#/ drop();
         Exec convert_fields("AUTO", "utf-8");
-        Exec    $raw_event = '[{account-token}][type=msevent]' + $raw_event;
+        Exec    $raw_event = '[{ACCOUNT-TOKEN}][type=msevent]' + $raw_event;
     </Input>
     ```
 
@@ -136,12 +136,12 @@ contributors:
 
     Add the Logz.io listener in the `Output` block.
 
-    {% include log-shipping/your-listener-url.html %}
+    {% include log-shipping/replace-vars.html listener=true %}
 
     ```conf
     <Output out>
         Module  om_tcp
-        Host    {listener-url}
+        Host    {LISTENER-URL}
         Port    8010
     </Output>
     <Route 1>

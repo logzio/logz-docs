@@ -51,7 +51,7 @@ contributors:
 
     {: .parameter-list }
     TOKEN <span class="required-param">Required</span>
-      : {% include log-shipping/your-account-token.html replaceToken=false %}
+      : {% include log-shipping/replace-vars.html token='noReplace' %}
         <!-- logzio:account-token -->
 
     TYPE <span class="required-param">Required</span>
@@ -73,7 +73,7 @@ contributors:
       : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
         <span class="sm bold">Default:</span> `false`
 
-5. Configure the function's basic settings
+4. Configure the function's basic settings
 
     In Basic settings, we recommend starting with these settings:
     * **Memory:** 512 MB
@@ -81,7 +81,7 @@ contributors:
 
     Keep an eye on your Lambda usage, and adjust these values accordingly.
 
-6. Set the CloudWatch Logs event trigger
+5. Set the CloudWatch Logs event trigger
 
     Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
 
@@ -91,7 +91,7 @@ contributors:
 
     Click **Add**, and then click **Save** at the top of the page.
 
-5. Test your configuration
+6. Test your configuration
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

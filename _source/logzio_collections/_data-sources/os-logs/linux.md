@@ -29,12 +29,10 @@ contributors:
 {: .tasklist .firstline-headline }
 1. Run the rsyslog configuration script
 
-    {% include log-shipping/your-account-token.html %}
-
-    {% include log-shipping/your-listener-url.html %}
+    {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```shell
-    curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t linux -a "{account-token}" -l "{listener-url}"
+    curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t linux -a "{ACCOUNT-TOKEN}" -l "{LISTENER-URL}"
     ```
 
 2. Test your configuration

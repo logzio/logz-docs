@@ -56,14 +56,12 @@ If you've already installed Heroku CLI, the CLI installation is the simplest way
 {: .tasklist }
 1. Run this command in a terminal window.
 
-    {% include log-shipping/your-account-token.html %}
+    {% include log-shipping/replace-vars.html token=true listener=true %}
 
-    {% include log-shipping/your-listener-url.html %}
-
-    Replace `{heroku-app-name}` with the name of the app in Heroku.
+    Replace `{HEROKU-APP-NAME}` with the name of the app in Heroku.
 
     ```shell
-    heroku drains:add "http://{listener-url}:8081?token={account-token}" -a {heroku-app-name}
+    heroku drains:add "http://{LISTENER-URL}:8081?token={ACCOUNT-TOKEN}" -a {HEROKU-APP-NAME}
     ```
 
     You can add custom fields to each log message. To do this, add `&{key}={value}` to the end of the Logz.io URL. You can use custom fields to identify different Heroku apps, allowing you filter your data in Logz.io.

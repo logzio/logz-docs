@@ -50,7 +50,7 @@ contributors:
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add nginx to the filebeat.inputs section.
 
-    {% include log-shipping/your-account-token.html %}
+    {% include log-shipping/replace-vars.html token=true %}
 
     ```yaml
     filebeat.inputs:
@@ -63,7 +63,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {account-token}
+        token: {ACCOUNT-TOKEN}
         type: nginx_access
       fields_under_root: true
       encoding: utf-8
@@ -78,7 +78,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {account-token}
+        token: {ACCOUNT-TOKEN}
         type: nginx_error
       fields_under_root: true
       encoding: utf-8
@@ -91,11 +91,11 @@ contributors:
 
     If Logz.io is not an output, add it now.
 
-    {% include log-shipping/your-listener-url.html %}
+    {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
     output.logstash:
-      hosts: ["{listener-url}:5015"]
+      hosts: ["{LISTENER-URL}:5015"]
       ssl:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
@@ -135,15 +135,13 @@ contributors:
 {: .tasklist .firstline-headline }
 1. Run the rsyslog configuration script
 
-    {% include log-shipping/your-account-token.html %}
-
-    {% include log-shipping/your-listener-url.html %}
+    {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```shell
-    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t nginx -a "{account-token}" -l "{listener-url}"
+    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t nginx -a "{ACCOUNT-TOKEN}" -l "{LISTENER-URL}"
     ```
 
-2. Test your configuration
+1. Test your configuration
 
     Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 

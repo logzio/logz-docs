@@ -1378,7 +1378,7 @@ i.ll, dl.letter-labels dt::before {
 
 .fpo {
   display: flex;
-  max-width: 100%;
+  max-width: 80%;
   height: 100px;
   margin: 1.5rem auto;
   border: 1px solid var(--border-dark);
@@ -1388,9 +1388,21 @@ i.ll, dl.letter-labels dt::before {
 }
 
 .fpo::after {
-  content: "[ Image placeholder ]";
+  content: "[ You really should do something about this placeholder. ]";
   justify-self: center;
   align-self: center;
   color: var(--text-code);
   font-weight: 700;
+}
+
+.fpo.fpo-1::after {
+  content: "[ Nothing lasts forever, including this placeholder. ]";
+}
+
+.fpo.fpo-2::after {
+  content: "[ You are irreplacable. This placeholder, though... ]";
+}
+
+.fpo.fpo-3::after {
+  content: "[ A picture is worth a thousand words. This placeholder... not so much. ]";
 }

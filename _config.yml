@@ -84,7 +84,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-menus
   - jekyll-octicons
-
+  - jekyll-avatar
 
 kramdown:
   parse_block_html: true

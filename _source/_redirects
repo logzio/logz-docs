@@ -6,3 +6,5 @@
 /user-guide/access-and-authentication/multi-factor-authentication.html /user-guide/users/multi-factor-authentication.html 301
 
 /user-guide/access-and-authentication/* /user-guide/tokens/:splat 301
+
+/contributors/proudboffin /contributors/danielberman 301

@@ -7,7 +7,7 @@ flags:
   logzio-plan: community
 contributors:
   - imnotashrimp
-  - proudboffin
+  - danielberman
 ---
 
 Using shared tokens, you can share Kibana visualization and dashboard snapshots. You can limit the data available to a shared token with token filters.

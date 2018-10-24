@@ -128,12 +128,10 @@ firstLevel:
   - title: Single sign-on
     # url: /user-guide/users/single-sign-on/
     thirdLevel:
-    - title: Azure SAML
-      url: /user-guide/users/single-sign-on/azure-saml.html
-    - title: Okta SAML
-      # url: /user-guide/users/single-sign-on/okta-saml.html
-    - title: OneLogin SAML
-      # url: /user-guide/users/single-sign-on/onelogin-saml.html
+    - title: Azure single sign-on
+      url: /user-guide/users/single-sign-on/azure-sso.html
+    - title: Okta single sign-on
+    - title: OneLogin single sign-on
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:

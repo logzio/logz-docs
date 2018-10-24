@@ -1,7 +1,7 @@
 ---
 layout: article
-title: Azure SAML
-permalink: /user-guide/users/single-sign-on/azure-saml.html
+title: Azure single sign-on
+permalink: /user-guide/users/single-sign-on/azure-sso.html
 flags:
   admin: true
   logzio-plan: enterprise
@@ -9,11 +9,12 @@ contributors:
   - schwin007
 ---
 
-You can configure Azure as a SAML identity provider for your Logz.io accounts.
-To request access to this feature, an account admin needs to email [help@logz.io](mailto:help@logz.io).
-Read on for the full instructions.
+You can configure Azure as a single sign-on (SSO) identity provider for your Logz.io accounts.
 
-###### To set up SSO for Azure
+Single sign-on is available for Enterprise plans.
+To discuss switching to an Enterprise plan, please contact your account manager.
+
+###### To set up single sign-on for Azure
 
 {: .tasklist .firstline-headline }
 1. Request SSO access from Logz.io
@@ -29,7 +30,7 @@ Read on for the full instructions.
 
     In the [Azure Portal](https://portal.azure.com/), browse to **Azure Active Directory  > Enterprise Applications > New application > Non-gallery application**.
 
-    In the right panel, set the **Name** to “Logz.io” and click **Add**.
+    In the right panel, set the **Name** to "Logz.io" and click **Add**.
 
     Click **Configure Single Sign-On**, and choose **SAML-based Sign-on**.
 

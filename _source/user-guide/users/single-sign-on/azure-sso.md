@@ -24,7 +24,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     The Support team will respond with the connection information you'll need to give in Azure.
 
-2. Add Logz.io in Azure
+2. Add Logz.io to Azure
 
     ![Add a non-gallery application in Azure]({{site.baseurl}}/images/sso-providers/azure/add-your-own-application.png)
 

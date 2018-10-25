@@ -126,7 +126,7 @@ firstLevel:
     - title: Multi-factor authentication
       url: /user-guide/users/multi-factor-authentication.html
   - title: Single sign-on
-    # url: /user-guide/users/single-sign-on/
+    url: /user-guide/users/single-sign-on/
     thirdLevel:
     - title: Azure single sign-on
       url: /user-guide/users/single-sign-on/azure-sso.html

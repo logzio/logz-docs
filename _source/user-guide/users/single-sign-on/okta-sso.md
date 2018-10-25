@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Okta single sign-on
+title: Set up Okta single sign-on
 permalink: /user-guide/users/single-sign-on/okta-sso.html
 flags:
   admin: true
@@ -8,8 +8,6 @@ flags:
 contributors:
   - schwin007
 ---
-
-You can configure Okta as a single sign-on (SSO) identity provider for your Logz.io accounts.
 
 Single sign-on is available for Enterprise plans.
 To discuss switching to an Enterprise plan, please contact your account manager.

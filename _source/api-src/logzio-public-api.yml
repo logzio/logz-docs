@@ -17,9 +17,9 @@ info:
 
     ### Updates and improvements
 
-    We update this document regularly to reflect changes and improvements to the Logz.io API. If you'd like to suggest corrections or improvements to this document, please email us at [help@logz.io](mailto:help@logz.io) or submit a ticket in the GitHub repository.
+    We update this document regularly to reflect changes and improvements to the Logz.io API. If you'd like to suggest corrections or improvements to this document, please email us at [help@logz.io](mailto:help@logz.io) or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
 
-    ### Notes on alerting
+    # Notes on alerting
 
     Please note that alerting is not yet covered in this document. For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
 
@@ -41,7 +41,7 @@ info:
 
     The Logz.io API is available to Enterprise plan subscribers. You can create new API tokens in the [Logz.io app](https://app.logz.io/#/dashboard/settings/api-tokens). You can revoke API permissions at any time.
 
-    If you don't have an Enterprise account, please contact your account executive or our [Customer Success team](mailto:help@logz.io).
+    If you don't have an Enterprise account, please contact your account manager or our [Customer Success team](mailto:help@logz.io).
 
     <!-- ReDoc-Inject: <security-definitions> -->
 
@@ -116,7 +116,7 @@ paths:
   /account-management/time-based-accounts:
     get:
       summary: Retrieve all sub accounts
-      description: Returns a list of sub accounts as an array of JSON objects.
+      description: Returns a list of sub accounts as an array of JSON objects. Must be run with an API token from the main account.
       tags:
         - Manage sub accounts
       operationId: getAll
@@ -132,7 +132,7 @@ paths:
         source: 'curl --request GET --url "https://api.logz.io/v1/account-management/time-based-accounts" --header "X-API-TOKEN: <token>"'
     post:
       summary: Create a sub account
-      description: Creates a new time-based sub account.
+      description: Creates a new time-based sub account. Must be run with an API token from the main account.
       tags:
         - Manage sub accounts
       operationId: createTimeBasedAccount
@@ -174,7 +174,7 @@ paths:
   /account-management/time-based-accounts/detailed:
     get:
       summary: Retrieve detailed information on all sub accounts
-      description: Retrieves all time-based sub accounts, returned as an array of objects. Each sub account is its own object.
+      description: Retrieves all time-based sub accounts, returned as an array of objects. Each sub account is its own object. Must be run with an API token from the main account.
       tags:
         - Manage sub accounts
       operationId: getAllDetailedTimeBasedAccount
@@ -191,7 +191,7 @@ paths:
   /account-management/time-based-accounts/detailed/{id}:
     get:
       summary: Retrieve detailed account information by ID
-      description: Using account ID, returns detailed account information.
+      description: Using account ID, returns detailed account information. Must be run with an API token from the main account.
       tags:
         - Manage sub accounts
       operationId: getDetailedTimeBasedAccount
@@ -214,7 +214,7 @@ paths:
   /account-management/time-based-accounts/{id}:
     get:
       summary: Retrieve sub account by ID
-      description: Returns account information and configuration as a JSON object.
+      description: Returns account information and configuration as a JSON object. Must be run with an API token from the main account.
       tags:
         - Manage sub accounts
       operationId: get
@@ -236,6 +236,7 @@ paths:
         source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
     put:
       summary: Update a sub account
+      description: Updates a sub account. Must be run with an API token from the main account.
       tags:
         - Manage sub accounts
       operationId: updateTimeBasedAccount
@@ -279,7 +280,7 @@ paths:
           }"
     delete:
       summary: Delete a sub account
-      description: Using an account ID, deletes a sub account.
+      description: Using an account ID, deletes a sub account. Must be run with an API token from the main account.
       tags:
         - Manage sub accounts
       operationId: deleteTimeBasedAccount
@@ -1619,7 +1620,7 @@ paths:
       tags:
         - Logz.io snapshots
       summary: Retrieve a snapshot by ID
-      description: Returns a snapshot of a Kibana visualization or dashboard as a JSON object
+      description: Returns the details of a snapshot, such as status and the snapshot image URL
       operationId: getSnapshot
       parameters:
         - name: snapshotId
@@ -1901,6 +1902,7 @@ definitions:
       - accountName
       - email
       - sharingObjectsAccounts
+      - retentionDays
     properties:
       email:
         type: string

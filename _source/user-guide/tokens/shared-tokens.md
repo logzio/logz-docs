@@ -5,9 +5,12 @@ permalink: /user-guide/tokens/shared-tokens.html
 flags:
   admin: true
   logzio-plan: community
+tags:
+  - tokens
+  - shared-tokens
 contributors:
   - imnotashrimp
-  - proudboffin
+  - danielberman
 ---
 
 Using shared tokens, you can share Kibana visualization and dashboard snapshots. You can limit the data available to a shared token with token filters.

@@ -113,6 +113,14 @@ firstLevel:
   - title: Live Tail
     url: /user-guide/live-tail/
 
+  - title: Security Analytics
+    url: /user-guide/security-analytics/
+    thirdLevel:
+    - title: Understanding your security logs
+      url: /user-guide/security-analytics/understanding-your-security-logs.html
+    - title: Manage correlation rules
+      url: /user-guide/security-analytics/manage-correlation-rules.html
+
 - title: Admin tools
   secondLevel:
   - title: Accounts

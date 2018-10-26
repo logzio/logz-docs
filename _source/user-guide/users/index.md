@@ -5,6 +5,8 @@ permalink: /user-guide/users/
 flags:
   admin: true
   logzio-plan: community
+tags:
+  - users
 contributors:
   - imnotashrimp
 ---

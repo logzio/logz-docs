@@ -4,9 +4,11 @@ title: Markers
 permalink: /user-guide/insights/markers.html
 flags:
   logzio-plan: community
+tags:
+  - insights
 contributors:
   - imnotashrimp
-  - proudboffin
+  - danielberman
   - quintessence
 ---
 

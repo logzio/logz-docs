@@ -5,6 +5,11 @@ permalink: /user-guide/accounts/
 flags:
   admin: true
   logzio-plan: community
+tags:
+  - accounts
+  - sub-accounts
+  - main-account
+  - timeless-accounts
 contributors:
   - imnotashrimp
 ---

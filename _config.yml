@@ -68,8 +68,12 @@ collections:
     permalink: /data-sources/:path.html
 
 defaults:
-  -
-    scope:
+  - scope:
+      path: '/no-search/*'
+    values:
+      search: false
+      tags: false
+  - scope:
       path: ''
       type: contributors
     values:
@@ -125,7 +129,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-menus
   - jekyll-octicons
-
+  - jekyll-avatar
 
 kramdown:
   parse_block_html: true

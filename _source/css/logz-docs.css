@@ -1676,3 +1676,35 @@ div.highlighter-rouge {
 .copy-btn.copied::before {
   content: "Copied!";
 }
+
+/* ===== FPO - IMAGE PLACEHOLDERS ===== */
+.fpo {
+  display: flex;
+  max-width: 80%;
+  height: 100px;
+  margin: 1.5rem auto;
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
+  background-color: var(--background-light);
+  justify-content: center;
+}
+
+.fpo::after {
+  content: "[ You really should do something about this placeholder. ]";
+  justify-self: center;
+  align-self: center;
+  color: var(--text-code);
+  font-weight: 700;
+}
+
+.fpo.fpo-1::after {
+  content: "[ Nothing lasts forever, including this placeholder. ]";
+}
+
+.fpo.fpo-2::after {
+  content: "[ You are irreplacable. This placeholder, though... ]";
+}
+
+.fpo.fpo-3::after {
+  content: "[ A picture is worth a thousand words. This placeholder... not so much. ]";
+}

@@ -4,9 +4,13 @@ title: Alice, Slack chatbot
 permalink: /user-guide/integrations/alice-slack-chatbot.html
 flags:
   logzio-plan: pro
+tags:
+  - integrations
+  - slack
+  - alice
 contributors:
   - imnotashrimp
-  - proudboffin
+  - danielberman
 ---
 
 Alice is a chatbot who lives in your Slack workspace. You can ask Alice to perform Elasticsearch queries, see the alerts triggered in your environment, and get a snapshot of Kibana visualizations and dashboards.

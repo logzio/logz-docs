@@ -2,6 +2,8 @@
 layout: article
 title: Listener IP addresses
 permalink: /user-guide/log-shipping/listener-ip-addresses.html
+tags:
+  - log-shipping
 contributors:
   - imnotashrimp
   - schwin007

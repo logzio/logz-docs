@@ -4,6 +4,8 @@ title: Alerts
 permalink: /user-guide/alerts/
 flags:
   logzio-plan: community
+tags:
+  - alerts
 contributors:
   - imnotashrimp
 ---

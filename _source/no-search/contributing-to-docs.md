@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Contributing to docs
-search: false
+permalink: /contributing-to-docs.html
 flags:
   admin: true
   beta: true

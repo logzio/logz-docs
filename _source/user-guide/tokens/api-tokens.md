@@ -5,6 +5,9 @@ permalink: /user-guide/tokens/api-tokens.html
 flags:
   admin: true
   logzio-plan: enterprise
+tags:
+  - tokens
+  - api-tokens
 contributors:
   - imnotashrimp
 ---

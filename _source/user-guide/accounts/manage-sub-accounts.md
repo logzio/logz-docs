@@ -5,6 +5,9 @@ permalink: /user-guide/accounts/manage-sub-accounts.html
 flags:
   admin: true
   logzio-plan: pro
+tags:
+  - accounts
+  - sub-accounts
 contributors:
   - imnotashrimp
   - ayigal

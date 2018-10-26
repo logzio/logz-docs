@@ -4,6 +4,8 @@ title: Live Tail
 permalink: /user-guide/live-tail/
 flags:
   logzio-plan: community
+tags:
+  - live-tail
 contributors:
   - imnotashrimp
 ---

@@ -5,6 +5,9 @@ permalink: /user-guide/accounts/manage-the-main-account.html
 flags:
   admin: true
   logzio-plan: community
+tags:
+  - accounts
+  - main-account
 contributors:
   - imnotashrimp
 ---

@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Product announcements
+published: false
 community-info: false
 ---
 

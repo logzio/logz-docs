@@ -4,6 +4,8 @@ title: Configure alerts
 permalink: /user-guide/alerts/configure-alerts.html
 flags:
   logzio-plan: community
+tags:
+  - alerts
 contributors:
   - imnotashrimp
 ---

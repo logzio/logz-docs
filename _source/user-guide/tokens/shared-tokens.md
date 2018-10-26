@@ -5,6 +5,9 @@ permalink: /user-guide/tokens/shared-tokens.html
 flags:
   admin: true
   logzio-plan: community
+tags:
+  - tokens
+  - shared-tokens
 contributors:
   - imnotashrimp
   - danielberman

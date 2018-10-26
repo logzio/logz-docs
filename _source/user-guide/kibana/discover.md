@@ -2,12 +2,15 @@
 layout: article
 title: Discover
 permalink: /user-guide/kibana/discover.html
+published: false
+tags:
+  - kibana
 contributors:
   - imnotashrimp
   - ayigal
 ---
 
-When you sign in to the Logz.io app, the first thing you'll see is the Discover page in Kibana. 
+When you sign in to the Logz.io app, the first thing you'll see is the Discover page in Kibana.
 
 The Discover page offers enough flexibility to explore your recent logs through filter and sort controls, the query bar, the document table, and an interactive histogram.
 

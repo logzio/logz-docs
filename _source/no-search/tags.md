@@ -9,22 +9,53 @@ community-info: false
 $.getJSON( "{{site.baseurl}}/data/tags.json", function( data ) {
   var items = [];
   $.each( data, function( i, item ) {
-    $('<h2 id="' + i + '">').text(i).appendTo('div#tags-container');
-    $('div#tags-container').append('<ul></ul>')
-    $('<li><a href="#' + i + '">' + i + '</a></li>').appendTo('div#tag-cloud ul');
+    $('#tags-table tbody')
+      .append('<tr><td>' + i + '</td><td></td></tr>');
 
     $.each(item, function(i, item) {
-      $('div#tags-container ul:last').append('<li><a href="' + item.url + '">' + item.title + '</a></li>');
+      $('#tags-table tbody td:last')
+        .append( '<a href="' + item.url + '">' + item.title + '</a><br />' );
     });
   });
 
 });
 </script>
 
-<div id="tag-cloud">
-  <ul class="horizontal-list">
-  </ul>
+<div class="branching-container">
+
+{: .branching-tabs }
+  * [By tag](#by-tag-tab)
+  * [By page](#by-page-tab)
+
+<div id="by-tag-tab">
+
+<!--  Contains the list of tags. js script (above, in this file) appends an
+      <h2> and then a <ul> for each tag, then populates the <ul> with <li> for
+      each page that has that tag. -->
+<div id="tags-container">
+
+<table id="tags-table">
+  <thead> <tr> <th>Tag</th> <th>Pages</th> </tr> </thead>
+  <tbody> </tbody>
+</table>
 </div>
 
-<div id="tags-container">
+</div>
+
+<div id="by-page-tab">
+{%- assign htmlPages = site.html_pages -%}
+{%- assign shippingDataSources = "" | split: "" -%}
+{%- assign shippingDataSources = site.data-sources | default: shippingDataSources -%}
+{%- assign htmlPages = htmlPages | concat: shippingDataSources | sort: "title" -%}
+
+| Page | Tags |
+|---|---|
+{%- for p in htmlPages -%}
+{%- unless p.tags == false %}
+| [{{p.title}}]({{p.url}}) | {{ p.tags | sort | join: "<br />" }} |
+{%- endunless -%}
+{% endfor %}
+
+</div>
+
 </div>

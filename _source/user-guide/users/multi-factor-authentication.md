@@ -5,6 +5,8 @@ permalink: /user-guide/users/multi-factor-authentication.html
 flags:
   admin: true
   logzio-plan: community
+tags:
+  - multi-factor-authentication
 contributors:
   - boofinka
   - imnotashrimp

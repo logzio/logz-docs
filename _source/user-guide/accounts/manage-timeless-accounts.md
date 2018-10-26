@@ -5,6 +5,9 @@ permalink: /user-guide/accounts/manage-timeless-accounts.html
 flags:
   admin: true
   logzio-plan: pro
+tags:
+  - accounts
+  - timeless-accounts
 contributors:
   - imnotashrimp
   - ayigal

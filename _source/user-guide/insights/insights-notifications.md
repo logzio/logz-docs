@@ -4,6 +4,8 @@ title: Insights notifications
 permalink: /user-guide/insights/insights-notifications.html
 flags:
   logzio-plan: community
+tags:
+  - insights
 contributors:
   - imnotashrimp
 ---

@@ -4,6 +4,8 @@ title: Exploring insights
 permalink: /user-guide/insights/exploring-insights.html
 flags:
   logzio-plan: community
+tags:
+  - insights
 contributors:
   - danielberman
   - imnotashrimp

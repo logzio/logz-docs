@@ -2,6 +2,8 @@
 layout: article
 title: Log shipping
 permalink: /user-guide/log-shipping/
+tags:
+  - log-shipping
 contributors:
   - imnotashrimp
   - schwin007

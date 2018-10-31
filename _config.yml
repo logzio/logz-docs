@@ -79,46 +79,34 @@ defaults:
     values:
       layout: contributor-profile
       community-info: false
-  -
-    scope:
+  - scope:
       path: _data-sources/log-shipping-utilities
     values:
       shipping-category: Log shipping utilities
-  -
-    scope:
+  - scope:
       path: _data-sources/os-logs
     values:
       shipping-category: OS logs
-  -
-    scope:
+  - scope:
       path: _data-sources/server-app-logs
     values:
       shipping-category: Server app logs
-  -
-    scope:
+  - scope:
       path: _data-sources/custom-code-logs
     values:
       shipping-category: Custom code logs
-  -
-    scope:
+  - scope:
       path: _data-sources/platform-service-logs
     values:
       shipping-category: Platform or service logs
-  -
-    scope:
+  - scope:
       path: _data-sources/aws-logs
     values:
       shipping-category: AWS logs
-  -
-    scope:
+  - scope:
       path: _data-sources/ci-cd-logs
     values:
       shipping-category: CI/CD logs
-  -
-    scope:
-      path: _data-sources/community-log-shippers
-    values:
-      shipping-category: Community-maintained log shippers
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

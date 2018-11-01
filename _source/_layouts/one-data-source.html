@@ -3,7 +3,15 @@ layout: default
 community-info: false
 ---
 
-{%- assign shippersInThisCategory = site.data-sources | where: "shipping-category", page.shipping-category -%}
+{%- comment -%}
+*   Create an array from the data source. If the page frontmatter specifies a
+*   datafile, use that. If there's no datafile, `datafile` passes `nil`, and
+*   data-source-array.html assumes that its data source is a collection.
+*
+*   If you're a developer, this might not seem that impressive. But you know
+*   what? I'm pretty happy with this solution.
+*         {%- endcomment -%}
+{%- include log-shipping/data-source-array.html datafile=page.datafile -%}
 
 {{content}}
 

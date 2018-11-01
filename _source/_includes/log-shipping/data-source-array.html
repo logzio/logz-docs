@@ -1,0 +1,19 @@
+{%- comment -%}
+*   This include takes `datafile` as an argument. If `datafile` is nil, it
+*   assumes it's working with a collection, and uses the collection as its
+*   datasource. (You can pass .yml or .yaml exension, and that's fine.)
+*
+*   `datafile` is a string, and it must be the filename of a yaml file in the
+*   _data folder. The structure of the yaml file needs to match the structure
+*   in the log shipping page frontmatter.
+*         {%- endcomment -%}
+
+{%- case include.datafile -%}
+  {%- when nil -%}
+    {%- assign category = include.shippingCategory | default: page.shipping-category -%}
+    {%- assign thisCollection = site.collections | where: "label", page.collection | first -%}
+    {%- assign shippersInThisCategory = thisCollection.docs | where: "shipping-category", category -%}
+  {%- else -%}
+    {%- assign datafile = include.datafile | remove: ".yml" | remove: ".yaml" -%}
+    {%- assign shippersInThisCategory = site.data.[datafile] -%}
+{%- endcase -%}

@@ -50,8 +50,6 @@ firstLevel:
       url: /data-sources/aws-logs/
     - title: CI/CD logs
       url: /data-sources/ci-cd-logs/
-    - title: Community-maintained log shippers
-      url: /data-sources/community-log-shippers/
 
   - title: Log shipping info and troubleshooting
     url: /user-guide/log-shipping/
@@ -160,6 +158,8 @@ firstLevel:
   secondLevel:
   - title: Alice, Slack chatbot
     url: /user-guide/integrations/alice-slack-chatbot.html
+  - title: Community-maintained log shippers
+    url: /community-integrations/community-log-shippers/
 
   # ===== DEVELOPERS =====
 - title: Developers

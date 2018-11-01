@@ -1,0 +1,119 @@
+# The structure of this file is a little unintuitive, but don't panic!
+#   It's written to match the frontmatter of the log shipping pages.
+
+- title: Serilog.Sinks.Logzio
+  url: https://github.com/asperheim/serilog-sinks-logzio
+  logo:
+    logofile: dotnet.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: .NET code
+  community-project: true
+
+- title: angular1-logzio-logging
+  project-url: https://github.com/drmikecrowe/angular1-logzio-logging
+  logo:
+    logofile: angular.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: Angular code
+  community-project: true
+
+- title: jmcvetta.logzio
+  project-url: https://github.com/jmcvetta/ansible-logzio
+  logo:
+    logofile: ansible.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: Ansible
+  community-project: true
+
+- title: fluentd-logzio
+  project-url: https://github.com/jdrago999/fluentd-logzio
+  logo:
+    logofile: fluentd.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: Fluentd
+  community-project: true
+
+- title: logruzio
+  project-url: https://github.com/bshuster-repo/logruzio
+  logo:
+    logofile: go.svg
+    orientation: horizontal
+  shipping-summary:
+    data-source: Go code
+  community-project: true
+
+- title: JustLog
+  project-url: https://github.com/justeat/JustLog
+  logo:
+    logofile: ios.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: iOS
+  community-project: true
+
+- title: fluentd-logzio-kubernetes
+  project-url: https://github.com/snyk/fluentd-logzio-kubernetes
+  logo:
+    logofile: kubernetes.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: Kubernetes
+  community-project: true
+
+- title: logzio-node-debug
+  project-url: https://github.com/amio-io/logzio-node-debug
+  logo:
+    logofile: nodejs.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: Node code
+  community-project: true
+
+- title: elastica-logzio
+  project-url: https://github.com/lordoffreaks/elastica-logzio
+  logo:
+    logofile: php.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: PHP code
+  community-project: true
+
+- title: PHP Logger
+  project-url: https://github.com/vagnercsouza/logger
+  logo:
+    logofile: php.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: PHP code
+  community-project: true
+
+- title: puppet-logzio_shipper
+  project-url: https://github.com/iwalz/puppet-logzio_shipper
+  logo:
+    logofile: puppet.png
+    orientation: vertical
+  shipping-summary:
+    data-source: Puppet
+  community-project: true
+
+- title: LogStashLogger
+  project-url: https://github.com/dwbutler/logstash-logger
+  logo:
+    logofile: ruby.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: Ruby code
+  community-project: true
+
+- title: logzio-nlog
+  url: https://github.com/kylewest/logzio-nlog
+  logo:
+    logofile: dotnet.svg
+    orientation: vertical
+  shipping-summary:
+    data-source: .NET code
+  community-project: true

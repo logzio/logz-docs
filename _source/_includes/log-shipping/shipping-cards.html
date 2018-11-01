@@ -2,11 +2,10 @@
 
   <div class="cards mini-cards">
     {%- for shipper in shippersInThisCategory  %}
-    {%- assign shipperUrl = shipper.project-url | default: shipper.url -%}
+      {%- assign shipperUrl = shipper.project-url | default: shipper.url -%}
+      {%- assign filename = shipper.path | split: "/" | last -%}
 
-    {%- assign lastCharInUrl = shipper.url | split: "" | last -%}
-
-    {%- unless lastCharInUrl == "/" -%}
+    {%- unless filename == "index.md" -%}
       <a href="{{ shipperUrl }}">
         <div class="card mini-card
           {%- if shipper.community-project == true %} community-project-card{%- endif -%}

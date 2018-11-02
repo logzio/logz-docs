@@ -4,6 +4,10 @@ title: Alice, Slack chatbot
 permalink: /user-guide/integrations/alice-slack-chatbot.html
 flags:
   logzio-plan: pro
+tags:
+  - integrations
+  - slack
+  - alice
 contributors:
   - imnotashrimp
   - danielberman

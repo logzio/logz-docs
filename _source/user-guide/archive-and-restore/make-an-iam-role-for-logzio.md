@@ -2,6 +2,10 @@
 layout: article
 title: Make an IAM role for Logz.io
 permalink: /user-guide/archive-and-restore/make-an-iam-role-for-logzio.html
+tags:
+  - aws
+  - timeless-accounts
+  - archive-and-restore
 contributors:
   - davidyer
   - imnotashrimp

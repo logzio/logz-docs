@@ -4,6 +4,8 @@ title: Insights
 permalink: /user-guide/insights/
 flags:
   logzio-plan: community
+tags:
+  - insights
 contributors:
   - imnotashrimp
   - ayigal

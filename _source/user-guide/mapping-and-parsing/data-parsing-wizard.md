@@ -5,6 +5,8 @@ permalink: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 flags:
   beta: true
   logzio-plan: community
+tags:
+  - data-parsing
 contributors:
   - amosd92
   - tdelrios

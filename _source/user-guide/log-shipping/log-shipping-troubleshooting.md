@@ -2,6 +2,9 @@
 layout: article
 title: Log shipping troubleshooting
 permalink: /user-guide/log-shipping/log-shipping-troubleshooting.html
+tags:
+  - log-shipping
+  - troubleshooting
 contributors:
   - schwin007
   - imnotashrimp

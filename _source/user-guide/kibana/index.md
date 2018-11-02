@@ -4,6 +4,8 @@ title: Kibana
 permalink: /user-guide/kibana/
 flags:
   logzio-plan: community
+tags:
+  - kibana
 contributors:
   - imnotashrimp
 ---

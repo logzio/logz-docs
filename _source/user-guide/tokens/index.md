@@ -5,6 +5,11 @@ permalink: /user-guide/tokens/
 flags:
   admin: true
   logzio-plan: community
+tags:
+  - tokens
+  - api-tokens
+  - account-tokens
+  - shared-tokens
 contributors:
   - imnotashrimp
 ---

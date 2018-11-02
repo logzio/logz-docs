@@ -4,6 +4,12 @@ title: Logz.io Security Analytics
 permalink: /user-guide/security-analytics/
 flags:
   logzio-plan: pro
+tags:
+  - security-analytics
+  - security-summary
+  - security-threats
+  - security-research
+  - correlation-rules
 contributors:
   - imnotashrimp
   - proudboffin

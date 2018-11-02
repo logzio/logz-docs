@@ -4,6 +4,11 @@ title: Understanding your security logs
 permalink: /user-guide/security-analytics/understanding-your-security-logs.html
 flags:
   logzio-plan: pro
+tags:
+  - security-analytics
+  - security-summary
+  - security-threats
+  - security-research
 contributors:
   - imnotashrimp
   - proudboffin

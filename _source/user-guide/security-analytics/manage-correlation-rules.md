@@ -4,6 +4,9 @@ title: Manage correlation rules
 permalink: /user-guide/security-analytics/manage-correlation-rules.html
 flags:
   logzio-plan: pro
+tags:
+  - security-analytics
+  - correlation-rules
 contributors:
   - imnotashrimp
   - proudboffin

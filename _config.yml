@@ -66,6 +66,9 @@ collections:
   contributors:
     output: true
     permalink: /contributors/:name
+  docs-admin:
+    output: true
+    permalink: /docs-admin/:path
 
 defaults:
   - scope:
@@ -73,6 +76,13 @@ defaults:
     values:
       search: false
       tags: false
+  - scope:
+      path: ''
+      type: docs-admin
+    values:
+      search: false
+      tags: false
+      community-info: false
   - scope:
       path: ''
       type: contributors

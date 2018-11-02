@@ -15,3 +15,5 @@
 {%- assign shippingDataSources = site.data-sources
   | default: shippingDataSources -%}
 {%- assign htmlPages = site.html_pages -%}
+
+{%- assign allPages = htmlPages | concat: shippingDataSources | sort: "title" -%}

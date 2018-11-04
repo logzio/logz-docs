@@ -1,5 +1,5 @@
 ---
 layout: one-data-source
 title: AWS logs
-permalink: /data-sources/aws-logs/
+permalink: /shipping/log-sources/aws-logs/
 ---

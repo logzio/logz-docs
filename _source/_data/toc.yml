@@ -30,26 +30,26 @@ firstLevel:
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
 
-- title: Log shipping
+- title: Shipping
   secondLevel:
-  - title: Log shipping data sources
-    url: /data-sources/
+  - title: Log sources
+    url: /shipping/log-sources/
 
     thirdLevel:
     - title: Log shipping utilities
-      url: /data-sources/log-shipping-utilities/
+      url: /shipping/log-sources/log-shipping-utilities/
     - title: OS logs
-      url: /data-sources/os-logs/
+      url: /shipping/log-sources/os-logs/
     - title: Server app logs
-      url: /data-sources/server-app-logs/
+      url: /shipping/log-sources/server-app-logs/
     - title: Custom code logs
-      url: /data-sources/custom-code-logs/
+      url: /shipping/log-sources/custom-code-logs/
     - title: Platform or service logs
-      url: /data-sources/platform-service-logs/
+      url: /shipping/log-sources/platform-service-logs/
     - title: AWS logs
-      url: /data-sources/aws-logs/
+      url: /shipping/log-sources/aws-logs/
     - title: CI/CD logs
-      url: /data-sources/ci-cd-logs/
+      url: /shipping/log-sources/ci-cd-logs/
 
   - title: Log shipping info and troubleshooting
     url: /user-guide/log-shipping/

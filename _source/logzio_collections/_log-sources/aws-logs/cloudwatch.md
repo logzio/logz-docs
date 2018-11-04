@@ -38,14 +38,14 @@ contributors:
     Download the [CloudWatch Logs Shipper - Lambda](https://github.com/logzio/cloudwatch-logs-shipper-lambda) project from GitHub to your computer, and zip the Python files in the src/ folder.
 
     ```shell
-    zip logzio-cloudwatch-log-shipper lambda_function.py shipper.py
+    mkdir dist; cp -r ../shipper dist/ && cp src/lambda_function.py dist/ && cd dist/ && zip logzio-cloudwatch shipper/* lambda_function.py
     ```
 
 3. Upload the zip file and set environment variables
 
     In the Function code section of Lambda find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
 
-    Click **Upload**, and choose the zip file you created earlier (`logzio-cloudwatch-log-shipper`).
+    Click **Upload**, and choose the zip file you created earlier (`logzio-cloudwatch`).
 
     In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
@@ -79,7 +79,10 @@ contributors:
     * **Memory:** 512 MB
     * **Timeout:** 1 min 0 sec
 
-    Keep an eye on your Lambda usage, and adjust these values accordingly.
+    <div class="info-box important">
+    These default settings are just a starting point.
+    Check your Lambda usage regularly, and adjust these values if you need to.
+    </div>
 
 5. Set the CloudWatch Logs event trigger
 

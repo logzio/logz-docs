@@ -17,14 +17,14 @@
 {%- assign shippingDataSources = "" | split: "" -%}
 
 {%- comment -%}
-*   shippingDataSources is a placeholder for the data-sources collection.
-*   If Jekyll can't find data-sources, it defaults to an empty array
+*   shippingDataSources is a placeholder for the log-sources collection.
+*   If Jekyll can't find log-sources, it defaults to an empty array
 *   (initialized above) so it doesn't break the remaining code.
 *
 *   shippingDataSources is used for the rest of this doc, so if you add
 *   more data sources in the future, add them to shippingDataSources with
 *   `concat: <COLLECTION-NAME>`. Leave the default last.
 *         {%- endcomment -%}
-{%- assign shippingDataSources = site.data-sources
+{%- assign shippingDataSources = site.log-sources
   | default: shippingDataSources -%}
 {%- assign htmlPages = site.html_pages -%}

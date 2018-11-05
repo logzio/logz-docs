@@ -352,7 +352,8 @@ div.card-icon i::before {
 
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  font-size: .75rem;
+  font-size: .9rem;
+  font-weight: 400;
 
   margin: -11px -6px 0px -6px;
 }

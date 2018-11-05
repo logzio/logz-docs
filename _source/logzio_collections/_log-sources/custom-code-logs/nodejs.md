@@ -15,9 +15,7 @@ contributors:
 
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [logzio-nodejs](#logzio-nodejs-config)
-  * [winston-logzio](#winston-config)
+{% include log-shipping/tabs.html %}
 
 <div id="logzio-nodejs-config">
 
@@ -149,7 +147,7 @@ Include this line if you're using logzio-nodejs in a severless environment, such
 </div>
 
 
-<div id="winston-config">
+<div id="winston-logzio-config">
 
 ## winston-logzio setup
 

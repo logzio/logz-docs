@@ -17,9 +17,7 @@ contributors:
 
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Filebeat](#filebeat-config)
-  * [rsyslog](#rsyslog-config)
+{% include log-shipping/tabs.html %}
 
 <div id="filebeat-config">
 

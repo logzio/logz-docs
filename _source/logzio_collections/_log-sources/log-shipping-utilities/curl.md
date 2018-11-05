@@ -7,6 +7,9 @@ logo:
 shipping-summary:
   data-source: cURL file upload
   hidden: true
+  log-shippers:
+    - Plain text
+    - JSON
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/File-UploadcURL
 contributors:
   - imnotashrimp
@@ -14,10 +17,7 @@ contributors:
 
 <div class="branching-container">
 
-{: .branching-tabs}
-  * [Plain text](#plain-text-config)
-  * [JSON](#json-config)
-
+{% include log-shipping/tabs.html %}
 
 <div id="plain-text-config">
 

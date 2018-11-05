@@ -1,15 +1,15 @@
 {%- unless page.shipping-summary.hidden == true -%}
 
-{%- assign data-source = page.shipping-summary.data-source -%}
-{%- assign log-shippers = page.shipping-summary.log-shippers -%}
-{%- assign metrics-shippers = page.shipping-summary.metrics-shippers -%}
+{%- assign dataSource = page.shipping-summary.data-source -%}
+{%- assign logShippers = page.shipping-summary.log-shippers -%}
+{%- assign metricsShippers = page.shipping-summary.metrics-shippers -%}
 {%- assign appenders = page.shipping-summary.appenders -%}
 {%- assign os = page.shipping-summary.os -%}
 
-{% if log-shippers -%}
-{%- capture log-shippers-block -%}
+{% if logShippers -%}
+{%- capture logShippersBlock -%}
 <div>Log shippers <span>
-{%- for shipper in log-shippers -%}
+{%- for shipper in logShippers -%}
 {%- if shipper.recommended -%}
   {{shipper.recommended}} <span class="sm ital">(recommended)</span>
 {%- else -%}
@@ -21,10 +21,10 @@
 {%- endcapture -%}
 {%- endif %}
 
-{% if metrics-shippers -%}
-{%- capture metrics-shippers-block -%}
+{% if metricsShippers -%}
+{%- capture metricsShippersBlock -%}
 <div>Metrics shippers <span>
-{%- for shipper in metrics-shippers -%}
+{%- for shipper in metricsShippers -%}
 {%- if shipper.recommended -%}
   {{shipper.recommended}} <span class="sm ital">(recommended)</span>
 {%- else -%}
@@ -37,7 +37,7 @@
 {%- endif %}
 
 {% if appenders -%}
-{%- capture appenders-block -%}
+{%- capture appendersBlock -%}
 <div>Log appenders <span>
 {%- for appender in appenders -%}
 {%- if appender.recommended -%}
@@ -52,10 +52,10 @@
 {%- endif %}
 
 <div class="shipping-summary">
-<div>Data source <span>{{data-source}}</span></div>
-{{log-shippers-block}}
-{{metrics-shippers-block}}
-{{appenders-block}}
+<div>Data source <span>{{dataSource}}</span></div>
+{{logShippersBlock}}
+{{metricsShippersBlock}}
+{{appendersBlock}}
 {% if os %}
 <div>OS <span>{{os}}</span></div>
 {% endif %}

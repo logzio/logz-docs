@@ -17,7 +17,7 @@ contributors:
 
 **You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
 
-###### Manual configuration
+###### Configuration at a glance
 
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br /> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |

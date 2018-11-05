@@ -13,7 +13,7 @@ contributors:
 
 **You'll need:** [Fluentd](https://www.fluentd.org/download) 1.0 or higher, root access
 
-###### Manual configuration
+###### Configuration at a glance
 
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
 | **Listener port** | 8071 |

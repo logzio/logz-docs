@@ -14,7 +14,7 @@ contributors:
 
 ## Linux + rsyslog setup
 
-###### Manual configuration
+###### Configuration at a glance
 
 | **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
 | **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |

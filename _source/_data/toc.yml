@@ -35,7 +35,6 @@ firstLevel:
   - title: Log shipping
     url: /user-guide/log-shipping/
     thirdLevel:
-    # - title: Best practice- know your type
     - title: Built-in log types
       url: /user-guide/log-shipping/built-in-log-types.html
     - title: Log shipping troubleshooting
@@ -110,6 +109,8 @@ firstLevel:
       url: /user-guide/accounts/manage-sub-accounts.html
     - title: Manage timeless accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
+    - title: Support access
+      url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
   # - title: Archive and restore

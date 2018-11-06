@@ -45,7 +45,7 @@ contributors:
 
     In the Function code section of Lambda find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
 
-    Click **Upload**, and choose the zip file you created earlier (`logzio-cloudwatch`).
+    Click **Upload**, and choose the zip file you created earlier (`logzio-cloudwatch.zip`).
 
     In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
@@ -79,7 +79,7 @@ contributors:
     * **Memory:** 512 MB
     * **Timeout:** 1 min 0 sec
 
-    <div class="info-box important">
+    <div class="info-box note">
     These default settings are just a starting point.
     Check your Lambda usage regularly, and adjust these values if you need to.
     </div>

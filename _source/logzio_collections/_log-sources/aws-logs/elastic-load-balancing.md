@@ -22,10 +22,12 @@ contributors:
 {: .tasklist .firstline-headline }
 1. Send your logs to an S3 bucket
 
-    Logz.io fetches your ELB logs from an S3 bucket.
-    ELB logs are not enabled by default, so you'll need to set this up.
+    Logz.io fetches your Elastic Load Balancing logs from an S3 bucket.
 
-    For help with this, see [Enable Access Logs for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html) from AWS.
+    For help with setting this up, see these docs from AWS:
+    * For Application Load Balancer, see [Access Logs for Your Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html).
+    * For Network Load Balancer, see [Monitor Your Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-monitoring.html).
+    * For Classic Load Balancer, see [Enable Access Logs for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html).
 
 2. Add the S3 bucket information
 

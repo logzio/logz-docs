@@ -24,8 +24,8 @@ $('table').tablesorter({ sortList: [[0,0]] });
 
 // accordion
 $( '.accordion' ).accordion({
-  active: false,
-  collapsible: true,
+  active: 0,
+  collapsible: false,
   heightStyle: 'content',
   icons: false
 });

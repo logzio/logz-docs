@@ -39,7 +39,10 @@ layout: default
   <ul>
     {%- assign filename = page.url | downcase | split: "/" %}
     {%- assign contributorShortname = filename.last %}
-    {%- assign articles = site.pages | sort: "title" %}
+
+    {%- include tags/capture-site-pages.html -%}
+    {%- assign articles = htmlPages
+      | concat: shippingDataSources | sort: "title" -%}
 
     {%- for article in articles -%}
     {%- assign articleContributors = article.contributors | downcase %}

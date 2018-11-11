@@ -10,6 +10,7 @@ shipping-summary:
     - AWS Lambda function
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kinesis
 contributors:
+  - idohalevi
   - imnotashrimp
 ---
 

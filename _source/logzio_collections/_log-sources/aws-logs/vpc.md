@@ -10,6 +10,7 @@ shipping-summary:
     - Logz.io S3 Fetcher
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/VPC
 contributors:
+  - idohalevi
   - imnotashrimp
 ---
 

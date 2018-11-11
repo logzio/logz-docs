@@ -10,6 +10,7 @@ shipping-summary:
     - Amazon Kinesis data stream
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/GuardDuty
 contributors:
+  - idohalevi
   - imnotashrimp
 ---
 

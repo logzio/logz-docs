@@ -10,6 +10,7 @@ shipping-summary:
     - S3 fetcher
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudFront
 contributors:
+  - idohalevi
   - imnotashrimp
 ---
 

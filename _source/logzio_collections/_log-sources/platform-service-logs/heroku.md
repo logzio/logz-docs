@@ -7,7 +7,6 @@ logo:
 shipping-summary:
   data-source: Heroku
   log-shippers:
-    - Logz.io add-on
     - Log drain
 contributors:
   - imnotashrimp

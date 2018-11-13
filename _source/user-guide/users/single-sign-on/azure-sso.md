@@ -38,9 +38,9 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     Fill in these details from the Logz.io Support email message:
 
-    * In **Identifier (Entity ID)**, add _Audience URI_ from the email
+    * In **Identifier (Entity ID)**, paste _Audience URI_ from the email
 
-    * In **Reply URL (Assertion Consumer Service URL)**, add _Single sign on URL_ from the email
+    * In **Reply URL (Assertion Consumer Service URL)**, paste _Single sign on URL_ from the email
 
 4. Zip the SAML certificate
 

@@ -42,7 +42,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     ![SAML settings]({{site.baseurl}}/images/sso-providers/okta/saml-settings.png)
 
-    Fill in **Single sign on URL** and **Audience URI** from the Logz.io Support email message.
+    Paste **Single sign on URL** and **Audience URI** from the Logz.io Support email message.
 
     Don't change **Default RelayState**, **Name ID format**, or **Application username**.
 

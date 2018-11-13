@@ -5,6 +5,9 @@ permalink: /user-guide/users/single-sign-on/okta-sso.html
 flags:
   admin: true
   logzio-plan: enterprise
+tags:
+  - sso
+  - okta
 contributors:
   - schwin007
 ---

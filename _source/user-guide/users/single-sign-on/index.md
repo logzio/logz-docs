@@ -5,6 +5,8 @@ permalink: /user-guide/users/single-sign-on/
 flags:
   admin: true
   logzio-plan: enterprise
+tags:
+  - sso
 contributors:
   - imnotashrimp
 ---

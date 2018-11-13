@@ -5,6 +5,9 @@ permalink: /user-guide/users/single-sign-on/azure-sso.html
 flags:
   admin: true
   logzio-plan: enterprise
+tags:
+  - sso
+  - azure
 contributors:
   - schwin007
 ---

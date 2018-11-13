@@ -5,6 +5,9 @@ permalink: /user-guide/users/single-sign-on/onelogin-sso.html
 flags:
   admin: true
   logzio-plan: enterprise
+tags:
+  - sso
+  - onelogin
 contributors:
   - schwin007
 ---

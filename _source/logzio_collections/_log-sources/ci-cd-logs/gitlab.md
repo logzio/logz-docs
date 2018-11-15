@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship GitLab logs
 logo:
   logofile: gitlab.svg

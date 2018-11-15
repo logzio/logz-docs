@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Java logs
 logo:
   logofile: java.svg

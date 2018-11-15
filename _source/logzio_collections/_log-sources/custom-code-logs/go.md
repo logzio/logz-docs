@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Go logs
 logo:
   logofile: go.svg

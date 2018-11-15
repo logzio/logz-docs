@@ -1,4 +1,4 @@
-{%- unless page.shipping-summary.hidden == true -%}
+{%- unless page.shipping-summary.hidden == true or page.shipping-summary == nil -%}
 
 {%- assign dataSource = page.shipping-summary.data-source -%}
 {%- assign logShippers = page.shipping-summary.log-shippers -%}

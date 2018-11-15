@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship nginx logs
 logo:
   logofile: nginx.svg

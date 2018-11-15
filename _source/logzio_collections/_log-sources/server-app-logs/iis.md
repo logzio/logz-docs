@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship IIS logs
 logo:
   logofile: iis.png

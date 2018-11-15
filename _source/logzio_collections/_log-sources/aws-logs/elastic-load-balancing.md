@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Elastic Load Balancing logs
 logo:
   logofile: aws-elb.svg

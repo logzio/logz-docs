@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Python logs
 logo:
   logofile: python.svg

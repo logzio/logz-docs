@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Windows logs
 logo:
   logofile: windows.svg

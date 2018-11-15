@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship VPC flow logs
 logo:
   logofile: aws-vpc.svg

@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Heroku logs
 logo:
   logofile: heroku.svg

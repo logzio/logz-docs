@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship CloudTrail logs
 logo:
   logofile: aws-cloudtrail.svg

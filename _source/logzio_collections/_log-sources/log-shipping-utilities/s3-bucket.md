@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Configure the Amazon S3 fetcher
 logo:
   logofile: aws-s3.svg

@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Node.js logs
 logo:
   logofile: nodejs.svg

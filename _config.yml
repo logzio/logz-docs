@@ -80,6 +80,10 @@ defaults:
       layout: contributor-profile
       community-info: false
   - scope:
+      path: ''
+    values:
+      layout: article
+  - scope:
       path: _log-sources/log-shipping-utilities
     values:
       shipping-category: Log shipping utilities

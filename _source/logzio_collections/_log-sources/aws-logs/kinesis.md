@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Kinesis logs
 logo:
   logofile: aws-kinesis.svg

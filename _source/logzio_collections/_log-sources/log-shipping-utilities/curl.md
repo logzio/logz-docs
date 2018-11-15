@@ -1,5 +1,4 @@
 ---
-layout: article
 title: cURL log file upload
 logo:
   logofile: curl.svg

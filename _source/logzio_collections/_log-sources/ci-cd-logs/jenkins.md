@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Jenkins logs
 logo:
   logofile: jenkins.png

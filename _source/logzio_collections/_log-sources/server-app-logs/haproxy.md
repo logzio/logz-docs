@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship HAProxy logs
 logo:
   logofile: haproxy.png

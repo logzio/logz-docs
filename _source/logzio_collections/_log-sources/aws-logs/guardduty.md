@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship GuardDuty logs
 logo:
   logofile: aws-guardduty.png

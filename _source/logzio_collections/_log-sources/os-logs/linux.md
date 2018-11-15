@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Linux logs
 logo:
   logofile: linux.svg

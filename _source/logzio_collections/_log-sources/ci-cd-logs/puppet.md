@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Puppet logs
 logo:
   logofile: puppet.png

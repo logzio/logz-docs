@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship .NET logs
 logo:
   logofile: dotnet.svg

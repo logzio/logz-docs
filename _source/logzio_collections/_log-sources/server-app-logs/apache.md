@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Apache logs
 logo:
   logofile: apache.svg

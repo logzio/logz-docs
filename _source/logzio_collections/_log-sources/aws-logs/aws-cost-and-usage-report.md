@@ -1,5 +1,4 @@
 ---
-layout: article
 title: AWS cost and usage report
 logo:
   logofile: aws.svg
@@ -16,7 +15,7 @@ contributors:
 
 ## Setup
 
-**You'll need:** AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html) and shipping to an S3 bucket
+**You'll need:** AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
 
 <div class="info-box important">
   Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout.

@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship CloudFront logs
 logo:
   logofile: aws-cloudfront.svg

@@ -2,57 +2,51 @@
   <div class="contributor-list">
   {% if page.contributors %}
     <i class="fas fa-users"></i> Contributors:&nbsp;
-    {%- for contributor in page.contributors -%}
-      {% assign contributor_page = site.contributors | where: 'slug', contributor | first %}
-      {%- unless contributor_page == null -%}
-        {% unless forloop.first %}, {% endunless %}
+    {%- for c in page.contributors -%}
+      {%- assign contributorPage = site.contributors | where: 'slug', c | first -%}
+      {%- unless contributorPage == nil -%}
+        {%- unless forloop.first -%}, {% endunless -%}
       {%- endunless -%}
-      <a href="{{ contributor_page.url }}">{{ contributor_page.title }}</a>
+      <a href="{{ contributorPage.url }}">{{ contributorPage.title }}</a>
     {%- endfor -%}
-  {% endif %}
+  {%- endif %}
   </div>
 
-  {% if site.public == true %}
-  {%- capture repo_path -%}
-  {{site.github.org_url | append: site.github.repo_name}}
+  {%- assign repoPath = site.github.org_url | append: site.github.repo_name -%}
+
+  {%- capture editPath -%}
+    {{ repoPath | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}
   {%- endcapture -%}
 
-  {%- capture edit_path -%}
-  {{ repo_path | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}
-  {%- endcapture -%}
-
-  {%- capture issue_path -%}
-  {{ repo_path | append: "/issues/new" }}
-  {%- if site.github.issue_template -%}
-  ?template={{site.github.issue_template}}.md
-  {%- endif -%}
+  {%- capture issuePath -%}
+    {{ repoPath | append: "/issues/new" }}
+    {%- if site.github.issue_template -%}
+      ?template={{site.github.issue_template}}.md
+    {%- endif -%}
   {%- endcapture -%}
 
   <div class="community-container">
-    {% unless page.community-info == false or layout.community-info == false %}
-    {% if site.edit_enabled == true %}
-    <a href="{{ edit_path }}/{{ page.path }}" target="_blank">
-      <div class="community button edit">
+  {%- unless page.community-info == false or layout.community-info == false %}
+    <div class="community button edit">
+      <a class="fancy" href="{{ editPath }}/{{ page.path }}" target="_blank">
         <span class="icon">{% octicon pencil %}</span>
-        <span>Edit</span>
-      </div>
-    </a>
-    {% endif %}
+        <span>Contribute</span>
+      </a>
+    </div>
 
-    <a href="{{ issue_path }}" target="_blank">
-      <div class="community button issue">
+    <div class="community button issue">
+      <a class="fancy" href="{{ issuePath }}" target="_blank">
         <span class="icon">{% octicon issue-opened %}</span>
-        <span>Issue</span>
-      </div>
-    </a>
+        <span>Report an issue</span>
+      </a>
+    </div>
 
-  {% if site.slackin_enabled == true %}
+    {% if site.slackin_enabled == true -%}
     <div class="community button slackin">
         <script async defer src="https://community-slack.logz.io/slackin.js"></script>
     </div>
-  {% endif %}
+    {%- endif %}
 
-  {% endunless %}
+  {%- endunless %}
 </div>
-{% endif %}
 </div>

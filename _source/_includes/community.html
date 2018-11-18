@@ -28,14 +28,14 @@
   <div class="community-container">
   {%- unless page.community-info == false or layout.community-info == false %}
     <div class="community button edit">
-      <a class="fancy" href="{{ editPath }}/{{ page.path }}" target="_blank">
+      <a class="fancy-link" href="{{ editPath }}/{{ page.path }}" target="_blank">
         <span class="icon">{% octicon pencil %}</span>
         <span>Contribute</span>
       </a>
     </div>
 
     <div class="community button issue">
-      <a class="fancy" href="{{ issuePath }}" target="_blank">
+      <a class="fancy-link" href="{{ issuePath }}" target="_blank">
         <span class="icon">{% octicon issue-opened %}</span>
         <span>Report an issue</span>
       </a>

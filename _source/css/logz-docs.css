@@ -17,7 +17,7 @@
   --heading-font: 'Titillium Web', sans-serif;
   --body-font: 'Nunito Sans', sans-serif;
   --mono-font: 'Roboto Mono', monospace;
-  --toc-font-size: .75rem;
+  --toc-font-size: .9rem;
 
   /* COLORS */
   --logz-logo-normal: #0089b1;
@@ -286,7 +286,6 @@ div.full-card div.card-text {
 }
 
 .full-card .card-text p {
-  font-size: .75em;
   line-height: 1.25em;
   margin-top: .75em;
 }
@@ -295,6 +294,7 @@ span.card-title {
   font-family: var(--heading-font);
   font-weight: 600;
   color: var(--heading-normal);
+  font-size: 1.25rem;
   margin: auto;
 }
 
@@ -366,15 +366,20 @@ div.card-icon i::before {
 /* ===== BASE STYLES ===== */
 
 html {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 body, .ui-accordion-content > *:not(h5):not(h6)  {
   font-family: var(--body-font);
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.4rem;
+  line-height: 1.7rem;
   color: var(--text-normal);
+}
+
+p {
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
 }
 
 code, pre {
@@ -451,7 +456,7 @@ svg.svg-inline--fa, i.li {
   margin-right: .1rem;
 }
 
-a.fancy::after {
+a.fancy-link::after {
   content: '';
   display: block;
   width: 0;
@@ -461,7 +466,7 @@ a.fancy::after {
   transition: width .3s;
 }
 
-a.fancy:hover::after {
+a.fancy-link:hover::after {
   width: 100%;
 }
 
@@ -1155,12 +1160,12 @@ ul.toc-child li span.toc-heading:hover {
 /* ===== CONTRIBUTORS LIST ===== */
 
 div.article-info-container {
-  font-size: .75rem;
+  font-size: .9rem;
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -1169,8 +1174,7 @@ div.contributor-list svg {
 }
 
 div.contributor-list {
-  line-height: 1.25rem;
-  margin-bottom: 1rem;
+  margin-right: 2rem;
   align-self: flex-start;
 }
 

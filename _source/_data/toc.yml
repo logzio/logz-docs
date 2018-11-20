@@ -103,12 +103,12 @@ firstLevel:
     url: /user-guide/accounts/
 
     thirdLevel:
-    - title: Manage the main account
-      url: /user-guide/accounts/manage-the-main-account.html
-    - title: Manage sub accounts
-      url: /user-guide/accounts/manage-sub-accounts.html
+    - title: Manage the main account and sub accounts
+      url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
     - title: Manage timeless accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
+    - title: Monitor account usage
+      url: /user-guide/accounts/monitor-account-usage.html
     - title: Support access
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing

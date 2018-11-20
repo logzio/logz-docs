@@ -10,21 +10,34 @@ tags:
   - account-utilization
 contributors:
   - boofinka
+  - greg-loucas
 ---
 
 If your account is nearing its daily quota, Logz.io sends an email alert to account administrators.
 This is fine for most situations, but what if you want to be more proactive in managing your accounts?
 For this, we have _account utilization metrics_ and the ability to save log size with each log.
 
-## What are account utilization metrics and log size?
+## What are account utilization metrics? {#what-are-account-utilization-metrics}
 
 Account utilization metrics capture a snapshot of your account usage in regular increments—every 10, 30, or 60 minutes—depending on your settings.
 Logz.io starts logging your usage after your account reaches 10 MB in size.
 You can find these logs in Kibana when you filter for the `logzio_account_utilization` log type.
 
-## What happens when I save log size?
+| Field name | Description |
+|---|---|
+| account_id | Logz.io account ID |
+| account_name | Name of this account |
+| expected_utilization_EOD | Expected utilization by the end of the day, in percent |
+| expected_volume_in_GB_EOD | The expected utilization by the end of the day, in GB |
+| grace_capacity | The overage configured on the account, in percent. For instance, `120%` means that you have an overage allowance of 20% of your plan volume. |
+| plan_volume_in_GB | Data allocated to this account, in GB |
+| utilization | Current utilization, in percent |
+| volume_in_GB | Current utilization, in GB |
 
-When you enable saving log size, a new field is attached to each log that Logz.io receives.
+
+## What happens when I save log size? {#what-happens-when-i-save-log-size}
+
+When you enable saving log size, a new field is added to incoming logs.
 This new field is called `LogSize`, and it contains the size of the log line in bytes or kilobytes.
 
 Kibana doesn't recognize `LogSize` as a number right away.

@@ -430,7 +430,7 @@ h6 {
 
 main.page-content img, main.page-content video, .post-content iframe {
   display: block;
-  max-width: 100%;
+  max-width: 90%;
   margin: 1.5rem auto;
   border: 1px solid var(--border-dark);
   border-radius: 2px;
@@ -441,7 +441,7 @@ ol img, ol video {
   margin-right: auto;
 }
 
-img.no-border {
+.no-border {
   border: none !important;
 }
 

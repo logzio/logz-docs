@@ -2,7 +2,8 @@
 # Netlify doc on redirects: https://www.netlify.com/docs/redirects/
 
 /user-guide/access-and-authentication/manage-users.html /user-guide/users/ 301
-
+/user-guide/accounts/manage-the-main-account.html /user-guide/accounts/manage-the-main-account-and-sub-accounts.html 301
+/user-guide/accounts/manage-sub-accounts.html /user-guide/accounts/manage-the-main-account-and-sub-accounts.html 301
 /user-guide/access-and-authentication/multi-factor-authentication.html /user-guide/users/multi-factor-authentication.html 301
 
 /user-guide/access-and-authentication/* /user-guide/tokens/:splat 301

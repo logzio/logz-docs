@@ -15,7 +15,14 @@
     </span>
 
     <span class="docs-home-link">
-      <a href="{{site.baseurl}}/" target="_top">Docs</a>
+      <a href="{{site.baseurl}}/" target="_top">
+        {%- case jekyll.environment -%}
+          {%- when "ducks" -%}
+            🦆
+          {%- else -%}
+            Docs
+        {%- endcase -%}
+      </a>
     </span>
   </div>
 

@@ -10,7 +10,7 @@ tags:
   - account-utilization
 contributors:
   - boofinka
-  - greg-loucas
+  - gregoryloucas
 ---
 
 If your account is nearing its daily quota, Logz.io sends an email alert to account administrators.

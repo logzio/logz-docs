@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Set up Azure single sign-on
+title: Single sign-on with Azure
 permalink: /user-guide/users/single-sign-on/azure-sso.html
 flags:
   admin: true
@@ -42,7 +42,6 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     Fill in these details from the Logz.io Support email message:
 
     * In **Identifier (Entity ID)**, paste _Audience URI_ from the email
-
     * In **Reply URL (Assertion Consumer Service URL)**, paste _Single sign on URL_ from the email
 
 4. Zip the SAML certificate
@@ -65,10 +64,9 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
     * Your zipped certificate (from step 4)
-
     * Your SAML-P SIGN-ON ENDPOINT (from step 5)
 
-7.  Update the Logz.io app manifest
+7.  Configure Azure to send user groups
 
     Return to the App registrations page.
     If you don't see Logz.io, click **View all applications**.
@@ -77,7 +75,17 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     In the manifest JSON, set groupMembershipClaims to `"All"`.
     Click **Save** (top of the page).
 
-8.  Receive confirmation from Support
+8. _(Optional)_ Restrict Logz.io access to specific user groups
+
+    ![Add group]({{site.baseurl}}/images/access-and-authentication/sso--manage-groups.png)
+
+    By default, all Azure users with Logz.io access can sign in to your Logz.io accounts.
+
+    You can restrict this access from the [Manage users page](https://app.logz.io/#/dashboard/settings/manage-users) for each of your accounts.
+    To do this, click **Add group**, and then paste your group's Object ID from Azure.
+    Do this for each group that should have access to this account.
+
+9.  Receive confirmation from Support
 
     When Support has created your Azure + Logz.io connection, you're done!
     You can start logging in to Logz.io through your Apps portal.

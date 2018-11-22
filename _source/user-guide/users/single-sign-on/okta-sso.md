@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Set up Okta single sign-on
+title: Single sign-on with Okta
 permalink: /user-guide/users/single-sign-on/okta-sso.html
 flags:
   admin: true
@@ -54,12 +54,21 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     In the Attribute Statements section:
 
     * Set **Name** to "email"
-
     * Select "Unspecified" from **Name format**
-
     * Set **Value** to "${user.email}"
 
-4. Zip the SAML certificate
+4.  Configure Okta to send user groups
+
+    ![Group Attribute Statements]({{site.baseurl}}/images/sso-providers/okta/group-attribute-statements.png)
+
+    In the Group Attribute Statements section:
+
+    * Set **Name** to "groups"
+    * Select "Unspecified" from **Name format**
+    * Type an expression for the groups that you want to have access to Logz.io in **Filter value**.
+      This field can't be blank.
+
+5. Zip the SAML certificate
 
     On the right side of the page, click **Download Okta Certificate**.
 
@@ -68,7 +77,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     Click **Next**, select **I'm an Okta customer adding an internal app**, and then click **Finish**.
 
-5.  Get your endpoint information
+6.  Get your endpoint information
 
     ![SAML setup instructions]({{site.baseurl}}/images/sso-providers/okta/view-setup-instructions.png)
 
@@ -76,15 +85,24 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     Copy the **Identity Provider Single Sign-On URL**, and paste this in the email that you'll send to the Support team.
 
-6.  Send your SAML details to Logz.io
+7.  Send your SAML details to Logz.io
 
     Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
     * Your zipped certificate (from step 4)
-
     * Your Identity Provider Single Sign-On URL (from step 5)
 
-7.  Receive confirmation from Support
+8. _(Optional)_ Restrict Logz.io access to specific user groups
+
+    ![Add group]({{site.baseurl}}/images/access-and-authentication/sso--manage-groups.png)
+
+    By default, all Okta users with Logz.io access can sign in to your Logz.io accounts.
+
+    You can restrict this access from the [Manage users page](https://app.logz.io/#/dashboard/settings/manage-users) for each of your accounts.
+    To do this, click **Add group**, and then paste your group's name from Okta.
+    Do this for each group that should have access to this account.
+
+9.  Receive confirmation from Support
 
     When Support has created your Okta + Logz.io connection, you're done!
     You can start logging in to Logz.io through your Apps portal.

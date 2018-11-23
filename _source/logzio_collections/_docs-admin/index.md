@@ -12,7 +12,7 @@ permalink: /docs-admin/
 
 {% for doc in thisCollection.docs %}
   {%- assign filename = doc.path | split: "/" | last | split: "." | first -%}
-  {%- unless filename == "index" -%}
+  {%- unless filename == "index" %}
   * [{{doc.title}}]({{doc.url}})
   {%- endunless -%}
 {%- endfor %}

@@ -1,7 +1,4 @@
 $( function() {
-// Auto-structure .info-box divs
-$('div.info-box').wrapInner('<p></p>');
-
 // Show/hide animations for left-side TOC. Also animates caret icon.
 $('ul.toc-child > li.toc-active').find('ul.toc-grandchild').show().addClass('show').siblings('span.toc-heading').find('span.collapse-button').addClass('show');
 $('ul.toc-grandchild > li.toc-active').parent('ul.toc-grandchild').show().addClass('show').siblings('span.toc-heading').find('span.collapse-button').addClass('show');

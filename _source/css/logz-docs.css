@@ -861,11 +861,12 @@ div.feature-box > span {
 /* ===== INFO BOXES ===== */
 
 div.info-box {
-  width: 450px;
+  width: 500px;
   margin: 2rem auto;
   border-radius: 2px;
   border: 1px solid;
   padding: 10px;
+  font-size: .9rem;
 }
 
 div.info-box ul {
@@ -874,7 +875,6 @@ div.info-box ul {
 
 div.info-box::before {
   font-weight: 700;
-  font-size: 13px;
   line-height: 1.1em;
   color: white;
 
@@ -887,7 +887,6 @@ div.info-box::before {
 
 div.info-box > p {
   margin: 0;
-  font-size: .85rem;
   line-height: 1.2rem;
 }
 

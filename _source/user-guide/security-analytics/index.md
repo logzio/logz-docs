@@ -19,8 +19,6 @@ Logz.io Security Analytics is a unified platform for security and operations.
 It combines the ELK stack with advanced security analytics tools to help you identify and remediate threats to your system.
 Security Analytics helps you identify potential compromises to your system by correlating your Logz.io data with lists of known threats.
 
-If you’re on a Pro or Enterprise plan, you can request access to Security Analytics from your account manager, or you can email [help@logz.io](mailto:help@logz.io) to get started.
-
 ![Logz.io Security Analytics]({{site.baseurl}}/images/security-analytics/security-analytics--annotated.png)
 
 {: .letter-labels }

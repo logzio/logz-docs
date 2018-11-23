@@ -1,18 +1,23 @@
-{% if page.flags %}
+{%- if page.flags -%}
 <div class="page-flags">
 
   <div class="flags">
-    {% if page.flags.beta %}
-      <div class="flag beta">Beta feature</div>
-    {% endif %}
-    {% if page.flags.admin -%}
-      <div class="flag admin">Account admin only</div>
-    {%- endif %}
+  {% if page.flags.beta -%}
+    <div class="flag beta">Beta feature</div>
+  {%- endif %}
+  {% if page.flags.admin -%}
+    <div class="flag admin">Account admin only</div>
+  {%- endif %}
   </div>
 
-  {% if page.flags.logzio-plan %}
-  <div class="feature-box {{page.flags.logzio-plan}}"><div class="available-in">Available in:</div><span class="flag enterprise-plan">Enterprise</span><span class="flag pro-plan">Pro</span><span class="flag community-plan">Community</span></div>
-  {% endif %}
+  {% if page.flags.logzio-plan -%}
+  <div class="feature-box {{page.flags.logzio-plan}}">
+    <div class="available-in">Available for:</div>
+    <span class="flag enterprise-plan">Enterprise</span>
+    <span class="flag pro-plan">Pro</span>
+    <span class="flag community-plan">Community</span>
+  </div>
+  {%- endif %}
 
 </div>
-{% endif %}
+{%- endif -%}

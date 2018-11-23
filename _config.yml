@@ -66,6 +66,9 @@ collections:
   log-sources:
     output: true
     permalink: /shipping/log-sources/:path.html
+  shipping-utilities:
+    output: true
+    permalink: /shipping/shipping-utilities/:path.html
 
 defaults:
   - scope:
@@ -84,7 +87,7 @@ defaults:
     values:
       layout: article
   - scope:
-      path: _log-sources/log-shipping-utilities
+      path: _shipping-utilities/log-shippers
     values:
       shipping-category: Log shipping utilities
   - scope:

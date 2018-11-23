@@ -30,27 +30,10 @@ firstLevel:
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
 
-- title: Shipping
+
+- title: Working in Logz.io
+
   secondLevel:
-  - title: Log sources
-    url: /shipping/log-sources/
-
-    thirdLevel:
-    - title: Log shipping utilities
-      url: /shipping/log-sources/log-shipping-utilities/
-    - title: OS logs
-      url: /shipping/log-sources/os-logs/
-    - title: Server app logs
-      url: /shipping/log-sources/server-app-logs/
-    - title: Custom code logs
-      url: /shipping/log-sources/custom-code-logs/
-    - title: Platform or service logs
-      url: /shipping/log-sources/platform-service-logs/
-    - title: AWS logs
-      url: /shipping/log-sources/aws-logs/
-    - title: CI/CD logs
-      url: /shipping/log-sources/ci-cd-logs/
-
   - title: Log shipping info and troubleshooting
     url: /user-guide/log-shipping/
     thirdLevel:
@@ -60,10 +43,6 @@ firstLevel:
       url: /user-guide/log-shipping/log-shipping-troubleshooting.html
     - title: Listener IP addresses
       url: /user-guide/log-shipping/listener-ip-addresses.html
-
-- title: Working in Logz.io
-
-  secondLevel:
     # - title: Field mapping and data parsing
     # thirdLevel:
     # - title: Field mapping
@@ -89,8 +68,6 @@ firstLevel:
       url: /user-guide/alerts/configure-alerts.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
-    - title: Alert endpoints
-      url: /user-guide/alerts/alert-endpoints.html
 
   - title: Optimizers
     url: /user-guide/optimizers/
@@ -156,10 +133,16 @@ firstLevel:
   # ===== INTEGRATIONS =====
 - title: Integrations
   secondLevel:
-  - title: Alice, Slack chatbot
-    url: /user-guide/integrations/alice-slack-chatbot.html
+  - title: Log sources
+    url: /shipping/log-sources/
+  - title: Shipping utilities
+    url: /shipping/shipping-utilities/
   - title: Community-maintained log shippers
     url: /community-integrations/community-log-shippers/
+  - title: Alert endpoints
+    url: /user-guide/alerts/alert-endpoints.html
+  - title: Alice, Slack chatbot
+    url: /user-guide/integrations/alice-slack-chatbot.html
 
   # ===== DEVELOPERS =====
 - title: Developers

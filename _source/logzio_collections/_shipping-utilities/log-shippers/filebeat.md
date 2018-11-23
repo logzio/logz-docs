@@ -1,11 +1,10 @@
 ---
-layout: article
 title: Configure Filebeat
 logo:
   logofile: beats.svg
   orientation: vertical
 shipping-summary:
-  data-source: Configure Filebeat
+  data-source: Filebeat
   hidden: true
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Filebeat
 contributors:

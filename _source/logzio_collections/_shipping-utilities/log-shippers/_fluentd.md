@@ -1,5 +1,5 @@
 ---
-layout: article
+
 title: Fluentd
 logo:
   logofile: fluentd.svg

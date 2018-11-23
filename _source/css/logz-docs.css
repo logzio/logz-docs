@@ -17,6 +17,7 @@
   --heading-font: 'Titillium Web', sans-serif;
   --body-font: 'Nunito Sans', sans-serif;
   --mono-font: 'Roboto Mono', monospace;
+  --toc-font-size: .9rem;
 
   /* COLORS */
   --logz-logo-normal: #0089b1;
@@ -38,20 +39,22 @@
   --tasklist-light: rgb(var(--app-gray-primary));
   --dl-letter: var(--app-orange-dark);
 
+  --infobox-alpha: .1;
+
   --infobox-note: rgb(var(--app-blue-primary));
-  --infobox-note-light: rgba(var(--app-blue-primary), .05);
+  --infobox-note-light: rgba(var(--app-blue-primary), var(--infobox-alpha));
 
   --infobox-important: rgb(var(--app-orange-primary));
-  --infobox-important-light: rgba(var(--app-orange-primary), .05);
+  --infobox-important-light: rgba(var(--app-orange-primary), var(--infobox-alpha));
 
   --infobox-warning: rgb(var(--app-red-primary));
-  --infobox-warning-light: rgba(var(--app-red-primary), .05);
+  --infobox-warning-light: rgba(var(--app-red-primary), var(--infobox-alpha));
 
   --infobox-tip: rgb(var(--app-green-primary));
-  --infobox-tip-light: rgba(var(--app-green-primary), .05);
+  --infobox-tip-light: rgba(var(--app-green-primary), var(--infobox-alpha));
 
   --infobox-read: rgb(var(--app-gray-primary));
-  --infobox-read-light: rgba(var(--app-gray-primary), .1);
+  --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
@@ -284,10 +287,16 @@ div.full-card div.card-text {
   padding: 0;
 }
 
+.full-card .card-text p {
+  line-height: 1.25em;
+  margin-top: .75em;
+}
+
 span.card-title {
   font-family: var(--heading-font);
   font-weight: 600;
   color: var(--heading-normal);
+  font-size: 1.25rem;
   margin: auto;
 }
 
@@ -365,9 +374,14 @@ html {
 body, .ui-accordion-content > *:not(h5):not(h6)  {
   font-family: var(--body-font);
   font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.4rem;
+  font-weight: 400;
+  line-height: 1.7rem;
   color: var(--text-normal);
+}
+
+p {
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
 }
 
 code, pre {
@@ -412,13 +426,13 @@ h5, h6 {
 }
 
 /* Use h6 to introduce procedures. If you need a regular heading, use h5 */
-h6 { 
+h6 {
   color: var(--tasklist-heading);
 }
 
 main.page-content img, main.page-content video, .post-content iframe {
   display: block;
-  max-width: 100%;
+  max-width: 90%;
   margin: 1.5rem auto;
   border: 1px solid var(--border-dark);
   border-radius: 2px;
@@ -429,7 +443,7 @@ ol img, ol video {
   margin-right: auto;
 }
 
-img.no-border {
+.no-border {
   border: none !important;
 }
 
@@ -443,6 +457,21 @@ svg.svg-inline--fa, i.li {
   margin-left: .1rem;
   margin-right: .1rem;
 }
+
+a.fancy-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  margin-top: -3px;
+  background: currentColor;
+  transition: width .3s;
+}
+
+a.fancy-link:hover::after {
+  width: 100%;
+}
+
 
 /* ===== ONE-OFFS ===== */
 .sm {
@@ -832,44 +861,46 @@ div.feature-box > span {
 /* ===== INFO BOXES ===== */
 
 div.info-box {
-  width: 450px;
+  width: 500px;
   margin: 2rem auto;
   border-radius: 2px;
+  border: 1px solid;
   padding: 10px;
+  font-size: .9rem;
 }
 
 div.info-box ul {
   padding-left: 20px;
 }
 
-div.info-box > p::before {
+div.info-box::before {
   font-weight: 700;
+  line-height: 1.1em;
   color: white;
 
   display: block;
   width: fit-content;
-  margin: auto auto 10px -20px;
+  margin: -3px 20px 5px -20px;
   padding-left: 20px;
   padding-right: 15px;
 }
 
 div.info-box > p {
   margin: 0;
-  font-size: .85rem;
   line-height: 1.2rem;
 }
 
-div.info-box > p > p {
-  margin-top: .5rem;
-  margin-bottom: 0;
+div.info-box > p + p {
+  margin-top: .7rem;
 }
 
 /* .warning */
 div.info-box.warning {
   background-color: var(--infobox-warning-light);
+  border-color: var(--infobox-warning);
 }
 
-div.info-box.warning > p::before {
+div.info-box.warning::before {
   content: "Warning   ";
   background-color: var(--infobox-warning);
 }
@@ -877,23 +908,25 @@ div.info-box.warning > p::before {
 /* .note */
 div.info-box.note {
   background-color: var(--infobox-note-light);
+  border-color: var(--infobox-note);
 }
 
-div.info-box.note > p::before {
+div.info-box.note::before {
   content: "Note   ";
   background-color: var(--infobox-note);
 }
 
-div.info-box.note.notes > p::before {
+div.info-box.note.notes::before {
   content: "Notes";
 }
 
 /* .gotcha, .important */
 div.info-box.gotcha, div.info-box.important {
   background-color: var(--infobox-important-light);
+  border-color: var(--infobox-important);
 }
 
-div.info-box.gotcha > p::before, div.info-box.important > p::before {
+div.info-box.gotcha::before, div.info-box.important::before {
   content: "Important   ";
   background-color: var(--infobox-important);
 }
@@ -901,9 +934,10 @@ div.info-box.gotcha > p::before, div.info-box.important > p::before {
 /* .tip */
 div.info-box.tip {
   background-color: var(--infobox-tip-light);
+  border-color: var(--infobox-tip);
 }
 
-div.info-box.tip > p::before {
+div.info-box.tip::before {
   content: "Pro Tip   ";
   background-color: var(--infobox-tip);
 }
@@ -911,9 +945,10 @@ div.info-box.tip > p::before {
 /* .tip */
 div.info-box.read {
   background-color: var(--infobox-read-light);
+  border-color: var(--infobox-read);
 }
 
-div.info-box.read > p::before {
+div.info-box.read::before {
   content: "Read more   ";
   background-color: var(--infobox-read);
 }
@@ -1050,18 +1085,18 @@ nav.all-pages-toc ul {
 }
 
 ul.toc-parent {
-  font-size: .75rem;
+  font-size: var(--toc-font-size);
   text-transform: uppercase;
 }
 
 ul.toc-child {
   text-transform: none;
-  font-size: .85rem;
+  font-size: var(--toc-font-size);
 }
 
 ul.toc-grandchild {
   text-transform: none;
-  font-size: .75rem;
+  font-size: var(--toc-font-size);
   margin-left: 1.25rem;
   display: none;
 }
@@ -1138,7 +1173,7 @@ div.article-info-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -1147,8 +1182,7 @@ div.contributor-list svg {
 }
 
 div.contributor-list {
-  line-height: 1.25rem;
-  margin-bottom: 1rem;
+  margin-right: 2rem;
   align-self: flex-start;
 }
 
@@ -1184,48 +1218,38 @@ div.contributions ul > li {
 
 /* ===== COMMUNITY BUTTONS ===== */
 
-div.community-container > a {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 5px;
-  color: black;
+.community-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
-.community.button {
-  display: inline-block;
+.community-container > *:not(:last-child) {
+  margin-right: 15px;
 }
 
-.community.button:not(.slackin) svg {
-  margin-top: 1px;
+.community.button a {
+  color: unset;
+}
+
+.slackin {
+  margin-top: 5px;
+}
+
+.community.button.edit {
+  color: var(--logz-logo-normal);
+}
+
+.community.button.issue {
+  color: rgb(var(--app-orange-primary));
+}
+
+.community.button svg {
+  margin-bottom: -2px;
   margin-right: 1px;
-}
-
-.community.button:not(.slackin) {
-  padding-left: 5px;
-  padding-right: 5px;
-  background: linear-gradient(#fcfcfc, #eee);
-  border: 1px solid #d5d5d5;
-  border-radius: 3px;
-  height: 19px;
-}
-
-.community.button:not(.slackin) span {
-  font-size: 11px;
-  font-weight: 700;
-  vertical-align: top;
-}
-
-.community.button:not(.slackin):hover {
-  background: linear-gradient(#eee, #ddd);
-  border-color: #ccc;
-}
-
-.community.button.edit svg {
-  fill: var(--logz-logo-normal);
-}
-
-.community.button.issue svg {
-  fill: var(--infobox-warning);
+  fill: currentColor;
 }
 
 /* ===== RELATED LINKS ===== */
@@ -1506,18 +1530,18 @@ i.ll, dl.letter-labels dt::before {
     border: none;
     border-bottom: 1px solid var(--border-very-light);
     outline: none;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .ui-accordion-header:not(.ui-accordion-header-active):hover {
     color: var(--heading-normal-75);
     border-bottom-color: currentColor;
-    font-weight: 400;
+    font-weight: 600;
   }
 
   .ui-accordion-header-active {
     color: var(--heading-normal);
-    font-weight: 400;
+    font-weight: 600;
     border-bottom: 3px solid currentColor;
   }
 

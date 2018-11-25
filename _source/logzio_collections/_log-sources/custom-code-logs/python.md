@@ -6,16 +6,18 @@ logo:
 shipping-summary:
   data-source: Python code
   appenders:
-    - Logz.io Python Handler (Python or Django configuration)
+    - Logz.io Python Handler
+    # - Logz.io Python Handler (Python or Django configuration)
 contributors:
   - imnotashrimp
 ---
 
-<div class="branching-container">
+<!-- TODO: Document and test Django configuration -->
+<!-- <div class="branching-container"> -->
 
-{: .branching-tabs}
+<!-- {: .branching-tabs}
   * [Standard Python configuration](#python-config)
-  * [Django configuration](#django-config)
+  * [Django configuration](#django-config) -->
 
 ## Logz.io Python Handler setup
 
@@ -33,7 +35,7 @@ Navigate to your project's folder in the command line, and run this command to i
 pip install logzio-python-handler
 ```
 
-<div id="python-config">
+<!-- <div id="python-config"> -->
 
 ### Configure Logz.io Python Handler for a standard Python project
 
@@ -70,7 +72,7 @@ format={"additional_field": "value"}
 
 <div class="info-box important">
   Arguments must be configured in the order shown.
-  If you want to set the debug flag (which is the last option) to `True`, you'll need to set every argument that comes before it.
+  For example, to set debug-flag to `True`, you need to set every argument that comes before it.
 </div>
 
 {: .parameter-list }
@@ -99,9 +101,37 @@ debug-flag
     Otherwise, `False`. <br />
     <span class="default-param">`False`</span>
 
-</div>
+##### Code sample
 
-<div id="django-config">
+```python
+import logging
+import logging.config
+
+# If configuration is stored at ./myconf.conf:
+logging.config.fileConfig('myconf.conf')
+
+logger = logging.getLogger('superAwesomeLogzioLogger')
+
+logger.info('Test log')
+logger.warn('Warning')
+
+try:
+    1/0
+except:
+    logger.exception("Supporting exceptions too!")
+```
+
+To add dynamic metadata to your logger other than the constant metadata from the formatter, you can use the `extra` parameter.
+Key-value pairs passed in `extra` are shown as new fields in Logz.io.
+Please note that you can't override default fields from the python logger, such as `lineno` or `thread`.
+
+```python
+logger.info('Warning', extra={'extra_key':'extra_value'})
+```
+
+<!-- </div> -->
+
+<!-- <div id="django-config">
 
 ### Configure Logz.io Python Handler for a Django project
 
@@ -179,34 +209,7 @@ debug
     Otherwise, `False`. <br />
     <span class="default-param">`False`</span>
 
-</div>
+</div> -->
 
-</div>
+<!-- </div> -->
 
-##### Code sample - python only, need one for django (no need to configure)
-
-```python
-import logging
-import logging.config
-
-# If configuration is stored at ./myconf.conf:
-logging.config.fileConfig('myconf.conf')
-
-logger = logging.getLogger('superAwesomeLogzioLogger')
-
-logger.info('Test log')
-logger.warn('Warning')
-
-try:
-    1/0
-except:
-    logger.exception("Supporting exceptions too!")
-```
-
-To add dynamic metadata to your logger other than the constant metadata from the formatter, you can use the `extra` parameter.
-Key-value pairs passed in `extra` are shown as new fields in Logz.io.
-Please note that you can't override default fields from the python logger, such as `lineno` or `thread`.
-
-```python
-logger.info('Warning', extra={'extra_key':'extra_value'})
-```

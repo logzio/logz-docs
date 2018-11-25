@@ -22,8 +22,16 @@ community-info: false
 *   On-page TOC. Don't modify this structure. Javascript populates this content
 *   at runtime.
 *         {%- endcomment -%}
+{%- capture thisPageTocHeader -%}
+{%- case page.collection -%}
+  {%- when "log-sources" -%}
+    Where are your logs coming from?
+  {%- when "shipping-utilities" -%}
+    What kind of shippers are you looking for?
+{%- endcase -%}
+{%- endcapture -%}
 <nav id="on-this-page-toc">
-  <h5>On this page</h5>
+  <h5>{{thisPageTocHeader}}</h5>
   <div></div>
 </nav>
 

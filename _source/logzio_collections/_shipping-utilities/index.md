@@ -1,5 +1,5 @@
 ---
 layout: all-data-sources
-title: Log shipping utilities
+title: Shipping utilities
 permalink: /shipping/shipping-utilities/
 ---

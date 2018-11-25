@@ -94,31 +94,31 @@ defaults:
   - scope:
       path: _shipping-utilities/log-shippers
     values:
-      shipping-category: Log shipping utilities
+      shipping-category: Log shippers
   - scope:
       path: _log-sources/os-logs
     values:
-      shipping-category: OS logs
+      shipping-category: Operating systems
   - scope:
       path: _log-sources/server-app-logs
     values:
-      shipping-category: Server app logs
+      shipping-category: Server apps
   - scope:
       path: _log-sources/custom-code-logs
     values:
-      shipping-category: Custom code logs
+      shipping-category: Custom code
   - scope:
       path: _log-sources/platform-service-logs
     values:
-      shipping-category: Platform or service logs
+      shipping-category: Platforms or services
   - scope:
       path: _log-sources/aws-logs
     values:
-      shipping-category: AWS logs
+      shipping-category: AWS
   - scope:
       path: _log-sources/ci-cd-logs
     values:
-      shipping-category: CI/CD logs
+      shipping-category: CI/CD
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

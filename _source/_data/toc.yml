@@ -139,10 +139,11 @@ firstLevel:
     url: /shipping/log-sources/
   - title: Shipping utilities
     url: /shipping/shipping-utilities/
-  - title: Community-maintained log shippers
-    url: /community-integrations/community-log-shippers/
+    thirdLevel:
+    - title: Community-maintained log shippers
+      url: /community-integrations/community-log-shippers/
   - title: Alert endpoints
-    url: /user-guide/alerts/alert-endpoints.html
+    url: /user-guide/integrations/endpoints.html
   - title: Alice, Slack chatbot
     url: /user-guide/integrations/alice-slack-chatbot.html
 

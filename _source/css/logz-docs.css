@@ -1,6 +1,7 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,500,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i');
 
@@ -14,8 +15,9 @@
 
 :root {
   /* FONTS */
-  --heading-font: 'Titillium Web', sans-serif;
-  --body-font: 'Nunito Sans', sans-serif;
+  --title-font: 'Titillium Web', sans-serif;
+  --heading-font: 'Nunito Sans', sans-serif;
+  --body-font: 'Nunito', sans-serif;
   --mono-font: 'Roboto Mono', monospace;
   --toc-font-size: .9rem;
 
@@ -39,20 +41,22 @@
   --tasklist-light: rgb(var(--app-gray-primary));
   --dl-letter: var(--app-orange-dark);
 
+  --infobox-alpha: .1;
+
   --infobox-note: rgb(var(--app-blue-primary));
-  --infobox-note-light: rgba(var(--app-blue-primary), .05);
+  --infobox-note-light: rgba(var(--app-blue-primary), var(--infobox-alpha));
 
   --infobox-important: rgb(var(--app-orange-primary));
-  --infobox-important-light: rgba(var(--app-orange-primary), .05);
+  --infobox-important-light: rgba(var(--app-orange-primary), var(--infobox-alpha));
 
   --infobox-warning: rgb(var(--app-red-primary));
-  --infobox-warning-light: rgba(var(--app-red-primary), .05);
+  --infobox-warning-light: rgba(var(--app-red-primary), var(--infobox-alpha));
 
   --infobox-tip: rgb(var(--app-green-primary));
-  --infobox-tip-light: rgba(var(--app-green-primary), .05);
+  --infobox-tip-light: rgba(var(--app-green-primary), var(--infobox-alpha));
 
   --infobox-read: rgb(var(--app-gray-primary));
-  --infobox-read-light: rgba(var(--app-gray-primary), .1);
+  --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
@@ -124,7 +128,7 @@ footer {
   /* position & style */
   width: auto;
   margin: 0 auto;
-  font-size: .8rem;
+  font-size: .9rem;
   border-top: 1px solid var(--border-light);
   padding: 10px 50px;
   height: 30px;
@@ -308,7 +312,7 @@ div.full-card span.card-title {
 }
 
 div.card p {
-  font-size: .85rem;
+  font-size: .9rem;
   line-height: 1.2rem;
   width: 85%;
   margin: auto;
@@ -388,12 +392,19 @@ code, pre {
 }
 
 h1, h2, h3, h4, h5, h6, .site-title, .post-title {
-  font-family: var(--heading-font);
   font-weight: 400;
   padding: 0;
   color: var(--heading-normal);
   margin-top: 3rem;
   margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: var(--title-font);
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
@@ -859,44 +870,46 @@ div.feature-box > span {
 /* ===== INFO BOXES ===== */
 
 div.info-box {
-  width: 450px;
+  width: 500px;
   margin: 2rem auto;
   border-radius: 2px;
+  border: 1px solid;
   padding: 10px;
+  font-size: .9rem;
 }
 
 div.info-box ul {
   padding-left: 20px;
 }
 
-div.info-box > p::before {
+div.info-box::before {
   font-weight: 700;
+  line-height: 1.1em;
   color: white;
 
   display: block;
   width: fit-content;
-  margin: auto auto 10px -20px;
+  margin: -3px 20px 5px -20px;
   padding-left: 20px;
   padding-right: 15px;
 }
 
 div.info-box > p {
   margin: 0;
-  font-size: .85rem;
   line-height: 1.2rem;
 }
 
-div.info-box > p > p {
-  margin-top: .5rem;
-  margin-bottom: 0;
+div.info-box > p + p {
+  margin-top: .7rem;
 }
 
 /* .warning */
 div.info-box.warning {
   background-color: var(--infobox-warning-light);
+  border-color: var(--infobox-warning);
 }
 
-div.info-box.warning > p::before {
+div.info-box.warning::before {
   content: "Warning   ";
   background-color: var(--infobox-warning);
 }
@@ -904,23 +917,25 @@ div.info-box.warning > p::before {
 /* .note */
 div.info-box.note {
   background-color: var(--infobox-note-light);
+  border-color: var(--infobox-note);
 }
 
-div.info-box.note > p::before {
+div.info-box.note::before {
   content: "Note   ";
   background-color: var(--infobox-note);
 }
 
-div.info-box.note.notes > p::before {
+div.info-box.note.notes::before {
   content: "Notes";
 }
 
 /* .gotcha, .important */
 div.info-box.gotcha, div.info-box.important {
   background-color: var(--infobox-important-light);
+  border-color: var(--infobox-important);
 }
 
-div.info-box.gotcha > p::before, div.info-box.important > p::before {
+div.info-box.gotcha::before, div.info-box.important::before {
   content: "Important   ";
   background-color: var(--infobox-important);
 }
@@ -928,9 +943,10 @@ div.info-box.gotcha > p::before, div.info-box.important > p::before {
 /* .tip */
 div.info-box.tip {
   background-color: var(--infobox-tip-light);
+  border-color: var(--infobox-tip);
 }
 
-div.info-box.tip > p::before {
+div.info-box.tip::before {
   content: "Pro Tip   ";
   background-color: var(--infobox-tip);
 }
@@ -938,9 +954,10 @@ div.info-box.tip > p::before {
 /* .tip */
 div.info-box.read {
   background-color: var(--infobox-read-light);
+  border-color: var(--infobox-read);
 }
 
-div.info-box.read > p::before {
+div.info-box.read::before {
   content: "Read more   ";
   background-color: var(--infobox-read);
 }
@@ -974,7 +991,7 @@ div.site-badge img.logz-symbol {
 }
 
 span.docs-home-link {
-  font-family: var(--heading-font);
+  font-family: var(--title-font);
   font-size: 1.4rem;
   vertical-align: middle;
   margin-left: 5px;
@@ -990,7 +1007,7 @@ div.site-badge a:hover {
 }
 
 nav.site-links, nav.site-actions {
-  font-size: .85rem;
+  font-size: 1rem;
 }
 
 nav.site-actions ul {
@@ -1050,6 +1067,36 @@ div.social-icons a {
 a.atom-feed {
   color: orange !important;
 }
+
+/* social icons */
+a.facebook:hover {
+  color: #4267b2;
+}
+
+a.twitter:hover {
+  color: #38a1f3;
+}
+
+a.youtube:hover {
+  color: #ed3833;
+}
+
+a.googleplus:hover {
+  color: #db4a39;
+}
+
+a.linkedin:hover {
+  color: #0077b5;
+}
+
+a.github:hover {
+  color: black;
+}
+
+a.atom-feed:hover {
+  color: orange;
+}
+
 
 /* ===== ALL-PAGES TOC STYLING ===== */
 

@@ -21,7 +21,7 @@ contributors:
 
 <div id="manual-lambda-configuration">
 
-## GuardDuty + Lambda setup
+## GuardDuty setup
 
 ###### Manual configuration
 
@@ -85,20 +85,21 @@ contributors:
       : {% include log-shipping/replace-vars.html token='noReplace' %}
         <!-- logzio:account-token -->
 
-    TYPE <span class="required-param"></span>
-      : The log type you'll use with this Lambda.
-        This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
-        Please note that you should create a new Lambda for each log type you use.
-
     URL <span class="required-param"></span>
       : Your Logz.io listener URL.
         If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
         If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
 
+    TYPE
+      : The log type you'll use with this Lambda.
+        This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
+        Please note that you should create a new Lambda for each log type you use. <br />
+        <span class="default-param">`"guardduty"`</span>
+
     FORMAT
-      : `json` or `text`.
-        If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
-        <span class="default-param">`text`</span>
+      : `"json"` or `"text"`.
+        If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
+        <span class="default-param">`"text"`</span>
 
     COMPRESS
       : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
@@ -133,7 +134,7 @@ contributors:
 
 <div id="automatic-cloudfront-deployment">
 
-## GuardDuty + Lambda setup
+## GuardDuty setup
 
 **You'll need:** AWS CLI, an S3 bucket to store the CloudFormation package
 
@@ -219,13 +220,13 @@ contributors:
     LogzioTYPE
       : The log type you'll use with this Lambda.
         This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
-        Please note that you should create a new Lambda for each log type you use.
+        Please note that you should create a new Lambda for each log type you use. <br />
         <span class="default-param">`logzio_kinesis_stream`</span>
 
     LogzioFORMAT
-      : `json` or `text`.
-        If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
-        <span class="default-param">`text`</span>
+      : `"json"` or `"text"`.
+        If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
+        <span class="default-param">`"text"`</span>
 
     LogzioCOMPRESS
       : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
@@ -238,7 +239,7 @@ contributors:
     KinesisStreamStartingPosition
       : The position in the stream to start reading from.
         For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. <br />
-        <span class="default-param">`LATEST`</span>
+        <span class="default-param">`"LATEST"`</span>
 
 6. Test your configuration
 

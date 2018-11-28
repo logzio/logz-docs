@@ -1,6 +1,7 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,500,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i');
 
@@ -14,8 +15,9 @@
 
 :root {
   /* FONTS */
-  --heading-font: 'Titillium Web', sans-serif;
-  --body-font: 'Nunito Sans', sans-serif;
+  --title-font: 'Titillium Web', sans-serif;
+  --heading-font: 'Nunito Sans', sans-serif;
+  --body-font: 'Nunito', sans-serif;
   --mono-font: 'Roboto Mono', monospace;
   --toc-font-size: .9rem;
 
@@ -126,7 +128,7 @@ footer {
   /* position & style */
   width: auto;
   margin: 0 auto;
-  font-size: .8rem;
+  font-size: .9rem;
   border-top: 1px solid var(--border-light);
   padding: 10px 50px;
   height: 30px;
@@ -310,7 +312,7 @@ div.full-card span.card-title {
 }
 
 div.card p {
-  font-size: .85rem;
+  font-size: .9rem;
   line-height: 1.2rem;
   width: 85%;
   margin: auto;
@@ -390,12 +392,19 @@ code, pre {
 }
 
 h1, h2, h3, h4, h5, h6, .site-title, .post-title {
-  font-family: var(--heading-font);
   font-weight: 400;
   padding: 0;
   color: var(--heading-normal);
   margin-top: 3rem;
   margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: var(--title-font);
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
 }
 
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
@@ -982,7 +991,7 @@ div.site-badge img.logz-symbol {
 }
 
 span.docs-home-link {
-  font-family: var(--heading-font);
+  font-family: var(--title-font);
   font-size: 1.4rem;
   vertical-align: middle;
   margin-left: 5px;
@@ -998,7 +1007,7 @@ div.site-badge a:hover {
 }
 
 nav.site-links, nav.site-actions {
-  font-size: .85rem;
+  font-size: 1rem;
 }
 
 nav.site-actions ul {
@@ -1058,6 +1067,36 @@ div.social-icons a {
 a.atom-feed {
   color: orange !important;
 }
+
+/* social icons */
+a.facebook:hover {
+  color: #4267b2;
+}
+
+a.twitter:hover {
+  color: #38a1f3;
+}
+
+a.youtube:hover {
+  color: #ed3833;
+}
+
+a.googleplus:hover {
+  color: #db4a39;
+}
+
+a.linkedin:hover {
+  color: #0077b5;
+}
+
+a.github:hover {
+  color: black;
+}
+
+a.atom-feed:hover {
+  color: orange;
+}
+
 
 /* ===== ALL-PAGES TOC STYLING ===== */
 

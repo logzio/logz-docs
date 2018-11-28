@@ -2087,7 +2087,7 @@ definitions:
       date:
         type: integer
         format: int64
-        description: Date of the audit event, as a Unix epoch integer
+        description: Date of the audit event, as Unix epoch milliseconds
         example: 1527168668
       auditEventTypeTitle:
         type: string
@@ -2215,12 +2215,12 @@ definitions:
       fromDate:
         type: integer
         format: int64
-        description: Starting timedate, as a Unix epoch integer
+        description: Starting timedate, as Unix epoch milliseconds
         example: 389880000
       toDate:
         type: integer
         format: int64
-        description: Ending timedate, as a Unix epoch integer
+        description: Ending timedate, as Unix epoch milliseconds
         example: 414763200
       sortDescending:
         type: boolean

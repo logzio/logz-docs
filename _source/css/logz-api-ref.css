@@ -24,15 +24,3 @@ iframe.header-frame {
 div.api-info p a {
   border-radius: 3px;
 }
-
-ul[role=navigation] label, h1 {
-  text-transform: none;
-}
-
-ul[role=navigation] label[type=group] {
-  text-transform: uppercase;
-}
-
-table {
-  font-size: .8rem;
-}

@@ -13,13 +13,43 @@
 
   <div class="social-icons">
     <ul class="horizontal-list">
-      <li class="icon"><a href="{{ site.facebook_url }}" target="_top"><i class="fab fa-facebook-f"></i></a></li>
-      <li class="icon"><a href="{{ site.twitter_url }}" target="_top"><i class="fab fa-twitter"></i></a></li>
-      <li class="icon"><a href="{{ site.youtube_url }}" target="_top"><i class="fab fa-youtube"></i></a></li>
-      <li class="icon"><a href="{{ site.google_plus_url }}" target="_top"><i class="fab fa-google-plus-g"></i></a></li>
-      <li class="icon"><a href="{{ site.linkedin_url }}" target="_top"><i class="fab fa-linkedin-in"></i></a></li>
-      {% if site.show_atom_feed == true %}<li class="icon"><a class="atom-feed" href="{{ site.baseurl }}/feed.xml" target="_top"><i class="fas fa-rss-square"></i></a></li>{% endif %}
-      <li class="icon"><a href="{{ site.github.org_url }}" target="_top"><i class="fab fa-github"></i></a></li>
+      <li class="icon">
+        <a class="facebook" href="{{ site.facebook_url }}" target="_top">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+      <li class="icon">
+        <a class="twitter" href="{{ site.twitter_url }}" target="_top">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      <li class="icon">
+        <a class="youtube" href="{{ site.youtube_url }}" target="_top">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </li>
+      <li class="icon">
+        <a class="googleplus" href="{{ site.google_plus_url }}" target="_top">
+          <i class="fab fa-google-plus-g"></i>
+        </a>
+      </li>
+      <li class="icon">
+        <a class="linkedin" href="{{ site.linkedin_url }}" target="_top">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+      {% if site.show_atom_feed == true -%}
+      <li class="icon">
+        <a class="atom-feed" href="{{ site.baseurl }}/feed.xml" target="_top">
+          <i class="fas fa-rss-square"></i>
+        </a>
+      </li>
+      {% endif -%}
+      <li class="icon">
+        <a class="github" href="{{ site.github.org_url }}" target="_top">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
     </ul>
   </div>
 

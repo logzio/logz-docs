@@ -6,7 +6,7 @@ permalink: /community-integrations/community-log-shippers/
 ---
 
 <div class="info-box important">
-  **These projects are not tested or supported by Logz.io.**
+  **Logz.io does not test or support these projects.**
 
 
   These projects are maintained by third parties and recommended by members of the Logz.io community.

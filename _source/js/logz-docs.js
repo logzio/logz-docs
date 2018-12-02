@@ -56,9 +56,25 @@ $('.copy-btn').click( function() {
   }, 1500);
 });
 
-// create links to all categories on a shipping page
-$('.category').each(function() {
-  $('#on-this-page-toc > div').append('<span><a href="#' + $(this).attr('id') + '">' + $(this).text() + '</a></span>');
-});
+// sort categories on a shipping page
+var allCards = $('.cards'),
+  cards = allCards.children('a');
+
+  cards.sort(function(a,b){
+    var an = $(a).data('source'),
+      bn = $(b).data('source');
+    if(an > bn) {
+      return 1;
+    }
+    if(an < bn) {
+      return -1;
+    }
+    return 0;
+  });
+  cards.detach().appendTo(allCards);
+
+
+// filter categories on a shipping page
+
 
 });

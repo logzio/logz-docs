@@ -1,27 +1,21 @@
-<div class="card-container align-left">
+{%- for shipper in shippersInThisCategory  %}
+  {%- assign shipperUrl = shipper.project-url | default: shipper.url -%}
+  {%- assign filename = shipper.path | split: "/" | last -%}
 
-  <div class="cards mini-cards">
-    {%- for shipper in shippersInThisCategory  %}
-      {%- assign shipperUrl = shipper.project-url | default: shipper.url -%}
-      {%- assign filename = shipper.path | split: "/" | last -%}
-
-    {%- unless filename == "index.md" -%}
-      <a href="{{ shipperUrl }}">
-        <div class="card mini-card
-          {%- if shipper.community-project == true %} community-project-card{%- endif -%}
-        ">
-          <div class="card-icon {{shipper.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{shipper.logo.logofile}}');" alt="{{shipper.shipping-summary.data-source}} logo">
-          </div>
-          <div class="card-text">
-            <span class="card-title">{{ shipper.shipping-summary.data-source }}</span>
-            {%- if shipper.community-project == true %}
-            <p>{{shipper.title}}</p>
-            {%- endif %}
-          </div>
-        </div>
-      </a>
-    {%- endunless -%}
-    {%- endfor %}
+{%- unless filename == "index.md" -%}
+  <a href="{{ shipperUrl }}" class="{{ shipper.shipping-category | slugify }}" data-source="{{shipper.shipping-summary.data-source | slugify}}">
+    <div class="card mini-card
+      {%- if shipper.community-project == true %} community-project-card{%- endif -%}
+    ">
+      <div class="card-icon {{shipper.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{shipper.logo.logofile}}');" alt="{{shipper.shipping-summary.data-source}} logo">
+      </div>
+      <div class="card-text">
+        <span class="card-title">{{ shipper.shipping-summary.data-source }}</span>
+        {%- if shipper.community-project == true %}
+        <p>{{shipper.title}}</p>
+        {%- endif %}
+      </div>
     </div>
-
-</div>
+  </a>
+{%- endunless -%}
+{%- endfor %}

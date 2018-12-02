@@ -233,14 +233,14 @@ div.card-container a {
 }
 
 .card-container.align-left .cards {
-  justify-content: flex-start;
+/*   justify-content: flex-start; */
 }
 
 div.cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 div.card {
@@ -274,7 +274,6 @@ div.mini-card {
   padding: 0 5px;
   width: 150px;
   height: 160px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;

@@ -25,22 +25,31 @@ community-info: false
 {%- capture thisPageTocHeader -%}
 {%- case page.collection -%}
   {%- when "log-sources" -%}
-    Where are your logs coming from?
+    Filter by log source
   {%- when "shipping-utilities" -%}
     What kind of shippers are you looking for?
 {%- endcase -%}
 {%- endcapture -%}
 <nav id="on-this-page-toc">
   <h5>{{thisPageTocHeader}}</h5>
-  <div></div>
+  <div>
+    <span class="filter-btn" data-filter="all">All</span>
+    {%- for c in categories %}
+      <span class="filter-btn" data-filter="{{c | downcase | slugify}}">{{c}}</span>
+    {% endfor -%}
+  </div>
 </nav>
 
 {%- comment -%}
 *   Loop through each category, and create the shipping cards for that
 *   category. Simple as that.
 *         {%- endcomment -%}
-{%- for category in categories %}
-<h3 class="category padding-top-10" id="{{ category | slugify }}">{{category}}</h3>
-  {%- include log-shipping/data-source-array.html shippingCategory=category -%}
-  {%- include log-shipping/shipping-cards.html -%}
-{%- endfor -%}
+
+<div class="card-container align-left">
+  <div class="cards mini-cards">
+  {%- for category in categories %}
+    {%- include log-shipping/data-source-array.html shippingCategory=category -%}
+    {%- include log-shipping/shipping-cards.html -%}
+  {%- endfor -%}
+  </div>
+</div>

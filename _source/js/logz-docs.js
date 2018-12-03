@@ -57,7 +57,7 @@ $('.copy-btn').click( function() {
 });
 
 // sort categories on a shipping page
-var allCards = $('.cards'),
+var allCards = $('.mini-cards'),
   cards = allCards.children('a');
 
   cards.sort(function(a,b){
@@ -75,6 +75,14 @@ var allCards = $('.cards'),
 
 
 // filter categories on a shipping page
-
+$('.filter-btn').click(function() {
+  var value = $(this).data('filter');
+  if (value == 'all') {
+    $('.filter').show('1000');
+  } else {
+    $('.filter').not('.'+value).hide('1000');
+    $('.filter').filter('.'+value).show('1000');
+  }
+});
 
 });

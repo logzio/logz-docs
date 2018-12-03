@@ -3,7 +3,8 @@
   {%- assign filename = shipper.path | split: "/" | last -%}
 
 {%- unless filename == "index.md" -%}
-  <a href="{{ shipperUrl }}" class="{{ shipper.shipping-category | slugify }}" data-source="{{shipper.shipping-summary.data-source | slugify}}">
+  <a href="{{ shipperUrl }}" class="filter {{shipper.shipping-category | slugify}}"
+    data-source="{{shipper.shipping-summary.data-source | slugify}}">
     <div class="card mini-card
       {%- if shipper.community-project == true %} community-project-card{%- endif -%}
     ">

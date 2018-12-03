@@ -83,6 +83,8 @@ $('.filter-btn').click(function() {
     $('.filter').not('.'+value).hide('1000');
     $('.filter').filter('.'+value).show('1000');
   }
+// add `active` class to clicked button, remove from other buttons
+  $(this).addClass('active').siblings().removeClass('active');
 });
 
 });

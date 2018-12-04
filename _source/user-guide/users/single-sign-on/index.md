@@ -32,7 +32,7 @@ Logz.io can integrate with a number of SSO providers. To get started, follow the
 
 {%- for page in ssoPages %}
 * [{{page.title}}]({{page.permalink | prepend: site.baseurl }})
-{% endfor %}
+{%- endfor %}
 
 Logz.io can integrate with other SSO providers. If you don't see your provider on the list, send an email to [help@logz.io](mailto:help@logz.io).
 Write that you want to set up SSO for Logz.io, and include your Logz.io account ID in the message.

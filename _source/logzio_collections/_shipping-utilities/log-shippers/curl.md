@@ -16,7 +16,9 @@ contributors:
 
 <div class="branching-container">
 
-{% include log-shipping/tabs.html %}
+{: .branching-tabs }
+  * [Plain text](#plain-text-config)
+  * [JSON](#json-config)
 
 <div id="plain-text-config">
 

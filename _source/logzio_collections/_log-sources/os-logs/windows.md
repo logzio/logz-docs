@@ -14,7 +14,9 @@ contributors:
 
 <div class="branching-container">
 
-{% include log-shipping/tabs.html %}
+{: .branching-tabs }
+  * [Winlogbeat <span class="sm ital">(recommended)</span>](#winlogbeat-config)
+  * [NXLog](#nxlog-config)
 
 <div id="winlogbeat-config">
 

@@ -14,7 +14,9 @@ contributors:
 
 <div class="branching-container">
 
-{% include log-shipping/tabs.html %}
+{: .branching-tabs }
+  * [log4net](#log4net-config)
+  * [NLog](#nlog-config)
 
 <div id="log4net-config">
 

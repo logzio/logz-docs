@@ -15,7 +15,9 @@ contributors:
 
 <div class="branching-container">
 
-{% include log-shipping/tabs.html %}
+{: .branching-tabs }
+  * [Log4j 2](#log4j-2-config)
+  * [Logback](#logback-config)
 
 <div id="log4j-2-config">
 

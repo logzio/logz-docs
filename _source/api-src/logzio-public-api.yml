@@ -497,7 +497,7 @@ paths:
     post:
       operationId: listAccountAuditTrails
       summary: Retrieve all event types in the audit trail
-      description: Returns an array of strings. Each string is an event type that appears in the account's audit trail. Each event type is shown once, no matter how many times it occurs in the acconut's audit trail.
+      description: Returns an array of strings. Each string is an event type that appears in the account's audit trail. Each event type is shown once, no matter how many times it occurs in the account's audit trail.
       tags:
         - Retrieve audit trail
       responses:

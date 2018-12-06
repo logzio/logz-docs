@@ -84,7 +84,7 @@ $('.filter-btn').click(function() {
     $('.filter').filter('.'+value).show('1000');
   }
 // add `active` class to clicked button, remove from other buttons
-  $(this).addClass('active').siblings().removeClass('active');
+  $(this).addClass('filter-active').siblings().removeClass('filter-active');
 });
 
 });

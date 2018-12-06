@@ -33,9 +33,9 @@ community-info: false
 <nav id="on-this-page-toc">
   <h5>{{thisPageTocHeader}}</h5>
   <div>
-    <a class="filter-btn fancy-link active" data-filter="all">All</a>
+    <a class="filter-btn filter-active" data-filter="all">All</a>
     {%- for c in categories %}
-      <a class="filter-btn fancy-link" data-filter="{{c | downcase | slugify}}">{{c}}</a>
+      <a class="filter-btn" data-filter="{{c | downcase | slugify}}">{{c}}</a>
     {% endfor -%}
   </div>
 </nav>

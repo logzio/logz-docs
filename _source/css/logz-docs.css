@@ -1675,8 +1675,8 @@ i.ll, dl.letter-labels dt::before {
   cursor: pointer;
 }
 
-.active::after {
-  width: 100%;
+.filter-active, #on-this-page-toc div a:hover {
+  font-weight: 700;
 }
 
 /* ===== COPY BUTTON ===== */

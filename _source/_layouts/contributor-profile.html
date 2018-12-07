@@ -37,8 +37,7 @@ layout: default
 <div class="contributions">
   <h3>Contributions</h3>
   <ul>
-    {%- assign filename = page.url | downcase | split: "/" %}
-    {%- assign contributorShortname = filename.last %}
+    {%- assign contributorShortname = page.url | downcase | split: "/" | last %}
 
     {%- include tags/capture-site-pages.html -%}
     {%- assign articles = htmlPages

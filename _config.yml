@@ -116,6 +116,10 @@ defaults:
     values:
       shipping-category: AWS
   - scope:
+      path: _log-sources/azure-logs
+    values:
+      shipping-category: Azure
+  - scope:
       path: _log-sources/ci-cd-logs
     values:
       shipping-category: CI/CD

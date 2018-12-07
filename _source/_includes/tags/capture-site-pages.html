@@ -25,7 +25,7 @@
 *   more data sources in the future, add them to shippingDataSources with
 *   `concat: <COLLECTION-NAME>`. Leave the default last.
 *         {%- endcomment -%}
-{%- assign shippingDataSources = site.data-sources
+{%- assign shippingDataSources = site.log-sources
   | default: shippingDataSources -%}
 {%- assign htmlPages = site.html_pages -%}
 

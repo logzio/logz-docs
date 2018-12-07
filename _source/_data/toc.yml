@@ -34,7 +34,7 @@ firstLevel:
 - title: Working in Logz.io
 
   secondLevel:
-  - title: Log shipping info and troubleshooting
+  - title: Log shipping info
     url: /user-guide/log-shipping/
     thirdLevel:
     - title: Built-in log types
@@ -135,21 +135,6 @@ firstLevel:
   # ===== INTEGRATIONS =====
 - title: Integrations
   secondLevel:
-  - title: Log sources
-    url: /shipping/log-sources/
-  - title: Shipping utilities
-    url: /shipping/shipping-utilities/
-    thirdLevel:
-    - title: Community-maintained log shippers
-      url: /community-integrations/community-log-shippers/
-  - title: Alert endpoints
-    url: /user-guide/integrations/endpoints.html
-  - title: Alice, Slack chatbot
-    url: /user-guide/integrations/alice-slack-chatbot.html
-
-  # ===== DEVELOPERS =====
-- title: Developers
-  secondLevel:
   # - title: Quickstarts
   #   thirdLevel:
   #   - title: Create API token & make a test call
@@ -163,6 +148,18 @@ firstLevel:
   #   - title: Create snapshots
   #   - title: Allocate account volume
   #   - title: Create a user
+  - title: Log sources
+    url: /shipping/log-sources/
+  - title: Shipping utilities
+    url: /shipping/shipping-utilities/
+    thirdLevel:
+    - title: Community-maintained log shippers
+      url: /community-integrations/community-log-shippers/
+  - title: Alert endpoints
+    url: /user-guide/integrations/endpoints.html
+  - title: Alice, Slack chatbot
+    url: /user-guide/integrations/alice-slack-chatbot.html
+
 
   # ===== MORE =====
 - title: ""

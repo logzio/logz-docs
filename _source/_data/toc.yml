@@ -148,8 +148,8 @@ firstLevel:
   #   - title: Create snapshots
   #   - title: Allocate account volume
   #   - title: Create a user
-  - title: Log sources
-    url: /shipping/log-sources/
+  - title: Data sources
+    url: /shipping/data-sources/
   - title: Shipping utilities
     url: /shipping/shipping-utilities/
     thirdLevel:

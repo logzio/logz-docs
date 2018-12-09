@@ -58,9 +58,9 @@ collections:
   contributors:
     output: true
     permalink: /contributors/:name
-  log-sources:
+  data-sources:
     output: true
-    permalink: /shipping/log-sources/:path.html
+    permalink: /shipping/data-sources/:path.html
   shipping-utilities:
     output: true
     permalink: /shipping/shipping-utilities/:path.html
@@ -96,31 +96,31 @@ defaults:
     values:
       shipping-category: Log shippers
   - scope:
-      path: _log-sources/os-logs
+      path: _data-sources/os
     values:
       shipping-category: Operating systems
   - scope:
-      path: _log-sources/server-app-logs
+      path: _data-sources/server-app
     values:
       shipping-category: Server apps
   - scope:
-      path: _log-sources/custom-code-logs
+      path: _data-sources/custom-code
     values:
       shipping-category: Custom code
   - scope:
-      path: _log-sources/platform-service-logs
+      path: _data-sources/platform-service
     values:
       shipping-category: Platforms or services
   - scope:
-      path: _log-sources/aws-logs
+      path: _data-sources/aws
     values:
       shipping-category: AWS
   - scope:
-      path: _log-sources/azure-logs
+      path: _data-sources/azure
     values:
       shipping-category: Azure
   - scope:
-      path: _log-sources/ci-cd-logs
+      path: _data-sources/ci-cd
     values:
       shipping-category: CI/CD
 

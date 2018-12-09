@@ -22,13 +22,13 @@ contributors:
 
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
-    Replace `{HEROKU-APP-NAME}` with the name of the app in Heroku.
+    Replace `<HEROKU-APP-NAME>` with the name of the app in Heroku.
 
     ```shell
-    heroku drains:add "http://{LISTENER-URL}:8081?token={ACCOUNT-TOKEN}" -a {HEROKU-APP-NAME}
+    heroku drains:add "http://<LISTENER-URL>:8081?token=<ACCOUNT-TOKEN>" -a <HEROKU-APP-NAME>
     ```
 
-    You can add custom fields to each log message. To do this, add `&{key}={value}` to the end of the Logz.io URL. You can use custom fields to identify different Heroku apps, allowing you filter your data in Logz.io.
+    You can add custom fields to each log message. To do this, add `&<KEY>=<VALUE>` to the end of the Logz.io URL. You can use custom fields to identify different Heroku apps, allowing you filter your data in Logz.io.
 
 2. Test your configuration
 

@@ -3,7 +3,7 @@
     {%- when 'noReplace' -%}
     The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
     {%- else -%}
-    Replace `{ACCOUNT-TOKEN}` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+    Replace `<ACCOUNT-TOKEN>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
   {%- endcase -%}
 {%- endif -%}
 
@@ -12,5 +12,5 @@
 {%- endif -%}
 
 {%- if include.listener -%}
-    Replace `{LISTENER-URL}` with your region's listener URL. If your login URL is app.logz.io, use `listener.logz.io`. If your login URL is app-eu.logz.io, use `listener-eu.logz.io`.
+    Replace `<LISTENER-URL>` with your region's listener URL. If your login URL is app.logz.io, use `listener.logz.io`. If your login URL is app-eu.logz.io, use `listener-eu.logz.io`.
 {%- endif -%}

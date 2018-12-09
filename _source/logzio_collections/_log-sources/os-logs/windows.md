@@ -39,7 +39,7 @@ contributors:
     ```yaml
     fields:
       logzio_codec: json
-      token: {ACCOUNT-TOKEN}
+      token: <ACCOUNT-TOKEN>
     fields_under_root: true
     ```
 
@@ -51,7 +51,7 @@ contributors:
 
     ```yaml
     output.logstash:
-      hosts: ["{LISTENER-URL}:5015"]
+      hosts: ["<LISTENER-URL>:5015"]
       ssl:
         certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
     ```
@@ -127,7 +127,7 @@ contributors:
 
         Exec if $raw_event =~ /^#/ drop();
         Exec convert_fields("AUTO", "utf-8");
-        Exec    $raw_event = '[{ACCOUNT-TOKEN}][type=msevent]' + $raw_event;
+        Exec    $raw_event = '[<ACCOUNT-TOKEN>][type=msevent]' + $raw_event;
     </Input>
     ```
 
@@ -140,7 +140,7 @@ contributors:
     ```conf
     <Output out>
         Module  om_tcp
-        Host    {LISTENER-URL}
+        Host    <LISTENER-URL>
         Port    8010
     </Output>
     <Route 1>

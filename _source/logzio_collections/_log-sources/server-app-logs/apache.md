@@ -65,7 +65,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {ACCOUNT-TOKEN}
+        token: <ACCOUNT-TOKEN>
         type: apache_access
       fields_under_root: true
       encoding: utf-8
@@ -83,7 +83,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {ACCOUNT-TOKEN}
+        token: <ACCOUNT-TOKEN>
         type: apache_error
       fields_under_root: true
       encoding: utf-8
@@ -100,7 +100,7 @@ contributors:
 
     ```yaml
     output.logstash:
-      hosts: ["{LISTENER-URL}:5015"]
+      hosts: ["<LISTENER-URL>:5015"]
       ssl:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
@@ -142,7 +142,7 @@ contributors:
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```shell
-    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t apache -a "{ACCOUNT-TOKEN}" -l "{LISTENER-URL}"
+    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t apache -a "<ACCOUNT-TOKEN>" -l "<LISTENER-URL>"
     ```
 
 2. Test your configuration

@@ -52,7 +52,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {ACCOUNT-TOKEN}
+        token: <ACCOUNT-TOKEN>
         type: gitlab-production-json
       fields_under_root: true
       encoding: utf-8
@@ -66,7 +66,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {ACCOUNT-TOKEN}
+        token: <ACCOUNT-TOKEN>
         type: gitlab-production
       fields_under_root: true
       encoding: utf-8
@@ -80,7 +80,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {ACCOUNT-TOKEN}
+        token: <ACCOUNT-TOKEN>
         type: gitlab-api-json
       fields_under_root: true
       encoding: utf-8
@@ -94,7 +94,7 @@ contributors:
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: {ACCOUNT-TOKEN}
+        token: <ACCOUNT-TOKEN>
         type: gitlab-application
       fields_under_root: true
       encoding: utf-8
@@ -111,7 +111,7 @@ contributors:
 
     ```yaml
     output.logstash:
-      hosts: ["{LISTENER-URL}:5015"]
+      hosts: ["<LISTENER-URL>:5015"]
       ssl:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```

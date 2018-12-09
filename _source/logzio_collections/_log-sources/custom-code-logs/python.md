@@ -52,7 +52,7 @@ class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
 # Parameters must be set in order. Replace these parameters with your configuration.
-args=('{ACCOUNT-TOKEN}', '{log-type}', {timeout}, '{LISTENER-URL}:8071', {debug-flag})
+args=('<ACCOUNT-TOKEN>', '<LOG-TYPE>', <TIMEOUT>, '<LISTENER-URL>:8071', <DEBUG-FLAG>)
 
 [formatters]
 keys=logzioFormat

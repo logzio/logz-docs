@@ -139,13 +139,13 @@ contributors:
     In the command line, type `cd ..` to return to the logzio_aws_serverless/kinesis folder.
 
     Create the CloudFormation package using the AWS CLI.
-    Replace `{YOUR-S3-BUCKET}` with the S3 bucket name where you'll be uploading this package.
+    Replace `<YOUR-S3-BUCKET>` with the S3 bucket name where you'll be uploading this package.
 
     ```shell
     aws cloudformation package
       --template sam-template.yaml
       --output-template-file kinesis-template.output.yaml
-      --s3-bucket {YOUR-S3-BUCKET}
+      --s3-bucket <YOUR-S3-BUCKET>
       ```
 
 3. Deploy the CloudFormation package
@@ -159,8 +159,8 @@ contributors:
     --template-file $(pwd)/cloudformation-template.output.yaml
     --stack-name logzio-kinesis-logs-lambda-stack
     --parameter-overrides
-      LogzioTOKEN='{ACCOUNT-TOKEN}'
-      KinesisStream='{KINESIS-STREAM-NAME}'
+      LogzioTOKEN='<ACCOUNT-TOKEN>'
+      KinesisStream='<KINESIS-STREAM-NAME>'
     --capabilities "CAPABILITY_IAM"
     ```
 

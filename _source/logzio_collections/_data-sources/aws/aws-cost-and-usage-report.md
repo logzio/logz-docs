@@ -2,7 +2,7 @@
 title: AWS cost and usage report
 logo:
   logofile: aws.svg
-  orientation: vertial
+  orientation: vertical
 shipping-summary:
   data-source: AWS cost and usage report
   log-shippers:

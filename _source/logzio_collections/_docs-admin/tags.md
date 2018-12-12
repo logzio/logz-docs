@@ -51,7 +51,7 @@ $.getJSON( "{{site.baseurl}}/data/tags.json", function( data ) {
 | Page | Tags |
 |---|---|
 {%- for p in htmlPages -%}
-{%- unless p.tags == false %}
+{%- unless p.tags == false or p.tags == nil %}
 | [{{p.title}}]({{p.url}}) | {{ p.tags | sort | join: "<br />" }} |
 {%- endunless -%}
 {% endfor %}

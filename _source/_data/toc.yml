@@ -125,6 +125,15 @@ firstLevel:
     thirdLevel:
     - title: Multi-factor authentication
       url: /user-guide/users/multi-factor-authentication.html
+  - title: Single sign-on
+    url: /user-guide/users/single-sign-on/
+    thirdLevel:
+    - title: Azure single sign-on
+      url: /user-guide/users/single-sign-on/azure-sso.html
+    - title: Okta single sign-on
+      url: /user-guide/users/single-sign-on/okta-sso.html
+    - title: OneLogin single sign-on
+      url: /user-guide/users/single-sign-on/onelogin-sso.html
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:

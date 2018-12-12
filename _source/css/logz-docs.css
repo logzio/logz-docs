@@ -624,7 +624,7 @@ ol ul {
 
   font-size: 1.5rem;
   color: var(--tasklist-light);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .tasklist > li:first-child::before {
@@ -814,7 +814,7 @@ div.page-flags {
   justify-content: space-between;
 
   font-weight: 300;
-  font-size: .75rem;
+  font-size: .85rem;
   line-height: 1rem;
 }
 

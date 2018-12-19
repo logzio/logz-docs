@@ -120,6 +120,10 @@ defaults:
     values:
       shipping-category: Azure
   - scope:
+      path: _data-sources/container
+    values:
+      shipping-category: Containers
+  - scope:
       path: _data-sources/ci-cd
     values:
       shipping-category: CI/CD
@@ -137,6 +141,7 @@ plugins:
 
 kramdown:
   parse_block_html: true
+  gfm_quirks: ['no_auto_typographic']
   # auto_ids: true
 
 # These items will not be processed, by default. Add new items as array entries.

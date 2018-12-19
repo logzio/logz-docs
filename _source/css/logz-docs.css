@@ -392,7 +392,7 @@ code, pre {
   font-size: .8rem;
 }
 
-h1, h2, h3, h4, h5, h6, .site-title, .post-title {
+h1, h2, h3, h4, h5, h6, .site-title, .post-title, .inline-header {
   font-weight: 400;
   padding: 0;
   color: var(--heading-normal);
@@ -404,7 +404,7 @@ h1 {
   font-family: var(--title-font);
 }
 
-h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6, .inline-header {
   font-family: var(--heading-font);
 }
 
@@ -429,7 +429,7 @@ h4 {
   font-size: 1.25rem;
 }
 
-h5, h6 {
+h5, h6, .inline-header {
   font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: .25rem;

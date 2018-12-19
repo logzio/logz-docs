@@ -30,7 +30,13 @@ contributors:
     For a complete list of options, see the parameters and command flags below the code block.👇
 
     ```shell
-    docker run -d --restart=always -v /var/run/docker.sock:/var/run/docker.sock logzio/logzio-docker -t <ACCOUNT-TOKEN> -z us -a env=prod
+    docker run -d \
+    -restart=always \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    logzio/logzio-docker \
+    -t <ACCOUNT-TOKEN> \
+    -z us \
+    -a env=prod
     ```
 
     Parameters

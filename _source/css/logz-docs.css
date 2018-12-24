@@ -1,6 +1,6 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i');
@@ -1452,7 +1452,6 @@ i.li {
   font-family: "Logzio Icons";
   font-style: normal;
   font-size: .85rem;
-  vertical-align: text-top;
 }
 
 i.li-bar-graph::before {
@@ -1756,6 +1755,7 @@ div.highlighter-rouge {
   content: "[ You really should do something about this placeholder. ]";
   justify-self: center;
   align-self: center;
+  text-align: center;
   color: var(--text-code);
   font-weight: 700;
 }
@@ -1770,4 +1770,8 @@ div.highlighter-rouge {
 
 .fpo.fpo-3::after {
   content: "[ A picture is worth a thousand words. This placeholder... not so much. ]";
+}
+
+.fpo.fpo-4::after {
+  content: "[ Picture this: A rustic hunting lodge, my latest kill roasting over the fire, and this placeholder isn't just a placeholder. ]"
 }

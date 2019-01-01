@@ -399,15 +399,16 @@ h1, h2, h3, h4, h5, h6, .site-title, .post-title {
   margin-bottom: 1rem;
 }
 
-h1 {
+h1, h1:first-child {
   font-family: var(--title-font);
+  margin-top: 0px;
 }
 
 h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
 }
 
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
   margin-top: 1rem;
 }
 

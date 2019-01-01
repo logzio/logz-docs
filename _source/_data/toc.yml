@@ -157,8 +157,10 @@ firstLevel:
   #   - title: Create API token & make a test call
   - title: API
     url: /api/
-  # - title: API cookbook
-  #   thirdLevel:
+  - title: API cookbook
+    thirdLevel:
+    - title: Who am I?
+      url: /api/cookbook/who-am-i.html
   #   - title: Create alert
   #   - title: Kibana export
   #   - title: Kibana import

@@ -27,6 +27,7 @@ This table shows the built-in log types that Logz.io supports. If you don't see 
 | GPFS                  | `gpfs`                                     |
 | HAProxy               | `haproxy`                                  |
 | Jenkins               | `jenkins`                                  |
+| Kafka                 | `kafka_server`                             |
 | Microsoft IIS         | `iis`                                      |
 | MongoDB               | `mongodb`                                  |
 | Monit                 | `monit`                                    |

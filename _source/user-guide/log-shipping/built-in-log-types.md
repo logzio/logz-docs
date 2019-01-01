@@ -31,11 +31,11 @@ This table shows the built-in log types that Logz.io supports. If you don't see 
 | Microsoft IIS         | `iis`                                      |
 | MongoDB               | `mongodb`                                  |
 | Monit                 | `monit`                                    |
-| Mysql                 | `mysql`                                    |
-| Mysql error           | `mysql_error`                              |
-| Mysql slow query      | `mysql_slow_query`                         |
-| Mysql monitor         | `mysql_monitor`                            |
+| MySQL                 | `mysql`                                    |
+| MySQL error           | `mysql_error`                              |
+| MySQL slow query      | `mysql_slow_query`                         |
+| MySQL monitor         | `mysql_monitor`                            |
 | Nagios                | `nagios`                                   |
-| Nginx access          | `nginx`, `nginx_access`, `nginx-access`    |
-| Nginx error           | `nginx-error`                              |
+| nginx access          | `nginx`, `nginx_access`, `nginx-access`    |
+| nginx error           | `nginx-error`                              |
 | OSSEC                 | `ossec`                                    |

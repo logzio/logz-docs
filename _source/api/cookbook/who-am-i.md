@@ -11,14 +11,16 @@ contributors:
   - imnotashrimp
 ---
 
-If you've never used the Logz.io API before—or any API, for that matter—the `whoami` endpoint is a great way to get your feet wet.
+If you've never used the Logz.io API before—or any API, for that matter—the `whoami` endpoint is a great way to dip your toes in.
 
-Unfortunately, Logz.io can't respond to `whoami` with existential answers like who you _really_ are and what we're all doing here.
+Unfortunately, Logz.io can't respond to `whoami` with existential answers, like who you _really_ are and your purpose in life.
 But the good news is you'll receive a response with the account name.
 
 You can use `whoami` to test connectivity with Logz.io or to confirm you're using an API token from the right account.
 
-##### Sample request
+#### Sample request
+
+{% include api-cookbook/replace-vars.html %}
 
 ```shell
 curl -X GET \
@@ -27,10 +29,10 @@ curl -X GET \
   -H 'X-API-KEY: <API-TOKEN>'
 ```
 
-##### Sample response
+##### ...and the response
 
 ```json
 {
-  "accountName": "Shalom's main account"
+  "accountName": "Jean Valjean"
 }
 ```

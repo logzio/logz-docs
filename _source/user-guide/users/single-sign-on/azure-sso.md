@@ -46,7 +46,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
 4. Zip the SAML certificate
 
-    In the SAML Signing Certificate section of the page, click the **Certificate (Raw)** download link (next to the certificate).
+    In the SAML Signing Certificate section of the page, click the **Certificate (Base64)** download link (next to the certificate).
 
     Download the certificate file and zip it.
     You'll attach this zip file to your next email to the Support team.

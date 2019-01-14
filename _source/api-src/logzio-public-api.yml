@@ -1916,9 +1916,9 @@ definitions:
       maxDailyGB:
         type: number
         format: float
-        description: Maximum daily usage, in GB
+        description: Maximum daily usage, in GB. Must be ≥ `1` if you want the account to receive any logs. If set to `0` and you ship logs, the account will be suspended for 24 hours.
         example: 5
-        default: 1
+        default: 0
       retentionDays:
         type: integer
         format: int32

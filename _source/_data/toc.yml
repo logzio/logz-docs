@@ -161,6 +161,8 @@ firstLevel:
     thirdLevel:
     - title: Who am I?
       url: /api/cookbook/who-am-i.html
+    - title: Managing sub account capacity
+      url: /api/cookbook/managing-sub-account-capacity.html
   #   - title: Create alert
   #   - title: Kibana export
   #   - title: Kibana import

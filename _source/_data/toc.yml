@@ -155,8 +155,6 @@ firstLevel:
   # - title: Quickstarts
   #   thirdLevel:
   #   - title: Create API token & make a test call
-  - title: API
-    url: /api/
   - title: API cookbook
     url: /api/cookbook/
     thirdLevel:
@@ -172,6 +170,8 @@ firstLevel:
   #   - title: Create snapshots
   #   - title: Allocate account volume
   #   - title: Create a user
+  - title: API reference
+    url: /api/
 
   # ===== MORE =====
 - title: ""

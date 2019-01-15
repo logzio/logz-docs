@@ -74,6 +74,7 @@ security:
   - X-API-TOKEN: []
 
 tags:
+  - name: Who am I
   - name: Manage sub accounts
     description: Use these API requests to create, update, retrieve, or delete sub accounts.
   - name: Search logs
@@ -100,6 +101,7 @@ x-tagGroups:
   - name: Account administration
     tags:
       - Manage users
+      - Who am I
       - Manage sub accounts
       - Manage shared tokens
       - Manage notification endpoints
@@ -113,6 +115,28 @@ x-tagGroups:
 
 paths:
   # ::::: ACCOUNTS
+  /account-management/whoami:
+    get:
+      summary: Retrieve this account
+      description: Returns a single string with the account name. Good for testing or for confirming that you're using an API token from the right account.
+      tags:
+        - Who am I
+      operationId: whoAmI
+      produces:
+        - application/json
+      parameters:
+      x-code-samples:
+      - lang: cURL
+        source: >-
+          "curl -X GET \
+          https://api.logz.io/v1/account-management/whoami \
+          -H 'Content-Type: application/json' \
+          -H 'X-API-TOKEN: <token>'"
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/WhoAmI'
   /account-management/time-based-accounts:
     get:
       summary: Retrieve all sub accounts
@@ -1793,6 +1817,13 @@ paths:
 
 definitions:
   # ::::: ACCOUNTS DEFINITIONS
+  WhoAmI:
+    type: object
+    properties:
+      accountName:
+        type: string
+        description: Name of the account
+        example: Jean Valjean
   AccountUtilizationSettings:
     type: object
     description: Settings for logging metrics on your account utilization,&nbsp; such as used and expected data volume at current indexing rate.

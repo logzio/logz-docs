@@ -29,6 +29,8 @@ curl -X GET \
   -H 'X-API-KEY: <API-TOKEN>'
 ```
 
+{% include api-cookbook/read-more-api-doc.html title="Retrieve this account" id="whoAmI" %}
+
 ##### ...and the response
 
 ```json

@@ -3,7 +3,8 @@ title: Customer announcements
 permalink: /customer-announcements/
 ---
 
-Come here to find out what's new with logz.io. Learn about recent updates, the most important changes, and new feature releases. 
+Come here to find out what's new with Logz.io.
+Learn about recent updates, the most important changes, and new feature releases.
 
 ## What's new?
 

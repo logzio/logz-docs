@@ -64,6 +64,9 @@ collections:
   docs-admin:
     output: true
     permalink: /docs-admin/:path
+  customer-announcements:
+    output: true
+    permalink: /customer-announcements/:path
 
 defaults:
   - scope:
@@ -71,6 +74,14 @@ defaults:
     values:
       search: false
       tags: false
+  - scope:
+      path: ''
+      type: customer-announcements
+    values:
+      layout: article
+      search: false
+      tags: false
+      community-info: false
   - scope:
       path: ''
       type: docs-admin

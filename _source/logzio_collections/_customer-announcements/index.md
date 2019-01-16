@@ -3,8 +3,9 @@ title: Customer announcements
 permalink: /customer-announcements/
 ---
 
-This is the index page for customer announcements
-
-##### Active announcements
-
-<!-- TODO: automated TOC -->
+{% for message in site.customer-announcements -%}
+{%- assign filename = message.path | split: "/" | last | split: "." | first -%}
+{%- unless filename=="index" %}
+  * [{{message.title}}]({{message.url}})
+{%- endunless -%}
+{%- endfor -%}

@@ -65,7 +65,7 @@ contributors:
     PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
     ```
 
-2. Test your configuration
+2. Check Logz.io for your logs
 
     Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

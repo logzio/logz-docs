@@ -102,7 +102,7 @@ contributors:
     --privileged
       : Use this if you receive `Error: read EACCES`.
 
-3. Test your configuration
+3. Check Logz.io for your logs
 
     Spin up your Docker containers if you haven't done so already. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -257,7 +257,7 @@ contributors:
 
     For a complete list of options, see the configuration parameters in step 2.☝️
 
-3. Test your configuration
+3. Check Logz.io for your logs
 
     Spin up your Docker containers if you haven't done so already. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

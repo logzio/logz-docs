@@ -111,7 +111,7 @@ contributors:
     sudo systemctl restart filebeat
     ```
 
-5. Test your configuration
+5. Check Logz.io for your logs
 
     Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
@@ -145,7 +145,7 @@ contributors:
     curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t apache -a "<ACCOUNT-TOKEN>" -l "<LISTENER-URL>"
     ```
 
-2. Test your configuration
+2. Check Logz.io for your logs
 
     Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
     Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).

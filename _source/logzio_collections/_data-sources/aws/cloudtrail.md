@@ -32,7 +32,7 @@ contributors:
 
     {% include log-shipping/in-app-configuration.html toolId="s3-config" %}
 
-3. Test your configuration
+3. Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

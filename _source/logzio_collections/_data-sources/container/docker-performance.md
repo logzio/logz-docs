@@ -65,7 +65,7 @@ contributors:
     INSTANCE
       : The IP address that will be assigned to the `instance` field of each entry.
 
-3. Test your configuration
+3. Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

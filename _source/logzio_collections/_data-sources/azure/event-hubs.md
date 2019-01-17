@@ -106,7 +106,7 @@ In step 1 below, you'll need the Event Hub name, resource group, and region—so
     The logzio-nodejs installation may take a few minutes.
     You can confirm the installation started by clicking **View files** (on the right side of the window) and finding _node_modules > logzio-nodejs_.
 
-6. Test your configuration
+6. Check Logz.io for your logs
 
     On the right of the window, click **Test** to show the test panel, and then click **Run**.
     If you experience any errors in Azure, it may be that the logzio-nodejs installation isn't complete yet.

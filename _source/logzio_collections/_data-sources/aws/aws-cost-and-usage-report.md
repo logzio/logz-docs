@@ -137,7 +137,7 @@ contributors:
 
     Click **Add**, and then click **Save** at the top of the page.
 
-7. Test your configuration
+7. Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

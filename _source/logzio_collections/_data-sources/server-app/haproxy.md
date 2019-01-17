@@ -87,7 +87,7 @@ contributors:
     sudo service rsyslog restart
     ```
 
-4. Test your configuration
+4. Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

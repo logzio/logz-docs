@@ -30,7 +30,7 @@ contributors:
 
     You can add custom fields to each log message. To do this, add `&<KEY>=<VALUE>` to the end of the Logz.io URL. You can use custom fields to identify different Heroku apps, allowing you filter your data in Logz.io.
 
-2. Test your configuration
+2. Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana) to confirm you're shipping logs.
 

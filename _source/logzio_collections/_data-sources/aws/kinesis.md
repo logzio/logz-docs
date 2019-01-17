@@ -104,7 +104,7 @@ contributors:
 
     Click **Add**, and then click **Save** at the top of the page.
 
-6. Test your configuration
+6. Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -202,7 +202,7 @@ contributors:
         For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. <br />
         <span class="default-param">`LATEST`</span>
 
-4. Test your configuration
+4. Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

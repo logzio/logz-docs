@@ -14,7 +14,8 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
 
 ###### Start, stop, scroll, and clear
 
-* To start Live Tail, choose to show **Raw data** or **Parsed data**, type a regex in the **Match** and **Ignore** boxes, and press <i class="li li-play"></i> (play).
+* To start Live Tail, press <i class="li li-play"></i> (play).
+* To display only filtered results, type a regex in the **Match** and **Ignore** boxes and press Enter.
   Log lines that meet your Match and Ignore criteria are shown in real time. More on the [parsed data view](#work-in-parsed-data-view) below.&nbsp;👇
 * To end the Live Tail session, press <i class="li li-stop"></i> (stop).
 * To pause, scroll with your mouse or trackpad.
@@ -24,7 +25,7 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
 
 ###### Find and highlight terms
 
-  <video autoplay loop>
+  <video autoplay controls loop class="no-border">
     <source src="{{site.baseurl}}/videos/live-tail/live-tail--highlight-bar.mp4" type="video/mp4" />
   </video>
 
@@ -37,12 +38,12 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
 The parsed data view divides logs into columns, saving you from having to visually scan entire lines of raw text.
 When you first switch to parsed data view, you'll see the `@timestamp` and `message` columns.
 
-<video autoplay loop class="no-border">
+<video autoplay controls loop class="no-border">
   <source src="{{site.baseurl}}/videos/live-tail/live-tail--filters.mp4" type="video/mp4" />
 </video>
 
-* To add a new column, click <i class="li li-plus"></i>, choose a field to show in the new column, and click **Apply**.
+* To add a new column, click <i class="li li-plus"></i> (to the right of the table heading row), choose a field to show in the new column, and click **Apply**.
 * To remove a column, hover over the column header and click <i class="li li-x"></i>.
 * To move a column left or right, hover over the column header and click <i class="li li-left-arrow"></i> or <i class="li li-right-arrow"></i>.
-* To add a new filter to your session, click **Add filter**, choose a field and filter condition, and then click **Apply**.
+* To add a new filter to your session, click **Add a filter**, choose a field and filter condition, and then click **Apply**.
   Click a filter to edit it, or click <i class="li li-x"></i> on that filter to remove it.

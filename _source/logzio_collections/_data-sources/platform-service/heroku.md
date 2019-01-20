@@ -13,22 +13,23 @@ contributors:
 
 ## Heroku log drain setup
 
-**You'll need:** Heroku CLI
+**You'll need:** [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
 {: .tasklist .firstline-headline }
 1. Set up the log drain in Heroku CLI
 
     Run this command in a terminal window.
 
-    {% include log-shipping/replace-vars.html token=true listener=true %}
-
-    Replace `<HEROKU-APP-NAME>` with the name of the app in Heroku.
-
     ```shell
     heroku drains:add "http://<LISTENER-URL>:8081?token=<ACCOUNT-TOKEN>" -a <HEROKU-APP-NAME>
     ```
 
-    You can add custom fields to each log message. To do this, add `&<KEY>=<VALUE>` to the end of the Logz.io URL. You can use custom fields to identify different Heroku apps, allowing you filter your data in Logz.io.
+    {% include log-shipping/replace-vars.html token=true listener=true %}
+
+    Replace `<HEROKU-APP-NAME>` with the name of the app in Heroku.
+
+    You can add custom fields to each log message, allowing you to identify different Heroku apps and filter your data in Logz.io.
+    To do this, add `&<KEY>=<VALUE>` to the end of the Logz.io URL.
 
 2. Check Logz.io for your logs
 

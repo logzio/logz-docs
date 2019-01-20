@@ -14,7 +14,7 @@ contributors:
 
 ## IIS + NXLog setup
 
-**You'll need:** Admin access
+**You'll need:** [NXLog](http://nxlog.org/products/nxlog-community-edition/download), admin access
 
 ###### Guided configuration
 
@@ -59,13 +59,13 @@ contributors:
     </Route>
     ```
 
-1. Restart NXLog
+2. Restart NXLog
 
     ```powershell
     PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
     ```
 
-2. Check Logz.io for your logs
+3. Check Logz.io for your logs
 
     Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

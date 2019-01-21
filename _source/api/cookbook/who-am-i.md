@@ -65,7 +65,7 @@ Let's see if we can figure this out together.
 
     Check the response body for an error message.
 
-    **If you see `"code": 403`** <br />
+    **If you see `{"code":403,"message":"Insufficient privileges"}`** <br />
     You might be using an invalid API token.
     Copy a valid [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from Logz.io and try again.
 

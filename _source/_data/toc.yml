@@ -155,16 +155,23 @@ firstLevel:
   # - title: Quickstarts
   #   thirdLevel:
   #   - title: Create API token & make a test call
-  - title: API
-    url: /api/
-  # - title: API cookbook
-  #   thirdLevel:
+  - title: API cookbook
+    url: /api/cookbook/
+    thirdLevel:
+    - title: Who am I?
+      url: /api/cookbook/who-am-i.html
+    - title: Managing sub account capacity
+      url: /api/cookbook/managing-sub-account-capacity.html
+    - title: Backing up Kibana objects to GitHub
+      url: /api/cookbook/backing-up-kibana-objects-to-github.html
+
   #   - title: Create alert
-  #   - title: Kibana export
   #   - title: Kibana import
   #   - title: Create snapshots
   #   - title: Allocate account volume
   #   - title: Create a user
+  - title: API reference
+    url: /api/
 
   # ===== MORE =====
 - title: ""

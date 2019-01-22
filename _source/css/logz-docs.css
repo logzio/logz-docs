@@ -1,6 +1,6 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,600,700');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i');
@@ -399,15 +399,16 @@ h1, h2, h3, h4, h5, h6, .site-title, .post-title {
   margin-bottom: 1rem;
 }
 
-h1 {
+h1, h1:first-child {
   font-family: var(--title-font);
+  margin-top: 0px;
 }
 
 h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
 }
 
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
   margin-top: 1rem;
 }
 
@@ -870,7 +871,7 @@ div.feature-box > span {
 /* ===== INFO BOXES ===== */
 
 div.info-box {
-  width: 500px;
+  width: 90%;
   margin: 2rem auto;
   border-radius: 2px;
   border: 1px solid;

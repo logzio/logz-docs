@@ -13,22 +13,29 @@ info:
   description: >-
     # Introduction
 
-    This API is documented using the **OpenAPI 2.0** specification. You can browse the API documentation on this page, or you can download the specification file.
+    This API is documented using the **OpenAPI 2.0** specification.
+    You can browse the API documentation on this page, or you can download the specification file.
+
 
     ### Updates and improvements
 
-    We update this document regularly to reflect changes and improvements to the Logz.io API. If you'd like to suggest corrections or improvements to this document, please email us at [help@logz.io](mailto:help@logz.io) or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
+    We update this document regularly to reflect changes and improvements to the Logz.io API.
+    If you'd like to suggest corrections or improvements to this document, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
 
     # Notes on alerting
 
-    Please note that alerting is not yet covered in this document. For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
+    Please note that alerting is not yet covered in this document.
+    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
 
     # Account region and your API URL
 
-    We host accounts in the US and EU regions. You'll need to route API calls to the same region where your account is hosted.
+    We host accounts in the US and EU regions.
+    You'll need to route API calls to the same region where your account is hosted.
 
 
-    If you don't know your account region, check your Logz.io login URL. If your login URL is app.logz.io, your account is hosted in the US region. If your login URL is app-eu.logz.io, your account is hosted in the EU region.
+    If you don't know your account region, check your Logz.io login URL.
+    If your login URL is app.logz.io, your account is hosted in the US region.
+    If your login URL is app-eu.logz.io, your account is hosted in the EU region.
 
 
     ### API region URLs
@@ -39,15 +46,18 @@ info:
 
     # Authentication
 
-    The Logz.io API is available to Enterprise plan subscribers. You can create new API tokens in the [Logz.io app](https://app.logz.io/#/dashboard/settings/api-tokens). You can revoke API permissions at any time.
+    The Logz.io API is available to Enterprise plan subscribers.
+    You can create new API tokens in [Logz.io](https://app.logz.io/#/dashboard/settings/api-tokens).
+    You can revoke API permissions at any time.
 
-    If you don't have an Enterprise account, please contact your account manager or our [Customer Success team](mailto:help@logz.io).
+    If you don't have an Enterprise account, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
 
     <!-- ReDoc-Inject: <security-definitions> -->
 
     # Rate limiting
 
-    API call and response rates are limited per individual account. To find out your rate limits or to make changes to your account plan, please contact your account executive or our [Customer Success team](mailto:help@logz.io).
+    API call and response rates are limited per individual account.
+    To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
 
 
   version: v1
@@ -74,6 +84,7 @@ security:
   - X-API-TOKEN: []
 
 tags:
+  - name: Who am I
   - name: Manage sub accounts
     description: Use these API requests to create, update, retrieve, or delete sub accounts.
   - name: Search logs
@@ -100,6 +111,7 @@ x-tagGroups:
   - name: Account administration
     tags:
       - Manage users
+      - Who am I
       - Manage sub accounts
       - Manage shared tokens
       - Manage notification endpoints
@@ -113,6 +125,28 @@ x-tagGroups:
 
 paths:
   # ::::: ACCOUNTS
+  /account-management/whoami:
+    get:
+      summary: Retrieve this account
+      description: Returns a single string with the account name. Good for testing or for confirming that you're using an API token from the right account.
+      tags:
+        - Who am I
+      operationId: whoAmI
+      produces:
+        - application/json
+      parameters:
+      x-code-samples:
+      - lang: cURL
+        source: >-
+          "curl -X GET \
+          https://api.logz.io/v1/account-management/whoami \
+          -H 'Content-Type: application/json' \
+          -H 'X-API-TOKEN: <token>'"
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/WhoAmI'
   /account-management/time-based-accounts:
     get:
       summary: Retrieve all sub accounts
@@ -1793,6 +1827,13 @@ paths:
 
 definitions:
   # ::::: ACCOUNTS DEFINITIONS
+  WhoAmI:
+    type: object
+    properties:
+      accountName:
+        type: string
+        description: Name of the account
+        example: Jean Valjean
   AccountUtilizationSettings:
     type: object
     description: Settings for logging metrics on your account utilization,&nbsp; such as used and expected data volume at current indexing rate.
@@ -1916,9 +1957,9 @@ definitions:
       maxDailyGB:
         type: number
         format: float
-        description: Maximum daily usage, in GB
+        description: Maximum daily usage, in GB. Must be ≥ `1` if you want the account to receive any logs. If set to `0` and you ship logs, the account will be suspended for 24 hours.
         example: 5
-        default: 1
+        default: 0
       retentionDays:
         type: integer
         format: int32

@@ -1,5 +1,5 @@
 {% unless page.intercom == false %}
-{%- assign intercomId = include.intercomId | site.intercom_app_id -%}
+{%- assign intercomId = site.intercom_app_id -%}
 <script>
   window.intercomSettings = {
     app_id: "{{ intercomId }}",

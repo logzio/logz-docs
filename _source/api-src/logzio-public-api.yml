@@ -13,22 +13,29 @@ info:
   description: >-
     # Introduction
 
-    This API is documented using the **OpenAPI 2.0** specification. You can browse the API documentation on this page, or you can download the specification file.
+    This API is documented using the **OpenAPI 2.0** specification.
+    You can browse the API documentation on this page, or you can download the specification file.
+
 
     ### Updates and improvements
 
-    We update this document regularly to reflect changes and improvements to the Logz.io API. If you'd like to suggest corrections or improvements to this document, please email us at [help@logz.io](mailto:help@logz.io) or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
+    We update this document regularly to reflect changes and improvements to the Logz.io API.
+    If you'd like to suggest corrections or improvements to this document, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
 
     # Notes on alerting
 
-    Please note that alerting is not yet covered in this document. For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
+    Please note that alerting is not yet covered in this document.
+    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
 
     # Account region and your API URL
 
-    We host accounts in the US and EU regions. You'll need to route API calls to the same region where your account is hosted.
+    We host accounts in the US and EU regions.
+    You'll need to route API calls to the same region where your account is hosted.
 
 
-    If you don't know your account region, check your Logz.io login URL. If your login URL is app.logz.io, your account is hosted in the US region. If your login URL is app-eu.logz.io, your account is hosted in the EU region.
+    If you don't know your account region, check your Logz.io login URL.
+    If your login URL is app.logz.io, your account is hosted in the US region.
+    If your login URL is app-eu.logz.io, your account is hosted in the EU region.
 
 
     ### API region URLs
@@ -39,15 +46,18 @@ info:
 
     # Authentication
 
-    The Logz.io API is available to Enterprise plan subscribers. You can create new API tokens in the [Logz.io app](https://app.logz.io/#/dashboard/settings/api-tokens). You can revoke API permissions at any time.
+    The Logz.io API is available to Enterprise plan subscribers.
+    You can create new API tokens in [Logz.io](https://app.logz.io/#/dashboard/settings/api-tokens).
+    You can revoke API permissions at any time.
 
-    If you don't have an Enterprise account, please contact your account manager or our [Customer Success team](mailto:help@logz.io).
+    If you don't have an Enterprise account, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
 
     <!-- ReDoc-Inject: <security-definitions> -->
 
     # Rate limiting
 
-    API call and response rates are limited per individual account. To find out your rate limits or to make changes to your account plan, please contact your account executive or our [Customer Success team](mailto:help@logz.io).
+    API call and response rates are limited per individual account.
+    To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
 
 
   version: v1

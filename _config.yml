@@ -48,6 +48,7 @@ google_tag_manager_id: GTM-NH9MTDW
 
 # if you use Intercom, add app id here. To disable, remove or comment out the line
 intercom_app_id: bkz9ugqv
+# intercom_TEST_app_id: # For local testing only. DON'T COMMIT THIS LINE WITH AN ID.
 
 # ===== COLLECTIONS =====
 # Collections are the highest-level categories of Logz.io content.

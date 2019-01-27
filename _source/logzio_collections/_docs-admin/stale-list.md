@@ -12,7 +12,7 @@ title: Stale list
 
 This is a list of all pages in the docs and when they were last updated. Reverse sort by the **committed** column to see which docs are the most stale.
 
-For now, this list needs to be manually generated. So if you feel like updating it, clone the logz-docs repo, run `./stale-list.sh`, and commit the changed stale-list.yml.
+For now, this list needs to be manually generated. So if you feel like updating it, clone the logz-docs repo, run `./make-stale-list.sh`, and commit the changed stale-list.yml.
 
 Future plan is to auto-generate this file at build time so commits aren't necessary.
 

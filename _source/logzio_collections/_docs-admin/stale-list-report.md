@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Stale list
+title: Stale list report
 ---
 
 

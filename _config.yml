@@ -64,9 +64,9 @@ collections:
   docs-admin:
     output: true
     permalink: /docs-admin/:path
-  customer-announcements:
+  technical-notes:
     output: true
-    permalink: /customer-announcements/:path
+    permalink: /technical-notes/:path
 
 defaults:
   - scope:
@@ -76,7 +76,7 @@ defaults:
       tags: false
   - scope:
       path: ''
-      type: customer-announcements
+      type: technical-notes
     values:
       layout: article
       search: false

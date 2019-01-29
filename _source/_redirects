@@ -9,3 +9,4 @@
 /user-guide/access-and-authentication/* /user-guide/tokens/:splat 301
 
 /contributors/proudboffin /contributors/danielberman 301
+/customer-announcements/* /technical-notes/:splat 301

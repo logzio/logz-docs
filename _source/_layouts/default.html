@@ -14,9 +14,10 @@
 
     <div class="body-container">
       <h1 class="post-title">
-        {{ page.title | escape }}
+        {{- page.title | escape -}}
       </h1>
 
+      {%- if page.updated %} <div class="updated">Updated {{page.updated | date: "%b %e, %Y" }}</div> {%- endif -%}
       {% include community.html %}
       {% include page-flags.html %}
 

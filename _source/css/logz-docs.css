@@ -500,6 +500,11 @@ a.fancy-link:hover::after {
   padding-top: 10px;
 }
 
+.updated {
+  font-style: italic;
+  font-size: .9rem;
+}
+
 /* ===== CODE BLOCKS ===== */
 
 code {

@@ -1,5 +1,6 @@
 ---
 title: Kibana 6 Upgrade
+updated: 2019-01-16
 ---
 
 Logz.io has upgraded your account to Kibana 6.3, and we want to ensure that you are enabled to take advantage of the new and enriched features that will be available to you so that you and your teams can plan accordingly.

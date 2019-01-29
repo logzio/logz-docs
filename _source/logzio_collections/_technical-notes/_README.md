@@ -8,9 +8,9 @@ IMPORTANT: This readme file is not published with the rest of the site. Don't ch
 ****** ****** ****** ****** ****** ****** ****** ****** ****** ****** ****** ****** ****** ****** ****** ******
 
 TO ADD A NEW TECHNICAL NOTE:
-1. In https://github.com/logzio/logz-docs/tree/develop/_source/logzio_collections/_customer-announcements, click **Create new file**.
+1. In https://github.com/logzio/logz-docs/tree/develop/_source/logzio_collections/_technical-notes, click **Create new file**.
 
-2. Give the file a name (and `.md` extension), and add frontmatter. Give your note today's date, in YYYY-MM-DD format. Leave a blank line after the frontmatter.
+2. Give the file a name (and `.md` extension) and add frontmatter. Give your note today's date, in YYYY-MM-DD format. Start on line 1, and leave a blank line after the frontmatter.
 ---
 title: Your fancy title
 updated: YYYY-MM-DD
@@ -27,6 +27,7 @@ updated: YYYY-MM-DD
       **bold**
       _italic_
       [link text](https://some-website.com)
+      ![image alt text](https://image-url.com)
       * bulleted list
       1. numbered list
 
@@ -34,7 +35,7 @@ updated: YYYY-MM-DD
       Leave a blank line before and after headings.
 
 4. When you're done, find the **Commit new file** section below the edit box. Add a commit message.
-    Good practice is to write in present tense. (For example: write new technical note on kibana upgrade)
+    Good practice is to write in present tense. (For example: 'write new technical note on kibana upgrade')
 
 5. Click **Create a new branch...**, and then click **Commit new file**. This starts a pull request that the docs manager will review.
 

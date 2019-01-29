@@ -7,6 +7,7 @@ title: Staleness report
 {%- comment -%}
 *   Comma-separated list of collections to exclude from the stale list.
 *   Anything that isn't a doc (like contributors) should be added to this list.
+*   Use collection name only, not the folder name.
 *         {%- endcomment -%}
 {%- assign excludedCollections = "contributors,docs-admin,knowledge-base,tags" | split: "," -%}
 
@@ -21,7 +22,8 @@ title: Staleness report
 {% for p in site.pages -%}
 
   {%- comment -%}
-  *   If this page doesn't have a .md extension, skip to next forloop iteration
+  *   If this page doesn't have a .md or .html extension, skip to next forloop
+  *   iteration
   *         {%- endcomment -%}
   {%- assign fileExt = p.path | split: "." | last -%}
   {%- unless fileExt == "md" or fileExt == "html" -%}
@@ -85,7 +87,7 @@ title: Staleness report
 
 
 This is a list of all pages in the docs and when they were last updated.
-Reverse sort by the **committed** column to see which docs are the most stale.
+Reverse sort by **committed** date to see which docs are the most stale.
 
 {% if site.data.stale-list == false or site.data.stale-list == nil -%}
 ## \*\*\*\*\* NO LIST GENERATED \*\*\*\*\*

@@ -3,6 +3,18 @@ layout: article
 title: Staleness report
 ---
 
+This is a list of all pages in the docs and when they were last updated.
+Reverse sort by **committed** date to see which docs are the most stale.
+
+{% if site.data.stale-list == false or site.data.stale-list == nil -%}
+## \*\*\*\*\* NO LIST GENERATED \*\*\*\*\*
+
+For now, this list needs to be manually generated offline.
+To get the staleness report, clone the logz-docs repo, run `./make-stale-list.sh`, and visit this page ({{page.url}}).
+
+Future plan is to auto-generate this file at build time so it will be available online.
+
+{% else %}
 
 {%- comment -%}
 *   Comma-separated list of collections to exclude from the stale list.
@@ -85,19 +97,6 @@ title: Staleness report
   {%- assign tableRows = tableRows | concat: thisRow -%}
 {% endfor %}
 
-
-This is a list of all pages in the docs and when they were last updated.
-Reverse sort by **committed** date to see which docs are the most stale.
-
-{% if site.data.stale-list == false or site.data.stale-list == nil -%}
-## \*\*\*\*\* NO LIST GENERATED \*\*\*\*\*
-
-For now, this list needs to be manually generated offline.
-To get the staleness report, clone the logz-docs repo, run `./make-stale-list.sh`, and visit this page ({{page.url}}).
-
-Future plan is to auto-generate this file at build time so it will be available online.
-
-{% else %}
 ## The list
 
 **Generated: {{site.data.stale-list.generated}}**

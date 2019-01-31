@@ -94,8 +94,8 @@ firstLevel:
     thirdLevel:
     - title: Understanding your security logs
       url: /user-guide/security-analytics/understanding-your-security-logs.html
-    - title: Manage correlation rules
-      url: /user-guide/security-analytics/manage-correlation-rules.html
+    - title: Manage security rules
+      url: /user-guide/security-analytics/manage-security-rules.html
 
 - title: Admin tools
   secondLevel:

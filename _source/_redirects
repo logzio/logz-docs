@@ -10,3 +10,4 @@
 
 /contributors/proudboffin /contributors/danielberman 301
 /customer-announcements/* /technical-notes/:splat 301
+/user-guide/security-analytics/manage-correlation-rules.html /user-guide/security-analytics/manage-security-rules.html 301

@@ -9,7 +9,7 @@ tags:
   - security-summary
   - security-threats
   - security-research
-  - correlation-rules
+  - security-rules
 contributors:
   - imnotashrimp
   - proudboffin
@@ -33,9 +33,9 @@ Research
   : Use Kibana to drill down into your logs, helping you better understand specific events and threats.
 
 
-Correlation rules
-  : This page contains preconfigured security correlation rules.
-    When correlation rules are triggered, you’ll see the results on the Summary and Threats dashboards.
+Security rules
+  : This page contains preconfigured security security rules.
+    When security rules are triggered, you’ll see the results on the Summary and Threats dashboards.
     You can also create your own custom rules.
 
 

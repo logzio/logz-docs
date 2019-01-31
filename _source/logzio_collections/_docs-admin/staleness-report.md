@@ -4,15 +4,14 @@ title: Staleness report
 ---
 
 This is a list of all pages in the docs and when they were last updated.
-Reverse sort by **committed** date to see which docs are the most stale.
+This list is sorted by **date-time** to see which docs are the most stale.
 
 {% if site.data.stale-list == false or site.data.stale-list == nil -%}
 ## \*\*\*\*\* NO LIST GENERATED \*\*\*\*\*
 
-For now, this list needs to be manually generated offline.
-To get the staleness report, clone the logz-docs repo, run `./make-stale-list.sh`, and visit this page ({{page.url}}).
+You're seeing this message because the staleness report didn't run. Make sure your build process runs `build.sh`.
 
-Future plan is to auto-generate this file at build time so it will be available online.
+To get the staleness report offline, clone the logz-docs repo, run `preview.sh`, and visit this page ({{page.url}}).
 
 {% else %}
 
@@ -101,8 +100,8 @@ Future plan is to auto-generate this file at build time so it will be available 
 
 **Generated: {{site.data.stale-list.generated}}**
 
-| committed | author | link |
+| date-time | committed by | link |
 |---|---|---|
-{{tableRows}}
+{{tableRows | sort}}
 
 {% endif -%}

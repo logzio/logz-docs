@@ -1778,7 +1778,7 @@ paths:
         - lang: cURL
           source: 'curl -X DELETE "https://api.logz.io/v1/user-management/11300" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
       responses:
-        204:
+        200:
           description: successful operation
   /user-management/suspend/{id}:
     post:
@@ -1799,7 +1799,7 @@ paths:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/user-management/suspend/11300" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
       responses:
-        204:
+        200:
           description: successful operation
   /user-management/unsuspend/{id}:
     post:
@@ -1820,7 +1820,7 @@ paths:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/user-management/unsuspend/11300" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
       responses:
-        204:
+        200:
           description: successful operation
 
 

@@ -72,4 +72,5 @@ Let's see if we can figure this out together.
     **If you see `Account region xx differs from current server region yy`** <br />
     You're using a valid API token, but you sent the request to the wrong account region.
     Change the API region to your account region and try again. <br />
-    If you’re not sure about your account region, check the URL you use to sign in Logz.io. If you sign in to app.logz.io, use `api.logz.io`. If you sign in to app-eu.logz.io, use `api-eu.logz.io`.
+
+    For more information on finding your account's region, see [About your account region]({{site.baseurl}}/user-guide/accounts/about-your-account-region.html).

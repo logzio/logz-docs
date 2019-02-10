@@ -41,8 +41,10 @@ Read on for a list of region codes and URLs.
 {%- case attribs.suffix -%}
   {%- when false -%}
     {%- assign suffix = "" -%}
+    {%- assign regionCode = "" -%}
   {%- else -%}
     {%- assign suffix = r[0] | prepend: "-" -%}
+    {%- assign regionCode = r[0] | prepend: " (" | append: ")" -%}
 {%- endcase -%}
-| {{attribs.title}} | app{{suffix}}.logz.io | listener{{suffix}}.logz.io | api{{suffix}}.logz.io |
+| {{attribs.title}}{{regionCode}} | app{{suffix}}.logz.io | listener{{suffix}}.logz.io | api{{suffix}}.logz.io |
 {% endfor -%}

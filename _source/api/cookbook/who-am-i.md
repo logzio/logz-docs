@@ -73,4 +73,4 @@ Let's see if we can figure this out together.
     You're using a valid API token, but you sent the request to the wrong account region.
     Change the API region to your account region and try again. <br />
 
-    For more information on finding your account's region, see [About your account region]({{site.baseurl}}/user-guide/accounts/about-your-account-region.html).
+    For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).

@@ -107,6 +107,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
     - title: Manage timeless accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
+    - title: Account region
+      url: /user-guide/accounts/account-region.html
     - title: Monitor account usage
       url: /user-guide/accounts/monitor-account-usage.html
     - title: Support access

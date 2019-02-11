@@ -44,9 +44,9 @@ Please note we can honor a request only from an account admin.
 
     ![Configure Alice]({{site.baseurl}}/images/integrations/integrations--alice-configuration.png)
 
-    If you’re not sure about your account region, check the URL you use to sign in Logz.io.
-    If you sign in to `app.logz.io`, choose **US**.
-    If you sign in to `app-eu.logz.io`, choose **EU**.
+    <div class="info-box read">
+      If you don't know how to find your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+    </div>
 
 You can now ask Alice to help you with your Logz.io account.
 You can invite Alice to a specific channel (just tag `@Alice`) or issue commands from the app itself in Slack.

@@ -6,6 +6,8 @@ x-servers:
     description: US region
   - url: https://api-eu.logz.io/v1
     description: EU region
+  - url: https://api-nl-logz.io/v1
+    description: The Netherlands region
 basePath: /v1
 produces: [ application/json ]
 consumes: [ application/json ]
@@ -29,13 +31,14 @@ info:
 
     # Account region and your API URL
 
-    We host accounts in the US and EU regions.
+    We host accounts in the US, EU, and The Netherlands regions.
     You'll need to route API calls to the same region where your account is hosted.
 
 
     If you don't know your account region, check your Logz.io login URL.
     If your login URL is app.logz.io, your account is hosted in the US region.
     If your login URL is app-eu.logz.io, your account is hosted in the EU region.
+    If your login URL is app-nl.logz.io, your account is hosted in The Netherlands region.
 
 
     ### API region URLs
@@ -43,6 +46,8 @@ info:
     * US: `api.logz.io`
 
     * EU: `api-eu.logz.io`
+
+    * The Netherlands: `api-nl.logz.io`
 
     # Authentication
 
@@ -1778,7 +1783,7 @@ paths:
         - lang: cURL
           source: 'curl -X DELETE "https://api.logz.io/v1/user-management/11300" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
       responses:
-        204:
+        200:
           description: successful operation
   /user-management/suspend/{id}:
     post:
@@ -1799,7 +1804,7 @@ paths:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/user-management/suspend/11300" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
       responses:
-        204:
+        200:
           description: successful operation
   /user-management/unsuspend/{id}:
     post:
@@ -1820,7 +1825,7 @@ paths:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/user-management/unsuspend/11300" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
       responses:
-        204:
+        200:
           description: successful operation
 
 

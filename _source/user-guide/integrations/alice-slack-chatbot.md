@@ -45,7 +45,7 @@ Please note we can honor a request only from an account admin.
     ![Configure Alice]({{site.baseurl}}/images/integrations/integrations--alice-configuration.png)
 
     <div class="info-box read">
-      If you don't know how to find your account's region, see [About your account region]({{site.baseurl}}/user-guide/accounts/about-your-account-region.html).
+      If you don't know how to find your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
     </div>
 
 You can now ask Alice to help you with your Logz.io account.

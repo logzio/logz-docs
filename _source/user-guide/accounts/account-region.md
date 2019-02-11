@@ -1,7 +1,7 @@
 ---
 layout: article
-title: About your account region
-permalink: /user-guide/accounts/about-your-account-region.html
+title: Account region
+permalink: /user-guide/accounts/account-region.html
 description: Every Logz.io account is hosted in an account region. All services related to your account are colocated—so you'll ship logs, sign in, and access the API from the same region the account lives in.
 flags:
   admin: true

@@ -1,6 +1,5 @@
 ---
 title: Kibana 6 Upgrade
-updated: 2019-02-07
 ---
 
 Logz.io has upgraded your account to Kibana 6.3, and we want to ensure that you are enabled to take advantage of the new and enriched features that will be available to you so that you and your teams can plan accordingly.
@@ -11,7 +10,7 @@ You’ll immediately notice some UI changes in Kibana which will be reviewed her
 
 The main UI changes being made available include new colors for better contrast, and improved screen reading and keyboard navigation. Dashboarding also has a new “Full-Screen Mode” was added when viewing dashboards that allow users to enjoy all the Kibana goodness in full-screen mode. 
 
-## Autocomplete Search (Coming soon!)
+## Autocomplete Search
 
 Logz.io is introducing support for autocomplete and the option to use Kuery, a functional querying syntax that is simpler than Lucene introduced in Kibana 6.0. The focus is to make searches easier, and you can read up on how to use this syntax [here](https://www.elastic.co/guide/en/kibana/6.3/kuery-query.html).
 

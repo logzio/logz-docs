@@ -5,7 +5,12 @@
 {%- assign thisPath = thisPath | prepend: "_source/" -%}
 
 {%- assign thisRecord = site.data.stale-list.contents | where: "filepath", thisPath | first %}
-{%- assign pageDate = page.updated | default: thisRecord.committed -%}
+{%- case page.show-date -%}
+  {%- when false -%}
+    {%- assign pageDate = nil -%}
+  {%- else -%}
+    {%- assign pageDate = page.updated | default: thisRecord.committed -%}
+{%- endcase -%}
 
 {%- if pageDate %}
   <div class="updated">Updated {{pageDate | date: "%b %e, %Y" }}</div>

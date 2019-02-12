@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Staleness report
+show-date: false
 ---
 
 This is a list of all pages in the docs and when they were last updated.

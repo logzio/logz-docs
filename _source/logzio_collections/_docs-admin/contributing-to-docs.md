@@ -16,7 +16,7 @@ They come in two groups.
 You can set page flags in the YAML front matter on each page under the `flags` object.
 Flags are only shown if they're included in the front matter.
 
-On the left, you'll see the labels of "Beta feature" and "Account admin only".
+On the left, you'll see the labels of "Beta feature" and "For account admins".
 These are set using the `beta` and `admin` properties:
 
 ```yaml

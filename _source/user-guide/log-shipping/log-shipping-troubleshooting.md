@@ -14,114 +14,103 @@ The process of getting logs from your system to Logz.io can be tricky, and it ca
 
 Before doing anything, make sure you give Logz.io some time to parse and index your logs. Normally, this takes a few seconds to a minute. Sometimes, this can take longer.
 
-<div class="accordion">
+{: .tasklist .firstline-headline}
+1. Check the Logz.io status page
 
-### 1. Check the Logz.io status page
+    Visit our [status page](http://status.logz.io/) to confirm everything is working normally. (If you're not already signed up for status updates, go ahead and subscribe while you're there.)
 
-<div>
+    {: .inline-header}
+    If the status is "All systems Operational"
 
-Visit our [status page](http://status.logz.io/) to confirm everything is working normally. (If you're not already signed up for status updates, go ahead and subscribe while you're there.)
+    If you see "All Systems Operational", Logz.io is operating normally. You can move on to the next step.
 
-##### If the status is "All systems Operational" 
+    {: .inline-header}
+    If the status is something else
 
-If you see "All Systems Operational", Logz.io is operating normally. You can move on to the next step.
+    On rare occasions, there may be an issue with our production environment. If this happens, you'll need to wait until we fix the problem before you can ship your logs.
 
-##### If the status is something else
+2. Check your shipper's connectivity
 
-On rare occasions, there may be an issue with our production environment. If this happens, you'll need to wait until we fix the problem before you can ship your logs.
+    To make sure your log shipper can connect to Logz.io listeners, run this command from the device you're shipping from:
 
-</div>
+    ```shell
+    telnet listener.logz.io <port>
+    ```
 
-### 2. Check your shipper's connectivity 
+    You can find the correct port for your shipping method in the table below.
 
-<div>
+    <div class="info-box note">
+      As of macOS High Sierra (10.13), telnet is not installed by default. You'll need to install telnet before proceeding.
+    </div>
 
-To make sure your log shipper can connect to Logz.io listeners, run `telnet listener.logz.io <port>` from the device that you're shipping from. You can find the correct port for your shipping method in the table below.
+    | Shipping method                         | Port |
+    |-----------------------------------------|------|
+    | Beats                                   | 5015 |
+    | Cloud Foundry drain over HTTPS          | 8081 |
+    | Filebeat                                | 5015 |
+    | Heroku drain over HTTP                  | 8080 |
+    | Heroku drain over HTTPS                 | 8081 |
+    | JSON file upload over HTTP              | 8070 |
+    | JSON file upload over HTTPS             | 8071 |
+    | log file upload over HTTP               | 8021 |
+    | log file upload over HTTPS              | 8022 |
+    | Logstash                                | 5050 |
+    | Logstash-forwarder                      | 5005 |
+    | Logstash over SSL                       | 5006 |
+    | NXLog                                   | 8010 |
+    | rsyslog                                 | 5000 |
+    | rsyslog over TLS                        | 5001 |
+    | TLS/SSL over TCP                        | 5052 |
 
-<div class="info-box note">
-  As of macOS High Sierra (10.13), telnet is not installed by default. You'll need to install telnet before proceeding.
-</div>
+    {: .inline-header}
+    If you see "Connected to listener-group.logz.io"
 
-| Shipping method                         | Port |
-|-----------------------------------------|------|
-| Beats                                   | 5015 |
-| Cloud Foundry drain over HTTPS          | 8081 |
-| Filebeat                                | 5015 |
-| Heroku drain over HTTP                  | 8080 |
-| Heroku drain over HTTPS                 | 8081 |
-| JSON file upload over HTTP              | 8070 |
-| JSON file upload over HTTPS             | 8071 |
-| log file upload over HTTP               | 8021 |
-| log file upload over HTTPS              | 8022 |
-| Logstash                                | 5050 |
-| Logstash-forwarder                      | 5005 |
-| Logstash over SSL                       | 5006 |
-| NXLog                                   | 8010 |
-| rsyslog                                 | 5000 |
-| rsyslog over TLS                        | 5001 |
-| TLS/SSL over TCP                        | 5052 |
+    If you see "Connected to listener-group.logz.io", your shipper can connect to the Logz.io listener.
 
+    To exit telnet, type Ctrl+], and then type `quit`. You can move on to the next troubleshooting step.
 
-##### If you see "Connected to listener-group.logz.io"
+    {: .inline-header}
+    If the status remains "Trying xxx.xxx.xxx.xxx..."
 
-If you see `Connected to listener-group.logz.io`, your shipper can connect to the Logz.io listener.
+    If you see "Trying xxx.xxx.xxx.xxx..." for more than 10 seconds, your machine is having trouble connecting to the Logz.io listener.
 
-To exit telnet, type Ctrl+], and then type `quit`. You can move on to the next troubleshooting step.
+    Confirm that your firewall and network settings allow communication with the right outbound port and the Logz.io [listener IP addresses]({{site.baseurl}}/user-guide/log-shipping/listener-ip-addresses.html) for your region.
 
-##### If the status remains "Trying xxx.xxx.xxx.xxx..."
+3. Check your log shipping configuration for the right account token
 
-If you see `Trying xxx.xxx.xxx.xxx...` for more than 10 seconds, your machine is having trouble connecting to the Logz.io listener.
+    Logz.io uses your account token to send incoming logs to the correct account. If you're not using the right account token, your logs won't be indexed to your account.
 
-Confirm that your firewall and network settings allow communication with the right outbound port and the Logz.io [listener IP addresses]({{site.baseurl}}/user-guide/log-shipping/listener-ip-addresses.html) for your region.
+    You can find your account token in your [account settings](https://app.logz.io/#/dashboard/settings/general).
 
-</div>
-
-### 3. Check your log shipping configuration for the right account token
-
-<div>
-
-Logz.io uses your account token to send incoming logs to the correct account. If you're not using the right account token, your logs won't be indexed to your account.
-
-1. Find your account token in your [account settings](https://app.logz.io/#/dashboard/settings/general) (**<i class="li li-gear"></i> > Settings > General** in the top menu).
-
-2. Find the token you're sending with your logs. Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs.
+    Compare your account token with the token you're sending to Logz.io with your logs. Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs.
 
     <div class="info-box tip">
       In most cases, the token is stored in a configuration file or as a query parameter in the URL you're shipping logs to. You can usually find it by searching for "token".
     </div>
 
-3. Compare your account token to the token you're shipping with your logs.
+    {:.inline-header}
+    If the tokens match
 
-##### If the tokens match
+    If the tokens match, your logs will be sent to your account. Move on to the next troubleshooting step.
 
-If the tokens match, your logs will be sent to your account. Move on to the next troubleshooting step.
+    {:.inline-header}
+    If the tokens don't match
 
-##### If the tokens don't match
+    If the tokens don't match, your logs won't be sent to your account. Copy your acount token to your shipper configuration, and restart your shipper if you need to.
 
-If the tokens don't match, your logs won't be sent to your account. Copy your acount token to your shipper configuration, and restart your shipper if you need to.
+    If your logs still don't appear in Kibana after a few minutes, move on to the next troubleshooting step.
 
-If your logs still don't appear in Kibana after a few minutes, move on to the next troubleshooting step.
+4. Check your log shipper's logs
 
-</div>
+    Next, you'll need to check your log shipper's logs. If you're not sure where to find the logs, see your log shipper's documentation.
 
-### 4. Check your log shipper's logs
+    When reviewing the logs, look for errors indicating that your logs aren't being shipped.
 
-<div>
+    Also confirm that the log shipper is running. If it's not running, you'll need to troubleshoot the shipper.
 
-Next, you'll need to check your log shipper's logs. If you're not sure where to find the logs, see your log shipper's documentation.
+    {: .inline-header}
+    Common log shipper issues and fixes
 
-When reviewing the logs, look for errors indicating that your logs aren't being shipped.
-
-Also confirm that the log shipper is running. If it's not running, you'll need to troubleshoot the shipper. 
-
-##### Common log shipper issues and fixes
-
-* _Multiple configurations:_ Make sure your shipper has one configuration. If it has more than one configuration, remove or comment out extra configurations.
-
-* _Incorrect paths:_ Make sure all the paths in the configuration are correct
-
-* _Incorrect permissions:_ Make sure your shipper has the correct permissions to access configured paths
-
-</div>
-
-</div>
+    * _Multiple configurations:_ Make sure your shipper has one configuration. If it has more than one configuration, remove or comment out extra configurations.
+    * _Incorrect paths:_ Make sure all the paths in the configuration are correct.
+    * _Incorrect permissions:_ Make sure your shipper has the correct permissions to access configured paths.

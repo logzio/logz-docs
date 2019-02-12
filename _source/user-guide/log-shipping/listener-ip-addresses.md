@@ -16,20 +16,19 @@ If you're having trouble shipping your logs to Logz.io, you may need to open you
 </div>
 
 {% for r in site.data.logzio-regions -%}
-{%- assign attribs = r[1] -%}
-{%- case attribs.suffix -%}
-  {%- when false -%}
-    {%- assign suffix = "" -%}
-  {%- else -%}
-    {%- assign suffix = r[0] | prepend: "-" -%}
-{%- endcase %}
+  {%- assign attribs = r[1] -%}
+  {%- case attribs.suffix -%}
+    {%- when false -%}
+      {%- assign suffix = "" -%}
+    {%- else -%}
+      {%- assign suffix = r[0] | prepend: "-" -%}
+  {%- endcase %}
 
-{: .inline-header}
-app{{suffix}}.logz.io ({{attribs.title}})
+#### app{{suffix}}.logz.io ({{attribs.title}})
 
 If you're shipping logs to app{{suffix}}.logz.io, open your firewall to these IP addresses:
 
 {% for ip in attribs.listener-ips %}
-  {{ip}} {% unless forloop.last -%} \\ {%- endunless -%}
-{%- endfor -%}
+* {{ip}}
+{%- endfor %}
 {% endfor %}

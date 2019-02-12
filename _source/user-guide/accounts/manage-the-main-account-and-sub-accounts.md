@@ -19,7 +19,11 @@ If you're on a Pro or Enterprise plan, you can create sub accounts to help manag
 
 ## The main account
 
-Users in your main account have access to your data in sub accounts and timeless accounts.
+All users in your main account can search your data in sub accounts and timeless accounts.
+To limit data visibility, you can route different logs to different sub accounts.
+(More on [sub accounts](#sub-accounts) and [managing your accounts](#managing-your-accounts) below.)
+
+##### Permissions for main account admins
 Admin users of the main account also have these permissions:
 
 * Create, view, update, and delete users in the main account and sub accounts, including other admin users
@@ -29,12 +33,12 @@ Admin users of the main account also have these permissions:
 
 Because of the high level of permissions, we recommend limiting the number of admin users in the main account.
 
-## Sub accounts
+## Sub accounts {#sub-accounts}
 
 Sub accounts help you control data usage and manage user access to your logs.
-By shipping different logs to different sub accounts, you can define data volumes and retention periods for different environments.
+By shipping different logs to different sub accounts, you can define data volumes and retention periods for independent environments.
 
-## Managing your accounts
+## Managing your accounts {#managing-your-accounts}
 
 If you're an admin for the main account, you can manage the main account and sub accounts from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-users) page (**<i class="li li-gear"></i> > Settings > Manage accounts** in the top menu).
 

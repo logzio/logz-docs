@@ -21,9 +21,7 @@ All services related to your account are colocated—so you'll ship logs, sign i
 Glad you asked!
 
 To find your account region, sign in to Logz.io and look at the URL in the address bar.
-
 If you see `app.logz.io`, then your account is in the US region.
-
 All other regions have a hypen and then a two-letter region code.
 For example, if you see `app-eu.logz.io`, then your account is in the EU region.
 

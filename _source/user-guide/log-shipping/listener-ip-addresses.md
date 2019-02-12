@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Listener IP addresses
+description: If you're having trouble shipping your logs to Logz.io, you may need to open your firewall to Logz.io listener servers. This page contains the Logz.io listener IP addresses so you can do just that.
 permalink: /user-guide/log-shipping/listener-ip-addresses.html
 tags:
   - log-shipping
@@ -28,7 +29,8 @@ If you're having trouble shipping your logs to Logz.io, you may need to open you
 
 If you're shipping logs to app{{suffix}}.logz.io, open your firewall to these IP addresses:
 
-{% for ip in attribs.listener-ips %}
+{%- assign sortedIPs = attribs.listener-ips | sort -%}
+{% for ip in sortedIPs %}
 * {{ip}}
 {%- endfor %}
 {% endfor %}

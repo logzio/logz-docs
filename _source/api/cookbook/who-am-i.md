@@ -18,7 +18,7 @@ But the good news is you'll receive a response with the account name.
 
 You can use `whoami` to test connectivity with Logz.io or to confirm you're using an API token from the right account.
 
-#### Sample request
+### Sample request
 
 {% include api-cookbook/replace-vars.html %}
 
@@ -31,7 +31,7 @@ curl -X GET \
 
 {% include api-cookbook/read-more-api-doc.html title="Retrieve this account" id="whoAmI" %}
 
-##### ...and the response
+#### ...and the response
 
 ```json
 {
@@ -39,7 +39,8 @@ curl -X GET \
 }
 ```
 
-If you see a status of 200 and a response body that includes accountName, congratulations! 🎉 You just made your first API call.
+If you see a status of 200 and a response body that includes accountName, congratulations! 🎉
+You just made your first API call.
 
 If you didn't receive the expected response, continue to the troubleshooting steps below. 👇
 
@@ -53,11 +54,15 @@ Let's see if we can figure this out together.
 
     The status code indicates whether you sent the request to a valid Logz.io API endpoint.
 
-    **If the status code is 200** <br />
+    {: .inline-header }
+    If the status code is 200
+
     You sent the request to a valid endpoint.
     Continue to the next step.
 
-    **If the status code is something else** <br />
+    {: .inline-header }
+    If the status code is something else
+
     You might have sent the request to an invalid endpoint.
     Double-check the API URL, and make sure it matches an endpoint in the Logz.io [API docs]({{site.baseurl}}/api/).
 
@@ -65,12 +70,16 @@ Let's see if we can figure this out together.
 
     Check the response body for an error message.
 
-    **If you see `{"code":403,"message":"Insufficient privileges"}`** <br />
+    {: .inline-header }
+    If you see `{"code":403,"message":"Insufficient privileges"}`
+
     You might be using an invalid API token.
     Copy a valid [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from Logz.io and try again.
 
-    **If you see `Account region xx differs from current server region yy`** <br />
+    {: .inline-header }
+    If you see `Account region xx differs from current server region yy`
+
     You're using a valid API token, but you sent the request to the wrong account region.
-    Change the API region to your account region and try again. <br />
+    Change the API region to your account region and try again.
 
     For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).

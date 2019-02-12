@@ -12,9 +12,9 @@ contributors:
   - imnotashrimp
 ---
 
-Welcome to the API cookbook!
+Welcome!
 
-Here, you'll find some ideas to help you get started with the Logz.io API.
+In the API cookbook, you'll find some ideas to help you get started with the Logz.io API.
 
 If you want to use the Logz.io API, you’ll need to be on an Enterprise account.
 If you’re not on an Enterprise account, no worries!

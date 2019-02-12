@@ -391,7 +391,7 @@ code, pre {
   font-size: .8rem;
 }
 
-h1, h2, h3, h4, h5, h6, .site-title, .post-title {
+h1, h2, h3, h4, h5, h6, .site-title, .post-title, .inline-header {
   font-weight: 400;
   padding: 0;
   color: var(--heading-normal);
@@ -404,7 +404,7 @@ h1, h1:first-child {
   margin-top: 0px;
 }
 
-h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6, .inline-header {
   font-family: var(--heading-font);
 }
 
@@ -429,11 +429,14 @@ h4 {
   font-size: 1.25rem;
 }
 
-h5, h6 {
-  font-size: 1.1rem;
+h5, h6, .inline-header {
+  font-size: .95rem;
   font-weight: 700;
-  text-transform: uppercase;
   margin-bottom: 0;
+}
+
+h5, h6 {
+  text-transform: uppercase;
 }
 
 /* Use h6 to introduce procedures. If you need a regular heading, use h5 */

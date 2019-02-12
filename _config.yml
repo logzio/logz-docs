@@ -89,12 +89,14 @@ defaults:
       search: false
       tags: false
       community-info: false
+      show-date: false
   - scope:
       path: ''
       type: contributors
     values:
       layout: contributor-profile
       community-info: false
+      show-date: false
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

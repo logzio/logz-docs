@@ -28,7 +28,7 @@ One important thing to know: When you're managing sub account settings, you'll n
 
 If you don't have sub accounts that you're ready to experiment with, go ahead and make one now.
 
-#### Sample request
+### Sample request
 
 <div class="info-box tip">
   maxDailyGB default is `0`, meaning this account can accommodate 0 GB of logs per day.
@@ -52,7 +52,7 @@ The email address has to belong to an existing Logz.io user, and that user has t
 
 {% include api-cookbook/read-more-api-doc.html title="Create a sub account" id="createTimeBasedAccount" %}
 
-##### ...and the response
+#### ...and the response
 
 In the response, you'll receive an account ID and the account token.
 You'll use the account token when shipping logs.
@@ -68,18 +68,18 @@ No need to remember the account token—it's always available on the Logz.io [Ma
 
 To see information on your sub accounts, pass a request using an API token from your main account.
 
-#### Sample request
+### Sample request
 
 ```shell
 curl -X GET \
   https://<API-URL>/account-management/time-based-accounts/ \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  -H 'X-API-TOKEN: <API-TOKEN>'
 ```
 
 {% include api-cookbook/read-more-api-doc.html title="Retrieve all sub accounts" id="getAll" %}
 
-##### ...and the response
+#### ...and the response
 
 This request receives an array of objects, with each account's properties contained in a single object.
 
@@ -140,7 +140,7 @@ So using our sample accounts in this article, the process will look like this:
 1. Reduce maxDailyGB for _Javert_ from `5` to `3`
 2. Increase maxDailyGB for _Jean Valjean_ from `1` to `3`
 
-#### Sample request 1: Reduce maxDailyGB for _Javert_
+### Sample request 1: Reduce maxDailyGB for _Javert_
 
 Reducing _Javert_ maxDailyGB from `5` to `3` frees up 2 GB:
 
@@ -164,13 +164,13 @@ curl -X PUT \
 }'
 ```
 
-##### ...and the response
+#### ...and the response
 
 If the request was successfully received, you'll see a 200 response from Logz.io.
 
 Later in this tutorial, we'll double-check that the sub account capacity is what we expect it to be.
 
-#### Sample request 2: Increase maxDailyGB for _Jean Valjean_
+### Sample request 2: Increase maxDailyGB for _Jean Valjean_
 
 We can use the space we took from _Javert_ and apply it to _Jean Valjean_:
 
@@ -194,13 +194,13 @@ curl -X PUT \
 }'
 ```
 
-##### ...and the response
+#### ...and the response
 
 If the request was successfully received, you'll see a 200 response from Logz.io.
 
 Later in this tutorial, we'll double-check that the sub account capacity is what we expect it to be.
 
-#### Sample request 3: Check sub account capacity
+### Sample request 3: Check sub account capacity
 
 To double-check that you did everything correctly, run another request to get sub account information:
 
@@ -211,7 +211,7 @@ curl -X GET \
   -H 'X-API-TOKEN: <API-TOKEN>' \
 ```
 
-##### ...and the response
+#### ...and the response
 
 In this example, we'll know we everything went according to plan when:
 

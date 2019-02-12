@@ -12,7 +12,7 @@ The main UI changes being made available include new colors for better contrast,
 
 ## Autocomplete Search
 
-Logz.io is introducing support for autocomplete and the option to use Kuery, a functional querying syntax that is simpler than Lucene introduced in Kibana 6.0. The focus is to make searches easier, and you can read up on how to use this syntax [here](https://www.elastic.co/guide/en/kibana/6.3/kuery-query.html).
+Logz.io rolled out support for autocomplete and the option to use Kuery, a functional querying syntax that is simpler than Lucene introduced in Kibana 6.0. The focus is to make searches easier, and you can read up on how to use this syntax [here](https://www.elastic.co/guide/en/kibana/6.3/kuery-query.html).
 
 Autocomplete improves the search experience by helping you easily build the query you want. When beginning a search in Kibana, Logz.io provides suggestions for fields, values and query operators, based on the data you are searching (the Elasticsearch index you are querying).
 

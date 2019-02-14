@@ -1,0 +1,36 @@
+{%- comment -%}
+*   This include is called if:
+*     - The page has `open-source` in the frontmatter, or
+*     - The {% include %} tag includes `title` parameter
+*
+*   If `open-source` is in page frontmatter, the open source note is shown at
+*   the top of the page, just below the page flags.
+*   It needs this structure:
+*     open-source:
+*       title: <project title>
+*       github-repo: <github repo name (last part of repo url)>
+*
+*   If you need to show the message inside the page (for example, beneath
+*   tabs), then write an {% include %} tag with `title` and `github-repo`
+*   params. IF YOU DON'T INCLUDE TITLE, THE NOTE WON'T SHOW UP ON THE PAGE.
+*   Call it like so:
+*     {% include open-source.html title="<project title>" github-repo="<repo name>" %}
+*         {%- endcomment -%}
+
+{%- if page.open-source or include.title -%}
+
+  {%- assign projectTitle = page.open-source.title
+    | default: include.title
+    | default: "This"
+    -%}
+  {%- assign projectUrl = page.open-source.github-repo
+    | default: include.github-repo
+    | prepend: "https://github.com/logzio/"
+    -%}
+
+<div class="info-box open-source">
+  {{ projectTitle }} is open source!
+  Visit the <a href="{{ projectUrl }}">{{ projectTitle }} <i class="fab fa-github"></i> repo</a>—we'd love to see you contribute or customize the code.
+</div>
+
+{%- endif -%}

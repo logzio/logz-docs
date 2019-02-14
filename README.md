@@ -4,7 +4,9 @@
 
 Welcome to the source repo for Logz.io Docs!
 
-Our site is built on Jekyll. We merge the `develop` branch as needed. Docs are released to docs.logz.io from `master`.
+Our site is built on Jekyll.
+We merge the `develop` branch as needed.
+Docs are released to docs.logz.io from `master`.
 
 #### Contents
 
@@ -28,7 +30,7 @@ Our site is built on Jekyll. We merge the `develop` branch as needed. Docs are r
 
 Please follow the [Setup](#setup) instructions so you can start.
 
-Submit all pull requests to the `develop` branch.
+Make all pull requests to the `develop` branch.
 
 If you just want to submit a quick edit suggestion, you can [open an issue](https://github.com/logzio/logz-docs/issues/new?template=docs-issue.md).
 
@@ -60,13 +62,13 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
 
 1. [Git](https://help.github.com/articles/set-up-git/)
 
-2. [Xcode](https://developer.apple.com/xcode/)
+2. macOS: [Xcode](https://developer.apple.com/xcode/)
 
-3. Xcode command line tools: `xcode-select --install`.
+3. macOS: Xcode command line tools: `xcode-select --install`.
 
 4. [RVM with Ruby](https://rvm.io/rvm/install): `curl -sSL https://get.rvm.io | bash -s stable --ruby`
 
-5. [Homebrew](https://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+5. macOS: [Homebrew](https://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 6. [Fork](https://github.com/logzio/logz-docs/fork) the logz-docs repository
 
@@ -88,9 +90,11 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
 
 ## Changes and pull requests
 
-We use `develop` as the main branch. Our site is automatically deployed when we merge `develop` to `master`.
+We use `develop` as the main branch.
+Our site is automatically deployed when we merge `develop` to `master`.
 
-For you, this means that you should create new branches from `develop` and make your changes there. You should also regularly sync your fork with the upstream repo (logzio/logz-docs) so that we can merge your changes without any problems.
+For you, this means that you should create new branches from `develop` and make your changes there.
+You should also regularly sync your fork with the upstream repo (logzio/logz-docs) so that we can merge your changes without any problems.
 
 So the ideal process looks a little like this:
 
@@ -98,11 +102,12 @@ So the ideal process looks a little like this:
 
 ### Syncing your fork
 
-Keeping your fork up to date allows us to easily merge your changes. This is a pretty simple process.
+Keeping your fork up to date allows us to easily merge your changes.
+This is a pretty simple process.
 
 **To sync your fork:**
 
-1. Open a terminal window, and `cd` into your logz-docs folder.
+1. Open a terminal window and `cd` into your logz-docs folder.
 
 2. Checkout your local develop branch, pull the logzio/logz-docs `develop` branch, and push the updates to your fork:
 
@@ -114,7 +119,8 @@ Keeping your fork up to date allows us to easily merge your changes. This is a p
 
 ### Previewing locally
 
-Before submitting pull requests, preview your changes locally. This does a few things to help you catch mistakes:
+Before submitting pull requests, preview your changes locally.
+This does a few things to help you catch mistakes:
 
 * Seeing the formatted text, outside of a text editor and without all the markup, gives you a fresh look at your content.
 * You can be sure that your Markdown is formatted correctly and converts to HTML just as you meant it to.
@@ -123,9 +129,11 @@ We ask that you check your work for errors and readability.
 
 **To preview locally:**
 
-1. Run `jekyll serve`
+1. Run `./preview`.
 
-2. Point your browser to [http://localhost:4000/](http://localhost:4000/)
+2. Point your browser to [http://localhost:4000/](http://localhost:4000/).
+  (Don't worry about the ducks.
+  They're just there to tell you this is a local preview and not on the web.)
 
 ### Making your first pull request
 
@@ -133,11 +141,12 @@ We like to give contributors credit for their work, so go ahead and add yourself
 
 **To add yourself as a contributor:**
 
-1. Find the contributors folder on your machine at `logz-docs/_source/logzio_collections/_contributors`. Add a new Markdown file, named `<your-github-username>.md`.
+1. Find the contributors folder on your machine at `logz-docs/_source/logzio_collections/_contributors`.
+  Add a new Markdown file, named `<your-github-username>.md`. \
+  So if your GitHub username is agrant, your file is named `agrant.md`. This is your identifier when you contribute to docs.
 
-    So if your GitHub username is agrant, your file is named `agrant.md`. This is your identifier when you contribute to docs.
-
-2. Copy this YAML content to the file, and add your information. If something doesn't apply to you, delete the line:
+2. Copy this YAML content to the file, and add your information.
+  If something doesn't apply to you, delete the line:
 
     ```yaml
     ---
@@ -153,9 +162,9 @@ We like to give contributors credit for their work, so go ahead and add yourself
 
 3. Save and commit.
 
-4. Include this file in your first pull request. If you're authoring a file, add your identifier (GitHub username) to the `contributors` list.
-
-    So if your username is chaostheory, you'll add `- chaostheory` to the file's `contributors` list.
+4. Include this file in your first pull request.
+  If you're authoring a file, add your identifier (GitHub username) to the `contributors` list. \
+  So if your username is chaostheory, you'll add `- chaostheory` to the file's `contributors` list.
 
 ## Working in Markdown
 
@@ -164,27 +173,33 @@ Logz.io docs use kramdown-flavored Markdown. Where possible, avoid HTML tags.
 Some notes:
 
 * Leave a blank line between text blocks.
-* Indents are two spaces (not tabs). To nest blocks in a list, indent twice (four spaces). This keeps nested items from breaking a list.
+* Indents are two spaces (not tabs).
+  To nest blocks in a list, indent twice (four spaces). This keeps nested items from breaking a list.
 * You _can_ put Markdown formatting in an HTML container, but please preview your code locally to make sure nothing unexpected is happening with the HTML conversion.
 
 ### Headings
 
 * Use `##` through `#####` (h2 through h5) for normal headings.
 * Use `######` (h6) to introduce procedures and how-tos.
-* Our template reserves `#` (h1) for page titles. Don't use.
+* Our template reserves `#` (h1) for page titles.
+  Don't use.
 
 ### Procedures
 
 * There isn't a strict style for procedures, except to make them as simple as possible.
-* Avoid long procedures. If your procedure has more than 10 steps, shorten it, or break it apart into multiple procedures.
-* You can use ordered and unordered lists in procedures. Lists can be nested two levels deep.
-* Nest other blocks in the second level by indenting the block another level. This keeps nested blocks from breaking lists.
+* Avoid long procedures.
+  If your procedure has more than 10 steps, shorten it, or break it apart into multiple procedures.
+* You can use ordered and unordered lists in procedures.
+  Lists can be nested two levels deep.
+* Nest other blocks in the second level by indenting the block another level.
+  This keeps nested blocks from breaking lists.
 
 ### Info boxes
 
 Info boxes need a `<div class="info-box">` container.
 
-Info boxes come in three CSS classes: `note`, `tip`, `important`, `warning`. CSS handles the styling and adds a header.
+Info boxes come in three CSS classes: `note`, `tip`, `important`, `warning`.
+CSS handles the styling and adds a header.
 
 Indent content on its own lines between the `<div>` tags.
 

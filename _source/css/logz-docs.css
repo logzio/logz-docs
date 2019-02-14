@@ -58,6 +58,9 @@
   --infobox-read: rgb(var(--app-gray-primary));
   --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
+  --infobox-open-source: rgb(var(--app-gray-primary));
+  --infobox-open-source-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
+
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
   --border-dark: var(--heading-normal);
@@ -834,16 +837,15 @@ div.page-flags {
   width: fit-content;
   padding: 0 .35rem;
   margin-top: 16px;
+  border: 1px solid currentcolor;
 }
 
 .flag.admin {
   color: var(--infobox-note);
-  border: 1px solid currentColor;
 }
 
 .flag.beta {
   color: var(--infobox-important);
-  border: 1px solid currentColor;
 }
 
 /* feature boxes */
@@ -860,6 +862,7 @@ div.feature-box > span {
   margin-left: 10px;
   padding: 0;
   color: var(--border-light);
+  border: none;
 }
 
 .feature-box.community .community-plan {
@@ -885,7 +888,7 @@ div.info-box {
   border-radius: 2px;
   border: 1px solid;
   padding: 10px;
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 div.info-box ul {
@@ -893,13 +896,16 @@ div.info-box ul {
 }
 
 div.info-box::before {
-  font-weight: 700;
+  font-weight: 400;
+  font-size: .9rem;
   line-height: 1.1em;
   color: white;
 
   display: block;
   width: fit-content;
   margin: -3px 20px 5px -20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   padding-left: 20px;
   padding-right: 15px;
 }
@@ -961,7 +967,7 @@ div.info-box.tip::before {
   background-color: var(--infobox-tip);
 }
 
-/* .tip */
+/* .read */
 div.info-box.read {
   background-color: var(--infobox-read-light);
   border-color: var(--infobox-read);
@@ -970,6 +976,17 @@ div.info-box.read {
 div.info-box.read::before {
   content: "Read more   ";
   background-color: var(--infobox-read);
+}
+
+/* .open-source */
+div.info-box.open-source {
+  background-color: var(--infobox-open-source-light);
+  border-color: var(--infobox-open-source);
+}
+
+div.info-box.open-source::before {
+  content: "Open source project";
+  background-color: var(--infobox-open-source);
 }
 
 

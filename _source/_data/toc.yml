@@ -93,8 +93,8 @@ firstLevel:
     thirdLevel:
     - title: Understanding your security logs
       url: /user-guide/security-analytics/understanding-your-security-logs.html
-    - title: Manage correlation rules
-      url: /user-guide/security-analytics/manage-correlation-rules.html
+    - title: Manage security rules
+      url: /user-guide/security-analytics/manage-security-rules.html
 
 - title: Admin tools
   secondLevel:
@@ -106,6 +106,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
     - title: Manage timeless accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
+    - title: Account region
+      url: /user-guide/accounts/account-region.html
     - title: Monitor account usage
       url: /user-guide/accounts/monitor-account-usage.html
     - title: Support access
@@ -124,6 +126,15 @@ firstLevel:
     thirdLevel:
     - title: Multi-factor authentication
       url: /user-guide/users/multi-factor-authentication.html
+  - title: Single sign-on
+    url: /user-guide/users/single-sign-on/
+    thirdLevel:
+    - title: Azure single sign-on
+      url: /user-guide/users/single-sign-on/azure-sso.html
+    - title: Okta single sign-on
+      url: /user-guide/users/single-sign-on/okta-sso.html
+    - title: OneLogin single sign-on
+      url: /user-guide/users/single-sign-on/onelogin-sso.html
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:
@@ -135,19 +146,6 @@ firstLevel:
   # ===== INTEGRATIONS =====
 - title: Integrations
   secondLevel:
-  # - title: Quickstarts
-  #   thirdLevel:
-  #   - title: Create API token & make a test call
-  - title: API
-    url: /api/
-  # - title: API cookbook
-  #   thirdLevel:
-  #   - title: Create alert
-  #   - title: Kibana export
-  #   - title: Kibana import
-  #   - title: Create snapshots
-  #   - title: Allocate account volume
-  #   - title: Create a user
   - title: Data sources
     url: /shipping/data-sources/
   - title: Shipping utilities
@@ -159,6 +157,24 @@ firstLevel:
     url: /user-guide/integrations/endpoints.html
   - title: Alice, Slack chatbot
     url: /user-guide/integrations/alice-slack-chatbot.html
+
+  - title: API reference
+    url: /api/
+  - title: API cookbook
+    url: /api/cookbook/
+    thirdLevel:
+    - title: Who am I?
+      url: /api/cookbook/who-am-i.html
+    - title: Managing sub account capacity
+      url: /api/cookbook/managing-sub-account-capacity.html
+    - title: Backing up Kibana objects to GitHub
+      url: /api/cookbook/backing-up-kibana-objects-to-github.html
+
+  #   - title: Create alert
+  #   - title: Kibana import
+  #   - title: Create snapshots
+  #   - title: Allocate account volume
+  #   - title: Create a user
 
 
   # ===== MORE =====

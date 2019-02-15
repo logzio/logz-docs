@@ -9,7 +9,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Logz.io Docs
-copyright: 2018 Logz.io, all rights reserved.
+copyright: 2019 Logz.io, all rights reserved.
 description: >- # this means to ignore newlines until "baseurl:"
   Parse, visualize, set up alerts & leverage AI with cloud-based ELK.
   AWS Integration · Long-term Data Retention · Essential DevOps Tool · Multi-role Definitions
@@ -67,6 +67,9 @@ collections:
   docs-admin:
     output: true
     permalink: /docs-admin/:path
+  technical-notes:
+    output: true
+    permalink: /technical-notes/:path
 
 defaults:
   - scope:
@@ -76,17 +79,27 @@ defaults:
       tags: false
   - scope:
       path: ''
+      type: technical-notes
+    values:
+      layout: article
+      search: false
+      tags: false
+      community-info: false
+  - scope:
+      path: ''
       type: docs-admin
     values:
       search: false
       tags: false
       community-info: false
+      show-date: false
   - scope:
       path: ''
       type: contributors
     values:
       layout: contributor-profile
       community-info: false
+      show-date: false
   - scope:
       path: ''
     values:

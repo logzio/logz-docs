@@ -1,4 +1,4 @@
-# Logz.io Community Code of Conduct, Terms, and all that necesary stuff
+# Logz.io Community Code of Conduct, Terms, and all that necessary stuff
 
 ## Code of Conduct
 

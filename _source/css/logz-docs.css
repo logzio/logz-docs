@@ -1,6 +1,6 @@
 /* ===== FONT IMPORTS ===== */
 /* Roboto (body) and Titillium (heading) */
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,600,700');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,300i,400,400i,600,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i');
@@ -57,6 +57,9 @@
 
   --infobox-read: rgb(var(--app-gray-primary));
   --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
+
+  --infobox-open-source: rgb(var(--app-gray-primary));
+  --infobox-open-source-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
@@ -400,15 +403,16 @@ h1, h2, h3, h4, h5, h6, .site-title, .post-title, .inline-header {
   margin-bottom: 1rem;
 }
 
-h1 {
+h1, h1:first-child {
   font-family: var(--title-font);
+  margin-top: 0px;
 }
 
 h2, h3, h4, h5, h6, .inline-header {
   font-family: var(--heading-font);
 }
 
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
   margin-top: 1rem;
 }
 
@@ -430,9 +434,13 @@ h4 {
 }
 
 h5, h6, .inline-header {
-  font-size: 1.15rem;
+  font-size: .95rem;
   font-weight: 700;
-  margin-bottom: .25rem;
+  margin-bottom: 0;
+}
+
+h5, h6 {
+  text-transform: uppercase;
 }
 
 /* Use h6 to introduce procedures. If you need a regular heading, use h5 */
@@ -498,6 +506,11 @@ svg.svg-inline--fa, i.li {
 
 .padding-top-10 {
   padding-top: 10px;
+}
+
+.updated {
+  font-style: italic;
+  font-size: .9rem;
 }
 
 /* ===== CODE BLOCKS ===== */
@@ -625,7 +638,7 @@ ol ul {
 
   font-size: 1.5rem;
   color: var(--tasklist-light);
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .tasklist > li:first-child::before {
@@ -818,7 +831,7 @@ div.page-flags {
   justify-content: space-between;
 
   font-weight: 300;
-  font-size: .75rem;
+  font-size: .85rem;
   line-height: 1rem;
 }
 
@@ -828,16 +841,15 @@ div.page-flags {
   width: fit-content;
   padding: 0 .35rem;
   margin-top: 16px;
+  border: 1px solid currentcolor;
 }
 
 .flag.admin {
   color: var(--infobox-note);
-  border: 1px solid currentColor;
 }
 
 .flag.beta {
   color: var(--infobox-important);
-  border: 1px solid currentColor;
 }
 
 /* feature boxes */
@@ -854,6 +866,7 @@ div.feature-box > span {
   margin-left: 10px;
   padding: 0;
   color: var(--border-light);
+  border: none;
 }
 
 .feature-box.community .community-plan {
@@ -874,12 +887,12 @@ div.feature-box > span {
 /* ===== INFO BOXES ===== */
 
 div.info-box {
-  width: 500px;
+  width: 90%;
   margin: 2rem auto;
   border-radius: 2px;
   border: 1px solid;
   padding: 10px;
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 div.info-box ul {
@@ -887,13 +900,16 @@ div.info-box ul {
 }
 
 div.info-box::before {
-  font-weight: 700;
+  font-weight: 400;
+  font-size: .9rem;
   line-height: 1.1em;
   color: white;
 
   display: block;
   width: fit-content;
   margin: -3px 20px 5px -20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   padding-left: 20px;
   padding-right: 15px;
 }
@@ -955,7 +971,7 @@ div.info-box.tip::before {
   background-color: var(--infobox-tip);
 }
 
-/* .tip */
+/* .read */
 div.info-box.read {
   background-color: var(--infobox-read-light);
   border-color: var(--infobox-read);
@@ -964,6 +980,17 @@ div.info-box.read {
 div.info-box.read::before {
   content: "Read more   ";
   background-color: var(--infobox-read);
+}
+
+/* .open-source */
+div.info-box.open-source {
+  background-color: var(--infobox-open-source-light);
+  border-color: var(--infobox-open-source);
+}
+
+div.info-box.open-source::before {
+  content: "Open source project";
+  background-color: var(--infobox-open-source);
 }
 
 
@@ -1456,7 +1483,6 @@ i.li {
   font-family: "Logzio Icons";
   font-style: normal;
   font-size: .85rem;
-  vertical-align: text-top;
 }
 
 i.li-bar-graph::before {
@@ -1738,6 +1764,7 @@ div.highlighter-rouge {
   content: "[ You really should do something about this placeholder. ]";
   justify-self: center;
   align-self: center;
+  text-align: center;
   color: var(--text-code);
   font-weight: 700;
 }
@@ -1752,4 +1779,8 @@ div.highlighter-rouge {
 
 .fpo.fpo-3::after {
   content: "[ A picture is worth a thousand words. This placeholder... not so much. ]";
+}
+
+.fpo.fpo-4::after {
+  content: "[ Picture this: A rustic hunting lodge, my latest kill roasting over the fire, and this placeholder isn't just a placeholder. ]"
 }

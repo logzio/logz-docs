@@ -2,6 +2,7 @@
 layout: article
 title: Our contributors
 permalink: /credits.html
+show-date: false
 community-info: false
 ---
 

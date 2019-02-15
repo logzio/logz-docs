@@ -4,6 +4,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {%- if jekyll.environment == 'production' %}
+  {% comment %}
+  * Include these bits only if in production
+  *       {% endcomment %}
     {% if site.google_tag_manager_id -%}
     {% include google-tag-manager-head.html %}
     {%- endif %}
@@ -12,10 +15,11 @@
     {% include google-analytics.html %}
     {%- endif %}
 
-    {% if site.intercom_app_id -%}
-    {% include intercom.html %}
-    {%- endif %}
   {% endif -%}
+
+  {% if site.intercom_app_id -%}
+    {% include intercom.html %}
+  {%- endif %}
 
   <!-- font awesome 5 js -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>

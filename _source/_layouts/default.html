@@ -14,13 +14,15 @@
 
     <div class="body-container">
       <h1 class="post-title">
-        {{ page.title | escape }}
+        {{- page.title | escape -}}
       </h1>
 
+      {% include page-date.html %}
       {% include community.html %}
       {% include page-flags.html %}
 
       <main class="page-content" aria-label="Content">
+        {%- include open-source.html %}
         {{ content }}
       </main>
 

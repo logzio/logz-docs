@@ -7,13 +7,11 @@
 1. In https://github.com/logzio/logz-docs/tree/develop/_source/logzio_collections/_technical-notes, click **Create new file**.
 
 2. Give the file a name (and `.md` extension) and add frontmatter.
-   Give your note today's date, in YYYY-MM-DD format.
    Start on line 1, and leave a blank line after the frontmatter.
 
    ```yaml
    ---
    title: Your fancy title
-   updated: YYYY-MM-DD
    ---
    ```
 

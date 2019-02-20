@@ -18,8 +18,8 @@ Lookups are reference lists that you can use to filter Kibana results or to powe
 Using lookups, you can maintain lists of anything you want to filter by, such as users, IP addresses, regions, or domains.
 
 You can use lookups in multiple Kibana searches and security rules.
-For example, you can create a lookup that contains a list of company IP addreses and update the lookup.
-All security rules that include this lookup will use the updated list.
+For example, you can create a lookup that contains a list of company IP addreses and update the lookup as your list of IP addresses changes over time.
+All security rules that include this lookup will use the updated list, saving you the effort of managing this list everywhere it's used and avoiding copy-and-paste mistakes.
 
 ![Lookups]({{site.baseurl}}/images/lookups/lookups.png)
 

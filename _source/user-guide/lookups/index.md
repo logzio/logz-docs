@@ -39,7 +39,7 @@ You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/da
 * Click **Edit** to change an item's value or note and then **Save** your changes, or click **Cancel** to revert your changes.
 * Click **Delete** to delete an item from the lookup.
 
-###### Using lookups in Kibana and security rules
+###### Use lookups in Kibana filters and security rules
 
 {: .tasklist .firstline-headline }
 1. Add a Kibana filter with your lookup

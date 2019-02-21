@@ -12,7 +12,7 @@ tags:
   - security-rules
 contributors:
   - imnotashrimp
-  - proudboffin
+  - danielberman
 ---
 
 Logz.io Security Analytics is a unified platform for security and operations.

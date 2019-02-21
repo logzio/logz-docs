@@ -11,7 +11,7 @@ tags:
   - security-research
 contributors:
   - imnotashrimp
-  - proudboffin
+  - danielberman
 ---
 
 Logz.io Security Analytics accounts come with pre-built views to help you understand the security compromises, vulnerabilities, threats, and events in your system.

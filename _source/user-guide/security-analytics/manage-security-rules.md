@@ -9,7 +9,7 @@ tags:
   - security-rules
 contributors:
   - imnotashrimp
-  - proudboffin
+  - danielberman
 ---
 
 Security rules help you connect the dots between your data sources and events that could indicate a security threat or breach.

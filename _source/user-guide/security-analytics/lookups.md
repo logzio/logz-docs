@@ -11,15 +11,15 @@ tags:
   - security-rules
 contributors:
   - imnotashrimp
-  - proudboffin
+  - danielberman
 ---
 
 Lookups are reference lists that you can use to filter Kibana results or to power your security rules.
-Using lookups, you can maintain lists of anything you want to filter by, such as users, IP addresses, regions, or domains.
+Using lookups, you can maintain whitelists and blacklists of data sets you want to filter by, such as users, IP addresses, regions, or domains.
 
-You can use lookups in multiple Kibana searches and security rules.
-For example, you can create a lookup that contains a list of company IP addreses and update the lookup as your list of IP addresses changes over time.
-All security rules that include this lookup will use the updated list, saving you the effort of managing this list everywhere it's used and avoiding copy-and-paste mistakes.
+You can use lookups as a single-sourced data set for multiple searches and security rules.
+For example, you can create a lookup that contains a list of company IP addresses and then update the lookup as your IP addresses change over time.
+All searches and security rules that use this lookup will compare logs to the updated list—so you'll avoid the mistake-prone process of maually copying your data everywhere it's used.
 
 ![Lookups]({{site.baseurl}}/images/lookups/lookups.png)
 
@@ -40,12 +40,12 @@ You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/da
 
 ###### Using lookups in Kibana and security rules
 
-<video autoplay controls loop width="500">
-  <source src="{{site.baseurl}}/videos/lookups/add-lookup-in-kibana.mp4" type="video/mp4" />
-</video>
-
 {: .tasklist .firstline-headline }
 1. Add a Kibana filter with your lookup
+
+    <video autoplay controls loop width="500">
+      <source src="{{site.baseurl}}/videos/lookups/add-lookup-in-kibana.mp4" type="video/mp4" />
+    </video>
 
     In the [**Research**](https://app.logz.io/#/dashboard/security/research) tab, click **Add a filter**.
 

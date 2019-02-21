@@ -14,11 +14,10 @@ contributors:
   - danielberman
 ---
 
-Lookups are reference lists that you can use to filter Kibana results or to power your security rules.
-Using lookups, you can maintain whitelists and blacklists of data sets you want to filter by, such as users, IP addresses, regions, or domains.
+Lookups let you easily manage sets of data, which you can use in multiple Kibana searches or security rules.
+Lookups can hold whitelisted or blacklisted values like usernames, IP addresses, regions, or domains.
 
-You can use lookups as a single-sourced data set for multiple searches and security rules.
-For example, you can create a lookup that contains a list of company IP addresses and then update the lookup as your IP addresses change over time.
+For example, if you create a lookup that contains a list of company IP addresses, you can update the lookup as your IP addresses change over time.
 All searches and security rules that use this lookup will compare logs to the updated list—so you'll avoid the mistake-prone process of maually copying your data everywhere it's used.
 
 ![Lookups]({{site.baseurl}}/images/lookups/lookups.png)

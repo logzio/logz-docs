@@ -117,7 +117,8 @@ firstLevel:
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
-  # - title: Archive and restore
+  - title: Archiving
+    url: /user-guide/archive-and-restore/
 
   #   thirdLevel:
   #   - title: Make an IAM role for Logz.io

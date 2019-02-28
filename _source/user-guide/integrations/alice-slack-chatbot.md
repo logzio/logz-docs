@@ -67,4 +67,9 @@ If you want to add another account, type `@Alice add account`.
 
 ###### To change Alice's name
 
-If you ever need to change Alice's name in your Slack workspace—for example, if you have a coworker named Alice—just go to the app's [management page](https://slack.com/apps/A9VPCDA9X-alice?next_id=0) and click the edit pencil in the **Bot User** section.
+What if you have a coworker named Alice?
+Good news on this front—you can change Alice's name in your Slack workspace.
+To do this, go to the app's [management page](https://slack.com/apps/A9VPCDA9X-alice?next_id=0) and click the edit pencil in the **Bot User** section.
+
+After you change Alice's name, `@Alice` won't work anymore—you'll need to use the new name you set.
+Make sure you communicate this change to all your Slack users so nobody feels offended that Alice is ignoring them.

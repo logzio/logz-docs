@@ -17,6 +17,8 @@ contributors:
 Alice is a chatbot who lives in your Slack workspace.
 You can ask Alice to search your logs, see the alerts triggered in your environment, and get a snapshot of Kibana visualizations and dashboards.
 
+## Getting started with Alice
+
 <div class="info-box important">
   Users in your Slack workspace can use Alice to interact with your account, even if they don't have access to Logz.io.
 </div>

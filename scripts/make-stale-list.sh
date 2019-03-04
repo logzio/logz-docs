@@ -1,4 +1,5 @@
 # Don't forget to chmod this bad boy
+echo -n Making stale list...
 
 # Change these outputs to match your Jekyll configuration
 JEKYLL_SOURCE="./_source" # `source` value in your jekyll config file, relative to where you're keeping this script
@@ -11,3 +12,5 @@ printf "generated: `date`\ncontents:" > $STALE_LIST_OUTPUT
 git ls-tree -r --name-only HEAD -- $JEKYLL_SOURCE --relative=$JEKYLL_SOURCE | while read filename; do
   printf "$(git log -1 --format="\n  - committed: %ai\n    author: %an\n    filepath: " -- $filename)$filename"
 done >> $STALE_LIST_OUTPUT
+
+echo '  done.'

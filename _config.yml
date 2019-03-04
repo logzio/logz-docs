@@ -60,13 +60,13 @@ collections:
     permalink: /knowledge-base/:path
   contributors:
     output: true
-    permalink: /contributors/:name
+    permalink: /contributors/:name/
   docs-admin:
     output: true
-    permalink: /docs-admin/:path
+    permalink: /docs-admin/:path/
   technical-notes:
     output: true
-    permalink: /technical-notes/:path
+    permalink: /technical-notes/:path/
 
 defaults:
   - scope:

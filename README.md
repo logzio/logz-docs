@@ -1,5 +1,7 @@
 <img width="200" src="_source/images/logo/logz-logo.svg">
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3a2c5e61-7e63-4058-8825-619c89323f95/deploy-status)](https://app.netlify.com/sites/logz-docs/deploys)
+
 # Logz.io Docs
 
 Welcome to the source repo for Logz.io Docs!

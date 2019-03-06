@@ -45,3 +45,9 @@ You can find S3 archiving by selecting [**<i class="li li-gear"></i> > Tools > S
     If everything checks out, click **Start archiving** to save your settings.
     From now on, Logz.io will archive your logs as they come in.
     You can stop archiving at any time.
+
+## Managing your S3 credentials
+
+If you need to change your S3 name, access key, or secret key, make the changes in the _Settings_ tab and click **Update settings**.
+
+If you ever want to stop archiving to S3, you can safely remove your credentials from Logz.io by clicking **Delete settings**.

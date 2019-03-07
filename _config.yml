@@ -55,18 +55,15 @@ intercom_app_id: bkz9ugqv
 collections_dir: logzio_collections # all collections are contained in this directory
 
 collections:
-  knowledge-base:
-    output: true
-    permalink: /knowledge-base/:path
   contributors:
     output: true
-    permalink: /contributors/:name
+    permalink: /contributors/:name/
   docs-admin:
     output: true
-    permalink: /docs-admin/:path
+    permalink: /docs-admin/:path/
   technical-notes:
     output: true
-    permalink: /technical-notes/:path
+    permalink: /technical-notes/:path/
 
 defaults:
   - scope:

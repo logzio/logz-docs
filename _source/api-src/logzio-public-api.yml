@@ -1841,7 +1841,7 @@ definitions:
         example: Jean Valjean
   AccountUtilizationSettings:
     type: object
-    description: Settings for logging metrics on your account utilization,&nbsp; such as used and expected data volume at current indexing rate.
+    description: Settings for logging metrics on your account utilization, such as used and expected data volume at current indexing rate.
     properties:
       frequencyMinutes:
         type: integer

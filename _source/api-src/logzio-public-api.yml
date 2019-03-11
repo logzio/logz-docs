@@ -16,7 +16,7 @@ info:
     # Introduction
 
     This API is documented using the **OpenAPI 2.0** specification.
-    You can browse the API documentation on this page, or you can download the specification file.
+    <!-- You can browse the API documentation on this page, or you can download the specification file. -->
 
 
     ### Updates and improvements
@@ -1648,7 +1648,21 @@ paths:
             $ref: '#/definitions/SnapshotCreateRequest'
       x-code-samples:
         - lang: cURL
-          source: 'curl -X POST "https://api.logz.io/v1/snapshotter" -H "accept: application/json" -H "X-API-TOKEN: <token>" -H "Content-Type: application/json" -d "{ \"snapshotType\": \"VISUALIZATION\", \"snapshotSavedObjectId\": \"c3cf4ac9-81f7-60ef-1a9d-d32c1fa7c012\", \"emails\": [ \"shalom@logz.io\" ], \"message\": \"Hey, let me know if you need me to do anything about this.\", \"timeFrameFrom\": 1527951945, \"timeFrameTo\": 1528038346, \"snapshotTimeZone\": \"UTC\", \"darkTheme\": true}"'
+          source: >-
+            curl -X POST "https://api.logz.io/v1/snapshotter" \
+              -H "accept: application/json" \
+              -H "X-API-TOKEN: <token>" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "snapshotType": "VISUALIZATION",
+                "snapshotSavedObjectId": "c3cf4ac9-81f7-60ef-1a9d-d32c1fa7c012",
+                "emails": [ "shalom@logz.io" ],
+                "message": "Hey, let me know if you need me to do anything about this.",
+                "timeFrameFrom": 1527951945,
+                "timeFrameTo": 1528038346,
+                "snapshotTimeZone": "UTC",
+                "darkTheme": true
+              }'
       responses:
         200:
           description: successful operation

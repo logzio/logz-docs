@@ -146,8 +146,8 @@ firstLevel:
   # ===== INTEGRATIONS =====
 - title: Integrations
   secondLevel:
-  - title: Data sources
-    url: /shipping/data-sources/
+  - title: Log sources
+    url: /shipping/log-sources/
   - title: Shipping utilities
     url: /shipping/shipping-utilities/
     thirdLevel:

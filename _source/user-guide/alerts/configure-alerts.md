@@ -30,7 +30,8 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
 ![Configure an Alert]({{site.baseurl}}/images/alerts/alerts--configure-alert.png)
 
-1. Type a **Name** and a detailed **Description**. 
+1. Type a **Name** and a detailed **Description**.
+  Add **Tags** to help categorize this alert.
 
 2. If you need to, change your alert **Query** and the **Accounts** that the query will search.
 

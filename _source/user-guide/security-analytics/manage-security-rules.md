@@ -35,6 +35,7 @@ You can also update any preconfigured rule at any time, including adding a notif
 ![Configure security rule]({{site.baseurl}}/images/security-analytics/security-analytics--configure-correlation-rule.png)
 
 1. Type a **Name** and a detailed **Description**.
+  Add **Tags** to help categorize this alert.
 
 2. If you need to, change your **Query**.
 

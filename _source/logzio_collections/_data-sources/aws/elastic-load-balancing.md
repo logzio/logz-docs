@@ -15,7 +15,9 @@ contributors:
 
 ## Setup
 
-**You'll need:** `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
+When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodically read logs from the configured S3 bucket. Elastic Load Balancing logs are useful for application usage intelligence and monitoring.
+
+**You'll need:** `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket (one bucket per region)
 
 ###### Configuration
 
@@ -31,9 +33,19 @@ contributors:
 
 2. Add the S3 bucket information
 
+    {% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+
+    * **S3 bucket**: Name of the bucket
+    * **Prefix**: The directory where the logs are stored
+    * **S3 access key** and **S3 secret key**: Your S3 bucket credentials
+    * **Region**: AWS region of the bucket
+
     <!-- logzio:s3-config -->
 
-    {% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+    <div class="info-box important">
+      Logz.io fetches logs that are generated after configuring an S3 bucket.
+      Past logs are not sent to Logz.io.
+    </div>
 
 3. Check Logz.io for your logs
 

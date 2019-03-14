@@ -35,7 +35,11 @@ contributors:
 
 2. Zip the source files
 
-    Download the [CloudWatch Logs Shipper - Lambda](https://github.com/logzio/cloudwatch-logs-shipper-lambda) project from GitHub to your computer, and zip the Python files in the src/ folder.
+    Download the [CloudWatch Logs Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/cloudwatch) project from GitHub to your computer, and zip the Python files in the src/ folder.
+
+    <div class="info-box note">
+      Visit this open source project at [GitHub](https://github.com/logzio/logzio_aws_serverless) to customize or contribute to the code.
+    </div>
 
     ```shell
     mkdir dist; cp -r ../shipper dist/ && cp src/lambda_function.py dist/ && cd dist/ && zip logzio-cloudwatch shipper/* lambda_function.py
@@ -76,8 +80,9 @@ contributors:
 4. Configure the function's basic settings
 
     In Basic settings, we recommend starting with these settings:
-    * **Memory:** 512 MB
-    * **Timeout:** 1 min 0 sec
+
+    * **Memory**: 512 MB
+    * **Timeout**: 1 min 0 sec
 
     <div class="info-box note">
     These default settings are just a starting point.

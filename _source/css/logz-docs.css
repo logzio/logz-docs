@@ -719,23 +719,19 @@ dl.letter-labels dt::before {
 }
 
 .required-param::before, .default-param::before {
-  font-size: .9rem;
+  font-size: .75rem;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .required-param::before {
   content: "Required";
-  width: fit-content;
   color: var(--infobox-important);
-  border-radius: 15px;
-  border: 1px solid currentColor;
-  font-weight: 400;
-  padding: 0 .35rem;
   margin-left: 10px;
 }
 
 .default-param::before {
   content: "Default:";
-  font-weight: 700;
   margin-right: 10px;
 }
 

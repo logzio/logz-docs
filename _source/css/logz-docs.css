@@ -667,51 +667,43 @@ ul.horizontal-list li {
 }
 
 /* normal def lists */
-dl {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-row-gap: 1rem;
-  grid-column-gap: 1rem;
-}
-
 dt {
   font-weight: 700;
-  grid-column: 1 / 2;
+  margin-top: 15px;
 }
 
 dd {
-  grid-column: 2 / 3;
   margin-left: 0;
+  margin-left: 15px
 }
 
-/* numbers for annotated images */
+/* annotated images */
 dl.letter-labels {
   counter-reset: letter-label;
-}
-
-dl.letter-labels dt {
-  text-indent: -1.5rem;
-  padding-left: 1.5rem;
 }
 
 dl.letter-labels dt::before {
   content: counter(letter-label, upper-alpha);
   counter-increment: letter-label;
-  text-indent: 0;
-  margin-right: .3rem;
+
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  line-height: 27px;
+
+  text-align: center;
+  background-color: var(--docs-orange-primary);
+  color: white;
+}
+
+dl.letter-labels dd {
+  margin-top: -5px;
+  margin-left: 35px;
 }
 
 /* parameter lists */
-.parameter-list, .glossary-list {
-  display: unset;
-}
-
-.parameter-list dt, .glossary-list dt {
-  margin-top: 15px;
-}
-.parameter-list dd, .glossary-list dd {
-  margin-left: 15px
-}
 
 .parameter-list dt:not(:first-child), .glossary-list dt:not(:first-child) {
   border-top: 1px solid #e5e5e5;
@@ -1566,23 +1558,6 @@ i.li-stop::before {
 
 i.li-clear::before {
   content: "\e927"
-}
-
-/* ===== LETTER LABELS =====  */
-
-i.ll, dl.letter-labels dt::before {
-  display: inline-block;
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-bottom: -.3rem;
-
-  text-align: center;
-
-  background-color: var(--docs-orange-primary);
-  border-radius: 50%;
-  font-weight: 700;
-  color: white;
-  font-style: normal;
 }
 
 /* ===== ACCORDION OVERRIDES ===== */

@@ -95,6 +95,8 @@ firstLevel:
       url: /user-guide/security-analytics/understanding-your-security-logs.html
     - title: Manage security rules
       url: /user-guide/security-analytics/manage-security-rules.html
+    - title: Lookups
+      url: /user-guide/lookups/
 
 - title: Admin tools
   secondLevel:
@@ -114,7 +116,8 @@ firstLevel:
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
-  # - title: Archive and restore
+  - title: Archiving
+    url: /user-guide/archive-and-restore/
 
   #   thirdLevel:
   #   - title: Make an IAM role for Logz.io

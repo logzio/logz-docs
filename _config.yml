@@ -66,14 +66,14 @@ collections:
     permalink: /shipping/shipping-utilities/:path.html
   docs-admin:
     output: true
-    permalink: /docs-admin/:path
+    permalink: /docs-admin/:path/
   technical-notes:
     output: true
-    permalink: /technical-notes/:path
+    permalink: /technical-notes/:path/
 
 defaults:
   - scope:
-      path: '/no-search/*'
+      path: no-search
     values:
       search: false
       tags: false

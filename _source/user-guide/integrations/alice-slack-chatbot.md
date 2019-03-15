@@ -75,3 +75,26 @@ To do this, go to the app's [management page](https://slack.com/apps/A9VPCDA9X-a
 
 After you change Alice's name, `@Alice` won't work anymore—you'll need to use the new name you set.
 Make sure you communicate this change to all your Slack users so nobody feels offended that Alice is ignoring them.
+
+## Working with sub accounts
+
+If you're adding a few accounts to Alice, you can set default accounts per channel or for the whole Slack workspace—and you can override these settings by giving an alias in a command.
+
+##### How does Alice know which account to use?
+
+Alice looks for the account in this order: \\
+<span class="bold border background">Alias used in the command</span> ➜ 
+<span class="bold border background">Channel account</span> ➜
+<span class="bold border background">Workspace account</span>
+
+Alias used in the command
+  : If you used an account alias in the command, Alice searches that account.
+    This overrides the channel or workspace account settings.
+
+Channel account
+  : If you didn't use an alias in the command, Alice looks to see if there's a default account for the channel you ran the command from.
+
+Workspace account
+  : If there isn't a channel account set, Alice uses the workspace account.
+
+If you need help with how to write your commands, type `@Alice help` in Slack.

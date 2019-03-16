@@ -2,18 +2,14 @@
 layout: default
 ---
 <div class="contributor-title">
-  {%- comment -%}
-  {%- if page.github %}
-  <div class="avatar">
-    {% avatar {{ page.github }} %}
-  </div>
-  {%- endif %}
-  {%- endcomment -%}
+  <h2>
+  {% avatar {{ page.github }} %}
   {%- if page.logzio-role %}
     {{ page.logzio-role }} at Logz.io
   {%- else %}
     Community Contributor
-  {%- endif %}
+  {%- endif -%}
+  </h2>
 </div>
 
 <div class="contributor icons">

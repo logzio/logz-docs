@@ -1,13 +1,10 @@
 <div class="article-info-container">
   <div class="contributor-list">
   {% if page.contributors %}
-    <i class="fas fa-users"></i> Contributors:&nbsp;
+    <i class="fas fa-users"></i> Contributors&nbsp;
     {%- for c in page.contributors -%}
       {%- assign contributorPage = site.contributors | where: 'slug', c | first -%}
-      {%- unless contributorPage == nil -%}
-        {%- unless forloop.first -%}, {% endunless -%}
-      {%- endunless -%}
-      <a href="{{ contributorPage.url }}">{{ contributorPage.title }}</a>
+      <a href="{{ contributorPage.url }}">{% avatar user=contributorPage.github size=25 %}</a>
     {%- endfor -%}
   {%- endif %}
   </div>

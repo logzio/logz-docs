@@ -1741,6 +1741,19 @@ div.highlighter-rouge {
   content: "Copied!";
 }
 
+/* ===== GITHUB AVATARS ===== */
+
+.avatar.avatar-small {
+  display: inline-block;
+  margin: -6px 0 0 0;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.contributor-list .avatar.avatar-small {
+  margin: 0 1px;
+}
+
 /* ===== FPO - IMAGE PLACEHOLDERS ===== */
 .fpo {
   display: flex;

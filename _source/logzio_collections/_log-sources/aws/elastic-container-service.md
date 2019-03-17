@@ -13,6 +13,7 @@ shipping-summary:
 # logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ECS
 contributors:
   - imnotashrimp
+  - supereli
 ---
 
 Logz.io Docker ECS Collector forwards logs from Amazon Elastic Container Service (ECS) to Logz.io.

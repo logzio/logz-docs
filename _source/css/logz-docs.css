@@ -507,11 +507,6 @@ a.fancy-link:hover::after {
   padding-top: 10px;
 }
 
-.updated {
-  font-style: italic;
-  font-size: .9rem;
-}
-
 /* ===== CODE BLOCKS ===== */
 
 code {
@@ -816,9 +811,8 @@ li.lunrsearchresult .url {
 div.page-flags {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  margin-top: 1rem;
 
-  font-weight: 300;
   font-size: .85rem;
   line-height: 1rem;
 }
@@ -828,7 +822,6 @@ div.page-flags {
   border-radius: 15px;
   width: fit-content;
   padding: 0 .35rem;
-  margin-top: 16px;
   border: 1px solid currentcolor;
 }
 
@@ -847,7 +840,7 @@ div.feature-box {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  align-items: baseline;
+  margin-right: 2rem;
 }
 
 div.feature-box > span {
@@ -1232,14 +1225,13 @@ div.article-info-container {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
 }
 
 div.contributor-list svg {
   margin-right: .25rem;
 }
 
-div.contributor-list {
+.community {
   margin-right: 2rem;
   align-self: flex-start;
 }
@@ -1745,7 +1737,7 @@ div.highlighter-rouge {
 
 .avatar.avatar-small {
   display: inline-block;
-  margin: -6px 0 0 0;
+  margin: 0 0 0 0;
   vertical-align: middle;
   border-radius: 50%;
 }

@@ -17,14 +17,15 @@
         {{- page.title | escape -}}
       </h1>
 
-      {% include page-date.html %}
-      {% include community.html %}
-      {% include page-flags.html %}
+      {% include page-info/community.html %}
+      {% include page-info/page-flags.html %}
 
       <main class="page-content" aria-label="Content">
         {%- include open-source.html %}
         {{ content }}
       </main>
+
+      {% include github-buttons.html %}
 
     </div> <!-- /.body-container -->
   </div> <!-- /div.big-container -->

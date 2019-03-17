@@ -1243,13 +1243,18 @@ div.contributor-title {
 }
 
 div.contributor.icons {
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding-bottom: 1.5rem;
   padding-top: .25rem;
 }
 
 div.contributor.icons a {
   margin-right: .5rem;
+  color: var(--text-light);
+}
+
+.contributor.icons a:hover {
+  color: var(--text-link);
 }
 
 div.contributions {
@@ -1272,7 +1277,6 @@ div.contributions ul > li {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-end;
   align-items: flex-start;
 }
 
@@ -1740,6 +1744,11 @@ div.highlighter-rouge {
   margin: 0 0 0 0;
   vertical-align: middle;
   border-radius: 50%;
+}
+
+h1 .avatar.avatar-small {
+  margin-right: .75rem;
+  margin-top: -4px;
 }
 
 .contributor-list .avatar.avatar-small {

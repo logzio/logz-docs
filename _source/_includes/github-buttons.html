@@ -1,3 +1,5 @@
+{%- unless page.community-info == false or layout.community-info == false -%}
+
 {%- assign repoPath = site.github.org_url | append: site.github.repo_name -%}
 
 {%- capture editPath -%}
@@ -27,3 +29,4 @@
     </a>
   </div>
 </div>
+{%- endunless -%}

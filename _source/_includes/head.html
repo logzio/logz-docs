@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {%- if jekyll.environment == 'production' %}
+  {%- unless page.no-analytics == true -%}
   {% comment %}
   * Include these bits only if in production
   *       {% endcomment %}
@@ -15,6 +16,7 @@
     {% include google-analytics.html %}
     {%- endif %}
 
+  {%- endunless -%}
   {% endif -%}
 
   {% if site.intercom_app_id -%}

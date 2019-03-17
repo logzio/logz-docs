@@ -62,7 +62,7 @@ collections:
     output: true
     permalink: /shipping/log-sources/:path.html
   shipping-utilities:
-    output: true
+    output: false
     permalink: /shipping/shipping-utilities/:path.html
   docs-admin:
     output: true

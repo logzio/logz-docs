@@ -12,13 +12,6 @@ contributors:
   - imnotashrimp
 ---
 
-<!-- TODO: Document and test Django configuration -->
-<!-- <div class="branching-container"> -->
-
-<!-- {: .branching-tabs}
-  * [Standard Python configuration](#python-config)
-  * [Django configuration](#django-config) -->
-
 ## Logz.io Python Handler setup
 
 Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.
@@ -34,8 +27,6 @@ Navigate to your project's folder in the command line, and run this command to i
 ```shell
 pip install logzio-python-handler
 ```
-
-<!-- <div id="python-config"> -->
 
 ### Configure Logz.io Python Handler for a standard Python project
 
@@ -128,88 +119,3 @@ Please note that you can't override default fields from the python logger, such 
 ```python
 logger.info('Warning', extra={'extra_key':'extra_value'})
 ```
-
-<!-- </div> -->
-
-<!-- <div id="django-config">
-
-### Configure Logz.io Python Handler for a Django project
-
-Add the code block below to your Django app's file (`settings.py` by default). Use the samples in the `logzio` block as a starting point, and replace the sample with a configuration that matches your needs.
-
-For a complete list of options, see the configuration parameters below the code block.👇
-
-```python
-LOGGING = {
-  'version': 1,
-  'disable_existing_loggers': False,
-  'formatters': {
-    'verbose': {
-      'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-    },
-    'logzioFormat': {
-      'format': '{"additional_field": "value"}'
-    }
-  },
-  'handlers': {
-    'console': {
-      'class': 'logging.StreamHandler',
-      'level': 'DEBUG',
-      'formatter': 'verbose'
-    },
-
-    # Replace these parameters with your configuration
-    'logzio': {
-      'class': 'logzio.handler.LogzioHandler',
-      'level': 'INFO',
-      'formatter': 'logzioFormat',
-      'token': '{ACCOUNT-TOKEN}',
-      'logzio_type': "django",
-      'logs_drain_timeout': 5,
-      'url': '{LISTENER-URL}:8071',
-      'debug': True
-    },
-  },
-  'loggers': {
-    'django': {
-      'handlers': ['console', ],
-      'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO')
-    },
-    'appname': {
-      'handlers': ['console', 'logzio'],
-      'level': 'INFO'
-    }
-  }
-}
-```
-
-{: .parameter-list }
-token <span class="required-param"></span>
-  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
-    {%- include log-shipping/replace-vars.html token=true %}
-
-logzio_type
-  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-    Used by Logz.io for consistent parsing.
-    Can't contain spaces. <br />
-    <span class="default-param">`python`</span>
-
-logs_drain_timeout
-  : Time to wait between log draining attempts, in seconds. <br />
-    <span class="default-param">`3`</span>
-
-url
-  : Listener URL and port. <br />
-    {%- include log-shipping/replace-vars.html listener=true %} <br />
-    <span class="default-param">`https://listener.logz.io:8071`</span>
-
-debug
-  : Debug flag.
-    To print debug messages to stdout, `True`.
-    Otherwise, `False`. <br />
-    <span class="default-param">`False`</span>
-
-</div> -->
-
-<!-- </div> -->
-

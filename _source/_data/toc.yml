@@ -29,26 +29,9 @@ firstLevel:
 
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
-
-
 - title: Working in Logz.io
 
   secondLevel:
-  - title: Log shipping info
-    url: /user-guide/log-shipping/
-    thirdLevel:
-    - title: Built-in log types
-      url: /user-guide/log-shipping/built-in-log-types.html
-    - title: Log shipping troubleshooting
-      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
-    - title: Listener IP addresses
-      url: /user-guide/log-shipping/listener-ip-addresses.html
-    # - title: Field mapping and data parsing
-    # thirdLevel:
-    # - title: Field mapping
-  - title: Data parsing
-    url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
-
   - title: Kibana
     url: /user-guide/kibana/
     # thirdLevel:
@@ -146,16 +129,36 @@ firstLevel:
     - title: Manage API tokens
       url: /user-guide/tokens/api-tokens.html
 
-  # ===== INTEGRATIONS =====
-- title: Integrations
+  # ===== SHIPPING AND PARSING =====
+- title: Shipping & parsing
+
   secondLevel:
   - title: Log sources
     url: /shipping/log-sources/
+  - title: Log shipping info
+    url: /user-guide/log-shipping/
+    thirdLevel:
+    - title: Built-in log types
+      url: /user-guide/log-shipping/built-in-log-types.html
+    - title: Log shipping troubleshooting
+      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
+    - title: Listener IP addresses
+      url: /user-guide/log-shipping/listener-ip-addresses.html
+    # - title: Field mapping and data parsing
+    # thirdLevel:
+    # - title: Field mapping
+  - title: Data parsing
+    url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+
   # - title: Shipping utilities
   #   url: /shipping/shipping-utilities/
   #   thirdLevel:
   #   - title: Community-maintained log shippers
   #     url: /community-integrations/community-log-shippers/
+
+  # ===== INTEGRATIONS =====
+- title: Integrations
+  secondLevel:
   - title: Alert endpoints
     url: /user-guide/integrations/endpoints.html
   - title: Alice, Slack chatbot

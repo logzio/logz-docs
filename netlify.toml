@@ -1,0 +1,35 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+[build]
+  # Directory to change to before starting a build.
+  # This is where we will look for package.json/.nvmrc/etc.
+  publish = "_site/"
+  command = "./build.sh"
+
+# Production context: all deploys from the Production branch set in your site's 
+# deploy contexts will inherit these settings.
+[context.production]
+  publish = "_site/"
+  command = "./build.sh"
+
+[context.production.environment]
+  JEKYLL_ENV = "production"
+
+
+# Deploy Preview context: all deploys resulting from a pull/merge request will 
+# inherit these settings.
+[context.deploy-preview]
+  publish = "_site/"
+  command = "./build.sh"
+
+[context.deploy-preview.environment]
+  JEKYLL_ENV = "develop"
+
+# Branch Deploy context: all deploys that are not from a pull/merge request or 
+# from the Production branch will inherit these settings.
+[context.branch-deploy]
+  publish = "_site/"
+  command = "./build.sh"
+
+[context.branch-deploy.environment]
+  JEKYLL_ENV = "develop"

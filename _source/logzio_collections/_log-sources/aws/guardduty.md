@@ -108,6 +108,7 @@ contributors:
 6. Configure the function's basic settings
 
     In Basic settings, we recommend starting with these settings:
+
     * **Memory:** 512 MB
     * **Timeout:** 1 min 0 sec
 

@@ -1,6 +1,8 @@
 # This file configures redirects for Netlify hosting.
 # Netlify doc on redirects: https://www.netlify.com/docs/redirects/
 
+https://logz-docs.netlify.com/* https://docs.logz.io/:splat 301!
+
 /user-guide/access-and-authentication/manage-users.html /user-guide/users/ 301
 /user-guide/accounts/manage-the-main-account.html /user-guide/accounts/manage-the-main-account-and-sub-accounts.html 301
 /user-guide/accounts/manage-sub-accounts.html /user-guide/accounts/manage-the-main-account-and-sub-accounts.html 301

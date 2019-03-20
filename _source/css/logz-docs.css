@@ -58,8 +58,8 @@
   --infobox-read: rgb(var(--app-gray-primary));
   --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
-  --infobox-open-source: rgb(var(--app-gray-primary));
-  --infobox-open-source-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
+  --infobox-open-source: rgb(var(--app-green-primary));
+  --infobox-open-source-light: white;
 
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
@@ -1737,7 +1737,7 @@ div.highlighter-rouge {
   cursor: pointer;
 }
 
-.copy-btn::before {
+.copy-btn:hover::before {
   content: "Copy";
   font-size: .75rem;
   font-weight: 700;

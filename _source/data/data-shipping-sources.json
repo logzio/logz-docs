@@ -6,15 +6,28 @@ permalink: /data/data-shipping-sources.json
 {%- assign collectionsToAdd = "log-sources,metrics-sources" | split: "," -%}
 {%- assign shipperLogoComparePath = "/images/shipper-logos" | split: "/" -%}
 
+{%- case jekyll.environment -%}
+  {%- when "production" -%}
+    {%- assign branch = "/master" -%}
+  {%- else -%}
+    {%- assign branch = "/develop" -%}
+{%- endcase -%}
+{%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
+
 {%- assign staticFiles = site.static_files -%}
-{%- assign shipperLogos = "" | split: "|" -%}
+{%- assign shipperLogos = "" | split: "" -%}
 
 {%- for f in staticFiles -%}
   {%- assign thisPath = f.path | split: "/" -%}
+
+  {%- comment -%}
+  *   If this file is in the shipper logos folder, add to shipperLogos array
+  *         {%- endcomment -%}
   {%- if thisPath[1] == shipperLogoComparePath[1] and thisPath[2] == shipperLogoComparePath[2] -%}
   {%- assign newLogo = f.path | split: "|" -%}
   {%- assign shipperLogos = shipperLogos | concat: newLogo -%}
   {%- endif -%}
+
 {% endfor -%}
 
 {% capture json -%}
@@ -36,7 +49,13 @@ permalink: /data/data-shipping-sources.json
   {% endif -%}
   "logo": "{{d.logo.logofile}}",
   "url-in-docs": "{{site.url | append: site.baseurl | append: d.url}}",
-  "filepath": "{{ site.source | split: "./" | last | append: "/" | append: site.collections_dir | append: "/" | append: d.path }}"
+  "filepath": "{{ site.source
+    | split: "." | last
+    | append: "/"
+    | append: site.collections_dir
+    | append: "/"
+    | append: d.path
+    | prepend: githubUrl }}"
 }
   {%- unless forloop.last -%},
   {% endunless -%}

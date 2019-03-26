@@ -434,7 +434,7 @@ h4 {
 }
 
 h5, h6, .inline-header {
-  font-size: .95rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-bottom: 0;
 }
@@ -1705,10 +1705,13 @@ div.highlighter-rouge {
 }
 
 .copy-btn::before {
-  content: "Copy";
   font-size: .75rem;
   font-weight: 700;
   padding: 0 3px;
+}
+
+.copy-btn:hover::before {
+  content: "Copy";
 }
 
 .copy-btn.copied {

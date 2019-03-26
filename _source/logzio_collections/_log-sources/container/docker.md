@@ -6,7 +6,7 @@ logo:
 shipping-summary:
   data-source: Docker container
   log-shippers:
-    - recommended: logzio-docker
+    - recommended: docker-collector-logs
     - logzio-logging-plugin (Docker logging driver)
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Docker-Logging
 contributors:
@@ -16,14 +16,12 @@ contributors:
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [logzio-docker <span class="sm ital">(recommended)</span>](#logzio-docker-docker-image-config)
+  * [docker-collector-logs <span class="sm ital">(recommended)</span>](#docker-collector-logs-config)
   * [logzio-logging-plugin](#logzio-logging-plugin-docker-logging-driver-config)
 
-<div id="logzio-docker-docker-image-config">
+<div id="docker-collector-logs-config">
 
-## logzio-docker setup
-
-**You'll need:** Docker 1.5 or higher
+## docker-collector-logs setup
 
 {: .tasklist .firstline-headline }
 1. Pull the Docker image
@@ -31,80 +29,55 @@ contributors:
     Download the logzio/logzio-docker image:
 
     ```shell
-    docker pull logzio/logzio-docker
+    docker pull logzio/docker-collector-logs
     ```
 
 2. Run the Docker image
 
-    For a complete list of options, see the parameters and command flags below the code block.👇
+    For a complete list of options, see the parameters below the code block.👇
 
     ```shell
-    docker run -d \
-    -restart=always \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    logzio/logzio-docker \
-    -t <ACCOUNT-TOKEN> \
-    -z us \
-    -a env=prod
+    docker run logzio/docker-collector-logs \
+    --name docker-collector-logs \
+    --env LOGZIO_TOKEN="<ACCOUNT-TOKEN>" \
+    --env LOGZIO_URL="<LISTENER-URL>:5015" \
+    -v /var/run/docker.sock:/var/run/docker.sock:ro \
+    -v /var/lib/docker/containers:/var/lib/docker/containers
     ```
 
     Parameters
     {: .inline-header }
 
     {: .parameter-list }
-    -t <span class="required-param"></span>
+    LOGZIO-TOKEN <span class="required-param"></span>
       : Your Logz.io account token.
         {% include log-shipping/replace-vars.html token=true %}
         <!-- logzio:account-token -->
 
-    -z
-      : Your account region.
-        If your login URL is app.logz.io, use `us`.
-        If your login URL is app-eu.logz.io, use `eu`. <br />
-        <span class="default-param">`us`</span>
+    LOGZIO_URL
+      : Logz.io listener URL to ship the logs to.
+        {% include log-shipping/replace-vars.html listener=true %}
 
-    -i / --statsinterval
-      : Integer.
-        Collect samples and average them before sending to Logz.io.
+    matchContainerName
+      : Comma-separated list of containers you want to collect the logs from.
+        If a container's name partially matches a name on the list, that container's logs are shipped.
+        Otherwise, its logs are ignored. \\
+        **Note**: Can't be used with skipContainerName
 
-     -a
-      : Add more fields to the log.
-        Fore example, you can use this to tag a specific application or environment. <br />
-        **Syntax:** `key=value` (e.g. `env=prod`)
+    skipContainerName
+      : Comma-separated list of containers you want to ignore.
+        If a container's name partially matches a name on the list, that container's logs are ignored.
+        Otherwise, its logs are shipped. \\
+        **Note**: Can't be used with matchContainerName
 
-     --matchByName /regex/
-      : Forward logs or stats only for the containers whose name matches the given regex.
-
-    --matchByImage /regex/
-      : Forward logs or stats only for the containers whose image matches the given regex.
-
-    --skipByName /regex/
-      : Don't forward logs or stats for the containers whose name matches the given regex.
-
-    --skipByImage /regex/
-      : Don't forward logs or stats for the containers whose image matches the given regex.
-
-
-    Command flags
-    {: .inline-header }
-
-    {: .parameter-list }
-    --no-logs
-      : Don't send container logs to Logz.io.
-
-    --no-dockerEvents
-      : Don't send Docker events to Logz.io.
-
-    --no-stats
-      : Don't send Docker stats.
-        Required if your Docker version is less than 1.5.
-
-    --privileged
-      : Use this if you receive `Error: read EACCES`.
+    <div class="info-box note">
+      By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
+    </div>
 
 3. Check Logz.io for your logs
 
-    Spin up your Docker containers if you haven't done so already. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+    Spin up your Docker containers if you haven't done so already.
+    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

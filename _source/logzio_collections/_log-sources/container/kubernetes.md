@@ -107,6 +107,43 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
         To suppress these message, set to `disable`. \\
         <span class="default-param">Enabled</span>
 
+    output_include_time
+      : To append a timestamp to your logs when they're processed, `true`.
+        Otherwise, `false`. \\
+        <span class="default-param">`true`</span>
+
+    buffer_type
+      : Specifies which plugin to use as the backend. \\
+        <span class="default-param">`file`</span>
+
+    buffer_path
+      : Path of the buffer. \\
+        <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span>
+
+    buffer_queue_full_action
+      : Controls the behavior when the queue becomes full. \\
+        <span class="default-param">`block`</span>
+
+    buffer_chunk_limit
+      : Maximum size of a chunk allowed.	\\
+        <span class="default-param">`2M`</span>
+
+    buffer_queue_limit
+      : Maximum length of the output queue. \\
+        <span class="default-param">`6`</span>
+
+    flush_interval
+      : Time to wait before invoking the next buffer flush, in seconds \\
+        <span class="default-param">`5s`</span>
+
+    max_retry_wait
+      : Maximum time to wait between retries, in seconds. \\
+        <span class="default-param">`30s`</span>
+
+    num_threads
+      : Number of threads to flush the buffer. \\
+        <span class="default-param">`2`</span>
+
 2. Deploy the DaemonSet
 
     Run this command to deploy the DaemonSet you created in step 1.
@@ -248,6 +285,43 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
       : If you don't setup systemd in the container, Fluentd ships `Systemd::JournalError` log messages.
         To suppress these message, set to `disable`. \\
         <span class="default-param">Enabled</span>
+
+    output_include_time
+      : To append a timestamp to your logs when they're processed, `true`.
+        Otherwise, `false`. \\
+        <span class="default-param">`true`</span>
+
+    buffer_type
+      : Specifies which plugin to use as the backend. \\
+        <span class="default-param">`file`</span>
+
+    buffer_path
+      : Path of the buffer. \\
+        <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span>
+
+    buffer_queue_full_action
+      : Controls the behavior when the queue becomes full. \\
+        <span class="default-param">`block`</span>
+
+    buffer_chunk_limit
+      : Maximum size of a chunk allowed.	\\
+        <span class="default-param">`2M`</span>
+
+    buffer_queue_limit
+      : Maximum length of the output queue. \\
+        <span class="default-param">`6`</span>
+
+    flush_interval
+      : Time to wait before invoking the next buffer flush, in seconds \\
+        <span class="default-param">`5s`</span>
+
+    max_retry_wait
+      : Maximum time to wait between retries, in seconds. \\
+        <span class="default-param">`30s`</span>
+
+    num_threads
+      : Number of threads to flush the buffer. \\
+        <span class="default-param">`2`</span>
 
 2. Deploy the DaemonSet
 

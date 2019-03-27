@@ -11,6 +11,7 @@ shipping-summary:
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Docker-Logging
 contributors:
   - imnotashrimp
+  - amosd92
 ---
 
 <div class="branching-container">

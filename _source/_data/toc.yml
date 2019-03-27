@@ -149,12 +149,12 @@ firstLevel:
     # - title: Field mapping
   - title: Data parsing
     url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+  - title: Community-maintained log shippers
+    url: /community-integrations/community-log-shippers/
 
   # - title: Shipping utilities
   #   url: /shipping/shipping-utilities/
   #   thirdLevel:
-  #   - title: Community-maintained log shippers
-  #     url: /community-integrations/community-log-shippers/
 
   # ===== INTEGRATIONS =====
 - title: Integrations

@@ -17,103 +17,115 @@ contributors:
   - amirkalron
 ---
 
-## logzio-azure-serverless + Event Hubs setup
+## Setup
 
-**You'll need:** An [Event Hub that will receive logs](https://docs.microsoft.com/en-us/azure/event-hubs/), logs streaming [from your Azure services to the Event Hub](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs)
-
-In step 1 below, you'll need the Event Hub name, resource group, and region—so keep this information handy!
-
+This page tells you how to ship logs from your Azure services to Logz.io.
+At the end of this process, your Azure function will forward logs from an Azure Event Hub to your Logz.io account.
 
 ###### Configuration
 
 {:.tasklist .firstline-headline}
-1. Create a new Azure function app
+1. Deploy the Logz.io template
 
-    <div class="info-box read">
-      If you need more help setting up a function app, see [Azure Functions Documentation](https://docs.microsoft.com/en-us/azure/azure-functions/) from Microsoft.
+    👇 Click this button to load the Logz.io template in Azure.
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fazuredeploy.json">
+      <img class="override btn-img" alt="Deploy to Azure" src="http://azuredeploy.net/deploybutton.png">
+    </a>
+
+2. Configure the template
+
+    ![Customized template]({{site.baseurl}}/images/azure-event-hubs/customized-template.png)
+
+    Make sure to use the settings shown below.
+
+    {: .inline-header}
+    In the BASICS section
+
+    {: .parameter-list }
+    Resource group
+    : Click **Create new**.
+      Give a meaningful Name, such as "logzioEventHubIntegration", and then click **OK**.
+
+    Location
+    : Choose the same region as the Azure services that will stream data to this Event Hub.
+
+    {: .inline-header }
+    In the SETTINGS section
+
+    {: .parameter-list }
+    Logs listener host
+    : Use the listener URL for your logs account region.
+      For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). \\
+      <span class="default-param">listener.logz.io</span>
+
+    Metrics listener host
+    : Use the listener URL for your metrics account region \\
+      <span class="default-param">listener.logz.io</span>
+
+    Logs account token
+    : Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to.
+
+    Metrics account token
+    : Use the [token](https://app.logz.io/#/dashboard/settings/general) of the metrics account you want to ship to.
+
+    \\
+    At the bottom of the page, select **I agree to the terms and conditions stated above**, and then click **Purchase** to deploy.
+
+    Deployment can take a few minutes.
+
+3. _(Optional)_ Add failsafes for shipping timeouts
+
+    You can configure logzio-azure-serverless to back up logs and metrics to Azure Blob Storage.
+    So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data that didn't get shipped.
+
+    To do this, expand your function app's left menu, and then click **Integrate**.
+
+    ![New Blob output]({{site.baseurl}}/images/azure-event-hubs/azure-blob-storage-outputblob.png)
+
+    In the top of the triggers panel, click **Azure Blob Storage (outputBlob)**.
+    The _Azure Blob Storage output_ settings are displayed.
+
+    Leave **Blob parameter name** blank.
+    Enter the **Path** for the Azure blob you're sending dropped logs or metrics to, and then click **Save**.
+
+    <div class="info-box important">
+      Make sure the blob **Path** you're using here already exists, or create it now.
     </div>
 
-    In the left menu of the Azure Portal, click **Create a resource**, then select **Compute > Function App**.
-    Click **Create** (bottom of the panel) to continue to the _Function App_ panel.
+    <div class="info-box read">
+      For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
+    </div>
 
-    Use these settings (set the other values to whatever makes sense for your environment):
-    * **Resource Group**: Click **Use existing**, and then choose the resource group that contains the Event Hub you'll collect logs from
-    * **Runtime Stack**: Choose **JavaScript**
-    * **Location**: Choose the same region as the Event Hub you'll collect logs from
+4. Stream activity and audit logs to your new event hub
 
-    Click **Create** to deploy the new function app. This may take a few minutes.
+    Now you'll need to configure Azure to stream logs to your new event hub so that your new function apps can forward that data to Logz.io.
 
-    ![Notifications: Deployment Succeeded]({{site.baseurl}}/images/azure-event-hubs/notifications--go-to-resource.png)
+    In the search bar, type "Active", and then click **Azure Active Directory**.
+    This brings you to the _Activity log_ page.
 
-    Wait until the deployment is complete to continue.
+    Select **Monitoring > Audit logs** from the left menu to go to the _Audit logs_ page.
 
-2. Create a new function in the function app
+    In the button bar, click **Export Data Settings** to go to the _Diagnostics settings_ page, and then click **+ Add diagnostic setting**.
+    This opens the _Diagnostics settings_ panel.
 
-    In the left menu, click **Resource groups**, then click the resource group that you just deployed to.
+    Give your diagnostic settings a **Name**.
 
-    ![Azure resource groups]({{site.baseurl}}/images/azure-event-hubs/resource-groups-overview.png)
+    Select **Stream to an event hub**, and then click **Configure** to open the _Select event hub_ panel.
 
-    Click the function app you just deployed.
-    In the function app's left menu, click **+** (next to **Functions**) to add a new function.
-    This takes you to the Quickstart tab.
+    Choose your event hub:
 
-    ![Azure function Quickstart tab]({{site.baseurl}}/images/azure-event-hubs/function-quickstart.png)
+    * **Event hub namespace**: Choose the namespace that starts with "LogzioNS" (_LogzioNS6nvkqdcci10p_, for example)
+    * **Event hub name**: Choose "insights-operational-logs"
+    * **Event hub policy name**: Choose "LogzioSharedAccessKey"
 
-    Click **In-portal**, and then click **Continue**.
+    Click **OK** to return to _Diagnostics settings_.
 
-    ![Azure function Quickstart tab, step 2]({{site.baseurl}}/images/azure-event-hubs/function-quickstart-step-2.png)
+    In the _Log_ section, select the logs you want to stream, and then click **Save**.
+    The selected logs will now stream to the event hub.
 
-    Click **More templates...**, and then click **Finish and view templates** to continue.
-
-    ![Event Hub Trigger]({{site.baseurl}}/images/azure-event-hubs/event-hub-trigger.png)
-
-    In the search box, type "event hub", and then click **Azure Event Hub Trigger**.
-    The _New Function_ panel opens.
-
-    ![New Function panel]({{site.baseurl}}/images/azure-event-hubs/new-function-panel.png)
-
-    Above the **Event Hub connection** list, click **new**.
-    In the _Connection_ dialog box, select the **Event Hub** tab, then set the options for the Event Hub you'll collect logs from.
-    Click **Select** to return to the _New Function_ panel.
-
-    Leave the other form fields as their default values, and then click **Create**.
-
-3. Set up index.js
-
-      In the _index.js_ file, replace the default code with the code from [index.js](https://github.com/logzio/logzio-azure-serverless/blob/master/src/index.js) in logzio-azure-serverless.
-
-    Replace `<ACCOUNT-TOKEN>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
-
-    Replace `<LISTENER-URL>` with your region's listener URL. If your login URL is app.logz.io, use `listener.logz.io`. If your login URL is app-eu.logz.io, use `listener-eu.logz.io`.
-
-    Click **Save**.
-
-4. Set up data-parser.js
-
-   In the _View files_ panel, click **Add** to add a new file. Name this file `data-parser.js`.
-
-   Open _data-parser.js_, paste the code from [data-parser.js](https://github.com/logzio/logzio-azure-serverless/blob/master/src/data-parser.js) in logzio-azure-serverless, and click **Save**.
-
-5. Install logzio-nodejs
-
-    In the bottom of the window, click **Console** to show the command line, then update npm to the latest version and install logzio-nodejs:
-
-    ```powershell
-    npm i -g npm
-    npm install logzio-nodejs
-    ```
-
-    The logzio-nodejs installation may take a few minutes.
-    You can confirm the installation started by clicking **View files** (on the right side of the window) and finding _node_modules > logzio-nodejs_.
 
 6. Check Logz.io for your logs
-
-    On the right of the window, click **Test** to show the test panel, and then click **Run**.
-    If you experience any errors in Azure, it may be that the logzio-nodejs installation isn't complete yet.
-
-    <div class="info-box read">
-      For information on dependency management, see [Azure Functions JavaScript developer guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node#dependency-management) from Microsoft.
-    </div>
 
     Give your logs some time to get from your system to ours, and then open Kibana.
     If everything went according to plan, you should see logs with the type `eventhub` in Kibana.

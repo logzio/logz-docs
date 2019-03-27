@@ -30,6 +30,7 @@ firstLevel:
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
 - title: Working in Logz.io
+  icon: li-bar-graph
 
   secondLevel:
   - title: Kibana
@@ -82,6 +83,7 @@ firstLevel:
       url: /user-guide/lookups/
 
 - title: Admin tools
+  icon: li-gear
   secondLevel:
   - title: Accounts
     url: /user-guide/accounts/
@@ -131,6 +133,7 @@ firstLevel:
 
   # ===== SHIPPING AND PARSING =====
 - title: Shipping & parsing
+  icon: li-plane
 
   secondLevel:
   - title: Log sources
@@ -158,6 +161,7 @@ firstLevel:
 
   # ===== INTEGRATIONS =====
 - title: Integrations
+  icon: li-wrench
   secondLevel:
   - title: Alert endpoints
     url: /user-guide/integrations/endpoints.html

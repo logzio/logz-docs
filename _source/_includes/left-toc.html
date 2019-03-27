@@ -8,6 +8,9 @@
     {%- for parent in sidebar.firstLevel %}
     <li class="">
       <span class="toc-heading">
+        {%- if parent.icon -%}
+          <i class="li {{ parent.icon }}"></i>
+        {%- endif %}
         {{ parent.title }}
       </span>
 

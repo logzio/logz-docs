@@ -136,7 +136,7 @@ firstLevel:
   icon: li-plane
 
   secondLevel:
-  - title: Log sources
+  - title: Log shipping sources
     url: /shipping/log-sources/
   - title: Log shipping info
     url: /user-guide/log-shipping/

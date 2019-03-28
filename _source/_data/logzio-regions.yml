@@ -1,6 +1,7 @@
 us:
-  title: US region
+  title: N. Virginia region
   suffix: false
+  cloud: AWS
   listener-ips:
     - 23.22.183.192
     - 34.196.246.79
@@ -19,7 +20,8 @@ us:
     - 52.87.4.83
     - 54.210.40.1
 eu:
-  title: EU region
+  title: Frankfurt region
+  cloud: AWS
   listener-ips:
     - 35.157.100.82
     - 35.157.104.194
@@ -32,7 +34,8 @@ eu:
     - 52.57.23.254
     - 52.57.24.166
 nl:
-  title: The Netherlands region
+  title: West Europe region
+  cloud: Azure
   listener-ips:
     - 104.40.177.72
     - 104.40.240.119

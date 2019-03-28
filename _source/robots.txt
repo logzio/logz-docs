@@ -6,6 +6,7 @@ User-agent: *
 Allow: /
 Disallow: /docs-admin/
 Disallow: /technical-notes/
+Disallow: /googlec6c327a13fb89cb5.html
 Sitemap: {{ site.url | append: site.baseurl}}/sitemap.xml
 
 {%- else %}

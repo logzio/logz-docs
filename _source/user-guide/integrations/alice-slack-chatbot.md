@@ -5,6 +5,9 @@ description: Use Alice to work with your Logz.io accounts. Search your logs, see
 permalink: /user-guide/integrations/alice-slack-chatbot.html
 flags:
   logzio-plan: pro
+open-source:
+  title: Alice
+  github-repo: slack-integration
 tags:
   - integrations
   - slack
@@ -14,14 +17,16 @@ contributors:
   - danielberman
 ---
 
-Alice is a chatbot who lives in your Slack workspace.
-You can ask Alice to search your logs, see the alerts triggered in your environment, and get a snapshot of Kibana visualizations and dashboards.
+If you use Slack for office communication and workflows, Alice will fit right in.
+
+Alice is a chatbot that lets you query your Logz.io data from Slack.
+This gives you a mobile-friendly way to work with Kibana and to share information without leaving your team's chat.
+For example, you can send a `search` or `snapshot` command to see the results in your conversation's flow in real time.
+
+You can ask Alice to search your logs, see triggerd alerts, and get visualization and dashboard snapshots.
+
 
 ## Getting started with Alice
-
-<div class="info-box important">
-  Users in your Slack workspace can use Alice to interact with your account, even if they don't have access to Logz.io.
-</div>
 
 ###### Set up Alice
 
@@ -61,6 +66,10 @@ You can ask Alice to search your logs, see the alerts triggered in your environm
     Give the account an **Alias** that contains only letters, numbers, underscores, or dashes.
     You'll use the account alias to tell Alice which account you want to interact with.
 
+    <div class="info-box important">
+      Users in your Slack workspace can use Alice to interact with your account, even if they don't have access to Logz.io.
+    </div>
+
     Click **Save**.
 
 You can now ask Alice to help you with your Logz.io account and invite her to a specific channel—just remember to tag `@Alice` when you need something from her.
@@ -83,7 +92,7 @@ If you're adding a few accounts to Alice, you can set default accounts per chann
 ##### How does Alice know which account to use?
 
 Alice looks for the account in this order: \\
-<span class="bold border background">Alias used in the command</span> ➜ 
+<span class="bold border background">Alias used in the command</span> ➜
 <span class="bold border background">Channel account</span> ➜
 <span class="bold border background">Workspace account</span>
 

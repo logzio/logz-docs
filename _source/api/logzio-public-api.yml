@@ -3,11 +3,11 @@ schemes: [ https ]
 host: api.logz.io
 x-servers:
   - url: https://api.logz.io/v1
-    description: US region
+    description: N. Virginia region
   - url: https://api-eu.logz.io/v1
-    description: EU region
+    description: Frankfurt region
   - url: https://api-nl-logz.io/v1
-    description: The Netherlands region
+    description: West Europe region
 basePath: /v1
 produces: [ application/json ]
 consumes: [ application/json ]
@@ -29,25 +29,28 @@ info:
     Please note that alerting is not yet covered in this document.
     For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
 
-    # Account region and your API URL
+    # Account region and API URL
 
-    We host accounts in the US, EU, and The Netherlands regions.
+    Every Logz.io account is hosted in an account region.
+    All services related to your account are colocated—so you'll ship logs, sign in, and access the API from the same region the account lives in.
+
+
     You'll need to route API calls to the same region where your account is hosted.
 
 
-    If you don't know your account region, check your Logz.io login URL.
-    If your login URL is app.logz.io, your account is hosted in the US region.
-    If your login URL is app-eu.logz.io, your account is hosted in the EU region.
-    If your login URL is app-nl.logz.io, your account is hosted in The Netherlands region.
+    To find your account region, sign in to Logz.io and look at the URL in the address bar.
+    Your API URL has the same two-letter code that you see in the address bar when you're logged in.
 
 
-    ### API region URLs
+    For instance:
 
-    * US: `api.logz.io`
+    * If your app URL is **app.logz.io**, then your API URL is **api.logz.io**.
 
-    * EU: `api-eu.logz.io`
+    * If your app URL is **app-nl.logz.io**, then your API URL is **api-nl.logz.io**.
 
-    * The Netherlands: `api-nl.logz.io`
+
+    For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+
 
     # Authentication
 

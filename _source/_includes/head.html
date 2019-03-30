@@ -19,9 +19,13 @@
   {%- endunless -%}
   {% endif -%}
 
-  {% if site.intercom_app_id -%}
-    {% include intercom.html %}
-  {%- endif %}
+  {%- if site.intercom_app_id %}
+  {% include intercom.html %}
+  {%- endif -%}
+
+  {%- if page.noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif -%}
 
   <!-- font awesome 5 js -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>

@@ -24,3 +24,6 @@
 [context.branch-deploy]
   publish = "_site/"
   command = "JEKYLL_ENV=develop ./build.sh"
+
+[context.april-fools]
+  command = "JEKYLL_ENV=ducks ./build.sh"

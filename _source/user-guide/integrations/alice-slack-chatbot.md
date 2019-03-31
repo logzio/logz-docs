@@ -5,6 +5,9 @@ description: Use Alice to work with your Logz.io accounts. Search your logs, see
 permalink: /user-guide/integrations/alice-slack-chatbot.html
 flags:
   logzio-plan: pro
+open-source:
+  title: Alice
+  github-repo: slack-integration
 tags:
   - integrations
   - slack
@@ -14,14 +17,16 @@ contributors:
   - danielberman
 ---
 
-Alice is a chatbot who lives in your Slack workspace.
-You can ask Alice to search your logs, see the alerts triggered in your environment, and get a snapshot of Kibana visualizations and dashboards.
+If you use Slack for office communication and workflows, Alice will fit right in.
+
+Alice is a chatbot that lets you query your Logz.io data from Slack.
+This gives you a mobile-friendly way to work with Kibana and to share information without leaving your team's chat.
+For example, you can send a `search` or `snapshot` command to see the results in your conversation's flow in real time.
+
+You can ask Alice to search your logs, see triggerd alerts, and get visualization and dashboard snapshots.
+
 
 ## Getting started with Alice
-
-<div class="info-box important">
-  Users in your Slack workspace can use Alice to interact with your account, even if they don't have access to Logz.io.
-</div>
 
 ###### Set up Alice
 
@@ -61,6 +66,10 @@ You can ask Alice to search your logs, see the alerts triggered in your environm
     Give the account an **Alias** that contains only letters, numbers, underscores, or dashes.
     You'll use the account alias to tell Alice which account you want to interact with.
 
+    <div class="info-box important">
+      Users in your Slack workspace can use Alice to interact with your account, even if they don't have access to Logz.io.
+    </div>
+
     Click **Save**.
 
 You can now ask Alice to help you with your Logz.io account and invite her to a specific channel—just remember to tag `@Alice` when you need something from her.
@@ -75,3 +84,26 @@ To do this, go to the app's [management page](https://slack.com/apps/A9VPCDA9X-a
 
 After you change Alice's name, `@Alice` won't work anymore—you'll need to use the new name you set.
 Make sure you communicate this change to all your Slack users so nobody feels offended that Alice is ignoring them.
+
+## Working with sub accounts
+
+If you're adding a few accounts to Alice, you can set default accounts per channel or for the whole Slack workspace—and you can override these settings by giving an alias in a command.
+
+##### How does Alice know which account to use?
+
+Alice looks for the account in this order: \\
+<span class="bold border background">Alias used in the command</span> ➜
+<span class="bold border background">Channel account</span> ➜
+<span class="bold border background">Workspace account</span>
+
+Alias used in the command
+  : If you used an account alias in the command, Alice searches that account.
+    This overrides the channel or workspace account settings.
+
+Channel account
+  : If you didn't use an alias in the command, Alice looks to see if there's a default account for the channel you ran the command from.
+
+Workspace account
+  : If there isn't a channel account set, Alice uses the workspace account.
+
+If you need help with how to write your commands, type `@Alice help` in Slack.

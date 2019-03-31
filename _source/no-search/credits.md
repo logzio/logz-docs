@@ -17,4 +17,4 @@ community-info: false
 
 </div>
 
-[Open source software used in the Docs](https://github.com/logzio/logz-docs#open-source-software-used-in-docs)
+[Open source software used in the 🦆🦆🦆](https://github.com/logzio/logz-docs#open-source-software-used-in-docs)

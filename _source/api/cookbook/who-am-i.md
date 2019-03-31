@@ -64,7 +64,7 @@ Let's see if we can figure this out together.
     If the status code is something else
 
     You might have sent the request to an invalid endpoint.
-    Double-check the API URL, and make sure it matches an endpoint in the Logz.io [API docs]({{site.baseurl}}/api/).
+    Double-check the API URL, and make sure it matches an endpoint in the Logz.io [API 🦆🦆🦆]({{site.baseurl}}/api/).
 
 2. Check the response body
 

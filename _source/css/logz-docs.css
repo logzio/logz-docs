@@ -58,8 +58,8 @@
   --infobox-read: rgb(var(--app-gray-primary));
   --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
-  --infobox-open-source: rgb(var(--app-gray-primary));
-  --infobox-open-source-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
+  --infobox-open-source: rgb(var(--app-green-primary));
+  --infobox-open-source-light: white;
 
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
@@ -510,6 +510,17 @@ a.fancy-link:hover::after {
 .updated {
   font-style: italic;
   font-size: .9rem;
+}
+
+.border {
+  border: 1px solid var(--border-dark);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 6px;
+}
+
+.background {
+  background-color: var(--background-light)
 }
 
 /* ===== CODE BLOCKS ===== */
@@ -1726,7 +1737,7 @@ div.highlighter-rouge {
   cursor: pointer;
 }
 
-.copy-btn::before {
+.copy-btn:hover::before {
   content: "Copy";
   font-size: .75rem;
   font-weight: 700;

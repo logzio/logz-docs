@@ -1,10 +1,6 @@
 # Don't forget to chmod this bad boy
 echo -n Making stale list...
 
-# Change these outputs to match your Jekyll configuration
-JEKYLL_SOURCE="./_source" # `source` value in your jekyll config file, relative to where you're keeping this script
-JEKYLL_DATA="./_source/_data" # location of Jekyll's _data/ folder, relative to this script
-
 # Add this file to your .gitignore
 STALE_LIST_OUTPUT="$JEKYLL_DATA/stale-list.yml"
 

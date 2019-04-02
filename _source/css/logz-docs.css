@@ -846,12 +846,14 @@ div.feature-box {
   width: fit-content;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
   font-size: .9rem;
 }
 
+.feature-box span:not(:last-child), .feature-box > div:not(:last-child)  {
+  margin-right: 10px;
+}
+
 div.feature-box span {
-  margin-left: 10px;
   padding: 0;
   color: var(--border-light);
   border: none;

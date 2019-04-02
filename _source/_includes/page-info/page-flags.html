@@ -1,16 +1,12 @@
 {%- if page.flags -%}
 <div class="page-flags">
-
-  {%- include page-info/logzio-plan.html -%}
-
   <div class="flags">
   {% if page.flags.beta -%}
-    <div class="flag beta">Beta feature</div>
+    <div class="flag beta">Beta</div>
   {%- endif %}
   {% if page.flags.admin -%}
-    <div class="flag admin">For account admins</div>
+    <div class="flag admin">For admins</div>
   {%- endif %}
   </div>
-
 </div>
 {%- endif -%}

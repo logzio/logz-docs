@@ -138,6 +138,12 @@ footer {
   line-height: 30px;
 }
 
+.title-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
 div.toc-container {
   align-self: stretch;
   background-color: var(--background-very-light);
@@ -405,6 +411,8 @@ h1, h2, h3, h4, h5, h6, .site-title, .post-title, .inline-header {
 h1, h1:first-child {
   font-family: var(--title-font);
   margin-top: 0px;
+  margin-bottom: 0;
+  margin-right: 1rem;
 }
 
 h2, h3, h4, h5, h6, .inline-header {
@@ -811,10 +819,9 @@ li.lunrsearchresult .url {
 div.page-flags {
   display: flex;
   flex-flow: row wrap;
-  margin-top: 1rem;
-
   font-size: .85rem;
   line-height: 1rem;
+  align-self: flex-end;
 }
 
 .flag {
@@ -838,16 +845,21 @@ div.page-flags {
 div.feature-box {
   width: fit-content;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-around;
-  margin-right: 2rem;
+  font-size: .9rem;
 }
 
-div.feature-box > span {
+div.feature-box span {
   margin-left: 10px;
   padding: 0;
   color: var(--border-light);
   border: none;
+}
+
+.feature-box > div {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .feature-box.community .community-plan {
@@ -1220,20 +1232,23 @@ ul.toc-child li span.toc-heading:hover {
 
 div.article-info-container {
   font-size: .9rem;
-  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+}
+
+.article-info-container > div {
+  display: flex;
+}
+
+.article-info-container > div > *:not(:last-child) {
+  margin-right: 1rem;
 }
 
 div.contributor-list svg {
   margin-right: .25rem;
-}
-
-.community {
-  margin-right: 2rem;
-  align-self: flex-start;
 }
 
 /* ===== CONTRIBUTORS ===== */
@@ -1289,7 +1304,8 @@ div.contributions ul > li {
 }
 
 .slackin {
-  margin-top: 5px;
+  align-self: center;
+  padding: unset;
 }
 
 .community.button.edit {

@@ -2,21 +2,20 @@
 layout: default
 ---
 <div class="contributor-title">
-  {%- comment -%}
-  {%- if page.github %}
-  <div class="avatar">
-    {% avatar {{ page.github }} %}
-  </div>
-  {%- endif %}
-  {%- endcomment -%}
+  <h2>
   {%- if page.logzio-role %}
     {{ page.logzio-role }} at Logz.io
   {%- else %}
     Community Contributor
-  {%- endif %}
+  {%- endif -%}
+  </h2>
 </div>
 
 <div class="contributor icons">
+  {%- if page.github %}
+  <a href="https://github.com/{{ page.github }}"><i class="fab fa-github"></i></a>
+  {%- endif %}
+
   {%- if page.website %}
   <a href="{{ page.website }}"><i class="fa fa-globe" aria-hidden="true"></i></a>
   {%- endif %}
@@ -27,10 +26,6 @@ layout: default
 
   {%- if page.twitter %}
   <a href="https://twitter.com/{{ page.twitter }}"><i class="fab fa-twitter"></i></a>
-  {%- endif %}
-
-  {%- if page.github %}
-  <a href="https://github.com/{{ page.github }}"><i class="fab fa-github"></i></a>
   {%- endif %}
 </div>
 

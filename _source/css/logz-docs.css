@@ -1236,14 +1236,13 @@ div.article-info-container {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
 }
 
 .article-info-container > div {
   display: flex;
 }
 
-.article-info-container > div > *:not(:last-child) {
+.article-info-container > div > *:not(:last-child), .article-info-container > div:not(:last-child) {
   margin-right: 1rem;
 }
 

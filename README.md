@@ -70,9 +70,9 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
 
 5. macOS: [Homebrew](https://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-6. [Fork](https://github.com/logzio/logz-docs/fork) the logz-docs repository
+6. [Bundler](https://bundler.io/): `sudo gem install bundler`
 
-7. [Bundler](https://bundler.io/): `sudo gem install bundler`
+7. [Fork](https://github.com/logzio/logz-docs/fork) the logz-docs repository
 
 8. Clone your fork, checkout the `develop` branch, and add logzio/logz-docs as your upstream repo:
 
@@ -146,7 +146,7 @@ We like to give contributors credit for their work, so go ahead and add yourself
   So if your GitHub username is agrant, your file is named `agrant.md`. This is your identifier when you contribute to docs.
 
 2. Copy this YAML content to the file, and add your information.
-  If something doesn't apply to you, delete the line:
+  If something doesn't apply to you, delete the line that doesn't apply:
 
     ```yaml
     ---
@@ -186,7 +186,7 @@ Some notes:
 
 ### Procedures
 
-* There isn't a strict style for procedures, except to make them as simple as possible.
+* We don't have a strict style for procedures, except to make them as simple as possible.
 * Avoid long procedures.
   If your procedure has more than 10 steps, shorten it, or break it apart into multiple procedures.
 * You can use ordered and unordered lists in procedures.

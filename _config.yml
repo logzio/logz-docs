@@ -67,6 +67,7 @@ defaults:
       path: '/no-search/*'
     values:
       search: false
+      noindex: true
       tags: false
   - scope:
       path: ''
@@ -74,6 +75,7 @@ defaults:
     values:
       layout: article
       search: false
+      noindex: true
       tags: false
       community-info: false
   - scope:
@@ -81,6 +83,7 @@ defaults:
       type: docs-admin
     values:
       search: false
+      noindex: true
       tags: false
       community-info: false
       show-date: false

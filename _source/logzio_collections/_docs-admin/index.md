@@ -8,6 +8,8 @@ permalink: /docs-admin/
   | where: "label", page.collection
   | first -%}
 
+This build's environment: {{jekyll.environment}}
+
 ##### Admin TOC
 
 {% for doc in thisCollection.docs %}

@@ -20,8 +20,16 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 {: .tasklist .firstline-headline }
 1. Request SSO access from Logz.io
 
+    <div class="info-box note">
+      Only account admins can request single sign-on access for their accounts.
+    </div>
+
     To kick off this process, send an email to [help@logz.io](mailto:help@logz.io).
-    Write that you want to set up Azure SAML SSO for Logz.io, and include your Logz.io account ID in the message.
+    Write that you want to set up Azure SAML SSO for Logz.io.
+    Include these items in the message:
+
+    * Your Logz.io account ID
+    * Your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
     The Support team will respond with the connection information you'll need to give in Azure.
 

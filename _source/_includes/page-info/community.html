@@ -1,7 +1,9 @@
 <div class="article-info-container">
+  {%- unless page.show-date == false and page.community-info == false-%}
   <div>
     {% include page-info/page-date.html %}
     {% include page-info/contributor-list.html %}
   </div>
+  {%- endunless -%}
     <div class="slackin"><script async defer src="https://community-slack.logz.io/slackin.js"></script></div>
 </div>

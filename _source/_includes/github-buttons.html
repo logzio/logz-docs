@@ -11,18 +11,23 @@
   {%- if site.github.issue_template -%}
     ?template={{site.github.issue_template}}.md
   {%- endif -%}
-{%- endcapture -%}
+{%- endcapture %}
 
-<div class="community-container">
 
-  <div class="community button edit">
+<div class="feedback-container">
+
+<div class="feedback inline-header ">
+  Contribute to the docs
+</div>
+
+  <div class="feedback button edit">
     <a class="fancy-link" href="{{ editPath }}/{{ page.path }}" target="_blank">
       <span class="icon">{% octicon mark-github %}</span>
       <span>Edit this page</span>
     </a>
   </div>
 
-  <div class="community button issue">
+  <div class="feedback button issue">
     <a class="fancy-link" href="{{ issuePath }}" target="_blank">
       <span class="icon">{% octicon issue-opened %}</span>
       <span>Report an issue</span>

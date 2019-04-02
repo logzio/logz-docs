@@ -847,6 +847,7 @@ div.feature-box {
   display: flex;
   flex-flow: row wrap;
   font-size: .9rem;
+  margin-left: auto;
 }
 
 .feature-box span:not(:last-child), .feature-box > div:not(:last-child)  {
@@ -1287,37 +1288,47 @@ div.contributions ul > li {
   padding-bottom: .5rem;
 }
 
-/* ===== COMMUNITY BUTTONS ===== */
+/* ===== FEEDBACK BUTTONS ===== */
 
-.community-container {
+.feedback-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: flex-start;
+  margin-top: 4rem;
+  border-top: 1px solid var(--border-light);
+  padding-top: .25rem;
 }
 
-.community-container > *:not(:last-child) {
-  margin-right: 15px;
+.feedback-container > .feedback.inline-header {
+  margin-top: 0;
+  color: var(--tasklist-light);
 }
 
-.community.button a {
+.feedback-container > *:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.feedback.button a {
   color: unset;
 }
 
 .slackin {
   align-self: center;
   padding: unset;
+  margin-bottom: -1rem;
+  margin-left: auto;
 }
 
-.community.button.edit {
+.feedback.button.edit {
   color: var(--logz-logo-normal);
 }
 
-.community.button.issue {
+.feedback.button.issue {
   color: rgb(var(--app-orange-primary));
 }
 
-.community.button svg {
+.feedback.button svg {
   margin-bottom: -2px;
   margin-right: 1px;
   fill: currentColor;

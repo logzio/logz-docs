@@ -10,6 +10,7 @@ shipping-summary:
     - RBAC configuration
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kubernetes
 contributors:
+  - idohalevi
   - imnotashrimp
 ---
 

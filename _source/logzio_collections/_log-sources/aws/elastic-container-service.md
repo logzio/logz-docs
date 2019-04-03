@@ -4,24 +4,22 @@ logo:
   logofile: aws-ecs.svg
   orientation: vertical
 open-source:
-  title: Logz.io Docker ECS Collector
-  github-repo: logzio-docker-ecs
+  title: Logz.io AWS ECS Collector
+  github-repo: logzio-aws-ecs
 shipping-summary:
   data-source: Amazon Elastic Container Service
   log-shippers:
     - S3 fetcher
-# logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ECS
+logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ECS
 contributors:
   - imnotashrimp
   - supereli
 ---
 
-Logz.io Docker ECS Collector forwards logs from Amazon Elastic Container Service (ECS) to Logz.io.
-The container uses Fluentd to collect logs and fluent-plugin-detect-exceptions to collect stack traces.
-fluent-plugin-detect-exceptions is a Fluentd plugin that detects stack traces in your logs and concatenates them.
+This integration uses Fluentd in a Docker container to forward logs from Amazon Elastic Container Service (ECS) to Logz.io.
 
-To use this container, you'll set environment variables in your `docker run` command.
-Logz.io Docker ECS Collector mounts docker.sock and the Docker logs directory to the container, allowing Fluentd to collect the logs and metadata.
+To use Logz.io AWS ECS Collector, you'll set environment variables when you run the container.
+The Docker logs directory and docker.sock are mounted to the container, allowing Fluentd to collect the logs and metadata.
 
 ## logzio-docker-ecs setup
 
@@ -39,13 +37,13 @@ Logz.io Docker ECS Collector mounts docker.sock and the Docker logs directory to
     For a complete list of options, see the parameters below the code block.👇
 
     ```shell
-    docker run logzio/logzio-docker-ecs \
-    --name=logzio-docker-ecs \
+    docker run --name=logzio-aws-ecs \
     -e "LOGZIO_URL_1=https://<LISTENER-URL>:8071?token=<ACCOUNT-TOKEN>" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /var/lib/docker/containers:/var/lib/docker/containers \
     -v /tmp:/tmp \
-    -d --net="host"
+    -d --net="host" \
+    logzio/logzio-aws-ecs
     ```
 
     {: .inline-header }

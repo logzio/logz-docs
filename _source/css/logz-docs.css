@@ -231,14 +231,6 @@ div.card-container a {
   margin: 12px;
 }
 
-.card-container.align-left {
-  margin-left: -12px;
-}
-
-.card-container.align-left .cards {
-  justify-content: flex-start;
-}
-
 div.cards {
   display: flex;
   flex-direction: row;

@@ -117,3 +117,12 @@
   shipping-summary:
     data-source: .NET code
   community-project: true
+
+- title: Tyk Pump
+  url: https://github.com/TykTechnologies/tyk-pump
+  logo:
+    logofile: redis.svg
+    orientation: horizontal
+  shipping-summary:
+    data-source: Redis
+  community-project: true

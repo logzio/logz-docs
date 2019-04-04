@@ -24,7 +24,7 @@ contributors:
 ## Setup
 
 To simplify shipping your Azure activity logs and metrics, we provide an automated deployment.
-The deployment sets up an event hub namespace, two event hubs (one for logs and one for metrics), and storage blobs to store data that can't be shipped.
+The deployment sets up an event hub namespace, 2 event hubs (one for logs and one for metrics), and 4 storage blobs.
 
 The resources set up by the automated deployment can collect and ship data for a single Azure region.
 

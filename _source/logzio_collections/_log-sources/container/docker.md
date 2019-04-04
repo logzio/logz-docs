@@ -38,12 +38,12 @@ contributors:
     For a complete list of options, see the parameters below the code block.👇
 
     ```shell
-    docker run logzio/docker-collector-logs \
-    --name docker-collector-logs \
+    docker run --name docker-collector-logs \
     --env LOGZIO_TOKEN="<ACCOUNT-TOKEN>" \
     --env LOGZIO_URL="<LISTENER-URL>:5015" \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
-    -v /var/lib/docker/containers:/var/lib/docker/containers
+    -v /var/lib/docker/containers:/var/lib/docker/containers \
+    logzio/docker-collector-logs
     ```
 
     Parameters
@@ -214,16 +214,16 @@ contributors:
 
     {% raw %}
     ```shell
-    $ docker run --log-driver=logzio/logzio-logging-plugin \
-      <DOCKER-IMAGE-NAME> \
-      --log-opt logzio-token=<ACCOUNT-TOKEN> \
-      --log-opt logzio-url=https://<LISTENER-URL>:8071 \
-      --log-opt logzio-dir-path=./docker_logs \
-      --log-opt logzio-tag="{{.Name}}/{{.FullID}}" \
-      --log-opt labels=region \
-      --log-opt env=DEV \
-      --env "DEV=true" \
-      --label region=us-east-1
+    docker run --log-driver=logzio/logzio-logging-plugin \
+    --log-opt logzio-token=<ACCOUNT-TOKEN> \
+    --log-opt logzio-url=https://<LISTENER-URL>:8071 \
+    --log-opt logzio-dir-path=./docker_logs \
+    --log-opt logzio-tag="{{.Name}}/{{.FullID}}" \
+    --log-opt labels=region \
+    --log-opt env=DEV \
+    --env "DEV=true" \
+    --label region=us-east-1 \
+    <DOCKER-IMAGE-NAME>
     ```
     {% endraw %}
 

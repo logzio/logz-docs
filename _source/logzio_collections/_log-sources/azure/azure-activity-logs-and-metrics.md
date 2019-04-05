@@ -1,5 +1,4 @@
 ---
-layout: article
 title: Ship Azure activity logs and metrics
 open-source:
   title: logzio-azure-serverless

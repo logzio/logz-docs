@@ -76,7 +76,8 @@ For a complete list of options, see the configuration parameters below the code 
 </Loggers>
 ```
 
-##### Parameters
+{: .inline-header }
+Parameters
 
 logzioToken <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
@@ -140,7 +141,8 @@ socketTimeoutMs
   <span class="default-param">`10 * 1000`</span>
 
 
-##### Code sample
+{: .inline-header }
+Code sample
 
 ```java
 import org.apache.logging.log4j.LogManager;
@@ -282,7 +284,8 @@ For a complete list of options, see the configuration parameters below the code 
 </configuration>
 ```
 
-##### Parameters
+{: .inline-header }
+Parameters
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
@@ -358,7 +361,8 @@ socketTimeout
   <span class="default-param">`10 * 1000`</span>
 
 
-##### Code sample
+{: .inline-header }
+Code sample
 
 ```java
 import org.slf4j.Logger;

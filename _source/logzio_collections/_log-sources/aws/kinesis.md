@@ -117,7 +117,7 @@ contributors:
 
 **You'll need:** AWS CLI, an S3 bucket to store the CloudFormation package
 
-###### Automatic CloudFront deployment
+###### CloudFront automated deployment
 
 {: .tasklist .firstline-headline }
 1. Zip the source files

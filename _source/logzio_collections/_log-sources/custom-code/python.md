@@ -59,7 +59,8 @@ level=INFO
 format={"additional_field": "value"}
 ```
 
-##### Parameters
+{: .inline-header }
+Parameters
 
 <div class="info-box important">
   Arguments must be configured in the order shown.
@@ -91,7 +92,8 @@ debug-flag
   Otherwise, `False`. \\
   <span class="default-param">`False`</span>
 
-##### Code sample
+{: .inline-header }
+Code sample
 
 ```python
 import logging

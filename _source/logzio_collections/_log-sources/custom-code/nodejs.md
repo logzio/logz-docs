@@ -55,7 +55,8 @@ var logger = require('logzio-nodejs').createLogger({
 });
 ```
 
-##### Parameters
+{: .inline-header }
+Parameters
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
@@ -113,7 +114,8 @@ addTimestampWithNanoSecs
   If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence. <br />
   <span class="default-param">`false`</span>
 
-##### Code sample
+{: .inline-header }
+Code sample
 
 You can send log lines as a raw string or as an object.
 For more consistent and reliable parsing, we recommend sending logs as objects.
@@ -184,7 +186,8 @@ var loggerOptions = {
 winston.add(logzioWinstonTransport, loggerOptions);
 ```
 
-##### Parameters
+{: .inline-header }
+Parameters
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
@@ -242,7 +245,8 @@ addTimestampWithNanoSecs
   If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence. <br />
   <span class="default-param">`false`</span>
 
-##### Code samples
+{: .inline-header }
+Code samples
 
 To send a log line:
 

@@ -90,7 +90,8 @@ hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;
 ```
 
-##### Parameters
+{: .inline-header }
+Parameters
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
@@ -127,7 +128,8 @@ debug
   <span class="default-param">`false`</span>
 
 
-##### Code sample
+{: .inline-header }
+Code sample
 
 ```csharp
 using System.IO;
@@ -276,7 +278,8 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, "Logzio", "*");
 LogManager.Configuration = config;
 ```
 
-##### Parameters
+{: .inline-header }
+Parameters
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
@@ -313,7 +316,8 @@ debug
   <span class="default-param">`false`</span>
 
 
-##### Code sample
+{: .inline-header }
+Code sample
 
 ```csharp
 using System;

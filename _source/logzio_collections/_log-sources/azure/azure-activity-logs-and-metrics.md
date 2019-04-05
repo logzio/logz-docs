@@ -73,7 +73,6 @@ We name the namespace `LogzioNS`—so if your namespace is `LogzioNS6nvkqdcci10p
     {: .inline-header }
     In the BASICS section
 
-    {: .parameter-list }
     Resource group
     : Click **Create new**.
       Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**.
@@ -85,7 +84,6 @@ We name the namespace `LogzioNS`—so if your namespace is `LogzioNS6nvkqdcci10p
     {: .inline-header }
     In the SETTINGS section
 
-    {: .parameter-list }
     Logs listener host
     : Use the listener URL for your logs account region.
       For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). \\

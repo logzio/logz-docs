@@ -78,67 +78,66 @@ For a complete list of options, see the configuration parameters below the code 
 
 ##### Parameters
 
-{: .parameter-list }
 logzioToken <span class="required-param"></span>
-  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
-    {%- include log-shipping/replace-vars.html token=true %} <br />
-    Begin with `$` to use an environment variable or system property with the specified name.
-    For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
+: Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
+  {%- include log-shipping/replace-vars.html token=true %} <br />
+  Begin with `$` to use an environment variable or system property with the specified name.
+  For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
 
 addHostname
-  : Boolean. Indicates whether to add `hostname` field to logs. This field holds the machine's host name. <br />
-    Set to `true` to include hostname.
-    Set to `false` to leave it off.
-    If a host name can't be found, this field is not added. <br />
-    <span class="default-param">`false`</span>
+: Boolean. Indicates whether to add `hostname` field to logs. This field holds the machine's host name. <br />
+  Set to `true` to include hostname.
+  Set to `false` to leave it off.
+  If a host name can't be found, this field is not added. <br />
+  <span class="default-param">`false`</span>
 
 additionalFields
-  : Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. <br />
-    Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`.
-    The environment variable should be the only value in the key-value pair.
-    If the environment variable can't be resolved, the field is omitted.
+: Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. <br />
+  Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`.
+  The environment variable should be the only value in the key-value pair.
+  If the environment variable can't be resolved, the field is omitted.
 
 bufferDir
-  : Filepath where the appender stores the buffer <br />
-    <span class="default-param">`System.getProperty("java.io.tmpdir")`</span>
+: Filepath where the appender stores the buffer <br />
+  <span class="default-param">`System.getProperty("java.io.tmpdir")`</span>
 
 compressRequests
-  : Boolean. Set to `true` if you're sending gzip-compressed logs.
-    Set to `false` if sending uncompressed logs. <br />
-    <span class="default-param">`false`</span>
+: Boolean. Set to `true` if you're sending gzip-compressed logs.
+  Set to `false` if sending uncompressed logs. <br />
+  <span class="default-param">`false`</span>
 
 connectTimeoutMs
-  : Connection timeout during log shipment, in milliseconds. <br />
-    <span class="default-param">`10 * 1000`</span>
+: Connection timeout during log shipment, in milliseconds. <br />
+  <span class="default-param">`10 * 1000`</span>
 
 debug
-  : Set to `true` to print debug messages to stdout. <br />
-    <span class="default-param">`false`</span>
+: Set to `true` to print debug messages to stdout. <br />
+  <span class="default-param">`false`</span>
 
 drainTimeoutSec
-  : How often the appender drains the buffer, in seconds. <br />
-    <span class="default-param">`5`</span>
+: How often the appender drains the buffer, in seconds. <br />
+  <span class="default-param">`5`</span>
 
 fileSystemFullPercentThreshold
-  : Identifies a maximum file system usage, in percent. Set to `-1` to disable. <br />
-    If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs.
-    Buffering resumes if used space drops below the threshold. <br />
-    <span class="default-param">`98`</span>
+: Identifies a maximum file system usage, in percent. Set to `-1` to disable. <br />
+  If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs.
+  Buffering resumes if used space drops below the threshold. <br />
+  <span class="default-param">`98`</span>
 
 logzioType
-  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-    Used by Logz.io for consistent parsing.
-    Can't contain spaces. <br />
-    <span class="default-param">`java`</span>
+: The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+  Used by Logz.io for consistent parsing.
+  Can't contain spaces. <br />
+  <span class="default-param">`java`</span>
 
 logzioUrl
-  : Listener URL and port. <br />
-    {%- include log-shipping/replace-vars.html listener=true %} <br />
-    <span class="default-param">`https://listener.logz.io:8071`</span>
+: Listener URL and port. <br />
+  {%- include log-shipping/replace-vars.html listener=true %} <br />
+  <span class="default-param">`https://listener.logz.io:8071`</span>
 
 socketTimeoutMs
-  : Socket timeout during log shipment, in milliseconds. <br />
-    <span class="default-param">`10 * 1000`</span>
+: Socket timeout during log shipment, in milliseconds. <br />
+  <span class="default-param">`10 * 1000`</span>
 
 
 ##### Code sample
@@ -285,79 +284,78 @@ For a complete list of options, see the configuration parameters below the code 
 
 ##### Parameters
 
-{: .parameter-list }
 token <span class="required-param"></span>
-  : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
-    {% include log-shipping/replace-vars.html token=true %} <br />
-    Begin with `$` to use an environment variable or system property with the specified name.
-    For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
+: Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
+  {% include log-shipping/replace-vars.html token=true %} <br />
+  Begin with `$` to use an environment variable or system property with the specified name.
+  For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
 
 addHostname
-  : Indicates whether to add `hostname` field to logs.
-    This field holds the machine's host name. <br />
-    Set to `true` to include hostname.
-    Set to `false` to leave it off.
-    If a host name can't be found, this field is not added. <br />
-    <span class="default-param">`false`</span>
+: Indicates whether to add `hostname` field to logs.
+  This field holds the machine's host name. <br />
+  Set to `true` to include hostname.
+  Set to `false` to leave it off.
+  If a host name can't be found, this field is not added. <br />
+  <span class="default-param">`false`</span>
 
 additionalFields
-  : Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. <br />
-    Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`.
-    The environment variable should be the only value in the key-value pair.
-    If the environment variable can't be resolved, the field is omitted.
+: Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. <br />
+  Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`.
+  The environment variable should be the only value in the key-value pair.
+  If the environment variable can't be resolved, the field is omitted.
 
 bufferDir
-  : Filepath where the appender stores the buffer. <br />
-    <span class="default-param">`System.getProperty("java.io.tmpdir")`</span>
+: Filepath where the appender stores the buffer. <br />
+  <span class="default-param">`System.getProperty("java.io.tmpdir")`</span>
 
 compressRequests
-  : Boolean. Set to `true` if you're sending gzip-compressed logs.
-    Set to `false` if sending uncompressed logs. <br />
-    <span class="default-param">`false`</span>
+: Boolean. Set to `true` if you're sending gzip-compressed logs.
+  Set to `false` if sending uncompressed logs. <br />
+  <span class="default-param">`false`</span>
 
 connectTimeout
-  : Connection timeout during log shipment, in milliseconds. <br />
-    <span class="default-param">`10 * 1000`</span>
+: Connection timeout during log shipment, in milliseconds. <br />
+  <span class="default-param">`10 * 1000`</span>
 
 debug
-  : Boolean. Set to `true` to print debug messages to stdout. <br />
-    <span class="default-param">`false`</span>
+: Boolean. Set to `true` to print debug messages to stdout. <br />
+  <span class="default-param">`false`</span>
 
 drainTimeoutSec
-  : How often the appender drains the buffer, in seconds. <br />
-    <span class="default-param">`5`</span>
+: How often the appender drains the buffer, in seconds. <br />
+  <span class="default-param">`5`</span>
 
 fileSystemFullPercentThreshold
-  : Integer. Identifies a maximum file system usage, in percent.
-    Set to `-1` to disable. <br />
-    If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs.
-    Buffering resumes if used space drops below the threshold. <br />
-    <span class="default-param">`98`</span>
+: Integer. Identifies a maximum file system usage, in percent.
+  Set to `-1` to disable. <br />
+  If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs.
+  Buffering resumes if used space drops below the threshold. <br />
+  <span class="default-param">`98`</span>
 
 format
-  : Set to `json` if the log message is to be sent as JSON, so that each JSON node is a field in Logz.io.
-    Set to `text` to send the log message as plain text. <br />
-    <span class="default-param">`text`</span>
+: Set to `json` if the log message is to be sent as JSON, so that each JSON node is a field in Logz.io.
+  Set to `text` to send the log message as plain text. <br />
+  <span class="default-param">`text`</span>
 
 line
-  : Boolean. Set to `true` to print the line number of the code that generated this log message.
-    Set to `false` to leave the line number out. <br />
-    <span class="default-param">`false`</span>
+: Boolean. Set to `true` to print the line number of the code that generated this log message.
+  Set to `false` to leave the line number out. <br />
+  <span class="default-param">`false`</span>
 
 logzioType
-  : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-    Used by Logz.io for consistent parsing.
-    Can't contain spaces. <br />
-    <span class="default-param">`java`</span>
+: The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+  Used by Logz.io for consistent parsing.
+  Can't contain spaces. <br />
+  <span class="default-param">`java`</span>
 
 logzioUrl
-  : Listener URL and port. <br />
-    {%- include log-shipping/replace-vars.html listener=true %} <br />
-    <span class="default-param">`https://listener.logz.io:8071`</span>
+: Listener URL and port. <br />
+  {%- include log-shipping/replace-vars.html listener=true %} <br />
+  <span class="default-param">`https://listener.logz.io:8071`</span>
 
 socketTimeout
-  : Socket timeout during log shipment, in milliseconds. <br />
-    <span class="default-param">`10 * 1000`</span>
+: Socket timeout during log shipment, in milliseconds. <br />
+  <span class="default-param">`10 * 1000`</span>
 
 
 ##### Code sample

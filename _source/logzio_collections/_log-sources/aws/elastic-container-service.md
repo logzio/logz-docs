@@ -49,12 +49,11 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
     {: .inline-header }
     Parameters
 
-    {: .parameter-list }
     LOGZIO_URL_1 <span class="required-param"></span>
-      : Your Logz.io listener URL and account token.
-        To ship to different accounts, increment the number (e.g., `LOGZIO_URL_2`, `LOGZIO_URL_3`). \\
-        {% include log-shipping/replace-vars.html listener=true %} \\
-        {% include log-shipping/replace-vars.html token=true %}
+    : Your Logz.io listener URL and account token.
+      To ship to different accounts, increment the number (e.g., `LOGZIO_URL_2`, `LOGZIO_URL_3`). \\
+      {% include log-shipping/replace-vars.html listener=true %} \\
+      {% include log-shipping/replace-vars.html token=true %}
 
 3. Check Logz.io for your logs
 

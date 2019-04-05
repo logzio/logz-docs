@@ -53,29 +53,28 @@ contributors:
 
     In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
-    {: .parameter-list }
     TOKEN <span class="required-param"></span>
-      : {% include log-shipping/replace-vars.html token='noReplace' %}
-        <!-- logzio:account-token -->
+    : {% include log-shipping/replace-vars.html token='noReplace' %}
+      <!-- logzio:account-token -->
 
     TYPE <span class="required-param"></span>
-      : The log type you'll use with this Lambda.
-        This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
-        Please note that you should create a new Lambda for each log type you use.
+    : The log type you'll use with this Lambda.
+      This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
+      Please note that you should create a new Lambda for each log type you use.
 
     URL <span class="required-param"></span>
-      : Your Logz.io listener URL.
-        If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-        If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
+    : Your Logz.io listener URL.
+      If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
+      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
 
     FORMAT
-      : `json` or `text`.
-        If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
-        <span class="default-param">`text`</span>
+    : `json` or `text`.
+      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
+      <span class="default-param">`text`</span>
 
     COMPRESS
-      : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
-        <span class="default-param">`false`</span>
+    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
+      <span class="default-param">`false`</span>
 
 4. Configure the function's basic settings
 

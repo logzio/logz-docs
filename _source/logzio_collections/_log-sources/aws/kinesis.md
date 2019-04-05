@@ -61,29 +61,28 @@ contributors:
 
     In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
-    {: .parameter-list }
     TOKEN <span class="required-param"></span>
-      : {% include log-shipping/replace-vars.html token='noReplace' %}
-        <!-- logzio:account-token -->
+    : {% include log-shipping/replace-vars.html token='noReplace' %}
+      <!-- logzio:account-token -->
 
     TYPE <span class="required-param"></span>
-      : The log type you'll use with this Lambda.
-        This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
-        Please note that you should create a new Lambda for each log type you use.
+    : The log type you'll use with this Lambda.
+      This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
+      Please note that you should create a new Lambda for each log type you use.
 
     URL <span class="required-param"></span>
-      : Your Logz.io listener URL.
-        If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-        If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
+    : Your Logz.io listener URL.
+      If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
+      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
 
     FORMAT
-      : `json` or `text`.
-        If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
-        <span class="default-param">`text`</span>
+    : `json` or `text`.
+      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
+      <span class="default-param">`text`</span>
 
     COMPRESS
-      : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
-        <span class="default-param">`false`</span>
+    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
+      <span class="default-param">`false`</span>
 
 4. Configure the function's basic settings
 
@@ -164,43 +163,42 @@ contributors:
     --capabilities "CAPABILITY_IAM"
     ```
 
-    {: .parameter-list }
     LogzioTOKEN <span class="required-param"></span>
-      : {% include log-shipping/replace-vars.html token=true %}
-        <!-- logzio:account-token -->
+    : {% include log-shipping/replace-vars.html token=true %}
+      <!-- logzio:account-token -->
 
     KinesisStream <span class="required-param"></span>
-      : The name of the Kinesis stream where this function will listen for updates.
+    : The name of the Kinesis stream where this function will listen for updates.
 
     LogzioURL
-      : Your Logz.io listener URL.
-        If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-        If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`. <br />
-        <span class="default-param">`https://listener.logz.io:8071`</span>
+    : Your Logz.io listener URL.
+      If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
+      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`. <br />
+      <span class="default-param">`https://listener.logz.io:8071`</span>
 
     LogzioTYPE
-      : The log type you'll use with this Lambda.
-        This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
-        Please note that you should create a new Lambda for each log type you use.
-        <span class="default-param">`logzio_kinesis_stream`</span>
+    : The log type you'll use with this Lambda.
+      This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
+      Please note that you should create a new Lambda for each log type you use.
+      <span class="default-param">`logzio_kinesis_stream`</span>
 
     LogzioFORMAT
-      : `json` or `text`.
-        If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
-        <span class="default-param">`text`</span>
+    : `json` or `text`.
+      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
+      <span class="default-param">`text`</span>
 
     LogzioCOMPRESS
-      : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
-        <span class="default-param">`false`</span>
+    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
+      <span class="default-param">`false`</span>
 
     KinesisStreamBatchSize
-      : The largest number of records to read from your stream at one time. <br />
-        <span class="default-param">`100`</span>
+    : The largest number of records to read from your stream at one time. <br />
+      <span class="default-param">`100`</span>
 
     KinesisStreamStartingPosition
-      : The position in the stream to start reading from.
-        For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. <br />
-        <span class="default-param">`LATEST`</span>
+    : The position in the stream to start reading from.
+      For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. <br />
+      <span class="default-param">`LATEST`</span>
 
 4. Check Logz.io for your logs
 

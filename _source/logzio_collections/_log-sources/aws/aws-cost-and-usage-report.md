@@ -91,24 +91,23 @@ contributors:
 
     In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
-    {: .parameter-list }
     TOKEN <span class="required-param"></span>
-      : {% include log-shipping/replace-vars.html token='noReplace' %}
-        <!-- logzio:account-token -->
+    : {% include log-shipping/replace-vars.html token='noReplace' %}
+      <!-- logzio:account-token -->
 
     URL <span class="required-param"></span>
-      : Your Logz.io listener URL.
-        If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-        If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
+    : Your Logz.io listener URL.
+      If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
+      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
 
     REPORT_NAME
-      : In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **Report name** column for your report.
+    : In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **Report name** column for your report.
 
     REPORT_PATH
-      : In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), click <i class="fas fa-caret-right"></i> (next to the report name), and copy the **Report path**.
+    : In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), click <i class="fas fa-caret-right"></i> (next to the report name), and copy the **Report path**.
 
     S3_BUCKET_NAME
-      : In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **S3 Bucket** column for your report.
+    : In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **S3 Bucket** column for your report.
 
 5. Configure the function's basic settings
 

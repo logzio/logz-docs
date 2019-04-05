@@ -276,3 +276,12 @@ We invite contributions to docs, and we maintain a [list of contributors](https:
 * [jQuery](https://jquery.com/) and [jQuery UI](https://jqueryui.com/)
 * [Lunr](https://lunrjs.com/)
 * [tablesorter](http://tablesorter.com/docs/)
+
+
+<!--
+TODO update ECS instructions
+TODO find/replace <br /> with \\
+TODO find all uses of listener.logz.io and listener-eu.logz.io and make sure we're talking about the new regions page
+TODO change `logzio:` comments to `logzio-inject:`
+TODO find `##### Parameters` and see if it makes sense to change to `{: .inline-heading }`
+-->

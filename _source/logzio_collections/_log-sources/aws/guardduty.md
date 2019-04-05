@@ -39,9 +39,11 @@ contributors:
     In the Event Source panel (on the left), set these options:
 
     * Choose **Event Pattern**.
-    * In the **Build event pattern** section, choose **GuardDuty** from the **Service Name** list. You can choose any **Event Type** that you need.
+    * In the **Build event pattern** section, choose **GuardDuty** from the **Service Name** list.
+      You can choose any **Event Type** that you need.
 
-    In the Targets panel (on the right), click **Add target**, and choose **Kinesis stream**. Choose the Kinesis data stream from step 1 from the **Stream** list.
+    In the Targets panel (on the right), click **Add target**, and choose **Kinesis stream**.
+    Choose the Kinesis data stream from step 1 from the **Stream** list.
 
     Click **Configure details** (lower right corner).
 
@@ -54,9 +56,11 @@ contributors:
 
     * **Name**: We suggest adding the log type to the name, but you can name this function whatever you want.
     * **Runtime**: Choose **Python 2.7**
-    * **Role**: Click **Create new role from template(s)**. Under Existing role, select **Basic Edge Lambda permissions**
+    * **Role**: Click **Create new role from template(s)**.
+      Under Existing role, select **Basic Edge Lambda permissions**
 
-    Click **Create Function** (bottom right corner of the page). After a few moments, you'll see configuration options for your Lambda function.
+    Click **Create Function** (bottom right corner of the page).
+    After a few moments, you'll see configuration options for your Lambda function.
 
     You'll need this page later on, so keep it open.
 
@@ -70,40 +74,42 @@ contributors:
     mkdir dist; cp -r ../shipper dist/ && cp src/lambda_function.py dist/ && cd dist/ && zip logzio-kinesis shipper/* lambda_function.py
     ```
 
-    This creates a zip file at dist/logzio-kinesis.zip. You'll upload this file in the next step.
+    This creates a zip file at dist/logzio-kinesis.zip.
+    You'll upload this file in the next step.
 
 5. Upload the zip file and set environment variables
 
-    In the Function code section of Lambda find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
+    In the Function code section of Lambda find the **Code entry type** list.
+    Choose **Upload a .ZIP file** from this list.
 
     Click **Upload**, and choose the zip file you created earlier (`logzio-kinesis.zip`).
 
     In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
-    {: .parameter-list }
     TOKEN <span class="required-param"></span>
-      : {% include log-shipping/replace-vars.html token='noReplace' %}
-        <!-- logzio:account-token -->
+    : {% include log-shipping/replace-vars.html token='noReplace' %}
+      <!-- logzio:account-token -->
 
     URL <span class="required-param"></span>
-      : Your Logz.io listener URL.
-        If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-        If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
+    : Your Logz.io listener URL.
+      If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
+      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
 
     TYPE
-      : The log type you'll use with this Lambda.
-        This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
-        Please note that you should create a new Lambda for each log type you use. <br />
-        <span class="default-param">`"guardduty"`</span>
+    : The log type you'll use with this Lambda.
+      This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. \\
+      Please note that you should create a new Lambda for each log type you use. \\
+      <span class="default-param">`"guardduty"`</span>
 
     FORMAT
-      : `"json"` or `"text"`.
-        If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
-        <span class="default-param">`"text"`</span>
+    : `"json"` or `"text"`.
+      If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. \\
+      <span class="default-param">`"text"`</span>
 
     COMPRESS
-      : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
-        <span class="default-param">`false`</span>
+    : Set to `true` to compress logs before sending them.
+      Set to `false` to send uncompressed logs. \\
+      <span class="default-param">`false`</span>
 
 6. Configure the function's basic settings
 
@@ -119,9 +125,11 @@ contributors:
 
 7. Set the Kinesis event trigger
 
-    Find the **Add triggers** list (left side of the Designer panel). Choose **Kinesis** from this list.
+    Find the **Add triggers** list (left side of the Designer panel).
+    Choose **Kinesis** from this list.
 
-    Below the Designer, you'll see the Configure triggers panel. Choose the **Kinesis stream** that the Lambda function will watch.
+    Below the Designer, you'll see the Configure triggers panel.
+    Choose the **Kinesis stream** that the Lambda function will watch.
 
     Click **Add**, and then click **Save** at the top of the page.
 
@@ -155,9 +163,11 @@ contributors:
     In the Event Source panel (on the left), set these options:
 
     * Choose **Event Pattern**.
-    * In the **Build event pattern** section, choose **GuardDuty** from the **Service Name** list. You can choose any **Event Type** that you need.
+    * In the **Build event pattern** section, choose **GuardDuty** from the **Service Name** list.
+      You can choose any **Event Type** that you need.
 
-    In the Targets panel (on the right), click **Add target**, and choose **Kinesis stream**. Choose the Kinesis data stream from step 1 from the **Stream** list.
+    In the Targets panel (on the right), click **Add target**, and choose **Kinesis stream**.
+    Choose the Kinesis data stream from step 1 from the **Stream** list.
 
     Click **Configure details** (lower right corner).
 
@@ -204,43 +214,43 @@ contributors:
     --capabilities "CAPABILITY_IAM"
     ```
 
-    {: .parameter-list }
     LogzioTOKEN <span class="required-param"></span>
-      : {% include log-shipping/replace-vars.html token=true %}
-        <!-- logzio:account-token -->
+    : {% include log-shipping/replace-vars.html token=true %}
+      <!-- logzio:account-token -->
 
     KinesisStream <span class="required-param"></span>
-      : The name of the Kinesis stream where this function will listen for updates.
+    : The name of the Kinesis stream where this function will listen for updates.
 
     LogzioURL
-      : Your Logz.io listener URL.
-        If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-        If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`. <br />
-        <span class="default-param">`https://listener.logz.io:8071`</span>
+    : Your Logz.io listener URL.
+      If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
+      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`. \\
+      <span class="default-param">`https://listener.logz.io:8071`</span>
 
     LogzioTYPE
-      : The log type you'll use with this Lambda.
-        This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
-        Please note that you should create a new Lambda for each log type you use. <br />
-        <span class="default-param">`logzio_kinesis_stream`</span>
+    : The log type you'll use with this Lambda.
+      This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. \\
+      Please note that you should create a new Lambda for each log type you use. \\
+      <span class="default-param">`logzio_kinesis_stream`</span>
 
     LogzioFORMAT
-      : `"json"` or `"text"`.
-        If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
-        <span class="default-param">`"text"`</span>
+    : `"json"` or `"text"`.
+      If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. \\
+      <span class="default-param">`"text"`</span>
 
     LogzioCOMPRESS
-      : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
-        <span class="default-param">`false`</span>
+    : Set to `true` to compress logs before sending them.
+      Set to `false` to send uncompressed logs. \\
+      <span class="default-param">`false`</span>
 
     KinesisStreamBatchSize
-      : The largest number of records to read from your stream at one time. <br />
-        <span class="default-param">`100`</span>
+    : The largest number of records to read from your stream at one time. \\
+      <span class="default-param">`100`</span>
 
     KinesisStreamStartingPosition
-      : The position in the stream to start reading from.
-        For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. <br />
-        <span class="default-param">`"LATEST"`</span>
+    : The position in the stream to start reading from.
+      For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. \\
+      <span class="default-param">`"LATEST"`</span>
 
 6. Check Logz.io for your logs
 

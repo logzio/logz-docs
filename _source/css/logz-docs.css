@@ -667,6 +667,11 @@ ul.horizontal-list li {
 }
 
 /* normal def lists */
+dl {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
 dt {
   font-weight: 700;
   margin-top: 15px;
@@ -703,12 +708,12 @@ dl.letter-labels dd {
   margin-left: 35px;
 }
 
-/* parameter lists */
-
-.parameter-list dt:not(:first-child), .glossary-list dt:not(:first-child) {
-  border-top: 1px solid #e5e5e5;
+dl:not(.letter-labels) dt:not(:first-child) {
   padding-top: 10px;
+  border-top: 1px solid #e5e5e5;
 }
+
+/* parameter lists */
 
 .required-param::before, .default-param::before {
   font-size: .75rem;

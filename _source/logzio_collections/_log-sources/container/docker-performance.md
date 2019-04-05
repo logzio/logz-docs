@@ -42,28 +42,27 @@ contributors:
     Parameters
     {: .inline-header }
 
-    {: .parameter-list }
     LOGZ_TOKEN <span class="required-param"></span>
-      : Your Logz.io account token.
-        {% include log-shipping/replace-vars.html token=true %}
-        <!-- logzio:account-token -->
+    : Your Logz.io account token.
+      {% include log-shipping/replace-vars.html token=true %}
+      <!-- logzio:account-token -->
 
     LISTENER
-      : Your account region and port.
-        {% include log-shipping/replace-vars.html listener=true %} <br />
-        <span class="default-param">`listener.logz.io:5000`</span>
+    : Your account region and port.
+      {% include log-shipping/replace-vars.html listener=true %} <br />
+      <span class="default-param">`listener.logz.io:5000`</span>
 
     USER_TAG
-      : Assigned to the `user_tag` field of each log entry.
-        You can use this field to group various hosts into meaningful visualisations.
-        One recommended use case for this variable is to denote the host role.
+    : Assigned to the `user_tag` field of each log entry.
+      You can use this field to group various hosts into meaningful visualisations.
+      One recommended use case for this variable is to denote the host role.
 
     HOSTNAME
-      : Name of the host this container is monitoring.
-        Assigned to the `syslog5424_host` field of each log entry.
+    : Name of the host this container is monitoring.
+      Assigned to the `syslog5424_host` field of each log entry.
 
     INSTANCE
-      : The IP address that will be assigned to the `instance` field of each entry.
+    : The IP address that will be assigned to the `instance` field of each entry.
 
 3. Check Logz.io for your logs
 

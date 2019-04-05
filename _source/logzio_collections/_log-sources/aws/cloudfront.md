@@ -39,7 +39,7 @@ CloudFront logs are useful for auditing/security monitoring and business intelli
     * **S3 access key** and **S3 secret key**: Your S3 bucket credentials
     * **Region**: AWS region of the bucket
 
-    <!-- logzio:s3-config -->
+    <!-- logzio-inject:s3-config -->
 
     <div class="info-box important">
       Logz.io fetches logs that are generated after configuring an S3 bucket.

@@ -34,7 +34,7 @@ contributors:
     * **Prefix**: The directory where the logs are stored (AWSLogs/_Account ID_/CloudTrail)
     * **S3 access key** and **S3 secret key**: Your S3 bucket credentials
 
-    <!-- logzio:s3-config -->
+    <!-- logzio-inject:s3-config -->
 
     <div class="info-box important">
       Logz.io fetches logs that are generated after configuring an S3 bucket.

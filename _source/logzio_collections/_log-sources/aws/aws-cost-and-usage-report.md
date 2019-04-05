@@ -93,7 +93,7 @@ contributors:
 
     TOKEN <span class="required-param"></span>
     : {% include log-shipping/replace-vars.html token='noReplace' %}
-      <!-- logzio:account-token -->
+      <!-- logzio-inject:account-token -->
 
     URL <span class="required-param"></span>
     : Your Logz.io listener URL.

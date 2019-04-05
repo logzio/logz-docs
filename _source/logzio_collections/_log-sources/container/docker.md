@@ -52,7 +52,7 @@ contributors:
     LOGZIO-TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
       {% include log-shipping/replace-vars.html token=true %}
-      <!-- logzio:account-token -->
+      <!-- logzio-inject:account-token -->
 
     LOGZIO_URL
     : Logz.io listener URL to ship the logs to.
@@ -135,7 +135,7 @@ contributors:
     logzio-token <span class="required-param"></span>
     : Your Logz.io account token.
       {% include log-shipping/replace-vars.html token=true %}
-      <!-- logzio:account-token -->
+      <!-- logzio-inject:account-token -->
 
     logzio-url	<span class="required-param"></span>
     : Listener URL and port. \\

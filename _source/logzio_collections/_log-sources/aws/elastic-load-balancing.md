@@ -40,7 +40,7 @@ When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodic
     * **S3 access key** and **S3 secret key**: Your S3 bucket credentials
     * **Region**: AWS region of the bucket
 
-    <!-- logzio:s3-config -->
+    <!-- logzio-inject:s3-config -->
 
     <div class="info-box important">
       Logz.io fetches logs that are generated after configuring an S3 bucket.

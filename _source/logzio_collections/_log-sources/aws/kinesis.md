@@ -63,7 +63,7 @@ contributors:
 
     TOKEN <span class="required-param"></span>
     : {% include log-shipping/replace-vars.html token='noReplace' %}
-      <!-- logzio:account-token -->
+      <!-- logzio-inject:account-token -->
 
     TYPE <span class="required-param"></span>
     : The log type you'll use with this Lambda.
@@ -165,7 +165,7 @@ contributors:
 
     LogzioTOKEN <span class="required-param"></span>
     : {% include log-shipping/replace-vars.html token=true %}
-      <!-- logzio:account-token -->
+      <!-- logzio-inject:account-token -->
 
     KinesisStream <span class="required-param"></span>
     : The name of the Kinesis stream where this function will listen for updates.

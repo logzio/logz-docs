@@ -20,7 +20,7 @@ contributors:
 {: .tasklist .firstline-headline }
 1. Add the S3 bucket information
 
-    <!-- logzio:s3-config -->
+    <!-- logzio-inject:s3-config -->
 
     {% include log-shipping/in-app-configuration.html toolId="s3-config" %}
 

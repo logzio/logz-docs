@@ -55,7 +55,7 @@ contributors:
 
     TOKEN <span class="required-param"></span>
     : {% include log-shipping/replace-vars.html token='noReplace' %}
-      <!-- logzio:account-token -->
+      <!-- logzio-inject:account-token -->
 
     TYPE <span class="required-param"></span>
     : The log type you'll use with this Lambda.

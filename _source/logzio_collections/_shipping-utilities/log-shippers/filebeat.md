@@ -43,7 +43,7 @@ contributors:
 
     Make your configuration file using the Filebeat configuration wizard.
 
-    <!-- logzio:filebeat-wizard -->
+    <!-- logzio-inject:filebeat-wizard -->
 
     {% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
 

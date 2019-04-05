@@ -45,7 +45,7 @@ contributors:
     LOGZ_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
       {% include log-shipping/replace-vars.html token=true %}
-      <!-- logzio:account-token -->
+      <!-- logzio-inject:account-token -->
 
     LISTENER
     : Your account region and port.

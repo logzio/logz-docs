@@ -67,28 +67,28 @@ format={"additional_field": "value"}
 </div>
 
 account-token <span class="required-param"></span>
-: Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
+: Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
   {%- include log-shipping/replace-vars.html token=true %}
 
 log-type
 : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
   Used by Logz.io for consistent parsing.
-  Can't contain spaces. <br />
+  Can't contain spaces. \\
   <span class="default-param">`python`</span>
 
 timeout
-: Time to wait between log draining attempts, in seconds. <br />
+: Time to wait between log draining attempts, in seconds. \\
   <span class="default-param">`3`</span>
 
 listener-url
-: Listener URL and port. <br />
-  {%- include log-shipping/replace-vars.html listener=true %} <br />
+: Listener URL and port. \\
+  {%- include log-shipping/replace-vars.html listener=true %} \\
   <span class="default-param">`https://listener.logz.io:8071`</span>
 
 debug-flag
 : Debug flag.
   To print debug messages to stdout, `True`.
-  Otherwise, `False`. <br />
+  Otherwise, `False`. \\
   <span class="default-param">`False`</span>
 
 ##### Code sample

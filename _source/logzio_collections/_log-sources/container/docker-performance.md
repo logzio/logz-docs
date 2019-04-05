@@ -49,7 +49,7 @@ contributors:
 
     LISTENER
     : Your account region and port.
-      {% include log-shipping/replace-vars.html listener=true %} <br />
+      {% include log-shipping/replace-vars.html listener=true %} \\
       <span class="default-param">`listener.logz.io:5000`</span>
 
     USER_TAG

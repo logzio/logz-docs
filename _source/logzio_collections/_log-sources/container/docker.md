@@ -138,8 +138,8 @@ contributors:
       <!-- logzio:account-token -->
 
     logzio-url	<span class="required-param"></span>
-    : Listener URL and port. <br />
-      {% include log-shipping/replace-vars.html listener=true %} <br />
+    : Listener URL and port. \\
+      {% include log-shipping/replace-vars.html listener=true %} \\
 
     logzio-dir-path	<span class="required-param"></span>
     : Path of the logs to be sent to Logz.io.
@@ -148,12 +148,12 @@ contributors:
     : Event source.
 
     logzio-format
-    : Log message format, either `json` or `text`. <br />
+    : Log message format, either `json` or `text`. \\
       <span class="default-param">`text`</span>
 
     logzio-tag
     : Log tag.
-      For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. <br />
+      For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. \\
       {% raw %} <span class="default-param">`{{.ID}}` (Container ID)</span> {% endraw %}
 
     labels
@@ -180,25 +180,25 @@ contributors:
     {: .inline-header }
 
     LOGZIO_DRIVER_LOGS_DRAIN_TIMEOUT
-    : Time to wait between sending attempts.<br />
+    : Time to wait between sending attempts. \\
       <span class="default-param">`5s`</span>
 
     LOGZIO_DRIVER_DISK_THRESHOLD
-    : Threshold, as % of disk usage, over which plugin will start dropping logs. <br />
+    : Threshold, as % of disk usage, over which plugin will start dropping logs. \\
       <span class="default-param">`70`</span>
 
     LOGZIO_DRIVER_CHANNEL_SIZE
-    : The number of pending messages that can be in the channel before adding them to the disk queue. <br />
+    : The number of pending messages that can be in the channel before adding them to the disk queue. \\
       <span class="default-param">`10000`</span>
 
     LOGZIO_MAX_MSG_BUFFER_SIZE
     : Appends logs that are segmented by Docker with 16kb limit.
       Specifies the biggest message, in bytes, that the system can reassemble.
-      `1048576` (1 MB) maximum. <br />
+      `1048576` (1 MB) maximum. \\
       <span class="default-param">`1048576` (1 MB)</span>
 
     LOGZIO_MAX_PARTIAL_BUFFER_DURATION
-    : How long the buffer keeps the partial logs before flushing them. <br />
+    : How long the buffer keeps the partial logs before flushing them. \\
       <span class="default-param">`500ms`</span>
 
 4. _(Optional)_ Override global settings for an individual container

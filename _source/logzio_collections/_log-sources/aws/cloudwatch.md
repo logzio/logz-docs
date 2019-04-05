@@ -59,7 +59,7 @@ contributors:
 
     TYPE <span class="required-param"></span>
     : The log type you'll use with this Lambda.
-      This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br />
+      This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. \\
       Please note that you should create a new Lambda for each log type you use.
 
     URL <span class="required-param"></span>
@@ -69,11 +69,11 @@ contributors:
 
     FORMAT
     : `json` or `text`.
-      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. <br />
+      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. \\
       <span class="default-param">`text`</span>
 
     COMPRESS
-    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. <br />
+    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. \\
       <span class="default-param">`false`</span>
 
 4. Configure the function's basic settings

@@ -1,0 +1,10 @@
+{% if page.contributors -%}
+  <div class="community contributor-list">
+    {%- comment -%} Contributors: {%- endcomment -%}
+    <i class="fas fa-users"></i>
+    {%- for c in page.contributors -%}
+      {%- assign contributorPage = site.contributors | where: 'slug', c | first -%}
+      <a href="{{ contributorPage.url }}">{% avatar user=contributorPage.github size=25 %}</a>
+    {%- endfor -%}
+  </div>
+{%- endif %}

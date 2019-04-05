@@ -58,8 +58,8 @@
   --infobox-read: rgb(var(--app-gray-primary));
   --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
-  --infobox-open-source: rgb(var(--app-gray-primary));
-  --infobox-open-source-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
+  --infobox-open-source: rgb(var(--app-green-primary));
+  --infobox-open-source-light: white;
 
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
@@ -136,6 +136,12 @@ footer {
   padding: 10px 50px;
   height: 30px;
   line-height: 30px;
+}
+
+.title-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
 div.toc-container {
@@ -398,6 +404,8 @@ h1, h2, h3, h4, h5, h6, .site-title, .post-title, .inline-header {
 h1, h1:first-child {
   font-family: var(--title-font);
   margin-top: 0px;
+  margin-bottom: 0;
+  margin-right: 1rem;
 }
 
 h2, h3, h4, h5, h6, .inline-header {
@@ -511,6 +519,17 @@ svg.svg-inline--fa, i.li {
 .updated {
   font-style: italic;
   font-size: .9rem;
+}
+
+.border {
+  border: 1px solid var(--border-dark);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 6px;
+}
+
+.background {
+  background-color: var(--background-light)
 }
 
 /* ===== CODE BLOCKS ===== */
@@ -821,11 +840,9 @@ li.lunrsearchresult .url {
 div.page-flags {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-
-  font-weight: 300;
   font-size: .85rem;
   line-height: 1rem;
+  align-self: flex-end;
 }
 
 .flag {
@@ -833,7 +850,6 @@ div.page-flags {
   border-radius: 15px;
   width: fit-content;
   padding: 0 .35rem;
-  margin-top: 16px;
   border: 1px solid currentcolor;
 }
 
@@ -850,16 +866,24 @@ div.page-flags {
 div.feature-box {
   width: fit-content;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: baseline;
+  flex-flow: row wrap;
+  font-size: .9rem;
+  margin-left: auto;
 }
 
-div.feature-box > span {
-  margin-left: 10px;
+.feature-box span:not(:last-child), .feature-box > div:not(:last-child)  {
+  margin-right: 10px;
+}
+
+div.feature-box span {
   padding: 0;
   color: var(--border-light);
   border: none;
+}
+
+.feature-box > div {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .feature-box.community .community-plan {
@@ -1232,21 +1256,22 @@ ul.toc-child li span.toc-heading:hover {
 
 div.article-info-container {
   font-size: .9rem;
-  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+}
+
+.article-info-container > div {
+  display: flex;
+}
+
+.article-info-container > div > *:not(:last-child), .article-info-container > div:not(:last-child) {
+  margin-right: 1rem;
 }
 
 div.contributor-list svg {
   margin-right: .25rem;
-}
-
-div.contributor-list {
-  margin-right: 2rem;
-  align-self: flex-start;
 }
 
 /* ===== CONTRIBUTORS ===== */
@@ -1256,13 +1281,18 @@ div.contributor-title {
 }
 
 div.contributor.icons {
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding-bottom: 1.5rem;
   padding-top: .25rem;
 }
 
 div.contributor.icons a {
   margin-right: .5rem;
+  color: var(--text-light);
+}
+
+.contributor.icons a:hover {
+  color: var(--text-link);
 }
 
 div.contributions {
@@ -1279,37 +1309,47 @@ div.contributions ul > li {
   padding-bottom: .5rem;
 }
 
-/* ===== COMMUNITY BUTTONS ===== */
+/* ===== FEEDBACK BUTTONS ===== */
 
-.community-container {
+.feedback-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-end;
   align-items: flex-start;
+  margin-top: 4rem;
+  border-top: 1px solid var(--border-light);
+  padding-top: .25rem;
 }
 
-.community-container > *:not(:last-child) {
-  margin-right: 15px;
+.feedback-container > .feedback.inline-header {
+  margin-top: 0;
+  color: var(--tasklist-light);
 }
 
-.community.button a {
+.feedback-container > *:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.feedback.button a {
   color: unset;
 }
 
 .slackin {
-  margin-top: 5px;
+  align-self: center;
+  padding: unset;
+  margin-bottom: -1rem;
+  margin-left: auto;
 }
 
-.community.button.edit {
+.feedback.button.edit {
   color: var(--logz-logo-normal);
 }
 
-.community.button.issue {
+.feedback.button.issue {
   color: rgb(var(--app-orange-primary));
 }
 
-.community.button svg {
+.feedback.button svg {
   margin-bottom: -2px;
   margin-right: 1px;
   fill: currentColor;
@@ -1709,7 +1749,8 @@ div.highlighter-rouge {
   cursor: pointer;
 }
 
-.copy-btn::before {
+.copy-btn:hover::before {
+  content: "Copy";
   font-size: .75rem;
   font-weight: 700;
   padding: 0 3px;
@@ -1725,6 +1766,24 @@ div.highlighter-rouge {
 
 .copy-btn.copied::before {
   content: "Copied!";
+}
+
+/* ===== GITHUB AVATARS ===== */
+
+.avatar.avatar-small {
+  display: inline-block;
+  margin: 0 0 0 0;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+h1 .avatar.avatar-small {
+  margin-right: .75rem;
+  margin-top: -4px;
+}
+
+.contributor-list .avatar.avatar-small {
+  margin: 0 1px;
 }
 
 /* ===== FPO - IMAGE PLACEHOLDERS ===== */

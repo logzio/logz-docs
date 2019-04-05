@@ -39,9 +39,6 @@ github:
   edit_branch: /develop # which branch do you want users to edit?
   issue_template: docs-issue # GitHub template for new issues, without the .md extension. Leave blank if no template.
 
-# Slackin - shows Slack community button
-slackin_enabled: true
-
 # if you use google analytics or tag manager, add your tracking id here. To disable, remove or comment out the line
 # google_analytics_id: ''
 google_tag_manager_id: GTM-NH9MTDW
@@ -76,6 +73,7 @@ defaults:
       path: no-search
     values:
       search: false
+      noindex: true
       tags: false
   - scope:
       path: ''
@@ -83,6 +81,7 @@ defaults:
     values:
       layout: article
       search: false
+      noindex: true
       tags: false
       community-info: false
   - scope:
@@ -90,6 +89,7 @@ defaults:
       type: docs-admin
     values:
       search: false
+      noindex: true
       tags: false
       community-info: false
       show-date: false

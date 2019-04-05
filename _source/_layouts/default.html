@@ -3,28 +3,33 @@
 
   {% include head.html %}
 
-  <body>
-    {% if jekyll.environment == "production" and site.google_tag_manager_id -%}
-    {% include google-tag-manager-body.html %}
-    {%- endif %}
+<body>
+  {% if jekyll.environment == "production" and site.google_tag_manager_id -%}
+  {% include google-tag-manager-body.html %}
+  {%- endif %}
 
-    {% include header.html %}
+  {% include header.html %}
 <div class="big-container">
-      {% include left-toc.html %}
+    {% include left-toc.html %}
 
     <div class="body-container">
-      <h1 class="post-title">
-        {{- page.title | escape -}}
-      </h1>
+    <div class="title-container">
+        <h1 class="post-title">
+          {%- if page.layout=="contributor-profile" -%}
+            {% avatar {{ page.github }} %}
+          {%- endif -%}
+          {{- page.title | escape -}}
+        </h1>
+      {% include page-info/page-flags.html %}
+      <div class="slackin"><script async defer src="https://community-slack.logz.io/slackin.js"></script></div>
+    </div>
+    {% include page-info/community.html %}
+    <main class="page-content" aria-label="Content">
+      {%- include open-source.html %}
+      {{ content }}
+    </main>
 
-      {% include page-date.html %}
-      {% include community.html %}
-      {% include page-flags.html %}
-
-      <main class="page-content" aria-label="Content">
-        {%- include open-source.html %}
-        {{ content }}
-      </main>
+      {% include github-buttons.html %}
 
     </div> <!-- /.body-container -->
   </div> <!-- /div.big-container -->

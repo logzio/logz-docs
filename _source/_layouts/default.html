@@ -13,9 +13,24 @@
     {% include left-toc.html %}
 
     <div class="body-container">
+    {%- if page.collection == "log-sources" and page.url != "/shipping/log-sources/" -%}
+    <div class="back-button">
+      <a href="{{site.baseurl}}/shipping/log-sources/">
+        Log shipping sources
+        <i class="fas fa-level-up-alt"></i>
+      </a>
+    </div>
+    {%- elsif page.collection == "metrics-sources" and page.url != "/shipping/metrics-sources/" -%}
+    <div class="back-button">
+      <a href="{{site.baseurl}}/shipping/metrics-sources/">
+        Metrics shipping sources
+        <i class="fas fa-level-up-alt"></i>
+      </a>
+    </div>
+    {%- endif -%}
     <div class="title-container">
         <h1 class="post-title">
-          {%- if page.layout=="contributor-profile" -%}
+          {%- if page.layout == "contributor-profile" -%}
             {% avatar {{ page.github }} %}
           {%- endif -%}
           {{- page.title | escape -}}

@@ -58,8 +58,7 @@
   --infobox-read: rgb(var(--app-gray-primary));
   --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
-  --infobox-open-source: rgb(var(--app-green-primary));
-  --infobox-open-source-light: white;
+  --infobox-open-source: rgb(var(--app-gray-primary));
 
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
@@ -1001,13 +1000,7 @@ div.info-box.read::before {
 
 /* .open-source */
 div.info-box.open-source {
-  background-color: var(--infobox-open-source-light);
   border-color: var(--infobox-open-source);
-}
-
-div.info-box.open-source::before {
-  content: "Open source project";
-  background-color: var(--infobox-open-source);
 }
 
 
@@ -1722,6 +1715,11 @@ i.li-clear::before {
 
 .filter-active, #on-this-page-toc div a:hover {
   font-weight: 700;
+}
+
+.back-button {
+  margin-bottom: 1rem;
+  font-size: .9rem;
 }
 
 /* ===== COPY BUTTON ===== */

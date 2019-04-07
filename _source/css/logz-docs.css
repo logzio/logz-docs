@@ -1612,10 +1612,10 @@ i.li-clear::before {
     border-bottom: 1px solid var(--border-very-light);
     outline: none;
     font-weight: 400;
+    color: var(--heading-normal);
   }
 
   .ui-accordion-header:not(.ui-accordion-header-active):hover {
-    color: var(--heading-normal-75);
     border-bottom-color: currentColor;
     font-weight: 600;
   }

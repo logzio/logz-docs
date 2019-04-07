@@ -20,36 +20,48 @@ contributors:
   - idohalevi
 ---
 
-## Setup
-
-To simplify shipping your Azure activity logs and metrics, we provide an automated deployment.
-The deployment sets up an event hub namespace, 2 event hubs (one for logs and one for metrics), and 4 storage blobs.
+To simplify shipping your Azure activity logs and metrics, we provide an automated deployment process.
+At the end of this process, you'll have configured an event hub namespace, 2 event hubs, and 4 storage blobs.
 
 The resources set up by the automated deployment can collect and ship data for a single Azure region.
 
+## More information
+
+<div class="accordion">
+
 ### What am I setting up in my Azure account?
 
+<div>
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs and metrics in one Azure region.
 
 Each automated deployment sets up these resources in your Azure environment:
 
 * 1 namespace
-* 2 Azure functions
-* 2 blobs to store logs from the Azure functions
-* 2 event hubs (one for logs, one for metrics)
-* 2 blobs for failover storage
+* 2 Azure functions (1 for logs, 1 for metrics)
+* 2 event hubs (1 for logs, 1 for metrics)
+* 4 blobs (2 to store logs from the Azure functions, 2 for failover storage)
+
+##### Naming convention
+
+Each deployed resource has a Logz.io-defined name and ends with a string unique to that deployment.
+
+For example:
+We name the namespace `LogzioNS`—so if your namespace is `LogzioNS6nvkqdcci10p`, the rest of the deployed resources will end with `6nvkqdcci10p`.
+</div>
 
 ### How many automated deployments should I... deploy?
 
+<div>
 Azure requires an event hub in the same region as your services.
 Also worth noting is that you can stream data from multiple services to one event hub (as long as it's in the same region).
+
 So what does this mean for you?
 It means that you'll need to do at least one automated deployment for each region where you want to collect logs or metrics.
+</div>
 
-Each deployed resource has a Logz.io-defined name and ends with a string unique to that deployment.
-For example:
-We name the namespace `LogzioNS`—so if your namespace is `LogzioNS6nvkqdcci10p`, the rest of the deployed resources will end with `6nvkqdcci10p`.
+</div>
 
+## Setup
 
 ###### Configuration
 
@@ -58,7 +70,7 @@ We name the namespace `LogzioNS`—so if your namespace is `LogzioNS6nvkqdcci10p
 
     If you already set up an automated deployment in this region, you can skip to step 2.
 
-    👇 Otherwise, click this button to start an automated deployment.
+    👇 Otherwise, click this button to start the automated deployment.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fazuredeploy.json">
       <img class="override btn-img" alt="Deploy to Azure" src="https://azuredeploy.net/deploybutton.png">

@@ -20,6 +20,7 @@
   --body-font: 'Nunito', sans-serif;
   --mono-font: 'Roboto Mono', monospace;
   --toc-font-size: .9rem;
+  --fa: 'Font Awesome 5 Free';
 
   /* COLORS */
   --logz-logo-normal: #0089b1;
@@ -59,6 +60,7 @@
   --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
   --infobox-open-source: rgb(var(--app-gray-primary));
+  --infobox-open-source-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
@@ -604,7 +606,7 @@ th.tablesorter-header:focus {
 }
 
 .tablesorter-header-inner::after {
-  font-family: "Font Awesome 5 Free";
+  font-family: var(--fa);
   padding-left: 10px;
   color: var(--text-link);
 }
@@ -1001,6 +1003,7 @@ div.info-box.read::before {
 /* .open-source */
 div.info-box.open-source {
   border-color: var(--infobox-open-source);
+  background-color: var(--infobox-open-source-light);
 }
 
 
@@ -1624,7 +1627,7 @@ i.li-clear::before {
   }
 
 .ui-accordion-header::before, .ui-accordion-header-active::before {
-  font-family: "Font Awesome 5 Free";
+  font-family: var(--fa);
   font-weight: 700;
   font-size: .7rem;
 }
@@ -1720,6 +1723,21 @@ i.li-clear::before {
 .back-button {
   margin-bottom: 1rem;
   font-size: .9rem;
+  color: var(--text-link-gray);
+}
+
+.back-button a {
+  color: unset;
+}
+
+.back-button a:hover {
+  color: var(--text-link);
+}
+
+.back-button a::before {
+  font-family: var(--fa);
+  font-weight: 600;
+  content: "\f30a ";
 }
 
 /* ===== COPY BUTTON ===== */

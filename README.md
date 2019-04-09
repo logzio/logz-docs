@@ -282,4 +282,8 @@ We invite contributions to docs, and we maintain a [list of contributors](https:
 TODO update ECS instructions
 TODO find all uses of listener.logz.io and listener-eu.logz.io and make sure we're talking about the new regions page
 TODO find `##### Parameters` and see if it makes sense to change to `{: .inline-heading }`
+TODO go through log shipping and make sure params follow this order:
+  - Required params at the top of the list
+  - Token, followed by listener URL. If listener isn't required, put it immediately after required params.
+  - Log type immediately after
 -->

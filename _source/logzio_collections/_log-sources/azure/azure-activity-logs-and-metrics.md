@@ -95,15 +95,13 @@ It means that you'll need to do at least one automated deployment for each regio
     {: .inline-header }
     In the SETTINGS section
 
-    Logs listener host
+    Logs listener host <span class="default-param">`listener.logz.io`</span>
     : Use the listener URL for your logs account region.
-      For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). \\
-      <span class="default-param">listener.logz.io</span>
+      For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
-    Metrics listener host
+    Metrics listener host <span class="default-param">`listener.logz.io`</span>
     : Use the listener URL for your metrics account region.
-      For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). \\
-      <span class="default-param">listener.logz.io</span>
+      For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
     Logs account token
     : Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to.
@@ -130,17 +128,13 @@ It means that you'll need to do at least one automated deployment for each regio
     Leave **Blob parameter name** blank.
     Enter the **Path** for the Azure blob you're sending dropped logs or metrics to, and then click **Save**.
 
-    <div class="info-box important">
-      Make sure the blob **Path** you're using here already exists, or create it now.
-    </div>
-
     <div class="info-box read">
       For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
     </div>
 
 3. Stream data to the new event hubs
 
-    Now you'll need to configure Azure to stream audit logs the event hubs you just deployed.
+    Now you'll need to configure Azure to stream activity logs the event hubs you just deployed.
     When new data comes into the event hub, the function apps will forward that data to Logz.io.
 
     In the search bar, type "Activity", and then click **Activity log**.

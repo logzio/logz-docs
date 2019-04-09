@@ -75,14 +75,12 @@ contributors:
       If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
       If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
 
-    FORMAT
+    FORMAT <span class="default-param">`text`</span>
     : `json` or `text`.
-      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. \\
-      <span class="default-param">`text`</span>
+      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields.
 
-    COMPRESS
-    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. \\
-      <span class="default-param">`false`</span>
+    COMPRESS <span class="default-param">`false`</span>
+    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs.
 
 4. Configure the function's basic settings
 
@@ -170,35 +168,29 @@ contributors:
     KinesisStream <span class="required-param"></span>
     : The name of the Kinesis stream where this function will listen for updates.
 
-    LogzioURL
+    LogzioURL <span class="default-param">`https://listener.logz.io:8071`</span>
     : Your Logz.io listener URL.
       If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`. \\
-      <span class="default-param">`https://listener.logz.io:8071`</span>
+      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
 
-    LogzioTYPE
+    LogzioTYPE <span class="default-param">`logzio_kinesis_stream`</span>
     : The log type you'll use with this Lambda.
       This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. \\
       Please note that you should create a new Lambda for each log type you use.
-      <span class="default-param">`logzio_kinesis_stream`</span>
 
-    LogzioFORMAT
+    LogzioFORMAT <span class="default-param">`text`</span>
     : `json` or `text`.
-      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. \\
-      <span class="default-param">`text`</span>
+      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields.
 
-    LogzioCOMPRESS
-    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. \\
-      <span class="default-param">`false`</span>
+    LogzioCOMPRESS <span class="default-param">`false`</span>
+    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs.
 
-    KinesisStreamBatchSize
-    : The largest number of records to read from your stream at one time. \\
-      <span class="default-param">`100`</span>
+    KinesisStreamBatchSize <span class="default-param">`100`</span>
+    : The largest number of records to read from your stream at one time.
 
-    KinesisStreamStartingPosition
+    KinesisStreamStartingPosition <span class="default-param">`LATEST`</span>
     : The position in the stream to start reading from.
-      For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. \\
-      <span class="default-param">`LATEST`</span>
+      For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference.
 
 4. Check Logz.io for your logs
 
@@ -207,6 +199,5 @@ contributors:
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
-
 
 </div>

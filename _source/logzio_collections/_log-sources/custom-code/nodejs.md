@@ -59,46 +59,38 @@ var logger = require('logzio-nodejs').createLogger({
 Parameters
 
 token <span class="required-param"></span>
-: Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
-  {%- include log-shipping/replace-vars.html token=true %} <br />
+: Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
+  {% include log-shipping/replace-vars.html token=true %}
 
-type
+host <span class="default-param">`listener.logz.io`</span>
+: Listener URL.
+  {% include log-shipping/replace-vars.html listener=true %}
+
+protocol <span class="default-param">`http`</span>
+: `http` or `https`.
+  The value here affects the default of the `port` parameter.
+
+port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>
+: Destination port.
+  Default port depends on the `protocol` parameter.
+
+type <span class="default-param">`nodejs`</span>
 : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
   Used by Logz.io for consistent parsing.
-  Can't contain spaces. <br />
-  <span class="default-param">`nodejs`</span>
+  Can't contain spaces.
 
-protocol
-: `http` or `https`. <br />
-  <span class="default-param">`http`</span>
+sendIntervalMs <span class="default-param">`2000` (2 seconds)</span>
+: Time to wait between retry attempts, in milliseconds.
 
-host
-: Listener URL. <br />
-  {%- include log-shipping/replace-vars.html listener=true %} <br />
-  <span class="default-param">`https://listener.logz.io`</span>
+bufferSize <span class="default-param">`100`</span>
+: Maximum number of messages the logger will accumulate before sending them all as a bulk.
 
-port
-: Destination port.
-  Default port depends on protocol. <br />
-  <span class="sm bold">Default for HTTP:</span> `8070` <br />
-  <span class="sm bold">Default for HTTPS:</span> `8071`
+numberOfRetries <span class="default-param">`3`</span>
+: Maximum number of retry attempts.
 
-sendIntervalMs
-: Time to wait between retry attempts, in milliseconds. <br />
-  <span class="default-param">`2000` (2 seconds)</span>
-
-bufferSize
-: Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
-  <span class="default-param">`100`</span>
-
-numberOfRetries
-: Maximum number of retry attempts. <br />
-  <span class="default-param">`3`</span>
-
-debug
+debug <span class="default-param">`false`</span>
 : To print debug messsages to the console, `true`.
-  Otherwise, `false`. <br />
-  <span class="default-param">`false`</span>
+  Otherwise, `false`.
 
 callback
 : A callback function to call when the logger encounters an unrecoverable error.
@@ -107,12 +99,11 @@ callback
 timeout
 : Read/write/connection timeout, in milliseconds.
 
-addTimestampWithNanoSecs
+addTimestampWithNanoSecs <span class="default-param">`false`</span>
 : Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds.
   To add this field, `true`.
-  Otherwise, `false`. <br />
-  If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence. <br />
-  <span class="default-param">`false`</span>
+  Otherwise, `false`. \\
+  If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence.
 
 {: .inline-header }
 Code sample
@@ -190,46 +181,38 @@ winston.add(logzioWinstonTransport, loggerOptions);
 Parameters
 
 token <span class="required-param"></span>
-: Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br />
-  {%- include log-shipping/replace-vars.html token=true %} <br />
+: Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
+  {% include log-shipping/replace-vars.html token=true %}
 
-type
+host <span class="default-param">`listener.logz.io`</span>
+: Listener URL.
+  {% include log-shipping/replace-vars.html listener=true %}
+
+protocol <span class="default-param">`http`</span>
+: `http` or `https`.
+  The value here affects the default of the `port` parameter.
+
+port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>
+: Destination port.
+  Default port depends on the `protocol` parameter.
+
+type <span class="default-param">`nodejs`</span>
 : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
   Used by Logz.io for consistent parsing.
-  Can't contain spaces. <br />
-  <span class="default-param">`nodejs`</span>
+  Can't contain spaces.
 
-protocol
-: `http` or `https` <br />
-  <span class="default-param">`http`</span>
+sendIntervalMs <span class="default-param">`2000` (2 seconds)</span>
+: Time to wait between retry attempts, in milliseconds.
 
-host
-: Listener URL. <br />
-  {%- include log-shipping/replace-vars.html listener=true %} <br />
-  <span class="default-param">`https://listener.logz.io`</span>
+bufferSize <span class="default-param">`100`</span>
+: Maximum number of messages the logger will accumulate before sending them all as a bulk.
 
-port
-: Destination port.
-  Default port depends on protocol. <br />
-  <span class="sm bold">Default for HTTP:</span> `8070` <br />
-  <span class="sm bold">Default for HTTPS:</span> `8071`
+numberOfRetries <span class="default-param">`3`</span>
+: Maximum number of retry attempts.
 
-sendIntervalMs
-: Time to wait between retry attempts, in milliseconds. <br />
-  <span class="default-param">`2000` (2 seconds)</span>
-
-bufferSize
-: Maximum number of messages the logger will accumulate before sending them all as a bulk. <br />
-  <span class="default-param">`100`</span>
-
-numberOfRetries
-: Maximum number of retry attempts. <br />
-  <span class="default-param">`3`</span>
-
-debug
+debug <span class="default-param">`false`</span>
 : To print debug messsages to the console, `true`.
-  Otherwise, `false`. <br />
-  <span class="default-param">`false`</span>
+  Otherwise, `false`.
 
 callback
 : A callback function to call when the logger encounters an unrecoverable error.
@@ -238,12 +221,11 @@ callback
 timeout
 : Read/write/connection timeout, in milliseconds.
 
-addTimestampWithNanoSecs
+addTimestampWithNanoSecs <span class="default-param">`false`</span>
 : Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds.
   To add this field, `true`.
-  Otherwise, `false`. <br />
-  If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence. <br />
-  <span class="default-param">`false`</span>
+  Otherwise, `false`. \\
+  If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence.
 
 {: .inline-header }
 Code samples

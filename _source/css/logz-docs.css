@@ -26,6 +26,7 @@
   --logz-logo-normal: #0089b1;
 
   --text-normal: #53585f;
+  --text-normal-75: #53585fbf;
   --text-normal-25: #53585f1a;
   --text-normal-10: #53585f0a;
 
@@ -739,17 +740,22 @@ dl:not(.letter-labels) dt:not(:first-child) {
   font-size: .75rem;
   text-transform: uppercase;
   font-weight: 700;
+  margin-left: 10px;
 }
 
 .required-param::before {
   content: "Required";
   color: var(--infobox-important);
-  margin-left: 10px;
 }
 
 .default-param::before {
-  content: "Default:";
-  margin-right: 10px;
+  color: var(--heading-normal);
+  content: "Default: ";
+}
+
+.default-param {
+  font-weight: 400;
+  font-size: .9rem;
 }
 
 /* ===== SEARCH ===== */

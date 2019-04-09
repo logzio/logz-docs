@@ -71,32 +71,27 @@ token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
   {%- include log-shipping/replace-vars.html token=true %}
 
-SetDebug
-: Debug flag. \\
-  <span class="default-param">`false`</span>
+SetDebug <span class="default-param">`false`</span>
+: Debug flag.
 
-SetUrl
+SetUrl <span class="default-param">`https://listener.logz.io:8071`</span>
 : Listener URL and port. \\
-  {%- include log-shipping/replace-vars.html listener=true %} \\
-  <span class="default-param">`https://listener.logz.io:8071`</span>
+  {%- include log-shipping/replace-vars.html listener=true %}
 
-SetDrainDuration
-: Time to wait between log draining attempts. \\
-  <span class="default-param">`5 * time.Second`</span>
+SetDrainDuration <span class="default-param">`5 * time.Second`</span>
+: Time to wait between log draining attempts.
 
 SetTempDirectory
 : Filepath where the logs are buffered.
 
-SetCheckDiskSpace
-: To enable `SetDrainDiskThreshold`, set to `true`. Otherwise, `false`. \\
-  <span class="default-param"></span> `true`
+SetCheckDiskSpace <span class="default-param"></span> `true`
+: To enable `SetDrainDiskThreshold`, set to `true`. Otherwise, `false`.
 
-SetDrainDiskThreshold
+SetDrainDiskThreshold <span class="default-param">`70.0`</span>
 : Maximum file system usage, in percent.
   Used only if `SetCheckDiskSpace` is set to `true`. \\
   If the file system storage exceeds this threshold, buffering stops and new logs are dropped.
-  Buffering resumes if used space drops below the threshold. \\
-  <span class="default-param">`70.0`</span>
+  Buffering resumes if used space drops below the threshold.
 
 {: .inline-header }
 Code sample

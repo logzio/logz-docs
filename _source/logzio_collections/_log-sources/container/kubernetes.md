@@ -102,47 +102,37 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     : Logz.io listener URL to ship the logs to.
       {% include log-shipping/replace-vars.html listener=true %}
 
-    FLUENTD_SYSTEMD_CONF
+    FLUENTD_SYSTEMD_CONF <span class="default-param">Enabled</span>
     : If you don't setup systemd in the container, Fluentd ships `Systemd::JournalError` log messages.
-      To suppress these message, set to `disable`. \\
-      <span class="default-param">Enabled</span>
+      To suppress these message, set to `disable`.
 
-    output_include_time
+    output_include_time <span class="default-param">`true`</span>
     : To append a timestamp to your logs when they're processed, `true`.
-      Otherwise, `false`. \\
-      <span class="default-param">`true`</span>
+      Otherwise, `false`.
 
-    buffer_type
-    : Specifies which plugin to use as the backend. \\
-      <span class="default-param">`file`</span>
+    buffer_type <span class="default-param">`file`</span>
+    : Specifies which plugin to use as the backend.
 
-    buffer_path
-    : Path of the buffer. \\
-      <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span>
+    buffer_path <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span>
+    : Path of the buffer.
 
-    buffer_queue_full_action
-    : Controls the behavior when the queue becomes full. \\
-      <span class="default-param">`block`</span>
+    buffer_queue_full_action <span class="default-param">`block`</span>
+    : Controls the behavior when the queue becomes full.
 
-    buffer_chunk_limit
-    : Maximum size of a chunk allowed.	\\
-      <span class="default-param">`2M`</span>
+    buffer_chunk_limit <span class="default-param">`2M`</span>
+    : Maximum size of a chunk allowed.
 
-    buffer_queue_limit
-    : Maximum length of the output queue. \\
-      <span class="default-param">`6`</span>
+    buffer_queue_limit <span class="default-param">`6`</span>
+    : Maximum length of the output queue.
 
-    flush_interval
-    : Time to wait before invoking the next buffer flush, in seconds \\
-      <span class="default-param">`5s`</span>
+    flush_interval <span class="default-param">`5s`</span>
+    : Time to wait before invoking the next buffer flush, in seconds.
 
-    max_retry_wait
-    : Maximum time to wait between retries, in seconds. \\
-      <span class="default-param">`30s`</span>
+    max_retry_wait <span class="default-param">`30s`</span>
+    : Maximum time to wait between retries, in seconds.
 
-    num_threads
-    : Number of threads to flush the buffer. \\
-      <span class="default-param">`2`</span>
+    num_threads <span class="default-param">`2`</span>
+    : Number of threads to flush the buffer.
 
 2. Deploy the DaemonSet
 
@@ -280,47 +270,37 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     : Logz.io listener URL to ship the logs to.
       {% include log-shipping/replace-vars.html listener=true %}
 
-    FLUENTD_SYSTEMD_CONF
+    FLUENTD_SYSTEMD_CONF <span class="default-param">Enabled</span>
     : If you don't setup systemd in the container, Fluentd ships `Systemd::JournalError` log messages.
-      To suppress these message, set to `disable`. \\
-      <span class="default-param">Enabled</span>
+      To suppress these message, set to `disable`.
 
-    output_include_time
+    output_include_time <span class="default-param">`true`</span>
     : To append a timestamp to your logs when they're processed, `true`.
-      Otherwise, `false`. \\
-      <span class="default-param">`true`</span>
+      Otherwise, `false`.
 
-    buffer_type
-    : Specifies which plugin to use as the backend. \\
-      <span class="default-param">`file`</span>
+    buffer_type <span class="default-param">`file`</span>
+    : Specifies which plugin to use as the backend.
 
-    buffer_path
-    : Path of the buffer. \\
-      <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span>
+    buffer_path <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span>
+    : Path of the buffer.
 
-    buffer_queue_full_action
-    : Controls the behavior when the queue becomes full. \\
-      <span class="default-param">`block`</span>
+    buffer_queue_full_action <span class="default-param">`block`</span>
+    : Controls the behavior when the queue becomes full.
 
-    buffer_chunk_limit
-    : Maximum size of a chunk allowed.	\\
-      <span class="default-param">`2M`</span>
+    buffer_chunk_limit <span class="default-param">`2M`</span>
+    : Maximum size of a chunk allowed.
 
-    buffer_queue_limit
-    : Maximum length of the output queue. \\
-      <span class="default-param">`6`</span>
+    buffer_queue_limit <span class="default-param">`6`</span>
+    : Maximum length of the output queue.
 
-    flush_interval
-    : Time to wait before invoking the next buffer flush, in seconds \\
-      <span class="default-param">`5s`</span>
+    flush_interval <span class="default-param">`5s`</span>
+    : Time to wait before invoking the next buffer flush, in seconds.
 
-    max_retry_wait
-    : Maximum time to wait between retries, in seconds. \\
-      <span class="default-param">`30s`</span>
+    max_retry_wait <span class="default-param">`30s`</span>
+    : Maximum time to wait between retries, in seconds.
 
-    num_threads
-    : Number of threads to flush the buffer. \\
-      <span class="default-param">`2`</span>
+    num_threads <span class="default-param">`2`</span>
+    : Number of threads to flush the buffer.
 
 2. Deploy the DaemonSet
 

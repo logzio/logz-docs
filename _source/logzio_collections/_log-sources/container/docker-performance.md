@@ -47,10 +47,9 @@ contributors:
       {% include log-shipping/replace-vars.html token=true %}
       <!-- logzio-inject:account-token -->
 
-    LISTENER
+    LISTENER <span class="default-param">`listener.logz.io:5000`</span>
     : Your account region and port.
-      {% include log-shipping/replace-vars.html listener=true %} \\
-      <span class="default-param">`listener.logz.io:5000`</span>
+      {% include log-shipping/replace-vars.html listener=true %}
 
     USER_TAG
     : Assigned to the `user_tag` field of each log entry.

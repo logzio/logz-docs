@@ -67,14 +67,12 @@ contributors:
       If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
       If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
 
-    FORMAT
+    FORMAT <span class="default-param">`text`</span>
     : `json` or `text`.
-      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. \\
-      <span class="default-param">`text`</span>
+      If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields.
 
-    COMPRESS
-    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. \\
-      <span class="default-param">`false`</span>
+    COMPRESS <span class="default-param">`false`</span>
+    : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs.
 
 4. Configure the function's basic settings
 

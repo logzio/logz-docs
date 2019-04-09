@@ -69,28 +69,24 @@ Parameters
 
 account-token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
-  {%- include log-shipping/replace-vars.html token=true %}
+  {% include log-shipping/replace-vars.html token=true %}
 
-log-type
+log-type <span class="default-param">`python`</span>
 : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
   Used by Logz.io for consistent parsing.
-  Can't contain spaces. \\
-  <span class="default-param">`python`</span>
+  Can't contain spaces.
 
-timeout
-: Time to wait between log draining attempts, in seconds. \\
-  <span class="default-param">`3`</span>
+timeout <span class="default-param">`3`</span>
+: Time to wait between log draining attempts, in seconds.
 
-listener-url
+listener-url <span class="default-param">`https://listener.logz.io:8071`</span>
 : Listener URL and port. \\
-  {%- include log-shipping/replace-vars.html listener=true %} \\
-  <span class="default-param">`https://listener.logz.io:8071`</span>
+  {% include log-shipping/replace-vars.html listener=true %}
 
-debug-flag
+debug-flag <span class="default-param">`False`</span>
 : Debug flag.
   To print debug messages to stdout, `True`.
-  Otherwise, `False`. \\
-  <span class="default-param">`False`</span>
+  Otherwise, `False`.
 
 {: .inline-header }
 Code sample

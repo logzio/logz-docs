@@ -18,18 +18,20 @@ contributors:
 
 This integration uses Fluentd in a Docker container to forward logs from Amazon Elastic Container Service (ECS) to Logz.io.
 
+## Setup
+
 To use Logz.io AWS ECS Collector, you'll set environment variables when you run the container.
 The Docker logs directory and docker.sock are mounted to the container, allowing Fluentd to collect the logs and metadata.
 
-## logzio-docker-ecs setup
+###### Deploy the AWS ECS collector
 
 {: .tasklist .firstline-headline }
 1. Pull the Docker image
 
-    Download the logzio/logzio-docker-ecs image:
+    Download the logzio/logzio-aws-ecs image:
 
     ```shell
-    docker pull logzio/logzio-docker-ecs
+    docker pull logzio/logzio-aws-ecs
     ```
 
 2. Run the Docker image
@@ -37,24 +39,27 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
     For a complete list of options, see the parameters below the code block.👇
 
     ```shell
-    docker run --name=logzio-aws-ecs \
-    -e "LOGZIO_URL_1=https://<LISTENER-URL>:8071?token=<ACCOUNT-TOKEN>" \
+    docker run -d --name=logzio-aws-ecs \
+    --env LOGZIO_TOKEN="<ACCOUNT-TOKEN>" \
+    --env LOGZIO_URL="https://<LISTENER-URL>:8071" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /var/lib/docker/containers:/var/lib/docker/containers \
     -v /tmp:/tmp \
-    -d --net="host" \
+    --net="host" \
     logzio/logzio-aws-ecs
     ```
 
     {: .inline-header }
     Parameters
 
-    LOGZIO_URL_1 <span class="required-param"></span>
-    : Your Logz.io listener URL and account token.
-      To ship to different accounts, increment the number (e.g., `LOGZIO_URL_2`, `LOGZIO_URL_3`). \\
-      {% include log-shipping/replace-vars.html listener=true %} \\
+    LOGZIO_TOKEN <span class="required-param"></span>
+    : Your Logz.io account token.
       {% include log-shipping/replace-vars.html token=true %}
+
+    LOGZIO_URL <span class="required-param"></span>
+    : Your Logz.io listener URL.
+      {% include log-shipping/replace-vars.html listener=true %}
 
 3. Check Logz.io for your logs
 
-    Spin up your Docker containers if you haven’t done so already. Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

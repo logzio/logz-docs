@@ -96,9 +96,8 @@ contributors:
       <!-- logzio-inject:account-token -->
 
     URL <span class="required-param"></span>
-    : Your Logz.io listener URL.
-      If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
+    : {% include log-shipping/replace-vars.html listener='noReplace' %}
+      <!-- logzio-inject:listener-url -->
 
     REPORT_NAME
     : In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **Report name** column for your report.

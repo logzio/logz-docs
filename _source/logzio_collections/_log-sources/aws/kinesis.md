@@ -71,9 +71,8 @@ contributors:
       Please note that you should create a new Lambda for each log type you use.
 
     URL <span class="required-param"></span>
-    : Your Logz.io listener URL.
-      If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
+    : {% include log-shipping/replace-vars.html listener='noReplace' %}
+      <!-- logzio-inject:listener-url -->
 
     FORMAT <span class="default-param">`text`</span>
     : `json` or `text`.
@@ -169,9 +168,8 @@ contributors:
     : The name of the Kinesis stream where this function will listen for updates.
 
     LogzioURL <span class="default-param">`https://listener.logz.io:8071`</span>
-    : Your Logz.io listener URL.
-      If your Logz.io login URL is app-eu.logz.io, use `https://listener-eu.logz.io:8071`.
-      If your Logz.io login URL is app.logz.io, use `https://listener.logz.io:8071`.
+    : {% include log-shipping/replace-vars.html listener='noReplace' %}
+      <!-- logzio-inject:listener-url -->
 
     LogzioTYPE <span class="default-param">`logzio_kinesis_stream`</span>
     : The log type you'll use with this Lambda.

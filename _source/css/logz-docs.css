@@ -1663,10 +1663,9 @@ i.li-clear::before {
   flex-wrap: nowrap;
   margin: 50px 0 0 0;
   padding: 0;
-
   background: none;
   list-style-type: none;
-  border-bottom: 4px solid var(--border-very-light);
+  border-bottom: 1px solid var(--border-very-light);
 }
 
 .branching-tabs li {
@@ -1676,15 +1675,18 @@ i.li-clear::before {
   color: var(--text-light);
 }
 
+.branching-tabs li.active, .branching-tabs li:hover {
+  border-bottom: 2px solid currentColor;
+  margin-bottom: -1px;
+}
+
 .branching-tabs li:hover {
   color: var(--heading-normal-50);
-  border-bottom: 4px solid currentColor;
 }
 
 .branching-tabs li.active {
   font-weight: 400;
   color: var(--heading-normal);
-  border-bottom: 4px solid currentColor;
 }
 
 .branching-tabs li > a {

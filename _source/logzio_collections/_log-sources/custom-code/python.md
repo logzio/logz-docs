@@ -8,6 +8,9 @@ shipping-summary:
   appenders:
     - Logz.io Python Handler
     # - Logz.io Python Handler (Python or Django configuration)
+open-source:
+  title: Logz.io Python Handler
+  github-repo: logzio-python-handler
 contributors:
   - imnotashrimp
 ---

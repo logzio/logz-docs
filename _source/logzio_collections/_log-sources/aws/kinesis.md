@@ -21,6 +21,8 @@ contributors:
 
 <div id="manual-lambda-configuration">
 
+{% include open-source.html title="Kinesis Stream Shipper - Lambda" github-repo="logzio_aws_serverless/tree/master/kinesis" %}
+
 ## Kinesis + Lambda setup
 
 ###### Manual configuration
@@ -109,6 +111,8 @@ contributors:
 </div>
 
 <div id="automatic-cloudfront-deployment">
+
+{% include open-source.html title="Kinesis Stream Shipper - Lambda" github-repo="logzio_aws_serverless/tree/master/kinesis" %}
 
 ## Kinesis + Lambda setup
 

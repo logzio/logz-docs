@@ -20,6 +20,8 @@ contributors:
 
 <div id="logzio-nodejs-config">
 
+{% include open-source.html title="logzio-nodejs" github-repo="logzio-nodejs" %}
+
 ## logzio-nodejs setup
 
 logzio-nodejs collects log messages in an array, which is sent asynchronously when it reaches its size limit or time limit (100 messages or 10 seconds), whichever comes first.
@@ -141,6 +143,8 @@ Include this line if you're using logzio-nodejs in a severless environment, such
 
 
 <div id="winston-logzio-config">
+
+{% include open-source.html title="winston-logzio" github-repo="winston-logzio" %}
 
 ## winston-logzio setup
 

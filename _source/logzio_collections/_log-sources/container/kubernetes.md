@@ -22,9 +22,9 @@ contributors:
 
 <div id="non-rbac-config">
 
-## Non-RBAC setup
-
 {% include open-source.html title="logzio-k8s" github-repo="logzio-k8s" %}
+
+## Non-RBAC setup
 
 For Kubernetes, a DaemonSet ensures that some or all nodes run a copy of a pod.
 This implementation is uses a Fluentd DaemonSet to collect Kubernetes logs.
@@ -152,9 +152,9 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 
 <div id="rbac-config">
 
-## RBAC setup
-
 {% include open-source.html title="logzio-k8s" github-repo="logzio-k8s" %}
+
+## RBAC setup
 
 For Kubernetes, a DaemonSet ensures that some or all nodes run a copy of a pod.
 This implementation is uses a Fluentd DaemonSet to collect Kubernetes logs.

@@ -3,6 +3,9 @@ title: Ship Go logs
 logo:
   logofile: go.svg
   orientation: horizontal
+open-source:
+  title: Logzio Golang API client
+  github-repo: logzio-go
 shipping-summary:
   data-source: Go code
   log-shippers:

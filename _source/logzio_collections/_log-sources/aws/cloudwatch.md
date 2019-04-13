@@ -8,6 +8,9 @@ shipping-summary:
   log-shippers:
     - AWS Lambda function
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudWatch
+open-source:
+  title: CloudWatch Lambda Log Shipper
+  github-repo: logzio_aws_serverless/tree/master/cloudwatch
 contributors:
   - idohalevi
   - imnotashrimp
@@ -36,10 +39,6 @@ contributors:
 2. Zip the source files
 
     Download the [CloudWatch Logs Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/cloudwatch) project from GitHub to your computer, and zip the Python files in the src/ folder.
-
-    <div class="info-box note">
-      Visit this open source project at [GitHub](https://github.com/logzio/logzio_aws_serverless) to customize or contribute to the code.
-    </div>
 
     ```shell
     mkdir dist; cp -r ../shipper dist/ && cp src/lambda_function.py dist/ && cd dist/ && zip logzio-cloudwatch shipper/* lambda_function.py

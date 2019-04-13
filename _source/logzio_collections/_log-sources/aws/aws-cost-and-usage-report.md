@@ -8,6 +8,9 @@ shipping-summary:
   log-shippers:
     - AWS Lambda function
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/AWS-costandusagereport
+open-source:
+  title: AWS Cost and Usage Lambda
+  github-repo: aws-cost-and-usage-lambda
 contributors:
   - idohalevi
   - imnotashrimp

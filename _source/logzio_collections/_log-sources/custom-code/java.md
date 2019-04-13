@@ -21,6 +21,8 @@ contributors:
 
 <div id="log4j-2-config">
 
+{% include open-source.html title="Logzio Log4j 2 Appender" github-repo="logzio-log4j2-appender" %}
+
 ## Log4j 2 setup
 
 The Logz.io Log4j 2 appender sends logs using non-blocking threading, bulks, and HTTPS encryption to port 8071.
@@ -215,6 +217,8 @@ public class LogzioLog4j2Example {
 
 
 <div id="logback-config">
+
+{% include open-source.html title="Logzio Logback Appender" github-repo="logzio-logback-appender" %}
 
 ## Logback setup
 

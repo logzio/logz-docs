@@ -20,6 +20,8 @@ contributors:
 
 <div id="log4net-config">
 
+{% include open-source.html title="logzio-dotnet" github-repo="logzio-dotnet" %}
+
 ## log4net setup
 
 **You'll need:** log4net 2.0.8 or higher
@@ -193,6 +195,8 @@ For the example above, you'd use `MyAppLogzioAppender`.
 
 
 <div id="nlog-config">
+
+{% include open-source.html title="logzio-dotnet" github-repo="logzio-dotnet" %}
 
 ## NLog setup
 

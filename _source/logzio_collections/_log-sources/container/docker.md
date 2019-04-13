@@ -22,12 +22,14 @@ contributors:
 
 <div id="docker-collector-logs-config">
 
+{% include open-source.html title="docker-collector-logs" github-repo="docker-collector-logs" %}
+
 ## docker-collector-logs setup
 
 {: .tasklist .firstline-headline }
 1. Pull the Docker image
 
-    Download the logzio/logzio-docker image:
+    Download the logzio/docker-collector-logs image:
 
     ```shell
     docker pull logzio/docker-collector-logs
@@ -84,6 +86,8 @@ contributors:
 </div>
 
 <div id="logzio-logging-plugin-docker-logging-driver-config">
+
+{% include open-source.html title="Logz.io Docker Logging Plugin" github-repo="docker-logging-plugin" %}
 
 ## logzio-logging-plugin setup
 

@@ -27,6 +27,7 @@ When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodic
     Logz.io fetches your Elastic Load Balancing logs from an S3 bucket.
 
     For help with setting this up, see these docs from AWS:
+
     * For Application Load Balancer, see [Access Logs for Your Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html).
     * For Network Load Balancer, see [Monitor Your Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-monitoring.html).
     * For Classic Load Balancer, see [Enable Access Logs for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html).

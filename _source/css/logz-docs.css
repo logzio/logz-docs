@@ -414,7 +414,7 @@ h2, h3, h4, h5, h6, .inline-header {
   font-family: var(--heading-font);
 }
 
-h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, .inline-header:first-child {
   margin-top: 1rem;
 }
 
@@ -1722,10 +1722,6 @@ i.li-clear::before {
   margin-right: 20px;
   margin-bottom: 15px;
   cursor: pointer;
-}
-
-.filter-active, #on-this-page-toc div a:hover {
-  font-weight: 700;
 }
 
 .back-button {

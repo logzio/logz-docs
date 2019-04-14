@@ -101,7 +101,7 @@ token <span class="required-param"></span>
 
 type <span class="default-param">`log4net`</span>
 : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing. Can't contain spaces. <br />
+  Used by Logz.io for consistent parsing. Can't contain spaces.
 
 listenerUrl <span class="default-param">`https://listener.logz.io:8071`</span>
 : Listener URL and port. \\

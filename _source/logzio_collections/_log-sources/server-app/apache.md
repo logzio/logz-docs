@@ -24,11 +24,9 @@ contributors:
 
 ## Apache + Filebeat setup
 
-Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
-
 <div class="accordion">
 
-### Configuration at a glance
+### Configuration tl;dr
 
 <div>
 
@@ -119,9 +117,9 @@ Log type _\(for preconfigured parsing\)_
 
     ```yaml
     output.logstash:
-::
-: Port'/etc/pki/tls/cert.
-COMODORSADomainValidationSecureServerCA.crt']
+      hosts: ["<LISTENER-URL>:5015"]
+      ssl:
+        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
 4. Restart Filebeat
@@ -143,11 +141,9 @@ COMODORSADomainValidationSecureServerCA.crt']
 
 ## Apache + rsyslog setup
 
-Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
-
 <div class="accordion">
 
-### Configuration at a glance
+### Configuration tl;dr
 
 <div>
 
@@ -179,9 +175,10 @@ Log type _\(for preconfigured parsing\)_
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```shell
-```
-: Port Check Logz.io for your lo.
+    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t apache -a "<ACCOUNT-TOKEN>" -l "<LISTENER-URL>"
+    ```
 
+2. Check Logz.io for your logs
 
     Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
     Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).

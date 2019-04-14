@@ -15,11 +15,9 @@ contributors:
 
 ## Setup
 
-Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
-
 <div class="accordion">
 
-### Configuration at a glance
+### Configuration tl;dr
 
 <div>
 
@@ -32,7 +30,8 @@ Listener
   For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
 Default log location
-: _See Puppet docs on [where log files are installed](https://puppet.com/docs/pe/2018.1/what_gets_installed_and_where.html#log-files-installed)_
+: _Puppet produces lots of different logs._
+  _See [Log files installed](https://puppet.com/docs/pe/2018.1/what_gets_installed_and_where.html#log-files-installed) from Puppet Labs for more information._
 
 Log type _\(for preconfigured parsing\)_
 : Puppet server: `puppetserver` \\

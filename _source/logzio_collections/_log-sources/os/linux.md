@@ -13,15 +13,11 @@ contributors:
 
 ## Setup
 
-Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
-
 <div class="accordion">
 
-### Configuration at a glance
+### Configuration tl;dr
 
 <div>
-
-If you just need the quick details but not step-by-step instructions:
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf)

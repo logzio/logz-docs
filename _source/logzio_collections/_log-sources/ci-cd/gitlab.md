@@ -15,11 +15,9 @@ contributors:
 
 ## Setup
 
-Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
-
 <div class="accordion">
 
-### Configuration at a glance
+### Configuration tl;dr
 
 <div>
 
@@ -33,8 +31,8 @@ Listener
 
 Default log locations
 : If installed from Omnibus packages: `/var/log/gitlab/...` \\
-  If installed from source: `/home/git/gitlab/log/...`
-  _(See [GitLab log system documentation](https://docs.gitlab.com/ee/administration/logs.html) for details)_
+  If installed from source: `/home/git/gitlab/log/...` \\
+  _See [Log system](https://docs.gitlab.com/ee/administration/logs.html) from GitLab for more information._
 
 Log type _\(for preconfigured parsing\)_
 : Production, JSON: `gitlab-production-json` \\

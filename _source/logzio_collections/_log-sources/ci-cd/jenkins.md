@@ -15,11 +15,9 @@ contributors:
 
 ## Setup
 
-Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
-
 <div class="accordion">
 
-### Configuration at a glance
+### Configuration tl;dr
 
 <div>
 

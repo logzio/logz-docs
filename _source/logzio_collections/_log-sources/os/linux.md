@@ -11,15 +11,34 @@ contributors:
   - imnotashrimp
 ---
 
-## Linux + rsyslog setup
+## Setup
 
-###### Configuration at a glance
+Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
 
-| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
-| **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
-| **Listener port** | 5000 |
-| **Default log location** | `/var/log/` |
-| **Log type** <br /> _for automatic parsing_ | `syslog` |
+<div class="accordion">
+
+### Configuration at a glance
+
+<div>
+
+If you just need the quick details but not step-by-step instructions:
+
+Files
+: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf)
+
+Listener
+: Port 5000.
+  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+
+Default log location
+: `/var/log/`
+
+Log type _\(for preconfigured parsing\)_
+: `syslog`
+
+</div>
+
+</div>
 
 ###### Guided configuration
 

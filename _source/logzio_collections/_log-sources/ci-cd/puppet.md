@@ -13,19 +13,38 @@ contributors:
   - imnotashrimp
 ---
 
-## Puppet + Filebeat setup
+## Setup
 
-**You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
+Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
 
-###### Configuration at a glance
+<div class="accordion">
 
-| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br /> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
-| **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
-| **Listener port** | 5015 |
-| **Default log location** | _See Puppet docs on [where log files are installed](https://puppet.com/docs/pe/2018.1/what_gets_installed_and_where.html#log-files-installed)_ |
-| **Log type** <br /> _for automatic parsing_ | Puppet server: `puppetserver` <br /> Puppet server access: `puppetserver-access`|
+### Configuration at a glance
+
+<div>
+
+Files
+: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
+  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
+
+Listener
+: Port 5015.
+  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+
+Default log location
+: _See Puppet docs on [where log files are installed](https://puppet.com/docs/pe/2018.1/what_gets_installed_and_where.html#log-files-installed)_
+
+Log type _\(for preconfigured parsing\)_
+: Puppet server: `puppetserver` \\
+  Puppet server access: `puppetserver-access`
+
+</div>
+
+</div>
 
 ###### Guided configuration
+
+**You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
 
 {: .tasklist .firstline-headline }
 1. Download the Logz.io certificate

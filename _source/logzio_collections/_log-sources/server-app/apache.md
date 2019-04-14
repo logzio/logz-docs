@@ -24,17 +24,36 @@ contributors:
 
 ## Apache + Filebeat setup
 
-**You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
+Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
 
-###### Configuration at a glance
+<div class="accordion">
 
-| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br /> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
-| **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
-| **Listener port** | 5015 |
-| **Default log locations** |  Ubuntu, Debian: `/var/log/apache2/access.log` <br /> macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
-| **Log type** <br /> _for automatic parsing_ | `apache`, `apache_access`, or `apache-access` |
+### Configuration at a glance
+
+<div>
+
+Files
+: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
+  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
+
+Listener
+: Port 5015.
+  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+
+Default log locations
+: Ubuntu, Debian: `/var/log/apache2/access.log` \\
+  macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log`
+
+Log type _\(for preconfigured parsing\)_
+: `apache`, `apache_access`, or `apache-access`
+
+</div>
+
+</div>
 
 ###### Guided configuration
+
+**You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
 
 {: .tasklist .firstline-headline }
 1. Download the Logz.io certificate
@@ -100,9 +119,9 @@ contributors:
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
-      ssl:
-        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+::
+: Port'/etc/pki/tls/cert.
+COMODORSADomainValidationSecureServerCA.crt']
     ```
 
 4. Restart Filebeat
@@ -124,13 +143,31 @@ contributors:
 
 ## Apache + rsyslog setup
 
-###### Configuration at a glance
+Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
 
-| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
-| **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
-| **Listener port** | 5000 |
-| **Default log location** | Ubuntu, Debian: `/var/log/apache2/access.log` <br /> macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
-| **Log type** <br /> _for automatic parsing_ | `apache`, `apache_access`, or `apache-access` |
+<div class="accordion">
+
+### Configuration at a glance
+
+<div>
+
+Files
+: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf)
+
+Listener
+: Port 5000.
+  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+
+Default log location
+: Ubuntu, Debian: `/var/log/apache2/access.log` \\
+  macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log`
+
+Log type _\(for preconfigured parsing\)_
+: `apache`, `apache_access`, or `apache-access`
+
+</div>
+
+</div>
 
 ###### Guided configuration
 
@@ -142,10 +179,9 @@ contributors:
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```shell
-    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t apache -a "<ACCOUNT-TOKEN>" -l "<LISTENER-URL>"
-    ```
+```
+: Port Check Logz.io for your lo.
 
-2. Check Logz.io for your logs
 
     Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
     Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).

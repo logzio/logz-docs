@@ -13,19 +13,41 @@ contributors:
   - imnotashrimp
 ---
 
-## GitLab + Filebeat setup
+## Setup
 
-**You'll need:** [GitLab](https://about.gitlab.com/installation/) installed locally, [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher
+Click _Configuration at a glance_ if you just need the quick details, or see _Guided configuration_ for step-by-step instructions.
 
-###### Configuration at a glance
+<div class="accordion">
 
-| **Files** | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br /> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
-| **Listener URL** | `listener.logz.io` or `listener-eu.logz.io` |
-| **Listener port** | 5015 |
-| **Default log locations** | If installed from Omnibus packages: `/var/log/gitlab/...` <br /> If installed from source: `/home/git/gitlab/log/...` <br /> _(See [GitLab log system documentation](https://docs.gitlab.com/ee/administration/logs.html) for details)_ |
-| **Log type** <br /> _for automatic parsing_ | Production, JSON: `gitlab-production-json` <br /> Production, plain text: `gitlab-production` <br /> API: `gitlab-api-json` <br /> Application: `gitlab-application` |
+### Configuration at a glance
+
+<div>
+
+Files
+: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
+  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
+
+Listener
+: Port 5015.
+  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+
+Default log locations
+: If installed from Omnibus packages: `/var/log/gitlab/...` \\
+  If installed from source: `/home/git/gitlab/log/...`
+  _(See [GitLab log system documentation](https://docs.gitlab.com/ee/administration/logs.html) for details)_
+
+Log type _\(for preconfigured parsing\)_
+: Production, JSON: `gitlab-production-json` \\
+  Production, plain text: `gitlab-production` \\
+  API: `gitlab-api-json` \\
+  Application: `gitlab-application`
+
+</div>
+</div>
 
 ###### Guided configuration
+
+**You'll need:** [GitLab](https://about.gitlab.com/installation/) installed locally, [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher
 
 {: .tasklist .firstline-headline }
 1. Download the Logz.io certificate

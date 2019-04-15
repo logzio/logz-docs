@@ -1,5 +1,5 @@
 ---
-title: Ship Azure activity logs and metrics
+title: Ship Azure activity logs
 open-source:
   title: logzio-azure-serverless
   github-repo: logzio-azure-serverless
@@ -7,7 +7,7 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 shipping-summary:
-  data-source: Azure activity logs and metrics
+  data-source: Azure activity logs
   log-shippers:
     - logzio-azure-serverless
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Activity-log
@@ -20,10 +20,10 @@ contributors:
   - idohalevi
 ---
 
-To simplify shipping your Azure activity logs and metrics, we provide an automated deployment process.
+To simplify shipping your Azure activity logs, we provide an automated deployment process.
 At the end of this process, you'll have configured an event hub namespace, 2 event hubs, and 4 storage blobs.
 
-The resources set up by the automated deployment can collect and ship data for a single Azure region.
+The resources set up by the automated deployment can collect data for a single Azure region and ship that data to Logz.io.
 
 ## More information
 
@@ -32,6 +32,7 @@ The resources set up by the automated deployment can collect and ship data for a
 ### What am I setting up in my Azure account?
 
 <div>
+
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs and metrics in one Azure region.
 
 Each automated deployment sets up these resources in your Azure environment:
@@ -47,16 +48,19 @@ Each deployed resource has a Logz.io-defined name and ends with a string unique 
 
 For example:
 We name the namespace `LogzioNS`—so if your namespace is `LogzioNS6nvkqdcci10p`, the rest of the deployed resources will end with `6nvkqdcci10p`.
+
 </div>
 
 ### How many automated deployments should I... deploy?
 
 <div>
+
 Azure requires an event hub in the same region as your services.
 Also worth noting is that you can stream data from multiple services to one event hub (as long as it's in the same region).
 
 So what does this mean for you?
 It means that you'll need to do at least one automated deployment for each region where you want to collect logs or metrics.
+
 </div>
 
 </div>
@@ -95,11 +99,11 @@ It means that you'll need to do at least one automated deployment for each regio
     {: .inline-header }
     In the SETTINGS section
 
-    Logs listener host <span class="default-param">`listener.logz.io`</span>
+    Logs listener host
     : Use the listener URL for your logs account region.
       For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
-    Metrics listener host <span class="default-param">`listener.logz.io`</span>
+    Metrics listener host
     : Use the listener URL for your metrics account region.
       For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
@@ -126,7 +130,7 @@ It means that you'll need to do at least one automated deployment for each regio
     The _Azure Blob Storage output_ settings are displayed.
 
     Leave **Blob parameter name** blank.
-    Enter the **Path** for the Azure blob you're sending dropped logs or metrics to, and then click **Save**.
+    Enter the **Path** for the Azure blob you're sending dropped logs to, and then click **Save**.
 
     <div class="info-box read">
       For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
@@ -134,8 +138,10 @@ It means that you'll need to do at least one automated deployment for each regio
 
 3. Stream data to the new event hubs
 
-    Now you'll need to configure Azure to stream activity logs the event hubs you just deployed.
-    When new data comes into the event hub, the function apps will forward that data to Logz.io.
+    So far in this process, you've deployed 2 event hubs and 2 function apps (one each for logs and metrics).
+
+    Now you'll need to configure Azure to stream activity logs to the event hubs you just deployed.
+    When data comes into the event hubs, the function apps will forward that data to Logz.io.
 
     In the search bar, type "Activity", and then click **Activity log**.
     This brings you to the _Activity log_ page.
@@ -144,9 +150,9 @@ It means that you'll need to do at least one automated deployment for each regio
 
     Choose your event hub:
 
-    * **Event hub namespace**: Choose the namespace that starts with "LogzioNS" (LogzioNS6nvkqdcci10p, for example)
-    * **Event hub name**: Choose "insights-operational-logs"
-    * **Event hub policy name**: Choose "LogzioSharedAccessKey"
+    * **Event hub namespace**: Choose the namespace that starts with **LogzioNS** (LogzioNS6nvkqdcci10p, for example)
+    * **Event hub name**: Choose **insights-operational-logs**
+    * **Event hub policy name**: Choose **LogzioSharedAccessKey**
     * Click **OK** to return to Diagnostics settings.
 
     In the _Log_ section, select the logs you want to stream, and then click **Save**.

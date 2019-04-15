@@ -1724,6 +1724,10 @@ i.li-clear::before {
   cursor: pointer;
 }
 
+.filter-active, #on-this-page-toc div a:hover {
+  font-weight: 700;
+}
+
 .back-button {
   margin-bottom: 1rem;
   font-size: .9rem;

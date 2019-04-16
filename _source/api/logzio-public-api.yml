@@ -24,32 +24,20 @@ info:
     We update this document regularly to reflect changes and improvements to the Logz.io API.
     If you'd like to suggest corrections or improvements to this document, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
 
+
     # Notes on alerting
 
     Please note that alerting is not yet covered in this document.
     For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
 
+
     # Account region and API URL
-
-    Every Logz.io account is hosted in an account region.
-    All services related to your account are colocated—so you'll ship logs, sign in, and access the API from the same region the account lives in.
-
-
-    You'll need to route API calls to the same region where your account is hosted.
-
 
     To find your account region, sign in to Logz.io and look at the URL in the address bar.
     Your API URL has the same two-letter code that you see in the address bar when you're logged in.
 
 
-    For instance:
-
-    * If your app URL is **app.logz.io**, then your API URL is **api.logz.io**.
-
-    * If your app URL is **app-nl.logz.io**, then your API URL is **api-nl.logz.io**.
-
-
-    For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+    For more information on account regions, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 
     # Authentication
@@ -61,6 +49,7 @@ info:
     If you don't have an Enterprise account, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
 
     <!-- ReDoc-Inject: <security-definitions> -->
+
 
     # Rate limiting
 

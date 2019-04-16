@@ -91,6 +91,11 @@ logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span>
 : Listener URL and port. \\
   {% include log-shipping/replace-vars.html listener=true %}
 
+logzioType <span class="default-param">`java`</span>
+: The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+  Used by Logz.io for consistent parsing.
+  Can't contain spaces.
+
 addHostname <span class="default-param">`false`</span>
 : Boolean. Indicates whether to add `hostname` field to logs. This field holds the machine's host name. \\
   Set to `true` to include hostname.
@@ -123,11 +128,6 @@ fileSystemFullPercentThreshold <span class="default-param">`98`</span>
 : Identifies a maximum file system usage, in percent. Set to `-1` to disable. \\
   If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs.
   Buffering resumes if used space drops below the threshold.
-
-logzioType <span class="default-param">`java`</span>
-: The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing.
-  Can't contain spaces.
 
 socketTimeoutMs <span class="default-param">`10 * 1000`</span>
 : Socket timeout during log shipment, in milliseconds.
@@ -291,6 +291,11 @@ logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span>
 : Listener URL and port. \\
   {% include log-shipping/replace-vars.html listener=true %}
 
+logzioType <span class="default-param">`java`</span>
+: The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
+  Used by Logz.io for consistent parsing.
+  Can't contain spaces.
+
 addHostname <span class="default-param">`false`</span>
 : Indicates whether to add `hostname` field to logs.
   This field holds the machine's host name. \\
@@ -333,11 +338,6 @@ format <span class="default-param">`text`</span>
 line <span class="default-param">`false`</span>
 : Boolean. Set to `true` to print the line number of the code that generated this log message.
   Set to `false` to leave the line number out.
-
-logzioType <span class="default-param">`java`</span>
-: The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing.
-  Can't contain spaces.
 
 socketTimeout <span class="default-param">`10 * 1000`</span>
 : Socket timeout during log shipment, in milliseconds.

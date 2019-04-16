@@ -64,13 +64,13 @@ token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
   {% include log-shipping/replace-vars.html token=true %}
 
-host <span class="default-param">`listener.logz.io`</span>
-: Listener URL.
-  {% include log-shipping/replace-vars.html listener=true %}
-
 protocol <span class="default-param">`http`</span>
 : `http` or `https`.
   The value here affects the default of the `port` parameter.
+
+host <span class="default-param">`listener.logz.io`</span>
+: Listener URL.
+  {% include log-shipping/replace-vars.html listener=true %}
 
 port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>
 : Destination port.
@@ -188,13 +188,13 @@ token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
   {% include log-shipping/replace-vars.html token=true %}
 
-host <span class="default-param">`listener.logz.io`</span>
-: Listener URL.
-  {% include log-shipping/replace-vars.html listener=true %}
-
 protocol <span class="default-param">`http`</span>
 : `http` or `https`.
   The value here affects the default of the `port` parameter.
+
+host <span class="default-param">`listener.logz.io`</span>
+: Listener URL.
+  {% include log-shipping/replace-vars.html listener=true %}
 
 port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>
 : Destination port.

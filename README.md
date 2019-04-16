@@ -279,11 +279,5 @@ We invite contributions to docs, and we maintain a [list of contributors](https:
 
 
 <!--
-TODO find all uses of listener.logz.io and listener-eu.logz.io and make sure we're talking about the new regions page
-TODO find `##### Parameters` and see if it makes sense to change to `{: .inline-heading }`
-TODO go through log shipping and make sure params follow this order:
-  - Required params at the top of the list
-  - Token, followed by listener URL. If listener isn't required, put it immediately after required params.
-  - Log type immediately after
-TODO add open source details to all shippers
+TODO change wget commands (for certs) to sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/ (test with --output-document=/path/to/file.crt)
 -->

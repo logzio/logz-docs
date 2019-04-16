@@ -51,7 +51,7 @@ contributors:
     Parameters
     {: .inline-header }
 
-    LOGZIO-TOKEN <span class="required-param"></span>
+    LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
       {% include log-shipping/replace-vars.html token=true %}
       <!-- logzio-inject:account-token -->

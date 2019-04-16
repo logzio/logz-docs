@@ -93,7 +93,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     Environment variables
     {: .inline-header }
 
-    LOGZIO-TOKEN <span class="required-param"></span>
+    LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
       {% include log-shipping/replace-vars.html token=true %}
       <!-- logzio-inject:account-token -->
@@ -261,7 +261,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     Environment variables
     {: .inline-header }
 
-    LOGZIO-TOKEN <span class="required-param"></span>
+    LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
       {% include log-shipping/replace-vars.html token=true %}
       <!-- logzio-inject:account-token -->

@@ -67,14 +67,14 @@ contributors:
     : {% include log-shipping/replace-vars.html token='noReplace' %}
       <!-- logzio-inject:account-token -->
 
+    URL <span class="required-param"></span>
+    : {% include log-shipping/replace-vars.html listener='noReplace' %}
+      <!-- logzio-inject:listener-url -->
+
     TYPE <span class="required-param"></span>
     : The log type you'll use with this Lambda.
       This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. \\
       Please note that you should create a new Lambda for each log type you use.
-
-    URL <span class="required-param"></span>
-    : {% include log-shipping/replace-vars.html listener='noReplace' %}
-      <!-- logzio-inject:listener-url -->
 
     FORMAT <span class="default-param">`text`</span>
     : `json` or `text`.

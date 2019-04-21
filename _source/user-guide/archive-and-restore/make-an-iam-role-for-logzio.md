@@ -2,7 +2,6 @@
 layout: article
 title: Make an IAM role for Logz.io
 permalink: /user-guide/archive-and-restore/make-an-iam-role-for-logzio.html
-draft: true
 tags:
   - aws
   - timeless-accounts
@@ -26,7 +25,7 @@ To archive your data, Logz.io needs access to your AWS S3 bucket. Using Identity
 
     2. Choose **Another AWS** account as your trusted entity.
 
-    3. In the **Account ID** box, type `<our account id>`. This is the Logz.io AWS account ID that will access your S3 buckets.
+    3. In the **Account ID** box, type `406095609952`. This is the Logz.io AWS account ID that will access your S3 buckets.
 
     4. Select **Require external ID**, and type an **External ID**. The external ID can be anything you want.
 

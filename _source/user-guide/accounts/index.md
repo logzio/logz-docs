@@ -23,4 +23,4 @@ Using [data optimizers]({{site.baseurl}}/user-guide/optimizers/configure-optimiz
 
 ![Manage accounts]({{site.baseurl}}/images/accounts/accounts--manage-accounts.png)
 
-You can find the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-users) page by clicking **<i class="li li-gear"></i> > Settings > Manage accounts** in the top menu.
+You can find the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page by clicking **<i class="li li-gear"></i> > Settings > Manage accounts** in the top menu.

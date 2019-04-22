@@ -5,9 +5,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: GitLab
-  log-shippers:
-    - Filebeat
-  os: Linux
 contributors:
   - amosd92
   - imnotashrimp
@@ -41,11 +38,15 @@ Log type _\(for preconfigured parsing\)_
   Application: `gitlab-application`
 
 </div>
+
 </div>
 
 ###### Guided configuration
 
-**You'll need:** [GitLab](https://about.gitlab.com/installation/) installed locally, [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher
+**You'll need**:
+[GitLab](https://about.gitlab.com/installation/) installed locally,
+[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
+[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
 
 {: .tasklist .firstline-headline }
 1. Download the Logz.io certificate
@@ -65,7 +66,95 @@ Log type _\(for preconfigured parsing\)_
 
     {% include log-shipping/replace-vars.html token=true %}
 
+    <div class="branching-container">
+
+    {: .branching-tabs }
+    * [Filebeat 7](#filebeat-7-code)
+    * [Filebeat 6](#filebeat-6-code)
+
+    <div id="filebeat-7-code">
+
     ```yaml
+    # Filebeat 7 configuration
+
+    filebeat.inputs:
+    - type: log
+    paths:
+    - /var/log/gitlab/gitlab-rails/production_json.log
+    fields:
+    logzio_codec: json
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <ACCOUNT-TOKEN>
+    type: gitlab-production-json
+    fields_under_root: true
+    encoding: utf-8
+    ignore_older: 3h
+
+    - type: log
+    paths:
+    - /var/log/gitlab/gitlab-rails/production.log
+    fields:
+    logzio_codec: plain
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <ACCOUNT-TOKEN>
+    type: gitlab-production
+    fields_under_root: true
+    encoding: utf-8
+    ignore_older: 3h
+
+    - type: log
+    paths:
+    - /var/log/gitlab/gitlab-rails/api_json.log
+    fields:
+    logzio_codec: json
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <ACCOUNT-TOKEN>
+    type: gitlab-api-json
+    fields_under_root: true
+    encoding: utf-8
+    ignore_older: 3h
+
+    - type: log
+    paths:
+    - /var/log/gitlab/gitlab-rails/application.log
+    fields:
+    logzio_codec: json
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <ACCOUNT-TOKEN>
+    type: gitlab-application
+    fields_under_root: true
+    encoding: utf-8
+    ignore_older: 3h
+
+    filebeat.registry.path: /var/lib/filebeat
+    processors:
+    - rename:
+        fields:
+        - from: "agent"
+          to: "filebeat_agent"
+        ignore_missing: true
+    - rename:
+        fields:
+        - from: "log.file.path"
+          to: "source"
+        ignore_missing: true
+    ```
+
+    </div>
+
+    <div id="filebeat-6-code">
+
+    ```yaml
+    # Filebeat 6 configuration
+
     filebeat.inputs:
     - type: log
       paths:
@@ -126,6 +215,10 @@ Log type _\(for preconfigured parsing\)_
     registry_file: /var/lib/filebeat/registry
     ```
 
+    </div>
+
+    </div>
+
 3. Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
@@ -151,3 +244,6 @@ Log type _\(for preconfigured parsing\)_
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
+</div>
+
+</div>

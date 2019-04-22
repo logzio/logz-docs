@@ -5,9 +5,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Puppet
-  log-shippers:
-    - Filebeat
-  os: Linux
 contributors:
   - amosd92
   - imnotashrimp
@@ -43,7 +40,10 @@ Log type _\(for preconfigured parsing\)_
 
 ###### Guided configuration
 
-**You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
+**You'll need**:
+[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
+[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
+root access
 
 {: .tasklist .firstline-headline }
 1. Download the Logz.io certificate
@@ -65,7 +65,81 @@ Log type _\(for preconfigured parsing\)_
 
     {% include log-shipping/replace-vars.html token=true %}
 
+    <div class="branching-container">
+
+    {: .branching-tabs }
+    * [Filebeat 7](#filebeat-7-code)
+    * [Filebeat 6](#filebeat-6-code)
+
+    <div id="filebeat-7-code">
+
     ```yaml
+    # Filebeat 7 configuration
+
+    filebeat.inputs:
+    - type: log
+      paths:
+
+      # If you configured Puppet to output JSON logs, replace the filename with
+      #  `puppetserver.log.json`
+      - /var/log/puppetlabs/puppetserver/puppetserver.log
+
+      fields:
+
+        # If you configured Puppet to output JSON logs, set logzio_codec to
+        #  `json`
+        logzio_codec: plain
+
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: puppetserver
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
+
+    - type: log
+      paths:
+
+      # If you configured Puppet to output JSON logs, replace the filename with
+      #  `puppetserver-access.log.json`
+      - /var/log/puppetlabs/puppetserver/puppetserver-access.log
+
+      fields:
+
+        # If you configured Puppet to output JSON logs, set logzio_codec to
+        #  `json`
+        logzio_codec: plain
+
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: puppetserver-access
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
+
+    filebeat.registry.path: /var/lib/filebeat
+    processors:
+    - rename:
+        fields:
+        - from: "agent"
+          to: "filebeat_agent"
+        ignore_missing: true
+    - rename:
+        fields:
+        - from: "log.file.path"
+          to: "source"
+        ignore_missing: true
+    ```
+
+    </div>
+
+    <div id="filebeat-6-code">
+
+    ```yaml
+    # Filebeat 6 configuration
+
     filebeat.inputs:
     - type: log
       paths:
@@ -112,6 +186,10 @@ Log type _\(for preconfigured parsing\)_
     registry_file: /var/lib/filebeat/registry
     ```
 
+    </div>
+
+    </div>
+
 1. Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
@@ -125,15 +203,14 @@ Log type _\(for preconfigured parsing\)_
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-1. Restart Filebeat
+2. Restart Filebeat
 
     ```shell
     sudo systemctl restart filebeat
     ```
 
-2. Check Logz.io for your logs
+3. Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-

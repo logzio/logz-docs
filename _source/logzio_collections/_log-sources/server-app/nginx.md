@@ -5,24 +5,12 @@ logo:
   orientation: horizontal
 shipping-summary:
   data-source: nginx
-  log-shippers:
-    - recommended: Filebeat
-    - rsyslog
-  os: Linux
 contributors:
   - amosd92
   - imnotashrimp
 ---
 
-<div class="branching-container">
-
-{: .branching-tabs }
-  * [Filebeat <span class="sm ital">(recommended)</span>](#filebeat-config)
-  * [rsyslog](#rsyslog-config)
-
-<div id="filebeat-config">
-
-## nginx + Filebeat setup
+## Setup
 
 <div class="accordion">
 
@@ -51,7 +39,10 @@ Log type _\(for preconfigured parsing\)_
 
 ###### Guided configuration
 
-**You'll need:** [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 6.x or higher, root access
+**You'll need**:
+[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
+[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
+root access
 
 {: .tasklist .firstline-headline }
 1. Download the Logz.io certificate
@@ -68,7 +59,70 @@ Log type _\(for preconfigured parsing\)_
 
     {% include log-shipping/replace-vars.html token=true %}
 
+    <div class="branching-container">
+
+    {: .branching-tabs }
+    * [Filebeat 7](#filebeat-7-code)
+    * [Filebeat 6](#filebeat-6-code)
+
+    <div id="filebeat-7-code">
+
     ```yaml
+    # Filebeat 7 configuration
+
+    filebeat.inputs:
+    - type: log
+      paths:
+      - /var/log/nginx/access.log
+
+      fields:
+        logzio_codec: plain
+
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: nginx_access
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
+
+    - type: log
+      paths:
+      - /var/log/nginx/error.log
+
+      fields:
+        logzio_codec: plain
+
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: nginx_error
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
+
+    filebeat.registry.path: /var/lib/filebeat
+    processors:
+    - rename:
+        fields:
+        - from: "agent"
+          to: "filebeat_agent"
+        ignore_missing: true
+    - rename:
+        fields:
+        - from: "log.file.path"
+          to: "source"
+        ignore_missing: true
+    ```
+
+    </div>
+
+    <div id="filebeat-6-code">
+
+
+    ```yaml
+    # Filebeat 6 configuration
+
     filebeat.inputs:
     - type: log
       paths:
@@ -103,6 +157,10 @@ Log type _\(for preconfigured parsing\)_
     registry_file: /var/lib/filebeat/registry
     ```
 
+    </div>
+
+    </div>
+
 3. Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
@@ -127,57 +185,3 @@ Log type _\(for preconfigured parsing\)_
     Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
-
-</div>
-
-<div id="rsyslog-config">
-
-## nginx + rsyslog setup
-
-<div class="accordion">
-
-### Configuration tl;dr
-
-<div>
-
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf)
-
-Listener
-: Port 5000.
-  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Default log locations
-: `/var/log/nginx/access.log` or `/var/log/nginx/error.log`
-
-Log type _\(for preconfigured parsing\)_
-: Access log: `nginx`, `nginx_access`, or `nginx-access` \\
-  Error log: `nginx-error`
-
-</div>
-
-</div>
-
-###### Guided configuration
-
-**You'll need:** root access
-
-{: .tasklist .firstline-headline }
-1. Run the rsyslog configuration script
-
-    {% include log-shipping/replace-vars.html token=true listener=true %}
-
-    ```shell
-    curl -sLO https://github.com/logzio/logzio-rsyslog/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t nginx -a "<ACCOUNT-TOKEN>" -l "<LISTENER-URL>"
-    ```
-
-1. Check Logz.io for your logs
-
-    Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
-
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
-</div>
-
-</div>

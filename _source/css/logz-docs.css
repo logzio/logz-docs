@@ -1668,6 +1668,10 @@ i.li-clear::before {
   border-bottom: 1px solid var(--border-very-light);
 }
 
+ol .branching-tabs {
+  margin-top: 25px;
+}
+
 .branching-tabs li {
   display: inline-block;
   padding: 10px 20px;

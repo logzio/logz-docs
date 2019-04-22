@@ -135,7 +135,7 @@ defaults:
   - scope:
       path: _log-sources/container
     values:
-      shipping-category: Containers
+      shipping-category: Containers and pods
   - scope:
       path: _log-sources/ci-cd
     values:

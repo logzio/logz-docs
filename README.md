@@ -276,8 +276,3 @@ We invite contributions to docs, and we maintain a [list of contributors](https:
 * [jQuery](https://jquery.com/) and [jQuery UI](https://jqueryui.com/)
 * [Lunr](https://lunrjs.com/)
 * [tablesorter](http://tablesorter.com/docs/)
-
-
-<!--
-TODO change wget commands (for certs) to sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/ (test with --output-document=/path/to/file.crt)
--->

@@ -1772,6 +1772,16 @@ div.highlighter-rouge {
   transition: opacity .5s ease;
 }
 
+.copy-btn::before {
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 0 4px;
+  background-color: var(--text-normal);
+  color: white;
+  margin-top: -3px;
+  border-radius: 6px;
+}
+
 .copy-btn:hover {
   opacity: 1;
   cursor: pointer;
@@ -1779,9 +1789,6 @@ div.highlighter-rouge {
 
 .copy-btn:hover::before {
   content: "Copy";
-  font-size: .75rem;
-  font-weight: 700;
-  padding: 0 3px;
 }
 
 .copy-btn:hover::before {

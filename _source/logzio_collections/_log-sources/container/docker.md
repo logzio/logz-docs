@@ -89,7 +89,9 @@ contributors:
 
 ## logzio-logging-plugin setup
 
-**You'll need:** Docker Engine 17.05 or later, Docker Community Edition (Docker CE) 18.03 or later
+**You'll need**:
+Docker Engine 17.05 or later,
+Docker Community Edition (Docker CE) 18.03 or later
 
 {: .tasklist .firstline-headline }
 1. Install the plugin from the Docker store

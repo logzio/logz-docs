@@ -85,8 +85,8 @@ contributors:
 4. Configure the function's basic settings
 
     In Basic settings, we recommend starting with these settings:
-    * **Memory:** 512 MB
-    * **Timeout:** 1 min 0 sec
+    * **Memory**: 512 MB
+    * **Timeout**: 1 min 0 sec
 
     <div class="info-box note">
     These default settings are just a starting point.
@@ -113,7 +113,9 @@ contributors:
 
 ## Kinesis + Lambda setup
 
-**You'll need:** AWS CLI, an S3 bucket to store the CloudFormation package
+**You'll need**:
+AWS CLI,
+an S3 bucket to store the CloudFormation package
 
 ###### CloudFront automated deployment
 

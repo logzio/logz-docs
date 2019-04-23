@@ -16,7 +16,8 @@ contributors:
 
 ## Setup
 
-**You'll need:** AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
+**You'll need**:
+AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
 
 <div class="info-box important">
   Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout.
@@ -113,8 +114,8 @@ contributors:
 
     In Basic settings, we recommend starting with these settings:
 
-    * **Memory:** 1024 MB
-    * **Timeout:** 5 min 0 sec
+    * **Memory**: 1024 MB
+    * **Timeout**: 5 min 0 sec
 
     <div class="info-box note">
     These default settings are just a starting point.

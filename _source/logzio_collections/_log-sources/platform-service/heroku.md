@@ -5,15 +5,14 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Heroku
-  log-shippers:
-    - Log drain
 contributors:
   - imnotashrimp
 ---
 
 ## Heroku log drain setup
 
-**You'll need:** [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+**You'll need**:
+[Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
 {: .tasklist .firstline-headline }
 1. Set up the log drain in Heroku CLI

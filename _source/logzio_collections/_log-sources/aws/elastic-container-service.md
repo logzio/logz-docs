@@ -8,8 +8,6 @@ open-source:
     github-repo: logzio-aws-ecs
 shipping-summary:
   data-source: Amazon Elastic Container Service
-  log-shippers:
-    - S3 fetcher
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ECS
 contributors:
   - imnotashrimp

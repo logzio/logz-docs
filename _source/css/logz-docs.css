@@ -516,7 +516,6 @@ svg.svg-inline--fa, i.li {
 }
 
 .updated {
-  font-style: italic;
   font-size: .9rem;
 }
 
@@ -1726,6 +1725,7 @@ ol .branching-tabs {
   margin-bottom: 1rem;
   font-size: .9rem;
   color: var(--text-link-gray);
+  font-style: italic;
 }
 
 .back-button a {
@@ -1740,6 +1740,7 @@ ol .branching-tabs {
   font-family: var(--fa);
   font-weight: 600;
   content: "\f30a ";
+  font-style: normal;
 }
 
 /* ===== COPY BUTTON ===== */

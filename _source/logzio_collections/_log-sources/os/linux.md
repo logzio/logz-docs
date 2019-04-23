@@ -5,8 +5,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Linux
-  log-shippers:
-    - rsyslog
 contributors:
   - imnotashrimp
 ---
@@ -38,7 +36,8 @@ Log type _\(for preconfigured parsing\)_
 
 ###### Guided configuration
 
-**You'll need:** root access
+**You'll need**:
+root access
 
 {: .tasklist .firstline-headline }
 1. Run the rsyslog configuration script

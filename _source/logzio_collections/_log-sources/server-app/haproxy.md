@@ -5,20 +5,19 @@ logo:
   orientation: horizontal
 shipping-summary:
   data-source: HAProxy
-  log-shippers:
-    - rsyslog
-  os: Linux
 contributors:
   - imnotashrimp
 ---
 
-## HAProxy + rsyslog setup
+## Setup
 
 HAProxy is a network device, so it needs to transfer logs using the syslog protocol.
 To ship HAProxy logs to an ELK stack, you'll first need to configure HAProxy logging to transmit the logs to a local rsyslog server.
 From there, you can ship the logs from rsyslog to Logz.io.
 
-**You'll need:** root access, rsyslog 5.8.0 or later
+**You'll need**:
+root access,
+rsyslog 5.8.0 or later
 
 ###### Guided configuration
 

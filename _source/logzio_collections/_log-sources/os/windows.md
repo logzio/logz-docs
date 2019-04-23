@@ -5,9 +5,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Windows
-  log-shippers:
-    - recommended: Winlogbeat
-    - NXLog
 contributors:
   - imnotashrimp
 ---
@@ -22,7 +19,8 @@ contributors:
 
 ## Windows + Winlogbeat setup
 
-**You'll need:** [Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
+**You'll need**:
+[Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
 
 {: .tasklist .firstline-headline }
 1. Download the Logz.io certificate
@@ -90,7 +88,8 @@ contributors:
 
 ## Windows + NXLog setup
 
-**You'll need:** [NXLog](https://nxlog.co/products/nxlog-community-edition/download)
+**You'll need**:
+[NXLog](https://nxlog.co/products/nxlog-community-edition/download)
 
 {: .tasklist .firstline-headline }
 1. Configure NXLog basics

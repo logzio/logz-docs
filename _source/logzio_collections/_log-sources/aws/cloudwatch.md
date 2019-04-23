@@ -5,8 +5,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Amazon CloudWatch
-  log-shippers:
-    - AWS Lambda function
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudWatch
 open-source:
   - title: CloudWatch Lambda Log Shipper

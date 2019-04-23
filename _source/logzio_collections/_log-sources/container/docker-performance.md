@@ -5,8 +5,6 @@ logo:
   orientation: horizontal
 shipping-summary:
   data-source: Docker performance logs
-  log-shippers:
-    - logzio-perfagent Docker image
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Perfagent
 contributors:
   - imnotashrimp

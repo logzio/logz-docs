@@ -11,7 +11,7 @@ contributors:
   - imnotashrimp
 ---
 
-**You'll need:** [Fluentd](https://www.fluentd.org/download) 1.0 or higher, root access
+**You'll need**: [Fluentd](https://www.fluentd.org/download) 1.0 or higher, root access
 
 ###### Configuration at a glance
 
@@ -29,19 +29,19 @@ contributors:
 
 2. Move the configuration file to the Filebeat folder
 
-    **Mac/Linux:** Move the configuration file to `/etc/filebeat/filebeat.yml`.
+    **Mac/Linux**: Move the configuration file to `/etc/filebeat/filebeat.yml`.
 
-    **Windows:** Move the configuration file to `C:\Program Files\Filebeat\filebeat.yml`.
+    **Windows**: Move the configuration file to `C:\Program Files\Filebeat\filebeat.yml`.
 
 3. Restart Filebeat
 
-    **Max/Linux:**
+    **Max/Linux**:
 
     ```shell
     sudo systemctl restart filebeat
     ```
 
-    **Windows:**
+    **Windows**:
 
     ```powershell
     PS C:\Program Files\Filebeat> Restart-Service filebeat

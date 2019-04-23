@@ -5,8 +5,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Amazon CloudTrail
-  log-shippers:
-    - S3 fetcher
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudTrail
 contributors:
   - idohalevi
@@ -15,7 +13,8 @@ contributors:
 
 ## Setup
 
-**You'll need:** `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
+**You'll need**:
+`s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
 
 ###### Configuration
 

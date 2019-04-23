@@ -6,9 +6,6 @@ logo:
 shipping-summary:
   data-source: cURL file upload
   hidden: true
-  log-shippers:
-    - Plain text
-    - JSON
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/File-UploadcURL
 contributors:
   - imnotashrimp

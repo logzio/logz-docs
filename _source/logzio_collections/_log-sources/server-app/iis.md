@@ -5,16 +5,15 @@ logo:
   orientation: horizontal
 shipping-summary:
   data-source: Microsoft IIS
-  log-shippers:
-    - NXLog
-  os: Windows
 contributors:
   - imnotashrimp
 ---
 
-## IIS + NXLog setup
+## Setup
 
-**You'll need:** [NXLog](http://nxlog.org/products/nxlog-community-edition/download), admin access
+**You'll need**:
+[NXLog](http://nxlog.org/products/nxlog-community-edition/download),
+admin access
 
 ###### Guided configuration
 

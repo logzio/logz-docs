@@ -22,7 +22,8 @@ contributors:
 
 ## log4net setup
 
-**You'll need:** log4net 2.0.8 or higher
+**You'll need**:
+log4net 2.0.8 or higher
 
 ### Add the dependency to your project
 
@@ -196,7 +197,8 @@ For the example above, you'd use `MyAppLogzioAppender`.
 
 ## NLog setup
 
-**You'll need:** NLog 4.5.0 or higher
+**You'll need**:
+NLog 4.5.0 or higher
 
 ### Add the dependency to your project
 

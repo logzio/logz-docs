@@ -18,7 +18,8 @@ This shipper uses goleveldb and goqueue as a persistent storage implementation o
 Logs are queued in the buffer and 100% non-blocking.
 A background Go routine ships the logs every 5 seconds.
 
-**You'll need:** Go 1.x or higher
+**You'll need**:
+Go 1.x or higher
 
 ### Add the dependency to your project
 

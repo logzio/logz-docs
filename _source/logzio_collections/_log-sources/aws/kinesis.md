@@ -17,7 +17,7 @@ contributors:
 
 {: .branching-tabs }
   * [Manual Lambda configuration](#manual-lambda-configuration)
-  * [Automatic CloudFront deployment](#automatic-cloudfront-deployment)
+  * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 
 <div id="manual-lambda-configuration">
 
@@ -110,7 +110,7 @@ contributors:
 
 </div>
 
-<div id="automatic-cloudfront-deployment">
+<div id="automated-cloudformation-deployment">
 
 {% include open-source.html title="Kinesis Stream Shipper - Lambda" github-repo="logzio_aws_serverless/tree/master/kinesis" %}
 

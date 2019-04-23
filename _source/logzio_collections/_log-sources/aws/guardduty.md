@@ -17,7 +17,7 @@ contributors:
 
 {: .branching-tabs }
   * [Manual Lambda configuration](#manual-lambda-configuration)
-  * [Automatic CloudFront deployment](#automatic-cloudfront-deployment)
+  * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 
 <div id="manual-lambda-configuration">
 
@@ -32,7 +32,7 @@ contributors:
 
     If you're not already sending your GuardDuty logs through a Kinesis data stream, create one using the [Kinesis console](https://console.aws.amazon.com/kinesis).
 
-    Save the name of the data stream---you'll need this in the next step.
+    Save the name of the data stream—you'll need this in the next step.
 
 2. Configure CloudWatch Events
 
@@ -139,7 +139,7 @@ contributors:
 
 </div>
 
-<div id="automatic-cloudfront-deployment">
+<div id="automated-cloudformation-deployment">
 
 {% include open-source.html title="Kinesis Stream Shipper - Lambda" github-repo="logzio_aws_serverless/tree/master/kinesis" %}
 
@@ -147,7 +147,7 @@ contributors:
 
 **You'll need:** AWS CLI, an S3 bucket to store the CloudFormation package
 
-###### CloudFront automated deployment
+###### CloudFormation automated deployment
 
 {: .tasklist .firstline-headline }
 1. Create a new Kinesis data stream

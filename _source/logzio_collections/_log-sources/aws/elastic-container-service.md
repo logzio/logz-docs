@@ -4,8 +4,8 @@ logo:
   logofile: aws-ecs.svg
   orientation: vertical
 open-source:
-  title: Logz.io AWS ECS Collector
-  github-repo: logzio-aws-ecs
+  - title: Logz.io AWS ECS Collector
+    github-repo: logzio-aws-ecs
 shipping-summary:
   data-source: Amazon Elastic Container Service
   log-shippers:

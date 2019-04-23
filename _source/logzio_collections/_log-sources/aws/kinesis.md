@@ -3,10 +3,11 @@ title: Ship Kinesis logs
 logo:
   logofile: aws-kinesis.svg
   orientation: vertical
+open-source:
+  - title: Kinesis Stream Shipper - Lambda
+    github-repo: logzio_aws_serverless/tree/master/kinesis
 shipping-summary:
   data-source: Amazon Kinesis
-  log-shippers:
-    - AWS Lambda function
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kinesis
 contributors:
   - idohalevi
@@ -20,8 +21,6 @@ contributors:
   * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 
 <div id="manual-lambda-configuration">
-
-{% include open-source.html title="Kinesis Stream Shipper - Lambda" github-repo="logzio_aws_serverless/tree/master/kinesis" %}
 
 ## Kinesis + Lambda setup
 
@@ -111,8 +110,6 @@ contributors:
 </div>
 
 <div id="automated-cloudformation-deployment">
-
-{% include open-source.html title="Kinesis Stream Shipper - Lambda" github-repo="logzio_aws_serverless/tree/master/kinesis" %}
 
 ## Kinesis + Lambda setup
 

@@ -60,9 +60,6 @@
   --infobox-read: rgb(var(--app-gray-primary));
   --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
 
-  --infobox-open-source: rgb(var(--app-gray-primary));
-  --infobox-open-source-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
-
   --border-light: #dddddd;
   --border-very-light: #e5e5e5;
   --border-dark: var(--heading-normal);
@@ -490,8 +487,8 @@ svg.svg-inline--fa, i.li {
   content: '';
   display: block;
   width: 0;
-  height: 3px;
-  margin-top: -3px;
+  height: 2px;
+  margin-top: -2px;
   background: currentColor;
   transition: width .3s;
 }
@@ -1005,13 +1002,6 @@ div.info-box.read::before {
   content: "Read more   ";
   background-color: var(--infobox-read);
 }
-
-/* .open-source */
-div.info-box.open-source {
-  border-color: var(--infobox-open-source);
-  background-color: var(--infobox-open-source-light);
-}
-
 
 div#toc-collapse-btn {
   min-width: 50px;
@@ -1819,6 +1809,24 @@ h1 .avatar.avatar-small {
 
 .contributor-list .avatar.avatar-small {
   margin: 0 1px;
+}
+
+/* ===== OPEN SOURCE BUTTON ===== */
+
+.open-source-btn {
+  color: var(--text-normal);
+  border: 1px solid silver;
+  width: fit-content;
+  border-radius: 3px;
+  padding: 0px 4px;
+  font-size: .85rem;
+  font-weight: 600;
+  background: linear-gradient(to bottom, white, var(--background-light));
+  line-height: 1;
+}
+
+.open-source-btn:hover {
+  background: linear-gradient(to bottom, var(--background-very-light), silver);
 }
 
 /* ===== FPO - IMAGE PLACEHOLDERS ===== */

@@ -1,15 +1,13 @@
 ---
 title: Ship Azure activity logs
 open-source:
-  title: logzio-azure-serverless
-  github-repo: logzio-azure-serverless
+  - title: logzio-azure-serverless
+    github-repo: logzio-azure-serverless
 logo:
   logofile: azure-monitor.svg
   orientation: vertical
 shipping-summary:
   data-source: Azure activity logs
-  log-shippers:
-    - logzio-azure-serverless
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Activity-log
 tags:
   - azure

@@ -5,9 +5,9 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Kubernetes
-  log-shippers:
-    - Non-RBAC configuration
-    - RBAC configuration
+open-source:
+  - title: logzio-k8s
+    github-repo: logzio-k8s
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kubernetes
 contributors:
   - idohalevi
@@ -21,8 +21,6 @@ contributors:
   * [RBAC configuration](#rbac-config)
 
 <div id="non-rbac-config">
-
-{% include open-source.html title="logzio-k8s" github-repo="logzio-k8s" %}
 
 ## Non-RBAC setup
 
@@ -151,8 +149,6 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 </div>
 
 <div id="rbac-config">
-
-{% include open-source.html title="logzio-k8s" github-repo="logzio-k8s" %}
 
 ## RBAC setup
 

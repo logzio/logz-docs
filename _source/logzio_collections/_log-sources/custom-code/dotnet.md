@@ -5,9 +5,9 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: .NET code
-  appenders:
-    - log4net
-    - NLog
+open-source:
+  - title: logzio-dotnet
+    github-repo: logzio-dotnet
 contributors:
   - imnotashrimp
 ---
@@ -19,8 +19,6 @@ contributors:
   * [NLog](#nlog-config)
 
 <div id="log4net-config">
-
-{% include open-source.html title="logzio-dotnet" github-repo="logzio-dotnet" %}
 
 ## log4net setup
 
@@ -195,8 +193,6 @@ For the example above, you'd use `MyAppLogzioAppender`.
 
 
 <div id="nlog-config">
-
-{% include open-source.html title="logzio-dotnet" github-repo="logzio-dotnet" %}
 
 ## NLog setup
 

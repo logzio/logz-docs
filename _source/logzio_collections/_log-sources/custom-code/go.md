@@ -4,12 +4,10 @@ logo:
   logofile: go.svg
   orientation: horizontal
 open-source:
-  title: Logzio Golang API client
-  github-repo: logzio-go
+  - title: Logzio Golang API client
+    github-repo: logzio-go
 shipping-summary:
   data-source: Go code
-  log-shippers:
-    - Logz.io Golang API client
 contributors:
   - imnotashrimp
 ---

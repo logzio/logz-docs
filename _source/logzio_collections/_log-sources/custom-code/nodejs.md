@@ -5,9 +5,11 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Node.js code
-  appenders:
-    - logzio-nodejs
-    - winston-logzio
+open-source:
+  - title: logzio-nodejs
+    github-repo: logzio-nodejs
+  - title: winston-logzio
+    github-repo: winston-logzio
 contributors:
   - imnotashrimp
 ---
@@ -19,8 +21,6 @@ contributors:
   * [winston-logzio](#winston-logzio-config)
 
 <div id="logzio-nodejs-config">
-
-{% include open-source.html title="logzio-nodejs" github-repo="logzio-nodejs" %}
 
 ## logzio-nodejs setup
 
@@ -143,8 +143,6 @@ Include this line if you're using logzio-nodejs in a severless environment, such
 
 
 <div id="winston-logzio-config">
-
-{% include open-source.html title="winston-logzio" github-repo="winston-logzio" %}
 
 ## winston-logzio setup
 

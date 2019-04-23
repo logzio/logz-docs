@@ -6,9 +6,11 @@ logo:
 vertical-logo: true
 shipping-summary:
   data-source: Java code
-  appenders:
-    - Log4j 2
-    - Logback
+open-source:
+  - title: Logzio Log4j 2 Appender
+    github-repo: logzio-log4j2-appender
+  - title: Logzio Logback Appender
+    github-repo: logzio-logback-appender
 contributors:
   - imnotashrimp
 ---
@@ -20,8 +22,6 @@ contributors:
   * [Logback](#logback-config)
 
 <div id="log4j-2-config">
-
-{% include open-source.html title="Logzio Log4j 2 Appender" github-repo="logzio-log4j2-appender" %}
 
 ## Log4j 2 setup
 
@@ -217,8 +217,6 @@ public class LogzioLog4j2Example {
 
 
 <div id="logback-config">
-
-{% include open-source.html title="Logzio Logback Appender" github-repo="logzio-logback-appender" %}
 
 ## Logback setup
 

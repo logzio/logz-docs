@@ -9,8 +9,8 @@ shipping-summary:
     - AWS Lambda function
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudWatch
 open-source:
-  title: CloudWatch Lambda Log Shipper
-  github-repo: logzio_aws_serverless/tree/master/cloudwatch
+  - title: CloudWatch Lambda Log Shipper
+    github-repo: logzio_aws_serverless/tree/master/cloudwatch
 contributors:
   - idohalevi
   - imnotashrimp

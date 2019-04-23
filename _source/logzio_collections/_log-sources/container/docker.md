@@ -5,9 +5,11 @@ logo:
   orientation: horizontal
 shipping-summary:
   data-source: Docker container
-  log-shippers:
-    - recommended: docker-collector-logs
-    - logzio-logging-plugin (Docker logging driver)
+open-source:
+  - title: docker-collector-logs
+    github-repo: docker-collector-logs
+  - title: Logz.io Docker Logging Plugin
+    github-repo: docker-logging-plugin
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Docker-Logging
 contributors:
   - imnotashrimp
@@ -21,8 +23,6 @@ contributors:
   * [logzio-logging-plugin](#logzio-logging-plugin-docker-logging-driver-config)
 
 <div id="docker-collector-logs-config">
-
-{% include open-source.html title="docker-collector-logs" github-repo="docker-collector-logs" %}
 
 ## docker-collector-logs setup
 
@@ -86,8 +86,6 @@ contributors:
 </div>
 
 <div id="logzio-logging-plugin-docker-logging-driver-config">
-
-{% include open-source.html title="Logz.io Docker Logging Plugin" github-repo="docker-logging-plugin" %}
 
 ## logzio-logging-plugin setup
 

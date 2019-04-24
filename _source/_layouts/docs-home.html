@@ -14,8 +14,8 @@
 
     <div class="cards full-cards">
     {% for card in page.cards %}
-      <a href="{{ card.url | prepend: site.baseurl }}">
-        <div class="card full-card">
+      <div class="card full-card">
+        <a href="{{ card.url | prepend: site.baseurl }}">
           <div class="card-icon">
             <i class="li {{card.li-class}}"></i>
           </div>
@@ -25,8 +25,8 @@
               {%- include prevent-orphan-words.html str=card.description -%}
             </p>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     {% endfor %}
     </div>
 

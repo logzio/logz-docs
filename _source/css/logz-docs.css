@@ -1721,26 +1721,14 @@ ol .branching-tabs {
   font-weight: 700;
 }
 
-.back-button {
+.breadcrumbs {
   margin-bottom: 1rem;
   font-size: .9rem;
   color: var(--text-link-gray);
-  font-style: italic;
 }
 
-.back-button a {
-  color: unset;
-}
-
-.back-button a:hover {
-  color: var(--text-link);
-}
-
-.back-button a::before {
-  font-family: var(--fa);
-  font-weight: 600;
-  content: "\f30a ";
-  font-style: normal;
+.breadcrumbs span:not(:last-child)::after {
+  content: " > ";
 }
 
 /* ===== COPY BUTTON ===== */

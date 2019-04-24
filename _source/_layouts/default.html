@@ -16,9 +16,9 @@
     {%- if page.collection == "log-sources" and page.url != "/shipping/log-sources/" -%}
     <div class="breadcrumbs">
       <span>
-      <a href="{{site.baseurl}}/shipping/log-sources/">
-        Log shipping sources
-      </a>
+        <a href="{{site.baseurl}}/shipping/log-sources/">
+          Log shipping sources
+        </a>
       </span>
       <span>
         {{ page.shipping-summary.data-source }}
@@ -27,9 +27,9 @@
     {%- elsif page.collection == "metrics-sources" and page.url != "/shipping/metrics-sources/" -%}
     <div class="breadcrumbs">
       <span>
-      <a href="{{site.baseurl}}/shipping/metrics-sources/">
-        Metrics shipping sources
-      </a>
+        <a href="{{site.baseurl}}/shipping/metrics-sources/">
+          Metrics shipping sources
+        </a>
       </span>
       <span>
         {{ page.shipping-summary.data-source }}
@@ -47,9 +47,7 @@
       <div class="slackin"><script async defer src="https://community-slack.logz.io/slackin.js"></script></div>
     </div>
     {% include page-info/community.html %}
-    <main class="page-content" aria-label="Content">
       {{ content }}
-    </main>
 
       {% include github-buttons.html %}
 

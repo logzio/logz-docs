@@ -455,6 +455,11 @@ main.page-content img, main.page-content video, .post-content iframe {
   border-radius: 2px;
 }
 
+main {
+  margin-top: 5px;
+  border-top: 1px solid var(--border-very-light);
+}
+
 .btn-img, .override.btn-img {
   margin-left: 0;
   padding-left: 0;

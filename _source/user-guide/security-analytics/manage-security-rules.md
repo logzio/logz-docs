@@ -62,7 +62,7 @@ You can also update any preconfigured rule at any time, including adding a notif
   If you don’t choose an endpoint, events will still be logged:
 
     1. Choose the endpoints or email addresses to notify.
-      If you need help adding a new endpoint, see [Alert endpoints]({{site.baseurl}}/user-guide/alerts/alert-endpoints.html).
+      If you need help adding a new endpoint, see [Alert endpoints]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 
     2. Choose a time period to suppress notifications.
 

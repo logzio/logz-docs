@@ -7,6 +7,7 @@ https://logz-docs.netlify.com/* https://docs.logz.io/:splat 301!
 /user-guide/accounts/manage-the-main-account.html /user-guide/accounts/manage-the-main-account-and-sub-accounts.html 301
 /user-guide/accounts/manage-sub-accounts.html /user-guide/accounts/manage-the-main-account-and-sub-accounts.html 301
 /user-guide/access-and-authentication/multi-factor-authentication.html /user-guide/users/multi-factor-authentication.html 301
+/user-guide/integrations/endpoints.html /user-guide/integrations/endpoints.html 301
 
 /user-guide/access-and-authentication/* /user-guide/tokens/:splat 301
 

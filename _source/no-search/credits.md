@@ -6,7 +6,8 @@ show-date: false
 community-info: false
 ---
 
-{%- assign contributors = site.contributors | sort: "title" %}
+{%- assign contributors = site.contributors | sort: 'title' -%}
+
 <div class="contributions">
 
   <ul>

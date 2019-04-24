@@ -12,7 +12,7 @@ cards:
 
   - title: Ship your logs
     description: All the different ways you can feed the ELK machine
-    url: /user-guide/log-shipping/
+    url: /shipping/log-sources/
     li-class: li-plane
 
   - title: Explore your logs in Kibana

@@ -54,7 +54,13 @@ collections_dir: logzio_collections # all collections are contained in this dire
 collections:
   contributors:
     output: true
-    permalink: /contributors/:name/
+    permalink: /contributors/:name
+  log-sources:
+    output: true
+    permalink: /shipping/log-sources/:path.html
+  shipping-utilities:
+    output: false
+    permalink: /shipping/shipping-utilities/:path.html
   docs-admin:
     output: true
     permalink: /docs-admin/:path/
@@ -64,7 +70,7 @@ collections:
 
 defaults:
   - scope:
-      path: '/no-search/*'
+      path: no-search
     values:
       search: false
       noindex: true
@@ -94,6 +100,46 @@ defaults:
       layout: contributor-profile
       community-info: false
       show-date: false
+  - scope:
+      path: ''
+    values:
+      layout: article
+  - scope:
+      path: _shipping-utilities/log-shippers
+    values:
+      shipping-category: Log shippers
+  - scope:
+      path: _log-sources/os
+    values:
+      shipping-category: Operating systems
+  - scope:
+      path: _log-sources/server-app
+    values:
+      shipping-category: Server apps & devices
+  - scope:
+      path: _log-sources/custom-code
+    values:
+      shipping-category: Custom code
+  - scope:
+      path: _log-sources/platform-service
+    values:
+      shipping-category: Platforms & services
+  - scope:
+      path: _log-sources/aws
+    values:
+      shipping-category: AWS
+  - scope:
+      path: _log-sources/azure
+    values:
+      shipping-category: Azure
+  - scope:
+      path: _log-sources/container
+    values:
+      shipping-category: Containers & pods
+  - scope:
+      path: _log-sources/ci-cd
+    values:
+      shipping-category: CI/CD
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown
@@ -108,6 +154,7 @@ plugins:
 
 kramdown:
   parse_block_html: true
+  gfm_quirks: ['no_auto_typographic']
   # auto_ids: true
 
 # These items will not be processed, by default. Add new items as array entries.

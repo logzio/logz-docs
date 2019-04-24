@@ -251,7 +251,8 @@ div.card {
 }
 
 .card > a {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 14px;
 }
 
@@ -260,9 +261,6 @@ div.card:hover {
   transition: box-shadow 200ms;
 }
 
-div.full-card {
-  height: 170px;
-}
 
 div.half-card {
   height: 50px;

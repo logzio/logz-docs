@@ -115,7 +115,7 @@ defaults:
   - scope:
       path: _log-sources/server-app
     values:
-      shipping-category: Server apps
+      shipping-category: Server apps & devices
   - scope:
       path: _log-sources/custom-code
     values:
@@ -123,7 +123,7 @@ defaults:
   - scope:
       path: _log-sources/platform-service
     values:
-      shipping-category: Platforms or services
+      shipping-category: Platforms & services
   - scope:
       path: _log-sources/aws
     values:
@@ -135,7 +135,7 @@ defaults:
   - scope:
       path: _log-sources/container
     values:
-      shipping-category: Containers and pods
+      shipping-category: Containers & pods
   - scope:
       path: _log-sources/ci-cd
     values:

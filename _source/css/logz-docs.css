@@ -245,15 +245,26 @@ div.card {
   margin: 12px;
   width: 250px;
   text-align: center;
-
+  display: flex;
   box-shadow: none;
   transition: box-shadow 200ms;
 }
 
 .card > a {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  width: 100%;
+  justify-self: stretch;
+  align-self: stretch;
+  justify-content: space-around;
+}
+
+.full-card > a {
   padding: 14px;
+}
+
+.mini-card > a {
+  padding: 0;
 }
 
 div.card:hover {
@@ -272,12 +283,6 @@ div.mini-card {
   width: 150px;
   height: 160px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.mini-card > a {
-  padding: 0 5px;
 }
 
 div.mini-card.community-project-card {
@@ -359,12 +364,9 @@ div.card-icon i::before {
   justify-content: flex-start;
 }
 
-.mini-card.community-project-card a {
-  margin-top: auto;
-  margin-bottom: auto;
-}
+.mini-card.community-project-card a {justify-content: flex-start;}
 
-.mini-card.community-project-card::before {
+.mini-card.community-project-card > a::before {
   content: "Community project";
 
   background-color: rgb(var(--app-gray-primary));

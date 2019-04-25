@@ -1,44 +1,74 @@
 <div class="toc-container toc-visibility">
 <nav class="all-pages-toc">
-  {% assign sidebar = site.data.toc %}
+
+{% assign sidebar = site.data.toc %}
+
+
   <ul id="docnavsidebar" class="toc-parent">
-      {% for parent in sidebar.firstLevel %}
-      <li class="">
-        <span class="toc-heading">
-          {{ parent.title }}
-        </span>
+    {%- for parent in sidebar.firstLevel %}
+    <li class="">
+      <span class="toc-heading">
+        {%- if parent.icon -%}
+          <i class="li {{ parent.icon }}"></i>
+        {%- endif %}
+        {{ parent.title }}
+      </span>
 
-          <ul class="toc-child">
-              {% for child in parent.secondLevel %}
-              <li class="{% if page.url == child.url %}toc-active{% endif %} {% if child.thirdLevel %}has-child{% endif %}">
-                {% if child.url %}
-                <span class="toc-heading {% if child.external %}external-link{% endif %}">
-                  <a href="{{ child.url | prepend:site.baseurl }}">{{ child.title }}</a>
-                  {% if child.thirdLevel %}
-                    <span class="collapse-button">
-                      <i class="fas fa-chevron-right"></i>
-                    </span>
-                  {% endif %}
-                  </span>
-                {% else %}<span class="toc-heading" style="color: silver;">{{ child.title }}
-                  {% if child.thirdLevel %}<span class="collapse-button"><i class="fas fa-chevron-right"></i></span>{% endif %}
-                </span>{% endif %}
+      <ul class="toc-child">
+        {%- for child in parent.secondLevel %}
+        <li class="
+          {%- if page.url == child.url -%}toc-active{%- endif %}
+          {%- if child.thirdLevel %} has-child{%- endif -%}
+        ">
+          {%- if child.url %}
+          <span class="toc-heading
+            {%- if child.external == true or child.community-project == true %} external-link {%- endif -%}
+          ">
+            <a href="{{ child.url | prepend: site.baseurl }}">{{ child.title }}</a>
+            {%- if child.thirdLevel %}
+            <span class="collapse-button">
+              <i class="fas fa-chevron-right"></i>
+            </span>
+            {%- endif %}
+          </span>
+          {%- else %}
+          <span class="toc-heading" style="color: silver;">{{ child.title }}
+            {%- if child.thirdLevel %}
+            <span class="collapse-button">
+              <i class="fas fa-chevron-right"></i>
+            </span>
+            {%- endif %}
+          </span>
+          {%- endif %}
 
-                {% if child.thirdLevel %}
-                <ul class="toc-grandchild">
-                  {% for grandchild in child.thirdLevel %}
-                  <li class="{%- if page.url == grandchild.url -%}toc-active{%- endif -%}">
-                    {% if grandchild.url %}
-                    <span class="toc-heading"><a href="{{ grandchild.url | prepend:site.baseurl }}">{{grandchild.title}}</a></span>
-                    {% else %}<span class="toc-heading" style="color: silver;">{{ grandchild.title }}</span>{% endif %}
-                  </li>
-                  {% endfor %}
-                </ul> {% endif %}
-              </li>
-              {% endfor %}
-            </ul>
-      </li>
-      {% endfor %}
+          {%- if child.thirdLevel %}
+          <ul class="toc-grandchild">
+            {%- for grandchild in child.thirdLevel %}
+            <li class="
+              {%- if page.url == grandchild.url -%}
+                toc-active
+              {%- endif -%}
+            ">
+              {%- if grandchild.url %}
+              <span class="toc-heading
+                {%- if grandchild.external == true or grandchild.community-project == true %} external-link {%- endif -%}
+              ">
+                <a href="{{ grandchild.url | prepend:site.baseurl }}">{{grandchild.title}}</a>
+              </span>
+              {%- else %}
+              <span class="toc-heading" style="color: silver;">
+                {{ grandchild.title }}
+              </span>
+              {%- endif %}
+            </li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+    </li>
+    {%- endfor %}
   </ul>
 
 </nav>

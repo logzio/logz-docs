@@ -29,25 +29,10 @@ firstLevel:
 
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
-- title: Working with your logs
+- title: Working in Logz.io
+  icon: li-bar-graph
 
   secondLevel:
-  - title: Log shipping
-    url: /user-guide/log-shipping/
-    thirdLevel:
-    - title: Built-in log types
-      url: /user-guide/log-shipping/built-in-log-types.html
-    - title: Log shipping troubleshooting
-      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
-    - title: Listener IP addresses
-      url: /user-guide/log-shipping/listener-ip-addresses.html
-
-  # - title: Field mapping and data parsing
-    # thirdLevel:
-    # - title: Field mapping
-  - title: Data parsing
-    url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
-
   - title: Kibana
     url: /user-guide/kibana/
     # thirdLevel:
@@ -67,8 +52,6 @@ firstLevel:
       url: /user-guide/alerts/configure-alerts.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
-    - title: Alert endpoints
-      url: /user-guide/alerts/alert-endpoints.html
 
   - title: Optimizers
     url: /user-guide/optimizers/
@@ -100,6 +83,7 @@ firstLevel:
       url: /user-guide/lookups/
 
 - title: Admin tools
+  icon: li-gear
   secondLevel:
   - title: Accounts
     url: /user-guide/accounts/
@@ -149,19 +133,45 @@ firstLevel:
     - title: Manage API tokens
       url: /user-guide/tokens/api-tokens.html
 
+  # ===== SHIPPING AND PARSING =====
+- title: Shipping & parsing
+  icon: li-plane
+
+  secondLevel:
+  - title: Log shipping sources
+    url: /shipping/log-sources/
+  - title: Log shipping info
+    url: /user-guide/log-shipping/
+    thirdLevel:
+    - title: Built-in log types
+      url: /user-guide/log-shipping/built-in-log-types.html
+    - title: Log shipping troubleshooting
+      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
+    - title: Listener IP addresses
+      url: /user-guide/log-shipping/listener-ip-addresses.html
+    # - title: Field mapping and data parsing
+    # thirdLevel:
+    # - title: Field mapping
+  - title: Data parsing
+    url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+  - title: Community-maintained shippers
+    url: /community-integrations/community-shippers.html
+
+  # - title: Shipping utilities
+  #   url: /shipping/shipping-utilities/
+  #   thirdLevel:
+
   # ===== INTEGRATIONS =====
 - title: Integrations
+  icon: li-wrench
   secondLevel:
+  - title: Alert endpoints
+    url: /user-guide/integrations/endpoints.html
   - title: Alice, Slack chatbot
     url: /user-guide/integrations/alice-slack-chatbot.html
 
-
-  # ===== DEVELOPERS =====
-- title: Developers
-  secondLevel:
-  # - title: Quickstarts
-  #   thirdLevel:
-  #   - title: Create API token & make a test call
+  - title: API reference
+    url: /api/
   - title: API cookbook
     url: /api/cookbook/
     thirdLevel:
@@ -177,8 +187,7 @@ firstLevel:
   #   - title: Create snapshots
   #   - title: Allocate account volume
   #   - title: Create a user
-  - title: API reference
-    url: /api/
+
 
   # ===== MORE =====
 - title: ""

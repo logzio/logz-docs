@@ -57,7 +57,7 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
     ![Alert notification actions]({{site.baseurl}}/images/alerts/alerts--notification-action.png)
 
-    1. Choose the endpoints or email addresses to notify. If you need help adding a new endpoint, see [Alert endpoints]({{site.baseurl}}/user-guide/alerts/alert-endpoints.html).
+    1. Choose the endpoints or email addresses to notify. If you need help adding a new endpoint, see [Alert endpoints]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 
     2. Choose a time period to suppress notifications.
 

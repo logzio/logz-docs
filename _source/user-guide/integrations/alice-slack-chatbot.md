@@ -6,8 +6,8 @@ permalink: /user-guide/integrations/alice-slack-chatbot.html
 flags:
   logzio-plan: pro
 open-source:
-  title: Alice
-  github-repo: slack-integration
+  - title: Alice
+    github-repo: slack-integration
 tags:
   - integrations
   - slack

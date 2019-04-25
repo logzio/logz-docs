@@ -4,7 +4,7 @@ title: Docs report
 ---
 {%- include tags/capture-site-pages.html -%}
 
-**Site build time:** {{site.time}}
+**Site build time**: {{site.time}}
 
 ### Page flags
 

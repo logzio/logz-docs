@@ -18,5 +18,3 @@ This build's environment: {{jekyll.environment}}
   * [{{doc.title}}]({{doc.url}})
   {%- endunless -%}
 {%- endfor %}
-
-<!-- TODO: After merging log shipping, move tags page to /docs-admin -->

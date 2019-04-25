@@ -29,9 +29,11 @@ $.getJSON( "{{site.baseurl}}/data/tags.json", function( data ) {
 
 <div id="by-tag-tab">
 
-<!--  Contains the list of tags. js script (above, in this file) appends an
-      <h2> and then a <ul> for each tag, then populates the <ul> with <li> for
-      each page that has that tag. -->
+{%- comment -%}
+*   Contains the list of tags. js script (above, in this file) appends an <h2>
+*   and then a <ul> for each tag, then populates the <ul> with <li> for each
+*   page that has that tag.
+*         {%- endcomment -%}
 <div id="tags-container">
 
 <table id="tags-table">
@@ -43,14 +45,14 @@ $.getJSON( "{{site.baseurl}}/data/tags.json", function( data ) {
 </div>
 
 <div id="by-page-tab">
-{%- assign htmlPages = site.html_pages -%}
-{%- assign shippingDataSources = "" | split: "" -%}
-{%- assign shippingDataSources = site.data-sources | default: shippingDataSources -%}
-{%- assign htmlPages = htmlPages | concat: shippingDataSources | sort: "title" -%}
+
+{%- include tags/capture-site-pages.html -%}
+
+{%- assign allPages = htmlPages | concat: shippingDataSources | sort: "title" -%}
 
 | Page | Tags |
 |---|---|
-{%- for p in htmlPages -%}
+{%- for p in allPages -%}
 {%- unless p.tags == false or p.tags == nil %}
 | [{{p.title}}]({{p.url}}) | {{ p.tags | sort | join: "<br />" }} |
 {%- endunless -%}

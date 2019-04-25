@@ -25,7 +25,7 @@ community-info: false
 {%- capture thisPageTocHeader -%}
 {%- case page.collection -%}
   {%- when "log-sources" -%}
-    Filter by log source
+    On this page
   {%- when "shipping-utilities" -%}
     What kind of shippers are you looking for?
 {%- endcase -%}
@@ -33,9 +33,8 @@ community-info: false
 <nav id="on-this-page-toc">
   <div class="inline-header">{{thisPageTocHeader}}</div>
   <div>
-    <a class="filter-btn filter-active" data-filter="all">All</a>
     {%- for c in categories %}
-      <a class="filter-btn" data-filter="{{c | downcase | slugify}}">{{c}}</a>
+      <a href="#{{c | slugify}}">{{c}}</a>
     {% endfor -%}
   </div>
 </nav>
@@ -45,11 +44,11 @@ community-info: false
 *   category. Simple as that.
 *         {%- endcomment -%}
 
-<div class="card-container">
-  <div class="cards mini-cards">
-  {%- for category in categories %}
-    {%- include log-shipping/data-source-array.html shippingCategory=category -%}
-    {%- include log-shipping/shipping-cards.html -%}
-  {%- endfor -%}
+{%- for category in categories %}
+  <div class="card-container">
+    <h5 id="{{category | slugify}}">{{category}}</h5>
+    <div class="cards mini-cards">
+      {%- include log-shipping/data-source-array.html shippingCategory=category -%}
+    </div>
   </div>
-</div>
+{%- endfor -%}

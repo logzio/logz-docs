@@ -21,3 +21,25 @@
     {%- assign datafile = include.datafile | remove: ".yml" | remove: ".yaml" -%}
     {%- assign shippersInThisCategory = site.data.[datafile] -%}
 {%- endcase -%}
+
+{%- for shipper in shippersInThisCategory  %}
+  {%- assign shipperUrl = shipper.project-url | default: shipper.url -%}
+  {%- assign filename = shipper.path | split: "/" | last -%}
+
+{%- unless filename == "index.md" -%}
+  <div class="card mini-card
+    {%- if shipper.community-project == true %} community-project-card{%- endif -%}
+  ">
+    <a href="{{ shipperUrl }}">
+      <div class="card-icon {{shipper.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{shipper.logo.logofile}}');" alt="{{shipper.shipping-summary.data-source}} logo">
+      </div>
+      <div class="card-text">
+        <span class="card-title">{{ shipper.shipping-summary.data-source }}</span>
+        {%- if shipper.community-project == true %}
+        <p>{{shipper.title}}</p>
+        {%- endif %}
+      </div>
+    </a>
+  </div>
+{%- endunless -%}
+{%- endfor %}

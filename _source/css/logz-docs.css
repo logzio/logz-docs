@@ -232,10 +232,6 @@ div.body-container, div.card-container {
 
 /* ===== CARDS ===== */
 
-div.card-container a {
-  margin: 12px;
-}
-
 div.cards {
   display: flex;
   flex-direction: row;
@@ -246,8 +242,7 @@ div.cards {
 div.card {
   border: 1px solid var(--border-light);
   border-radius: 6px;
-  padding: 14px;
-  margin: 0;
+  margin: 12px;
   width: 250px;
   text-align: center;
 
@@ -255,14 +250,17 @@ div.card {
   transition: box-shadow 200ms;
 }
 
+.card > a {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+}
+
 div.card:hover {
   box-shadow: var(--card-shadow);
   transition: box-shadow 200ms;
 }
 
-div.full-card {
-  height: 170px;
-}
 
 div.half-card {
   height: 50px;
@@ -271,12 +269,15 @@ div.half-card {
 }
 
 div.mini-card {
-  padding: 0 5px;
   width: 150px;
   height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+.mini-card > a {
+  padding: 0 5px;
 }
 
 div.mini-card.community-project-card {
@@ -304,7 +305,7 @@ span.card-title {
 
 .mini-card .card-title {
   font-family: var(--body-font);
-  line-height: 0px;
+  line-height: 0;
 }
 
 div.full-card span.card-title {
@@ -354,6 +355,15 @@ div.card-icon i::before {
   margin: 0;
 }
 
+.mini-card.community-project-card {
+  justify-content: flex-start;
+}
+
+.mini-card.community-project-card a {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .mini-card.community-project-card::before {
   content: "Community project";
 
@@ -362,10 +372,9 @@ div.card-icon i::before {
 
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  padding-top: 0;
+  padding-bottom: 0; 
   font-size: .9rem;
-  font-weight: 400;
-
-  margin: -11px -6px 0px -6px;
 }
 
 /* ===== BASE STYLES ===== */
@@ -1720,10 +1729,6 @@ ol .branching-tabs {
   margin-right: 20px;
   margin-bottom: 15px;
   cursor: pointer;
-}
-
-.filter-active, #on-this-page-toc div a:hover {
-  font-weight: 700;
 }
 
 .breadcrumbs {

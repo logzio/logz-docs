@@ -32,13 +32,13 @@
 
 
     <div class="cards half-cards">
-      {% for card in page.half-cards %}
-      <a href="{{ card.url }}">
-        <div class="card half-card">
+      {% for card in page.half-cards -%}
+      <div class="card half-card">
+        <a href="{{ card.url }}">
           <span class="card-title">{{ card.title }}</span>
-        </div>
-      </a>
-      {% endfor %}
+        </a>
+      </div>
+      {%- endfor %}
     </div>
 
   </div>

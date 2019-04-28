@@ -20,7 +20,7 @@
 
 {%- for project in page.open-source -%}
   {%- assign projectTitle = project.title -%}
-  {%- assign projectUrl = page.open-source.github-repo | prepend: "https://github.com/logzio/" -%}
+  {%- assign projectUrl = project.github-repo | prepend: "https://github.com/logzio/" -%}
 
 <a class="fancy-link" href="{{ projectUrl }}">
     <i class="fab fa-github"></i> {{ projectTitle }}

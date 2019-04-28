@@ -26,12 +26,12 @@ If you're having trouble shipping your logs to Logz.io, you may need to open you
       {%- assign suffix = r[0] | prepend: "-" -%}
   {%- endcase %}
 
-#### app{{suffix}}.logz.io ({{attribs.title}}, {{attribs.cloud}})
+#### app{{suffix}}.logz.io — _{{attribs.title}}, {{attribs.cloud}}_
 
 If you're shipping logs to app{{suffix}}.logz.io, open your firewall to these {{attribs.cloud}} IP addresses:
 
-{%- assign sortedIPs = attribs.listener-ips | sort -%}
-{% for ip in sortedIPs %}
+{% assign sortedIPs = attribs.listener-ips | sort -%}
+{%- for ip in sortedIPs %}
 * {{ip}}
 {%- endfor %}
 {% endfor %}

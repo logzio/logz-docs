@@ -3,7 +3,11 @@
 {%- assign repoPath = site.github.org_url | append: site.github.repo_name -%}
 
 {%- capture editPath -%}
-  {{ repoPath | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "."}}
+  {{ repoPath | append: "/tree" | append: site.github.edit_branch }}{{site.source | remove_first: "." | append: "/" }}
+  {%- if page.collection -%}
+    {{site.collections_dir | append: "/"}}
+  {%- endif -%}
+  {{page.path}}
 {%- endcapture -%}
 
 {%- capture issuePath -%}
@@ -21,7 +25,7 @@
 </div>
 
   <div class="feedback button edit">
-    <a class="fancy-link" href="{{ editPath }}/{{ page.path }}" target="_blank">
+    <a class="fancy-link" href="{{ editPath }}" target="_blank">
       <span class="icon">{% octicon mark-github %}</span>
       <span>Edit this page</span>
     </a>

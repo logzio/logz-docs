@@ -57,7 +57,7 @@ If you want to build your own integration, visit the [Logz.io API docs]({{site.b
 
 ## About token permissions
 
-Tokens permissions are scoped to the account they're created in.
+Token permissions are scoped to the account they're created in.
 So if you create an API token in your main account, that token can be used to search your main account and sub accounts.
 
 If you change your account permissions, tokens respect the updated permissions.

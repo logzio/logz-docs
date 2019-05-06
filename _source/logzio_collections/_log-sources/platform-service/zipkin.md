@@ -21,6 +21,14 @@ It can function as both a collector and a span store.
   If you're on a Pro account, reach out to your account manager or the <a class="intercom-launch" href="mailto:sales@logz.io">Sales team</a> to request API access.
 </div>
 
+##### Before we start, a few limitations you should know about
+
+If you use Logz.io as Zipkin trace storage, there are a couple limitations.
+For most users, these won't be an issue, but they're still good to know:
+
+* **Lookback** must be 2 days or less
+* **Limit** must be 1000 traces or less
+
 ## To integrate Zipkin server and Logz.io
 
 {: .tasklist .firstline-headline}
@@ -71,7 +79,7 @@ It can function as both a collector and a span store.
       <!-- logzio-inject: account-token -->
 
     LOGZIO_API_TOKEN <span class="required-param"></span>
-    : Required to read back spans from Logz.io. \\
+    : Required to read back traces from Logz.io. \\
       Replace `<API-TOKEN>` with an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from the account you want to use.
 
     LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span>
@@ -87,8 +95,8 @@ It can function as both a collector and a span store.
     : Use `false` if your version of Zipkin server generates 64-bit trace IDs.
       If `false`, spans are grouped by the rightmost 16 characters of the trace ID.
 
-3. Check Logz.io for your logs
+3. Check Logz.io for your traces
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+    Give your traces some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

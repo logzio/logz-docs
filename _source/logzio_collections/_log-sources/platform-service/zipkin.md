@@ -21,9 +21,9 @@ It can function as both a collector and a span store.
   If you're on a Pro account, reach out to your account manager or the <a class="intercom-launch" href="mailto:sales@logz.io">Sales team</a> to request API access.
 </div>
 
-##### Before we start, a few limitations you should know about
+### Limitations
 
-If you use Logz.io as Zipkin trace storage, there are a couple limitations.
+When you use the Zipkin UI to find traces stored in Logz.io, there are a couple limitations.
 For most users, these won't be an issue, but they're still good to know:
 
 * **Lookback** must be 2 days or less

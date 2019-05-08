@@ -35,7 +35,7 @@ root access
 
 3. Add TCP traffic as an input
 
-    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to the filebeat.inputs section.
+    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
 
     {% include log-shipping/replace-vars.html token=true %}
 

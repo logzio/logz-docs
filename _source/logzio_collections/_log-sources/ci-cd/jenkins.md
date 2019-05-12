@@ -10,7 +10,15 @@ contributors:
   - imnotashrimp
 ---
 
-## Setup
+<div class="branching-container">
+
+{: .branching-tabs }
+  * [Filebeat <span class="sm ital">(recommended)</span>](#filebeat-config)
+  * [Jenkins plugin](#jenkins-plugin-config)
+
+<div id="filebeat-config">
+
+## Filebeat setup for Jenkins
 
 <div class="accordion">
 
@@ -157,3 +165,80 @@ root access
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+
+<div id="jenkins-plugin-config">
+
+## Jenkins plugin setup
+
+This is a temporary fork of a Jenkins-maintained project named Logstash plugin.
+We're working toward merging our implementation in the Jenkins repo.
+For full documentation and all configuration options, see the original [Logstash plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
+
+###### Configuration
+
+**You'll need**: Maven
+
+{: .tasklist .firstline-headline}
+1. Clone Logstash Plugin to your local machine
+
+    Clone the Logstash Plugin repo and `cd` into the logstash-plugin folder.
+
+    ```shell
+    git clone https://github.com/logzio/logstash-plugin
+    cd logstash-plugin
+    ```
+
+2. Load the plugin in Jenkins
+
+    Use Maven to build the plugin.
+
+    ```shell
+    mvn package
+    ```
+
+    You'll see the `Generating hpi` line in the response.
+    This line shows the path to the plugin file (`.hpi` extension).
+    For example:
+
+    ```
+    [INFO] Generating hpi /path/to/repo/logstash-plugin/target/logstash.hpi
+    ```
+
+    Copy the .hpi file from this path to your Jenkins plugins folder on your Jenkins server.
+
+    ```shell
+    cp /path/to/repo/logstash-plugin/target/logstash.hpi $JENKINS_HOME/plugins
+    ```
+
+    Restart Jenkins for the changes to take effect.
+
+3. Configure Logstash Plugin in Jenkins
+
+    Log in to the Jenkins UI and navigate to **Manage Jenkins > Configure System**.
+
+    Set these options in the _Logstash_ section:
+
+    * Select **Enable sending logs to an Indexer**.
+    * In the **Indexer Type** list, choose **Logz.io**.
+    * **Logz.io Host**: Your region's listener URL.
+      For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+    * **Logz.io Token**: The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+
+    Click **Save**.
+
+4. Enable the plugin in your Jenkins jobs
+
+    In each Jenkins job, click **Configure** go to the _Post-build Actions_ tab.
+    Select **Add post-build action > Send console log to Logstash**, and then click **Save**.
+
+5. Check Logz.io for your logs
+
+      Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+      If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+
+</div>

@@ -5,6 +5,9 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Jenkins
+open-source:
+  - title: Jenkins Logstash Plugin
+    github-repo: logstash-plugin
 contributors:
   - amosd92
   - imnotashrimp
@@ -172,18 +175,18 @@ root access
 
 ## Jenkins plugin setup
 
-This is a temporary fork of a Jenkins-maintained project named Logstash plugin.
+This is a temporary fork of a Jenkins-maintained project named Jenkins Logstash Plugin.
 We're working toward merging our implementation in the Jenkins repo.
-For full documentation and all configuration options, see the original [Logstash plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
+For full documentation and all configuration options, see the original [Jenkins Logstash Plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
 
 ###### Configuration
 
 **You'll need**: Maven
 
 {: .tasklist .firstline-headline}
-1. Clone Logstash Plugin to your local machine
+1. Clone Jenkins Logstash Plugin to your local machine
 
-    Clone the Logstash Plugin repo and `cd` into the logstash-plugin folder.
+    Clone the Jenkins Logstash Plugin repo and `cd` into the logstash-plugin folder.
 
     ```shell
     git clone https://github.com/logzio/logstash-plugin
@@ -214,7 +217,7 @@ For full documentation and all configuration options, see the original [Logstash
 
     Restart Jenkins for the changes to take effect.
 
-3. Configure Logstash Plugin in Jenkins
+3. Configure the plugin in Jenkins
 
     Log in to the Jenkins UI and navigate to **Manage Jenkins > Configure System**.
 

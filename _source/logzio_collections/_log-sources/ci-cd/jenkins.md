@@ -181,10 +181,10 @@ For full documentation and all configuration options, see the original [Jenkins 
 
 ###### Configuration
 
-**You'll need**: Maven
+**You'll need**: [Maven](https://maven.apache.org/install.html)
 
 {: .tasklist .firstline-headline}
-1. Clone Jenkins Logstash Plugin to your local machine
+1. Clone the Jenkins Logstash Plugin repo
 
     Clone the Jenkins Logstash Plugin repo and `cd` into the logstash-plugin folder.
 
@@ -201,8 +201,8 @@ For full documentation and all configuration options, see the original [Jenkins 
     mvn package
     ```
 
-    You'll see the `Generating hpi` line in the response.
-    This line shows the path to the plugin file (`.hpi` extension).
+    You'll see the `[INFO] Generating hpi` line in the response.
+    This line shows the path to the plugin file (.hpi extension).
     For example:
 
     ```

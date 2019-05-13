@@ -13,7 +13,7 @@ contributors:
 ---
 
 Zipkin-Logz.io Trace Storage is a storage option for Zipkin distributed traces on your Logz.io account.
-It can function as both a collector and a span store.
+It functions as both a collector and a span store.
 
 <div class="info-box note">
   This integration requires Logz.io API access.
@@ -58,12 +58,14 @@ For most users, these won't be an issue, but they're still good to know:
     ```
 
     <div class="info-box tip">
-      You can optionally run two Zipkin-Logzio Trace Storage instances if you want to separate shipping and reading of your traces.
+
+      You can optionally run two discrete Zipkin-Logzio Trace Storage instances if you want to separate shipping and reading of your traces.
 
       If you do, then the required fields change a bit from what's shown in the Parameters list:
 
-      * The **shipping instance** requires `STORAGE_TYPE=logzio`, `LOGZIO_ACCOUNT_TOKEN`, and `LOGZIO_LISTENER_HOST` (if you're not shipping to the default listener).
-      * The **reading instance** requires `STORAGE_TYPE=logzio`, `LOGZIO_API_TOKEN`, and `LOGZIO_API_HOST`.
+      * The **shipping instance** uses `STORAGE_TYPE=logzio`, `LOGZIO_ACCOUNT_TOKEN`, and `LOGZIO_LISTENER_HOST`.
+      * The **reading instance** uses `STORAGE_TYPE=logzio`, `LOGZIO_API_TOKEN`, and `LOGZIO_API_HOST`.
+
     </div>
 
     {: .inline-header }
@@ -92,8 +94,9 @@ For most users, these won't be an issue, but they're still good to know:
       For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
     STRICT_TRACE_ID <span class="default-param">`true`</span>
-    : Use `false` if your version of Zipkin server generates 64-bit trace IDs.
+    : Use `false` if your version of Zipkin server generates 64-bit trace IDs (version 1.14 or lower).
       If `false`, spans are grouped by the rightmost 16 characters of the trace ID.
+      For version 1.15 or later, we recommend leaving the default.
 
 3. Check Logz.io for your traces
 

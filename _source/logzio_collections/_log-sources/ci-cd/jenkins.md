@@ -181,7 +181,9 @@ For full documentation and all configuration options, see the original [Jenkins 
 
 ###### Configuration
 
-**You'll need**: [Maven](https://maven.apache.org/install.html)
+**You'll need**:
+[JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html),
+[Maven](https://maven.apache.org/install.html)
 
 {: .tasklist .firstline-headline}
 1. Clone the Jenkins Logstash Plugin repo
@@ -195,21 +197,13 @@ For full documentation and all configuration options, see the original [Jenkins 
 
 2. Load the plugin in Jenkins
 
-    Use Maven to build the plugin.
+    Set Maven to use JDK 8, and then build the plugin.
 
     ```shell
-    mvn package
+    JAVA_HOME=/path/to/jdk/8/ mvn package
     ```
 
-    You'll see the `[INFO] Generating hpi` line in the response.
-    This line shows the path to the plugin file (.hpi extension).
-    For example:
-
-    ```
-    [INFO] Generating hpi /path/to/repo/logstash-plugin/target/logstash.hpi
-    ```
-
-    Copy the .hpi file from this path to your Jenkins plugins folder on your Jenkins server.
+    Copy `logstash-plugin/target/logstash.hpi` to your Jenkins plugins folder on your Jenkins server.
 
     ```shell
     cp /path/to/repo/logstash-plugin/target/logstash.hpi $JENKINS_HOME/plugins

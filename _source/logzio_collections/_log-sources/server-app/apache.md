@@ -180,6 +180,7 @@ root access
     {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
+    #### OUTPUT ####
     output.logstash:
       hosts: ["<LISTENER-URL>:5015"]
       ssl:

@@ -9,6 +9,7 @@ open-source:
 shipping-summary:
   data-source: Zipkin traces
 contributors:
+  - yyyogev
   - imnotashrimp
 ---
 

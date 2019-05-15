@@ -1,16 +1,38 @@
 ---
-title: Ship logs from network devices
+title: Ship logs from OSSEC
 logo:
-  logofile: network-device.svg
-  orientation: horizontal
+  logofile: ossec.png
+  orientation: vertical
 shipping-summary:
-  data-source: Network device
+  data-source: OSSEC
 contributors:
   - imnotashrimp
   - schwin007
 ---
 
 ## Setup
+
+<div class="accordion">
+
+### Configuration tl;dr
+
+<div>
+
+Files
+: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
+  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
+
+Listener
+: Port 5015.
+  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+
+Default log locations
+: JSON _(recommended)_: `/var/ossec/logs/alerts/alerts.json` \\
+  Plain text: `/var/ossec/logs/alerts/alerts.log`
+
+</div>
+
+</div>
 
 ###### Guided configuration
 
@@ -20,12 +42,24 @@ contributors:
 root access
 
 {: .tasklist .firstline-headline }
-1. Configure your device
+1. Configure OSSEC for JSON alert output
 
-    Configure your network device to send logs to your Filebeat server, TCP port 9000.
-    See your device's documentation if you're not sure how to do this.
+    In the OSSEC configuration file (/var/ossec/etc/ossec.conf), find the `<global>` tag.
+    Add the `<jsonout_output>` property and set to `yes`.
 
-2. Download the Logz.io certificate to your Filebeat server
+    ```xml
+    <global>
+      <jsonout_output>yes</jsonout_output>
+    </global>
+    ```
+
+    Restart OSSEC.
+
+    ```shell
+    sudo /var/ossec/bin/ossec-control restart
+    ```
+
+2. Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -33,9 +67,9 @@ root access
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-3. Add TCP traffic as an input
+3. Add OSSEC as an input
 
-    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
+    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add OSSEC to the filebeat.inputs section.
 
     {% include log-shipping/replace-vars.html token=true %}
 
@@ -51,17 +85,18 @@ root access
     # Filebeat 7 configuration
 
     filebeat.inputs:
-    - type: tcp
-      max_message_size: 10MiB
-      host: "0.0.0.0:9000"
+    - type: log
+
+      paths:
+      - /var/ossec/logs/alerts/alerts.json
 
       fields:
-        logzio_codec: plain
+        logzio_codec: json
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
         token: <ACCOUNT-TOKEN>
-        type: network-device
+        type: ossec
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
@@ -84,26 +119,28 @@ root access
 
     <div id="filebeat-6-code">
 
+
     ```yaml
-    # Filebeat 7 configuration
+    # Filebeat 6 configuration
 
     filebeat.inputs:
-    - type: tcp
-      max_message_size: 10MiB
-      host: "0.0.0.0:9000"
+    - type: log
+
+      paths:
+      - /var/ossec/logs/alerts/alerts.json
 
       fields:
-        logzio_codec: plain
+        logzio_codec: json
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
         token: <ACCOUNT-TOKEN>
-        type: network-device
+        type: ossec
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
 
-    filebeat.registry_file: /var/lib/filebeat/registry
+    registry_file: /var/lib/filebeat/registry
     ```
 
     </div>

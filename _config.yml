@@ -140,6 +140,10 @@ defaults:
       path: _log-sources/ci-cd
     values:
       shipping-category: CI/CD
+  - scope:
+      path: _log-sources/security
+    values:
+      shipping-category: Security
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

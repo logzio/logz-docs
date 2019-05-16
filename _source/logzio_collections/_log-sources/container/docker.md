@@ -60,6 +60,15 @@ contributors:
     : Logz.io listener URL to ship the logs to.
       {% include log-shipping/replace-vars.html listener=true %}
 
+    LOGZIO_TYPE <span class="default-param">Docker image name</span>
+    : The log type you'll use with this Docker.
+      This is shown in your logs under the `type` field in Kibana. \\
+      Logz.io applies parsing based on `type`.
+
+    LOGZIO_CODEC <span class="default-param">`plain`</span>
+    : Set to `json` if shipping JSON logs.
+      Otherwise, set to `plain`.
+
     matchContainerName
     : Comma-separated list of containers you want to collect the logs from.
       If a container's name partially matches a name on the list, that container's logs are shipped.

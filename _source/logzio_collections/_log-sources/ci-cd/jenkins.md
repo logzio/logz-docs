@@ -210,14 +210,14 @@ For full documentation and all configuration options, see the original [Jenkins 
     ```
 
     Restart Jenkins for the changes to take effect.
+    You can do this by browsing to `http://<jenkins-server>/restart` or `http://<jenkins-server>/safeRestart`.
 
 3. Configure the plugin in Jenkins
 
     Log in to the Jenkins UI and navigate to **Manage Jenkins > Configure System**.
 
-    Set these options in the _Logstash_ section:
+    In the _Logstash_ section, select **Enable sending logs to an Indexer**, and then set these options:
 
-    * Select **Enable sending logs to an Indexer**.
     * In the **Indexer Type** list, choose **Logz.io**.
     * **Logz.io Host**: Your region's listener URL.
       For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
@@ -227,8 +227,18 @@ For full documentation and all configuration options, see the original [Jenkins 
 
 4. Enable the plugin in your Jenkins jobs
 
-    In each Jenkins job, click **Configure** go to the _Post-build Actions_ tab.
-    Select **Add post-build action > Send console log to Logstash**, and then click **Save**.
+    In each Jenkins job, click **Configure** in the left menu to set your logging preferences.
+
+    {: .inline-header }
+    To stream logs as they happen
+
+    In the _General_ section, select **Send console log to Logstash**, and click **Save**.
+
+    {: .inline-header }
+    To send logs in bulk
+
+    In the _Post-build Actions_ section (at the bottom of the page), select **Add post-build action > Send console log to Logstash**.
+    Set the **Max lines** in each bulk, and then click **Save**.
 
 5. Check Logz.io for your logs
 

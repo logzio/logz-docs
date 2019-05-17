@@ -2,13 +2,30 @@
 layout: none
 ---
 
+{%- include tags/capture-site-pages.html -%}
+
 {%- assign counter = 0 %}
-var documents = [{% for page in site.html_pages %}{% if page.url contains '.xml' or page.url contains 'assets' %}{% else %}{% unless page.search == false %}{
+var documents = [
+  {%- for p in allPages -%}
+  {%- unless p.search == false -%}
+  {
     "id": {{ counter }},
-    "url": "{{ site.url }}{{ page.url }}",
-    "title": "{{ page.title }}",
-    "body": "{{ page.content | markdownify | replace: '.', '. ' | replace: '</h2>', ': ' | replace: '</h3>', ': ' | replace: '</h4>', ': ' | replace: '</p>', ' ' | strip_html | strip_newlines | replace: '  ', ' ' | replace: '"', ' ' }}"{% assign counter = counter | plus: 1 %}
-    }, {% endunless %}{% endif %}{% endfor %}];
+    "url": "{{ site.url }}{{ p.url }}",
+    "title": "{{ p.title }}",
+    "body": "{{ p.content
+      | replace: '.', '. '
+      | replace: '</h2>', ': '
+      | replace: '</h3>', ': '
+      | replace: '</h4>', ': '
+      | replace: '</p>', ' '
+      | strip_html
+      | strip_newlines
+      | replace: '  ', ' '
+      | replace: '"', ' ' }}"
+      {%- assign counter = counter | plus: 1 -%}
+    },
+    {%- endunless %}{% endfor -%}
+  ];
 
 var idx = lunr(function () {
     this.ref('id')

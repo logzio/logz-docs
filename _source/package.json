@@ -25,7 +25,12 @@
   "dependencies": {
     "clipboard": "^2.0.4",
     "jquery": "^3.4.1",
+    "mobx": "^4.9.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "redoc": "^2.0.0-rc.8-1",
     "smooth-scroll": "^16.0.3",
+    "styled-components": "^4.2.0",
     "tablesorter": "^2.31.1"
   }
 }

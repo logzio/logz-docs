@@ -1,3 +1,6 @@
+{%- assign nodeDir = site.baseurl | append: "/node_modules" -%}
+{%- assign jsDir = site.baseurl | append: "/js" -%}
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,23 +40,23 @@
 
   <link rel="icon" type="image/png" href="{{ site.favicon }}" />
 
-  <script type="text/javascript" src="{{site.baseurl}}/node_modules/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript" src="{{site.baseurl}}/js/jquery-ui-widget-1.12.1.min.js"></script>
+  <script type="text/javascript" src="{{nodeDir}}/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="{{jsDir}}/jquery-ui-widget-1.12.1.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="{{site.baseurl}}/js/logz-docs.js"></script>
+  <script type="text/javascript" src="{{jsDir}}/logz-docs.js"></script>
 
   <!-- jquery table sorter -->
-  <script type="text/javascript" src="{{site.baseurl}}/node_modules/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+  <script type="text/javascript" src="{{nodeDir}}/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
 
   <!-- js hashchange -->
-  <script type="text/javascript" src="{{site.baseurl}}/js/jquery.ba-hashchange.min.js"></script>
-  <script type="text/javascript" src="{{site.baseurl}}/js/jquery.easytabs.min.js"></script>
+  <script type="text/javascript" src="{{jsDir}}/jquery.ba-hashchange.min.js"></script>
+  <script type="text/javascript" src="{{jsDir}}/jquery.easytabs.min.js"></script>
 
   <!-- clipboard.js -->
-  <script src="{{site.baseurl}}/node_modules/clipboard/dist/clipboard.min.js"></script>
+  <script src="{{nodeDir}}/clipboard/dist/clipboard.min.js"></script>
 
   <!-- smooth scroll -->
-  <script src="{{site.baseurl}}/js/smooth-scroll.min.js"></script>
+  <script src="{{jsDir}}/smooth-scroll.min.js"></script>
 
   <!-- the one stylesheet to rule them all -->
   {% if page.layout=="api-ref" %}

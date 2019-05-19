@@ -6,7 +6,7 @@ x-servers:
     description: N. Virginia region
   - url: https://api-eu.logz.io/v1
     description: Frankfurt region
-  - url: https://api-nl-logz.io/v1
+  - url: https://api-nl.logz.io/v1
     description: West Europe region
 basePath: /v1
 produces: [ application/json ]

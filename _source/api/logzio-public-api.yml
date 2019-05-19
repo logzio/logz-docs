@@ -4,9 +4,11 @@ host: api.logz.io
 x-servers:
   - url: https://api.logz.io/v1
     description: N. Virginia region
+  - url: https://api-ca.logz.io/v1
+    description: Canada region
   - url: https://api-eu.logz.io/v1
     description: Frankfurt region
-  - url: https://api-nl-logz.io/v1
+  - url: https://api-nl.logz.io/v1
     description: West Europe region
 basePath: /v1
 produces: [ application/json ]

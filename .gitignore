@@ -4,3 +4,4 @@ _site
 .DS_Store
 .vscode
 _source/_data/stale-list.yml
+node_modules

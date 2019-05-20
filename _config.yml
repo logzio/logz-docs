@@ -117,9 +117,9 @@ defaults:
     values:
       shipping-category: Server apps & devices
   - scope:
-      path: _log-sources/custom-code
+      path: _log-sources/from-your-code
     values:
-      shipping-category: Custom code
+      shipping-category: From your code
   - scope:
       path: _log-sources/platform-service
     values:

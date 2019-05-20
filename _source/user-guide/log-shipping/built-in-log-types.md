@@ -39,3 +39,4 @@ This table shows the built-in log types that Logz.io supports. If you don't see 
 | nginx access          | `nginx`, `nginx_access`, `nginx-access`    |
 | nginx error           | `nginx-error`                              |
 | OSSEC                 | `ossec`                                    |
+| Zipkin span           | `zipkinSpan`                               |

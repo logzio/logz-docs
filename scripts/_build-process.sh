@@ -6,3 +6,9 @@ echo source = $JEKYLL_SOURCE
 echo jekyll data = $JEKYLL_DATA
 
 $SCRIPTS/make-stale-list.sh
+
+echo Installing node modules...
+NODE_ENV=production npm install --production
+
+echo Moving node files...
+gulp

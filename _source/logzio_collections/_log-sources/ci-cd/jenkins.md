@@ -5,12 +5,23 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Jenkins
+open-source:
+  - title: Jenkins Logstash Plugin
+    github-repo: logstash-plugin
 contributors:
   - amosd92
   - imnotashrimp
 ---
 
-## Setup
+<div class="branching-container">
+
+{: .branching-tabs }
+  * [Filebeat <span class="sm ital">(recommended)</span>](#filebeat-config)
+  * [Jenkins plugin](#jenkins-plugin-config)
+
+<div id="filebeat-config">
+
+## Filebeat setup for Jenkins
 
 <div class="accordion">
 
@@ -157,3 +168,100 @@ root access
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+
+<div id="jenkins-plugin-config">
+
+## Jenkins Logstash Plugin setup
+
+<div class="info-box note">
+
+  This is a temporary fork of a Jenkins-maintained project named Jenkins Logstash Plugin.
+  We're working toward merging our implementation in the Jenkins repo.
+  For full documentation and all configuration options, see the original [Jenkins Logstash Plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
+
+</div>
+
+Jenkins Logstash Plugin sends Jenkins build logs to your Logz.io account.
+The plugin is configured per project.
+You can choose to stream a project's build logs or to send only the last logs of each build.
+
+
+###### Configuration
+
+**You'll need**:
+[JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html),
+[Maven](https://maven.apache.org/install.html)
+
+{: .tasklist .firstline-headline}
+1. Clone the Jenkins Logstash Plugin repo
+
+    Clone the Jenkins Logstash Plugin repo and `cd` into the logstash-plugin folder.
+
+    ```shell
+    git clone https://github.com/logzio/logstash-plugin
+    cd logstash-plugin
+    ```
+
+2. Load the plugin in Jenkins
+
+    Set Maven to use JDK 8, and then build the plugin.
+
+    ```shell
+    JAVA_HOME=/path/to/jdk/8/ mvn package
+    ```
+
+    Copy `logstash-plugin/target/logstash.hpi` to your Jenkins plugins folder on your Jenkins server.
+
+    ```shell
+    cp /path/to/repo/logstash-plugin/target/logstash.hpi $JENKINS_HOME/plugins
+    ```
+
+    Restart Jenkins for the changes to take effect.
+    You can do this by browsing to `http://<jenkins-server>/restart` or `http://<jenkins-server>/safeRestart`.
+
+3. Configure the plugin in Jenkins
+
+    Log in to the Jenkins UI and navigate to **Manage Jenkins > Configure System**.
+
+    In the _Logstash_ section, select **Enable sending logs to an Indexer**, and then set these options:
+
+    * In the **Indexer Type** list, choose **Logz.io**.
+    * **Logz.io Host**: Your region's listener URL.
+      For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+    * **Logz.io Token**: The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+
+    Click **Save**.
+
+4. Enable the plugin in your Jenkins jobs
+
+    In each Jenkins job, click **Configure** in the left menu to set your logging preferences.
+
+    <div class="info-box important">
+
+      Make sure you enable only one of these options.
+      If both options are enabled, Jenkins Logstash Plugin will send duplicate logs Logz.io.
+
+    </div>
+
+    {: .inline-header }
+    To stream all logs
+
+    In the _General_ section, select **Send console log to Logstash**, and click **Save**.
+
+    {: .inline-header }
+    To send only the last logs of each build
+
+    In the _Post-build Actions_ section (at the bottom of the page), select **Add post-build action > Send console log to Logstash**.
+    In the **Max lines** box, type the number of logs you want to send per build, and then click **Save**.
+
+5. Check Logz.io for your logs
+
+      Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+      If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+
+</div>

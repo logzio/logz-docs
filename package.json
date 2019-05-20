@@ -1,0 +1,39 @@
+{
+  "name": "logz-docs",
+  "version": "1.0.0",
+  "description": "The docs for Logz.io",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logzio/logz-docs.git"
+  },
+  "keywords": [
+    "elk-stack",
+    "elasticsearch",
+    "kibana",
+    "logstash",
+    "documentation",
+    "logzio"
+  ],
+  "author": "Shalom Boroda",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/logzio/logz-docs/issues"
+  },
+  "homepage": "https://docs.logz.io",
+  "dependencies": {
+    "clipboard": "^2.0.4",
+    "jquery": "^3.4.1",
+    "mobx": "^4.9.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "redoc": "^2.0.0-rc.8-1",
+    "smooth-scroll": "^16.0.3",
+    "styled-components": "^4.2.0",
+    "tablesorter": "^2.31.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

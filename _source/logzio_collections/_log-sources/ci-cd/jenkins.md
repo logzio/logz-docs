@@ -173,11 +173,20 @@ root access
 
 <div id="jenkins-plugin-config">
 
-## Jenkins plugin setup
+## Jenkins Logstash Plugin setup
 
-This is a temporary fork of a Jenkins-maintained project named Jenkins Logstash Plugin.
-We're working toward merging our implementation in the Jenkins repo.
-For full documentation and all configuration options, see the original [Jenkins Logstash Plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
+<div class="info-box note">
+
+  This is a temporary fork of a Jenkins-maintained project named Jenkins Logstash Plugin.
+  We're working toward merging our implementation in the Jenkins repo.
+  For full documentation and all configuration options, see the original [Jenkins Logstash Plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
+
+</div>
+
+Jenkins Logstash Plugin sends Jenkins build logs to your Logz.io account.
+The plugin is configured per project.
+You can choose to stream a project's build logs or to send only the last logs of each build.
+
 
 ###### Configuration
 
@@ -229,16 +238,23 @@ For full documentation and all configuration options, see the original [Jenkins 
 
     In each Jenkins job, click **Configure** in the left menu to set your logging preferences.
 
+    <div class="info-box important">
+
+      Make sure you enable only one of these options.
+      If both options are enabled, Jenkins Logstash Plugin will send duplicate logs Logz.io.
+
+    </div>
+
     {: .inline-header }
-    To stream logs as they happen
+    To stream all logs
 
     In the _General_ section, select **Send console log to Logstash**, and click **Save**.
 
     {: .inline-header }
-    To send logs in bulk
+    To send only the last logs of each build
 
     In the _Post-build Actions_ section (at the bottom of the page), select **Add post-build action > Send console log to Logstash**.
-    Set the **Max lines** in each bulk, and then click **Save**.
+    In the **Max lines** box, type the number of logs you want to send per build, and then click **Save**.
 
 5. Check Logz.io for your logs
 

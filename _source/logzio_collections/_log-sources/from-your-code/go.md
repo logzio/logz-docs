@@ -75,7 +75,7 @@ token <span class="required-param"></span>
 
 SetUrl <span class="default-param">`https://listener.logz.io:8071`</span>
 : Listener URL and port. \\
-  {%- include log-shipping/replace-vars.html listener=true %}
+  {% include log-shipping/replace-vars.html listener=true %}
 
 SetDebug <span class="default-param">`false`</span>
 : Debug flag.

@@ -8,5 +8,5 @@ echo jekyll data = $JEKYLL_DATA
 $SCRIPTS/make-stale-list.sh
 
 echo Installing node modules...
-cd $JEKYLL_SOURCE && NODE_ENV=production npm install --production
+NODE_ENV=production npm install --production
 echo '  done.'

@@ -5,4 +5,4 @@ _site
 .vscode
 _source/_data/stale-list.yml
 node_modules
-node_files
+external_js

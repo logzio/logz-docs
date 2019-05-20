@@ -7,5 +7,5 @@ exports.default = function() {
     .pipe(src('node_modules/clipboard/dist/clipboard.min.js'))
     .pipe(src('node_modules/smooth-scroll/dist/smooth-scroll.min.js'))
     .pipe(src('node_modules/redoc/bundles/redoc.standalone.js'))
-    .pipe(dest('_source/node_files/'));
+    .pipe(dest('_source/js/external_js/'));
 }

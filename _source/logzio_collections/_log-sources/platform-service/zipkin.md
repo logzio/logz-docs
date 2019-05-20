@@ -99,6 +99,12 @@ For most users, these won't be an issue, but they're still good to know:
       If `false`, spans are grouped by the rightmost 16 characters of the trace ID.
       For version 1.15 or later, we recommend leaving the default.
 
+    SENDER_DRAIN_INTERVAL <span class="default-param">`5`</span>
+    : Time interval, in seconds, to send the traces accumulated on the disk.
+
+    CLEAN_SENT_TRACES_INTERVAL <span class="default-param">`30`</span>
+    : Time interval, in seconds, to clean sent traces from the disk.
+
 3. Check Logz.io for your traces
 
     Give your traces some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

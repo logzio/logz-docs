@@ -9,4 +9,6 @@ $SCRIPTS/make-stale-list.sh
 
 echo Installing node modules...
 NODE_ENV=production npm install --production
-echo '  done.'
+
+echo Moving node modules...
+gulp

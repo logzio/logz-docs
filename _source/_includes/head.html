@@ -1,4 +1,4 @@
-{%- assign nodeDir = site.baseurl | append: "/node_modules" -%}
+{%- assign nodeDir = site.baseurl | append: "/node_files" -%}
 {%- assign jsDir = site.baseurl | append: "/js" -%}
 
 <head>
@@ -40,23 +40,23 @@
 
   <link rel="icon" type="image/png" href="{{ site.favicon }}" />
 
-  <script type="text/javascript" src="{{nodeDir}}/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="{{nodeDir}}/jquery.min.js"></script>
   <script type="text/javascript" src="{{jsDir}}/jquery-ui-widget-1.12.1.min.js"></script>
   <script type="text/javascript" src="{{jsDir}}/jquery-ui-1.12.1.min.js"></script>
   <script type="text/javascript" src="{{jsDir}}/logz-docs.js"></script>
 
   <!-- jquery table sorter -->
-  <script type="text/javascript" src="{{nodeDir}}/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+  <script type="text/javascript" src="{{nodeDir}}/jquery.tablesorter.min.js"></script>
 
   <!-- js hashchange -->
   <script type="text/javascript" src="{{jsDir}}/jquery.ba-hashchange.min.js"></script>
   <script type="text/javascript" src="{{jsDir}}/jquery.easytabs.min.js"></script>
 
   <!-- clipboard.js -->
-  <script src="{{nodeDir}}/clipboard/dist/clipboard.min.js"></script>
+  <script type="text/javascript" src="{{nodeDir}}/clipboard.min.js"></script>
 
   <!-- smooth scroll -->
-  <script src="{{nodeDir}}/smooth-scroll/dist/smooth-scroll.min.js"></script>
+  <script type="text/javascript" src="{{nodeDir}}/smooth-scroll.min.js"></script>
 
   <!-- the one stylesheet to rule them all -->
   {% if page.layout=="api-ref" %}

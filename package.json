@@ -32,5 +32,8 @@
     "smooth-scroll": "^16.0.3",
     "styled-components": "^4.2.0",
     "tablesorter": "^2.31.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
   }
 }

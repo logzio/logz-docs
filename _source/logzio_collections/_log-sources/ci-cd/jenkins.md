@@ -13,10 +13,15 @@ contributors:
   - imnotashrimp
 ---
 
+This page covers methods for shipping Jenkins system logs and build console output.
+
+* To ship Jenkins system logs, use Filebeat.
+* To ship build console output (build logs), use the Jenkins plugin.
+
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [Filebeat <span class="sm ital">(recommended)</span>](#filebeat-config)
+  * [Filebeat](#filebeat-config)
   * [Jenkins plugin](#jenkins-plugin-config)
 
 <div id="filebeat-config">

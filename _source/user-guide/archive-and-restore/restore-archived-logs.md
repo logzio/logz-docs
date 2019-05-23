@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Restore an archive
+title: Restore archived logs
 permalink: /user-guide/archive-and-restore/restore-archived-logs.html
 flags:
   admin: true
@@ -13,15 +13,12 @@ contributors:
   - danielberman
 ---
 
+![Restore a new account]({{site.baseurl}}/images/archive-and-restore/restored-accounts.png)
+
 When you restore archived logs,
 those logs are re-ingested into a temporary restored account that you can search from your main account.
 Restoring archived logs allows you to see your data in its original detail,
 so you can investigate events in Kibana that are older than your plan’s retention period.
-
-<div class="fpo fpo-1"> </div>
-<!-- TODO screen shot -->
-
-You can find Archive & Restore by selecting [**<i class="li li-gear"></i> > Tools > Archive & restore**](https://app.logz.io/#/dashboard/tools/archive-and-restore) in the top menu.
 
 ###### To restore and view archived logs
 
@@ -56,6 +53,4 @@ archived logs in your S3 bucket
     </div>
 
     Now you're ready to search your restored account!
-    You can search your restored account the same as any other logs in Kibana.
-    Just be aware of your restored account's expiration—
-    once the account expires, you'll have to restore it if you need it again.
+    Just be aware of the expiration—once the restored account expires, you'll have to restore it if you need it again.

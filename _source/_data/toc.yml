@@ -168,7 +168,9 @@ firstLevel:
   - title: Alert endpoints
     url: /user-guide/integrations/endpoints.html
   - title: Alice, Slack chatbot
-    url: /user-guide/integrations/alice-slack-chatbot.html
+    url: /integrations/alice-slack-chatbot.html
+  - title: Logz.io datasource for Grafana
+    url: /integrations/logzio-datasource-for-grafana.html
 
   - title: API reference
     url: /api/

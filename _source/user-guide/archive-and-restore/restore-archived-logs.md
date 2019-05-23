@@ -42,7 +42,7 @@ archived logs in your S3 bucket
 2. Explore the restored account in Kibana
 
     Open the email that says your restored account is ready for you and click **View in Kibana**.
-    This link takes you to Kibana in your main account, but a view that shows only the data from the restored account account.
+    This link takes you to Kibana in your main account, but a view that shows only the data from the restored account.
 
     <div class="info-box tip">
 

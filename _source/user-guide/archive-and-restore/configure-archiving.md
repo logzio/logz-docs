@@ -1,7 +1,7 @@
 ---
 layout: article
-title: Archiving
-permalink: /user-guide/archive-and-restore/
+title: Configure archiving
+permalink: /user-guide/archive-and-restore/configure-archiving.html
 flags:
   admin: true
   logzio-plan: pro
@@ -14,7 +14,12 @@ contributors:
   - schwin007
 ---
 
-![Archive and restore]({{site.baseurl}}/images/archive-and-restore/archive-and-restore.png)
+<!-- ![Archive and restore]({{site.baseurl}}/images/archive-and-restore/archive-and-restore.png)  -->
+<!-- TODO replace image and delete original (if not used anywhere else)
+TODO move to new file, replace this with archive and restore overview (new files: archive, restore)
+-->
+<div class="fpo fpo-2"></div>
+
 
 The Logz.io archiver copies incoming logs to your Amazon S3 bucket.
 This allows you to save data for as long as you require, without needing extended "hot" retention from Logz.io.

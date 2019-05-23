@@ -14,28 +14,24 @@ contributors:
   - schwin007
 ---
 
-<!-- ![Archive and restore]({{site.baseurl}}/images/archive-and-restore/archive-and-restore.png)  -->
-<!-- TODO replace image and delete original (if not used anywhere else)
-TODO move to new file, replace this with archive and restore overview (new files: archive, restore)
--->
-<div class="fpo fpo-2"></div>
-
+![Archive settings]({{site.baseurl}}/images/archive-and-restore/archive-settings.png)
 
 The Logz.io archiver copies incoming logs to your Amazon S3 bucket.
-This allows you to save data for as long as you require, without needing extended "hot" retention from Logz.io.
+This allows you to save data for as long as you require,
+without needing extended retention from Logz.io.
 Instead, you can determine your own requirements and choose the right S3 object storage class for your needs.
 
-If you need long-term storage for your logs but you don't need to keep those logs searchable at all times, S3 archiving is a cost-effective solution.
+If you need long-term storage for your logs but you don't need to keep those logs searchable at all times,
+S3 archiving is a cost-effective solution.
 
 <div class="info-box read">
   For more information on S3 object storage classes, see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/) from Amazon.
 </div>
 
-You can find S3 archiving by selecting [**<i class="li li-gear"></i> > Tools > S3 archiving**](https://app.logz.io/#/dashboard/tools/archive-and-restore) in the top menu.
-
 ###### To set up archiving
 
-**You'll need**: `PutObject`, `ListBucket`, and `GetObject` permissions for an S3 bucket
+**You'll need**:
+`PutObject`, `ListBucket`, and `GetObject` permissions for an S3 bucket
 
 {: .tasklist .firstline-headline }
 1. Enter your bucket name and S3 credentials

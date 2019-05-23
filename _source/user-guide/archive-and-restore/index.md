@@ -12,14 +12,14 @@ contributors:
   - imnotashrimp
 ---
 
-Archive and Restore helps you reconstruct past events that are out of your plan's retention period.
+Archive & restore helps you reconstruct past events that are out of your plan's retention period.
 You can configure Logz.io to archive logs to your S3 bucket by providing your AWS credentials.
 Logz.io continuously archives your logs as they come into the system—so you'll be able to restore your data when you need it.
 
 ![Archive and restore]({{site.baseurl}}/images/archive-and-restore/archive-and-restore-annotated.png)
 
 You can get to this page by selecting
-[**<i class="li li-gear"></i> > Tools > Archive and restore**](https://app.logz.io/#/dashboard/tools/archive-and-restore) in the top menu.
+[**<i class="li li-gear"></i> > Tools > Archive & restore**](https://app.logz.io/#/dashboard/tools/archive-and-restore) in the top menu.
 
 
 {: .letter-labels }

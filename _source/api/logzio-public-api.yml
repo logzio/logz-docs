@@ -4,6 +4,8 @@ host: api.logz.io
 x-servers:
   - url: https://api.logz.io/v1
     description: N. Virginia region
+  - url: https://api-au.logz.io/v1
+    description: Australia region
   - url: https://api-ca.logz.io/v1
     description: Canada region
   - url: https://api-eu.logz.io/v1

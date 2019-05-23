@@ -28,8 +28,8 @@ You can get to this page by selecting
   Archive settings
   : You can configure Logz.io to archive your logs to an S3 bucket, keeping your overall costs down.
 
-  Restore a new account
-  : Re-ingest up to 24 hours of out-of-retention logs.
+  Restore archived logs
+  : Re-ingest up to 24 hours of out-of-retention logs from S3.
 
   Restored accounts
   : Shows a list of all the data restored to this account—including who made the request and its status.

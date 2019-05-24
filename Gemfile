@@ -23,6 +23,7 @@ group :jekyll_plugins do
   gem "jekyll-octicons"
   gem "jekyll-avatar"
   gem "html-proofer"
+  gem "jekyll-redirect-from"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

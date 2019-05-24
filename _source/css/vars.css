@@ -1,0 +1,64 @@
+:root {
+  /* FONTS */
+  --title-font: 'Titillium Web', sans-serif;
+  --heading-font: 'Nunito Sans', sans-serif;
+  --body-font: 'Nunito', sans-serif;
+  --mono-font: 'Roboto Mono', monospace;
+  --toc-font-size: .9rem;
+  --fa: 'Font Awesome 5 Free';
+
+  /* COLORS */
+  --logz-logo-normal: #0089b1;
+
+  --text-normal: #53585f;
+  --text-normal-75: #53585fbf;
+  --text-normal-25: #53585f1a;
+  --text-normal-10: #53585f0a;
+
+  --text-light: #c5c5c5;
+  --text-link: #009cbd;
+  --text-link-gray: #656565;
+  --text-code: #e53935;
+
+  --heading-normal: #296386;
+  --heading-normal-75: #296386be;
+  --heading-normal-50: #29638680;
+
+  --tasklist-heading: rgb(var(--app-orange-primary));
+  --tasklist-light: rgb(var(--app-gray-primary));
+  --dl-letter: var(--app-orange-dark);
+
+  --infobox-alpha: .1;
+
+  --infobox-note: rgb(var(--app-blue-primary));
+  --infobox-note-light: rgba(var(--app-blue-primary), var(--infobox-alpha));
+
+  --infobox-important: rgb(var(--app-orange-primary));
+  --infobox-important-light: rgba(var(--app-orange-primary), var(--infobox-alpha));
+
+  --infobox-warning: rgb(var(--app-red-primary));
+  --infobox-warning-light: rgba(var(--app-red-primary), var(--infobox-alpha));
+
+  --infobox-tip: rgb(var(--app-green-primary));
+  --infobox-tip-light: rgba(var(--app-green-primary), var(--infobox-alpha));
+
+  --infobox-read: rgb(var(--app-gray-primary));
+  --infobox-read-light: rgba(var(--app-gray-primary), var(--infobox-alpha));
+
+  --border-light: #dddddd;
+  --border-very-light: #e5e5e5;
+  --border-dark: var(--heading-normal);
+  --card-shadow: 5px 10px 25px 0 #c1c1c17a;
+
+  --background-light: #f0f0f0;
+  --background-very-light: #fafafa;
+
+  --docs-orange-primary: #ff971c;
+
+  --app-orange-primary: 245, 124, 0;
+  --app-orange-dark: 192, 91, 16;
+  --app-green-primary: 76, 175, 80;
+  --app-red-primary: 244, 67, 54;
+  --app-blue-primary: 0, 189, 223;
+  --app-gray-primary: 159, 171, 188;
+}

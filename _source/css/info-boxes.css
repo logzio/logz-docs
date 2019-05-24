@@ -1,0 +1,95 @@
+div.info-box {
+  width: 90%;
+  margin: 2rem auto;
+  border-radius: 2px;
+  border: 1px solid;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+div.info-box ul {
+  padding-left: 20px;
+}
+
+div.info-box::before {
+  font-weight: 400;
+  font-size: .9rem;
+  line-height: 1.1em;
+  color: white;
+
+  display: block;
+  width: fit-content;
+  margin: -3px 20px 5px -20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+div.info-box > p {
+  margin: 0;
+  line-height: 1.2rem;
+}
+
+div.info-box > p + p {
+  margin-top: .7rem;
+}
+
+/* .warning */
+div.info-box.warning {
+  background-color: var(--infobox-warning-light);
+  border-color: var(--infobox-warning);
+}
+
+div.info-box.warning::before {
+  content: "Warning   ";
+  background-color: var(--infobox-warning);
+}
+
+/* .note */
+div.info-box.note {
+  background-color: var(--infobox-note-light);
+  border-color: var(--infobox-note);
+}
+
+div.info-box.note::before {
+  content: "Note   ";
+  background-color: var(--infobox-note);
+}
+
+div.info-box.note.notes::before {
+  content: "Notes";
+}
+
+/* .gotcha, .important */
+div.info-box.gotcha, div.info-box.important {
+  background-color: var(--infobox-important-light);
+  border-color: var(--infobox-important);
+}
+
+div.info-box.gotcha::before, div.info-box.important::before {
+  content: "Important   ";
+  background-color: var(--infobox-important);
+}
+
+/* .tip */
+div.info-box.tip {
+  background-color: var(--infobox-tip-light);
+  border-color: var(--infobox-tip);
+}
+
+div.info-box.tip::before {
+  content: "Pro Tip   ";
+  background-color: var(--infobox-tip);
+}
+
+/* .read */
+div.info-box.read {
+  background-color: var(--infobox-read-light);
+  border-color: var(--infobox-read);
+}
+
+div.info-box.read::before {
+  content: "Read more   ";
+  background-color: var(--infobox-read);
+}

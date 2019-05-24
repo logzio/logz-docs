@@ -1,0 +1,78 @@
+div.search-container {
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  height: 35px;
+}
+
+div.search-container input.addsearch, input.search {
+  height: 35px;
+  width: 270px;
+  background: var(--background-light);
+  border: none;
+  border-radius: 3px;
+  font-size: 10pt;
+  float: left;
+  padding-left: 30px;
+  outline: none;
+}
+
+div.search-container svg {
+  position: absolute;
+  top: 35%;
+  margin-left: 10px;
+  vertical-align: middle;
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+div.search-results-header {
+  position: fixed;
+  top: 50px;
+  bottom: 15px;
+  padding: 1rem;
+  width: 75%;
+  left: 50%;
+  margin-left: -37.5%;
+
+  background-color: var(--background-very-light);
+  border: 1px solid var(--text-normal);
+  border-radius: 3px;
+  z-index: 500;
+
+  overflow: auto !important;
+}
+
+div.search-results-header > p {
+  padding: 0;
+  margin: 0;
+  font-size: .75rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+div.search-results-header > ul {
+  list-style: none;
+  padding: 0;
+}
+
+li.lunrsearchresult {
+  line-height: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+li.lunrsearchresult .title {
+  font-weight: 700;
+}
+
+li.lunrsearchresult .body {
+  font-size: .85rem;
+  line-height: 1.15rem;
+}
+
+li.lunrsearchresult .url {
+  font-size: .75rem;
+}

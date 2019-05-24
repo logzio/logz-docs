@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "Logzio Icons";
+  src: url(../fonts/logzio-icon-font.ttf);
+}
+
+i.li {
+  font-family: "Logzio Icons";
+  font-style: normal;
+  font-size: .85rem;
+}
+
+i.li-bar-graph::before {
+  content: "\1f31b";
+}
+
+i.li-eye::before {
+  content: "\1f366";
+}
+
+i.li-left-arrow::before {
+  content: "\e5c4";
+}
+
+i.li-right-arrow::before {
+  content: "\e5c8";
+}
+
+i.li-left-arrow::before {
+  content: "\e5c4";
+}
+
+i.li-right-arrow::before {
+  content: "\e5c8";
+}
+
+i.li-ellipsis-v::before {
+  content: "\e906";
+  padding-left: .2rem;
+  padding-right: .2rem;
+}
+
+i.li-pencil::before {
+  content: "\e907";
+}
+
+i.li-trash::before {
+  content: "\e912";
+}
+
+i.li-plus::before {
+  content: "\e913";
+}
+
+i.li-wrench::before {
+  content: "\e915";
+}
+
+i.li-x::before {
+  content: "\e918";
+}
+
+i.li-plane::before {
+  content: "\e93b";
+}
+
+i.li-bell::before {
+  content: "\e93c";
+}
+
+i.li-code::before {
+  content: "\e93d";
+}
+
+i.li-signal::before {
+  content: "\e93f";
+}
+
+i.li-gear::before {
+  content: "\e940";
+}
+
+i.li-minus::before {
+  content: "\e943";
+}
+
+i.li-scroll::before {
+  content: "\e953";
+  font-size: 1.1rem;
+}
+
+i.li-play::before {
+  content: "\e956"
+}
+
+i.li-stop::before {
+  content: "\e957"
+}
+
+i.li-clear::before {
+  content: "\e927"
+}

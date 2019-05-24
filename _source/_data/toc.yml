@@ -163,7 +163,7 @@ firstLevel:
 
   # ===== INTEGRATIONS =====
 - title: Integrations
-  icon: li-wrench
+  icon: li-code
   secondLevel:
   - title: Alert endpoints
     url: /user-guide/integrations/endpoints.html

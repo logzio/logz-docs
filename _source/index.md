@@ -28,7 +28,7 @@ cards:
   - title: API
     description: Grow your own integration
     url: /api/
-    li-class: li-wrench
+    li-class: li-code
 
   - title: Alerting
     description: Set up alerts for critical events or flag notable events for review

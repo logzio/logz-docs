@@ -58,9 +58,9 @@ collections:
   log-sources:
     output: true
     permalink: /shipping/log-sources/:path.html
-  shipping-utilities:
+  shippers:
     output: false
-    permalink: /shipping/shipping-utilities/:path.html
+    permalink: /shipping/shippers/:path.html
   docs-admin:
     output: true
     permalink: /docs-admin/:path/
@@ -105,7 +105,7 @@ defaults:
     values:
       layout: article
   - scope:
-      path: _shipping-utilities/log-shippers
+      path: _shippers/log-shippers
     values:
       shipping-category: Log shippers
   - scope:

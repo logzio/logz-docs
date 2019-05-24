@@ -49,14 +49,17 @@ tabs:
 {%- comment -%}
 *   Page filters. Makes a filter link for each category.
 *         {%- endcomment -%}
-<nav id="page-filters">
+{%- unless categories.size == 1 -%}
+<nav id="card-filters">
   <div class="filters-inline-header">Filter this page:</div>
   <div class="filter-items">
+      <a class="filter-btn filter-active" data-filter="all">All</a>
     {%- for c in categories %}
-      <a href="#{{c | slugify}}">{{c}}</a>
+      <a class="filter-btn" data-filter="{{c|slugify}}">{{c}}</a>
     {% endfor -%}
   </div>
 </nav>
+{%- endunless -%}
 
 {%- if tab.community-project == true -%}
 <div class="info-box important">

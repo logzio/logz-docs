@@ -76,15 +76,22 @@ var allCards = $('.mini-cards'),
 
 // filter categories on a shipping page
 $('.filter-btn').click(function() {
+  var time = 250;
   var value = $(this).data('filter');
   if (value == 'all') {
-    $('.filter').show('1000');
+    $('.filter').slideDown(time);
   } else {
-    $('.filter').not('.'+value).hide('1000');
-    $('.filter').filter('.'+value).show('1000');
+    $('.filter').fadeOut(time).delay(time);
+    $('.filter').filter('.'+value).slideDown(time);
   }
 // add `active` class to clicked button, remove from other buttons
   $(this).addClass('filter-active').siblings().removeClass('filter-active');
+});
+
+//reset on tab click
+$('.branching-tabs > li').click(function() {
+  $('.filter').show();
+  $('.filter-btn[data-filter="all"').addClass('filter-active').siblings().removeClass('filter-active');
 });
 
 });

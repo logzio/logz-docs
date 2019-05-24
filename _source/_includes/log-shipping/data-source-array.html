@@ -15,7 +15,8 @@
 {%- case include.datafile -%}
   {%- when nil -%}
     {%- assign category = include.shippingCategory | default: page.shipping-category -%}
-    {%- assign thisCollection = site.collections | where: "label", page.collection | first -%}
+    {%- assign collectionName = page.collection | default: include.collection -%}
+    {%- assign thisCollection = site.collections | where: "label", collectionName | first -%}
     {%- assign shippersInThisCategory = thisCollection.docs | where: "shipping-category", category -%}
   {%- else -%}
     {%- assign datafile = include.datafile | remove: ".yml" | remove: ".yaml" -%}

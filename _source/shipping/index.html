@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Data shipping sources
+title: Ship your data to Logz.io
 permalink: /shipping/
 show-date: false
 community-info: false
@@ -18,6 +18,7 @@ tabs:
 {%- for tab in page.tabs -%}
   <li><a href="#{{tab.name | slugify}}">{{tab.name}}</a></li>
 {%- endfor -%}
+  <li><a href="#community-shippers">Community shippers</a></li>
 </ul>
 
 {%- for tab in page.tabs -%}
@@ -72,5 +73,13 @@ tabs:
 </div>
 
 {%- endfor -%}
+
+<div id="community-shippers">
+  <div class="card-container">
+    <div class="cards mini-cards">
+      {%- include_relative community-shippers.html -%}
+    </div>
+  </div>
+</div>
 
 </div>

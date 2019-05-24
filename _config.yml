@@ -58,6 +58,9 @@ collections:
   log-sources:
     output: true
     permalink: /shipping/log-sources/:path.html
+  community-shippers:
+    output: false
+    permalink: /shipping/community-shippers/:path.html
   shippers:
     output: false
     permalink: /shipping/shippers/:path.html
@@ -104,6 +107,11 @@ defaults:
       path: ''
     values:
       layout: article
+  - scope:
+      path: _community-shippers/log-shippers
+    values:
+      shipping-category: Log shippers
+      community-project: true
   - scope:
       path: _shippers/log-shippers
     values:

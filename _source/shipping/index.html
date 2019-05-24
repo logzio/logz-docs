@@ -10,6 +10,9 @@ tabs:
     collection: log-sources
   - name: Shippers
     collection: shippers
+  - name: Community shippers
+    collection: community-shippers
+    community-project: true
 ---
 
 <div class="branching-container">
@@ -18,7 +21,6 @@ tabs:
 {%- for tab in page.tabs -%}
   <li><a href="#{{tab.name | slugify}}">{{tab.name}}</a></li>
 {%- endfor -%}
-  <li><a href="#community-shippers">Community shippers</a></li>
 </ul>
 
 {%- for tab in page.tabs -%}
@@ -56,6 +58,18 @@ tabs:
   </div>
 </nav>
 
+{%- if tab.community-project == true -%}
+<div class="info-box important">
+  <p>
+    <strong>Logz.io does not test or support these projects</strong>
+  </p>
+  <p>
+    These projects are maintained by third parties and recommended by members of the Logz.io community.
+    Always test and review the code of any community project before using it.
+  </p>
+</div>
+{%- endif -%}
+
 {%- comment -%}
 *   Loop through each category, and create the shipping cards for that
 *   category. Simple as that.
@@ -73,13 +87,5 @@ tabs:
 </div>
 
 {%- endfor -%}
-
-<div id="community-shippers">
-  <div class="card-container">
-    <div class="cards mini-cards">
-      {%- include_relative community-shippers.html -%}
-    </div>
-  </div>
-</div>
 
 </div>

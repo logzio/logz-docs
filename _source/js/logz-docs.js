@@ -89,7 +89,7 @@ $('.filter-btn').click(function() {
 });
 
 //reset on tab click
-$('.branching-tabs > li').click(function() {
+$('.branching-tabs > li:not(.active)').click(function() {
   $('.filter').show();
   $('.filter-btn[data-filter="all"').addClass('filter-active').siblings().removeClass('filter-active');
 });

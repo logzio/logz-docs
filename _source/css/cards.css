@@ -167,6 +167,5 @@ div.card-icon i::before {
 }
 
 #card-filters a.filter-active {
-  font-weight: 900;
   border-bottom: 2px solid currentColor;
 }

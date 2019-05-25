@@ -1,6 +1,6 @@
 ---
 title: logzio-nlog
-url: https://github.com/kylewest/logzio-nlog
+project-url: https://github.com/kylewest/logzio-nlog
 logo:
   logofile: dotnet.svg
   orientation: vertical

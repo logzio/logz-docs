@@ -1,6 +1,6 @@
 ---
 title: Tyk Pump
-url: https://github.com/TykTechnologies/tyk-pump
+project-url: https://github.com/TykTechnologies/tyk-pump
 logo:
   logofile: redis.svg
   orientation: vertical

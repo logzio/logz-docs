@@ -6,4 +6,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Node code
+shipping-tags:
+  - log-shipper
 ---

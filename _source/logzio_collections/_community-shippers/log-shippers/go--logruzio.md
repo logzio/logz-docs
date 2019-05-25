@@ -6,4 +6,6 @@ logo:
   orientation: horizontal
 shipping-summary:
   data-source: Go code
+shipping-tags:
+  - log-shipper
 ---

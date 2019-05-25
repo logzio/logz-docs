@@ -57,19 +57,20 @@ collections:
     permalink: /contributors/:name
   log-sources:
     output: true
-    permalink: /shipping/log-sources/:path.html
+    permalink: /shipping/log-sources/:slug.html
   community-shippers:
     output: false
-    permalink: /shipping/community-shippers/:path.html
+    permalink: /shipping/community-shippers/:slug.html
   shippers:
     output: false
-    permalink: /shipping/shippers/:path.html
+    permalink: /shipping/shippers/:slug.html
   docs-admin:
     output: true
     permalink: /docs-admin/:path/
   technical-notes:
     output: true
     permalink: /technical-notes/:path/
+# TODO move items from `defaults` to collection object
 
 defaults:
   - scope:
@@ -110,48 +111,7 @@ defaults:
   - scope:
       path: _community-shippers/log-shippers
     values:
-      shipping-category: Log shippers
       community-project: true
-  - scope:
-      path: _shippers/log-shippers
-    values:
-      shipping-category: Log shippers
-  - scope:
-      path: _log-sources/os
-    values:
-      shipping-category: Operating systems
-  - scope:
-      path: _log-sources/server-app
-    values:
-      shipping-category: Server apps & devices
-  - scope:
-      path: _log-sources/from-your-code
-    values:
-      shipping-category: From your code
-  - scope:
-      path: _log-sources/platform-service
-    values:
-      shipping-category: Platforms & services
-  - scope:
-      path: _log-sources/aws
-    values:
-      shipping-category: AWS
-  - scope:
-      path: _log-sources/azure
-    values:
-      shipping-category: Azure
-  - scope:
-      path: _log-sources/container
-    values:
-      shipping-category: Containers & pods
-  - scope:
-      path: _log-sources/ci-cd
-    values:
-      shipping-category: CI/CD
-  - scope:
-      path: _log-sources/security
-    values:
-      shipping-category: Security
 
 # ===== BUILD SETTINGS =====
 markdown: kramdown

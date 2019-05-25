@@ -6,4 +6,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: iOS
+shipping-tags:
+  - log-shipper
 ---

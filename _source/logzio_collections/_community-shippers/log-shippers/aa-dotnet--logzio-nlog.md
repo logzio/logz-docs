@@ -6,4 +6,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: .NET code
+shipping-tags:
+  - log-shipper
 ---

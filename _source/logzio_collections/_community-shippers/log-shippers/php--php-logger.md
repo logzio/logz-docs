@@ -6,4 +6,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: PHP code
+shipping-tags:
+  - log-shipper
 ---

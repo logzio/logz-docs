@@ -6,4 +6,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Redis
+shipping-tags:
+  - log-shipper
 ---

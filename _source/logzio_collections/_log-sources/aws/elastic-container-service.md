@@ -12,6 +12,8 @@ logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ECS
 contributors:
   - imnotashrimp
   - supereli
+shipping-tags:
+  - aws
 ---
 
 This integration uses Fluentd in a Docker container to forward logs from Amazon Elastic Container Service (ECS) to Logz.io.

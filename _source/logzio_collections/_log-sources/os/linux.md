@@ -7,6 +7,8 @@ shipping-summary:
   data-source: Linux
 contributors:
   - imnotashrimp
+shipping-tags:
+  - os
 ---
 
 ## Setup

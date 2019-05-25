@@ -11,6 +11,8 @@ open-source:
 contributors:
   - amosd92
   - imnotashrimp
+shipping-tags:
+  - ci-cd
 ---
 
 This page covers methods for shipping Jenkins system logs and build console output.

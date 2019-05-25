@@ -6,4 +6,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Puppet
+shipping-tags:
+  - log-shipper
 ---

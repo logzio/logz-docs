@@ -6,4 +6,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Kubernetes
+shipping-tags:
+  - log-shipper
 ---

@@ -6,4 +6,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Ruby code
+shipping-tags:
+  - log-shipper
 ---

@@ -9,6 +9,8 @@ logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ELB
 contributors:
   - idohalevi
   - imnotashrimp
+shipping-tags:
+  - aws
 ---
 
 ## Setup

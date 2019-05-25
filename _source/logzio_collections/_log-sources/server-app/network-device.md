@@ -8,6 +8,8 @@ shipping-summary:
 contributors:
   - imnotashrimp
   - schwin007
+shipping-tags:
+  - server-app
 ---
 
 ## Setup

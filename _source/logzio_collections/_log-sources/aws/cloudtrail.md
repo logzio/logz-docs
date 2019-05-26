@@ -11,6 +11,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - aws
+  - security
 ---
 
 ## Setup

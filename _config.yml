@@ -114,7 +114,6 @@ plugins:
   - jekyll-menus
   - jekyll-octicons
   - jekyll-avatar
-  - jekyll-redirect-from
 
 kramdown:
   parse_block_html: true

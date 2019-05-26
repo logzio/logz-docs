@@ -76,19 +76,18 @@ var allCards = $('.mini-cards'),
 
 // filter categories on a shipping page
 $('.filter-btn').click(function() {
-  var time = 250;
   var value = $(this).data('filter');
   if (value == 'all') {
-    $('.filter').slideDown(time);
+    $('.filter').show();
   } else {
-    $('.filter').fadeOut(time).delay(time);
-    $('.filter').filter('.'+value).slideDown(time);
+    $('.filter').hide();
+    $('.filter').filter('.'+value).show();
   }
 // add `active` class to clicked button, remove from other buttons
   $(this).addClass('filter-active').siblings().removeClass('filter-active');
 });
 
-//reset on tab click
+// reset on tab click
 $('.branching-tabs > li:not(.active) > a').click(function() {
   $('.filter').show();
   $('.filter-btn[data-filter="all"').addClass('filter-active').siblings().removeClass('filter-active');

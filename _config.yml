@@ -67,10 +67,19 @@ collections:
   docs-admin:
     output: true
     permalink: /docs-admin/:path/
+    search: false
+    noindex: true
+    tags: false
+    community-info: false
+    show-date: false
   technical-notes:
     output: true
     permalink: /technical-notes/:path/
-# TODO move items from `defaults` to collection object
+    layout: article
+    search: false
+    noindex: true
+    tags: false
+    community-info: false
 
 defaults:
   - scope:
@@ -79,24 +88,6 @@ defaults:
       search: false
       noindex: true
       tags: false
-  - scope:
-      path: ''
-      type: technical-notes
-    values:
-      layout: article
-      search: false
-      noindex: true
-      tags: false
-      community-info: false
-  - scope:
-      path: ''
-      type: docs-admin
-    values:
-      search: false
-      noindex: true
-      tags: false
-      community-info: false
-      show-date: false
   - scope:
       path: ''
       type: contributors

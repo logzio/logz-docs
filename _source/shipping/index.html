@@ -4,42 +4,19 @@ title: Ship your data to Logz.io
 permalink: /shipping/
 show-date: false
 community-info: false
-
-tabs:
-  Logs:
-    collection: log-sources
-    tags:
-      os: Operating systems
-      server-app: Server apps & devices
-      from-your-code: From your code
-      platform-service: Platforms & services
-      aws: AWS
-      azure: Azure
-      container: Containers & pods
-      ci-cd: CI/CD
-      security: Security
-#  Metrics:
-#    collection: metrics-sources
-  Shippers:
-    collection: shippers
-    tags:
-      log-shipper: Log shippers
-  Community shippers:
-    collection: community-shippers
-    community-project: true
-    tags:
-      log-shipper: Log shippers
 ---
+
+{%- assign tabData = site.data.shipper-tabs -%}
 
 <div class="branching-container">
 
 <ul class="branching-tabs">
-{%- for tab in page.tabs -%}
+{%- for tab in tabData.tabs -%}
   <li><a href="#{{tab[1].collection}}">{{tab[0]}}</a></li>
 {%- endfor -%}
 </ul>
 
-{%- for tab in page.tabs -%}
+{%- for tab in tabData.tabs -%}
 {%- assign thisTab = tab[1] -%}
 
 <div id="{{thisTab.collection}}">
@@ -59,17 +36,7 @@ tabs:
 </nav>
 {%- endunless -%}
 
-{%- if thisTab.community-project == true -%}
-<div class="info-box important">
-  <p>
-    <strong>Logz.io does not test or support these projects</strong>
-  </p>
-  <p>
-    These projects are maintained by third parties and recommended by members of the Logz.io community.
-    Always test and review the code of any community project before using it.
-  </p>
-</div>
-{%- endif -%}
+{{thisTab.top-content}}
 
 {%- comment -%}
 *   Loop through each category, and create the shipping cards for that

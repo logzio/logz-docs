@@ -14,6 +14,8 @@ logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Docker-Logging
 contributors:
   - imnotashrimp
   - amosd92
+shipping-tags:
+  - container
 ---
 
 <div class="branching-container">

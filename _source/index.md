@@ -10,9 +10,9 @@ cards:
     # url: "#" #/getting-started/overview/index.html
     # icon: blocks.svg
 
-  - title: Ship your logs
+  - title: Ship your data
     description: All the different ways you can feed the ELK machine
-    url: /shipping/log-sources/
+    url: /shipping/
     li-class: li-plane
 
   - title: Explore your logs in Kibana

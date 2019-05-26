@@ -7,6 +7,8 @@ shipping-summary:
   data-source: Heroku
 contributors:
   - imnotashrimp
+shipping-tags:
+  - platform-service
 ---
 
 ## Heroku log drain setup

@@ -9,6 +9,9 @@ logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudTrail
 contributors:
   - idohalevi
   - imnotashrimp
+shipping-tags:
+  - aws
+  - security
 ---
 
 ## Setup

@@ -9,6 +9,8 @@ logzio-app-url: https://app.logz.io/#/dashboard/data-sources/VPC
 contributors:
   - idohalevi
   - imnotashrimp
+shipping-tags:
+  - aws
 ---
 
 ## Setup

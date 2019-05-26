@@ -8,6 +8,8 @@ shipping-summary:
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Perfagent
 contributors:
   - imnotashrimp
+shipping-tags:
+  - container
 ---
 
 ## Setup

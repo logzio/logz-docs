@@ -138,8 +138,8 @@ firstLevel:
   icon: li-plane
 
   secondLevel:
-  - title: Log shipping sources
-    url: /shipping/log-sources/
+  - title: Ship your data to Logz.io
+    url: /shipping/
   - title: Log shipping info
     url: /user-guide/log-shipping/
     thirdLevel:
@@ -154,8 +154,6 @@ firstLevel:
     # - title: Field mapping
   - title: Data parsing
     url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
-  - title: Community-maintained shippers
-    url: /community-integrations/community-shippers.html
 
   # - title: Shipping utilities
   #   url: /shipping/shipping-utilities/

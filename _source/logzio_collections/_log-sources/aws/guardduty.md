@@ -12,6 +12,9 @@ logzio-app-url: https://app.logz.io/#/dashboard/data-sources/GuardDuty
 contributors:
   - idohalevi
   - imnotashrimp
+shipping-tags:
+  - aws
+  - security
 ---
 
 <div class="branching-container">

@@ -7,6 +7,8 @@ shipping-summary:
   data-source: Windows
 contributors:
   - imnotashrimp
+shipping-tags:
+  - os
 ---
 
 <div class="branching-container">

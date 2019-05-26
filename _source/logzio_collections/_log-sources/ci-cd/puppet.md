@@ -8,6 +8,8 @@ shipping-summary:
 contributors:
   - amosd92
   - imnotashrimp
+shipping-tags:
+  - ci-cd
 ---
 
 ## Setup

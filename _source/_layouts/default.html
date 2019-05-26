@@ -13,21 +13,10 @@
     {% include left-toc.html %}
 
     <div class="body-container">
-    {%- if page.collection == "log-sources" and page.url != "/shipping/log-sources/" -%}
+    {%- if page.shipping-summary -%}
     <div class="breadcrumbs">
-      <span><a href="{{site.baseurl}}/shipping/log-sources/">Log shipping sources</a></span>
+      <span><a href="{{site.baseurl}}/shipping/">Ship your data</a></span>
       <span>{{ page.shipping-summary.data-source }}</span>
-    </div>
-    {%- elsif page.collection == "metrics-sources" and page.url != "/shipping/metrics-sources/" -%}
-    <div class="breadcrumbs">
-      <span>
-        <a href="{{site.baseurl}}/shipping/metrics-sources/">
-          Metrics shipping sources
-        </a>
-      </span>
-      <span>
-        {{ page.shipping-summary.data-source }}
-      </span>
     </div>
     {%- endif -%}
     <div class="title-container">

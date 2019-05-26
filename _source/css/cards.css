@@ -146,3 +146,26 @@ div.card-icon i::before {
   padding-bottom: 0; 
   font-size: .9rem;
 }
+
+/* ===== FILTERS ===== */
+
+#card-filters > div {
+  display: inline;
+}
+
+.filters-inline-header {
+  margin-right: 15px;
+  font-weight: 700;
+}
+
+#card-filters a:hover {
+  cursor: pointer;
+}
+
+#card-filters a:not(:last-child) {
+  margin-right: 15px;
+}
+
+#card-filters a.filter-active {
+  border-bottom: 2px solid currentColor;
+}

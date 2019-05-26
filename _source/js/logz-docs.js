@@ -78,13 +78,19 @@ var allCards = $('.mini-cards'),
 $('.filter-btn').click(function() {
   var value = $(this).data('filter');
   if (value == 'all') {
-    $('.filter').show('1000');
+    $('.filter').show();
   } else {
-    $('.filter').not('.'+value).hide('1000');
-    $('.filter').filter('.'+value).show('1000');
+    $('.filter').hide();
+    $('.filter').filter('.'+value).show();
   }
 // add `active` class to clicked button, remove from other buttons
   $(this).addClass('filter-active').siblings().removeClass('filter-active');
+});
+
+// reset on tab click
+$('.branching-tabs > li:not(.active) > a').click(function() {
+  $('.filter').show();
+  $('.filter-btn[data-filter="all"').addClass('filter-active').siblings().removeClass('filter-active');
 });
 
 });

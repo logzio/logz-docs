@@ -18,6 +18,7 @@ tabs:
       aws: AWS
       azure: Azure
       container: Containers & pods
+      database: Database
       ci-cd: CI/CD
       security: Security
 #  Metrics:

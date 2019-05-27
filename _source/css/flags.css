@@ -1,0 +1,65 @@
+/* Flags for admin-only or beta feature */
+
+div.page-flags {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: .85rem;
+  line-height: 1rem;
+  align-self: flex-end;
+}
+
+.flag {
+  display: inline-block;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 0 .35rem;
+  border: 1px solid currentcolor;
+}
+
+.flag.admin {
+  color: var(--infobox-note);
+}
+
+.flag.beta {
+  color: var(--infobox-important);
+}
+
+/* feature boxes */
+
+div.feature-box {
+  width: fit-content;
+  display: flex;
+  flex-flow: row wrap;
+  font-size: .9rem;
+  margin-left: auto;
+}
+
+.feature-box span:not(:last-child), .feature-box > div:not(:last-child)  {
+  margin-right: 10px;
+}
+
+div.feature-box span {
+  padding: 0;
+  color: var(--border-light);
+  border: none;
+}
+
+.feature-box > div {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.feature-box.community .community-plan {
+  color: #5eb4e5;
+  font-weight: 700;
+}
+
+.feature-box.pro .pro-plan, .feature-box.community .pro-plan {
+  color: #ffbd1f;
+  font-weight: 700;
+}
+
+.feature-box.enterprise .enterprise-plan, .feature-box.pro .enterprise-plan, .feature-box.community .enterprise-plan {
+  color: #53cbb2;
+  font-weight: 700;
+}

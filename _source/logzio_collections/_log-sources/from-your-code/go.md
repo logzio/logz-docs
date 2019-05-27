@@ -10,6 +10,8 @@ shipping-summary:
   data-source: Go code
 contributors:
   - imnotashrimp
+shipping-tags:
+  - from-your-code
 ---
 
 ## Logz.io Golang API client setup

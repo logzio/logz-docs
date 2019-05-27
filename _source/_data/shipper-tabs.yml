@@ -1,0 +1,38 @@
+# This YAML feeds the "ship your logs" page
+# Structured like so:
+# Top level: 'tabs'
+# Next level: tab name
+# Nested below that:
+#   collection: <collection-name>
+#   tags:
+#     <tag-slug>: <tag-human-readable>
+
+tabs:
+  Logs:
+    collection: log-sources
+    tags:
+      os: Operating systems
+      server-app: Server apps & devices
+      from-your-code: From your code
+      platform-service: Platforms & services
+      aws: AWS
+      azure: Azure
+      container: Containers & pods
+      ci-cd: CI/CD
+      security: Security
+#  Metrics:
+#    collection: metrics-sources
+#  Shippers:
+#    collection: shippers
+#    tags:
+#      log-shipper: Log shippers
+  Community shippers:
+    collection: community-shippers
+    top-content: >-
+      <div class="info-box important">
+        <p><strong>Logz.io does not test or support these projects</strong></p>
+        <p>These projects are maintained by third parties and recommended by members of the Logz.io community.
+        Always test and review the code of any community project before using it.</p>
+      </div>
+    tags:
+      log-shipper: Log shippers

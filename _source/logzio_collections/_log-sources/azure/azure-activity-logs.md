@@ -16,6 +16,8 @@ contributors:
   - imnotashrimp
   - amirkalron
   - idohalevi
+shipping-tags:
+  - azure
 ---
 
 To simplify shipping your Azure activity logs, we provide an automated deployment process.

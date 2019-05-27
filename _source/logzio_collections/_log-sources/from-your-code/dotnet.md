@@ -10,6 +10,8 @@ open-source:
     github-repo: logzio-dotnet
 contributors:
   - imnotashrimp
+shipping-tags:
+  - from-your-code
 ---
 
 <div class="branching-container">

@@ -34,7 +34,7 @@ Research
 
 
 Security rules
-  : This page contains preconfigured security security rules.
+  : This page contains preconfigured security rules.
     When security rules are triggered, you’ll see the results on the Summary and Threats dashboards.
     You can also create your own custom rules.
 

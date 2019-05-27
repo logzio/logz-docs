@@ -13,6 +13,8 @@ open-source:
     github-repo: logzio-logback-appender
 contributors:
   - imnotashrimp
+shipping-tags:
+  - from-your-code
 ---
 
 <div class="branching-container">

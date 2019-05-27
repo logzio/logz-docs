@@ -11,6 +11,9 @@ shipping-summary:
 contributors:
   - yyyogev
   - imnotashrimp
+shipping-tags:
+  - platform-service
+  - server-app
 ---
 
 Zipkin-Logz.io Trace Storage is a storage option for Zipkin distributed traces on your Logz.io account.

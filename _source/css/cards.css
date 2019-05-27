@@ -1,0 +1,171 @@
+
+div.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+div.card {
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  margin: 12px;
+  width: 250px;
+  text-align: center;
+  display: flex;
+  box-shadow: none;
+  transition: box-shadow 200ms;
+}
+
+.card > a {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  justify-self: stretch;
+  align-self: stretch;
+  justify-content: space-around;
+}
+
+.full-card > a {
+  padding: 14px;
+}
+
+.mini-card > a {
+  padding: 0;
+}
+
+div.card:hover {
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 200ms;
+}
+
+div.half-card {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+div.mini-card {
+  width: 150px;
+  height: 160px;
+  display: flex;
+}
+
+div.mini-card.community-project-card {
+  height: 180px;
+  border: 1px solid rgb(var(--app-gray-primary))
+}
+
+div.full-card div.card-text {
+  display: block;
+  padding: 0;
+}
+
+.full-card .card-text p {
+  line-height: 1.25em;
+  margin-top: .75em;
+}
+
+span.card-title {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  color: var(--heading-normal);
+  font-size: 1.25rem;
+  margin: auto;
+}
+
+.mini-card .card-title {
+  font-family: var(--body-font);
+  line-height: 0;
+}
+
+div.full-card span.card-title {
+  margin-top: 14px;
+}
+
+div.card p {
+  font-size: .9rem;
+  line-height: 1.2rem;
+  width: 85%;
+  margin: auto;
+  color: var(--text-normal);
+}
+
+div.card-icon {
+  margin: 14px auto;
+  padding: 0;
+}
+
+.mini-card .card-icon {
+  margin: 5px auto;
+  height: 65px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 95%;
+}
+
+.mini-card .card-icon.horizontal {
+  background-size: 100% auto;
+}
+
+.mini-card .card-icon.vertical {
+  background-size: auto 100%;
+}
+
+div.card-icon i {
+  width: 50;
+  height: 50;
+  vertical-align: middle;
+}
+
+div.card-icon i::before {
+  color: var(--text-link);
+  opacity: .5;
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.mini-card.community-project-card {
+  justify-content: flex-start;
+}
+
+.mini-card.community-project-card a {
+  justify-content: flex-start;
+}
+
+.mini-card.community-project-card > a::before {
+  content: "Community project";
+
+  background-color: rgb(var(--app-gray-primary));
+  color: white;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-top: 0;
+  padding-bottom: 0; 
+  font-size: .9rem;
+}
+
+/* ===== FILTERS ===== */
+
+#card-filters > div {
+  display: inline;
+}
+
+.filters-inline-header {
+  margin-right: 15px;
+  font-weight: 700;
+}
+
+#card-filters a:hover {
+  cursor: pointer;
+}
+
+#card-filters a:not(:last-child) {
+  margin-right: 15px;
+}
+
+#card-filters a.filter-active {
+  border-bottom: 2px solid currentColor;
+}

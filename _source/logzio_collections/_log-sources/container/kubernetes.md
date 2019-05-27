@@ -12,6 +12,8 @@ logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kubernetes
 contributors:
   - idohalevi
   - imnotashrimp
+shipping-tags:
+  - container
 ---
 
 <div class="branching-container">

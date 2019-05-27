@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Archiving
+title: Archive & restore
 permalink: /user-guide/archive-and-restore/
 flags:
   admin: true
@@ -10,44 +10,26 @@ tags:
   - archive-and-restore
 contributors:
   - imnotashrimp
-  - ayigal
-  - schwin007
 ---
 
-![Archive and restore]({{site.baseurl}}/images/archive-and-restore/archive-and-restore.png)
+Archive & restore helps you reconstruct past events that are out of your plan's retention period.
+You can configure Logz.io to archive logs to your S3 bucket by providing your AWS credentials.
+Logz.io continuously archives your logs as they come into the system—so you'll be able to restore your data when you need it.
 
-The Logz.io archiver copies incoming logs to your Amazon S3 bucket.
-This allows you to save data for as long as you require, without needing extended "hot" retention from Logz.io.
-Instead, you can determine your own requirements and choose the right S3 object storage class for your needs.
+![Archive and restore]({{site.baseurl}}/images/archive-and-restore/archive-and-restore-annotated.png)
 
-If you need long-term storage for your logs but you don't need to keep those logs searchable at all times, S3 archiving is a cost-effective solution.
+You can get to this page by selecting
+[**<i class="li li-gear"></i> > Tools > Archive & restore**](https://app.logz.io/#/dashboard/tools/archive-and-restore) in the top menu.
 
-<div class="info-box read">
-  For more information on S3 object storage classes, see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/) from Amazon.
-</div>
 
-You can find S3 archiving by selecting [**<i class="li li-gear"></i> > Tools > S3 archiving**](https://app.logz.io/#/dashboard/tools/archive-and-restore) in the top menu.
+{: .letter-labels }
 
-###### To set up archiving
+<!-- TODO letter labels -->
+  Archive settings
+  : You can configure Logz.io to archive your logs to an S3 bucket, keeping your overall costs down.
 
-**You'll need**: `PutObject`, `ListBucket`, and `GetObject` permissions for an S3 bucket
+  Restore archived logs
+  : Re-ingest up to 24 hours of out-of-retention logs from S3.
 
-{: .tasklist .firstline-headline }
-1. Enter your bucket name and S3 credentials
-
-    Paste your S3 **Bucket name**, **AWS access key**, and **AWS secret key**.
-    Make sure your access key and secret key belong to a user with `PutObject`, `ListBucket`, and `GetObject` permissions for the S3 bucket.
-
-2. Test your connection and save
-
-    Click **Test connection** to make sure your bucket name and credentials are valid and have the right permissions.
-
-    If everything checks out, click **Start archiving** to save your settings.
-    From now on, Logz.io will archive your logs as they come in.
-    You can stop archiving at any time.
-
-## Managing your S3 credentials
-
-If you need to change your S3 name, access key, or secret key, make the changes in the _Settings_ tab and click **Update settings**.
-
-You can remove your credentials from Logz.io at any time by clicking **Stop archiving** and selecting **Remove my S3 settings** in the confirmation box.
+  Restored accounts
+  : Shows a list of all the data restored to this account—including who made the request and its status.

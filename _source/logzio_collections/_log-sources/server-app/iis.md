@@ -7,6 +7,8 @@ shipping-summary:
   data-source: Microsoft IIS
 contributors:
   - imnotashrimp
+shipping-tags:
+  - server-app
 ---
 
 ## Setup

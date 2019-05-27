@@ -12,6 +12,8 @@ open-source:
     github-repo: winston-logzio
 contributors:
   - imnotashrimp
+shipping-tags:
+  - from-your-code
 ---
 
 <div class="branching-container">

@@ -7,6 +7,8 @@ shipping-summary:
   data-source: HAProxy
 contributors:
   - imnotashrimp
+shipping-tags:
+  - server-app
 ---
 
 ## Setup

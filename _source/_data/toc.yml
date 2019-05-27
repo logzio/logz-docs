@@ -103,9 +103,6 @@ firstLevel:
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
-  - title: Archiving
-    url: /user-guide/archive-and-restore/
-
   #   thirdLevel:
   #   - title: Make an IAM role for Logz.io
   #     url: /user-guide/archive-and-restore/make-an-iam-role-for-logzio.html
@@ -132,14 +129,22 @@ firstLevel:
       url: /user-guide/tokens/shared-tokens.html
     - title: Manage API tokens
       url: /user-guide/tokens/api-tokens.html
+  - title: Archive & restore
+    url: /user-guide/archive-and-restore/
+
+    thirdLevel:
+      - title: Configure archiving
+        url: /user-guide/archive-and-restore/configure-archiving.html
+      - title: Restore archived logs
+        url: /user-guide/archive-and-restore/restore-archived-logs.html
 
   # ===== SHIPPING AND PARSING =====
 - title: Shipping & parsing
   icon: li-plane
 
   secondLevel:
-  - title: Log shipping sources
-    url: /shipping/log-sources/
+  - title: Ship your data to Logz.io
+    url: /shipping/
   - title: Log shipping info
     url: /user-guide/log-shipping/
     thirdLevel:
@@ -154,8 +159,6 @@ firstLevel:
     # - title: Field mapping
   - title: Data parsing
     url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
-  - title: Community-maintained shippers
-    url: /community-integrations/community-shippers.html
 
   # - title: Shipping utilities
   #   url: /shipping/shipping-utilities/
@@ -163,7 +166,7 @@ firstLevel:
 
   # ===== INTEGRATIONS =====
 - title: Integrations
-  icon: li-wrench
+  icon: li-code
   secondLevel:
   - title: Alert endpoints
     url: /user-guide/integrations/endpoints.html

@@ -10,6 +10,8 @@ open-source:
     github-repo: logzio-python-handler
 contributors:
   - imnotashrimp
+shipping-tags:
+  - from-your-code
 ---
 
 ## Logz.io Python Handler setup

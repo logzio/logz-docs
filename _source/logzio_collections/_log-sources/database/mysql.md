@@ -17,8 +17,6 @@ shipping-tags:
   - database
 ---
 
-## Setup
-
 <div class="branching-container">
 
 {: .branching-tabs }
@@ -26,6 +24,8 @@ shipping-tags:
 * [Docker sidecar](#docker-sidecar-config)
 
 <div id="filebeat-config">
+
+## MySQL + Filebeat setup
 
 <div class="accordion">
 
@@ -255,7 +255,7 @@ Log type _(for preconfigured parsing)_
     sudo systemctl restart filebeat
     ```
 
-5. Check Logz.io for your logs
+6. Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -264,6 +264,10 @@ Log type _(for preconfigured parsing)_
 </div>
 
 <div id="docker-sidecar-config">
+
+## MySQL + Docker sidecar setup
+
+###### Configuration
 
 {: .tasklist .firstline-headline }
 1. Pull the Docker image

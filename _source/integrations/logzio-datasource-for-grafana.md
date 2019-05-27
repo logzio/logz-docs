@@ -19,6 +19,10 @@ The plugin allows you to view your Logz.io-stored metrics in a Grafana instance 
 
 ###### Install Logz.io datasource for Grafana
 
+**You'll need**:
+Write access to Grafana,
+Logz.io API access
+
 {: .tasklist .firstline-headline }
 1. Install the plugin
 

@@ -11,7 +11,7 @@ contributors:
   - imnotashrimp
 ---
 
-The insights chart at the top of the page shows a 7-day summary summary of all the different identified insights. Both Application Insights and Cognitive Insights are included in the chart.
+The insights chart at the top of the page shows a 7-day summary of all the different identified insights. Both Application Insights and Cognitive Insights are included in the chart.
 
 <video autoplay loop>
   <source src="{{site.baseurl}}/videos/insights/insights--chart-interaction.mp4" type="video/mp4" />

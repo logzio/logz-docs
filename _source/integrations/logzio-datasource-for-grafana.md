@@ -40,7 +40,7 @@ Logz.io API access
     You're taken to the Logz.io _Settings_ page.
 
     In **Logz.io Url**, type your region's base API URL.
-    For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+    For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
     In **Logz.io API Key**, paste an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from the account you want to use.
 

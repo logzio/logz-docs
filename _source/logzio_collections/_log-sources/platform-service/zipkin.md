@@ -46,6 +46,13 @@ For most users, these won't be an issue, but they're still good to know:
 
     Download the [Zipkin-Logz.io Trace Storage](https://github.com/logzio/zipkin-logzio/releases) jar to the same directory.
 
+    ```shell
+    RELEASE_JAR=$(curl -s https://api.github.com/repos/logzio/zipkin-logzio/releases/latest \
+      | grep "tag_name" \
+      | awk '{print "https://github.com/logzio/zipkin-logzio/archive/" substr($2, 2, length($2)-3) ".jar"}') \
+      ; curl -L -o zipkin-logzio.jar $RELEASE_JAR
+    ```
+
 2. Run Zipkin server with the Logz.io extension
 
     You can configure the Logz.io extension with shell variables or environment variables.

@@ -48,9 +48,9 @@ For most users, these won't be an issue, but they're still good to know:
 
     ```shell
     RELEASE_JAR=$(curl -s https://api.github.com/repos/logzio/zipkin-logzio/releases/latest \
-      | grep "tag_name" \
-      | awk '{print "https://github.com/logzio/zipkin-logzio/archive/" substr($2, 2, length($2)-3) ".jar"}') \
-      ; curl -L -o zipkin-logzio.jar $RELEASE_JAR
+      | grep "browser_download_url" \
+      | awk '{print substr($2, 2, length($2)-2)}') \
+      ; wget -O zipkin-logzio.jar $RELEASE_JAR
     ```
 
 2. Run Zipkin server with the Logz.io extension

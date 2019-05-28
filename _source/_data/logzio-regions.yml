@@ -1,3 +1,10 @@
+test:
+  title: Shalom test
+  cloud: AWS
+  listener-ips:
+    - 1.1.1.1
+    - 8.8.8.8
+    - 3.3.3.3
 us:
   title: N. Virginia region
   suffix: false

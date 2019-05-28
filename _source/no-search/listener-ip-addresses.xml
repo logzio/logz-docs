@@ -1,0 +1,33 @@
+---
+layout: none
+permalink: /listener-ip-addresses.xml
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logz.io listener IP addresses</title>
+    <description>If you're having trouble shipping your logs to Logz.io, you may need to open your firewall to Logz.io listener servers. This page contains the Logz.io listener IP addresses so you can do just that.</description>
+    <link>{{ site.url }}{{ site.baseurl }}/user-guide/log-shipping/listener-ip-addresses.html</link>
+    <atom:link href="{{site.url}}{{site.baseurl}}{{page.permalink}}" rel="self" type="application/rss+xml" />
+
+    {% for r in site.data.logzio-regions -%}
+      {%- assign attribs = r[1] -%}
+      {%- case attribs.suffix -%}
+        {%- when false -%}
+          {%- assign suffix = "" -%}
+        {%- else -%}
+          {%- assign suffix = r[0] | prepend: "-" -%}
+      {%- endcase %}
+
+      <item>
+        <title>listener{{suffix}}.logz.io — {{attribs.title}}, {{attribs.cloud}}</title>
+        <description>
+          If you're shipping logs to listener{{suffix}}.logz.io, open your firewall to these {{attribs.cloud}} IP addresses:
+
+          {% assign sortedIPs = attribs.listener-ips | sort | join: ", " -%}
+          {{sortedIPs}}
+        </description>
+      </item>
+    {%- endfor %}
+  </channel>
+</rss>

@@ -10,6 +10,7 @@ us:
   suffix: false
   cloud: AWS
   listener-ips:
+    - 1.1.1.1
     - 23.22.183.192
     - 34.196.246.79
     - 34.198.121.5

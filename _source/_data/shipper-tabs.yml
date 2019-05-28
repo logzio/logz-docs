@@ -20,8 +20,10 @@ tabs:
       container: Containers & pods
       ci-cd: CI/CD
       security: Security
-#  Metrics:
-#    collection: metrics-sources
+  Metrics:
+    collection: metrics-sources
+    tags:
+      platform-service: Platforms & services
 #  Shippers:
 #    collection: shippers
 #    tags:

@@ -158,6 +158,10 @@ div.card-icon i::before {
   font-weight: 700;
 }
 
+#card-filters a {
+  white-space: nowrap;
+}
+
 #card-filters a:hover {
   cursor: pointer;
 }

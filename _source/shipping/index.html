@@ -30,7 +30,7 @@ community-info: false
 {%- for doc in docs -%}
   {%- assign tagsInThisTab = doc.shipping-tags | concat: tagsInThisTab -%}
 {%- endfor -%}
-{%- assign tagsInThisTab = tagsInThisTab | uniq -%}
+{%- assign tagsInThisTab = tagsInThisTab | uniq | sort | reverse -%}
 
 {%- assign tagsInThisTabSize = tagsInThisTab | size -%}
 {%- unless tagsInThisTabSize == 1 -%}
@@ -50,9 +50,9 @@ community-info: false
 <nav id="card-filters">
   <div class="filters-inline-header">Filter this page:</div>
   <div class="filter-items">
-      <a class="filter-btn filter-active" data-filter="all">All</a>
+      <a class="filter-btn filter-active fancy-link" data-filter="all">All</a>
     {%- for tag in tagsInThisTab %}
-      <a class="filter-btn" data-filter="{{tag[0].slug}}">{{tag[0].name}}</a>
+      <a class="filter-btn fancy-link" data-filter="{{tag[0].slug}}">{{tag[0].name}}</a>
     {% endfor -%}
   </div>
 </nav>

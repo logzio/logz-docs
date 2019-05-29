@@ -10,23 +10,10 @@
 tabs:
   - name: Logs
     collection: log-sources
-    tags:
-      os: Operating systems
-      server-app: Server apps & devices
-      from-your-code: From your code
-      platform-service: Platforms & services
-      aws: AWS
-      azure: Azure
-      container: Containers & pods
-      database: Database
-      ci-cd: CI/CD
-      security: Security
 #  - name: Metrics:
 #    collection: metrics-sources
 #  - name: Shippers
 #    collection: shippers
-#    tags:
-#      log-shipper: Log shippers
   - name: Community shippers
     collection: community-shippers
     top-content: >-
@@ -35,5 +22,25 @@ tabs:
         <p>These projects are maintained by third parties and recommended by members of the Logz.io community.
         Always test and review the code of any community project before using it.</p>
       </div>
-    tags:
-      log-shipper: Log shippers
+
+tags:
+  - slug: log-shipper
+    name: Log shippers
+  - slug: os
+    name: Operating systems
+  - slug: server-app
+    name: Server apps & devices
+  - slug: from-your-code
+    name: From your code
+  - slug: platform-service
+    name: Platforms & services
+  - slug: aws
+    name: AWS
+  - slug: azure
+    name: Azure
+  - slug: container
+    name: Containers & pods
+  - slug: ci-cd
+    name: CI/CD
+  - slug: security
+    name: Security

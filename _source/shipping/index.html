@@ -13,31 +13,30 @@ community-info: false
 
 <ul class="branching-tabs">
 {%- for tab in tabData.tabs -%}
-  <li><a href="#{{tab[1].collection}}">{{tab[0]}}</a></li>
+  <li><a href="#{{tab.collection}}">{{tab.name}}</a></li>
 {%- endfor -%}
 </ul>
 
 {%- for tab in tabData.tabs -%}
-{%- assign thisTab = tab[1] -%}
 
-<div id="{{thisTab.collection}}">
+<div id="{{tab.collection}}">
 
 {%- comment -%}
 *   Page filters. Makes a filter link for each tag.
 *         {%- endcomment -%}
-{%- unless thisTab.tags.size == 1 -%}
+{%- unless tab.tags.size == 1 -%}
 <nav id="card-filters">
   <div class="filters-inline-header">Filter this page:</div>
   <div class="filter-items">
       <a class="filter-btn filter-active" data-filter="all">All</a>
-    {%- for tag in thisTab.tags %}
+    {%- for tag in tab.tags %}
       <a class="filter-btn" data-filter="{{tag[0]}}">{{tag[1]}}</a>
     {% endfor -%}
   </div>
 </nav>
 {%- endunless -%}
 
-{{thisTab.top-content}}
+{{tab.top-content}}
 
 {%- comment -%}
 *   Loop through each category, and create the shipping cards for that
@@ -46,7 +45,7 @@ community-info: false
 
 <div class="card-container">
   <div class="cards mini-cards">
-  {%- assign thisCollection = site.collections | where: "label", thisTab.collection | first -%}
+  {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
   {%- assign docs = thisCollection.docs | sort: "shipping-summary.data-source" -%}
   {%- for doc in docs %}
     {%- assign shipperUrl = doc.project-url | default: doc.url -%}

@@ -8,7 +8,7 @@
 #     <tag-slug>: <tag-human-readable>
 
 tabs:
-  Logs:
+  - name: Logs
     collection: log-sources
     tags:
       os: Operating systems
@@ -21,13 +21,13 @@ tabs:
       database: Database
       ci-cd: CI/CD
       security: Security
-#  Metrics:
+#  - name: Metrics:
 #    collection: metrics-sources
-#  Shippers:
+#  - name: Shippers
 #    collection: shippers
 #    tags:
 #      log-shipper: Log shippers
-  Community shippers:
+  - name: Community shippers
     collection: community-shippers
     top-content: >-
       <div class="info-box important">

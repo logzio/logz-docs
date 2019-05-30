@@ -23,13 +23,11 @@ You can get to this page by selecting
 
 
 {: .letter-labels }
+Archive settings
+: You can configure Logz.io to archive your logs to an S3 bucket, keeping your overall costs down.
 
-<!-- TODO letter labels -->
-  Archive settings
-  : You can configure Logz.io to archive your logs to an S3 bucket, keeping your overall costs down.
+Restore archived logs
+: Re-ingest up to 24 hours of out-of-retention logs from S3.
 
-  Restore archived logs
-  : Re-ingest up to 24 hours of out-of-retention logs from S3.
-
-  Restored accounts
-  : Shows a list of all the data restored to this account—including who made the request and its status.
+Restored accounts
+: Shows a list of all the data restored to this account—including who made the request and its status.

@@ -100,7 +100,8 @@ defaults:
     values:
       layout: article
   - scope:
-      path: _community-shippers/log-shippers
+      path: ''
+      type: community-shippers
     values:
       community-project: true
 

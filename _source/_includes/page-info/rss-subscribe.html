@@ -1,0 +1,5 @@
+{%- if page.flags.rss-subscribe -%}
+<div class="rss-button">
+  <a href="{{page.flags.rss-subscribe | prepend: site.baseurl}}"><i class="fas fa-rss"></i> Subscribe for updates</a>
+</div>
+{%- endif -%}

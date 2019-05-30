@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Alice, Slack chatbot
+title: Alice, your Slack chatbot
 description: Use Alice to work with your Logz.io accounts. Search your logs, see triggered alerts, and get snapshots of visualizations and dashboards—all right from Slack.
 permalink: /integrations/alice-slack-chatbot.html
 flags:

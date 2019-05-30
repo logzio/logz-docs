@@ -985,6 +985,23 @@ h1 .avatar.avatar-small {
   background: linear-gradient(to bottom, var(--background-very-light), silver);
 }
 
+.rss-button a {
+  color: orange;
+  border: 1px solid currentColor;
+  font-weight: 700;
+  width: fit-content;
+  padding: 0 5px;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.rss-button a:hover {
+  color: white;
+  background-color: orange;
+  border: 1px solid currentColor;
+}
+
+
 /* ===== FPO - IMAGE PLACEHOLDERS ===== */
 .fpo {
   display: flex;
@@ -1004,6 +1021,7 @@ h1 .avatar.avatar-small {
   text-align: center;
   color: var(--text-code);
   font-weight: 700;
+  font-size: .9rem;
 }
 
 .fpo.fpo-1::after {

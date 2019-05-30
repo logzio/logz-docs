@@ -1,7 +1,7 @@
 ---
 layout: article
-title: Logz.io datasource for Grafana
-permalink: /integrations/logzio-datasource-for-grafana.html
+title: Grafana data source plugin
+permalink: /integrations/grafana-data-source-plugin.html
 flags:
   logzio-plan: enterprise
 open-source:

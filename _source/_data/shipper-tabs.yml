@@ -44,3 +44,5 @@ tags:
     name: CI/CD
   - slug: security
     name: Security
+  - slug: database
+    name: Databases

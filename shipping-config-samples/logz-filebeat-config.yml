@@ -23,20 +23,32 @@ filebeat.inputs:
     #
     # For custom parsing you can:
     #  - Configure Logstash in your system
-    #  - Use the Data Parsing wizard (https://app.logz.io/#/dashboard/data-parsing/)
+    #  - Use the Data Parsing wizard
+    #    (https://app.logz.io/#/dashboard/data-parsing/)
     #  - Get help from the Support team (email help@logz.io)
     type: LOG-TYPE
 
-  # fields_under_root must be set to `true`
+  # fields_under_root must be set to `true`. Do not change this option.
   fields_under_root: true
   encoding: utf-8
   ignore_older: 3h
 
-# For Filebeat 6.x, use this line (comment out if using Filebeat 7)
-registry_file: /var/lib/filebeat/registry
+  # If your plain text logs span multiple lines, uncomment the `multiline`
+  # option. On the `pattern` line, give a Filebeat-supported regex pattern.
+  # Filebeat combines lines when it finds the regex pattern. Supported regex
+  # patterns are at https://www.elastic.co/guide/en/beats/filebeat/current/regexp-support.html
+  #multiline:
+  #  pattern: # Regex pattern to match
+  #  negate: true
+  #  match: after
 
-# For Filebeat 7.x, uncomment this line and comment out the line above
-# filebeat.registry.path: /var/lib/filebeat
+
+# For Filebeat 6.x, uncomment this line and remove the `filebeat.registry.path`
+# line below
+# registry_file: /var/lib/filebeat/registry
+
+# For Filebeat 7.x, use this line and remove the `registry_file` line above
+filebeat.registry.path: /var/lib/filebeat
 
 # This block keeps logs shipped by Filebeat 7 compatible with Logz.io. It's
 # optional for Filebeat 6.

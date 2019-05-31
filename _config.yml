@@ -62,7 +62,7 @@ collections:
     output: false
     permalink: /shipping/community-shippers/:slug.html
   shippers:
-    output: false
+    output: true
     permalink: /shipping/shippers/:slug.html
   docs-admin:
     output: true

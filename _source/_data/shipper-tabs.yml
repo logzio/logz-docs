@@ -23,10 +23,10 @@ tabs:
       security: Security
 #  Metrics:
 #    collection: metrics-sources
-#  Shippers:
-#    collection: shippers
-#    tags:
-#      log-shipper: Log shippers
+  Shippers:
+    collection: shippers
+    tags:
+      log-shipper: Log shippers
   Community shippers:
     collection: community-shippers
     top-content: >-

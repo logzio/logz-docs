@@ -226,17 +226,25 @@ h4 {
 
 h5, h6, .inline-header {
   font-size: 1rem;
-  font-weight: 700;
   margin-bottom: 0;
 }
 
 h5, h6 {
+  font-weight: 400;
   text-transform: uppercase;
 }
 
+.inline-header {
+  font-weight: 700;
+}
+
 /* Use h6 to introduce procedures. If you need a regular heading, use h5 */
-h6 {
-  color: var(--tasklist-heading);
+h6:after {
+  display: block;
+  content: '';
+  width: 50px;
+  height: 3px;
+  background-color: var(--tasklist-heading);
 }
 
 main.page-content img, main.page-content video, .post-content iframe {

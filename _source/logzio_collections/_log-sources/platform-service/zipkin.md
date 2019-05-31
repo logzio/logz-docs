@@ -48,8 +48,7 @@ For most users, these won't be an issue, but they're still good to know:
 
     ```shell
     RELEASE_JAR=$(curl -s https://api.github.com/repos/logzio/zipkin-logzio/releases/latest \
-      | grep "browser_download_url" \
-      | awk '{print substr($2, 2, length($2)-2)}') \
+      | grep "browser_download_url" | awk '{print substr($2, 2, length($2)-2)}') \
       ; wget -O zipkin-logzio.jar $RELEASE_JAR
     ```
 

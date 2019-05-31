@@ -1,5 +1,4 @@
 ---
-
 title: Fluentd
 logo:
   logofile: fluentd.svg

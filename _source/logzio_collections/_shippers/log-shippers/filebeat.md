@@ -20,7 +20,7 @@ and it's the tool we recommend for most situations.
 
 This page is a general reference for Filebeat.
 If you need instructions for a specific log source (such as nginx, MySQL, or Wazuh),
-see [Log shipping sources]({{site.baseurl}}/shipping/log-sources/).
+see [Log shipping sources]({{site.baseurl}}/shipping/).
 
 ###### Configuration tl;dr
 

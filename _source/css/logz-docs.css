@@ -833,7 +833,7 @@ div.related-links-container span {
   padding: 0;
   background: none;
   list-style-type: none;
-  border-bottom: 1px solid var(--border-very-light);
+  border-bottom: 2px solid var(--border-very-light);
 }
 
 ol .branching-tabs {
@@ -842,23 +842,23 @@ ol .branching-tabs {
 
 .branching-tabs li {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 3px 20px;
   margin-bottom: -4px;
-  color: var(--text-light);
+  color: var(--tab-inactive);
 }
 
 .branching-tabs li.active, .branching-tabs li:hover {
-  border-bottom: 2px solid currentColor;
-  margin-bottom: -1px;
+  border-bottom: 4px solid currentColor;
+  margin-bottom: -2px;
 }
 
-.branching-tabs li:hover {
+/* .branching-tabs li:hover {
   color: var(--heading-normal-50);
-}
+} */
 
 .branching-tabs li.active {
   font-weight: 400;
-  color: var(--heading-normal);
+  color: var(--text-normal);
 }
 
 .branching-tabs li > a {

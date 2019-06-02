@@ -88,9 +88,14 @@ $('.filter-btn').click(function() {
 });
 
 // reset on tab click
-$('.branching-tabs > li:not(.active) > a').click(function() {
-  $('.filter').show();
-  $('.filter-btn[data-filter="all"').addClass('filter-active').siblings().removeClass('filter-active');
+$('.branching-tabs > li > a').click(function() {
+  $('.branching-tabs li  a').removeClass('visit');
+  $(this).addClass('visit');
+
+  if($(this).hasClass('visit')){
+    $('.filter').show();
+    $('.filter-btn[data-filter="all"').addClass('filter-active').siblings().removeClass('filter-active');
+  }
 });
 
 });

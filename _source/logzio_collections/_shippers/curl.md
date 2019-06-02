@@ -5,7 +5,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: cURL file upload
-  hidden: true
 shipping-tags:
   - log-shipper
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/File-UploadcURL

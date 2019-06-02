@@ -5,7 +5,8 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Configure S3 fetcher
-  hidden: true
+shipping-tags:
+  - log-shipper
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/S3-Bucket
 contributors:
   - imnotashrimp
@@ -15,7 +16,7 @@ contributors:
 
 **You'll need**: `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
 
-###### Configuration
+###### Configure Logz.io to fetch logs from an S3 bucket
 
 {: .tasklist .firstline-headline }
 1. Add the S3 bucket information

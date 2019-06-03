@@ -20,9 +20,11 @@ Zipkin-Logz.io Trace Storage is a storage option for Zipkin distributed traces o
 It functions as both a collector and a span store.
 
 <div class="info-box note">
+
   This integration requires Logz.io API access.
   The Logz.io API is available for all Enterprise accounts.
   If you're on a Pro account, reach out to your account manager or the <a class="intercom-launch" href="mailto:sales@logz.io">Sales team</a> to request API access.
+
 </div>
 
 ### Limitations
@@ -36,15 +38,9 @@ For most users, these won't be an issue, but they're still good to know:
 ## To integrate Zipkin server and Logz.io
 
 {: .tasklist .firstline-headline}
-1. Download Zipkin server and Zipkin-Logz.io Trace Storage
+1. Download Zipkin-Logz.io Trace Storage
 
-    Download [Zipkin server](https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec).
-
-    ```shell
-    wget -O zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec'
-    ```
-
-    Download the [Zipkin-Logz.io Trace Storage](https://github.com/logzio/zipkin-logzio/releases) jar to the same directory.
+    Download the [Zipkin-Logz.io Trace Storage](https://github.com/logzio/zipkin-logzio/releases) jar.
 
     ```shell
     RELEASE_JAR=$(curl -s https://api.github.com/repos/logzio/zipkin-logzio/releases/latest \
@@ -52,7 +48,18 @@ For most users, these won't be an issue, but they're still good to know:
       ; wget -O zipkin-logzio.jar $RELEASE_JAR
     ```
 
-2. Run Zipkin server with the Logz.io extension
+2. Download Zipkin server
+
+    If you don't already have Zipkin server, download the latest version.
+
+    ```shell
+    wget -O zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec'
+    ```
+
+    If you're already running Zipkin server,
+    make sure to download the same version as the one you have.
+
+3. Run Zipkin server with the Logz.io extension
 
     You can configure the Logz.io extension with shell variables or environment variables.
 
@@ -114,7 +121,7 @@ For most users, these won't be an issue, but they're still good to know:
     CLEAN_SENT_TRACES_INTERVAL <span class="default-param">`30`</span>
     : Time interval, in seconds, to clean sent traces from the disk.
 
-3. Check Logz.io for your traces
+4. Check Logz.io for your traces
 
     Give your traces some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

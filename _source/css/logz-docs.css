@@ -842,7 +842,6 @@ ol .branching-tabs {
 
 .branching-tabs li {
   display: inline-block;
-  padding: 3px 20px;
   margin-bottom: -4px;
   color: var(--tab-inactive);
 }
@@ -863,6 +862,9 @@ ol .branching-tabs {
 
 .branching-tabs li > a {
   color: unset;
+  display: block;
+  margin: 0;
+  padding: 10px 20px;
 }
 
 .branching-container > div {

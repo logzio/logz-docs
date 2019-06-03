@@ -7,5 +7,5 @@ logo:
 shipping-summary:
   data-source: Ruby code
 shipping-tags:
-  - log-shipper
+  - from-your-code
 ---

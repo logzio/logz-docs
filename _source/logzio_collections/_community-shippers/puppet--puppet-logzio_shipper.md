@@ -7,5 +7,5 @@ logo:
 shipping-summary:
   data-source: Puppet
 shipping-tags:
-  - log-shipper
+  - ci-cd
 ---

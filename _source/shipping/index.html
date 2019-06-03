@@ -43,8 +43,6 @@ community-info: false
 
 <div id="{{tab.collection}}">
 
-{{tab.top-content}}
-
 {%- comment -%}
 *   Page filters. Makes a filter link for each tag.
 *         {%- endcomment -%}
@@ -59,6 +57,8 @@ community-info: false
   </div>
 </nav>
 {%- endunless -%}
+
+{{tab.top-content}}
 
 {%- comment -%}
 *   Loop through each category, and create the shipping cards for that

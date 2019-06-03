@@ -42,7 +42,26 @@ JDK,
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-2. Add Logz.io to your configuration file
+2. _(If needed)_ Install the Lumberjack output plugin
+
+    The Lumberjack output plugin is required for SSL shipping.
+    For most Logstash versions, the plugin is included by default.
+
+    To see if Lumberjack output plugin is installed, `cd` to your [Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html) and run this command:
+
+    ```shell
+    ./logstash-plugin list | grep logstash-output-lumberjack
+    ```
+
+    If you see `logstash-output-lumberjack`, skip to step 3.
+
+    Otherwise, you'll need to install the plugin.
+
+    ```shell
+    ./logstash-plugin install logstash-output-lumberjack
+    ```
+
+3. Add Logz.io to your configuration file
 
     Add these code blocks to the end of your existing Logstash configuration file:
 
@@ -59,11 +78,11 @@ JDK,
     }
     ```
 
-3. Start Logstash
+4. Start Logstash
 
     Start or restart Logstash for the changes to take effect.
 
-4. Check Logz.io for your logs
+5. Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

@@ -5,7 +5,6 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Fluentd
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Filebeat
 shipper-tags:
   - log-shipper
 contributors:

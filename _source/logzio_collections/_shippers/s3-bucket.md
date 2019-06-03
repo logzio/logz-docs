@@ -28,7 +28,7 @@ Please keep these notes in mind when configuring logging.
 
 * **The log path after the prefix must come in alphabetical order** \\
   We recommend starting the object name (after the prefix) with the Unix epoch time.
-  The unix epoch time is always increasing, ensuring we can always fetch your incoming logs.
+  The Unix epoch time is always increasing, ensuring we can always fetch your incoming logs.
 
 ## Setup
 

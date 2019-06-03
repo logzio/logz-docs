@@ -62,18 +62,26 @@ JDK,
 
 3. Add Logz.io to your configuration file
 
-    Add these code blocks to the end of your existing Logstash configuration file:
+    Add these code blocks to the end of your existing Logstash configuration file.
 
-    ```
-    mutate {
-      add_field => { "token" => "<ACCOUNT-TOKEN>" }
+    Make sure the `mutate` block is the last item in the `filter` block.
+
+    ```conf
+    filter {
+      # ...
+      # ...
+      mutate {
+        add_field => { "token" => "<ACCOUNT-TOKEN>" }
+      }
     }
 
-    lumberjack {
-      hosts => ["<LISTENER-URL>"]
-      port => 5006
-      ssl_certificate => "/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt"
-      codec => "json_lines"
+    output {
+      lumberjack {
+        hosts => ["<LISTENER-URL>"]
+        port => 5006
+        ssl_certificate => "/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt"
+        codec => "json_lines"
+      }
     }
     ```
 
@@ -102,17 +110,25 @@ JDK,
 {: .tasklist .firstline-headline }
 1. Add Logz.io to your configuration file
 
-    Add these code blocks to the end of your existing Logstash configuration file:
+    Add these code blocks to the end of your existing Logstash configuration file.
 
-    ```
-    mutate {
-      add_field => { "token" => "<ACCOUNT-TOKEN>" }
+    Make sure the `mutate` block is the last item in the `filter` block.
+
+    ```conf
+    filters {
+      # ...
+      # ...
+      mutate {
+        add_field => { "token" => "<ACCOUNT-TOKEN>" }
+      }
     }
 
-    tcp {
-      host => "listener.logz.io"
-      port => 5050
-      codec => json_lines
+    output {
+      tcp {
+        host => "listener.logz.io"
+        port => 5050
+        codec => json_lines
+      }
     }
     ```
 

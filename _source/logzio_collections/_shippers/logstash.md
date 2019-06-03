@@ -11,10 +11,9 @@ contributors:
   - imnotashrimp
 ---
 
-## Setup
-
 Logstash is a server app that ingests and parses log data.
 We recommend using it for shipping to Logz.io only when you have an existing Logstash configuration.
+
 For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/shippers/filebeat.html).
 
 <div class="branching-container">

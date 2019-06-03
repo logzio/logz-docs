@@ -7,5 +7,5 @@ logo:
 shipping-summary:
   data-source: Ansible
 shipping-tags:
-  - log-shipper
+  - platform-service
 ---

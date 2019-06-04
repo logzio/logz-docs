@@ -59,6 +59,7 @@ collections:
     output: true
     permalink: /shipping/log-sources/:slug.html
     name: Logs
+    in-shipping-manifest: true
   metrics-sources:
     output: true
     permalink: /shipping/metrics-sources/:slug.html

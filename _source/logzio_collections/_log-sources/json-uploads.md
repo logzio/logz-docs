@@ -1,10 +1,10 @@
 ---
-title: Bulk JSON uploads
+title: Upload JSON uploads
 logo:
   logofile: json.svg
   orientation: vertical
 shipping-summary:
-  data-source: JSON bulk uploads
+  data-source: JSON logs
 contributors:
   - imnotashrimp
 shipping-tags:

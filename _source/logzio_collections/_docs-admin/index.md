@@ -18,4 +18,4 @@ This build's environment: {{jekyll.environment}}
   * [{{doc.title}}]({{doc.url}})
   {%- endunless -%}
 {%- endfor %}
-  * [Shipping manifest]({{site.baseurl}}/data/data-shipping-sources.json)
+  * [Shipping manifest]({{site.baseurl}}/data/shipping-manifest.json)

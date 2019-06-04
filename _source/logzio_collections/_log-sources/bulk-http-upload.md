@@ -48,7 +48,7 @@ Query parameters
 {: .inline-header }
 
 token <span class="required-param"></span>
-: The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+: {% include log-shipping/replace-vars.html token=true %}
   <!-- logzio-inject:account-token -->
 
 type <span class="default-param">`http-bulk`</span>

@@ -2,10 +2,10 @@
 title: Tyk Pump
 project-url: https://github.com/TykTechnologies/tyk-pump
 logo:
-  logofile: redis.svg
+  logofile: tyk.svg
   orientation: vertical
 shipping-summary:
-  data-source: Redis
+  data-source: Tyk
 shipping-tags:
   - database
 ---

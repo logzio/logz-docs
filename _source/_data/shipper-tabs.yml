@@ -8,14 +8,12 @@
 #     <tag-slug>: <tag-human-readable>
 
 tabs:
-  - name: Logs
-    collection: log-sources
+  - collection: log-sources
 #  - name: Metrics:
 #    collection: metrics-sources
 #  - name: Shippers
 #    collection: shippers
-  - name: Community shippers
-    collection: community-shippers
+  - collection: community-shippers
     top-content: >-
       <div class="info-box important">
         <p><strong>Logz.io does not test or support these projects</strong></p>

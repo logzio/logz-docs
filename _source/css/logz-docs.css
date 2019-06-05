@@ -864,7 +864,7 @@ ol .branching-tabs {
   color: unset;
   display: block;
   margin: 0;
-  padding: 10px 20px;
+  padding: 0px 24px 1px 24px;
 }
 
 .branching-container > div {

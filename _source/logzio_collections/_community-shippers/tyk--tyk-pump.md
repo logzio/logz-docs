@@ -7,5 +7,5 @@ logo:
 shipping-summary:
   data-source: Tyk
 shipping-tags:
-  - database
+  - platform-service
 ---

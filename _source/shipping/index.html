@@ -14,7 +14,8 @@ community-info: false
 
 <ul class="branching-tabs">
 {%- for tab in tabData-%}
-  <li><a href="#{{tab.collection}}">{{tab.name}}</a></li>
+  {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
+  <li><a href="#{{tab.collection}}">{{thisCollection.name}}</a></li>
 {%- endfor -%}
 </ul>
 

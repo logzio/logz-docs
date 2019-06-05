@@ -4,7 +4,7 @@ logo:
   logofile: aws-s3.svg
   orientation: vertical
 shipping-summary:
-  data-source: Configure S3 fetcher
+  data-source: S3 fetcher
 shipping-tags:
   - log-shipper
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/S3-Bucket

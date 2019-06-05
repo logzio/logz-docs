@@ -396,7 +396,7 @@ ol ul {
 
 /* tasklist formatting */
 .tasklist {
-  counter-reset(tasklist);
+  counter-reset: tasklist;
   list-style-type: none;
   padding-left: 0;
 }

@@ -1,46 +1,45 @@
 ---
-title: Upload JSON uploads
+title: Upload JSON logs
 logo:
   logofile: json.svg
   orientation: vertical
 shipping-summary:
-  data-source: JSON logs
+  data-source: JSON uploads
 contributors:
   - imnotashrimp
 shipping-tags:
   - from-your-code
 ---
 
-You can ship a batch of JSON logs to Logz.io via HTTP or HTTPS.
-Simply issue a POST request to the listener in your account's region.
+If you want to ship logs from your code but don't have a library in place,
+you can send them directly to the Logz.io listener.
 
-## Building the request
-
-### The request header
+The listeners accept bulk uploads over an HTTP/HTTPS connection
+or TLS/SSL streams over TCP.
 
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [HTTPS <span class="sm ital">(recommended)</span>](#https-config)
-  * [HTTP](#http-config)
+  * [Bulk uploads over HTTP/HTTPS](#http-config)
+  * [TLS/SSL streams over TCP](#tcp-config)
 
-<div id="https-config">
+<div id="http-config">
+
+## Bulk uploads over HTTP/HTTPS
+
+#### The request path and header
+
+For HTTPS shipping _(recommended)_, use this URL configuration:
 
 ```
 https://<LISTENER-URL>:8071/?token=<ACCOUNT-TOKEN>&type=MY-TYPE
 ```
 
-</div>
-
-<div id="http-config">
+Otherwise, for HTTP shipping, use this configuration:
 
 ```
 http://<LISTENER-URL>:8070/?token=<ACCOUNT-TOKEN>&type=MY-TYPE
 ```
-
-</div>
-
-</div>
 
 {% include log-shipping/replace-vars.html listener=true %}
 
@@ -56,7 +55,7 @@ type <span class="default-param">`http-bulk`</span>
   This is shown in your logs under the `type` field in Kibana. \\
   Logz.io applies parsing based on `type`.
 
-### The request body
+#### The request body
 
 Your request's body is a list of logs,
 each in JSON Format,
@@ -71,7 +70,7 @@ For example:
 
 <div class="info-box note">
 
-  Newlines inside a JSON string should be escaped with `\n`.
+  Escape newlines inside a JSON string with `\n`.
 
 </div>
 
@@ -92,9 +91,7 @@ echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "count
   | curl -X POST "http://listener.logz.io:8070?token=oPwWbJwsFeQSeSoUTVAaZVZYttszAsfg&type=test_http_bulk" -v --data-binary @-
 ```
 
-## Possible responses
-
-<div class="branching-container">
+### Possible responses
 
 ##### If the response is `200 OK`
 
@@ -118,21 +115,25 @@ The response body contains this JSON:
 }
 ```
 
-| Field | Description |
-|---|---|
-| malformedLines | The number of log lines that aren't valid JSON |
+Response fields
+{: .inline-header }
 
-| successfulLines | The number of valid JSON log lines received |
+malformedLines
+: The number of log lines that aren't valid JSON
 
-| oversizedLines | The number of log lines that exceeded the line length limit |
+successfulLines
+: The number of valid JSON log lines received
 
-| emptyLogLines | The number of empty log lines |
+oversizedLines
+: The number of log lines that exceeded the line length limit
+
+emptyLogLines
+: The number of empty log lines
 
 ##### If the response is `401 UNAUTHORIZED`
 
 The token query string parameter is missing or not valid.
-Make sure it's using the right account token.
-<!-- logzio-inject:"(" & account-token ")" -->
+Make sure you're using the right account token.
 
 In the response body,
 you'll see either "Logging token is missing"
@@ -140,4 +141,76 @@ or "Logging token is not valid" as the reason for the response.
 
 ##### If the response is `413 REQUEST ENTITY TOO LARGE`
 
-The request body size is over 10MB.
+The request body size is larger than 10 MB.
+
+</div>
+
+<div id="tcp-config">
+
+## TLS/SSL streams over TCP
+
+### JSON log structure
+
+Keep to these practices when shipping JSON logs over TCP:
+
+* Each log must be a single-line JSON object
+* Each log line must be 500,000 bytes or less
+* Include your account token as a top-level property: \\
+  `{ ... "token": "<ACCOUNT-TOKEN>" , ... }`
+  {% include log-shipping/replace-vars.html token=true prepend="<br>" %}
+
+### Sending the logs
+
+To send JSON logs over TCP, download the Logz.io public certificate to a local folder.
+
+```shell
+wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt
+```
+
+Using the certificate you just downloaded,
+send the logs to TCP port 5052 at
+<!-- logzio-inject:listener-url -->
+{% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
+
+Code sample: NXLog
+{: .inline-header }
+
+<div class="info-box read">
+
+  To configure NXLog for log shipping, see
+  [Ship Windows logs]({{site.baseurl}}/shipping/log-sources/windows.html)
+  (the _NXLog_ tab).
+
+</div>
+
+```conf
+User nxlog
+Group nxlog
+LogFile /var/log/nxlog/nxlog.log
+LogLevel INFO
+<Extension json>
+    Module      xm_json
+</Extension>
+<Input in>
+    Module  im_file
+    File    "/var/log/samples.log"
+    Exec    $token="oPwWbJwsFeQSeSoUTVAaZVZYttszAsfg"; $type="samples_log"; $message = $raw_event;
+    SavePos TRUE
+</Input>
+<Output out>
+    Module  om_ssl
+    CAFile /etc/nxlog/certs/COMODORSADomainValidationSecureServerCA.crt
+    AllowUntrusted FALSE
+    Host    listener.logz.io
+    Exec    $OutputModule="om_ssl"; to_json();
+    Port    5052
+</Output>
+<Route 1>
+    Path    in => out
+</Route>
+```
+
+</div>
+
+</div>
+

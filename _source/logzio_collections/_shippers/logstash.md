@@ -64,7 +64,7 @@ JDK,
 
     Add these code blocks to the end of your existing Logstash configuration file.
 
-    Make sure the `mutate` block is the last item in the `filter` block.
+    Make sure the `mutate` block is the last item in the `filters` block.
 
     ```conf
     filter {
@@ -112,7 +112,7 @@ JDK,
 
     Add these code blocks to the end of your existing Logstash configuration file.
 
-    Make sure the `mutate` block is the last item in the `filter` block.
+    Make sure the `mutate` block is the last item in the `filters` block.
 
     ```conf
     filters {

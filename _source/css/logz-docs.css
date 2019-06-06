@@ -226,17 +226,25 @@ h4 {
 
 h5, h6, .inline-header {
   font-size: 1rem;
-  font-weight: 700;
   margin-bottom: 0;
 }
 
 h5, h6 {
+  font-weight: 400;
   text-transform: uppercase;
 }
 
+.inline-header {
+  font-weight: 700;
+}
+
 /* Use h6 to introduce procedures. If you need a regular heading, use h5 */
-h6 {
-  color: var(--tasklist-heading);
+h6:after {
+  display: block;
+  content: '';
+  width: 50px;
+  height: 3px;
+  background-color: var(--tasklist-heading);
 }
 
 main.page-content img, main.page-content video, .post-content iframe {
@@ -388,7 +396,7 @@ ol ul {
 
 /* tasklist formatting */
 .tasklist {
-  counter-reset(tasklist);
+  counter-reset: tasklist;
   list-style-type: none;
   padding-left: 0;
 }
@@ -825,7 +833,7 @@ div.related-links-container span {
   padding: 0;
   background: none;
   list-style-type: none;
-  border-bottom: 1px solid var(--border-very-light);
+  border-bottom: 2px solid var(--border-very-light);
 }
 
 ol .branching-tabs {
@@ -834,27 +842,29 @@ ol .branching-tabs {
 
 .branching-tabs li {
   display: inline-block;
-  padding: 10px 20px;
   margin-bottom: -4px;
-  color: var(--text-light);
+  color: var(--tab-inactive);
 }
 
 .branching-tabs li.active, .branching-tabs li:hover {
-  border-bottom: 2px solid currentColor;
-  margin-bottom: -1px;
+  border-bottom: 4px solid currentColor;
+  margin-bottom: -2px;
 }
 
-.branching-tabs li:hover {
+/* .branching-tabs li:hover {
   color: var(--heading-normal-50);
-}
+} */
 
 .branching-tabs li.active {
   font-weight: 400;
-  color: var(--heading-normal);
+  color: var(--text-normal);
 }
 
 .branching-tabs li > a {
   color: unset;
+  display: block;
+  margin: 0;
+  padding: 0px 24px 1px 24px;
 }
 
 .branching-container > div {

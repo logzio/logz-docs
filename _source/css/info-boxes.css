@@ -26,6 +26,10 @@ div.info-box::before {
   padding-right: 15px;
 }
 
+.info-box.no-title::before {
+  display: none;
+}
+
 div.info-box > p {
   margin: 0;
   line-height: 1.2rem;

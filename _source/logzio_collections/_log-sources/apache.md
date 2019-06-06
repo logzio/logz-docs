@@ -188,11 +188,9 @@ root access
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. Restart Filebeat
+4. Start Filebeat
 
-    ```shell
-    sudo systemctl restart filebeat
-    ```
+    Start or restart Filebeat for the changes to take effect.
 
 5. Check Logz.io for your logs
 

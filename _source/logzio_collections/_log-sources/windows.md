@@ -52,7 +52,7 @@ shipping-tags:
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
+      hosts: ["<LISTENER-HOST>:5015"]
       ssl:
         certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
     ```
@@ -142,7 +142,7 @@ shipping-tags:
     ```conf
     <Output out>
         Module  om_tcp
-        Host    <LISTENER-URL>
+        Host    <LISTENER-HOST>
         Port    8010
     </Output>
     <Route 1>

@@ -51,7 +51,7 @@ admin access
     </Input>
     <Output out>
         Module  om_tcp
-        Host    <LISTENER-URL>
+        Host    <LISTENER-HOST>
         Port    8010
     </Output>
 

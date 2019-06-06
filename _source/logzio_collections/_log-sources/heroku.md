@@ -22,7 +22,7 @@ shipping-tags:
     Run this command in a terminal window.
 
     ```shell
-    heroku drains:add "http://<LISTENER-URL>:8081?token=<ACCOUNT-TOKEN>" -a <HEROKU-APP-NAME>
+    heroku drains:add "http://<LISTENER-HOST>:8081?token=<ACCOUNT-TOKEN>" -a <HEROKU-APP-NAME>
     ```
 
     {% include log-shipping/replace-vars.html token=true listener=true %}

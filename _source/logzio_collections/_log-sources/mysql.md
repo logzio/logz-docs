@@ -39,7 +39,7 @@ Files
 
 Listener
 : Port 5015.
-  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
 Default log locations
 : General query log: `/var/log/mysql/mysql.log` \\
@@ -244,7 +244,7 @@ Log type _(for preconfigured parsing)_
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
+      hosts: ["<LISTENER-HOST>:5015"]
       ssl:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
@@ -283,7 +283,7 @@ Log type _(for preconfigured parsing)_
     ```shell
     docker run -d --name logzio-mysql-logs \
     -e LOGZIO_TOKEN="<ACCOUNT-TOKEN>" \
-    -e LOGZIO_LISTENER_HOST="<LISTENER-URL>" \
+    -e LOGZIO_LISTENER_HOST="<LISTENER-HOST>" \
     -v /var/log/logzio:/var/log/logzio \
     -v /var/log/mysql:/var/log/mysql \
     logzio/mysql-logs
@@ -298,7 +298,7 @@ Log type _(for preconfigured parsing)_
       <!-- logzio-inject:account-token -->
 
     LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span>
-    : Logz.io listener URL to ship the logs to.
+    : Logz.io listener host to ship the logs to.
       {% include log-shipping/replace-vars.html listener=true %}
 
     MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span>

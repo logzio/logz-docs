@@ -77,7 +77,7 @@ JDK,
 
     output {
       lumberjack {
-        hosts => ["<LISTENER-URL>"]
+        hosts => ["<LISTENER-HOST>"]
         port => 5006
         ssl_certificate => "/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt"
         codec => "json_lines"

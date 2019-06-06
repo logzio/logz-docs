@@ -53,7 +53,7 @@ For a complete list of options, see the configuration parameters below the code 
 var logger = require('logzio-nodejs').createLogger({
   token: '<ACCOUNT-TOKEN>',
   protocol: 'https',
-  host: '<LISTENER-URL>',
+  host: '<LISTENER-HOST>',
   port: '8071',
   type: 'YourLogType'
 });
@@ -71,7 +71,7 @@ protocol <span class="default-param">`http`</span>
   The value here affects the default of the `port` parameter.
 
 host <span class="default-param">`listener.logz.io`</span>
-: Listener URL.
+: Listener host.
   {% include log-shipping/replace-vars.html listener=true %}
 
 port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>
@@ -173,7 +173,7 @@ var logzioWinstonTransport = require('winston-logzio');
 var loggerOptions = {
     token: '<ACCOUNT-TOKEN>',
     protocol: 'https',
-    host: '<LISTENER-URL>',
+    host: '<LISTENER-HOST>',
     port: '8071',
     type: 'YourLogType'
 };
@@ -193,7 +193,7 @@ protocol <span class="default-param">`http`</span>
   The value here affects the default of the `port` parameter.
 
 host <span class="default-param">`listener.logz.io`</span>
-: Listener URL.
+: Listener host.
   {% include log-shipping/replace-vars.html listener=true %}
 
 port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>

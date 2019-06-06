@@ -55,7 +55,7 @@ For most users, these won't be an issue, but they're still good to know:
     ```bash
     STORAGE_TYPE=logzio \
     LOGZIO_ACCOUNT_TOKEN=<ACCOUNT-TOKEN> \
-    LOGZIO_LISTENER_HOST=<LISTENER-URL> \
+    LOGZIO_LISTENER_HOST=<LISTENER-HOST> \
     LOGZIO_API_TOKEN=<API-TOKEN> \
     LOGZIO_API_HOST=<API-URL> \
     java -Dloader.path='zipkin-logzio.jar,zipkin-logzio.jar!lib' -Dspring.profiles.active=logzio -cp zipkin.jar org.springframework.boot.loader.PropertiesLauncher

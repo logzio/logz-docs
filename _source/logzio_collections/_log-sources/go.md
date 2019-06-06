@@ -52,7 +52,7 @@ func main() {
   l, err := logzio.New(
     "<ACCOUNT-TOKEN>",
     logzio.SetDebug(os.Stderr),
-    logzio.SetUrl("<LISTENER-URL>:8071"),
+    logzio.SetUrl("<LISTENER-HOST>:8071"),
     logzio.SetDrainDuration(time.Second * 5),
     logzio.SetTempDirectory("myQueue"),
     logzio.SetDrainDiskThreshold(99),

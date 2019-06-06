@@ -87,7 +87,7 @@ root access
     <div id="filebeat-6-code">
 
     ```yaml
-    # Filebeat 7 configuration
+    # Filebeat 6 configuration
 
     filebeat.inputs:
     - type: tcp

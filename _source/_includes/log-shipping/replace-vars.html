@@ -1,3 +1,5 @@
+{{ include.prepend }}
+
 {%- if include.token -%}
   {%- case include.token -%}
     {%- when 'noReplace' -%}
@@ -14,10 +16,17 @@
 {%- if include.listener -%}
   {%- case include.listener -%}
     {%- when 'noReplace' -%}
-    Your region's listener URL.
+    {%- if include.isMidSentence == true -%}
+      your
+    {%- else -%}
+      Your
+    {%- endif %}
+    region's listener URL.
     For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
     {%- else -%}
     Replace `<LISTENER-URL>` with your region's listener URL.
     For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
   {%- endcase -%}
 {%- endif -%}
+
+{{ include.append }}

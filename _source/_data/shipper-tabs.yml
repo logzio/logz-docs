@@ -9,15 +9,13 @@
 
 tabs:
   - collection: log-sources
-#  - name: Metrics:
-#    collection: metrics-sources
-#  - name: Shippers
-#    collection: shippers
+  # -  collection: metrics-sources
+  - collection: shippers
   - collection: community-shippers
     top-content: >-
-      <div class="info-box important">
-        <p><strong>Logz.io does not test or support these projects</strong></p>
-        <p>These projects are maintained by third parties and recommended by members of the Logz.io community.
+      <div class="info-box important no-title">
+        <p class="sm"><strong>Logz.io does not test or support these projects.</strong>
+        These projects are maintained by third parties and recommended by members of the Logz.io community.
         Always test and review the code of any community project before using it.</p>
       </div>
 

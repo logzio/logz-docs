@@ -69,7 +69,7 @@ collections:
     permalink: /shipping/community-shippers/:slug.html
     name: Community shippers
   shippers:
-    output: false
+    output: true
     permalink: /shipping/shippers/:slug.html
     name: Shippers
   docs-admin:

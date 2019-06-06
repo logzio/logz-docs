@@ -44,14 +44,12 @@ community-info: false
 
 <div id="{{tab.collection}}">
 
-{{tab.top-content}}
-
 {%- comment -%}
 *   Page filters. Makes a filter link for each tag.
 *         {%- endcomment -%}
 {%- unless tagsInThisTabSize == 1 -%}
 <nav id="card-filters">
-  <div class="filters-inline-header">Filter this page:</div>
+  <div class="filters-inline-header">Filters:</div>
   <div class="filter-items">
       <a class="filter-btn filter-active fancy-link" data-filter="all">All</a>
     {%- for tag in tagsInThisTab %}
@@ -60,6 +58,8 @@ community-info: false
   </div>
 </nav>
 {%- endunless -%}
+
+{{tab.top-content}}
 
 {%- comment -%}
 *   Loop through each category, and create the shipping cards for that

@@ -179,13 +179,10 @@ root access
 
 ## Jenkins Logstash Plugin setup
 
-<div class="info-box note">
-
   This is a temporary fork of a Jenkins-maintained project named Jenkins Logstash Plugin.
   We're working toward merging our implementation in the Jenkins repo.
   For full documentation and all configuration options, see the original [Jenkins Logstash Plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
-
-</div>
+  {: .info-box.note }
 
 Jenkins Logstash Plugin sends Jenkins build logs to your Logz.io account.
 The plugin is configured per project.
@@ -242,12 +239,9 @@ You can choose to stream a project's build logs or to send only the last logs of
 
     In each Jenkins job, click **Configure** in the left menu to set your logging preferences.
 
-    <div class="info-box important">
-
       Make sure you enable only one of these options.
       If both options are enabled, Jenkins Logstash Plugin will send duplicate logs Logz.io.
-
-    </div>
+      {: .info-box.important }
 
     {: .inline-header }
     To stream all logs

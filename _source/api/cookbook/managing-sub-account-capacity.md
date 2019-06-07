@@ -30,10 +30,9 @@ If you don't have sub accounts that you're ready to experiment with, go ahead an
 
 ### Sample request
 
-<div class="info-box tip">
   maxDailyGB default is `0`, meaning this account can accommodate 0 GB of logs per day.
   We recommend maxDailyGB ≥ `1` so the account can receive logs.
-</div>
+  {: .info-box.tip }
 
 ```shell
 curl -X POST \
@@ -128,10 +127,9 @@ So in the response above, we have two sub accounts: Jean Valjean (account ID 246
 You'll use an HTTP PUT request when you update a sub account with the API.
 This means you'll replace all account parameters with each request.
 
-<div class="info-box tip">
   Include all parameters with each PUT request.
   This way, you won't unintentionally overwrite parameters with their default values.
-</div>
+  {: .info-box.tip }
 
 Reallocating maxDailyGB between sub accounts happens in two steps.
 First you'll reduce the capacity of the account with higher maxDailyGB, and then you'll increase the capacity of the other account.

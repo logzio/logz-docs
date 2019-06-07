@@ -44,13 +44,10 @@ archived logs in your S3 bucket
     Open the email that says your restored account is ready for you and click **View in Kibana**.
     This link takes you to Kibana in your main account, but a view that shows only the data from the restored account.
 
-    <div class="info-box tip">
-
       If you need to filter Kibana manually,
       choose the new restored account in the **Selected Accounts** box,
       and then select your data's original **Time Range**.
-
-    </div>
+      {: .info-box.tip }
 
     Now you're ready to search your restored account!
     Just be aware of the expiration—once the restored account expires, you'll have to restore it if you need it again.

@@ -59,10 +59,9 @@ root access
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Puppet to the filebeat.inputs section.
 
-    <div class="info-box tip">
       We recommend configuring Puppet to output JSON logs.
       See [Advanced Logging Configuration](https://puppet.com/docs/puppetserver/5.1/config_logging_advanced.html) from Puppet for more information.
-    </div>
+      {: .info-box.tip }
 
     {% include log-shipping/replace-vars.html token=true %}
 

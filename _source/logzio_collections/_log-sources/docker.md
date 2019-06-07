@@ -82,9 +82,8 @@ shipping-tags:
       Otherwise, its logs are shipped. \\
       **Note**: Can't be used with matchContainerName
 
-    <div class="info-box note">
       By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
-    </div>
+      {: .info-box.note }
 
 3.  Check Logz.io for your logs
 

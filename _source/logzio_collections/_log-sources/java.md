@@ -58,9 +58,8 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
-<div class="info-box read">
   See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
-</div>
+  {: .info-box.read }
 
 ```xml
 <Appenders>
@@ -254,9 +253,8 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
-<div class="info-box read">
   See the [Logback documentation](https://logback.qos.ch/manual/configuration.html) for more information on the Logback configuration file.
-</div>
+  {: .info-box.read }
 
 ```xml
 <configuration>

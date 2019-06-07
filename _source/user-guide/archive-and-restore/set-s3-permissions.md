@@ -18,9 +18,8 @@ Logz.io needs these permissions:
 
 You'll set these permissions for an AWS IAM user.
 
-<div class="info-box tip">
   We recommend allowing all three permissions so you won't run into any issues when you want to restore.
-</div>
+  {: .info-box.tip }
 
 Sample policy
 {: .inline-header }

@@ -15,10 +15,9 @@ contributors:
 Logz.io supports multi-factor authentication for all users on a main account or sub account.
 To enable this feature, an account admin needs to contact the Support team.
 
-<div class="info-box important">
   All users in your account must have Google Authenticator installed on their phones to be able to sign in.
   Logz.io emails users to tell them when multi-factor authentication is enabled.
-</div>
+  {: .info-box.important }
 
 ###### To set up multi-factor authentication for your account
 

@@ -13,9 +13,8 @@ contributors:
 
 To create a new optimizer, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Optimizer page, where you can configure the optimizer settings.
 
-<div class="info-box note">
   Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
-</div>
+  {: .info-box.note }
 
 If you want help updating an existing optimizer, you can [skip the first part of this page](#to-configure-an-optimizer).
 
@@ -31,22 +30,22 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
 ![Configure an Optimizer]({{site.baseurl}}/images/alerts/alerts--configure-alert.png)
 
-1.  Type a **Name** and a detailed **Description**. 
+1.  Type a **Name** and a detailed **Description**.
 
 2.  If you need to, change your optimizer **Query** and the **Accounts** that the query will search.
 
-    <div class="info-box gotcha">
-      If you use an invalid query, the optimizer will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
-    </div>
+    If you use an invalid query, the optimizer will be automatically disabled.
+    Run your query in Kibana so you can be sure you're getting the expected results.
+    {: .info-box.important }
 
 3.  _(Optional)_ If you want to store aggregate values:
 
     ![Group alert fields]({{site.baseurl}}/images/alerts/alerts--group-by.png)
-    
+
     1. Click **Add group by** to add up to 3 groups.
 
-    2. In the **Select Field** list, choose a field to group by. 
-    
+    2. In the **Select Field** list, choose a field to group by.
+
         To limit the available fields, choose a log type from the **Filter by type** list. To show fields for all log types, choose **Clear filter**.
 
 4.  In the **Type** section, click **Optimizer**.
@@ -61,11 +60,11 @@ If you want help updating an existing optimizer, you can [skip the first part of
         <source src="{{site.baseurl}}/videos/alerts/alerts--custom-format.mp4" type="video/mp4" />
     </video>
 
-    To send the raw JSON documents to your timeless account, choose **Default format**. To send a summary table, choose **Custom format**.
+    To send the raw JSON documents to your timeless account, choose **Default format**.
+    To send a summary table, choose **Custom format**.
 
-    <div class="info-box note">
       If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.
-    </div>
+      {: .info-box.note }
 
     If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
 

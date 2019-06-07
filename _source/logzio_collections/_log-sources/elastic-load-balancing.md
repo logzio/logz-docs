@@ -43,10 +43,9 @@ When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodic
 
     <!-- logzio-inject:s3-config -->
 
-    <div class="info-box important">
       Logz.io fetches logs that are generated after configuring an S3 bucket.
       Past logs are not sent to Logz.io.
-    </div>
+      {: .info-box.important }
 
 3.  Check Logz.io for your logs
 

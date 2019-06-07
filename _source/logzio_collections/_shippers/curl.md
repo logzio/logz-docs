@@ -17,9 +17,8 @@ Generally, we recommend using Filebeat for shipping logs to Logz.io.
 Even so, cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 You can upload JSON or plain text files.
 
-<div class="info-box important">
   File uploads must be smaller than 10 MB.
-</div>
+  {: .info-box.important }
 
 <div class="branching-container">
 

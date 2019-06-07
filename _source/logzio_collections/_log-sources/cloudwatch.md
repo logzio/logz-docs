@@ -78,10 +78,9 @@ shipping-tags:
     * **Memory**: 512 MB
     * **Timeout**: 1 min 0 sec
 
-    <div class="info-box note">
     These default settings are just a starting point.
     Check your Lambda usage regularly, and adjust these values if you need to.
-    </div>
+    {: .info-box.note }
 
 5.  Set the CloudWatch Logs event trigger
 

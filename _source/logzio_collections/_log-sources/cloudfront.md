@@ -41,10 +41,9 @@ CloudFront logs are useful for auditing/security monitoring and business intelli
 
     <!-- logzio-inject:s3-config -->
 
-    <div class="info-box important">
       Logz.io fetches logs that are generated after configuring an S3 bucket.
       Past logs are not sent to Logz.io.
-    </div>
+      {: .info-box.important }
 
 3.  Check Logz.io for your logs
 

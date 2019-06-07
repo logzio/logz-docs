@@ -31,12 +31,11 @@ Each timeless account contains its own Elasticsearch index, which you can search
 
 2.  If you need to adjust the **Timeless account volume**, either type in the text box, or use <i class="li li-plus"></i> and <i class="li li-minus"></i>.
 
-    <div class="info-box note">
       Your plan allows for a maximum data volume.
-      Keep this limit in mind when you allocate resources to your timeless accounts—you won't be able to exceed the limits of your plan.
-
+      Keep this limit in mind when you allocate resources to your timeless accounts—you won't be able to exceed the limits of your plan. \\
+      \\
       Contact your Logz.io account manager if you need to increase your plan limits.
-    </div>
+      {: .info-box.note }
 
 3.  If you want your sub accounts to be able to search this account, add the intended accounts to the **Read & write permissions** box.
 

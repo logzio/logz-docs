@@ -24,9 +24,11 @@ Instead, you can determine your own requirements and choose the right S3 object 
 If you need long-term storage for your logs but you don't need to keep those logs searchable at all times,
 S3 archiving is a cost-effective solution.
 
-<div class="info-box read">
-  For more information on S3 object storage classes, see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/) from Amazon.
-</div>
+  For more information on S3 object storage classes,
+  see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
+  and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)
+  from Amazon.
+  {: .info-box.read }
 
 ###### To set up archiving
 

@@ -39,9 +39,8 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
 
     You can find the correct port for your shipping method in the table below.
 
-    <div class="info-box note">
       As of macOS High Sierra (10.13), telnet is not installed by default. You'll need to install telnet before proceeding.
-    </div>
+      {: .info-box.note }
 
     | Shipping method                         | Port |
     |-----------------------------------------|------|
@@ -84,9 +83,8 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
 
     Compare your account token with the token you're sending to Logz.io with your logs. Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs.
 
-    <div class="info-box tip">
       In most cases, the token is stored in a configuration file or as a query parameter in the URL you're shipping logs to. You can usually find it by searching for "token".
-    </div>
+      {: .info-box.tip }
 
     {:.inline-header}
     If the tokens match

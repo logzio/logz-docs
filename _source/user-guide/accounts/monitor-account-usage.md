@@ -52,9 +52,8 @@ Account utilization metrics and log size are set per individual account.
 You can find these settings on the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page below **Advanced options**.
 This page is available only from your main account—you won't be able to make this change from a sub account.
 
-<div class="info-box note">
   Even though you need to be an account admin to enable this setting, everyone who has access to your Logz.io account is able to see the resulting logs.
-</div>
+  {: .info-box.note }
 
 ### Visualizing utilization with an ELK app
 

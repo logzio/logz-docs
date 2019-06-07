@@ -66,9 +66,8 @@ You can ask Alice to search your logs, see triggerd alerts, and get visualizatio
     Give the account an **Alias** that contains only letters, numbers, underscores, or dashes.
     You'll use the account alias to tell Alice which account you want to interact with.
 
-    <div class="info-box important">
       Users in your Slack workspace can use Alice to interact with your account, even if they don't have access to Logz.io.
-    </div>
+      {: .info-box.important }
 
     Click **Save**.
 

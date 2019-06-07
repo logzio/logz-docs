@@ -63,10 +63,9 @@ format={"additional_field": "value"}
 {: .inline-header }
 Parameters
 
-<div class="info-box important">
   Arguments must be configured in the order shown.
   For example, to set debug-flag to `True`, you need to set every argument that comes before it.
-</div>
+  {: .info-box.important }
 
 account-token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\

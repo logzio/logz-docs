@@ -104,3 +104,36 @@ CSS handles icon and heading styling, so contributors need to worry about only t
   "Read more" boxes point the user to additional reading material.
   This is useful when we're touching on a topic that's too complex to convey on this page.
 </div>
+
+## Headings
+
+<table>
+  <tr>
+    <td> Heading 1 (page titles only) </td>
+    <td> <h1>Sample text</h1> </td>
+  </tr>
+  <tr>
+    <td> Heading 2 </td>
+    <td> <h2>Sample text</h2> </td>
+  </tr>
+  <tr>
+    <td> Heading 3 </td>
+    <td> <h3>Sample text</h3> </td>
+  </tr>
+  <tr>
+    <td> Heading 4 </td>
+    <td> <h4>Sample text</h4> </td>
+  </tr>
+  <tr>
+    <td> Heading 5 </td>
+    <td> <h5>Sample text</h5> </td>
+  </tr>
+  <tr>
+    <td> Heading 6 (procedures only) </td>
+    <td> <h6>Sample text</h6> </td>
+  </tr>
+  <tr>
+    <td> Inline header </td>
+    <td> <div class="inline-header">Sample text</div> </td>
+  </tr>
+</table>

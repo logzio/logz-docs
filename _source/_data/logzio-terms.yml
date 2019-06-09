@@ -1,4 +1,0 @@
-# This list will be alphabetically sorted in the docs, but keep it alphabetized here so terms can be easily found and updated, and we can avoid duplicate terms.
-# Type terms as key:value (term:definition) pairs.
-
-listener: The Logz.io listener is the destination URL and port for your logs. To find your listener URL, check the URL you use to log in to Logz.io. If your login URL is app.logz.io, your listener is `listener.logz.io`. If your login URL is app-eu.logz.io, your listener is `listener-eu.logz.io`.

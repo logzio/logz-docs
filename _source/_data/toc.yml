@@ -129,14 +129,16 @@ firstLevel:
       url: /user-guide/tokens/shared-tokens.html
     - title: Manage API tokens
       url: /user-guide/tokens/api-tokens.html
+
   - title: Archive & restore
     url: /user-guide/archive-and-restore/
-
     thirdLevel:
       - title: Configure archiving
         url: /user-guide/archive-and-restore/configure-archiving.html
       - title: Restore archived logs
         url: /user-guide/archive-and-restore/restore-archived-logs.html
+      - title: Set S3 permissions
+        url: /user-guide/archive-and-restore/set-s3-permissions.html
 
   # ===== SHIPPING AND PARSING =====
 - title: Shipping & parsing
@@ -170,10 +172,11 @@ firstLevel:
   secondLevel:
   - title: Alert endpoints
     url: /user-guide/integrations/endpoints.html
-  - title: Alice, Slack chatbot
+  - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html
-  - title: Logz.io datasource for Grafana
-    url: /integrations/logzio-datasource-for-grafana.html
+  - title: Grafana data source plugin
+    url: /integrations/grafana-data-source-plugin.html
+
 
   - title: API reference
     url: /api/

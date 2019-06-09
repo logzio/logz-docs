@@ -18,9 +18,9 @@ shipping-tags:
 
 <div class="branching-container">
 
-{: .branching-tabs }
 * [Filebeat](#filebeat-config)
 * [Docker sidecar](#docker-sidecar-config)
+{: .branching-tabs }
 
 <div id="filebeat-config">
 
@@ -61,7 +61,6 @@ Log type _(for preconfigured parsing)_
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 [MySQL](https://dev.mysql.com/downloads/)
 
-{: .tasklist .firstline-headline }
 1.  Configure MySQL to write general query logs
 
     In the MySQL configuration file (/etc/mysql/my.cnf),
@@ -97,9 +96,9 @@ Log type _(for preconfigured parsing)_
 
     <div class="branching-container">
 
-    {: .branching-tabs }
     * [Filebeat 7](#filebeat-7-code)
     * [Filebeat 6](#filebeat-6-code)
+    {: .branching-tabs }
 
     <div id="filebeat-7-code">
 
@@ -257,6 +256,7 @@ Log type _(for preconfigured parsing)_
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 
@@ -266,7 +266,6 @@ Log type _(for preconfigured parsing)_
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
 1.  Pull the Docker image
 
     Download the logzio/mysql-logs image:
@@ -315,6 +314,7 @@ Log type _(for preconfigured parsing)_
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 

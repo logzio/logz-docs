@@ -17,9 +17,9 @@ shipping-tags:
 
 <div class="branching-container">
 
+* [Non-RBAC configuration](#non-rbac-config)
+* [RBAC configuration](#rbac-config)
 {: .branching-tabs }
-  * [Non-RBAC configuration](#non-rbac-config)
-  * [RBAC configuration](#rbac-config)
 
 <div id="non-rbac-config">
 
@@ -31,7 +31,6 @@ Fluentd is flexible enough and has the proper plugins to distribute logs to diff
 
 The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
 
-{: .tasklist .firstline-headline }
 1.  Build your DaemonSet configuration
 
     Paste the sample configuration file below into a local YAML file that you'll use to deploy the DaemonSet.
@@ -146,6 +145,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 
@@ -159,7 +159,6 @@ Fluentd is flexible enough and has the proper plugins to distribute logs to diff
 
 The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
 
-{: .tasklist .firstline-headline }
 1.  Build your DaemonSet configuration
 
     Paste the sample configuration file below into a local YAML file that you'll use to deploy the DaemonSet.
@@ -312,6 +311,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 

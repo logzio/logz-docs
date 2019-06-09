@@ -18,9 +18,9 @@ shipping-tags:
 
 <div class="branching-container">
 
+* [Manual Lambda configuration](#manual-lambda-configuration)
+* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 {: .branching-tabs }
-  * [Manual Lambda configuration](#manual-lambda-configuration)
-  * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 
 <div id="manual-lambda-configuration">
 
@@ -28,7 +28,6 @@ shipping-tags:
 
 ###### Manual configuration
 
-{: .tasklist .firstline-headline }
 1.  Create a new Kinesis data stream
 
     If you're not already sending your GuardDuty logs through a Kinesis data stream, create one using the [Kinesis console](https://console.aws.amazon.com/kinesis).
@@ -136,6 +135,7 @@ shipping-tags:
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 
@@ -149,7 +149,6 @@ an S3 bucket to store the CloudFormation package
 
 ###### CloudFormation automated deployment
 
-{: .tasklist .firstline-headline }
 1.  Create a new Kinesis data stream
 
     If you're not already sending your GuardDuty logs through a Kinesis data stream, create one using the [Kinesis console](https://console.aws.amazon.com/kinesis).
@@ -250,6 +249,7 @@ an S3 bucket to store the CloudFormation package
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 

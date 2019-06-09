@@ -30,7 +30,6 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
 1.  Create a new Lambda function
 
     This Lambda function collects your AWS Cost and Usage report files from an S3 bucket and sends them to Logz.io in bulk over HTTP.
@@ -139,3 +138,4 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }

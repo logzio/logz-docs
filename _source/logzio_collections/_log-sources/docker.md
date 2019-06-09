@@ -19,15 +19,14 @@ shipping-tags:
 
 <div class="branching-container">
 
+* [docker-collector-logs <span class="sm ital">(recommended)</span>](#docker-collector-logs-config)
+* [logzio-logging-plugin](#logzio-logging-plugin-docker-logging-driver-config)
 {: .branching-tabs }
-  * [docker-collector-logs <span class="sm ital">(recommended)</span>](#docker-collector-logs-config)
-  * [logzio-logging-plugin](#logzio-logging-plugin-docker-logging-driver-config)
 
 <div id="docker-collector-logs-config">
 
 ## docker-collector-logs setup
 
-{: .tasklist .firstline-headline }
 1.  Pull the Docker image
 
     Download the logzio/docker-collector-logs image:
@@ -91,6 +90,7 @@ shipping-tags:
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 
@@ -102,7 +102,6 @@ shipping-tags:
 Docker Engine 17.05 or later,
 Docker Community Edition (Docker CE) 18.03 or later
 
-{: .tasklist .firstline-headline }
 1.  Install the plugin from the Docker store
 
     ```shell
@@ -238,6 +237,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     Spin up your Docker containers if you haven't done so already. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 

@@ -21,7 +21,6 @@ When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodic
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
 1.  Send your logs to an S3 bucket
 
     Logz.io fetches your Elastic Load Balancing logs from an S3 bucket.
@@ -52,3 +51,4 @@ When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodic
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }

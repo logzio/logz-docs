@@ -22,7 +22,6 @@ rsyslog 5.8.0 or later
 
 ###### Guided configuration
 
-{: .tasklist .firstline-headline }
 1.  Configure HAProxy
 
     Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
@@ -96,3 +95,4 @@ rsyslog 5.8.0 or later
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }

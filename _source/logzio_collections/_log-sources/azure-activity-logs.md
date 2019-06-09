@@ -68,7 +68,6 @@ It means that you'll need to do at least one automated deployment for each regio
 
 ###### Configuration
 
-{:.tasklist .firstline-headline}
 1.  If needed, configure an automated deployment
 
     If you already set up an automated deployment in this region, you can skip to step 2.
@@ -154,3 +153,4 @@ It means that you'll need to do at least one automated deployment for each regio
     If everything went according to plan, you should see logs with the type `eventhub` in Kibana.
 
     If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist .firstline-headline}

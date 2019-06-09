@@ -42,7 +42,6 @@ Default log locations
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 root access
 
-{: .tasklist .firstline-headline }
 1.  Configure Wazuh for JSON logging
 
     In the Wazuh configuration file (/var/ossec/etc/ossec.conf), find the `<logging>` tag, and set the `<log_format>` property to `json`.
@@ -75,9 +74,9 @@ root access
 
     <div class="branching-container">
 
-    {: .branching-tabs }
     * [Filebeat 7](#filebeat-7-code)
     * [Filebeat 6](#filebeat-6-code)
+    {: .branching-tabs }
 
     <div id="filebeat-7-code">
 
@@ -169,3 +168,4 @@ root access
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }

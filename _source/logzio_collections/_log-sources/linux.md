@@ -40,7 +40,6 @@ Log type _\(for preconfigured parsing\)_
 **You'll need**:
 root access
 
-{: .tasklist .firstline-headline }
 1.  Run the rsyslog configuration script
 
     {% include log-shipping/replace-vars.html token=true listener=true %}
@@ -56,3 +55,4 @@ root access
     Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }

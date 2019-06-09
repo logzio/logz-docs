@@ -33,7 +33,6 @@ For most users, these won't be an issue, but they're still good to know:
 
 ## To integrate Zipkin server and Logz.io
 
-{: .tasklist .firstline-headline}
 1.  Download Zipkin server and Zipkin-Logz.io Trace Storage
 
     Download [Zipkin server](https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec).
@@ -66,8 +65,8 @@ For most users, these won't be an issue, but they're still good to know:
       • The **reading instance** uses `STORAGE_TYPE=logzio`, `LOGZIO_API_TOKEN`, and `LOGZIO_API_HOST`.
       {: .info-box.tip }
 
-    {: .inline-header }
     Parameters
+    {: .inline-header }
 
     STORAGE_TYPE=logzio <span class="required-param"></span>
     : We wish there was a way to include this as a default.
@@ -107,3 +106,4 @@ For most users, these won't be an issue, but they're still good to know:
     Give your traces some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline}

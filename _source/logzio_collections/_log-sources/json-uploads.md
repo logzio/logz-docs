@@ -18,9 +18,9 @@ or TLS/SSL streams over TCP.
 
 <div class="branching-container">
 
+* [Bulk uploads over HTTP/HTTPS](#http-config)
+* [TLS/SSL streams over TCP](#tcp-config)
 {: .branching-tabs }
-  * [Bulk uploads over HTTP/HTTPS](#http-config)
-  * [TLS/SSL streams over TCP](#tcp-config)
 
 <div id="http-config">
 

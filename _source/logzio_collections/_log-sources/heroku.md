@@ -15,7 +15,6 @@ shipping-tags:
 **You'll need**:
 [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
-{: .tasklist .firstline-headline }
 1.  Set up the log drain in Heroku CLI
 
     Run this command in a terminal window.
@@ -36,3 +35,4 @@ shipping-tags:
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana) to confirm you're shipping logs.
 
    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }

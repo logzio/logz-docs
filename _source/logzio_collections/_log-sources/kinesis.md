@@ -17,9 +17,9 @@ shipping-tags:
 
 <div class="branching-container">
 
+* [Manual Lambda configuration](#manual-lambda-configuration)
+* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 {: .branching-tabs }
-  * [Manual Lambda configuration](#manual-lambda-configuration)
-  * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 
 <div id="manual-lambda-configuration">
 
@@ -27,7 +27,6 @@ shipping-tags:
 
 ###### Manual configuration
 
-{: .tasklist .firstline-headline }
 1.  Create a new Lambda function
 
     This Lambda function will consume a Kinesis data stream and sends the logs to Logz.io in bulk over HTTP.
@@ -107,6 +106,7 @@ shipping-tags:
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 
@@ -120,7 +120,6 @@ an S3 bucket to store the CloudFormation package
 
 ###### CloudFront automated deployment
 
-{: .tasklist .firstline-headline }
 1.  Zip the source files
 
     Download the [Kinesis Stream Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/kinesis) project from GitHub to your computer.
@@ -199,6 +198,7 @@ an S3 bucket to store the CloudFormation package
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 

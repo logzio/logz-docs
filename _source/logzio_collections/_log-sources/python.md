@@ -60,8 +60,8 @@ level=INFO
 format={"additional_field": "value"}
 ```
 
-{: .inline-header }
 Parameters
+{: .inline-header }
 
   Arguments must be configured in the order shown.
   For example, to set debug-flag to `True`, you need to set every argument that comes before it.
@@ -88,8 +88,8 @@ debug-flag <span class="default-param">`False`</span>
   To print debug messages to stdout, `True`.
   Otherwise, `False`.
 
-{: .inline-header }
 Code sample
+{: .inline-header }
 
 ```python
 import logging

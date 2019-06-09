@@ -15,9 +15,9 @@ shipping-tags:
 
 <div class="branching-container">
 
+* [log4net](#log4net-config)
+* [NLog](#nlog-config)
 {: .branching-tabs }
-  * [log4net](#log4net-config)
-  * [NLog](#nlog-config)
 
 <div id="log4net-config">
 
@@ -91,8 +91,8 @@ hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;
 ```
 
-{: .inline-header }
 Parameters
+{: .inline-header }
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -122,8 +122,8 @@ debug <span class="default-param">`false`</span>
 : To print debug messsages to the console and trace log, `true`. Otherwise, `false`.
 
 
-{: .inline-header }
 Code sample
+{: .inline-header }
 
 ```csharp
 using System.IO;
@@ -272,8 +272,8 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, "Logzio", "*");
 LogManager.Configuration = config;
 ```
 
-{: .inline-header }
 Parameters
+{: .inline-header }
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -303,8 +303,8 @@ debug <span class="default-param">`false`</span>
 : To print debug messsages to the console and trace log, `true`. Otherwise, `false`.
 
 
-{: .inline-header }
 Code sample
+{: .inline-header }
 
 ```csharp
 using System;

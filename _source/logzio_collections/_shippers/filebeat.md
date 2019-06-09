@@ -39,13 +39,12 @@ Listener
 
 <div class="branching-container">
 
-{: .branching-tabs}
 * [Mac/Linux](#mac-linux-config)
 * [Windows](#windows-config)
+{: .branching-tabs}
 
 <div id="mac-linux-config">
 
-{: .tasklist .firstline-headline }
 1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
@@ -75,12 +74,12 @@ Listener
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 
 <div id="windows-config">
 
-{: .tasklist .firstline-headline }
 1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
@@ -110,5 +109,6 @@ Listener
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>

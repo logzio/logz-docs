@@ -22,9 +22,9 @@ You can upload JSON or plain text files.
 
 <div class="branching-container">
 
+* [JSON](#json-config)
+* [Plain text](#plain-text-config)
 {: .branching-tabs }
-  * [JSON](#json-config)
-  * [Plain text](#plain-text-config)
 
 <div id="plain-text-config">
 
@@ -33,7 +33,6 @@ You can upload JSON or plain text files.
 **You'll need**:
 [cURL](https://curl.haxx.se/download.html)
 
-{: .tasklist .firstline-headline }
 1.  Upload the file
 
     {% include log-shipping/replace-vars.html token=true listener=true %}
@@ -47,6 +46,7 @@ You can upload JSON or plain text files.
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 
@@ -58,7 +58,6 @@ You can upload JSON or plain text files.
 **You'll need**:
 [cURL](https://curl.haxx.se/download.html)
 
-{: .tasklist .firstline-headline }
 1.  Upload the file
 
     {% include log-shipping/replace-vars.html token=true listener=true %}
@@ -72,6 +71,7 @@ You can upload JSON or plain text files.
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }
 
 </div>
 

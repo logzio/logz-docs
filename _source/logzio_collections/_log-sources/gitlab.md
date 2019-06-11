@@ -81,60 +81,60 @@ Log type _\(for preconfigured parsing\)_
 
     filebeat.inputs:
     - type: log
-    paths:
-    - /var/log/gitlab/gitlab-rails/production_json.log
-    fields:
-    logzio_codec: json
+      paths:
+      - /var/log/gitlab/gitlab-rails/production_json.log
+      fields:
+        logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <ACCOUNT-TOKEN>
-    type: gitlab-production-json
-    fields_under_root: true
-    encoding: utf-8
-    ignore_older: 3h
-
-    - type: log
-    paths:
-    - /var/log/gitlab/gitlab-rails/production.log
-    fields:
-    logzio_codec: plain
-
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <ACCOUNT-TOKEN>
-    type: gitlab-production
-    fields_under_root: true
-    encoding: utf-8
-    ignore_older: 3h
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: gitlab-production-json
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
 
     - type: log
-    paths:
-    - /var/log/gitlab/gitlab-rails/api_json.log
-    fields:
-    logzio_codec: json
+      paths:
+      - /var/log/gitlab/gitlab-rails/production.log
+      fields:
+        logzio_codec: plain
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <ACCOUNT-TOKEN>
-    type: gitlab-api-json
-    fields_under_root: true
-    encoding: utf-8
-    ignore_older: 3h
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: gitlab-production
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
 
     - type: log
-    paths:
-    - /var/log/gitlab/gitlab-rails/application.log
-    fields:
-    logzio_codec: json
+      paths:
+      - /var/log/gitlab/gitlab-rails/api_json.log
+      fields:
+        logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <ACCOUNT-TOKEN>
-    type: gitlab-application
-    fields_under_root: true
-    encoding: utf-8
-    ignore_older: 3h
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: gitlab-api-json
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
+
+    - type: log
+      paths:
+      - /var/log/gitlab/gitlab-rails/application.log
+      fields:
+        logzio_codec: json
+
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: gitlab-application
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
 
     filebeat.registry.path: /var/lib/filebeat
     processors:

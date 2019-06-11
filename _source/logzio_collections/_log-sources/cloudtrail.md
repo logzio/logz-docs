@@ -22,13 +22,13 @@ shipping-tags:
 ###### Configuration
 
 {: .tasklist .firstline-headline }
-1. Send your logs to an S3 bucket
+1.  Send your logs to an S3 bucket
 
     Logz.io fetches your CloudTrail logs from an S3 bucket.
 
     For help with setting up a new trail, see [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) from AWS.
 
-2. Add the S3 bucket information
+2.  Add the S3 bucket information
 
     {% include log-shipping/in-app-configuration.html toolId="s3-config" %}
 
@@ -43,7 +43,7 @@ shipping-tags:
       Past logs are not sent to Logz.io.
     </div>
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

@@ -34,12 +34,12 @@ S3 archiving is a cost-effective solution.
 `PutObject`, `ListBucket`, and `GetObject` permissions for an S3 bucket
 
 {: .tasklist .firstline-headline }
-1. Enter your bucket name and S3 credentials
+1.  Enter your bucket name and S3 credentials
 
     Paste your S3 **Bucket name**, **AWS access key**, and **AWS secret key**.
     Make sure your access key and secret key belong to a user with `PutObject`, `ListBucket`, and `GetObject` permissions for the S3 bucket.
 
-2. Test your connection and save
+2.  Test your connection and save
 
     Click **Test connection** to make sure your bucket name and credentials are valid and have the right permissions.
 

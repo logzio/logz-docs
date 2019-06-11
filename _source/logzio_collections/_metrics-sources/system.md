@@ -1,0 +1,75 @@
+---
+title: Ship system metrics
+logo:
+  logofile: gauge.svg
+  orientation: vertical
+shipping-summary:
+  data-source: System
+contributors:
+  - imnotashrimp
+shipping-tags:
+  - os
+  - container
+---
+
+###### Configuration
+
+**You'll need**:
+[Metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/7.0/metricbeat-installation.html)
+
+1. Download the Logz.io certificate
+
+    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+
+    ```shell
+    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+    ```
+
+2. Add Logz.io configuration
+
+    Replace the General configuration with Logz.io settings.
+
+    {% include log-shipping/replace-vars.html token=true %}
+
+    ```yaml
+    # ===== General =====
+    fields:
+      logzio_codec: json
+      token: <ACCOUNT-TOKEN>
+    fields_under_root: true
+    ```
+
+3. Add Logz.io as an output
+
+    If Logz.io is not an output, add it now.
+    Remove all other outputs.
+
+    {% include log-shipping/replace-vars.html listener=true %}
+
+    ```yaml
+    # ===== Outputs =====
+    output.logstash:
+      hosts: ["<LISTENER-HOST>:5015"]
+      ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    ```
+
+3. _(If needed)_ Enable the system module
+
+    The system module is enabled by default.
+    If you've disabled it for any reason, re-enable it now.
+
+    ```shell
+    sudo metricbeat modules enable system
+    ```
+
+    You can change the metrics collected by Metricbeat by modifying `modules.d/system.yml`.
+    If you installed Metricbeat from a package manager, this directory is under `/etc/metricbeat`.
+
+4. Start Metricbeat
+
+    Start or restart Metricbeat for the changes to take effect.
+
+5. Check Logz.io for your metrics
+
+    Give your metrics a few minutes to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+{: .tasklist .firstline-headline }

@@ -19,7 +19,6 @@ shipping-tags:
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
 1. Pull the Docker image
 
     Download the logzio/docker-collector-metrics image:
@@ -77,3 +76,4 @@ shipping-tags:
 
     Spin up your Docker containers if you haven't done so already.
     Give your metrics a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+{: .tasklist .firstline-headline }

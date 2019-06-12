@@ -48,7 +48,7 @@ Log type _\(for preconfigured parsing\)_
 root access
 
 {: .tasklist .firstline-headline }
-1. Download the Logz.io certificate
+1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -56,7 +56,7 @@ root access
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-2. Add Puppet as an input
+2.  Add Puppet as an input
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Puppet to the filebeat.inputs section.
 
@@ -192,7 +192,7 @@ root access
 
     </div>
 
-1. Add Logz.io as an output
+3.  Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
 
@@ -205,11 +205,11 @@ root access
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-2. Start Filebeat
+4.  Start Filebeat
 
     Start or restart Filebeat for the changes to take effect.
 
-3. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

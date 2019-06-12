@@ -16,9 +16,6 @@ div.highlighter-rouge {
 div.highlighter-rouge, code {
   border: 1px solid var(--text-normal-25);
   background-color: var(--text-normal-10);
-  padding: 1px 2px;
-  margin-left: .1rem;
-  margin-right: .1rem;
   border-radius: 2px;
 }
 
@@ -30,7 +27,7 @@ div.highlighter-rouge code, div.highlighter-rouge code span {
 
 pre.highlight {
   margin: 0;
-  padding: .5rem;
+  padding: .5rem 1rem;
 }
 
 

@@ -15,7 +15,7 @@ The process of getting logs from your system to Logz.io can be tricky, and it ca
 Before doing anything, make sure you give Logz.io some time to parse and index your logs. Normally, this takes a few seconds to a minute. Sometimes, this can take longer.
 
 {: .tasklist .firstline-headline}
-1. Check the Logz.io status page
+1.  Check the Logz.io status page
 
     Visit our [status page](http://status.logz.io/) to confirm everything is working normally. (If you're not already signed up for status updates, go ahead and subscribe while you're there.)
 
@@ -29,7 +29,7 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
 
     On rare occasions, there may be an issue with our production environment. If this happens, you'll need to wait until we fix the problem before you can ship your logs.
 
-2. Check your shipper's connectivity
+2.  Check your shipper's connectivity
 
     To make sure your log shipper can connect to Logz.io listeners, run this command from the device you're shipping from:
 
@@ -76,7 +76,7 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
 
     Confirm that your firewall and network settings allow communication with the right outbound port and the Logz.io [listener IP addresses]({{site.baseurl}}/user-guide/log-shipping/listener-ip-addresses.html) for your region.
 
-3. Check your log shipping configuration for the right account token
+3.  Check your log shipping configuration for the right account token
 
     Logz.io uses your account token to send incoming logs to the correct account. If you're not using the right account token, your logs won't be indexed to your account.
 
@@ -100,7 +100,7 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
 
     If your logs still don't appear in Kibana after a few minutes, move on to the next troubleshooting step.
 
-4. Check your log shipper's logs
+4.  Check your log shipper's logs
 
     Next, you'll need to check your log shipper's logs. If you're not sure where to find the logs, see your log shipper's documentation.
 

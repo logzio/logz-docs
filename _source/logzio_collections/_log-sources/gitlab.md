@@ -51,7 +51,7 @@ Log type _\(for preconfigured parsing\)_
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
 
 {: .tasklist .firstline-headline }
-1. Download the Logz.io certificate
+1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -59,7 +59,7 @@ Log type _\(for preconfigured parsing\)_
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-2. Add GitLab as an input
+2.  Add GitLab as an input
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add GitLab to the filebeat.inputs section.
 
@@ -81,60 +81,60 @@ Log type _\(for preconfigured parsing\)_
 
     filebeat.inputs:
     - type: log
-    paths:
-    - /var/log/gitlab/gitlab-rails/production_json.log
-    fields:
-    logzio_codec: json
+      paths:
+      - /var/log/gitlab/gitlab-rails/production_json.log
+      fields:
+        logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <ACCOUNT-TOKEN>
-    type: gitlab-production-json
-    fields_under_root: true
-    encoding: utf-8
-    ignore_older: 3h
-
-    - type: log
-    paths:
-    - /var/log/gitlab/gitlab-rails/production.log
-    fields:
-    logzio_codec: plain
-
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <ACCOUNT-TOKEN>
-    type: gitlab-production
-    fields_under_root: true
-    encoding: utf-8
-    ignore_older: 3h
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: gitlab-production-json
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
 
     - type: log
-    paths:
-    - /var/log/gitlab/gitlab-rails/api_json.log
-    fields:
-    logzio_codec: json
+      paths:
+      - /var/log/gitlab/gitlab-rails/production.log
+      fields:
+        logzio_codec: plain
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <ACCOUNT-TOKEN>
-    type: gitlab-api-json
-    fields_under_root: true
-    encoding: utf-8
-    ignore_older: 3h
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: gitlab-production
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
 
     - type: log
-    paths:
-    - /var/log/gitlab/gitlab-rails/application.log
-    fields:
-    logzio_codec: json
+      paths:
+      - /var/log/gitlab/gitlab-rails/api_json.log
+      fields:
+        logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <ACCOUNT-TOKEN>
-    type: gitlab-application
-    fields_under_root: true
-    encoding: utf-8
-    ignore_older: 3h
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: gitlab-api-json
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
+
+    - type: log
+      paths:
+      - /var/log/gitlab/gitlab-rails/application.log
+      fields:
+        logzio_codec: json
+
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <ACCOUNT-TOKEN>
+        type: gitlab-application
+      fields_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
 
     filebeat.registry.path: /var/lib/filebeat
     processors:
@@ -221,7 +221,7 @@ Log type _\(for preconfigured parsing\)_
 
     </div>
 
-3. Add Logz.io as an output
+3.  Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
 
@@ -234,11 +234,11 @@ Log type _\(for preconfigured parsing\)_
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. Start Filebeat
+4.  Start Filebeat
 
     Start or restart Filebeat for the changes to take effect.
 
-5. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

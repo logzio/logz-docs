@@ -29,12 +29,12 @@ You'll need to be signed in to the main account in your Operations workspace.
 ###### To manage your Security Analytics account
 
 {: .tasklist }
-1. In the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page of your Operations workspace, you'll find your Security Analytics account at the bottom of the page.
+1.  In the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page of your Operations workspace, you'll find your Security Analytics account at the bottom of the page.
 
     If you want, change the **Security account name** here.
 
-2. Give **Read permissions** for any accounts you want to monitor.
+2.  Give **Read permissions** for any accounts you want to monitor.
   Your Security Analytics account will watch the logs of these accounts.
   Any security events are stored as their own logs in Security Analytics.
 
-3. Click **Apply** to save your changes.
+3.  Click **Apply** to save your changes.

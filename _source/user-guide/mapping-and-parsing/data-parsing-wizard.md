@@ -26,7 +26,7 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
 ###### Using the data parsing wizard
 
 {: .tasklist .firstline-headline }
-1. Choose a data source
+1.  Choose a data source
 
     Choose the log type you want to parse from the **Select log type** list.
 
@@ -36,7 +36,7 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
 
     Click **Next** to continue.
 
-2. Configure your parse settings
+2.  Configure your parse settings
 
     ![Step 2: Parse]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-2-parse.png)
 
@@ -58,7 +58,7 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
 
     Click **Next** to continue.
 
-3. Enrich
+3.  Enrich
 
     ![Step 3: Enrich]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-3-enrich.png)
 
@@ -68,7 +68,7 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
 
     Click **Next** to continue.
 
-4. Validate
+4.  Validate
 
     ![Step 4: Validate]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-4-validate.png)
 

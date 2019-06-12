@@ -22,12 +22,12 @@ shipping-tags:
 root access
 
 {: .tasklist .firstline-headline }
-1. Configure your device
+1.  Configure your device
 
     Configure your network device to send logs to your Filebeat server, TCP port 9000.
     See your device's documentation if you're not sure how to do this.
 
-2. Download the Logz.io certificate to your Filebeat server
+2.  Download the Logz.io certificate to your Filebeat server
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -35,7 +35,7 @@ root access
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-3. Add TCP traffic as an input
+3.  Add TCP traffic as an input
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
 
@@ -87,7 +87,7 @@ root access
     <div id="filebeat-6-code">
 
     ```yaml
-    # Filebeat 7 configuration
+    # Filebeat 6 configuration
 
     filebeat.inputs:
     - type: tcp
@@ -112,7 +112,7 @@ root access
 
     </div>
 
-4. Add Logz.io as an output
+4.  Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
 
@@ -125,11 +125,11 @@ root access
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-5. Start Filebeat
+5.  Start Filebeat
 
     Start or restart Filebeat for the changes to take effect.
 
-6. Check Logz.io for your logs
+6.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

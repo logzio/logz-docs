@@ -62,7 +62,7 @@ Log type _\(for preconfigured parsing\)_
 root access
 
 {: .tasklist .firstline-headline }
-1. Download the Logz.io certificate
+1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -70,7 +70,7 @@ root access
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-2. Add Jenkins as an input
+2.  Add Jenkins as an input
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
 
@@ -151,7 +151,7 @@ root access
 
     </div>
 
-3. Add Logz.io as an output
+3.  Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
 
@@ -164,11 +164,11 @@ root access
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. Start Filebeat
+4.  Start Filebeat
 
     Start or restart Filebeat for the changes to take effect.
 
-5. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -200,7 +200,7 @@ You can choose to stream a project's build logs or to send only the last logs of
 [Maven](https://maven.apache.org/install.html)
 
 {: .tasklist .firstline-headline}
-1. Clone the Jenkins Logstash Plugin repo
+1.  Clone the Jenkins Logstash Plugin repo
 
     Clone the Jenkins Logstash Plugin repo and `cd` into the logstash-plugin folder.
 
@@ -209,7 +209,7 @@ You can choose to stream a project's build logs or to send only the last logs of
     cd logstash-plugin
     ```
 
-2. Load the plugin in Jenkins
+2.  Load the plugin in Jenkins
 
     Set Maven to use JDK 8, and then build the plugin.
 
@@ -226,7 +226,7 @@ You can choose to stream a project's build logs or to send only the last logs of
     Restart Jenkins for the changes to take effect.
     You can do this by browsing to `http://<jenkins-server>/restart` or `http://<jenkins-server>/safeRestart`.
 
-3. Configure the plugin in Jenkins
+3.  Configure the plugin in Jenkins
 
     Log in to the Jenkins UI and navigate to **Manage Jenkins > Configure System**.
 
@@ -239,7 +239,7 @@ You can choose to stream a project's build logs or to send only the last logs of
 
     Click **Save**.
 
-4. Enable the plugin in your Jenkins jobs
+4.  Enable the plugin in your Jenkins jobs
 
     In each Jenkins job, click **Configure** in the left menu to set your logging preferences.
 
@@ -261,7 +261,7 @@ You can choose to stream a project's build logs or to send only the last logs of
     In the _Post-build Actions_ section (at the bottom of the page), select **Add post-build action > Send console log to Logstash**.
     In the **Max lines** box, type the number of logs you want to send per build, and then click **Save**.
 
-5. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
       Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

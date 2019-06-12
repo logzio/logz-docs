@@ -28,7 +28,7 @@ shipping-tags:
 2.  Deploy Metricbeat to your cluster
 
     ```shell
-    kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-daemonset-deployment.yml
+    kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-metricbeat.yml
     ```
 
 3.  Check Logz.io for your metrics

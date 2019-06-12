@@ -4,7 +4,7 @@ logo:
   logofile: docker.svg
   orientation: horizontal
 shipping-summary:
-  data-source: Docker container
+  data-source: Docker
 open-source:
   - title: docker-collector-metrics
     github-repo: docker-collector-metrics
@@ -19,7 +19,7 @@ shipping-tags:
 
 ###### Configuration
 
-1. Pull the Docker image
+1.  Pull the Docker image
 
     Download the logzio/docker-collector-metrics image:
 
@@ -27,7 +27,7 @@ shipping-tags:
     docker pull logzio/docker-collector-metrics
     ```
 
-2. Run the container
+2.  Run the container
 
     For a complete list of options, see the parameters below the code block.👇
 
@@ -72,7 +72,7 @@ shipping-tags:
       By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
     </div>
 
-3. Check Logz.io for your metrics
+3.  Check Logz.io for your metrics
 
     Spin up your Docker containers if you haven't done so already.
     Give your metrics a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

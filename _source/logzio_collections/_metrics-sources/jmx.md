@@ -15,8 +15,6 @@ shipping-tags:
   - platform-service
 ---
 
-## jmx2logzio
-
 jmx2logzio is a lightweight tool for polling JMX metrics and sending them to Logz.io.
 
 This doc shows you how to set up jmx2logzio.
@@ -27,15 +25,14 @@ You have two options here:
 
 ### How are metrics reported?
 
-Metrics reported by jmx2logzio follow this format:
-
-`[SERVICE-NAME].[SERVICE-HOST].[METRIC-NAME]`
+Metrics are reported as
+`[SERVICE-NAME].[SERVICE-HOST].[METRIC-NAME]`.
 
 <div class="branching-container">
 
+* [As a Java agent](#as-a-java-agent-config)
+* [With a Jolokia agent](#with-a-jolokia-agent-config)
 {: .branching-tabs }
-  * [As a Java agent](#as-a-java-agent-config)
-  * [With a Jolokia agent](#with-a-jolokia-agent-config)
 
 <div id="as-a-java-agent-config">
 
@@ -60,8 +57,7 @@ consider using [jmx2logzio with Jolokia](#with-a-jolokia-agent-config) instead.
 [Maven](https://maven.apache.org/),
 [Java 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or higher
 
-{: .tasklist .firstline-headline }
-1. Download jmx2logzio
+1.  Download jmx2logzio
 
     ```shell
     RELEASE_JAR=$(curl -s https://api.github.com/repos/logzio/jmx2logzio/releases/latest \
@@ -69,7 +65,7 @@ consider using [jmx2logzio with Jolokia](#with-a-jolokia-agent-config) instead.
       ; wget -O jmx2logzio-javaagent.jar $RELEASE_JAR
     ```
 
-2. Configure and run jmx2logzio
+2.  Configure and run jmx2logzio
 
     You'll find the jmx2logzio jar file in the jmx2logzio/target/ folder.
 
@@ -151,6 +147,11 @@ consider using [jmx2logzio with Jolokia](#with-a-jolokia-agent-config) instead.
     : The number of logs in the memory queue before dropping new logs.
       Default value is `-1` (the sender will not limit the queue by logs count)
 
+3.  Check Logz.io for your metrics
+
+    Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+{: .tasklist .firstline-headline }
+
 </div>
 
 <div id="with-a-jolokia-agent-config">
@@ -168,8 +169,7 @@ which sends those metrics to Logz.io.
 [Maven](https://maven.apache.org/),
 [Java 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or higher
 
-{: .tasklist .firstline-headline }
-1. Run the Jolokia agent
+1.  Run the Jolokia agent
 
     Download the [Jolokia JVM Agent JAR file](http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.6.0/jolokia-jvm-1.6.0-agent.jar).
 
@@ -187,7 +187,7 @@ which sends those metrics to Logz.io.
 
     </div>
 
-2. Download and configure jmx2logzio
+2.  Download and configure jmx2logzio
 
     Clone the jmx2logzio GitHub repo.
 
@@ -263,7 +263,7 @@ which sends those metrics to Logz.io.
       Default value is -1 (the sender will not limit the queue by logs count).
 
 
-3. Build and run jmx2logzio
+3.  Build and run jmx2logzio
 
     `cd` to the jmx2logzio/ folder and build the source:
 
@@ -278,6 +278,11 @@ which sends those metrics to Logz.io.
     ```
 
     You'll find the jmx2logzio jar file in the jmx2logzio/target/ folder.
+
+4.  Check Logz.io for your metrics
+
+    Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+{: .tasklist .firstline-headline }
 
 </div>
 

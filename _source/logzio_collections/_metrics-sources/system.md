@@ -19,7 +19,7 @@ shipping-tags:
 
 1. Download the Logz.io certificate
 
-    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+    Download the Logz.io public certificate to your certificate authority folder.
 
     ```shell
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
@@ -71,5 +71,5 @@ shipping-tags:
 
 5. Check Logz.io for your metrics
 
-    Give your metrics a few minutes to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+    Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
 {: .tasklist .firstline-headline }

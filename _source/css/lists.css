@@ -33,13 +33,10 @@ ol ul {
   position: absolute;
   display: inline-block;
   margin-left: -45px;
-  margin-top: -8px;
-
-  font-size: 1.5rem;
   color: white;
   background-color: var(--tasklist-light);
   border-radius: 50%;
-  padding: 6px 12px;
+  padding: 0 9px;
   font-weight: 800;
 }
 

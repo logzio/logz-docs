@@ -22,11 +22,12 @@
   --text-link-gray: #656565;
   --text-code: #e53935;
 
-  --heading-normal: #296386;
-  --heading-normal-75: #296386be;
-  --heading-normal-50: #29638680;
+  --heading-normal: #53585f;
+  --heading-blue: #296386;
+  --heading-blue-75: #296386be;
+  --heading-blue-50: #29638680;
 
-  --tasklist-heading: rgb(var(--app-orange-primary));
+  --tasklist-heading: rgb(var(--app-orange-dark));
   --tasklist-light: rgb(var(--app-gray-primary));
   --dl-letter: var(--app-orange-dark);
 

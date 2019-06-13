@@ -1,5 +1,5 @@
 h1, h2, h3, h4, h5, h6, .site-title, .post-title, .inline-header {
-  font-weight: 400;
+  font-weight: 700;
   padding: 0;
   color: var(--heading-normal);
   margin-top: 3rem;
@@ -22,7 +22,7 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, 
 }
 
 h1, .post-title {
-  font-size: 2rem;
+  font-size: 2.75rem;
   font-weight: 700;
 }
 
@@ -44,19 +44,17 @@ h5, h6, .inline-header {
 }
 
 h5, h6 {
-  font-weight: 400;
   text-transform: uppercase;
 }
 
 .inline-header {
+  color: var(--heading-blue-75);
   font-weight: 700;
 }
 
 /* Use h6 to introduce procedures. If you need a regular heading, use h5 */
-h6:after {
-  display: block;
-  content: '';
-  width: 50px;
-  height: 3px;
-  background-color: var(--tasklist-heading);
+h6 {
+  border-bottom: 3px solid var(--tasklist-heading);
+  width: fit-content;
+  color: var(--tasklist-heading);
 }

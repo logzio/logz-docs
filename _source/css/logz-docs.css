@@ -7,6 +7,8 @@
 
 /* ===== CSS IMPORTS ===== */
 @import url('vars.css');
+@import url('header-footer.css');
+@import url('headings.css');
 @import url('logzio-icons.css');
 @import url('toc.css');
 @import url('search.css');
@@ -33,45 +35,6 @@ div.big-container {
   justify-content: flex-start;
   align-items: stretch;
   align-content: flex-start;
-}
-
-header {
-  /* flex */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-
-  /* position & style */
-  position: sticky;
-  z-index: 100;
-  top: 0px;
-  width: auto;
-  margin: 0 auto;
-  padding: 0 50px;
-  height: 45px;
-  background-color: white;
-  border-bottom: 1px solid var(--border-light);
-}
-
-footer {
-  /* flex */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-between;
-  align-items: center;
-
-  /* position & style */
-  width: auto;
-  margin: 0 auto;
-  font-size: .9rem;
-  border-top: 1px solid var(--border-light);
-  padding: 10px 50px;
-  height: 30px;
-  line-height: 30px;
 }
 
 .title-container {
@@ -182,69 +145,6 @@ p {
 code, pre {
   font-family: var(--mono-font);
   font-size: .8rem;
-}
-
-h1, h2, h3, h4, h5, h6, .site-title, .post-title, .inline-header {
-  font-weight: 400;
-  padding: 0;
-  color: var(--heading-normal);
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-}
-
-h1, h1:first-child {
-  font-family: var(--title-font);
-  margin-top: 0px;
-  margin-bottom: 0;
-  margin-right: 1rem;
-}
-
-h2, h3, h4, h5, h6, .inline-header {
-  font-family: var(--heading-font);
-}
-
-h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, .inline-header:first-child {
-  margin-top: 1rem;
-}
-
-h1, .post-title {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 1.75rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-}
-
-h5, h6, .inline-header {
-  font-size: 1rem;
-  margin-bottom: 0;
-}
-
-h5, h6 {
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.inline-header {
-  font-weight: 700;
-}
-
-/* Use h6 to introduce procedures. If you need a regular heading, use h5 */
-h6:after {
-  display: block;
-  content: '';
-  width: 50px;
-  height: 3px;
-  background-color: var(--tasklist-heading);
 }
 
 main.page-content img, main.page-content video, .post-content iframe {
@@ -518,141 +418,6 @@ dl:not(.letter-labels) dt:not(:first-child) {
   font-weight: 400;
   font-size: .9rem;
 }
-
-div#toc-collapse-btn {
-  min-width: 50px;
-  height: 44px;
-  text-align: center;
-  vertical-align: center;
-  display: none;
-}
-
-div#toc-collapse-btn * {
-  vertical-align: middle;
-}
-
-div.site-badge {
-  min-width: 190px;
-  max-width: 230px;
-  min-height: 35px;
-  max-height: 35px;
-}
-
-div.site-badge img {
-  vertical-align: middle;
-}
-
-div.site-badge img.logz-symbol {
-  display: none;
-}
-
-span.docs-home-link {
-  font-family: var(--title-font);
-  font-size: 1.4rem;
-  vertical-align: middle;
-  margin-left: 5px;
-  color: var(--logz-logo-normal);
-}
-
-span.docs-home-link a {
-  color: currentColor;
-}
-
-div.site-badge a:hover {
-  opacity: .5;
-}
-
-nav.site-links, nav.site-actions {
-  font-size: 1rem;
-}
-
-nav.site-actions ul {
-  padding-left: 0;
-}
-
-nav.site-links li, nav.site-actions li {
-  display: inline-block;
-  padding: 1rem;
-  vertical-align: middle;
-}
-
-nav.site-links li {
-  margin: auto 1rem;
-  width: 1fr;
-}
-
-nav.site-actions li {
-  margin: auto .25rem;
-}
-
-nav.site-links a, nav.site-actions a {
-  margin: 0;
-  padding: 0;
-  display: block;
-  text-align: center;
-  color: var(--text-link-gray);
-}
-
-/* ===== SITE FOOTER ===== */
-
-footer div {
-  vertical-align: middle;
-  display: inline-block;
-}
-
-footer > div {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-footer li:not(:last-child) {
-  margin-right: 1.25rem;
-}
-
-
-
-div.social-icons li.icon {
-  font-size: 1.25rem;
-  text-align: center;
-}
-
-div.social-icons a {
-  color: var(--text-light);
-}
-
-a.atom-feed {
-  color: orange !important;
-}
-
-/* social icons */
-a.facebook:hover {
-  color: #4267b2;
-}
-
-a.twitter:hover {
-  color: #38a1f3;
-}
-
-a.youtube:hover {
-  color: #ed3833;
-}
-
-a.googleplus:hover {
-  color: #db4a39;
-}
-
-a.linkedin:hover {
-  color: #0077b5;
-}
-
-a.github:hover {
-  color: black;
-}
-
-a.atom-feed:hover {
-  color: orange;
-}
-
 
 /* ===== CONTRIBUTORS LIST ===== */
 

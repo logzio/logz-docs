@@ -5,7 +5,7 @@ div.page-flags {
   flex-flow: row wrap;
   font-size: .85rem;
   line-height: 1rem;
-  align-self: flex-end;
+  align-self: center;
 }
 
 .flag {

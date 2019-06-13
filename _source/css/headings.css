@@ -4,6 +4,7 @@ h1, h2, h3, h4, h5, h6, .site-title, .post-title, .inline-header {
   color: var(--heading-normal);
   margin-top: 3rem;
   margin-bottom: 1rem;
+  line-height: 100%;
 }
 
 h1, h1:first-child {

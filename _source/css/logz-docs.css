@@ -40,7 +40,6 @@ div.big-container {
 
 .title-container {
   display: flex;
-  flex-wrap: wrap;
   margin-bottom: 1rem;
 }
 
@@ -352,7 +351,7 @@ div.contributions ul > li {
 }
 
 .feedback-container > .feedback.inline-header {
-  margin-top: 0;
+  margin-top: 4px;
   color: var(--heading-blue-75);
 }
 
@@ -367,7 +366,7 @@ div.contributions ul > li {
 .slackin {
   align-self: center;
   padding: unset;
-  margin-bottom: -1rem;
+  margin-bottom: -0.5rem;
   margin-left: auto;
 }
 

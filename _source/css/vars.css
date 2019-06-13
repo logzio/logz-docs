@@ -28,7 +28,7 @@
   --heading-blue-50: #29638680;
 
   --tasklist-heading: rgb(var(--app-orange-dark));
-  --tasklist-light: rgb(var(--app-gray-primary));
+  --tasklist-light: rgb(var(--app-yellow-primary));
   --dl-letter: var(--app-orange-dark);
 
   --infobox-alpha: .1;
@@ -64,4 +64,5 @@
   --app-red-primary: 244, 67, 54;
   --app-blue-primary: 0, 189, 223;
   --app-gray-primary: 159, 171, 188;
+  --app-yellow-primary: 247, 193, 92;
 }

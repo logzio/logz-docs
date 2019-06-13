@@ -353,7 +353,7 @@ div.contributions ul > li {
 
 .feedback-container > .feedback.inline-header {
   margin-top: 0;
-  color: var(--tasklist-light);
+  color: var(--heading-blue-75);
 }
 
 .feedback-container > *:not(:last-child) {

@@ -54,7 +54,6 @@ h5, h6 {
 
 /* Use h6 to introduce procedures. If you need a regular heading, use h5 */
 h6 {
-  border-bottom: 3px solid var(--tasklist-heading);
+  border-bottom: 3px solid var(--tasklist-light);
   width: fit-content;
-  color: var(--tasklist-heading);
 }

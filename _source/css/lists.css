@@ -33,23 +33,22 @@ ol ul {
   position: absolute;
   display: inline-block;
   margin-left: -45px;
+  margin-top: -8px;
 
   font-size: 1.5rem;
-  color: var(--tasklist-light);
+  color: white;
+  background-color: var(--tasklist-light);
+  border-radius: 50%;
+  padding: 6px 12px;
   font-weight: 800;
 }
 
-.tasklist > li:first-child::before {
-  padding-top: 0;
-}
-
 .tasklist .firstline, .tasklist.firstline-headline > li > p:first-child {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.2rem;
   display: block;
-  border-bottom: 1px solid var(--tasklist-light);
   margin-left: -45px;
-  padding-left:  45px;
+  padding-left: 45px;
 }
 
 /* horizontal lists */

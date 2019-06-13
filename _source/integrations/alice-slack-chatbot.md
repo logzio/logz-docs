@@ -45,12 +45,12 @@ You can ask Alice to search your logs, see triggerd alerts, and get visualizatio
 
 2. Add Alice to Slack
 
-    If you're an admin in your Slack workspace, go ahead and click this button to add Alice to Slack.
+    👇 If you're an admin in your Slack workspace,
+    go ahead and click this button to add Alice to Slack.
     Otherwise, ask an admin to do this step for you.
 
-    <a href="https://slack.com/oauth/authorize?client_id=8241711843.335794452337&amp;scope=bot">
-      <img class="no-border" src="https://platform.slack-edge.com/img/add_to_slack.png" alt="Add to Slack">
-    </a>
+    [![Add to Slack](https://platform.slack-edge.com/img/add_to_slack.png)](https://slack.com/oauth/authorize?client_id=8241711843.335794452337&amp;scope=bot)
+    {: .override .btn-img }
 
     When prompted, confirm Alice's permissions.
 

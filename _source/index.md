@@ -10,7 +10,7 @@ cards:
     # url: "#" #/getting-started/overview/index.html
     # icon: blocks.svg
 
-  - title: Ship your data
+  - title: Send your data
     description: All the different ways you can feed the ELK machine
     url: /shipping/
     li-class: li-plane

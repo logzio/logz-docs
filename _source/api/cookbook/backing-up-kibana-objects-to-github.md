@@ -33,7 +33,7 @@ Even though this tutorial covers backing up to GitHub, you can use these methods
 Let's set up the prerequisites now so that we can use the command line for the rest of the tutorial.
 
 {: .tasklist .firstline-headline }
-1. Create a GitHub repo
+1.  Create a GitHub repo
 
     Make sure you're signed in to GitHub, and [create a new repository](https://github.com/new).
 
@@ -42,7 +42,7 @@ Let's set up the prerequisites now so that we can use the command line for the r
 
     Your new repo is created and you're taken to its main page.
 
-2. Clone the repo to your local machine
+2.  Clone the repo to your local machine
 
     If Git isn't already installed on your local machine, install it now.
     See [Install Git](https://www.atlassian.com/git/tutorials/install-git) from Atlassian if you need help with this.

@@ -22,10 +22,10 @@ You can also update any preconfigured rule at any time, including adding a notif
 
 ![Query bar in the Research page]({{site.baseurl}}/images/security-analytics/security-analytics--research-query-bar.png)
 
-1. In the [Research](https://app.logz.io/#/dashboard/security/research) page, type a query in the query bar, and press Enter.
+1.  In the [Research](https://app.logz.io/#/dashboard/security/research) page, type a query in the query bar, and press Enter.
   Review the results in the histogram and the document table, and make sure your query returned the expected results.
 
-2. Click **Create Rule** (to the right of the query bar).
+2.  Click **Create Rule** (to the right of the query bar).
   The _Create a New Rule_ page is shown.
   Continue with [To configure a security rule](#to-configure-a-security-rule).
 
@@ -34,16 +34,16 @@ You can also update any preconfigured rule at any time, including adding a notif
 
 ![Configure security rule]({{site.baseurl}}/images/security-analytics/security-analytics--configure-correlation-rule.png)
 
-1. Type a **Name** and a detailed **Description**.
+1.  Type a **Name** and a detailed **Description**.
   Add **Tags** to help categorize this alert.
 
-2. If you need to, change your **Query**.
+2.  If you need to, change your **Query**.
 
     <div class="info-box important">
       If you use an invalid query, the rule will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
     </div>
 
-3. _(Optional)_ If you want to group logs in the notification:
+3.  _(Optional)_ If you want to group logs in the notification:
 
     ![Security rule group by settings]({{site.baseurl}}/images/security-analytics/security-analytics--correlation-rule-group-by.png)
 
@@ -54,11 +54,11 @@ You can also update any preconfigured rule at any time, including adding a notif
     3. To limit the available fields, choose a log type from the **Filter by type** list.
       To show fields for all log types, choose **Clear filter**.
 
-4. Set your threshold and severity levels in the **Trigger** section.
+4.  Set your threshold and severity levels in the **Trigger** section.
 
     ![Security rule trigger settings]({{site.baseurl}}/images/security-analytics/security-analytics--correlation-rule-trigger-settings.png)
 
-5. _(Optional)_ If you want to receive notifications or emails when the rule is triggered, choose an endpoint.
+5.  _(Optional)_ If you want to receive notifications or emails when the rule is triggered, choose an endpoint.
   If you don’t choose an endpoint, events will still be logged:
 
     1. Choose the endpoints or email addresses to notify.

@@ -19,19 +19,19 @@ contributors:
 Ruby and ruby-dev 2.1 or higher,
 
 {: .tasklist .firstline-headline }
-1. Install Fluentd and the Logz.io plugin
+1.  Install Fluentd and the Logz.io plugin
 
     ```shell
     gem install fluentd fluent-plugin-logzio
     ```
 
-2. Set up Fluentd
+2.  Set up Fluentd
 
     ```shell
     fluentd --setup ./fluent
     ```
 
-3. Configure Fluentd with Logz.io output
+3.  Configure Fluentd with Logz.io output
 
     Add this code block to your Fluent configuration file (`fluent.conf` by default).
 
@@ -78,13 +78,13 @@ Ruby and ruby-dev 2.1 or higher,
     : Time, in seconds, that the HTTP connection will stay open without traffic before timing out.
 
 
-4. Run Fluentd
+4.  Run Fluentd
 
     ```shell
     fluentd -c ./fluent/fluent.conf -vv
     ```
 
-5. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

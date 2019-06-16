@@ -70,7 +70,7 @@ It means that you'll need to do at least one automated deployment for each regio
 ###### Configuration
 
 {:.tasklist .firstline-headline}
-1. If needed, configure an automated deployment
+1.  If needed, configure an automated deployment
 
     If you already set up an automated deployment in this region, you can skip to step 2.
 
@@ -117,7 +117,7 @@ It means that you'll need to do at least one automated deployment for each regio
 
     Deployment can take a few minutes.
 
-2. _(Optional)_ Add failsafes for shipping timeouts
+2.  _(Optional)_ Add failsafes for shipping timeouts
 
     You can configure Azure to back up your logs and metrics to Azure Blob Storage.
     So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
@@ -136,7 +136,7 @@ It means that you'll need to do at least one automated deployment for each regio
       For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
     </div>
 
-3. Stream data to the new event hubs
+3.  Stream data to the new event hubs
 
     So far in this process, you've deployed 2 event hubs and 2 function apps (one each for logs and metrics).
 
@@ -158,7 +158,7 @@ It means that you'll need to do at least one automated deployment for each regio
     In the _Log_ section, select the logs you want to stream, and then click **Save**.
     The selected logs will now stream to the event hub.
 
-6. Check Logz.io for your data
+6.  Check Logz.io for your data
 
     Give your data some time to get from your system to ours, and then open Kibana.
     If everything went according to plan, you should see logs with the type `eventhub` in Kibana.

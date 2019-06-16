@@ -47,7 +47,7 @@ Listener
 <div id="mac-linux-config">
 
 {: .tasklist .firstline-headline }
-1. Download the Logz.io certificate
+1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -55,7 +55,7 @@ Listener
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-2. Make your configuration file
+2.  Make your configuration file
 
     Make your configuration file using the Filebeat configuration wizard.
 
@@ -63,15 +63,15 @@ Listener
 
     {% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
 
-3. Move the configuration file to the Filebeat folder
+3.  Move the configuration file to the Filebeat folder
 
     Move the configuration file to `/etc/filebeat/filebeat.yml`.
 
-4. Start Filebeat
+4.  Start Filebeat
 
     Start or restart Filebeat for the changes to take effect.
 
-5. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -82,13 +82,13 @@ Listener
 <div id="windows-config">
 
 {: .tasklist .firstline-headline }
-1. Download the Logz.io certificate
+1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
     Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine. We recommend saving to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`.
 
-2. Make your configuration file
+2.  Make your configuration file
 
     Make your configuration file using the Filebeat configuration wizard.
 
@@ -96,17 +96,17 @@ Listener
 
     {% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
 
-3. Move the configuration file to the Filebeat folder
+3.  Move the configuration file to the Filebeat folder
 
     Move the configuration file to `C:\Program Files\Filebeat\filebeat.yml`.
 
-4. Restart Filebeat
+4.  Restart Filebeat
 
     ```powershell
     PS C:\Program Files\Filebeat> Restart-Service filebeat
     ```
 
-5. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

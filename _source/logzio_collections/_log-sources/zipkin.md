@@ -36,7 +36,7 @@ For most users, these won't be an issue, but they're still good to know:
 ## To integrate Zipkin server and Logz.io
 
 {: .tasklist .firstline-headline}
-1. Download Zipkin server and Zipkin-Logz.io Trace Storage
+1.  Download Zipkin server and Zipkin-Logz.io Trace Storage
 
     Download [Zipkin server](https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec).
 
@@ -46,7 +46,7 @@ For most users, these won't be an issue, but they're still good to know:
 
     Download the [Zipkin-Logz.io Trace Storage](https://github.com/logzio/zipkin-logzio/releases) jar to the same directory.
 
-2. Run Zipkin server with the Logz.io extension
+2.  Run Zipkin server with the Logz.io extension
 
     You can configure the Logz.io extension with shell variables or environment variables.
 
@@ -108,7 +108,7 @@ For most users, these won't be an issue, but they're still good to know:
     CLEAN_SENT_TRACES_INTERVAL <span class="default-param">`30`</span>
     : Time interval, in seconds, to clean sent traces from the disk.
 
-3. Check Logz.io for your traces
+3.  Check Logz.io for your traces
 
     Give your traces some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

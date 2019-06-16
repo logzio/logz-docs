@@ -15,7 +15,7 @@ shipping-tags:
 ## Setup
 
 {: .tasklist .firstline-headline }
-1. Pull the Docker image
+1.  Pull the Docker image
 
     Download the logzio/logzio-docker image:
 
@@ -23,7 +23,7 @@ shipping-tags:
     docker pull logzio/logzio-perfagent
     ```
 
-2. Run the Docker image
+2.  Run the Docker image
 
     For a complete list of options, see the parameters below the code block.👇
 
@@ -63,7 +63,7 @@ shipping-tags:
     INSTANCE
     : The IP address that will be assigned to the `instance` field of each entry.
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

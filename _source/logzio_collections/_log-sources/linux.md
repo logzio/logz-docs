@@ -42,7 +42,7 @@ Log type _\(for preconfigured parsing\)_
 root access
 
 {: .tasklist .firstline-headline }
-1. Run the rsyslog configuration script
+1.  Run the rsyslog configuration script
 
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
@@ -52,7 +52,7 @@ root access
       && sudo rsyslog/install.sh -t linux -a "<<SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>"
     ```
 
-2. Check Logz.io for your logs
+2.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 

@@ -29,7 +29,7 @@ shipping-tags:
 ## docker-collector-logs setup
 
 {: .tasklist .firstline-headline }
-1. Pull the Docker image
+1.  Pull the Docker image
 
     Download the logzio/docker-collector-logs image:
 
@@ -37,7 +37,7 @@ shipping-tags:
     docker pull logzio/docker-collector-logs
     ```
 
-2. Run the Docker image
+2.  Run the Docker image
 
     For a complete list of options, see the parameters below the code block.👇
 
@@ -87,7 +87,7 @@ shipping-tags:
       By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
     </div>
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Spin up your Docker containers if you haven't done so already.
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
@@ -105,7 +105,7 @@ Docker Engine 17.05 or later,
 Docker Community Edition (Docker CE) 18.03 or later
 
 {: .tasklist .firstline-headline }
-1. Install the plugin from the Docker store
+1.  Install the plugin from the Docker store
 
     ```shell
     docker plugin install store/logzio/logzio-logging-plugin:1.0.0 \
@@ -124,7 +124,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     docker plugin enable logzio/logzio-logging-plugin
     ```
 
-2. Configure global settings with daemon.json
+2.  Configure global settings with daemon.json
 
     You can configure all containers with the same options using daemon.json.
 
@@ -184,7 +184,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     logzio-attributes
     : JSON-formatted metadata to include in the log message.
 
-3. _(Optional)_ Set environment variables
+3.  _(Optional)_ Set environment variables
 
     Some logzio-logging-plugin options are controlled using environment variables.
     Each of these variables has a default value, so you can skip this step if you're comfortable with the defaults.
@@ -209,7 +209,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     LOGZIO_MAX_PARTIAL_BUFFER_DURATION <span class="default-param">`500ms`</span>
     : How long the buffer keeps the partial logs before flushing them.
 
-4. _(Optional)_ Override global settings for an individual container
+4.  _(Optional)_ Override global settings for an individual container
 
     You can configure the plugin separately for each container when using the `docker run` command.
 
@@ -235,7 +235,7 @@ Docker Community Edition (Docker CE) 18.03 or later
 
     For a complete list of options, see the configuration parameters in step 2.☝️
 
-3. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Spin up your Docker containers if you haven't done so already. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

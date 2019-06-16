@@ -63,7 +63,7 @@ Log type _(for preconfigured parsing)_
 [MySQL](https://dev.mysql.com/downloads/)
 
 {: .tasklist .firstline-headline }
-1. Configure MySQL to write general query logs
+1.  Configure MySQL to write general query logs
 
     In the MySQL configuration file (/etc/mysql/my.cnf),
     paste these lines:
@@ -82,7 +82,7 @@ Log type _(for preconfigured parsing)_
     sudo /etc/init.d/mysql restart
     ```
 
-2. Download the Logz.io certificate
+2.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -90,7 +90,7 @@ Log type _(for preconfigured parsing)_
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-3. Add MySQL as an input
+3.  Add MySQL as an input
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to the filebeat.inputs section.
 
@@ -236,7 +236,7 @@ Log type _(for preconfigured parsing)_
 
     </div>
 
-4. Add Logz.io as an output
+4.  Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
 
@@ -249,11 +249,11 @@ Log type _(for preconfigured parsing)_
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-5. Start Filebeat
+5.  Start Filebeat
 
     Start or restart Filebeat for the changes to take effect.
 
-6. Check Logz.io for your logs
+6.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -268,7 +268,7 @@ Log type _(for preconfigured parsing)_
 ###### Configuration
 
 {: .tasklist .firstline-headline }
-1. Pull the Docker image
+1.  Pull the Docker image
 
     Download the logzio/mysql-logs image:
 
@@ -276,7 +276,7 @@ Log type _(for preconfigured parsing)_
     docker pull logzio/mysql-logs
     ```
 
-2. Run the Docker image
+2.  Run the Docker image
 
     For a complete list of options, see the parameters below the code block.👇
 
@@ -311,7 +311,7 @@ Log type _(for preconfigured parsing)_
     : Path to the MySQL general log.
 
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

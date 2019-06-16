@@ -44,7 +44,7 @@ Default log locations
 root access
 
 {: .tasklist .firstline-headline }
-1. Configure OSSEC for JSON alert output
+1.  Configure OSSEC for JSON alert output
 
     In the OSSEC configuration file (/var/ossec/etc/ossec.conf), find the `<global>` tag.
     Add the `<jsonout_output>` property and set to `yes`.
@@ -61,7 +61,7 @@ root access
     sudo /var/ossec/bin/ossec-control restart
     ```
 
-2. Download the Logz.io certificate
+2.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -69,7 +69,7 @@ root access
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-3. Add OSSEC as an input
+3.  Add OSSEC as an input
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add OSSEC to the filebeat.inputs section.
 
@@ -149,7 +149,7 @@ root access
 
     </div>
 
-4. Add Logz.io as an output
+4.  Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
 
@@ -162,11 +162,11 @@ root access
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-5. Start Filebeat
+5.  Start Filebeat
 
     Start or restart Filebeat for the changes to take effect.
 
-6. Check Logz.io for your logs
+6.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

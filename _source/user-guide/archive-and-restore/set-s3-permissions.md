@@ -61,7 +61,7 @@ To test for `ListBucket` and `GetObject` permissions, you can use [AWS CLI](http
 [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) configured with the IAM user credentials you're testing
 
 {: .tasklist .firstline-headline }
-1. Create a test file
+1.  Create a test file
 
     Make a new dummy file for testing purposes.
 
@@ -69,7 +69,7 @@ To test for `ListBucket` and `GetObject` permissions, you can use [AWS CLI](http
     touch DELETE-logzio-test.txt
     ```
 
-2. Run the tests
+2.  Run the tests
 
     Test `PutObject` permissions by moving your dummy file to the bucket:
 

@@ -138,8 +138,8 @@ First you'll reduce the capacity of the account with higher maxDailyGB, and then
 
 So using our sample accounts in this article, the process will look like this:
 
-1. Reduce maxDailyGB for _Javert_ from `5` to `3`
-2. Increase maxDailyGB for _Jean Valjean_ from `1` to `3`
+1.  Reduce maxDailyGB for _Javert_ from `5` to `3`
+2.  Increase maxDailyGB for _Jean Valjean_ from `1` to `3`
 
 ### Sample request 1: Reduce maxDailyGB for _Javert_
 

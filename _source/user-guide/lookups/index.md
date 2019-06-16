@@ -42,7 +42,7 @@ You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/da
 ###### Use lookups in Kibana filters and security rules
 
 {: .tasklist .firstline-headline }
-1. Add a Kibana filter with your lookup
+1.  Add a Kibana filter with your lookup
 
     In the [Research](https://app.logz.io/#/dashboard/security/research) page, click **Add a filter** to show the filter dialog box.
 
@@ -54,7 +54,7 @@ You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/da
 
     Choose **in lookup** or **not in lookup** from the **Operators** list, and then choose the lookup you want to filter by.
 
-2. _(Optional)_ Create a security rule
+2.  _(Optional)_ Create a security rule
 
     Click **Create Alert** (to the right of the search bar) to make a new security rule with your filter.
     Your new security rule will contain the lookup you used in step 1.

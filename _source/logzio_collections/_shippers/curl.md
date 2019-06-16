@@ -36,7 +36,7 @@ You can upload JSON or plain text files.
 [cURL](https://curl.haxx.se/download.html)
 
 {: .tasklist .firstline-headline }
-1. Upload the file
+1.  Upload the file
 
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
@@ -44,7 +44,7 @@ You can upload JSON or plain text files.
     curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<SHIPPING-TOKEN>>/<LOG-TYPE>
     ```
 
-2. Check Logz.io for your logs
+2.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -61,7 +61,7 @@ You can upload JSON or plain text files.
 [cURL](https://curl.haxx.se/download.html)
 
 {: .tasklist .firstline-headline }
-1. Upload the file
+1.  Upload the file
 
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
@@ -69,7 +69,7 @@ You can upload JSON or plain text files.
     cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
     ```
 
-2. Check Logz.io for your logs
+2.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

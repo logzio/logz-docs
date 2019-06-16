@@ -50,9 +50,9 @@ import (
 func main() {
   // Replace these parameters with your configuration
   l, err := logzio.New(
-    "<ACCOUNT-TOKEN>",
+    "<<SHIPPING-TOKEN>>",
     logzio.SetDebug(os.Stderr),
-    logzio.SetUrl("<LISTENER-HOST>:8071"),
+    logzio.SetUrl("<<LISTENER-HOST>>:8071"),
     logzio.SetDrainDuration(time.Second * 5),
     logzio.SetTempDirectory("myQueue"),
     logzio.SetDrainDiskThreshold(99),

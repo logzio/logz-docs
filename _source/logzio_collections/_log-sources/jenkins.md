@@ -96,7 +96,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: jenkins
       fields_under_root: true
       encoding: utf-8
@@ -136,7 +136,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: jenkins
       fields_under_root: true
       encoding: utf-8
@@ -159,7 +159,7 @@ root access
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-HOST>:5015"]
+      hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
@@ -224,7 +224,7 @@ You can choose to stream a project's build logs or to send only the last logs of
     ```
 
     Restart Jenkins for the changes to take effect.
-    You can do this by browsing to `http://<jenkins-server>/restart` or `http://<jenkins-server>/safeRestart`.
+    You can do this by browsing to `http://<<JENKINS-SERVER>>/restart` or `http://<<JENKINS-SERVER>>/safeRestart`.
 
 3. Configure the plugin in Jenkins
 

@@ -68,8 +68,8 @@ For a complete list of options, see the configuration parameters below the code 
 
   <!-- Replace these parameters with your configuration -->
   <LogzioAppender name="Logzio">
-    <logzioToken><ACCOUNT-TOKEN></logzioToken>
-    <logzioUrl>https://<LISTENER-HOST>:8071</logzioUrl>
+    <logzioToken><<SHIPPING-TOKEN>></logzioToken>
+    <logzioUrl>https://<<LISTENER-HOST>>:8071</logzioUrl>
     <logzioType>myAwesomeType</logzioType>
   </LogzioAppender>
 
@@ -87,7 +87,7 @@ Parameters
 
 logzioToken <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
-  {%- include log-shipping/replace-vars.html token=true %} \\
+  {% include log-shipping/replace-vars.html token=true %} \\
   Begin with `$` to use an environment variable or system property with the specified name.
   For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
 
@@ -266,8 +266,8 @@ For a complete list of options, see the configuration parameters below the code 
 
   <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
     <!-- Replace these parameters with your configuration -->
-    <token><ACCOUNT-TOKEN></token>
-    <logzioUrl><LISTENER-HOST>:8071</logzioUrl>
+    <token><<SHIPPING-TOKEN>></token>
+    <logzioUrl><<LISTENER-HOST>>:8071</logzioUrl>
     <logzioType>myType</logzioType>
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">

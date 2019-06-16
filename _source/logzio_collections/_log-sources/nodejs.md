@@ -51,9 +51,9 @@ For a complete list of options, see the configuration parameters below the code 
 ```js
 // Replace these parameters with your configuration
 var logger = require('logzio-nodejs').createLogger({
-  token: '<ACCOUNT-TOKEN>',
+  token: '<<SHIPPING-TOKEN>>',
   protocol: 'https',
-  host: '<LISTENER-HOST>',
+  host: '<<LISTENER-HOST>>',
   port: '8071',
   type: 'YourLogType'
 });
@@ -171,9 +171,9 @@ var logzioWinstonTransport = require('winston-logzio');
 
 // Replace these parameters with your configuration
 var loggerOptions = {
-    token: '<ACCOUNT-TOKEN>',
+    token: '<<SHIPPING-TOKEN>>',
     protocol: 'https',
-    host: '<LISTENER-HOST>',
+    host: '<<LISTENER-HOST>>',
     port: '8071',
     type: 'YourLogType'
 };

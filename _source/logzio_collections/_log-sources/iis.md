@@ -47,11 +47,11 @@ admin access
         SavePos TRUE
         Exec if $raw_event =~ /^#/ drop();
         Exec convert_fields("AUTO", "utf-8");
-        Exec $raw_event = '[<ACCOUNT-TOKEN>][type=iis]' + $raw_event;
+        Exec $raw_event = '[<<SHIPPING-TOKEN>>][type=iis]' + $raw_event;
     </Input>
     <Output out>
         Module  om_tcp
-        Host    <LISTENER-HOST>
+        Host    <<LISTENER-HOST>>
         Port    8010
     </Output>
 

@@ -49,7 +49,7 @@ root access
     ```shell
     curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz \
       && tar xzf logzio-rsyslog.tar.gz \
-      && sudo rsyslog/install.sh -t linux -a "<ACCOUNT-TOKEN>" -l "<LISTENER-HOST>"
+      && sudo rsyslog/install.sh -t linux -a "<<SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>"
     ```
 
 2. Check Logz.io for your logs

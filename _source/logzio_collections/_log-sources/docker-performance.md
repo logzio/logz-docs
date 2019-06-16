@@ -30,8 +30,8 @@ shipping-tags:
     ```shell
     docker run -d \
     --net="host" \
-    -e LOGZ_TOKEN="<ACCOUNT-TOKEN>" \
-    -e LISTENER="<LISTENER-HOST>:5000" \
+    -e LOGZ_TOKEN="<<SHIPPING-TOKEN>>" \
+    -e LISTENER="<<LISTENER-HOST>>:5000" \
     -e USER_TAG="workers" \
     -e HOSTNAME=`hostname` \
     -e INSTANCE="10.1.2.3" \

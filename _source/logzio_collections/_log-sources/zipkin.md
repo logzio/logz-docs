@@ -54,10 +54,10 @@ For most users, these won't be an issue, but they're still good to know:
 
     ```bash
     STORAGE_TYPE=logzio \
-    LOGZIO_ACCOUNT_TOKEN=<ACCOUNT-TOKEN> \
-    LOGZIO_LISTENER_HOST=<LISTENER-HOST> \
-    LOGZIO_API_TOKEN=<API-TOKEN> \
-    LOGZIO_API_HOST=<API-URL> \
+    LOGZIO_ACCOUNT_TOKEN=<<SHIPPING-TOKEN>> \
+    LOGZIO_LISTENER_HOST=<<LISTENER-HOST>> \
+    LOGZIO_API_TOKEN=<<API-TOKEN>> \
+    LOGZIO_API_HOST=<<API-URL>> \
     java -Dloader.path='zipkin-logzio.jar,zipkin-logzio.jar!lib' -Dspring.profiles.active=logzio -cp zipkin.jar org.springframework.boot.loader.PropertiesLauncher
     ```
 
@@ -86,7 +86,7 @@ For most users, these won't be an issue, but they're still good to know:
 
     LOGZIO_API_TOKEN <span class="required-param"></span>
     : Required to read back traces from Logz.io. \\
-      Replace `<API-TOKEN>` with an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from the account you want to use.
+      Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from the account you want to use.
 
     LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span>
     : {% include log-shipping/replace-vars.html listener=true %}
@@ -94,7 +94,7 @@ For most users, these won't be an issue, but they're still good to know:
 
     LOGZIO_API_HOST <span class="default-param">`api.logz.io`</span>
     : Required to read back spans from Logz.io. \\
-      Replace `<API-URL>` with your region's base API URL.
+      Replace `<<API-URL>>` with your region's base API URL.
       For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
     STRICT_TRACE_ID <span class="default-param">`true`</span>

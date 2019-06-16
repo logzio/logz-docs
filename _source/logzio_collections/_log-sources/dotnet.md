@@ -55,9 +55,9 @@ _Option 1: In a configuration file_
   <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
 
     <!-- Replace these parameters with your configuration -->
-    <token><ACCOUNT-TOKEN></token>
+    <token><<SHIPPING-TOKEN>></token>
     <type>log4net</type>
-    <listenerUrl><LISTENER-HOST>:8071</listenerUrl>
+    <listenerUrl><<LISTENER-HOST>>:8071</listenerUrl>
     <bufferSize>100</bufferSize>
     <bufferTimeout>00:00:05</bufferTimeout>
     <retriesMaxAttempts>3</retriesMaxAttempts>
@@ -80,9 +80,9 @@ var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 
 // Replace these parameters with your configuration
-logzioAppender.AddToken("<ACCOUNT-TOKEN>");
+logzioAppender.AddToken("<<SHIPPING-TOKEN>>");
 logzioAppender.AddType("log4net");
-logzioAppender.AddListenerUrl("<LISTENER-HOST>:8071");
+logzioAppender.AddListenerUrl("<<LISTENER-HOST>>:8071");
 logzioAppender.AddBufferSize("100");
 logzioAppender.AddBufferTimeout("00:00:05");
 logzioAppender.AddRetriesMaxAttempts("3");
@@ -234,9 +234,9 @@ _Option 1: In a configuration file_
 
     <!-- Replace these parameters with your configuration -->
     <target name="logzio" type="Logzio"
-      token="<ACCOUNT-TOKEN>"
+      token="<<SHIPPING-TOKEN>>"
       logzioType="nlog"
-      listenerUrl="<LISTENER-HOST>:8071"
+      listenerUrl="<<LISTENER-HOST>>:8071"
       bufferSize="100"
       bufferTimeout="00:00:05"
       retriesMaxAttempts="3"
@@ -260,9 +260,9 @@ var config = new LoggingConfiguration();
 
 // Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
-  Token = "<ACCOUNT-TOKEN>",
+  Token = "<<SHIPPING-TOKEN>>",
   LogzioType = "nlog",
-  ListenerUrl = "<LISTENER-HOST>:8071",
+  ListenerUrl = "<<LISTENER-HOST>>:8071",
   BufferSize = "100",
   BufferTimeout = "00:00:05",
   RetriesMaxAttempts = "3",
@@ -347,7 +347,7 @@ You can configure the target to include your own custom values when forwarding t
 <nlog>
   <variable name="site" value="New Zealand" />
   <variable name="rings" value="one" />
-  <target name="logzio" type="Logzio" token="<ACCOUNT-TOKEN>">
+  <target name="logzio" type="Logzio" token="<<SHIPPING-TOKEN>>">
     <contextproperty name="site" layout="${site}" />
     <contextproperty name="rings" layout="${rings}" />
   </target>

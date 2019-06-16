@@ -65,9 +65,9 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
             image: logzio/logzio-k8s:latest
             env:
               - name:  LOGZIO_TOKEN
-                value: <ACCOUNT-TOKEN>
+                value: <<SHIPPING-TOKEN>>
               - name:  LOGZIO_URL
-                value: https://<LISTENER-HOST>:8071
+                value: https://<<LISTENER-HOST>>:8071
             resources:
               limits:
                 memory: 200Mi
@@ -231,9 +231,9 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
             image: logzio/logzio-k8s:latest
             env:
               - name:  LOGZIO_TOKEN
-                value: <ACCOUNT-TOKEN>
+                value: <<SHIPPING-TOKEN>>
               - name:  LOGZIO_URL
-                value: https://<LISTENER-HOST>:8071
+                value: https://<<LISTENER-HOST>>:8071
             resources:
               limits:
                 memory: 200Mi

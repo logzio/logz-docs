@@ -1,5 +1,5 @@
 ---
-title: Ship Azure activity logs
+title: Ship Azure diagnostic logs
 open-source:
   - title: logzio-azure-serverless
     github-repo: logzio-azure-serverless
@@ -7,8 +7,8 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 shipping-summary:
-  data-source: Azure activity logs
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Activity-log
+  data-source: Azure diagnostic logs
+logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Diagnostics-settings
 tags:
   - azure
   - event-hubs
@@ -77,7 +77,7 @@ It means that you'll need to do at least one automated deployment for each regio
     👇 Otherwise, click this button to start the automated deployment.
 
     [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
-    {: .override .btn-img }
+    {: .override.btn-img }
 
     You'll be taken to Azure, where you'll configure the resources to be deployed.
     Make sure to use the settings shown below.
@@ -128,17 +128,21 @@ It means that you'll need to do at least one automated deployment for each regio
       For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
     </div>
 
-3.  Stream data to the new event hubs
+3. Stream data to the new event hub
 
     So far in this process, you've deployed an event hub and a function app.
 
-    Now you'll need to configure Azure to stream activity logs to the event hub you just deployed.
+    Now you'll need to configure Azure to stream diagnostic logs to the event hub you just deployed.
     When data comes into the event hub, the function app will forward that data to Logz.io.
 
-    In the search bar, type "Activity", and then click **Activity log**.
-    This brings you to the _Activity log_ page.
+    In the search bar, type "Diagnostics", and then click **Diagnostics settings**.
+    This brings you to the _Diagnostics settings_ page.
 
-    In the button bar, click **Export to Event Hub**, and then click **Select a service bus namespace**.
+    Choose a resource from the list of resources, and click **Turn on diagnostics settings** to open the _Diagnostics settings_ panel for that resource.
+
+    Give your diangostic settings a **Name**.
+
+    Select **Stream to an event hub**, and then click **Configure** to open the _Select event hub_ panel.
 
     Choose your event hub:
 
@@ -147,12 +151,14 @@ It means that you'll need to do at least one automated deployment for each regio
     * **Event hub policy name**: Choose **LogzioSharedAccessKey**
     * Click **OK** to return to Diagnostics settings.
 
-    In the _Log_ section, select the logs you want to stream, and then click **Save**.
-    The selected logs will now stream to the event hub.
+    Click **OK** to return to the _Diagnostics settings_ panel.
+
+    In the _Log_ section, select the data you want to stream, and then click **Save**.
+    The selected data will now stream to the event hub.
 
 6. Check Logz.io for your logs
 
-    Give your logs some time to get from your system to ours, and then open Kibana.
-    If everything went according to plan, you should see logs with the type `eventhub` in Kibana.
+    Give your data some time to get from your system to ours, and then open Kibana.
+    If everything went according to plan, you should see logs (with the type `eventhub`) in Kibana.
 
     If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).

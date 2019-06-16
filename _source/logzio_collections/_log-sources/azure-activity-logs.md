@@ -21,7 +21,7 @@ shipping-tags:
 ---
 
 To simplify shipping your Azure activity logs, we provide an automated deployment process.
-At the end of this process, you'll have configured an event hub namespace, 2 event hubs, and 4 storage blobs.
+At the end of this process, you'll have configured an event hub namespace, an event hub, and 2 storage blobs.
 
 The resources set up by the automated deployment can collect data for a single Azure region and ship that data to Logz.io.
 
@@ -33,7 +33,7 @@ The resources set up by the automated deployment can collect data for a single A
 
 <div>
 
-The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs and metrics in one Azure region.
+The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
 
 Each automated deployment sets up these resources in your Azure environment:
 

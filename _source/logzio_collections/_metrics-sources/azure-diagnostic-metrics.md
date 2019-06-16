@@ -20,7 +20,7 @@ shipping-tags:
   - azure
 ---
 
-To simplify shipping your Azure activity logs, we provide an automated deployment process.
+To simplify shipping your Azure diagnostic metrics, we provide an automated deployment process.
 At the end of this process, you'll have configured an event hub namespace, an event hub, and 2 storage blobs.
 
 The resources set up by the automated deployment can collect data for a single Azure region and ship that data to Logz.io.
@@ -33,7 +33,7 @@ The resources set up by the automated deployment can collect data for a single A
 
 <div>
 
-The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs and metrics in one Azure region.
+The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect metrics in one Azure region.
 
 Each automated deployment sets up these resources in your Azure environment:
 
@@ -111,7 +111,7 @@ It means that you'll need to do at least one automated deployment for each regio
 
 2. _(Optional)_ Add failsafes for shipping timeouts
 
-    You can configure Azure to back up your logs and metrics to Azure Blob Storage.
+    You can configure Azure to back up your data to Azure Blob Storage.
     So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
 
     To do this, expand your function app's left menu, and then click **Integrate**.
@@ -122,7 +122,7 @@ It means that you'll need to do at least one automated deployment for each regio
     The _Azure Blob Storage output_ settings are displayed.
 
     Leave **Blob parameter name** blank.
-    Enter the **Path** for the Azure blob you're sending dropped logs to, and then click **Save**.
+    Enter the **Path** for the Azure blob you're sending dropped metrics to, and then click **Save**.
 
     <div class="info-box read">
       For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.

@@ -244,6 +244,3 @@ Log type _\(for preconfigured parsing\)_
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-</div>
-
-</div>

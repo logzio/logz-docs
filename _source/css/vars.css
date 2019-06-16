@@ -31,7 +31,7 @@
   --tasklist-light: rgb(var(--app-yellow-primary));
   --dl-letter: var(--app-orange-60);
 
-  --infobox-alpha: .2;
+  --infobox-alpha: .1;
 
   --infobox-note: rgb(var(--app-blue-50));
   --infobox-note-light: rgba(var(--app-blue-50), var(--infobox-alpha));
@@ -45,8 +45,8 @@
   --infobox-tip: rgb(var(--app-green-50));
   --infobox-tip-light: rgba(var(--app-green-50), var(--infobox-alpha));
 
-  --infobox-read: rgb(var(--app-gray-50));
-  --infobox-read-light: rgba(var(--app-gray-50), var(--infobox-alpha));
+  --infobox-read: rgb(var(--app-gray-60));
+  --infobox-read-light: rgba(var(--app-gray-60), var(--infobox-alpha));
 
   --border-light: rgb(var(--app-gray-50));
   --border-very-light: rgba(var(--app-gray-50), .7);

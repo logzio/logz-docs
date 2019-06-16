@@ -33,7 +33,7 @@ The resources set up by the automated deployment can collect data for a single A
 
 <div>
 
-The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs and metrics in one Azure region.
+The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
 
 Each automated deployment sets up these resources in your Azure environment:
 
@@ -70,7 +70,7 @@ It means that you'll need to do at least one automated deployment for each regio
 ###### Configuration
 
 {:.tasklist .firstline-headline}
-1. If needed, configure an automated deployment
+1.  If needed, configure an automated deployment
 
     If you already set up an automated deployment in this region, you can skip to step 2.
 
@@ -99,7 +99,7 @@ It means that you'll need to do at least one automated deployment for each regio
     In the SETTINGS section
 
     Logs listener host
-    : Use the listener URL for your logs account region.
+    : Use the listener host for your logs account region.
       For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
     Logs account token
@@ -109,9 +109,9 @@ It means that you'll need to do at least one automated deployment for each regio
 
     Deployment can take a few minutes.
 
-2. _(Optional)_ Add failsafes for shipping timeouts
+2.  _(Optional)_ Add failsafes for shipping timeouts
 
-    You can configure Azure to back up your logs and metrics to Azure Blob Storage.
+    You can configure Azure to back up your logs to Azure Blob Storage.
     So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
 
     To do this, expand your function app's left menu, and then click **Integrate**.
@@ -159,6 +159,6 @@ It means that you'll need to do at least one automated deployment for each regio
 6. Check Logz.io for your logs
 
     Give your data some time to get from your system to ours, and then open Kibana.
-    If everything went according to plan, you should see logs (with the type `eventhub`) and metrics in Kibana.
+    If everything went according to plan, you should see logs (with the type `eventhub`) in Kibana.
 
     If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).

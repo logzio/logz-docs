@@ -33,7 +33,7 @@ JDK,
 [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
 {: .tasklist .firstline-headline }
-1. Download the Logz.io certificate
+1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -41,7 +41,7 @@ JDK,
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-2. _(If needed)_ Install the Lumberjack output plugin
+2.  _(If needed)_ Install the Lumberjack output plugin
 
     The Lumberjack output plugin is required for SSL shipping.
     For most Logstash versions, the plugin is included by default.
@@ -60,7 +60,7 @@ JDK,
     ./logstash-plugin install logstash-output-lumberjack
     ```
 
-3. Add Logz.io to your configuration file
+3.  Add Logz.io to your configuration file
 
     Add these code blocks to the end of your existing Logstash configuration file.
 
@@ -71,13 +71,13 @@ JDK,
       # ...
       # ...
       mutate {
-        add_field => { "token" => "<ACCOUNT-TOKEN>" }
+        add_field => { "token" => "<<SHIPPING-TOKEN>>" }
       }
     }
 
     output {
       lumberjack {
-        hosts => ["<LISTENER-URL>"]
+        hosts => ["<<LISTENER-HOST>>"]
         port => 5006
         ssl_certificate => "/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt"
         codec => "json_lines"
@@ -85,11 +85,11 @@ JDK,
     }
     ```
 
-4. Start Logstash
+4.  Start Logstash
 
     Start or restart Logstash for the changes to take effect.
 
-5. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
@@ -108,7 +108,7 @@ JDK,
 [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
 {: .tasklist .firstline-headline }
-1. Add Logz.io to your configuration file
+1.  Add Logz.io to your configuration file
 
     Add these code blocks to the end of your existing Logstash configuration file.
 
@@ -119,7 +119,7 @@ JDK,
       # ...
       # ...
       mutate {
-        add_field => { "token" => "<ACCOUNT-TOKEN>" }
+        add_field => { "token" => "<<SHIPPING-TOKEN>>" }
       }
     }
 
@@ -132,11 +132,11 @@ JDK,
     }
     ```
 
-2. Start Logstash
+2.  Start Logstash
 
     Start or restart Logstash for the changes to take effect.
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

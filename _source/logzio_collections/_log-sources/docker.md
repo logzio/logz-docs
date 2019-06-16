@@ -29,7 +29,7 @@ shipping-tags:
 ## docker-collector-logs setup
 
 {: .tasklist .firstline-headline }
-1. Pull the Docker image
+1.  Pull the Docker image
 
     Download the logzio/docker-collector-logs image:
 
@@ -37,14 +37,14 @@ shipping-tags:
     docker pull logzio/docker-collector-logs
     ```
 
-2. Run the Docker image
+2.  Run the Docker image
 
     For a complete list of options, see the parameters below the code block.👇
 
     ```shell
     docker run --name docker-collector-logs \
-    --env LOGZIO_TOKEN="<ACCOUNT-TOKEN>" \
-    --env LOGZIO_URL="<LISTENER-URL>:5015" \
+    --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+    --env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     -v /var/lib/docker/containers:/var/lib/docker/containers \
     logzio/docker-collector-logs
@@ -87,7 +87,7 @@ shipping-tags:
       By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
     </div>
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Spin up your Docker containers if you haven't done so already.
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
@@ -105,7 +105,7 @@ Docker Engine 17.05 or later,
 Docker Community Edition (Docker CE) 18.03 or later
 
 {: .tasklist .firstline-headline }
-1. Install the plugin from the Docker store
+1.  Install the plugin from the Docker store
 
     ```shell
     docker plugin install store/logzio/logzio-logging-plugin:1.0.0 \
@@ -124,7 +124,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     docker plugin enable logzio/logzio-logging-plugin
     ```
 
-2. Configure global settings with daemon.json
+2.  Configure global settings with daemon.json
 
     You can configure all containers with the same options using daemon.json.
 
@@ -137,8 +137,8 @@ Docker Community Edition (Docker CE) 18.03 or later
     {
       "log-driver": "logzio/logzio-logging-plugin",
       "log-opts": {
-        "logzio-url": "<LISTENER-URL>",
-        "logzio-token": "<ACCOUNT-TOKEN>",
+        "logzio-url": "<<LISTENER-HOST>>",
+        "logzio-token": "<<SHIPPING-TOKEN>>",
         "logzio-dir-path": "/path/to/logs/"
       }
     }
@@ -184,7 +184,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     logzio-attributes
     : JSON-formatted metadata to include in the log message.
 
-3. _(Optional)_ Set environment variables
+3.  _(Optional)_ Set environment variables
 
     Some logzio-logging-plugin options are controlled using environment variables.
     Each of these variables has a default value, so you can skip this step if you're comfortable with the defaults.
@@ -209,7 +209,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     LOGZIO_MAX_PARTIAL_BUFFER_DURATION <span class="default-param">`500ms`</span>
     : How long the buffer keeps the partial logs before flushing them.
 
-4. _(Optional)_ Override global settings for an individual container
+4.  _(Optional)_ Override global settings for an individual container
 
     You can configure the plugin separately for each container when using the `docker run` command.
 
@@ -219,15 +219,15 @@ Docker Community Edition (Docker CE) 18.03 or later
     {% raw %}
     ```shell
     docker run --log-driver=logzio/logzio-logging-plugin \
-    --log-opt logzio-token=<ACCOUNT-TOKEN> \
-    --log-opt logzio-url=https://<LISTENER-URL>:8071 \
+    --log-opt logzio-token=<<SHIPPING-TOKEN>> \
+    --log-opt logzio-url=https://<<LISTENER-HOST>>:8071 \
     --log-opt logzio-dir-path=./docker_logs \
     --log-opt logzio-tag="{{.Name}}/{{.FullID}}" \
     --log-opt labels=region \
     --log-opt env=DEV \
     --env "DEV=true" \
     --label region=us-east-1 \
-    <DOCKER-IMAGE-NAME>
+    <<DOCKER-IMAGE-NAME>>
     ```
     {% endraw %}
 
@@ -235,7 +235,7 @@ Docker Community Edition (Docker CE) 18.03 or later
 
     For a complete list of options, see the configuration parameters in step 2.☝️
 
-3. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Spin up your Docker containers if you haven't done so already. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

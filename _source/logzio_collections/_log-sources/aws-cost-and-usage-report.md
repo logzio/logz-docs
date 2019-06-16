@@ -35,7 +35,7 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
 ###### Configuration
 
 {: .tasklist .firstline-headline }
-1. Create a new Lambda function
+1.  Create a new Lambda function
 
     This Lambda function collects your AWS Cost and Usage report files from an S3 bucket and sends them to Logz.io in bulk over HTTP.
 
@@ -48,7 +48,7 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
 
     We'll come back to the Lambda Managment Console, so keep this tab open.
 
-2. Create a new IAM Role
+2.  Create a new IAM Role
 
     In the IAM Management Console page that just opened:
 
@@ -79,7 +79,7 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
 
     You'll need this page later on, so keep it open.
 
-3. Zip the source files
+3.  Zip the source files
 
     Download the [aws-cost-and-usage-lambda](https://github.com/logzio/aws-cost-and-usage-lambda) project from GitHub to your computer, and zip the Python files in the src/ folder.
 
@@ -87,7 +87,7 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
     zip logzio-cost-and-usage-shipper lambda_function.py shipper.py
     ```
 
-4. Upload the zip file and set environment variables
+4.  Upload the zip file and set environment variables
 
     In the Function code section of Lambda find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
 
@@ -112,7 +112,7 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
     S3_BUCKET_NAME
     : In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **S3 Bucket** column for your report.
 
-5. Configure the function's basic settings
+5.  Configure the function's basic settings
 
     In Basic settings, we recommend starting with these settings:
 
@@ -124,7 +124,7 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
     Check your Lambda usage regularly, and adjust these values if you need to.
     </div>
 
-6. Set the CloudWatch Logs event trigger
+6.  Set the CloudWatch Logs event trigger
 
     Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Events** from this list.
 
@@ -140,7 +140,7 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
 
     Click **Add**, and then click **Save** at the top of the page.
 
-7. Check Logz.io for your logs
+7.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

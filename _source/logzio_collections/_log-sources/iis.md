@@ -20,7 +20,7 @@ admin access
 ###### Guided configuration
 
 {: .tasklist .firstline-headline }
-1. Configure NXLog
+1.  Configure NXLog
 
     Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
@@ -47,11 +47,11 @@ admin access
         SavePos TRUE
         Exec if $raw_event =~ /^#/ drop();
         Exec convert_fields("AUTO", "utf-8");
-        Exec $raw_event = '[<ACCOUNT-TOKEN>][type=iis]' + $raw_event;
+        Exec $raw_event = '[<<SHIPPING-TOKEN>>][type=iis]' + $raw_event;
     </Input>
     <Output out>
         Module  om_tcp
-        Host    <LISTENER-URL>
+        Host    <<LISTENER-HOST>>
         Port    8010
     </Output>
 
@@ -60,13 +60,13 @@ admin access
     </Route>
     ```
 
-2. Restart NXLog
+2.  Restart NXLog
 
     ```powershell
     PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
     ```
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

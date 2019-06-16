@@ -26,7 +26,7 @@ Files
 
 Listener
 : Port 5015.
-  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
 Default log locations
 : Ubuntu, Debian: `/var/log/apache2/access.log` \\
@@ -47,7 +47,7 @@ Log type _\(for preconfigured parsing\)_
 root access
 
 {: .tasklist .firstline-headline }
-1. Download the Logz.io certificate
+1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -55,7 +55,7 @@ root access
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-2. Add Apache as an input
+2.  Add Apache as an input
 
     In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to the filebeat.inputs section.
 
@@ -85,7 +85,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: apache_access
       fields_under_root: true
       encoding: utf-8
@@ -103,7 +103,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: apache_error
       fields_under_root: true
       encoding: utf-8
@@ -144,7 +144,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: apache_access
       fields_under_root: true
       encoding: utf-8
@@ -162,7 +162,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: apache_error
       fields_under_root: true
       encoding: utf-8
@@ -175,7 +175,7 @@ root access
 
     </div>
 
-3. Add Logz.io as an output
+3.  Add Logz.io as an output
 
     If Logz.io is not an output, add it now.
 
@@ -183,16 +183,16 @@ root access
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
+      hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-4. Start Filebeat
+4.  Start Filebeat
 
     Start or restart Filebeat for the changes to take effect.
 
-5. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

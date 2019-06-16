@@ -26,7 +26,7 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
 ###### Deploy the AWS ECS collector
 
 {: .tasklist .firstline-headline }
-1. Pull the Docker image
+1.  Pull the Docker image
 
     Download the logzio/logzio-aws-ecs image:
 
@@ -34,14 +34,14 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
     docker pull logzio/logzio-aws-ecs
     ```
 
-2. Run the Docker image
+2.  Run the Docker image
 
     For a complete list of options, see the parameters below the code block.👇
 
     ```shell
     docker run -d --name=logzio-aws-ecs \
-    --env LOGZIO_TOKEN="<ACCOUNT-TOKEN>" \
-    --env LOGZIO_URL="https://<LISTENER-URL>:8071" \
+    --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+    --env LOGZIO_URL="https://<<LISTENER-HOST>>:8071" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /var/lib/docker/containers:/var/lib/docker/containers \
     -v /tmp:/tmp \
@@ -57,9 +57,9 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
       {% include log-shipping/replace-vars.html token=true %}
 
     LOGZIO_URL <span class="required-param"></span>
-    : Your Logz.io listener URL.
+    : Your Logz.io listener URL and port.
       {% include log-shipping/replace-vars.html listener=true %}
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

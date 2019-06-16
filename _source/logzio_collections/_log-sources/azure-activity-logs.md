@@ -70,7 +70,7 @@ It means that you'll need to do at least one automated deployment for each regio
 ###### Configuration
 
 {:.tasklist .firstline-headline}
-1. If needed, configure an automated deployment
+1.  If needed, configure an automated deployment
 
     If you already set up an automated deployment in this region, you can skip to step 2.
 
@@ -99,7 +99,7 @@ It means that you'll need to do at least one automated deployment for each regio
     In the SETTINGS section
 
     Logs listener host
-    : Use the listener URL for your logs account region.
+    : Use the listener host for your logs account region.
       For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
     Logs account token
@@ -109,7 +109,7 @@ It means that you'll need to do at least one automated deployment for each regio
 
     Deployment can take a few minutes.
 
-2. _(Optional)_ Add failsafes for shipping timeouts
+2.  _(Optional)_ Add failsafes for shipping timeouts
 
     You can configure Azure to back up your logs to Azure Blob Storage.
     So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
@@ -128,7 +128,7 @@ It means that you'll need to do at least one automated deployment for each regio
       For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
     </div>
 
-3. Stream data to the new event hubs
+3.  Stream data to the new event hubs
 
     So far in this process, you've deployed an event hub and a function app.
 

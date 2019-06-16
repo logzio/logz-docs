@@ -18,7 +18,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 ###### To set up single sign-on for Azure
 
 {: .tasklist .firstline-headline }
-1. Request SSO access from Logz.io
+1.  Request SSO access from Logz.io
 
     <div class="info-box note">
       Only account admins can request single sign-on access for their accounts.
@@ -33,7 +33,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     The Support team will respond with the connection information you'll need to give in Azure.
 
-2. Add Logz.io to Azure
+2.  Add Logz.io to Azure
 
     ![Add a non-gallery application in Azure]({{site.baseurl}}/images/sso-providers/azure/add-your-own-application.png)
 
@@ -52,7 +52,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     * In **Identifier (Entity ID)**, paste _Audience URI_ from the email
     * In **Reply URL (Assertion Consumer Service URL)**, paste _Single sign on URL_ from the email
 
-4. Zip the SAML certificate
+4.  Zip the SAML certificate
 
     In the SAML Signing Certificate section of the page, click the **Certificate (Base64)** download link (next to the certificate).
 
@@ -83,7 +83,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     In the manifest JSON, set groupMembershipClaims to `"All"`.
     Click **Save** (top of the page).
 
-8. _(Optional)_ Restrict Logz.io access to specific user groups
+8.  _(Optional)_ Restrict Logz.io access to specific user groups
 
     ![Add group]({{site.baseurl}}/images/access-and-authentication/sso--manage-groups.png)
 

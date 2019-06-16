@@ -18,7 +18,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 ###### To set up single sign-on for Okta
 
 {: .tasklist .firstline-headline }
-1. Request SSO access from Logz.io
+1.  Request SSO access from Logz.io
 
     <div class="info-box note">
       Only account admins can request single sign-on access for their accounts.
@@ -33,7 +33,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     The Support team will respond with the connection information you'll need to give in Okta.
 
-2. Add Logz.io to Okta
+2.  Add Logz.io to Okta
 
     In Okta, click **Admin**.
 
@@ -76,7 +76,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     * Type an expression for the groups that you want to have access to Logz.io in **Filter value**.
       This field can't be blank.
 
-5. Zip the SAML certificate
+5.  Zip the SAML certificate
 
     On the right side of the page, click **Download Okta Certificate**.
 
@@ -100,7 +100,7 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     * Your zipped certificate (from step 4)
     * Your Identity Provider Single Sign-On URL (from step 5)
 
-8. _(Optional)_ Restrict Logz.io access to specific user groups
+8.  _(Optional)_ Restrict Logz.io access to specific user groups
 
     ![Add group]({{site.baseurl}}/images/access-and-authentication/sso--manage-groups.png)
 

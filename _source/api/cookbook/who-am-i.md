@@ -24,9 +24,9 @@ You can use `whoami` to test connectivity with Logz.io or to confirm you're usin
 
 ```shell
 curl -X GET \
-  https://<API-URL>/account-management/whoami \
+  https://<<API-URL>>/account-management/whoami \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>'
+  -H 'X-API-TOKEN: <<API-TOKEN>>'
 ```
 
 {% include api-cookbook/read-more-api-doc.html title="Retrieve this account" id="whoAmI" %}
@@ -50,7 +50,7 @@ If you didn't receive the expected response, there could be a few reasons for th
 Let's see if we can figure this out together.
 
 {: .tasklist .firstline-headline }
-1. Check the status code
+1.  Check the status code
 
     The status code indicates whether you sent the request to a valid Logz.io API endpoint.
 
@@ -66,7 +66,7 @@ Let's see if we can figure this out together.
     You might have sent the request to an invalid endpoint.
     Double-check the API URL, and make sure it matches an endpoint in the Logz.io [API docs]({{site.baseurl}}/api/).
 
-2. Check the response body
+2.  Check the response body
 
     Check the response body for an error message.
 

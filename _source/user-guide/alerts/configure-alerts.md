@@ -22,24 +22,24 @@ If you want help updating an existing alert, you can [skip the first part of thi
 
 ![Kibana query bar]({{site.baseurl}}/images/kibana/kibana--query-bar.png)
 
-1. In Kibana, type a query in the query bar, and press Enter. Review the results in the histogram and the document table, and make sure your query returned the expected results.
+1.  In Kibana, type a query in the query bar, and press Enter. Review the results in the histogram and the document table, and make sure your query returned the expected results.
 
-2. Click **Create Alert** (to the right of the query bar). The Create Alert Definition page is shown. Continue with [To configure an alert](#to-configure-an-alert).
+2.  Click **Create Alert** (to the right of the query bar). The Create Alert Definition page is shown. Continue with [To configure an alert](#to-configure-an-alert).
 
 ###### To configure an alert {#to-configure-an-alert}
 
 ![Configure an Alert]({{site.baseurl}}/images/alerts/alerts--configure-alert.png)
 
-1. Type a **Name** and a detailed **Description**.
+1.  Type a **Name** and a detailed **Description**.
   Add **Tags** to help categorize this alert.
 
-2. If you need to, change your alert **Query** and the **Accounts** that the query will search.
+2.  If you need to, change your alert **Query** and the **Accounts** that the query will search.
 
     <div class="info-box gotcha">
       If you use an invalid query, the alert will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
     </div>
 
-3. _(Optional)_ If you want to group logs in the alert notification:
+3.  _(Optional)_ If you want to group logs in the alert notification:
 
     ![Group alert fields]({{site.baseurl}}/images/alerts/alerts--group-by.png)
     
@@ -49,11 +49,11 @@ If you want help updating an existing alert, you can [skip the first part of thi
     
         To limit the available fields, choose a log type from the **Filter by type** list. To show fields for all log types, choose **Clear filter**.
 
-4. Set your threshold and severity levels in the **Trigger** section. Click **Add multiple conditions** to add up to 3 threshold levels.
+4.  Set your threshold and severity levels in the **Trigger** section. Click **Add multiple conditions** to add up to 3 threshold levels.
 
     ![Alert trigger thresholds]({{site.baseurl}}/images/alerts/alerts--trigger-settings.png)
 
-5. _(Optional)_ If you want to receive notifications or emails when the alert is triggered, choose an alert endpoint. If you don't choose an endpoint, triggered alerts will still be logged:
+5.  _(Optional)_ If you want to receive notifications or emails when the alert is triggered, choose an alert endpoint. If you don't choose an endpoint, triggered alerts will still be logged:
 
     ![Alert notification actions]({{site.baseurl}}/images/alerts/alerts--notification-action.png)
 
@@ -65,7 +65,7 @@ If you want help updating an existing alert, you can [skip the first part of thi
           When notifications are suppressed, Logz.io will continue to log triggered alerts without sending notifications. You can search triggered alert logs at any time.
         </div>
 
-6. Choose an **Output**.
+6.  Choose an **Output**.
 
     <video autoplay loop>
         <source src="{{site.baseurl}}/videos/alerts/alerts--custom-format.mp4" type="video/mp4" />

@@ -37,9 +37,9 @@ If you don't have sub accounts that you're ready to experiment with, go ahead an
 
 ```shell
 curl -X POST \
-  https://<API-URL>/account-management/time-based-accounts \
+  https://<<API-URL>>/account-management/time-based-accounts \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
   -d '{
     "email": "your@email.com",
     "accountName": "Jean Valjean",
@@ -64,6 +64,7 @@ No need to remember the account token—it's always available on the Logz.io [Ma
     "accountToken": "xLbRPpsmbEIknBpgEGEbjAHBVLTWDcTV"
 }
 ```
+
 ## Checking sub account capacity {#checking-sub-account-capacity}
 
 To see information on your sub accounts, pass a request using an API token from your main account.
@@ -72,9 +73,9 @@ To see information on your sub accounts, pass a request using an API token from 
 
 ```shell
 curl -X GET \
-  https://<API-URL>/account-management/time-based-accounts/ \
+  https://<<API-URL>>/account-management/time-based-accounts/ \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>'
+  -H 'X-API-TOKEN: <<API-TOKEN>>'
 ```
 
 {% include api-cookbook/read-more-api-doc.html title="Retrieve all sub accounts" id="getAll" %}
@@ -137,8 +138,8 @@ First you'll reduce the capacity of the account with higher maxDailyGB, and then
 
 So using our sample accounts in this article, the process will look like this:
 
-1. Reduce maxDailyGB for _Javert_ from `5` to `3`
-2. Increase maxDailyGB for _Jean Valjean_ from `1` to `3`
+1.  Reduce maxDailyGB for _Javert_ from `5` to `3`
+2.  Increase maxDailyGB for _Jean Valjean_ from `1` to `3`
 
 ### Sample request 1: Reduce maxDailyGB for _Javert_
 
@@ -146,8 +147,8 @@ Reducing _Javert_ maxDailyGB from `5` to `3` frees up 2 GB:
 
 ```shell
 curl -X PUT \
-  https://<API-URL>/account-management/time-based-accounts/183267 \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  https://<<API-URL>>/account-management/time-based-accounts/183267 \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
   -H 'content-type: application/json' \
   -d '{
   "accountName": "Javert",
@@ -176,8 +177,8 @@ We can use the space we took from _Javert_ and apply it to _Jean Valjean_:
 
 ```shell
 curl -X PUT \
-  https://<API-URL>/account-management/time-based-accounts/24601 \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  https://<<API-URL>>/account-management/time-based-accounts/24601 \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
   -H 'content-type: application/json' \
   -d '{
   "accountName": "Jean Valjean",
@@ -206,9 +207,9 @@ To double-check that you did everything correctly, run another request to get su
 
 ```shell
 curl -X GET \
-  https://<API-URL>/account-management/time-based-accounts/ \
+  https://<<API-URL>>/account-management/time-based-accounts/ \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
 ```
 
 #### ...and the response

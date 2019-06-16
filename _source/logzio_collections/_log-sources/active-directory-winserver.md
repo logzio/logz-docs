@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Ship Active Directory logs from Windows Server
 logo:
   logofile: windows.svg

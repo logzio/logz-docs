@@ -42,7 +42,7 @@ Files
 
 Listener
 : Port 5015.
-  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
 Default log location
 : `/var/log/jenkins/jenkins.log`
@@ -96,7 +96,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: jenkins
       fields_under_root: true
       encoding: utf-8
@@ -136,7 +136,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: jenkins
       fields_under_root: true
       encoding: utf-8
@@ -159,7 +159,7 @@ root access
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
+      hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
@@ -224,7 +224,7 @@ You can choose to stream a project's build logs or to send only the last logs of
     ```
 
     Restart Jenkins for the changes to take effect.
-    You can do this by browsing to `http://<jenkins-server>/restart` or `http://<jenkins-server>/safeRestart`.
+    You can do this by browsing to `http://<<JENKINS-SERVER>>/restart` or `http://<<JENKINS-SERVER>>/safeRestart`.
 
 3.  Configure the plugin in Jenkins
 
@@ -233,7 +233,7 @@ You can choose to stream a project's build logs or to send only the last logs of
     In the _Logstash_ section, select **Enable sending logs to an Indexer**, and then set these options:
 
     * In the **Indexer Type** list, choose **Logz.io**.
-    * **Logz.io Host**: Your region's listener URL.
+    * **Logz.io Host**: Your region's listener host.
       For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
     * **Logz.io Token**: The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
 

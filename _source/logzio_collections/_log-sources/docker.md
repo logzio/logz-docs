@@ -43,8 +43,8 @@ shipping-tags:
 
     ```shell
     docker run --name docker-collector-logs \
-    --env LOGZIO_TOKEN="<ACCOUNT-TOKEN>" \
-    --env LOGZIO_URL="<LISTENER-URL>:5015" \
+    --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+    --env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     -v /var/lib/docker/containers:/var/lib/docker/containers \
     logzio/docker-collector-logs
@@ -137,8 +137,8 @@ Docker Community Edition (Docker CE) 18.03 or later
     {
       "log-driver": "logzio/logzio-logging-plugin",
       "log-opts": {
-        "logzio-url": "<LISTENER-URL>",
-        "logzio-token": "<ACCOUNT-TOKEN>",
+        "logzio-url": "<<LISTENER-HOST>>",
+        "logzio-token": "<<SHIPPING-TOKEN>>",
         "logzio-dir-path": "/path/to/logs/"
       }
     }
@@ -219,15 +219,15 @@ Docker Community Edition (Docker CE) 18.03 or later
     {% raw %}
     ```shell
     docker run --log-driver=logzio/logzio-logging-plugin \
-    --log-opt logzio-token=<ACCOUNT-TOKEN> \
-    --log-opt logzio-url=https://<LISTENER-URL>:8071 \
+    --log-opt logzio-token=<<SHIPPING-TOKEN>> \
+    --log-opt logzio-url=https://<<LISTENER-HOST>>:8071 \
     --log-opt logzio-dir-path=./docker_logs \
     --log-opt logzio-tag="{{.Name}}/{{.FullID}}" \
     --log-opt labels=region \
     --log-opt env=DEV \
     --env "DEV=true" \
     --label region=us-east-1 \
-    <DOCKER-IMAGE-NAME>
+    <<DOCKER-IMAGE-NAME>>
     ```
     {% endraw %}
 

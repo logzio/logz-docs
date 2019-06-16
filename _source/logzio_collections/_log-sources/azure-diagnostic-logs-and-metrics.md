@@ -100,11 +100,11 @@ It means that you'll need to do at least one automated deployment for each regio
     In the SETTINGS section
 
     Logs listener host
-    : Use the listener URL for your logs account region.
+    : Use the listener host for your logs account region.
       For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
     Metrics listener host
-    : Use the listener URL for your metrics account region.
+    : Use the listener host for your metrics account region.
       For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
     Logs account token

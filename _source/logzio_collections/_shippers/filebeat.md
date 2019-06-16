@@ -30,7 +30,7 @@ Files
 
 Listener
 : Port 5015.
-  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
 ###### Guided configuration
 

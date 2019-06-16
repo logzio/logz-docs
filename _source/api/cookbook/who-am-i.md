@@ -24,9 +24,9 @@ You can use `whoami` to test connectivity with Logz.io or to confirm you're usin
 
 ```shell
 curl -X GET \
-  https://<API-URL>/account-management/whoami \
+  https://<<API-URL>>/account-management/whoami \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>'
+  -H 'X-API-TOKEN: <<API-TOKEN>>'
 ```
 
 {% include api-cookbook/read-more-api-doc.html title="Retrieve this account" id="whoAmI" %}

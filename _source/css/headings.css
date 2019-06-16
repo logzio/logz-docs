@@ -23,29 +23,30 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, 
 }
 
 h1, .post-title {
-  font-size: 2.75rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: 1.8rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
 h5, h6, .inline-header {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-bottom: 0;
 }
 
 h5, h6 {
   text-transform: uppercase;
+  font-weight: 400;
 }
 
 .inline-header {

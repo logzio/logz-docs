@@ -58,7 +58,7 @@ Let's set up the prerequisites now so that we can use the command line for the r
     In the command line, clone the repo into a new folder named "kibana-backup" and `cd` into the kibana-backup folder:
 
     ```shell
-    git clone <REPO-URL> kibana-backup
+    git clone <<REPO-URL>> kibana-backup
     cd kibana-backup
     ```
 
@@ -71,9 +71,9 @@ This means that you'll need to make three API requests to Logz.io.
 
 ```shell
 curl -X POST \
-  https://<API-URL>/kibana/export \
+  https://<<API-URL>>/kibana/export \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
   -d '{"type": "search"}'
   -o kibana-search.json
 ```
@@ -140,9 +140,9 @@ If you _do_ have saved searches, they're stored as objects in the `hits` array, 
 
 ```shell
 curl -X POST \
-  https://<API-URL>/kibana/export \
+  https://<<API-URL>>/kibana/export \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
   -d '{"type": "visualization"}'
   -o kibana-visualization.json
 ```
@@ -194,9 +194,9 @@ kibana-backup/
 
 ```shell
 curl -X POST \
-  https://<API-URL>/kibana/export \
+  https://<<API-URL>>/kibana/export \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
   -d '{"type": "dashboard"}'
   -o kibana-dashboard.json
 ```

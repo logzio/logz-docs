@@ -60,7 +60,7 @@ div.mini-card {
 
 div.mini-card.community-project-card {
   height: 180px;
-  border: 1px solid rgb(var(--app-gray-primary))
+  border: 1px solid rgb(var(--app-gray-60))
 }
 
 div.full-card div.card-text {
@@ -148,7 +148,7 @@ div.card-icon i::before {
 .mini-card.community-project-card > a::before {
   content: "Community project";
 
-  background-color: rgb(var(--app-gray-primary));
+  background-color: rgb(var(--app-gray-60));
   color: white;
   font-size: .9rem;
 

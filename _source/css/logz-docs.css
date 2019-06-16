@@ -375,7 +375,7 @@ div.contributions ul > li {
 }
 
 .feedback.button.issue {
-  color: rgb(var(--app-orange-primary));
+  color: rgb(var(--app-orange-40));
 }
 
 .feedback.button svg {

@@ -39,7 +39,7 @@ shipping-tags:
 
     fields:
       logzio_codec: json
-      token: <ACCOUNT-TOKEN>
+      token: <<SHIPPING-TOKEN>>
     fields_under_root: true
     ```
 
@@ -51,7 +51,7 @@ shipping-tags:
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
+      hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
         certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
     ```

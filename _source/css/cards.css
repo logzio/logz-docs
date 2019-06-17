@@ -3,6 +3,8 @@
   --card-override-padding: calc(-2 * var(--card-padding));
 }
 
+/* All cards */
+
 div.cards {
   display: flex;
   flex-direction: row;
@@ -30,47 +32,9 @@ div.card {
   justify-content: space-around;
 }
 
-.full-card > a {
-  padding: 14px;
-}
-
-.mini-card > a {
-  padding-left: var(--card-padding);
-  padding-right: var(--card-padding);
-}
-
 div.card:hover {
   box-shadow: var(--card-shadow);
   transition: box-shadow 200ms;
-}
-
-div.half-card {
-  height: 50px;
-  display: flex;
-  align-items: center;
-}
-
-div.mini-card {
-  width: 150px;
-  height: 160px;
-  display: flex;
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
-div.mini-card.community-project-card {
-  height: 180px;
-  border: 1px solid rgb(var(--app-gray-primary))
-}
-
-div.full-card div.card-text {
-  display: block;
-  padding: 0;
-}
-
-.full-card .card-text p {
-  line-height: 1.25em;
-  margin-top: .75em;
 }
 
 span.card-title {
@@ -80,16 +44,6 @@ span.card-title {
   font-size: 1.25rem;
   margin: auto;
   display: block;
-}
-
-.mini-card .card-title {
-  font-family: var(--body-font);
-  line-height: 110%;
-  font-size: 1.1rem;
-}
-
-div.full-card span.card-title {
-  margin-top: 14px;
 }
 
 div.card p {
@@ -103,6 +57,72 @@ div.card p {
 div.card-icon {
   margin: 14px auto;
   padding: 0;
+}
+
+div.card-icon i {
+  vertical-align: middle;
+}
+
+div.card-icon i::before {
+  color: var(--text-link);
+  opacity: .5;
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Full cards */
+
+.full-card > a {
+  padding: 14px;
+}
+
+div.full-card div.card-text {
+  display: block;
+  padding: 0;
+}
+
+.full-card .card-text p {
+  line-height: 1.25em;
+  margin-top: .75em;
+}
+
+div.full-card span.card-title {
+  margin-top: 14px;
+}
+
+/* Half cards */
+
+div.half-card {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+/* Mini cards */
+
+.mini-card > a {
+  padding-left: var(--card-padding);
+  padding-right: var(--card-padding);
+}
+
+div.mini-card {
+  width: 150px;
+  height: 160px;
+  display: flex;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+div.mini-card.community-project-card {
+  height: 180px;
+  border: 1px solid rgb(var(--app-gray-60))
+}
+
+.mini-card .card-title {
+  font-family: var(--body-font);
+  line-height: 110%;
+  font-size: 1.1rem;
 }
 
 .mini-card .card-icon {
@@ -121,20 +141,6 @@ div.card-icon {
   background-size: auto 100%;
 }
 
-div.card-icon i {
-  width: 50;
-  height: 50;
-  vertical-align: middle;
-}
-
-div.card-icon i::before {
-  color: var(--text-link);
-  opacity: .5;
-  font-size: 30px;
-  padding: 0;
-  margin: 0;
-}
-
 .mini-card.community-project-card {
   justify-content: flex-start;
 }
@@ -148,7 +154,7 @@ div.card-icon i::before {
 .mini-card.community-project-card > a::before {
   content: "Community project";
 
-  background-color: rgb(var(--app-gray-primary));
+  background-color: rgb(var(--app-gray-60));
   color: white;
   font-size: .9rem;
 

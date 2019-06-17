@@ -3,8 +3,7 @@ title: Ship VPC flow logs
 logo:
   logofile: aws-vpc.svg
   orientation: vertical
-shipping-summary:
-  data-source: Amazon VPC
+data-source: VPC
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/VPC
 contributors:
   - idohalevi

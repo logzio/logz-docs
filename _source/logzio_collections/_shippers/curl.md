@@ -3,8 +3,7 @@ title: cURL log file upload
 logo:
   logofile: curl.svg
   orientation: vertical
-shipping-summary:
-  data-source: cURL file upload
+data-source: cURL file upload
 shipping-tags:
   - log-shipper
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/File-UploadcURL
@@ -41,7 +40,7 @@ You can upload JSON or plain text files.
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```shell
-    curl -T /path/to/log/file https://<LISTENER-URL>:8022/file_upload/<ACCOUNT-TOKEN>/<LOG-TYPE>
+    curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<SHIPPING-TOKEN>>/<LOG-TYPE>
     ```
 
 2.  Check Logz.io for your logs
@@ -66,7 +65,7 @@ You can upload JSON or plain text files.
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```shell
-    cat /path/to/log/file | curl -X POST "https://<LISTENER-URL>:8071?token=<ACCOUNT-TOKEN>&type=<LOG-TYPE>" -v --data-binary @-
+    cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
     ```
 
 2.  Check Logz.io for your logs

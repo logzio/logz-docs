@@ -3,8 +3,7 @@ title: Ship Node.js logs
 logo:
   logofile: nodejs.svg
   orientation: vertical
-shipping-summary:
-  data-source: Node.js code
+data-source: Node.js code
 open-source:
   - title: logzio-nodejs
     github-repo: logzio-nodejs
@@ -51,9 +50,9 @@ For a complete list of options, see the configuration parameters below the code 
 ```js
 // Replace these parameters with your configuration
 var logger = require('logzio-nodejs').createLogger({
-  token: '<ACCOUNT-TOKEN>',
+  token: '<<SHIPPING-TOKEN>>',
   protocol: 'https',
-  host: '<LISTENER-URL>',
+  host: '<<LISTENER-HOST>>',
   port: '8071',
   type: 'YourLogType'
 });
@@ -71,7 +70,7 @@ protocol <span class="default-param">`http`</span>
   The value here affects the default of the `port` parameter.
 
 host <span class="default-param">`listener.logz.io`</span>
-: Listener URL.
+: Listener host.
   {% include log-shipping/replace-vars.html listener=true %}
 
 port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>
@@ -171,9 +170,9 @@ var logzioWinstonTransport = require('winston-logzio');
 
 // Replace these parameters with your configuration
 var loggerOptions = {
-    token: '<ACCOUNT-TOKEN>',
+    token: '<<SHIPPING-TOKEN>>',
     protocol: 'https',
-    host: '<LISTENER-URL>',
+    host: '<<LISTENER-HOST>>',
     port: '8071',
     type: 'YourLogType'
 };
@@ -193,7 +192,7 @@ protocol <span class="default-param">`http`</span>
   The value here affects the default of the `port` parameter.
 
 host <span class="default-param">`listener.logz.io`</span>
-: Listener URL.
+: Listener host.
   {% include log-shipping/replace-vars.html listener=true %}
 
 port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>

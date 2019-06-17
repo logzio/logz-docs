@@ -1,39 +1,17 @@
 ---
-title: Ship logs from OSSEC
+title: Ship FortiGate logs
 logo:
-  logofile: ossec.png
+  logofile: fortinet.svg
   orientation: vertical
-data-source: OSSEC
+data-source: FortiGate
 contributors:
   - imnotashrimp
-  - schwin007
 shipping-tags:
+  - server-app
   - security
 ---
 
 ## Setup
-
-<div class="accordion">
-
-### Configuration tl;dr
-
-<div>
-
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
-  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
-
-Listener
-: Port 5015.
-  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Default log locations
-: JSON _(recommended)_: `/var/ossec/logs/alerts/alerts.json` \\
-  Plain text: `/var/ossec/logs/alerts/alerts.log`
-
-</div>
-
-</div>
 
 ###### Guided configuration
 
@@ -42,43 +20,48 @@ Default log locations
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 root access
 
-{: .tasklist .firstline-headline }
-1.  Configure OSSEC for JSON alert output
+1.  Configure FortiGate logging
 
-    In the OSSEC configuration file (/var/ossec/etc/ossec.conf), find the `<global>` tag.
-    Add the `<jsonout_output>` property and set to `yes`.
+    Configure your FortiGate firewall to send logs to your Filebeat server.
+    Make sure you meet this configuration:
 
-    ```xml
-    <global>
-      <jsonout_output>yes</jsonout_output>
-    </global>
+    * Log format: syslog
+    * Send over: UDP
+    * IP address: Filebeat server IP address
+    * Port 514
+
+    See the [FortiGate docs](https://docs.fortinet.com/product/fortigate/) for more information
+    on configuring your FortiGate firewall.
+
+    Sample commands for FortiOS 6.2
+    {: .inline-header }
+
+    ```
+    config log syslogd setting
+    set status enable
+    set format default
+    set server <FILEBEAT-SERVER-IP-ADDR>
+    set port 514
+    end
     ```
 
-    Restart OSSEC.
-
-    ```shell
-    sudo /var/ossec/bin/ossec-control restart
-    ```
-
-2.  Download the Logz.io certificate
-
-    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+2.  Download the Logz.io certificate to your Filebeat server
 
     ```shell
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-3.  Add OSSEC as an input
+3.  Add UDP traffic as an input
 
-    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add OSSEC to the filebeat.inputs section.
+    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add UDP to the filebeat.inputs section.
 
     {% include log-shipping/replace-vars.html token=true %}
 
     <div class="branching-container">
 
-    {: .branching-tabs }
     * [Filebeat 7](#filebeat-7-code)
     * [Filebeat 6](#filebeat-6-code)
+    {: .branching-tabs }
 
     <div id="filebeat-7-code">
 
@@ -86,18 +69,17 @@ root access
     # Filebeat 7 configuration
 
     filebeat.inputs:
-    - type: log
-
-      paths:
-      - /var/ossec/logs/alerts/alerts.json
+    - type: udp
+      max_message_size: 10MiB
+      host: "0.0.0.0:514"
 
       fields:
-        logzio_codec: json
+        logzio_codec: plain
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
         token: <<SHIPPING-TOKEN>>
-        type: ossec
+        type: fortigate
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
@@ -120,28 +102,26 @@ root access
 
     <div id="filebeat-6-code">
 
-
     ```yaml
     # Filebeat 6 configuration
 
     filebeat.inputs:
-    - type: log
-
-      paths:
-      - /var/ossec/logs/alerts/alerts.json
+    - type: udp
+      max_message_size: 10MiB
+      host: "0.0.0.0:514"
 
       fields:
-        logzio_codec: json
+        logzio_codec: plain
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
         token: <<SHIPPING-TOKEN>>
-        type: ossec
+        type: fortigate
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
 
-    registry_file: /var/lib/filebeat/registry
+    filebeat.registry_file: /var/lib/filebeat/registry
     ```
 
     </div>
@@ -170,3 +150,4 @@ root access
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{: .tasklist .firstline-headline }

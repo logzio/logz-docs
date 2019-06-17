@@ -3,8 +3,7 @@ title: Ship logs from network devices
 logo:
   logofile: network-device.svg
   orientation: horizontal
-shipping-summary:
-  data-source: Network device
+data-source: Network device
 contributors:
   - imnotashrimp
   - schwin007
@@ -62,7 +61,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: network-device
       fields_under_root: true
       encoding: utf-8
@@ -99,7 +98,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: network-device
       fields_under_root: true
       encoding: utf-8
@@ -120,7 +119,7 @@ root access
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
+      hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```

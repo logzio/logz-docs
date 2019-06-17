@@ -3,8 +3,7 @@ title: Fluentd
 logo:
   logofile: fluentd.svg
   orientation: vertical
-shipping-summary:
-  data-source: Fluentd
+data-source: Fluentd
 shipper-tags:
   - log-shipper
 contributors:
@@ -40,7 +39,7 @@ Ruby and ruby-dev 2.1 or higher,
     ```conf
     <match **>
       @type logzio_buffered
-      endpoint_url https://<LISTENER-URL>:8071?token=<ACCOUNT-TOKEN>&type=my_type
+      endpoint_url https://<<LISTENER-HOST>>:8071?token=<<SHIPPING-TOKEN>>&type=my_type
       output_include_time true
       output_include_tags true
       http_idle_timeout 10

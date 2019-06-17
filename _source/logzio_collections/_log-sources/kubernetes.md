@@ -3,8 +3,7 @@ title: Ship Kubernetes logs
 logo:
   logofile: kubernetes.svg
   orientation: vertical
-shipping-summary:
-  data-source: Kubernetes
+data-source: Kubernetes
 open-source:
   - title: logzio-k8s
     github-repo: logzio-k8s
@@ -65,9 +64,9 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
             image: logzio/logzio-k8s:latest
             env:
               - name:  LOGZIO_TOKEN
-                value: <ACCOUNT-TOKEN>
+                value: <<SHIPPING-TOKEN>>
               - name:  LOGZIO_URL
-                value: https://<LISTENER-URL>:8071
+                value: https://<<LISTENER-HOST>>:8071
             resources:
               limits:
                 memory: 200Mi
@@ -231,9 +230,9 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
             image: logzio/logzio-k8s:latest
             env:
               - name:  LOGZIO_TOKEN
-                value: <ACCOUNT-TOKEN>
+                value: <<SHIPPING-TOKEN>>
               - name:  LOGZIO_URL
-                value: https://<LISTENER-URL>:8071
+                value: https://<<LISTENER-HOST>>:8071
             resources:
               limits:
                 memory: 200Mi

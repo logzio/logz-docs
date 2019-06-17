@@ -6,8 +6,7 @@ logo:
 open-source:
   - title: Logzio Golang API client
     github-repo: logzio-go
-shipping-summary:
-  data-source: Go code
+data-source: Go code
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -50,9 +49,9 @@ import (
 func main() {
   // Replace these parameters with your configuration
   l, err := logzio.New(
-    "<ACCOUNT-TOKEN>",
+    "<<SHIPPING-TOKEN>>",
     logzio.SetDebug(os.Stderr),
-    logzio.SetUrl("<LISTENER-URL>:8071"),
+    logzio.SetUrl("<<LISTENER-HOST>>:8071"),
     logzio.SetDrainDuration(time.Second * 5),
     logzio.SetTempDirectory("myQueue"),
     logzio.SetDrainDiskThreshold(99),

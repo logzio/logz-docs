@@ -3,8 +3,7 @@ title: Ship Windows logs
 logo:
   logofile: windows.svg
   orientation: vertical
-shipping-summary:
-  data-source: Windows
+data-source: Windows
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -39,7 +38,7 @@ shipping-tags:
     ```yaml
     fields:
       logzio_codec: json
-      token: <ACCOUNT-TOKEN>
+      token: <<SHIPPING-TOKEN>>
       type: wineventlog
     fields_under_root: true
     ```
@@ -52,7 +51,7 @@ shipping-tags:
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
+      hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
         certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
     ```
@@ -129,7 +128,7 @@ shipping-tags:
 
         Exec if $raw_event =~ /^#/ drop();
         Exec convert_fields("AUTO", "utf-8");
-        Exec    $raw_event = '[<ACCOUNT-TOKEN>][type=wineventlog]' + $raw_event;
+        Exec    $raw_event = '[<<SHIPPING-TOKEN>>][type=wineventlog]' + $raw_event;
     </Input>
     ```
 
@@ -142,7 +141,7 @@ shipping-tags:
     ```conf
     <Output out>
         Module  om_tcp
-        Host    <LISTENER-URL>
+        Host    <<LISTENER-HOST>>
         Port    8010
     </Output>
     <Route 1>

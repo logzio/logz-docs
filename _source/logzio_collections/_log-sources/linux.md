@@ -3,8 +3,7 @@ title: Ship Linux logs
 logo:
   logofile: linux.svg
   orientation: vertical
-shipping-summary:
-  data-source: Linux
+data-source: Linux
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -24,7 +23,7 @@ Files
 
 Listener
 : Port 5000.
-  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
 Default log location
 : `/var/log/`
@@ -47,7 +46,9 @@ root access
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```shell
-    curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t linux -a "<ACCOUNT-TOKEN>" -l "<LISTENER-URL>"
+    curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz \
+      && tar xzf logzio-rsyslog.tar.gz \
+      && sudo rsyslog/install.sh -t linux -a "<<SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>"
     ```
 
 2.  Check Logz.io for your logs

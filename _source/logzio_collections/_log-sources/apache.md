@@ -3,8 +3,7 @@ title: Ship Apache logs
 logo:
   logofile: apache.svg
   orientation: vertical
-shipping-summary:
-  data-source: Apache HTTPS Server 2
+data-source: Apache HTTPS Server 2
 contributors:
   - amosd92
   - imnotashrimp
@@ -26,7 +25,7 @@ Files
 
 Listener
 : Port 5015.
-  For help finding your region's listener URL, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
 Default log locations
 : Ubuntu, Debian: `/var/log/apache2/access.log` \\
@@ -85,7 +84,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: apache_access
       fields_under_root: true
       encoding: utf-8
@@ -103,7 +102,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: apache_error
       fields_under_root: true
       encoding: utf-8
@@ -144,7 +143,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: apache_access
       fields_under_root: true
       encoding: utf-8
@@ -162,7 +161,7 @@ root access
 
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <ACCOUNT-TOKEN>
+        token: <<SHIPPING-TOKEN>>
         type: apache_error
       fields_under_root: true
       encoding: utf-8
@@ -183,7 +182,7 @@ root access
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
+      hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```

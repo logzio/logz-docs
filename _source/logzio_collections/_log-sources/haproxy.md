@@ -3,8 +3,7 @@ title: Ship HAProxy logs
 logo:
   logofile: haproxy.png
   orientation: horizontal
-shipping-summary:
-  data-source: HAProxy
+data-source: HAProxy
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -80,10 +79,10 @@ rsyslog 5.8.0 or later
     $WorkDirectory /var/spool/rsyslog
 
     # the logz.io syslog template,
-    $template HAProxyLogzioFormat,"[<ACCOUNT-TOKEN>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
+    $template HAProxyLogzioFormat,"[<<SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
 
     # Send messages to Logz over TCP using the template.
-    *.* @@<LISTENER-URL>:5000;HAProxyLogzioFormat
+    *.* @@<<LISTENER-HOST>>:5000;HAProxyLogzioFormat
     ```
 
 3.  Restart rsyslog

@@ -3,8 +3,7 @@ title: Shipping with Logstash
 logo:
   logofile: logstash.svg
   orientation: vertical
-shipping-summary:
-  data-source: Logstash
+data-source: Logstash
 shipping-tags:
   - log-shipper
 contributors:
@@ -71,13 +70,13 @@ JDK,
       # ...
       # ...
       mutate {
-        add_field => { "token" => "<ACCOUNT-TOKEN>" }
+        add_field => { "token" => "<<SHIPPING-TOKEN>>" }
       }
     }
 
     output {
       lumberjack {
-        hosts => ["<LISTENER-URL>"]
+        hosts => ["<<LISTENER-HOST>>"]
         port => 5006
         ssl_certificate => "/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt"
         codec => "json_lines"
@@ -119,7 +118,7 @@ JDK,
       # ...
       # ...
       mutate {
-        add_field => { "token" => "<ACCOUNT-TOKEN>" }
+        add_field => { "token" => "<<SHIPPING-TOKEN>>" }
       }
     }
 

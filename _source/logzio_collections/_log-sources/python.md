@@ -3,8 +3,7 @@ title: Ship Python logs
 logo:
   logofile: python.svg
   orientation: vertical
-shipping-summary:
-  data-source: Python code
+data-source: Python code
 open-source:
   - title: Logz.io Python Handler
     github-repo: logzio-python-handler
@@ -45,7 +44,7 @@ class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
 # Parameters must be set in order. Replace these parameters with your configuration.
-args=('<ACCOUNT-TOKEN>', '<LOG-TYPE>', <TIMEOUT>, '<LISTENER-URL>:8071', <DEBUG-FLAG>)
+args=('<<SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, '<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
 
 [formatters]
 keys=logzioFormat

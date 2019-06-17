@@ -6,8 +6,7 @@ logo:
 open-source:
   - title: Logz.io AWS ECS Collector
     github-repo: logzio-aws-ecs
-shipping-summary:
-  data-source: Amazon Elastic Container Service
+data-source: Elastic Container Service
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ECS
 contributors:
   - imnotashrimp
@@ -40,8 +39,8 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
 
     ```shell
     docker run -d --name=logzio-aws-ecs \
-    --env LOGZIO_TOKEN="<ACCOUNT-TOKEN>" \
-    --env LOGZIO_URL="https://<LISTENER-URL>:8071" \
+    --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+    --env LOGZIO_URL="https://<<LISTENER-HOST>>:8071" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /var/lib/docker/containers:/var/lib/docker/containers \
     -v /tmp:/tmp \
@@ -57,7 +56,7 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
       {% include log-shipping/replace-vars.html token=true %}
 
     LOGZIO_URL <span class="required-param"></span>
-    : Your Logz.io listener URL.
+    : Your Logz.io listener URL and port.
       {% include log-shipping/replace-vars.html listener=true %}
 
 3.  Check Logz.io for your logs

@@ -3,8 +3,7 @@ title: Ship CloudWatch logs
 logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
-shipping-summary:
-  data-source: Amazon CloudWatch
+data-source: CloudWatch
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudWatch
 open-source:
   - title: CloudWatch Lambda Log Shipper

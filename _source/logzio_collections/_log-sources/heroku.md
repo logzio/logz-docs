@@ -3,8 +3,7 @@ title: Ship Heroku logs
 logo:
   logofile: heroku.svg
   orientation: vertical
-shipping-summary:
-  data-source: Heroku
+data-source: Heroku
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -22,15 +21,15 @@ shipping-tags:
     Run this command in a terminal window.
 
     ```shell
-    heroku drains:add "http://<LISTENER-URL>:8081?token=<ACCOUNT-TOKEN>" -a <HEROKU-APP-NAME>
+    heroku drains:add "http://<<LISTENER-HOST>>:8081?token=<<SHIPPING-TOKEN>>" -a <<HEROKU-APP-NAME>>
     ```
 
     {% include log-shipping/replace-vars.html token=true listener=true %}
 
-    Replace `<HEROKU-APP-NAME>` with the name of the app in Heroku.
+    Replace `<<HEROKU-APP-NAME>>` with the name of the app in Heroku.
 
     You can add custom fields to each log message, allowing you to identify different Heroku apps and filter your data in Logz.io.
-    To do this, add `&<KEY>=<VALUE>` to the end of the Logz.io URL.
+    To do this, add `&<<KEY>>=<<VALUE>>` to the end of the Logz.io URL.
 
 2.  Check Logz.io for your logs
 

@@ -3,8 +3,7 @@ title: Ship Docker performance logs
 logo:
   logofile: docker.svg
   orientation: horizontal
-shipping-summary:
-  data-source: Docker performance logs
+data-source: Docker performance logs
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Perfagent
 contributors:
   - imnotashrimp
@@ -30,8 +29,8 @@ shipping-tags:
     ```shell
     docker run -d \
     --net="host" \
-    -e LOGZ_TOKEN="<ACCOUNT-TOKEN>" \
-    -e LISTENER="<LISTENER-URL>:5000" \
+    -e LOGZ_TOKEN="<<SHIPPING-TOKEN>>" \
+    -e LISTENER="<<LISTENER-HOST>>:5000" \
     -e USER_TAG="workers" \
     -e HOSTNAME=`hostname` \
     -e INSTANCE="10.1.2.3" \
@@ -48,7 +47,7 @@ shipping-tags:
       <!-- logzio-inject:account-token -->
 
     LISTENER <span class="default-param">`listener.logz.io:5000`</span>
-    : Your account region and port.
+    : Your account's listener host and port.
       {% include log-shipping/replace-vars.html listener=true %}
 
     USER_TAG

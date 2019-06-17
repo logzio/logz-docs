@@ -25,7 +25,7 @@ community-info: false
 *   Get all the tags in this tab
 *         {%- endcomment -%}
 {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
-{%- assign docs = thisCollection.docs | sort: "data-source" -%}
+{%- assign docs = thisCollection.docs | sort_natural: "data-source" -%}
 {%- assign tagsInThisTab = "" | split: "" -%}
 {%- comment -%} Get the tags in this collection {%- endcomment -%}
 {%- for doc in docs -%}

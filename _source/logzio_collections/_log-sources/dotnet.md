@@ -17,7 +17,7 @@ shipping-tags:
 
 * [log4net](#log4net-config)
 * [NLog](#nlog-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="log4net-config">
 
@@ -44,7 +44,7 @@ Use the samples in the code blocks below as a starting point, and replace them w
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
   See the [log4net documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the log4net configuration file.
-  {: .info-box.read }
+  {:.info-box.read}
 
 _Option 1: In a configuration file_
 
@@ -92,7 +92,7 @@ hierarchy.Configured = true;
 ```
 
 Parameters
-{: .inline-header }
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -123,7 +123,7 @@ debug <span class="default-param">`false`</span>
 
 
 Code sample
-{: .inline-header }
+{:.inline-header}
 
 ```csharp
 using System.IO;
@@ -218,7 +218,7 @@ Use the samples in the code blocks below as a starting point, and replace them w
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
   See the [NLog documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the NLog configuration file.
-  {: .info-box.read }
+  {:.info-box.read}
 
 _Option 1: In a configuration file_
 
@@ -273,7 +273,7 @@ LogManager.Configuration = config;
 ```
 
 Parameters
-{: .inline-header }
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -304,7 +304,7 @@ debug <span class="default-param">`false`</span>
 
 
 Code sample
-{: .inline-header }
+{:.inline-header}
 
 ```csharp
 using System;

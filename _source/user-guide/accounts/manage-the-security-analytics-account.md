@@ -18,7 +18,7 @@ Logs are not shipped directly to your Security Analytics account.
 Instead, you'll grant read access to the other accounts you want to monitor.
 
   If you don't have a Security Analytics account yet, reach out to your account manager or email [the Sales team](mailto:sales@logz.io).
-  {: .info-box.note }
+  {:.info-box.note}
 
 ![Manage the Security Analytics account]({{site.baseurl}}/images/accounts/manage-security-account.png)
 
@@ -27,7 +27,7 @@ You'll need to be signed in to the main account in your Operations workspace.
 
 ###### To manage your Security Analytics account
 
-{: .tasklist }
+{:.tasklist}
 1.  In the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page of your Operations workspace, you'll find your Security Analytics account at the bottom of the page.
 
     If you want, change the **Security account name** here.

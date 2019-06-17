@@ -19,7 +19,7 @@ You can use insights to sift through the noise in your logging infrastructure so
 
 To see this page, select [**Insights**](https://app.logz.io/#/dashboard/insights) from the top menu.
 
-{: .letter-labels }
+{:.letter-labels}
 
   Insights chart
   : Shows recent insights and markers on an interactive graph

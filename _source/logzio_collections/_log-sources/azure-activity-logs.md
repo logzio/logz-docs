@@ -75,14 +75,14 @@ It means that you'll need to do at least one automated deployment for each regio
     👇 Otherwise, click this button to start the automated deployment.
 
     [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
-    {: .override .btn-img }
+    {:.override.btn-img}
 
     You'll be taken to Azure, where you'll configure the resources to be deployed.
     Make sure to use the settings shown below.
 
     ![Customized template]({{site.baseurl}}/images/azure-event-hubs/customized-template.png)
 
-    {: .inline-header }
+    {:.inline-header}
     In the BASICS section
 
     Resource group
@@ -93,7 +93,7 @@ It means that you'll need to do at least one automated deployment for each regio
     : Choose the same region as the Azure services that will stream data to this Event Hub.
 
 
-    {: .inline-header }
+    {:.inline-header}
     In the SETTINGS section
 
     Logs listener host
@@ -123,7 +123,7 @@ It means that you'll need to do at least one automated deployment for each regio
     Enter the **Path** for the Azure blob you're sending dropped logs to, and then click **Save**.
 
       For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
-      {: .info-box.read }
+      {:.info-box.read}
 
 3.  Stream data to the new event hubs
 
@@ -153,4 +153,4 @@ It means that you'll need to do at least one automated deployment for each regio
     If everything went according to plan, you should see logs with the type `eventhub` in Kibana.
 
     If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist .firstline-headline}
+{:.tasklist.firstline-headline}

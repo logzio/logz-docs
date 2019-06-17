@@ -14,7 +14,7 @@ contributors:
 To create a new optimizer, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Optimizer page, where you can configure the optimizer settings.
 
   Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
-  {: .info-box.note }
+  {:.info-box.note}
 
 If you want help updating an existing optimizer, you can [skip the first part of this page](#to-configure-an-optimizer).
 
@@ -36,7 +36,7 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
     If you use an invalid query, the optimizer will be automatically disabled.
     Run your query in Kibana so you can be sure you're getting the expected results.
-    {: .info-box.important }
+    {:.info-box.important}
 
 3.  _(Optional)_ If you want to store aggregate values:
 
@@ -64,7 +64,7 @@ If you want help updating an existing optimizer, you can [skip the first part of
     To send a summary table, choose **Custom format**.
 
       If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.
-      {: .info-box.note }
+      {:.info-box.note}
 
     If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
 

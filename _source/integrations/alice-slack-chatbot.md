@@ -30,7 +30,7 @@ You can ask Alice to search your logs, see triggerd alerts, and get visualizatio
 
 ###### Set up Alice
 
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 1.  Get an API token
 
     If you're a Logz.io account admin, get an API token for the account you want to add to Slack.
@@ -50,7 +50,7 @@ You can ask Alice to search your logs, see triggerd alerts, and get visualizatio
     Otherwise, ask an admin to do this step for you.
 
     [![Add to Slack](https://platform.slack-edge.com/img/add_to_slack.png)](https://slack.com/oauth/authorize?client_id=8241711843.335794452337&amp;scope=bot)
-    {: .override .btn-img }
+    {:.override.btn-img}
 
     When prompted, confirm Alice's permissions.
 
@@ -67,7 +67,7 @@ You can ask Alice to search your logs, see triggerd alerts, and get visualizatio
     You'll use the account alias to tell Alice which account you want to interact with.
 
       Users in your Slack workspace can use Alice to interact with your account, even if they don't have access to Logz.io.
-      {: .info-box.important }
+      {:.info-box.important}
 
     Click **Save**.
 

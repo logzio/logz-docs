@@ -17,11 +17,11 @@ To enable this feature, an account admin needs to contact the Support team.
 
   All users in your account must have Google Authenticator installed on their phones to be able to sign in.
   Logz.io emails users to tell them when multi-factor authentication is enabled.
-  {: .info-box.important }
+  {:.info-box.important}
 
 ###### To set up multi-factor authentication for your account
 
-{: .tasklist .firstline-headline}
+{:.tasklist.firstline-headline}
 1.  Request multi-factor authentication from Logz.io
 
     <a class="intercom-launch" href="mailto:help@logz.io">Contact the Support team</a>.

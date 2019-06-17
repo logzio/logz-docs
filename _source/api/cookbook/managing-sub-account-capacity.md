@@ -32,7 +32,7 @@ If you don't have sub accounts that you're ready to experiment with, go ahead an
 
   maxDailyGB default is `0`, meaning this account can accommodate 0 GB of logs per day.
   We recommend maxDailyGB ≥ `1` so the account can receive logs.
-  {: .info-box.tip }
+  {:.info-box.tip}
 
 ```shell
 curl -X POST \
@@ -129,7 +129,7 @@ This means you'll replace all account parameters with each request.
 
   Include all parameters with each PUT request.
   This way, you won't unintentionally overwrite parameters with their default values.
-  {: .info-box.tip }
+  {:.info-box.tip}
 
 Reallocating maxDailyGB between sub accounts happens in two steps.
 First you'll reduce the capacity of the account with higher maxDailyGB, and then you'll increase the capacity of the other account.

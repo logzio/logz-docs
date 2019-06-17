@@ -21,7 +21,7 @@ It functions as both a collector and a span store.
   This integration requires Logz.io API access.
   The Logz.io API is available for all Enterprise accounts.
   If you're on a Pro account, reach out to your account manager or the <a class="intercom-launch" href="mailto:sales@logz.io">Sales team</a> to request API access.
-  {: .info-box.note }
+  {:.info-box.note}
 
 ### Limitations
 
@@ -63,10 +63,10 @@ For most users, these won't be an issue, but they're still good to know:
       If you do, then the required fields change a bit from what's shown in the Parameters list: \\
       • The **shipping instance** uses `STORAGE_TYPE=logzio`, `LOGZIO_ACCOUNT_TOKEN`, and `LOGZIO_LISTENER_HOST`. \\
       • The **reading instance** uses `STORAGE_TYPE=logzio`, `LOGZIO_API_TOKEN`, and `LOGZIO_API_HOST`.
-      {: .info-box.tip }
+      {:.info-box.tip}
 
     Parameters
-    {: .inline-header }
+    {:.inline-header}
 
     STORAGE_TYPE=logzio <span class="required-param"></span>
     : We wish there was a way to include this as a default.
@@ -106,4 +106,4 @@ For most users, these won't be an issue, but they're still good to know:
     Give your traces some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline}
+{:.tasklist.firstline-headline}

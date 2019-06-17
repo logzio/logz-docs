@@ -19,7 +19,7 @@ shipping-tags:
 
 * [Non-RBAC configuration](#non-rbac-config)
 * [RBAC configuration](#rbac-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="non-rbac-config">
 
@@ -89,7 +89,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     ```
 
     Environment variables
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -145,7 +145,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 
@@ -255,7 +255,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     ```
 
     Environment variables
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -311,7 +311,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 

@@ -28,14 +28,14 @@ S3 archiving is a cost-effective solution.
   see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
   and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)
   from Amazon.
-  {: .info-box.read }
+  {:.info-box.read}
 
 ###### To set up archiving
 
 **You'll need**:
 `PutObject`, `ListBucket`, and `GetObject` permissions for an S3 bucket
 
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 1.  Enter your bucket name and S3 credentials
 
     Paste your S3 **Bucket name**, **AWS access key**, and **AWS secret key**.

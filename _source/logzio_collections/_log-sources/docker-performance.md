@@ -38,7 +38,7 @@ shipping-tags:
     ```
 
     Parameters
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZ_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -66,4 +66,4 @@ shipping-tags:
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}

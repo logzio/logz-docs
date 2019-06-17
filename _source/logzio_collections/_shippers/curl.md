@@ -18,13 +18,13 @@ Even so, cURL is a quick and easy way to test your configuration or troubleshoot
 You can upload JSON or plain text files.
 
   File uploads must be smaller than 10 MB.
-  {: .info-box.important }
+  {:.info-box.important}
 
 <div class="branching-container">
 
 * [JSON](#json-config)
 * [Plain text](#plain-text-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="plain-text-config">
 
@@ -46,7 +46,7 @@ You can upload JSON or plain text files.
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 
@@ -71,7 +71,7 @@ You can upload JSON or plain text files.
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 

@@ -13,7 +13,7 @@ contributors:
 To create a new alert, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Alert page, where you can configure the alert and notification settings.
 
   Community plans have a maximum of 50 alerts.
-  {: .info-box.note }
+  {:.info-box.note}
 
 If you want help updating an existing alert, you can [skip the first part of this page](#to-configure-an-alert).
 
@@ -35,7 +35,7 @@ If you want help updating an existing alert, you can [skip the first part of thi
 2.  If you need to, change your alert **Query** and the **Accounts** that the query will search.
 
       If you use an invalid query, the alert will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
-      {: .info-box.important }
+      {:.info-box.important}
 
 3.  _(Optional)_ If you want to group logs in the alert notification:
 
@@ -60,7 +60,7 @@ If you want help updating an existing alert, you can [skip the first part of thi
     2. Choose a time period to suppress notifications.
 
         When notifications are suppressed, Logz.io will continue to log triggered alerts without sending notifications. You can search triggered alert logs at any time.
-        {: .info-box.note }
+        {:.info-box.note}
 
 6.  Choose an **Output**.
 
@@ -71,7 +71,7 @@ If you want help updating an existing alert, you can [skip the first part of thi
     To send raw JSON documents to your alert endpoints, choose **Default format**. To send a summary table, choose **Custom format**.
 
       If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your **Group by** selection.
-      {: .info-box.note }
+      {:.info-box.note}
 
     If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
 

@@ -14,7 +14,7 @@ shipping-tags:
 
 * [Winlogbeat <span class="sm ital">(recommended)</span>](#winlogbeat-config)
 * [NXLog](#nxlog-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="winlogbeat-config">
 
@@ -82,7 +82,7 @@ shipping-tags:
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 
@@ -156,7 +156,7 @@ shipping-tags:
 5.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 

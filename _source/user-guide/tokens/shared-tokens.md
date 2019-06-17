@@ -34,6 +34,6 @@ To reach this page, click [**<i class="li li-gear"></i> > Tools > Shared tokens*
 * To make a new filter, type a brief **description**, type the name of a **field** and the **value** to filter the field by, and then click **Save**. You can attach your new filter to any of your shared tokens.
 
   Test new filters in Kibana to make sure you get the expected results.
-  {: .info-box.tip }
+  {:.info-box.tip}
 
 * To delete a filter, click the filter's <i class="li li-x"></i>.

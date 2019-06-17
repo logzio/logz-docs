@@ -20,7 +20,7 @@ shipping-tags:
 
 * [Log4j 2](#log4j-2-config)
 * [Logback](#logback-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="log4j-2-config">
 
@@ -59,7 +59,7 @@ Use the samples in the code block below as a starting point, and replace the sam
 For a complete list of options, see the configuration parameters below the code block.👇
 
   See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
-  {: .info-box.read }
+  {:.info-box.read}
 
 ```xml
 <Appenders>
@@ -81,7 +81,7 @@ For a complete list of options, see the configuration parameters below the code 
 ```
 
 Parameters
-{: .inline-header }
+{:.inline-header}
 
 logzioToken <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -136,7 +136,7 @@ socketTimeoutMs <span class="default-param">`10 * 1000`</span>
 
 
 Code sample
-{: .inline-header }
+{:.inline-header}
 
 ```java
 import org.apache.logging.log4j.LogManager;
@@ -254,7 +254,7 @@ Use the samples in the code block below as a starting point, and replace the sam
 For a complete list of options, see the configuration parameters below the code block.👇
 
   See the [Logback documentation](https://logback.qos.ch/manual/configuration.html) for more information on the Logback configuration file.
-  {: .info-box.read }
+  {:.info-box.read}
 
 ```xml
 <configuration>
@@ -280,7 +280,7 @@ For a complete list of options, see the configuration parameters below the code 
 ```
 
 Parameters
-{: .inline-header }
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -345,7 +345,7 @@ socketTimeout <span class="default-param">`10 * 1000`</span>
 
 
 Code sample
-{: .inline-header }
+{:.inline-header}
 
 ```java
 import org.slf4j.Logger;

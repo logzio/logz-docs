@@ -68,7 +68,7 @@ func main() {
 ```
 
 Parameters
-{: .inline-header }
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -97,7 +97,7 @@ SetDrainDiskThreshold <span class="default-param">`70.0`</span>
   Buffering resumes if used space drops below the threshold.
 
 Code sample
-{: .inline-header }
+{:.inline-header}
 
 ```go
 msg := fmt.Sprintf("{\"%s\": \"%d\"}", "message", time.Now().UnixNano())

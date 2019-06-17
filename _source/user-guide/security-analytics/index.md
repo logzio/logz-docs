@@ -21,7 +21,7 @@ Security Analytics helps you identify potential compromises to your system by co
 
 ![Logz.io Security Analytics]({{site.baseurl}}/images/security-analytics/security-analytics--annotated.png)
 
-{: .letter-labels }
+{:.letter-labels}
 Summary
   : The first thing you see when you sign in to your security account.
     The summary dashboard shows the last 24 hours of events that Logz.io found in your log data.

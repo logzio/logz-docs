@@ -53,7 +53,7 @@ Ruby and ruby-dev 2.1 or higher,
     ```
 
     Parameters
-    {: .inline-header }
+    {:.inline-header}
 
     endpoint_url
     : Your Logz.io region's listener URL, account token, and log type. \\
@@ -87,4 +87,4 @@ Ruby and ruby-dev 2.1 or higher,
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}

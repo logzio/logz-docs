@@ -23,7 +23,7 @@ This page covers methods for shipping Jenkins system logs and build console outp
 
 * [Filebeat](#filebeat-config)
 * [Jenkins plugin](#jenkins-plugin-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="filebeat-config">
 
@@ -78,7 +78,7 @@ root access
 
     * [Filebeat 7](#filebeat-7-code)
     * [Filebeat 6](#filebeat-6-code)
-    {: .branching-tabs }
+    {:.branching-tabs}
 
     <div id="filebeat-7-code">
 
@@ -171,7 +171,7 @@ root access
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 
@@ -182,7 +182,7 @@ root access
   This is a temporary fork of a Jenkins-maintained project named Jenkins Logstash Plugin.
   We're working toward merging our implementation in the Jenkins repo.
   For full documentation and all configuration options, see the original [Jenkins Logstash Plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
-  {: .info-box.note }
+  {:.info-box.note}
 
 Jenkins Logstash Plugin sends Jenkins build logs to your Logz.io account.
 The plugin is configured per project.
@@ -240,15 +240,15 @@ You can choose to stream a project's build logs or to send only the last logs of
 
       Make sure you enable only one of these options.
       If both options are enabled, Jenkins Logstash Plugin will send duplicate logs Logz.io.
-      {: .info-box.important }
+      {:.info-box.important}
 
     To stream all logs
-    {: .inline-header }
+    {:.inline-header}
 
     In the _General_ section, select **Send console log to Logstash**, and click **Save**.
 
     To send only the last logs of each build
-    {: .inline-header }
+    {:.inline-header}
 
     In the _Post-build Actions_ section (at the bottom of the page), select **Add post-build action > Send console log to Logstash**.
     In the **Max lines** box, type the number of logs you want to send per build, and then click **Save**.
@@ -258,7 +258,7 @@ You can choose to stream a project's build logs or to send only the last logs of
       Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
       If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline}
+{:.tasklist.firstline-headline}
 
 </div>
 

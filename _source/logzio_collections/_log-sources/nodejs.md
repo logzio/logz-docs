@@ -19,7 +19,7 @@ shipping-tags:
 
 * [logzio-nodejs](#logzio-nodejs-config)
 * [winston-logzio](#winston-logzio-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="logzio-nodejs-config">
 
@@ -59,7 +59,7 @@ var logger = require('logzio-nodejs').createLogger({
 ```
 
 Parameters
-{: .inline-header }
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -109,7 +109,7 @@ addTimestampWithNanoSecs <span class="default-param">`false`</span>
   If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence.
 
 Code sample
-{: .inline-header }
+{:.inline-header}
 
 You can send log lines as a raw string or as an object.
 For more consistent and reliable parsing, we recommend sending logs as objects.
@@ -181,7 +181,7 @@ winston.add(logzioWinstonTransport, loggerOptions);
 ```
 
 Parameters
-{: .inline-header }
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -231,7 +231,7 @@ addTimestampWithNanoSecs <span class="default-param">`false`</span>
   If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence.
 
 Code samples
-{: .inline-header }
+{:.inline-header}
 
 To send a log line:
 

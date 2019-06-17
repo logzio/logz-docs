@@ -79,7 +79,7 @@ shipping-tags:
 
     These default settings are just a starting point.
     Check your Lambda usage regularly, and adjust these values if you need to.
-    {: .info-box.note }
+    {:.info-box.note}
 
 5.  Set the CloudWatch Logs event trigger
 
@@ -96,4 +96,4 @@ shipping-tags:
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}

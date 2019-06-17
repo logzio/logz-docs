@@ -49,18 +49,18 @@ If you didn't receive the expected response, continue to the troubleshooting ste
 If you didn't receive the expected response, there could be a few reasons for that.
 Let's see if we can figure this out together.
 
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 1.  Check the status code
 
     The status code indicates whether you sent the request to a valid Logz.io API endpoint.
 
-    {: .inline-header }
+    {:.inline-header}
     If the status code is 200
 
     You sent the request to a valid endpoint.
     Continue to the next step.
 
-    {: .inline-header }
+    {:.inline-header}
     If the status code is something else
 
     You might have sent the request to an invalid endpoint.
@@ -70,13 +70,13 @@ Let's see if we can figure this out together.
 
     Check the response body for an error message.
 
-    {: .inline-header }
+    {:.inline-header}
     If you see `{"code":403,"message":"Insufficient privileges"}`
 
     You might be using an invalid API token.
     Copy a valid [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from Logz.io and try again.
 
-    {: .inline-header }
+    {:.inline-header}
     If you see `Account region xx differs from current server region yy`
 
     You're using a valid API token, but you sent the request to the wrong account region.

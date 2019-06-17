@@ -14,7 +14,7 @@ When you first sign in to Logz.io, you'll find yourself at the Discover page. Yo
 
 ![Kibana UI in Logz.io]({{ site.baseurl }}/images/kibana/kibana--discover-annotated.png)
 
-{: .letter-labels }
+{:.letter-labels}
 
   Query bar
   : This is where you type your Elasticsearch query

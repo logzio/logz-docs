@@ -24,7 +24,7 @@ Each timeless account contains its own Elasticsearch index, which you can search
 
 ###### To create or manage a timeless account
 
-{: .tasklist }
+{:.tasklist}
 1.  In the **Timeless account plan** panel, click the timeless account you want to manage, or click **Add timeless account**.
 
     ![Manage a timeless account]({{site.baseurl}}/images/accounts/accounts--manage-timeless-account.png)
@@ -35,7 +35,7 @@ Each timeless account contains its own Elasticsearch index, which you can search
       Keep this limit in mind when you allocate resources to your timeless accounts—you won't be able to exceed the limits of your plan. \\
       \\
       Contact your Logz.io account manager if you need to increase your plan limits.
-      {: .info-box.note }
+      {:.info-box.note}
 
 3.  If you want your sub accounts to be able to search this account, add the intended accounts to the **Read & write permissions** box.
 

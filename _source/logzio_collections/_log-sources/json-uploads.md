@@ -20,7 +20,7 @@ or TLS/SSL streams over TCP.
 
 * [Bulk uploads over HTTP/HTTPS](#http-config)
 * [TLS/SSL streams over TCP](#tcp-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="http-config">
 
@@ -43,7 +43,7 @@ http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
 {% include log-shipping/replace-vars.html listener=true %}
 
 Query parameters
-{: .inline-header }
+{:.inline-header}
 
 token <span class="required-param"></span>
 : {% include log-shipping/replace-vars.html token=true %}
@@ -68,19 +68,19 @@ For example:
 ```
 
   Escape newlines inside a JSON string with `\n`.
-  {: .info-box.note }
+  {:.info-box.note}
 
 If you include a `type` field in the log,
 it overrides `type` in the request header.
 
 Limitations
-{: .inline-header }
+{:.inline-header}
 
 * The body must be 10 MB (10,485,760 bytes) or less
 * Each log line must be 500,000 bytes or less
 
 Code sample
-{: .inline-header }
+{:.inline-header}
 
 ```shell
 echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "counter": 2}' \
@@ -112,7 +112,7 @@ The response body contains this JSON:
 ```
 
 Response fields
-{: .inline-header }
+{:.inline-header}
 
 malformedLines
 : The number of log lines that aren't valid JSON
@@ -169,12 +169,12 @@ send the logs to TCP port 5052 at
 {% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
 
 Code sample: NXLog
-{: .inline-header }
+{:.inline-header}
 
   To configure NXLog for log shipping, see
   [Ship Windows logs]({{site.baseurl}}/shipping/log-sources/windows.html)
   (the _NXLog_ tab).
-  {: .info-box.read }
+  {:.info-box.read}
 
 ```conf
 User nxlog

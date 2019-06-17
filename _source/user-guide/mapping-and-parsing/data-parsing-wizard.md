@@ -25,13 +25,13 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
 
 ###### Using the data parsing wizard
 
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 1.  Choose a data source
 
     Choose the log type you want to parse from the **Select log type** list.
 
       If the log type you want to parse is disabled, then Logz.io automatically parses it. If you want to override the default parsing, change the log type in your log shipper.
-      {: .info-box.note }
+      {:.info-box.note}
 
     Click **Next** to continue.
 
@@ -52,7 +52,7 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
     </div>
 
       To help make the best grok pattern for your logs, read the [Elasticsearch grok patterns](https://github.com/elastic/logstash/blob/v1.4.2/patterns/grok-patterns) and use the [Grok Debugger](https://grokdebug.herokuapp.com/).
-      {: .info-box.tip }
+      {:.info-box.tip}
 
     Click **Next** to continue.
 

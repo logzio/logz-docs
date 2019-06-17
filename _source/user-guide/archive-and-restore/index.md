@@ -22,7 +22,7 @@ You can get to this page by selecting
 [**<i class="li li-gear"></i> > Tools > Archive & restore**](https://app.logz.io/#/dashboard/tools/archive-and-restore) in the top menu.
 
 
-{: .letter-labels }
+{:.letter-labels}
 Archive settings
 : You can configure Logz.io to archive your logs to an S3 bucket, keeping your overall costs down.
 

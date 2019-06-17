@@ -16,7 +16,7 @@ Logz.io alerts are based on a search query in Kibana. By customizing alerts and 
 
 To reach this page, select [**Alerts > Alert definitions**](https://app.logz.io/#/dashboard/triggers/alert-definitions) from the top menu.
 
-{: .letter-labels }
+{:.letter-labels}
 
   Disabled alert
   : An alert appears as light gray when it's disabled

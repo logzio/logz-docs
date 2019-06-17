@@ -48,7 +48,7 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
     ```
 
     Parameters
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -61,4 +61,4 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
 3.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}

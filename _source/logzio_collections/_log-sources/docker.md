@@ -21,7 +21,7 @@ shipping-tags:
 
 * [docker-collector-logs <span class="sm ital">(recommended)</span>](#docker-collector-logs-config)
 * [logzio-logging-plugin](#logzio-logging-plugin-docker-logging-driver-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="docker-collector-logs-config">
 
@@ -49,7 +49,7 @@ shipping-tags:
     ```
 
     Parameters
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -82,7 +82,7 @@ shipping-tags:
       **Note**: Can't be used with matchContainerName
 
       By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
-      {: .info-box.note }
+      {:.info-box.note}
 
 3.  Check Logz.io for your logs
 
@@ -90,7 +90,7 @@ shipping-tags:
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 
@@ -128,7 +128,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     For a complete list of options, see the configuration parameters below the code sample.👇
 
     Code sample
-    {: .inline-header }
+    {:.inline-header}
 
     ```json
     {
@@ -142,7 +142,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     ```
 
     Parameters
-    {: .inline-header}
+    {:.inline-header}
 
     logzio-token <span class="required-param"></span>
     : Your Logz.io account token.
@@ -187,7 +187,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     Each of these variables has a default value, so you can skip this step if you're comfortable with the defaults.
 
     Environment variables
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZIO_DRIVER_LOGS_DRAIN_TIMEOUT <span class="default-param">`5s`</span>
     : Time to wait between sending attempts.
@@ -211,7 +211,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     You can configure the plugin separately for each container when using the `docker run` command.
 
     Code sample
-    {: .inline-header }
+    {:.inline-header}
 
     {% raw %}
     ```shell
@@ -237,7 +237,7 @@ Docker Community Edition (Docker CE) 18.03 or later
     Spin up your Docker containers if you haven't done so already. Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 

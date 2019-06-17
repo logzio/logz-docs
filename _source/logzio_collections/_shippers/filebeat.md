@@ -41,7 +41,7 @@ Listener
 
 * [Mac/Linux](#mac-linux-config)
 * [Windows](#windows-config)
-{: .branching-tabs}
+{:.branching-tabs}
 
 <div id="mac-linux-config">
 
@@ -74,7 +74,7 @@ Listener
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 
@@ -109,6 +109,6 @@ Listener
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>

@@ -34,7 +34,7 @@ shipping-tags:
 
     * [Winlogbeat 7](#winlogbeat-7-code)
     * [Winlogbeat 6](#winlogbeat-6-code)
-    {: .branching-tabs }
+    {:.branching-tabs}
 
     <div id="winlogbeat-7-code">
 
@@ -135,4 +135,4 @@ shipping-tags:
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}

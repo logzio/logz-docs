@@ -18,7 +18,7 @@ If you're having trouble shipping your logs to Logz.io, you may need to open you
   Ship logs to the listener URL, not to individual IP addresses.
   This ensures that logs are properly balanced on our listener servers,
   and that your logs will be available to you as quickly as possible.
-  {: .info-box.note }
+  {:.info-box.note}
 
 {% for r in site.data.logzio-regions -%}
   {%- assign attribs = r[1] -%}

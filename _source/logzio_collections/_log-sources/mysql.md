@@ -20,7 +20,7 @@ shipping-tags:
 
 * [Filebeat](#filebeat-config)
 * [Docker sidecar](#docker-sidecar-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <div id="filebeat-config">
 
@@ -98,7 +98,7 @@ Log type _(for preconfigured parsing)_
 
     * [Filebeat 7](#filebeat-7-code)
     * [Filebeat 6](#filebeat-6-code)
-    {: .branching-tabs }
+    {:.branching-tabs}
 
     <div id="filebeat-7-code">
 
@@ -256,7 +256,7 @@ Log type _(for preconfigured parsing)_
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 
@@ -288,7 +288,7 @@ Log type _(for preconfigured parsing)_
     ```
 
     Parameters
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -314,7 +314,7 @@ Log type _(for preconfigured parsing)_
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 
 </div>
 

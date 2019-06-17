@@ -45,53 +45,53 @@ Content \\
 Maybe even with a line break. \\
 \\
 Or two line breaks to simulate a new paragraph, but without breaking the text block.
-{: .info-box.note }
+{:.info-box.note}
 ```
 
 Notes are non-actionable.
 They're more important than the surrounding text but less important than warnings.
 Could something bad happen if the user ignores this note?
 If no, then it's a note. Otherwise, it's a warning.
-{: .info-box.note }
+{:.info-box.note}
 
 #### Warnings
 
 ```
 Content
-{: .info-box.warning }
+{:.info-box.warning}
 ```
 
 Use warnings when the user could cause damage that's difficult or impossible to recover from.
 If you need something less severe than a warning, consider a note or important note.
-{: .info-box.warning }
+{:.info-box.warning}
 
 #### Important notes
 
 ````
 Content
-{: .info-box.important }
+{:.info-box.important}
 ````
 
 Important notes help the user work through common trip-up points.
 If the user could cause damage by ignoring this, consider a warning instead.
-{: .info-box.important }
+{:.info-box.important}
 
 #### Pro tips
 
 ````
 Content
-{: .info-box.tip }
+{:.info-box.tip}
 ````
 
 Pro tips convey best practices and good actions to ensure success.
 Think of these as more proactive than important notes.
-{: .info-box.tip }
+{:.info-box.tip}
 
 #### Read more
 
 ```
 Content
-{: .info-box.read }
+{:.info-box.read}
 ```
 
 "Read more" boxes point the user to additional reading material.
@@ -100,7 +100,7 @@ Also good if you want to refer the reader to information that's well-documented 
 but out of scope for this page. \\
 \\
 It's perfectly fine to link to third-party docs if they're authoritative, such as AWS or Azure.
-{: .info-box.read }
+{:.info-box.read}
 
 
 ## Headings

@@ -22,7 +22,7 @@ To keep your data even more secure, limit the number of admins in each account.
 You can get to this page by selecting [**<i class="li li-gear"></i> > Settings > User management**](https://app.logz.io/#/dashboard/settings/manage-users) in the top menu.
 
   Community plans have a maximum of 50 users.
-  {: .info-box.note }
+  {:.info-box.note}
 
 ###### To add or remove users
 

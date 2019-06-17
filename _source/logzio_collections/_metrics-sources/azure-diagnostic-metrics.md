@@ -68,7 +68,7 @@ It means that you'll need to do at least one automated deployment for each regio
 
 ###### Configuration
 
-{:.tasklist .firstline-headline}
+{:.tasklist.firstline-headline}
 1. If needed, configure an automated deployment
 
     If you already set up an automated deployment in this region, you can skip to step 2.
@@ -76,14 +76,14 @@ It means that you'll need to do at least one automated deployment for each regio
     👇 Otherwise, click this button to start the automated deployment.
 
     [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fdeployments%2Fazuredeploymetrics.json)
-    {: .override.btn-img }
+    {:.override.btn-img}
 
     You'll be taken to Azure, where you'll configure the resources to be deployed.
     Make sure to use the settings shown below.
 
     ![Customized template]({{site.baseurl}}/images/azure-event-hubs/customized-template.png)
 
-    {: .inline-header }
+    {:.inline-header}
     In the BASICS section
 
     Resource group
@@ -94,7 +94,7 @@ It means that you'll need to do at least one automated deployment for each regio
     : Choose the same region as the Azure services that will stream data to this Event Hub.
 
 
-    {: .inline-header }
+    {:.inline-header}
     In the SETTINGS section
 
     Metrics listener host

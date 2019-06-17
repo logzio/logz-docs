@@ -63,7 +63,7 @@ root access
 
     * [Filebeat 7](#filebeat-7-code)
     * [Filebeat 6](#filebeat-6-code)
-    {: .branching-tabs }
+    {:.branching-tabs}
 
     <div id="filebeat-7-code">
 
@@ -196,4 +196,4 @@ root access
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}

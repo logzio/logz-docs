@@ -53,7 +53,7 @@ You can find these settings on the [Manage accounts](https://app.logz.io/#/dashb
 This page is available only from your main account—you won't be able to make this change from a sub account.
 
   Even though you need to be an account admin to enable this setting, everyone who has access to your Logz.io account is able to see the resulting logs.
-  {: .info-box.note }
+  {:.info-box.note}
 
 ### Visualizing utilization with an ELK app
 

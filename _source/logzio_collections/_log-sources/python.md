@@ -61,11 +61,11 @@ format={"additional_field": "value"}
 ```
 
 Parameters
-{: .inline-header }
+{:.inline-header}
 
   Arguments must be configured in the order shown.
   For example, to set debug-flag to `True`, you need to set every argument that comes before it.
-  {: .info-box.important }
+  {:.info-box.important}
 
 account-token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -89,7 +89,7 @@ debug-flag <span class="default-param">`False`</span>
   Otherwise, `False`.
 
 Code sample
-{: .inline-header }
+{:.inline-header}
 
 ```python
 import logging

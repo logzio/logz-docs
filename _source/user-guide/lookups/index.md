@@ -41,7 +41,7 @@ You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/da
 
 ###### Use lookups in Kibana filters and security rules
 
-{: .tasklist .firstline-headline }
+{:.tasklist.firstline-headline}
 1.  Add a Kibana filter with your lookup
 
     In the [Research](https://app.logz.io/#/dashboard/security/research) page, click **Add a filter** to show the filter dialog box.

@@ -14,17 +14,17 @@ The process of getting logs from your system to Logz.io can be tricky, and it ca
 
 Before doing anything, make sure you give Logz.io some time to parse and index your logs. Normally, this takes a few seconds to a minute. Sometimes, this can take longer.
 
-{: .tasklist .firstline-headline}
+{:.tasklist.firstline-headline}
 1.  Check the Logz.io status page
 
     Visit our [status page](http://status.logz.io/) to confirm everything is working normally. (If you're not already signed up for status updates, go ahead and subscribe while you're there.)
 
-    {: .inline-header}
+    {:.inline-header}
     If the status is "All systems Operational"
 
     If you see "All Systems Operational", Logz.io is operating normally. You can move on to the next step.
 
-    {: .inline-header}
+    {:.inline-header}
     If the status is something else
 
     On rare occasions, there may be an issue with our production environment. If this happens, you'll need to wait until we fix the problem before you can ship your logs.
@@ -40,7 +40,7 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
     You can find the correct port for your shipping method in the table below.
 
       As of macOS High Sierra (10.13), telnet is not installed by default. You'll need to install telnet before proceeding.
-      {: .info-box.note }
+      {:.info-box.note}
 
     | Shipping method                         | Port |
     |-----------------------------------------|------|
@@ -61,14 +61,14 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
     | rsyslog over TLS                        | 5001 |
     | TLS/SSL over TCP                        | 5052 |
 
-    {: .inline-header}
+    {:.inline-header}
     If you see "Connected to listener-group.logz.io"
 
     If you see "Connected to listener-group.logz.io", your shipper can connect to the Logz.io listener.
 
     To exit telnet, type Ctrl+], and then type `quit`. You can move on to the next troubleshooting step.
 
-    {: .inline-header}
+    {:.inline-header}
     If the status remains "Trying xxx.xxx.xxx.xxx..."
 
     If you see "Trying xxx.xxx.xxx.xxx..." for more than 10 seconds, your machine is having trouble connecting to the Logz.io listener.
@@ -84,7 +84,7 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
     Compare your account token with the token you're sending to Logz.io with your logs. Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/data-sources/) if you're not sure where to find the token you're sending with your logs.
 
       In most cases, the token is stored in a configuration file or as a query parameter in the URL you're shipping logs to. You can usually find it by searching for "token".
-      {: .info-box.tip }
+      {:.info-box.tip}
 
     {:.inline-header}
     If the tokens match
@@ -106,7 +106,7 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
 
     Also confirm that the log shipper is running. If it's not running, you'll need to troubleshoot the shipper.
 
-    {: .inline-header}
+    {:.inline-header}
     Common log shipper issues and fixes
 
     * _Multiple configurations:_ Make sure your shipper has one configuration. If it has more than one configuration, remove or comment out extra configurations.

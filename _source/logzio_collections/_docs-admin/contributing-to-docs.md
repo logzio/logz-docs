@@ -37,7 +37,7 @@ flags:
 
 Info boxes comprise a `<div class="info-box">` container.
 
-Info boxes come in 4 CSS classes: `note`, `warning`, `important`, `tip`, `read`.
+Info boxes come in these CSS classes: `note`, `warning`, `important`, `tip`, `read`
 CSS handles icon and heading styling, so contributors need to worry about only the class name and box content.
 
 #### Notes

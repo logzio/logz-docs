@@ -22,8 +22,8 @@ This page covers methods for shipping Jenkins system logs and build console outp
 <div class="branching-container">
 
 {: .branching-tabs }
-  * [Jenkins plugin](#jenkins-plugin-config)
   * [Filebeat](#filebeat-config)
+  * [Jenkins plugin](#jenkins-plugin-config)
 
 <div id="filebeat-config">
 

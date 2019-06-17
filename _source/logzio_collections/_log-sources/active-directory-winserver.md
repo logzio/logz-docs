@@ -54,8 +54,6 @@ shipping-tags:
     fields_under_root: true
 
     processors:
-      - add_host_metadata: ~
-      - add_cloud_metadata: ~
       - rename:
           fields:
           - from: "agent"

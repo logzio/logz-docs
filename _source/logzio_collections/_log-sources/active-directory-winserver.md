@@ -1,5 +1,4 @@
 ---
-published: false
 title: Ship Active Directory logs from Windows Server
 logo:
   logofile: windows.svg
@@ -18,7 +17,8 @@ shipping-tags:
 ###### Configuration
 
 **You'll need**:
-[Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
+[Winlogbeat 7](https://www.elastic.co/downloads/beats/winlogbeat) or
+[Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html)
 
 1.  Download the Logz.io certificate
 
@@ -31,7 +31,17 @@ shipping-tags:
 
     {% include log-shipping/replace-vars.html token=true %}
 
+    <div class="branching-container">
+
+    * [Winlogbeat 7](#winlogbeat-7-code)
+    * [Winlogbeat 6](#winlogbeat-6-code)
+    {: .branching-tabs }
+
+    <div id="winlogbeat-7-code">
+
     ```yaml
+    # Winlogbeat 7 configuration
+
     winlogbeat.event_logs:
       - name: Application
         ignore_older: 72h
@@ -43,7 +53,50 @@ shipping-tags:
       token: <<SHIPPING-TOKEN>>
       type: wineventlog
     fields_under_root: true
+
+    processors:
+      - add_host_metadata: ~
+      - add_cloud_metadata: ~
+      - rename:
+          fields:
+          - from: "agent"
+            to: "beat_agent"
+          ignore_missing: true
+      - rename:
+          fields:
+          - from: "log.file.path"
+            to: "source"
+          ignore_missing: true
+      - rename:
+          fields:
+          - from: "log"
+            to: "log_information"
+          ignore_missing: true
     ```
+
+    </div>
+
+    <div id="winlogbeat-6-code">
+
+    ```yaml
+    # Winlogbeat 6 configuration
+
+    winlogbeat.event_logs:
+      - name: Application
+        ignore_older: 72h
+      - name: Security
+      - name: System
+
+    fields:
+      logzio_codec: json
+      token: <<SHIPPING-TOKEN>>
+      type: wineventlog6
+    fields_under_root: true
+    ```
+
+    </div>
+
+    </div>
 
 3.  Add Logz.io as an output
 

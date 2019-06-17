@@ -3,8 +3,7 @@ title: Ship Node.js logs
 logo:
   logofile: nodejs.svg
   orientation: vertical
-shipping-summary:
-  data-source: Node.js code
+data-source: Node.js code
 open-source:
   - title: logzio-nodejs
     github-repo: logzio-nodejs

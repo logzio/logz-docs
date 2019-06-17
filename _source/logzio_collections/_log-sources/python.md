@@ -3,8 +3,7 @@ title: Ship Python logs
 logo:
   logofile: python.svg
   orientation: vertical
-shipping-summary:
-  data-source: Python code
+data-source: Python code
 open-source:
   - title: Logz.io Python Handler
     github-repo: logzio-python-handler

@@ -3,8 +3,7 @@ title: Ship GitLab logs
 logo:
   logofile: gitlab.svg
   orientation: vertical
-shipping-summary:
-  data-source: GitLab
+data-source: GitLab
 contributors:
   - amosd92
   - imnotashrimp

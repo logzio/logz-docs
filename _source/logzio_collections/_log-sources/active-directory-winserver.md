@@ -4,8 +4,7 @@ title: Ship Active Directory logs from Windows Server
 logo:
   logofile: windows.svg
   orientation: vertical
-shipping-summary:
-  data-source: Active Directory (Windows Server)
+data-source: Active Directory (Windows Server)
 contributors:
   - imnotashrimp
 shipping-tags:

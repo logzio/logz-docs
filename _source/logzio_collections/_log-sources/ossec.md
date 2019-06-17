@@ -3,8 +3,7 @@ title: Ship logs from OSSEC
 logo:
   logofile: ossec.png
   orientation: vertical
-shipping-summary:
-  data-source: OSSEC
+data-source: OSSEC
 contributors:
   - imnotashrimp
   - schwin007

@@ -25,7 +25,7 @@ community-info: false
 *   Get all the tags in this tab
 *         {%- endcomment -%}
 {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
-{%- assign docs = thisCollection.docs | sort: "shipping-summary.data-source" -%}
+{%- assign docs = thisCollection.docs | sort: "data-source" -%}
 {%- assign tagsInThisTab = "" | split: "" -%}
 {%- comment -%} Get the tags in this collection {%- endcomment -%}
 {%- for doc in docs -%}
@@ -73,12 +73,12 @@ community-info: false
     {%- assign docTags = doc.shipping-tags | join: " " -%}
     <div class="card mini-card filter {{docTags}}
       {%- if doc.community-project == true %} community-project-card{%- endif -%}"
-      data-source="{{doc.shipping-summary.data-source | slugify}}">
+      data-source="{{doc.data-source | slugify}}">
       <a href="{{shipperUrl}}">
-      <div class="card-icon {{doc.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{doc.logo.logofile}}');" alt="{{doc.shipping-summary.data-source}} logo">
+      <div class="card-icon {{doc.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{doc.logo.logofile}}');" alt="{{doc.data-source}} logo">
       </div>
       <div class="card-text">
-        <span class="card-title">{{ doc.shipping-summary.data-source }}</span>
+        <span class="card-title">{{ doc.data-source }}</span>
         {%- if doc.community-project == true %}
         <p>{{doc.title}}</p>
         {%- endif %}

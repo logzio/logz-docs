@@ -6,8 +6,7 @@ logo:
 open-source:
   - title: Zipkin-Logz.io Trace Storage
     github-repo: zipkin-logzio
-shipping-summary:
-  data-source: Zipkin traces
+data-source: Zipkin traces
 contributors:
   - yyyogev
   - imnotashrimp

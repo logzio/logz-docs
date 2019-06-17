@@ -3,8 +3,7 @@ title: Ship logs from network devices
 logo:
   logofile: network-device.svg
   orientation: horizontal
-shipping-summary:
-  data-source: Network device
+data-source: Network device
 contributors:
   - imnotashrimp
   - schwin007

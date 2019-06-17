@@ -3,8 +3,7 @@ title: Ship logs from Wazuh
 logo:
   logofile: wazuh.svg
   orientation: vertical
-shipping-summary:
-  data-source: Wazuh
+data-source: Wazuh
 contributors:
   - imnotashrimp
   - schwin007

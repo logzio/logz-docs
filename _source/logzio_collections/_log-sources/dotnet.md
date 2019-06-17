@@ -3,8 +3,7 @@ title: Ship .NET logs
 logo:
   logofile: dotnet.svg
   orientation: vertical
-shipping-summary:
-  data-source: .NET code
+data-source: .NET code
 open-source:
   - title: logzio-dotnet
     github-repo: logzio-dotnet

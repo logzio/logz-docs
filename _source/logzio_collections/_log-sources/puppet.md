@@ -3,8 +3,7 @@ title: Ship Puppet logs
 logo:
   logofile: puppet.png
   orientation: vertical
-shipping-summary:
-  data-source: Puppet
+data-source: Puppet
 contributors:
   - amosd92
   - imnotashrimp

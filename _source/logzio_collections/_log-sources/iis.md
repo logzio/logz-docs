@@ -3,8 +3,7 @@ title: Ship IIS logs
 logo:
   logofile: iis.png
   orientation: horizontal
-shipping-summary:
-  data-source: Microsoft IIS
+data-source: Microsoft IIS
 contributors:
   - imnotashrimp
 shipping-tags:

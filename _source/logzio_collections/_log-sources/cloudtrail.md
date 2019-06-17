@@ -3,8 +3,7 @@ title: Ship CloudTrail logs
 logo:
   logofile: aws-cloudtrail.svg
   orientation: vertical
-shipping-summary:
-  data-source: Amazon CloudTrail
+data-source: CloudTrail
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudTrail
 contributors:
   - idohalevi

@@ -3,8 +3,7 @@ title: Ship Linux logs
 logo:
   logofile: linux.svg
   orientation: vertical
-shipping-summary:
-  data-source: Linux
+data-source: Linux
 contributors:
   - imnotashrimp
 shipping-tags:

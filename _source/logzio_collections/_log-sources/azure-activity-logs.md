@@ -6,8 +6,7 @@ open-source:
 logo:
   logofile: azure-monitor.svg
   orientation: vertical
-shipping-summary:
-  data-source: Azure activity logs
+data-source: Azure activity logs
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Activity-log
 tags:
   - azure

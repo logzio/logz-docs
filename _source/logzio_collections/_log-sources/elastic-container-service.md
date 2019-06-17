@@ -6,8 +6,7 @@ logo:
 open-source:
   - title: Logz.io AWS ECS Collector
     github-repo: logzio-aws-ecs
-shipping-summary:
-  data-source: Amazon Elastic Container Service
+data-source: Elastic Container Service
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ECS
 contributors:
   - imnotashrimp

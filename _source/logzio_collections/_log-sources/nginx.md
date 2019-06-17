@@ -3,8 +3,7 @@ title: Ship nginx logs
 logo:
   logofile: nginx.svg
   orientation: horizontal
-shipping-summary:
-  data-source: nginx
+data-source: nginx
 contributors:
   - amosd92
   - imnotashrimp

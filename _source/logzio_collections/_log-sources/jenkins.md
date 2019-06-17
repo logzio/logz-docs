@@ -3,8 +3,7 @@ title: Ship Jenkins logs
 logo:
   logofile: jenkins.png
   orientation: vertical
-shipping-summary:
-  data-source: Jenkins
+data-source: Jenkins
 open-source:
   - title: Jenkins Logstash Plugin
     github-repo: logstash-plugin

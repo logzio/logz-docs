@@ -3,8 +3,7 @@ title: Ship Docker performance logs
 logo:
   logofile: docker.svg
   orientation: horizontal
-shipping-summary:
-  data-source: Docker performance logs
+data-source: Docker performance logs
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Perfagent
 contributors:
   - imnotashrimp

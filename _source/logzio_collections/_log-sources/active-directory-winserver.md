@@ -90,7 +90,7 @@ shipping-tags:
     fields:
       logzio_codec: json
       token: <<SHIPPING-TOKEN>>
-      type: wineventlog6
+      type: wineventlog
     fields_under_root: true
     ```
 

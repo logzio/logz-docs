@@ -139,7 +139,7 @@ It means that you'll need to do at least one automated deployment for each regio
 
     Choose a resource from the list of resources, and click **Turn on diagnostics settings** to open the _Diagnostics settings_ panel for that resource.
 
-    Give your diangostic settings a **Name**.
+    Give your diagnostic settings a **Name**.
 
     Select **Stream to an event hub**, and then click **Configure** to open the _Select event hub_ panel.
 

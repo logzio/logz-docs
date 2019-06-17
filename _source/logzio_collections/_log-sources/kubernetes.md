@@ -3,8 +3,7 @@ title: Ship Kubernetes logs
 logo:
   logofile: kubernetes.svg
   orientation: vertical
-shipping-summary:
-  data-source: Kubernetes
+data-source: Kubernetes
 open-source:
   - title: logzio-k8s
     github-repo: logzio-k8s

@@ -3,8 +3,7 @@ title: Ship CloudFront logs
 logo:
   logofile: aws-cloudfront.svg
   orientation: vertical
-shipping-summary:
-  data-source: Amazon CloudFront
+data-source: CloudFront
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudFront
 contributors:
   - idohalevi

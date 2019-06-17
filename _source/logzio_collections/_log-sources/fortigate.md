@@ -3,8 +3,7 @@ title: Ship FortiGate logs
 logo:
   logofile: fortinet.svg
   orientation: vertical
-shipping-summary:
-  data-source: FortiGate
+data-source: FortiGate
 contributors:
   - imnotashrimp
 shipping-tags:

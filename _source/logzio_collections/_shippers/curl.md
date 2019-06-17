@@ -3,8 +3,7 @@ title: cURL log file upload
 logo:
   logofile: curl.svg
   orientation: vertical
-shipping-summary:
-  data-source: cURL file upload
+data-source: cURL file upload
 shipping-tags:
   - log-shipper
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/File-UploadcURL

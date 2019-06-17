@@ -3,8 +3,7 @@ title: Ship MySQL logs
 logo:
   logofile: mysql.svg
   orientation: horizontal
-shipping-summary:
-  data-source: MySQL
+data-source: MySQL
 open-source:
   - title: mysql-logs
     github-repo: mysql-logs

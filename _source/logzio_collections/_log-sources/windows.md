@@ -3,8 +3,7 @@ title: Ship Windows logs
 logo:
   logofile: windows.svg
   orientation: vertical
-shipping-summary:
-  data-source: Windows
+data-source: Windows
 contributors:
   - imnotashrimp
 shipping-tags:

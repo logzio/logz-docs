@@ -3,8 +3,7 @@ title: Shipping with Logstash
 logo:
   logofile: logstash.svg
   orientation: vertical
-shipping-summary:
-  data-source: Logstash
+data-source: Logstash
 shipping-tags:
   - log-shipper
 contributors:

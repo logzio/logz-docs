@@ -3,8 +3,7 @@ title: Upload JSON logs
 logo:
   logofile: json.svg
   orientation: vertical
-shipping-summary:
-  data-source: JSON uploads
+data-source: JSON uploads
 contributors:
   - imnotashrimp
 shipping-tags:

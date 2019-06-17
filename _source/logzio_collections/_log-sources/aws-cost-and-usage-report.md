@@ -3,8 +3,7 @@ title: AWS cost and usage report
 logo:
   logofile: aws.svg
   orientation: vertical
-shipping-summary:
-  data-source: AWS cost and usage report
+data-source: AWS cost and usage report
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/AWS-costandusagereport
 open-source:
   - title: AWS Cost and Usage Lambda

@@ -3,8 +3,7 @@ title: Ship Heroku logs
 logo:
   logofile: heroku.svg
   orientation: vertical
-shipping-summary:
-  data-source: Heroku
+data-source: Heroku
 contributors:
   - imnotashrimp
 shipping-tags:

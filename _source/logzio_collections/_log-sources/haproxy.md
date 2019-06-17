@@ -3,8 +3,7 @@ title: Ship HAProxy logs
 logo:
   logofile: haproxy.png
   orientation: horizontal
-shipping-summary:
-  data-source: HAProxy
+data-source: HAProxy
 contributors:
   - imnotashrimp
 shipping-tags:

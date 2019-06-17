@@ -6,8 +6,7 @@ open-source:
 logo:
   logofile: azure-monitor.svg
   orientation: vertical
-shipping-summary:
-  data-source: Azure diagnostic logs
+data-source: Azure diagnostic logs
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Diagnostics-settings
 tags:
   - azure

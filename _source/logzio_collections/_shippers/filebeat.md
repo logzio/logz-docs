@@ -3,8 +3,7 @@ title: Shipping with Filebeat
 logo:
   logofile: beats.svg
   orientation: vertical
-shipping-summary:
-  data-source: Filebeat
+data-source: Filebeat
 shipping-tags:
   - log-shipper
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Filebeat

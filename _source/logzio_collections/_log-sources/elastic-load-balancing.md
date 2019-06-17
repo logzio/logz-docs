@@ -3,8 +3,7 @@ title: Ship Elastic Load Balancing logs
 logo:
   logofile: aws-elb.svg
   orientation: vertical
-shipping-summary:
-  data-source: Amazon Elastic Load Balancing
+data-source: Elastic Load Balancing
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ELB
 contributors:
   - idohalevi

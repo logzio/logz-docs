@@ -3,8 +3,7 @@ title: Ship Docker logs
 logo:
   logofile: docker.svg
   orientation: horizontal
-shipping-summary:
-  data-source: Docker container
+data-source: Docker container
 open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs

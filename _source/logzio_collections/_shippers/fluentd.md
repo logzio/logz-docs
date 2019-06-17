@@ -3,8 +3,7 @@ title: Fluentd
 logo:
   logofile: fluentd.svg
   orientation: vertical
-shipping-summary:
-  data-source: Fluentd
+data-source: Fluentd
 shipper-tags:
   - log-shipper
 contributors:

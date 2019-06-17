@@ -15,7 +15,7 @@ cards:
     url: /shipping/
     li-class: li-plane
 
-  - title: Explore your logs in Kibana
+  - title: Kibana
     description: Stay on top of your logs with rich visualizations and dashboards
     url: /user-guide/kibana/
     li-class: li-bar-graph

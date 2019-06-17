@@ -60,15 +60,13 @@ div.card-icon {
 }
 
 div.card-icon i {
-  width: 50;
-  height: 50;
   vertical-align: middle;
 }
 
 div.card-icon i::before {
   color: var(--text-link);
   opacity: .5;
-  font-size: 30px;
+  font-size: 40px;
   padding: 0;
   margin: 0;
 }

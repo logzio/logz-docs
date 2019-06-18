@@ -26,10 +26,13 @@ You can get to this page by selecting [**<i class="li li-gear"></i> > Settings >
 
 ###### To add or remove users
 
-* To add users, click **Add user** at the bottom of your users list.
-
-* To remove a user, click the user's menu (<i class="fas fa-bars"></i>), and click **Delete**.
+* To add users,
+  click **Add user** at the bottom of your users list.
+* To remove a user,
+  click the user's menu (<i class="fas fa-bars"></i>),
+  and then click **Delete**.
 
 ###### To suspend or unsuspend users
 
-To suspend or unsuspend a user, click the user's menu (<i class="fas fa-bars"></i>), and then click **Suspend** or **Unsuspend**. If a user is suspended, its icon is red.
+To suspend or unsuspend a user, click the user's menu (<i class="fas fa-bars"></i>), and then click **Suspend** or **Unsuspend**.
+If a user is suspended, its icon is red.

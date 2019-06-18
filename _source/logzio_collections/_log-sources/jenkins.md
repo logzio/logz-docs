@@ -74,17 +74,8 @@ root access
 
     {% include log-shipping/replace-vars.html token=true %}
 
-    <div class="branching-container">
-
-    * [Filebeat 7](#filebeat-7-code)
-    * [Filebeat 6](#filebeat-6-code)
-    {:.branching-tabs}
-
-    <div id="filebeat-7-code">
-
     ```yaml
-    # Filebeat 7 configuration
-
+    # ...
     filebeat.inputs:
     - type: log
       paths:
@@ -103,7 +94,13 @@ root access
         pattern: '^[A-Z]{1}[a-z]{2} {1,2}[0-9]{1,2}, [0-9]{4} {1,2}[0-9]{1,2}:[0-9]{2}:[0-9]{2}'
         negate: true
         match: after
+    ```
 
+    If you're running Filebeat 7, paste this code block.
+    Otherwise, you can leave it out.
+
+    ```yaml
+    # ... For Filebeat 7 only ...
     filebeat.registry.path: /var/lib/filebeat
     processors:
     - rename:
@@ -118,36 +115,12 @@ root access
         ignore_missing: true
     ```
 
-    </div>
-
-    <div id="filebeat-6-code">
+    If you're running Filebeat 6, paste this code block.
 
     ```yaml
-    # Filebeat 6 configuration
-
-    filebeat.inputs:
-    - type: log
-      paths:
-      - /var/log/jenkins/jenkins.log
-      fields:
-        logzio_codec: plain
-
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: jenkins
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-      multiline:
-        pattern: '^[A-Z]{1}[a-z]{2} {1,2}[0-9]{1,2}, [0-9]{4} {1,2}[0-9]{1,2}:[0-9]{2}:[0-9]{2}'
-        negate: true
-        match: after
-
+    # ... For Filebeat 6 only ...
     registry_file: /var/lib/filebeat/registry
     ```
-
-    </div>
 
 3.  Add Logz.io as an output
 
@@ -156,6 +129,7 @@ root access
     {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
+    # ...
     output.logstash:
       hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:

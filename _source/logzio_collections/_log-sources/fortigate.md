@@ -57,17 +57,8 @@ root access
 
     {% include log-shipping/replace-vars.html token=true %}
 
-    <div class="branching-container">
-
-    * [Filebeat 7](#filebeat-7-code)
-    * [Filebeat 6](#filebeat-6-code)
-    {:.branching-tabs}
-
-    <div id="filebeat-7-code">
-
     ```yaml
-    # Filebeat 7 configuration
-
+    # ...
     filebeat.inputs:
     - type: udp
       max_message_size: 10MiB
@@ -83,7 +74,13 @@ root access
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
+    ```
 
+    If you're running Filebeat 7, paste this code block.
+    Otherwise, you can leave it out.
+
+    ```yaml
+    # ... For Filebeat 7 only ...
     filebeat.registry.path: /var/lib/filebeat
     processors:
     - rename:
@@ -98,35 +95,12 @@ root access
         ignore_missing: true
     ```
 
-    </div>
-
-    <div id="filebeat-6-code">
+    If you're running Filebeat 6, paste this code block.
 
     ```yaml
-    # Filebeat 6 configuration
-
-    filebeat.inputs:
-    - type: udp
-      max_message_size: 10MiB
-      host: "0.0.0.0:514"
-
-      fields:
-        logzio_codec: plain
-
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: fortigate
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-
-    filebeat.registry_file: /var/lib/filebeat/registry
+    # ... For Filebeat 6 only ...
+    registry_file: /var/lib/filebeat/registry
     ```
-
-    </div>
-
-    </div>
 
 4.  Add Logz.io as an output
 
@@ -135,6 +109,7 @@ root access
     {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
+    # ...
     output.logstash:
       hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:

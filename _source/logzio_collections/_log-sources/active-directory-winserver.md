@@ -26,21 +26,13 @@ shipping-tags:
 
 2.  Configure Windows applications as an input
 
-    In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add this code block to the root level.
+    In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default),
+    add these code block to the root level.
 
     {% include log-shipping/replace-vars.html token=true %}
 
-    <div class="branching-container">
-
-    * [Winlogbeat 7](#winlogbeat-7-code)
-    * [Winlogbeat 6](#winlogbeat-6-code)
-    {:.branching-tabs}
-
-    <div id="winlogbeat-7-code">
-
     ```yaml
-    # Winlogbeat 7 configuration
-
+    # ...
     winlogbeat.event_logs:
       - name: Application
         ignore_older: 72h
@@ -49,10 +41,19 @@ shipping-tags:
 
     fields:
       logzio_codec: json
+
+      # Your Logz.io account token. You can find your token at
+      #  https://app.logz.io/#/dashboard/settings/manage-accounts
       token: <<SHIPPING-TOKEN>>
       type: wineventlog
     fields_under_root: true
+    ```
 
+    If you're running Winlogbeat 7, paste this code block.
+    Otherwise, you can leave it out.
+
+    ```yaml
+    # ... For Winlogbeat 7 only ...
     processors:
       - rename:
           fields:
@@ -71,30 +72,6 @@ shipping-tags:
           ignore_missing: true
     ```
 
-    </div>
-
-    <div id="winlogbeat-6-code">
-
-    ```yaml
-    # Winlogbeat 6 configuration
-
-    winlogbeat.event_logs:
-      - name: Application
-        ignore_older: 72h
-      - name: Security
-      - name: System
-
-    fields:
-      logzio_codec: json
-      token: <<SHIPPING-TOKEN>>
-      type: wineventlog
-    fields_under_root: true
-    ```
-
-    </div>
-
-    </div>
-
 3.  Add Logz.io as an output
 
     If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
@@ -102,6 +79,7 @@ shipping-tags:
     {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
+    # ...
     output.logstash:
       hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:

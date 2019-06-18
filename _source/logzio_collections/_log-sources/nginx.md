@@ -13,11 +13,11 @@ shipping-tags:
 
 ## Setup
 
-<div class="accordion">
+<details>
 
-### Configuration tl;dr
-
-<div>
+<summary>
+Configuration tl;dr
+</summary>
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
@@ -30,13 +30,11 @@ Listener
 Default log locations
 : `/var/log/nginx/access.log` or `/var/log/nginx/error.log`
 
-Log type _\(for preconfigured parsing\)_
+Log type _(for preconfigured parsing)_
 : Access log: `nginx`, `nginx_access`, or `nginx-access` \\
   Error log: `nginx-error`
 
-</div>
-
-</div>
+</details>
 
 ###### Guided configuration
 

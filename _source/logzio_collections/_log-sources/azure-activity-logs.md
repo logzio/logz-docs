@@ -26,11 +26,11 @@ The resources set up by the automated deployment can collect data for a single A
 
 ## More information
 
-<div class="accordion">
+<details>
 
-### What am I setting up in my Azure account?
-
-<div>
+<summary>
+What am I setting up in my Azure account?
+</summary>
 
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
 
@@ -48,11 +48,13 @@ Each deployed resource has a Logz.io-defined name and ends with a string unique 
 For example:
 We name the namespace `LogzioNS`—so if your namespace is `LogzioNS6nvkqdcci10p`, the rest of the deployed resources will end with `6nvkqdcci10p`.
 
-</div>
+</details>
 
-### How many automated deployments should I... deploy?
+<details>
 
-<div>
+<summary>
+How many automated deployments should I... deploy?
+</summary>
 
 Azure requires an event hub in the same region as your services.
 Also worth noting is that you can stream data from multiple services to one event hub (as long as it's in the same region).
@@ -60,9 +62,7 @@ Also worth noting is that you can stream data from multiple services to one even
 So what does this mean for you?
 It means that you'll need to do at least one automated deployment for each region where you want to collect logs or metrics.
 
-</div>
-
-</div>
+</details>
 
 ## Setup
 

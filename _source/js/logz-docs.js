@@ -22,16 +22,6 @@ $(function() {
   $('table').tablesorter({ sortList: [[0,0]] });
 });
 
-// accordion
-$(function() {
-  $( '.accordion' ).accordion({
-    active: false,
-    collapsible: true,
-    heightStyle: 'content',
-    icons: false
-  });
-});
-
 $(function() {
   $('.branching-container').easytabs({
     animate: false,

@@ -29,11 +29,11 @@ This page covers methods for shipping Jenkins system logs and build console outp
 
 ## Filebeat setup for Jenkins
 
-<div class="accordion">
+<details>
 
-### Configuration tl;dr
-
-<div>
+<summary>
+Configuration tl;dr
+</summary>
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
@@ -49,9 +49,7 @@ Default log location
 Log type _\(for preconfigured parsing\)_
 : `jenkins`
 
-</div>
-
-</div>
+</details>
 
 ###### Guided configuration
 

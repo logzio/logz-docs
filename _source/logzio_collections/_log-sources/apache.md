@@ -13,11 +13,11 @@ shipping-tags:
 
 ## Setup
 
-<div class="accordion">
+<details>
 
-### Configuration tl;dr
-
-<div>
+<summary>
+Configuration tl;dr
+</summary>
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
@@ -34,9 +34,7 @@ Default log locations
 Log type _\(for preconfigured parsing\)_
 : `apache`, `apache_access`, or `apache-access`
 
-</div>
-
-</div>
+</details>
 
 ###### Guided configuration
 

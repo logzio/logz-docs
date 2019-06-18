@@ -12,11 +12,11 @@ shipping-tags:
 
 ## Setup
 
-<div class="accordion">
+<details>
 
-### Configuration tl;dr
-
-<div>
+<summary>
+Configuration tl;dr
+</summary>
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf)
@@ -31,9 +31,7 @@ Default log location
 Log type _\(for preconfigured parsing\)_
 : `syslog`
 
-</div>
-
-</div>
+</details>
 
 ###### Guided configuration
 

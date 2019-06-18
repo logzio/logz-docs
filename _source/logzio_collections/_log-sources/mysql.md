@@ -26,11 +26,11 @@ shipping-tags:
 
 ## MySQL + Filebeat setup
 
-<div class="accordion">
+<details>
 
-### Configuration tl;dr
-
-<div>
+<summary>
+Configuration tl;dr
+</summary>
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
@@ -50,9 +50,7 @@ Log type _(for preconfigured parsing)_
   Slow query log: `mysql_slow_query` \\
   Error log: `mysql_error`
 
-</div>
-
-</div>
+</details>
 
 ###### Guided configuration
 

@@ -13,11 +13,11 @@ shipping-tags:
 
 ## Setup
 
-<div class="accordion">
+<details>
 
-### Configuration tl;dr
-
-<div>
+<summary>
+Configuration tl;dr
+</summary>
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
@@ -31,9 +31,7 @@ Default log locations
 : JSON _(recommended)_: `/var/ossec/logs/alerts/alerts.json` \\
   Plain text: `/var/ossec/logs/alerts/alerts.log`
 
-</div>
-
-</div>
+</details>
 
 ###### Guided configuration
 

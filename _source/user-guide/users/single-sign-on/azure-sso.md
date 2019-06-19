@@ -67,12 +67,16 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     Copy the **SAML-P SIGN-ON ENDPOINT**, and paste this in the email that you'll send to the Support team.
 
+    <!-- TODO instructions for retrieving username object ID and groupname object ID -->
+
 6.  Send your SAML details to Logz.io
 
     Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
     * Your zipped certificate (from step 4)
     * Your SAML-P SIGN-ON ENDPOINT (from step 5)
+
+    <!-- TODO username object ID and groupname object ID -->
 
 7.  Configure Azure to send user groups
 

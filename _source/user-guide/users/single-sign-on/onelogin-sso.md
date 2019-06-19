@@ -86,6 +86,8 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     In the SSO tab, copy the **SAML 2.0 Endpoint (HTTP)**.
     Paste this in the email that you'll send to the Support team.
 
+    <!-- TODO instructions to retrieve username object ID and groupname object ID -->
+
 7.  Send your SAML details to Logz.io
 
     Draft a new [email to Support](mailto:help@logz.io).
@@ -94,6 +96,8 @@ To discuss switching to an Enterprise plan, please contact your account manager.
     * Your Logz.io account ID
     * Your zipped certificate (from step 4)
     * Your SAML 2.0 Endpoint (from step 5)
+
+    <!-- TODO username object ID and groupname object ID -->
 
 8.  _(Optional)_ Restrict Logz.io access to specific user groups
 

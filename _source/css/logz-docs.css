@@ -404,8 +404,12 @@ div.related-links-container span {
 
 /* ===== ACCORDIONS & TABS ===== */
 
-details[open] {
-  border-bottom: 2px solid var(--border-light);
+details {
+  background-color: var(--background-very-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: .4rem 1rem;
+  margin-bottom: 5px;
 }
 
 details[open] > summary {
@@ -413,13 +417,11 @@ details[open] > summary {
   font-weight: 600;
 }
 
-details:hover > summary {
+details > summary:hover {
   font-weight: 600;
-  border-bottom-color: currentColor;
 }
 
 summary {
-  border-bottom: 1px solid var(--border-very-light);
   padding-left: .7rem;
   font-weight: 400;
   cursor: pointer;

@@ -29,7 +29,6 @@ $(function() {
   });
 });
 
-
 // toc collapse button for smaller screens
 $(function() {
   $('#toc-collapse-btn').click( function() {
@@ -82,4 +81,17 @@ $('.branching-tabs > li > a').click(function() {
   }
 });
 
+});
+
+// scroll to <summary> when clicked
+$(function() {
+  $('summary').on('click', function() {
+    $(this).toggleClass('open');
+    if ($(this).hasClass('open')) { // if element is closed
+      $(this).parent().siblings('details').removeAttr('open').children('summary').removeClass('open'); // close siblings
+      var thisPos = $(this).position(); // get position
+      var scrollTo = thisPos.top - 100; // set position, minus offset
+      scroll.animateScroll(scrollTo); // scroll to this summary tag
+    }
+  });
 });

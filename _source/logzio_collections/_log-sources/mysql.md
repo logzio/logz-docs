@@ -16,12 +16,14 @@ shipping-tags:
   - database
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [Filebeat](#filebeat-config)
 * [Docker sidecar](#docker-sidecar-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="filebeat-config">
 
 ## MySQL + Filebeat setup
@@ -197,7 +199,9 @@ Log type _(for preconfigured parsing)_
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="docker-sidecar-config">
 
 ## MySQL + Docker sidecar setup
@@ -255,5 +259,7 @@ Log type _(for preconfigured parsing)_
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

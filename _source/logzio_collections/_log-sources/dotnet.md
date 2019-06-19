@@ -13,12 +13,14 @@ shipping-tags:
   - from-your-code
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [log4net](#log4net-config)
 * [NLog](#nlog-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="log4net-config">
 
 ## log4net setup
@@ -191,8 +193,10 @@ Change your configuration to use your new appender name.
 For the example above, you'd use `MyAppLogzioAppender`.
 
 </div>
+<!-- tab:end -->
 
 
+<!-- tab:start -->
 <div id="nlog-config">
 
 ## NLog setup
@@ -371,5 +375,7 @@ public class MyAppLogzioTarget : LogzioTarget
 Change your configuration to use your new target. For the example above, you'd use `MyAppLogzio`.
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

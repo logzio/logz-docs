@@ -19,12 +19,14 @@ This page covers methods for shipping Jenkins system logs and build console outp
 * To ship build console output (build logs), use the Jenkins plugin.
 * To ship Jenkins system logs, use Filebeat.
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [Filebeat](#filebeat-config)
 * [Jenkins plugin](#jenkins-plugin-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="filebeat-config">
 
 ## Filebeat setup for Jenkins
@@ -146,7 +148,9 @@ root access
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="jenkins-plugin-config">
 
 ## Jenkins Logstash Plugin setup
@@ -233,5 +237,7 @@ You can choose to stream a project's build logs or to send only the last logs of
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

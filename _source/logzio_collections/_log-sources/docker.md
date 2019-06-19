@@ -17,12 +17,14 @@ shipping-tags:
   - container
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [docker-collector-logs <span class="sm ital">(recommended)</span>](#docker-collector-logs-config)
 * [logzio-logging-plugin](#logzio-logging-plugin-docker-logging-driver-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="docker-collector-logs-config">
 
 ## docker-collector-logs setup
@@ -93,7 +95,9 @@ shipping-tags:
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="logzio-logging-plugin-docker-logging-driver-config">
 
 ## logzio-logging-plugin setup
@@ -240,5 +244,7 @@ Docker Community Edition (Docker CE) 18.03 or later
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

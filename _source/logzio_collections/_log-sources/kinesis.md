@@ -15,12 +15,14 @@ shipping-tags:
   - aws
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [Manual Lambda configuration](#manual-lambda-configuration)
 * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="manual-lambda-configuration">
 
 ## Kinesis + Lambda setup
@@ -109,7 +111,9 @@ shipping-tags:
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="automated-cloudformation-deployment">
 
 ## Kinesis + Lambda setup
@@ -201,5 +205,7 @@ an S3 bucket to store the CloudFormation package
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

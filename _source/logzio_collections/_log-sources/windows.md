@@ -10,12 +10,14 @@ shipping-tags:
   - os
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [Winlogbeat <span class="sm ital">(recommended)</span>](#winlogbeat-config)
 * [NXLog](#nxlog-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="winlogbeat-config">
 
 ## Windows + Winlogbeat setup
@@ -85,7 +87,9 @@ shipping-tags:
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="nxlog-config">
 
 ## Windows + NXLog setup
@@ -159,5 +163,7 @@ shipping-tags:
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

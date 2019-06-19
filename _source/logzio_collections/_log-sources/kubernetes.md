@@ -15,12 +15,14 @@ shipping-tags:
   - container
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [Non-RBAC configuration](#non-rbac-config)
 * [RBAC configuration](#rbac-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="non-rbac-config">
 
 ## Non-RBAC setup
@@ -148,7 +150,9 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="rbac-config">
 
 ## RBAC setup
@@ -314,6 +318,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 {:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
-
+<!-- tabContainer:end -->

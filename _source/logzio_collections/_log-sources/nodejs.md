@@ -15,12 +15,14 @@ shipping-tags:
   - from-your-code
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [logzio-nodejs](#logzio-nodejs-config)
 * [winston-logzio](#winston-logzio-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="logzio-nodejs-config">
 
 ## logzio-nodejs setup
@@ -141,8 +143,9 @@ Include this line if you're using logzio-nodejs in a severless environment, such
   ```
 
 </div>
+<!-- tab:end -->
 
-
+<!-- tab:start -->
 <div id="winston-logzio-config">
 
 ## winston-logzio setup
@@ -269,5 +272,7 @@ process.on('uncaughtException', function (err) {
 ```
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

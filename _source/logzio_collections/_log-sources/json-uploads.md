@@ -16,12 +16,14 @@ you can send them directly to the Logz.io listener.
 The listeners accept bulk uploads over an HTTP/HTTPS connection
 or TLS/SSL streams over TCP.
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [Bulk uploads over HTTP/HTTPS](#http-config)
 * [TLS/SSL streams over TCP](#tcp-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="http-config">
 
 ## Bulk uploads over HTTP/HTTPS
@@ -140,7 +142,9 @@ or "Logging token is not valid" as the reason for the response.
 The request body size is larger than 10 MB.
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="tcp-config">
 
 ## TLS/SSL streams over TCP
@@ -204,6 +208,7 @@ LogLevel INFO
 ```
 
 </div>
+<!-- tab:end -->
 
 </div>
-
+<!-- tabContainer:end -->

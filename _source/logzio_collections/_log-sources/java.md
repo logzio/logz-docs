@@ -16,12 +16,14 @@ shipping-tags:
   - from-your-code
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [Log4j 2](#log4j-2-config)
 * [Logback](#logback-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="log4j-2-config">
 
 ## Log4j 2 setup
@@ -216,8 +218,9 @@ public class LogzioLog4j2Example {
 ```
 
 </div>
+<!-- tab:end -->
 
-
+<!-- tab:start -->
 <div id="logback-config">
 
 ## Logback setup
@@ -426,4 +429,7 @@ public class LogzioLogbackExample {
 ```
 
 </div>
+<!-- tab:end -->
+
 </div>
+<!-- tabContainer:end -->

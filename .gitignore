@@ -2,7 +2,7 @@ _site
 .sass-cache
 .jekyll-metadata
 .DS_Store
-.vscode
+.vscode/settings.json
 _source/_data/stale-list.yml
 node_modules
 external_js

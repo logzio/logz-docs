@@ -25,7 +25,6 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
 
 ###### Using the data parsing wizard
 
-{:.tasklist.firstline-headline}
 1.  Choose a data source
 
     Choose the log type you want to parse from the **Select log type** list.
@@ -73,3 +72,4 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
     In both of the tabs, review **Unparsed logs** and **All logs** to troubleshoot any problems with your grok pattern.
 
     If everything looks good, click **Apply** to parse future logs using these settings. Otherwise, click **Back** to make changes to your settings.
+{:.tasklist.firstline-headline}

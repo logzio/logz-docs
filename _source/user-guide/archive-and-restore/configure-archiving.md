@@ -35,7 +35,6 @@ S3 archiving is a cost-effective solution.
 **You'll need**:
 `PutObject`, `ListBucket`, and `GetObject` permissions for an S3 bucket
 
-{:.tasklist.firstline-headline}
 1.  Enter your bucket name and S3 credentials
 
     Paste your S3 **Bucket name**, **AWS access key**, and **AWS secret key**.
@@ -48,6 +47,7 @@ S3 archiving is a cost-effective solution.
     If everything checks out, click **Start archiving** to save your settings.
     From now on, Logz.io will archive your logs as they come in.
     You can stop archiving at any time.
+{:.tasklist.firstline-headline}
 
 ## Managing your S3 credentials
 

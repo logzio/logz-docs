@@ -18,7 +18,6 @@ admin access
 
 ###### Guided configuration
 
-{:.tasklist.firstline-headline}
 1.  Configure NXLog
 
     Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).

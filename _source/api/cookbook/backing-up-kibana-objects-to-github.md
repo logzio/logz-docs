@@ -32,7 +32,6 @@ Even though this tutorial covers backing up to GitHub, you can use these methods
 
 Let's set up the prerequisites now so that we can use the command line for the rest of the tutorial.
 
-{:.tasklist.firstline-headline}
 1.  Create a GitHub repo
 
     Make sure you're signed in to GitHub, and [create a new repository](https://github.com/new).
@@ -60,6 +59,7 @@ Let's set up the prerequisites now so that we can use the command line for the r
     git clone <<REPO-URL>> kibana-backup
     cd kibana-backup
     ```
+{:.tasklist.firstline-headline}
 
 ## Downloading Kibana objects {#downloading-kibana-objects}
 

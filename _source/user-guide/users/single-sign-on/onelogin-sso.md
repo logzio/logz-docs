@@ -17,7 +17,6 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
 ###### To set up single sign-on for OneLogin
 
-{:.tasklist.firstline-headline}
 1.  Request SSO access from Logz.io
 
       Only account admins can request single sign-on access for their accounts.
@@ -108,3 +107,4 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     When Support has created your OneLogin + Logz.io connection, you're done!
     You can start logging in to Logz.io through your Apps portal.
+{:.tasklist.firstline-headline}

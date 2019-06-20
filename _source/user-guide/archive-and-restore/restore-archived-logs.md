@@ -26,7 +26,6 @@ so you can investigate events in Kibana that are older than your plan’s retent
 [Archiving enabled](https://app.logz.io/#/dashboard/tools/archive-and-restore),
 archived logs in your S3 bucket
 
-{:.tasklist.firstline-headline}
 1.  Restore your archives
 
     In the _Restore_ tab, give your restored account a **Name**, choose a **Time range** of up to 24 hours, and click **Restore**.
@@ -51,3 +50,4 @@ archived logs in your S3 bucket
 
     Now you're ready to search your restored account!
     Just be aware of the expiration—once the restored account expires, you'll have to restore it if you need it again.
+{:.tasklist.firstline-headline}

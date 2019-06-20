@@ -21,7 +21,6 @@ To enable this feature, an account admin needs to contact the Support team.
 
 ###### To set up multi-factor authentication for your account
 
-{:.tasklist.firstline-headline}
 1.  Request multi-factor authentication from Logz.io
 
     <a class="intercom-launch" href="mailto:help@logz.io">Contact the Support team</a>.
@@ -45,3 +44,4 @@ To enable this feature, an account admin needs to contact the Support team.
     Scan the QR code using Google Authenticator, type your verification code, and click **Verify**.
 
     In future logins, Logz.io will prompt you to enter your Google Authenticator verification code.
+{:.tasklist.firstline-headline}

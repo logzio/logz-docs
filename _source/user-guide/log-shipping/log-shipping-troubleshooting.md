@@ -14,7 +14,6 @@ The process of getting logs from your system to Logz.io can be tricky, and it ca
 
 Before doing anything, make sure you give Logz.io some time to parse and index your logs. Normally, this takes a few seconds to a minute. Sometimes, this can take longer.
 
-{:.tasklist.firstline-headline}
 1.  Check the Logz.io status page
 
     Visit our [status page](http://status.logz.io/) to confirm everything is working normally. (If you're not already signed up for status updates, go ahead and subscribe while you're there.)
@@ -112,3 +111,4 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
     * _Multiple configurations:_ Make sure your shipper has one configuration. If it has more than one configuration, remove or comment out extra configurations.
     * _Incorrect paths:_ Make sure all the paths in the configuration are correct.
     * _Incorrect permissions:_ Make sure your shipper has the correct permissions to access configured paths.
+{:.tasklist.firstline-headline}

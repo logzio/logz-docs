@@ -17,7 +17,6 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
 ###### To set up single sign-on for Okta
 
-{:.tasklist.firstline-headline}
 1.  Request SSO access from Logz.io
 
       Only account admins can request single sign-on access for their accounts.
@@ -113,3 +112,4 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     When Support has created your Okta + Logz.io connection, you're done!
     You can start logging in to Logz.io through your Apps portal.
+{:.tasklist.firstline-headline}

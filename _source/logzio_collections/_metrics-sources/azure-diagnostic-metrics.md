@@ -68,7 +68,6 @@ It means that you'll need to do at least one automated deployment for each regio
 
 ###### Configuration
 
-{:.tasklist.firstline-headline}
 1. If needed, configure an automated deployment
 
     If you already set up an automated deployment in this region, you can skip to step 2.
@@ -158,3 +157,4 @@ It means that you'll need to do at least one automated deployment for each regio
 6. Check Logz.io for your metrics
 
     Give your data some time to get from your system to ours, and then open Kibana.
+{:.tasklist.firstline-headline}

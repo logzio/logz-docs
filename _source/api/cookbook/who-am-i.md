@@ -49,7 +49,6 @@ If you didn't receive the expected response, continue to the troubleshooting ste
 If you didn't receive the expected response, there could be a few reasons for that.
 Let's see if we can figure this out together.
 
-{:.tasklist.firstline-headline}
 1.  Check the status code
 
     The status code indicates whether you sent the request to a valid Logz.io API endpoint.
@@ -83,3 +82,4 @@ Let's see if we can figure this out together.
     Change the API region to your account region and try again.
 
     For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+{:.tasklist.firstline-headline}

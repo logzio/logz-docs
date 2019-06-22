@@ -31,9 +31,11 @@
     "redoc": "^2.0.0-rc.8-1",
     "smooth-scroll": "^16.0.3",
     "styled-components": "^4.2.0",
-    "tablesorter": "^2.31.1"
+    "tablesorter": "^2.31.1",
+    "gulp": "^4.0.2"
   },
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-string-replace": "^1.1.2"
   }
 }

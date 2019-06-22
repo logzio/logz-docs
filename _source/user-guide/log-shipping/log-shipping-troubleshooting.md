@@ -18,13 +18,13 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
 
     Visit our [status page](http://status.logz.io/) to confirm everything is working normally. (If you're not already signed up for status updates, go ahead and subscribe while you're there.)
 
-    {:.inline-header}
     If the status is "All systems Operational"
+    {:.inline-header}
 
     If you see "All Systems Operational", Logz.io is operating normally. You can move on to the next step.
 
-    {:.inline-header}
     If the status is something else
+    {:.inline-header}
 
     On rare occasions, there may be an issue with our production environment. If this happens, you'll need to wait until we fix the problem before you can ship your logs.
 
@@ -60,15 +60,15 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
     | rsyslog over TLS                        | 5001 |
     | TLS/SSL over TCP                        | 5052 |
 
-    {:.inline-header}
     If you see "Connected to listener-group.logz.io"
+    {:.inline-header}
 
     If you see "Connected to listener-group.logz.io", your shipper can connect to the Logz.io listener.
 
     To exit telnet, type Ctrl+], and then type `quit`. You can move on to the next troubleshooting step.
 
-    {:.inline-header}
     If the status remains "Trying xxx.xxx.xxx.xxx..."
+    {:.inline-header}
 
     If you see "Trying xxx.xxx.xxx.xxx..." for more than 10 seconds, your machine is having trouble connecting to the Logz.io listener.
 
@@ -85,13 +85,13 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
       In most cases, the token is stored in a configuration file or as a query parameter in the URL you're shipping logs to. You can usually find it by searching for "token".
       {:.info-box.tip}
 
-    {:.inline-header}
     If the tokens match
+    {:.inline-header}
 
     If the tokens match, your logs will be sent to your account. Move on to the next troubleshooting step.
 
-    {:.inline-header}
     If the tokens don't match
+    {:.inline-header}
 
     If the tokens don't match, your logs won't be sent to your account. Copy your acount token to your shipper configuration, and restart your shipper if you need to.
 
@@ -105,8 +105,8 @@ Before doing anything, make sure you give Logz.io some time to parse and index y
 
     Also confirm that the log shipper is running. If it's not running, you'll need to troubleshoot the shipper.
 
-    {:.inline-header}
     Common log shipper issues and fixes
+    {:.inline-header}
 
     * _Multiple configurations:_ Make sure your shipper has one configuration. If it has more than one configuration, remove or comment out extra configurations.
     * _Incorrect paths:_ Make sure all the paths in the configuration are correct.

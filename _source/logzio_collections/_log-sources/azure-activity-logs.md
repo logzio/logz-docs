@@ -82,8 +82,8 @@ It means that you'll need to do at least one automated deployment for each regio
 
     ![Customized template]({{site.baseurl}}/images/azure-event-hubs/customized-template.png)
 
-    {:.inline-header}
     In the BASICS section
+    {:.inline-header}
 
     Resource group
     : Click **Create new**.
@@ -93,8 +93,8 @@ It means that you'll need to do at least one automated deployment for each regio
     : Choose the same region as the Azure services that will stream data to this Event Hub.
 
 
-    {:.inline-header}
     In the SETTINGS section
+    {:.inline-header}
 
     Logs listener host
     : Use the listener host for your logs account region.

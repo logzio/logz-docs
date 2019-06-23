@@ -21,20 +21,27 @@ To reach this page, click [**<i class="li li-gear"></i> > Tools > Shared tokens*
 
 ###### Working with shared tokens
 
-* To create a token, type a brief **token name** and click **Save**.
-
-* To attach a filter, click **Attach filter**, choose a filter, and then click **Save**. (See [Working with token filters](#working-with-token-filters), below)
-
-* To remove a filter attached to a token, click the filter tag's <i class="li li-x"></i>.
-
-* To delete a token, click the token's <i class="li li-x"></i>.
+* To create a token,
+  type a brief **token name** and click **Save**.
+* To attach a filter,
+  click **Attach filter**,
+  choose a filter,
+  and then click **Save**.
+  (See [Working with token filters](#working-with-token-filters), below)
+* To remove a filter attached to a token,
+  click the filter tag's <i class="li li-x"></i>.
+* To delete a token,
+  click the token's <i class="li li-x"></i>.
 
 ###### Working with token filters {#working-with-token-filters}
 
-* To make a new filter, type a brief **description**, type the name of a **field** and the **value** to filter the field by, and then click **Save**. You can attach your new filter to any of your shared tokens.
+* To make a new filter,
+  type a brief **description**,
+  type the name of a **field** and the **value** to filter the field by,
+  and then click **Save**.
+  You can attach your new filter to any of your shared tokens.
+* To delete a filter,
+  click the filter's <i class="li li-x"></i>.
 
-<div class="info-box tip">
-  Test new filters in Kibana to make sure you get the expected results.
-</div>
-
-* To delete a filter, click the filter's <i class="li li-x"></i>.
+Test new filters in Kibana to make sure you get the expected results.
+{:.info-box.tip}

@@ -3,8 +3,7 @@ title: Ship CloudWatch logs
 logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
-shipping-summary:
-  data-source: Amazon CloudWatch
+data-source: CloudWatch
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudWatch
 open-source:
   - title: CloudWatch Lambda Log Shipper
@@ -20,8 +19,7 @@ shipping-tags:
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
-1. Create a new Lambda function
+1.  Create a new Lambda function
 
     This Lambda function will collect CloudWatch logs and sends them to Logz.io in bulk over HTTP.
 
@@ -36,7 +34,7 @@ shipping-tags:
 
     You'll need this page later on, so keep it open.
 
-2. Zip the source files
+2.  Zip the source files
 
     Download the [CloudWatch Logs Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/cloudwatch) project from GitHub to your computer, and zip the Python files in the src/ folder.
 
@@ -44,7 +42,7 @@ shipping-tags:
     mkdir dist; cp -r ../shipper dist/ && cp src/lambda_function.py dist/ && cd dist/ && zip logzio-cloudwatch shipper/* lambda_function.py
     ```
 
-3. Upload the zip file and set environment variables
+3.  Upload the zip file and set environment variables
 
     In the Function code section of Lambda find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
 
@@ -72,19 +70,18 @@ shipping-tags:
     COMPRESS <span class="default-param">`false`</span>
     : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs.
 
-4. Configure the function's basic settings
+4.  Configure the function's basic settings
 
     In Basic settings, we recommend starting with these settings:
 
     * **Memory**: 512 MB
     * **Timeout**: 1 min 0 sec
 
-    <div class="info-box note">
     These default settings are just a starting point.
     Check your Lambda usage regularly, and adjust these values if you need to.
-    </div>
+    {:.info-box.note}
 
-5. Set the CloudWatch Logs event trigger
+5.  Set the CloudWatch Logs event trigger
 
     Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
 
@@ -94,8 +91,9 @@ shipping-tags:
 
     Click **Add**, and then click **Save** at the top of the page.
 
-6. Check Logz.io for your logs
+6.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

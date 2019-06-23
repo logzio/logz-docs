@@ -19,13 +19,12 @@ You can use insights to sift through the noise in your logging infrastructure so
 
 To see this page, select [**Insights**](https://app.logz.io/#/dashboard/insights) from the top menu.
 
-{: .letter-labels }
+Insights chart
+: Shows recent insights and markers on an interactive graph
 
-  Insights chart
-  : Shows recent insights and markers on an interactive graph
+Insights list
+: This table gives more complete information on the insights shown in the chart
 
-  Insights list
-  : This table gives more complete information on the insights shown in the chart
-
-  Notifications control
-  : Allows you to set emails or alert endpoints that will receive a message when Logz.io finds new insights in your account
+Notifications control
+: Allows you to set emails or alert endpoints that will receive a message when Logz.io finds new insights in your account
+{:.letter-labels}

@@ -3,8 +3,7 @@ title: Ship Docker performance logs
 logo:
   logofile: docker.svg
   orientation: horizontal
-shipping-summary:
-  data-source: Docker performance logs
+data-source: Docker performance logs
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Perfagent
 contributors:
   - imnotashrimp
@@ -14,8 +13,7 @@ shipping-tags:
 
 ## Setup
 
-{: .tasklist .firstline-headline }
-1. Pull the Docker image
+1.  Pull the Docker image
 
     Download the logzio/logzio-docker image:
 
@@ -23,15 +21,15 @@ shipping-tags:
     docker pull logzio/logzio-perfagent
     ```
 
-2. Run the Docker image
+2.  Run the Docker image
 
     For a complete list of options, see the parameters below the code block.👇
 
     ```shell
     docker run -d \
     --net="host" \
-    -e LOGZ_TOKEN="<ACCOUNT-TOKEN>" \
-    -e LISTENER="<LISTENER-URL>:5000" \
+    -e LOGZ_TOKEN="<<SHIPPING-TOKEN>>" \
+    -e LISTENER="<<LISTENER-HOST>>:5000" \
     -e USER_TAG="workers" \
     -e HOSTNAME=`hostname` \
     -e INSTANCE="10.1.2.3" \
@@ -40,7 +38,7 @@ shipping-tags:
     ```
 
     Parameters
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZ_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -48,7 +46,7 @@ shipping-tags:
       <!-- logzio-inject:account-token -->
 
     LISTENER <span class="default-param">`listener.logz.io:5000`</span>
-    : Your account region and port.
+    : Your account's listener host and port.
       {% include log-shipping/replace-vars.html listener=true %}
 
     USER_TAG
@@ -63,8 +61,9 @@ shipping-tags:
     INSTANCE
     : The IP address that will be assigned to the `instance` field of each entry.
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

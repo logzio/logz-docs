@@ -3,8 +3,7 @@ title: Ship Node.js logs
 logo:
   logofile: nodejs.svg
   orientation: vertical
-shipping-summary:
-  data-source: Node.js code
+data-source: Node.js code
 open-source:
   - title: logzio-nodejs
     github-repo: logzio-nodejs
@@ -16,12 +15,14 @@ shipping-tags:
   - from-your-code
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [logzio-nodejs](#logzio-nodejs-config)
-  * [winston-logzio](#winston-logzio-config)
+* [logzio-nodejs](#logzio-nodejs-config)
+* [winston-logzio](#winston-logzio-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="logzio-nodejs-config">
 
 ## logzio-nodejs setup
@@ -51,16 +52,16 @@ For a complete list of options, see the configuration parameters below the code 
 ```js
 // Replace these parameters with your configuration
 var logger = require('logzio-nodejs').createLogger({
-  token: '<ACCOUNT-TOKEN>',
+  token: '<<SHIPPING-TOKEN>>',
   protocol: 'https',
-  host: '<LISTENER-URL>',
+  host: '<<LISTENER-HOST>>',
   port: '8071',
   type: 'YourLogType'
 });
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -71,7 +72,7 @@ protocol <span class="default-param">`http`</span>
   The value here affects the default of the `port` parameter.
 
 host <span class="default-param">`listener.logz.io`</span>
-: Listener URL.
+: Listener host.
   {% include log-shipping/replace-vars.html listener=true %}
 
 port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>
@@ -109,8 +110,8 @@ addTimestampWithNanoSecs <span class="default-param">`false`</span>
   Otherwise, `false`. \\
   If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence.
 
-{: .inline-header }
 Code sample
+{:.inline-header}
 
 You can send log lines as a raw string or as an object.
 For more consistent and reliable parsing, we recommend sending logs as objects.
@@ -142,8 +143,9 @@ Include this line if you're using logzio-nodejs in a severless environment, such
   ```
 
 </div>
+<!-- tab:end -->
 
-
+<!-- tab:start -->
 <div id="winston-logzio-config">
 
 ## winston-logzio setup
@@ -171,9 +173,9 @@ var logzioWinstonTransport = require('winston-logzio');
 
 // Replace these parameters with your configuration
 var loggerOptions = {
-    token: '<ACCOUNT-TOKEN>',
+    token: '<<SHIPPING-TOKEN>>',
     protocol: 'https',
-    host: '<LISTENER-URL>',
+    host: '<<LISTENER-HOST>>',
     port: '8071',
     type: 'YourLogType'
 };
@@ -181,8 +183,8 @@ var loggerOptions = {
 winston.add(logzioWinstonTransport, loggerOptions);
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -193,7 +195,7 @@ protocol <span class="default-param">`http`</span>
   The value here affects the default of the `port` parameter.
 
 host <span class="default-param">`listener.logz.io`</span>
-: Listener URL.
+: Listener host.
   {% include log-shipping/replace-vars.html listener=true %}
 
 port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span>
@@ -231,8 +233,8 @@ addTimestampWithNanoSecs <span class="default-param">`false`</span>
   Otherwise, `false`. \\
   If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence.
 
-{: .inline-header }
 Code samples
+{:.inline-header}
 
 To send a log line:
 
@@ -270,5 +272,7 @@ process.on('uncaughtException', function (err) {
 ```
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

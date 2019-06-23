@@ -3,8 +3,7 @@ title: Ship .NET logs
 logo:
   logofile: dotnet.svg
   orientation: vertical
-shipping-summary:
-  data-source: .NET code
+data-source: .NET code
 open-source:
   - title: logzio-dotnet
     github-repo: logzio-dotnet
@@ -14,12 +13,14 @@ shipping-tags:
   - from-your-code
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [log4net](#log4net-config)
-  * [NLog](#nlog-config)
+* [log4net](#log4net-config)
+* [NLog](#nlog-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="log4net-config">
 
 ## log4net setup
@@ -44,9 +45,8 @@ Use the samples in the code blocks below as a starting point, and replace them w
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-<div class="info-box read">
   See the [log4net documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the log4net configuration file.
-</div>
+  {:.info-box.read}
 
 _Option 1: In a configuration file_
 
@@ -55,9 +55,9 @@ _Option 1: In a configuration file_
   <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
 
     <!-- Replace these parameters with your configuration -->
-    <token><ACCOUNT-TOKEN></token>
+    <token><<SHIPPING-TOKEN>></token>
     <type>log4net</type>
-    <listenerUrl><LISTENER-URL>:8071</listenerUrl>
+    <listenerUrl><<LISTENER-HOST>>:8071</listenerUrl>
     <bufferSize>100</bufferSize>
     <bufferTimeout>00:00:05</bufferTimeout>
     <retriesMaxAttempts>3</retriesMaxAttempts>
@@ -80,9 +80,9 @@ var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 
 // Replace these parameters with your configuration
-logzioAppender.AddToken("<ACCOUNT-TOKEN>");
+logzioAppender.AddToken("<<SHIPPING-TOKEN>>");
 logzioAppender.AddType("log4net");
-logzioAppender.AddListenerUrl("<LISTENER-URL>:8071");
+logzioAppender.AddListenerUrl("<<LISTENER-HOST>>:8071");
 logzioAppender.AddBufferSize("100");
 logzioAppender.AddBufferTimeout("00:00:05");
 logzioAppender.AddRetriesMaxAttempts("3");
@@ -93,8 +93,8 @@ hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -124,8 +124,8 @@ debug <span class="default-param">`false`</span>
 : To print debug messsages to the console and trace log, `true`. Otherwise, `false`.
 
 
-{: .inline-header }
 Code sample
+{:.inline-header}
 
 ```csharp
 using System.IO;
@@ -193,8 +193,10 @@ Change your configuration to use your new appender name.
 For the example above, you'd use `MyAppLogzioAppender`.
 
 </div>
+<!-- tab:end -->
 
 
+<!-- tab:start -->
 <div id="nlog-config">
 
 ## NLog setup
@@ -219,9 +221,8 @@ Use the samples in the code blocks below as a starting point, and replace them w
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-<div class="info-box read">
   See the [NLog documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the NLog configuration file.
-</div>
+  {:.info-box.read}
 
 _Option 1: In a configuration file_
 
@@ -234,9 +235,9 @@ _Option 1: In a configuration file_
 
     <!-- Replace these parameters with your configuration -->
     <target name="logzio" type="Logzio"
-      token="<ACCOUNT-TOKEN>"
+      token="<<SHIPPING-TOKEN>>"
       logzioType="nlog"
-      listenerUrl="<LISTENER-URL>:8071"
+      listenerUrl="<<LISTENER-HOST>>:8071"
       bufferSize="100"
       bufferTimeout="00:00:05"
       retriesMaxAttempts="3"
@@ -260,9 +261,9 @@ var config = new LoggingConfiguration();
 
 // Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
-  Token = "<ACCOUNT-TOKEN>",
+  Token = "<<SHIPPING-TOKEN>>",
   LogzioType = "nlog",
-  ListenerUrl = "<LISTENER-URL>:8071",
+  ListenerUrl = "<<LISTENER-HOST>>:8071",
   BufferSize = "100",
   BufferTimeout = "00:00:05",
   RetriesMaxAttempts = "3",
@@ -275,8 +276,8 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, "Logzio", "*");
 LogManager.Configuration = config;
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -306,8 +307,8 @@ debug <span class="default-param">`false`</span>
 : To print debug messsages to the console and trace log, `true`. Otherwise, `false`.
 
 
-{: .inline-header }
 Code sample
+{:.inline-header}
 
 ```csharp
 using System;
@@ -347,7 +348,7 @@ You can configure the target to include your own custom values when forwarding t
 <nlog>
   <variable name="site" value="New Zealand" />
   <variable name="rings" value="one" />
-  <target name="logzio" type="Logzio" token="<ACCOUNT-TOKEN>">
+  <target name="logzio" type="Logzio" token="<<SHIPPING-TOKEN>>">
     <contextproperty name="site" layout="${site}" />
     <contextproperty name="rings" layout="${rings}" />
   </target>
@@ -374,5 +375,7 @@ public class MyAppLogzioTarget : LogzioTarget
 Change your configuration to use your new target. For the example above, you'd use `MyAppLogzio`.
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

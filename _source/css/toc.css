@@ -33,6 +33,10 @@ ul.toc-parent {
   text-transform: uppercase;
 }
 
+.toc-parent > li > .toc-heading {
+  font-weight: 700;
+}
+
 ul.toc-child {
   text-transform: none;
   font-size: var(--toc-font-size);
@@ -107,4 +111,9 @@ span.collapse-button.show path {
 
 ul.toc-child li span.toc-heading:hover {
   background-color: var(--border-light);
+}
+
+.toc-grandchild > li > .toc-heading {
+  max-width: 225px;
+  padding-right: 60px;
 }

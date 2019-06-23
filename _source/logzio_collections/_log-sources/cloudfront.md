@@ -3,8 +3,7 @@ title: Ship CloudFront logs
 logo:
   logofile: aws-cloudfront.svg
   orientation: vertical
-shipping-summary:
-  data-source: Amazon CloudFront
+data-source: CloudFront
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudFront
 contributors:
   - idohalevi
@@ -23,15 +22,14 @@ CloudFront logs are useful for auditing/security monitoring and business intelli
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
-1. Send your logs to an S3 bucket
+1.  Send your logs to an S3 bucket
 
     Logz.io fetches your CloudFront logs from an S3 bucket.
     CloudFront access logs are not enabled by default, so you'll need to set this up.
 
     For help with this, see [Configuring and Using CloudFront Access Logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) from AWS.
 
-2. Add the S3 bucket information
+2.  Add the S3 bucket information
 
     {% include log-shipping/in-app-configuration.html toolId="s3-config" %}
 
@@ -42,13 +40,13 @@ CloudFront logs are useful for auditing/security monitoring and business intelli
 
     <!-- logzio-inject:s3-config -->
 
-    <div class="info-box important">
       Logz.io fetches logs that are generated after configuring an S3 bucket.
       Past logs are not sent to Logz.io.
-    </div>
+      {:.info-box.important}
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

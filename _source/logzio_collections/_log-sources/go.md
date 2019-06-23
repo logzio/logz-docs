@@ -6,8 +6,7 @@ logo:
 open-source:
   - title: Logzio Golang API client
     github-repo: logzio-go
-shipping-summary:
-  data-source: Go code
+data-source: Go code
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -50,9 +49,9 @@ import (
 func main() {
   // Replace these parameters with your configuration
   l, err := logzio.New(
-    "<ACCOUNT-TOKEN>",
+    "<<SHIPPING-TOKEN>>",
     logzio.SetDebug(os.Stderr),
-    logzio.SetUrl("<LISTENER-URL>:8071"),
+    logzio.SetUrl("<<LISTENER-HOST>>:8071"),
     logzio.SetDrainDuration(time.Second * 5),
     logzio.SetTempDirectory("myQueue"),
     logzio.SetDrainDiskThreshold(99),
@@ -68,8 +67,8 @@ func main() {
 }
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -97,8 +96,8 @@ SetDrainDiskThreshold <span class="default-param">`70.0`</span>
   If the file system storage exceeds this threshold, buffering stops and new logs are dropped.
   Buffering resumes if used space drops below the threshold.
 
-{: .inline-header }
 Code sample
+{:.inline-header}
 
 ```go
 msg := fmt.Sprintf("{\"%s\": \"%d\"}", "message", time.Now().UnixNano())

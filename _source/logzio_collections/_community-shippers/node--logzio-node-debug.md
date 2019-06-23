@@ -4,8 +4,7 @@ project-url: https://github.com/amio-io/logzio-node-debug
 logo:
   logofile: nodejs.svg
   orientation: vertical
-shipping-summary:
-  data-source: Node code
+data-source: Node code
 shipping-tags:
   - from-your-code
 ---

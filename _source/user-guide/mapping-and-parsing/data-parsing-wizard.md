@@ -25,18 +25,16 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
 
 ###### Using the data parsing wizard
 
-{: .tasklist .firstline-headline }
-1. Choose a data source
+1.  Choose a data source
 
     Choose the log type you want to parse from the **Select log type** list.
 
-    <div class="info-box note">
       If the log type you want to parse is disabled, then Logz.io automatically parses it. If you want to override the default parsing, change the log type in your log shipper.
-    </div>
+      {:.info-box.note}
 
     Click **Next** to continue.
 
-2. Configure your parse settings
+2.  Configure your parse settings
 
     ![Step 2: Parse]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-2-parse.png)
 
@@ -52,13 +50,12 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
       * You can let Logz.io detect each field's data type by leaving the default Automatic settings. Otherwise, you can define other data types, such as boolean, date, IP, and byte. For geo-enrichment, for example, you need to select the **Geo-Enrichment** field type.
     </div>
 
-    <div class="info-box tip">
       To help make the best grok pattern for your logs, read the [Elasticsearch grok patterns](https://github.com/elastic/logstash/blob/v1.4.2/patterns/grok-patterns) and use the [Grok Debugger](https://grokdebug.herokuapp.com/).
-    </div>
+      {:.info-box.tip}
 
     Click **Next** to continue.
 
-3. Enrich
+3.  Enrich
 
     ![Step 3: Enrich]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-3-enrich.png)
 
@@ -68,10 +65,11 @@ You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> 
 
     Click **Next** to continue.
 
-4. Validate
+4.  Validate
 
     ![Step 4: Validate]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-4-validate.png)
 
     In both of the tabs, review **Unparsed logs** and **All logs** to troubleshoot any problems with your grok pattern.
 
     If everything looks good, click **Apply** to parse future logs using these settings. Otherwise, click **Back** to make changes to your settings.
+{:.tasklist.firstline-headline}

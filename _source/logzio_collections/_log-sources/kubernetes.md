@@ -3,8 +3,7 @@ title: Ship Kubernetes logs
 logo:
   logofile: kubernetes.svg
   orientation: vertical
-shipping-summary:
-  data-source: Kubernetes
+data-source: Kubernetes
 open-source:
   - title: logzio-k8s
     github-repo: logzio-k8s
@@ -16,12 +15,14 @@ shipping-tags:
   - container
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Non-RBAC configuration](#non-rbac-config)
-  * [RBAC configuration](#rbac-config)
+* [Non-RBAC configuration](#non-rbac-config)
+* [RBAC configuration](#rbac-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="non-rbac-config">
 
 ## Non-RBAC setup
@@ -32,8 +33,7 @@ Fluentd is flexible enough and has the proper plugins to distribute logs to diff
 
 The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
 
-{: .tasklist .firstline-headline }
-1. Build your DaemonSet configuration
+1.  Build your DaemonSet configuration
 
     Paste the sample configuration file below into a local YAML file that you'll use to deploy the DaemonSet.
 
@@ -65,9 +65,9 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
             image: logzio/logzio-k8s:latest
             env:
               - name:  LOGZIO_TOKEN
-                value: <ACCOUNT-TOKEN>
+                value: <<SHIPPING-TOKEN>>
               - name:  LOGZIO_URL
-                value: https://<LISTENER-URL>:8071
+                value: https://<<LISTENER-HOST>>:8071
             resources:
               limits:
                 memory: 200Mi
@@ -91,7 +91,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     ```
 
     Environment variables
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -134,7 +134,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     num_threads <span class="default-param">`2`</span>
     : Number of threads to flush the buffer.
 
-2. Deploy the DaemonSet
+2.  Deploy the DaemonSet
 
     Run this command to deploy the DaemonSet you created in step 1.
 
@@ -142,14 +142,17 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     kubectl create -f /path/to/daemonset/yaml/file
     ```
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="rbac-config">
 
 ## RBAC setup
@@ -160,8 +163,7 @@ Fluentd is flexible enough and has the proper plugins to distribute logs to diff
 
 The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
 
-{: .tasklist .firstline-headline }
-1. Build your DaemonSet configuration
+1.  Build your DaemonSet configuration
 
     Paste the sample configuration file below into a local YAML file that you'll use to deploy the DaemonSet.
 
@@ -231,9 +233,9 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
             image: logzio/logzio-k8s:latest
             env:
               - name:  LOGZIO_TOKEN
-                value: <ACCOUNT-TOKEN>
+                value: <<SHIPPING-TOKEN>>
               - name:  LOGZIO_URL
-                value: https://<LISTENER-URL>:8071
+                value: https://<<LISTENER-HOST>>:8071
             resources:
               limits:
                 memory: 200Mi
@@ -257,7 +259,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     ```
 
     Environment variables
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -300,7 +302,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     num_threads <span class="default-param">`2`</span>
     : Number of threads to flush the buffer.
 
-2. Deploy the DaemonSet
+2.  Deploy the DaemonSet
 
     Run this command to deploy the DaemonSet you created in step 1.
 
@@ -308,13 +310,15 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     kubectl create -f /path/to/daemonset/yaml/file
     ```
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
-
+<!-- tabContainer:end -->

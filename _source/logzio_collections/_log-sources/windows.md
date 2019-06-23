@@ -3,20 +3,21 @@ title: Ship Windows logs
 logo:
   logofile: windows.svg
   orientation: vertical
-shipping-summary:
-  data-source: Windows
+data-source: Windows
 contributors:
   - imnotashrimp
 shipping-tags:
   - os
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Winlogbeat <span class="sm ital">(recommended)</span>](#winlogbeat-config)
-  * [NXLog](#nxlog-config)
+* [Winlogbeat <span class="sm ital">(recommended)</span>](#winlogbeat-config)
+* [NXLog](#nxlog-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="winlogbeat-config">
 
 ## Windows + Winlogbeat setup
@@ -24,13 +25,12 @@ shipping-tags:
 **You'll need**:
 [Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
 
-{: .tasklist .firstline-headline }
-1. Download the Logz.io certificate
+1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
     We'll place the certificate in `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
 
-2. Configure Windows input
+2.  Configure Windows input
 
     In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add this code block to the root level.
 
@@ -39,12 +39,12 @@ shipping-tags:
     ```yaml
     fields:
       logzio_codec: json
-      token: <ACCOUNT-TOKEN>
+      token: <<SHIPPING-TOKEN>>
       type: wineventlog
     fields_under_root: true
     ```
 
-3. Add Logz.io as an output
+3.  Add Logz.io as an output
 
     If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
 
@@ -52,12 +52,12 @@ shipping-tags:
 
     ```yaml
     output.logstash:
-      hosts: ["<LISTENER-URL>:5015"]
+      hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
         certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
     ```
 
-1. Remove remaining default blocks
+4.  Remove remaining default blocks
 
     If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
 
@@ -73,20 +73,23 @@ shipping-tags:
       hosts: ["localhost:9200"]
     ```
 
-2. Restart Winlogbeat
+5.  Restart Winlogbeat
 
     ```powershell
     PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
     ```
 
-3. Check Logz.io for your logs
+6.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="nxlog-config">
 
 ## Windows + NXLog setup
@@ -94,8 +97,7 @@ shipping-tags:
 **You'll need**:
 [NXLog](https://nxlog.co/products/nxlog-community-edition/download)
 
-{: .tasklist .firstline-headline }
-1. Configure NXLog basics
+1.  Configure NXLog basics
 
     Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
@@ -114,7 +116,7 @@ shipping-tags:
     </Extension>
     ```
 
-2. Add Windows as an input
+2.  Add Windows as an input
 
     Add an `Input` block to append your account token to log records.
 
@@ -129,11 +131,11 @@ shipping-tags:
 
         Exec if $raw_event =~ /^#/ drop();
         Exec convert_fields("AUTO", "utf-8");
-        Exec    $raw_event = '[<ACCOUNT-TOKEN>][type=wineventlog]' + $raw_event;
+        Exec    $raw_event = '[<<SHIPPING-TOKEN>>][type=wineventlog]' + $raw_event;
     </Input>
     ```
 
-3. Add Logz.io as an output
+3.  Add Logz.io as an output
 
     Add the Logz.io listener in the `Output` block.
 
@@ -142,7 +144,7 @@ shipping-tags:
     ```conf
     <Output out>
         Module  om_tcp
-        Host    <LISTENER-URL>
+        Host    <<LISTENER-HOST>>
         Port    8010
     </Output>
     <Route 1>
@@ -150,15 +152,18 @@ shipping-tags:
     </Route>
     ```
 
-4. Restart NXLog
+4.  Restart NXLog
 
     ```powershell
     PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
     ```
-5. Check Logz.io for your logs
+5.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

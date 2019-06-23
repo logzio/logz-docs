@@ -3,8 +3,7 @@ title: Ship HAProxy logs
 logo:
   logofile: haproxy.png
   orientation: horizontal
-shipping-summary:
-  data-source: HAProxy
+data-source: HAProxy
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -23,8 +22,7 @@ rsyslog 5.8.0 or later
 
 ###### Guided configuration
 
-{: .tasklist .firstline-headline }
-1. Configure HAProxy
+1.  Configure HAProxy
 
     Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
 
@@ -55,7 +53,7 @@ rsyslog 5.8.0 or later
       server SERVER_NAME SERVER_ADDRESS:PORT
     ```
 
-2. Configure rsyslog
+2.  Configure rsyslog
 
     Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
@@ -80,20 +78,21 @@ rsyslog 5.8.0 or later
     $WorkDirectory /var/spool/rsyslog
 
     # the logz.io syslog template,
-    $template HAProxyLogzioFormat,"[<ACCOUNT-TOKEN>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
+    $template HAProxyLogzioFormat,"[<<SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
 
     # Send messages to Logz over TCP using the template.
-    *.* @@<LISTENER-URL>:5000;HAProxyLogzioFormat
+    *.* @@<<LISTENER-HOST>>:5000;HAProxyLogzioFormat
     ```
 
-3. Restart rsyslog
+3.  Restart rsyslog
 
     ```shell
     sudo service rsyslog restart
     ```
 
-4. Check Logz.io for your logs
+4.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

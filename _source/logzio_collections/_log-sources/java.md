@@ -16,12 +16,14 @@ shipping-tags:
   - from-your-code
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Log4j 2](#log4j-2-config)
-  * [Logback](#logback-config)
+* [Log4j 2](#log4j-2-config)
+* [Logback](#logback-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="log4j-2-config">
 
 ## Log4j 2 setup
@@ -58,17 +60,16 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
-<div class="info-box read">
   See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
-</div>
+  {:.info-box.read}
 
 ```xml
 <Appenders>
 
   <!-- Replace these parameters with your configuration -->
   <LogzioAppender name="Logzio">
-    <logzioToken><ACCOUNT-TOKEN></logzioToken>
-    <logzioUrl>https://<LISTENER-URL>:8071</logzioUrl>
+    <logzioToken><<SHIPPING-TOKEN>></logzioToken>
+    <logzioUrl>https://<<LISTENER-HOST>>:8071</logzioUrl>
     <logzioType>myAwesomeType</logzioType>
   </LogzioAppender>
 
@@ -81,12 +82,12 @@ For a complete list of options, see the configuration parameters below the code 
 </Loggers>
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 logzioToken <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
-  {%- include log-shipping/replace-vars.html token=true %} \\
+  {% include log-shipping/replace-vars.html token=true %} \\
   Begin with `$` to use an environment variable or system property with the specified name.
   For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable.
 
@@ -136,8 +137,8 @@ socketTimeoutMs <span class="default-param">`10 * 1000`</span>
 : Socket timeout during log shipment, in milliseconds.
 
 
-{: .inline-header }
 Code sample
+{:.inline-header}
 
 ```java
 import org.apache.logging.log4j.LogManager;
@@ -217,8 +218,9 @@ public class LogzioLog4j2Example {
 ```
 
 </div>
+<!-- tab:end -->
 
-
+<!-- tab:start -->
 <div id="logback-config">
 
 ## Logback setup
@@ -254,9 +256,8 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
-<div class="info-box read">
   See the [Logback documentation](https://logback.qos.ch/manual/configuration.html) for more information on the Logback configuration file.
-</div>
+  {:.info-box.read}
 
 ```xml
 <configuration>
@@ -265,8 +266,8 @@ For a complete list of options, see the configuration parameters below the code 
 
   <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
     <!-- Replace these parameters with your configuration -->
-    <token><ACCOUNT-TOKEN></token>
-    <logzioUrl><LISTENER-URL>:8071</logzioUrl>
+    <token><<SHIPPING-TOKEN>></token>
+    <logzioUrl><<LISTENER-HOST>>:8071</logzioUrl>
     <logzioType>myType</logzioType>
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
@@ -281,8 +282,8 @@ For a complete list of options, see the configuration parameters below the code 
 </configuration>
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -346,8 +347,8 @@ socketTimeout <span class="default-param">`10 * 1000`</span>
 : Socket timeout during log shipment, in milliseconds.
 
 
-{: .inline-header }
 Code sample
+{:.inline-header}
 
 ```java
 import org.slf4j.Logger;
@@ -428,4 +429,7 @@ public class LogzioLogbackExample {
 ```
 
 </div>
+<!-- tab:end -->
+
 </div>
+<!-- tabContainer:end -->

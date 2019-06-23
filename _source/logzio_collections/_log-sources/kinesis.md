@@ -6,8 +6,7 @@ logo:
 open-source:
   - title: Kinesis Stream Shipper - Lambda
     github-repo: logzio_aws_serverless/tree/master/kinesis
-shipping-summary:
-  data-source: Amazon Kinesis
+data-source: Kinesis
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kinesis
 contributors:
   - idohalevi
@@ -16,20 +15,21 @@ shipping-tags:
   - aws
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Manual Lambda configuration](#manual-lambda-configuration)
-  * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+* [Manual Lambda configuration](#manual-lambda-configuration)
+* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="manual-lambda-configuration">
 
 ## Kinesis + Lambda setup
 
 ###### Manual configuration
 
-{: .tasklist .firstline-headline }
-1. Create a new Lambda function
+1.  Create a new Lambda function
 
     This Lambda function will consume a Kinesis data stream and sends the logs to Logz.io in bulk over HTTP.
 
@@ -44,7 +44,7 @@ shipping-tags:
 
     You'll need this page later on, so keep it open.
 
-2. Zip the source files
+2.  Zip the source files
 
     Download the [Kinesis Stream Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/kinesis) project from GitHub to your computer.
 
@@ -56,7 +56,7 @@ shipping-tags:
 
     This creates a zip file at dist/logzio-kinesis.zip. You'll upload this file in the next step.
 
-3. Upload the zip file and set environment variables
+3.  Upload the zip file and set environment variables
 
     In the Function code section of Lambda find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
 
@@ -84,18 +84,18 @@ shipping-tags:
     COMPRESS <span class="default-param">`false`</span>
     : Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs.
 
-4. Configure the function's basic settings
+4.  Configure the function's basic settings
 
     In Basic settings, we recommend starting with these settings:
+
     * **Memory**: 512 MB
     * **Timeout**: 1 min 0 sec
 
-    <div class="info-box note">
     These default settings are just a starting point.
     Check your Lambda usage regularly, and adjust these values if you need to.
-    </div>
+    {:.info-box.note}
 
-5. Set the Kinesis event trigger
+5.  Set the Kinesis event trigger
 
     Find the **Add triggers** list (left side of the Designer panel). Choose **Kinesis** from this list.
 
@@ -103,14 +103,17 @@ shipping-tags:
 
     Click **Add**, and then click **Save** at the top of the page.
 
-6. Check Logz.io for your logs
+6.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="automated-cloudformation-deployment">
 
 ## Kinesis + Lambda setup
@@ -121,8 +124,7 @@ an S3 bucket to store the CloudFormation package
 
 ###### CloudFront automated deployment
 
-{: .tasklist .firstline-headline }
-1. Zip the source files
+1.  Zip the source files
 
     Download the [Kinesis Stream Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/kinesis) project from GitHub to your computer.
 
@@ -135,21 +137,21 @@ an S3 bucket to store the CloudFormation package
     This creates a zip file at dist/logzio-kinesis.zip.
     You'll upload this file in the next step.
 
-2. Create the CloudFormation package and upload to S3
+2.  Create the CloudFormation package and upload to S3
 
     In the command line, type `cd ..` to return to the logzio_aws_serverless/kinesis folder.
 
     Create the CloudFormation package using the AWS CLI.
-    Replace `<YOUR-S3-BUCKET>` with the S3 bucket name where you'll be uploading this package.
+    Replace `<<YOUR-S3-BUCKET>>` with the S3 bucket name where you'll be uploading this package.
 
     ```shell
     aws cloudformation package
       --template sam-template.yaml
       --output-template-file kinesis-template.output.yaml
-      --s3-bucket <YOUR-S3-BUCKET>
+      --s3-bucket <<YOUR-S3-BUCKET>>
       ```
 
-3. Deploy the CloudFormation package
+3.  Deploy the CloudFormation package
 
     Deploy the CloudFormation package using AWS CLI.
 
@@ -160,8 +162,8 @@ an S3 bucket to store the CloudFormation package
     --template-file $(pwd)/cloudformation-template.output.yaml
     --stack-name logzio-kinesis-logs-lambda-stack
     --parameter-overrides
-      LogzioTOKEN='<ACCOUNT-TOKEN>'
-      KinesisStream='<KINESIS-STREAM-NAME>'
+      LogzioTOKEN='<<SHIPPING-TOKEN>>'
+      KinesisStream='<<KINESIS-STREAM-NAME>>'
     --capabilities "CAPABILITY_IAM"
     ```
 
@@ -195,12 +197,15 @@ an S3 bucket to store the CloudFormation package
     : The position in the stream to start reading from.
       For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference.
 
-4. Check Logz.io for your logs
+4.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

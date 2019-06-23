@@ -3,8 +3,7 @@ title: Ship Elastic Load Balancing logs
 logo:
   logofile: aws-elb.svg
   orientation: vertical
-shipping-summary:
-  data-source: Amazon Elastic Load Balancing
+data-source: Elastic Load Balancing
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ELB
 contributors:
   - idohalevi
@@ -22,8 +21,7 @@ When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodic
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
-1. Send your logs to an S3 bucket
+1.  Send your logs to an S3 bucket
 
     Logz.io fetches your Elastic Load Balancing logs from an S3 bucket.
 
@@ -33,7 +31,7 @@ When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodic
     * For Network Load Balancer, see [Monitor Your Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-monitoring.html).
     * For Classic Load Balancer, see [Enable Access Logs for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html).
 
-2. Add the S3 bucket information
+2.  Add the S3 bucket information
 
     {% include log-shipping/in-app-configuration.html toolId="s3-config" %}
 
@@ -44,13 +42,13 @@ When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodic
 
     <!-- logzio-inject:s3-config -->
 
-    <div class="info-box important">
       Logz.io fetches logs that are generated after configuring an S3 bucket.
       Past logs are not sent to Logz.io.
-    </div>
+      {:.info-box.important}
 
-3. Check Logz.io for your logs
+3.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

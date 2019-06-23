@@ -122,9 +122,8 @@ It means that you'll need to do at least one automated deployment for each regio
     Leave **Blob parameter name** blank.
     Enter the **Path** for the Azure blob you're sending dropped metrics to, and then click **Save**.
 
-    <div class="info-box read">
-      For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
-    </div>
+    For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
+    {:.info-box.read}
 
 3. Stream data to the new event hub
 

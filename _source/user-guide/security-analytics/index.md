@@ -21,22 +21,25 @@ Security Analytics helps you identify potential compromises to your system by co
 
 ![Logz.io Security Analytics]({{site.baseurl}}/images/security-analytics/security-analytics--annotated.png)
 
-{:.letter-labels}
 Summary
-  : The first thing you see when you sign in to your security account.
-    The summary dashboard shows the last 24 hours of events that Logz.io found in your log data.
+: The first thing you see when you sign in to your security account.
+  The summary dashboard shows the last 24 hours of events that Logz.io found in your log data.
 
 Threats
-  : Using publicly available threat feeds, this screen shows the potential threats from known bad actors on the internet.
+: Using publicly available threat feeds,
+  this screen shows the potential threats from known bad actors on the internet.
 
 Research
-  : Use Kibana to drill down into your logs, helping you better understand specific events and threats.
+: Use Kibana to drill down into your logs,
+  helping you better understand specific events and threats.
 
 
 Security rules
-  : This page contains preconfigured security rules.
-    When security rules are triggered, you’ll see the results on the Summary and Threats dashboards.
-    You can also create your own custom rules.
+: This page contains preconfigured security rules.
+  When security rules are triggered,
+  you’ll see the results on the Summary and Threats dashboards.
+  You can also create your own custom rules.
+{:.letter-labels}
 
 
 To see your Security Analytics account, click the Logz.io logo (upper left corner), and then click **Security**.

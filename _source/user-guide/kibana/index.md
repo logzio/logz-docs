@@ -14,19 +14,18 @@ When you first sign in to Logz.io, you'll find yourself at the Discover page. Yo
 
 ![Kibana UI in Logz.io]({{ site.baseurl }}/images/kibana/kibana--discover-annotated.png)
 
-{: .letter-labels }
+Query bar
+: This is where you type your Elasticsearch query
 
-  Query bar
-  : This is where you type your Elasticsearch query
+Field and account selection
+: Choose the accounts to search and the fields that will get a table column
 
-  Field and account selection
-  : Choose the accounts to search and the fields that will get a table column
+Histogram
+: Time-limited view of your search query
 
-  Histogram
-  : Time-limited view of your search query
+Cognitive Insights
+: If Logz.io notices patterns or anomalies in your logs, it will notify you with Cognitive Insights
 
-  Cognitive Insights
-  : If Logz.io notices patterns or anomalies in your logs, it will notify you with Cognitive Insights
-
-  Document table
-  : A text view of the results of your search query
+Document table
+: A text view of the results of your search query
+{:.letter-labels}

@@ -16,19 +16,20 @@ shipping-tags:
   - security
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Manual Lambda configuration](#manual-lambda-configuration)
-  * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+* [Manual Lambda configuration](#manual-lambda-configuration)
+* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="manual-lambda-configuration">
 
 ## GuardDuty setup
 
 ###### Manual configuration
 
-{: .tasklist .firstline-headline }
 1.  Create a new Kinesis data stream
 
     If you're not already sending your GuardDuty logs through a Kinesis data stream, create one using the [Kinesis console](https://console.aws.amazon.com/kinesis).
@@ -117,10 +118,9 @@ shipping-tags:
     * **Memory**: 512 MB
     * **Timeout**: 1 min 0 sec
 
-    <div class="info-box note">
     These default settings are just a starting point.
     Check your Lambda usage regularly, and adjust these values if you need to.
-    </div>
+    {:.info-box.note}
 
 7.  Set the Kinesis event trigger
 
@@ -137,9 +137,12 @@ shipping-tags:
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="automated-cloudformation-deployment">
 
 ## GuardDuty setup
@@ -150,7 +153,6 @@ an S3 bucket to store the CloudFormation package
 
 ###### CloudFormation automated deployment
 
-{: .tasklist .firstline-headline }
 1.  Create a new Kinesis data stream
 
     If you're not already sending your GuardDuty logs through a Kinesis data stream, create one using the [Kinesis console](https://console.aws.amazon.com/kinesis).
@@ -251,8 +253,10 @@ an S3 bucket to store the CloudFormation package
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
-
+<!-- tabContainer:end -->
 </div>

@@ -12,11 +12,11 @@ shipping-tags:
 
 ## Setup
 
-<div class="accordion">
+<details>
 
-### Configuration tl;dr
-
-<div>
+<summary>
+Configuration tl;dr
+</summary>
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf)
@@ -31,16 +31,13 @@ Default log location
 Log type _\(for preconfigured parsing\)_
 : `syslog`
 
-</div>
-
-</div>
+</details>
 
 ###### Guided configuration
 
 **You'll need**:
 root access
 
-{: .tasklist .firstline-headline }
 1.  Run the rsyslog configuration script
 
     {% include log-shipping/replace-vars.html token=true listener=true %}
@@ -56,3 +53,4 @@ root access
     Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

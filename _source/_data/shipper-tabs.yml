@@ -13,11 +13,11 @@ tabs:
   - collection: shippers
   - collection: community-shippers
     top-content: >-
-      <div class="info-box important no-title">
-        <p class="sm"><strong>Logz.io does not test or support these projects.</strong>
+      <p class="info-box important no-title sm">
+        <span class="bold">Logz.io does not test or support these projects.</span><br />
         These projects are maintained by third parties and recommended by members of the Logz.io community.
-        Always test and review the code of any community project before using it.</p>
-      </div>
+        Always test and review the code of any community project before using it.
+      </p>
 
 tags:
   - slug: log-shipper

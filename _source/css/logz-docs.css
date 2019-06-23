@@ -129,7 +129,7 @@ html {
   font-size: 16px;
 }
 
-body, .ui-accordion-content > *:not(h5):not(h6)  {
+body {
   font-family: var(--body-font);
   font-size: 1rem;
   font-weight: 400;
@@ -177,7 +177,7 @@ ol img, ol video {
 }
 
 
-a, a:hover, .ui-accordion-content a {
+a, a:hover {
   color: var(--text-link);
   text-decoration: none;
 }
@@ -402,50 +402,35 @@ div.related-links-container span {
   color: var(--heading-normal);
 }
 
-/* ===== ACCORDION OVERRIDES ===== */
-/* Accordion is styled from jquery ui base css.
-  The styles here override the defaults */
+/* ===== ACCORDIONS & TABS ===== */
 
-  .ui-accordion-header {
-    background-color: unset;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid var(--border-very-light);
-    outline: none;
-    font-weight: 400;
-    color: var(--heading-normal);
-  }
-
-  .ui-accordion-header:not(.ui-accordion-header-active):hover {
-    border-bottom-color: currentColor;
-    font-weight: 600;
-  }
-
-  .ui-accordion-header-active {
-    color: var(--heading-normal);
-    font-weight: 600;
-    border-bottom: 3px solid currentColor;
-  }
-
-.ui-accordion-header::before, .ui-accordion-header-active::before {
-  font-family: var(--fa);
-  font-weight: 700;
-  font-size: .7rem;
+details {
+  background-color: var(--background-very-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: .4rem 1rem;
+  margin-bottom: 5px;
 }
 
-.ui-accordion-header::before {
-  content: "\f054";
-  margin-right: 15px;
+details[open] > summary {
+  border-bottom: 3px solid currentColor;
+  font-weight: 600;
 }
 
-.ui-accordion-header-active::before {
-  content: "\f078";
-  margin-right: 12px;
+details > summary:hover {
+  font-weight: 600;
 }
 
-.ui-accordion-content p  {
-  font-family: unset;
-  font-size: unset;
+summary {
+  padding-left: .7rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+summary > p {
+  display: inline-block;
+  color: var(--heading-normal);
+  margin: unset;
 }
 
 .branching-container {
@@ -477,10 +462,6 @@ ol .branching-tabs {
   border-bottom: 4px solid currentColor;
   margin-bottom: -2px;
 }
-
-/* .branching-tabs li:hover {
-  color: var(--heading-normal-50);
-} */
 
 .branching-tabs li.active {
   font-weight: 400;

@@ -20,20 +20,16 @@ shipping-tags:
 **You'll need**:
 AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
 
-<div class="info-box important">
   Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout.
-  Make sure you understand these limits.
-
-
-  If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase.
-
-
+  Make sure you understand these limits. \\
+  \\
+  If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. \\
+  \\
   For more information, see [AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) from AWS.
-</div>
+  {:.info-box.important}
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
 1.  Create a new Lambda function
 
     This Lambda function collects your AWS Cost and Usage report files from an S3 bucket and sends them to Logz.io in bulk over HTTP.
@@ -118,10 +114,9 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
     * **Memory**: 1024 MB
     * **Timeout**: 5 min 0 sec
 
-    <div class="info-box note">
     These default settings are just a starting point.
     Check your Lambda usage regularly, and adjust these values if you need to.
-    </div>
+    {:.info-box.note}
 
 6.  Set the CloudWatch Logs event trigger
 
@@ -133,9 +128,8 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
 
     Under **Rule type**, select **Schedule expression**, and then type `rate(10 hours)` in the **Schedule expression** box.
 
-    <div class="info-box note">
       We recommend starting with 10 hours, but you can adjust this time as needed.
-    </div>
+      {:.info-box.note}
 
     Click **Add**, and then click **Save** at the top of the page.
 
@@ -144,3 +138,4 @@ AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/lat
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

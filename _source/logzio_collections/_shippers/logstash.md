@@ -17,9 +17,9 @@ For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/sh
 
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Shipping over SSL <span class="sm ital">(recommended)</span>](#ssl-config)
-  * [Shipping over TCP](#tcp-config)
+* [Shipping over SSL <span class="sm ital">(recommended)</span>](#ssl-config)
+* [Shipping over TCP](#tcp-config)
+{:.branching-tabs}
 
 <div id="ssl-config">
 
@@ -31,7 +31,6 @@ For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/sh
 JDK,
 [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
-{: .tasklist .firstline-headline }
 1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
@@ -93,6 +92,7 @@ JDK,
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
 
@@ -106,7 +106,6 @@ JDK,
 JDK,
 [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
-{: .tasklist .firstline-headline }
 1.  Add Logz.io to your configuration file
 
     Add these code blocks to the end of your existing Logstash configuration file.
@@ -140,6 +139,7 @@ JDK,
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
 

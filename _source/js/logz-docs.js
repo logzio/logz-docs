@@ -22,23 +22,12 @@ $(function() {
   $('table').tablesorter({ sortList: [[0,0]] });
 });
 
-// accordion
-$(function() {
-  $( '.accordion' ).accordion({
-    active: false,
-    collapsible: true,
-    heightStyle: 'content',
-    icons: false
-  });
-});
-
 $(function() {
   $('.branching-container').easytabs({
     animate: false,
     updateHash: false
   });
 });
-
 
 // toc collapse button for smaller screens
 $(function() {
@@ -92,4 +81,17 @@ $('.branching-tabs > li > a').click(function() {
   }
 });
 
+});
+
+// scroll to <summary> when clicked
+$(function() {
+  $('summary').on('click', function() {
+    $(this).toggleClass('open');
+    if ($(this).hasClass('open')) { // if element is closed
+      $(this).parent().siblings('details').removeAttr('open').children('summary').removeClass('open'); // close siblings
+      var thisPos = $(this).position(); // get position
+      var scrollTo = thisPos.top - 100; // set position, minus offset
+      scroll.animateScroll(scrollTo); // scroll to this summary tag
+    }
+  });
 });

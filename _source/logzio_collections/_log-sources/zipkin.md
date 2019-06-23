@@ -18,11 +18,10 @@ shipping-tags:
 Zipkin-Logz.io Trace Storage is a storage option for Zipkin distributed traces on your Logz.io account.
 It functions as both a collector and a span store.
 
-<div class="info-box note">
   This integration requires Logz.io API access.
   The Logz.io API is available for all Enterprise accounts.
   If you're on a Pro account, reach out to your account manager or the <a class="intercom-launch" href="mailto:sales@logz.io">Sales team</a> to request API access.
-</div>
+  {:.info-box.note}
 
 ### Limitations
 
@@ -34,7 +33,6 @@ For most users, these won't be an issue, but they're still good to know:
 
 ## To integrate Zipkin server and Logz.io
 
-{: .tasklist .firstline-headline}
 1.  Download Zipkin server and Zipkin-Logz.io Trace Storage
 
     Download [Zipkin server](https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec).
@@ -60,19 +58,15 @@ For most users, these won't be an issue, but they're still good to know:
     java -Dloader.path='zipkin-logzio.jar,zipkin-logzio.jar!lib' -Dspring.profiles.active=logzio -cp zipkin.jar org.springframework.boot.loader.PropertiesLauncher
     ```
 
-    <div class="info-box tip">
+      You can optionally run two discrete Zipkin-Logzio Trace Storage instances if you want to separate shipping and reading of your traces. \\
+      \\
+      If you do, then the required fields change a bit from what's shown in the Parameters list: \\
+      • The **shipping instance** uses `STORAGE_TYPE=logzio`, `LOGZIO_ACCOUNT_TOKEN`, and `LOGZIO_LISTENER_HOST`. \\
+      • The **reading instance** uses `STORAGE_TYPE=logzio`, `LOGZIO_API_TOKEN`, and `LOGZIO_API_HOST`.
+      {:.info-box.tip}
 
-      You can optionally run two discrete Zipkin-Logzio Trace Storage instances if you want to separate shipping and reading of your traces.
-
-      If you do, then the required fields change a bit from what's shown in the Parameters list:
-
-      * The **shipping instance** uses `STORAGE_TYPE=logzio`, `LOGZIO_ACCOUNT_TOKEN`, and `LOGZIO_LISTENER_HOST`.
-      * The **reading instance** uses `STORAGE_TYPE=logzio`, `LOGZIO_API_TOKEN`, and `LOGZIO_API_HOST`.
-
-    </div>
-
-    {: .inline-header }
     Parameters
+    {:.inline-header}
 
     STORAGE_TYPE=logzio <span class="required-param"></span>
     : We wish there was a way to include this as a default.
@@ -112,3 +106,4 @@ For most users, these won't be an issue, but they're still good to know:
     Give your traces some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

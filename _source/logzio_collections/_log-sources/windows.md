@@ -10,12 +10,14 @@ shipping-tags:
   - os
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Winlogbeat <span class="sm ital">(recommended)</span>](#winlogbeat-config)
-  * [NXLog](#nxlog-config)
+* [Winlogbeat <span class="sm ital">(recommended)</span>](#winlogbeat-config)
+* [NXLog](#nxlog-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="winlogbeat-config">
 
 ## Windows + Winlogbeat setup
@@ -23,7 +25,6 @@ shipping-tags:
 **You'll need**:
 [Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
 
-{: .tasklist .firstline-headline }
 1.  Download the Logz.io certificate
 
     For HTTPS shipping, download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
@@ -83,9 +84,12 @@ shipping-tags:
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="nxlog-config">
 
 ## Windows + NXLog setup
@@ -93,7 +97,6 @@ shipping-tags:
 **You'll need**:
 [NXLog](https://nxlog.co/products/nxlog-community-edition/download)
 
-{: .tasklist .firstline-headline }
 1.  Configure NXLog basics
 
     Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
@@ -157,7 +160,10 @@ shipping-tags:
 5.  Check Logz.io for your logs
 
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

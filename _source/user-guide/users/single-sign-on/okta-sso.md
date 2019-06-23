@@ -17,12 +17,10 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
 ###### To set up single sign-on for Okta
 
-{: .tasklist .firstline-headline }
 1.  Request SSO access from Logz.io
 
-    <div class="info-box note">
       Only account admins can request single sign-on access for their accounts.
-    </div>
+      {:.info-box.note}
 
     To kick off this process, send an email to [help@logz.io](mailto:help@logz.io).
     Write that you want to set up Okta SAML SSO for Logz.io.
@@ -114,3 +112,4 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     When Support has created your Okta + Logz.io connection, you're done!
     You can start logging in to Logz.io through your Apps portal.
+{:.tasklist.firstline-headline}

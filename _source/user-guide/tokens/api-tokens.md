@@ -22,10 +22,10 @@ To get to this page, select [**<i class="li li-gear"></i> > Tools > API tokens**
 
 ###### Working with API tokens
 
-* To create an API token, type a brief **token name** and click **Save**.
+* To create an API token,
+  type a brief **token name** and click **Save**.
+* To delete an API token,
+  click the token's <i class="li li-x"></i>.
 
-* To delete an API token, click the token's <i class="li li-x"></i>.
-
-<div class="info-box gotcha">
-  Deleting a token affects any integrations that use that token. Make sure you update integrations that use a token you deleted.
-</div>
+Deleting a token affects any integrations that use that token. Make sure you update integrations that use a token you deleted.
+{:.info-box.important}

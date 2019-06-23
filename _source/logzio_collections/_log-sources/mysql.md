@@ -16,21 +16,23 @@ shipping-tags:
   - database
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
 * [Filebeat](#filebeat-config)
 * [Docker sidecar](#docker-sidecar-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="filebeat-config">
 
 ## MySQL + Filebeat setup
 
-<div class="accordion">
+<details>
 
-### Configuration tl;dr
-
-<div>
+<summary>
+Configuration tl;dr
+</summary>
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
@@ -50,9 +52,7 @@ Log type _(for preconfigured parsing)_
   Slow query log: `mysql_slow_query` \\
   Error log: `mysql_error`
 
-</div>
-
-</div>
+</details>
 
 ###### Guided configuration
 
@@ -61,7 +61,6 @@ Log type _(for preconfigured parsing)_
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 [MySQL](https://dev.mysql.com/downloads/)
 
-{: .tasklist .firstline-headline }
 1.  Configure MySQL to write general query logs
 
     In the MySQL configuration file (/etc/mysql/my.cnf),
@@ -95,17 +94,8 @@ Log type _(for preconfigured parsing)_
 
     {% include log-shipping/replace-vars.html token=true %}
 
-    <div class="branching-container">
-
-    {: .branching-tabs }
-    * [Filebeat 7](#filebeat-7-code)
-    * [Filebeat 6](#filebeat-6-code)
-
-    <div id="filebeat-7-code">
-
     ```yaml
-    # Filebeat 7 configuration
-
+    # ...
     filebeat.inputs:
     - type: log
       paths:
@@ -155,8 +145,13 @@ Log type _(for preconfigured parsing)_
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
+      ```
 
+    If you're running Filebeat 7, paste this code block.
+    Otherwise, you can leave it out.
 
+    ```yaml
+    # ... For Filebeat 7 only ...
     filebeat.registry.path: /var/lib/filebeat
     processors:
     - rename:
@@ -171,69 +166,12 @@ Log type _(for preconfigured parsing)_
         ignore_missing: true
     ```
 
-    </div>
-
-    <div id="filebeat-6-code">
-
+    If you're running Filebeat 6, paste this code block.
 
     ```yaml
-    # Filebeat 6 configuration
-
-    - type: log
-      paths:
-        - /var/log/mysql/mysql.log
-
-      fields:
-        logzio_codec: plain
-
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: mysql
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-
-    - type: log
-      paths:
-        - /var/log/mysql/mysql-slow.log
-
-      fields:
-        logzio_codec: plain
-
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: mysql_slow_query
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-      multiline:
-        pattern: '^# Time:'
-        negate: true
-        match: after
-
-    - type: log
-      paths:
-        - /var/log/mysql/error.log
-
-      fields:
-        logzio_codec: plain
-
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: mysql_error
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-
+    # ... For Filebeat 6 only ...
     registry_file: /var/lib/filebeat/registry
     ```
-
-    </div>
-
-    </div>
 
 4.  Add Logz.io as an output
 
@@ -242,6 +180,7 @@ Log type _(for preconfigured parsing)_
     {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
+    # ...
     output.logstash:
       hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
@@ -257,16 +196,18 @@ Log type _(for preconfigured parsing)_
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="docker-sidecar-config">
 
 ## MySQL + Docker sidecar setup
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
 1.  Pull the Docker image
 
     Download the logzio/mysql-logs image:
@@ -289,7 +230,7 @@ Log type _(for preconfigured parsing)_
     ```
 
     Parameters
-    {: .inline-header }
+    {:.inline-header}
 
     LOGZIO_TOKEN <span class="required-param"></span>
     : Your Logz.io account token.
@@ -315,7 +256,10 @@ Log type _(for preconfigured parsing)_
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

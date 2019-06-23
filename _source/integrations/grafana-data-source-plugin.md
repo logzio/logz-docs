@@ -23,7 +23,6 @@ The plugin allows you to view your Logz.io-stored metrics in a Grafana instance 
 Write access to Grafana,
 Logz.io API access
 
-{: .tasklist .firstline-headline }
 1.  Install the plugin
 
     Download the plugin to your Grafana server.
@@ -48,3 +47,4 @@ Logz.io API access
 
     Click **Save & Test**.
     If the test passes, you can now use Logz.io as a data source.
+{:.tasklist.firstline-headline}

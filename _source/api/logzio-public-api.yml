@@ -2777,6 +2777,7 @@ definitions:
   SnapshotCreateRequest:
     type: object
     required:
+      - snapshotSavedObjectId
       - snapshotTimeZone
       - snapshotType
       - timeFrameFrom

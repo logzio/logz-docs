@@ -2,6 +2,11 @@
 layout: article
 title: Docs admin
 permalink: /docs-admin/
+additional-docs:
+  - name: Shipping manifest (for this deploy only)
+    permalink: /data/shipping-manifest.json
+  - name: robots.txt
+    permalink: /robots.txt
 ---
 
 {%- assign thisCollection = site.collections
@@ -17,5 +22,7 @@ This build's environment: {{jekyll.environment}}
   {%- unless filename == "index" %}
   * [{{doc.title}}]({{doc.url}})
   {%- endunless -%}
+{%- endfor -%}
+{%- for doc in page.additional-docs %}
+  * [{{ doc.name }}]({{ site.baseurl | append: doc.permalink }})
 {%- endfor %}
-  * [Shipping manifest]({{site.baseurl}}/data/shipping-manifest.json) (for this deploy only)

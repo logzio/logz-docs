@@ -24,7 +24,6 @@ Each timeless account contains its own Elasticsearch index, which you can search
 
 ###### To create or manage a timeless account
 
-{:.tasklist}
 1.  In the **Timeless account plan** panel, click the timeless account you want to manage, or click **Add timeless account**.
 
     ![Manage a timeless account]({{site.baseurl}}/images/accounts/accounts--manage-timeless-account.png)
@@ -40,3 +39,4 @@ Each timeless account contains its own Elasticsearch index, which you can search
 3.  If you want your sub accounts to be able to search this account, add the intended accounts to the **Read & write permissions** box.
 
 4.  Click **Apply** to save your changes.
+{:.tasklist}

@@ -15,12 +15,14 @@ shipping-tags:
   - from-your-code
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [logzio-nodejs](#logzio-nodejs-config)
-  * [winston-logzio](#winston-logzio-config)
+* [logzio-nodejs](#logzio-nodejs-config)
+* [winston-logzio](#winston-logzio-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="logzio-nodejs-config">
 
 ## logzio-nodejs setup
@@ -58,8 +60,8 @@ var logger = require('logzio-nodejs').createLogger({
 });
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -108,8 +110,8 @@ addTimestampWithNanoSecs <span class="default-param">`false`</span>
   Otherwise, `false`. \\
   If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence.
 
-{: .inline-header }
 Code sample
+{:.inline-header}
 
 You can send log lines as a raw string or as an object.
 For more consistent and reliable parsing, we recommend sending logs as objects.
@@ -141,8 +143,9 @@ Include this line if you're using logzio-nodejs in a severless environment, such
   ```
 
 </div>
+<!-- tab:end -->
 
-
+<!-- tab:start -->
 <div id="winston-logzio-config">
 
 ## winston-logzio setup
@@ -180,8 +183,8 @@ var loggerOptions = {
 winston.add(logzioWinstonTransport, loggerOptions);
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -230,8 +233,8 @@ addTimestampWithNanoSecs <span class="default-param">`false`</span>
   Otherwise, `false`. \\
   If you're sending multiple logs per second, we recommend setting to `true` in order to preserve the log sequence.
 
-{: .inline-header }
 Code samples
+{:.inline-header}
 
 To send a log line:
 
@@ -269,5 +272,7 @@ process.on('uncaughtException', function (err) {
 ```
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

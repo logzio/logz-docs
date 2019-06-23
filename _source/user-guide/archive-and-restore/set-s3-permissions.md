@@ -18,12 +18,11 @@ Logz.io needs these permissions:
 
 You'll set these permissions for an AWS IAM user.
 
-<div class="info-box tip">
   We recommend allowing all three permissions so you won't run into any issues when you want to restore.
-</div>
+  {:.info-box.tip}
 
 Sample policy
-{: .inline-header }
+{:.inline-header}
 
 This code block shows a policy for an IAM user with all three permissions enabled:
 
@@ -60,7 +59,6 @@ To test for `ListBucket` and `GetObject` permissions, you can use [AWS CLI](http
 **You'll need**:
 [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) configured with the IAM user credentials you're testing
 
-{: .tasklist .firstline-headline }
 1.  Create a test file
 
     Make a new dummy file for testing purposes.
@@ -90,3 +88,4 @@ To test for `ListBucket` and `GetObject` permissions, you can use [AWS CLI](http
     ```
 
     If all the commands are successful, we can archive and restore your logs with these IAM user credentials.
+{:.tasklist.firstline-headline}

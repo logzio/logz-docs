@@ -39,9 +39,8 @@ You can also update any preconfigured rule at any time, including adding a notif
 
 2.  If you need to, change your **Query**.
 
-    <div class="info-box important">
-      If you use an invalid query, the rule will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
-    </div>
+    If you use an invalid query, the rule will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
+    {:.info-box.important}
 
 3.  _(Optional)_ If you want to group logs in the notification:
 

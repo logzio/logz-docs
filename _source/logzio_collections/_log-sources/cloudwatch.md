@@ -19,7 +19,6 @@ shipping-tags:
 
 ###### Configuration
 
-{: .tasklist .firstline-headline }
 1.  Create a new Lambda function
 
     This Lambda function will collect CloudWatch logs and sends them to Logz.io in bulk over HTTP.
@@ -78,10 +77,9 @@ shipping-tags:
     * **Memory**: 512 MB
     * **Timeout**: 1 min 0 sec
 
-    <div class="info-box note">
     These default settings are just a starting point.
     Check your Lambda usage regularly, and adjust these values if you need to.
-    </div>
+    {:.info-box.note}
 
 5.  Set the CloudWatch Logs event trigger
 
@@ -98,3 +96,4 @@ shipping-tags:
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

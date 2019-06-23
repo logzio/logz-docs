@@ -17,9 +17,8 @@ When Logz.io detects a security event in your system, it creates a log entry in 
 Logs are not shipped directly to your Security Analytics account.
 Instead, you'll grant read access to the other accounts you want to monitor.
 
-<div class="info-box note">
-  If you don't have a Security Analytics account yet, reach out to your account manager or email [the Sales team](mailto:sales@logz.io).  
-</div>
+  If you don't have a Security Analytics account yet, reach out to your account manager or email [the Sales team](mailto:sales@logz.io).
+  {:.info-box.note}
 
 ![Manage the Security Analytics account]({{site.baseurl}}/images/accounts/manage-security-account.png)
 
@@ -28,7 +27,6 @@ You'll need to be signed in to the main account in your Operations workspace.
 
 ###### To manage your Security Analytics account
 
-{: .tasklist }
 1.  In the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page of your Operations workspace, you'll find your Security Analytics account at the bottom of the page.
 
     If you want, change the **Security account name** here.
@@ -38,3 +36,4 @@ You'll need to be signed in to the main account in your Operations workspace.
   Any security events are stored as their own logs in Security Analytics.
 
 3.  Click **Apply** to save your changes.
+{:.tasklist}

@@ -72,9 +72,14 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
 
 6. [Bundler](https://bundler.io/): `sudo gem install bundler`
 
-7. [Fork](https://github.com/logzio/logz-docs/fork) the logz-docs repository
+7. [Node and npm](https://www.npmjs.com/get-npm):
+  Check that they're installed (`node -v`, `npm -v`).
+  If not, [download Node.js](https://nodejs.org/en/).
+  (npm is installed as part of Node.js).
 
-8. Clone your fork, checkout the `develop` branch, and add logzio/logz-docs as your upstream repo:
+8. [Fork](https://github.com/logzio/logz-docs/fork) the logz-docs repository
+
+9. Clone your fork, checkout the `develop` branch, and add logzio/logz-docs as your upstream repo:
 
     ```shell
     git clone https://github.com/<your_github>/logz-docs.git
@@ -84,9 +89,12 @@ If you haven't contributed to logz-docs before, follow these steps to get starte
     git fetch upstream
     ```
 
-9. [Jekyll](https://jekyllrb.com/): `sudo gem install bundler jekyll`
+10. [Jekyll](https://jekyllrb.com/):
+  `sudo gem install bundler`
 
-10. Install logz-docs Ruby gems: `sudo bundle install`
+11. Install logz-docs dependencies:
+  `sudo bundle install`,
+  `npm install`
 
 ## Changes and pull requests
 
@@ -196,52 +204,46 @@ Some notes:
 
 ### Info boxes
 
-Info boxes need a `<div class="info-box">` container.
+Info boxes need to live in their own text blocks and are followed by a kramdown attribute string: `{: .info-box }`
 
-Info boxes come in three CSS classes: `note`, `tip`, `important`, `warning`.
+Info boxes come in these CSS classes: `note`, `tip`, `important`, `warning`, `read`.
 CSS handles the styling and adds a header.
-
-Indent content on its own lines between the `<div>` tags.
 
 **Notes**
 
-```html
-<div class="info-box note">
-  Notes are generally non-actionable. They’re more important
-  than the surrounding text but less important than
-  warnings. Could something bad happen if the user ignores
-  this? If no, then it’s a note. Otherwise, it’s an important note.
-</div>
+```
+Notes are generally non-actionable. They’re more important
+than the surrounding text but less important than
+warnings. Could something bad happen if the user ignores
+this? If no, then it’s a note. Otherwise, it’s an important note.
+{:.info-box.note}
 ```
 
 **Tips**
 
-```html
-<div class="info-box tip">
-  Pro tips convey best practices and good actions to ensure
-  success. Think of these as more proactive than important notes.
-</div>
+```
+Pro tips convey best practices and good actions to ensure success.
+Think of these as more proactive than important notes.
+{:.info-box.tip}
 ```
 
 **Important notes**
 
-```html
-<div class="info-box important">
-  Important notes help the user work through common trip-up points.
-  If the user could cause damage by ignoring the important note,
-  consider a warning instead.
-</div>
+```
+Important notes help the user work through common trip-up points.
+If the user could cause damage by ignoring the important note,
+consider a warning instead.
+{:.info-box.important}
 ```
 
 **Warnings**
 
-```html
-<div class="info-box warning">
-  Use warnings when the user could cause damage that’s
-  difficult or impossible to recover from. If you need
-  something less severe than a warning, consider an important note
-  or a note.
-</div>
+```
+Use warnings when the user could cause damage that’s
+difficult or impossible to recover from. If you need
+something less severe than a warning, consider an important note
+or a note.
+{:.info-box.warning}
 ```
 
 ### Code highlighting
@@ -255,10 +257,6 @@ For example, for HTML:
 ````html
 ```html
 <i class="fas fa-dove"></i>
-
-<div class="info-box note">
-  This is a note.
-</div>
 ```
 ````
 

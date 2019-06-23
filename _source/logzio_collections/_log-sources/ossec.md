@@ -13,11 +13,11 @@ shipping-tags:
 
 ## Setup
 
-<div class="accordion">
+<details>
 
-### Configuration tl;dr
-
-<div>
+<summary>
+Configuration tl;dr
+</summary>
 
 Files
 : [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
@@ -31,9 +31,7 @@ Default log locations
 : JSON _(recommended)_: `/var/ossec/logs/alerts/alerts.json` \\
   Plain text: `/var/ossec/logs/alerts/alerts.log`
 
-</div>
-
-</div>
+</details>
 
 ###### Guided configuration
 
@@ -42,7 +40,6 @@ Default log locations
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 root access
 
-{: .tasklist .firstline-headline }
 1.  Configure OSSEC for JSON alert output
 
     In the OSSEC configuration file (/var/ossec/etc/ossec.conf), find the `<global>` tag.
@@ -74,17 +71,8 @@ root access
 
     {% include log-shipping/replace-vars.html token=true %}
 
-    <div class="branching-container">
-
-    {: .branching-tabs }
-    * [Filebeat 7](#filebeat-7-code)
-    * [Filebeat 6](#filebeat-6-code)
-
-    <div id="filebeat-7-code">
-
     ```yaml
-    # Filebeat 7 configuration
-
+    # ...
     filebeat.inputs:
     - type: log
 
@@ -101,7 +89,13 @@ root access
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
+    ```
 
+    If you're running Filebeat 7, paste this code block.
+    Otherwise, you can leave it out.
+
+    ```yaml
+    # ... For Filebeat 7 only ...
     filebeat.registry.path: /var/lib/filebeat
     processors:
     - rename:
@@ -116,37 +110,12 @@ root access
         ignore_missing: true
     ```
 
-    </div>
-
-    <div id="filebeat-6-code">
-
+    If you're running Filebeat 6, paste this code block.
 
     ```yaml
-    # Filebeat 6 configuration
-
-    filebeat.inputs:
-    - type: log
-
-      paths:
-      - /var/ossec/logs/alerts/alerts.json
-
-      fields:
-        logzio_codec: json
-
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: ossec
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-
+    # ... For Filebeat 6 only ...
     registry_file: /var/lib/filebeat/registry
     ```
-
-    </div>
-
-    </div>
 
 4.  Add Logz.io as an output
 
@@ -155,6 +124,7 @@ root access
     {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
+    # ...
     output.logstash:
       hosts: ["<<LISTENER-HOST>>:5015"]
       ssl:
@@ -170,3 +140,4 @@ root access
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

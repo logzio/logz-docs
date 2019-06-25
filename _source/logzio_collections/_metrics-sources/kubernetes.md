@@ -14,25 +14,15 @@ shipping-tags:
 
 ###### Configuration
 
-1.  Store your Logz.io token and listener host as Kubernetes secret
-
-    {% include log-shipping/replace-vars.html token=true listener=true %}
+1.  Check for kube-state-metrics in your cluster
 
     ```shell
-    kubectl --namespace=kube-system create secret generic logzio-secret \
-      --from-literal=logzio-account-token=<<ACCOUNT-TOKEN>> \
-      --from-literal=logzio-listener-host=<<LISTENER-HOST>>
-    ```
-
-2.  Check for kube-state-metrics in your cluster
-
-    ```shell
-    kubectl get pods --all-namespaces | grep kube-state-metrics
+    kubectl get pods --all-namespaces | grep -E 'kube-state-metrics|NAMESPACE'
     ```
 
     If you see a response,
     that means kube-state-metrics is installed,
-    and you can skip to the next step.
+    and you can move on to step 2.
 
     Otherwise, deploy kube-state-metrics to your cluster.
 
@@ -41,31 +31,34 @@ shipping-tags:
       && kubectl --namespace=kube-system apply -f kube-state-metrics/kubernetes
     ```
 
-    If you don't want to keep the repo, you can remove it now.
+2.  Store your Kubernetes secrets
+
+    Save your Logz.io shipping credentials as a Kubernetes secret.
+
+    {% include log-shipping/replace-vars.html token=true listener=true %}
 
     ```shell
-    rm -r kube-state-metrics
+    kubectl --namespace=kube-system create secret generic logzio-metrics-secret \
+      --from-literal=logzio-metrics-shipping-token=<<ACCOUNT-TOKEN>> \
+      --from-literal=logzio-metrics-listener-host=<<LISTENER-HOST>>
+    ```
+
+    Get the kube-state-metrics details...
+
+    ```shell
+    kubectl get pods --all-namespaces | grep -E 'kube-state-metrics|NAMESPACE'
+    ```
+
+    ...and replace `<<KUBE-STATE-METRICS-NAMESPACE>>` and `<<KUBE-STATE-METRICS-PORT>>` in this command.
+    Run this command to save your kube-state-metrics details as a Kubernetes secret.
+
+    ```shell
+    kubectl --namespace=kube-system create secret generic kube-state-metrics-env-vars \
+      --from-literal=kube-state-metrics-namespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
+      --from-literal=kube-state-metrics-port=<<KUBE-STATE-METRICS-PORT>>
     ```
 
 3.  Deploy
-
-    If you're here at step 3,
-    that means you're sure kube-state-metrics is installed in your cluster.
-    (If you're not sure, go back to step 2 to check, please.
-    This step depends on it.)
-
-    Save the kube-state-metrics namespace and port as local session variables.
-    This is so we can use these when we deploy your metrics pod.
-
-    ```shell
-    tmp=$(kubectl get service --all-namespaces | grep -E kube-state-metrics | sed -E -e 's/([^ ]+)([ ]+[^ ]+){4}[ ]+([^ ]+).+/\1|\3/') &&
-      kube_state_metrics_namespace=$(echo $tmp | sed -E -e 's/(.+)\|.+/\1/') &&
-      kube_state_metrics_port=$(echo $tmp | sed -E -e 's/.+\|([0-9]+).+/\1/')
-
-    kubectl --namespace=kube-system create secret generic kube-state-metrics-env-vars \
-      --from-literal=kube-state-metrics-namespace=$kube_state_metrics_namespace \
-      --from-literal=kube-state-metrics-port=$kube_state_metrics_port
-    ```
 
     ```shell
     kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-metricbeat.yml

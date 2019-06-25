@@ -3,8 +3,7 @@ title: Ship Kubernetes metrics
 logo:
   logofile: kubernetes.svg
   orientation: vertical
-shipping-summary:
-  data-source: Kubernetes
+data-source: Kubernetes
 contributors:
   - imnotashrimp
 shipping-tags:

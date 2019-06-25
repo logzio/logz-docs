@@ -3,8 +3,7 @@ title: Ship system metrics
 logo:
   logofile: gauge.svg
   orientation: vertical
-shipping-summary:
-  data-source: System
+data-source: System
 contributors:
   - imnotashrimp
 shipping-tags:

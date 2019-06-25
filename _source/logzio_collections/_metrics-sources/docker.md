@@ -3,8 +3,7 @@ title: Ship Docker metrics
 logo:
   logofile: docker.svg
   orientation: horizontal
-shipping-summary:
-  data-source: Docker
+data-source: Docker
 open-source:
   - title: docker-collector-metrics
     github-repo: docker-collector-metrics

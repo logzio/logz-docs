@@ -3,8 +3,7 @@ title: Ship JMX metrics
 logo:
   logofile: java.svg
   orientation: vertical
-shipping-summary:
-  data-source: JMX
+data-source: JMX
 open-source:
   - title: jmx2logzio
     github-repo: jmx2logzio

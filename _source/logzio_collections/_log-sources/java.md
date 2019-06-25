@@ -3,8 +3,7 @@ title: Ship Java logs
 logo:
   logofile: java.svg
   orientation: vertical
-shipping-summary:
-  data-source: Java code
+data-source: Java code
 open-source:
   - title: Logzio Log4j 2 Appender
     github-repo: logzio-log4j2-appender

@@ -17,7 +17,7 @@ shipping-tags:
 1.  Check for kube-state-metrics in your cluster
 
     ```shell
-    kubectl get pods --all-namespaces | grep -E 'kube-state-metrics|NAMESPACE'
+    kubectl get pods --all-namespaces | grep kube-state-metrics
     ```
 
     If you see a response,
@@ -46,7 +46,7 @@ shipping-tags:
     Get the kube-state-metrics details...
 
     ```shell
-    kubectl get pods --all-namespaces | grep -E 'kube-state-metrics|NAMESPACE'
+    kubectl get service --all-namespaces | grep -E 'kube-state-metrics|NAMESPACE'
     ```
 
     ...and replace `<<KUBE-STATE-METRICS-NAMESPACE>>` and `<<KUBE-STATE-METRICS-PORT>>` in this command.

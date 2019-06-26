@@ -31,7 +31,7 @@ shipping-tags:
 
 1.  Pull the Docker image
 
-    Download the logzio/docker-collector-logs image:
+    Download the logzio/docker-collector-logs image.
 
     ```shell
     docker pull logzio/docker-collector-logs

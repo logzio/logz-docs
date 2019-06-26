@@ -1,6 +1,6 @@
 ---
-title: Serilog.Sinks.Logzio
-project-url: https://github.com/asperheim/serilog-sinks-logzio
+title: Serilog.Sinks.Logzio (mantasaudickas)
+project-url: https://github.com/mantasaudickas/serilog-sinks-logz-io
 logo:
   logofile: dotnet.svg
   orientation: vertical

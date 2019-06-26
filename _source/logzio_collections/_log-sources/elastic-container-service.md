@@ -21,10 +21,10 @@ This integration uses Filebeat in a Docker container to forward logs from Amazon
 
 ## Setup
 
-To use Logz.io AWS ECS Collector, you'll set environment variables when you run the container.
+To use docker-collector-logs, you'll set environment variables when you run the container.
 The Docker logs directory and docker.sock are mounted to the container, allowing Filebeat to collect the logs and metadata.
 
-###### Deploy the AWS ECS collector
+###### Deploy the Docker collector
 
 1.  Pull the Docker image
 

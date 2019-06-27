@@ -17,6 +17,7 @@ contributors:
   - idohalevi
 shipping-tags:
   - azure
+  - security
 ---
 
 To simplify shipping your Azure activity logs, we provide an automated deployment process.

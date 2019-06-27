@@ -16,7 +16,7 @@ shipping-tags:
 ###### Configuration
 
 **You'll need**:
-[Winlogbeat 7](https://www.elastic.co/downloads/beats/winlogbeat) or
+[Winlogbeat 7.0.0](https://www.elastic.co/downloads/past-releases/winlogbeat-7-0-0) or
 [Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html)
 
 1.  Download the Logz.io certificate

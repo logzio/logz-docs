@@ -27,22 +27,26 @@ You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/da
 
 ###### Create or delete a lookup
 
-* In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page, click **New lookup** to create an untitled lookup.
+* In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page,
+  click **New lookup** to create an untitled lookup.
   Give your new lookup a **Name** and optional **Description**.
   Your changes are automatically saved when you press Tab to advance to the next form field.
-* To delete a lookup, **Delete** for that lookup.
+* To delete a lookup,
+  click **Delete** for that lookup.
 
 ###### Update a lookup
 
-* In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page, click **Edit** for the lookup you want to update.
-* To add a new item, type a **Value** and an optional **Note**, and then click **Add**.
-* Click **Edit** to change an item's value or note and then **Save** your changes, or click **Cancel** to revert your changes.
+* In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page,
+  click **Edit** for the lookup you want to update.
+* To add a new item,
+  type a **Value** and an optional **Note**, and then click **Add**.
+* Click **Edit** to change an item's value or note and then **Save** your changes,
+  or click **Cancel** to revert your changes.
 * Click **Delete** to delete an item from the lookup.
 
 ###### Use lookups in Kibana filters and security rules
 
-{: .tasklist .firstline-headline }
-1. Add a Kibana filter with your lookup
+1.  Add a Kibana filter with your lookup
 
     In the [Research](https://app.logz.io/#/dashboard/security/research) page, click **Add a filter** to show the filter dialog box.
 
@@ -54,9 +58,10 @@ You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/da
 
     Choose **in lookup** or **not in lookup** from the **Operators** list, and then choose the lookup you want to filter by.
 
-2. _(Optional)_ Create a security rule
+2.  _(Optional)_ Create a security rule
 
     Click **Create Alert** (to the right of the search bar) to make a new security rule with your filter.
     Your new security rule will contain the lookup you used in step 1.
 
     If you need help with creating a new security rule, see [Manage security rules]({{site.baseurl}}/user-guide/security-analytics/manage-security-rules.html).
+{:.tasklist.firstline-headline}

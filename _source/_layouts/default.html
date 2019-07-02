@@ -13,10 +13,10 @@
     {% include left-toc.html %}
 
     <div class="body-container">
-    {%- if page.shipping-summary -%}
+    {%- if page.data-source -%}
     <div class="breadcrumbs">
       <span><a href="{{site.baseurl}}/shipping/">Ship your data</a></span>
-      <span>{{ page.shipping-summary.data-source }}</span>
+      <span>{{ page.data-source }}</span>
     </div>
     {%- endif -%}
     <div class="title-container">

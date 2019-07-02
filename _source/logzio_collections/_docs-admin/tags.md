@@ -23,9 +23,9 @@ $.getJSON( "{{site.baseurl}}/data/tags.json", function( data ) {
 
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [By tag](#by-tag-tab)
-  * [By page](#by-page-tab)
+* [By tag](#by-tag-tab)
+* [By page](#by-page-tab)
+{:.branching-tabs}
 
 <div id="by-tag-tab">
 

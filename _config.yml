@@ -58,12 +58,20 @@ collections:
   log-sources:
     output: true
     permalink: /shipping/log-sources/:slug.html
+    name: Logs
+    in-shipping-manifest: true
+  metrics-sources:
+    output: true
+    permalink: /shipping/metrics-sources/:slug.html
+    name: Metrics
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html
+    name: Community shippers
   shippers:
-    output: false
+    output: true
     permalink: /shipping/shippers/:slug.html
+    name: Shippers
   docs-admin:
     output: true
     permalink: /docs-admin/:path/
@@ -100,7 +108,8 @@ defaults:
     values:
       layout: article
   - scope:
-      path: _community-shippers/log-shippers
+      path: ''
+      type: community-shippers
     values:
       community-project: true
 

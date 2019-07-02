@@ -32,8 +32,7 @@ Even though this tutorial covers backing up to GitHub, you can use these methods
 
 Let's set up the prerequisites now so that we can use the command line for the rest of the tutorial.
 
-{: .tasklist .firstline-headline }
-1. Create a GitHub repo
+1.  Create a GitHub repo
 
     Make sure you're signed in to GitHub, and [create a new repository](https://github.com/new).
 
@@ -42,7 +41,7 @@ Let's set up the prerequisites now so that we can use the command line for the r
 
     Your new repo is created and you're taken to its main page.
 
-2. Clone the repo to your local machine
+2.  Clone the repo to your local machine
 
     If Git isn't already installed on your local machine, install it now.
     See [Install Git](https://www.atlassian.com/git/tutorials/install-git) from Atlassian if you need help with this.
@@ -51,16 +50,16 @@ Let's set up the prerequisites now so that we can use the command line for the r
 
     Choose whether you want to clone using HTTPS or SSH, and then copy the URL.
 
-    <div class="info-box read">
       If you're not sure whether to use HTTPS or SSH to clone your repo, see [Which remote URL should I use?](https://help.github.com/articles/which-remote-url-should-i-use/) from GitHub.
-    </div>
+      {:.info-box.read}
 
     In the command line, clone the repo into a new folder named "kibana-backup" and `cd` into the kibana-backup folder:
 
     ```shell
-    git clone <REPO-URL> kibana-backup
+    git clone <<REPO-URL>> kibana-backup
     cd kibana-backup
     ```
+{:.tasklist.firstline-headline}
 
 ## Downloading Kibana objects {#downloading-kibana-objects}
 
@@ -71,9 +70,9 @@ This means that you'll need to make three API requests to Logz.io.
 
 ```shell
 curl -X POST \
-  https://<API-URL>/kibana/export \
+  https://<<API-URL>>/kibana/export \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
   -d '{"type": "search"}'
   -o kibana-search.json
 ```
@@ -140,9 +139,9 @@ If you _do_ have saved searches, they're stored as objects in the `hits` array, 
 
 ```shell
 curl -X POST \
-  https://<API-URL>/kibana/export \
+  https://<<API-URL>>/kibana/export \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
   -d '{"type": "visualization"}'
   -o kibana-visualization.json
 ```
@@ -194,9 +193,9 @@ kibana-backup/
 
 ```shell
 curl -X POST \
-  https://<API-URL>/kibana/export \
+  https://<<API-URL>>/kibana/export \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
   -d '{"type": "dashboard"}'
   -o kibana-dashboard.json
 ```

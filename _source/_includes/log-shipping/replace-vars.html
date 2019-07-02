@@ -1,9 +1,11 @@
+{{ include.prepend }}
+
 {%- if include.token -%}
   {%- case include.token -%}
     {%- when 'noReplace' -%}
     The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
     {%- else -%}
-    Replace `<ACCOUNT-TOKEN>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+    Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
   {%- endcase -%}
 {%- endif -%}
 
@@ -14,10 +16,17 @@
 {%- if include.listener -%}
   {%- case include.listener -%}
     {%- when 'noReplace' -%}
-    Your region's listener URL.
+    {%- if include.isMidSentence == true -%}
+      your
+    {%- else -%}
+      Your
+    {%- endif %}
+    region's listener host.
     For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
     {%- else -%}
-    Replace `<LISTENER-URL>` with your region's listener URL.
+    Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
     For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
   {%- endcase -%}
 {%- endif -%}
+
+{{ include.append }}

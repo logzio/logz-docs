@@ -8,31 +8,37 @@
 #     <tag-slug>: <tag-human-readable>
 
 tabs:
-  Logs:
-    collection: log-sources
-    tags:
-      os: Operating systems
-      server-app: Server apps & devices
-      from-your-code: From your code
-      platform-service: Platforms & services
-      aws: AWS
-      azure: Azure
-      container: Containers & pods
-      ci-cd: CI/CD
-      security: Security
-#  Metrics:
-#    collection: metrics-sources
-#  Shippers:
-#    collection: shippers
-#    tags:
-#      log-shipper: Log shippers
-  Community shippers:
-    collection: community-shippers
+  - collection: log-sources
+  # -  collection: metrics-sources
+  - collection: shippers
+  - collection: community-shippers
     top-content: >-
-      <div class="info-box important">
-        <p><strong>Logz.io does not test or support these projects</strong></p>
-        <p>These projects are maintained by third parties and recommended by members of the Logz.io community.
-        Always test and review the code of any community project before using it.</p>
-      </div>
-    tags:
-      log-shipper: Log shippers
+      <p class="info-box important no-title sm">
+        <span class="bold">Logz.io does not test or support these projects.</span><br />
+        These projects are maintained by third parties and recommended by members of the Logz.io community.
+        Always test and review the code of any community project before using it.
+      </p>
+
+tags:
+  - slug: log-shipper
+    name: Log shippers
+  - slug: os
+    name: Operating systems
+  - slug: server-app
+    name: Server apps & devices
+  - slug: from-your-code
+    name: From your code
+  - slug: platform-service
+    name: Platforms & services
+  - slug: aws
+    name: AWS
+  - slug: azure
+    name: Azure
+  - slug: container
+    name: Containers & pods
+  - slug: ci-cd
+    name: CI/CD
+  - slug: security
+    name: Security
+  - slug: database
+    name: Databases

@@ -24,9 +24,9 @@ You can use `whoami` to test connectivity with Logz.io or to confirm you're usin
 
 ```shell
 curl -X GET \
-  https://<API-URL>/account-management/whoami \
+  https://<<API-URL>>/account-management/whoami \
   -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <API-TOKEN>'
+  -H 'X-API-TOKEN: <<API-TOKEN>>'
 ```
 
 {% include api-cookbook/read-more-api-doc.html title="Retrieve this account" id="whoAmI" %}
@@ -49,37 +49,37 @@ If you didn't receive the expected response, continue to the troubleshooting ste
 If you didn't receive the expected response, there could be a few reasons for that.
 Let's see if we can figure this out together.
 
-{: .tasklist .firstline-headline }
-1. Check the status code
+1.  Check the status code
 
     The status code indicates whether you sent the request to a valid Logz.io API endpoint.
 
-    {: .inline-header }
     If the status code is 200
+    {:.inline-header}
 
     You sent the request to a valid endpoint.
     Continue to the next step.
 
-    {: .inline-header }
     If the status code is something else
+    {:.inline-header}
 
     You might have sent the request to an invalid endpoint.
     Double-check the API URL, and make sure it matches an endpoint in the Logz.io [API docs]({{site.baseurl}}/api/).
 
-2. Check the response body
+2.  Check the response body
 
     Check the response body for an error message.
 
-    {: .inline-header }
     If you see `{"code":403,"message":"Insufficient privileges"}`
+    {:.inline-header}
 
     You might be using an invalid API token.
     Copy a valid [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from Logz.io and try again.
 
-    {: .inline-header }
     If you see `Account region xx differs from current server region yy`
+    {:.inline-header}
 
     You're using a valid API token, but you sent the request to the wrong account region.
     Change the API region to your account region and try again.
 
     For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+{:.tasklist.firstline-headline}

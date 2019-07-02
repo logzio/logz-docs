@@ -10,12 +10,12 @@ cards:
     # url: "#" #/getting-started/overview/index.html
     # icon: blocks.svg
 
-  - title: Ship your data
+  - title: Send your data
     description: All the different ways you can feed the ELK machine
     url: /shipping/
     li-class: li-plane
 
-  - title: Explore your logs in Kibana
+  - title: Kibana
     description: Stay on top of your logs with rich visualizations and dashboards
     url: /user-guide/kibana/
     li-class: li-bar-graph

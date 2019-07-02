@@ -22,14 +22,12 @@ You can get to this page by selecting
 [**<i class="li li-gear"></i> > Tools > Archive & restore**](https://app.logz.io/#/dashboard/tools/archive-and-restore) in the top menu.
 
 
-{: .letter-labels }
+Archive settings
+: You can configure Logz.io to archive your logs to an S3 bucket, keeping your overall costs down.
 
-<!-- TODO letter labels -->
-  Archive settings
-  : You can configure Logz.io to archive your logs to an S3 bucket, keeping your overall costs down.
+Restore archived logs
+: Re-ingest up to 24 hours of out-of-retention logs from S3.
 
-  Restore archived logs
-  : Re-ingest up to 24 hours of out-of-retention logs from S3.
-
-  Restored accounts
-  : Shows a list of all the data restored to this account—including who made the request and its status.
+Restored accounts
+: Shows a list of all the data restored to this account—including who made the request and its status.
+{:.letter-labels}

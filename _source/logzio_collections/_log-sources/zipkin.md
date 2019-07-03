@@ -35,14 +35,17 @@ For most users, these won't be an issue, but they're still good to know:
 
 1.  Download Zipkin server and Zipkin-Logz.io Trace Storage
 
-    If you don't already have Zipkin server, download the latest version.
+    Download Zipkin server.
 
     ```shell
-    wget -O zipkin.jar 'https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec'
+    curl -sSL https://zipkin.io/quickstart.sh | bash -s
     ```
 
-    If you're already running Zipkin server,
-    make sure to download the same version as the one you have.
+    Download the latest Zipkin-Logz.io Trace Storage jar to the same directory.
+
+    ```shell
+    curl -sSL https://jitpack.io/com/github/logzio/zipkin-logzio/zipkin-autoconfigure-storage-logzio/master-SNAPSHOT/zipkin-autoconfigure-storage-logzio-master-SNAPSHOT-module.jar > logzio.jar
+    ```
 
 2.  Run Zipkin server with the Logz.io extension
 

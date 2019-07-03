@@ -97,8 +97,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-security-analytics-account.html
     - title: Account region
       url: /user-guide/accounts/account-region.html
-    - title: Monitor account usage
-      url: /user-guide/accounts/monitor-account-usage.html
+    - title: Manage account usage
+      url: /user-guide/accounts/manage-account-usage.html
     - title: Support access
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing

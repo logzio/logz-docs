@@ -165,17 +165,17 @@ spec:
         - name: KUBE_STATE_METRICS_NAMESPACE
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: kube-state-metrics-namespace
         - name: KUBE_STATE_METRICS_PORT
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: kube-state-metrics-port
         - name: CLUSTER_NAME
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: cluster-name
         securityContext:
           runAsUser: 0
@@ -335,17 +335,17 @@ spec:
         - name: KUBE_STATE_METRICS_NAMESPACE
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: kube-state-metrics-namespace
         - name: KUBE_STATE_METRICS_PORT
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: kube-state-metrics-port
         - name: CLUSTER_NAME
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: cluster-name
         securityContext:
           runAsUser: 0

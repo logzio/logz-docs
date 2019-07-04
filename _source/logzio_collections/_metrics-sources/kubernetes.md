@@ -56,7 +56,7 @@ shipping-tags:
     Run this command to save your cluster details as a Kubernetes secret.
 
     ```shell
-    kubectl --namespace=kube-system create secret generic kube-state-metrics-env-vars \
+    kubectl --namespace=kube-system create secret generic cluster-details \
       --from-literal=kube-state-metrics-namespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
       --from-literal=kube-state-metrics-port=<<KUBE-STATE-METRICS-PORT>> \
       --from-literal=cluster-name=<<CLUSTER-NAME>>

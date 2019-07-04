@@ -31,7 +31,7 @@ shipping-tags:
       && kubectl --namespace=kube-system apply -f kube-state-metrics/kubernetes
     ```
 
-2.  Store your Kubernetes secrets
+2.  Store your Logz.io credentials
 
     Save your Logz.io shipping credentials as a Kubernetes secret.
 
@@ -43,28 +43,32 @@ shipping-tags:
       --from-literal=logzio-metrics-listener-host=<<LISTENER-HOST>>
     ```
 
+3.  Store your cluster details
+
     Get the kube-state-metrics details...
 
     ```shell
     kubectl get service --all-namespaces | grep -E 'kube-state-metrics|NAMESPACE'
     ```
 
-    ...and replace `<<KUBE-STATE-METRICS-NAMESPACE>>` and `<<KUBE-STATE-METRICS-PORT>>` in this command.
-    Run this command to save your kube-state-metrics details as a Kubernetes secret.
+    ...and replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command.
+
+    Run this command to save your cluster details as a Kubernetes secret.
 
     ```shell
     kubectl --namespace=kube-system create secret generic kube-state-metrics-env-vars \
       --from-literal=kube-state-metrics-namespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
-      --from-literal=kube-state-metrics-port=<<KUBE-STATE-METRICS-PORT>>
+      --from-literal=kube-state-metrics-port=<<KUBE-STATE-METRICS-PORT>> \
+      --from-literal=cluster-name=<<CLUSTER-NAME>>
     ```
 
-3.  Deploy
+4.  Deploy
 
     ```shell
     kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-metricbeat.yml
     ```
 
-3.  Check Logz.io for your metrics
+5.  Check Logz.io for your metrics
 
     Give your metrics some time to get from your system to ours,
     and then open [Logz.io](https://app.logz.io/).

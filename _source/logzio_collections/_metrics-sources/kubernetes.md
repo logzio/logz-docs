@@ -39,7 +39,7 @@ shipping-tags:
 
     ```shell
     kubectl --namespace=kube-system create secret generic logzio-metrics-secret \
-      --from-literal=logzio-metrics-shipping-token=<<ACCOUNT-TOKEN>> \
+      --from-literal=logzio-metrics-shipping-token=<<SHIPPING-TOKEN>> \
       --from-literal=logzio-metrics-listener-host=<<LISTENER-HOST>>
     ```
 

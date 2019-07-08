@@ -32,8 +32,8 @@ shipping-tags:
 
     ```shell
     docker run --name docker-collector-metrics \
-    --env LOGZIO_TOKEN="<ACCOUNT-TOKEN>" \
-    --env LOGZIO_URL="<LISTENER-HOST>:5015" \
+    --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+    --env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     logzio/docker-collector-metrics
     ```

@@ -34,7 +34,7 @@ shipping-tags:
     # ===== General =====
     fields:
       logzio_codec: json
-      token: <<ACCOUNT-TOKEN>>
+      token: <<SHIPPING-TOKEN>>
     fields_under_root: true
     ```
 

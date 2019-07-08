@@ -76,7 +76,7 @@ consider using [jmx2logzio with Jolokia](#with-a-jolokia-agent-config) instead.
     For a complete list of options, see the configuration parameters below the code block.👇
 
     ```shell
-    java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<ACCOUNT-TOKEN>,SERVICE_NAME=myService /path/to/your/app
+    java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<SHIPPING-TOKEN>>,SERVICE_NAME=myService /path/to/your/app
     ```
 
     Parameters

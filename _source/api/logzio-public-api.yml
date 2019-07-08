@@ -2798,7 +2798,7 @@ definitions:
         items:
           type: string
         description: URLs of Slack webhooks that you want to send this snapshot to
-        example: https://hooks.slack.com/services/CC29C43F8/7E6E833FB/Ebe297580E7FaC354F9D4d7
+        example: ["https://hooks.slack.com/services/CC29C43F8/7E6E833FB/Ebe297580E7FaC354F9D4d7"]
       endpoints:
         type: array
         items:

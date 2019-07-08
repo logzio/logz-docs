@@ -34,7 +34,7 @@ shipping-tags:
     # ===== General =====
     fields:
       logzio_codec: json
-      token: <ACCOUNT-TOKEN>
+      token: <<ACCOUNT-TOKEN>>
     fields_under_root: true
     ```
 
@@ -48,7 +48,7 @@ shipping-tags:
     ```yaml
     # ===== Outputs =====
     output.logstash:
-      hosts: ["<LISTENER-HOST>:5015"]
+      hosts: ["<<LISTENER-HOST>>:5015"]
       ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
     ```
 

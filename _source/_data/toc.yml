@@ -103,11 +103,6 @@ firstLevel:
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
-  #   thirdLevel:
-  #   - title: Make an IAM role for Logz.io
-  #     url: /user-guide/archive-and-restore/make-an-iam-role-for-logzio.html
-
-
   - title: Users
     url: /user-guide/users/
     thirdLevel:
@@ -139,6 +134,9 @@ firstLevel:
         url: /user-guide/archive-and-restore/restore-archived-logs.html
       - title: Set S3 permissions
         url: /user-guide/archive-and-restore/set-s3-permissions.html
+
+  - title: Give AWS access with IAM roles
+    url: /user-guide/give-aws-access-with-iam-roles/
 
   # ===== SHIPPING AND PARSING =====
 - title: Shipping & parsing

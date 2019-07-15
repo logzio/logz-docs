@@ -45,15 +45,23 @@ shipping-tags:
 
 3.  Store your cluster details
 
-    Get the kube-state-metrics details...
+    Paste the kube-state-metrics namespace and port in your text editor.
+    You can find them by running this command.
 
     ```shell
     kubectl get service --all-namespaces | grep -E 'kube-state-metrics|NAMESPACE'
     ```
 
-    ...and replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command.
+    Paste the cluster name in your text editor.
+    You can find it by running this command,
+    or if you manage Kubernetes in AWS or Azure,
+    you can find it in your admin console.
 
-    Run this command to save your cluster details as a Kubernetes secret.
+    ```shell
+    kubectl cluster-info
+    ```
+
+    Now replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command to save your cluster details as a Kubernetes secret.
 
     ```shell
     kubectl --namespace=kube-system create secret generic cluster-details \

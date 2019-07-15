@@ -2116,9 +2116,10 @@ definitions:
         description: ID of the account
         example: 99999
       email:
-        type: string
+        type: null
+        nullable: true
         description: Email address of the user who created the account
-        example: them@mycompany.com
+        example: null
       accountName:
         type: string
         description: Name of the account

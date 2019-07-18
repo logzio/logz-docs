@@ -71,6 +71,15 @@ shipping-tags:
     : Set to `json` if shipping JSON logs.
       Otherwise, set to `plain`.
 
+    additionalFields
+    : Include additional fields with every message sent,
+      formatted as `"fieldName1=fieldValue1;fieldName2=fieldValue2"`. \\
+      To use an environment variable,
+      format as `"fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME"`.
+      In that case, the environment variable should be the only value in the field.
+      If the environment variable can't be resolved, the field is omitted.
+
+
     matchContainerName
     : Comma-separated list of containers you want to collect the logs from.
       If a container's name partially matches a name on the list, that container's logs are shipped.

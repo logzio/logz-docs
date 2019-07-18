@@ -1,9 +1,8 @@
 .info-box {
   width: 90%;
   margin: 2rem auto;
-  border-radius: 2px;
-  border: 1px solid;
-  padding: 10px;
+  border-left: 3px solid;
+  padding: 7px 10px;
   font-size: 1rem;
   line-height: 120%;
 }
@@ -13,18 +12,12 @@
 }
 
 .info-box::before {
-  font-weight: 400;
-  font-size: .9rem;
-  line-height: 1.1em;
-  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
 
   display: block;
   width: fit-content;
-  margin: -3px 20px 5px -20px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-left: 20px;
-  padding-right: 15px;
+  margin: 0px 0px 7px 0px;
 }
 
 .info-box.no-title::before {
@@ -39,7 +32,7 @@
 
 .info-box.warning::before {
   content: "Warning   ";
-  background-color: var(--infobox-warning);
+  color: var(--infobox-warning);
 }
 
 /* .note */
@@ -50,7 +43,7 @@
 
 .info-box.note::before {
   content: "Note   ";
-  background-color: var(--infobox-note);
+  color: var(--infobox-note);
 }
 
 .info-box.note.notes::before {
@@ -65,7 +58,7 @@
 
 .info-box.gotcha::before, .info-box.important::before {
   content: "Important   ";
-  background-color: var(--infobox-important);
+  color: var(--infobox-important);
 }
 
 /* .tip */
@@ -75,8 +68,8 @@
 }
 
 .info-box.tip::before {
-  content: "Pro Tip   ";
-  background-color: var(--infobox-tip);
+  content: "Pro tip   ";
+  color: var(--infobox-tip);
 }
 
 /* .read */
@@ -87,5 +80,5 @@
 
 .info-box.read::before {
   content: "Read more   ";
-  background-color: var(--infobox-read);
+  color: var(--infobox-read);
 }

@@ -65,6 +65,7 @@ data:
     fields:
       logzio_codec: json
       token: ${LOGZIO_METRICS_SHIPPING_TOKEN}
+      cluster: ${CLUSTER_NAME}
       type: metricbeat
     fields_under_root: true
     ignore_older: 3hr
@@ -164,13 +165,18 @@ spec:
         - name: KUBE_STATE_METRICS_NAMESPACE
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: kube-state-metrics-namespace
         - name: KUBE_STATE_METRICS_PORT
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: kube-state-metrics-port
+        - name: CLUSTER_NAME
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: cluster-name
         securityContext:
           runAsUser: 0
         resources:
@@ -329,13 +335,18 @@ spec:
         - name: KUBE_STATE_METRICS_NAMESPACE
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: kube-state-metrics-namespace
         - name: KUBE_STATE_METRICS_PORT
           valueFrom:
             secretKeyRef:
-              name: kube-state-metrics-env-vars
+              name: cluster-details
               key: kube-state-metrics-port
+        - name: CLUSTER_NAME
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: cluster-name
         securityContext:
           runAsUser: 0
         resources:

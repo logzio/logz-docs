@@ -18,6 +18,13 @@ You can manage your endpoints from [**Alerts > Alert endpoints**](https://app.lo
 
 ###### To manage alert endpoints
 
-* To add a new endpoint, click **Add endpoint**, fill in the required information for your endpoint, and click **Save**. You can do this from the [Alert endpoints](https://app.logz.io/#/dashboard/alerts/endpoints) page, or anywhere in Logz.io where you choose the recipient of a message or notification.
-
-* To edit or delete an endpoint, hover over the endpoint, and click <i class="li li-pencil"></i> (edit) or <i class="li li-trash"></i> (delete).
+* To add a new endpoint,
+  click **Add endpoint**,
+  fill in the required information for your endpoint,
+  and click **Save**.
+  You can do this from the [Alert endpoints](https://app.logz.io/#/dashboard/alerts/endpoints) page,
+  or anywhere in Logz.io where you choose the recipient of a message or notification.
+* To edit or delete an endpoint,
+  hover over the endpoint,
+  and click <i class="li li-pencil"></i> (edit)
+  or <i class="li li-trash"></i> (delete).

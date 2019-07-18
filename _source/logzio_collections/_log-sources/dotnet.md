@@ -13,12 +13,14 @@ shipping-tags:
   - from-your-code
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [log4net](#log4net-config)
-  * [NLog](#nlog-config)
+* [log4net](#log4net-config)
+* [NLog](#nlog-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="log4net-config">
 
 ## log4net setup
@@ -43,9 +45,8 @@ Use the samples in the code blocks below as a starting point, and replace them w
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-<div class="info-box read">
   See the [log4net documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the log4net configuration file.
-</div>
+  {:.info-box.read}
 
 _Option 1: In a configuration file_
 
@@ -92,8 +93,8 @@ hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -123,8 +124,8 @@ debug <span class="default-param">`false`</span>
 : To print debug messsages to the console and trace log, `true`. Otherwise, `false`.
 
 
-{: .inline-header }
 Code sample
+{:.inline-header}
 
 ```csharp
 using System.IO;
@@ -192,8 +193,10 @@ Change your configuration to use your new appender name.
 For the example above, you'd use `MyAppLogzioAppender`.
 
 </div>
+<!-- tab:end -->
 
 
+<!-- tab:start -->
 <div id="nlog-config">
 
 ## NLog setup
@@ -218,9 +221,8 @@ Use the samples in the code blocks below as a starting point, and replace them w
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-<div class="info-box read">
   See the [NLog documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the NLog configuration file.
-</div>
+  {:.info-box.read}
 
 _Option 1: In a configuration file_
 
@@ -274,8 +276,8 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, "Logzio", "*");
 LogManager.Configuration = config;
 ```
 
-{: .inline-header }
 Parameters
+{:.inline-header}
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -305,8 +307,8 @@ debug <span class="default-param">`false`</span>
 : To print debug messsages to the console and trace log, `true`. Otherwise, `false`.
 
 
-{: .inline-header }
 Code sample
+{:.inline-header}
 
 ```csharp
 using System;
@@ -373,5 +375,7 @@ public class MyAppLogzioTarget : LogzioTarget
 Change your configuration to use your new target. For the example above, you'd use `MyAppLogzio`.
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

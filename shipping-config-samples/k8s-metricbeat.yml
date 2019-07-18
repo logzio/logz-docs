@@ -64,14 +64,15 @@ data:
 
     fields:
       logzio_codec: json
-      token: ${LOGZIO_ACCOUNT_TOKEN}
+      token: ${LOGZIO_METRICS_SHIPPING_TOKEN}
+      cluster: ${CLUSTER_NAME}
       type: metricbeat
     fields_under_root: true
     ignore_older: 3hr
 
     output:
       logstash:
-        hosts: ["${LOGZIO_LISTENER_HOST}:5015"]
+        hosts: ["${LOGZIO_METRICS_LISTENER_HOST}:5015"]
         ssl:
           certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ---
@@ -151,16 +152,31 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        - name: LOGZIO_ACCOUNT_TOKEN
+        - name: LOGZIO_METRICS_SHIPPING_TOKEN
           valueFrom:
             secretKeyRef:
-              name: logzio-secret
-              key: logzio-account-token
-        - name: LOGZIO_LISTENER_HOST
+              name: logzio-metrics-secret
+              key: logzio-metrics-shipping-token
+        - name: LOGZIO_METRICS_LISTENER_HOST
           valueFrom:
             secretKeyRef:
-              name: logzio-secret
-              key: logzio-listener-host
+              name: logzio-metrics-secret
+              key: logzio-metrics-listener-host
+        - name: KUBE_STATE_METRICS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: kube-state-metrics-namespace
+        - name: KUBE_STATE_METRICS_PORT
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: kube-state-metrics-port
+        - name: CLUSTER_NAME
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: cluster-name
         securityContext:
           runAsUser: 0
         resources:
@@ -225,7 +241,6 @@ metadata:
   labels:
     k8s-app: metricbeat
 data:
-  # This module requires `kube-state-metrics` up and running under `monitoring` namespace
   kubernetes.yml: |-
     - module: kubernetes
       metricsets:
@@ -236,7 +251,7 @@ data:
         - state_container
         - event
       period: 10s
-      hosts: ["kube-state-metrics.monitoring:8443"]
+      hosts: ["kube-state-metrics.${KUBE_STATE_METRICS_NAMESPACE}:${KUBE_STATE_METRICS_PORT}"]
       enabled: true
       bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
 ---
@@ -307,16 +322,31 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.nodeName
-        - name: LOGZIO_ACCOUNT_TOKEN
+        - name: LOGZIO_METRICS_SHIPPING_TOKEN
           valueFrom:
             secretKeyRef:
-              name: logzio-secret
-              key: logzio-account-token
-        - name: LOGZIO_LISTENER_HOST
+              name: logzio-metrics-secret
+              key: logzio-metrics-shipping-token
+        - name: LOGZIO_METRICS_LISTENER_HOST
           valueFrom:
             secretKeyRef:
-              name: logzio-secret
-              key: logzio-listener-host
+              name: logzio-metrics-secret
+              key: logzio-metrics-listener-host
+        - name: KUBE_STATE_METRICS_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: kube-state-metrics-namespace
+        - name: KUBE_STATE_METRICS_PORT
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: kube-state-metrics-port
+        - name: CLUSTER_NAME
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: cluster-name
         securityContext:
           runAsUser: 0
         resources:

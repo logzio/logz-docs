@@ -1,0 +1,154 @@
+{
+	// Place your imnotashrimp--logz-docs workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+  "New doc": {
+    "prefix": "new doc",
+    "body": [
+      "---",
+      "layout: article",
+      "title: $1",
+      "permalink: ${2:/user-guide}${3:/$TM_FILENAME_BASE}.html",
+      "flags:",
+      "${4:  admin: true}",
+      "${5:  beta: true}",
+      "${6:  logzio-plan:} ${7|enterprise,community,pro|}",
+      "open-source",
+      "  - title: ${8: project title}",
+      "    github-repo: ${9: github repo name (in url)}",
+      "tags:",
+      "  - ${10:slugified-tag}",
+      "contributors:",
+      "  - ${11:imnotashrimp}",
+      "---",
+      "$0"
+    ],
+    "description": "New Logz.io docs article"
+  },
+
+  "New Logz.io shipping doc": {
+    "prefix": "new shipping doc",
+    "body": [
+      "---",
+      "title: Ship ${1:GuardDuty} logs",
+      "logo:",
+      "  logofile: ${2:aws-guardduty}.svg",
+      "  orientation: ${3|vertical,horizontal|} ${4:# Usually, this is vertical}",
+      "data-source: ${4:Amazon GuardDuty} ${5:# This is the title on the log shipping page}",
+      "logzio-app-url: ${6:(not always required) https://app.logz.io/#/dashboard/data-sources/AWS-costandusagereport}",
+      "contributors:",
+      "  - imnotashrimp",
+      "  ${7:- idohalevi}",
+      "shipping-tags:",
+      "  - $8 ${9:# See _source/_data/shipper-tabs.yml for tag options}",
+      "---",
+      "$0"
+    ]
+  },
+
+  "Logz.io icon": {
+		"prefix": "logzio icon",
+		"body": "<i class=\"li li-$1\"></i>$0",
+		"description": "<i> tag for Logz.io icon"
+	},
+
+  "New info-box": {
+		"prefix": "info-box",
+		"body": "{:.info-box.${1|warning,note,important,tip,read|}}\n$0",
+		"description": "kramdown class for info box. use note, notes, tip, important, or warning for class name"
+	},
+
+  "New contributor": {
+		"prefix": "new contributor",
+		"body": [
+			"---",
+			"title: $1",
+			"website: $2",
+			"linkedin: $3",
+			"twitter: $4",
+			"github: $5",
+			"",
+			"logzio-role: $6",
+      "---",
+      "\n{% comment %} LEAVE CONTENT EMPTY {% endcomment %}"
+		],
+		"description": "add a new contributor to the contributors collection"
+  },
+
+  "Include shipping token & listener host variable": {
+		"prefix": "shipping vars",
+		"body": "{% include log-shipping/replace-vars.html ${1:token=true} ${2:token='noReplace'} ${3:listener=true} %}",
+		"description": "include your-account-token.html and your-listener-url.html"
+  },
+
+  "See parameters below the code block": {
+    "prefix": "params-below",
+    "body": "For a complete list of options, see the parameters below this code block. 👇",
+    "description": "Boilerplate string for code blocks followed by parameters"
+  },
+
+  "Required parameter": {
+    "prefix": "required-param",
+    "body": "<span class=\"required-param\"></span>",
+    "description": "Adds a flag to parameters to indicate that they're required"
+  },
+
+  "Parameter default value": {
+    "prefix": "default-param",
+    "body": "<span class=\"default-param\">`$0`</span>",
+    "description": "Adds a 'default' label to parameter defaults"
+  },
+
+  "Markdown mailto help@logz.io": {
+    "prefix": "markdown-help@logz.io",
+    "body": "[${1:help@logz.io}](mailto:help@logz.io)$0",
+    "description": "Inserts a markdown link to email help@logz.io"
+  },
+
+  "'Contact the Support team' Intercom launcher": {
+    "prefix": "support-intercom-launch",
+    "body": "<a class=\"intercom-launch\" href=\"mailto:help@logz.io\">${1:contact the Support team}</a>$0",
+    "description": "Launches the Intercom bubble. Fallback to emailing help@logz.io if Javascript not working"
+  },
+
+  "Branching container": {
+    "prefix": "branching container",
+    "body": [
+      "<!-- tabContainer:start -->\n<div class=\"branching-container\">\n",
+      "${0:<!-- insert branching-tabs snippet here -->}\n",
+      "\n<!-- tab:start -->\n<div id=\"${1:tab-1}-config\">",
+      "\n<!-- ## Tab 1 setup (h2, end with the word 'setup' if possible) -->\n",
+      "</div>\n<!-- tab:end -->\n",
+      "\n<!-- tab:start -->\n<div id=\"${2:tab-2}-config\">",
+      "\n<!-- ## Tab 2 setup (h2, end with the word 'setup' if possible) -->\n",
+      "</div>\n<!-- tab:end -->\n",
+      "\n</div>\n<!-- tabContainer:end -->"
+    ],
+    "description": "insert skeleton for branching container and internal divs"
+  },
+
+  "Branching tabs": {
+    "prefix": "branching tabs",
+    "body": [
+      "* [${1:tab 1 name} ${2:<span class=\"sm ital\">(recommended)</span>}](#${3:tab-1}-config)",
+      "* [${4:tab 2 name}](#${5:tab-2}-config)",
+      "{: .branching-tabs }"
+    ],
+    "description": "Inserts links to tabs in the doc"
+  },
+
+}

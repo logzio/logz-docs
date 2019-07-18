@@ -16,12 +16,14 @@ you can send them directly to the Logz.io listener.
 The listeners accept bulk uploads over an HTTP/HTTPS connection
 or TLS/SSL streams over TCP.
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Bulk uploads over HTTP/HTTPS](#http-config)
-  * [TLS/SSL streams over TCP](#tcp-config)
+* [Bulk uploads over HTTP/HTTPS](#http-config)
+* [TLS/SSL streams over TCP](#tcp-config)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="http-config">
 
 ## Bulk uploads over HTTP/HTTPS
@@ -43,7 +45,7 @@ http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
 {% include log-shipping/replace-vars.html listener=true %}
 
 Query parameters
-{: .inline-header }
+{:.inline-header}
 
 token <span class="required-param"></span>
 : {% include log-shipping/replace-vars.html token=true %}
@@ -67,23 +69,20 @@ For example:
 {"message": "Hello again", "counter": 2}
 ```
 
-<div class="info-box note">
-
   Escape newlines inside a JSON string with `\n`.
-
-</div>
+  {:.info-box.note}
 
 If you include a `type` field in the log,
 it overrides `type` in the request header.
 
 Limitations
-{: .inline-header }
+{:.inline-header}
 
 * The body must be 10 MB (10,485,760 bytes) or less
 * Each log line must be 500,000 bytes or less
 
 Code sample
-{: .inline-header }
+{:.inline-header}
 
 ```shell
 echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "counter": 2}' \
@@ -115,7 +114,7 @@ The response body contains this JSON:
 ```
 
 Response fields
-{: .inline-header }
+{:.inline-header}
 
 malformedLines
 : The number of log lines that aren't valid JSON
@@ -143,7 +142,9 @@ or "Logging token is not valid" as the reason for the response.
 The request body size is larger than 10 MB.
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="tcp-config">
 
 ## TLS/SSL streams over TCP
@@ -172,15 +173,12 @@ send the logs to TCP port 5052 at
 {% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
 
 Code sample: NXLog
-{: .inline-header }
-
-<div class="info-box read">
+{:.inline-header}
 
   To configure NXLog for log shipping, see
   [Ship Windows logs]({{site.baseurl}}/shipping/log-sources/windows.html)
   (the _NXLog_ tab).
-
-</div>
+  {:.info-box.read}
 
 ```conf
 User nxlog
@@ -210,6 +208,7 @@ LogLevel INFO
 ```
 
 </div>
+<!-- tab:end -->
 
 </div>
-
+<!-- tabContainer:end -->

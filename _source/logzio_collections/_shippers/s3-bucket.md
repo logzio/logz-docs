@@ -35,7 +35,6 @@ Please keep these notes in mind when configuring logging.
 
 ###### Configure Logz.io to fetch logs from an S3 bucket
 
-{: .tasklist .firstline-headline }
 1.  Add the S3 bucket information
 
     <!-- logzio-inject:s3-config -->
@@ -47,3 +46,4 @@ Please keep these notes in mind when configuring logging.
     Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

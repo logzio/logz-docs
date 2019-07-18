@@ -15,19 +15,20 @@ shipping-tags:
   - aws
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
-{: .branching-tabs }
-  * [Manual Lambda configuration](#manual-lambda-configuration)
-  * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+* [Manual Lambda configuration](#manual-lambda-configuration)
+* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+{:.branching-tabs}
 
+<!-- tab:start -->
 <div id="manual-lambda-configuration">
 
 ## Kinesis + Lambda setup
 
 ###### Manual configuration
 
-{: .tasklist .firstline-headline }
 1.  Create a new Lambda function
 
     This Lambda function will consume a Kinesis data stream and sends the logs to Logz.io in bulk over HTTP.
@@ -90,10 +91,9 @@ shipping-tags:
     * **Memory**: 512 MB
     * **Timeout**: 1 min 0 sec
 
-    <div class="info-box note">
     These default settings are just a starting point.
     Check your Lambda usage regularly, and adjust these values if you need to.
-    </div>
+    {:.info-box.note}
 
 5.  Set the Kinesis event trigger
 
@@ -108,9 +108,12 @@ shipping-tags:
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="automated-cloudformation-deployment">
 
 ## Kinesis + Lambda setup
@@ -121,7 +124,6 @@ an S3 bucket to store the CloudFormation package
 
 ###### CloudFront automated deployment
 
-{: .tasklist .firstline-headline }
 1.  Zip the source files
 
     Download the [Kinesis Stream Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/kinesis) project from GitHub to your computer.
@@ -200,7 +202,10 @@ an S3 bucket to store the CloudFormation package
     Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

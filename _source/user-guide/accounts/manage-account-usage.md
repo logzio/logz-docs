@@ -92,7 +92,7 @@ However, if you're sending logs that you'll need only sometimes
 (such as debug logs),
 you can set up a drop filter.
 
-Logs caught by drop filters aren't ingested,
+Logs caught by [drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/) aren't ingested,
 so they won't count against your plan limits.
 However, the volume of logs you can filter is based on your plan's quota.
 This number varies from one account to the next,

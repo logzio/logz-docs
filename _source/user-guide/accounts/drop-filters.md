@@ -41,6 +41,11 @@ So in this example, you can ship 150 GB of logs in a day,
 as long as you're filtering 100 of those GB
 and keeping your index within your 50 GB limits.
 
+If you have [archiving]({{site.baseurl}}/user-guide/archive-and-restore/configure-archiving.html) enabled,
+your logs will be archived before they're dropped.
+This means that you can restore from your archives,
+even if the logs didn't originally make it to Kibana.
+
 ##### The bottom line
 
 * Dropped logs can't be searched in Kibana
@@ -48,6 +53,8 @@ and keeping your index within your 50 GB limits.
 * You can use drop filters to help manage your account volume,
   but we recommend using drop filters for logs that are sometimes needed
   and not shipping logs that are never needed.
+* Logs are archived before filters are run,
+  so you can still archive and restore the filtered logs.
 
 ###### To set up a drop filter
 

@@ -93,16 +93,12 @@ To discuss switching to an Enterprise plan, please contact your account manager.
 
     Copy the **Identity Provider Single Sign-On URL**, and paste this in the email that you'll send to the Support team.
 
-    <!-- TODO instructions to retrieve username object ID and groupname object ID -->
-
 7.  Send your SAML details to Logz.io
 
     Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
     * Your zipped certificate (from step 4)
     * Your Identity Provider Single Sign-On URL (from step 5)
-
-    <!-- TODO username object ID and groupname object ID -->
 
 8.  _(Optional)_ Restrict Logz.io access to specific user groups
 

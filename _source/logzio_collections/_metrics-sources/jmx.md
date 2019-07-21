@@ -31,7 +31,6 @@ Metrics are reported as
 
 * [As a Java agent](#as-a-java-agent-config)
 * [With a Jolokia agent](#with-a-jolokia-agent-config)
-* [With a Jolokia agent wrapped in a docker](#with-a-docker)
 {: .branching-tabs }
 
 <div id="as-a-java-agent-config">

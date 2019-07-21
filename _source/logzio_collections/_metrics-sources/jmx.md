@@ -158,6 +158,7 @@ In this configuration, jmx2logzio poll metrics every X seconds and send them dir
 
 If you to poll metrics from a remote source, you can use Jolokia agent + Jmx2logzio
 In this configuration, Jolokia exposes the metrics as REST, and jmx2logzio reads it from them and sends it to Logz.io
+In this case, jmx2logzio can [run as a docker]( #jmx2logzio-in-a-docker).
 
 ###### Configuration
 
@@ -258,7 +259,7 @@ In this configuration, Jolokia exposes the metrics as REST, and jmx2logzio reads
       Default value is -1 (the sender will not limit the queue by logs count).
 
 <div class="info-box note">
-
+  {: .inline-header #jmx2logzio-in-a-docker }
   Instead of download the jmx2logzio.jar file, you can just run it as a docker:
   ```
   docker pull logzio/jmx2logzio

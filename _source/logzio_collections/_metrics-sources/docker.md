@@ -20,6 +20,7 @@ shipping-tags:
 
 1.  Pull the Docker image
 
+
     Download the Docker Metrics Collector image:
 
     ```shell
@@ -104,7 +105,6 @@ shipping-tags:
 
     By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
     {:.info-box.note}
-
 
 3.  Check Logz.io for your metrics
 

@@ -5,7 +5,7 @@ logo:
   orientation: horizontal
 data-source: Docker
 open-source:
-  - title: Docker Metrics Collector
+  - title: Docker Collector (Metrics)
     github-repo: docker-collector-metrics
 contributors:
   - imnotashrimp
@@ -14,14 +14,14 @@ shipping-tags:
   - container
 ---
 
-## Docker Metrics Collector setup
+## Docker Collector (Metrics) setup
 
 ###### Configuration
 
 1.  Pull the Docker image
 
 
-    Download the Docker Metrics Collector image:
+    Download the Docker Collector (Metrics) image:
 
     ```shell
     docker pull logzio/docker-collector-metrics
@@ -36,6 +36,7 @@ shipping-tags:
     --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
     --env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
+    LOGZIO_MODULES="docker" \
     logzio/docker-collector-metrics
     ```
 
@@ -103,7 +104,6 @@ shipping-tags:
     : Filepath to Docker key
       for connecting to Docker over TLS.
 
-    By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
     {:.info-box.note}
 
 3.  Check Logz.io for your metrics

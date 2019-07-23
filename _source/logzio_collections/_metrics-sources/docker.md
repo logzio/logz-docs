@@ -46,7 +46,7 @@ shipping-tags:
       <!-- logzio-inject:account-token -->
 
     LOGZIO_URL <span class="required-param"></span>
-    : Logz.io listener URL to ship the logs to.
+    : Logz.io listener URL to ship the metrics to.
       {% include log-shipping/replace-vars.html listener=true %}
 
     LOGZIO_MODULES <span class="required-param"></span>
@@ -73,15 +73,15 @@ shipping-tags:
     {:.inline-header}
 
     DOCKER_MATCH_CONTAINER_NAME
-    : Comma-separated list of containers you want to collect the logs from.
-      If a container's name partially matches a name on the list, that container's logs are shipped.
-      Otherwise, its logs are ignored. \\
+    : Comma-separated list of containers you want to collect the metrics from.
+      If a container's name partially matches a name on the list, that container's metrics are shipped.
+      Otherwise, its metrics are ignored. \\
       **Note**: Can't be used with `DOCKER_SKIP_CONTAINER_NAME`
 
     DOCKER_SKIP_CONTAINER_NAME
     : Comma-separated list of containers you want to ignore.
-      If a container's name partially matches a name on the list, that container's logs are ignored.
-      Otherwise, its logs are shipped. \\
+      If a container's name partially matches a name on the list, that container's metrics are ignored.
+      Otherwise, its metrics are shipped. \\
       **Note**: Can't be used with `DOCKER_MATCH_CONTAINER_NAME`
 
     DOCKER_PERIOD <span class="default-param">`10s`</span>

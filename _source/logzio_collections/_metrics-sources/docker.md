@@ -101,7 +101,6 @@ shipping-tags:
     : Filepath to Docker key
       for connecting to Docker over TLS.
 
-    {:.info-box.note}
 
 3.  Check Logz.io for your metrics
 

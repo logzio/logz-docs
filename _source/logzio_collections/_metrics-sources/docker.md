@@ -14,12 +14,9 @@ shipping-tags:
   - container
 ---
 
-## Docker Collector (Metrics) setup
-
 ###### Configuration
 
 1.  Pull the Docker image
-
 
     Download the Docker Collector (Metrics) image:
 
@@ -35,8 +32,8 @@ shipping-tags:
     docker run --name docker-collector-metrics \
     --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
     --env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
+    --env LOGZIO_MODULES="docker" \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
-    LOGZIO_MODULES="docker" \
     logzio/docker-collector-metrics
     ```
 

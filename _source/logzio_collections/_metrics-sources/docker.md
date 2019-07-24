@@ -5,7 +5,7 @@ logo:
   orientation: horizontal
 data-source: Docker
 open-source:
-  - title: Docker Collector (Metrics)
+  - title: Docker Metrics Collector
     github-repo: docker-collector-metrics
 contributors:
   - imnotashrimp
@@ -14,11 +14,20 @@ shipping-tags:
   - container
 ---
 
-###### Configuration
+Docker Metrics Collector is a container that runs Metricbeat with the modules you enable at runtime.
+If you're not already running Docker Metrics Collector, follow the steps in [Configuration](#configuration) below.
+
+Otherwise, stop the container, add `docker` to the `LOGZIO_MODULES` environment variable, and restart.
+You can find the `run` command and all parameters in step 2 of the configuration below.
+
+The `docker` module collects these metrics:
+`container`, `cpu`, `diskio`, `healthcheck`, `info`, `memory`, `network`
+
+###### Configuration {#configuration}
 
 1.  Pull the Docker image
 
-    Download the Docker Collector (Metrics) image:
+    Download the Docker Metrics Collector image:
 
     ```shell
     docker pull logzio/docker-collector-metrics
@@ -69,7 +78,7 @@ shipping-tags:
       Environment variables must be the only value in the field.
       Where an environment variable can't be resolved, the field is omitted.
 
-    Parameters for Docker Collector (Metrics)
+    Parameters for Docker Metrics Collector
     {:.inline-header}
 
     DOCKER_MATCH_CONTAINER_NAME

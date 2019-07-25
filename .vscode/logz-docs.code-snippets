@@ -26,7 +26,7 @@
       "flags:",
       "${4:  admin: true}",
       "${5:  beta: true}",
-      "${6:  logzio-plan: ${7|enterprise,community,pro|}",
+      "${6:  logzio-plan:} ${7|enterprise,community,pro|}",
       "open-source",
       "  - title: ${8: project title}",
       "    github-repo: ${9: github repo name (in url)}",

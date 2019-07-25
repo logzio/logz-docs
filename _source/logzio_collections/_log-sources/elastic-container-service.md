@@ -41,7 +41,7 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
     ```shell
     docker run -d --name=docker-collector-logs \
     --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
-    --env LOGZIO_URL="https://<<LISTENER-HOST>>:8071" \
+    --env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /var/lib/docker/containers:/var/lib/docker/containers \
     logzio/docker-collector-logs

@@ -15,6 +15,7 @@ contributors:
 Drop filters offer a quick way to "drop" some logs before they're indexed.
 Once you've enabled drop filters, logs are evaluated for whole string matches in the fields you set.
 Logs that match your filter's settings won't be indexed.
+
 You can turn each drop filter off and on,
 making it ideal for logs that you need at some times but not always.
 
@@ -27,34 +28,45 @@ from the top menu.
 You can add up to 10 drop filters.
 {:.info-box.note}
 
-## Some important notes on drop filtering
-
-All incoming logs are compared to your drop filters.
-Logs that meet your filter criteria are dropped,
-meaning they won't be parsed and indexed.
+## How much data can I filter?
 
 You can filter up to your plan's daily volume, times 2.
+
 For instance:
 If you have 50 GB daily volume,
 you can index 50 GB and filter 100 GB per day.
-So in this example, you can ship 150 GB of logs in a day,
+So you could ship 150 GB of logs in a day,
 as long as you're filtering 100 of those GB
 and keeping your index within your 50 GB limits.
 
-If you have [archiving]({{site.baseurl}}/user-guide/archive-and-restore/configure-archiving.html) enabled,
-your logs will be archived before they're dropped.
-This means that you can restore from your archives,
-even if the logs didn't originally make it to Kibana.
+Your account needs to have enough space
+to accommodate logs
+when you deactivate a drop filter.
+{:.info-box.important}
 
-##### The bottom line
+Drop filters are a great way to help manage your account volume.
+However, we recommend using drop filters for logs that are sometimes needed
+and not shipping logs that are never needed.
 
-* Dropped logs can't be searched in Kibana
-  and they can't trigger alerts.
-* You can use drop filters to help manage your account volume,
-  but we recommend using drop filters for logs that are sometimes needed
-  and not shipping logs that are never needed.
-* Logs are archived before filters are run,
-  so you can still archive and restore the filtered logs.
+## Some important notes on drop filtering {#some-important-notes}
+
+* **Dropped logs can't be searched in Kibana and they can't trigger alerts.** \\
+  All incoming logs are compared to your drop filters.
+  Logs that meet your filter criteria are dropped,
+  meaning they won't be parsed and indexed.
+
+* **Dropped logs are still archived.** \\
+  If you have [archiving]({{site.baseurl}}/user-guide/archive-and-restore/configure-archiving.html) enabled,
+  your logs will be archived before they're dropped.
+  This means that you can restore from your archives,
+  even if the logs didn't originally make it to Kibana.
+
+* **Restored logs still pass through drop filters.** \\
+  If you're restoring archives,
+  those logs will still be dropped
+  if they meet any drop filter's conditions.
+  When restoring,
+  always make sure logs you need won't be filtered.
 
 ###### To set up a drop filter
 
@@ -74,13 +86,13 @@ to open the _New drop filter_ form.
 2.  Add fields to filter
 
     Add up to 3 **Field**-**Value** pairs to filter.
-    Each pair must be an exact match in order to drop.
+    Each pair must be an exact match.
+    Drop filters are case sensitive.
 
     An example
     {:.inline-header}
 
-    Let's say we ship logs from a Docker container.
-    When we look at our logs, we might see this field-value pair:
+    Logs from a Docker container might contain this field-value pair:
 
     ```json
     { "docker.container.name": "system-logs" }

@@ -95,12 +95,13 @@ you can set up a drop filter.
 Logs caught by [drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/) aren't ingested,
 so they won't count against your plan limits.
 However, the volume of logs you can filter is based on your plan's quota.
-This number varies from one account to the next,
+For more information, see [Some important notes on drop filtering]({{site.baseurl}}/user-guide/accounts/drop-filters/#some-important-notes).
+<!-- This number varies from one account to the next,
 so please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a>
-for more information on your drop filter limits.
+for more information on your drop filter limits. -->
 
 Dropped logs will never arrive at your Logz.io account,
 so they can't be searched or trigger alerts.
-Always confirm that you're dropping the correct logs when you apply a new filter.
+Always confirm you're dropping the right logs when you apply a new filter.
 {:.info-box.important}
 

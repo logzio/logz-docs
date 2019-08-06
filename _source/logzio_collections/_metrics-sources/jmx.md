@@ -19,8 +19,8 @@ jmx2logzio is a lightweight tool for polling JMX metrics and sending them to Log
 This doc shows you how to set up jmx2logzio.
 You have two options here:
 
-* Run as a [Java agent](#as-a-java-agent-config) (to get metrics directly from the MBean platform)
-* Run as an [app that connects to a Jolokia agent](#with-a-jolokia-agent-config)
+* Run as a Java agent (to get metrics directly from the MBean platform)
+* Run as an app that connects to a Jolokia agent
 
 ### How are metrics reported?
 
@@ -38,25 +38,21 @@ Metrics are reported as
 ## jmx2logzio as Java agent setup
 
 In most cases, you can configure jmx2logzio to run as an agent.
-In this configuration, jmx2logzio forwards metrics directly to Logz.io.
-
-If your app is running in a Docker container,
-consider using [jmx2logzio with Jolokia](#with-a-jolokia-agent-config) instead.
-
-<div class="info-box note">
+In this configuration, jmx2logzio sends metrics to Logz.io at user-defined intervals.
 
   The agent uses Slf4j logging framework.
   To get logs from the agent, you'll need to supply a [slf4j binder](https://www.slf4j.org/faq.html#requirements).
-
-</div>
+  {:.info-box.note}
 
 ###### Configuration
 
 **You'll need**:
-[Maven](https://maven.apache.org/),
 [Java 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or higher
 
 1.  Download jmx2logzio
+
+    Download jmx2logzio.jar to your current folder.
+    You'll use this in step 2.
 
     ```shell
     RELEASE_JAR=$(curl -s https://api.github.com/repos/logzio/jmx2logzio/releases/latest \
@@ -65,8 +61,6 @@ consider using [jmx2logzio with Jolokia](#with-a-jolokia-agent-config) instead.
     ```
 
 2.  Configure and run jmx2logzio
-
-    You'll find the jmx2logzio jar file in the jmx2logzio/target/ folder.
 
     Run your Java app,
     adding `-javaagent:path/to/jmx2logzio/jar/file.jar` and configuration arguments to the command.
@@ -91,7 +85,7 @@ consider using [jmx2logzio with Jolokia](#with-a-jolokia-agent-config) instead.
       This is included in the reported metrics.
 
     LISTENER_URL <span class="default-param">`https://listener.logz.io:8071`</span>
-    : Listener URL and port. \\
+    : Listener URL and port.
       {% include log-shipping/replace-vars.html listener=true %}
 
     SERVICE_HOST
@@ -157,15 +151,13 @@ consider using [jmx2logzio with Jolokia](#with-a-jolokia-agent-config) instead.
 
 ## jmx2logzio + Jolokia agent setup
 
-If you experience issues such as port conflicts for Docker containers,
-you can run a Jolokia agent to act as a go-between for sending metrics from your app to Logz.io.
-In this configuration, jmx2logzio forwards metrics to Jolokia,
-which sends those metrics to Logz.io.
+If you want to poll metrics from a remote source, you can use Jolokia agent + Jmx2logzio.
+In this configuration, Jolokia exposes the metrics through an API, which jmx2logzio reads and sends to Logz.io.
+In this case, jmx2logzio can [run as a docker]( #jmx2logzio-in-a-docker).
 
 ###### Configuration
 
 **You'll need**:
-[Maven](https://maven.apache.org/),
 [Java 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or higher
 
 1.  Run the Jolokia agent
@@ -179,22 +171,20 @@ which sends those metrics to Logz.io.
     java -javaagent:/opt/jolokia/jolokia-jvm-1.6.0-agent.jar /path/to/your/app
     ```
 
-    <div class="info-box note">
-
       You can specify a custom configuration for Jolokia agent at runtime.
       For more information, see [Jolokia as JVM Agent](https://jolokia.org/reference/html/agents.html#jvm-agent) from Jolokia.
-
-    </div>
+      {:.info-box.note}
 
 2.  Download and configure jmx2logzio
 
-    Clone the jmx2logzio GitHub repo.
-
     ```shell
-    git clone https://github.com/logzio/jmx2logzio.git
+    RELEASE_JAR=$(curl -s https://api.github.com/repos/logzio/jmx2logzio/releases/latest \
+      | grep "browser_download_url" | awk '{print substr($2, 2, length($2)-2)}') \
+      ; wget -O jmx2logzio-javaagent.jar $RELEASE_JAR
     ```
 
-    Open jmx2logzio/src/main/resources/application.config in a text editor, and set the parameters below.
+    Create a configuration file specifying the parameters below.
+    For help, see our [example configuration file](https://raw.githubusercontent.com/logzio/jmx2logzio/master/config.conf).
 
     Parameters
     {: .inline-header }
@@ -262,21 +252,24 @@ which sends those metrics to Logz.io.
       Default value is -1 (the sender will not limit the queue by logs count).
 
 
-3.  Build and run jmx2logzio
+3.  Run jmx2logzio
 
-    `cd` to the jmx2logzio/ folder and build the source:
+    Make sure your app is running with the Jolokia agent, and then start jmx2logzio.
 
-    ```shell
-    mvn clean install
-    ```
+    You can launch jmx2logzio.jar as a standalone jar or in a Docker container.
 
-    Make sure your app is running, and then start jmx2logzio.
+    As a jar:
 
     ```shell
-    java -jar jmx2logzio.jar
+    java -jar jmx2logzio.jar config.conf
     ```
 
-    You'll find the jmx2logzio jar file in the jmx2logzio/target/ folder.
+    In a container:
+
+    ```shell
+    docker pull logzio/jmx2logzio
+    docker run -v $(pwd)/config.conf:/application.conf logzio/jmx2logzio
+    ```
 
 4.  Check Logz.io for your metrics
 

@@ -119,6 +119,9 @@ data:
         - pod
         - container
         - volume
+        - state_node
+        - state_pod
+        - state_container
       hosts: ["localhost:10255"]
 ---
 # Deploy a Metricbeat instance per node for node metrics retrieval
@@ -244,11 +247,8 @@ data:
   kubernetes.yml: |-
     - module: kubernetes
       metricsets:
-        - state_node
         - state_deployment
         - state_replicaset
-        - state_pod
-        - state_container
         - event
       period: 10s
       hosts: ["kube-state-metrics.${KUBE_STATE_METRICS_NAMESPACE}:${KUBE_STATE_METRICS_PORT}"]

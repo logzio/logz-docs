@@ -70,10 +70,10 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
 
     Click **Add permissions**.
 
-    Click **Grant admin consent for Default Directory > Yes**.
+    Click **Grant admin consent for Default Directory**, and then click **Yes** to confirm.
 
-    Only Azure administrators can change the _Grant admin consent for Default Directory_ setting.
-    If this button is disabled, ask your Azure admin to update the setting for you.
+    Only Azure administrators can grant consent for Default Directory.
+    If the _Grant admin consent_ button is disabled, ask your Azure admin to update the setting for you.
     {:.info-box.note}
 
 4.  Create a configuration file
@@ -111,7 +111,7 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
       If `false`, logs persist in memory until they're shipped (see [If from-disk=false](#if-fromdisk-false)).
 
     senderParams.senderDrainIntervals <span class="default-param">`30`</span>
-    : How often the sender should drain the queue (in seconds).
+    : How often the sender should drain the queue, in seconds.
 
     azureADClient.tenantId <span class="required-param"></span>
     : Azure Active Directory tenant ID. \\

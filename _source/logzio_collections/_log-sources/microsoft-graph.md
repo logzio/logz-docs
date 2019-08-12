@@ -51,7 +51,7 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
     Click **Add**.
 
     Copy the value of the generated secret to your text editor.
-    You'll need this later on.
+    You'll need this later.
 
     You won't be able to retrieve the secret's value after you leave this page.
     {:.info-box.note}
@@ -72,8 +72,8 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
 
     Click **Grant admin consent for Default Directory > Yes**.
 
-    If the _Grant admin consent for Default Directory_ button is disabled,
-    contact an Azure administrator for your organization.
+    Only Azure administrators can change the _Grant admin consent for Default Directory_ setting.
+    If this button is disabled, ask your Azure admin to update the setting for you.
     {:.info-box.note}
 
 4.  Create a configuration file
@@ -92,6 +92,8 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
       tenantId: "<<AD_TENANT_ID>>"
       clientId: "<<APP_CLIENT_ID>>"
       clientSecret: "<<APP_CLIENT_SECRET>>"
+
+    debug: INFO
     ```
 
     Parameters
@@ -168,7 +170,7 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
     download the latest jar from the [release page](https://github.com/logzio/microsoft-graph/releases)
     and run:
 
-    ```
+    ```shell
     java -jar logzio-msgraph.jar logzio-msgraph-config.yaml
     ```
 

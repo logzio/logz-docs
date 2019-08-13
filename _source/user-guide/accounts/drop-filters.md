@@ -42,6 +42,8 @@ and keeping your index within your 50 GB limits.
 Your account needs to have enough space
 to accommodate logs
 when you deactivate a drop filter.
+If you expect to go over your daily limit,
+please contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team or your account manager</a>.
 {:.info-box.important}
 
 Drop filters are a great way to help manage your account volume.

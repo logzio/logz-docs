@@ -32,7 +32,7 @@ Default log locations
   If installed from source: `/home/git/gitlab/log/...` \\
   _See [Log system](https://docs.gitlab.com/ee/administration/logs.html) from GitLab for more information._
 
-Log type _\(for preconfigured parsing\)_
+Log type
 : Production, JSON: `gitlab-production-json` \\
   Production, plain text: `gitlab-production` \\
   API: `gitlab-api-json` \\

@@ -28,15 +28,22 @@ archived logs in your S3 bucket
 
 1.  Restore your archives
 
+    Restored logs are compared to drop filters,
+    as if you were shipping those logs normally.
+    Double-check your drop filters
+    to make sure logs you need won't be filtered.
+    For more information, see [Drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/).
+    {:.info-box.important}
+
     In the _Restore_ tab, give your restored account a **Name**, choose a **Time range** of up to 24 hours, and click **Restore**.
 
-    The time it takes to restore your archives depends on a few factors.
-    For this reason, we can't give an estimate for how long your re-ingestion will take.
+    The time it takes to restore your archives depends on a few factors,
+    so there's no way to know how long your re-ingestion will take.
 
     As an informal guideline, if you're restoring an hour's worth of data, go have a cup of coffee.
-    But if you're restoring a day's worth of data, have some lunch.
+    If you're restoring a day's worth of data, take a long lunch break.
 
-    Logz.io sends an email when the restored account is ready.
+    You'll receive an email when the restored account is ready.
 
 2.  Explore the restored account in Kibana
 

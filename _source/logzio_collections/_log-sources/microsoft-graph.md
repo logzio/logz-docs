@@ -93,7 +93,7 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
       clientId: "<<APP_CLIENT_ID>>"
       clientSecret: "<<APP_CLIENT_SECRET>>"
 
-    debug: INFO
+    logLevel: INFO
     ```
 
     Parameters

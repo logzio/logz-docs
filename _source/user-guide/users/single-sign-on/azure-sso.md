@@ -4,7 +4,7 @@ title: Single sign-on with Azure
 permalink: /user-guide/users/single-sign-on/azure-sso.html
 flags:
   admin: true
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - sso
   - azure

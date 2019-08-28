@@ -58,6 +58,10 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 {:.tasklist.firstline-headline}
 
+## Disabling systemd input
+
+To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+
 ## Customizing the configuration {#customizing-the-configuration}
 
 If you're deploying a custom configuration,
@@ -103,7 +107,3 @@ max_retry_wait <span class="default-param">`30s`</span>
 
 num_threads <span class="default-param">`2`</span>
 : Number of threads to flush the buffer.
-
-## Disabling systemd input
-
-To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.

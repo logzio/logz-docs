@@ -1,9 +1,9 @@
 ---
-title: Ship Kubernetes logs
+title: Ship EKS logs
 logo:
-  logofile: kubernetes.svg
+  logofile: aws-eks.svg
   orientation: vertical
-data-source: Kubernetes
+data-source: Elastic Kubernetes Service
 open-source:
   - title: logzio-k8s
     github-repo: logzio-k8s
@@ -11,6 +11,7 @@ contributors:
   - idohalevi
   - imnotashrimp
 shipping-tags:
+  - aws
   - container
 ---
 
@@ -44,16 +45,8 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
     see [Customizing the configuration](#customizing-the-configuration) below.
     {:.info-box.note}
 
-    For an RBAC cluster:
-
     ```shell
     kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml
-    ```
-
-    Or for a non-RBAC cluster:
-
-    ```shell
-    kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml
     ```
 
 3.  Check Logz.io for your logs

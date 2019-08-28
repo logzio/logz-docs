@@ -39,10 +39,10 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 
 2.  Deploy the DaemonSet
 
-    If you need to deploy the DaemonSet with a custom configuration,
+    <!-- If you need to deploy the DaemonSet with a custom configuration,
     or for details on the default configuration,
     see [Customizing the configuration](#customizing-the-configuration) below.
-    {:.info-box.note}
+    {:.info-box.note} -->
 
     For an RBAC cluster:
 
@@ -69,7 +69,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 
 To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
 
-## Customizing the configuration {#customizing-the-configuration}
+<!-- ## Customizing the configuration {#customizing-the-configuration}
 
 If you're deploying a custom configuration,
 you'll still need to store your Logz.io credentials
@@ -113,4 +113,4 @@ max_retry_wait <span class="default-param">`30s`</span>
 : Maximum interval, in seconds, to wait between retries.
 
 num_threads <span class="default-param">`2`</span>
-: Number of threads to flush the buffer.
+: Number of threads to flush the buffer. -->

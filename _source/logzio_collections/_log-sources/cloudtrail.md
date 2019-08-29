@@ -30,10 +30,6 @@ shipping-tags:
 
     {% include log-shipping/in-app-configuration.html toolId="s3-config" %}
 
-    * **S3 bucket**: Name of the bucket
-    * **Prefix**: The directory where the logs are stored (AWSLogs/_Account ID_/CloudTrail)
-    * **S3 access key** and **S3 secret key**: Your S3 bucket credentials
-
     <!-- logzio-inject:s3-config -->
 
       Logz.io fetches logs that are generated after configuring an S3 bucket.
@@ -42,7 +38,7 @@ shipping-tags:
 
 3.  Check Logz.io for your logs
 
-    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
     If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 {:.tasklist.firstline-headline}

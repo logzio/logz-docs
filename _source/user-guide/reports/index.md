@@ -15,7 +15,7 @@ You can send reports on a regular schedule to Slack or email recipients.
 
 To navigate to the Reports page:
 
-* In your Operations account, select under **Alerts & Events > Reports** in the top menu.
+* In your Operations account, select **Alerts & Events > Reports** in the top menu.
 * In your Security Analytics account, click **Reports** in the top menu.
 
 ###### Configuring a report

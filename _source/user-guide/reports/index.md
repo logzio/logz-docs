@@ -50,5 +50,5 @@ To navigate to the Reports page:
     Use **Who to send it to** to choose the report's email and Slack recipients.
 
     If you choose **Include a link to the live dashboard in the message**,
-    report recipients will have a quick link to a current view of the report's dashboard.
+    report recipients will have a quick link to the dashboard for the report's time range.
 {:.tasklist.firstline-headline}

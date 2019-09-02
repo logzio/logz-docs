@@ -160,7 +160,7 @@ This is done using a ConfigMap that overwrites the default DaemonSet.
 
     If you still don't see your logs,
     see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.inline-headline}
+{:.tasklist.firstline-headline}
 
 </div>
 <!-- tab:end -->

@@ -10,7 +10,7 @@ contributors:
   - imnotashrimp
 ---
 
-Logz.io Reports allows you to automatically generate a reports using your Kibana dashboards.
+Logz.io Reports allows you to automatically generate reports using your Kibana dashboards.
 You can send reports on a regular schedule to Slack or email recipients.
 
 To navigate to the Reports page:
@@ -32,7 +32,12 @@ To navigate to the Reports page:
 
     Choose **Which dashboard to send** to your recipients.
 
-    Use **For this time range** to set your report's time range.
+    Use **For this time range** to filter logs to be included in the report.
+
+    For example:
+    If you choose a time range of 24 hours on a report sent every Monday at 09:00,
+    each week's report will show a snapshot of your logs from 09:00 Sunday through 09:00 Monday.
+
     Your time range can be anything from 1 hour to 30 days.
 
 3.  Set the schedule

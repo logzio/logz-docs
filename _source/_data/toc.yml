@@ -53,6 +53,8 @@ firstLevel:
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
 
+  - title: Reports
+    url: /user-guide/reports/
   - title: Optimizers
     url: /user-guide/optimizers/
     thirdLevel:

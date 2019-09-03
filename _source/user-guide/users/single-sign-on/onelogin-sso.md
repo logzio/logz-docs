@@ -4,7 +4,7 @@ title: Single sign-on with OneLogin
 permalink: /user-guide/users/single-sign-on/onelogin-sso.html
 flags:
   admin: true
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - sso
   - onelogin

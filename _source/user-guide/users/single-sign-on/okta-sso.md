@@ -4,7 +4,7 @@ title: Single sign-on with Okta
 permalink: /user-guide/users/single-sign-on/okta-sso.html
 flags:
   admin: true
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - sso
   - okta

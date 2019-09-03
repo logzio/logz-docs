@@ -38,7 +38,7 @@ To navigate to the Reports page:
     If you choose a time range of 24 hours on a report sent every Monday at 09:00,
     each week's report will show a snapshot of your logs from 09:00 Sunday through 09:00 Monday.
 
-    Your time range can be anything from 1 hour to 30 days.
+    Your time range can be anything from 1 minute to 30 days.
 
 3.  Set the schedule
 
@@ -46,9 +46,6 @@ To navigate to the Reports page:
 
     Logz.io uses quartz cron.
     If you need help generating a cron expression, see [Cron Expression Generator](https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples/).
-
-    Reports are scheduled using UTC.
-    {:.info-box.important}
 
 4.  Choose the recipients
 

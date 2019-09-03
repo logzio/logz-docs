@@ -1,0 +1,12 @@
+<svg width="100px" height="59px" viewBox="0 0 100 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="hero-background" transform="translate(-438.000000, -1.000000)" fill="#001B3D" fill-rule="nonzero">
+            <g id="Transforms" transform="translate(255.951533, 0.405099)">
+                <g id="Logo" transform="translate(182.048467, 0.594901)">
+                    <polygon id="Rectangle" points="85.0428098 0 100.046104 8.34516213e-13 64.3153529 58.9577866 56.9021626 46.757267"></polygon>
+                    <polygon id="Triangle-Copy" transform="translate(35.542695, 29.323741) scale(-1, 1) rotate(-180.000000) translate(-35.542695, -29.323741) " points="35.542695 -4.00000005e-07 71.08539 58.647482 53.3566595 58.647482 35.9062711 29.9753795 18.4474358 58.647482 0 58.647482"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

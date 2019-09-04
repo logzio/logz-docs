@@ -95,14 +95,15 @@ This is done using a ConfigMap that overwrites the default DaemonSet.
 
 2.  Download the ConfigMap
 
-    Download `k8s-fluentd-custom.yaml` from [https://raw.githubusercontent.com/logzio/logzio-k8s/master/k8s-fluentd-custom.yaml]()
+    Download `k8s-fluentd-custom.yaml` from
+    [https://raw.githubusercontent.com/logzio/logzio-k8s/master/k8s-fluentd-custom.yaml](https://raw.githubusercontent.com/logzio/logzio-k8s/master/k8s-fluentd-custom.yaml)
     and open the file in your text editor.
 
 3.  Add the Fluentd configuration
 
     Delete `<<REPLACE_WITH_FLUENT_CONF>>`.
-    Paste the contents `fluent.conf`
-    from [https://raw.githubusercontent.com/logzio/logzio-k8s/master/conf/fluent.conf]().
+    Paste the contents `fluent.conf` from
+    [https://raw.githubusercontent.com/logzio/logzio-k8s/master/conf/fluent.conf](https://raw.githubusercontent.com/logzio/logzio-k8s/master/conf/fluent.conf).
 
     Indent the pasted contents at least 2 spaces past `fluent.conf: |-`.
     {:.info-box.important}

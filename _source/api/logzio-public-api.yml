@@ -349,8 +349,8 @@ paths:
       parameters:
         - in: query
           name: dayOffset
+          type: integer
           schema:
-            type: integer
             description: >-
               Slide the 2-day search time range by _x_ days.
               For example, if set to `5`, search returns results from 5 days ago and 4 days ago.

@@ -16,8 +16,7 @@ shipping-tags:
 ###### Guided configuration
 
 **You'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
+[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 root access
 
 1.  Configure Vault for raw log output
@@ -67,13 +66,7 @@ root access
       fields_under_root: true
       encoding: utf-8
       ignore_older: 3h
-    ```
 
-    If you're running Filebeat 7, paste this code block.
-    Otherwise, you can leave it out.
-
-    ```yaml
-    # ... For Filebeat 7 only ...
     filebeat.registry.path: /var/lib/filebeat
     processors:
     - rename:
@@ -96,13 +89,6 @@ root access
       - from: "logzio_type"
         to: "type"
       ignore_missing: true
-    ```
-
-    If you're running Filebeat 6, paste this code block.
-
-    ```yaml
-    # ... For Filebeat 6 only ...
-    registry_file: /var/lib/filebeat/registry
     ```
 
 4.  Add Logz.io as an output

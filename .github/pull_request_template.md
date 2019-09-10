@@ -5,7 +5,7 @@ Don't worry about the bottom part of this template—the docs team will take car
 
 ----
 
-<!-- ☝☝☝ Just let us know what you changed at the top of the template.
+<!-- ⬆︎⬆︎⬆︎⬆︎⬆︎⬆︎ Just let us know what you changed at the top of the template. ⬆︎⬆︎⬆︎⬆︎⬆︎⬆︎
 The docs team can take care of everything below this line. -->
 
 ## Pages to review

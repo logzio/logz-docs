@@ -42,11 +42,18 @@ root access
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-3.  Add Vault as an input
+3.  Create your configuration file for Vault
 
-    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Vault to the filebeat.inputs section.
+    The Filebeat configuration file is at `/etc/filebeat/filebeat.yml` by default.
 
-    {% include log-shipping/replace-vars.html token=true %}
+    To avoid conflicts with fields from other log sources,
+    you'll need to run a dedicated Filebeat instance for Vault logs.
+    This allows Filebeat to rename some fields
+    to keep Vault logs compatible with Logz.io.
+    {:.info-box.important}
+
+    {% include log-shipping/replace-vars.html token=true %} \\
+    {% include log-shipping/replace-vars.html listener=true %}
 
     ```yaml
     # ...
@@ -56,14 +63,12 @@ root access
       paths:
       - /var/log/vault_audit.log
 
-      fields:
-        logzio_codec: json
-
         # Your Logz.io account token. You can find your token at
         #  https://app.logz.io/#/dashboard/settings/manage-accounts
         token: <<SHIPPING-TOKEN>>
         logzio_type: vault
       fields_under_root: true
+      json.keys_under_root: true
       encoding: utf-8
       ignore_older: 3h
 
@@ -89,15 +94,7 @@ root access
       - from: "logzio_type"
         to: "type"
       ignore_missing: true
-    ```
 
-4.  Add Logz.io as an output
-
-    If Logz.io is not an output, add it now.
-
-    {% include log-shipping/replace-vars.html listener=true %}
-
-    ```yaml
     # ...
     output.logstash:
       hosts: ["<<LISTENER-HOST>>:5015"]

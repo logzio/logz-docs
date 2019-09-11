@@ -56,32 +56,38 @@ $(function() {
   });
 });
 
-// filter categories on a shipping page
+// filter page on click
 $(function() {
   $('.filter-btn').click(function() {
-    var value = $(this).data('filter');
-    if (value == 'all') {
-      $('.filter').show();
-    } else {
-      $('.filter').hide();
-      $('.filter').filter('.'+value).show();
-    }
-    // add `active` class to clicked button, remove from other buttons
-    $(this).addClass('filter-active').siblings().removeClass('filter-active');
+    pageFilter(this);
   });
 
-// reset on tab click
-$('.branching-tabs > li > a').click(function() {
-  $('.branching-tabs li  a').removeClass('visit');
-  $(this).addClass('visit');
+  // reset on tab click
+  $('.branching-tabs > li > a').click(function() {
+    $('.branching-tabs li  a').removeClass('visit');
+    $(this).addClass('visit');
 
-  if($(this).hasClass('visit')){
+    if($(this).hasClass('visit')){
+      $('.filter').show();
+      $('.filter-btn[data-filter="all"').addClass('filter-active').siblings().removeClass('filter-active');
+    }
+  });
+
+});
+
+// page filtering behavior
+function pageFilter(filter) {
+  var value = $(filter).data('filter');
+  if (value == 'all') {
     $('.filter').show();
-    $('.filter-btn[data-filter="all"').addClass('filter-active').siblings().removeClass('filter-active');
+  } else {
+    $('.filter').hide();
+    $('.filter').filter('.'+value).show();
   }
-});
-
-});
+  // add `active` class to clicked button, remove from other buttons
+  $(filter).addClass('filter-active').siblings().removeClass('filter-active');
+  return;
+}
 
 // scroll to <summary> when clicked
 $(function() {

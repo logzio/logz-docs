@@ -38,6 +38,13 @@ CMake
     In your Fluent Bit configuration file,
     add Logz.io as an output.
 
+    Logz.io-Out Plugin for Fluent Bit
+    supports one output stream to Logz.io.
+    We plan to add support for multiple streams in the future. \\
+    In the meantime,
+    we recommend running a new instance for each output stream you need.
+    {:.info-box.note}
+
     For a complete list of options, see the configuration parameters below the code block.👇
 
     ```python

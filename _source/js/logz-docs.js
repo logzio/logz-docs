@@ -56,10 +56,26 @@ $(function() {
   });
 });
 
+// filter page based on url param
+$(function() {
+  $.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null) {
+       return 'all';
+    }
+    return decodeURI(results[1]) || 0;
+  }
+
+  if ($.urlParam('filter')) {
+    var thisFilter = $.urlParam('filter');
+    pageFilter(thisFilter);
+  }
+})
+
 // filter page on click
 $(function() {
   $('.filter-btn').click(function() {
-    pageFilter(this);
+    pageFilter($(this).data('filter'));
   });
 
   // reset on tab click
@@ -69,7 +85,7 @@ $(function() {
 
     if($(this).hasClass('visit')){
       $('.filter').show();
-      $('.filter-btn[data-filter="all"').addClass('filter-active').siblings().removeClass('filter-active');
+      $('.filter-btn[data-filter="all"]').addClass('filter-active').siblings().removeClass('filter-active');
     }
   });
 
@@ -77,7 +93,8 @@ $(function() {
 
 // page filtering behavior
 function pageFilter(filter) {
-  var value = $(filter).data('filter');
+  var value = filter;
+  console.log(value);
   if (value == 'all') {
     $('.filter').show();
   } else {
@@ -85,7 +102,7 @@ function pageFilter(filter) {
     $('.filter').filter('.'+value).show();
   }
   // add `active` class to clicked button, remove from other buttons
-  $(filter).addClass('filter-active').siblings().removeClass('filter-active');
+  $(value).addClass('filter-active').siblings().removeClass('filter-active');
   return;
 }
 

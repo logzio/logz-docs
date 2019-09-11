@@ -31,7 +31,7 @@ CMake
 
     ```shell
     wget -o /fluent-bit/plugins/out_logzio.so \
-    https://github.com/logzio/fluent-bit-logzio-output/tree/master/build
+    https://github.com/logzio/fluent-bit-logzio-output/blob/master/build/out_logzio.so
     ```
     <!-- TODO This is a binary. Waiting for word on where the final binary will be available -->
 

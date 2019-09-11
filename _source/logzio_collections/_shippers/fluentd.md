@@ -15,7 +15,7 @@ contributors:
 ###### Configure Fluentd
 
 **You'll need**:
-Ruby and ruby-dev 2.1 or higher,
+Ruby and ruby-dev 2.1 or higher
 
 1.  Install Fluentd and the Logz.io plugin
 

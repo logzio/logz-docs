@@ -102,7 +102,7 @@ function pageFilter(filter) {
     $('.filter').filter('.'+value).show();
   }
   // add `active` class to clicked button, remove from other buttons
-  $(value).addClass('filter-active').siblings().removeClass('filter-active');
+  $('.filter-btn[data-filter="'+value+'"]').addClass('filter-active').siblings().removeClass('filter-active');
   return;
 }
 

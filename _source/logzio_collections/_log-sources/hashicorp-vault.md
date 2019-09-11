@@ -16,7 +16,7 @@ shipping-tags:
 ###### Guided configuration
 
 **You'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
 root access
 
 1.  Configure Vault for raw log output

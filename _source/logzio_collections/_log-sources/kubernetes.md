@@ -100,22 +100,15 @@ This is done using a ConfigMap that overwrites the default DaemonSet.
       -n kube-system
     ```
 
-2.  Download the ConfigMap
+2.  Configure Fluentd
 
-    Download `k8s-fluentd-custom.yaml` from
-    [https://raw.githubusercontent.com/logzio/logzio-k8s/master/k8s-fluentd-custom.yaml](https://raw.githubusercontent.com/logzio/logzio-k8s/master/k8s-fluentd-custom.yaml)
+    Download either
+    the [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml)
+    or the [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml)
     and open the file in your text editor.
 
-3.  Add the Fluentd configuration
-
-    Delete `<<REPLACE_WITH_FLUENT_CONF>>`.
-    Paste the contents `fluent.conf` from
-    [https://raw.githubusercontent.com/logzio/logzio-k8s/master/conf/fluent.conf](https://raw.githubusercontent.com/logzio/logzio-k8s/master/conf/fluent.conf).
-
-    Indent the pasted contents at least 2 spaces past `fluent.conf: |-`.
-    {:.info-box.important}
-
-    Customize the Fluentd configuration with these parameters. 👇
+    Customize the Fluentd configuration with the parameters shown below.
+    The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of the file.
 
     Parameters
     {:.inline-header}
@@ -148,13 +141,21 @@ This is done using a ConfigMap that overwrites the default DaemonSet.
     num_threads <span class="default-param">`2`</span>
     : Number of threads to flush the buffer.
 
-4.  Deploy the DaemonSet
+3.  Deploy the DaemonSet
+
+    For the RBAC DaemonSet:
 
     ```shell
-    kubectl apply -f /path/to/k8s-fluentd-custom.yaml
+    kubectl apply -f /path/to/logzio-daemonset-rbac.yaml
     ```
 
-5.  Check Logz.io for your logs
+    For the non-RBAC DaemonSet:
+
+    ```shell
+    kubectl apply -f /path/to/logzio-daemonset.yaml
+    ```
+
+4.  Check Logz.io for your logs
 
     Give your logs some time to get from your system to ours,
     and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

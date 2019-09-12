@@ -1,0 +1,114 @@
+---
+title: Ship logs from HashiCorp Vault
+logo:
+  logofile: hashicorp-vault.svg
+  orientation: horizontal
+data-source: HashiCorp Vault
+contributors:
+  - imnotashrimp
+  - dorisnaaman
+shipping-tags:
+  - security
+---
+
+## Setup
+
+###### Guided configuration
+
+**You'll need**:
+[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
+root access
+
+1.  Configure Vault for raw log output
+
+    Start or restart Vault,
+    enabling raw log output to the default location.
+
+    Raw log output disables log hashing
+    so Filebeat can read the log files.
+
+    ```shell
+    vault audit enable file file_path=/var/log/vault_audit.log log_raw=true
+    ```
+
+    For more information on logging and enabling audit devices,
+    see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from HashiCorp.
+
+2.  Download the Logz.io certificate
+
+    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+
+    ```shell
+    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+    ```
+
+3.  Create your configuration file for Vault
+
+    The Filebeat configuration file is at `/etc/filebeat/filebeat.yml` by default.
+
+    To avoid conflicts with fields from other log sources,
+    you'll need to run a dedicated Filebeat instance for Vault logs.
+    This allows Filebeat to rename some fields
+    to keep Vault logs compatible with Logz.io.
+    {:.info-box.important}
+
+    {% include log-shipping/replace-vars.html token=true %} \\
+    {% include log-shipping/replace-vars.html listener=true %}
+
+    ```yaml
+    # ...
+    filebeat.inputs:
+    - type: log
+
+      paths:
+      - /var/log/vault_audit.log
+
+        # Your Logz.io account token. You can find your token at
+        #  https://app.logz.io/#/dashboard/settings/manage-accounts
+        token: <<SHIPPING-TOKEN>>
+        logzio_type: vault
+      fields_under_root: true
+      json.keys_under_root: true
+      encoding: utf-8
+      ignore_older: 3h
+
+    filebeat.registry.path: /var/lib/filebeat
+    processors:
+    - rename:
+        fields:
+        - from: "agent"
+          to: "filebeat_agent"
+        ignore_missing: true
+    - rename:
+        fields:
+        - from: "log.file.path"
+          to: "source"
+        ignore_missing: true
+    - rename:
+      fields:
+      - from: "type"
+        to: "hashi_type"
+      ignore_missing: true
+    - rename:
+      fields:
+      - from: "logzio_type"
+        to: "type"
+      ignore_missing: true
+
+    # ...
+    output.logstash:
+      hosts: ["<<LISTENER-HOST>>:5015"]
+      ssl:
+        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    ```
+
+5.  Start Filebeat
+
+    Start or restart Filebeat for the changes to take effect.
+
+6.  Check Logz.io for your logs
+
+    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+{:.tasklist.firstline-headline}

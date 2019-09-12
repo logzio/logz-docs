@@ -46,7 +46,7 @@ However, you can deploy a custom configuration if your environment needs it.
 
     ```shell
     kubectl create secret generic logzio-logs-secret \
-      --from-literal=logzio-log-shipping-token='<<ACCOUNT-TOKEN>>' \
+      --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
       --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
       -n kube-system
     ```
@@ -88,7 +88,7 @@ This is done using a ConfigMap that overwrites the default DaemonSet.
 
     ```shell
     kubectl create secret generic logzio-logs-secret \
-      --from-literal=logzio-log-shipping-token='<<ACCOUNT-TOKEN>>' \
+      --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
       --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
       -n kube-system
     ```

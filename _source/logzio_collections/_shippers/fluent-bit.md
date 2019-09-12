@@ -71,7 +71,7 @@ shipper-tags:
     : Listener URL and port. \\
       {% include log-shipping/replace-vars.html listener=true %}
 
-    logzio_type <span class="default-param">`logzio-fluenbit`</span>
+    logzio_type <span class="default-param">`logzio-fluent-bit`</span>
     : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
       Used by Logz.io for consistent parsing.
       Can't contain spaces.
@@ -95,7 +95,6 @@ shipper-tags:
 
 </div>
 <!-- tab:end -->
-
 
 <!-- tab:start -->
 <div id="docker-config">
@@ -142,7 +141,7 @@ shipper-tags:
     : Listener URL and port. \\
       {% include log-shipping/replace-vars.html listener=true %}
 
-    logzio_type <span class="default-param">`logzio-fluenbit`</span>
+    logzio_type <span class="default-param">`logzio-fluent-bit`</span>
     : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
       Used by Logz.io for consistent parsing.
       Can't contain spaces.

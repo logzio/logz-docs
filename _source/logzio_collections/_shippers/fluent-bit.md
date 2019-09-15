@@ -106,9 +106,7 @@ shipper-tags:
 1.  Make the configuration file
 
     To run in a container,
-    create a configuration file.
-    For this example,
-    we'll name the file `fluent-bit.conf`.
+    create a configuration file named `fluent-bit.conf`.
 
     Logz.io-Out Plugin for Fluent Bit
     supports one output stream to Logz.io.

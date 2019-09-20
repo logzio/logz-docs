@@ -58,24 +58,31 @@ $(function() {
 
 // filter page based on url param
 $(function() {
-  $.urlParam = function(name){
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    if (results==null) {
-       return 'all';
-    }
-    return decodeURI(results[1]) || 0;
-  }
-
-  if ($.urlParam('filter')) {
-    var thisFilter = $.urlParam('filter');
-    pageFilter(thisFilter);
-  }
+  let params = new URLSearchParams(document.location.search);
+  updatePathParams(params.get('filter'));
 })
+
+function updatePathParams(incomingParams) {
+  let currentPath = document.location.origin + document.location.pathname;
+  let params = new URLSearchParams(document.location.search);
+
+  // leave next line commented for future functionality
+  // let tab = params.get('tab') || 'logs';
+
+  let filter = incomingParams || 'all';
+
+  let pathQuery = '?filter=' + filter;
+  console.log(currentPath);
+
+  history.pushState(null, null, currentPath + pathQuery);
+
+  pageFilter(filter);
+}
 
 // filter page on click
 $(function() {
   $('.filter-btn').click(function() {
-    pageFilter($(this).data('filter'));
+    updatePathParams($(this).data('filter'));
   });
 
   // reset on tab click

@@ -58,8 +58,10 @@ $(function() {
 
 // filter page based on url param
 $(function() {
-  let params = new URLSearchParams(document.location.search);
-  updatePathParams(params.get('filter'));
+  if (document.getElementById('card-filters')) {
+    let params = new URLSearchParams(document.location.search);
+    updatePathParams(params.get('filter'));
+  }
 })
 
 function updatePathParams(incomingParams) {

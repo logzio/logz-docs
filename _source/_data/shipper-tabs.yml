@@ -34,6 +34,8 @@ tags:
     name: AWS
   - slug: azure
     name: Azure
+  - slug: gcp
+    name: Google Cloud
   - slug: container
     name: Containers & pods
   - slug: ci-cd

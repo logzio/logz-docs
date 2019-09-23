@@ -10,7 +10,7 @@ open-source:
 contributors:
   - imnotashrimp
   - idohalevi
-shipper-tags:
+shipping-tags:
   - log-shipper
 ---
 

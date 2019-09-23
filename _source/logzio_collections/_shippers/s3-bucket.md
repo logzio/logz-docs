@@ -6,6 +6,7 @@ logo:
 data-source: S3 fetcher
 shipping-tags:
   - log-shipper
+  - aws
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/S3-Bucket
 contributors:
   - imnotashrimp

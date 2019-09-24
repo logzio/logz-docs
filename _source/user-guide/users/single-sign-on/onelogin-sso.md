@@ -12,8 +12,8 @@ contributors:
   - schwin007
 ---
 
-Single sign-on is available for Enterprise plans.
-To discuss switching to an Enterprise plan, please contact your account manager.
+Single sign-on is available for Pro plans.
+To discuss switching to a Pro plan, please contact your account manager.
 
 ###### To set up single sign-on for OneLogin
 

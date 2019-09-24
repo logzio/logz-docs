@@ -124,6 +124,8 @@ firstLevel:
     thirdLevel:
     - title: Azure single sign-on
       url: /user-guide/users/single-sign-on/azure-sso.html
+    - title: G Suite single sign-on
+      url: /user-guide/users/single-sign-on/g-suite-sso/
     - title: Okta single sign-on
       url: /user-guide/users/single-sign-on/okta-sso.html
     - title: OneLogin single sign-on

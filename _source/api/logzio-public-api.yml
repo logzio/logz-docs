@@ -3,15 +3,15 @@ schemes: [ https ]
 host: api.logz.io
 x-servers:
   - url: https://api.logz.io/v1
-    description: N. Virginia region
+    description: US East (Northern Virginia)
   - url: https://api-au.logz.io/v1
-    description: Australia region
+    description: Asia Pacific (Sydney)
   - url: https://api-ca.logz.io/v1
-    description: Canada region
+    description: Canada (Central)
   - url: https://api-eu.logz.io/v1
-    description: Frankfurt region
+    description: Europe (Frankfurt)
   - url: https://api-nl.logz.io/v1
-    description: West Europe region
+    description: West Europe (Netherlands)
 basePath: /v1
 produces: [ application/json ]
 consumes: [ application/json ]

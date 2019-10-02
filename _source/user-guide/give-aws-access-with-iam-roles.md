@@ -18,6 +18,7 @@ while keeping your AWS account secure.
 1.  Copy Logz.io details
 
     Copy the **Account ID** in your text editor, and create an **External ID** and copy it as well.
+    The External ID can be anything you want, but we recommend a name that includes "Logz.io".
 
     Enter the **S3 bucket name** and, if needed, **Prefix** where your logs are stored.
 

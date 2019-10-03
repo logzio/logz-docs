@@ -361,6 +361,35 @@ paths:
 
               If set to `0` or `1`, search returns default results (today and yesterday).
             minimum: 0
+        - in: query
+          name: accountIds
+          type: integer
+          schema:
+            description: >-
+              ID of the sub account to search.
+              By default, only this account is searched.
+
+
+              A main account can search a sub account as long as it has the right permissions.
+              To give search permissions to the main account,
+              log in to the main account,
+              go to the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page,
+              and select **Searchable from the main account** for the intended sub account.
+
+
+              To include multiple accounts, repeat this parameter for each account
+              (for example: `accountIds=500&accountIds=600`).
+
+
+              **Important**:
+              If you include an account without the right permissions,
+              the request will fail.
+
+
+              If you include this parameter, the current account won't be searched
+              unless you explicitly include it in the query.
+
+
         - in: body
           name: body
           required: true

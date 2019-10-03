@@ -353,13 +353,13 @@ paths:
           schema:
             description: >-
               Slide the 2-day search time range by _x_ days.
-              For example, if set to `5`, search returns results from 5 days ago and 4 days ago.
+              For example, if set to `5`, search returns results from 5 days ago and 4 days ago, UTC.
 
 
               Maximum is your account's retention period.
 
 
-              If set to `0` or `1`, search returns default results (today and yesterday).
+              If set to `0` or `1`, search returns default results (today and yesterday, UTC).
             minimum: 0
         - in: query
           name: accountIds
@@ -388,8 +388,6 @@ paths:
 
               If you include this parameter, the current account won't be searched
               unless you explicitly include it in the query.
-
-
         - in: body
           name: body
           required: true
@@ -412,10 +410,10 @@ paths:
 
                   #### Notes on the search time range
 
-                  * By default, your query runs on data sent today and yesterday.
+                  * By default, your query runs on data sent today and yesterday, UTC.
                     You can move this 2-calendar-day window by using the `dayOffset` query parameter.
 
-                  * Searches without a `timestamp` filter will return 2 calendar days.
+                  * Searches without a `timestamp` filter will return 2 calendar days, UTC.
                     To search a different time frame, specify a filter on `timestamp`.
 
                 example: { "bool": { "must": [{ "range": { "@timestamp": { "gte": "now-5m", "lte": "now" } } }] } }

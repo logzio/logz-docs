@@ -167,7 +167,7 @@ Docker Community Edition (Docker CE) 18.03 or later
       {% include log-shipping/replace-vars.html listener=true %}
 
     logzio-dir-path	<span class="required-param"></span>
-    : Path of the logs to be sent to Logz.io.
+    : Unsent logs are saved to this location on the disk.	
 
     logzio-source
     : Event source.

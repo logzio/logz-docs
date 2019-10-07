@@ -13,7 +13,7 @@ shipping-tags:
 ## Setup
 
 As its name suggests, auditd is a service that audits activities in a Linux environment.
-It's available for most major Linux distrobutions.
+It's available for most major Linux distributions.
 
 This page gives instructions for replacing auditd with Auditbeat
 so that you can easily ship your audit logs to Logz.io.
@@ -35,9 +35,8 @@ root access
 2.  Install Auditbeat 6
 
     Download and install Auditbeat version 6.
-    Follow the distrobution-specific instructions at
+    Follow the distribution-specific instructions at
     [Elastic's docs](https://www.elastic.co/guide/en/beats/auditbeat/6.0/auditbeat-installation.html).
-
 
 3.  Add auditd as a source input
 

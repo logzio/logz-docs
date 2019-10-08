@@ -16,7 +16,7 @@ As its name suggests, auditd is a service that audits activities in a Linux envi
 It's available for most major Linux distributions.
 
 This page gives instructions for replacing auditd with Auditbeat
-so that you can easily ship your audit logs to Logz.io.
+so you can easily ship your audit logs to Logz.io.
 
 ###### Configuration
 
@@ -32,16 +32,36 @@ root access
     sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
     ```
 
-2.  Install Auditbeat 6
+2.  Install Auditbeat
 
-    Download and install Auditbeat version 6.
+    Download and install Auditbeat version 6.8.
     Follow the distribution-specific instructions at
-    [Elastic's docs](https://www.elastic.co/guide/en/beats/auditbeat/6.0/auditbeat-installation.html).
+    [Elastic's docs](https://www.elastic.co/guide/en/beats/auditbeat/6.8/auditbeat-installation.html).
+
+4.  Copy auditd rules
+
+    You need root privileges to interact with the auditd rules file.
+    {:.info-box.important}
+
+    Create a new `audit.rules` file to hold your audit rules for Auditbeat:
+
+    ```shell
+    sudo touch /etc/auditbeat/audit.rules.d/audit.rules
+    ```
+
+    Copy the auditd rules to your newly created Auditbeat rules file:
+
+    ```shell
+    sudo su
+    cat /etc/audit/rules.d/audit.rules > /etc/auditbeat/audit.rules.d/audit.rules
+    exit
+    ```
 
 3.  Add auditd as a source input
 
-    Paste this code block
-    at the top of the Auditbeat configuration file (`/etc/auditbeat/auditbeat.yml`).
+    Open the Auditbeat configuration file (`/etc/auditbeat/auditbeat.yml`).
+
+    Paste this code block at the top of the file.
 
     {% include log-shipping/replace-vars.html token=true %}
 
@@ -66,23 +86,17 @@ root access
         ignore_missing: true
     ```
 
-4.  Paste your auditd rules
+4.  Configure Auditbeat to use the new rules file
 
-    Copy the contents of your auditd rules file
-    (usually located at `/etc/audit/rules.d/audit.rules`).
+    In the `auditbeat.modules` object, find the `auditd` module.
 
-    In the Auditbeat config file,
-    add a line below `kernal.audit_rules: |`,
-    and indent two spaces.
+    Replace the `audit_rule_files` array with this:
 
-    Paste the text you copied from the auditd rules file.
+    ```yaml
+    audit_rule_files: [ '/etc/auditbeat/audit.rules.d/audit.rules' ]
+    ```
 
-    The text you paste from the auditd rules file
-    must be indented two spaces from the line above it.
-    Otherwise, your config YAML won't be valid.
-    {:.info-box.important}
-
-5.  Replace the output with Logz.io
+5.  Set Logz.io as the output
 
     Remove the output section in the configuration,
     and replace it with this code block.

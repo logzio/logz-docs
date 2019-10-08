@@ -46,10 +46,8 @@ Google Stackdriver Logging configured for your project
 
     Build your credentials file using your Google Cloud project ID.
 
-    <!-- TODO replace /develop/ with /master/ -->
-
     ```shell
-    wget https://raw.githubusercontent.com/logzio/logzio-pubsub/develop/Makefile \
+    wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/Makefile \
     && make PROJECT_ID=<project_id>
     ```
 
@@ -104,8 +102,10 @@ Google Stackdriver Logging configured for your project
     Configuration instructions
     {:.inline-header}
 
+    <!-- TODO i don't think this sample gives extra info not in the doc. remove maybe -->
+
     For extra guidance,
-    please see the [sample configuration YAML](https://github.com/logzio/logzio-pubsub/blob/develop/pubsub-input-example.yml).
+    please see the [sample configuration YAML](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml).
     {:.info-box.note}
 
     listener

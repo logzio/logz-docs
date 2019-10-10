@@ -4,7 +4,7 @@ logo:
   logofile: vector.svg
   orientation: vertical
 data-source: Vector
-shipper-tags:
+shipping-tags:
   - log-shipper
 contributors:
   - imnotashrimp

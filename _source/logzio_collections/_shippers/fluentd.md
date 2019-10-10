@@ -4,7 +4,7 @@ logo:
   logofile: fluentd.svg
   orientation: vertical
 data-source: Fluentd
-shipper-tags:
+shipping-tags:
   - log-shipper
 contributors:
   - imnotashrimp

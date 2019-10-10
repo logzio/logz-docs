@@ -34,9 +34,7 @@ root access
 
 2.  Install Auditbeat
 
-    Download and install Auditbeat version 6.8.
-    Follow the distribution-specific instructions at
-    [Elastic's docs](https://www.elastic.co/guide/en/beats/auditbeat/6.8/auditbeat-installation.html).
+    Download and install [Auditbeat 6.8](https://www.elastic.co/guide/en/beats/auditbeat/6.8/auditbeat-installation.html).
 
 4.  Copy auditd rules
 

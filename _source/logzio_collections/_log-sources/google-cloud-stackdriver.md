@@ -25,10 +25,7 @@ You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.i
 **You'll need**:
 [Google Cloud SDK](https://cloud.google.com/sdk/docs/quickstarts),
 [a GCP project](https://console.cloud.google.com/projectcreate),
-[a GCP Pub/Sub topic and subscribers](https://cloud.google.com/pubsub/docs/quickstart-console) to your GCP project,
-Google Stackdriver Logging configured for your project
-
-<!-- TODO something's not right with this prereqs list. Google Stackdriver what? -->
+[a GCP Pub/Sub topic and subscribers](https://cloud.google.com/pubsub/docs/quickstart-console) to your GCP project
 
 1.  Export your logs to Pub/Sub
 
@@ -65,13 +62,6 @@ Google Stackdriver Logging configured for your project
 
     Complete configuration instructions are below the code block. 👇
 
-    <!-- TODO confirm the changes I made were okay
-      - formatted `subscriptions` as an array
-      - added relative path to credentials-file.json
-      - question: is project the unique id in this array, or is the topic?
-      - question: what does 'as given from Pub/Sub' mean?
-    -->
-
     ```yaml
     logzio-pubsub:
         listener: <<LISTENER-HOST>>
@@ -84,7 +74,7 @@ Google Stackdriver Logging configured for your project
           subscriptions: ["SUB1_ID", "SUB2_ID", "SUB3_ID"]
           type: stackdriver
 
-        - project_id: PROJECT-2_ID
+        - project_id: PROJECT-1_ID
           credentials_file: ./credentials-file.json
           token: <<SHIPPING-TOKEN>>
           topic_id: TOPIC-2_ID
@@ -102,8 +92,6 @@ Google Stackdriver Logging configured for your project
     Configuration instructions
     {:.inline-header}
 
-    <!-- TODO i don't think this sample gives extra info not in the doc. remove maybe -->
-
     For extra guidance,
     please see the [sample configuration YAML](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml).
     {:.info-box.note}
@@ -113,8 +101,8 @@ Google Stackdriver Logging configured for your project
       {% include log-shipping/replace-vars.html listener=true %}
 
     pubsubs
-    : This is an array of one or more GCP projects.
-      For each project, provide topic and subscriptions IDs, as given from Pub/Sub.
+    : This is an array of one or more GCP subscriptions.
+      For each subscription, provide topic and subscriptions IDs, as given from Pub/Sub.
 
     token
     : Your Logz.io shipping token.

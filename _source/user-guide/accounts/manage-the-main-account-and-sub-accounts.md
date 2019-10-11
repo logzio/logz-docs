@@ -15,38 +15,48 @@ contributors:
 ---
 
 Each Logz.io plan starts off with a main account.
-If you're on a Pro or Enterprise plan, you can create sub accounts to help manage user access to your data.
+If you're on a Pro or Enterprise plan,
+you can create sub accounts to help manage user access to your data.
 
 ## The main account
 
-All users in your main account can search your data in sub accounts and timeless accounts.
-To limit data visibility, you can route different logs to different sub accounts.
+All users in your main account
+can search your data in sub accounts and timeless accounts.
+To limit data visibility,
+you can route different logs to different sub accounts.
 (More on [sub accounts](#sub-accounts) and [managing your accounts](#managing-your-accounts) below.)
 
-##### Permissions for main account admins
+### Permissions for main account admins
+
 Admin users of the main account also have these permissions:
 
-* Create, view, update, and delete users in the main account and sub accounts, including other admin users
+* Create, view, update, and delete users in the main account and sub accounts,
+  including other admin users
 * Create, view, update, and delete sub accounts
 * Create, view, update, and delete timeless accounts
 * Create and delete shared tokens and API tokens
 
-Because of the high level of permissions, we recommend limiting the number of admin users in the main account.
+Because of the high level of permissions,
+we recommend limiting the number of admin users in the main account.
 
 ## Sub accounts {#sub-accounts}
 
 Sub accounts help you control data usage and manage user access to your logs.
-By shipping different logs to different sub accounts, you can define data volumes and retention periods for independent environments.
+By shipping different logs to different sub accounts,
+you can define data volumes and retention periods for independent environments.
 
 ## Managing your accounts {#managing-your-accounts}
 
-If you're an admin for the main account, you can manage the main account and sub accounts from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-users) page (**<i class="li li-gear"></i> > Settings > Manage accounts** in the top menu).
+If you're an admin for the main account,
+you can manage the main account and sub accounts
+from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-users) page
+(**<i class="li li-gear"></i> > Settings > Manage accounts** in the top menu).
 
 Click an account in the _Time based retention plan_ panel to see its settings.
 
 ![Manage the main account]({{site.baseurl}}/images/accounts/accounts--manage-main-account.png)
 
-##### Time-based account settings
+### Time-based account settings
 
 | Setting name | Description |
 |---|---|

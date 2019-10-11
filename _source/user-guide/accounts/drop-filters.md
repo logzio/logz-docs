@@ -13,7 +13,8 @@ contributors:
 ---
 
 Drop filters offer a quick way to "drop" some logs before they're indexed.
-Once you've enabled drop filters, logs are evaluated for whole string matches in the fields you set.
+Once you've enabled drop filters,
+logs are evaluated for whole string matches in the fields you set.
 Logs that match your filter's settings won't be indexed.
 
 You can turn each drop filter off and on,
@@ -32,7 +33,7 @@ You can add up to 10 drop filters.
 
 You can filter up to your plan's daily volume, times 2.
 
-For instance:
+_For instance_:
 If you have 50 GB daily volume,
 you can index 50 GB and filter 100 GB per day.
 So you could ship 150 GB of logs in a day,
@@ -70,7 +71,7 @@ and not shipping logs that are never needed.
   When restoring,
   always make sure logs you need won't be filtered.
 
-###### To set up a drop filter
+#### To set up a drop filter
 
 To get started,
 click **<i class="li li-plus"></i> Add drop filter**
@@ -78,43 +79,46 @@ to open the _New drop filter_ form.
 
 ![New drop filter form]({{site.baseurl}}/images/drop-filters/new-drop-filter.png)
 
-1.  Choose a log type
+<div class="tasklist">
 
-    If you choose a **Log type**,
-    only logs of that type will be dropped.
+##### Choose a log type
 
-    To include all log types, leave **Log type** blank.
+If you choose a **Log type**,
+only logs of that type will be dropped.
 
-2.  Add fields to filter
+To include all log types, leave **Log type** blank.
 
-    Add up to 3 **Field**-**Value** pairs to filter.
-    Each pair must be an exact match.
-    Drop filters are case sensitive.
+##### Add fields to filter
 
-    An example
-    {:.inline-header}
+Add up to 3 **Field**-**Value** pairs to filter.
+Each pair must be an exact match.
+Drop filters are case sensitive.
 
-    Logs from a Docker container might contain this field-value pair:
+An example
+{:.inline-header}
 
-    ```json
-    { "docker.container.name": "system-logs" }
-    ```
+Logs from a Docker container might contain this field-value pair:
 
-    Those logs will be filtered
-    only if we set **Field** to `docker.container.name`
-    and **Value** to `system-logs`.
+```json
+{ "docker.container.name": "system-logs" }
+```
 
-    If we set **Value** to anything else—such as `system`—those logs
-    won't be filtered.
+Those logs will be filtered
+only if we set **Field** to `docker.container.name`
+and **Value** to `system-logs`.
 
-3.  Confirm and save
+If we set **Value** to anything else—such as `system`—those logs
+won't be filtered.
 
-    Before saving, it's important to know that all logs that meet
-    your filter criteria will be dropped.
+##### Confirm and save
 
-    If you have [Archiving]({{site.baseurl}}/user-guide/archive-and-restore/configure-archiving.html) enabled,
-    your logs will be archived before they're dropped.
+Before saving, it's important to know that all logs that meet
+your filter criteria will be dropped.
 
-    Select the confirmation check box,
-    and then click **Apply the filter**.
-{:.tasklist.firstline-headline}
+If you have [Archiving]({{site.baseurl}}/user-guide/archive-and-restore/configure-archiving.html) enabled,
+your logs will be archived before they're dropped.
+
+Select the confirmation check box,
+and then click **Apply the filter**.
+
+</div>

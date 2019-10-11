@@ -25,7 +25,7 @@ All searches and security rules that use this lookup will compare logs to the up
 
 You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup) from the top menu of your Security Analytics account.
 
-###### Create or delete a lookup
+#### Create or delete a lookup
 
 * In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page,
   click **New lookup** to create an untitled lookup.
@@ -34,7 +34,7 @@ You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/da
 * To delete a lookup,
   click **Delete** for that lookup.
 
-###### Update a lookup
+#### Update a lookup
 
 * In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page,
   click **Edit** for the lookup you want to update.
@@ -44,24 +44,29 @@ You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/da
   or click **Cancel** to revert your changes.
 * Click **Delete** to delete an item from the lookup.
 
-###### Use lookups in Kibana filters and security rules
+#### Use lookups in Kibana filters and security rules
 
-1.  Add a Kibana filter with your lookup
+<div class="tasklist">
 
-    In the [Research](https://app.logz.io/#/dashboard/security/research) page, click **Add a filter** to show the filter dialog box.
+##### Add a Kibana filter with your lookup
 
-    <video autoplay controls loop width="500">
-      <source src="{{site.baseurl}}/videos/lookups/add-lookup-in-kibana.mp4" type="video/mp4" />
-    </video>
+In the [Research](https://app.logz.io/#/dashboard/security/research) page,
+click **Add a filter** to show the filter dialog box.
 
-    Choose a field to filter by.
+<video autoplay controls loop width="500">
+  <source src="{{site.baseurl}}/videos/lookups/add-lookup-in-kibana.mp4" type="video/mp4" />
+</video>
 
-    Choose **in lookup** or **not in lookup** from the **Operators** list, and then choose the lookup you want to filter by.
+Choose a field to filter by.
 
-2.  _(Optional)_ Create a security rule
+Choose **in lookup** or **not in lookup** from the **Operators** list,
+and then choose the lookup you want to filter by.
 
-    Click **Create Alert** (to the right of the search bar) to make a new security rule with your filter.
-    Your new security rule will contain the lookup you used in step 1.
+##### _(Optional)_ Create a security rule
 
-    If you need help with creating a new security rule, see [Manage security rules]({{site.baseurl}}/user-guide/security-analytics/manage-security-rules.html).
-{:.tasklist.firstline-headline}
+Click **Create Alert** (to the right of the search bar)
+to make a new security rule with your filter.
+Your new security rule will contain the lookup you used in step 1.
+
+If you need help with creating a new security rule,
+see [Manage security rules]({{site.baseurl}}/user-guide/security-analytics/manage-security-rules.html).

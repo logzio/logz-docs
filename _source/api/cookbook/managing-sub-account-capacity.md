@@ -23,10 +23,11 @@ One important thing to know: When you're managing sub account settings, you'll n
 * [Checking sub account capacity](#checking-sub-account-capacity)
 * [Reallocating capacity between sub accounts](#reallocating-capacity-between-sub-accounts)
 
-
 #### Making a new sub account {#making-a-new-sub-account}
 
 If you don't have sub accounts that you're ready to experiment with, go ahead and make one now.
+
+<div class="tasklist">
 
 ##### Sample request
 
@@ -64,9 +65,13 @@ No need to remember the account token—it's always available on the Logz.io [Ma
 }
 ```
 
+</div>
+
 #### Checking sub account capacity {#checking-sub-account-capacity}
 
 To see information on your sub accounts, pass a request using an API token from your main account.
+
+<div class="tasklist">
 
 ##### Sample request
 
@@ -122,14 +127,16 @@ Later in this tutorial, we'll reallocate the capacity between two sub accounts.
 
 So in the response above, we have two sub accounts: Jean Valjean (account ID 24601) and Javert (account ID 183267).
 
+</div>
+
 #### Reallocating capacity between sub accounts {#reallocating-capacity-between-sub-accounts}
 
 You'll use an HTTP PUT request when you update a sub account with the API.
 This means you'll replace all account parameters with each request.
 
-  Include all parameters with each PUT request.
-  This way, you won't unintentionally overwrite parameters with their default values.
-  {:.info-box.tip}
+Include all parameters with each PUT request.
+This way, you won't unintentionally overwrite parameters with their default values.
+{:.info-box.tip}
 
 Reallocating maxDailyGB between sub accounts happens in two steps.
 First you'll reduce the capacity of the account with higher maxDailyGB, and then you'll increase the capacity of the other account.
@@ -138,6 +145,8 @@ So using our sample accounts in this article, the process will look like this:
 
 1.  Reduce maxDailyGB for _Javert_ from `5` to `3`
 2.  Increase maxDailyGB for _Jean Valjean_ from `1` to `3`
+
+<div class="tasklist">
 
 ##### Sample request 1: Reduce maxDailyGB for _Javert_
 
@@ -251,3 +260,5 @@ In this example, we'll know we everything went according to plan when:
     }
 ]
 ```
+
+</div>

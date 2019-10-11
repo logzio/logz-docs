@@ -47,16 +47,17 @@ h5 {
   counter-increment: tasklist;
   position: relative;
   clear: both;
-  margin-left: 45px;
 
   font-weight: 600;
   font-size: 1.2rem;
   display: block;
-  /* margin-left: -45px; */
-  /* padding-left: 45px; */
 }
 
-h5::before {
+.tasklist {
+  margin-left: 45px;
+}
+
+.tasklist h5::before {
   content: counter(tasklist);
   position: absolute;
   display: inline-block;

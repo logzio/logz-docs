@@ -32,6 +32,8 @@ Even though this tutorial covers backing up to GitHub, you can use these methods
 
 Let's set up the prerequisites now so that we can use the command line for the rest of the tutorial.
 
+<div class="tasklist">
+
 ##### Create a GitHub repo
 
 Make sure you're signed in to GitHub, and [create a new repository](https://github.com/new).
@@ -60,10 +62,14 @@ git clone <<REPO-URL>> kibana-backup
 cd kibana-backup
 ```
 
+</div>
+
 #### Downloading Kibana objects {#downloading-kibana-objects}
 
 You can use the Logz.io API to download all Kibana objects of each type (dashboards, visualizations, and saved searches), one at a time.
 This means that you'll need to make three API requests to Logz.io.
+
+<div class="tasklist">
 
 ##### Sample request 1: Write saved searches to a file
 
@@ -244,6 +250,8 @@ kibana-backup/
   └╴kibana-search.json
   └╴kibana-visualization.json
 ```
+
+</div>
 
 #### Committing and pushing to GitHub {#committing-and-pushing-to-github}
 

@@ -18,7 +18,11 @@ But the good news is you'll receive a response with the account name.
 
 You can use `whoami` to test connectivity with Logz.io or to confirm you're using an API token from the right account.
 
-### Sample request
+#### Finding the account name
+
+You can access the `whoami` endpoint with a simple curl request.
+
+##### Sample request
 
 {% include api-cookbook/replace-vars.html %}
 
@@ -49,6 +53,8 @@ If you didn't receive the expected response, continue to the troubleshooting ste
 If you didn't receive the expected response, there could be a few reasons for that.
 Let's see if we can figure this out together.
 
+<div class="tasklist">
+
 ##### Check the status code
 
 The status code indicates whether you sent the request to a valid Logz.io API endpoint.
@@ -78,3 +84,5 @@ You're using a valid API token, but you sent the request to the wrong account re
 Change the API region to your account region and try again.
 
 For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+
+</div>

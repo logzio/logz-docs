@@ -22,7 +22,7 @@ You need to be an account admin to create, delete, or access your tokens.
 The type of token you use depends on what you're trying to do.
 Read on to see your options.
 
-##### I want to ship logs to my account
+### I want to ship logs to my account
 
 The short answer: **Account token**
 
@@ -32,7 +32,7 @@ When you ship logs, the account token tells Logz.io which account to send your d
 To find your account tokens, log in to your main account, and then select [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) in the top menu.
 Click any account to see its token, and click **Token** to copy it.
 
-##### I want to share visualizations and dashboards
+### I want to share visualizations and dashboards
 
 The short answer: **Shared token**
 
@@ -43,7 +43,7 @@ Keep your data secure by attaching a filter to every token and deleting tokens y
 To manage your shared tokens, select [**<i class="li li-gear"></i> > Tools > Shared tokens**](https://app.logz.io/#/dashboard/settings/shared-tokens) in the top menu.
 Read [Manage shared tokens]({{site.baseurl}}/user-guide/tokens/shared-tokens.html) to learn more.
 
-##### I want to make my own integrations
+### I want to make my own integrations
 
 The short answer: **API token**
 
@@ -53,7 +53,6 @@ To manage your API tokens, select [**<i class="li li-gear"></i> > Tools > API to
 
 Read [Manage API tokens]({{site.baseurl}}/user-guide/tokens/api-tokens.html) to learn more.
 If you want to build your own integration, visit the [Logz.io API docs]({{site.baseurl}}/api/).
-
 
 ## About token permissions
 

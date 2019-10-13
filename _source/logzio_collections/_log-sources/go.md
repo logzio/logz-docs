@@ -22,7 +22,9 @@ A background Go routine ships the logs every 5 seconds.
 **You'll need**:
 Go 1.x or higher
 
-### Add the dependency to your project
+<div class="tasklist">
+
+##### Add the dependency to your project
 
 Navigate to your project's folder in the command line, and run this command to install the dependency.
 
@@ -30,7 +32,7 @@ Navigate to your project's folder in the command line, and run this command to i
 go get -u github.com/logzio/logzio-go
 ```
 
-### Configure Logz.io Golang API client
+##### Configure the client
 
 Use the sample in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -67,8 +69,7 @@ func main() {
 }
 ```
 
-Parameters
-{:.inline-header}
+###### Parameters
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -96,8 +97,7 @@ SetDrainDiskThreshold <span class="default-param">`70.0`</span>
   If the file system storage exceeds this threshold, buffering stops and new logs are dropped.
   Buffering resumes if used space drops below the threshold.
 
-Code sample
-{:.inline-header}
+###### Code sample
 
 ```go
 msg := fmt.Sprintf("{\"%s\": \"%d\"}", "message", time.Now().UnixNano())
@@ -108,3 +108,5 @@ if err != nil {
 
 l.Stop() // Drains the log buffer
 ```
+
+</div>

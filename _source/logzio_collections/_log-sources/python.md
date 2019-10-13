@@ -21,7 +21,9 @@ Logs are grouped into bulks based on their size.
 If the main thread quits, the handler tries to consume the remaining logs and then exits.
 If the handler can't send the remaining logs, they are written to the local file system for later retrieval.
 
-### Add the dependency to your project
+<div class="tasklist">
+
+##### Add the dependency to your project
 
 Navigate to your project's folder in the command line, and run this command to install the dependency.
 
@@ -29,7 +31,7 @@ Navigate to your project's folder in the command line, and run this command to i
 pip install logzio-python-handler
 ```
 
-### Configure Logz.io Python Handler for a standard Python project
+##### Configure Logz.io Python Handler for a standard Python project
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -60,8 +62,7 @@ level=INFO
 format={"additional_field": "value"}
 ```
 
-Parameters
-{:.inline-header}
+###### Parameters
 
   Arguments must be configured in the order shown.
   For example, to set debug-flag to `True`, you need to set every argument that comes before it.
@@ -88,8 +89,7 @@ debug-flag <span class="default-param">`False`</span>
   To print debug messages to stdout, `True`.
   Otherwise, `False`.
 
-Code sample
-{:.inline-header}
+###### Code sample
 
 ```python
 import logging
@@ -116,3 +116,5 @@ Please note that you can't override default fields from the python logger, such 
 ```python
 logger.info('Warning', extra={'extra_key':'extra_value'})
 ```
+
+</div>

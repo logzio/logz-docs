@@ -10,136 +10,137 @@ shipping-tags:
   - security
 ---
 
-## Setup
-
-###### Guided configuration
+#### Guided configuration
 
 **You'll need**:
 Zeek or Bro,
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
 root access
 
-1.  Configure Zeek to output JSON logs
+<div class="tasklist">
 
-    The configuration filepath changes
-    depending on your version of Zeek or Bro.
-    For this reason, see your installation's [documentation](https://www.zeek.org/documentation/)
-    if you need help finding the file.
+##### Configure Zeek to output JSON logs
 
-    If you're running Bro (Zeek's predecessor),
-    the configuration filename will be `ascii.bro`.
-    Otherwise, the filename is `ascii.zeek`.
+The configuration filepath changes
+depending on your version of Zeek or Bro.
+For this reason, see your installation's [documentation](https://www.zeek.org/documentation/)
+if you need help finding the file.
 
-    In the configuration file,
-    find the line that begins `const use_json`.
-    Set the value to `T` (true).
+If you're running Bro (Zeek's predecessor),
+the configuration filename will be `ascii.bro`.
+Otherwise, the filename is `ascii.zeek`.
 
-    ```
-    const use_json = T &redef;
-    ```
+In the configuration file,
+find the line that begins `const use_json`.
+Set the value to `T` (true):
 
-2.  Download the Logz.io certificate
+```
+const use_json = T &redef;
+```
 
-    ```shell
-    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-    ```
+##### Download the Logz.io certificate
 
-3.  Add Zeek as an input
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
 
-    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Zeek to the filebeat.inputs section.
+##### Add Zeek as an input
 
-    {% include log-shipping/replace-vars.html token=true %}
+In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Zeek to the filebeat.inputs section.
 
-    ```yaml
-    # ...
-    filebeat.inputs:
-    - type: log
+{% include log-shipping/replace-vars.html token=true %}
 
-      # The path to your logs can change depending on your version and configuration.
-      # To find it, run zeekctl config
-      # sudo ./zeekctl config | grep logdir
-      paths:
-      - /var/log/bro/current/conn.log
-      - /var/log/bro/current/ssh.log
-      - /var/log/bro/current/rdp.log
-      - /var/log/bro/current/ssl.log
-      - /var/log/bro/current/smb.log
-      - /var/log/bro/current/dpd.log
-      - /var/log/bro/current/dns.log
-      - /var/log/bro/current/http.log
+```yaml
+# ...
+filebeat.inputs:
+- type: log
 
-      fields:
-        logzio_codec: json
+  # The path to your logs can change depending on your version and configuration.
+  # To find it, run zeekctl config
+  # sudo ./zeekctl config | grep logdir
+  paths:
+  - /var/log/bro/current/conn.log
+  - /var/log/bro/current/ssh.log
+  - /var/log/bro/current/rdp.log
+  - /var/log/bro/current/ssl.log
+  - /var/log/bro/current/smb.log
+  - /var/log/bro/current/dpd.log
+  - /var/log/bro/current/dns.log
+  - /var/log/bro/current/http.log
 
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: zeek
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
+  fields:
+    logzio_codec: json
 
-    - type: log
-      paths:
-        - /var/log/bro/current/notice.log
-      fields:
-        logzio_codec: json
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: zeek_alert
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-    ```
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<SHIPPING-TOKEN>>
+    type: zeek
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
 
-    If you're running Filebeat 7, paste this code block.
-    Otherwise, you can leave it out.
+- type: log
+  paths:
+    - /var/log/bro/current/notice.log
+  fields:
+    logzio_codec: json
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<SHIPPING-TOKEN>>
+    type: zeek_alert
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+```
 
-    ```yaml
-    # ... For Filebeat 7 only ...
-    filebeat.registry.path: /var/lib/filebeat
-    processors:
-    - rename:
-        fields:
-        - from: "agent"
-          to: "filebeat_agent"
-        ignore_missing: true
-    - rename:
-        fields:
-        - from: "log.file.path"
-          to: "source"
-        ignore_missing: true
-    ```
+If you're running Filebeat 7, paste this code block.
+Otherwise, you can leave it out.
 
-    If you're running Filebeat 6, paste this code block.
+```yaml
+# ... For Filebeat 7 only ...
+filebeat.registry.path: /var/lib/filebeat
+processors:
+- rename:
+    fields:
+    - from: "agent"
+      to: "filebeat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source"
+    ignore_missing: true
+```
 
-    ```yaml
-    # ... For Filebeat 6 only ...
-    registry_file: /var/lib/filebeat/registry
-    ```
+If you're running Filebeat 6, paste this code block.
 
-4.  Add Logz.io as an output
+```yaml
+# ... For Filebeat 6 only ...
+registry_file: /var/lib/filebeat/registry
+```
 
-    If Logz.io is not an output, add it now.
+##### Add Logz.io as an output
 
-    {% include log-shipping/replace-vars.html listener=true %}
+If Logz.io is not an output, add it now.
 
-    ```yaml
-    # ...
-    output.logstash:
-      hosts: ["<<LISTENER-HOST>>:5015"]
-      ssl:
-        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-    ```
+{% include log-shipping/replace-vars.html listener=true %}
 
-5.  Start Filebeat
+```yaml
+# ...
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
 
-    Start or restart Filebeat for the changes to take effect.
+##### Start Filebeat
 
-6.  Check Logz.io for your logs
+Start or restart Filebeat for the changes to take effect.
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>

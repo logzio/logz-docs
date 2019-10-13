@@ -26,7 +26,7 @@ shipping-tags:
 <!-- tab:start -->
 <div id="log4j-2-config">
 
-## Log4j 2 setup
+## Configure Log4j 2
 
 The Logz.io Log4j 2 appender sends logs using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -39,8 +39,9 @@ To help manage dependencies, this .jar shades LogzioSender, BigQueue, Gson, and 
 Log4j 2.7 or higher,
 Java 8 or higher
 
+<div class="tasklist">
 
-### Add the dependency to your project
+##### Add the dependency to your project
 
 Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project).
 
@@ -54,7 +55,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
 </dependencies>
 ```
 
-### Configure Log4j
+##### Configure the appender
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -82,8 +83,7 @@ For a complete list of options, see the configuration parameters below the code 
 </Loggers>
 ```
 
-Parameters
-{:.inline-header}
+###### Parameters
 
 logzioToken <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -136,9 +136,7 @@ fileSystemFullPercentThreshold <span class="default-param">`98`</span>
 socketTimeoutMs <span class="default-param">`10 * 1000`</span>
 : Socket timeout during log shipment, in milliseconds.
 
-
-Code sample
-{:.inline-header}
+###### Code sample
 
 ```java
 import org.apache.logging.log4j.LogManager;
@@ -153,6 +151,8 @@ public class LogzioLog4j2Example {
   }
 }
 ```
+
+</div>
 
 ### MDC
 
@@ -184,7 +184,6 @@ public class LogzioLog4j2Example {
   "Your log message follows": "..."
 }
 ```
-
 
 ### Markers
 
@@ -223,7 +222,7 @@ public class LogzioLog4j2Example {
 <!-- tab:start -->
 <div id="logback-config">
 
-## Logback setup
+## Configure Logback
 
 Logback sends logs to your Logz.io account using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -236,7 +235,9 @@ To help manage dependencies, this .jar shades BigQueue, Gson, and Guava.
 Logback 1.1.7 or higher,
 Java 8 or higher
 
-### Add the dependency to your project
+<div class="tasklist">
+
+##### Add the dependency to your project
 
 Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project).
 
@@ -250,7 +251,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
 </dependencies>
 ```
 
-### Configure Logback
+##### Configure the appender
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -282,8 +283,7 @@ For a complete list of options, see the configuration parameters below the code 
 </configuration>
 ```
 
-Parameters
-{:.inline-header}
+###### Parameters
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -346,9 +346,7 @@ line <span class="default-param">`false`</span>
 socketTimeout <span class="default-param">`10 * 1000`</span>
 : Socket timeout during log shipment, in milliseconds.
 
-
-Code sample
-{:.inline-header}
+###### Code sample
 
 ```java
 import org.slf4j.Logger;
@@ -363,6 +361,8 @@ public class LogzioLogbackExample {
   }
 }
 ```
+
+</div>
 
 ### MDC
 

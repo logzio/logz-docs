@@ -36,39 +36,41 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 For most environments, we recommend using the default configuration.
 However, you can deploy a custom configuration if your environment needs it.
 
-###### To deploy logzio-k8s
+#### To deploy logzio-k8s
 
-1.  Store your Logz.io credentials
+<div class="tasklist">
 
-    Save your Logz.io shipping credentials as a Kubernetes secret.
+##### Store your Logz.io credentials
 
-    {% include log-shipping/replace-vars.html token=true listener=true %}
+Save your Logz.io shipping credentials as a Kubernetes secret.
 
-    ```shell
-    kubectl create secret generic logzio-logs-secret \
-      --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
-      --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
-      -n kube-system
-    ```
+{% include log-shipping/replace-vars.html token=true listener=true %}
 
-2.  Deploy the DaemonSet
+```shell
+kubectl create secret generic logzio-logs-secret \
+  --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+  --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
+  -n kube-system
+```
 
-    ```shell
-    kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml
-    ```
+##### Deploy the DaemonSet
 
-3.  Check Logz.io for your logs
+```shell
+kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml
+```
 
-    Give your logs some time to get from your system to ours,
-    and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs,
-    see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours,
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs,
+see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 <!-- tab:end -->
-
 
 <!-- tab:start -->
 <div id="custom-config">
@@ -78,84 +80,86 @@ However, you can deploy a custom configuration if your environment needs it.
 You can customize the configuration of the Fluentd container.
 This is done using a ConfigMap that overwrites the default DaemonSet.
 
-###### To deploy logzio-k8s
+#### To deploy logzio-k8s
 
-1.  Store your Logz.io credentials
+<div class="tasklist">
 
-    Save your Logz.io shipping credentials as a Kubernetes secret.
+##### Store your Logz.io credentials
 
-    {% include log-shipping/replace-vars.html token=true listener=true %}
+Save your Logz.io shipping credentials as a Kubernetes secret.
 
-    ```shell
-    kubectl create secret generic logzio-logs-secret \
-      --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
-      --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
-      -n kube-system
-    ```
+{% include log-shipping/replace-vars.html token=true listener=true %}
 
-2.  Configure Fluentd
+```shell
+kubectl create secret generic logzio-logs-secret \
+  --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+  --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
+  -n kube-system
+```
 
-    Download either
-    the [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml)
-    or the [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml)
-    and open the file in your text editor.
+##### Configure Fluentd
 
-    Customize the Fluentd configuration with the parameters shown below.
-    The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of the file.
+Download either
+the [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml)
+or the [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml)
+and open the file in your text editor.
 
-    Parameters
-    {:.inline-header}
+Customize the Fluentd configuration with the parameters shown below.
+The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of the file.
 
-    output_include_time <span class="default-param">`true`</span>
-    : To append a timestamp to your logs when they're processed, `true`.
-      Otherwise, `false`.
+###### Parameters
 
-    buffer_type <span class="default-param">`file`</span>
-    : Specifies which plugin to use as the backend.
+output_include_time <span class="default-param">`true`</span>
+: To append a timestamp to your logs when they're processed, `true`.
+  Otherwise, `false`.
 
-    buffer_path <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span>
-    : Path of the buffer.
+buffer_type <span class="default-param">`file`</span>
+: Specifies which plugin to use as the backend.
 
-    buffer_queue_full_action <span class="default-param">`block`</span>
-    : Controls the behavior when the queue becomes full.
+buffer_path <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span>
+: Path of the buffer.
 
-    buffer_chunk_limit <span class="default-param">`2M`</span>
-    : Maximum size of a chunk allowed
+buffer_queue_full_action <span class="default-param">`block`</span>
+: Controls the behavior when the queue becomes full.
 
-    buffer_queue_limit <span class="default-param">`6`</span>
-    : Maximum length of the output queue.
+buffer_chunk_limit <span class="default-param">`2M`</span>
+: Maximum size of a chunk allowed
 
-    flush_interval <span class="default-param">`5s`</span>
-    : Interval, in seconds, to wait before invoking the next buffer flush.
+buffer_queue_limit <span class="default-param">`6`</span>
+: Maximum length of the output queue.
 
-    max_retry_wait <span class="default-param">`30s`</span>
-    : Maximum interval, in seconds, to wait between retries.
+flush_interval <span class="default-param">`5s`</span>
+: Interval, in seconds, to wait before invoking the next buffer flush.
 
-    num_threads <span class="default-param">`2`</span>
-    : Number of threads to flush the buffer.
+max_retry_wait <span class="default-param">`30s`</span>
+: Maximum interval, in seconds, to wait between retries.
 
-3.  Deploy the DaemonSet
+num_threads <span class="default-param">`2`</span>
+: Number of threads to flush the buffer.
 
-    For the RBAC DaemonSet:
+##### Deploy the DaemonSet
 
-    ```shell
-    kubectl apply -f /path/to/logzio-daemonset-rbac.yaml
-    ```
+For the RBAC DaemonSet:
 
-    For the non-RBAC DaemonSet:
+```shell
+kubectl apply -f /path/to/logzio-daemonset-rbac.yaml
+```
 
-    ```shell
-    kubectl apply -f /path/to/logzio-daemonset.yaml
-    ```
+For the non-RBAC DaemonSet:
 
-4.  Check Logz.io for your logs
+```shell
+kubectl apply -f /path/to/logzio-daemonset.yaml
+```
 
-    Give your logs some time to get from your system to ours,
-    and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs,
-    see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours,
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs,
+see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 <!-- tab:end -->

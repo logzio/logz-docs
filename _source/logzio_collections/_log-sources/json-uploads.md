@@ -28,7 +28,7 @@ or TLS/SSL streams over TCP.
 
 ## Bulk uploads over HTTP/HTTPS
 
-#### The request path and header
+### The request path and header
 
 For HTTPS shipping _(recommended)_, use this URL configuration:
 
@@ -44,8 +44,7 @@ http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
 
 {% include log-shipping/replace-vars.html listener=true %}
 
-Query parameters
-{:.inline-header}
+###### Query parameters
 
 token <span class="required-param"></span>
 : {% include log-shipping/replace-vars.html token=true %}
@@ -56,7 +55,7 @@ type <span class="default-param">`http-bulk`</span>
   This is shown in your logs under the `type` field in Kibana. \\
   Logz.io applies parsing based on `type`.
 
-#### The request body
+### The request body
 
 Your request's body is a list of logs,
 each in JSON Format,
@@ -75,14 +74,12 @@ For example:
 If you include a `type` field in the log,
 it overrides `type` in the request header.
 
-Limitations
-{:.inline-header}
+###### Limitations
 
 * The body must be 10 MB (10,485,760 bytes) or less
 * Each log line must be 500,000 bytes or less
 
-Code sample
-{:.inline-header}
+###### Code sample
 
 ```shell
 echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "counter": 2}' \
@@ -113,8 +110,7 @@ The response body contains this JSON:
 }
 ```
 
-Response fields
-{:.inline-header}
+###### Response fields
 
 malformedLines
 : The number of log lines that aren't valid JSON
@@ -172,8 +168,7 @@ send the logs to TCP port 5052 at
 <!-- logzio-inject:listener-url -->
 {% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
 
-Code sample: NXLog
-{:.inline-header}
+###### Code sample: NXLog
 
   To configure NXLog for log shipping, see
   [Ship Windows logs]({{site.baseurl}}/shipping/log-sources/windows.html)

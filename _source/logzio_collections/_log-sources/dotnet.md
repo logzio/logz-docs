@@ -23,12 +23,14 @@ shipping-tags:
 <!-- tab:start -->
 <div id="log4net-config">
 
-## log4net setup
+## Configure log4net
 
 **You'll need**:
 log4net 2.0.8 or higher
 
-### Add the dependency to your project
+<div class="tasklist">
+
+##### Add the dependency to your project
 
 If you're on Windows, navigate to your project's folder in the command line, and run this command to install the dependency.
 
@@ -38,7 +40,7 @@ Install-Package Logzio.DotNet.Log4net
 
 If you're on a Mac or Linux machine, you can install the package using Visual Studio. Select **Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.Log4net`.
 
-### Configure log4net
+##### Configure the appender
 
 You can configure the appender in a configuration file or directly in the code.
 Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs.
@@ -93,8 +95,7 @@ hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;
 ```
 
-Parameters
-{:.inline-header}
+###### Parameters
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -123,9 +124,7 @@ retriesInterval <span class="default-param">`00:00:02`</span>
 debug <span class="default-param">`false`</span>
 : To print debug messsages to the console and trace log, `true`. Otherwise, `false`.
 
-
-Code sample
-{:.inline-header}
+###### Code sample
 
 ```csharp
 using System.IO;
@@ -155,6 +154,7 @@ namespace dotnet_log4net
 }
 ```
 
+</div>
 
 ### Custom fields
 
@@ -199,12 +199,14 @@ For the example above, you'd use `MyAppLogzioAppender`.
 <!-- tab:start -->
 <div id="nlog-config">
 
-## NLog setup
+## Configure NLog
 
 **You'll need**:
 NLog 4.5.0 or higher
 
-### Add the dependency to your project
+<div class="tasklist">
+
+##### Add the dependency to your project
 
 If you're on Windows, navigate to your project's folder in the command line, and run this command to install the dependency.
 
@@ -214,7 +216,7 @@ Install-Package Logzio.DotNet.NLog
 
 If you’re on a Mac or Linux machine, you can install the package using Visual Studio. **Select Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.NLog`.
 
-### Configure NLog
+##### Configure the appender
 
 You can configure the appender in a configuration file or directly in the code.
 Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs.
@@ -276,8 +278,7 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, "Logzio", "*");
 LogManager.Configuration = config;
 ```
 
-Parameters
-{:.inline-header}
+###### Parameters
 
 token <span class="required-param"></span>
 : Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
@@ -306,9 +307,7 @@ retriesInterval <span class="default-param">`00:00:02`</span>
 debug <span class="default-param">`false`</span>
 : To print debug messsages to the console and trace log, `true`. Otherwise, `false`.
 
-
-Code sample
-{:.inline-header}
+###### Code sample
 
 ```csharp
 using System;
@@ -339,7 +338,6 @@ namespace LogzioNLogSampleApplication
 }
 ```
 
-
 ### Context properties
 
 You can configure the target to include your own custom values when forwarding to Logz.io. For example:
@@ -354,7 +352,6 @@ You can configure the target to include your own custom values when forwarding t
   </target>
 </nlog>
 ```
-
 
 ### Extending the appender
 
@@ -373,6 +370,8 @@ public class MyAppLogzioTarget : LogzioTarget
 ```
 
 Change your configuration to use your new target. For the example above, you'd use `MyAppLogzio`.
+
+</div>
 
 </div>
 <!-- tab:end -->

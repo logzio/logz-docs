@@ -10,29 +10,32 @@ shipping-tags:
   - platform-service
 ---
 
-## Heroku log drain setup
+#### Set up a Heroku log drain
 
 **You'll need**:
 [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
-1.  Set up the log drain in Heroku CLI
+<div class="tasklist">
 
-    Run this command in a terminal window.
+##### Set up the log drain in Heroku CLI
 
-    ```shell
-    heroku drains:add "http://<<LISTENER-HOST>>:8081?token=<<SHIPPING-TOKEN>>" -a <<HEROKU-APP-NAME>>
-    ```
+Run this command in the command line.
 
-    {% include log-shipping/replace-vars.html token=true listener=true %}
+```shell
+heroku drains:add "http://<<LISTENER-HOST>>:8081?token=<<SHIPPING-TOKEN>>" -a <<HEROKU-APP-NAME>>
+```
 
-    Replace `<<HEROKU-APP-NAME>>` with the name of the app in Heroku.
+{% include log-shipping/replace-vars.html token=true listener=true %}
 
-    You can add custom fields to each log message, allowing you to identify different Heroku apps and filter your data in Logz.io.
-    To do this, add `&<<KEY>>=<<VALUE>>` to the end of the Logz.io URL.
+Replace `<<HEROKU-APP-NAME>>` with the name of the app in Heroku.
 
-2.  Check Logz.io for your logs
+You can add custom fields to each log message, allowing you to identify different Heroku apps and filter your data in Logz.io.
+To do this, add `&<<KEY>>=<<VALUE>>` to the end of the Logz.io URL.
 
-    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana) to confirm you're shipping logs.
+##### Check Logz.io for your logs
 
-   If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana) to confirm you're shipping logs.
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>

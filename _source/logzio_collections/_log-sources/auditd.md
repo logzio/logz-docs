@@ -18,104 +18,107 @@ It's available for most major Linux distributions.
 This page gives instructions for replacing auditd with Auditbeat
 so you can easily ship your audit logs to Logz.io.
 
-###### Configuration
+#### Configuration
 
 **You'll need**:
 auditd,
 root access
 
-1.  Download the Logz.io certificate
+<div class="tasklist">
 
-    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+##### Download the Logz.io certificate
 
-    ```shell
-    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-    ```
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-2.  Install Auditbeat
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
 
-    Download and install [Auditbeat 6.8](https://www.elastic.co/guide/en/beats/auditbeat/6.8/auditbeat-installation.html).
+##### Install Auditbeat
 
-4.  Copy auditd rules
+Download and install [Auditbeat 6.8](https://www.elastic.co/guide/en/beats/auditbeat/6.8/auditbeat-installation.html).
 
-    You need root privileges to interact with the auditd rules file.
-    {:.info-box.important}
+##### Copy auditd rules
 
-    Create a new `audit.rules` file to hold your audit rules for Auditbeat:
+You need root privileges to interact with the auditd rules file.
+{:.info-box.important}
 
-    ```shell
-    sudo touch /etc/auditbeat/audit.rules.d/audit.rules
-    ```
+Create a new `audit.rules` file to hold your audit rules for Auditbeat:
 
-    Copy the auditd rules to your newly created Auditbeat rules file:
+```shell
+sudo touch /etc/auditbeat/audit.rules.d/audit.rules
+```
 
-    ```shell
-    sudo su
-    cat /etc/audit/rules.d/audit.rules > /etc/auditbeat/audit.rules.d/audit.rules
-    exit
-    ```
+Copy the auditd rules to your newly created Auditbeat rules file:
 
-3.  Add auditd as a source input
+```shell
+sudo su
+cat /etc/audit/rules.d/audit.rules > /etc/auditbeat/audit.rules.d/audit.rules
+exit
+```
 
-    Open the Auditbeat configuration file (`/etc/auditbeat/auditbeat.yml`).
+##### Add auditd as a source input
 
-    Paste this code block at the top of the file.
+Open the Auditbeat configuration file (`/etc/auditbeat/auditbeat.yml`).
 
-    {% include log-shipping/replace-vars.html token=true %}
+Paste this code block at the top of the file.
 
-    ```yaml
-    # ...
+{% include log-shipping/replace-vars.html token=true %}
+
+```yaml
+# ...
+fields:
+  type: auditd
+  logzio_codec: json
+  token: <<SHIPPING-TOKEN>>
+fields_under_root: true
+
+processors:
+- rename:
     fields:
-      type: auditd
-      logzio_codec: json
-      token: <<SHIPPING-TOKEN>>
-    fields_under_root: true
+    - from: "agent"
+      to: "beat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source_auditd"
+    ignore_missing: true
+```
 
-    processors:
-    - rename:
-        fields:
-        - from: "agent"
-          to: "beat_agent"
-        ignore_missing: true
-    - rename:
-        fields:
-        - from: "log.file.path"
-          to: "source_auditd"
-        ignore_missing: true
-    ```
+##### Configure Auditbeat to use the new rules file
 
-4.  Configure Auditbeat to use the new rules file
+In the `auditbeat.modules` object, find the `auditd` module.
 
-    In the `auditbeat.modules` object, find the `auditd` module.
+Replace the `audit_rule_files` array with this:
 
-    Replace the `audit_rule_files` array with this:
+```yaml
+audit_rule_files: [ '/etc/auditbeat/audit.rules.d/audit.rules' ]
+```
 
-    ```yaml
-    audit_rule_files: [ '/etc/auditbeat/audit.rules.d/audit.rules' ]
-    ```
+##### Set Logz.io as the output
 
-5.  Set Logz.io as the output
+Remove the output section in the configuration,
+and replace it with this code block.
 
-    Remove the output section in the configuration,
-    and replace it with this code block.
+{% include log-shipping/replace-vars.html listener=true %}
 
-    {% include log-shipping/replace-vars.html listener=true %}
+```yaml
+# ...
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
 
-    ```yaml
-    # ...
-    output.logstash:
-      hosts: ["<<LISTENER-HOST>>:5015"]
-      ssl:
-        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-    ```
+##### Start Auditbeat
 
-6.  Start Auditbeat
+Stop auditd, and then start Auditbeat.
 
-    Stop auditd, and then start Auditbeat.
+##### Check Logz.io for your logs
 
-7.  Check Logz.io for your logs
+Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+</div>

@@ -54,149 +54,152 @@ Log type _(for preconfigured parsing)_
 
 </details>
 
-###### Guided configuration
+#### Guided configuration
 
 **You'll need**:
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 [MySQL](https://dev.mysql.com/downloads/)
 
-1.  Configure MySQL to write general query logs
+<div class="tasklist">
 
-    In the MySQL configuration file (/etc/mysql/my.cnf),
-    paste these lines:
+##### Configure MySQL to write general query logs
 
-    ```
-    general_log_file = /var/log/mysql/mysql.log
-    general_log= 1
-    log_slow_queries = /var/log/mysql/mysql-slow.log
-    long_query_time = 1
-    log-queries-not-using-indexes = 1
-    ```
+In the MySQL configuration file (/etc/mysql/my.cnf),
+paste these lines:
 
-    Restart MySQL.
+```
+general_log_file = /var/log/mysql/mysql.log
+general_log= 1
+log_slow_queries = /var/log/mysql/mysql-slow.log
+long_query_time = 1
+log-queries-not-using-indexes = 1
+```
 
-    ```shell
-    sudo /etc/init.d/mysql restart
-    ```
+Restart MySQL.
 
-2.  Download the Logz.io certificate
+```shell
+sudo /etc/init.d/mysql restart
+```
 
-    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+##### Download the Logz.io certificate
 
-    ```shell
-    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-    ```
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-3.  Add MySQL as an input
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
 
-    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to the filebeat.inputs section.
+##### Add MySQL as an input
 
-    {% include log-shipping/replace-vars.html token=true %}
+In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to the filebeat.inputs section.
 
-    ```yaml
-    # ...
-    filebeat.inputs:
-    - type: log
-      paths:
-        - /var/log/mysql/mysql.log
+{% include log-shipping/replace-vars.html token=true %}
 
-      fields:
-        logzio_codec: plain
+```yaml
+# ...
+filebeat.inputs:
+- type: log
+  paths:
+    - /var/log/mysql/mysql.log
 
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: mysql
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
+  fields:
+    logzio_codec: plain
 
-    - type: log
-      paths:
-        - /var/log/mysql/mysql-slow.log
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<SHIPPING-TOKEN>>
+    type: mysql
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
 
-      fields:
-        logzio_codec: plain
+- type: log
+  paths:
+    - /var/log/mysql/mysql-slow.log
 
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: mysql_slow_query
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-      multiline:
-        pattern: '^# Time:'
-        negate: true
-        match: after
+  fields:
+    logzio_codec: plain
 
-    - type: log
-      paths:
-        - /var/log/mysql/error.log
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<SHIPPING-TOKEN>>
+    type: mysql_slow_query
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+  multiline:
+    pattern: '^# Time:'
+    negate: true
+    match: after
 
-      fields:
-        logzio_codec: plain
+- type: log
+  paths:
+    - /var/log/mysql/error.log
 
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: mysql_error
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-      ```
+  fields:
+    logzio_codec: plain
 
-    If you're running Filebeat 7, paste this code block.
-    Otherwise, you can leave it out.
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<SHIPPING-TOKEN>>
+    type: mysql_error
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+  ```
 
-    ```yaml
-    # ... For Filebeat 7 only ...
-    filebeat.registry.path: /var/lib/filebeat
-    processors:
-    - rename:
-        fields:
-        - from: "agent"
-          to: "filebeat_agent"
-        ignore_missing: true
-    - rename:
-        fields:
-        - from: "log.file.path"
-          to: "source"
-        ignore_missing: true
-    ```
+If you're running Filebeat 7, paste this code block.
+Otherwise, you can leave it out.
 
-    If you're running Filebeat 6, paste this code block.
+```yaml
+# ... For Filebeat 7 only ...
+filebeat.registry.path: /var/lib/filebeat
+processors:
+- rename:
+    fields:
+    - from: "agent"
+      to: "filebeat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source"
+    ignore_missing: true
+```
 
-    ```yaml
-    # ... For Filebeat 6 only ...
-    registry_file: /var/lib/filebeat/registry
-    ```
+If you're running Filebeat 6, paste this code block.
 
-4.  Add Logz.io as an output
+```yaml
+# ... For Filebeat 6 only ...
+registry_file: /var/lib/filebeat/registry
+```
 
-    If Logz.io is not an output, add it now.
+##### Add Logz.io as an output
 
-    {% include log-shipping/replace-vars.html listener=true %}
+If Logz.io is not an output, add it now.
 
-    ```yaml
-    # ...
-    output.logstash:
-      hosts: ["<<LISTENER-HOST>>:5015"]
-      ssl:
-        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-    ```
+{% include log-shipping/replace-vars.html listener=true %}
 
-5.  Start Filebeat
+```yaml
+# ...
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
 
-    Start or restart Filebeat for the changes to take effect.
+##### Start Filebeat
 
-6.  Check Logz.io for your logs
+Start or restart Filebeat for the changes to take effect.
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 <!-- tab:end -->
@@ -204,59 +207,58 @@ Log type _(for preconfigured parsing)_
 <!-- tab:start -->
 <div id="docker-sidecar-config">
 
-## MySQL + Docker sidecar setup
+## Set up a Docker sidecar for MySQL
 
-###### Configuration
+<div class="tasklist">
 
-1.  Pull the Docker image
+##### Pull the Docker image
 
-    Download the logzio/mysql-logs image:
+Download the logzio/mysql-logs image:
 
-    ```shell
-    docker pull logzio/mysql-logs
-    ```
+```shell
+docker pull logzio/mysql-logs
+```
 
-2.  Run the Docker image
+##### Run the Docker image
 
-    For a complete list of options, see the parameters below the code block.👇
+For a complete list of options, see the parameters below the code block.👇
 
-    ```shell
-    docker run -d --name logzio-mysql-logs \
-    -e LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
-    -e LOGZIO_LISTENER_HOST="<<LISTENER-HOST>>" \
-    -v /var/log/logzio:/var/log/logzio \
-    -v /var/log/mysql:/var/log/mysql \
-    logzio/mysql-logs
-    ```
+```shell
+docker run -d --name logzio-mysql-logs \
+-e LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+-e LOGZIO_LISTENER_HOST="<<LISTENER-HOST>>" \
+-v /var/log/logzio:/var/log/logzio \
+-v /var/log/mysql:/var/log/mysql \
+logzio/mysql-logs
+```
 
-    Parameters
-    {:.inline-header}
+###### Parameters
 
-    LOGZIO_TOKEN <span class="required-param"></span>
-    : Your Logz.io account token.
-      {% include log-shipping/replace-vars.html token=true %}
-      <!-- logzio-inject:account-token -->
+LOGZIO_TOKEN <span class="required-param"></span>
+: Your Logz.io account token.
+  {% include log-shipping/replace-vars.html token=true %}
+  <!-- logzio-inject:account-token -->
 
-    LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span>
-    : Logz.io listener host to ship the logs to.
-      {% include log-shipping/replace-vars.html listener=true %}
+LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span>
+: Logz.io listener host to ship the logs to.
+  {% include log-shipping/replace-vars.html listener=true %}
 
-    MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span>
-    : Path to the MySQL error log.
+MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span>
+: Path to the MySQL error log.
 
-    MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span>
-    : Path to the MySQL slow query log.
+MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span>
+: Path to the MySQL slow query log.
 
-    MYSQL_LOG_FILE <span class="default-param">`/var/log/mysql/mysql.log`</span>
-    : Path to the MySQL general log.
+MYSQL_LOG_FILE <span class="default-param">`/var/log/mysql/mysql.log`</span>
+: Path to the MySQL general log.
 
+##### Check Logz.io for your logs
 
-3.  Check Logz.io for your logs
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+</div>
 
 </div>
 <!-- tab:end -->

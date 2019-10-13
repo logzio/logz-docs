@@ -11,118 +11,118 @@ shipping-tags:
   - security
 ---
 
-## Setup
-
-###### Guided configuration
+#### Configuration
 
 **You'll need**:
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 root access
 
-1.  Configure FortiGate logging
+<div class="tasklist">
 
-    Configure your FortiGate firewall to send logs to your Filebeat server.
-    Make sure you meet this configuration:
+##### Configure FortiGate logging
 
-    * Log format: syslog
-    * Send over: UDP
-    * IP address: Filebeat server IP address
-    * Port 514
+Configure your FortiGate firewall to send logs to your Filebeat server.
+Make sure you meet this configuration:
 
-    See the [FortiGate docs](https://docs.fortinet.com/product/fortigate/) for more information
-    on configuring your FortiGate firewall.
+* Log format: syslog
+* Send over: UDP
+* IP address: Filebeat server IP address
+* Port 514
 
-    Sample commands for FortiOS 6.2
-    {:.inline-header}
+See the [FortiGate docs](https://docs.fortinet.com/product/fortigate/) for more information
+on configuring your FortiGate firewall.
 
-    ```
-    config log syslogd setting
-    set status enable
-    set format default
-    set server <FILEBEAT-SERVER-IP-ADDR>
-    set port 514
-    end
-    ```
+###### Sample commands for FortiOS 6.2
 
-2.  Download the Logz.io certificate to your Filebeat server
+```
+config log syslogd setting
+set status enable
+set format default
+set server <FILEBEAT-SERVER-IP-ADDR>
+set port 514
+end
+```
 
-    ```shell
-    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-    ```
+##### Download the Logz.io certificate to your Filebeat server
 
-3.  Add UDP traffic as an input
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
 
-    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add UDP to the filebeat.inputs section.
+##### Add UDP traffic as an input
 
-    {% include log-shipping/replace-vars.html token=true %}
+In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add UDP to the filebeat.inputs section.
 
-    ```yaml
-    # ...
-    filebeat.inputs:
-    - type: udp
-      max_message_size: 10MiB
-      host: "0.0.0.0:514"
+{% include log-shipping/replace-vars.html token=true %}
 
-      fields:
-        logzio_codec: plain
+```yaml
+# ...
+filebeat.inputs:
+- type: udp
+  max_message_size: 10MiB
+  host: "0.0.0.0:514"
 
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: fortigate
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-    ```
+  fields:
+    logzio_codec: plain
 
-    If you're running Filebeat 7, paste this code block.
-    Otherwise, you can leave it out.
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<SHIPPING-TOKEN>>
+    type: fortigate
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+```
 
-    ```yaml
-    # ... For Filebeat 7 only ...
-    filebeat.registry.path: /var/lib/filebeat
-    processors:
-    - rename:
-        fields:
-        - from: "agent"
-          to: "filebeat_agent"
-        ignore_missing: true
-    - rename:
-        fields:
-        - from: "log.file.path"
-          to: "source"
-        ignore_missing: true
-    ```
+If you're running Filebeat 7, paste this code block.
+Otherwise, you can leave it out.
 
-    If you're running Filebeat 6, paste this code block.
+```yaml
+# ... For Filebeat 7 only ...
+filebeat.registry.path: /var/lib/filebeat
+processors:
+- rename:
+    fields:
+    - from: "agent"
+      to: "filebeat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source"
+    ignore_missing: true
+```
 
-    ```yaml
-    # ... For Filebeat 6 only ...
-    registry_file: /var/lib/filebeat/registry
-    ```
+If you're running Filebeat 6, paste this code block.
 
-4.  Add Logz.io as an output
+```yaml
+# ... For Filebeat 6 only ...
+registry_file: /var/lib/filebeat/registry
+```
 
-    If Logz.io is not an output, add it now.
+##### Add Logz.io as an output
 
-    {% include log-shipping/replace-vars.html listener=true %}
+If Logz.io is not an output, add it now.
 
-    ```yaml
-    # ...
-    output.logstash:
-      hosts: ["<<LISTENER-HOST>>:5015"]
-      ssl:
-        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-    ```
+{% include log-shipping/replace-vars.html listener=true %}
 
-5.  Start Filebeat
+```yaml
+# ...
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
 
-    Start or restart Filebeat for the changes to take effect.
+##### Start Filebeat
 
-6.  Check Logz.io for your logs
+Start or restart Filebeat for the changes to take effect.
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>

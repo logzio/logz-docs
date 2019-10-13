@@ -13,13 +13,13 @@ shipping-tags:
   - from-your-code
 ---
 
-## Logz.io Python Handler setup
-
 Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.
 Logs are grouped into bulks based on their size.
 
 If the main thread quits, the handler tries to consume the remaining logs and then exits.
 If the handler can't send the remaining logs, they are written to the local file system for later retrieval.
+
+#### Set up Logz.io Python Handler
 
 <div class="tasklist">
 

@@ -10,8 +10,6 @@ shipping-tags:
   - security
 ---
 
-## Setup
-
 As its name suggests, auditd is a service that audits activities in a Linux environment.
 It's available for most major Linux distributions.
 

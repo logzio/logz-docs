@@ -13,11 +13,11 @@ shipping-tags:
   - from-your-code
 ---
 
-## Logz.io Golang API client setup
-
 This shipper uses goleveldb and goqueue as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.
 Logs are queued in the buffer and 100% non-blocking.
 A background Go routine ships the logs every 5 seconds.
+
+#### Set up the Logz.io Golang API client
 
 **You'll need**:
 Go 1.x or higher

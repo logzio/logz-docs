@@ -84,7 +84,7 @@ PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
 
 ##### Check Logz.io for your logs
 
-Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
@@ -166,7 +166,7 @@ PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
 
 ##### Check Logz.io for your logs
 
-Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 </div>
 

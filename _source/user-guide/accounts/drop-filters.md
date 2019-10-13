@@ -94,8 +94,7 @@ Add up to 3 **Field**-**Value** pairs to filter.
 Each pair must be an exact match.
 Drop filters are case sensitive.
 
-An example
-{:.inline-header}
+###### An example
 
 Logs from a Docker container might contain this field-value pair:
 

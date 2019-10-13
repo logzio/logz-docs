@@ -36,6 +36,8 @@ The interval increases by a factor of 2 between each retry until it reaches the 
 By default, any error is logged to the console.
 You can change this by using a callback function.
 
+#### Configure logzio-nodejs
+
 <div class="tasklist">
 
 ##### Add the dependency to your project
@@ -152,6 +154,8 @@ Include this line if you're using logzio-nodejs in a severless environment, such
 
 winston-logzio is a winston plugin and wrapper for the logzio-nodejs appender.
 With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
+
+#### Configure winston-logzio
 
 <div class="tasklist">
 

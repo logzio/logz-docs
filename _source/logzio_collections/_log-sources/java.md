@@ -26,7 +26,7 @@ shipping-tags:
 <!-- tab:start -->
 <div id="log4j-2-config">
 
-## Configure Log4j 2
+#### Configure Log4j 2
 
 The Logz.io Log4j 2 appender sends logs using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -154,10 +154,15 @@ public class LogzioLog4j2Example {
 
 </div>
 
-### MDC
+#### More options
 
-You can add mapped diagnostic context (MDC) to your logs.
-Each key-value pair you define is added to every log line while the thread is alive.
+You can optionally add mapped diagnostic context (MDC)
+and markers to your logs.
+
+##### MDC
+
+When you add MDC to your logs,
+each key-value pair you define is added log lines while the thread is alive.
 
 So this code sample...
 
@@ -185,7 +190,7 @@ public class LogzioLog4j2Example {
 }
 ```
 
-### Markers
+##### Markers
 
 Markers are values you can use to tag and enrich log statements.
 
@@ -222,7 +227,7 @@ public class LogzioLog4j2Example {
 <!-- tab:start -->
 <div id="logback-config">
 
-## Configure Logback
+#### Configure Logback
 
 Logback sends logs to your Logz.io account using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -364,10 +369,15 @@ public class LogzioLogbackExample {
 
 </div>
 
-### MDC
+#### More options
 
-You can add mapped diagnostic context (MDC) to your logs.
-Each key-value pair you define is added to every log line while the thread is alive.
+You can optionally add mapped diagnostic context (MDC)
+and markers to your logs.
+
+#### MDC
+
+When you add MDC to your logs,
+each key-value pair you define is added log lines while the thread is alive.
 
 So this code sample...
 
@@ -396,7 +406,7 @@ public class LogzioLogbackExample {
 }
 ```
 
-### Markers
+#### Markers
 
 Markers are values you can use to tag and enrich log statements.
 

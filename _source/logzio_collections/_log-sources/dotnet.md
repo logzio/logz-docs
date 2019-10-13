@@ -23,7 +23,7 @@ shipping-tags:
 <!-- tab:start -->
 <div id="log4net-config">
 
-## Configure log4net
+#### Configure log4net
 
 **You'll need**:
 log4net 2.0.8 or higher
@@ -199,7 +199,7 @@ For the example above, you'd use `MyAppLogzioAppender`.
 <!-- tab:start -->
 <div id="nlog-config">
 
-## Configure NLog
+#### Configure NLog
 
 **You'll need**:
 NLog 4.5.0 or higher

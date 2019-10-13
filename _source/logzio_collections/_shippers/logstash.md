@@ -23,123 +23,125 @@ For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/sh
 
 <div id="ssl-config">
 
-## SSL shipping with Logstash
-
-###### Configuration
+#### Ship with Logstash over SSL
 
 **You'll need**:
 JDK,
 [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
-1.  Download the Logz.io certificate
+<div class="tasklist">
 
-    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+##### Download the Logz.io certificate
 
-    ```shell
-    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-    ```
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-2.  _(If needed)_ Install the Lumberjack output plugin
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
 
-    The Lumberjack output plugin is required for SSL shipping.
-    For most Logstash versions, the plugin is included by default.
+##### _(If needed)_ Install the Lumberjack output plugin
 
-    To see if Lumberjack output plugin is installed, `cd` to your [Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html) and run this command:
+The Lumberjack output plugin is required for SSL shipping.
+For most Logstash versions, the plugin is included by default.
 
-    ```shell
-    ./logstash-plugin list | grep logstash-output-lumberjack
-    ```
+To see if Lumberjack output plugin is installed, `cd` to your [Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html) and run this command:
 
-    If you see `logstash-output-lumberjack`, skip to step 3.
+```shell
+./logstash-plugin list | grep logstash-output-lumberjack
+```
 
-    Otherwise, you'll need to install the plugin.
+If you see `logstash-output-lumberjack`, skip to step 3.
 
-    ```shell
-    ./logstash-plugin install logstash-output-lumberjack
-    ```
+Otherwise, you'll need to install the plugin.
 
-3.  Add Logz.io to your configuration file
+```shell
+./logstash-plugin install logstash-output-lumberjack
+```
 
-    Add these code blocks to the end of your existing Logstash configuration file.
+##### Add Logz.io to your configuration file
 
-    Make sure the `mutate` block is the last item in the `filters` block.
+Add these code blocks to the end of your existing Logstash configuration file.
 
-    ```conf
-    filter {
-      # ...
-      # ...
-      mutate {
-        add_field => { "token" => "<<SHIPPING-TOKEN>>" }
-      }
-    }
+Make sure the `mutate` block is the last item in the `filters` block.
 
-    output {
-      lumberjack {
-        hosts => ["<<LISTENER-HOST>>"]
-        port => 5006
-        ssl_certificate => "/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt"
-        codec => "json_lines"
-      }
-    }
-    ```
+```conf
+filter {
+  # ...
+  # ...
+  mutate {
+    add_field => { "token" => "<<SHIPPING-TOKEN>>" }
+  }
+}
 
-4.  Start Logstash
+output {
+  lumberjack {
+    hosts => ["<<LISTENER-HOST>>"]
+    port => 5006
+    ssl_certificate => "/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt"
+    codec => "json_lines"
+  }
+}
+```
 
-    Start or restart Logstash for the changes to take effect.
+##### Start Logstash
 
-5.  Check Logz.io for your logs
+Start or restart Logstash for the changes to take effect.
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 
 <div id="tcp-config">
 
-## TCP shipping with Logstash
-
-###### Configuration
+#### Ship with Logstash over TCP
 
 **You'll need**:
 JDK,
 [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
-1.  Add Logz.io to your configuration file
+<div class="tasklist">
 
-    Add these code blocks to the end of your existing Logstash configuration file.
+##### Add Logz.io to your configuration file
 
-    Make sure the `mutate` block is the last item in the `filters` block.
+Add these code blocks to the end of your existing Logstash configuration file.
 
-    ```conf
-    filters {
-      # ...
-      # ...
-      mutate {
-        add_field => { "token" => "<<SHIPPING-TOKEN>>" }
-      }
-    }
+Make sure the `mutate` block is the last item in the `filters` block.
 
-    output {
-      tcp {
-        host => "listener.logz.io"
-        port => 5050
-        codec => json_lines
-      }
-    }
-    ```
+```conf
+filters {
+  # ...
+  # ...
+  mutate {
+    add_field => { "token" => "<<SHIPPING-TOKEN>>" }
+  }
+}
 
-2.  Start Logstash
+output {
+  tcp {
+    host => "listener.logz.io"
+    port => 5050
+    codec => json_lines
+  }
+}
+```
 
-    Start or restart Logstash for the changes to take effect.
+##### Start Logstash
 
-3.  Check Logz.io for your logs
+Start or restart Logstash for the changes to take effect.
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 

@@ -16,7 +16,7 @@ When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodic
 
 #### Configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket (one bucket per region)
 
 <div class="tasklist">

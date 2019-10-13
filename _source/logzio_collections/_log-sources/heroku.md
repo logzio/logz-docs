@@ -12,7 +12,7 @@ shipping-tags:
 
 #### Set up a Heroku log drain
 
-**You'll need**:
+**Before you begin, you'll need**:
 [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
 <div class="tasklist">

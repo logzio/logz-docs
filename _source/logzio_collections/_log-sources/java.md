@@ -35,7 +35,7 @@ Logs queue in the buffer and are 100% non-blocking.
 A background task handles log shipping.
 To help manage dependencies, this .jar shades LogzioSender, BigQueue, Gson, and Guava.
 
-**You'll need**:
+**Before you begin, you'll need**:
 Log4j 2.7 or higher,
 Java 8 or higher
 
@@ -236,7 +236,7 @@ Once you send a log, it will be enqueued in the buffer and 100% non-blocking.
 A background task handles the log shipment.
 To help manage dependencies, this .jar shades BigQueue, Gson, and Guava.
 
-**You'll need**:
+**Before you begin, you'll need**:
 Logback 1.1.7 or higher,
 Java 8 or higher
 

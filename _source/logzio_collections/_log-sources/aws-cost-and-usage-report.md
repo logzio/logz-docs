@@ -17,7 +17,7 @@ shipping-tags:
 
 #### Configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
 
 Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout.

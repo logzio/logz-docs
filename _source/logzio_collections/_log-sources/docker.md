@@ -113,7 +113,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Set up logzio-logging-plugin
 
-**You'll need**:
+**Before you begin, you'll need**:
 Docker Engine 17.05 or later,
 Docker Community Edition (Docker CE) 18.03 or later
 

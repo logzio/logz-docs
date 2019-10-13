@@ -57,7 +57,7 @@ you can use [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-
 
 #### To test your IAM user permissions
 
-**You'll need**:
+**Before you begin, you'll need**:
 [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) configured with the IAM user credentials you're testing
 
 <div class="tasklist">

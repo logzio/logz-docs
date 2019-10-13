@@ -12,7 +12,7 @@ shipping-tags:
 
 #### Guided configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 [NXLog](http://nxlog.org/products/nxlog-community-edition/download),
 admin access
 

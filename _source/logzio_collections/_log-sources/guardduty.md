@@ -156,7 +156,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Automated CloudFormation deployment
 
-**You'll need**:
+**Before you begin, you'll need**:
 AWS CLI,
 an S3 bucket to store the CloudFormation package
 

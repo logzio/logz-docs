@@ -32,7 +32,7 @@ S3 archiving is a cost-effective solution.
 
 #### To set up archiving
 
-**You'll need**:
+**Before you begin, you'll need**:
 `PutObject`, `ListBucket`, and `GetObject` permissions for an S3 bucket
 
 <div class="tasklist">

@@ -16,7 +16,7 @@ From there, you can ship the logs from rsyslog to Logz.io.
 
 #### Guided configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 root access,
 rsyslog 5.8.0 or later
 

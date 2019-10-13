@@ -12,7 +12,7 @@ contributors:
 
 #### Configure Fluentd
 
-**You'll need**:
+**Before you begin, you'll need**:
 Ruby and ruby-dev 2.1 or higher
 
 <div class="tasklist">

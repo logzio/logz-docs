@@ -35,7 +35,7 @@ Log type _\(for preconfigured parsing\)_
 
 #### Guided configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 root access
 
 <div class="tasklist">

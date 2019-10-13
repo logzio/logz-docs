@@ -20,7 +20,7 @@ You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.i
 
 #### Configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 [Google Cloud SDK](https://cloud.google.com/sdk/docs/quickstarts),
 [a GCP project](https://console.cloud.google.com/projectcreate),
 [a GCP Pub/Sub topic and subscribers](https://cloud.google.com/pubsub/docs/quickstart-console) to your GCP project

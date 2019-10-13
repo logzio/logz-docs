@@ -20,7 +20,7 @@ in a Grafana instance that you manage.
 
 #### Install Logz.io datasource for Grafana
 
-**You'll need**:
+**Before you begin, you'll need**:
 Write access to Grafana,
 Logz.io API access
 

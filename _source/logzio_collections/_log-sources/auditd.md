@@ -18,7 +18,7 @@ so you can easily ship your audit logs to Logz.io.
 
 #### Configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 auditd,
 root access
 

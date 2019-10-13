@@ -23,7 +23,7 @@ so you can investigate events in Kibana that are older than your plan’s retent
 
 #### To restore and view archived logs
 
-**You'll need**:
+**Before you begin, you'll need**:
 [Archiving enabled](https://app.logz.io/#/dashboard/tools/archive-and-restore),
 archived logs in your S3 bucket
 

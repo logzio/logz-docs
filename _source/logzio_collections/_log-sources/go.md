@@ -19,7 +19,7 @@ A background Go routine ships the logs every 5 seconds.
 
 #### Set up the Logz.io Golang API client
 
-**You'll need**:
+**Before you begin, you'll need**:
 Go 1.x or higher
 
 <div class="tasklist">

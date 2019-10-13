@@ -25,7 +25,7 @@ For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/sh
 
 #### Ship with Logstash over SSL
 
-**You'll need**:
+**Before you begin, you'll need**:
 JDK,
 [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
@@ -101,7 +101,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Ship with Logstash over TCP
 
-**You'll need**:
+**Before you begin, you'll need**:
 JDK,
 [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 

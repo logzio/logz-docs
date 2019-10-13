@@ -22,7 +22,7 @@ shipping-tags:
 
 #### Configure Winlogbeat
 
-**You'll need**:
+**Before you begin, you'll need**:
 [Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
 
 <div class="tasklist">
@@ -98,7 +98,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Configure NXLog
 
-**You'll need**:
+**Before you begin, you'll need**:
 [NXLog](https://nxlog.co/products/nxlog-community-edition/download)
 
 <div class="tasklist">

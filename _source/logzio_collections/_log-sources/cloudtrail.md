@@ -15,7 +15,7 @@ shipping-tags:
 
 #### Configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
 
 <div class="tasklist">

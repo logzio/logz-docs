@@ -30,7 +30,7 @@ You can upload JSON or plain text files.
 
 #### Upload a plain text log file
 
-**You'll need**:
+**Before you begin, you'll need**:
 [cURL](https://curl.haxx.se/download.html)
 
 <div class="tasklist">
@@ -57,7 +57,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Upload a JSON log file
 
-**You'll need**:
+**Before you begin, you'll need**:
 [cURL](https://curl.haxx.se/download.html)
 
 <div class="tasklist">

@@ -55,7 +55,7 @@ Log type _\(for preconfigured parsing\)_
 
 #### Guided configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 root access
@@ -169,7 +169,7 @@ You can choose to stream a project's build logs or to send only the last logs of
 
 #### To configure Jenkins Logstash Plugin
 
-**You'll need**:
+**Before you begin, you'll need**:
 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html),
 [Maven](https://maven.apache.org/install.html)
 

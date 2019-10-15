@@ -16,8 +16,10 @@ shipping-tags:
 Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.
 Logs are grouped into bulks based on their size.
 
-If the main thread quits, the handler tries to consume the remaining logs and then exits.
-If the handler can't send the remaining logs, they are written to the local file system for later retrieval.
+If the main thread quits,
+the handler tries to consume the remaining logs and then exits.
+If the handler can't send the remaining logs,
+they're written to the local file system for later retrieval.
 
 #### Set up Logz.io Python Handler
 
@@ -33,7 +35,8 @@ pip install logzio-python-handler
 
 ##### Configure Logz.io Python Handler for a standard Python project
 
-Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
+Use the samples in the code block below as a starting point,
+and replace the sample with a configuration that matches your needs.
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
@@ -65,7 +68,8 @@ format={"additional_field": "value"}
 ###### Parameters
 
 Arguments must be configured in the order shown.
-For example, to set debug-flag to `True`, you need to set every argument that comes before it.
+For example, to set debug-flag to `True`,
+you need to set every argument that comes before it.
 {:.info-box.important}
 
 | Parameter | Description |
@@ -97,9 +101,12 @@ except:
     logger.exception("Supporting exceptions too!")
 ```
 
-To add dynamic metadata to your logger other than the constant metadata from the formatter, you can use the `extra` parameter.
+To add dynamic metadata to your logger
+other than the constant metadata from the formatter,
+you can use the `extra` parameter.
 Key-value pairs passed in `extra` are shown as new fields in Logz.io.
-Please note that you can't override default fields from the python logger, such as `lineno` or `thread`.
+You can't override default fields from the python logger,
+such as `lineno` or `thread`.
 
 ```python
 logger.info('Warning', extra={'extra_key':'extra_value'})

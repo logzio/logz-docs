@@ -35,12 +35,6 @@ You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.i
 
 2.  Build your credentials file
 
-    Make a folder for the files you'll be working with.
-
-    ```shell
-    mkdir logzio-pubsub && cd logzio-pubsub
-    ```
-
     Build your credentials file using your Google Cloud project ID.
 
     ```shell
@@ -125,8 +119,8 @@ You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.i
 
     ```shell
     docker run --name logzio-pubsub \
-    -v ./pubsub-input.yml:/var/lib/filebeat/pubsub-input.yml \
-    -v ./credentials-file.json:/var/lib/filebeat/credentials-file.json \
+    -v $(pwd)/pubsub-input.yml:/logzio-pubsub/pubsub-input.yml \
+    -v $(pwd)/credentials-file.json:/logzio-pubsub/credentials-file.json \
     logzio/logzio-pubsub
     ```
 

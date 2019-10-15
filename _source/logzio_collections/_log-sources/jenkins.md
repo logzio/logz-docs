@@ -37,115 +37,112 @@ This page covers methods for shipping Jenkins system logs and build console outp
 Configuration tl;dr
 </summary>
 
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
-  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
-
-Listener
-: Port 5015.
-  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Default log location
-: `/var/log/jenkins/jenkins.log`
-
-Log type _\(for preconfigured parsing\)_
-: `jenkins`
+| Item | Description |
+|---|---|
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Default log location | `/var/log/jenkins/jenkins.log` |
+| Log type _\(for preconfigured parsing\)_ | `jenkins` |
+{:.paramlist}
 
 </details>
 
-###### Guided configuration
+#### Guided configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 root access
 
-1.  Download the Logz.io certificate
+<div class="tasklist">
 
-    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+##### Download the Logz.io certificate
 
-    ```shell
-    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-    ```
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-2.  Add Jenkins as an input
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
 
-    In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
+##### Add Jenkins as an input
 
-    {% include log-shipping/replace-vars.html token=true %}
+In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
 
-    ```yaml
-    # ...
-    filebeat.inputs:
-    - type: log
-      paths:
-      - /var/log/jenkins/jenkins.log
-      fields:
-        logzio_codec: plain
+{% include log-shipping/replace-vars.html token=true %}
 
-        # Your Logz.io account token. You can find your token at
-        #  https://app.logz.io/#/dashboard/settings/manage-accounts
-        token: <<SHIPPING-TOKEN>>
-        type: jenkins
-      fields_under_root: true
-      encoding: utf-8
-      ignore_older: 3h
-      multiline:
-        pattern: '^[A-Z]{1}[a-z]{2} {1,2}[0-9]{1,2}, [0-9]{4} {1,2}[0-9]{1,2}:[0-9]{2}:[0-9]{2}'
-        negate: true
-        match: after
-    ```
+```yaml
+# ...
+filebeat.inputs:
+- type: log
+  paths:
+  - /var/log/jenkins/jenkins.log
+  fields:
+    logzio_codec: plain
 
-    If you're running Filebeat 7, paste this code block.
-    Otherwise, you can leave it out.
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<SHIPPING-TOKEN>>
+    type: jenkins
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+  multiline:
+    pattern: '^[A-Z]{1}[a-z]{2} {1,2}[0-9]{1,2}, [0-9]{4} {1,2}[0-9]{1,2}:[0-9]{2}:[0-9]{2}'
+    negate: true
+    match: after
+```
 
-    ```yaml
-    # ... For Filebeat 7 only ...
-    filebeat.registry.path: /var/lib/filebeat
-    processors:
-    - rename:
-        fields:
-        - from: "agent"
-          to: "filebeat_agent"
-        ignore_missing: true
-    - rename:
-        fields:
-        - from: "log.file.path"
-          to: "source"
-        ignore_missing: true
-    ```
+If you're running Filebeat 7, paste this code block.
+Otherwise, you can leave it out.
 
-    If you're running Filebeat 6, paste this code block.
+```yaml
+# ... For Filebeat 7 only ...
+filebeat.registry.path: /var/lib/filebeat
+processors:
+- rename:
+    fields:
+    - from: "agent"
+      to: "filebeat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source"
+    ignore_missing: true
+```
 
-    ```yaml
-    # ... For Filebeat 6 only ...
-    registry_file: /var/lib/filebeat/registry
-    ```
+If you're running Filebeat 6, paste this code block.
 
-3.  Add Logz.io as an output
+```yaml
+# ... For Filebeat 6 only ...
+registry_file: /var/lib/filebeat/registry
+```
 
-    If Logz.io is not an output, add it now.
+##### Add Logz.io as an output
 
-    {% include log-shipping/replace-vars.html listener=true %}
+If Logz.io is not an output, add it now.
 
-    ```yaml
-    # ...
-    output.logstash:
-      hosts: ["<<LISTENER-HOST>>:5015"]
-      ssl:
-        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-    ```
+{% include log-shipping/replace-vars.html listener=true %}
 
-4.  Start Filebeat
+```yaml
+# ...
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
 
-    Start or restart Filebeat for the changes to take effect.
+##### Start Filebeat
 
-5.  Check Logz.io for your logs
+Start or restart Filebeat for the changes to take effect.
 
-    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 <!-- tab:end -->
@@ -155,86 +152,86 @@ root access
 
 ## Jenkins Logstash Plugin setup
 
-  This is a temporary fork of a Jenkins-maintained project named Jenkins Logstash Plugin.
-  We're working toward merging our implementation in the Jenkins repo.
-  For full documentation and all configuration options, see the original [Jenkins Logstash Plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
-  {:.info-box.note}
+This is a temporary fork of a Jenkins-maintained project named Jenkins Logstash Plugin.
+We're working toward merging our implementation in the Jenkins repo.
+For full documentation and all configuration options, see the original [Jenkins Logstash Plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
+{:.info-box.note}
 
 Jenkins Logstash Plugin sends Jenkins build logs to your Logz.io account.
 The plugin is configured per project.
 You can choose to stream a project's build logs or to send only the last logs of each build.
 
+#### To configure Jenkins Logstash Plugin
 
-###### Configuration
-
-**You'll need**:
+**Before you begin, you'll need**:
 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html),
 [Maven](https://maven.apache.org/install.html)
 
-1.  Clone the Jenkins Logstash Plugin repo
+<div class="tasklist">
 
-    Clone the Jenkins Logstash Plugin repo and `cd` into the logstash-plugin folder.
+##### Clone the Jenkins Logstash Plugin repo
 
-    ```shell
-    git clone https://github.com/logzio/logstash-plugin
-    cd logstash-plugin
-    ```
+Clone the Jenkins Logstash Plugin repo and `cd` into the logstash-plugin folder.
 
-2.  Load the plugin in Jenkins
+```shell
+git clone https://github.com/logzio/logstash-plugin
+cd logstash-plugin
+```
 
-    Set Maven to use JDK 8, and then build the plugin.
+##### Load the plugin in Jenkins
 
-    ```shell
-    JAVA_HOME=/path/to/jdk/8/ mvn package
-    ```
+Set Maven to use JDK 8, and then build the plugin.
 
-    Copy `logstash-plugin/target/logstash.hpi` to your Jenkins plugins folder on your Jenkins server.
+```shell
+JAVA_HOME=/path/to/jdk/8/ mvn package
+```
 
-    ```shell
-    cp /path/to/repo/logstash-plugin/target/logstash.hpi $JENKINS_HOME/plugins
-    ```
+Copy `logstash-plugin/target/logstash.hpi` to your Jenkins plugins folder on your Jenkins server.
 
-    Restart Jenkins for the changes to take effect.
-    You can do this by browsing to `http://<<JENKINS-SERVER>>/restart` or `http://<<JENKINS-SERVER>>/safeRestart`.
+```shell
+cp /path/to/repo/logstash-plugin/target/logstash.hpi $JENKINS_HOME/plugins
+```
 
-3.  Configure the plugin in Jenkins
+Restart Jenkins for the changes to take effect.
+You can do this by browsing to `http://<<JENKINS-SERVER>>/restart` or `http://<<JENKINS-SERVER>>/safeRestart`.
 
-    Log in to the Jenkins UI and navigate to **Manage Jenkins > Configure System**.
+##### Configure the plugin in Jenkins
 
-    In the _Logstash_ section, select **Enable sending logs to an Indexer**, and then set these options:
+Log in to the Jenkins UI and navigate to **Manage Jenkins > Configure System**.
 
-    * In the **Indexer Type** list, choose **Logz.io**.
-    * **Logz.io Host**: Your region's listener host.
-      For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
-    * **Logz.io Token**: The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+In the _Logstash_ section, select **Enable sending logs to an Indexer**, and then set these options:
 
-    Click **Save**.
+* In the **Indexer Type** list, choose **Logz.io**.
+* **Logz.io Host**: Your region's listener host.
+  For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+* **Logz.io Token**: The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
 
-4.  Enable the plugin in your Jenkins jobs
+Click **Save**.
 
-    In each Jenkins job, click **Configure** in the left menu to set your logging preferences.
+##### Enable the plugin in your Jenkins jobs
 
-      Make sure you enable only one of these options.
-      If both options are enabled, Jenkins Logstash Plugin will send duplicate logs Logz.io.
-      {:.info-box.important}
+In each Jenkins job, click **Configure** in the left menu to set your logging preferences.
 
-    To stream all logs
-    {:.inline-header}
+Make sure you enable only one of these options.
+If both options are enabled, Jenkins Logstash Plugin will send duplicate logs Logz.io.
+{:.info-box.important}
 
-    In the _General_ section, select **Send console log to Logstash**, and click **Save**.
+###### To stream all logs
 
-    To send only the last logs of each build
-    {:.inline-header}
+In the _General_ section, select **Send console log to Logstash**, and click **Save**.
 
-    In the _Post-build Actions_ section (at the bottom of the page), select **Add post-build action > Send console log to Logstash**.
-    In the **Max lines** box, type the number of logs you want to send per build, and then click **Save**.
+###### To send only the last logs of each build
 
-5.  Check Logz.io for your logs
+In the _Post-build Actions_ section (at the bottom of the page), select **Add post-build action > Send console log to Logstash**.
+In the **Max lines** box, type the number of logs you want to send per build, and then click **Save**.
 
-      Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-      If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 <!-- tab:end -->

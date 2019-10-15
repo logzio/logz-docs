@@ -30,27 +30,36 @@ S3 archiving is a cost-effective solution.
   from Amazon.
   {:.info-box.read}
 
-###### To set up archiving
+#### To set up archiving
 
-**You'll need**:
+**Before you begin, you'll need**:
 `PutObject`, `ListBucket`, and `GetObject` permissions for an S3 bucket
 
-1.  Enter your bucket name and S3 credentials
+<div class="tasklist">
 
-    Paste your S3 **Bucket name**, **AWS access key**, and **AWS secret key**.
-    Make sure your access key and secret key belong to a user with `PutObject`, `ListBucket`, and `GetObject` permissions for the S3 bucket.
+##### Enter your bucket name and S3 credentials
 
-2.  Test your connection and save
+Paste your S3 **Bucket name**, **AWS access key**, and **AWS secret key**.
+Make sure your access key and secret key
+belong to a user with `PutObject`, `ListBucket`, and `GetObject` permissions
+for the S3 bucket.
 
-    Click **Test connection** to make sure your bucket name and credentials are valid and have the right permissions.
+##### Test your connection and save
 
-    If everything checks out, click **Start archiving** to save your settings.
-    From now on, Logz.io will archive your logs as they come in.
-    You can stop archiving at any time.
-{:.tasklist.firstline-headline}
+Click **Test connection** to make sure your bucket name and credentials
+are valid and have the right permissions.
+
+If everything checks out, click **Start archiving** to save your settings.
+From now on, Logz.io will archive your logs as they come in.
+You can stop archiving at any time.
+
+</div>
 
 ## Managing your S3 credentials
 
-If you need to change your S3 name, access key, or secret key, make the changes in the _Settings_ tab and click **Update settings**.
+If you need to change your S3 name, access key, or secret key,
+make the changes in the _Settings_ tab and click **Update settings**.
 
-You can remove your credentials from Logz.io at any time by clicking **Stop archiving** and selecting **Remove my S3 settings** in the confirmation box.
+You can remove your credentials from Logz.io at any time
+by clicking **Stop archiving**
+and selecting **Remove my S3 settings** in the confirmation box.

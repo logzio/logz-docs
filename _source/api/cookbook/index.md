@@ -21,7 +21,7 @@ If you’re not on an Enterprise account, no worries!
 You can sign up for a free 14-day trial, but you’ll need to ask for API access.
 To make the request, <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a>.
 
-##### In the cookbook
+###### In the cookbook
 
 * [Who am I?](/api/cookbook/who-am-i.html)
 * [Managing sub account capacity](/api/cookbook/managing-sub-account-capacity.html)

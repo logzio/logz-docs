@@ -19,7 +19,7 @@ $( function() {
 
 // tablesorter
 $(function() {
-  $('table').tablesorter({ sortList: [[0,0]] });
+  $('.sortable table').tablesorter({ sortList: [[0,0]] });
 });
 
 $(function() {

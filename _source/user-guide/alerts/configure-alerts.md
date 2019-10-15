@@ -12,67 +12,99 @@ contributors:
 
 To create a new alert, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Alert page, where you can configure the alert and notification settings.
 
-  Community plans have a maximum of 50 alerts.
-  {:.info-box.note}
+Community plans have a maximum of 50 alerts.
+{:.info-box.note}
 
 If you want help updating an existing alert, you can [skip the first part of this page](#to-configure-an-alert).
 
-###### To start a new alert
+#### To start a new alert
 
 ![Kibana query bar]({{site.baseurl}}/images/kibana/kibana--query-bar.png)
 
-1.  In Kibana, type a query in the query bar, and press Enter. Review the results in the histogram and the document table, and make sure your query returned the expected results.
+##### Set your query in Kibana
 
-2.  Click **Create Alert** (to the right of the query bar). The Create Alert Definition page is shown. Continue with [To configure an alert](#to-configure-an-alert).
+In Kibana, type a query in the query bar
+and press Enter.
+Review the results in the histogram and the document table,
+and make sure your query returned the expected results.
 
-###### To configure an alert {#to-configure-an-alert}
+Click **Create Alert** (to the right of the query bar).
+The _Create Alert Definition_ page is shown.
+
+Continue with [To configure an alert](#to-configure-an-alert).
+
+#### To configure an alert {#to-configure-an-alert}
 
 ![Configure an Alert]({{site.baseurl}}/images/alerts/alerts--configure-alert.png)
 
-1.  Type a **Name** and a detailed **Description**.
-  Add **Tags** to help categorize this alert.
+<div class="tasklist">
 
-2.  If you need to, change your alert **Query** and the **Accounts** that the query will search.
+##### Name and tag the alert
 
-      If you use an invalid query, the alert will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
-      {:.info-box.important}
+Type a **Name** and a detailed **Description**.
 
-3.  _(Optional)_ If you want to group logs in the alert notification:
+Add **Tags** to help categorize this alert.
 
-    ![Group alert fields]({{site.baseurl}}/images/alerts/alerts--group-by.png)
-    
-    1. Click **Add group by** to add up to 3 groups.
+##### _(Optional)_ Edit the search settings
 
-    2. In the **Select Field** list, choose a field to group by. 
-    
-        To limit the available fields, choose a log type from the **Filter by type** list. To show fields for all log types, choose **Clear filter**.
+If you need to, change your alert **Query** and the **Accounts** that the query will search.
 
-4.  Set your threshold and severity levels in the **Trigger** section. Click **Add multiple conditions** to add up to 3 threshold levels.
+If you use an invalid query, the alert will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
+{:.info-box.important}
 
-    ![Alert trigger thresholds]({{site.baseurl}}/images/alerts/alerts--trigger-settings.png)
+##### _(Optional)_ Edit group by settings
 
-5.  _(Optional)_ If you want to receive notifications or emails when the alert is triggered, choose an alert endpoint. If you don't choose an endpoint, triggered alerts will still be logged:
+![Group alert fields]({{site.baseurl}}/images/alerts/alerts--group-by.png)
 
-    ![Alert notification actions]({{site.baseurl}}/images/alerts/alerts--notification-action.png)
+Click **Add group by** to add up to 3 groups.
 
-    1. Choose the endpoints or email addresses to notify. If you need help adding a new endpoint, see [Alert endpoints]({{site.baseurl}}/user-guide/integrations/endpoints.html).
+In the **Select Field** list,
+choose a field to group by.
 
-    2. Choose a time period to suppress notifications.
+To limit the available fields,
+choose a log type from the **Filter by type** list.
+To show fields for all log types, choose **Clear filter**.
 
-        When notifications are suppressed, Logz.io will continue to log triggered alerts without sending notifications. You can search triggered alert logs at any time.
-        {:.info-box.note}
+##### Set threshold and severity levels
 
-6.  Choose an **Output**.
+Set your threshold and severity levels in the **Trigger** section.
+Click **Add multiple conditions** to add up to 3 threshold levels.
 
-    <video autoplay loop>
-        <source src="{{site.baseurl}}/videos/alerts/alerts--custom-format.mp4" type="video/mp4" />
-    </video>
+![Alert trigger thresholds]({{site.baseurl}}/images/alerts/alerts--trigger-settings.png)
 
-    To send raw JSON documents to your alert endpoints, choose **Default format**. To send a summary table, choose **Custom format**.
+##### _(Optional)_ Set recipients
 
-      If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your **Group by** selection.
-      {:.info-box.note}
+If you want to receive notifications or emails when the alert is triggered,
+choose an alert endpoint.
+If you don't choose an endpoint,
+triggered alerts will still be logged:
 
-    If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
+![Alert notification actions]({{site.baseurl}}/images/alerts/alerts--notification-action.png)
+
+Choose the endpoints or email addresses to notify.
+If you need help adding a new endpoint,
+see [Alert endpoints]({{site.baseurl}}/user-guide/integrations/endpoints.html).
+
+Choose a time period to suppress notifications.
+
+When notifications are suppressed, Logz.io will continue to log triggered alerts without sending notifications. You can search triggered alert logs at any time.
+{:.info-box.note}
+
+##### Choose an output format
+
+Choose an **Output**.
+
+<video autoplay loop>
+    <source src="{{site.baseurl}}/videos/alerts/alerts--custom-format.mp4" type="video/mp4" />
+</video>
+
+To send raw JSON documents to your alert endpoints, choose **Default format**. To send a summary table, choose **Custom format**.
+
+If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your **Group by** selection.
+{:.info-box.note}
+
+If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
 
 Click **Save** to save your alert. If the thresholds are passed and the alert is triggered, Logz.io will log the alert and send the configured notifications.
+
+</div>

@@ -1,5 +1,5 @@
 ---
-title: cURL log file upload
+title: Upload log files using cURL
 logo:
   logofile: curl.svg
   orientation: vertical
@@ -28,50 +28,55 @@ You can upload JSON or plain text files.
 
 <div id="plain-text-config">
 
-###### Upload a plain text log file
+#### Upload a plain text log file
 
-**You'll need**:
+**Before you begin, you'll need**:
 [cURL](https://curl.haxx.se/download.html)
 
-1.  Upload the file
+<div class="tasklist">
 
-    {% include log-shipping/replace-vars.html token=true listener=true %}
+##### Upload the file
 
-    ```shell
-    curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<SHIPPING-TOKEN>>/<LOG-TYPE>
-    ```
+{% include log-shipping/replace-vars.html token=true listener=true %}
 
-2.  Check Logz.io for your logs
+```shell
+curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<SHIPPING-TOKEN>>/<LOG-TYPE>
+```
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
 
+</div>
 
 <div id="json-config">
 
-###### Upload a JSON log file
+#### Upload a JSON log file
 
-**You'll need**:
+**Before you begin, you'll need**:
 [cURL](https://curl.haxx.se/download.html)
 
-1.  Upload the file
+<div class="tasklist">
 
-    {% include log-shipping/replace-vars.html token=true listener=true %}
+##### Upload the file
 
-    ```shell
-    cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
-    ```
+{% include log-shipping/replace-vars.html token=true listener=true %}
 
-2.  Check Logz.io for your logs
+```shell
+cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
+```
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+##### Check Logz.io for your logs
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 

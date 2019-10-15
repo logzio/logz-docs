@@ -15,7 +15,7 @@ additional-docs:
 
 This build's environment: {{jekyll.environment}}
 
-##### Admin TOC
+### Admin TOC
 
 {% for doc in thisCollection.docs %}
   {%- assign filename = doc.path | split: "/" | last | split: "." | first -%}

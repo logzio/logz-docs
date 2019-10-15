@@ -29,156 +29,131 @@ There are many other APIs available through Microsoft Graph.
 If you don't see your API in the list,
 please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at GitHub to request it.
 
-## To integrate Microsoft Graph and Logz.io
+#### To integrate Microsoft Graph and Logz.io
 
-1.  Register a new app in Azure Active Directory
+<div class="tasklist">
 
-    In the Azure portal, go to [App registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
-    and select **New registration** from the top menu.
+##### Register a new app in Azure Active Directory
 
-    Name your app and click **Register**.
+In the Azure portal, go to [App registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
+and select **New registration** from the top menu.
 
-2.  Create a client secret
+Name your app and click **Register**.
 
-    Choose **Certificates & secrets** from the side menu,
-    and click on **New client secret**.
+##### Create a client secret
 
-    Add a **Description**.
-    We recommend something specific, such as "secret for Logzio-MSGraph integration".
+Choose **Certificates & secrets** from the side menu,
+and click on **New client secret**.
 
-    In the **Expires** list, choose **Never**.
+Add a **Description**.
+We recommend something specific, such as "secret for Logzio-MSGraph integration".
 
-    Click **Add**.
+In the **Expires** list, choose **Never**.
 
-    Copy the value of the generated secret to your text editor.
-    You'll need this later.
+Click **Add**.
 
-    You won't be able to retrieve the secret's value after you leave this page.
-    {:.info-box.note}
+Copy the value of the generated secret to your text editor.
+You'll need this later.
 
-3.  Set the app's permissions
+You won't be able to retrieve the secret's value after you leave this page.
+{:.info-box.note}
 
-    Choose **API permissions** from the side menu,
-    and click **Add a permission**.
+##### Set the app's permissions
 
-    Select **Microsoft Graph > Application permissions**.
+Choose **API permissions** from the side menu,
+and click **Add a permission**.
 
-    Select these items:
+Select **Microsoft Graph > Application permissions**.
 
-    * **AuditLog.Read.All**
-    * **Directory.Read.All**
+Select these items:
 
-    Click **Add permissions**.
+* **AuditLog.Read.All**
+* **Directory.Read.All**
 
-    Click **Grant admin consent for Default Directory**, and then click **Yes** to confirm.
+Click **Add permissions**.
 
-    Only Azure administrators can grant consent for Default Directory.
-    If the _Grant admin consent_ button is disabled, ask your Azure admin to update the setting for you.
-    {:.info-box.note}
+Click **Grant admin consent for Default Directory**, and then click **Yes** to confirm.
 
-4.  Create a configuration file
+Only Azure administrators can grant consent for Default Directory.
+If the _Grant admin consent_ button is disabled, ask your Azure admin to update the setting for you.
+{:.info-box.note}
 
-    Create a configuration yaml file (`logzio-msgraph-config.yaml`) for Logzio-MSGraph.
+##### Create a configuration file
 
-    For a complete list of options, see the configuration parameters below.👇
+Create a configuration yaml file (`logzio-msgraph-config.yaml`) for Logzio-MSGraph.
 
-    ```yaml
-    senderParams:
-      accountToken: "<<SHIPPING-TOKEN>>"
-      listenerUrl: "<<LISTENER-HOST>>"
+For a complete list of options, see the configuration parameters below.👇
 
-    azureADClient:
-      pullIntervalSeconds: 300
-      tenantId: "<<AD_TENANT_ID>>"
-      clientId: "<<APP_CLIENT_ID>>"
-      clientSecret: "<<APP_CLIENT_SECRET>>"
+```yaml
+senderParams:
+  accountToken: "<<SHIPPING-TOKEN>>"
+  listenerUrl: "<<LISTENER-HOST>>"
 
-    logLevel: INFO
-    ```
+azureADClient:
+  pullIntervalSeconds: 300
+  tenantId: "<<AD_TENANT_ID>>"
+  clientId: "<<APP_CLIENT_ID>>"
+  clientSecret: "<<APP_CLIENT_SECRET>>"
 
-    Parameters
-    {:.inline-header}
+logLevel: INFO
+```
 
-    senderParams.accountToken <span class="required-param"></span>
-    : {% include log-shipping/replace-vars.html token=true %}
+###### Parameters
 
-    senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span>
-    : Listener URL. \\
-      {% include log-shipping/replace-vars.html listener=true %}
+| Parameter | Description |
+|---|---|
+| senderParams.accountToken <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} |
+| senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span> | Listener URL. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| senderParams.fromDisk <span class="default-param">`true`</span> | If `true`, logs are stored on disk until they're shipped (see [If from-disk=true](#if-fromdisk-true)). If `false`, logs persist in memory until they're shipped (see [If from-disk=false](#if-fromdisk-false)). |
+| senderParams.senderDrainIntervals <span class="default-param">`30`</span> | How often the sender should drain the queue, in seconds. |
+| azureADClient.tenantId <span class="required-param"></span> | Azure Active Directory tenant ID. <br> You can find this in the _Overview_ section of the app you registered in step 1. |
+| azureADClient.clientId <span class="required-param"></span> | Application client ID. <br> You can find this in the _Overview_ section of the app you registered in step 1. |
+| azureADClient.clientSecret <span class="required-param"></span> | The Application Client Secret you created in step 2. |
+| azureADClient.pullIntervalSeconds <span class="default-param">`300`</span> | Time interval, in seconds, to pull the logs with the Graph API. |
+| logLevel <span class="default-param">`INFO`</span> | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. |
+{:.paramlist}
 
-    senderParams.fromDisk <span class="default-param">`true`</span>
-    : If `true`, logs are stored on disk until they're shipped (see [If from-disk=true](#if-fromdisk-true)).
-      If `false`, logs persist in memory until they're shipped (see [If from-disk=false](#if-fromdisk-false)).
+###### If fromDisk=true {#if-fromdisk-true}
 
-    senderParams.senderDrainIntervals <span class="default-param">`30`</span>
-    : How often the sender should drain the queue, in seconds.
+| Parameter | Description |
+|---|---|
+senderParams.fileSystemFullPercentThreshold <span class="default-param">`98`</span> | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new logs are dropped until used space drops below the threshold. Set to `-1` to ignore threshold. |
+| senderParams.gcPersistedQueueFilesIntervalSeconds <span class="default-param">`30`</span> | Time interval, in seconds, to clean sent logs from the disk. |
+| senderParams.diskSpaceCheckInterval <span class="default-param">`1000`</span> | Time interval, in milliseconds, to check for disk space.|
+{:.paramlist}
 
-    azureADClient.tenantId <span class="required-param"></span>
-    : Azure Active Directory tenant ID. \\
-      You can find this in the _Overview_ section of the app you registered in step 1.
+###### If fromDisk=false {#if-fromdisk-false}
 
-    azureADClient.clientId <span class="required-param"></span>
-    : Application client ID. \\
-      You can find this in the _Overview_ section of the app you registered in step 1.
+| Parameter | Description |
+|---|---|
+| senderParams.inMemoryQueueCapacityInBytes <span class="default-param">`1024 * 1024 * 100`</span> | The amount of memory, in bytes, Logzio-MSGraph can use for the memory queue. Set to `-1` for unlimited bytes. |
+| senderParams.logsCountLimit <span class="default-param">`-1`</span> | The number of logs in the memory queue before dropping new logs. Set to `-1` to configure the sender to not limit the queue by logs count. |
+{:.paramlist}
 
-    azureADClient.clientSecret <span class="required-param"></span>
-    : The Application Client Secret you created in step 2.
+##### Download and run Logzio-MSGraph
 
-    azureADClient.pullIntervalSeconds <span class="default-param">`300`</span>
-    : Time interval, in seconds, to pull the logs with the Graph API.
+You can launch Logzio-MSGraph in a Docker container or as a standalone Java app.
 
-    logLevel <span class="default-param">`INFO`</span>
-    : Log level for Logizo-MSGraph to omit.
-      Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
+In a Docker container:
 
-    If fromDisk=true
-    {:.inline-header #if-fromdisk-true}
+```shell
+docker run -d -v $(pwd)/logzio-msgraph-config.yaml:/config.yaml logzio/logzio-msgraph
+```
 
-    senderParams.fileSystemFullPercentThreshold <span class="default-param">`98`</span>
-    : Threshold percentage of disk space at which to stop queueing.
-      If this threshold is reached, all new logs are dropped until used space drops below the threshold.
-      Set to `-1` to ignore threshold.
+Or to run as a standalone Java app,
+download the latest jar from the [release page](https://github.com/logzio/microsoft-graph/releases).
+Then run:
 
-    senderParams.gcPersistedQueueFilesIntervalSeconds <span class="default-param">`30`</span>
-    : Time interval, in seconds, to clean sent logs from the disk.
+```shell
+java -jar logzio-msgraph.jar logzio-msgraph-config.yaml
+```
 
-    senderParams.diskSpaceCheckInterval <span class="default-param">`1000`</span>
-    : Time interval, in milliseconds, to check for disk space.
+Logs collected by this integration will have the type `Microsoft-Graph`
 
-    If fromDisk=false
-    {:.inline-header #if-fromdisk-false}
+##### Check Logz.io for your logs
 
-    senderParams.inMemoryQueueCapacityInBytes <span class="default-param">`1024 * 1024 * 100`</span>
-    : The amount of memory, in bytes, Logzio-MSGraph can use for the memory queue.
-      Set to `-1` for unlimited bytes.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-    senderParams.logsCountLimit <span class="default-param">`-1`</span>
-    : The number of logs in the memory queue before dropping new logs.
-      Set to `-1` to configure the sender to not limit the queue by logs count.
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-5.  Download and run Logzio-MSGraph
-
-    You can launch Logzio-MSGraph in a Docker container or as a standalone Java app.
-
-    In a Docker container:
-
-    ```shell
-    docker run -d -v $(pwd)/logzio-msgraph-config.yaml:/config.yaml logzio/logzio-msgraph
-    ```
-
-    Or to run as a standalone Java app,
-    download the latest jar from the [release page](https://github.com/logzio/microsoft-graph/releases)
-    and run:
-
-    ```shell
-    java -jar logzio-msgraph.jar logzio-msgraph-config.yaml
-    ```
-
-    Logs collected by this integration will have the type `Microsoft-Graph`
-
-6.  Check Logz.io for your logs
-
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+</div>

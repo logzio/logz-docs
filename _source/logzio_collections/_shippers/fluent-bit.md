@@ -24,74 +24,67 @@ shipping-tags:
 <!-- tab:start -->
 <div id="standalone-config">
 
-## Run as a standalone app
+#### Run Fluent Bit as a standalone app
 
-###### Configuration
+<div class="tasklist">
 
-1.  Install Fluent Bit
+##### Install Fluent Bit
 
-    If you haven't installed Fluent Bit yet,
-    you can build it from source
-    according to the [instructions from Fluent Bit](https://docs.fluentbit.io/manual/installation/build_install).
+If you haven't installed Fluent Bit yet,
+you can build it from source
+according to the [instructions from Fluent Bit](https://docs.fluentbit.io/manual/installation/build_install).
 
-2.  Install and configure the Logz.io plugin
+##### Install and configure the Logz.io plugin
 
-    ```shell
-    wget -o /fluent-bit/plugins/out_logzio.so \
-    https://github.com/logzio/fluent-bit-logzio-output/blob/master/build/out_logzio.so
-    ```
+```shell
+wget -o /fluent-bit/plugins/out_logzio.so \
+https://github.com/logzio/fluent-bit-logzio-output/blob/master/build/out_logzio.so
+```
 
-    In your Fluent Bit configuration file (`fluent-bit.conf` by default),
-    add Logz.io as an output.
+In your Fluent Bit configuration file (`fluent-bit.conf` by default),
+add Logz.io as an output.
 
-    Logz.io-Out Plugin for Fluent Bit
-    supports one output stream to Logz.io.
-    We plan to add support for multiple streams in the future. \\
-    In the meantime,
-    we recommend running a new instance for each output stream you need.
-    {:.info-box.note}
+Logz.io-Out Plugin for Fluent Bit
+supports one output stream to Logz.io.
+We plan to add support for multiple streams in the future. \\
+In the meantime,
+we recommend running a new instance for each output stream you need.
+{:.info-box.note}
 
-    For a list of options, see the configuration parameters below the code block. 👇
+For a list of options, see the configuration parameters below the code block. 👇
 
-    ```python
-    [OUTPUT]
-        Name  logzio
-        Match *
-        logzio_token <<SHIPPING-TOKEN>>
-        logzio_url   https://<<LISTENER-HOST>>:8071
-    ```
+```python
+[OUTPUT]
+    Name  logzio
+    Match *
+    logzio_token <<SHIPPING-TOKEN>>
+    logzio_url   https://<<LISTENER-HOST>>:8071
+```
 
-    Parameters
-    {:.inline-header}
+###### Parameters
 
-    logzio_token <span class="required-param"></span>
-    : {% include log-shipping/replace-vars.html token=true %}
+| Parameter | Description |
+|---|---|
+| logzio_token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} |
+| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio_type <span class="default-param">`logzio-fluent-bit`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
+| logzio_debug <span class="default-param">`false`</span> | Set to `true` to print debug messages to stdout. |
+{:.paramlist}
 
-    logzio_url <span class="default-param">`https://listener.logz.io:8071`</span>
-    : Listener URL and port. \\
-      {% include log-shipping/replace-vars.html listener=true %}
+##### Run Fluent Bit with the Logz.io plugin
 
-    logzio_type <span class="default-param">`logzio-fluent-bit`</span>
-    : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-      Used by Logz.io for consistent parsing.
-      Can't contain spaces.
+```shell
+fluent-bit -e /fluent-bit/plugins/out_logzio.so \
+-c /fluent-bit/etc/fluent-bit.conf
+```
 
-    logzio_debug <span class="default-param">`false`</span>
-    : Set to `true` to print debug messages to stdout.
+##### Check Logz.io for your logs
 
-3.  Run Fluent Bit with the Logz.io plugin
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-    ```shell
-    fluent-bit -e /fluent-bit/plugins/out_logzio.so \
-    -c /fluent-bit/etc/fluent-bit.conf
-    ```
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-4.  Check Logz.io for your logs
-
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+</div>
 
 </div>
 <!-- tab:end -->
@@ -99,71 +92,64 @@ shipping-tags:
 <!-- tab:start -->
 <div id="docker-config">
 
-## Run in a Docker container
+#### Run Fluent Bit in a Docker container
 
-###### Configuration
+<div class="tasklist">
 
-1.  Make the configuration file
+##### Make the configuration file
 
-    To run in a container,
-    create a configuration file named `fluent-bit.conf`.
+To run in a container,
+create a configuration file named `fluent-bit.conf`.
 
-    Logz.io-Out Plugin for Fluent Bit
-    supports one output stream to Logz.io.
-    We plan to add support for multiple streams in the future. \\
-    In the meantime,
-    we recommend running a new instance for each output stream you need.
-    {:.info-box.note}
+Logz.io-Out Plugin for Fluent Bit
+supports one output stream to Logz.io.
+We plan to add support for multiple streams in the future. \\
+In the meantime,
+we recommend running a new instance for each output stream you need.
+{:.info-box.note}
 
-    For a list of options, see the configuration parameters below the code block. 👇
+For a list of options, see the configuration parameters below the code block. 👇
 
-    ```python
-    [SERVICE]
-        # Include your remaining SERVICE configuration here.
-        Plugins_File plugins.conf
+```python
+[SERVICE]
+    # Include your remaining SERVICE configuration here.
+    Plugins_File plugins.conf
 
-    [OUTPUT]
-        Name  logzio
-        Match *
-        logzio_token <<SHIPPING-TOKEN>>
-        logzio_url   https://<<LISTENER-HOST>>:8071
-    ```
+[OUTPUT]
+    Name  logzio
+    Match *
+    logzio_token <<SHIPPING-TOKEN>>
+    logzio_url   https://<<LISTENER-HOST>>:8071
+```
 
-    Parameters
-    {:.inline-header}
+######  Parameters
 
-    logzio_token <span class="required-param"></span>
-    : {% include log-shipping/replace-vars.html token=true %}
+| Parameter | Description |
+|---|---|
+| logzio_token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} |
+| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio_type <span class="default-param">`logzio-fluent-bit`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
+| logzio_debug <span class="default-param">`false`</span> | Set to `true` to print debug messages to stdout. |
+{:.paramlist}
 
-    logzio_url <span class="default-param">`https://listener.logz.io:8071`</span>
-    : Listener URL and port. \\
-      {% include log-shipping/replace-vars.html listener=true %}
+##### Run the Docker image
 
-    logzio_type <span class="default-param">`logzio-fluent-bit`</span>
-    : The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-      Used by Logz.io for consistent parsing.
-      Can't contain spaces.
+Run the Docker image
+using the `fluent-bit.conf` file you made in step 1.
 
-    logzio_debug <span class="default-param">`false`</span>
-    : Set to `true` to print debug messages to stdout.
+```shell
+docker run -it --rm \
+-v /path/to/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf \
+logzio/fluent-bit-output
+```
 
-2.  Run the Docker image
+##### Check Logz.io for your logs
 
-    Run the Docker image
-    using the `fluent-bit.conf` file you made in step 1.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-    ```shell
-    docker run -it --rm \
-    -v /path/to/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf \
-    logzio/fluent-bit-output
-    ```
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-3.  Check Logz.io for your logs
-
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+</div>
 
 </div>
 <!-- tab:end -->

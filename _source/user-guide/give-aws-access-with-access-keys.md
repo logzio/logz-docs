@@ -14,71 +14,78 @@ which authenticates with AWS access keys.
 This gives Logz.io the appropriate level of access
 while keeping your AWS account secure.
 
-###### To grant access to an S3 bucket
+#### To grant access to an S3 bucket
 
-1.  Create the user
+<div class="tasklist">
 
-    Browse to the [IAM users](https://console.aws.amazon.com/iam/home#/users)
-    and click **Add user**.
-    You're taken to the _Add user_ wizard.
+##### Create the user
 
-    ![Create an IAM role for another AWS account]({{site.baseurl}}/images/aws/iam--add-user.png)
+Browse to the [IAM users](https://console.aws.amazon.com/iam/home#/users)
+and click **Add user**.
+You're taken to the _Add user_ wizard.
 
-    Assign a **User name**.
+![Create an IAM role for another AWS account]({{site.baseurl}}/images/aws/iam--add-user.png)
 
-    Under _Select AWS access type_, select **Programmatic access**.
+Assign a **User name**.
 
-    Click **Next: Permissions** to continue.
+Under _Select AWS access type_, select **Programmatic access**.
 
-2.  Create the policy
+Click **Next: Permissions** to continue.
 
-    In the  _Set permissions_ section, click **Attach existing policies directly > Create policy**.
-    The _Create policy_ page loads in a new tab.
+##### Create the policy
 
-    ![Create policy]({{site.baseurl}}/images/aws/create-policy-visual-editor.png)
+In the  _Set permissions_ section, click **Attach existing policies directly > Create policy**.
+The _Create policy_ page loads in a new tab.
 
-    Set these permissions:
+![Create policy]({{site.baseurl}}/images/aws/create-policy-visual-editor.png)
 
-    * **Service**:
-      Choose **S3**
-    * **Actions**:
-      Select **List > ListBucket** and **Read > GetObject**
-    * **Resources > bucket**:
-      Click **Add ARN** to open the _Add ARN_ dialog.
-      Type the intended **Bucket name**, and then click **Add**.
-    * **Resources > object**:
-      Click **Add ARN** to open the _Add ARN(s)_ dialog.
-      Add the intended **Bucket name**,
-      then select **Object name > Any**.
-      Click **Add**.
+Set these permissions:
 
-    Click **Review policy** to continue.
+* **Service**:
+  Choose **S3**
+* **Actions**:
+  Select **List > ListBucket** and **Read > GetObject**
+* **Resources > bucket**:
+  Click **Add ARN** to open the _Add ARN_ dialog.
+  Type the intended **Bucket name**, and then click **Add**.
+* **Resources > object**:
+  Click **Add ARN** to open the _Add ARN(s)_ dialog.
+  Add the intended **Bucket name**,
+  then select **Object name > Any**.
+  Click **Add**.
 
-    Give the policy a **Name** and optional **Description**, and then click **Create policy**.
+Click **Review policy** to continue.
 
-    Remember the policy's name—you'll need this in the next step.
+Give the policy a **Name** and optional **Description**, and then click **Create policy**.
 
-    Close the tab to return to the _Add user_ page.
+Remember the policy's name—you'll need this in the next step.
 
-3.  Attach the policy to the user
+Close the tab to return to the _Add user_ page.
 
-    Click <i class="fas fa-sync-alt"></i> (refresh), and then type your new policy's name in the search box.
+##### Attach the policy to the user
 
-    Find your policy in the filtered list and select its check box.
+Click <i class="fas fa-sync-alt"></i> (refresh),
+and then type your new policy's name in the search box.
 
-    Click **Next: Tags**, and then click **Next: Review** to continue to the _Review_ screen.
+Find your policy in the filtered list and select its check box.
 
-4.  Finalize the user
+Click **Next: Tags**,
+and then click **Next: Review** to continue to the _Review_ screen.
 
-    Give the user a **Name** and optional **Description**, and then click **Create user**.
+##### Finalize the user
 
-    You're taken to a success page.
+Give the user a **Name** and optional **Description**,
+and then click **Create user**.
 
-5.  Add the bucket to Logz.io
+You're taken to a success page.
 
-    Add the **S3 bucket name** and **Prefix**
+##### Add the bucket to Logz.io
 
-    Copy the _Access key ID_ and _Secret access key_, or click **Download .csv**.
+Add the **S3 bucket name** and **Prefix**
 
-    In Logz.io, paste the **Access key** and **Secret key**, and then click **Save**.
-{:.tasklist.firstline-headline}
+Copy the _Access key ID_ and _Secret access key_, or click **Download .csv**.
+
+In Logz.io, paste the **Access key** and **Secret key**,
+and then click **Save**.
+
+</div>

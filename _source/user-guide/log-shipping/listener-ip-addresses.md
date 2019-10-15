@@ -35,7 +35,7 @@ On this page
       {%- assign suffix = r[0] | prepend: "-" -%}
   {%- endcase %}
 
-#### listener{{suffix}}.logz.io — _{{attribs.title}}, {{attribs.cloud}}_
+## listener{{suffix}}.logz.io — _{{attribs.title}}, {{attribs.cloud}}_
 
 If you're shipping logs to listener{{suffix}}.logz.io, open your firewall to these {{attribs.cloud}} IP addresses:
 

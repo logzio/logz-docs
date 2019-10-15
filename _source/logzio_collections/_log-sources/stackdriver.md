@@ -6,7 +6,7 @@ open-source:
 logo:
   logofile: gcp-stackdriver.svg
   orientation: vertical
-data-source: Google Cloud Stackdriver
+data-source: Stackdriver
 contributors:
   - ronish31
   - imnotashrimp
@@ -62,23 +62,23 @@ You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.i
 
         pubsubs:
         - project_id: PROJECT-1_ID
-          credentials_file: ./credentials-file.json
-          token: <<SHIPPING-TOKEN>>
           topic_id: TOPIC-1_ID
+          token: <<SHIPPING-TOKEN>>
+          credentials_file: ./credentials-file.json
           subscriptions: ["SUB1_ID", "SUB2_ID", "SUB3_ID"]
           type: stackdriver
 
         - project_id: PROJECT-1_ID
-          credentials_file: ./credentials-file.json
-          token: <<SHIPPING-TOKEN>>
           topic_id: TOPIC-2_ID
+          token: <<SHIPPING-TOKEN>>
+          credentials_file: ./credentials-file.json
           subscriptions: ["SUB1_ID", "SUB2_ID", "SUB3_ID"]
           type: stackdriver
 
         - project_id: PROJECT-3_ID
-          credentials_file: ./credentials-file.json
-          token: <<SHIPPING-TOKEN>>
           topic_id: TOPIC-1_ID
+          token: <<SHIPPING-TOKEN>>
+          credentials_file: ./credentials-file.json
           subscriptions: ["SUB1_ID", "SUB2_ID", "SUB3_ID"]
           type: stackdriver
     ```

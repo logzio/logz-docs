@@ -44,7 +44,9 @@ sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/CO
 The Lumberjack output plugin is required for SSL shipping.
 For most Logstash versions, the plugin is included by default.
 
-To see if Lumberjack output plugin is installed, `cd` to your [Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html) and run this command:
+To see if Lumberjack output plugin is installed,
+`cd` to your [Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html)
+and run this command:
 
 ```shell
 ./logstash-plugin list | grep logstash-output-lumberjack
@@ -63,6 +65,9 @@ Otherwise, you'll need to install the plugin.
 Add these code blocks to the end of your existing Logstash configuration file.
 
 Make sure the `mutate` block is the last item in the `filters` block.
+
+{% include log-shipping/replace-vars.html token=true %} \\
+{% include log-shipping/replace-vars.html listener=true %}
 
 ```conf
 filter {
@@ -113,6 +118,9 @@ Add these code blocks to the end of your existing Logstash configuration file.
 
 Make sure the `mutate` block is the last item in the `filters` block.
 
+{% include log-shipping/replace-vars.html token=true %} \\
+{% include log-shipping/replace-vars.html listener=true %}
+
 ```conf
 filters {
   # ...
@@ -124,7 +132,7 @@ filters {
 
 output {
   tcp {
-    host => "listener.logz.io"
+    host => "<<LISTENER-HOST>>"
     port => 5050
     codec => json_lines
   }

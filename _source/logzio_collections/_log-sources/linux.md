@@ -18,18 +18,13 @@ shipping-tags:
 Configuration tl;dr
 </summary>
 
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf)
-
-Listener
-: Port 5000.
-  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Default log location
-: `/var/log/`
-
-Log type _\(for preconfigured parsing\)_
-: `syslog`
+| Item | Description |
+|---|---|
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
+| Listener | Port 5000. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Default log location | `/var/log/` |
+| Log type _\(for preconfigured parsing\)_ | `syslog` |
+{:.paramlist}
 
 </details>
 

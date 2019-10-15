@@ -87,21 +87,19 @@ Make sure to use the settings shown below.
 
 ###### In the BASICS section
 
-Resource group
-: Click **Create new**.
-  Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**.
-
-Location
-: Choose the same region as the Azure services that will stream data to this Event Hub.
+| Parameter | Description |
+|---|---|
+| Resource group | Click **Create new**. Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**. |
+| Location | Choose the same region as the Azure services that will stream data to this Event Hub. |
+{:.paramlist}
 
 ###### In the SETTINGS section
 
-Logs listener host
-: Use the listener host for your logs account region.
-  For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Logs account token
-: Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to.
+| Parameter | Description |
+|---|---|
+| Logs listener host | Use the listener host for your logs account region. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
+{:.paramlist}
 
 At the bottom of the page, select **I agree to the terms and conditions stated above**, and then click **Purchase** to deploy.
 

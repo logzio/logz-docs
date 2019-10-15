@@ -113,33 +113,18 @@ The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of 
 
 ###### Parameters
 
-output_include_time <span class="default-param">`true`</span>
-: To append a timestamp to your logs when they're processed, `true`.
-  Otherwise, `false`.
-
-buffer_type <span class="default-param">`file`</span>
-: Specifies which plugin to use as the backend.
-
-buffer_path <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span>
-: Path of the buffer.
-
-buffer_queue_full_action <span class="default-param">`block`</span>
-: Controls the behavior when the queue becomes full.
-
-buffer_chunk_limit <span class="default-param">`2M`</span>
-: Maximum size of a chunk allowed
-
-buffer_queue_limit <span class="default-param">`6`</span>
-: Maximum length of the output queue.
-
-flush_interval <span class="default-param">`5s`</span>
-: Interval, in seconds, to wait before invoking the next buffer flush.
-
-max_retry_wait <span class="default-param">`30s`</span>
-: Maximum interval, in seconds, to wait between retries.
-
-num_threads <span class="default-param">`2`</span>
-: Number of threads to flush the buffer.
+| Parameter | Description |
+|---|---|
+| output_include_time <span class="default-param">`true`</span> | To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. |
+| buffer_type <span class="default-param">`file`</span> | Specifies which plugin to use as the backend. |
+| buffer_path <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span> | Path of the buffer. |
+| buffer_queue_full_action <span class="default-param">`block`</span> | Controls the behavior when the queue becomes full. |
+| buffer_chunk_limit <span class="default-param">`2M`</span> | Maximum size of a chunk allowed. |
+| buffer_queue_limit <span class="default-param">`6`</span> | Maximum length of the output queue. |
+| flush_interval <span class="default-param">`5s`</span> | Interval, in seconds, to wait before invoking the next buffer flush. |
+| max_retry_wait <span class="default-param">`30s`</span> | Maximum interval, in seconds, to wait between retries. |
+| num_threads <span class="default-param">`2`</span> | Number of threads to flush the buffer. |
+{:.paramlist}
 
 ##### Deploy the DaemonSet
 

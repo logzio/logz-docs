@@ -63,20 +63,13 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 
 ###### Parameters
 
-logzio_token <span class="required-param"></span>
-: {% include log-shipping/replace-vars.html token=true %}
-
-logzio_url <span class="default-param">`https://listener.logz.io:8071`</span>
-: Listener URL and port. \\
-  {% include log-shipping/replace-vars.html listener=true %}
-
-logzio_type <span class="default-param">`logzio-fluent-bit`</span>
-: The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing.
-  Can't contain spaces.
-
-logzio_debug <span class="default-param">`false`</span>
-: Set to `true` to print debug messages to stdout.
+| Parameter | Description |
+|---|---|
+| logzio_token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} |
+| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio_type <span class="default-param">`logzio-fluent-bit`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
+| logzio_debug <span class="default-param">`false`</span> | Set to `true` to print debug messages to stdout. |
+{:.paramlist}
 
 ##### Run Fluent Bit with the Logz.io plugin
 
@@ -131,20 +124,13 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 
 ######  Parameters
 
-logzio_token <span class="required-param"></span>
-: {% include log-shipping/replace-vars.html token=true %}
-
-logzio_url <span class="default-param">`https://listener.logz.io:8071`</span>
-: Listener URL and port. \\
-  {% include log-shipping/replace-vars.html listener=true %}
-
-logzio_type <span class="default-param">`logzio-fluent-bit`</span>
-: The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing.
-  Can't contain spaces.
-
-logzio_debug <span class="default-param">`false`</span>
-: Set to `true` to print debug messages to stdout.
+| Parameter | Description |
+|---|---|
+| logzio_token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} |
+| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio_type <span class="default-param">`logzio-fluent-bit`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
+| logzio_debug <span class="default-param">`false`</span> | Set to `true` to print debug messages to stdout. |
+{:.paramlist}
 
 ##### Run the Docker image
 

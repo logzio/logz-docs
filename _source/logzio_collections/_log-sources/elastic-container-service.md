@@ -49,13 +49,11 @@ logzio/docker-collector-logs
 
 ###### Parameters
 
-LOGZIO_TOKEN <span class="required-param"></span>
-: Your Logz.io account token.
-  {% include log-shipping/replace-vars.html token=true %}
-
-LOGZIO_URL <span class="required-param"></span>
-: Your Logz.io listener URL and port.
-  {% include log-shipping/replace-vars.html listener=true %}
+| Parameter | Description |
+|---|---|
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} |
+| LOGZIO_URL <span class="required-param"></span> | Your Logz.io listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
+{:.paramlist}
 
 ##### Check Logz.io for your logs
 

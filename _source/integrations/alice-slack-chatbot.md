@@ -119,17 +119,9 @@ Alice looks for the account in this order: \\
 <span class="bold border background">Channel account</span> ➜
 <span class="bold border background">Workspace account</span>
 
-Alias used in the command
-: If you used an account alias in the command,
-  Alice searches that account.
-  This overrides the channel or workspace account settings.
-
-Channel account
-: If you didn't use an alias in the command,
-  Alice looks to see if there's a default account
-  for the channel you ran the command from.
-
-Workspace account
-: If there isn't a channel account set, Alice uses the workspace account.
+| Alias used in the command | If you used an account alias in the command, Alice searches that account. This overrides the channel or workspace account settings. |
+| Channel account | If you didn't use an alias in the command, Alice looks to see if there's a default account for the channel you ran the command from. |
+| Workspace account | If there isn't a channel account set, Alice uses the workspace account. |
+{:.paramlist}
 
 If you need help with how to write your commands, type `@Alice help` in Slack.

@@ -46,14 +46,11 @@ http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
 
 ###### Query parameters
 
-token <span class="required-param"></span>
-: {% include log-shipping/replace-vars.html token=true %}
-  <!-- logzio-inject:account-token -->
-
-type <span class="default-param">`http-bulk`</span>
-: The log type you'll use with this upload.
-  This is shown in your logs under the `type` field in Kibana. \\
-  Logz.io applies parsing based on `type`.
+| Parameter | Description |
+|---|---|
+| token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| type <span class="default-param">`http-bulk`</span> | The log type you'll use with this upload. This is shown in your logs under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
+{:.paramlist}
 
 ### The request body
 
@@ -88,14 +85,14 @@ echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "count
 
 ### Possible responses
 
-##### If the response is `200 OK`
+##### 200 OK
 
 All logs were received and validated.
 The response body is empty.
 
 Check Kibana for your logs.
 
-##### If the response is `400 BAD REQUEST`
+##### 400 BAD REQUEST
 
 The input wasn't valid.
 
@@ -112,19 +109,15 @@ The response body contains this JSON:
 
 ###### Response fields
 
-malformedLines
-: The number of log lines that aren't valid JSON
+| Field | Description |
+|---|---|
+| malformedLines | The number of log lines that aren't valid JSON |
+| successfulLines | The number of valid JSON log lines received |
+| oversizedLines | The number of log lines that exceeded the line length limit |
+| emptyLogLines | The number of empty log lines |
+{:.paramlist}
 
-successfulLines
-: The number of valid JSON log lines received
-
-oversizedLines
-: The number of log lines that exceeded the line length limit
-
-emptyLogLines
-: The number of empty log lines
-
-##### If the response is `401 UNAUTHORIZED`
+##### 401 UNAUTHORIZED
 
 The token query string parameter is missing or not valid.
 Make sure you're using the right account token.
@@ -133,7 +126,7 @@ In the response body,
 you'll see either "Logging token is missing"
 or "Logging token is not valid" as the reason for the response.
 
-##### If the response is `413 REQUEST ENTITY TOO LARGE`
+##### 413 REQUEST ENTITY TOO LARGE
 
 The request body size is larger than 10 MB.
 

@@ -19,20 +19,13 @@ shipping-tags:
 Configuration tl;dr
 </summary>
 
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
-  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
-
-Listener
-: Port 5015.
-  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Default log locations
-: Ubuntu, Debian: `/var/log/apache2/access.log` \\
-  macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log`
-
-Log type _\(for preconfigured parsing\)_
-: `apache`, `apache_access`, or `apache-access`
+| Item | Description |
+|---|---|
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Default log locations | Ubuntu, Debian: `/var/log/apache2/access.log` <br> macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
+| Log type _\(for preconfigured parsing\)_ | `apache`, `apache_access`, or `apache-access`|
+{:.paramlist}
 
 </details>
 

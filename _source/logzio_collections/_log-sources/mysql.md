@@ -34,24 +34,14 @@ shipping-tags:
 Configuration tl;dr
 </summary>
 
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
-  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
-
-Listener
-: Port 5015.
-  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Default log locations
-: General query log: `/var/log/mysql/mysql.log` \\
-  Slow query log: `/var/log/mysql/mysql-slow.log` \\
-  Error log: `/var/log/mysql/error.log`
-
-Log type _(for preconfigured parsing)_
-: General query log: `mysql` \\
-  Slow query log: `mysql_slow_query` \\
-  Error log: `mysql_error`
-
+| Item | Description |
+|---|---|
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Default log locations | General query log: `/var/log/mysql/mysql.log` <br> Slow query log: `/var/log/mysql/mysql-slow.log` <br> Error log: `/var/log/mysql/error.log` |
+| Log type _(for preconfigured parsing)_ | General query log: `mysql` <br> Slow query log: `mysql_slow_query` <br> Error log: `mysql_error` |
+{:.paramlist
+}
 </details>
 
 #### Guided configuration
@@ -234,23 +224,14 @@ logzio/mysql-logs
 
 ###### Parameters
 
-LOGZIO_TOKEN <span class="required-param"></span>
-: Your Logz.io account token.
-  {% include log-shipping/replace-vars.html token=true %}
-  <!-- logzio-inject:account-token -->
-
-LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span>
-: Logz.io listener host to ship the logs to.
-  {% include log-shipping/replace-vars.html listener=true %}
-
-MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span>
-: Path to the MySQL error log.
-
-MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span>
-: Path to the MySQL slow query log.
-
-MYSQL_LOG_FILE <span class="default-param">`/var/log/mysql/mysql.log`</span>
-: Path to the MySQL general log.
+| Parameter | Description |
+|---|---|
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/replace-vars.html listener=true %} |
+| MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span> | Path to the MySQL error log. |
+| MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span> | Path to the MySQL slow query log. |
+| MYSQL_LOG_FILE <span class="default-param">`/var/log/mysql/mysql.log`</span> | Path to the MySQL general log. |
+{:.paramlist}
 
 ##### Check Logz.io for your logs
 

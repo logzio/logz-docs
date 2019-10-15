@@ -37,19 +37,13 @@ This page covers methods for shipping Jenkins system logs and build console outp
 Configuration tl;dr
 </summary>
 
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
-  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
-
-Listener
-: Port 5015.
-  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Default log location
-: `/var/log/jenkins/jenkins.log`
-
-Log type _\(for preconfigured parsing\)_
-: `jenkins`
+| Item | Description |
+|---|---|
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Default log location | `/var/log/jenkins/jenkins.log` |
+| Log type _\(for preconfigured parsing\)_ | `jenkins` |
+{:.paramlist}
 
 </details>
 

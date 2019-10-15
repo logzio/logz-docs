@@ -53,25 +53,16 @@ Click **Upload**, and choose the zip file you created earlier (`logzio-cloudwatc
 
 In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
-TOKEN <span class="required-param"></span>
-: {% include log-shipping/replace-vars.html token='noReplace' %}
-  <!-- logzio-inject:account-token -->
+###### Environment variables
 
-URL <span class="required-param"></span>
-: {% include log-shipping/replace-vars.html listener='noReplace' %}
-  <!-- logzio-inject:listener-url -->
-
-TYPE <span class="required-param"></span>
-: The log type you'll use with this Lambda.
-  This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. \\
-  Please note that you should create a new Lambda for each log type you use.
-
-FORMAT <span class="default-param">`text`</span>
-: `json` or `text`.
-  If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields.
-
-COMPRESS <span class="default-param">`false`</span>
-: Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs.
+| Parameter | Description |
+|---|---|
+| TOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} <!-- logzio-inject:account-token --> |
+| URL <span class="required-param"></span> | {% include log-shipping/replace-vars.html listener='noReplace' %} <!-- logzio-inject:listener-url --> |
+| TYPE <span class="required-param"></span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> Please note that you should create a new Lambda for each log type you use. |
+| FORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
+| COMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
+{:.paramlist}
 
 ##### Configure the function's basic settings
 

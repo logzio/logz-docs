@@ -91,18 +91,12 @@ logzio-pubsub:
 
 ###### Configuration instructions
 
-listener
-: The Logz.io listener host. \\
-  {% include log-shipping/replace-vars.html listener=true %}
-
-pubsubs
-: This is an array of one or more GCP subscriptions.
-  For each subscription, provide topic and subscriptions IDs, as given from Pub/Sub.
-
-token
-: Your Logz.io shipping token.
-  Include this with each project under `pubsubs`. \\
-  {% include log-shipping/replace-vars.html token=true %}
+| Parameter | Description |
+|---|---|
+| listener | The Logz.io listener host. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| pubsubs | This is an array of one or more GCP subscriptions. For each subscription, provide topic and subscriptions IDs, as given from Pub/Sub. |
+| token | Your Logz.io shipping token. Include this with each project under `pubsubs`. <br> {% include log-shipping/replace-vars.html token=true %} |
+{:.paramlist}
 
 ##### Pull the Docker image
 

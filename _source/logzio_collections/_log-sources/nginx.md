@@ -20,20 +20,13 @@ shipping-tags:
 Configuration tl;dr
 </summary>
 
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
-  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
-
-Listener
-: Port 5015.
-  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Default log locations
-: `/var/log/nginx/access.log` or `/var/log/nginx/error.log`
-
-Log type _(for preconfigured parsing)_
-: Access log: `nginx`, `nginx_access`, or `nginx-access` \\
-  Error log: `nginx-error`
+| Item | Description |
+|---|---|
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Default log locations | `/var/log/nginx/access.log` or `/var/log/nginx/error.log` |
+| Log type _(for preconfigured parsing)_ | Access log: `nginx`, `nginx_access`, or `nginx-access` <br> Error log: `nginx-error` |
+{:.paramlist}
 
 </details>
 

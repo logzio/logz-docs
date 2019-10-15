@@ -100,60 +100,35 @@ logLevel: INFO
 
 ###### Parameters
 
-senderParams.accountToken <span class="required-param"></span>
-: {% include log-shipping/replace-vars.html token=true %}
-
-senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span>
-: Listener URL. \\
-  {% include log-shipping/replace-vars.html listener=true %}
-
-senderParams.fromDisk <span class="default-param">`true`</span>
-: If `true`, logs are stored on disk until they're shipped (see [If from-disk=true](#if-fromdisk-true)).
-  If `false`, logs persist in memory until they're shipped (see [If from-disk=false](#if-fromdisk-false)).
-
-senderParams.senderDrainIntervals <span class="default-param">`30`</span>
-: How often the sender should drain the queue, in seconds.
-
-azureADClient.tenantId <span class="required-param"></span>
-: Azure Active Directory tenant ID. \\
-  You can find this in the _Overview_ section of the app you registered in step 1.
-
-azureADClient.clientId <span class="required-param"></span>
-: Application client ID. \\
-  You can find this in the _Overview_ section of the app you registered in step 1.
-
-azureADClient.clientSecret <span class="required-param"></span>
-: The Application Client Secret you created in step 2.
-
-azureADClient.pullIntervalSeconds <span class="default-param">`300`</span>
-: Time interval, in seconds, to pull the logs with the Graph API.
-
-logLevel <span class="default-param">`INFO`</span>
-: Log level for Logizo-MSGraph to omit.
-  Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`.
+| Parameter | Description |
+|---|---|
+| senderParams.accountToken <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} |
+| senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span> | Listener URL. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| senderParams.fromDisk <span class="default-param">`true`</span> | If `true`, logs are stored on disk until they're shipped (see [If from-disk=true](#if-fromdisk-true)). If `false`, logs persist in memory until they're shipped (see [If from-disk=false](#if-fromdisk-false)). |
+| senderParams.senderDrainIntervals <span class="default-param">`30`</span> | How often the sender should drain the queue, in seconds. |
+| azureADClient.tenantId <span class="required-param"></span> | Azure Active Directory tenant ID. <br> You can find this in the _Overview_ section of the app you registered in step 1. |
+| azureADClient.clientId <span class="required-param"></span> | Application client ID. <br> You can find this in the _Overview_ section of the app you registered in step 1. |
+| azureADClient.clientSecret <span class="required-param"></span> | The Application Client Secret you created in step 2. |
+| azureADClient.pullIntervalSeconds <span class="default-param">`300`</span> | Time interval, in seconds, to pull the logs with the Graph API. |
+| logLevel <span class="default-param">`INFO`</span> | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. |
+{:.paramlist}
 
 ###### If fromDisk=true {#if-fromdisk-true}
 
-senderParams.fileSystemFullPercentThreshold <span class="default-param">`98`</span>
-: Threshold percentage of disk space at which to stop queueing.
-  If this threshold is reached, all new logs are dropped until used space drops below the threshold.
-  Set to `-1` to ignore threshold.
-
-senderParams.gcPersistedQueueFilesIntervalSeconds <span class="default-param">`30`</span>
-: Time interval, in seconds, to clean sent logs from the disk.
-
-senderParams.diskSpaceCheckInterval <span class="default-param">`1000`</span>
-: Time interval, in milliseconds, to check for disk space.
+| Parameter | Description |
+|---|---|
+senderParams.fileSystemFullPercentThreshold <span class="default-param">`98`</span> | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new logs are dropped until used space drops below the threshold. Set to `-1` to ignore threshold. |
+| senderParams.gcPersistedQueueFilesIntervalSeconds <span class="default-param">`30`</span> | Time interval, in seconds, to clean sent logs from the disk. |
+| senderParams.diskSpaceCheckInterval <span class="default-param">`1000`</span> | Time interval, in milliseconds, to check for disk space.|
+{:.paramlist}
 
 ###### If fromDisk=false {#if-fromdisk-false}
 
-senderParams.inMemoryQueueCapacityInBytes <span class="default-param">`1024 * 1024 * 100`</span>
-: The amount of memory, in bytes, Logzio-MSGraph can use for the memory queue.
-  Set to `-1` for unlimited bytes.
-
-senderParams.logsCountLimit <span class="default-param">`-1`</span>
-: The number of logs in the memory queue before dropping new logs.
-  Set to `-1` to configure the sender to not limit the queue by logs count.
+| Parameter | Description |
+|---|---|
+| senderParams.inMemoryQueueCapacityInBytes <span class="default-param">`1024 * 1024 * 100`</span> | The amount of memory, in bytes, Logzio-MSGraph can use for the memory queue. Set to `-1` for unlimited bytes. |
+| senderParams.logsCountLimit <span class="default-param">`-1`</span> | The number of logs in the memory queue before dropping new logs. Set to `-1` to configure the sender to not limit the queue by logs count. |
+{:.paramlist}
 
 ##### Download and run Logzio-MSGraph
 

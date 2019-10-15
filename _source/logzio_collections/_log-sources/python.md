@@ -64,30 +64,18 @@ format={"additional_field": "value"}
 
 ###### Parameters
 
-  Arguments must be configured in the order shown.
-  For example, to set debug-flag to `True`, you need to set every argument that comes before it.
-  {:.info-box.important}
+Arguments must be configured in the order shown.
+For example, to set debug-flag to `True`, you need to set every argument that comes before it.
+{:.info-box.important}
 
-account-token <span class="required-param"></span>
-: Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). \\
-  {% include log-shipping/replace-vars.html token=true %}
-
-log-type <span class="default-param">`python`</span>
-: The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field.
-  Used by Logz.io for consistent parsing.
-  Can't contain spaces.
-
-timeout <span class="default-param">`3`</span>
-: Time to wait between log draining attempts, in seconds.
-
-listener-url <span class="default-param">`https://listener.logz.io:8071`</span>
-: Listener URL and port. \\
-  {% include log-shipping/replace-vars.html listener=true %}
-
-debug-flag <span class="default-param">`False`</span>
-: Debug flag.
-  To print debug messages to stdout, `True`.
-  Otherwise, `False`.
+| Parameter | Description |
+|---|---|
+| account-token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
+| log-type <span class="default-param">`python`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
+| timeout <span class="default-param">`3`</span> | Time to wait between log draining attempts, in seconds. |
+| listener-url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| debug-flag <span class="default-param">`False`</span> | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. |
+{:.paramlist}
 
 ###### Code sample
 

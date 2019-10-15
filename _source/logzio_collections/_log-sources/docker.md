@@ -54,44 +54,16 @@ logzio/docker-collector-logs
 
 ###### Parameters
 
-LOGZIO_TOKEN <span class="required-param"></span>
-: Your Logz.io account token.
-  {% include log-shipping/replace-vars.html token=true %}
-  <!-- logzio-inject:account-token -->
-
-LOGZIO_URL <span class="required-param"></span>
-: Logz.io listener URL to ship the logs to.
-  {% include log-shipping/replace-vars.html listener=true %}
-
-LOGZIO_TYPE <span class="default-param">Docker image name</span>
-: The log type you'll use with this Docker.
-  This is shown in your logs under the `type` field in Kibana. \\
-  Logz.io applies parsing based on `type`.
-
-LOGZIO_CODEC <span class="default-param">`plain`</span>
-: Set to `json` if shipping JSON logs.
-  Otherwise, set to `plain`.
-
-additionalFields
-: Include additional fields with every message sent,
-  formatted as `"fieldName1=fieldValue1;fieldName2=fieldValue2"`. \\
-  To use an environment variable,
-  format as `"fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME"`.
-  In that case, the environment variable should be the only value in the field.
-  If the environment variable can't be resolved, the field is omitted.
-
-
-matchContainerName
-: Comma-separated list of containers you want to collect the logs from.
-  If a container's name partially matches a name on the list, that container's logs are shipped.
-  Otherwise, its logs are ignored. \\
-  **Note**: Can't be used with skipContainerName
-
-skipContainerName
-: Comma-separated list of containers you want to ignore.
-  If a container's name partially matches a name on the list, that container's logs are ignored.
-  Otherwise, its logs are shipped. \\
-  **Note**: Can't be used with matchContainerName
+| Parameter | Description |
+|---|---|
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LOGZIO_URL <span class="required-param"></span> | Logz.io listener URL to ship the logs to. {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_TYPE <span class="default-param">Docker image name</span> | The log type you'll use with this Docker. This is shown in your logs under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
+| LOGZIO_CODEC <span class="default-param">`plain`</span> | Set to `json` if shipping JSON logs. Otherwise, set to `plain`. |
+| additionalFields | Include additional fields with every message sent, formatted as `"fieldName1=fieldValue1;fieldName2=fieldValue2"`. <br> To use an environment variable, format as `"fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME"`. In that case, the environment variable should be the only value in the field. If the environment variable can't be resolved, the field is omitted. |
+| matchContainerName | Comma-separated list of containers you want to collect the logs from. If a container's name partially matches a name on the list, that container's logs are shipped. Otherwise, its logs are ignored. <br> **Note**: Can't be used with skipContainerName |
+| skipContainerName | Comma-separated list of containers you want to ignore. If a container's name partially matches a name on the list, that container's logs are ignored. Otherwise, its logs are shipped. <br> **Note**: Can't be used with matchContainerName |
+{:.paramlist}
 
 By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
 {:.info-box.note}
@@ -159,42 +131,19 @@ For a complete list of options, see the configuration parameters below the code 
 
 ###### Parameters
 
-logzio-token <span class="required-param"></span>
-: Your Logz.io account token.
-  {% include log-shipping/replace-vars.html token=true %}
-  <!-- logzio-inject:account-token -->
-
-logzio-url	<span class="required-param"></span>
-: Listener URL and port. \\
-  {% include log-shipping/replace-vars.html listener=true %}
-
-logzio-dir-path	<span class="required-param"></span>
-: Unsent logs are saved to this location on the disk.	
-
-logzio-source
-: Event source.
-
-logzio-format <span class="default-param">`text`</span>
-: Log message format, either `json` or `text`.
-
-logzio-tag {% raw %} <span class="default-param">`{{.ID}}` (Container ID)</span> {% endraw %}
-: Log tag.
-  For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker.
-
-labels
-: Comma-separated list of labels to include in the log message.
-
-env
-:	Comma-separated list of environment variables to include in the log message.
-
-env-regex
-: A regular expression to match logging-related environment variables.
-  Used for advanced log tag options.
-  If there is collision between the `label` and `env` keys, `env` wins.
-  Both options add additional fields to the attributes of a logging message.
-
-logzio-attributes
-: JSON-formatted metadata to include in the log message.
+| Parameter | Description |
+|---|---|
+| logzio-token <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| logzio-url	<span class="required-param"></span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio-dir-path	<span class="required-param"></span> | Unsent logs are saved to this location on the disk. |
+| logzio-source | Event source. |
+| logzio-format <span class="default-param">`text`</span> | Log message format, either `json` or `text`. |
+| logzio-tag {% raw %} <span class="default-param">`{{.ID}}` (Container ID)</span> {% endraw %} | Log tag. For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. |
+| labels | Comma-separated list of labels to include in the log message. |
+| env |	Comma-separated list of environment variables to include in the log message. |
+| env-regex | A regular expression to match logging-related environment variables. Used for advanced log tag options. If there is collision between the `label` and `env` keys, `env` wins. Both options add additional fields to the attributes of a logging message. |
+| logzio-attributes | JSON-formatted metadata to include in the log message. |
+{:.paramlist}
 
 ##### _(Optional)_ Set environment variables
 
@@ -203,22 +152,14 @@ Each of these variables has a default value, so you can skip this step if you're
 
 ###### Environment variables
 
-LOGZIO_DRIVER_LOGS_DRAIN_TIMEOUT <span class="default-param">`5s`</span>
-: Time to wait between sending attempts.
-
-LOGZIO_DRIVER_DISK_THRESHOLD <span class="default-param">`70`</span>
-: Threshold, as % of disk usage, over which plugin will start dropping logs.
-
-LOGZIO_DRIVER_CHANNEL_SIZE <span class="default-param">`10000`</span>
-: The number of pending messages that can be in the channel before adding them to the disk queue.
-
-LOGZIO_MAX_MSG_BUFFER_SIZE <span class="default-param">`1048576` (1 MB)</span>
-: Appends logs that are segmented by Docker with 16kb limit.
-  Specifies the biggest message, in bytes, that the system can reassemble.
-  `1048576` (1 MB) maximum.
-
-LOGZIO_MAX_PARTIAL_BUFFER_DURATION <span class="default-param">`500ms`</span>
-: How long the buffer keeps the partial logs before flushing them.
+| Parameter | Description |
+|---|---|
+| LOGZIO_DRIVER_LOGS_DRAIN_TIMEOUT <span class="default-param">`5s`</span> | Time to wait between sending attempts. |
+| LOGZIO_DRIVER_DISK_THRESHOLD <span class="default-param">`70`</span> | Threshold, as % of disk usage, over which plugin will start dropping logs. |
+| LOGZIO_DRIVER_CHANNEL_SIZE <span class="default-param">`10000`</span> | The number of pending messages that can be in the channel before adding them to the disk queue. |
+| LOGZIO_MAX_MSG_BUFFER_SIZE <span class="default-param">`1048576` (1 MB)</span> | Appends logs that are segmented by Docker with 16kb limit. Specifies the biggest message, in bytes, that the system can reassemble. `1048576` (1 MB) maximum. |
+| LOGZIO_MAX_PARTIAL_BUFFER_DURATION <span class="default-param">`500ms`</span> | How long the buffer keeps the partial logs before flushing them. |
+{:.paramlist}
 
 ##### _(Optional)_ Override global settings for an individual container
 

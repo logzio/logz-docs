@@ -28,8 +28,6 @@ If you can't adjust your settings to stay within the Lambda limits, you can use 
 For more information, see [AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) from AWS.
 {:.info-box.important}
 
-#### Configuration
-
 <div class="tasklist">
 
 ##### Create a new Lambda function
@@ -92,22 +90,14 @@ Click **Upload**, and choose the zip file you created earlier (`logzio-cost-and-
 
 In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
-TOKEN <span class="required-param"></span>
-: {% include log-shipping/replace-vars.html token='noReplace' %}
-  <!-- logzio-inject:account-token -->
-
-URL <span class="required-param"></span>
-: {% include log-shipping/replace-vars.html listener='noReplace' %}
-  <!-- logzio-inject:listener-url -->
-
-REPORT_NAME
-: In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **Report name** column for your report.
-
-REPORT_PATH
-: In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), click <i class="fas fa-caret-right"></i> (next to the report name), and copy the **Report path**.
-
-S3_BUCKET_NAME
-: In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **S3 Bucket** column for your report.
+| Parameter | Description |
+|---|---|
+| TOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} <!-- logzio-inject:account-token --> |
+| URL <span class="required-param"></span> | {% include log-shipping/replace-vars.html listener='noReplace' %} <!-- logzio-inject:listener-url --> |
+| REPORT_NAME | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **Report name** column for your report. |
+| REPORT_PATH | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), click <i class="fas fa-caret-right"></i> (next to the report name), and copy the **Report path**. |
+| S3_BUCKET_NAME | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **S3 Bucket** column for your report. |
+{:.paramlist}
 
 ##### Configure the function's basic settings
 

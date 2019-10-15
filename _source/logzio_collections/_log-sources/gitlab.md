@@ -19,24 +19,13 @@ shipping-tags:
 Configuration tl;dr
 </summary>
 
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
-  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
-
-Listener
-: Port 5015.
-  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-
-Default log locations
-: If installed from Omnibus packages: `/var/log/gitlab/...` \\
-  If installed from source: `/home/git/gitlab/log/...` \\
-  _See [Log system](https://docs.gitlab.com/ee/administration/logs.html) from GitLab for more information._
-
-Log type
-: Production, JSON: `gitlab-production-json` \\
-  Production, plain text: `gitlab-production` \\
-  API: `gitlab-api-json` \\
-  Application: `gitlab-application`
+| Item | Description |
+|---|---|
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Default log locations | If installed from Omnibus packages: `/var/log/gitlab/...` <br> If installed from source: `/home/git/gitlab/log/...` <br> _See [Log system](https://docs.gitlab.com/ee/administration/logs.html) from GitLab for more information._ |
+| Log type | Production, JSON: `gitlab-production-json` <br> Production, plain text: `gitlab-production` <br> API: `gitlab-api-json` <br> Application: `gitlab-application` |
+{:.paramlist}
 
 </details>
 

@@ -17,15 +17,13 @@
   {%- case include.listener -%}
     {%- when 'noReplace' -%}
     {%- if include.isMidSentence == true -%}
-      your
+      your&nbsp;
     {%- else -%}
-      Your
-    {%- endif %}
-    region's listener host.
-    For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+      Your&nbsp;
+    {%- endif -%}
+    region's listener host. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
     {%- else -%}
-    Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
-    For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+    Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`). For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
   {%- endcase -%}
 {%- endif -%}
 

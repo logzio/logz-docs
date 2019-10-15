@@ -69,7 +69,7 @@ everyone who has access to your Logz.io account
 can see the resulting logs.
 {:.info-box.note}
 
-#### Visualizing utilization with an ELK app
+### Visualizing utilization with an ELK app
 
 We offer a preconfigured dashboard
 for account utilization metrics.
@@ -104,4 +104,3 @@ Dropped logs will never arrive at your Logz.io account,
 so they can't be searched or trigger alerts.
 Always confirm you're dropping the right logs when you apply a new filter.
 {:.info-box.important}
-

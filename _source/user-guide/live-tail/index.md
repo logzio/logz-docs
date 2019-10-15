@@ -12,7 +12,7 @@ contributors:
 
 Live Tail gives you a live view of your logs as they come into Logz.io, eliminating the need to SSH into a remote machine.
 
-###### Start, stop, scroll, and clear
+#### Start, stop, scroll, and clear
 
 * To start Live Tail, press <i class="li li-play"></i> (play).
 * To display only filtered results,
@@ -28,7 +28,7 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
 * To clear the Live Tail view,
   click <i class="li li-clear"></i> (clear).
 
-###### Find and highlight terms
+#### Find and highlight terms
 
   <video autoplay controls loop class="no-border">
     <source src="{{site.baseurl}}/videos/live-tail/live-tail--highlight-bar.mp4" type="video/mp4" />
@@ -41,7 +41,7 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
   and then type the word or phrase you want to highlight.
   Click <i class="li li-x"></i> on a highlighted term to remove it.
 
-###### Work in parsed data view {#work-in-parsed-data-view}
+#### Work in parsed data view {#work-in-parsed-data-view}
 
 The parsed data view divides logs into columns, saving you from having to visually scan entire lines of raw text.
 When you first switch to parsed data view, you'll see the `@timestamp` and `message` columns.

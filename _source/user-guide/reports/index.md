@@ -10,47 +10,54 @@ contributors:
   - imnotashrimp
 ---
 
-Logz.io Reports allows you to automatically generate reports using your Kibana dashboards.
+Logz.io Reports allows you to automatically generate reports
+using your Kibana dashboards.
 You can send reports on a regular schedule to Slack or email recipients.
 
 To navigate to the Reports page:
 
-* In your Operations account, select **Alerts & Events > Reports** in the top menu.
-* In your Security Analytics account, click **Reports** in the top menu.
+* In your Operations account,
+  select **Alerts & Events > Reports** in the top menu.
+* In your Security Analytics account,
+  click **Reports** in the top menu.
 
-###### Configuring a report
+#### Configuring a report
 
-1.  Give your report a name and description
+<div class="tasklist">
 
-    Your report's name will be shown as the email subject or Slack heading.
+##### Give your report a name and description
 
-    The description will be included in the message body.
-    It's a good idea to use the description to give some context
-    for why recipients are receiving the report.
+Your report's name will be shown as the email subject or Slack heading.
 
-2.  Choose a dashboard and time range
+The description will be included in the message body.
+It's a good idea to use the description to give some context
+for why recipients are receiving the report.
 
-    Choose **Which dashboard to send** to your recipients.
+##### Choose a dashboard and time range
 
-    Use **For this time range** to filter logs to be included in the report.
+Choose **Which dashboard to send** to your recipients.
 
-    For example:
-    If you choose a time range of 24 hours on a report sent every Monday at 09:00,
-    each week's report will show a snapshot of your logs from 09:00 Sunday through 09:00 Monday.
+Use **For this time range** to filter logs to be included in the report.
 
-    Your time range can be anything from 1 minute to 30 days.
+_For example_:
+If you choose a time range of 24 hours on a report sent every Monday at 09:00,
+each week's report will show a snapshot of your logs from 09:00 Sunday through 09:00 Monday.
 
-3.  Set the schedule
+Your time range can be anything from 1 minute to 30 days.
 
-    Use the **Cron schedule** to set the frequency of your reports.
+##### Set the schedule
 
-    Logz.io uses quartz cron.
-    If you need help generating a cron expression, see [Cron Expression Generator](https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples/).
+Use the **Cron schedule** to set the frequency of your reports.
 
-4.  Choose the recipients
+Logz.io uses quartz cron.
+If you need help generating a cron expression, see
+[Cron Expression Generator](https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples/).
 
-    Use **Who to send it to** to choose the report's email and Slack recipients.
+##### Choose the recipients
 
-    If you choose **Include a link to the live dashboard in the message**,
-    report recipients will have a quick link to the dashboard for the report's time range.
-{:.tasklist.firstline-headline}
+Use **Who to send it to** to choose the report's email and Slack recipients.
+
+If you choose **Include a link to the live dashboard in the message**,
+report recipients will have a quick link to the dashboard for the report's time range.
+
+</div>

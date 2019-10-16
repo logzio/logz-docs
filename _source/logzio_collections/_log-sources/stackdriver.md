@@ -6,7 +6,7 @@ open-source:
 logo:
   logofile: gcp-stackdriver.svg
   orientation: vertical
-data-source: Google Cloud Stackdriver
+data-source: Stackdriver
 contributors:
   - ronish31
   - imnotashrimp
@@ -35,12 +35,6 @@ For more information, see [Exporting with the Logs Viewer](https://cloud.google.
 
 ##### Build your credentials file
 
-Make a folder for the files you'll be working with.
-
-```shell
-mkdir logzio-pubsub && cd logzio-pubsub
-```
-
 Build your credentials file using your Google Cloud project ID.
 
 ```shell
@@ -68,26 +62,27 @@ logzio-pubsub:
 
     pubsubs:
     - project_id: PROJECT-1_ID
-      credentials_file: ./credentials-file.json
-      token: <<SHIPPING-TOKEN>>
       topic_id: TOPIC-1_ID
+      token: <<SHIPPING-TOKEN>>
+      credentials_file: ./credentials-file.json
       subscriptions: ["SUB1_ID", "SUB2_ID", "SUB3_ID"]
       type: stackdriver
 
     - project_id: PROJECT-1_ID
-      credentials_file: ./credentials-file.json
-      token: <<SHIPPING-TOKEN>>
       topic_id: TOPIC-2_ID
+      token: <<SHIPPING-TOKEN>>
+      credentials_file: ./credentials-file.json
       subscriptions: ["SUB1_ID", "SUB2_ID", "SUB3_ID"]
       type: stackdriver
 
     - project_id: PROJECT-3_ID
-      credentials_file: ./credentials-file.json
-      token: <<SHIPPING-TOKEN>>
       topic_id: TOPIC-1_ID
+      token: <<SHIPPING-TOKEN>>
+      credentials_file: ./credentials-file.json
       subscriptions: ["SUB1_ID", "SUB2_ID", "SUB3_ID"]
       type: stackdriver
 ```
+
 
 ###### Configuration instructions
 
@@ -114,8 +109,8 @@ and `credentials-file.json`.
 
 ```shell
 docker run --name logzio-pubsub \
--v ./pubsub-input.yml:/var/lib/filebeat/pubsub-input.yml \
--v ./credentials-file.json:/var/lib/filebeat/credentials-file.json \
+-v $(pwd)/pubsub-input.yml:/logzio-pubsub/pubsub-input.yml \
+-v $(pwd)/credentials-file.json:/logzio-pubsub/credentials-file.json \
 logzio/logzio-pubsub
 ```
 

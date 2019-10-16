@@ -22,7 +22,7 @@ Below the graph is the insights list, which shows the insights identified by Log
 By default, the list shows only new insights identified.
 You can toggle the **Only new** switch to see older events.
 
-###### Working with the chart
+#### Working with the chart
 
 * To zoom in and out on the chart,
   use the timeline handles below the chart.
@@ -32,7 +32,7 @@ You can toggle the **Only new** switch to see older events.
 * To see information at a point in time,
   hover over a line in the chart.
 
-###### Working with insights
+#### Working with insights
 
 When you click on an entry in the insight list, it will expand to show you details like a description and Stack Overflow links.
 

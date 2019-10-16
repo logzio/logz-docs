@@ -20,71 +20,75 @@ shipping-tags:
 <!-- tab:start -->
 <div id="winlogbeat-config">
 
-## Windows + Winlogbeat setup
+#### Configure Winlogbeat
 
-**You'll need**:
+**Before you begin, you'll need**:
 [Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
 
-1.  Download the Logz.io certificate
+<div class="tasklist">
 
-    For HTTPS shipping, download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
-    We'll place the certificate in `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
+##### Download the Logz.io certificate
 
-2.  Configure Windows input
+For HTTPS shipping, download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
 
-    In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add this code block to the root level.
+We'll place the certificate in `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
 
-    {% include log-shipping/replace-vars.html token=true %}
+##### Configure Windows input
 
-    ```yaml
-    fields:
-      logzio_codec: json
-      token: <<SHIPPING-TOKEN>>
-      type: wineventlog
-    fields_under_root: true
-    ```
+In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add this code block to the root level.
 
-3.  Add Logz.io as an output
+{% include log-shipping/replace-vars.html token=true %}
 
-    If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
+```yaml
+fields:
+  logzio_codec: json
+  token: <<SHIPPING-TOKEN>>
+  type: wineventlog
+fields_under_root: true
+```
 
-    {% include log-shipping/replace-vars.html listener=true %}
+##### Add Logz.io as an output
 
-    ```yaml
-    output.logstash:
-      hosts: ["<<LISTENER-HOST>>:5015"]
-      ssl:
-        certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
-    ```
+If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
 
-4.  Remove remaining default blocks
+{% include log-shipping/replace-vars.html listener=true %}
 
-    If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
+```yaml
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
+```
 
-    ```yaml
-    # Remove this block if it's still in the config file
-    setup.template.settings:
-      index.number_of_shards: 3
-    ```
+##### Remove remaining default blocks
 
-    ```yaml
-    # Remove this block if it's still in the config file
-    output.elasticsearch:
-      hosts: ["localhost:9200"]
-    ```
+If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
 
-5.  Restart Winlogbeat
+```yaml
+# Remove this block if it's still in the config file
+setup.template.settings:
+  index.number_of_shards: 3
+```
 
-    ```powershell
-    PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
-    ```
+```yaml
+# Remove this block if it's still in the config file
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+```
 
-6.  Check Logz.io for your logs
+##### Restart Winlogbeat
 
-    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+```powershell
+PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
+```
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 <!-- tab:end -->
@@ -92,75 +96,79 @@ shipping-tags:
 <!-- tab:start -->
 <div id="nxlog-config">
 
-## Windows + NXLog setup
+#### Configure NXLog
 
-**You'll need**:
+**Before you begin, you'll need**:
 [NXLog](https://nxlog.co/products/nxlog-community-edition/download)
 
-1.  Configure NXLog basics
+<div class="tasklist">
 
-    Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
+##### Configure NXLog basics
 
-    ```conf
-    define ROOT C:\\Program Files (x86)\\nxlog
-    define ROOT_STRING C:\\Program Files (x86)\\nxlog
-    define CERTDIR %ROOT%\\cert
-    Moduledir %ROOT%\\modules
-    CacheDir %ROOT%\\data
-    Pidfile %ROOT%\\data\\nxlog.pid
-    SpoolDir %ROOT%\\data
-    LogFile %ROOT%\\data\\nxlog.log
-    <Extension charconv>
-        Module xm_charconv
-        AutodetectCharsets utf-8, euc-jp, utf-16, utf-32, iso8859-2
-    </Extension>
-    ```
+Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
-2.  Add Windows as an input
+```conf
+define ROOT C:\\Program Files (x86)\\nxlog
+define ROOT_STRING C:\\Program Files (x86)\\nxlog
+define CERTDIR %ROOT%\\cert
+Moduledir %ROOT%\\modules
+CacheDir %ROOT%\\data
+Pidfile %ROOT%\\data\\nxlog.pid
+SpoolDir %ROOT%\\data
+LogFile %ROOT%\\data\\nxlog.log
+<Extension charconv>
+    Module xm_charconv
+    AutodetectCharsets utf-8, euc-jp, utf-16, utf-32, iso8859-2
+</Extension>
+```
 
-    Add an `Input` block to append your account token to log records.
+##### Add Windows as an input
 
-    {% include log-shipping/replace-vars.html token=true %}
+Add an `Input` block to append your account token to log records.
 
-    ```conf
-    <Input eventlog>
+{% include log-shipping/replace-vars.html token=true %}
 
-    # For Windows Vista/2008 and later, set Module to `im_msvistalog`. For
-    #  Windows XP/2000/2003, set to `im_mseventlog`.
-        Module im_msvistalog
+```conf
+<Input eventlog>
 
-        Exec if $raw_event =~ /^#/ drop();
-        Exec convert_fields("AUTO", "utf-8");
-        Exec    $raw_event = '[<<SHIPPING-TOKEN>>][type=wineventlog]' + $raw_event;
-    </Input>
-    ```
+# For Windows Vista/2008 and later, set Module to `im_msvistalog`. For
+#  Windows XP/2000/2003, set to `im_mseventlog`.
+    Module im_msvistalog
 
-3.  Add Logz.io as an output
+    Exec if $raw_event =~ /^#/ drop();
+    Exec convert_fields("AUTO", "utf-8");
+    Exec    $raw_event = '[<<SHIPPING-TOKEN>>][type=wineventlog]' + $raw_event;
+</Input>
+```
 
-    Add the Logz.io listener in the `Output` block.
+##### Add Logz.io as an output
 
-    {% include log-shipping/replace-vars.html listener=true %}
+Add the Logz.io listener in the `Output` block.
 
-    ```conf
-    <Output out>
-        Module  om_tcp
-        Host    <<LISTENER-HOST>>
-        Port    8010
-    </Output>
-    <Route 1>
-        Path eventlog => out
-    </Route>
-    ```
+{% include log-shipping/replace-vars.html listener=true %}
 
-4.  Restart NXLog
+```conf
+<Output out>
+    Module  om_tcp
+    Host    <<LISTENER-HOST>>
+    Port    8010
+</Output>
+<Route 1>
+    Path eventlog => out
+</Route>
+```
 
-    ```powershell
-    PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
-    ```
-5.  Check Logz.io for your logs
+##### Restart NXLog
 
-    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-{:.tasklist.firstline-headline}
+```powershell
+PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
+```
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+</div>
 
 </div>
 <!-- tab:end -->

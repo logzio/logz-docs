@@ -3,15 +3,17 @@ schemes: [ https ]
 host: api.logz.io
 x-servers:
   - url: https://api.logz.io/v1
-    description: N. Virginia region
+    description: US East (Northern Virginia)
   - url: https://api-au.logz.io/v1
-    description: Australia region
+    description: Asia Pacific (Sydney)
   - url: https://api-ca.logz.io/v1
-    description: Canada region
+    description: Canada (Central)
   - url: https://api-eu.logz.io/v1
-    description: Frankfurt region
+    description: Europe (Frankfurt)
   - url: https://api-nl.logz.io/v1
-    description: West Europe region
+    description: West Europe (Netherlands)
+  - url: https://api-wa.logz.io/v1
+    description: West US 2 (Washington)
 basePath: /v1
 produces: [ application/json ]
 consumes: [ application/json ]
@@ -340,13 +342,54 @@ paths:
       operationId: search
       summary: Search logs
       description: >-
-        Searches your account data using the Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language. 
+        Searches your account data using the Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
 
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
       tags:
         - Search logs
       parameters:
+        - in: query
+          name: dayOffset
+          type: integer
+          schema:
+            description: >-
+              Slide the 2-day search time range by _x_ days.
+              For example, if set to `5`, search returns results from 5 days ago and 4 days ago, UTC.
+
+
+              Maximum is your account's retention period.
+
+
+              If set to `0` or `1`, search returns default results (today and yesterday, UTC).
+            minimum: 0
+        - in: query
+          name: accountIds
+          type: integer
+          schema:
+            description: >-
+              ID of the sub account to search.
+              By default, only this account is searched.
+
+
+              A main account can search a sub account as long as it has the right permissions.
+              To give search permissions to the main account,
+              log in to the main account,
+              go to the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page,
+              and select **Searchable from the main account** for the intended sub account.
+
+
+              To include multiple accounts, repeat this parameter for each account
+              (for example: `accountIds=500&accountIds=600`).
+
+
+              **Important**:
+              If you include an account without the right permissions,
+              the request will fail.
+
+
+              If you include this parameter, the current account won't be searched
+              unless you explicitly include it in the query.
         - in: body
           name: body
           required: true
@@ -360,13 +403,21 @@ paths:
                 description: >-
                   #### Limitations
 
-                  * Your query will run only on data sent today and yesterday. You can still specify a filter on `timestamp` to search a smaller time frame.
-
                   * When using `query_string`, `allow_leading_wildcard` must be set to `false`
 
                   * `wildcard` can't start with `*` or `?`
 
                   * Can't contain `fuzzy_max_expansions`, `max_expansions`, or `max_determinized_states`
+
+
+                  #### Notes on the search time range
+
+                  * By default, your query runs on data sent today and yesterday, UTC.
+                    You can move this 2-calendar-day window by using the `dayOffset` query parameter.
+
+                  * Searches without a `timestamp` filter will return 2 calendar days, UTC.
+                    To search a different time frame, specify a filter on `timestamp`.
+
                 example: { "bool": { "must": [{ "range": { "@timestamp": { "gte": "now-5m", "lte": "now" } } }] } }
               from:
                 type: integer

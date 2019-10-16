@@ -4,7 +4,7 @@ title: Single sign-on with Okta
 permalink: /user-guide/users/single-sign-on/okta-sso.html
 flags:
   admin: true
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - sso
   - okta
@@ -15,101 +15,104 @@ contributors:
 Single sign-on is available for Enterprise plans.
 To discuss switching to an Enterprise plan, please contact your account manager.
 
-###### To set up single sign-on for Okta
+#### To set up single sign-on for Okta
 
-1.  Request SSO access from Logz.io
+<div class="tasklist">
 
-      Only account admins can request single sign-on access for their accounts.
-      {:.info-box.note}
+##### Request SSO access from Logz.io
 
-    To kick off this process, send an email to [help@logz.io](mailto:help@logz.io).
-    Write that you want to set up Okta SAML SSO for Logz.io.
-    Include these items in the message:
+Only account admins can request single sign-on access for their accounts.
+{:.info-box.note}
 
-    * Your Logz.io account ID
-    * Your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
+To kick off this process, send an email to [help@logz.io](mailto:help@logz.io).
+Write that you want to set up Okta SAML SSO for Logz.io.
+Include these items in the message:
 
-    The Support team will respond with the connection information you'll need to give in Okta.
+* Your Logz.io account ID
+* Your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
-2.  Add Logz.io to Okta
+The Support team will respond with the connection information you'll need to give in Okta.
 
-    In Okta, click **Admin**.
+##### Add Logz.io to Okta
 
-    In the Shortcuts panel (on the right), click **Add Applications**.
+In Okta, click **Admin**.
 
-    On the left side of the window, click **Create New App**.
-    The "Create a New Application Integration" panel is displayed.
+In the Shortcuts panel (on the right), click **Add Applications**.
 
-    ![Create a New Application Integration panel]({{site.baseurl}}/images/sso-providers/okta/create-a-new-application-integration.png)
+On the left side of the window, click **Create New App**.
+The "Create a New Application Integration" panel is displayed.
 
-    Select **Web** from the Platform list, click **SAML 2.0** option, and click **Create**.
-    The Create SAML Integration page is displayed.
+![Create a New Application Integration panel]({{site.baseurl}}/images/sso-providers/okta/create-a-new-application-integration.png)
 
-    Set your **App name** to "Logz.io". Click **Next** to continue to the Configure SAML tab.
+Select **Web** from the Platform list, click **SAML 2.0** option, and click **Create**.
+The Create SAML Integration page is displayed.
 
-3.  Paste the SAML information from Support
+Set your **App name** to "Logz.io". Click **Next** to continue to the Configure SAML tab.
 
-    ![SAML settings]({{site.baseurl}}/images/sso-providers/okta/saml-settings.png)
+##### Paste the SAML information from Support
 
-    Paste **Single sign on URL** and **Audience URI** from the Logz.io Support email message.
+![SAML settings]({{site.baseurl}}/images/sso-providers/okta/saml-settings.png)
 
-    Don't change **Default RelayState**, **Name ID format**, or **Application username**.
+Paste **Single sign on URL** and **Audience URI** from the Logz.io Support email message.
 
-    ![Attribute Statements]({{site.baseurl}}/images/sso-providers/okta/attribute-statements.png)
+Don't change **Default RelayState**, **Name ID format**, or **Application username**.
 
-    In the Attribute Statements section:
+![Attribute Statements]({{site.baseurl}}/images/sso-providers/okta/attribute-statements.png)
 
-    * Set **Name** to "email"
-    * Select "Unspecified" from **Name format**
-    * Set **Value** to "${user.email}"
+In the Attribute Statements section:
 
-4.  Configure Okta to send user groups
+* Set **Name** to "email"
+* Select "Unspecified" from **Name format**
+* Set **Value** to "${user.email}"
 
-    ![Group Attribute Statements]({{site.baseurl}}/images/sso-providers/okta/group-attribute-statements.png)
+##### Configure Okta to send user groups
 
-    In the Group Attribute Statements section:
+![Group Attribute Statements]({{site.baseurl}}/images/sso-providers/okta/group-attribute-statements.png)
 
-    * Set **Name** to "groups"
-    * Select "Unspecified" from **Name format**
-    * Type an expression for the groups that you want to have access to Logz.io in **Filter value**.
-      This field can't be blank.
+In the Group Attribute Statements section:
 
-5.  Zip the SAML certificate
+* Set **Name** to "groups"
+* Select "Unspecified" from **Name format**
+* Type an expression for the groups that you want to have access to Logz.io in **Filter value**.
+This field can't be blank.
 
-    On the right side of the page, click **Download Okta Certificate**.
+##### Zip the SAML certificate
 
-    Download the certificate file and zip it.
-    You'll attach this zip file to your next email to the Support team.
+On the right side of the page, click **Download Okta Certificate**.
 
-    Click **Next**, select **I'm an Okta customer adding an internal app**, and then click **Finish**.
+Download the certificate file and zip it.
+You'll attach this zip file to your next email to the Support team.
 
-6.  Get your endpoint information
+Click **Next**, select **I'm an Okta customer adding an internal app**, and then click **Finish**.
 
-    ![SAML setup instructions]({{site.baseurl}}/images/sso-providers/okta/view-setup-instructions.png)
+##### Get your endpoint information
 
-    Browse to the Sign On tab, and then click **View Setup Instructions**.
+![SAML setup instructions]({{site.baseurl}}/images/sso-providers/okta/view-setup-instructions.png)
 
-    Copy the **Identity Provider Single Sign-On URL**, and paste this in the email that you'll send to the Support team.
+Browse to the Sign On tab, and then click **View Setup Instructions**.
 
-7.  Send your SAML details to Logz.io
+Copy the **Identity Provider Single Sign-On URL**, and paste this in the email that you'll send to the Support team.
 
-    Draft a new [email to Support](mailto:help@logz.io), and include these items:
+##### Send your SAML details to Logz.io
 
-    * Your zipped certificate (from step 4)
-    * Your Identity Provider Single Sign-On URL (from step 5)
+Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
-8.  _(Optional)_ Restrict Logz.io access to specific user groups
+* Your zipped certificate (from step 4)
+* Your Identity Provider Single Sign-On URL (from step 5)
 
-    ![Add group]({{site.baseurl}}/images/access-and-authentication/sso--manage-groups.png)
+##### _(Optional)_ Restrict Logz.io access to specific user groups
 
-    By default, all Okta users with Logz.io access can sign in to your Logz.io accounts.
+![Add group]({{site.baseurl}}/images/access-and-authentication/sso--manage-groups.png)
 
-    You can restrict this access from the [Manage users page](https://app.logz.io/#/dashboard/settings/manage-users) for each of your accounts.
-    To do this, click **Add group**, and then paste your group's name from Okta.
-    Do this for each group that should have access to this account.
+By default, all Okta users with Logz.io access can sign in to your Logz.io accounts.
 
-9.  Receive confirmation from Support
+You can restrict this access from the [Manage users page](https://app.logz.io/#/dashboard/settings/manage-users) for each of your accounts.
+To do this, click **Add group**, and then paste your group's name from Okta.
+Do this for each group that should have access to this account.
 
-    When Support has created your Okta + Logz.io connection, you're done!
-    You can start logging in to Logz.io through your Apps portal.
-{:.tasklist.firstline-headline}
+##### Receive confirmation from Support
+
+When Support has created your Okta + Logz.io connection, you're done!
+You can start logging in to Logz.io through your Apps portal.
+
+</div>

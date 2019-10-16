@@ -34,17 +34,15 @@ Read on for a list of region codes and URLs.
 
 ## Regions and URLs
 
-| Region | App host | Listener host | API host |
+| Region | Cloud | App host | Listener host | API host |
 |---|---|---|
 {% for r in regions -%}
 {%- assign attribs = r[1] -%}
 {%- case attribs.suffix -%}
   {%- when false -%}
     {%- assign suffix = "" -%}
-    {%- assign regionCode = "" -%}
   {%- else -%}
     {%- assign suffix = r[0] | prepend: "-" -%}
-    {%- assign regionCode = r[0] | prepend: " (" | append: ")" -%}
 {%- endcase -%}
-| {{attribs.title}}{{regionCode}} | app{{suffix}}.logz.io | listener{{suffix}}.logz.io | api{{suffix}}.logz.io |
+| {{attribs.title}} | {{attribs.cloud}} | app{{suffix}}.logz.io | listener{{suffix}}.logz.io | api{{suffix}}.logz.io |
 {% endfor -%}

@@ -1,8 +1,12 @@
-<!-- Please note: We can't accept pull requests for changes to our OpenAPI file. If you want to suggest an edit to our API doc, please open an issue at https://github.com/logzio/logz-docs/issues/. -->
+# What changed
 
-### What changed
+<!-- Let us know what you changed.
+Don't worry about the bottom part of this template—the docs team will take care of it. -->
 
-<!-- A clear, concise description of the change and why you made it. Include URLs of changed pages, if you can. -->
+----
+
+<!-- ⬆︎⬆︎⬆︎⬆︎⬆︎⬆︎ Just let us know what you changed at the top of the template. ⬆︎⬆︎⬆︎⬆︎⬆︎⬆︎
+The docs team can take care of everything below this line. -->
 
 ## Pages to review
 
@@ -10,8 +14,6 @@
 <!-- After the build, paste URLs with the pages affected by this revision -->
 - [ ] Page1
 - [ ] Page2
-
-**Notes for reviewers**:
 
 ## Remaining work
 
@@ -23,7 +25,9 @@
 ## Post launch
 
 **Do not remove** - To be completed by the docs team upon merge:
+
 - [ ] Teams to update with the new information:
-- [ ] Replace original content on the support portal with 'this page has been moved to ...'
+- [ ] Replace original content on the support portal with 'this page has been moved to ...' - paste the URL
+- [ ] Update these log shipping pages in the app: - paste the URL
 
 <!-- Credit goes to Pantheon Systems docs team for most of this template. Thanks, guys! -->

@@ -10,6 +10,7 @@ https://logz-docs.netlify.com/* https://docs.logz.io/:splat 301!
 
 /user-guide/integrations/endpoints.html /user-guide/integrations/endpoints.html 301
 /integrations/logzio-datasource-for-grafana.html /integrations/grafana-data-source-plugin.html 301
+/user-guide/accounts/monitor-account-usage.html /user-guide/accounts/manage-account-usage.html 301
 
 
 /user-guide/access-and-authentication/* /user-guide/tokens/:splat 301

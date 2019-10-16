@@ -19,46 +19,44 @@ shipping-tags:
 
 This integration uses Filebeat in a Docker container to forward logs from Amazon Elastic Container Service (ECS) to Logz.io.
 
-## Setup
-
 To use docker-collector-logs, you'll set environment variables when you run the container.
 The Docker logs directory and docker.sock are mounted to the container, allowing Filebeat to collect the logs and metadata.
 
-###### Deploy the Docker collector
+#### Deploy the Docker collector
 
-1.  Pull the Docker image
+<div class="tasklist">
 
-    Download the logzio/docker-collector-logs image.
+##### Pull the Docker image
 
-    ```shell
-    docker pull logzio/docker-collector-logs
-    ```
+Download the logzio/docker-collector-logs image.
 
-2.  Run the Docker image
+```shell
+docker pull logzio/docker-collector-logs
+```
 
-    For a complete list of options, see the parameters below the code block. 👇
+##### Run the Docker image
 
-    ```shell
-    docker run -d --name=docker-collector-logs \
-    --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
-    --env LOGZIO_URL="https://<<LISTENER-HOST>>:8071" \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /var/lib/docker/containers:/var/lib/docker/containers \
-    logzio/docker-collector-logs
-    ```
+For a complete list of options, see the parameters below the code block. 👇
 
-    Parameters
-    {:.inline-header}
+```shell
+docker run -d --name=docker-collector-logs \
+--env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v /var/lib/docker/containers:/var/lib/docker/containers \
+logzio/docker-collector-logs
+```
 
-    LOGZIO_TOKEN <span class="required-param"></span>
-    : Your Logz.io account token.
-      {% include log-shipping/replace-vars.html token=true %}
+###### Parameters
 
-    LOGZIO_URL <span class="required-param"></span>
-    : Your Logz.io listener URL and port.
-      {% include log-shipping/replace-vars.html listener=true %}
+| Parameter | Description |
+|---|---|
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} |
+| LOGZIO_URL <span class="required-param"></span> | Your Logz.io listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
+{:.paramlist}
 
-3.  Check Logz.io for your logs
+##### Check Logz.io for your logs
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-{:.tasklist.firstline-headline}
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+</div>

@@ -11,64 +11,67 @@ shipping-tags:
   - container
 ---
 
-###### Configuration
+#### Configuration
 
-**You'll need**:
+**Before you begin, you'll need**:
 [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/7.1/metricbeat-installation.html) or higher
 
-1.  Download the Logz.io certificate
+<div class="tasklist">
 
-    Download the Logz.io public certificate to your certificate authority folder.
+##### Download the Logz.io certificate
 
-    ```shell
-    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-    ```
+Download the Logz.io public certificate to your certificate authority folder.
 
-2.  Add Logz.io configuration
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
 
-    Replace the General configuration with Logz.io settings.
+##### Add Logz.io configuration
 
-    {% include log-shipping/replace-vars.html token=true %}
+Replace the General configuration with Logz.io settings.
 
-    ```yaml
-    # ===== General =====
-    fields:
-      logzio_codec: json
-      token: <<SHIPPING-TOKEN>>
-    fields_under_root: true
-    ```
+{% include log-shipping/replace-vars.html token=true %}
 
-3.  Add Logz.io as an output
+```yaml
+# ===== General =====
+fields:
+  logzio_codec: json
+  token: <<SHIPPING-TOKEN>>
+fields_under_root: true
+```
 
-    If Logz.io is not an output, add it now.
-    Remove all other outputs.
+##### Add Logz.io as an output
 
-    {% include log-shipping/replace-vars.html listener=true %}
+If Logz.io is not an output, add it now.
+Remove all other outputs.
 
-    ```yaml
-    # ===== Outputs =====
-    output.logstash:
-      hosts: ["<<LISTENER-HOST>>:5015"]
-      ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-    ```
+{% include log-shipping/replace-vars.html listener=true %}
 
-3.  _(If needed)_ Enable the system module
+```yaml
+# ===== Outputs =====
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
 
-    The system module is enabled by default.
-    If you've disabled it for any reason, re-enable it now.
+##### _(If needed)_ Enable the system module
 
-    ```shell
-    sudo metricbeat modules enable system
-    ```
+The system module is enabled by default.
+If you've disabled it for any reason, re-enable it now.
 
-    You can change the metrics collected by Metricbeat by modifying `modules.d/system.yml`.
-    If you installed Metricbeat from a package manager, this directory is under `/etc/metricbeat`.
+```shell
+sudo metricbeat modules enable system
+```
 
-4.  Start Metricbeat
+You can change the metrics collected by Metricbeat by modifying `modules.d/system.yml`.
+If you installed Metricbeat from a package manager, this directory is under `/etc/metricbeat`.
 
-    Start or restart Metricbeat for the changes to take effect.
+##### Start Metricbeat
 
-5.  Check Logz.io for your metrics
+Start or restart Metricbeat for the changes to take effect.
 
-    Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
-{: .tasklist .firstline-headline }
+##### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+
+</div>

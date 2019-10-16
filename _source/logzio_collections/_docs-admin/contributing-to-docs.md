@@ -8,7 +8,7 @@ flags:
   logzio-plan: pro
 ---
 
-### Page flags
+## Page flags
 
 Page flags appear at the top of the page.
 They come in two groups.
@@ -33,12 +33,12 @@ flags:
   logzio-plan: pro
 ```
 
-### Info boxes
+## Info boxes
 
 Info boxes come in these CSS classes: `note`, `warning`, `important`, `tip`, `read`
 CSS handles icon and heading styling, so contributors need to worry about only the class name and box content.
 
-#### Notes
+### Notes
 
 ```
 Content \\
@@ -54,7 +54,7 @@ Could something bad happen if the user ignores this note?
 If no, then it's a note. Otherwise, it's a warning.
 {:.info-box.note}
 
-#### Warnings
+### Warnings
 
 ```
 Content
@@ -65,7 +65,7 @@ Use warnings when the user could cause damage that's difficult or impossible to 
 If you need something less severe than a warning, consider a note or important note.
 {:.info-box.warning}
 
-#### Important notes
+### Important notes
 
 ````
 Content
@@ -76,7 +76,7 @@ Important notes help the user work through common trip-up points.
 If the user could cause damage by ignoring this, consider a warning instead.
 {:.info-box.important}
 
-#### Pro tips
+### Pro tips
 
 ````
 Content
@@ -87,7 +87,7 @@ Pro tips convey best practices and good actions to ensure success.
 Think of these as more proactive than important notes.
 {:.info-box.tip}
 
-#### Read more
+### Read more
 
 ```
 Content
@@ -101,7 +101,6 @@ but out of scope for this page. \\
 \\
 It's perfectly fine to link to third-party docs if they're authoritative, such as AWS or Azure.
 {:.info-box.read}
-
 
 ## Headings
 
@@ -119,15 +118,15 @@ It's perfectly fine to link to third-party docs if they're authoritative, such a
     <td> <h3>Sample text</h3> </td>
   </tr>
   <tr>
-    <td> Heading 4 </td>
+    <td> Heading 4 (tasklist intro) </td>
     <td> <h4>Sample text</h4> </td>
   </tr>
   <tr>
-    <td> Heading 5 </td>
+    <td> Heading 5 (task) </td>
     <td> <h5>Sample text</h5> </td>
   </tr>
   <tr>
-    <td> Heading 6 (procedures only) </td>
+    <td> Heading 6 (in-task heading) </td>
     <td> <h6>Sample text</h6> </td>
   </tr>
   <tr>

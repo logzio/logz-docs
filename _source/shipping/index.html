@@ -51,7 +51,7 @@ community-info: false
 <nav id="card-filters">
   <div class="filters-inline-header">Filters:</div>
   <div class="filter-items">
-      <a class="filter-btn filter-active fancy-link" data-filter="all">All</a>
+      <a class="filter-btn fancy-link" data-filter="all">All</a>
     {%- for tag in tagsInThisTab %}
       <a class="filter-btn fancy-link" data-filter="{{tag[0].slug}}">{{tag[0].name}}</a>
     {% endfor -%}

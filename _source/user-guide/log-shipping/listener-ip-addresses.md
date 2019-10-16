@@ -15,10 +15,16 @@ contributors:
 
 If you're having trouble shipping your logs to Logz.io, you may need to open your firewall to Logz.io listener servers. To see if you need to change your firewall configuration, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-  Ship logs to the listener URL, not to individual IP addresses.
-  This ensures that logs are properly balanced on our listener servers,
-  and that your logs will be available to you as quickly as possible.
-  {:.info-box.note}
+Ship logs to the listener URL, not to individual IP addresses.
+This ensures that logs are properly balanced on our listener servers,
+and that your logs will be available to you as quickly as possible.
+{:.info-box.note}
+
+On this page
+{:.inline-header}
+
+* toc list
+{:toc}
 
 {% for r in site.data.logzio-regions -%}
   {%- assign attribs = r[1] -%}
@@ -29,7 +35,7 @@ If you're having trouble shipping your logs to Logz.io, you may need to open you
       {%- assign suffix = r[0] | prepend: "-" -%}
   {%- endcase %}
 
-#### listener{{suffix}}.logz.io — _{{attribs.title}}, {{attribs.cloud}}_
+## listener{{suffix}}.logz.io — _{{attribs.title}}, {{attribs.cloud}}_
 
 If you're shipping logs to listener{{suffix}}.logz.io, open your firewall to these {{attribs.cloud}} IP addresses:
 

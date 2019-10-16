@@ -60,19 +60,27 @@ ul.horizontal-list li {
 }
 
 /* normal def lists */
-dl {
+dl, .paramlist {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
 
-dt {
+.paramlist thead {
+  display: none;
+}
+
+.paramlist td {
+  display: block;
+}
+
+dt, .paramlist tbody > tr > td:first-child {
   font-weight: 700;
   margin-top: 15px;
 }
 
-dd {
+dd, .paramlist tbody > tr > td:not(:first-child) {
   margin-left: 0;
-  margin-left: 15px
+  margin-left: 15px;
 }
 
 /* annotated images */

@@ -13,75 +13,88 @@ Connect Logz.io to your AWS account using IAM roles.
 This gives Logz.io the appropriate level of access
 while keeping your AWS account secure.
 
-###### To grant access to an S3 bucket
+#### To grant access to an S3 bucket
 
-1.  Copy Logz.io details
+<div class="tasklist">
 
-    Copy the **Account ID** in your text editor, and create an **External ID** and copy it as well.
+##### Copy Logz.io details
 
-    Enter the **S3 bucket name** and, if needed, **Prefix** where your logs are stored.
+Copy the **Account ID** in your text editor,
+and create an **External ID** and copy it as well.
+The External ID can be anything you want,
+but we recommend a name that includes "Logz.io".
 
-    Click **View and copy role policy**.
-    You can review the role policy to confirm the permissions we need.
-    Paste the policy in your text editor.
+Enter the **S3 bucket name** and, if needed,
+**Prefix** where your logs are stored.
 
-    Keep this information available so you can paste in AWS in step 2.
+Click **View and copy role policy**.
+You can review the role policy to confirm the permissions we need.
+Paste the policy in your text editor.
 
-2.  Create the role
+Keep this information available so you can paste in AWS in step 2.
 
-    Browse to the [IAM roles](https://console.aws.amazon.com/iam/home#/roles)
-    and click **Create role**.
-    You're taken to the _Create role_ wizard.
+##### Create the role
 
-    ![Create an IAM role for another AWS account]({{site.baseurl}}/images/aws/iam--create-role.png)
+Browse to the [IAM roles](https://console.aws.amazon.com/iam/home#/roles)
+and click **Create role**.
+You're taken to the _Create role_ wizard.
 
-    Click **Another AWS account**.
+![Create an IAM role for another AWS account]({{site.baseurl}}/images/aws/iam--create-role.png)
 
-    Paste the **Account ID** you copied from Logz.io.
+Click **Another AWS account**.
 
-    Select **Require external ID**, and then paste the **External ID** you made in Logz.io.
+Paste the **Account ID** you copied from Logz.io.
 
-    Click **Next: Permissions** to continue.
+Select **Require external ID**,
+and then paste the **External ID** you made in Logz.io.
 
-3.  Create the policy
+Click **Next: Permissions** to continue.
 
-    In the  _Create role_ screen, click **Create policy**.
-    The _Create policy_ page loads in a new tab.
+##### Create the policy
 
-    In the **JSON** tab,
-    replace the default JSON with the policy you copied from Logz.io.
+In the  _Create role_ screen, click **Create policy**.
+The _Create policy_ page loads in a new tab.
 
-    Click **Review policy** to continue.
+In the **JSON** tab,
+replace the default JSON with the policy you copied from Logz.io.
 
-    Give the policy a **Name** and optional **Description**, and then click **Create policy**.
+Click **Review policy** to continue.
 
-    Remember the policy's name—you'll need this in the next step.
+Give the policy a **Name** and optional **Description**,
+and then click **Create policy**.
 
-    Close the tab to return to the _Create role_ page.
+Remember the policy's name—you'll need this in the next step.
 
-4.  Attach the policy to the role
+Close the tab to return to the _Create role_ page.
 
-    Click <i class="fas fa-sync-alt"></i> (refresh), and then type your new policy's name in the search box.
+##### Attach the policy to the role
 
-    Find your policy in the filtered list and select its check box.
+Click <i class="fas fa-sync-alt"></i> (refresh),
+and then type your new policy's name in the search box.
 
-    Click **Next: Tags**, and then click **Next: Review** to continue to the _Review_ screen.
+Find your policy in the filtered list and select its check box.
 
-5.  Finalize the role
+Click **Next: Tags**,
+and then click **Next: Review** to continue to the _Review_ screen.
 
-    Give the role a **Name** and optional **Description**, and then click **Create role**.
+##### Finalize the role
 
-6.  Copy the ARN to Logz.io
+Give the role a **Name** and optional **Description**,
+and then click **Create role**.
 
-    In the _IAM roles_ screen, type your new role's name in the search box.
+##### Copy the ARN to Logz.io
 
-    Find your role in the filtered list and click it to go to its summary page.
+In the _IAM roles_ screen, type your new role's name in the search box.
 
-    Copy the role ARN (top of the page).
-    In Logz.io, paste the ARN in the **Role ARN** field, and then click **Save**.
-{:.tasklist.firstline-headline}
+Find your role in the filtered list and click it to go to its summary page.
+
+Copy the role ARN (top of the page).
+In Logz.io, paste the ARN in the **Role ARN** field, and then click **Save**.
+
+</div>
 
 To give Logz.io access to more S3 buckets with the same role and policy,
 you'll need to use the same external ID.
-You can find your role's external ID under the **Trust relationships** tab in the role summary page.
+You can find your role's external ID
+under the **Trust relationships** tab in the role summary page.
 {:.info-box.important}

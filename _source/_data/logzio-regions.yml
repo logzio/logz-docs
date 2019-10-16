@@ -1,5 +1,9 @@
+# When naming the region, take from AWS and Azure docs
+# AWS: https://aws.amazon.com/about-aws/global-infrastructure/regions_az/?p=ngi&loc=2
+# Azure: https://azure.microsoft.com/en-us/global-infrastructure/locations/
+
 us:
-  title: N. Virginia region
+  title: US East (Northern Virginia)
   suffix: false
   cloud: AWS
   listener-ips:
@@ -20,7 +24,7 @@ us:
     - 52.87.4.83
     - 54.210.40.1
 au:
-  title: Australia region
+  title: Asia Pacific (Sydney)
   cloud: AWS
   listener-ips:
     - 3.105.145.247
@@ -32,7 +36,7 @@ au:
     - 3.104.255.132
     - 54.206.91.46
 ca:
-  title: Canada region
+  title: Canada (Central)
   cloud: AWS
   listener-ips:
     - 99.79.1.61
@@ -44,7 +48,7 @@ ca:
     - 99.79.113.22
     - 52.60.89.173
 eu:
-  title: Frankfurt region
+  title: Europe (Frankfurt)
   cloud: AWS
   listener-ips:
     - 35.157.100.82
@@ -58,7 +62,7 @@ eu:
     - 52.57.23.254
     - 52.57.24.166
 nl:
-  title: West Europe region
+  title: West Europe (Netherlands)
   cloud: Azure
   listener-ips:
     - 104.40.177.72
@@ -70,7 +74,7 @@ nl:
     - 52.166.13.236
     - 52.174.154.12
 wa:
-  title: West US 2 region
+  title: West US 2 (Washington)
   cloud: Azure
   listener-ips:
     - 52.247.202.222

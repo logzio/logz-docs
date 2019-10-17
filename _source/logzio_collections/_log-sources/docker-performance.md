@@ -11,59 +11,49 @@ shipping-tags:
   - container
 ---
 
-## Setup
+#### Configuration
 
-1.  Pull the Docker image
+<div class="tasklist">
 
-    Download the logzio/logzio-docker image:
+##### Pull the Docker image
 
-    ```shell
-    docker pull logzio/logzio-perfagent
-    ```
+Download the logzio/logzio-docker image:
 
-2.  Run the Docker image
+```shell
+docker pull logzio/logzio-perfagent
+```
 
-    For a complete list of options, see the parameters below the code block.👇
+##### Run the Docker image
 
-    ```shell
-    docker run -d \
-    --net="host" \
-    -e LOGZ_TOKEN="<<SHIPPING-TOKEN>>" \
-    -e LISTENER="<<LISTENER-HOST>>:5000" \
-    -e USER_TAG="workers" \
-    -e HOSTNAME=`hostname` \
-    -e INSTANCE="10.1.2.3" \
-    --restart=always \
-    logzio/logzio-perfagent
-    ```
+For a complete list of options, see the parameters below the code block.👇
 
-    Parameters
-    {:.inline-header}
+```shell
+docker run -d \
+  --net="host" \
+  -e LOGZ_TOKEN="<<SHIPPING-TOKEN>>" \
+  -e LISTENER="<<LISTENER-HOST>>:5000" \
+  -e USER_TAG="workers" \
+  -e HOSTNAME=`hostname` \
+  -e INSTANCE="10.1.2.3" \
+  --restart=always \
+  logzio/logzio-perfagent
+```
 
-    LOGZ_TOKEN <span class="required-param"></span>
-    : Your Logz.io account token.
-      {% include log-shipping/replace-vars.html token=true %}
-      <!-- logzio-inject:account-token -->
+###### Parameters
 
-    LISTENER <span class="default-param">`listener.logz.io:5000`</span>
-    : Your account's listener host and port.
-      {% include log-shipping/replace-vars.html listener=true %}
+| Parameter | Description |
+|---|---|
+| LOGZ_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LISTENER <span class="default-param">`listener.logz.io:5000`</span> | Your account's listener host and port. {% include log-shipping/replace-vars.html listener=true %} |
+| USER_TAG | Assigned to the `user_tag` field of each log entry. You can use this field to group various hosts into meaningful visualisations. One recommended use case for this variable is to denote the host role. |
+| HOSTNAME | Name of the host this container is monitoring. Assigned to the `syslog5424_host` field of each log entry. |
+| INSTANCE | The IP address that will be assigned to the `instance` field of each entry. |
+{:.paramlist}
 
-    USER_TAG
-    : Assigned to the `user_tag` field of each log entry.
-      You can use this field to group various hosts into meaningful visualisations.
-      One recommended use case for this variable is to denote the host role.
+##### Check Logz.io for your logs
 
-    HOSTNAME
-    : Name of the host this container is monitoring.
-      Assigned to the `syslog5424_host` field of each log entry.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-    INSTANCE
-    : The IP address that will be assigned to the `instance` field of each entry.
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-3.  Check Logz.io for your logs
-
-    Give your logs a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+</div>

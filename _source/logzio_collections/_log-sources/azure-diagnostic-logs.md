@@ -41,7 +41,7 @@ Each automated deployment sets up these resources in your Azure environment:
 * 1 event hub
 * 2 blobs (1 to store logs from the Azure functions, 1 for failover storage)
 
-##### Naming convention
+### Naming convention
 
 Each deployed resource has a Logz.io-defined name and ends with a string unique to that deployment.
 
@@ -66,97 +66,95 @@ It means that you'll need to do at least one automated deployment for each regio
 
 ## Setup
 
-###### Configuration
+#### Configuration
 
-1.  If needed, configure an automated deployment
+<div class="tasklist">
 
-    If you already set up an automated deployment in this region, you can skip to step 2.
+##### If needed, configure an automated deployment
 
-    👇 Otherwise, click this button to start the automated deployment.
+If you already set up an automated deployment in this region, you can skip to step 2.
 
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
-    {:.override.btn-img}
+👇 Otherwise, click this button to start the automated deployment.
 
-    You'll be taken to Azure, where you'll configure the resources to be deployed.
-    Make sure to use the settings shown below.
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
+{:.override.btn-img}
 
-    ![Customized template]({{site.baseurl}}/images/azure-event-hubs/customized-template.png)
+You'll be taken to Azure, where you'll configure the resources to be deployed.
+Make sure to use the settings shown below.
 
-    In the BASICS section
-    {:.inline-header}
+![Customized template]({{site.baseurl}}/images/azure-event-hubs/customized-template.png)
 
-    Resource group
-    : Click **Create new**.
-      Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**.
+###### In the BASICS section
 
-    Location
-    : Choose the same region as the Azure services that will stream data to this Event Hub.
+| Parameter | Description |
+|---|---|
+| Resource group | Click **Create new**. Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**. |
+| Location | Choose the same region as the Azure services that will stream data to this Event Hub. |
+{:.paramlist}
 
+###### In the SETTINGS section
 
-    In the SETTINGS section
-    {:.inline-header}
+| Parameter | Description |
+|---|---|
+| Logs listener host | Use the listener host for your logs account region. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
+{:.paramlist}
 
-    Logs listener host
-    : Use the listener host for your logs account region.
-      For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+At the bottom of the page, select **I agree to the terms and conditions stated above**, and then click **Purchase** to deploy.
 
-    Logs account token
-    : Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to.
+Deployment can take a few minutes.
 
-    At the bottom of the page, select **I agree to the terms and conditions stated above**, and then click **Purchase** to deploy.
+##### _(Optional)_ Add failsafes for shipping timeouts
 
-    Deployment can take a few minutes.
+You can configure Azure to back up your logs to Azure Blob Storage.
+So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
 
-2.  _(Optional)_ Add failsafes for shipping timeouts
+To do this, expand your function app's left menu, and then click **Integrate**.
 
-    You can configure Azure to back up your logs to Azure Blob Storage.
-    So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
+![New Blob output]({{site.baseurl}}/images/azure-event-hubs/azure-blob-storage-outputblob.png)
 
-    To do this, expand your function app's left menu, and then click **Integrate**.
+In the top of the triggers panel, click **Azure Blob Storage (outputBlob)**.
+The _Azure Blob Storage output_ settings are displayed.
 
-    ![New Blob output]({{site.baseurl}}/images/azure-event-hubs/azure-blob-storage-outputblob.png)
+Leave **Blob parameter name** blank.
+Enter the **Path** for the Azure blob you're sending dropped logs to, and then click **Save**.
 
-    In the top of the triggers panel, click **Azure Blob Storage (outputBlob)**.
-    The _Azure Blob Storage output_ settings are displayed.
+For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
+{:.info-box.read}
 
-    Leave **Blob parameter name** blank.
-    Enter the **Path** for the Azure blob you're sending dropped logs to, and then click **Save**.
+##### Stream data to the new event hub
 
-      For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
-      {:.info-box.read}
+So far in this process, you've deployed an event hub and a function app.
 
-3. Stream data to the new event hub
+Now you'll need to configure Azure to stream diagnostic logs to the event hub you just deployed.
+When data comes into the event hub, the function app will forward that data to Logz.io.
 
-    So far in this process, you've deployed an event hub and a function app.
+In the search bar, type "Diagnostics", and then click **Diagnostics settings**.
+This brings you to the _Diagnostics settings_ page.
 
-    Now you'll need to configure Azure to stream diagnostic logs to the event hub you just deployed.
-    When data comes into the event hub, the function app will forward that data to Logz.io.
+Choose a resource from the list of resources, and click **Turn on diagnostics settings** to open the _Diagnostics settings_ panel for that resource.
 
-    In the search bar, type "Diagnostics", and then click **Diagnostics settings**.
-    This brings you to the _Diagnostics settings_ page.
+Give your diagnostic settings a **Name**.
 
-    Choose a resource from the list of resources, and click **Turn on diagnostics settings** to open the _Diagnostics settings_ panel for that resource.
+Select **Stream to an event hub**, and then click **Configure** to open the _Select event hub_ panel.
 
-    Give your diagnostic settings a **Name**.
+Choose your event hub:
 
-    Select **Stream to an event hub**, and then click **Configure** to open the _Select event hub_ panel.
+* **Event hub namespace**: Choose the namespace that starts with **LogzioNS** (LogzioNS6nvkqdcci10p, for example)
+* **Event hub name**: Choose **insights-operational-logs**
+* **Event hub policy name**: Choose **LogzioSharedAccessKey**
+* Click **OK** to return to Diagnostics settings.
 
-    Choose your event hub:
+Click **OK** to return to the _Diagnostics settings_ panel.
 
-    * **Event hub namespace**: Choose the namespace that starts with **LogzioNS** (LogzioNS6nvkqdcci10p, for example)
-    * **Event hub name**: Choose **insights-operational-logs**
-    * **Event hub policy name**: Choose **LogzioSharedAccessKey**
-    * Click **OK** to return to Diagnostics settings.
+In the _Log_ section, select the data you want to stream, and then click **Save**.
+The selected data will now stream to the event hub.
 
-    Click **OK** to return to the _Diagnostics settings_ panel.
+##### Check Logz.io for your logs
 
-    In the _Log_ section, select the data you want to stream, and then click **Save**.
-    The selected data will now stream to the event hub.
+Give your data some time to get from your system to ours, and then open Kibana.
+If everything went according to plan, you should see logs (with the type `eventhub`) in Kibana.
 
-6. Check Logz.io for your logs
+If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-    Give your data some time to get from your system to ours, and then open Kibana.
-    If everything went according to plan, you should see logs (with the type `eventhub`) in Kibana.
-
-    If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+</div>

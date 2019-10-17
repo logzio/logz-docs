@@ -21,94 +21,108 @@ This page is a general reference for Filebeat.
 If you need instructions for a specific log source (such as nginx, MySQL, or Wazuh),
 see [Log shipping sources]({{site.baseurl}}/shipping/).
 
-###### Configuration tl;dr
+<details>
 
-Files
-: [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) \\
-  [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
+<summary>
+Configuration tl;dr
+</summary>
 
-Listener
-: Port 5015.
-  For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+| Item | Description |
+|---|---|
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+{:.paramlist}
 
-###### Guided configuration
+</details>
 
-**You'll need**:
+#### Guided configuration
+
+**Before you begin, you'll need**:
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
 
 <div class="branching-container">
 
-* [Mac/Linux](#mac-linux-config)
+* [macOS/Linux](#mac-linux-config)
 * [Windows](#windows-config)
 {:.branching-tabs}
 
 <div id="mac-linux-config">
 
-1.  Download the Logz.io certificate
+#### Configure Filebeat on macOS or Linux
 
-    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+<div class="tasklist">
 
-    ```shell
-    sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-    ```
+##### Download the Logz.io certificate
 
-2.  Make your configuration file
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-    Make your configuration file using the Filebeat configuration wizard.
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
 
-    <!-- logzio-inject:filebeat-wizard -->
+##### Make your configuration file
 
-    {% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
+Make your configuration file using the Filebeat configuration wizard.
 
-3.  Move the configuration file to the Filebeat folder
+<!-- logzio-inject:filebeat-wizard -->
 
-    Move the configuration file to `/etc/filebeat/filebeat.yml`.
+{% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
 
-4.  Start Filebeat
+##### Move the configuration file to the Filebeat folder
 
-    Start or restart Filebeat for the changes to take effect.
+Move the configuration file to `/etc/filebeat/filebeat.yml`.
 
-5.  Check Logz.io for your logs
+##### Start Filebeat
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Start or restart Filebeat for the changes to take effect.
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>
 
 <div id="windows-config">
 
-1.  Download the Logz.io certificate
+#### Configure Filebeat on Windows
 
-    For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+<div class="tasklist">
 
-    Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine. We recommend saving to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`.
+##### Download the Logz.io certificate
 
-2.  Make your configuration file
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-    Make your configuration file using the Filebeat configuration wizard.
+Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine. We recommend saving to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`.
 
-    <!-- logzio-inject:filebeat-wizard -->
+##### Make your configuration file
 
-    {% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
+Make your configuration file using the Filebeat configuration wizard.
 
-3.  Move the configuration file to the Filebeat folder
+<!-- logzio-inject:filebeat-wizard -->
 
-    Move the configuration file to `C:\Program Files\Filebeat\filebeat.yml`.
+{% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
 
-4.  Restart Filebeat
+##### Move the configuration file to the Filebeat folder
 
-    ```powershell
-    PS C:\Program Files\Filebeat> Restart-Service filebeat
-    ```
+Move the configuration file to `C:\Program Files\Filebeat\filebeat.yml`.
 
-5.  Check Logz.io for your logs
+##### Restart Filebeat
 
-    Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+```powershell
+PS C:\Program Files\Filebeat> Restart-Service filebeat
+```
 
-    If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-{:.tasklist.firstline-headline}
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
 
 </div>

@@ -37,9 +37,10 @@ When a threat is identified with a specific log message, a threat is flagged in 
 The results are shown here on the Threats page.
 
 The Threats page shows:
-  * The most active geographic location generating threats
-  * A severity breakdown
-  * A detailed list of threats
+
+* The most active geographic location generating threats
+* A severity breakdown
+* A detailed list of threats
 
 In the Threat details table (on the lower right), you can click an attacker IP address to show the IP Investigation dashboard.
 This dashboard gives you a more detailed view of a specific IP address, including each log line that contains this IP address.

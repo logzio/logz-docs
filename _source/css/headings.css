@@ -1,8 +1,8 @@
-h1, h2, h3, h4, h5, h6, .site-title, .post-title, .inline-header {
+h1, h2, h3, h4 .site-title, .post-title, .inline-header {
   font-weight: 700;
   padding: 0;
   color: var(--heading-normal);
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
   line-height: 100%;
 }
@@ -32,30 +32,45 @@ h2 {
 }
 
 h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 h4 {
   font-size: 1.4rem;
-}
+  counter-reset: tasklist;
 
-h5, h6, .inline-header {
-  font-size: 1.2rem;
-  margin-bottom: 0;
-}
-
-h5, h6 {
-  text-transform: uppercase;
-  font-weight: 400;
-}
-
-.inline-header {
-  color: var(--heading-blue-75);
-  font-weight: 700;
-}
-
-/* Use h6 to introduce procedures. If you need a regular heading, use h5 */
-h6 {
   border-bottom: 3px solid var(--tasklist-light);
   width: fit-content;
+}
+
+h5 {
+  counter-increment: tasklist;
+  position: relative;
+  clear: both;
+
+  font-weight: 600;
+  font-size: 1.2rem;
+  display: block;
+}
+
+.tasklist {
+  margin-left: 45px;
+}
+
+.tasklist h5::before {
+  content: counter(tasklist);
+  position: absolute;
+  display: inline-block;
+  margin-left: -45px;
+  background-color: var(--tasklist-light);
+  border-radius: 50%;
+  padding: 0 9px;
+  font-weight: 800;
+}
+
+h6, .inline-header {
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: var(--heading-blue);
+  font-weight: 700;
 }

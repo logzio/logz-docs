@@ -16,45 +16,49 @@ contributors:
 ![Restore a new account]({{site.baseurl}}/images/archive-and-restore/restored-accounts.png)
 
 When you restore archived logs,
-those logs are re-ingested into a temporary restored account that you can search from your main account.
+those logs are re-ingested into a temporary restored account
+that you can search from your main account.
 Restoring archived logs allows you to see your data in its original detail,
 so you can investigate events in Kibana that are older than your plan’s retention period.
 
-###### To restore and view archived logs
+#### To restore and view archived logs
 
-**You'll need**:
+**Before you begin, you'll need**:
 [Archiving enabled](https://app.logz.io/#/dashboard/tools/archive-and-restore),
 archived logs in your S3 bucket
 
-1.  Restore your archives
+<div class="tasklist">
 
-    Restored logs are compared to drop filters,
-    as if you were shipping those logs normally.
-    Double-check your drop filters
-    to make sure logs you need won't be filtered.
-    For more information, see [Drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/).
-    {:.info-box.important}
+##### Restore your archives
 
-    In the _Restore_ tab, give your restored account a **Name**, choose a **Time range** of up to 24 hours, and click **Restore**.
+Restored logs are compared against drop filters,
+as if you were shipping those logs normally.
+Double-check your drop filters
+to make sure logs you need won't be filtered.
+For more information, see [Drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/).
+{:.info-box.important}
 
-    The time it takes to restore your archives depends on a few factors,
-    so there's no way to know how long your re-ingestion will take.
+In the _Restore_ tab, give your restored account a **Name**, choose a **Time range** of up to 24 hours, and click **Restore**.
 
-    As an informal guideline, if you're restoring an hour's worth of data, go have a cup of coffee.
-    If you're restoring a day's worth of data, take a long lunch break.
+The time it takes to restore your archives depends on a few factors,
+so there's no way to know how long your re-ingestion will take.
 
-    You'll receive an email when the restored account is ready.
+As an informal guideline, if you're restoring an hour's worth of data, go have a cup of coffee.
+If you're restoring a day's worth of data, take a long lunch break.
 
-2.  Explore the restored account in Kibana
+You'll receive an email when the restored account is ready.
 
-    Open the email that says your restored account is ready for you and click **View in Kibana**.
-    This link takes you to Kibana in your main account, but a view that shows only the data from the restored account.
+##### Explore the restored account in Kibana
 
-      If you need to filter Kibana manually,
-      choose the new restored account in the **Selected Accounts** box,
-      and then select your data's original **Time Range**.
-      {:.info-box.tip}
+Open the email that says your restored account is ready for you and click **View in Kibana**.
+This link takes you to Kibana in your main account, but a view that shows only the data from the restored account.
 
-    Now you're ready to search your restored account!
-    Just be aware of the expiration—once the restored account expires, you'll have to restore it if you need it again.
-{:.tasklist.firstline-headline}
+If you need to filter Kibana manually,
+choose the new restored account in the **Selected Accounts** box,
+and then select your data's original **Time Range**.
+{:.info-box.tip}
+
+Now you're ready to search your restored account!
+Just be aware of the expiration—once the restored account expires, you'll have to restore it if you need it again.
+
+</div>

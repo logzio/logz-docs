@@ -25,7 +25,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 
 * [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
 * [Custom configuration](#custom-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <!-- tab:start -->
 <div id="default-config">

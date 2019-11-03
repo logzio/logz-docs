@@ -3,113 +3,310 @@ layout: article
 title: Pulling log shipping docs into the app
 ---
 
-{::options toc_levels="2..3" /}
-
-On this page
-{:.inline-header}
-
-* toc
-{:toc}
-
 ## Manifest
 
 [Manifest file for this deploy]({{site.baseurl}}/data/shipping-manifest.json)
 
----
+<!-- tabContainer:start -->
+<div class="branching-container">
 
-## Regex patterns
+* [Tabs](#tabs)
+* [paramlists](#paramlists)
+* [tasklists](#tasklists)
+* [Info boxes](#info-boxes)
+* [Accordions](#accordions)
+{:.branching-tabs}
 
-{%raw%}
-| Regex | Description |
+<!-- tab:start -->
+<div id="tabs">
+
+## Tabs
+
+Tabs come in 3 parts:
+
+* A container (uses `.branching-container` class)
+* The list of tabs (uses `.branching-tabs` class). Each list item is a link to a tab's `div`.
+* Each tab is a separate `div` with an id from the tab list.
+
+### Some regex that works
+
+`^(\*.+\n)+{:.branching-tabs}` captures the tab list.
+
+### Sample
+
+```html
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Tab 1 config <span class="sm ital">(recommended)</span>](#tab-1-config)
+* [Tab 2 config](#tab-2-config)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="tab-1-config">
+
+## Tab 1 content
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="tab-2-config">
+
+## Tab 2 content
+
+</div>
+<!-- tab:end -->
+
+
+</div>
+<!-- tabContainer:end -->
+```
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="paramlists">
+
+## paramlists
+
+Paramlists are two-column `.paramlist` tables.
+
+* `thead` is there so I can easily copy to GitHub without having to think about it.
+  The CSS should be written so `thead` isn't displayed.
+* CSS should render the table as a list, where the second column is indented below the first column.
+  This way, the list works on smaller viewports.
+* Line breaks use `br` tags.
+* Required params are empty `.required-param` spans.
+  CSS renders with "Required".
+* Default params use `.default-param` class.
+  CSS renders with "Default:".
+
+### Sample
+
+```md
+###### Parameters
+
+| Parameter | Description |
 |---|---|
-| `---[\s\S\n]*?---{1,}` | Remove only the first occurence (frontmatter) |
-| `{:\.(info-box)\.(.+)}` | Render the text block as an info box, respecting the second class. Groups capture so that `$1` = `info-box` and `$2` is the second class. |
-| `{:.override.btn-img}` | Left-align the image |
-| `{{site.baseurl}}` | Replace with `https://docs.logz.io` (no trailing slash) |
-| `<<SHIPPING-TOKEN>>` | Replace with token of the logged-in account (Replaces `{{API_TOKEN}}` in legacy shipping docs) |
-| `<<LISTENER-HOST>>` | Replace with listener host (Replaces `{{LISTENER_URL}}` in legacy shipping docs) |
-| `{:\.inline-header}` | Render the text block as an inline header |
-| `\\\\` | `<br>` |
-| `{:.tasklist.firstline-headline}` | Remove |
-| `{%.+?%}( \\\\)?\n?` | Remove (Liquid tags, newline slashes, and newline if they follow) |
+| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. <br> For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
+| logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+{:.paramlist}
+```
 
-### Accordions
+### Output
 
-| Regex | Description |
+###### Parameters
+
+| Parameter | Description |
 |---|---|
-| `<details>[\s\S\n]*?</details>` | Render as `<details>` element |
-| `<summary>[\s\S\n]*?</summary>` | Render as `<summary>` element |
+| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. <br> For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
+| logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+{:.paramlist}
 
 
-### Definition lists/parameter lists
+</div>
+<!-- tab:end -->
 
-Markdown-It has a definition list extension, so it's probably easiest to use that.
+<!-- tab:start -->
+<div id="tasklists">
 
-| Regex | Description |
-|---|---|
-| `<span class="required-param"><\/span>` | Replace with `Required` |
-| `<span class="default-param">(.+)<\/span>` | Prepend with `Default: `. Value is captured in `$1`. |
+## tasklists
 
-<!-- | `(.+\n:(.+\n){1,}(\n)){1,}` | Captures the entire definition list, to be rendered in `<dl>` container. |
-| `.+\n(?=:(.+\n){1,}\n)` | Capture definition term (first line), to be rendered as `<dt>` |
-| `(?<=.+\n):(.+\n){1,}(?=\n)` | Capture definition (all lines), to be rendered as `<dd>` | -->
+Anatomy of a tasklist:
 
-### Tabs
+* Always introduced with `h4`
+* Prereqs are a single paragraph, starting with `**Before you begin, you'll need**:`
+* The steps themselves are inside a `.tasklist` div.
+* Each step starts with a `h5` headline. CSS should render this with a number.
+* The body of each step is indented to align with the heading.
+* Subheads within steps are `h6`.
 
-| Regex | Description |
-|---|---|
-| `(?<=<!-- tabContainer:start -->\n)[\s\S\n]*?(?=<!-- tabContainer:end -->)` | Grabs the entire tab container |
-| `{:.branching-tabs}` | Render the text block as `<ul>`. Each `li` is formatted as `[Tab name](#tab-href-id)` |
-| `(?<=<!-- tab:start -->\n)[\s\S\n]*?(?=<!-- tab:end -->)` | Grabs the tab content |
+### Sample
 
-{%endraw%}
+```md
+#### Configuration
 
----
+**Before you begin, you'll need**:
+`s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
+
+<div class="tasklist">
+
+##### Send your logs to an S3 bucket
+
+Logz.io fetches your CloudTrail logs from an S3 bucket.
+
+For help with setting up a new trail, see [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) from AWS.
+
+##### Add the S3 bucket information
+
+{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+
+<!-- logzio-inject:s3-config -->
+
+Logz.io fetches logs that are generated after configuring an S3 bucket.
+Past logs are not sent to Logz.io.
+{:.info-box.important}
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+```
+
+### Output
+
+#### Configuration
+
+**Before you begin, you'll need**:
+`s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
+
+<div class="tasklist">
+
+##### Send your logs to an S3 bucket
+
+Logz.io fetches your CloudTrail logs from an S3 bucket.
+
+For help with setting up a new trail, see [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) from AWS.
+
+##### Add the S3 bucket information
+
+{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+
+<!-- logzio-inject:s3-config -->
+
+Logz.io fetches logs that are generated after configuring an S3 bucket.
+Past logs are not sent to Logz.io.
+{:.info-box.important}
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="info-boxes">
 
 ## Info boxes
 
-An info box is a text block followed by `{:.info-box.<<class>>}`.
+Info boxes are `.info-box` div with one additional class:
 
-`<<class>>` uses CSS `::before` to insert a title for the info box.
+* Note (`.note`)
+* Important note (`.important`)
+* Warning (`.warning`)
+* Pro tip (`.tip`)
+* Read more (`.read`)
 
-| Class | `::before` content |
+CSS handles heading styling.
+
+### Note
+
+```md
+This is a note.
+{:.info-box.note}
+```
+
+This is a note.
+{:.info-box.note}
+
+### Important note
+
+```md
+This is an important note.
+{:.info-box.important}
+```
+
+This is an important note.
+{:.info-box.important}
+
+### Warning
+
+```md
+This is a warning.
+{:.info-box.warning}
+```
+
+This is a warning.
+{:.info-box.warning}
+
+### Pro tip
+
+```md
+This is a tip.
+{:.info-box.tip}
+```
+
+This is a tip.
+{:.info-box.tip}
+
+### Read more
+
+```md
+This is an invitation to read more.
+{:.info-box.read}
+```
+
+This is an invitation to read more.
+{:.info-box.read}
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="accordions">
+
+## Accordions
+
+Accordions use the native `details` and `summary` tags.
+
+### Sample
+
+```md
+<details>
+
+<summary>
+Configuration tl;dr
+</summary>
+
+| Item | Description |
 |---|---|
-| `.info-box.warning` | `content: "Warning"` |
-| `.info-box.note` | `content: "Note"` |
-| `.info-box.important` | `content: "Important"` |
-| `.info-box.tip` | `content: "Pro tip"` |
-| `.info-box.read` | `content: "Read more"` |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Log type _\(for preconfigured parsing\)_ | `apache`, `apache_access`, or `apache-access`|
+{:.paramlist}
 
-### Examples
-
-```
-Note content
-{:.info-box.note}
-
-Important note content
-{:.info-box.important}
-
-Warning content
-{:.info-box.warning}
-
-Tip content
-{:.info-box.tip}
-
-Read more content
-{:.info-box.read}
+</details>
 ```
 
-Note content
-{:.info-box.note}
+### Output
 
-Important note content
-{:.info-box.important}
+<details>
 
-Warning content
-{:.info-box.warning}
+<summary>
+Configuration tl;dr
+</summary>
 
-Tip content
-{:.info-box.tip}
+| Item | Description |
+|---|---|
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Log type _\(for preconfigured parsing\)_ | `apache`, `apache_access`, or `apache-access`|
+{:.paramlist}
 
-Read more content
-{:.info-box.read}
+</details>
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

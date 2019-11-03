@@ -36,7 +36,7 @@ flags:
 ## Info boxes
 
 Info boxes come in these CSS classes: `note`, `warning`, `important`, `tip`, `read`
-CSS handles icon and heading styling, so contributors need to worry about only the class name and box content.
+CSS handles heading styling, so contributors need to worry about only the class name and box content.
 
 ### Notes
 

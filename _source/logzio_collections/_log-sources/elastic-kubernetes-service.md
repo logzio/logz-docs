@@ -17,24 +17,24 @@ shipping-tags:
 ---
 
 For Kubernetes, a DaemonSet ensures that some or all nodes run a copy of a pod.
-This implementation is uses a Fluentd DaemonSet to collect Kubernetes logs.
+This implementation uses a Fluentd DaemonSet to collect Kubernetes logs.
 Fluentd is flexible enough and has the proper plugins to distribute logs to different third parties such as Logz.io.
 
 The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
 
-<div class="branching-container">
+{%- comment -%} <div class="branching-container">
 
 * [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
 * [Custom configuration](#custom-config)
-{:.branching-tabs}
+{:.branching-tabs} {%- endcomment -%}
 
 <!-- tab:start -->
 <div id="default-config">
 
-## Deploy logzio-k8s with default configuration
+{%- comment -%} ## Deploy logzio-k8s with default configuration
 
 For most environments, we recommend using the default configuration.
-However, you can deploy a custom configuration if your environment needs it.
+However, you can deploy a custom configuration if your environment needs it. {%- endcomment -%}
 
 #### To deploy logzio-k8s
 
@@ -72,7 +72,7 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 </div>
 <!-- tab:end -->
 
-<!-- tab:start -->
+{%- comment -%} <!-- tab:start -->
 <div id="custom-config">
 
 ## Deploy logzio-k8s with custom configuration
@@ -154,4 +154,4 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 
 ## Disabling systemd input
 
-To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment. {%- endcomment -%}

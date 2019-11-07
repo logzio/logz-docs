@@ -11,6 +11,7 @@ logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kinesis
 contributors:
   - idohalevi
   - imnotashrimp
+  - ronish31
 shipping-tags:
   - aws
 ---

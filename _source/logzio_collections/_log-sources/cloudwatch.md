@@ -11,6 +11,7 @@ open-source:
 contributors:
   - idohalevi
   - imnotashrimp
+  - ronish31
 shipping-tags:
   - aws
 ---

@@ -7,7 +7,7 @@ data-source: CloudWatch
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudWatch
 open-source:
   - title: CloudWatch Lambda Log Shipper
-    github-repo: logzio_aws_serverless/tree/master/cloudwatch
+    github-repo: logzio_aws_serverless/tree/master/python3/cloudwatch
 contributors:
   - idohalevi
   - imnotashrimp
@@ -27,7 +27,7 @@ Open the AWS Lambda Console, and click **Create function**.
 Choose **Author from scratch**, and use this information:
 
 * **Name**: We suggest adding the log type to the name, but you can name this function whatever you want.
-* **Runtime**: Choose **Python 2.7**
+* **Runtime**: Choose **Python 3.7**
 * **Role**: Click **Create new role from template(s)**. Then, from the **Policy Templates** list, select **Basic Edge Lambda permissions**.
 
 Click **Create Function** (bottom right corner of the page). After a few moments, you'll see configuration options for your Lambda function.
@@ -36,22 +36,27 @@ You'll need this page later on, so keep it open.
 
 ##### Zip the source files
 
-Download the [CloudWatch Logs Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/cloudwatch) project from GitHub to your computer, and zip the Python files in the src/ folder.
+Clone the CloudWatch Logs Shipper - Lambda project from GitHub to your computer,
+and zip the Python files in the `src/` folder.
 
 ```shell
-mkdir dist; cp -r ../shipper dist/ \
-  && cp src/lambda_function.py dist/ \
-  && cd dist/ \
-  && zip logzio-cloudwatch shipper/* lambda_function.py
+git clone https://github.com/logzio/logzio_aws_serverless.git \
+&& cd logzio_aws_serverless/python3/cloudwatch/ \
+&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper \
+&& cp src/lambda_function.py dist \
+&& cd dist/ \
+&& zip logzio-cloudwatch lambda_function.py python3/shipper/*
 ```
+
+You'll upload `logzio-cloudwatch.zip` in the next step.
 
 ##### Upload the zip file and set environment variables
 
-In the Function code section of Lambda find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
+In the _Function_ code section of Lambda, find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
 
 Click **Upload**, and choose the zip file you created earlier (`logzio-cloudwatch.zip`).
 
-In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
+In the _Environment variables_ section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
 ###### Environment variables
 

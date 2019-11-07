@@ -5,7 +5,7 @@ logo:
   orientation: vertical
 open-source:
   - title: Kinesis Stream Shipper - Lambda
-    github-repo: logzio_aws_serverless/tree/master/kinesis
+    github-repo: logzio_aws_serverless/tree/master/python3/kinesis
 data-source: Kinesis
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kinesis
 contributors:
@@ -37,7 +37,7 @@ Open the AWS Lambda Console, and click **Create function**.
 Choose **Author from scratch**, and use this information:
 
 * **Name**: We suggest adding the log type to the name, but you can name this function whatever you want.
-* **Runtime**: Choose **Python 2.7**
+* **Runtime**: Choose **Python 3.7**
 * **Role**: Use a role that has `AWSLambdaKinesisExecutionRole` permissions.
 
 Click **Create Function** (bottom right corner of the page). After a few moments, you'll see configuration options for your Lambda function.
@@ -46,18 +46,19 @@ You'll need this page later on, so keep it open.
 
 ##### Zip the source files
 
-Download the [Kinesis Stream Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/kinesis) project from GitHub to your computer.
-
-In the command line, `cd` into logzio_aws_serverless/kinesis, and zip the Python files in the src/ folder.
+Clone the Kinesis Stream Shipper - Lambda project from GitHub to your computer,
+and zip the Python files in the `src/` folder.
 
 ```shell
-mkdir dist; cp -r ../shipper dist/ \
-&& cp src/lambda_function.py dist/ \
+git clone https://github.com/logzio/logzio_aws_serverless.git \
+&& cd logzio_aws_serverless/python3/kinesis/ \
+&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper \
+&& cp src/lambda_function.py dist \
 && cd dist/ \
-&& zip logzio-kinesis shipper/* lambda_function.py
+&& zip logzio-kinesis lambda_function.py python3/shipper/*
 ```
 
-This creates a zip file at dist/logzio-kinesis.zip. You'll upload this file in the next step.
+You'll upload `logzio-kinesis.zip` in the next step.
 
 ##### Upload the zip file and set environment variables
 
@@ -66,7 +67,7 @@ Choose **Upload a .ZIP file** from this list.
 
 Click **Upload**, and choose the zip file you created earlier (`logzio-kinesis.zip`).
 
-In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
+In the _Environment variables_ section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
 ###### Environment variables
 
@@ -122,29 +123,26 @@ an S3 bucket to store the CloudFormation package
 
 ##### Zip the source files
 
-Download the [Kinesis Stream Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/kinesis) project from GitHub to your computer.
-
-In the command line, `cd` into logzio_aws_serverless/kinesis, and zip the Python files in the src/ folder.
+Clone the Kinesis Stream Shipper - Lambda project from GitHub to your computer,
+and zip the Python files in the `src/` folder.
 
 ```shell
-mkdir dist; cp -r ../shipper dist/ \
-&& cp src/lambda_function.py dist/ \
+git clone https://github.com/logzio/logzio_aws_serverless.git \
+&& cd logzio_aws_serverless/python3/kinesis/ \
+&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper \
+&& cp src/lambda_function.py dist \
 && cd dist/ \
-&& zip logzio-kinesis shipper/* lambda_function.py
+&& zip logzio-kinesis lambda_function.py python3/shipper/*
 ```
 
-This creates a zip file at `dist/logzio-kinesis.zip`.
-You'll upload this file in the next step.
-
 ##### Create the CloudFormation package and upload to S3
-
-In the command line, type `cd ..` to return to the logzio_aws_serverless/kinesis folder.
 
 Create the CloudFormation package using the AWS CLI.
 Replace `<<YOUR-S3-BUCKET>>` with the S3 bucket name where you'll be uploading this package.
 
 ```shell
-aws cloudformation package \
+cd ../ \
+&& aws cloudformation package \
   --template sam-template.yaml \
   --output-template-file kinesis-template.output.yaml \
   --s3-bucket <<YOUR-S3-BUCKET>>

@@ -15,7 +15,17 @@ shipping-tags:
   - aws
 ---
 
-#### Configuration
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Manual Lambda configuration](#manual-lambda-configuration)
+* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="manual-lambda-configuration">
+
+#### Manual configuration with a Lambda function
 
 <div class="tasklist">
 
@@ -97,3 +107,18 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="automated-cloudformation-deployment">
+
+<!-- ## Tab 2 setup (h2, end with the word 'setup' if possible) -->
+
+</div>
+<!-- tab:end -->
+
+
+</div>
+<!-- tabContainer:end -->

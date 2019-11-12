@@ -10,9 +10,10 @@ tags:
   - log-patterns
 contributors:
   - danielberman
+  - imnotashrimp
 ---
 
-Log Patterns dissects incoming logs and
+The Log Patterns feature dissects incoming logs and
 groups them according to detected patterns.
 As your logs come into Kibana, you'll see how they fit into existing patterns,
 in real time.

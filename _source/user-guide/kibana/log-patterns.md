@@ -80,6 +80,11 @@ Logz.io identified `Email` and `Guid` data in all logs with this pattern.
 If a variable wasn't tagged with a data type,
 Logz.io marks it with a wildcard expression: `.*`.
 
+###### What data will I see?
+
+Log Patterns recognizes these types of data: \\
+`Ip`, `Email`, `Url`, `Number`, `Path`, `Guid`, `Hash`, `Syslogtimestamp`, `Date`
+
 #### To see logs according to a pattern
 
 * Roll over a pattern to see the Kibana filter controls.

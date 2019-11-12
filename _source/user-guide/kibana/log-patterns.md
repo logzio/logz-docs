@@ -5,7 +5,7 @@ description: Log Patterns analyzes log messages and groups them according to det
 permalink: /user-guide/kibana/log-patterns.html
 flags:
   beta: true
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - log-patterns
 contributors:

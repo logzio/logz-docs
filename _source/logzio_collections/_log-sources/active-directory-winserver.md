@@ -22,7 +22,7 @@ shipping-tags:
 ##### Download the Logz.io certificate
 
 Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
-We'll place the certificate in `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
+We'll place the certificate in `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
 
 ##### Configure Windows applications as an input
 

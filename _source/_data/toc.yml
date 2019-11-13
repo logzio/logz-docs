@@ -35,15 +35,9 @@ firstLevel:
   secondLevel:
   - title: Kibana
     url: /user-guide/kibana/
-    # thirdLevel:
-    # - title: Discover
-    #   url: /user-guide/kibana/discover.html
-    # - title: Filter
-    # - title: Search
-    # - title: Create a visualization
-    # - title: Work with dashboards
-    # - title: Share visualizations & dashboards
-    # - title: ELK Apps
+    thirdLevel:
+      - title: Log patterns
+        url: /user-guide/kibana/log-patterns.html
 
   - title: Alerts
     url: /user-guide/alerts/

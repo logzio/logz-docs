@@ -26,8 +26,12 @@ We'll place the certificate in `C:\ProgramData\Winlogbeat\COMODORSADomainValidat
 
 ##### Configure Windows applications as an input
 
-In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default),
-add these code block to the root level.
+Rename the original Winlogbeat configuration file
+(`C:\Program Files\Winlogbeat\winlogbeat.yml`)
+to `winlogbeat_BAKCUP.yml`.
+
+Create a new `winlogbeat.yml` file,
+and paste these code blocks.
 
 {% include log-shipping/replace-vars.html token=true %}
 
@@ -74,7 +78,7 @@ processors:
 
 ##### Add Logz.io as an output
 
-If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
+Add Logz.io as an output.
 
 {% include log-shipping/replace-vars.html listener=true %}
 
@@ -86,26 +90,10 @@ output.logstash:
     certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Remove remaining default blocks
-
-If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
-
-```yaml
-# Remove this block if it's still in the config file
-setup.template.settings:
-  index.number_of_shards: 3
-```
-
-```yaml
-# Remove this block if it's still in the config file
-output.elasticsearch:
-  hosts: ["localhost:9200"]
-```
-
 ##### Restart Winlogbeat
 
 ```powershell
-PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
+Restart-Service winlogbeat
 ```
 
 ##### Check Logz.io for your logs

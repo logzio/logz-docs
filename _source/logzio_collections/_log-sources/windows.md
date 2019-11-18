@@ -35,7 +35,12 @@ We'll place the certificate in `C:\ProgramData\Filebeat\COMODORSADomainValidatio
 
 ##### Configure Windows input
 
-In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add this code block to the root level.
+Rename the original Winlogbeat configuration file
+(`C:\Program Files\Winlogbeat\winlogbeat.yml`)
+to `winlogbeat_BAKCUP.yml`.
+
+Create a new `winlogbeat.yml` file,
+and paste these code blocks.
 
 {% include log-shipping/replace-vars.html token=true %}
 
@@ -49,7 +54,8 @@ fields_under_root: true
 
 ##### Add Logz.io as an output
 
-If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
+If Logz.io is not an output in the Winlogbeat configuration file
+(`C:\Program Files\Winlogbeat\winlogbeat.yml` by default), add it now.
 
 {% include log-shipping/replace-vars.html listener=true %}
 
@@ -58,22 +64,6 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
     certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
-```
-
-##### Remove remaining default blocks
-
-If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
-
-```yaml
-# Remove this block if it's still in the config file
-setup.template.settings:
-  index.number_of_shards: 3
-```
-
-```yaml
-# Remove this block if it's still in the config file
-output.elasticsearch:
-  hosts: ["localhost:9200"]
 ```
 
 ##### Restart Winlogbeat

@@ -101,6 +101,7 @@ data:
       process.include_top_n:
         by_cpu: 5      # include top 5 processes by CPU
         by_memory: 5   # include top 5 processes by memory
+      cpu.metrics:  ["percentages", "normalized_percentages"]
 
     - module: system
       period: 1m
@@ -119,7 +120,14 @@ data:
         - pod
         - container
         - volume
-      hosts: ["localhost:10255"]
+        - state_node
+        - state_pod
+        - state_container
+      hosts: ["https://${HOST_IP}:10250"]
+      enabled: true
+      bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      ssl.certificate_authorities:
+        - /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 ---
 # Deploy a Metricbeat instance per node for node metrics retrieval
 apiVersion: extensions/v1beta1
@@ -152,6 +160,10 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+        - name: HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
         - name: LOGZIO_METRICS_SHIPPING_TOKEN
           valueFrom:
             secretKeyRef:
@@ -275,15 +287,28 @@ metadata:
   labels:
     k8s-app: metricbeat
 rules:
-- apiGroups: [""] # "" indicates the core API group
+- apiGroups: [""]
   resources:
+  - nodes
   - namespaces
   - events
   - pods
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["extensions"]
+  resources:
+  - replicasets
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["apps"]
+  resources:
+  - statefulsets
+  - deployments
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - ""
+  resources:
+  - nodes/stats
   verbs:
   - get
-  - watch
-  - list
 ---
 apiVersion: v1
 kind: ServiceAccount

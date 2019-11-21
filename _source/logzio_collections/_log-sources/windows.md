@@ -45,6 +45,12 @@ Paste these code blocks.
 {% include log-shipping/replace-vars.html token=true %}
 
 ```yaml
+winlogbeat.event_logs:
+  - name: Application
+    ignore_older: 72h
+  - name: Security
+  - name: System
+
 fields:
   logzio_codec: json
   token: <<SHIPPING-TOKEN>>

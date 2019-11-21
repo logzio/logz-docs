@@ -23,24 +23,24 @@ shipping-tags:
 #### Configure Winlogbeat
 
 **Before you begin, you'll need**:
-[Winlogbeat](https://www.elastic.co/downloads/beats/winlogbeat)
+[Winlogbeat 7](https://www.elastic.co/downloads/beats/winlogbeat) or
+[Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html)
 
 <div class="tasklist">
 
 ##### Download the Logz.io certificate
 
-For HTTPS shipping, download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
+Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
 
 We'll place the certificate in `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
 
 ##### Configure Windows input
 
-Rename the original Winlogbeat configuration file
+If you're working with the default configuration file,
 (`C:\Program Files\Winlogbeat\winlogbeat.yml`)
-to `winlogbeat_BAKCUP.yml`.
+clear the contents and start with a fresh file.
 
-Create a new `winlogbeat.yml` file,
-and paste these code blocks.
+Paste these code blocks.
 
 {% include log-shipping/replace-vars.html token=true %}
 
@@ -52,10 +52,35 @@ fields:
 fields_under_root: true
 ```
 
+If you're running Winlogbeat 7, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+# ... For Winlogbeat 7 only ...
+processors:
+  - rename:
+      fields:
+      - from: "agent"
+        to: "beat_agent"
+      ignore_missing: true
+  - rename:
+      fields:
+      - from: "log.file.path"
+        to: "source"
+      ignore_missing: true
+  - rename:
+      fields:
+      - from: "log"
+        to: "log_information"
+      ignore_missing: true
+```
+
+
 ##### Add Logz.io as an output
 
-If Logz.io is not an output in the Winlogbeat configuration file
-(`C:\Program Files\Winlogbeat\winlogbeat.yml` by default), add it now.
+If Logz.io isn't the output, set it now.
+
+Winlogbeat can have one output only, so remove any other `output` entries.
 
 {% include log-shipping/replace-vars.html listener=true %}
 
@@ -68,8 +93,10 @@ output.logstash:
 
 ##### Restart Winlogbeat
 
+Open PowerShell as an admin and run this command:
+
 ```powershell
-PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
+Restart-Service winlogbeat
 ```
 
 ##### Check Logz.io for your logs
@@ -150,8 +177,10 @@ Add the Logz.io listener in the `Output` block.
 
 ##### Restart NXLog
 
+Open PowerShell as an admin and run this command:
+
 ```powershell
-PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
+Restart-Service nxlog
 ```
 
 ##### Check Logz.io for your logs

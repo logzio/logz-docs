@@ -22,16 +22,16 @@ shipping-tags:
 ##### Download the Logz.io certificate
 
 Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
+
 We'll place the certificate in `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
 
 ##### Configure Windows applications as an input
 
-Rename the original Winlogbeat configuration file
+If you're working with the default configuration file,
 (`C:\Program Files\Winlogbeat\winlogbeat.yml`)
-to `winlogbeat_BAKCUP.yml`.
+clear the contents and start with a fresh file.
 
-Create a new `winlogbeat.yml` file,
-and paste these code blocks.
+Paste these code blocks.
 
 {% include log-shipping/replace-vars.html token=true %}
 
@@ -78,7 +78,9 @@ processors:
 
 ##### Add Logz.io as an output
 
-Add Logz.io as an output.
+If Logz.io isn't the output, set it now.
+
+Winlogbeat can have one output only, so remove any other `output` entries.
 
 {% include log-shipping/replace-vars.html listener=true %}
 

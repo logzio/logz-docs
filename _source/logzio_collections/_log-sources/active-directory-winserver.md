@@ -31,7 +31,7 @@ If you're working with the default configuration file,
 (`C:\Program Files\Winlogbeat\winlogbeat.yml`)
 clear the contents and start with a fresh file.
 
-Paste these code blocks.
+Paste this code block.
 
 {% include log-shipping/replace-vars.html token=true %}
 

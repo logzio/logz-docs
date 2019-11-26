@@ -22,12 +22,16 @@ shipping-tags:
 ##### Download the Logz.io certificate
 
 Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
+
 We'll place the certificate in `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
 
 ##### Configure Windows applications as an input
 
-In the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default),
-add these code block to the root level.
+If you're working with the default configuration file,
+(`C:\Program Files\Winlogbeat\winlogbeat.yml`)
+clear the contents and start with a fresh file.
+
+Paste this code block.
 
 {% include log-shipping/replace-vars.html token=true %}
 
@@ -74,7 +78,9 @@ processors:
 
 ##### Add Logz.io as an output
 
-If Logz.io is not an output in the Winlogbeat configuration file (C:\Program Files\Winlogbeat\winlogbeat.yml by default), add it now.
+If Logz.io isn't the output, set it now.
+
+Winlogbeat can have one output only, so remove any other `output` entries.
 
 {% include log-shipping/replace-vars.html listener=true %}
 
@@ -86,26 +92,10 @@ output.logstash:
     certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Remove remaining default blocks
-
-If the `output.elasticsearch` and `setup.template.settings` blocks are still in the configuration file, remove them.
-
-```yaml
-# Remove this block if it's still in the config file
-setup.template.settings:
-  index.number_of_shards: 3
-```
-
-```yaml
-# Remove this block if it's still in the config file
-output.elasticsearch:
-  hosts: ["localhost:9200"]
-```
-
 ##### Restart Winlogbeat
 
 ```powershell
-PS C:\Program Files\Winlogbeat> Restart-Service winlogbeat
+Restart-Service winlogbeat
 ```
 
 ##### Check Logz.io for your logs

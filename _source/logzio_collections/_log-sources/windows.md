@@ -32,7 +32,7 @@ shipping-tags:
 
 Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
 
-We'll place the certificate in `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
+We'll place the certificate in `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
 
 ##### Configure Windows input
 
@@ -94,7 +94,7 @@ Winlogbeat can have one output only, so remove any other `output` entries.
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ##### Restart Winlogbeat

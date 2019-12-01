@@ -9,7 +9,7 @@
 
 tabs:
   - collection: log-sources
-  # -  collection: metrics-sources
+  - collection: metrics-sources
   - collection: shippers
   - collection: community-shippers
     top-content: >-

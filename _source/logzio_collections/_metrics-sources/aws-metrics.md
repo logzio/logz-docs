@@ -18,11 +18,14 @@ root access
 
 <div class="tasklist">
 
-##### Create a policy
+##### Choose a policy
 
-Later in this process, you'll create a group and a user.
-But before you do that, you'll need to create a policy
+Later in this process, you'll create an IAM group and user.
+But before you do that, you'll need to choose or create a policy
 with the right permissions.
+
+If you already have a policy you want to use,
+you can skip to step 2.
 
 In the _Identity and Access Management_ page,
 click **Policies** in the left menu,
@@ -59,7 +62,11 @@ such as "logzio-metrics-policy".
 
 Click **Create policy**.
 
-##### Attach the policy to a group
+##### Attach a group to the policy
+
+If you already have a group you want to use,
+attach the policy from step 1 to it.
+You can skip to step 3.
 
 In the _Identity and Access Management_ page,
 click **Groups** in the left menu,
@@ -78,7 +85,11 @@ and then click **Next Step**.
 
 Click **Create group**.
 
-##### Attach the group to a user
+##### Attach a user to the group
+
+If you already have a user you want to use,
+attach it to the group from step 2.
+You can skip to step 4.
 
 In the _Identity and Access Management_ page,
 click **Users** in the left menu,
@@ -136,7 +147,7 @@ for collecting metrics from EC2 and CloudWatch.
 
 ```yaml
 metricbeat.modules:
-- period: 300s
+- period: 300s # Must be multiples of 60
   module: aws
   metricsets:
     - ec2
@@ -145,7 +156,7 @@ metricbeat.modules:
     - namespace: AWS/Lambda
   access_key_id: <<YOUR-AWS-ACCESS-KEY>>
   secret_access_key: <<YOUR-AWS-SECRET-KEY>>
-- period: 60s
+- period: 60s # Must be multiples of 60
   module: aws
   metricsets:
     - cloudwatch
@@ -163,13 +174,16 @@ type: aws_metrics
 
 #. Logz.io output
 output.logstash:
-  hosts: ["listener.logz.io:5015"]
+  hosts: ["<<LISTENER-HOST>>:5015"]
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
+##### Start Metricbeat
+
+Start or restart Metricbeat for the changes to take effect.
+
 ##### Check Logz.io for your metrics
 
-Spin up your Docker containers if you haven't done so already.
 Give your metrics a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 </div>

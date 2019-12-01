@@ -1,5 +1,5 @@
 ---
-title: Ship Docker metrics
+title: Ship metrics with Docker
 logo:
   logofile: docker.svg
   orientation: horizontal
@@ -42,7 +42,7 @@ For a complete list of options, see the parameters below the code block.👇
 ```shell
 docker run --name docker-collector-metrics \
 --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
---env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
+--env LOGZIO_URL="<<LISTENER-HOST>>" \
 --env LOGZIO_MODULES="docker" \
 -v /var/run/docker.sock:/var/run/docker.sock:ro \
 logzio/docker-collector-metrics
@@ -53,7 +53,7 @@ logzio/docker-collector-metrics
 | Parameter | Description |
 |---|---|
 | LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
-| LOGZIO_URL <span class="required-param"></span> | Logz.io listener URL to ship the metrics to. {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_URL <span class="required-param"></span> | Logz.io listener host to ship the metrics to. {% include log-shipping/replace-vars.html listener=true %} |
 | LOGZIO_MODULES <span class="required-param"></span> | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/logzio_modules`. |
 | LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | The log type you'll use with this Docker. This is shown under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
 | LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |

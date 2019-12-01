@@ -184,6 +184,6 @@ Start or restart Metricbeat for the changes to take effect.
 
 ##### Check Logz.io for your metrics
 
-Give your metrics a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your metrics a few minutes to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
 
 </div>

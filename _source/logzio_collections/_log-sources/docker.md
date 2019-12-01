@@ -188,7 +188,7 @@ For a complete list of options, see the configuration parameters in step 2.‚òùÔ∏
 
 ##### Check Logz.io for your logs
 
-Spin up your Docker containers if you haven't done so already. Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Spin up your Docker containers if you haven't done so already. Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

@@ -152,6 +152,6 @@ The selected data will now stream to the event hub.
 
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, and then open Kibana.
+Give your data some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
 
 </div>

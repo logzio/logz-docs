@@ -7,15 +7,26 @@ data-source: CloudWatch
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudWatch
 open-source:
   - title: CloudWatch Lambda Log Shipper
-    github-repo: logzio_aws_serverless/tree/master/cloudwatch
+    github-repo: logzio_aws_serverless/tree/master/python3/cloudwatch
 contributors:
   - idohalevi
   - imnotashrimp
+  - ronish31
 shipping-tags:
   - aws
 ---
 
-#### Configuration
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Manual Lambda configuration](#manual-lambda-configuration)
+* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="manual-lambda-configuration">
+
+#### Manual configuration with a Lambda function
 
 <div class="tasklist">
 
@@ -27,7 +38,7 @@ Open the AWS Lambda Console, and click **Create function**.
 Choose **Author from scratch**, and use this information:
 
 * **Name**: We suggest adding the log type to the name, but you can name this function whatever you want.
-* **Runtime**: Choose **Python 2.7**
+* **Runtime**: Choose **Python 3.7**
 * **Role**: Click **Create new role from template(s)**. Then, from the **Policy Templates** list, select **Basic Edge Lambda permissions**.
 
 Click **Create Function** (bottom right corner of the page). After a few moments, you'll see configuration options for your Lambda function.
@@ -36,22 +47,27 @@ You'll need this page later on, so keep it open.
 
 ##### Zip the source files
 
-Download the [CloudWatch Logs Shipper - Lambda](https://github.com/logzio/logzio_aws_serverless/tree/master/cloudwatch) project from GitHub to your computer, and zip the Python files in the src/ folder.
+Clone the CloudWatch Logs Shipper - Lambda project from GitHub to your computer,
+and zip the Python files in the `src/` folder.
 
 ```shell
-mkdir dist; cp -r ../shipper dist/ \
-  && cp src/lambda_function.py dist/ \
-  && cd dist/ \
-  && zip logzio-cloudwatch shipper/* lambda_function.py
+git clone https://github.com/logzio/logzio_aws_serverless.git \
+&& cd logzio_aws_serverless/python3/cloudwatch/ \
+&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper \
+&& cp src/lambda_function.py dist \
+&& cd dist/ \
+&& zip logzio-cloudwatch lambda_function.py python3/shipper/*
 ```
+
+You'll upload `logzio-cloudwatch.zip` in the next step.
 
 ##### Upload the zip file and set environment variables
 
-In the Function code section of Lambda find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
+In the _Function_ code section of Lambda, find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
 
 Click **Upload**, and choose the zip file you created earlier (`logzio-cloudwatch.zip`).
 
-In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
+In the _Environment variables_ section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
 ###### Environment variables
 
@@ -92,3 +108,85 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="automated-cloudformation-deployment">
+
+#### Automated CloudFormation deployment
+
+**Before you begin, you'll need**:
+AWS CLI,
+an S3 bucket to store the CloudFormation package
+
+<div class="tasklist">
+
+##### Zip the source files
+
+Clone the CloudWatch Logs Shipper - Lambda project from GitHub to your computer,
+and zip the Python files in the `src/` folder.
+
+```shell
+git clone https://github.com/logzio/logzio_aws_serverless.git \
+&& cd logzio_aws_serverless/python3/cloudwatch/ \
+&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper \
+&& cp src/lambda_function.py dist \
+&& cd dist/ \
+&& zip logzio-cloudwatch lambda_function.py python3/shipper/*
+```
+
+##### Create the CloudFormation package and upload to S3
+
+Create the CloudFormation package using the AWS CLI.
+Replace `<<YOUR-S3-BUCKET>>` with the S3 bucket name where you'll be uploading this package.
+
+```shell
+cd ../ \
+&& aws cloudformation package \
+  --template sam-template.yaml \
+  --output-template-file cloudformation-template.output.yaml \
+  --s3-bucket <<YOUR-S3-BUCKET>>
+```
+
+##### Deploy the CloudFormation package
+
+Deploy the CloudFormation package using AWS CLI.
+
+For a complete list of options, see the configuration parameters below the code block. 👇
+
+```shell
+aws cloudformation deploy
+--template-file $(pwd)/cloudformation-template.output.yaml
+--stack-name logzio-cloudwatch-logs-lambda-stack
+--parameter-overrides
+  LogzioTOKEN='<<SHIPPING-TOKEN>>'
+--capabilities "CAPABILITY_IAM"
+```
+
+###### Parameters
+
+| Parameter | Description |
+|---|---|
+| LogzioTOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| KinesisStream <span class="required-param"></span> | The name of the Kinesis stream where this function will listen for updates. |
+| LogzioURL <span class="default-param">`https://listener.logz.io:8071`</span> | {% include log-shipping/replace-vars.html listener='noReplace' %} <!-- logzio-inject:listener-url --> |
+| LogzioTYPE <span class="default-param">`logzio_kinesis_stream`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
+| LogzioFORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
+| LogzioCOMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
+| KinesisStreamBatchSize <span class="default-param">`100`</span> | The largest number of records to read from your stream at one time. |
+| KinesisStreamStartingPosition <span class="default-param">`LATEST`</span> | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. |
+{:.paramlist}
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

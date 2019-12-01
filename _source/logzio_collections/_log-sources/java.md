@@ -49,7 +49,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
   <dependency>
     <groupId>io.logz.log4j2</groupId>
     <artifactId>logzio-log4j2-appender</artifactId>
-    <version>1.0.10</version>
+    <version>1.0.12</version>
   </dependency>
 </dependencies>
 ```
@@ -215,7 +215,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
   <dependency>
     <groupId>io.logz.logback</groupId>
     <artifactId>logzio-logback-appender</artifactId>
-    <version>1.0.20</version>
+    <version>1.0.23</version>
   </dependency>
 </dependencies>
 ```

@@ -19,7 +19,7 @@ shipping-tags:
 
 * [Run as a standalone app](#standalone-config)
 * [Run in a Docker container](#docker-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <!-- tab:start -->
 <div id="standalone-config">

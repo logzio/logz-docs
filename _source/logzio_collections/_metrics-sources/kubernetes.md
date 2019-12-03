@@ -28,7 +28,7 @@ Otherwise, deploy kube-state-metrics to your cluster.
 
 ```shell
 git clone https://github.com/kubernetes/kube-state-metrics.git \
-  && kubectl --namespace=kube-system apply -f kube-state-metrics/kubernetes
+  && kubectl --namespace=kube-system apply -f kube-state-metrics/examples/standard
 ```
 
 ##### Store your Logz.io credentials

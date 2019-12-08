@@ -1,7 +1,7 @@
 ---
 layout: article
-title: Configure alerts
-permalink: /user-guide/alerts/configure-alerts.html
+title: Configure an alert
+permalink: /user-guide/alerts/configure-an-alert.html
 flags:
   logzio-plan: community
 tags:
@@ -10,101 +10,166 @@ contributors:
   - imnotashrimp
 ---
 
-To create a new alert, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Alert page, where you can configure the alert and notification settings.
+When you set out to create an alert,
+you'll need to start with a query.
+If you haven't formed your query yet,
+we recommend starting off in Kibana
+so you can see the results of the query in real time.
+
+Otherwise, if you already have a query and filters,
+you can create a blank alert
+from the top menu (**Alerts & Events > New alert**)
+or from the _Alert definitions_ page
 
 Community plans have a maximum of 50 alerts.
 {:.info-box.note}
 
-If you want help updating an existing alert, you can [skip the first part of this page](#to-configure-an-alert).
+#### To create an alert in Kibana
 
-#### To start a new alert
+![Kibana 7 search bar]({{site.baseurl}}/images/kibana/kibana-7-search-bar.png)
 
-![Kibana query bar]({{site.baseurl}}/images/kibana/kibana--query-bar.png)
+Refine your search query and filters,
+and review the returned logs
+to make sure you got the expected results.
 
-##### Set your query in Kibana
+Alerts support Lucene query language only.
+You won't be able to create an alert
+from a search written in Kibana Query Language (KQL).
+{:.info-box.important}
 
-In Kibana, type a query in the query bar
-and press Enter.
-Review the results in the histogram and the document table,
-and make sure your query returned the expected results.
-
-Click **Create Alert** (to the right of the query bar).
-The _Create Alert Definition_ page is shown.
+Once you're happy with your alert,
+click **Create alert** (above the query bar).
+You're taken to the _New alert_ page.
 
 Continue with [To configure an alert](#to-configure-an-alert).
 
 #### To configure an alert {#to-configure-an-alert}
 
-![Configure an Alert]({{site.baseurl}}/images/alerts/alerts--configure-alert.png)
-
 <div class="tasklist">
 
-##### Name and tag the alert
+##### Name the alert
 
-Type a **Name** and a detailed **Description**.
+Give your alert a meaningful name.
 
-Add **Tags** to help categorize this alert.
+If your alert is triggered,
+the name is used as the email subject or Slack heading.
+A helpful name gives the quick need-to-know-now information
+and doesn't use unnecessary words.
 
-##### _(Optional)_ Edit the search settings
+##### Edit the search settings
 
-If you need to, change your alert **Query** and the **Accounts** that the query will search.
+###### Query and filters
 
-If you use an invalid query, the alert will be automatically disabled. Run your query in Kibana so you can be sure you're getting the expected results.
+![Alert query and filters]({{site.baseurl}}/images/alerts/query-and-filters.png)
+
+If you need to change your alert query and filters,
+do that now.
+
+Your query is an important source of information
+when you're investigating a triggered alert.
+Shorten your query by using filters whenever you can.
+
+If you use an invalid query,
+the alert will be automatically disabled.
+To make sure it's valid,
+test your query in Kibana.
 {:.info-box.important}
 
-##### _(Optional)_ Edit group by settings
+###### Group by
 
-![Group alert fields]({{site.baseurl}}/images/alerts/alerts--group-by.png)
+![Alert group by settings]({{site.baseurl}}/images/alerts/alerts--group-by.png)
 
-Click **Add group by** to add up to 3 groups.
+Moving down, you'll come to the **Group by** setting next.
 
-In the **Select Field** list,
-choose a field to group by.
+With _Group by_, you can choose up to 3 fields to group.
+The alert will return the aggregated results for each group.
 
-To limit the available fields,
-choose a log type from the **Filter by type** list.
-To show fields for all log types, choose **Clear filter**.
+Careful, though: The order of these fields matters.
+Results are grouped by
+the leftmost field, then the center field, then the right field.
+In other words, the image above groups results by
+continent, then country, then city.
+If we had reversed the order (city, then country, then continent),
+it would likely generate unintended results.
+
+###### Accounts to search
+
+![Accounts to search setting]({{site.baseurl}}/images/alerts/accounts-to-search.png)
+
+Next you'll choose the _Accounts to search_.
+
+If you choose **All accounts**,
+this alert will query the logs in all the accounts it has access to.
+This will include future accounts.
+
+To limit the alert to a set list of accounts,
+click **Just these accounts**,
+and add the accounts you want.
+This list is always limited to your selection,
+so you'll need to manually update the list if you need it to change.
 
 ##### Set threshold and severity levels
 
-Set your threshold and severity levels in the **Trigger** section.
-Click **Add multiple conditions** to add up to 3 threshold levels.
-
 ![Alert trigger thresholds]({{site.baseurl}}/images/alerts/alerts--trigger-settings.png)
 
-##### _(Optional)_ Set recipients
+Set your threshold and severity levels in the _Trigger if..._ section.
 
-If you want to receive notifications or emails when the alert is triggered,
-choose an alert endpoint.
-If you don't choose an endpoint,
-triggered alerts will still be logged:
+Click **Add a threshold** to set up to 5 threshold levels,
+each with its own severity tag.
 
-![Alert notification actions]({{site.baseurl}}/images/alerts/alerts--notification-action.png)
+##### _(Optional)_ Set notification details
 
-Choose the endpoints or email addresses to notify.
+###### Description and tags
+
+![Alert description and tags]({{site.baseurl}}/images/alerts/description-and-tags.png)
+
+The **Description** is visible on the _Alert definitions_ page.
+It's also included with emails and Slack messages when the alert is triggered.
+We recommend making your description helpful to recipients,
+like telling them how to fix the issues that led to the alert.
+
+The **Tags** are useful for filtering the _Alert definitions_ page.
+
+###### Who to send it to
+
+![Recipients and suppress notifications]({{site.baseurl}}/images/alerts/recipients-and-suppress.png)
+
+If you want to send notifications or emails when the alert is triggered,
+choose notification endpoints.
+This isn't required, though—triggered alerts are still logged and searchable in Kibana.
+
+Choose the endpoints or email addresses to notify under _Who to send it to_.
 If you need help adding a new endpoint,
 see [Alert endpoints]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 
 Choose a time period to suppress notifications.
 
-When notifications are suppressed, Logz.io will continue to log triggered alerts without sending notifications. You can search triggered alert logs at any time.
+When notifications are suppressed,
+Logz.io will continue to log triggered alerts without sending notifications.
+You can search triggered alert logs at any time.
 {:.info-box.note}
 
-##### Choose an output format
+###### Output format
 
-Choose an **Output**.
+![Output table]({{site.baseurl}}/images/alerts/output-table.png)
 
-<video autoplay loop>
-    <source src="{{site.baseurl}}/videos/alerts/alerts--custom-format.mp4" type="video/mp4" />
-</video>
+You can choose to send **All fields** in JSON format,
+or **Custom fields** as a table or JSON.
 
-To send raw JSON documents to your alert endpoints, choose **Default format**. To send a summary table, choose **Custom format**.
-
-If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your **Group by** selection.
+If you added any groups or used an aggregated trigger condition
+(minimum, maximum, average, or sum),
+the output will use only grouped or aggregated fields.
+To change these fields, you'll need to change your **Group by** or **Trigger if...** settings.
 {:.info-box.note}
 
-If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
+If you choose a table,
+click **<i class="li li-plus"></i> Add a field** to add a column to the table.
+You can optionally sort each field or filter the output with a regular expression.
 
-Click **Save** to save your alert. If the thresholds are passed and the alert is triggered, Logz.io will log the alert and send the configured notifications.
+##### Save it!
+
+Click **Save** to save your alert.
+If the thresholds are passed and the alert is triggered,
+Logz.io will log the alert and send the configured notifications.
 
 </div>

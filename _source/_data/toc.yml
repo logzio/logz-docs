@@ -42,8 +42,8 @@ firstLevel:
   - title: Alerts
     url: /user-guide/alerts/
     thirdLevel:
-    - title: Configure alerts
-      url: /user-guide/alerts/configure-alerts.html
+    - title: Configure an alert
+      url: /user-guide/alerts/configure-an-alert.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
 

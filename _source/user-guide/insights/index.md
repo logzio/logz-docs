@@ -26,5 +26,5 @@ Insights list
 : This table gives more complete information on the insights shown in the chart
 
 Notifications control
-: Allows you to set emails or alert endpoints that will receive a message when Logz.io finds new insights in your account
+: Allows you to set emails or notification endpoints that will receive a message when Logz.io finds new insights in your account
 {:.letter-labels}

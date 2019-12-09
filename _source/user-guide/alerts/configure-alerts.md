@@ -21,7 +21,7 @@ you can create a blank alert
 from the top menu (**Alerts & Events > New alert**)
 or from the _Alert definitions_ page
 
-Community plans have a maximum of 50 alerts.
+Community plans can have up to 50 alerts enabled at a time.
 {:.info-box.note}
 
 #### To create an alert in Kibana

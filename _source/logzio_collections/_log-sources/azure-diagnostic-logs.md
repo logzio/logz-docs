@@ -147,7 +147,7 @@ Choose your event hub:
 
 Click **OK** to return to the _Diagnostics settings_ panel.
 
-In the _Log_ section, select the data you want to stream, and then click **Save**.
+In the _log_ section, select the data you want to stream, and then click **Save**.
 The selected data will now stream to the event hub.
 
 ##### Check Logz.io for your logs

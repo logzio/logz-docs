@@ -133,7 +133,12 @@ When data comes into the event hub, the function app will forward that data to L
 In the search bar, type "Activity", and then click **Activity log**.
 This brings you to the _Activity log_ page.
 
-In the button bar, click **Export to Event Hub**, and then click **Select a service bus namespace**.
+In the button bar, click **Diagnostic settings**, and then click **+ Add diagnostic setting**.
+This takes you to the _Diagnostic settings_ page.
+
+Give your diagnostic settings a **Name**.
+
+Select **Stream to an event hub**, and then click **Configure** to open the _Select event hub_ panel.
 
 Choose your event hub:
 
@@ -142,7 +147,7 @@ Choose your event hub:
 * **Event hub policy name**: Choose **LogzioSharedAccessKey**
 * Click **OK** to return to Diagnostics settings.
 
-In the _Log_ section, select the logs you want to stream, and then click **Save**.
+In the _log_ section, select the logs you want to stream, and then click **Save**.
 The selected logs will now stream to the event hub.
 
 ##### Check Logz.io for your logs

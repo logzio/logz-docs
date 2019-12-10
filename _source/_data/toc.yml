@@ -68,6 +68,11 @@ firstLevel:
   - title: Live Tail
     url: /user-guide/live-tail/
 
+  - title: Infrastructure Monitoring
+    thirdLevel:
+    - title: Configure Grafana drilldown links
+      url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
+
   - title: Security Analytics
     url: /user-guide/security-analytics/
     thirdLevel:

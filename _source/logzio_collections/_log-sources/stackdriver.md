@@ -11,7 +11,6 @@ contributors:
   - ronish31
   - imnotashrimp
 shipping-tags:
-  - log-shipper
   - gcp
 ---
 

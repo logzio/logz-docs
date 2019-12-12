@@ -151,7 +151,7 @@ Click the _Visualization_ icon to the left to see visualization options.
 ![Panel configuration, visualization  options]({{site.baseurl}}/images/grafana/panel-config--query--visualization.png)
 
 The visualization doesn't require anything special
-for Logz.io—configure the visualization as you normally would.
+for Logz.io—configure it as you normally would.
 
 ##### Configure the drilldown
 

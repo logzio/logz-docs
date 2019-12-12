@@ -56,7 +56,7 @@ you'll reference that variable as `$hostName`.
 Set a human-readable **Label** that will be shown
 as filter controls at the top of your dashboard.
 If we use our `$hostName` example,
-a good label would be "Container name".
+a good label would be "Host name".
 
 In the **Type** list, choose **Query**.
 

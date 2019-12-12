@@ -69,6 +69,7 @@ firstLevel:
     url: /user-guide/live-tail/
 
   - title: Infrastructure Monitoring
+    url: /user-guide/infrastructure-monitoring/
     thirdLevel:
     - title: Configure Grafana drilldown links
       url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
@@ -200,14 +201,7 @@ firstLevel:
     - title: Backing up Kibana objects to GitHub
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
 
-  #   - title: Create alert
-  #   - title: Kibana import
-  #   - title: Create snapshots
-  #   - title: Allocate account volume
-  #   - title: Create a user
-
-
-  # ===== MORE =====
+# ===== MORE =====
 - title: ""
   secondLevel:
   - title: Blog

@@ -441,15 +441,17 @@ paths:
               _source:
                 type: array
                 description: >-
-                  * _Option 1:_ A single item to say whether you want to return the `_source` field.
+                  An array of fields to return.
+                  If you don't include `_source` in the request,
+                  all fields are returned.
 
-                  * _Option 2:_ An array of fields to return.
+
+                  **Note**:
+                  Alternatively, you can pass `'_source': false`
+                  to exclude the `_source` field from the results.
                 items:
-                  - type: boolean
-                    description: To return the `_source` field, `true`. Otherwise, `false`.
-                    example: true
                   - type: string
-                    description: Fields to return
+                    description: Field to return.
               post_filter:
                 type: object
               aggs:
@@ -2700,15 +2702,17 @@ definitions:
       _source:
         type: array
         description: >-
-          * _Option 1:_ A single item to say whether you want to return the `_source` field.
+          An array of fields to return.
+          If you don't include `_source` in the request,
+          all fields are returned.
 
-          * _Option 2:_ An array of fields to return.
+
+          **Note**:
+          Alternatively, you can pass `'_source': false`
+          to exclude the `_source` field from the results.
         items:
-          - type: boolean
-            description: To return the `_source` field, `true`. Otherwise, `false`.
-            example: true
           - type: string
-            description: Fields to return
+            description: Field to return.
       post_filter:
         type: object
       scroll_id:

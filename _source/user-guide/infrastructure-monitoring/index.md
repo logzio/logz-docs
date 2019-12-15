@@ -25,8 +25,9 @@ Pre-built dashboards
 : Our team of content developers are always creating new dashboards
   that work with your data sources,
   no configuration required.
-  Most of these dashboards include the drilldown links you'll need
-  to explore related logs in Kibana.
+  Most of these dashboards include the
+  [drilldown links]({{site.baseurl}}/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html)
+  you'll need to explore related logs in Kibana.
 
 The _Welcome_ dashboard
 : When you first log in to Logz.io Infrastructure Monitoring,

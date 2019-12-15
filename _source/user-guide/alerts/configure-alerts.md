@@ -19,7 +19,9 @@ so you can see the results of the query in real time.
 Otherwise, if you already have a query and filters,
 you can create a blank alert
 from the top menu (**Alerts & Events > New alert**)
-or from the _Alert definitions_ page
+or from the _Alert definitions_ page.
+You can also create an alert
+from Application Insights or Cognitive Insights.
 
 Community plans can have up to 50 alerts enabled at a time.
 {:.info-box.note}
@@ -41,9 +43,9 @@ Once you're happy with your alert,
 click **Create alert** (above the query bar).
 You're taken to the _New alert_ page.
 
-Continue with [To configure an alert](#to-configure-an-alert).
+Continue with _To configure an alert_. 👇
 
-#### To configure an alert {#to-configure-an-alert}
+#### To configure an alert
 
 <div class="tasklist">
 
@@ -69,12 +71,6 @@ Your query is an important source of information
 when you're investigating a triggered alert.
 Shorten your query by using filters whenever you can.
 
-If you use an invalid query,
-the alert will be automatically disabled.
-To make sure it's valid,
-test your query in Kibana.
-{:.info-box.important}
-
 ###### Group by
 
 ![Alert group by settings]({{site.baseurl}}/images/alerts/alerts--group-by.png)
@@ -84,11 +80,12 @@ Moving down, you'll come to the **Group by** setting next.
 With _Group by_, you can choose up to 3 fields to group.
 The alert will return the aggregated results for each group.
 
-Careful, though: The order of these fields matters.
+Careful: The order of group by fields matters.
 Results are grouped by
 the leftmost field, then the center field, then the right field.
-In other words, the image above groups results by
-continent, then country, then city.
+{:.info-box.important}
+
+The image above groups results by continent, then country, then city.
 If we had reversed the order (city, then country, then continent),
 it would likely generate unintended results.
 
@@ -142,7 +139,8 @@ Choose the endpoints or email addresses to notify under _Who to send it to_.
 If you need help adding a new endpoint,
 see [_Notification endpoints_]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 
-Choose a time period to suppress notifications.
+To limit how often recipients are notified,
+choose a time period to suppress notifications.
 
 When notifications are suppressed,
 Logz.io will continue to log triggered alerts without sending notifications.
@@ -154,7 +152,7 @@ You can search triggered alert logs at any time.
 ![Output table]({{site.baseurl}}/images/alerts/output-table.png)
 
 You can choose to send **All fields** in JSON format,
-or **Custom fields** as a table or JSON.
+or **Custom fields** as a table.
 
 If you added any groups or used an aggregated trigger condition
 (minimum, maximum, average, or sum),
@@ -164,7 +162,7 @@ To change these fields, you'll need to change your **Group by** or **Trigger if.
 
 If you choose a table,
 click **<i class="li li-plus"></i> Add a field** to add a column to the table.
-You can optionally sort each field or filter the output with a regular expression.
+You can optionally sort one field or filter the output with a regular expression.
 
 ##### Save it!
 

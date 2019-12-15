@@ -14,17 +14,21 @@ contributors:
 One of the most useful features you'll come across
 in Logz.io Infrastructure Monitoring
 is drilldown links.
-With drilldown links,
-if you see something funky,
-you can click a link
+If you see something funky,
+you can click a drilldown link
 and go straight to the related logs in Kibana.
 
-Drilldown links are preconfigured on any dashboards managed by Logz.io.
+Drilldown links are preconfigured on most dashboards managed by Logz.io.
 If you're setting up your own dashboard,
 you'll need to configure drilldown links.
 This doc shows you how.
 
 #### Set up dashboard variables {#set-up-dashboard-variables}
+
+Dashboards and drilldown links are most useful
+when they can be filtered.
+To enable filtering on a dashboard,
+you'll need to set up dashboard _variables_.
 
 **Before you begin, you'll need**:
 [Metrics]({{site.baseurl}}/shipping/) in your Logz.io metrics account
@@ -87,7 +91,7 @@ You have two options here:
   ```
 
 * Option 2: Reference another Grafana variable in the query.
-  In this example, `$cluster` is references another variable.
+  In this example, `$cluster` references another variable.
 
   ```json
   {"find": "terms", "field": "kubernetes.node.name", "query": "cluster:$cluster"}
@@ -134,9 +138,7 @@ Click **Add Query**.
 In the datasource list, choose your Infrastructure Monitoring account
 (Elasticsearch datasource).
 
-Configure the Kibana **Query**.
-When someone clicks the drilldown link,
-this is the query that will run in Kibana.
+Configure the Elasticsearch **Query**.
 
 For help configuring the query,
 see [Query Editor](https://grafana.com/docs/grafana/latest/guides/basic_concepts/#query-editor)

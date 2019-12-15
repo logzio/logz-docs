@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Our contributors
+title: Our writers
 permalink: /credits.html
 show-date: false
 community-info: false

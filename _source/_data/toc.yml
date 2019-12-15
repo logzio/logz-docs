@@ -68,6 +68,12 @@ firstLevel:
   - title: Live Tail
     url: /user-guide/live-tail/
 
+  - title: Infrastructure Monitoring
+    url: /user-guide/infrastructure-monitoring/
+    thirdLevel:
+    - title: Configure Grafana drilldown links
+      url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
+
   - title: Security Analytics
     url: /user-guide/security-analytics/
     thirdLevel:
@@ -91,12 +97,14 @@ firstLevel:
       url: /user-guide/accounts/manage-timeless-accounts.html
     - title: Manage the Security Analytics account
       url: /user-guide/accounts/manage-the-security-analytics-account.html
-    - title: Account region
-      url: /user-guide/accounts/account-region.html
+    - title: Manage the Infrastructure Monitoring account
+      url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
     - title: Support access
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
+  - title: Regions
+    url: /user-guide/accounts/account-region.html
   - title: Account usage
     url: /user-guide/accounts/manage-account-usage.html
 
@@ -193,14 +201,7 @@ firstLevel:
     - title: Backing up Kibana objects to GitHub
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
 
-  #   - title: Create alert
-  #   - title: Kibana import
-  #   - title: Create snapshots
-  #   - title: Allocate account volume
-  #   - title: Create a user
-
-
-  # ===== MORE =====
+# ===== MORE =====
 - title: ""
   secondLevel:
   - title: Blog

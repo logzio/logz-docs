@@ -1,8 +1,8 @@
 ---
 layout: article
-title: Account region
+title: Regions
 permalink: /user-guide/accounts/account-region.html
-description: Every Logz.io account is hosted in an account region. All services related to your account are colocated—so you'll ship logs, sign in, and access the API from the same region the account lives in.
+description: Every Logz.io account is hosted in a region. All services related to your account are colocated—so you'll ship logs, sign in, and access the API from the same region the account lives in.
 flags:
   admin: true
   logzio-plan: community
@@ -18,11 +18,11 @@ contributors:
 Every Logz.io account is hosted in an account region.
 All services related to your account are colocated—so you'll ship logs, sign in, and access the API from the same region the account lives in.
 
-## How can I find my account region?
+## How can I find my region?
 
 Glad you asked!
 
-To find your account region, sign in to Logz.io and look at the URL in the address bar.
+To find your region, sign in to Logz.io and look at the URL in the address bar.
 If you see `app.logz.io`, then your account is in the {{regions.us.title}}.
 All other regions have a hypen and then a two-letter region code.
 For example, if you see `app-eu.logz.io`, then your account is in the {{regions.eu.title}}.
@@ -44,5 +44,5 @@ Read on for a list of region codes and URLs.
   {%- else -%}
     {%- assign suffix = r[0] | prepend: "-" -%}
 {%- endcase -%}
-| {{attribs.title}} | {{attribs.cloud}} | app{{suffix}}.logz.io | listener{{suffix}}.logz.io | api{{suffix}}.logz.io | {{suffix | replace: "-", ""}} | 
+| {{attribs.title}} | {{attribs.cloud}} | app{{suffix}}.logz.io | listener{{suffix}}.logz.io | api{{suffix}}.logz.io | {{suffix | replace: "-", ""}} |
 {% endfor -%}

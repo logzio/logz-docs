@@ -21,7 +21,7 @@ shipping-tags:
 <div class="branching-container">
 
 * [docker-collector-logs <span class="sm ital">(recommended)</span>](#docker-collector-logs-config)
-* [logzio-logging-plugin](#logzio-logging-plugin-docker-logging-driver-config)
+* [logzio-logging-plugin](#logzio-logging-plugin-config)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -83,7 +83,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="logzio-logging-plugin-docker-logging-driver-config">
+<div id="logzio-logging-plugin-config">
 
 #### Set up logzio-logging-plugin
 

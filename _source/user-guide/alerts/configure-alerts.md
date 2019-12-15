@@ -149,6 +149,8 @@ You can search triggered alert logs at any time.
 
 ###### Output format
 
+If you chose recipients, you can also set the output format.
+
 ![Output table]({{site.baseurl}}/images/alerts/output-table.png)
 
 You can choose to send **All fields** in JSON format,

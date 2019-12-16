@@ -76,7 +76,7 @@ processors:
       ignore_missing: true
 ```
 
-##### Add Logz.io as an output
+##### Set Logz.io as the output
 
 If Logz.io isn't the output, set it now.
 

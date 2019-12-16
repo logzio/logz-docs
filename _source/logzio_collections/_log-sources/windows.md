@@ -82,7 +82,7 @@ processors:
 ```
 
 
-##### Add Logz.io as an output
+##### Set Logz.io as the output
 
 If Logz.io isn't the output, set it now.
 
@@ -164,7 +164,7 @@ Add an `Input` block to append your account token to log records.
 </Input>
 ```
 
-##### Add Logz.io as an output
+##### Set Logz.io as the output
 
 Add the Logz.io listener in the `Output` block.
 

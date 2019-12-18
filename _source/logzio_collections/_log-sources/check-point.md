@@ -1,87 +1,88 @@
 ---
-title: Ship logs from Wazuh
+title: Ship Check Point logs
 logo:
-  logofile: wazuh.svg
+  logofile: check-point.png
   orientation: vertical
-data-source: Wazuh
+data-source: Check Point
 contributors:
   - imnotashrimp
-  - schwin007
 shipping-tags:
   - security
+  - server-app
 ---
 
-## Setup
-
-<details>
-
-<summary>
-Configuration tl;dr
-</summary>
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
-| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Default log locations | JSON _(recommended)_: `/var/ossec/logs/alerts/alerts.json` <br> Plain text: `/var/ossec/logs/alerts/alerts.log` |
-{:.paramlist}
-
-</details>
-
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
+[Check Point Log Exporter](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323),
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 root access
 
 <div class="tasklist">
 
-##### Configure Wazuh for JSON logging
+##### Configure Check Point Log Exporter
 
-In the Wazuh configuration file (/var/ossec/etc/ossec.conf), find the `<logging>` tag, and set the `<log_format>` property to `json`.
+Configure your Check Point Log Exporter to send logs to your Filebeat server.
 
-```xml
-<logging>
-  <log_format>json</log_format>
-</logging>
-```
+For complete details on configuring Log Exporter, see
+[_Log Exporter - Check Point Log Export_](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323)
+from Check Point.
+{:.info-box.read}
 
-Restart Wazuh.
+###### Option 1: Export logs for all domains
 
 ```shell
-sudo systemctl restart wazuh-manager
+cp_log_export add name logzio_filebeat_exporter \
+target-server <<FILEBEAT-IP-ADDRESS>> \
+target-port 514 \
+protocol udp \
+format syslog \
+--apply-now
 ```
 
-##### Download the Logz.io certificate
+###### Option 2: Export logs for a specific domain
 
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+```shell
+cp_log_export add name logzio_filebeat_exporter \
+domain-server <<YOUR-DOMAIN>> \
+target-server <<FILEBEAT-IP-ADDRESS>> \
+target-port 514 \
+protocol udp \
+format syslog \
+--apply-now
+```
+
+If you restart the management server, you'll need to run `cp_log_export` again
+to restart the exporter.
+{:.info-box.note}
+
+##### Download the Logz.io certificate to your Filebeat server
 
 ```shell
 sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
 ```
 
-##### Add Wazuh as an input
+##### Add UDP traffic as an input
 
-In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Wazuh to the filebeat.inputs section.
+In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add UDP to the filebeat.inputs section.
 
 {% include log-shipping/replace-vars.html token=true %}
 
 ```yaml
 # ...
 filebeat.inputs:
-- type: log
-
-  paths:
-  - /var/ossec/logs/alerts/alerts.json
+- type: udp
+  max_message_size: 10MiB
+  host: "0.0.0.0:514"
 
   fields:
-    logzio_codec: json
+    logzio_codec: plain
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
     token: <<SHIPPING-TOKEN>>
-    type: wazuh
+    type: checkpoint
   fields_under_root: true
   encoding: utf-8
   ignore_older: 3h

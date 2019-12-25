@@ -78,6 +78,7 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 | TYPE <span class="default-param">`logzio_cloudwatch_lambda`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
 | FORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
 | COMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
+| ENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. |
 {:.paramlist}
 
 ##### Configure the function's basic settings
@@ -174,6 +175,7 @@ aws cloudformation deploy
 | LogzioTYPE <span class="default-param">`logzio_cloudwatch_logs`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
 | LogzioFORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
 | LogzioCOMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
+| LogzioENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. |
 {:.paramlist}
 
 ##### Check Logz.io for your logs

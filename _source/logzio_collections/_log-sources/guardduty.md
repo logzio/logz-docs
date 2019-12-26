@@ -4,8 +4,8 @@ logo:
   logofile: aws-guardduty.png
   orientation: vertical
 open-source:
-  - title: CloudWatch Lambda Log Shipper
-    github-repo: logzio_aws_serverless/tree/master/python3/cloudwatch
+  - title: GuardDuty Log Shipper
+    github-repo: logzio_aws_serverless/tree/master/python3/kinesis
 data-source: GuardDuty
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/GuardDuty
 contributors:
@@ -222,7 +222,7 @@ aws cloudformation deploy
 |---|---|
 | LogzioTOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
 | LogzioURL <span class="default-param">`https://listener.logz.io:8071`</span> | Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > {% include log-shipping/replace-vars.html listener='noReplace' %} <!-- logzio-inject:listener-url --> |
-| LogzioTYPE <span class="default-param">`logzio_cloudwatch_logs`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
+| LogzioTYPE <span class="default-param">`guardduty`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
 | LogzioFORMAT <span class="default-param">`"text"`</span> | `"json"` or `"text"`. If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
 | LogzioCOMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
 | LogzioENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. |

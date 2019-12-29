@@ -306,6 +306,19 @@ For example, for HTML:
 ```
 ````
 
+## Git branch groups
+
+_For the Logz.io docs team_:
+Here's a list of branch groups that we should use
+to clarify what we're working on.
+
+* api
+* log-shipping
+* metrics-shipping
+* ui
+* docs-tooling
+* integrations
+
 ## Credits and contributors
 
 We invite contributions to docs, and we maintain a [list of contributors](https://docs.logz.io/credits.html) at the Logz.io Docs site.

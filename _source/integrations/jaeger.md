@@ -144,7 +144,14 @@ logzio/jaeger-logzio-collector:latest
 
 ##### Run Jaeger query
 
-TODO
+```shell
+docker run --rm -e API_TOKEN=<<API-TOKEN>> \
+  --network=net-logzio \
+  -p 16686:16686 \
+  -p 16687:16687 \
+  --name=jaeger-logzio-query \
+logzio/jaeger-logzio-query:latest
+```
 
 ###### Environment variables
 
@@ -156,6 +163,10 @@ TODO
 {:.paramlist}
 
 ##### _(If needed)_ Run Jaeger agent
+
+You can run your own instance of Jaeger agent.
+If you're not already running Jaeger agent,
+start it up with this command:
 
 ```shell
 docker run --rm --name=jaeger-agent --network=net-logzio \
@@ -170,7 +181,6 @@ docker run --rm --name=jaeger-agent --network=net-logzio \
 ##### Check Jaeger for your traces
 
 Give your traces some time to get from your system to ours, and then open your Jaeger UI.
-
 
 </div>
 

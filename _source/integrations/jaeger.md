@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Store Jaeger traces in Logz.io
+permalink: /integrations/store-jaeger-traces-in-logzio.html
 description: Here's how you can use Logz.io as data storage for Jaeger traces.
 open-source:
   - title: Jaeger-Logz.io Trace Storage

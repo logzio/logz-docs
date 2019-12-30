@@ -1,6 +1,7 @@
 ---
 layout: article
 title: Store Zipkin traces in Logz.io
+permalink: /integrations/store-zipkin-traces-in-logzio.html
 description: Here's how you can use Logz.io as data storage for Zipkin traces.
 open-source:
   - title: Zipkin-Logz.io Trace Storage

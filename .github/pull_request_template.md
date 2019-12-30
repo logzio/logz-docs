@@ -12,8 +12,8 @@ The docs team can take care of everything below this line. -->
 
 <!-- Don't remove this section. If you don't fill it out, the docs team can still use it -->
 <!-- After the build, paste URLs with the pages affected by this revision -->
-- [ ] Page1
-- [ ] Page2
+- LinkToPage1
+- LinkToPage2
 
 ## Remaining work
 
@@ -24,7 +24,7 @@ The docs team can take care of everything below this line. -->
 
 ## Post launch
 
-**Do not remove** - To be completed by the docs team upon merge:
+To be completed by the docs team upon merge:
 
 - [ ] Teams to update with the new information:
 - [ ] Replace original content on the support portal with 'this page has been moved to ...' - paste the URL

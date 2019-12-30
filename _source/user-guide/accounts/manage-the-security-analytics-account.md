@@ -37,7 +37,7 @@ You'll need to be signed in to the main account in your Operations workspace.
 You'll find your Security Analytics account
 in the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page
 of your Operations workspace,
-at the bottom of the page.
+toward the bottom of the page.
 
 If you want, change the **Security account name** here.
 

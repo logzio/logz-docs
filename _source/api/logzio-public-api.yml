@@ -2116,9 +2116,10 @@ definitions:
         description: ID of the account
         example: 99999
       email:
-        type: string
+        type: null
+        nullable: true
         description: Email address of the user who created the account
-        example: them@mycompany.com
+        example: null
       accountName:
         type: string
         description: Name of the account
@@ -2729,11 +2730,11 @@ definitions:
 
           <table>
             <thead><th>Unit</th><th>Description</th></thead>
-            <tr><td>`m`</td><td>minutes</td></tr>
-            <tr><td>`s`</td><td>seconds</td></tr>
-            <tr><td>`ms`</td><td>milliseconds</td></tr>
-            <tr><td>`micros`</td><td>microseconds</td></tr>
-            <tr><td>`nanos`</td><td>nanoseconds</td></tr>
+            <tr><td><code>m</code></td><td>minutes</td></tr>
+            <tr><td><code>s</code></td><td>seconds</td></tr>
+            <tr><td><code>ms</code></td><td>milliseconds</td></tr>
+            <tr><td><code>micros</code></td><td>microseconds</td></tr>
+            <tr><td><code>nanos</code></td><td>nanoseconds</td></tr>
           </table>
 
 

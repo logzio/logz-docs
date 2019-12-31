@@ -87,7 +87,7 @@ You can adjust it to match your AWS environment.
 # ...
 metricbeat.config.modules.path: ${path.config}/modules.d/*.yml
 metricbeat.modules:
-- period: 60s # Must be multiples of 60
+- period: 300s # Must be multiples of 60
   module: aws
   metricsets:
     - ec2

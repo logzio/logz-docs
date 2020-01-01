@@ -18,11 +18,11 @@ const outputFormats = [ 'GFM' , 'CONTENTFUL' ]
 const collectionsFolder
   = path.normalize(__dirname + '/_source/logzio_collections/')
 const markdownFolders
-  = [ '_log-sources/' , '_metrics-sources/' ]
+  = [ '_log-sources' , '_metrics-sources' ]
 
 let sourceFolderPaths = []
 markdownFolders.forEach(folder =>
-  sourceFolderPaths.push(path.normalize(collectionsFolder + folder))
+  sourceFolderPaths.push(path.normalize(collectionsFolder + folder + '/'))
 )
 
 // Set the output folder
@@ -45,31 +45,62 @@ console.groupEnd()
  *          run through the right regex
  */
 
-// For each folder...
-sourceFolderPaths.forEach(folder => {
-  console.log(`Working on: ${folder} ...`)
-  let files = fs.readdirSync(folder) // get files in the folder
-  outputFormats.forEach(format => {
+// This will feed the output folder when it's populated
+let sourceContent = {}
 
-  })
+// Build sourceContent structure
+sourceContent = addFoldersToSourceContentArr(sourceContent)
 
-})
+// Add source content to the array
+sourceContent = buildSourceContentArr(sourceContent)
 
-allDone()
+console.info({sourceContent})
 
-function getFilesInFolder (folder) {
-  let files = fs.readdirSync(folder) // get files in the folder
-  console.log(`folder: ${folder}`)
-  outputFormats.forEach(format => {
-
-  })
-
-}
+allDone() // close the program
 
 // When it's time to end
 function allDone() {
   console.log('Done.')
   process.exit(0)
+}
+
+function addFoldersToSourceContentArr(sourceContent) {
+  markdownFolders.forEach(folder => {
+    sourceContent[folder] = []
+  })
+  return sourceContent
+}
+
+// Build the sourceContent array for each collection
+function buildSourceContentArr(sourceContent) {
+  markdownFolders.forEach(folder => {
+    console.group()
+    let sourceFolder = path.normalize(collectionsFolder + folder + '/')
+    console.log(`Working on ${sourceFolder} ...`)
+    // Collect the filenames in an array
+    let filenames = fs.readdirSync(sourceFolder)
+    filenames.forEach(file => {
+      let filepath = path.normalize(sourceFolder + file)
+      let contents = fs.readFileSync(filepath, {encoding: 'utf-8'})
+      sourceContent[folder].push({filename: file, contents: contents})
+    })
+    console.groupEnd()
+  })
+
+  return sourceContent
+
+  sourceFolderPaths.forEach(sourceFolder => {
+
+
+    // Populate sourceContent array with file contents
+    filenames.forEach(file => {
+      let filepath = path.normalize(sourceFolder + file)
+      let contents = fs.readFileSync(filepath, {encoding: 'utf-8'})
+
+      sourceContent.push({filename: file, contents: contents})
+    })
+  })
+
 }
 
 const getFile = () => {

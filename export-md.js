@@ -30,7 +30,6 @@ const parentOutputFolder
   = path.normalize(__dirname + '/_export-md')
 fs.emptydirSync(parentOutputFolder) // Clean or create the output folder
 
-// Confirm everything in the log.
 console.info({outputFormats, collectionsFolder, markdownFolders, sourceFolderPaths, parentOutputFolder})
 
 console.groupEnd()
@@ -54,7 +53,10 @@ sourceContent = addFoldersToSourceContentArr(sourceContent)
 // Add source content to the array
 sourceContent = buildSourceContentArr(sourceContent)
 
-console.info({sourceContent})
+console.log({parentOutputFolder, outputFormats})
+
+makeOutputSubfolders()
+
 
 allDone() // close the program
 
@@ -88,19 +90,13 @@ function buildSourceContentArr(sourceContent) {
   })
 
   return sourceContent
+}
 
-  sourceFolderPaths.forEach(sourceFolder => {
-
-
-    // Populate sourceContent array with file contents
-    filenames.forEach(file => {
-      let filepath = path.normalize(sourceFolder + file)
-      let contents = fs.readFileSync(filepath, {encoding: 'utf-8'})
-
-      sourceContent.push({filename: file, contents: contents})
-    })
-  })
-
+// Make the output subfolders under the main output folder
+function makeOutputSubfolders() {
+  markdownFolders.forEach(subfolder =>
+    fs.mkdirSync(path.normalize(parentOutputFolder + '/' + subfolder))
+  )
 }
 
 const getFile = () => {

@@ -99,7 +99,7 @@ function makeOutputSubfolders() {
 function generateMdOutput(folder) {
   outputFormats.forEach(format => {
     let thisFolder = ''.concat(parentOutputFolder, '/', folder)
-    console.group({format, thisFolder})
+    console.log({format, thisFolder})
     sourceContent[folder].forEach(file => {
       // Get filename, sans extension
       let base = path.parse(file.filename).name
@@ -113,8 +113,10 @@ function generateMdOutput(folder) {
 
       // Create the file in the output subfolder, populate with data
       fs.writeFileSync(filepath, data)
+
+      // Run the regex
+      replaceText(filepath, format)
     })
-    console.groupEnd()
   })
 }
 
@@ -123,8 +125,10 @@ function generateMdOutput(folder) {
  * The fun stuff, regex
  */
 
-const replaceText = (file, output) => {
-  gulp.src([srcFile]) // Any file globs are supported
+function replaceText (file, mdFormat) {
+  console.log('Replacing file contents...')
+  console.info({file, mdFormat})
+  gulp.src([file]) // Any file globs are supported
     .pipe(replace(/(---[\s\S]+?---(\n){1})/, (replacement) => {
       var result = replacement
         .match(/(?<=^title: ).+$/m);
@@ -190,7 +194,7 @@ const replaceText = (file, output) => {
     .pipe(replace(/\\{2}/g, '<br>'))
     .pipe(replace(/{{site.baseurl}}/g, 'https://docs.logz.io'))
 
-    .pipe(gulp.dest('./convert-md'))
+    .pipe(gulp.dest(file))
 
   // To capture a node:
   //    /(?<=^(?![\r\n])|\n{2})(.+\n{1}?)+(?=\n|$(?![\r\n]))/gm

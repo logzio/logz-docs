@@ -110,8 +110,8 @@ function generateMdOutput(folder) {
       let base = path.parse(file.filename).name
       let filepath = ''.concat(base, '__', format, '.md')
       filepath = path.normalize(''.concat(thisFolder, '/', filepath))
-      let data = ''
-      fs.writeFile(filepath, data)
+      let data = file.contents
+      fs.writeFileSync(filepath, data)
     })
     console.groupEnd()
   })

@@ -57,6 +57,9 @@ console.log({parentOutputFolder, outputFormats})
 
 makeOutputSubfolders()
 
+Object.keys(sourceContent).forEach(folder =>
+  generateMdOutput(folder)
+)
 
 allDone() // close the program
 
@@ -95,15 +98,23 @@ function buildSourceContentArr(sourceContent) {
 // Make the output subfolders under the main output folder
 function makeOutputSubfolders() {
   markdownFolders.forEach(subfolder =>
-    fs.mkdirSync(path.normalize(parentOutputFolder + '/' + subfolder))
+    fs.mkdirSync(path.normalize(''.concat(parentOutputFolder + '/' + subfolder)))
   )
 }
 
-const getFile = () => {
-  cleanDir()
-  var file = copyFile()
-  console.log(file)
-  fs.readFileSync(srcFile, { encoding: 'utf-8' })
+function generateMdOutput(folder) {
+  outputFormats.forEach(format => {
+    let thisFolder = ''.concat(parentOutputFolder, '/', folder)
+    console.group({format, thisFolder})
+    sourceContent[folder].forEach(file => {
+      let base = path.parse(file.filename).name
+      let filepath = ''.concat(base, '__', format, '.md')
+      filepath = path.normalize(''.concat(thisFolder, '/', filepath))
+      let data = ''
+      fs.writeFile(filepath, data)
+    })
+    console.groupEnd()
+  })
 }
 
 const copyFile = () => {

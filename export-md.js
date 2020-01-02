@@ -16,18 +16,18 @@ const outputFormats = [ 'GFM' , 'CONTENTFUL' ]
 
 // Set the folders this script runs on
 const collectionsFolder
-  = path.normalize(__dirname + '/_source/logzio_collections/')
+  = path.join(__dirname, '_source/logzio_collections')
 const markdownFolders
   = [ '_log-sources' , '_metrics-sources' ]
 
 let sourceFolderPaths = []
 markdownFolders.forEach(folder =>
-  sourceFolderPaths.push(path.normalize(collectionsFolder + folder + '/'))
+  sourceFolderPaths.push(path.join(collectionsFolder, folder))
 )
 
 // Set the output folder
 const parentOutputFolder
-  = path.normalize(__dirname + '/_export-md')
+  = path.join(__dirname, '_export-md')
 fs.emptydirSync(parentOutputFolder) // Clean or create the output folder
 
 console.info({outputFormats, collectionsFolder, markdownFolders, sourceFolderPaths, parentOutputFolder})
@@ -84,12 +84,12 @@ function addFoldersToSourceContentArr(sourceContent) {
 function buildSourceContentArr(sourceContent) {
   markdownFolders.forEach(folder => {
     console.group()
-    let sourceFolder = path.normalize(collectionsFolder + folder + '/')
+    let sourceFolder = path.join(collectionsFolder, folder)
     console.log(`Working on ${sourceFolder} ...`)
     // Collect the filenames in an array
     let filenames = fs.readdirSync(sourceFolder)
     filenames.forEach(file => {
-      let filepath = path.normalize(sourceFolder + file)
+      let filepath = path.join(sourceFolder, file)
       let contents = fs.readFileSync(filepath, {encoding: 'utf-8'})
       sourceContent[folder].push({filename: file, contents: contents})
     })
@@ -102,7 +102,7 @@ function buildSourceContentArr(sourceContent) {
 // Make the output subfolders under the main output folder
 function makeOutputSubfolders() {
   markdownFolders.forEach(subfolder =>
-    fs.mkdirSync(path.normalize(''.concat(parentOutputFolder + '/' + subfolder)))
+    fs.mkdirSync(path.join(parentOutputFolder, subfolder))
   )
 }
 
@@ -113,7 +113,7 @@ function generateMdOutput(folder) {
     sourceContent[folder].forEach(file => {
       let base = path.parse(file.filename).name
       let filepath = ''.concat(base, '__', format, '.md')
-      filepath = path.normalize(''.concat(thisFolder, '/', filepath))
+      filepath = path.join(thisFolder, filepath)
       let data = file.contents
       fs.writeFileSync(filepath, data)
     })

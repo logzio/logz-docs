@@ -1,10 +1,5 @@
 console.clear()
-const readline = require("readline")
 const path = require('path')
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
 const fs = require('fs-extra')
 const gulp = require('gulp')
 const replace = require('gulp-string-replace')

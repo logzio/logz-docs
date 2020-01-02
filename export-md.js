@@ -101,10 +101,17 @@ function generateMdOutput(folder) {
     let thisFolder = ''.concat(parentOutputFolder, '/', folder)
     console.group({format, thisFolder})
     sourceContent[folder].forEach(file => {
+      // Get filename, sans extension
       let base = path.parse(file.filename).name
-      let filepath = ''.concat(base, '__', format, '.md')
-      filepath = path.join(thisFolder, filepath)
+
+      // Append format to filename
+      let newFilename = ''.concat(base, '__', format, '.md')
+
+      // Set vars for creating the files
+      let filepath = path.join(thisFolder, newFilename)
       let data = file.contents
+
+      // Create the file in the output subfolder, populate with data
       fs.writeFileSync(filepath, data)
     })
     console.groupEnd()

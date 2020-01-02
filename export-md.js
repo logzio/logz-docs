@@ -63,6 +63,10 @@ Object.keys(sourceContent).forEach(folder =>
 
 allDone() // close the program
 
+/**
+ * Splitting everything into functions, making the code readable
+ */
+
 // When it's time to end
 function allDone() {
   console.log('Done.')

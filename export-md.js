@@ -34,16 +34,6 @@ console.info({outputFormats, collectionsFolder, markdownFolders, sourceFolderPat
 
 console.groupEnd()
 
-/**
- * THE STEPS
- * for each sourceFolder:
- *    collect the files in an array
- *      for each file:
- *        for each outputFormat:
- *          read all the files, copy to output folder and name original-name.CONTENTFUL.md or original-name.GFM.md
- *          run through the right regex
- */
-
 // This will feed the output folder when it's populated
 let sourceContent = {}
 

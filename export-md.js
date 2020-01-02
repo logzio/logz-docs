@@ -121,13 +121,6 @@ function generateMdOutput(folder) {
   })
 }
 
-const copyFile = () => {
-  var filename = srcFile.match(/(?<=^.*\/)(\w|-)+\.md$/g)[0]
-  var destFile = `${__dirname}/${outputDir}/${filename}`
-  fs.copyFileSync(srcFile, destFile)
-  var result = destFile
-  return result
-}
 
 /**
  * The fun stuff, regex

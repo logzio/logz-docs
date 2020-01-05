@@ -21,7 +21,7 @@ shipping-tags:
 <div class="branching-container">
 
 * [docker-collector-logs <span class="sm ital">(recommended)</span>](#docker-collector-logs-config)
-* [logzio-logging-plugin](#logzio-logging-plugin-docker-logging-driver-config)
+* [logzio-logging-plugin](#logzio-logging-plugin-config)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -63,6 +63,8 @@ logzio/docker-collector-logs
 | additionalFields | Include additional fields with every message sent, formatted as `"fieldName1=fieldValue1;fieldName2=fieldValue2"`. <br> To use an environment variable, format as `"fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME"`. In that case, the environment variable should be the only value in the field. If the environment variable can't be resolved, the field is omitted. |
 | matchContainerName | Comma-separated list of containers you want to collect the logs from. If a container's name partially matches a name on the list, that container's logs are shipped. Otherwise, its logs are ignored. <br> **Note**: Can't be used with skipContainerName |
 | skipContainerName | Comma-separated list of containers you want to ignore. If a container's name partially matches a name on the list, that container's logs are ignored. Otherwise, its logs are shipped. <br> **Note**: Can't be used with matchContainerName |
+| includeLines | Comma-separated list of regular expressions to match the lines that you want to include. <br> **Note**: Regular expressions in this list should not contain commas. |
+| excludeLines | Comma-separated list of regular expressions to match the lines that you want to exclude. <br> **Note**: Regular expressions in this list should not contain commas. |
 {:.paramlist}
 
 By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
@@ -81,7 +83,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="logzio-logging-plugin-docker-logging-driver-config">
+<div id="logzio-logging-plugin-config">
 
 #### Set up logzio-logging-plugin
 

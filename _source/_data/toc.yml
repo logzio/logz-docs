@@ -185,11 +185,6 @@ firstLevel:
     url: /user-guide/integrations/endpoints.html
   - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html
-  - title: Store Jaeger traces
-    url: /integrations/store-jaeger-traces.html
-  - title: Store Zipkin traces
-    url: /integrations/store-zipkin-traces.html
-
   - title: Grafana data source plugin
     url: /integrations/grafana-data-source-plugin.html
 

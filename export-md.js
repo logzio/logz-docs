@@ -119,22 +119,18 @@ function generateMdOutput(folder) {
 
 function replaceText(data, mdFormat) {
   data = data
-    .replace(/(---[\s\S]+?---(\n){1})/, (replacement) => {
-      var result = replacement
-        .match(/(?<=^title: ).+$/m);
-      return '# ' + result + '\n';
-    }) // remove frontmatter
-    .replace(/{:.override.btn-img}(\n?)/g, '') // remove
+    .replace(/(---[\s\S]+?---(\n){1})/, replacement => '# ' + replacement.match(/(?<=^title: ).+$/m) + '\n') // remove frontmatter
+    .replace(/{:.override.btn-img}(\n?)/g, '')
 
     // clean up the tasklist
-    .replace(/((?<=^#{5} ).+$|^<div class="tasklist">$)/gm, (source) => {
+    .replace(/((?<=^#{5} ).+$|^<div class="tasklist">$)/gm, source => {
       switch (source) {
         case '<div class="tasklist">':
-          taskStepNum = 0;
-          return source;
+          taskStepNum = 0
+          return source
         default:
-          taskStepNum++;
-          return taskStepNum + '. ' + source;
+          taskStepNum++
+          return taskStepNum + '. ' + source
         }
     })
 
@@ -142,40 +138,34 @@ function replaceText(data, mdFormat) {
     .replace(/{:.paramlist}\n/g, '')
 
     // reformat info-boxes
-    .replace(/(?<=\n\n).*\n\s*{:.info-box.*}/g, function(replacement) {
-      var className = replacement.match(/(?<=:\.info-box\.).*(?=})/g).toString();
-      var bodyText = replacement.replace(/\n\s*{:.*}/, '');
+    .replace(/(?<=\n\n).*\n\s*{:.info-box.*}/g, replacement => {
+      let className = replacement.match(/(?<=:\.info-box\.).*(?=})/g).toString()
+      let bodyText = replacement.replace(/\n\s*{:.*}/, '')
 
       switch (className) {
         case 'note':
-          title = "Note";
-          break;
+          title = "Note"
+          break
         case 'important':
-          title = "Important";
-          break;
+          title = "Important"
+          break
         case 'warning':
-          title = "Warning";
-          break;
+          title = "Warning"
+          break
         case 'tip':
-          title = "Pro tip";
-          break;
+          title = "Pro tip"
+          break
         case 'read':
-          title = "Read more";
-          break;
+          title = "Read more"
+          break
       };
 
-      result = '**' + title + '**:\n' + bodyText;
-
-      return result;
+      return '**' + title + '**:\n' + bodyText
     })
 
     .replace(/<span.*required-param.*\/span>/g, '(Required)')
-    .replace(/<span.*default-param.*\/span>/g, function(replacement){
-      var stripped = replacement.replace(/<(\/*)span.*?>/g, '');
-
-      var result = '(Default: ' + stripped + ')'
-      return result;
-    })
+    .replace(/<span.*default-param.*\/span>/g, replacement => '(Default: ' + replacement.replace(/<(\/*)span.*?>/g, '') + ')'
+    )
 
     // replace jekyll includes
     .replace(/{%.*replace-vars.*token=true.*%}( \\\\)?/g, 'Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.')

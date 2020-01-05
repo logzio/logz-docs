@@ -1,8 +1,6 @@
 console.clear()
 const path = require('path')
 const fs = require('fs-extra')
-const gulp = require('gulp')
-const replace = require('gulp-string-replace')
 
 console.group('Getting started...')
 
@@ -104,13 +102,12 @@ function generateMdOutput(folder) {
 
       // Set vars for creating the files
       let filepath = path.join(thisFolder, newFilename)
-      let data = file.contents
+
+      // Run the regex
+      let data = replaceText(file.contents, format)
 
       // Create the file in the output subfolder, populate with data
       fs.writeFileSync(filepath, data)
-
-      // Run the regex
-      replaceText(filepath, format)
     })
   })
 }
@@ -120,19 +117,17 @@ function generateMdOutput(folder) {
  * The fun stuff, regex
  */
 
-function replaceText (file, mdFormat) {
-  console.log('Replacing file contents...')
-  console.info({file, mdFormat})
-  gulp.src([file]) // Any file globs are supported
-    .pipe(replace(/(---[\s\S]+?---(\n){1})/, (replacement) => {
+function replaceText(data, mdFormat) {
+  data = data
+    .replace(/(---[\s\S]+?---(\n){1})/, (replacement) => {
       var result = replacement
         .match(/(?<=^title: ).+$/m);
       return '# ' + result + '\n';
-    })) // remove frontmatter
-    .pipe(replace(/{:.override.btn-img}(\n?)/g, '')) // remove
+    }) // remove frontmatter
+    .replace(/{:.override.btn-img}(\n?)/g, '') // remove
 
     // clean up the tasklist
-    .pipe(replace(/((?<=^#{5} ).+$|^<div class="tasklist">$)/gm, (source) => {
+    .replace(/((?<=^#{5} ).+$|^<div class="tasklist">$)/gm, (source) => {
       switch (source) {
         case '<div class="tasklist">':
           taskStepNum = 0;
@@ -141,13 +136,13 @@ function replaceText (file, mdFormat) {
           taskStepNum++;
           return taskStepNum + '. ' + source;
         }
-    }))
+    })
 
     // convert deflists to table
-    .pipe(replace(/{:.paramlist}\n/g, ''))
+    .replace(/{:.paramlist}\n/g, '')
 
     // reformat info-boxes
-    .pipe(replace(/(?<=\n\n).*\n\s*{:.info-box.*}/g, function(replacement) {
+    .replace(/(?<=\n\n).*\n\s*{:.info-box.*}/g, function(replacement) {
       var className = replacement.match(/(?<=:\.info-box\.).*(?=})/g).toString();
       var bodyText = replacement.replace(/\n\s*{:.*}/, '');
 
@@ -172,26 +167,22 @@ function replaceText (file, mdFormat) {
       result = '**' + title + '**:\n' + bodyText;
 
       return result;
-    }))
+    })
 
-    .pipe(replace(/<span.*required-param.*\/span>/g, '(Required)'))
-    .pipe(replace(/<span.*default-param.*\/span>/g, function(replacement){
+    .replace(/<span.*required-param.*\/span>/g, '(Required)')
+    .replace(/<span.*default-param.*\/span>/g, function(replacement){
       var stripped = replacement.replace(/<(\/*)span.*?>/g, '');
 
       var result = '(Default: ' + stripped + ')'
       return result;
-    }))
+    })
 
     // replace jekyll includes
-    .pipe(replace(/{%.*replace-vars.*token=true.*%}( \\\\)?/g, 'Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.'))
-    .pipe(replace(/{%.*replace-vars.*listener=true.*%}( \\\\)?/g, 'Replace `<<LISTENER-HOST>>` with your region\'s listener host (for example, `listener.logz.io`). For more information on finding your account\'s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).'))
+    .replace(/{%.*replace-vars.*token=true.*%}( \\\\)?/g, 'Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.')
+    .replace(/{%.*replace-vars.*listener=true.*%}( \\\\)?/g, 'Replace `<<LISTENER-HOST>>` with your region\'s listener host (for example, `listener.logz.io`). For more information on finding your account\'s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).')
 
-    .pipe(replace(/\\{2}/g, '<br>'))
-    .pipe(replace(/{{site.baseurl}}/g, 'https://docs.logz.io'))
+    .replace(/\\{2}/g, '<br>')
+    .replace(/{{site.baseurl}}/g, 'https://docs.logz.io')
 
-    .pipe(gulp.dest(file))
-
-  // To capture a node:
-  //    /(?<=^(?![\r\n])|\n{2})(.+\n{1}?)+(?=\n|$(?![\r\n]))/gm
-
+  return data
 }

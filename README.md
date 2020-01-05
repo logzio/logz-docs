@@ -317,6 +317,7 @@ to clarify what we're working on.
 * metrics-shipping
 * ui
 * docs-tooling
+* docs-misc
 * integrations
 
 ## Credits and contributors

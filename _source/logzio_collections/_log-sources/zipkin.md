@@ -1,7 +1,9 @@
 ---
-layout: article
-title: Store Zipkin traces
-permalink: /integrations/store-zipkin-traces.html
+title: Ship traces with Zipkin
+logo:
+  logofile: zipkin.svg
+  orientation: vertical
+data-source: Zipkin
 description: Here's how you can use Logz.io as data storage for Zipkin traces.
 open-source:
   - title: Zipkin-Logz.io Trace Storage
@@ -9,6 +11,8 @@ open-source:
 contributors:
   - yyyogev
   - imnotashrimp
+shipping-tags:
+  - traces
 ---
 
 Zipkin-Logz.io Trace Storage is a storage option for Zipkin distributed traces on your Logz.io account.

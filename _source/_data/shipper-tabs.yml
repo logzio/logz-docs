@@ -44,5 +44,5 @@ tags:
     name: Security
   - slug: database
     name: Databases
-  - slug: tracers
-    name: Tracers
+  - slug: traces
+    name: Tracing

@@ -1,7 +1,9 @@
 ---
-layout: article
-title: Store Jaeger traces in Logz.io
-permalink: /integrations/store-jaeger-traces.html
+title: Ship traces with Jaeger
+logo:
+  logofile: jaeger.svg
+  orientation: vertical
+data-source: Jaeger
 description: Here's how you can use Logz.io as data storage for Jaeger traces.
 open-source:
   - title: Jaeger-Logz.io Trace Storage
@@ -9,6 +11,8 @@ open-source:
 contributors:
   - imnotashrimp
   - yyyogev
+shipping-tags:
+  - traces
 ---
 
 Jaeger-Logz.io is a storage option for Jaeger.

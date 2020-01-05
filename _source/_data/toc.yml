@@ -42,8 +42,8 @@ firstLevel:
   - title: Alerts
     url: /user-guide/alerts/
     thirdLevel:
-    - title: Configure alerts
-      url: /user-guide/alerts/configure-alerts.html
+    - title: Configure an alert
+      url: /user-guide/alerts/configure-an-alert.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
 
@@ -181,7 +181,7 @@ firstLevel:
 - title: Integrations
   icon: li-code
   secondLevel:
-  - title: Alert endpoints
+  - title: Notification endpoints
     url: /user-guide/integrations/endpoints.html
   - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html

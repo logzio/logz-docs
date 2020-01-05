@@ -82,7 +82,7 @@ If you don’t choose an endpoint, events will still be logged:
 
 Choose the endpoints or email addresses to notify.
 If you need help adding a new endpoint,
-see [Alert endpoints]({{site.baseurl}}/user-guide/integrations/endpoints.html).
+see [_Notification endpoints_]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 
 Choose a time period to suppress notifications.
 

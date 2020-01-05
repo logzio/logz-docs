@@ -15,6 +15,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - azure
+  - security
 ---
 
 You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.

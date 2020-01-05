@@ -24,7 +24,6 @@ https://logz-docs.netlify.com/* https://docs.logz.io/:splat 301!
 /community-integrations/community-shippers.html /shipping/ 301
 /shipping/log-sources/*/:slug /shipping/log-sources/:slug 301
 /user-guide/integrations/alice-slack-chatbot.html /integrations/alice-slack-chatbot.html 301
-/shipping/log-sources/ /shipping/ 301
 /shipping/log-sources/azure-diagnostic-logs-and-metrics.html /shipping/log-sources/azure-diagnostic-logs.html 301
 /shipping/log-sources/azure-diagnostic-logs-and-metrics.html /shipping/log-sources/azure-diagnostic-logs.html 301
 /shipping/log-sources/google-cloud-stackdriver.html /shipping/log-sources/stackdriver.html 301

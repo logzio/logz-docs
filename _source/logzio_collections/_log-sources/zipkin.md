@@ -1,18 +1,18 @@
 ---
-title: Ship Zipkin traces
+title: Ship traces with Zipkin
 logo:
   logofile: zipkin.svg
   orientation: vertical
+data-source: Zipkin
+description: Here's how you can use Logz.io as data storage for Zipkin traces.
 open-source:
   - title: Zipkin-Logz.io Trace Storage
     github-repo: zipkin-logzio
-data-source: Zipkin traces
 contributors:
   - yyyogev
   - imnotashrimp
 shipping-tags:
-  - platform-service
-  - server-app
+  - traces
 ---
 
 Zipkin-Logz.io Trace Storage is a storage option for Zipkin distributed traces on your Logz.io account.
@@ -74,7 +74,7 @@ java -Dloader.path='zipkin-logzio.jar,zipkin-logzio.jar!lib' -Dspring.profiles.a
 
 | Parameter | Description |
 |---|---|
-| STORAGE_TYPE=logzio <span class="required-param"></span> | We wish there was a way to include this as a default. Alas, Zipkin needs it, so you'll need to include this bit. |
+| STORAGE_TYPE=logzio <span class="required-param"></span> | We wish there was a way to include this as a default. Alas, Zipkin requires it, so you'll need to include this bit. |
 | LOGZIO_ACCOUNT_TOKEN <span class="required-param"></span> | Required when using as a collector to ship logs to Logz.io. <br> {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject: account-token --> |
 | LOGZIO_API_TOKEN <span class="required-param"></span> | Required to read back traces from Logz.io. <br> Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from the account you want to use. |
 | LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | {% include log-shipping/replace-vars.html listener=true %} <!-- logzio-inject: listener-url --> |
@@ -86,8 +86,6 @@ java -Dloader.path='zipkin-logzio.jar,zipkin-logzio.jar!lib' -Dspring.profiles.a
 
 ##### Check Logz.io for your traces
 
-Give your traces some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+Give your traces some time to get from your system to ours, and then open your Zipkin UI.
 
 </div>

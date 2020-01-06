@@ -136,7 +136,7 @@ For a complete list of options, see the configuration parameters below the code 
 | Parameter | Description |
 |---|---|
 | logzio-token <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
-| logzio-url	<span class="required-param"></span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio-url <span class="required-param"></span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
 | logzio-dir-path	<span class="required-param"></span> | Unsent logs are saved to this location on the disk. |
 | logzio-source | Event source. |
 | logzio-format <span class="default-param">`text`</span> | Log message format, either `json` or `text`. |

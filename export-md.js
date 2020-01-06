@@ -197,6 +197,8 @@ function replaceText(data, mdFormat) {
 
         return theresAMatch === true ? '' : source
       })
+      .replace(/<(\/|)details>\n{2}/g, '')
+      .replace(/<(\/|)summary>\n/g, source => source === '<summary>\n' ? '###### ' : '')
       .replace(/<<SHIPPING-TOKEN>>/g, '{{API_TOKEN}}')
       .replace(/<<LISTENER-HOST>>/g, '{{LOGZ_LISTENER}}')
       .replace(/\n<div class=".+">\n/g, '')

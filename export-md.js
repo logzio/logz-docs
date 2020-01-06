@@ -207,7 +207,9 @@ function replaceText(data, mdFormat) {
   }
 
   // Replace two spaces with one. We're not a typing pool.
-  data = data.replace(/ {2,}/g, ' ')
+  data = data
+    .replace(/ {2,}/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
 
   return data
 }

@@ -119,10 +119,11 @@ function generateMdOutput(folder) {
 
 function replaceText(data, mdFormat) {
   data = data
-    .replace(/(---[\s\S]+?---(\n){1})/, replacement => '# ' + replacement.match(/(?<=^title: ).+$/m) + '\n') // remove frontmatter
+    .replace(/(---[\s\S]+?---(\n){1})/, source =>
+      '# ' + source.match(/(?<=^title: ).+$/m) + '\n') // remove frontmatter
     .replace(/{:.override.btn-img}(\n?)/g, '')
 
-    // clean up the tasklist
+    // clean up the tasklist, add numbers
     .replace(/((?<=^#{5} ).+$|^<div class="tasklist">$)/gm, source => {
       switch (source) {
         case '<div class="tasklist">':
@@ -138,9 +139,9 @@ function replaceText(data, mdFormat) {
     .replace(/{:.paramlist}\n/g, '')
 
     // reformat info-boxes
-    .replace(/(?<=\n\n).*\n\s*{:.info-box.*}/g, replacement => {
-      let className = replacement.match(/(?<=:\.info-box\.).*(?=})/g).toString()
-      let bodyText = replacement.replace(/\n\s*{:.*}/, '')
+    .replace(/(?<=\n{2})(?:^.+\n)+?\{:\.info-box\.\b(.+)\b\}/gm, source => {
+      let className = source.match(/(?<=:\.info-box\.).*(?=})/g).toString()
+      let bodyText = source.replace(/\n\s*{:.*}/, '')
 
       switch (className) {
         case 'note':
@@ -164,15 +165,47 @@ function replaceText(data, mdFormat) {
     })
 
     .replace(/<span.*required-param.*\/span>/g, '(Required)')
-    .replace(/<span.*default-param.*\/span>/g, replacement => '(Default: ' + replacement.replace(/<(\/*)span.*?>/g, '') + ')'
+    .replace(/<span.*default-param.*\/span>/g, source => '(Default: ' + source.replace(/<(\/*)span.*?>/g, '') + ')'
     )
-
-    // replace jekyll includes
-    .replace(/{%.*replace-vars.*token=true.*%}( \\\\)?/g, 'Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.')
-    .replace(/{%.*replace-vars.*listener=true.*%}( \\\\)?/g, 'Replace `<<LISTENER-HOST>>` with your region\'s listener host (for example, `listener.logz.io`). For more information on finding your account\'s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).')
-
     .replace(/\\{2}/g, '<br>')
     .replace(/{{site.baseurl}}/g, 'https://docs.logz.io')
+
+    if (mdFormat === 'GFM') {
+      data = data
+        // replace jekyll includes
+        .replace(/{%.*replace-vars.*token=true.*%}( \\\\)?/g, 'Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.')
+        .replace(/{%.*replace-vars.*listener=true.*%}( \\\\)?/g, 'Replace `<<LISTENER-HOST>>` with your region\'s listener host (for example, `listener.logz.io`). For more information on finding your account\'s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).')
+    }
+
+  if (mdFormat === 'CONTENTFUL') {
+    data = data
+      .replace(/<br>(\n|\s)/g, ' ')
+      .replace(/(?<=```).+$/gm, '')
+      .replace(/`([^`].*?)`/g, '\'$1\'')
+      .replace(/\{%(.+)?%\}(\s|\n?)/g, '')
+      .replace(/<!--(.+)-->(\n|\s?)/g, (source) => {
+        let theresAMatch = false
+        const commentsToRemove = [
+           'tab:'
+         , 'tabContainer:'
+         , 'logzio-inject:'
+        ]
+
+        commentsToRemove.forEach(str => {
+          if (source.match(str)) theresAMatch = true
+        })
+
+        return theresAMatch === true ? '' : source
+      })
+      .replace(/<<SHIPPING-TOKEN>>/g, '{{API_TOKEN}}')
+      .replace(/<<LISTENER-HOST>>/g, '{{LOGZ_LISTENER}}')
+      .replace(/\n<div class=".+">\n/g, '')
+      .replace(/<div id=".+-config">/g, '----')
+      .replace(/\n<\/div>(\n|)/g, '')
+  }
+
+  // Replace two spaces with one. We're not a typing pool.
+  data = data.replace(/ {2,}/g, ' ')
 
   return data
 }

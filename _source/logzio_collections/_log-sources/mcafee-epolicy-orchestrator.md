@@ -28,16 +28,13 @@ For more information, see
 [Register syslog servers](https://docs.mcafee.com/bundle/epolicy-orchestrator-5.10.0-product-guide/page/GUID-5C5332B3-837A-4DDA-BE5C-1513A230D90A.html)
 from McAfee.
 
-##### Install the McAfee certificates
+##### Install the McAfee certificate on your Filebeat server
 
 McAfee ePO sends encrypted data,
-so you'll need to install certificates on the Filebeat server and
-the McAfee ePO server.
-
-To this, you'll SSH into the ePO server
-and give the required information.
+so you'll need to install the McAfee certificate on the Filebeat server.
 
 ```shell
+sudo mkdir /etc/filebeat/certificates
 sudo openssl req -newkey rsa:2048 -nodes \
 -keyout /etc/filebeat/certificates/McAfeeEpo.key -x509 \
 -days 365 \

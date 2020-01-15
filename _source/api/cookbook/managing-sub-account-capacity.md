@@ -3,7 +3,7 @@ layout: article
 title: Managing sub account capacity
 permalink: /api/cookbook/managing-sub-account-capacity.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - api
   - api-cookbook

@@ -4,7 +4,7 @@ title: API cookbook
 description: Get started with the Logz.io API! The API cookbook contains end-to-end tutorials for common scenarios—so you can learn how to integrate Logz.io with your tools and workflows.
 permalink: /api/cookbook/
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - api
   - api-cookbook

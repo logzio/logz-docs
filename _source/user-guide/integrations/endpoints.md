@@ -16,9 +16,6 @@ or when Logz.io finds new insights in your logs.
 Logz.io supports sending notifications to
 BigPanda, Datadog, PagerDuty, Slack, VictorOps, or your own custom endpoint.
 
-Alerts are sent on ports 80 and 443 only; setting a custom port as part of endpoint URL will result in alerts not being sent to said endpoint.
-{:.info-box.important}
-
 ![Notification endpoints]({{site.baseurl}}/images/alerts/alerts--alert-endpoints.png)
 
 You can manage your endpoints
@@ -37,3 +34,8 @@ You can also add new endpoints when you're configuring a new notification.
   hover over the endpoint,
   and click <i class="li li-pencil"></i> (edit)
   or <i class="li li-trash"></i> (delete).
+
+Alerts are sent on ports 80 and 443 only.
+Setting a custom port as part of an endpoint URL
+will result in alerts not being sent to said endpoint.
+{:.info-box.important}

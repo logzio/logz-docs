@@ -546,7 +546,7 @@ paths:
 
         Every subsequent request should contain the `scroll_id` string.
         You'll use the same scroll ID for the entire series of requests.
-        (Kebab case for requests, camel case for responses.)
+        (Snake_case for requests, camelCase for responses.)
 
 
         **Subsequent request sample payload**:

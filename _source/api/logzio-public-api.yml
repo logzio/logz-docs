@@ -534,7 +534,25 @@ paths:
       tags:
         - Search logs
       description: >-
-        Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
+        Runs a paginated search of your account data
+        using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
+
+
+        The first request should contain the query object
+        (just like using the `/search` endpoint),
+        and returns an object that contains `scrollId`.
+        You'll use this scroll ID for all subsequent requests.
+
+
+        Every subsequent request should contain the `scroll_id` string.
+        You'll use the same scroll ID for the entire series of requests.
+        (Kebab case for requests, camel case for responses.)
+
+
+        **Subsequent request sample payload**:
+
+
+        `{ "scroll_id": "<scrollId-from-first-response>" }`
 
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
@@ -2716,13 +2734,6 @@ definitions:
             description: Field to return.
       post_filter:
         type: object
-      scroll_id:
-        type: string
-        description: >-
-          This is `scrollId` that was returned in the previous scroll request. 
-          
-          
-          If you use `scroll_id`, Elasticsearch searches the same query and data as was used in the initial request of the scroll series. In other words, in a single scroll series, use `query` in the first request, and use `scroll_id` in all subsequent requests.
       scroll:
         type: string
         description: >-

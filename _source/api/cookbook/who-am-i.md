@@ -3,7 +3,7 @@ layout: article
 title: Who am I?
 permalink: /api/cookbook/who-am-i.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - api
   - api-cookbook

@@ -3,7 +3,7 @@ layout: article
 title: Backing up Kibana objects to GitHub
 permalink: /api/cookbook/backing-up-kibana-objects-to-github.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - api
   - api-cookbook

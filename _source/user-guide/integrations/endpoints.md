@@ -34,3 +34,8 @@ You can also add new endpoints when you're configuring a new notification.
   hover over the endpoint,
   and click <i class="li li-pencil"></i> (edit)
   or <i class="li li-trash"></i> (delete).
+
+Alerts are sent on ports 80 and 443 only.
+Setting a custom port as part of an endpoint URL
+will result in alerts not being sent to said endpoint.
+{:.info-box.important}

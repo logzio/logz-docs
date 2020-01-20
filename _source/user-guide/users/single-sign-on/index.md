@@ -12,8 +12,6 @@ contributors:
 ---
 
 Single sign-on (SSO) allows you to manage access to your Logz.io account from a single user and identity management tool.
-SSO is available for Enterprise plans.
-If you're not on an Enterprise plan yet, contact your account manager to discuss upgrading.
 
 ## What is SSO?
 

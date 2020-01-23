@@ -145,6 +145,9 @@ LogFile %ROOT%\\data\\nxlog.log
 </Extension>
 ```
 
+  See the [NXLog Documentation](https://nxlog.co/documentation/nxlog-user-guide/parsing-multiline.html#parsing-multiline) for more information on configuring multiline parsing og NXLog logs.
+  {:.info-box.read}
+
 ##### Add Windows as an input
 
 Add an `Input` block to append your account token to log records.

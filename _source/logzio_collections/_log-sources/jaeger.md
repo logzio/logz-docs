@@ -3,7 +3,7 @@ title: Ship traces with Jaeger
 logo:
   logofile: jaeger.svg
   orientation: vertical
-data-source: Jaeger
+data-source: Jaeger 
 description: Here's how you can use Logz.io as data storage for Jaeger traces.
 open-source:
   - title: Jaeger-Logz.io Trace Storage
@@ -105,9 +105,6 @@ These instructions cover deployment
 of all the necessary pieces
 (Jaeger agent, collector, and query service)
 in separate containers.
-
-This type of deployment is useful if you've already deployed Jaeger
-and just need to integrate Logz.io.
 
 #### Deploy Jaeger components in separate containers
 

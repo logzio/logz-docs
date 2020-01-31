@@ -113,6 +113,17 @@
     "description": "Adds a 'default' label to parameter defaults"
   },
 
+  "paramlist": {
+    "prefix": "paramlist",
+    "body": [
+      "| Parameter | Description |",
+      "|---|---|",
+      "| $1 | $2 |",
+      "{:.paramlist}"
+    ],
+    "description": "Adds a .paramlist table"
+  },
+
   "Markdown mailto help@logz.io": {
     "prefix": "markdown-help@logz.io",
     "body": "[${1:help@logz.io}](mailto:help@logz.io)$0",
@@ -146,7 +157,7 @@
     "body": [
       "* [${1:tab 1 name} ${2:<span class=\"sm ital\">(recommended)</span>}](#${3:tab-1}-config)",
       "* [${4:tab 2 name}](#${5:tab-2}-config)",
-      "{: .branching-tabs }"
+      "{:.branching-tabs}"
     ],
     "description": "Inserts links to tabs in the doc"
   },

@@ -14,7 +14,7 @@ shipping-tags:
   -  azure
 ---
 
-To simplify shipping if your Azure Blob logs,
+To simplify shipping of your Azure Blob logs,
 we provide an automated deployment process.
 
 At the end of this process,

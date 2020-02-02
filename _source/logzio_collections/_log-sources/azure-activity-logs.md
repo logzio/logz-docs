@@ -7,7 +7,6 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 data-source: Azure activity logs
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Activity-log
 tags:
   - azure
   - event-hubs

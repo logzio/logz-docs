@@ -18,20 +18,20 @@ To simplify shipping of your Azure Blob logs,
 we provide an automated deployment process.
 
 At the end of this process,
-your Azure function will forward logs from Azure Blob Storage
+this integration will forward logs from Azure Blob Storage
 to your Logz.io account.
 
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [For a new blob](#new-blob-config)
-* [For an existing blob](#existing-blob-config)
+* [For a new blob storage](#new-blob-config)
+* [For an existing blob storage](#existing-blob-config)
 {:.branching-tabs}
 
 <!-- tab:start -->
 <div id="new-blob-config">
 
-#### Set up shipping for a new blob
+#### Set up shipping for a new blob storage
 
 <div class="tasklist">
 
@@ -82,7 +82,7 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <!-- tab:start -->
 <div id="existing-blob-config">
 
-#### Set up shipping for an existing blob
+#### Set up shipping for an existing blob storage
 
 This deployment works with General-purpose v2 storage accounts only.
 These are listed as "StorageV2" in the

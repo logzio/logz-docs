@@ -1,5 +1,5 @@
 ---
-title: Ship Azure Blob logs
+title: Ship logs from Azure Blob Storage
 logo:
   logofile: azure-blob.svg
   orientation: vertical
@@ -14,7 +14,7 @@ shipping-tags:
   -  azure
 ---
 
-To simplify shipping of your Azure Blob logs,
+To simplify shipping of your logs in Azure Blob Storage,
 we provide an automated deployment process.
 
 At the end of this process,
@@ -24,14 +24,14 @@ to your Logz.io account.
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [For a new blob storage](#new-blob-config)
-* [For an existing blob storage](#existing-blob-config)
+* [For a new blob storage account](#new-blob-config)
+* [For an existing blob storage account](#existing-blob-config)
 {:.branching-tabs}
 
 <!-- tab:start -->
 <div id="new-blob-config">
 
-#### Set up shipping for a new blob storage
+#### New blob storage setup
 
 <div class="tasklist">
 
@@ -82,16 +82,17 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <!-- tab:start -->
 <div id="existing-blob-config">
 
-#### Set up shipping for an existing blob storage
+#### Existing blob storage setup
 
-This deployment works with General-purpose v2 storage accounts only.
+**If you don't have a StorageV2 account, stop here.**
+Instead, set up this deployment for existing blob storage.
+\\
+\\
+This deployment works with general-purpose v2 storage accounts only.
 These are listed as "StorageV2" in the
 [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 list,
 under the _Kind_ column.
-If you don't have a StorageV2 account,
-don't continue with this procedure.
-Instead, set up this deployment for an existing blob.
 {:.info-box.important}
 
 <div class="tasklist">

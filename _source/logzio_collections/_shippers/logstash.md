@@ -36,7 +36,7 @@ JDK,
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo wget https://raw.githubusercontent.com/logzio/logz-docs/master/certs/TrustExternalCARoot.crt -P /etc/pki/tls/certs/
 ```
 
 ##### _(If needed)_ Install the Lumberjack output plugin

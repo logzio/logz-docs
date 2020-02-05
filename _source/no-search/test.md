@@ -7,9 +7,13 @@ permalink: /test/
 
 <P>Was this page helpful?</p>
 
+<form name="docs-feedback" method="POST" data-netlify="true">
+
 <div>
 
-  <button id="docs-feedback-positive">Yes</button>
-  <button id="docs-feedback-negative">No</button>
+  <button id="feedback-positive" type="submit" value="feedback-positive">Yes</button>
+  <button id="feedback-negative" type="submit" value="feedback-negative">No</button>
 
 </div>
+
+</form>

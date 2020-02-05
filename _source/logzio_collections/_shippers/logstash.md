@@ -66,7 +66,8 @@ Add these code blocks to the end of your existing Logstash configuration file.
 
 Make sure the `mutate` block is the last item in the `filters` block.
 
-{% include log-shipping/replace-vars.html token=true %} \\
+{% include log-shipping/replace-vars.html token=true %}
+
 {% include log-shipping/replace-vars.html listener=true %}
 
 ```conf
@@ -82,7 +83,7 @@ output {
   lumberjack {
     hosts => ["<<LISTENER-HOST>>"]
     port => 5006
-    ssl_certificate => "/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt"
+    ssl_certificate => "/usr/share/logstash/keys/TrustExternalCARoot.crt"
     codec => "json_lines"
   }
 }

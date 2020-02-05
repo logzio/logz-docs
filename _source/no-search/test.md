@@ -11,8 +11,13 @@ permalink: /test/
 
 <div>
 
-  <button id="feedback-positive" type="submit" value="feedback-positive">Yes</button>
-  <button id="feedback-negative" type="submit" value="feedback-negative">No</button>
+  <input type="hidden" id="page-title" name="page-title" value="{{page.title}}">
+  <input type="hidden" id="page-url" name="page-url" value='{{site.baseurl | append: "/" | append: page.url}}'>
+
+  <button id="feedback-positive" type="button" value="feedback-positive">Yes</button>
+  <button id="feedback-negative" type="button" value="feedback-negative">No</button>
+
+  <button type="submit">Send feedback</button>
 
 </div>
 

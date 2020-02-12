@@ -34,6 +34,9 @@ For more information, see [Exporting with the Logs Viewer](https://cloud.google.
 
 ##### Build your credentials file
 
+##### 2. Build your credentials file
+
+##### Automaticlly:  
 Build your credentials file using your Google Cloud project ID.
 
 ```shell
@@ -42,6 +45,18 @@ wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/Makefile \
 ```
 
 Run this command for each project you're working with.
+
+##### Manually:
+You can also build your credentials file from the [GCP console](https://console.cloud.google.com).
+1. Choose your project and on the left menu go to IAM & admin / Service accounts.
+2. Press 'Create service account'.
+3. On 'Service account name' insert 'credentials-file' and press 'Create'.
+4. Add the following roles and press continue:
+	* Pub/Sub Editor
+	* Pub/Sub Publisher
+	* Pub/Sub Subscriber
+5. Press 'CREATE KEY' and choose 'json' - this will download your credentials file.
+6. Move the created file to your work directory.
 
 ##### Build your Pub/Sub input YAML file
 

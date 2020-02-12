@@ -123,7 +123,7 @@ Make sure the `mutate` block is the last item in the `filters` block.
 {% include log-shipping/replace-vars.html listener=true %}
 
 ```conf
-filters {
+filter {
   # ...
   # ...
   mutate {

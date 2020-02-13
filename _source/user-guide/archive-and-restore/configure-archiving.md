@@ -43,14 +43,15 @@ permissions for an S3 bucket
 ##### Enter your bucket information and S3 credentials
 
 You can choose to authenticate with an IAM role
-or with an access key.
+or an access key.
 
-We recommend authenticating with an IAM role for stronger security.
+For stronger security,
+we recommend authenticating with an IAM role.
 
-* For how to set up an IAM role, see
-  [Give AWS access with IAM roles]({{site.baseurl}}/user-guide/give-aws-access-with-iam-roles/).
-* For how to set up an access key, see
-  [Give AWS access with access keys]({{site.baseurl}}/user-guide/give-aws-access-with-access-keys/)
+* To set up an IAM role, see
+  [_Give AWS access with IAM roles_]({{site.baseurl}}/user-guide/give-aws-access-with-iam-roles/).
+* To set up an access key, see
+  [_Give AWS access with access keys_]({{site.baseurl}}/user-guide/give-aws-access-with-access-keys/)
 
 ##### Test your connection and save
 

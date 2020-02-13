@@ -62,13 +62,13 @@ If you haven't contributed to the Logz.io Docs before, follow these steps to get
 
 1. [Git](https://help.github.com/articles/set-up-git/)
 
-2. macOS: [Xcode](https://developer.apple.com/xcode/)
+2. macOS: [Xcode](https://apps.apple.com/il/app/xcode/id497799835?mt=12)
 
 3. macOS: Xcode command line tools: `xcode-select --install`.
 
-4. [RVM with Ruby](https://rvm.io/rvm/install): `curl -sSL https://get.rvm.io | bash -s stable --ruby`
+4. macOS: [Homebrew](https://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-5. macOS: [Homebrew](https://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+5. [RVM with Ruby](https://rvm.io/rvm/install): `curl -sSL https://get.rvm.io | bash -s stable --ruby`
 
 6. [Bundler](https://bundler.io/): `sudo gem install bundler`
 
@@ -88,10 +88,7 @@ If you haven't contributed to the Logz.io Docs before, follow these steps to get
     git fetch upstream
     ```
 
-10. [Jekyll](https://jekyllrb.com/):
-  `sudo gem install bundler`
-
-11. Install logz-docs dependencies:
+11. Install Jekyll and logz-docs dependencies:
   `sudo bundle install`,
   `npm install`
 

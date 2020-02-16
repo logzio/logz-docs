@@ -26,17 +26,31 @@ You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.i
 
 <div class="tasklist">
 
-##### Export your logs to Pub/Sub
+##### Export your logs to Stackdriver
 
-Set up a sink to export your logs to Pub/Sub.
+Set up a sink to export your logs to Stackdriver.
 
-For more information, see [Exporting with the Logs Viewer](https://cloud.google.com/logging/docs/export/configure_export_v2) from Google Cloud.
+For more information, see
+[Exporting with the Logs Viewer](https://cloud.google.com/logging/docs/export/configure_export_v2)
+from Google Cloud.
 
 ##### Build your credentials file
 
-##### 2. Build your credentials file
+Create a working directory for this step and `cd` into it.
 
-##### Automaticlly:  
+```shell
+mkdir logzio-stackdriver && cd logzio-stackdriver
+```
+
+You'll need to build a credentials file so Pub/Sub can authenticate
+and get the right permissions.
+
+This is simpler through the command line,
+but if you don't have the right permissions,
+you can use the Cloud Console.
+
+###### Option 1: In the command line
+
 Build your credentials file using your Google Cloud project ID.
 
 ```shell
@@ -46,17 +60,31 @@ wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/Makefile \
 
 Run this command for each project you're working with.
 
-##### Manually:
-You can also build your credentials file from the [GCP console](https://console.cloud.google.com).
-1. Choose your project and on the left menu go to IAM & admin / Service accounts.
-2. Press 'Create service account'.
-3. On 'Service account name' insert 'credentials-file' and press 'Create'.
-4. Add the following roles and press continue:
-	* Pub/Sub Editor
-	* Pub/Sub Publisher
-	* Pub/Sub Subscriber
-5. Press 'CREATE KEY' and choose 'json' - this will download your credentials file.
-6. Move the created file to your work directory.
+###### Option 2: In the Cloud Console
+
+Go to your project's page in [GCP Console](https://console.cloud.google.com).
+In the left menu, select **IAM & admin > Service accounts**.
+
+At the top of the _Service accounts_ page, click **+ CREATE SERVICE ACCOUNT**.
+
+Give a descriptive **Service account name**, such as "credentials file".
+Click **CREATE** to continue to the _Service account permissions_ page.
+
+Add these roles:
+
+* "Pub/Sub Editor"
+* "Pub/Sub Publisher"
+* "Pub/Sub Subscriber"
+
+Click **CONTINUE** to continue to _Grant users access to this service account_.
+
+Click **+ CREATE KEY** to open the _Create key_ panel.
+Select **JSON** and click **CREATE** to save the private key to your machine.
+
+Copy it to the `logzio-stackdriver/` folder you created
+at the beginning of this step.
+
+Click **DONE** to return to teh _Service accounts_ page.
 
 ##### Build your Pub/Sub input YAML file
 

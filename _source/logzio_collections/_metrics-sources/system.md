@@ -4,6 +4,9 @@ logo:
   logofile: gauge.svg
   orientation: vertical
 data-source: System
+open-source:
+  - title: Docker Metrics Collector
+    github-repo: docker-collector-metrics
 contributors:
   - imnotashrimp
 shipping-tags:

@@ -87,11 +87,12 @@ Log Patterns recognizes these types of data: \\
 
 #### To see logs according to a pattern
 
-* Roll over a pattern to see the Kibana filter controls.
+* Kibana filter controls are shown in each pattern's row,
+  on the right.
 * To see the logs that match a pattern,
   click the **+** magnifying glass.
 * To see only the logs that don't match a pattern,
   click the **-** magnifying glass.
 
-You'll be taken to the _Discover_ tab,
+You'll be taken to the _Logs_ tab,
 where you'll see the logs that match your filter.

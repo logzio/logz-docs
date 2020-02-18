@@ -23,7 +23,9 @@ All searches and security rules that use this lookup will compare logs to the up
 
 ![Lookups]({{site.baseurl}}/images/lookups/lookups.png)
 
-You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup) from the top menu of your Security Analytics account.
+You can find lookups by selecting
+[**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup)
+from the top menu of your Cloud SIEM account.
 
 #### Create or delete a lookup
 

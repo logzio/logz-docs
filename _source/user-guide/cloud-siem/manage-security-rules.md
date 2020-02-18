@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Manage security rules
-permalink: /user-guide/security-analytics/manage-security-rules.html
+permalink: /user-guide/cloud-siem/manage-security-rules.html
 flags:
   logzio-plan: pro
 tags:

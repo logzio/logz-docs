@@ -74,13 +74,13 @@ firstLevel:
     - title: Configure Grafana drilldown links
       url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
 
-  - title: Security Analytics
-    url: /user-guide/security-analytics/
+  - title: Cloud SIEM
+    url: /user-guide/cloud-siem/
     thirdLevel:
     - title: Understanding your security logs
-      url: /user-guide/security-analytics/understanding-your-security-logs.html
+      url: /user-guide/cloud-siem/understanding-your-security-logs.html
     - title: Manage security rules
-      url: /user-guide/security-analytics/manage-security-rules.html
+      url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Lookups
       url: /user-guide/lookups/
 

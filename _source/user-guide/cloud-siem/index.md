@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Logz.io Security Analytics
-permalink: /user-guide/security-analytics/
+permalink: /user-guide/cloud-siem/
 flags:
   logzio-plan: pro
 tags:

@@ -69,4 +69,4 @@ to make a new security rule with your filter.
 Your new security rule will contain the lookup you used in step 1.
 
 If you need help with creating a new security rule,
-see [Manage security rules]({{site.baseurl}}/user-guide/security-analytics/manage-security-rules.html).
+see [Manage security rules]({{site.baseurl}}/user-guide/cloud-siem/manage-security-rules.html).

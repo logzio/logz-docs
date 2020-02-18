@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Manage the Security Analytics account
-permalink: /user-guide/accounts/manage-the-security-analytics-account.html
+permalink: /user-guide/accounts/manage-the-cloud-siem-account.html
 flags:
   admin: true
   logzio-plan: pro

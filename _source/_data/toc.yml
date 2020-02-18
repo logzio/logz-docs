@@ -95,8 +95,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
     - title: Manage timeless accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
-    - title: Manage the Security Analytics account
-      url: /user-guide/accounts/manage-the-security-analytics-account.html
+    - title: Manage the Cloud SIEM account
+      url: /user-guide/accounts/manage-the-cloud-siem-account.html
     - title: Manage the Infrastructure Monitoring account
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
     - title: Support access

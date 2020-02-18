@@ -769,16 +769,6 @@ paths:
         - Manage notification endpoints
       description: Creates a new Slack notification endpoint or sends a test message to Slack
       parameters:
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -806,16 +796,6 @@ paths:
           type: integer
           format: int32
           description: ID of the notification endpoint
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -837,16 +817,6 @@ paths:
       description: Creates a new notification endpoint for a custom integration or sends a test message to the custom endpoint.
       operationId: createCustom
       parameters:
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -873,16 +843,6 @@ paths:
           required: true
           type: integer
           format: int32
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -904,16 +864,6 @@ paths:
       description: Creates a new PagerDuty notification endpoint or sends a test message to PagerDuty.
       operationId: createPagerDuty
       parameters:
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -941,16 +891,6 @@ paths:
           type: integer
           format: int32
           description: ID of the notification endpoint
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -972,16 +912,6 @@ paths:
       description: Creates a new BigPanda notification endpoint or sends a test message to BigPanda.
       operationId: createBigPanda
       parameters:
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -1009,16 +939,6 @@ paths:
           type: integer
           format: int32
           description: ID of the notification endpoint
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -1040,16 +960,6 @@ paths:
       description: Creates a new Datadog notification endpoint or sends a test message to Datadog.
       operationId: createDataDog
       parameters:
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -1077,16 +987,6 @@ paths:
           type: integer
           format: int32
           description: ID of the notification endpoint
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -1108,16 +1008,6 @@ paths:
       description: Creates a new VictorOps notification endpoint or sends a test message to VictorOps.
       operationId: createVictorops
       parameters:
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false
@@ -1145,16 +1035,6 @@ paths:
           type: integer
           format: int32
           description: ID of the notification endpoint
-        - name: test
-          in: query
-          required: false
-          type: boolean
-          default: false
-          description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
-
-
-            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
         - in: body
           name: body
           required: false

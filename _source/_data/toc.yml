@@ -111,10 +111,6 @@ firstLevel:
     thirdLevel:
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/
-  #   thirdLevel:
-  #   - title: Make an IAM role for Logz.io
-  #     url: /user-guide/archive-and-restore/make-an-iam-role-for-logzio.html
-
 
   - title: Users
     url: /user-guide/users/
@@ -145,7 +141,7 @@ firstLevel:
         url: /user-guide/archive-and-restore/configure-archiving.html
       - title: Restore archived logs
         url: /user-guide/archive-and-restore/restore-archived-logs.html
-      - title: Set S3 permissions
+      - title: Setting S3 permissions in AWS
         url: /user-guide/archive-and-restore/set-s3-permissions.html
 
 #  - title: Give AWS access with IAM roles

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Set S3 permissions
+title: Setting S3 permissions in AWS
 permalink: /user-guide/archive-and-restore/set-s3-permissions.html
 tags:
   - s3
@@ -13,17 +13,21 @@ contributors:
 To archive and restore your logs to a S3 bucket,
 Logz.io needs these permissions:
 
-* To **archive** to a bucket, we need `s3:PutObject` permissions
-* To **restore** archives, we need `s3:ListBucket` and `s3:GetObject` permissions
+* To **archive** to a bucket,
+  we need `s3:PutObject` permissions
+* To **restore** archives,
+  we need `s3:ListBucket` and `s3:GetObject` permissions
 
-You'll set these permissions for an AWS IAM user.
+You'll set these permissions for an AWS IAM user or role,
+depending on which authentication method you choose in Logz.io.
 
-We recommend allowing all three permissions so you won't run into any issues when you want to restore.
+We recommend allowing all three permissions
+so you won't run into any issues when you need to restore.
 {:.info-box.tip}
 
 ## Sample policy
 
-This code block shows a policy for an IAM user with all three permissions enabled:
+This code block shows a policy with all three permissions enabled:
 
 ```json
 {
@@ -47,7 +51,7 @@ This code block shows a policy for an IAM user with all three permissions enable
 
 ## Testing your configuration
 
-To confirm your IAM user has `PutObject` permissions,
+To confirm `PutObject` permissions,
 you can fill in your credentials on the
 [Archive & restore](https://app.logz.io/#/dashboard/tools/archive-and-restore) page,
 and then click **Test connection**.
@@ -55,10 +59,11 @@ and then click **Test connection**.
 To test for `ListBucket` and `GetObject` permissions,
 you can use [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
 
-#### To test your IAM user permissions
+#### To test your IAM permissions
 
 **Before you begin, you'll need**:
-[AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) configured with the IAM user credentials you're testing
+[AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+configured with the IAM credentials you're testing
 
 <div class="tasklist">
 
@@ -90,6 +95,7 @@ Test `GetObject` permissions by copying your dummy file to the bucket:
 aws s3 cp s3://<BUCKET-NAME>/DELETE-logzio-test.txt SUCCESSFUL-GetObject-perms.txt
 ```
 
-If all the commands are successful, we can archive and restore your logs with these IAM user credentials.
+If all the commands are successful,
+Logz.io can archive and restore your logs with these credentials.
 
 </div>

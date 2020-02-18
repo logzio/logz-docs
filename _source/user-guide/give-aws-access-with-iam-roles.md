@@ -19,8 +19,8 @@ while keeping your AWS account secure.
 
 ##### Copy Logz.io details
 
-Copy the **Account ID** in your text editor,
-and create an **External ID** and copy it as well.
+Paste the **Account ID** in your text editor.
+Create an **External ID**, and paste that in your text editor as well.
 The External ID can be anything you want,
 but we recommend a name that includes "Logz.io".
 

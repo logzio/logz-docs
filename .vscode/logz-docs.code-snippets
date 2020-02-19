@@ -119,6 +119,12 @@
     "description": "Launches the Intercom bubble. Fallback to emailing help@logz.io if Javascript not working"
   },
 
+  "CloudFront image URL": {
+    "prefix": "cloudfront-image-url",
+    "body": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/",
+    "description": "URL where images are hosted. You'll still need to fill in the S3 bucket filepath."
+  }
+
   "Branching container": {
     "prefix": "branching container",
     "body": [

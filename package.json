@@ -36,7 +36,5 @@
     "styled-components": "^4.4.1",
     "tablesorter": "^2.31.2"
   },
-  "devDependencies": {
-    "gulp": "^4.0.2"
-  }
+  "devDependencies": {}
 }

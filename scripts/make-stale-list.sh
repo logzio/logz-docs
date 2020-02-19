@@ -1,5 +1,5 @@
 # Don't forget to chmod this bad boy
-echo -n Making stale list...
+echo Making stale list...
 
 # Add this file to your .gitignore
 STALE_LIST_OUTPUT="$JEKYLL_DATA/stale-list.yml"

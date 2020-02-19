@@ -28,7 +28,7 @@ Community plans can have up to 50 alerts enabled at a time.
 
 #### To create an alert in Kibana
 
-![Kibana 7 search bar]({{site.baseurl}}/images/kibana/kibana-7-search-bar.png)
+![Kibana 7 search bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana-7-search-bar.png)
 
 Refine your search query and filters,
 and review the returned logs
@@ -62,7 +62,7 @@ and doesn't use unnecessary words.
 
 ###### Query and filters
 
-![Alert query and filters]({{site.baseurl}}/images/alerts/query-and-filters.png)
+![Alert query and filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/query-and-filters.png)
 
 If you need to change your alert query and filters,
 do that now.
@@ -73,7 +73,7 @@ Shorten your query by using filters whenever you can.
 
 ###### Group by
 
-![Alert group by settings]({{site.baseurl}}/images/alerts/alerts--group-by.png)
+![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--group-by.png)
 
 Moving down, you'll come to the **Group by** setting next.
 
@@ -91,7 +91,7 @@ it would likely generate unintended results.
 
 ###### Accounts to search
 
-![Accounts to search setting]({{site.baseurl}}/images/alerts/accounts-to-search.png)
+![Accounts to search setting](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/accounts-to-search.png)
 
 Next you'll choose the _Accounts to search_.
 
@@ -107,7 +107,7 @@ so you'll need to manually update the list if you need it to change.
 
 ##### Set threshold and severity levels
 
-![Alert trigger thresholds]({{site.baseurl}}/images/alerts/alerts--trigger-settings.png)
+![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings.png)
 
 Set your threshold and severity levels in the _Trigger if..._ section.
 
@@ -118,7 +118,7 @@ each with its own severity tag.
 
 ###### Description and tags
 
-![Alert description and tags]({{site.baseurl}}/images/alerts/description-and-tags.png)
+![Alert description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags.png)
 
 The **Description** is visible on the _Alert definitions_ page.
 It's also included with emails and Slack messages when the alert is triggered.
@@ -129,7 +129,7 @@ The **Tags** are useful for filtering the _Alert definitions_ page.
 
 ###### Who to send it to
 
-![Recipients and suppress notifications]({{site.baseurl}}/images/alerts/recipients-and-suppress.png)
+![Recipients and suppress notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-suppress.png)
 
 If you want to send notifications or emails when the alert is triggered,
 choose notification endpoints.
@@ -151,7 +151,7 @@ You can search triggered alert logs at any time.
 
 If you chose recipients, you can also set the output format.
 
-![Output table]({{site.baseurl}}/images/alerts/output-table.png)
+![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-table.png)
 
 You can choose to send **All fields** in JSON format,
 or **Custom fields** as a table.

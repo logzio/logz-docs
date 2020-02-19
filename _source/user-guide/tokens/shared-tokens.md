@@ -16,7 +16,7 @@ contributors:
 Using shared tokens, you can share Kibana visualization and dashboard snapshots.
 You can limit the data available to a shared token with token filters.
 
-![Manage shared tokens]({{site.baseurl}}/images/access-and-authentication/access-and-authentication--shared-tokens.png)
+![Manage shared tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/access-and-authentication--shared-tokens.png)
 
 To reach this page, click [**<i class="li li-gear"></i> > Tools > Shared tokens**](https://app.logz.io/#/dashboard/settings/shared-tokens) in the top menu.
 

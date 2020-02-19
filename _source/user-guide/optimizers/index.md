@@ -11,9 +11,9 @@ contributors:
   - imnotashrimp
 ---
 
-Optimizers are query-based rules that allow you to store logs and aggregations to a timeless account for extended retention. This way, you can retain important data for as long as you like for long term visibility. 
+Optimizers are query-based rules that allow you to store logs and aggregations to a timeless account for extended retention. This way, you can retain important data for as long as you like for long term visibility.
 
-![Optimizer definitions]({{ site.baseurl }}/images/optimizers/optimizers--optimizer-definitions-annotated.png)
+![Optimizer definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/optimizers/optimizers--optimizer-definitions-annotated.png)
 
 To reach this page, select [**Alerts > Optimizer definitions**](https://app.logz.io/#/dashboard/triggers/optimizer-definitions) from the top menu.
 

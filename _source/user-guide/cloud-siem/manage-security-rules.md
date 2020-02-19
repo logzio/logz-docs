@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Manage security rules
-permalink: /user-guide/security-analytics/manage-security-rules.html
+permalink: /user-guide/cloud-siem/manage-security-rules.html
 flags:
   logzio-plan: pro
 tags:
@@ -13,7 +13,9 @@ contributors:
 ---
 
 Security rules help you connect the dots between your data sources and events that could indicate a security threat or breach.
-Your Security Analytics account comes preconfigured with security rules for different types of attack types and security use cases.
+Your Cloud SIEM account comes preconfigured
+with security rules for different attack types
+and security use cases.
 
 You can create new security rules to supplement the built-in rules.
 You can also update any preconfigured rule at any time, including adding a notification endpoint (like email or Slack) or changing trigger thresholds.

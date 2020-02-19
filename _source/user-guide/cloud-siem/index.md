@@ -1,7 +1,7 @@
 ---
 layout: article
-title: Logz.io Security Analytics
-permalink: /user-guide/security-analytics/
+title: Logz.io Cloud SIEM
+permalink: /user-guide/cloud-siem/
 flags:
   logzio-plan: pro
 tags:
@@ -15,14 +15,14 @@ contributors:
   - danielberman
 ---
 
-Logz.io Security Analytics combines the ELK stack
+Logz.io Cloud SIEM combines the ELK stack
 with advanced security analytics tools
 to help you identify and remediate threats to your system.
-With Security Analytics, you can identify
+With Cloud SIEM, you can identify
 potential indicators of compromise
 by correlating your Logz.io data with lists of known threats.
 
-![Logz.io Security Analytics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--annotated.png)
+![Logz.io Cloud SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--annotated.png)
 
 Summary
 : The first thing you see when you sign in to your security account.
@@ -45,4 +45,6 @@ Security rules
 {:.letter-labels}
 
 
-To see your Security Analytics account, click the Logz.io logo (upper left corner), and then click **Security**.
+To see your Cloud SIEM account,
+click the Logz.io logo (upper left corner),
+and then click **Security**.

@@ -40,7 +40,7 @@ You'll need these for your Metricbeat configuration later.
 
 You'll need to specify the AWS region you're collecting metrics from.
 
-![AWS region menu]({{site.baseurl}}/images/aws/region-menu.png)
+![AWS region menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/region-menu.png)
 
 Find your region's slug in the region menu
 (in the top menu, on the right side).

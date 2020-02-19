@@ -22,7 +22,7 @@ If you don't have a Security Analytics account yet,
 reach out to your account manager or email [the Sales team](mailto:sales@logz.io).
 {:.info-box.note}
 
-![Manage the Security Analytics account]({{site.baseurl}}/images/accounts/manage-security-account.png)
+![Manage the Security Analytics account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/manage-security-account.png)
 
 You can manage your Security Analytics account
 from the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.

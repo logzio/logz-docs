@@ -15,7 +15,7 @@ The Insights feature uses machine learning to detect new exceptions and critical
 
 You can use insights to sift through the noise in your logging infrastructure so you can see a full, contextual story of what's happening in your system.
 
-![Insights]({{site.baseurl}}/images/insights/insights--insights-annotated.png)
+![Insights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/insights--insights-annotated.png)
 
 To see this page, select [**Insights**](https://app.logz.io/#/dashboard/insights) from the top menu.
 

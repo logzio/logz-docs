@@ -26,7 +26,7 @@ parsing can be an invaluable tool.
 You can analyze a set of sample logs in the data parsing wizard,
 simplifying the process.
 
-![Data parsing wizard]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--data-parsing-wizard.png)
+![Data parsing wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing-and-mapping--data-parsing-wizard.png)
 
 You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> > Tools > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the top menu.
 
@@ -46,7 +46,7 @@ Click **Next** to continue.
 
 ##### Configure your parse settings
 
-![Step 2: Parse]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-2-parse.png)
+![Step 2: Parse](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing-and-mapping--step-2-parse.png)
 
 If you want to change the sample log lines, click **Select**.
 You can choose up to 5 sample lines.
@@ -87,7 +87,7 @@ Click **Next** to continue.
 
 ##### Enrich
 
-![Step 3: Enrich]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-3-enrich.png)
+![Step 3: Enrich](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing-and-mapping--step-3-enrich.png)
 
 If any fields are parsed as geo IP,
 choose which geo enrichment fields to add to your logs,
@@ -100,7 +100,7 @@ Click **Next** to continue.
 
 ##### Validate
 
-![Step 4: Validate]({{site.baseurl}}/images/parsing-and-mapping/parsing-and-mapping--step-4-validate.png)
+![Step 4: Validate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing-and-mapping--step-4-validate.png)
 
 In both of the tabs,
 review **Unparsed logs** and **All logs**

@@ -4,17 +4,30 @@ logo:
   logofile: aws-ec2-auto-scaling.svg
   orientation: vertical
 data-source: EC2 Auto Scaling
+open-source:
+  - title: Docker Metrics Collector
+    github-repo: docker-collector-metrics
 contributors:
   - imnotashrimp
 shipping-tags:
   - aws
 ---
 
-#### Guided configuration
+To simplify shipping metrics from one or many sources,
+we created Docker Metrics Collector.
+Docker Metrics Collector is a container
+that runs Metricbeat with the modules you enable at runtime.
 
-**Before you begin, you'll need**:
-[Metricbeat 7](https://www.elastic.co/downloads/beats/metricbeat),
-an EC2 Auto Scaling group
+#### Configuration
+
+If you're not already running Docker Metrics Collector,
+follow these steps.
+
+Otherwise, stop the container, add
+`aws`
+to the `LOGZIO_MODULES` environment variable, and restart.
+You can find the `run` command and all parameters
+in this procedure.
 
 <div class="tasklist">
 
@@ -62,80 +75,35 @@ Select the Auto Scaling group you want to monitor.
 To do this, click the **Monitoring** tab,
 and then click **Enable Group Metrics Collection**.
 
-##### Download the Logz.io certificate
+##### Pull the Docker image
 
-For HTTPS shipping,
-download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-```
-
-##### _(Optional)_ Disable the system module
-
-By default, Metricbeat ships system metrics from its host.
-If you don't need these metrics,
-disable the system module:
+Download the Docker Metrics Collector image:
 
 ```shell
-sudo metricbeat modules disable system
+docker pull logzio/docker-collector-metrics
 ```
 
-##### Configure Metricbeat
+##### Run the container
 
-If you're working with the default configuration file,
-(`/etc/metricbeat/metricbeat.yml`).
-clear the contents and start with a fresh file.
+For a complete list of options, see the parameters below the code block.👇
 
-This code block lays out the default options
-for collecting metrics from
-EC2 Auto Scaling.
-Paste the code block.
-You can adjust it to match your AWS environment.
-
-```yml
-# ...
-metricbeat.config.modules.path: ${path.config}/modules.d/*.yml
-metricbeat.modules:
-- period: 300s # Must be multiples of 60
-  module: aws
-  metricsets:
-    - cloudwatch
-  metrics:
-    - namespace: AWS/AutoScaling
-  access_key_id: <<YOUR-ACCESS-KEY-ID>>
-  secret_access_key: <<YOUR-SECRET-KEY>>
-  default_region: <<YOUR-AWS-REGION>
+```shell
+docker run --name docker-collector-metrics \
+--env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_URL="<<LISTENER-HOST>>" \
+--env LOGZIO_MODULES="aws" \
+logzio/docker-collector-metrics
 ```
 
-##### Add Logz.io to the configuration
-
-If Logz.io information isn't in the file, set it now.
-
-Metricbeat can have one output only, so remove any other `output` entries.
-
-{% include log-shipping/replace-vars.html token=true %}
-
-{% include log-shipping/replace-vars.html listener=true %}
-
-```yaml
-# ...
-fields:
-  logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
-fields_under_root: true
-ignore_older: 3hr
-type: aws_metrics
-
-#. Logz.io output
-output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-```
-
-##### Start Metricbeat
-
-Start or restart Metricbeat for the changes to take effect.
+| Parameter | Description |
+|---|---|
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LOGZIO_MODULES <span class="required-param"></span> | Comma-separated list of Metricbeat modules to enable on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/logzio_modules`. |
+| LOGZIO_URL <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the metrics to. {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
+| LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |
+| LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
+{:.paramlist}
 
 ##### Check Logz.io for your metrics
 

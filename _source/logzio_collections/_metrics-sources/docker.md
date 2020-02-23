@@ -76,7 +76,7 @@ logzio/docker-collector-metrics
 | LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
 {:.paramlist}
 
-###### Parameters for Docker Metrics Collector
+###### Parameters for the Docker module
 
 | Parameter | Description |
 |---|---|

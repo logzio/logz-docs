@@ -3,7 +3,6 @@ layout: article
 title: Configure optimizers
 permalink: /user-guide/optimizers/configure-optimizers.html
 flags:
-  beta: true
   logzio-plan: pro
 tags:
   - data-optimizers

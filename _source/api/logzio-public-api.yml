@@ -787,26 +787,12 @@ paths:
       summary: Get a shipping token by id
       description: ''
       operationId: getLogShippingTokenById
-      consumes:
-        - application/json
-      produces:
-        - application/json
       parameters:
         - name: id
           in: path
           required: true
           type: integer
           format: int32
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -818,10 +804,6 @@ paths:
       summary: Update a shipping token
       description: ''
       operationId: updateLogShippingToken
-      consumes:
-        - application/json
-      produces:
-        - application/json
       parameters:
         - name: id
           in: path
@@ -833,16 +815,6 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/ShippingTokensRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -854,26 +826,12 @@ paths:
       summary: Delete a shipping token
       description: ''
       operationId: deleteLogShippingToken
-      consumes:
-        - application/json
-      produces:
-        - application/json
       parameters:
         - name: id
           in: path
           required: true
           type: integer
           format: int32
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -886,21 +844,6 @@ paths:
       summary: Get amount of remaining enabled tokens
       description: ''
       operationId: getLogShippingTokensLimits
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -913,26 +856,12 @@ paths:
       summary: Search and filter shipping tokens
       description: ''
       operationId: searchLogShippingTokens
-      consumes:
-        - application/json
-      produces:
-        - application/json
       parameters:
         - in: body
           name: body
           required: false
           schema:
             $ref: '#/definitions/ShippingTokensSearchRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation

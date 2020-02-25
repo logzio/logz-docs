@@ -75,7 +75,7 @@ community-info: false
       {%- if doc.community-project == true %} community-project-card{%- endif -%}"
       data-source="{{doc.data-source | slugify}}">
       <a href="{{shipperUrl}}">
-      <div class="card-icon {{doc.logo.orientation}}" style="background-image: url('{{site.baseurl}}/images/shipper-logos/{{doc.logo.logofile}}');" alt="{{doc.data-source}} logo">
+      <div class="card-icon {{doc.logo.orientation}}" style="background-image: url('https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/{{doc.logo.logofile}}');" alt="{{doc.data-source}} logo">
       </div>
       <div class="card-text">
         <span class="card-title">{{ doc.data-source }}</span>

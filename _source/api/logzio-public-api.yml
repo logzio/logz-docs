@@ -103,6 +103,7 @@ tags:
   - name: Manage shared tokens
     description: >-
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
+  - name: Manage shipping tokens
   - name: Logz.io snapshots
   - name: Manage users
 
@@ -117,6 +118,7 @@ x-tagGroups:
       - Who am I
       - Manage sub accounts
       - Manage shared tokens
+      - Manage shipping tokens
       - Manage notification endpoints
       - Import or export Kibana objects
   - name: Data security
@@ -505,27 +507,27 @@ paths:
           schema:
             type: object
             example: >-
-              { 
+              {
                 "hits": {
-                  "total": 339604, 
-                  "max_score": 0, 
-                  "hits": [ ] 
-                }, 
-                "aggregations": { 
-                  "byType": { 
-                    "doc_count_error_upper_bound": 0, 
-                    "sum_other_doc_count": 44879, 
-                    "buckets": [ 
-                      { 
-                        "key": "web-app", 
-                        "doc_count": 163690 
-                      }, { 
-                        "key": \"core-service\", 
-                        "doc_count": 64893 
-                      } 
-                    ] 
-                  } 
-                } 
+                  "total": 339604,
+                  "max_score": 0,
+                  "hits": [ ]
+                },
+                "aggregations": {
+                  "byType": {
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 44879,
+                    "buckets": [
+                      {
+                        "key": "web-app",
+                        "doc_count": 163690
+                      }, {
+                        "key": \"core-service\",
+                        "doc_count": 64893
+                      }
+                    ]
+                  }
+                }
               }
 
   /scroll:
@@ -759,6 +761,183 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/MessageBean'
+
+  /v1/log-shipping/tokens:
+    post:
+      tags:
+        - Manage shipping tokens
+      summary: Create a shipping token
+      description: ''
+      operationId: createNewLogShippingToken
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+      responses:
+        '201':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/{id}:
+    get:
+      tags:
+        - Manage shipping tokens
+      summary: Get a shipping token by id
+      description: ''
+      operationId: getLogShippingTokenById
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+        - name: X-AUTH-TOKEN
+          in: header
+          description: Authentication User Session
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    put:
+      tags:
+        - Manage shipping tokens
+      summary: Update a shipping token
+      description: ''
+      operationId: updateLogShippingToken
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+        - name: X-AUTH-TOKEN
+          in: header
+          description: Authentication User Session
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    delete:
+      tags:
+        - Manage shipping tokens
+      summary: Delete a shipping token
+      description: ''
+      operationId: deleteLogShippingToken
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+        - name: X-AUTH-TOKEN
+          in: header
+          description: Authentication User Session
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/limits:
+    get:
+      tags:
+        - Manage shipping tokens
+      summary: Get amount of remaining enabled tokens
+      description: ''
+      operationId: getLogShippingTokensLimits
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+        - name: X-AUTH-TOKEN
+          in: header
+          description: Authentication User Session
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensLimitsResponse'
+  /v1/log-shipping/tokens/search:
+    post:
+      tags:
+        - Manage shipping tokens
+      summary: Search and filter shipping tokens
+      description: ''
+      operationId: searchLogShippingTokens
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensSearchRequest'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+        - name: X-AUTH-TOKEN
+          in: header
+          description: Authentication User Session
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseShippingTokensModel'
 
   # ::::: NOTIFICATION ENDPOINTS
   /endpoints/slack:
@@ -2196,7 +2375,7 @@ definitions:
     description: If document size is attached to logs, `true`. Otherwise, `false`.
     default: false
     example: true
-  
+
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:
     type: object
@@ -2831,6 +3010,94 @@ definitions:
           description: ID of the filter
           example: 339
         description: IDs of filters to attach to the token. To remove all filters, use an empty array `[]`.
+
+  # ::::: SHIPPING TOKENS DEFINITIONS
+  ShippingTokensModel:
+    type: object
+    properties:
+      name:
+        type: string
+      id:
+        type: integer
+        format: int32
+      token:
+        type: string
+      updatedAt:
+        type: integer
+        format: int64
+      updatedBy:
+        type: string
+      createdAt:
+        type: integer
+        format: int64
+      createdBy:
+        type: string
+      enabled:
+        type: boolean
+  ShippingTokensRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        enabled:
+          type: boolean
+  ShippingTokensLimitsResponse:
+      type: object
+      properties:
+        maxAllowedTokens:
+          type: integer
+          format: int32
+        numOfEnabledTokens:
+          type: integer
+          format: int32
+  ShippingTokensSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/ShippingTokensFilterRequest'
+      sort:
+        type: array
+        items:
+          $ref: '#/definitions/ShippingTokensSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  ShippingTokensSortRequest:
+      type: object
+      properties:
+        field:
+          type: string
+          enum:
+            - CREATED_AT
+            - NAME
+        descending:
+          type: boolean
+  ShippingTokensFilterRequest:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+
+  PagedSearchResponseShippingTokensModel:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/ShippingTokensModel'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  Pagination:
+      type: object
+      properties:
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
 
   # ::::: SNAPSHOTS DEFINITIONS
   SnapshotCreateResponse:

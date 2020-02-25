@@ -2,17 +2,17 @@ swagger: '2.0'
 schemes: [ https ]
 host: api.logz.io
 x-servers:
-  - url: https://api.logz.io/v1
+  - url: https://api.logz.io
     description: US East (Northern Virginia)
-  - url: https://api-au.logz.io/v1
+  - url: https://api-au.logz.io
     description: Asia Pacific (Sydney)
-  - url: https://api-ca.logz.io/v1
+  - url: https://api-ca.logz.io
     description: Canada (Central)
-  - url: https://api-eu.logz.io/v1
+  - url: https://api-eu.logz.io
     description: Europe (Frankfurt)
-  - url: https://api-nl.logz.io/v1
+  - url: https://api-nl.logz.io
     description: West Europe (Netherlands)
-  - url: https://api-wa.logz.io/v1
+  - url: https://api-wa.logz.io
     description: West US 2 (Washington)
 produces: [ application/json ]
 consumes: [ application/json ]

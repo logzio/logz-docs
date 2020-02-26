@@ -793,8 +793,8 @@ paths:
     get:
       tags:
         - Manage shipping tokens
-      summary: Retrieve a shipping token by account ID
-      description: Returns the shipping token for the specified account. 
+      summary: Retrieve a shipping token by ID
+      description: Returns the specified shipping token.
       operationId: getLogShippingTokenById
       parameters:
         - name: id
@@ -802,6 +802,8 @@ paths:
           required: true
           type: integer
           format: int32
+          description: This token's ID.
+          example: 786351
       responses:
         '200':
           description: successful operation
@@ -819,6 +821,8 @@ paths:
           required: true
           type: integer
           format: int32
+          description: This token's ID.
+          example: 786351
         - in: body
           name: body
           required: false
@@ -841,6 +845,8 @@ paths:
           required: true
           type: integer
           format: int32
+          description: This token's ID.
+          example: 786351
       responses:
         '200':
           description: successful operation
@@ -850,10 +856,10 @@ paths:
     get:
       tags:
         - Manage shipping tokens
-      summary: Get number of available tokens 
+      summary: Get number of available tokens
       description: >-
-        Returns the number of shipping tokens that remain to be enabled. 
-        Disabled tokens do not count against the token allowance.
+        Returns the number of shipping tokens that can be enabled.
+        Disabled tokens don't count against the token limit.
       operationId: getLogShippingTokensLimits
       responses:
         '200':
@@ -2962,8 +2968,8 @@ definitions:
       id:
         type: integer
         format: int32
-        description: This token's unique ID.
-        example: 776351
+        description: This token's ID.
+        example: 786351
       token:
         type: string
         description: The token itself.
@@ -2971,15 +2977,24 @@ definitions:
       updatedAt:
         type: integer
         format: int64
+        description: Unix timestamp of when this token was last updated.
+        example: 414720000
       updatedBy:
         type: string
+        description: Email address of the last user to update this token.
+        example: shalom.the.mighty@gmail.com
       createdAt:
         type: integer
         format: int64
+        description: Unix timestamp of when this token was created.
+        example: 389836800
       createdBy:
         type: string
+        description: Email address of the user who created this token.
+        example: you.got.this.sara@gmail.com
       enabled:
         type: boolean
+        description: If this token is enabled, `true`. If it's disabled, `false`.
   ShippingTokensRequest:
       type: object
       properties:
@@ -2996,11 +3011,13 @@ definitions:
         maxAllowedTokens:
           type: integer
           format: int32
-          description: Number of shipping tokens allowed by your plan. Listed in your account details page. 
+          description: The number of log shipping tokens this account can have.
+          example: 50
         numOfEnabledTokens:
           type: integer
           format: int32
-          description: Number of shipping tokens that are currently enabled.  
+          description: Number of enabled shipping tokens.
+          example: 27
   ShippingTokensSearchRequest:
     type: object
     properties:
@@ -3008,6 +3025,7 @@ definitions:
         $ref: '#/definitions/ShippingTokensFilterRequest'
       sort:
         type: array
+        description: Sorts the results before returning them.
         items:
           $ref: '#/definitions/ShippingTokensSortRequest'
       pagination:
@@ -3020,13 +3038,25 @@ definitions:
           enum:
             - CREATED_AT
             - NAME
+          description: >-
+            To sort by creation date, use `"CREATED_AT"`.
+            To sort by name, use `"NAME"`.
+          example: NAME
         descending:
           type: boolean
+          description: >-
+            For descending order, use `true`.
+            For ascending order, use `false`.
+
   ShippingTokensFilterRequest:
       type: object
+      description: Filters your search for token attributes.
       properties:
         enabled:
           type: boolean
+          description: >-
+            Set to `true` to filter for enabled tokens.
+            Set to `false` to filter for disabled tokens.
 
   PagedSearchResponseShippingTokensModel:
     type: object
@@ -3042,13 +3072,18 @@ definitions:
         $ref: '#/definitions/Pagination'
   Pagination:
       type: object
+      description: Controls page number and sizing of paginated results.
       properties:
         pageNumber:
           type: integer
           format: int32
+          description: Page number of paginated group of results.
+          example: 3
         pageSize:
           type: integer
           format: int32
+          description: Number of results to include on each page.
+          example: 15
 
   # ::::: SNAPSHOTS DEFINITIONS
   SnapshotCreateResponse:

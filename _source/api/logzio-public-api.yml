@@ -103,6 +103,9 @@ tags:
     description: >-
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Manage shipping tokens
+    description: >- 
+      Use these API requests to create, update, retrieve, or delete shipping tokens.
+      Data shipped using this token will be indexed under the account associated with this ID. 
   - name: Logz.io snapshots
   - name: Manage users
 
@@ -761,13 +764,20 @@ paths:
           schema:
             $ref: '#/definitions/MessageBean'
 
+  # ::::: SHIPPING TOKENS
   /v1/log-shipping/tokens:
     post:
       tags:
         - Manage shipping tokens
       summary: Create a shipping token
-      description: ''
+      description: Creates a log shipping token for this account.
       operationId: createNewLogShippingToken
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl --location --request GET 'https://api.logz.io/v1/account-management/whoami/' \
+            --header 'X-API-TOKEN: <token>' \
+            --header 'Content-Type: application/json'
       parameters:
         - in: body
           name: body
@@ -783,8 +793,8 @@ paths:
     get:
       tags:
         - Manage shipping tokens
-      summary: Get a shipping token by id
-      description: ''
+      summary: Retrieve a shipping token by account ID
+      description: Returns the shipping token for the specified account. 
       operationId: getLogShippingTokenById
       parameters:
         - name: id
@@ -801,7 +811,7 @@ paths:
       tags:
         - Manage shipping tokens
       summary: Update a shipping token
-      description: ''
+      description: Changes the name of a shipping token or switches status between enabled/disabled. 
       operationId: updateLogShippingToken
       parameters:
         - name: id
@@ -840,8 +850,10 @@ paths:
     get:
       tags:
         - Manage shipping tokens
-      summary: Get amount of remaining enabled tokens
-      description: ''
+      summary: Get number of available tokens 
+      description: >-
+        Returns the number of shipping tokens that remain to be enabled. 
+        Disabled tokens do not count against the token allowance.
       operationId: getLogShippingTokensLimits
       responses:
         '200':
@@ -2945,11 +2957,17 @@ definitions:
     properties:
       name:
         type: string
+        description: This token's name.
+        example: apac prod
       id:
         type: integer
         format: int32
+        description: This token's unique ID.
+        example: 776351
       token:
         type: string
+        description: The token itself.
+        example: 6bLXmMA6FLibc7ySSqNcCfvbhtqT0rPS
       updatedAt:
         type: integer
         format: int64
@@ -2967,17 +2985,22 @@ definitions:
       properties:
         name:
           type: string
+          description: Descriptive name for this token.
+          example: staging eu
         enabled:
           type: boolean
+          description: To enable this token, `true`. To disable, `false`.
   ShippingTokensLimitsResponse:
       type: object
       properties:
         maxAllowedTokens:
           type: integer
           format: int32
+          description: Number of shipping tokens allowed by your plan. Listed in your account details page. 
         numOfEnabledTokens:
           type: integer
           format: int32
+          description: Number of shipping tokens that are currently enabled.  
   ShippingTokensSearchRequest:
     type: object
     properties:

@@ -61,8 +61,6 @@ info:
     API call and response rates are limited per individual account.
     To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
 
-
-  version: v1
   title: Logz.io API
   termsOfService: 'https://logz.io/about-us/terms-of-use/'
   contact:

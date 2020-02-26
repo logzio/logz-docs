@@ -853,7 +853,7 @@ paths:
       tags:
         - Manage log shipping tokens
       summary: Delete a log shipping token
-      description: ''
+      description: # TODO
       operationId: deleteLogShippingToken
       parameters:
         - name: id
@@ -899,7 +899,7 @@ paths:
       tags:
         - Manage log shipping tokens
       summary: Retrieve log shipping tokens
-      description: ''
+      description: # TODO
       operationId: searchLogShippingTokens
       parameters:
         - in: body

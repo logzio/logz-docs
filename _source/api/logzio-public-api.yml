@@ -102,7 +102,7 @@ tags:
   - name: Manage shared tokens
     description: >-
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
-  - name: Manage shipping tokens
+  - name: Manage log shipping tokens
     description: >- 
       Use these API requests to create, update, retrieve, or delete shipping tokens.
       Data shipped using this token will be indexed under the account associated with this ID. 
@@ -120,7 +120,7 @@ x-tagGroups:
       - Who am I
       - Manage sub accounts
       - Manage shared tokens
-      - Manage shipping tokens
+      - Manage log shipping tokens
       - Manage notification endpoints
       - Import or export Kibana objects
   - name: Data security
@@ -768,8 +768,8 @@ paths:
   /v1/log-shipping/tokens:
     post:
       tags:
-        - Manage shipping tokens
-      summary: Create a shipping token
+        - Manage log shipping tokens
+      summary: Create a log shipping token
       description: Creates a log shipping token for this account.
       operationId: createNewLogShippingToken
       x-code-samples:
@@ -792,8 +792,8 @@ paths:
   /v1/log-shipping/tokens/{id}:
     get:
       tags:
-        - Manage shipping tokens
-      summary: Retrieve a shipping token by ID
+        - Manage log shipping tokens
+      summary: Retrieve a log shipping token by ID
       description: Returns the specified shipping token.
       operationId: getLogShippingTokenById
       parameters:
@@ -811,9 +811,9 @@ paths:
             $ref: '#/definitions/ShippingTokensModel'
     put:
       tags:
-        - Manage shipping tokens
-      summary: Update a shipping token
-      description: Changes the name of a shipping token or switches status between enabled/disabled. 
+        - Manage log shipping tokens
+      summary: Update a log shipping token
+      description: Changes the name of a log shipping token or switches status between enabled/disabled. 
       operationId: updateLogShippingToken
       parameters:
         - name: id
@@ -835,8 +835,8 @@ paths:
             $ref: '#/definitions/ShippingTokensModel'
     delete:
       tags:
-        - Manage shipping tokens
-      summary: Delete a shipping token
+        - Manage log shipping tokens
+      summary: Delete a log shipping token
       description: ''
       operationId: deleteLogShippingToken
       parameters:
@@ -855,10 +855,10 @@ paths:
   /v1/log-shipping/tokens/limits:
     get:
       tags:
-        - Manage shipping tokens
+        - Manage log shipping tokens
       summary: Get number of available tokens
       description: >-
-        Returns the number of shipping tokens that can be enabled.
+        Returns the number of log shipping tokens that can be enabled.
         Disabled tokens don't count against the token limit.
       operationId: getLogShippingTokensLimits
       responses:
@@ -869,7 +869,7 @@ paths:
   /v1/log-shipping/tokens/search:
     post:
       tags:
-        - Manage shipping tokens
+        - Manage log shipping tokens
       summary: Search and filter shipping tokens
       description: ''
       operationId: searchLogShippingTokens
@@ -3016,7 +3016,7 @@ definitions:
         numOfEnabledTokens:
           type: integer
           format: int32
-          description: Number of enabled shipping tokens.
+          description: The number of enabled shipping tokens.
           example: 27
   ShippingTokensSearchRequest:
     type: object

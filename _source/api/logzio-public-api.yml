@@ -103,9 +103,9 @@ tags:
     description: >-
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Manage log shipping tokens
-    description: >- 
+    description: >-
       Use these API requests to create, update, retrieve, or delete shipping tokens.
-      Data shipped using this token will be indexed under the account associated with this ID. 
+      Data shipped using this token will be indexed under the account associated with this ID.
   - name: Logz.io snapshots
   - name: Manage users
 
@@ -813,7 +813,7 @@ paths:
       tags:
         - Manage log shipping tokens
       summary: Update a log shipping token
-      description: Changes the name of a log shipping token or switches status between enabled/disabled. 
+      description: Changes the name of a log shipping token or switches status between enabled/disabled.
       operationId: updateLogShippingToken
       parameters:
         - name: id

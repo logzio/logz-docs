@@ -804,6 +804,12 @@ paths:
           format: int32
           description: This token's ID.
           example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/{id}' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
       responses:
         '200':
           description: successful operation
@@ -828,6 +834,16 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/ShippingTokensRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X PUT 'https://api.logz.io/v1/log-shipping/tokens/1900' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "name": "staging eu",
+              "enabled": true
+            }'
       responses:
         '200':
           description: successful operation
@@ -847,6 +863,12 @@ paths:
           format: int32
           description: This token's ID.
           example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X DELETE 'https://api.logz.io/v1/log-shipping/tokens/786351' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
       responses:
         '200':
           description: successful operation
@@ -861,6 +883,12 @@ paths:
         Returns the number of log shipping tokens that can be enabled.
         Disabled tokens don't count against the token limit.
       operationId: getLogShippingTokensLimits
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/limits' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
       responses:
         '200':
           description: successful operation
@@ -870,7 +898,7 @@ paths:
     post:
       tags:
         - Manage log shipping tokens
-      summary: Search and filter shipping tokens
+      summary: Retrieve log shipping tokens
       description: ''
       operationId: searchLogShippingTokens
       parameters:
@@ -879,6 +907,27 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/ShippingTokensSearchRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/log-shipping/tokens/search' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "filter": {
+                "enabled": true
+              },
+              "sort": [
+                {
+                  "field": "NAME",
+                  "descending": true
+                }
+              ],
+              "pagination": {
+                "pageNumber": 3,
+                "pageSize": 15
+              }
+            }'
       responses:
         '200':
           description: successful operation

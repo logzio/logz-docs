@@ -1,14 +1,14 @@
 :root {
   /* FONTS */
-  --title-font: 'Titillium Web', sans-serif;
-  --heading-font: 'Nunito Sans', sans-serif;
-  --body-font: 'Nunito', sans-serif;
+  --title-font: 'Lato', sans-serif;
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Lato', sans-serif;
   --mono-font: 'Roboto Mono', monospace;
   --toc-font-size: .9rem;
   --fa: 'Font Awesome 5 Free';
 
   /* COLORS */
-  --logz-logo-normal: #0089b1;
+  --logz-logo-normal: #002e42;
 
   --text-normal: #53585f;
   --text-normal-75: #53585fbf;
@@ -18,7 +18,8 @@
   --tab-inactive: #797d82;
 
   --text-light: #c5c5c5;
-  --text-link: #009cbd;
+  --text-link: #2c8eb8;
+  --text-link-footer: var(--logz-logo-normal);
   --text-link-gray: #656565;
   --text-code: #e53935;
 

@@ -129,7 +129,9 @@ footer li:not(:last-child) {
   margin-right: 1.25rem;
 }
 
-
+.footer-links a {
+  color: var(--text-link-footer);
+}
 
 div.social-icons li.icon {
   font-size: 1.25rem;

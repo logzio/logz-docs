@@ -2864,19 +2864,28 @@ definitions:
         type: array
         items:
           type: string
-        description: URLs of Slack webhooks that you want to send this snapshot to
+        description: >-
+          URLs of Slack webhooks that you want to send this snapshot to.
+          <br> At least one of `emails`, `slackWebhookUrls`, and `endpoints` is required with each request.
+          If all three are missing, the request will fail.
         example: ["https://hooks.slack.com/services/CC29C43F8/7E6E833FB/Ebe297580E7FaC354F9D4d7"]
       endpoints:
         type: array
         items:
           type: integer
           format: int32
-        description: IDs of notification endpoints that you want to send this snapshot to
+        description: >-
+          IDs of notification endpoints that you want to send this snapshot to
+          <br> At least one of `emails`, `slackWebhookUrls`, and `endpoints` is required with each request.
+          If all three are missing, the request will fail.
       emails:
         type: array
         items:
           type: string
-        description: Email addresses that you want to send this snapshot to
+        description: >-
+          Email addresses that you want to send this snapshot to
+          <br> At least one of `emails`, `slackWebhookUrls`, and `endpoints` is required with each request.
+          If all three are missing, the request will fail.
       message:
         type: string
         description: Message to send to the shared object recipients

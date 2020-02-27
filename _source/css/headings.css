@@ -1,5 +1,4 @@
 h1, h2, h3, h4 .site-title, .post-title, .inline-header {
-  font-weight: 700;
   padding: 0;
   color: var(--heading-normal);
   margin-top: 3rem;
@@ -12,6 +11,7 @@ h1, h1:first-child {
   margin-top: 0px;
   margin-bottom: 0;
   margin-right: 1rem;
+  font-weight: 700;
 }
 
 h2, h3, h4, h5, h6, .inline-header {
@@ -20,11 +20,6 @@ h2, h3, h4, h5, h6, .inline-header {
 
 h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, .inline-header:first-child {
   margin-top: 1rem;
-}
-
-h1, .post-title {
-  font-size: 2rem;
-  font-weight: 700;
 }
 
 h2 {
@@ -38,7 +33,7 @@ h3 {
 h4 {
   font-size: 1.4rem;
   counter-reset: tasklist;
-
+  font-weight: 600;
   border-bottom: 3px solid var(--tasklist-light);
   width: fit-content;
 }
@@ -48,7 +43,7 @@ h5 {
   position: relative;
   clear: both;
 
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.2rem;
   display: block;
 }
@@ -65,12 +60,12 @@ h5 {
   background-color: var(--tasklist-light);
   border-radius: 50%;
   padding: 0 9px;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 h6, .inline-header {
   font-size: 1rem;
   margin-bottom: 0;
   color: var(--heading-blue);
-  font-weight: 700;
+  font-weight: 500;
 }

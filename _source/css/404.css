@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:200,400');
+
+.container {
+  margin: 10px auto;
+  max-width: 600px;
+  text-align: center;
+  padding-bottom: 400px;
+}
+
+.four-oh-four, .ridoculous {
+  font-weight: 200 !important;
+  margin: 0;
+  line-height: 1;
+  color: #002e42;
+}
+
+.four-oh-four {
+  margin-top: 30px;
+  font-size: 100px;
+}
+
+.ridoculous {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.logz-symbol-404 {
+  border: none !important;
+  display: inline !important;
+  height: 75px !important;
+  margin: 0 5px !important;
+}

@@ -24,9 +24,9 @@
   --text-code: #e53935;
 
   --heading-normal: #53585f;
-  --heading-blue: #296386;
-  --heading-blue-75: #296386be;
-  --heading-blue-50: #29638680;
+  --heading-blue: #002e42;
+  --heading-blue-75: #002e42be;
+  --heading-blue-50: #002e4280;
 
   --tasklist-heading: rgb(var(--app-orange-60));
   --tasklist-light: rgb(var(--app-yellow-primary));

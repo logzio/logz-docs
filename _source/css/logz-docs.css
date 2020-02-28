@@ -356,7 +356,7 @@ div.contributions ul > li {
 
 .feedback-container > .feedback.inline-header {
   margin-top: 4px;
-  color: var(--heading-blue-75);
+  color: var(--heading-blue);
 }
 
 .feedback-container > *:not(:last-child) {

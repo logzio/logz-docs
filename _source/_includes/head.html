@@ -1,7 +1,11 @@
 {%- assign nodeDir = site.baseurl | append: "/js/external_js" -%}
 {%- assign jsDir = site.baseurl | append: "/js" -%}
 
+{%- assign pageTitle = page.title | default: page.hidden-title | default: "" -%}
+{%- unless pageTitle == "" %}{% assign pageTitle = pageTitle | prepend: ' | ' %}{% endunless -%}
+
 <head>
+  <title>{{site.title}}{{pageTitle}}</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,18 +48,10 @@
   <script type="text/javascript" src="{{jsDir}}/jquery-ui-widget-1.12.1.min.js"></script>
   <script type="text/javascript" src="{{jsDir}}/jquery-ui-1.12.1.min.js"></script>
   <script type="text/javascript" src="{{jsDir}}/logz-docs.js"></script>
-
-  <!-- jquery table sorter -->
   <script type="text/javascript" src="{{nodeDir}}/jquery.tablesorter.min.js"></script>
-
-  <!-- js hashchange -->
   <script type="text/javascript" src="{{jsDir}}/jquery.ba-hashchange.min.js"></script>
   <script type="text/javascript" src="{{jsDir}}/jquery.easytabs.min.js"></script>
-
-  <!-- clipboard.js -->
   <script type="text/javascript" src="{{nodeDir}}/clipboard.min.js"></script>
-
-  <!-- smooth scroll -->
   <script type="text/javascript" src="{{nodeDir}}/smooth-scroll.min.js"></script>
 
   <!-- the one stylesheet to rule them all -->

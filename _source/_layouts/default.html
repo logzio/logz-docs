@@ -27,7 +27,9 @@
           {{- page.title | escape -}}
         </h1>
       {% include page-info/page-flags.html %}
-      <div class="slackin"><script async defer src="https://community-slack.logz.io/slackin.js"></script></div>
+      {% unless page.slackin == false %}
+        <div class="slackin"><script async defer src="https://community-slack.logz.io/slackin.js"></script></div>
+      {% endunless %}
     </div>
     {% include page-info/community.html %}
       {{ content }}

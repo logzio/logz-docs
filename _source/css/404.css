@@ -11,7 +11,7 @@
   font-weight: 200 !important;
   margin: 0;
   line-height: 1;
-  color: #002e42;
+  color: var(--logz-logo-normal);
 }
 
 .four-oh-four {

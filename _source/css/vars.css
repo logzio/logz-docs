@@ -1,7 +1,7 @@
 :root {
   /* FONTS */
   --title-font: 'Lato', sans-serif;
-  --heading-font: 'Montserrat', sans-serif;
+  --heading-font: 'Lato', sans-serif;
   --body-font: 'Lato', sans-serif;
   --mono-font: 'Roboto Mono', monospace;
   --toc-font-size: .9rem;

@@ -2,6 +2,10 @@ JEKYLL_JS_DEST="$JEKYLL_SOURCE/js/external_js/"
 
 echo Moving Node files...
 
+if [ ! -d "$JEKYLL_JS_DEST" ]; then
+  mkdir $JEKYLL_JS_DEST
+fi
+
 cp 'node_modules/jquery/dist/jquery.min.js' $JEKYLL_JS_DEST
 cp 'node_modules/tablesorter/dist/js/jquery.tablesorter.min.js' $JEKYLL_JS_DEST
 cp 'node_modules/clipboard/dist/clipboard.min.js' $JEKYLL_JS_DEST

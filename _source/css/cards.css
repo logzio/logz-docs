@@ -38,7 +38,7 @@ div.card:hover {
 
 span.card-title {
   font-family: var(--heading-font);
-  font-weight: 600;
+  font-weight: 500;
   color: var(--heading-normal);
   font-size: 1.25rem;
   margin: auto;

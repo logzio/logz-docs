@@ -75,6 +75,11 @@ kubectl --namespace=kube-system create secret generic cluster-details \
 ```shell
 kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-metricbeat.yml
 ```
+If some of your metrics are not arriving and you see this error in your welcome dashboard - (Ask Daniel Tekatch), run the command below instead. The cosequences of using this yaml is - (Ask Josh Sch)
+
+```shell
+kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-metricbeat-http.yml
+```
 
 ##### Check Logz.io for your metrics
 

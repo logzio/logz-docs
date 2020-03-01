@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Understanding your security logs
-permalink: /user-guide/security-analytics/understanding-your-security-logs.html
+permalink: /user-guide/cloud-siem/understanding-your-security-logs.html
 flags:
   logzio-plan: pro
 tags:
@@ -14,14 +14,16 @@ contributors:
   - danielberman
 ---
 
-Logz.io Security Analytics accounts come with pre-built views to help you understand the security compromises, vulnerabilities, threats, and events in your system.
+Logz.io Cloud SIEM accountscome with pre-built views
+to help you understand the security compromises, vulnerabilities, threats,
+and events in your system.
 You can see these security events in [Summary](#summary), [Threats](#threats), and [Research](#research). Read on for details.
 
 ## Summary {#summary}
 
-![Logz.io Security Analytics Summary page]({{site.baseurl}}/images/security-analytics/security-analytics--summary.png)
+![Logz.io Cloud SIEM Summary page]({{site.baseurl}}/images/security-analytics/security-analytics--summary.png)
 
-When you first sign in to Logz.io Security Analytics, you’re presented with a 24-hour summary of security events.
+When you first sign in to Logz.io Cloud SIEM, you’re presented with a 24-hour summary of security events.
 The heatmap at the top of the page shows the most frequently occurring events.
 When a security rule is triggered, that's considered a security event.
 
@@ -30,9 +32,10 @@ Additionally, you can see the rules broken down by severity and a list of the lo
 
 ## Threats {#threats}
 
-![Logz.io Security Analytics Threats page]({{site.baseurl}}/images/security-analytics/security-analytics--threats.png)
+![Logz.io Cloud SIEM Threats page]({{site.baseurl}}/images/security-analytics/security-analytics--threats.png)
 
-Logz.io Security Analytics compares the IP addresses in your logs against publicly available threat feeds of potential bad actors.
+Logz.io Cloud SIEM compares the IP addresses in your logs
+against publicly available threat feeds of potential bad actors.
 When a threat is identified with a specific log message, a threat is flagged in your system and the log is enriched with additional security context.
 The results are shown here on the Threats page.
 
@@ -47,10 +50,11 @@ This dashboard gives you a more detailed view of a specific IP address, includin
 
 ## Research {#research}
 
-![Logz.io Security Analytics Research page]({{site.baseurl}}/images/security-analytics/security-analytics--research.png)
+![Logz.io Cloud SIEM Research page]({{site.baseurl}}/images/security-analytics/security-analytics--research.png)
 
 The Research page offers the full Kibana experience, so you can dig deep into your security logs and fully understand any events and threats.
 As with Kibana in your Operations accounts, you can also create your own visualizations and dashboards.
 
-Logz.io Security Analytics also ships with a series of pre-made dashboards for different security use cases.
+Logz.io Cloud SIEM also ships with a series of pre-made dashboards
+for different security use cases.
 To see the available dashboards, click the **Dashboard** button in Kibana’s left menu.

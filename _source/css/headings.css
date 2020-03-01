@@ -1,5 +1,4 @@
 h1, h2, h3, h4 .site-title, .post-title, .inline-header {
-  font-weight: 700;
   padding: 0;
   color: var(--heading-normal);
   margin-top: 3rem;
@@ -18,13 +17,22 @@ h2, h3, h4, h5, h6, .inline-header {
   font-family: var(--heading-font);
 }
 
-h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, .inline-header:first-child {
-  margin-top: 1rem;
+/* Make font weights consistent */
+
+h1, h2, h3 {
+  font-weight: 800;
 }
 
-h1, .post-title {
-  font-size: 2rem;
+h4 {
   font-weight: 700;
+}
+
+h5, h6 {
+  font-weight: 600;
+}
+
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child, .inline-header:first-child {
+  margin-top: 1rem;
 }
 
 h2 {
@@ -38,7 +46,6 @@ h3 {
 h4 {
   font-size: 1.4rem;
   counter-reset: tasklist;
-
   border-bottom: 3px solid var(--tasklist-light);
   width: fit-content;
 }
@@ -47,8 +54,6 @@ h5 {
   counter-increment: tasklist;
   position: relative;
   clear: both;
-
-  font-weight: 600;
   font-size: 1.2rem;
   display: block;
 }
@@ -60,11 +65,14 @@ h5 {
 .tasklist h5::before {
   content: counter(tasklist);
   position: absolute;
-  display: inline-block;
+  --size: 30px;
+  height: var(--size);
+  width: var(--size);
   margin-left: -45px;
   background-color: var(--tasklist-light);
   border-radius: 50%;
-  padding: 0 9px;
+  text-align: center;
+  line-height: 150%;
   font-weight: 800;
 }
 
@@ -72,5 +80,4 @@ h6, .inline-header {
   font-size: 1rem;
   margin-bottom: 0;
   color: var(--heading-blue);
-  font-weight: 700;
 }

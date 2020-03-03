@@ -31,7 +31,7 @@ TODO Permissions needed?
 
 ##### Create a Fluent Bit task definition
 
-In the ECS
+In the ECS console
 [_Task Definitions_](https://eu-central-1.console.aws.amazon.com/ecs/home?region=eu-central-1#/taskDefinitions)
 page,
 click **Create new Task Definition**.
@@ -137,16 +137,24 @@ and then click **Create**.
 
 ##### Run the task on your cluster
 
-* On the your task definition page press 'Actions' and choose 'Run Task'.
+Go back to your new task's definition page,
+and click **Actions > Run Task**.
 
-* Press 'Switch to launch type' and fill in the following:
--'Launch Type': Choose 'FARGATE'.
--'Cluster': Choose your cluster.
--'Subnets': Choose one subnet from your given options.
+<div class="fpo fpo-3"></div>
 
-Press 'Run task' and THAT'S IT!
+Click **Switch to launch type**, and fill in these details:
 
-The logs that are created by your image will be sent to logz.io.
-The logs that are created by the Fluent Bit shipper will be sent to Cloudwatch under log group: "/aws/ecs/logzio-fargate-logs".
+- For **Launch Type**, choose **FARGATE**.
+- For **Cluster**, choose your cluster.
+- For **Subnets**, choose one subnet from your given options. TODO - we need more guidance here, I think.
+
+Click **Run task**.
+
+The logs created by the Fluent Bit shipper are in Cloudwatch
+under the `/aws/ecs/logzio-fargate-logs` log group.
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 </div>

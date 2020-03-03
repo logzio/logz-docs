@@ -12,13 +12,10 @@ shipping-tags:
   - container
 ---
 
-This integration will send your AWS Fargate logs to FireLens.
-From there, Fluent Bit ships to Logz.io.
+This integration will send your AWS Fargate to Logz.io
+using FireLens.
 
 #### Configuration
-
-**Before you begin, you'll need**:
-A cluster in a VPC with [Container Insights](https://docs.aws.amazon.com/AmazonECS/latest/userguide/cloudwatch-container-insights.html) enabled
 
 <div class="tasklist">
 
@@ -63,7 +60,8 @@ and click
 Replace the default JSON
 with this code block.
 
-You'll need to replace some of the values
+You'll need to replace the values in between angle brackets
+(`<< >>`)
 using the parameters below the code block. 👇
 
 When you're done, click **Save**,
@@ -162,6 +160,9 @@ under the `/aws/ecs/logzio-fargate-logs` log group.
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours,
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+You'll be able to find these logs by searching for `type:"fargate"`.
 
 </div>

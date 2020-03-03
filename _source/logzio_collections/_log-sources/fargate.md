@@ -139,7 +139,6 @@ and then click **Create**.
 | Parameter | Description |
 |---|---|
 | executionRoleArn | Replace `<<AWS-ACCOUNT-ID>>` with your [AWS account Id](https://console.aws.amazon.com/billing/home?#/account). |
-| taskRoleArn | Replace `<<AWS-ACCOUNT-ID>>` with your [AWS account Id](https://console.aws.amazon.com/billing/home?#/account). |
 {:.paramlist}
 
 ##### Run the task on your cluster

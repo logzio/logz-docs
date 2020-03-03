@@ -5,8 +5,8 @@ logo:
   orientation: vertical
 data-source: Fargate
 contributors:
-  - imnotashrimp
   - ronish31
+  - imnotashrimp
 shipping-tags:
   - aws
   - container
@@ -22,16 +22,7 @@ A cluster in a VPC with [Container Insights](https://docs.aws.amazon.com/AmazonE
 
 <div class="tasklist">
 
-##### Build IAM roles
-
-Later in this process,
-you'll deploy a Fargate container.
-That container will need access to two IAM roles.
-
-Copy the ARN for each role to a text editor
-so you can paste them in the deployment JSON.
-
-###### ECS task execution role
+##### Build the task execution role
 
 [Create a new role](https://console.aws.amazon.com/iam/home#/roles$new?step=type)
 in the IAM console.
@@ -50,12 +41,9 @@ Click **Next: Tags** and then **Next: Review**
 Set **Role name** to "logzioEcsTaskExecutionRole",
 and click **Create role** to save.
 
-Click the newly created role to go to its _Summary_ page,
-and copy the **Role ARN** (at the top of the page) to your text editor.
-
-###### ECS Task role
-
-
+Click the newly created role to go to its _Summary_ page.
+Copy the **Role ARN** (at the top of the page) to your text editor
+so you can paste it in the deployment JSON.
 
 ##### Create a Fluent Bit task definition
 
@@ -126,7 +114,6 @@ and then click **Create**.
   "memory": "512",
   "volumes": [ ],
   "placementConstraints": [ ],
-  "taskRoleArn": "arn:aws:iam::<<AWS-ACCOUNT-ID>>:role/logzioEcsTaskRole",
   "networkMode": "awsvpc",
   "tags": [ ]
 }

@@ -22,12 +22,40 @@ A cluster in a VPC with [Container Insights](https://docs.aws.amazon.com/AmazonE
 
 <div class="tasklist">
 
-##### Build IAM roles:
+##### Build IAM roles
 
-TODO Permissions needed?
+Later in this process,
+you'll deploy a Fargate container.
+That container will need access to two IAM roles.
 
-* Execution Role Arn -
-* Task Role Arn -
+Copy the ARN for each role to a text editor
+so you can paste them in the deployment JSON.
+
+###### ECS task execution role
+
+[Create a new role](https://console.aws.amazon.com/iam/home#/roles$new?step=type)
+in the IAM console.
+
+Make sure **AWS service** is selected at the top of the page.
+In the _Choose a use case_ section,
+click **Elastic Container Service**,
+and then scroll to the bottom of the page and click **Elastic Container Service Task**.
+
+Click **Next: Permissions** to continue.
+
+Select **AmazonECSTaskExecutionRolePolicy**.
+
+Click **Next: Tags** and then **Next: Review**
+
+Set **Role name** to "logzioEcsTaskExecutionRole",
+and click **Create role** to save.
+
+Click the newly created role to go to its _Summary_ page,
+and copy the **Role ARN** (at the top of the page) to your text editor.
+
+###### ECS Task role
+
+
 
 ##### Create a Fluent Bit task definition
 
@@ -36,8 +64,6 @@ In the ECS console
 page,
 click **Create new Task Definition**.
 
-<div class="fpo fpo-1"></div>
-
 Choose **Fargate**,
 and click **Next step** to continue.
 
@@ -45,8 +71,6 @@ Scroll to the _Volumes_ section
 (near the bottom of the page)
 and click
 **Configure via JSON**.
-
-<div class="fpo fpo-2"></div>
 
 Replace the default JSON
 with this code block.
@@ -60,9 +84,7 @@ and then click **Create**.
 ```json
 {
   "family": "logzio-fargate-task",
-  "requiresCompatibilities": [
-    "FARGATE"
-  ],
+  "requiresCompatibilities": [ "FARGATE" ],
   "containerDefinitions": [
     {
       "name": "logzio-log-router",
@@ -90,7 +112,7 @@ and then click **Create**.
         "options": {
           "Name": "Http",
           "Host": "listener.logz.io",
-          "URI": "/?token=<<SHIPPING-TOKEN>>&type=FARGATE",
+          "URI": "/?token=<<SHIPPING-TOKEN>>&type=fargate",
           "Port": "8071",
           "tls": "on",
           "tls.verify": "off",
@@ -100,11 +122,11 @@ and then click **Create**.
     }
   ],
   "cpu": "256",
-  "executionRoleArn": "arn:aws:iam::<<AWS-ACCOUNT-ID>>:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::<<AWS-ACCOUNT-ID>>:role/logzioEcsTaskExecutionRole",
   "memory": "512",
   "volumes": [ ],
   "placementConstraints": [ ],
-  "taskRoleArn": "arn:aws:iam::<<AWS-ACCOUNT-ID>>:role/ecsTaskRoleTest",
+  "taskRoleArn": "arn:aws:iam::<<AWS-ACCOUNT-ID>>:role/logzioEcsTaskRole",
   "networkMode": "awsvpc",
   "tags": [ ]
 }
@@ -114,15 +136,15 @@ and then click **Create**.
 
 | Parameter | Description |
 |---|---|
-| logConfiguration.awslogs-group | In the CloudWatch left menu, select **Logs > Log groups**, and then click **Actions > Create log group**. Give the **Log Group Name** "/aws/ecs/logzio-fargate-logs". |
-| logConfiguration.awslogs-region | The [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) of your cluster. |
+| logConfiguration.options.awslogs-group | In the CloudWatch left menu, select **Logs > Log groups**, and then click **Actions > Create log group**. Give the **Log Group Name** "/aws/ecs/logzio-fargate-logs". |
+| logConfiguration.options.awslogs-region | The [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) of your cluster. |
 {:.paramlist}
 
 ###### Parameters in "app"
 
 | Parameter | Description |
 |---|---|
-| image | Replace `<<YOUR-APP-IMAGE>>` with the name of the image/app you are deploying. TODO - which one? |
+| image | Replace `<<YOUR-APP-IMAGE>>` with the name of the image you want to ship logs from. |
 | logConfiguration.options.Host | Your region's listener host. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | logConfiguration.options.URI | {% include log-shipping/replace-vars.html token=true %} |
 {:.paramlist}
@@ -140,13 +162,11 @@ and then click **Create**.
 Go back to your new task's definition page,
 and click **Actions > Run Task**.
 
-<div class="fpo fpo-3"></div>
-
 Click **Switch to launch type**, and fill in these details:
 
-- For **Launch Type**, choose **FARGATE**.
-- For **Cluster**, choose your cluster.
-- For **Subnets**, choose one subnet from your given options. TODO - we need more guidance here, I think.
+* For **Launch Type**, choose **FARGATE**.
+* For **Cluster**, choose your cluster.
+* For **Subnets**, choose a subnet from your cluster.
 
 Click **Run task**.
 

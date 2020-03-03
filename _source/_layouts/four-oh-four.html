@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+{%- capture repo_path -%}
+{{site.github.org_url | append: site.github.repo_name}}
+{%- endcapture -%}
+
+
+<style type="text/css" media="screen">
+
+</style>
+
+<div class="container">
+  <div class="four-oh-four">
+    4<img class="logz-symbol-404" alt="Logz.io logo" src="{{site.baseurl}}/images/logo/logz-symbol.svg">4.
+  </div>
+  <div class="ridoculous">
+      Ridoculous.
+  </div>
+
+  <div class="post-content">
+    {{content}}
+  </div>
+</div>

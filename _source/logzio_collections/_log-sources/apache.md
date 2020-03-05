@@ -23,7 +23,7 @@ Configuration tl;dr
 |---|---|
 | Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Default log locations | Ubuntu, Debian: `/var/log/apache2/access.log` <br> macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
+| Default log locations | Ubuntu, Debian: `/var/log/apache2/access.log` <br> RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
 | Log type _\(for preconfigured parsing\)_ | `apache`, `apache_access`, or `apache-access`|
 {:.paramlist}
 
@@ -59,7 +59,7 @@ filebeat.inputs:
 
   paths:
   # Ubuntu, Debian: `/var/log/apache2/access.log`
-  #  macOS, RHEL, CentOS, Fedora: `/var/log/httpd/access_log`
+  #  RHEL, CentOS, Fedora: `/var/log/httpd/access_log`
   - /var/log/apache2/access.log
 
   fields:
@@ -77,7 +77,7 @@ filebeat.inputs:
 
   paths:
   # Ubuntu, Debian: `/var/log/apache2/error.log`
-  #  macOS, RHEL, CentOS, Fedora: `/var/log/httpd/error_log`
+  #  RHEL, CentOS, Fedora: `/var/log/httpd/error_log`
   - /var/log/apache2/error.log
 
   fields:

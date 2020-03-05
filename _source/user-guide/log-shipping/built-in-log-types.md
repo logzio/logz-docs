@@ -1,18 +1,26 @@
 ---
 layout: article
-title: Built-in log types
+title: Automatic parsing 
 permalink: /user-guide/log-shipping/built-in-log-types.html
 tags:
   - log-shipping
   - log-types
+  - built-in log types 
+  - parsing 
+  - auto-parsing 
+  - parsing service
+  - custom parsing 
 contributors:
   - schwin007
   - imnotashrimp
 ---
 
-The `type` field identifies your log type. Logz.io parses logs based on `type`. For example, if a log type is `apache_access`, Logz.io automatically parses these logs as Apache access logs.
+Logz.io can automatically parse your logs from most environments. 
 
-This table shows the built-in log types that Logz.io supports. If you don't see your log type here, you can create custom data parsing using the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).
+To configure the shipper to enable out-of-the-box parsing, set the `type` parameter in the shipping config to match the log source. 
+For example, if the shipping config is set to `type: apache_access`, Logz.io automatically parses the logs as Apache access logs.  
+
+Following is the list of log types that Logz.io will automatically parse:
 
 | Description           | Type                                       |
 |-----------------------|--------------------------------------------|
@@ -40,3 +48,23 @@ This table shows the built-in log types that Logz.io supports. If you don't see 
 | nginx error           | `nginx-error`                              |
 | OSSEC                 | `ossec`                                    |
 | Zipkin span           | `zipkinSpan`                               |
+
+
+
+#### Custom parsing
+
+Custom parsing is available when needed.
+You've got several options:
+
+* Build on automatic parsing
+  You can further refine fields using the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html). 
+  
+  This is great when you want to further customize your data mappings, break up fields and GROK particulars out of longer strings. For example, extract the number from HTTP responses (200, 201, 404) so you can easily visualize and aggregate them. 
+
+* Create a custom parsing de novo 
+
+  If you're shipping custom application logs, or any other logs that don't match the above types, custom parsing is your best option. 
+  
+  You can always try one of the types listed above to check if there's a partial match. The [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).
+
+* Parsing-as-a-Service is also offered. Reach out to support to learn more.  

@@ -7,6 +7,9 @@ flags:
   logzio-plan: community
 tags:
   - data-parsing
+  - GROK
+  - parsing
+  - mappings  
 contributors:
   - amosd92
   - tdelrios
@@ -19,9 +22,8 @@ and enriching data with additional information such as geolocation.
 Parsed logs can be more easily analyzed than raw data,
 allowing you to create rich visualizations and helpful alerts.
 
-Parsing is not necessary for all types of logs.
-But if you use a custom or uncommon log type,
-parsing can be an invaluable tool.
+Logz.io automatically parses most log types. 
+But if you use a custom or uncommon log type, you'll require custom parsing. 
 
 You can analyze a set of sample logs in the data parsing wizard,
 simplifying the process.

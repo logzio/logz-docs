@@ -17,7 +17,7 @@ if [[ -z $has_kube_stat_metrics ]]; then
 fi
 
 kube_stat_ns=$(kubectl get deployments --all-namespaces -o json | jq '.items[] | select(.metadata.name == "kube-state-metrics")' | jq -r '.metadata.namespace')
-# kube_stat_port=$(kubectl get deployments --all-namespaces -o json | jq '.items[] | select(.metadata.name == "kube-state-metrics")' | jq '.spec.template.spec.containers[0].ports[] | select(.name == "http-metrics")' | jq '.containerPort')
+kube_stat_port=$(kubectl get deployments --all-namespaces -o json | jq '.items[] | select(.metadata.name == "kube-state-metrics")' | jq '.spec.template.spec.containers[0].ports[] | select(.name == "http-metrics")' | jq '.containerPort')
 
 read -esp "Enter your Logz.io Metrics Shipping Token:" metrics_token
 printf "\n"
@@ -48,7 +48,7 @@ read -ep "Enter your cluster name [${cluster_name}]:" real_cluster_name
 real_cluster_name=${real_cluster_name:-"${cluster_name}"}
 
 echo "your cluster: ${real_cluster_name}"
-# echo "your shipping_port: ${shipping_port}"
+echo "your shipping_port: ${shipping_port}"
 echo "your shipping_protocol: ${shipping_protocol}"
 echo "your listener_host: ${listener_host}"
 echo "your kube_stat_port: ${kube_stat_port}"
@@ -57,9 +57,10 @@ echo "your metrics_token: ${metrics_token}"
 
 kubectl --namespace=kube-system create secret generic cluster-details \
   --from-literal=kube-state-metrics-namespace=$kube_stat_ns \
-  # --from-literal=kube-state-metrics-port=$kube_stat_port \
   --from-literal=kube-state-shipping-protocol=$shipping_protocol \
   --from-literal=kube-state-shipping-port=$shipping_port \
+  --from-literal=kube-state-metrics-port=$kube_stat_port \
   --from-literal=cluster-name=$cluster_name
+
 
 kubectl --namespace=kube-system apply -f https://raw.githubusercontent.com/logzio/logz-docs/kube-metrics-script/shipping-config-samples/k8s-metricbeat.yml

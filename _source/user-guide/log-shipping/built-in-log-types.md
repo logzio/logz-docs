@@ -17,10 +17,11 @@ contributors:
 
 Logz.io can automatically parse your logs from most environments. 
 
-To configure the shipper to enable out-of-the-box parsing, set the `type` parameter in the shipping config to match the log source. 
-For example, if the shipping config is set to `type: apache_access`, Logz.io automatically parses the logs as Apache access logs.  
+How? You'll need to configure the shipper to match one of the log types listed below. 
 
-Following is the list of log types that Logz.io will automatically parse:
+Set the `type` parameter in the shipping config to match the log source. For example, if the shipping config is set to `type: apache_access`, Logz.io automatically parses the logs as Apache access logs.  
+
+Here's the list of log types that Logz.io automatically parses:
 
 | Description           | Type                                       |
 |-----------------------|--------------------------------------------|
@@ -53,18 +54,4 @@ Following is the list of log types that Logz.io will automatically parse:
 
 #### Custom parsing
 
-Custom parsing is available when needed.
-You've got several options:
-
-* Build on automatic parsing
-  You can further refine fields using the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html). 
-  
-  This is great when you want to further customize your data mappings, break up fields and GROK particulars out of longer strings. For example, extract the number from HTTP responses (200, 201, 404) so you can easily visualize and aggregate them. 
-
-* Create a custom parsing de novo 
-
-  If you're shipping custom application logs, or any other logs that don't match the above types, custom parsing is your best option. 
-  
-  You can always try one of the types listed above to check if there's a partial match. The [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).
-
-* Parsing-as-a-Service is also offered. Reach out to support to learn more.  
+When out-of-the-box parsing is not enough, you'll need custom parsing solutions. See the [_data parsing wizard_]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).

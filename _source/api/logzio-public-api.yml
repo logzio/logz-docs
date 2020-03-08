@@ -103,7 +103,7 @@ tags:
   - name: Manage log shipping tokens
     description: >-
       Use these API requests to create, update, retrieve, or delete shipping tokens.
-      Data shipped using this token will be indexed under the account associated with this ID.
+      
   - name: Logz.io snapshots
   - name: Manage users
 
@@ -851,7 +851,10 @@ paths:
       tags:
         - Manage log shipping tokens
       summary: Delete a log shipping token
-      description: # TODO
+      description: >-
+        Deletes a log shipping token by its ID, while providing relevant information about the token's recent status and activity.
+        Limitations: If an account has only 1 active token, it can't be deleted. Create another before deleting it. 
+        Tip: Active tokens can be deleted - effective immediately - using this call. Double-check that all running shippers have been updated with a different token to prevent data loss.
       operationId: deleteLogShippingToken
       parameters:
         - name: id
@@ -897,7 +900,7 @@ paths:
       tags:
         - Manage log shipping tokens
       summary: Retrieve log shipping tokens
-      description: # TODO
+      description: Returns the relevant shipping tokens, filterd, sorted and paginated as per the request.   
       operationId: searchLogShippingTokens
       parameters:
         - in: body
@@ -3063,7 +3066,7 @@ definitions:
         numOfEnabledTokens:
           type: integer
           format: int32
-          description: The number of enabled shipping tokens.
+          description: The number of log shipping tokens currently enabled for this account.
           example: 27
   ShippingTokensSearchRequest:
     type: object

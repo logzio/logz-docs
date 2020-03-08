@@ -179,11 +179,16 @@ spec:
             secretKeyRef:
               name: cluster-details
               key: kube-state-metrics-namespace
-        - name: KUBE_STATE_METRICS_PORT
+        - name: KUBE_STATE_SHIPPING_PROTOCOL
           valueFrom:
             secretKeyRef:
               name: cluster-details
-              key: kube-state-metrics-port
+              key: kube-state-shipping-protocol
+        - name: KUBE_STATE_SHIPPING_PORT
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: kube-state-shipping-port
         - name: CLUSTER_NAME
           valueFrom:
             secretKeyRef:
@@ -263,7 +268,7 @@ data:
         - state_container
         - event
       period: 10s
-      hosts: ["kube-state-metrics.${KUBE_STATE_METRICS_NAMESPACE}:${KUBE_STATE_METRICS_PORT}"]
+      hosts: ["kube-state-metrics.${KUBE_STATE_METRICS_NAMESPACE}:${KUBE_STATE_METRICS_SERVICE_PORT}"]
       enabled: true
       bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
 ---
@@ -362,11 +367,6 @@ spec:
             secretKeyRef:
               name: cluster-details
               key: kube-state-metrics-namespace
-        - name: KUBE_STATE_METRICS_PORT
-          valueFrom:
-            secretKeyRef:
-              name: cluster-details
-              key: kube-state-metrics-port
         - name: KUBE_STATE_SHIPPING_PROTOCOL
           valueFrom:
             secretKeyRef:

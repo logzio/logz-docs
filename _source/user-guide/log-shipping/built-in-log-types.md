@@ -14,6 +14,7 @@ tags:
 contributors:
   - schwin007
   - imnotashrimp
+  - shalper
 ---
 
 Parsing is the process of analyzing logs into their finer parts. It's how unstructured logs of lengthy text documents are converted into structured, predictable data tables. 

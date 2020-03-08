@@ -1,0 +1,26 @@
+---
+layout: article
+title: Custom parsing 
+permalink: /user-guide/log-shipping/custom-parsing.html
+tags:
+  - log-shipping
+  - log-types
+  - parsing  
+  
+contributors:
+  - imnotashrimp
+  - shalper
+---
+
+When auto-parsing is not enough, you'll need custom parsing solutions. Your best option depends on your needs. 
+
+* Refine and fine-tune 
+  Get finer details using the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).
+
+  This is great when you want to further customize your data mappings, break up fields and GROK particulars out of longer strings. 
+  For example, extract the HTTP response codes (200, 201, 404...) for quick visualization and comparison.
+
+
+* Custom parsing from scratch 
+
+  Anything unique such as application logs is likely to require custom parsing. <a class="intercom-launch" href="mailto:help@logz.io">Reach out to Logz.io Support</a>." to learn more.

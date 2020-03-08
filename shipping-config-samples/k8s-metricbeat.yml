@@ -179,6 +179,11 @@ spec:
             secretKeyRef:
               name: cluster-details
               key: kube-state-metrics-namespace
+        - name: KUBE_STATE_METRICS_PORT
+          valueFrom:
+            secretKeyRef:
+              name: cluster-details
+              key: kube-state-metrics-port
         - name: KUBE_STATE_SHIPPING_PROTOCOL
           valueFrom:
             secretKeyRef:

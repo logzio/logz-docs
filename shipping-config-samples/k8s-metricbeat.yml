@@ -123,7 +123,7 @@ data:
         - state_node
         - state_pod
         - state_container
-      hosts: ["${KUBE_STATE_SHIPPING_PROTOCOL}://${HOST_IP}:${KUBE_STATE_METRICS_PORT}"]
+      hosts: ["${KUBE_STATE_SHIPPING_PROTOCOL}://${HOST_IP}:${KUBE_STATE_SHIPPING_PORT}"]
       enabled: true
       bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
       ssl.certificate_authorities:
@@ -273,7 +273,7 @@ data:
         - state_container
         - event
       period: 10s
-      hosts: ["kube-state-metrics.${KUBE_STATE_METRICS_NAMESPACE}:${KUBE_STATE_METRICS_SERVICE_PORT}"]
+      hosts: ["kube-state-metrics.${KUBE_STATE_METRICS_NAMESPACE}:${KUBE_STATE_METRICS_PORT}"]
       enabled: true
       bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
 ---

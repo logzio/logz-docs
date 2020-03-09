@@ -9,6 +9,17 @@ contributors:
 shipping-tags:
   - container
 ---
+### Run our automated installtion script
+
+```shell
+curl -sSL https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/quickstart.sh | bash -s
+```
+And Follow the instructions
+
+ <img>../_source/script.png</img>
+ Note that if you choose shipping protocol to be https then ... (Ask josh)
+
+### Or follow our manual instructions
 
 #### Configuration
 

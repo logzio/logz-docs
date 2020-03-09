@@ -94,7 +94,6 @@ java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<SHIPPING-TOKEN>>,SERVI
 
 | Parameter | Description |
 |---|---|
-| QUEUE_DIR <span class="default-param">`./metrics`</span> | Path to store the queue. Must be a path to an existing folder. |
 | FILE_SYSTEM_SPACE_LIMIT <span class="default-param">`98`</span> | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new metrics are dropped until used space drops below the threshold. <br> Set to `-1` to ignore threshold. |
 | DISK_SPACE_CHECKS_INTERVAL <span class="default-param">`1000`</span> | Time interval, in milliseconds, to check for disk space. |
 | CLEAN_SENT_METRICS_INTERVAL <span class="default-param">`30`</span> | Time interval, in seconds, to clean sent metrics from the disk. |
@@ -177,7 +176,6 @@ For help, see our [example configuration file](https://raw.githubusercontent.com
 
 | Parameter | Description |
 |---|---|
-| logzio-java-sender.queue-dir <span class="default-param">`metrics`</span> | Path to store the queue. Must be an existing folder. |
 | logzio-java-sender.file-system-full-percent-threshold <span class="default-param">`98`</span> | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new metrics are dropped until used space drops below the threshold. Set to `-1` to ignore threshold. |
 | logzio-java-sender.clean-sent-metrics-interval <span class="default-param">`30`</span> | Time interval, in seconds, to clean sent metrics from the disk. |
 | logzio-java-sender.disk-space-checks-interval <span class="default-param">`1000`</span> | Time interval, in milliseconds, to check for disk space. |

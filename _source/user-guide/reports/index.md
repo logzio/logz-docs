@@ -18,7 +18,7 @@ To navigate to the Reports page:
 
 * In your Operations account,
   select **Alerts & Events > Reports** in the top menu.
-* In your Security Analytics account,
+* In your Cloud SIEM account,
   click **Reports** in the top menu.
 
 #### Configuring a report

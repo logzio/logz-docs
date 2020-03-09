@@ -23,7 +23,9 @@ All searches and security rules that use this lookup will compare logs to the up
 
 ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lookups/lookups.png)
 
-You can find lookups by selecting [**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup) from the top menu of your Security Analytics account.
+You can find lookups by selecting
+[**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup)
+from the top menu of your Cloud SIEM account.
 
 #### Create or delete a lookup
 
@@ -69,4 +71,4 @@ to make a new security rule with your filter.
 Your new security rule will contain the lookup you used in step 1.
 
 If you need help with creating a new security rule,
-see [Manage security rules]({{site.baseurl}}/user-guide/security-analytics/manage-security-rules.html).
+see [Manage security rules]({{site.baseurl}}/user-guide/cloud-siem/manage-security-rules.html).

@@ -18,6 +18,7 @@ Docs are continuously deployed to docs.logz.io from `master`.
   * [Previewing locally](#previewing-locally)
   * [Making your first pull request](#making-your-first-pull-request)
 * [Working in Markdown](#working-in-markdown)
+  * [The basics](#the-basics)
   * [Headings](#headings)
   * [Procedures](#procedures)
   * [Info boxes](#info-boxes)
@@ -62,13 +63,13 @@ If you haven't contributed to the Logz.io Docs before, follow these steps to get
 
 1. [Git](https://help.github.com/articles/set-up-git/)
 
-2. macOS: [Xcode](https://developer.apple.com/xcode/)
+2. macOS: [Xcode](https://apps.apple.com/il/app/xcode/id497799835?mt=12)
 
 3. macOS: Xcode command line tools: `xcode-select --install`.
 
-4. [RVM with Ruby](https://rvm.io/rvm/install): `curl -sSL https://get.rvm.io | bash -s stable --ruby`
+4. macOS: [Homebrew](https://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-5. macOS: [Homebrew](https://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+5. [RVM with Ruby](https://rvm.io/rvm/install): `curl -sSL https://get.rvm.io | bash -s stable --ruby`
 
 6. [Bundler](https://bundler.io/): `sudo gem install bundler`
 
@@ -88,10 +89,7 @@ If you haven't contributed to the Logz.io Docs before, follow these steps to get
     git fetch upstream
     ```
 
-10. [Jekyll](https://jekyllrb.com/):
-  `sudo gem install bundler`
-
-11. Install logz-docs dependencies:
+11. Install Jekyll and logz-docs dependencies:
   `sudo bundle install`,
   `npm install`
 
@@ -183,6 +181,49 @@ Some notes:
 * Indents are two spaces (not tabs).
   To nest blocks in a list, indent twice (four spaces). This keeps nested items from breaking a list.
 * You _can_ put Markdown formatting in an HTML container, but please preview your code locally to make sure nothing unexpected is happening with the HTML conversion.
+
+### The basics
+
+````markdown
+**bold**
+
+_italic_
+
+`inline code`
+
+```
+fenced
+code
+block
+```
+
+<!-- For a link that opens in the same tab -->
+[Link placeholder](https://url.com/)
+
+<!-- For alink to open in a new tab -->
+<a href="https://url.com/" target="_blank">Link placeholder</a>
+
+![Image alt text](/url/of/image.png)
+
+[![Linked image](/url/of/image.png)](https://target.link/page.html)
+
+* unordered list
+* list item 2
+* list item 3
+
+<!-- This is Kramdown-specific and probably won't work with other Markdown flavors -->
+Term 1
+: Definition 1
+
+Term 2
+: Definition 2
+
+
+| Table heading | Table heading 2 |
+|---|---|
+| Table body 1 | Table body 2 |
+| Table body 3 | Table body 4 |
+````
 
 ### Headings
 

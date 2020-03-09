@@ -1,60 +1,23 @@
 ---
-layout: default
+layout: four-oh-four
+hidden-title: 404
 related-links: false
 community-info: false
+slackin: false
 show-date: false
 permalink: /404.html
 ---
 
-{%- capture repo_path -%}
-{{site.github.org_url | append: site.github.repo_name}}
-{%- endcapture -%}
+<p>
+  <strong>Sorry, we couldn't find that page.</strong><br>
+  It might have moved, or the link you clicked is broken.
+</p>
 
-
-<style type="text/css" media="screen">
-  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,400');
-
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-    padding-bottom: 400px;
-  }
-
-  .four-oh-four, .ridoculous {
-    font-weight: 200;
-    margin: 0;
-    line-height: 1;
-    color: #0089b1;
-  }
-
-  .four-oh-four {
-    margin-top: 30px;
-    font-size: 100px;
-  }
-
-  .ridoculous {
-    font-size: 40px;
-    margin-bottom: 30px;
-  }
-
-  .logz-symbol-404 {
-    border: none !important;
-    display: inline !important;
-    height: 70px !important;
-    margin: 0 5px !important;
-  }
-
-</style>
-
-<div class="container">
-  <div class="four-oh-four">
-    4<img class="logz-symbol-404" alt="Logz.io logo" src="{{site.baseurl}}/images/logo/logz-symbol.svg">4.
-  </div>
-  <div class="ridoculous">
-    Ridoculous.
-  </div>
-
-  <p><strong>Sorry, we couldn't find the page you were looking for.</strong></p>
-  <p>Maybe it moved, maybe it never existed. Either way, please try another page, or <a href="{{ repo_path }}/issues">let us know</a> about the issue so we can fix it.</p>
-</div>
+<p>
+  You can
+  👈 find another page in the left menu
+  or 🏠 <a href="{{site.baseurl}}/">go to the Docs home page</a>
+  <!-- If you're here from a link in the docs,
+  we should thank you —
+  we just got an alert that something's broken and we need to fix it. 😉 -->
+</p>

@@ -109,5 +109,3 @@ to troubleshoot any problems with your grok pattern.
 If everything looks good,
 click **Apply** to parse future logs using these settings.
 Otherwise, click **Back** to make changes to your settings.
-
-</div>

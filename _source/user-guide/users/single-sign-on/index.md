@@ -24,10 +24,10 @@ and you can manage access to all your services from one service.
 Enabling SSO on your account is more convenient for your users
 and more secure for your company.
 
-### How is access managed with SSO?
+### How is access managed with SSO? {#how-is-access-managed-with-sso}
 
 When you enable SSO on your account,
-you're configuring Logz.io to handing off authentication
+you're configuring Logz.io to hand off authentication
 to your identity provider.
 You'll be able expand or restrict a user's access to Logz.io,
 but not add or remove users from within Logz.io.

@@ -853,8 +853,11 @@ paths:
       summary: Delete a log shipping token
       description: >-
         Deletes a log shipping token by its ID, while providing relevant information about the token's recent status and activity.
-        Limitations: If an account has only 1 active token, it can't be deleted. Create another before deleting it. 
-        Tip: Active tokens can be deleted - effective immediately - using this call. Double-check that all running shippers have been updated with a different token to prevent data loss.
+        
+        
+        An account must have at least 1 enabled token. You won't be able to disable or delete the last token. 
+        
+        **Important**: Active tokens can be deleted - effective immediately - using this call. Confirm that a token is no longer needed before deleting it.
       operationId: deleteLogShippingToken
       parameters:
         - name: id

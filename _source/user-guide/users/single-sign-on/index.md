@@ -47,7 +47,7 @@ You can edit a user to change them to "Admin" access.
 ###### If you have groups
 
 As soon as you configure your first group,
-only users who are part of that group will be able to log in to this account.
+only users who are part of that SSO group will be able to log in to this account.
 
 Each group can be given "Admin", "User", or "Configured per user" permissions.
 

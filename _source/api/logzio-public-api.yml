@@ -857,7 +857,7 @@ paths:
         
         An account must have at least 1 enabled token. You won't be able to disable or delete the last token. 
         
-        **Important**: Active tokens can be deleted - effective immediately - using this call. Confirm that a token is no longer needed before deleting it.
+        **Important**: Active tokens can be deleted using this call. Confirm that a token is no longer needed before deleting it.
       operationId: deleteLogShippingToken
       parameters:
         - name: id

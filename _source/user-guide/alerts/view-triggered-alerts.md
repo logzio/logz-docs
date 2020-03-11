@@ -16,7 +16,7 @@ So if an alert is triggered while notifications are suppressed,
 or if you configured a non-critical alert without notifications,
 the alert is still logged.
 
-![Triggered alerts]({{site.baseurl}}/images/alerts/alerts--triggered-alerts.png)
+![Triggered alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--triggered-alerts.png)
 
 To view triggered alerts,
 select [**Alerts & Events > Triggered alerts**](https://app.logz.io/#/dashboard/triggers/triggered-alerts)
@@ -28,7 +28,7 @@ To see a triggered alert in Kibana,
 hover over the alert,
 and then click **View in Kibana**.
 
-![View triggered alert in Kibana]({{site.baseurl}}/images/alerts/alerts--view-in-kibana.png)
+![View triggered alert in Kibana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--view-in-kibana.png)
 
 This takes you to the alert query for the time period that triggered the alert.
 Using Kibana, you can explore your logs

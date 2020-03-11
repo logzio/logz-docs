@@ -8,6 +8,6 @@
     "vulnerableCheckRunConclusionLevel": "success"
   },
   "issueSettings": {
-    "minSeverityLevel": "LOW"
+    "minSeverityLevel": "HIGH"
   }
 }

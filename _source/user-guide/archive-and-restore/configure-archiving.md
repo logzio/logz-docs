@@ -14,7 +14,7 @@ contributors:
   - schwin007
 ---
 
-![Archive settings]({{site.baseurl}}/images/archive-and-restore/archive-settings.png)
+![Archive settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/archive-settings.png)
 
 The Logz.io archiver copies incoming logs to your Amazon S3 bucket.
 This allows you to save data for as long as you require,

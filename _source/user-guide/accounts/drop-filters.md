@@ -20,7 +20,7 @@ Logs that match your filter's settings won't be indexed.
 You can turn each drop filter off and on,
 making it ideal for logs that you need at some times but not always.
 
-![Drop filters list]({{site.baseurl}}/images/drop-filters/drop-filters-list.png)
+![Drop filters list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filters-list.png)
 
 To get to drop filters,
 select [**<i class="li li-gear"></i> > Tools > Drop filters**](https://app.logz.io/#/dashboard/tools/drop-filters)
@@ -77,7 +77,7 @@ To get started,
 click **<i class="li li-plus"></i> Add drop filter**
 to open the _New drop filter_ form.
 
-![New drop filter form]({{site.baseurl}}/images/drop-filters/new-drop-filter.png)
+![New drop filter form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/new-drop-filter.png)
 
 <div class="tasklist">
 

@@ -72,23 +72,6 @@
 		"description": "kramdown class for info box. use note, notes, tip, important, or warning for class name"
 	},
 
-  "New contributor": {
-		"prefix": "new contributor",
-		"body": [
-			"---",
-			"title: $1",
-			"website: $2",
-			"linkedin: $3",
-			"twitter: $4",
-			"github: $5",
-			"",
-			"logzio-role: $6",
-      "---",
-      "\n{% comment %} LEAVE CONTENT EMPTY {% endcomment %}"
-		],
-		"description": "add a new contributor to the contributors collection"
-  },
-
   "Include shipping token & listener host variable": {
 		"prefix": "shipping vars",
 		"body": "{% include log-shipping/replace-vars.html ${1:token=true} ${2:token='noReplace'} ${3:listener=true} %}",
@@ -136,6 +119,12 @@
     "description": "Launches the Intercom bubble. Fallback to emailing help@logz.io if Javascript not working"
   },
 
+  "CloudFront image URL": {
+    "prefix": "cloudfront-image-url",
+    "body": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/",
+    "description": "URL where images are hosted. You'll still need to fill in the S3 bucket filepath."
+  }
+
   "Branching container": {
     "prefix": "branching container",
     "body": [
@@ -162,4 +151,20 @@
     "description": "Inserts links to tabs in the doc"
   },
 
+  "New contributor": {
+		"prefix": "new contributor",
+		"body": [
+			"---",
+			"title: $1",
+			"website: $2",
+			"linkedin: $3",
+			"twitter: $4",
+			"github: $5",
+			"",
+			"logzio-role: $6",
+      "---",
+      "\n{% comment %} LEAVE CONTENT EMPTY {% endcomment %}"
+		],
+		"description": "add a new contributor to the contributors collection"
+  },
 }

@@ -15,7 +15,7 @@ If you need help in your account that we can't resolve over chat or email, the L
 
 You can control support access from [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the top menu.
 
-![Account settings]({{site.baseurl}}/images/accounts/general--account-settings.png)
+![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/general--account-settings.png)
 
 To enable support access, set the switch to **Enabled**, choose an expiration period, and click **Update**.
 

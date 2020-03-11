@@ -13,7 +13,7 @@ contributors:
   - danielberman
 ---
 
-![Restore a new account]({{site.baseurl}}/images/archive-and-restore/restored-accounts.png)
+![Restore a new account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/restored-accounts.png)
 
 When you restore archived logs,
 those logs are re-ingested into a temporary restored account

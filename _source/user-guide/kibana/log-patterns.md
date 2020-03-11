@@ -25,7 +25,7 @@ as well as recurring and repetitive events.
 You can use log patterns to surface logs you might have otherwise missed,
 or you can use it to identify unnecessary logs that you no longer want to ship to your account.
 
-![Log patterns]({{site.baseurl}}/images/kibana/patterns.png)
+![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns.png)
 
 Log Patterns lives alongside your logs in [Kibana](https://app.logz.io/#/dashboard/kibana).
 You can see patterns under the **Patterns** tab,
@@ -33,7 +33,7 @@ while the familiar _Discover_ view is now under the **Logs** tab.
 
 ## Understanding Log Patterns
 
-![Log patterns]({{site.baseurl}}/images/kibana/patterns-annotated.png)
+![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-annotated.png)
 
 Time
 : The timestamp of the first log with this pattern in this time range.
@@ -66,7 +66,7 @@ Patterns comprise two parts:
 _constants_ and _variables_.
 This example contains both:
 
-![Log patterns]({{site.baseurl}}/images/kibana/sample-pattern.png)
+![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-pattern.png)
 
 Constants are displayed as is.
 In this example, `Duplicate entry` and `for session` are constants.

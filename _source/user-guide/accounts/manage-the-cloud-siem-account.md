@@ -23,7 +23,7 @@ reach out to your account manager
 or email [the Sales team](mailto:sales@logz.io).
 {:.info-box.note}
 
-![Manage the Cloud SIEM account]({{site.baseurl}}/images/accounts/manage-security-account.png)
+![Manage the Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/manage-security-account.png)
 
 You can manage your Cloud SIEM account
 from the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.

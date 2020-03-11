@@ -16,7 +16,7 @@ you can ensure that you're notified of critical events.
 You can configure alerts to see non-urgent events in Kibana,
 reducing alert fatigue while still having a complete view of noteworthy events.
 
-![Alert definitions]({{site.baseurl}}/images/alerts/alerts--alert-definitions-annotated.png)
+![Alert definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--alert-definitions-annotated.png)
 
 To reach this page,
 select [**Alerts & Events > Alert definitions**](https://app.logz.io/#/dashboard/triggers/alert-definitions)

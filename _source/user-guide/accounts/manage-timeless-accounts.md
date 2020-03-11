@@ -24,7 +24,7 @@ You can store key metrics that you want to track in your timeless accounts.
 Each timeless account contains its own Elasticsearch index,
 which you can search from your main account.
 
-![Timeless accounts]({{site.baseurl}}/images/accounts/accounts--timeless-accounts.png)
+![Timeless accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts--timeless-accounts.png)
 
 #### To create or manage a timeless account
 
@@ -36,7 +36,7 @@ In the **Timeless account plan** panel,
 click the timeless account you want to manage,
 or click **Add timeless account**.
 
-![Manage a timeless account]({{site.baseurl}}/images/accounts/accounts--manage-timeless-account.png)
+![Manage a timeless account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts--manage-timeless-account.png)
 
 ##### Adjust account volume
 

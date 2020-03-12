@@ -28,7 +28,7 @@ fi
 kube_stat_ns=$(kubectl get deployments --all-namespaces -o json | jq '.items[] | select(.metadata.name == "kube-state-metrics")' | jq -r '.metadata.namespace')
 kube_stat_port=$(kubectl get deployments --all-namespaces -o json | jq '.items[] | select(.metadata.name == "kube-state-metrics")' | jq '.spec.template.spec.containers[0].ports[] | select(.name == "http-metrics")' | jq '.containerPort')
 
-read -esp "Enter your Logz.io Metrics Shipping Token:🔒" metrics_token
+read -esp "Logz.io metrics shipping token:🔒" metrics_token
 printf "\n"
 read -ep "Enter your Logz.io region [us]:" logzio_region
 if [[ ! -z $logzio_region ]] && [[ $logzio_region != "us" ]]; then

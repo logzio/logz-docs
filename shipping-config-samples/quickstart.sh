@@ -38,7 +38,7 @@ else
 fi
 listener_host="listener${logzio_region}.logz.io"
 
-read -ep "Enter Kubelet shipping protocol [http]:" shipping_protocol
+read -ep "Kubelet shipping protocol [http]: " shipping_protocol
 shipping_protocol=${shipping_protocol:-"http"}
 shipping_port="10255"
 if [[ $shipping_protocol == "https" ]]; then

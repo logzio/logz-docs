@@ -151,6 +151,23 @@
     "description": "Inserts links to tabs in the doc"
   },
 
+  "Tasklist": {
+    "prefix": "tasklist",
+    "body": [
+      "#### ${1:Configuration}",
+      "",
+      "**Before you begin, you'll need**:",
+      "$2",
+      "",
+      "<div class=\"tasklist\">",
+      "",
+      "##### ${0:step 1 title}",
+      "",
+      "</div>"
+    ],
+    "description": "Inserts a div.tasklist"
+  },
+
   "New contributor": {
 		"prefix": "new contributor",
 		"body": [
@@ -162,8 +179,7 @@
 			"github: $5",
 			"",
 			"logzio-role: $6",
-      "---",
-      "\n{% comment %} LEAVE CONTENT EMPTY {% endcomment %}"
+      "---"
 		],
 		"description": "add a new contributor to the contributors collection"
   },

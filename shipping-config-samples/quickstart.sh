@@ -12,7 +12,7 @@ if [[ $has_jq == *"command not found"* ]]; then
     elif [[ "$OSTYPE" == "darwin"* ]]; then
         brew install jq
     else
-        echo "This OS is not being supported by this installation script. Please follow the manual instructions"
+        echo "This OS is not supported by this installation script. Please follow the manual instructions at https://docs.logz.io/shipping/metrics-sources/kubernetes.html"
         exit 1
     fi
   fi

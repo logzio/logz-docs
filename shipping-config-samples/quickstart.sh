@@ -53,7 +53,7 @@ cluster_name=$(kubectl config current-context)
 if [[ $cluster_name == *"cluster/"* ]]; then
   cluster_name=${cluster_name#*"cluster/"}
 fi
-read -ep "Enter your cluster name [${cluster_name}]:" real_cluster_name
+read -ep "Cluster name [${cluster_name}]: " real_cluster_name
 real_cluster_name=${real_cluster_name:-"${cluster_name}"}
 
 kubectl --namespace=kube-system create secret generic cluster-details \

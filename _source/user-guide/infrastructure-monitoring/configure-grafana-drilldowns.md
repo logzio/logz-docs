@@ -50,7 +50,7 @@ to continue to the _Variables > New_ page.
 
 ###### General
 
-![Variable general settings]({{site.baseurl}}/images/grafana/variable-config--general.png)
+![Variable general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variable-config--general.png)
 
 Give a short variable **Name**.
 This is the placeholder value this variable will use.
@@ -68,7 +68,7 @@ We recommend leaving **Hide** empty.
 
 ###### Query options
 
-![Variable query options]({{site.baseurl}}/images/grafana/variable-config--query-options.png)
+![Variable query options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variable-config--query-options.png)
 
 In the **Data source** list,
 choose your Infrastructure Monitoring account.
@@ -127,13 +127,13 @@ make a new one now by clicking <i class="fas fa-plus"></i> in the left menu.
 If you don't see a new panel,
 click the **Add panel** button in the toolbar (in the upper right corner).
 
-![Grafana new panel]({{site.baseurl}}/images/grafana/new-panel.png)
+![Grafana new panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/new-panel.png)
 
 Click **Add Query**.
 
 ##### Configure the query and visualization
 
-![Panel configuration, datasource list]({{site.baseurl}}/images/grafana/panel-config--query--datasource-list.png)
+![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--datasource-list.png)
 
 In the datasource list, choose your Infrastructure Monitoring account
 (Elasticsearch datasource).
@@ -150,7 +150,7 @@ from Grafana.
 
 Click the _Visualization_ icon to the left to see visualization options.
 
-![Panel configuration, visualization  options]({{site.baseurl}}/images/grafana/panel-config--query--visualization.png)
+![Panel configuration, visualization  options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--visualization.png)
 
 The visualization doesn't require anything special
 for Logz.io—configure it as you normally would.
@@ -164,13 +164,13 @@ Click the _General_ icon to the left to see general options.
 If you want to change the panel's **Title**,
 you can do that here.
 
-![Panel configuration, general settings]({{site.baseurl}}/images/grafana/panel-config--general--add-link.png)
+![Panel configuration, general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--general--add-link.png)
 
 Scroll to the _Drilldown links_ section,
 and click **+ Add link**.
 You'll see the full drilldown link configuration.
 
-![Drilldown links]({{site.baseurl}}/images/grafana/panel-config--general--drilldown-link-config.png)
+![Drilldown links](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--general--drilldown-link-config.png)
 
 In the **Type** list, choose **absolute**.
 
@@ -191,7 +191,7 @@ to make sure you're getting the intended results.
 Save your dashboard.
 (The _Save dashboard_ button is in the toolbar in the upper right corner.)
 
-![Drilldown link]({{site.baseurl}}/images/grafana/panel-drilldown-link.png)
+![Drilldown link](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-drilldown-link.png)
 
 Test your new drilldown link
 by hovering over <i class="fas fa-external-link-alt"></i>

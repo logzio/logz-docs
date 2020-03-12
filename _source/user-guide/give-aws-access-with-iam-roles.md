@@ -39,7 +39,7 @@ Browse to the [IAM roles](https://console.aws.amazon.com/iam/home#/roles)
 and click **Create role**.
 You're taken to the _Create role_ wizard.
 
-![Create an IAM role for another AWS account]({{site.baseurl}}/images/aws/iam--create-role.png)
+![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam--create-role.png)
 
 Click **Another AWS account**.
 

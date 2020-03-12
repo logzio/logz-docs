@@ -50,11 +50,11 @@ Fill in these details from the Logz.io Support email message:
 
 ##### Set OneLogin to pass email parameter to Logz.io
 
-![Parameters tab]({{site.baseurl}}/images/sso-providers/onelogin/parameters-tab-add-parameter.png)
+![Parameters tab](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/onelogin/parameters-tab-add-parameter.png)
 
 In the Parameters tab, click **Add parameter**. The _New Field_ dialog is displayed.
 
-![New Field dialog]({{site.baseurl}}/images/sso-providers/onelogin/new-field-modal.png)
+![New Field dialog](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/onelogin/new-field-modal.png)
 
 Fill in these details:
 
@@ -72,7 +72,7 @@ Click the **SSO** tab.
 
 Under X.509 Certificate, click **View Details**. The Standard Strength Certificate page is shown.
 
-![X.509 certficiate details]({{site.baseurl}}/images/sso-providers/onelogin/x509-certificate-details.png)
+![X.509 certficiate details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/onelogin/x509-certificate-details.png)
 
 Download the file and zip it. You'll attach this zip file to an email to the Support team.
 
@@ -94,7 +94,7 @@ Write that you want to set up OneLogin SSO, and include these items in the messa
 
 ##### _(Optional)_ Restrict Logz.io access to specific user groups
 
-![Add group]({{site.baseurl}}/images/access-and-authentication/sso--manage-groups.png)
+![Add group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/sso--manage-groups.png)
 
 By default, all OneLogin users with Logz.io access can sign in to your Logz.io accounts.
 

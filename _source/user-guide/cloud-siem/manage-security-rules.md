@@ -22,7 +22,7 @@ You can also update any preconfigured rule at any time, including adding a notif
 
 #### To create a new security rule
 
-![Query bar in the Research page]({{site.baseurl}}/images/security-analytics/security-analytics--research-query-bar.png)
+![Query bar in the Research page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--research-query-bar.png)
 
 ##### Set your query in Kibana
 
@@ -38,7 +38,7 @@ Continue with [To configure a security rule](#to-configure-a-security-rule).
 
 #### To configure a security rule {#to-configure-a-security-rule}
 
-![Configure security rule]({{site.baseurl}}/images/security-analytics/security-analytics--configure-correlation-rule.png)
+![Configure security rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--configure-correlation-rule.png)
 
 <div class="tasklist">
 
@@ -59,7 +59,7 @@ Run your query in Kibana so you can be sure you're getting the expected results.
 
 ##### _(Optional)_ Edit group by settings
 
-![Security rule group by settings]({{site.baseurl}}/images/security-analytics/security-analytics--correlation-rule-group-by.png)
+![Security rule group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--correlation-rule-group-by.png)
 
 Click **Add group by** to add up to 3 groups.
 
@@ -74,7 +74,7 @@ To show fields for all log types, choose **Clear filter**.
 
 Set your threshold and severity levels in the **Trigger** section.
 
-![Security rule trigger settings]({{site.baseurl}}/images/security-analytics/security-analytics--correlation-rule-trigger-settings.png)
+![Security rule trigger settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--correlation-rule-trigger-settings.png)
 
 ##### _(Optional)_ Set recipients
 

@@ -32,7 +32,7 @@ The Support team will respond with the connection information you'll need to giv
 
 ##### Add Logz.io to Azure
 
-![Add a non-gallery application in Azure]({{site.baseurl}}/images/sso-providers/azure/add-your-own-application.png)
+![Add a non-gallery application in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/add-your-own-application.png)
 
 In the [Azure Portal](https://portal.azure.com/), browse to **Azure Active Directory  > Enterprise Applications > New application > Non-gallery application**.
 
@@ -42,7 +42,7 @@ Click **Configure Single Sign-On**, and choose **SAML-based Sign-on**.
 
 ##### Paste the SAML information from Support
 
-![Add a non-gallery application in Azure]({{site.baseurl}}/images/sso-providers/azure/configure-single-sign-on.png)
+![Add a non-gallery application in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/configure-single-sign-on.png)
 
 Fill in these details from the Logz.io Support email message:
 
@@ -82,7 +82,7 @@ Click **Save** (top of the page).
 
 ##### _(Optional)_ Restrict Logz.io access to specific user groups
 
-![Add group]({{site.baseurl}}/images/access-and-authentication/sso--manage-groups.png)
+![Add group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/sso--manage-groups.png)
 
 By default, all Azure users with Logz.io access can sign in to your Logz.io accounts.
 

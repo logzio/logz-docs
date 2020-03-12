@@ -21,7 +21,7 @@ You can see these security events in [Summary](#summary), [Threats](#threats), a
 
 ## Summary {#summary}
 
-![Logz.io Cloud SIEM Summary page]({{site.baseurl}}/images/security-analytics/security-analytics--summary.png)
+![Logz.io Cloud SIEM Summary page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--summary.png)
 
 When you first sign in to Logz.io Cloud SIEM, you’re presented with a 24-hour summary of security events.
 The heatmap at the top of the page shows the most frequently occurring events.
@@ -32,7 +32,7 @@ Additionally, you can see the rules broken down by severity and a list of the lo
 
 ## Threats {#threats}
 
-![Logz.io Cloud SIEM Threats page]({{site.baseurl}}/images/security-analytics/security-analytics--threats.png)
+![Logz.io Cloud SIEM Threats page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--threats.png)
 
 Logz.io Cloud SIEM compares the IP addresses in your logs
 against publicly available threat feeds of potential bad actors.
@@ -50,7 +50,7 @@ This dashboard gives you a more detailed view of a specific IP address, includin
 
 ## Research {#research}
 
-![Logz.io Cloud SIEM Research page]({{site.baseurl}}/images/security-analytics/security-analytics--research.png)
+![Logz.io Cloud SIEM Research page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--research.png)
 
 The Research page offers the full Kibana experience, so you can dig deep into your security logs and fully understand any events and threats.
 As with Kibana in your Operations accounts, you can also create your own visualizations and dashboards.

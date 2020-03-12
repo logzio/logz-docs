@@ -19,7 +19,7 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
 #### To start a new optimizer
 
-![Kibana query bar]({{site.baseurl}}/images/kibana/kibana--query-bar.png)
+![Kibana query bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana--query-bar.png)
 
 ##### Set your query in Kibana
 
@@ -34,7 +34,7 @@ Continue with [To configure an optimizer](#to-configure-an-optimizer).
 
 #### To configure an optimizer {#to-configure-an-optimizer}
 
-![Configure an Optimizer]({{site.baseurl}}/images/alerts/alerts--configure-alert.png)
+![Configure an Optimizer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--configure-alert.png)
 
 <div class="tasklist">
 
@@ -54,7 +54,7 @@ Run your query in Kibana so you can be sure you're getting the expected results.
 
 To store aggregate results, group your search fields.
 
-![Group alert fields]({{site.baseurl}}/images/alerts/alerts--group-by.png)
+![Group alert fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--group-by.png)
 
 Click **Add group by** to add up to 3 groups.
 

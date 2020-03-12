@@ -22,7 +22,7 @@ With Cloud SIEM, you can identify
 potential indicators of compromise
 by correlating your Logz.io data with lists of known threats.
 
-![Logz.io Cloud SIEM]({{site.baseurl}}/images/security-analytics/security-analytics--annotated.png)
+![Logz.io Cloud SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--annotated.png)
 
 Summary
 : The first thing you see when you sign in to your security account.

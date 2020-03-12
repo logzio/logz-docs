@@ -1,6 +1,6 @@
 has_kubectl=$(kubectl 2>&1)
 if [[ $has_kubectl == *"command not found"* ]]; then
-  echo "kubectl not found! please install and configure kubectl first"
+  echo "kubectl not found! Please install and configure kubectl first."
   exit 1
 fi
 

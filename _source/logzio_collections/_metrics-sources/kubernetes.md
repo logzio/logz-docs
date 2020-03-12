@@ -9,19 +9,50 @@ contributors:
 shipping-tags:
   - container
 ---
-### Run our automated installtion script
+
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Automated deployment <span class="sm ital">(recommended)</span>](#automated-config)
+* [Manual deployment](#manual-config)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="automated-config">
+
+#### Automated deployment
+
+<div class="tasklist">
+
+##### Run the automated deployment script
 
 ```shell
 curl -sSL https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/quickstart.sh | bash -s
 ```
-And Follow the instructions
 
- <img>../_source/script.png</img>
- Note that if you choose shipping protocol to be https then ... (Ask josh)
+| Prompt | Description |
+|---|---|
+| Logz.io metrics shipping token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} |
+| Logz.io region | Two-letter region code, or blank for US East (Northern Virginia). This determnies your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| Kubelet shipping protocol <span class="default-param">`http`</span> | `http` or `https`. If your Kubernetes setup is EKS, you'll need to use `https`. |
+| Cluster name <span class="default-param">Detected by the script</span> | The name of the Kubernetes cluster you're deploying in. |
+{:.paramlist}
 
-### Or follow our manual instructions
+##### Check Logz.io for your metrics
 
-#### Configuration
+Give your metrics some time to get from your system to ours,
+and then open [Logz.io](https://app.logz.io/).
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="manual-config">
+
+#### Manual deployment
 
 <div class="tasklist">
 
@@ -83,8 +114,26 @@ kubectl --namespace=kube-system create secret generic cluster-details \
 
 ##### Deploy
 
+Deploy one of these configurations.
+
+If your Kubernetes setup is EKS,
+you'll need to use the HTTPS deployment.
+{:.info-box.note}
+
+
+###### For HTTP communication with kubelet
+
 ```shell
-kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-metricbeat.yml
+kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-metricbeat-http.yml
+```
+
+###### ...Or for HTTPS communication with kubelet
+
+If you want your internal kubelet communication over HTTPs,
+make sure you update your CA certificate accordingly.
+
+```shell
+kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-metricbeat-https.yml
 ```
 
 ##### Check Logz.io for your metrics
@@ -93,3 +142,11 @@ Give your metrics some time to get from your system to ours,
 and then open [Logz.io](https://app.logz.io/).
 
 </div>
+
+</div>
+<!-- tab:end -->
+
+
+</div>
+<!-- tabContainer:end -->
+

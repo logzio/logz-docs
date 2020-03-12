@@ -30,7 +30,7 @@ kube_stat_port=$(kubectl get deployments --all-namespaces -o json | jq '.items[]
 
 read -esp "Logz.io metrics shipping token:🔒" metrics_token
 printf "\n"
-read -ep "Enter your Logz.io region [us]:" logzio_region
+read -ep "Logz.io region [us]: " logzio_region
 if [[ ! -z $logzio_region ]] && [[ $logzio_region != "us" ]]; then
   logzio_region="-${logzio_region}"
 else

@@ -112,7 +112,7 @@ logzio/docker-collector-metrics
 | AWS_ACCESS_KEY <span class="required-param"></span> | Your IAM user's access key ID. |
 | AWS_SECRET_KEY <span class="required-param"></span> | Your IAM user's secret key. |
 | AWS_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
-| AWS_NAMESPACES <span class="required-param"></span> | Comma-separate list of namespaces of the metrics you want to collect. <br> For RDS, this is `AWS/RDS`. |
+| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For RDS, this is `AWS/RDS`. |
 {:.paramlist}
 
 ##### Check Logz.io for your metrics

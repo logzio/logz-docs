@@ -27,11 +27,13 @@ In the Okta developer console,
 navigate to **API > Tokens**.
 Create a token and paste it in your text editor.
 
-![Okta URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/okta-issuer-uri.png)
+![Create Okta API token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/okta-create-token.png)
 
 Click the **Authorization Servers** tab.
 Copy your Okta subdomain from the **Issuer URI** column,
 and paste it in your text editor.
+
+![Okta URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/okta-issuer-uri.png)
 
 In the example above, you'd have copied "dev-123456".
 

@@ -39,7 +39,7 @@ Once Support enables MFA, log out of Logz.io.
 The next time you log in, you'll see a QR code.
 
 <!-- Do yourself a favor and scan the QR code in this image. You won't be disappointed. -->
-![QR code]({{site.baseurl}}/images/access-and-authentication/mfa--qr-code.png)
+![QR code](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/mfa--qr-code.png)
 
 ##### Scan the QR code
 

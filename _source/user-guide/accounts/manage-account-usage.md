@@ -55,7 +55,7 @@ You'll need to do this for each account where you enabled `LogSize`.
 
 ### Enabling account utilization metrics and log size
 
-![Sub account settings]({{site.baseurl}}/images/accounts/utilization--save-account-utilization-metrics.png)
+![Sub account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--save-account-utilization-metrics.png)
 
 Account utilization metrics and log size are set per individual account.
 You can find these settings
@@ -77,7 +77,7 @@ You can find this dashboard
 in the [ELK Apps](https://app.logz.io/#/dashboard/apps)
 by searching for "data volume dashboard".
 
-![Data Volume Dashboard ELK app]({{site.baseurl}}/images/accounts/utilization--elk-apps-data-volume-dashboard.png)
+![Data Volume Dashboard ELK app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--elk-apps-data-volume-dashboard.png)
 
 If you recently enabled account utilization metrics,
 you may need to wait up to 60 minutes

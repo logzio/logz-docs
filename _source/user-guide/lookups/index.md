@@ -21,7 +21,7 @@ Lookups can hold whitelisted or blacklisted values like usernames, IP addresses,
 For example, if you create a lookup that contains a list of company IP addresses, you can update the lookup as your IP addresses change over time.
 All searches and security rules that use this lookup will compare logs to the updated list—so you'll avoid the mistake-prone process of maually copying your data everywhere it's used.
 
-![Lookups]({{site.baseurl}}/images/lookups/lookups.png)
+![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lookups/lookups.png)
 
 You can find lookups by selecting
 [**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup)

@@ -48,7 +48,7 @@ Your new repo is created and you're taken to its main page.
 If Git isn't already installed on your local machine, install it now.
 See [Install Git](https://www.atlassian.com/git/tutorials/install-git) from Atlassian if you need help with this.
 
-![Clone Github repo]({{site.baseurl}}/images/api-cookbook/clone-or-download.png)
+![Clone Github repo](https://dytvr9ot2sszz.cloudfront.net/logz-docs/api-cookbook/clone-or-download.png)
 
 Choose whether you want to clone using HTTPS or SSH, and then copy the URL.
 

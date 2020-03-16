@@ -123,7 +123,7 @@ data:
         - state_node
         - state_pod
         - state_container
-      hosts: ["${KUBE_STATE_SHIPPING_PROTOCOL}://${HOST_IP}:${KUBE_STATE_SHIPPING_PORT}"]
+      hosts: ["https://${HOST_IP}:10250"]
       enabled: true
       bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
       ssl.certificate_authorities:
@@ -184,16 +184,6 @@ spec:
             secretKeyRef:
               name: cluster-details
               key: kube-state-metrics-port
-        - name: KUBE_STATE_SHIPPING_PROTOCOL
-          valueFrom:
-            secretKeyRef:
-              name: cluster-details
-              key: kube-state-shipping-protocol
-        - name: KUBE_STATE_SHIPPING_PORT
-          valueFrom:
-            secretKeyRef:
-              name: cluster-details
-              key: kube-state-shipping-port
         - name: CLUSTER_NAME
           valueFrom:
             secretKeyRef:
@@ -377,16 +367,6 @@ spec:
             secretKeyRef:
               name: cluster-details
               key: kube-state-metrics-port
-        - name: KUBE_STATE_SHIPPING_PROTOCOL
-          valueFrom:
-            secretKeyRef:
-              name: cluster-details
-              key: kube-state-shipping-protocol
-        - name: KUBE_STATE_SHIPPING_PORT
-          valueFrom:
-            secretKeyRef:
-              name: cluster-details
-              key: kube-state-shipping-port
         - name: CLUSTER_NAME
           valueFrom:
             secretKeyRef:

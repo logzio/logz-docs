@@ -23,7 +23,7 @@ only to the sub accounts and timeless accounts that they will need to search.
 To keep your data even more secure,
 limit the number of admins in each account.
 
-![Manage users]({{site.baseurl}}/images/access-and-authentication/access-and-authentication--manage-users.png)
+![Manage users](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/access-and-authentication--manage-users.png)
 
 You can get to this page
 by selecting [**<i class="li li-gear"></i> > Settings > User management**](https://app.logz.io/#/dashboard/settings/manage-users)

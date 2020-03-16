@@ -39,7 +39,7 @@ In the Shortcuts panel (on the right), click **Add Applications**.
 On the left side of the window, click **Create New App**.
 The "Create a New Application Integration" panel is displayed.
 
-![Create a New Application Integration panel]({{site.baseurl}}/images/sso-providers/okta/create-a-new-application-integration.png)
+![Create a New Application Integration panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/okta/create-a-new-application-integration.png)
 
 Select **Web** from the Platform list, click **SAML 2.0** option, and click **Create**.
 The Create SAML Integration page is displayed.
@@ -48,13 +48,13 @@ Set your **App name** to "Logz.io". Click **Next** to continue to the Configure 
 
 ##### Paste the SAML information from Support
 
-![SAML settings]({{site.baseurl}}/images/sso-providers/okta/saml-settings.png)
+![SAML settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/okta/saml-settings.png)
 
 Paste **Single sign on URL** and **Audience URI** from the Logz.io Support email message.
 
 Don't change **Default RelayState**, **Name ID format**, or **Application username**.
 
-![Attribute Statements]({{site.baseurl}}/images/sso-providers/okta/attribute-statements.png)
+![Attribute Statements](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/okta/attribute-statements.png)
 
 In the Attribute Statements section:
 
@@ -64,7 +64,7 @@ In the Attribute Statements section:
 
 ##### Configure Okta to send user groups
 
-![Group Attribute Statements]({{site.baseurl}}/images/sso-providers/okta/group-attribute-statements.png)
+![Group Attribute Statements](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/okta/group-attribute-statements.png)
 
 In the Group Attribute Statements section:
 
@@ -84,7 +84,7 @@ Click **Next**, select **I'm an Okta customer adding an internal app**, and then
 
 ##### Get your endpoint information
 
-![SAML setup instructions]({{site.baseurl}}/images/sso-providers/okta/view-setup-instructions.png)
+![SAML setup instructions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/okta/view-setup-instructions.png)
 
 Browse to the Sign On tab, and then click **View Setup Instructions**.
 
@@ -99,7 +99,7 @@ Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
 ##### _(Optional)_ Restrict Logz.io access to specific user groups
 
-![Add group]({{site.baseurl}}/images/access-and-authentication/sso--manage-groups.png)
+![Add group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/sso--manage-groups.png)
 
 By default, all Okta users with Logz.io access can sign in to your Logz.io accounts.
 

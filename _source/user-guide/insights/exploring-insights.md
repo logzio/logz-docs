@@ -36,7 +36,7 @@ You can toggle the **Only new** switch to see older events.
 
 When you click on an entry in the insight list, it will expand to show you details like a description and Stack Overflow links.
 
-![Insight details]({{site.baseurl}}/images/insights/insights--insight-details.png)
+![Insight details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/insights--insight-details.png)
 
 * To create an alert or optimizer,
   select **Create an Alert/Optimizer** from the insight's menu (<i class="li li-ellipsis-v"></i>).

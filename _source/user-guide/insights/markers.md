@@ -14,7 +14,7 @@ contributors:
 
 To help you understand the context surrounding your insights, you can add markers. Markers reflect significant events that could be potential catalysts for issues, such as new deployments, rollbacks, and specific alerts that may have been triggered.
 
-![Insights marker on the chart]({{site.baseurl}}/images/insights/insights--marker-on-chart.png)
+![Insights marker on the chart](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/insights--marker-on-chart.png)
 
 Markers are based on actual log messages coming in to Logz.io. When the conditions of a marker's search query are met, a marker is added to your insights.
 
@@ -32,7 +32,7 @@ Run a test query in Kibana, and make sure your query returned the expected resul
 
 Below the [Insights](https://app.logz.io/#/dashboard/insights) chart, click **Markers**, and then click **<i class="li li-plus"></i> Create marker**
 
-![Create a marker]({{site.baseurl}}/images/insights/insights--create-marker.png)
+![Create a marker](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/insights--create-marker.png)
 
 Assign a **Marker name**. Then type your **Query string** that you tested in step 1, and click **Create & Plot**.
 
@@ -40,6 +40,6 @@ Assign a **Marker name**. Then type your **Query string** that you tested in ste
 
 When the conditions of the marker are met, it will appear in the insights chart as a gray box and a dotted line. You can use this marker to see the relationship between insights and system events.
 
-![Marker close-up]({{site.baseurl}}/images/insights/insights--marker-close-up.png)
+![Marker close-up](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/insights--marker-close-up.png)
 
 Click a marker in the insights chart to view it in Kibana.

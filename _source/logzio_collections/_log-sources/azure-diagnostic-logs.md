@@ -82,7 +82,7 @@ If you already set up an automated deployment in this region, you can skip to st
 You'll be taken to Azure, where you'll configure the resources to be deployed.
 Make sure to use the settings shown below.
 
-![Customized template]({{site.baseurl}}/images/azure-event-hubs/customized-template.png)
+![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/customized-template.png)
 
 ###### In the BASICS section
 
@@ -111,7 +111,7 @@ So if the connection to Logz.io times out or an error occurs, you'll still have 
 
 To do this, expand your function app's left menu, and then click **Integrate**.
 
-![New Blob output]({{site.baseurl}}/images/azure-event-hubs/azure-blob-storage-outputblob.png)
+![New Blob output](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/azure-blob-storage-outputblob.png)
 
 In the top of the triggers panel, click **Azure Blob Storage (outputBlob)**.
 The _Azure Blob Storage output_ settings are displayed.

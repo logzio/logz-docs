@@ -1,6 +1,6 @@
 <img width="200" src="_source/images/logo/logz-logo.svg">
 
-# Logz.io Docs
+# Logz.io Docs &nbsp; &nbsp; [![Netlify Status](https://api.netlify.com/api/v1/badges/3a2c5e61-7e63-4058-8825-619c89323f95/deploy-status)](https://app.netlify.com/sites/logz-docs/deploys)
 
 Welcome to the source repo for Logz.io Docs!
 
@@ -18,6 +18,7 @@ Docs are continuously deployed to docs.logz.io from `master`.
   * [Previewing locally](#previewing-locally)
   * [Making your first pull request](#making-your-first-pull-request)
 * [Working in Markdown](#working-in-markdown)
+  * [The basics](#the-basics)
   * [Headings](#headings)
   * [Procedures](#procedures)
   * [Info boxes](#info-boxes)
@@ -180,6 +181,49 @@ Some notes:
 * Indents are two spaces (not tabs).
   To nest blocks in a list, indent twice (four spaces). This keeps nested items from breaking a list.
 * You _can_ put Markdown formatting in an HTML container, but please preview your code locally to make sure nothing unexpected is happening with the HTML conversion.
+
+### The basics
+
+````markdown
+**bold**
+
+_italic_
+
+`inline code`
+
+```
+fenced
+code
+block
+```
+
+<!-- For a link that opens in the same tab -->
+[Link placeholder](https://url.com/)
+
+<!-- For alink to open in a new tab -->
+<a href="https://url.com/" target="_blank">Link placeholder</a>
+
+![Image alt text](/url/of/image.png)
+
+[![Linked image](/url/of/image.png)](https://target.link/page.html)
+
+* unordered list
+* list item 2
+* list item 3
+
+<!-- This is Kramdown-specific and probably won't work with other Markdown flavors -->
+Term 1
+: Definition 1
+
+Term 2
+: Definition 2
+
+
+| Table heading | Table heading 2 |
+|---|---|
+| Table body 1 | Table body 2 |
+| Table body 3 | Table body 4 |
+````
 
 ### Headings
 

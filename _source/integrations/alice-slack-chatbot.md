@@ -68,7 +68,7 @@ When you set up Alice for the first time,
 she'll send a Slack message asking you if you want to add a new account.
 Click **Add the account** to continue.
 
-![Alice configuration]({{site.baseurl}}/images/alice/alice-config.png)
+![Alice configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alice/alice-config.png)
 
 Choose your **Account region**
 (more on that [here]({{site.baseurl}}/user-guide/accounts/account-region.html) if you need help)

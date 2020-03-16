@@ -24,7 +24,7 @@ Browse to the [IAM users](https://console.aws.amazon.com/iam/home#/users)
 and click **Add user**.
 You're taken to the _Add user_ wizard.
 
-![Create an IAM role for another AWS account]({{site.baseurl}}/images/aws/iam--add-user.png)
+![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam--add-user.png)
 
 Assign a **User name**.
 
@@ -37,7 +37,7 @@ Click **Next: Permissions** to continue.
 In the  _Set permissions_ section, click **Attach existing policies directly > Create policy**.
 The _Create policy_ page loads in a new tab.
 
-![Create policy]({{site.baseurl}}/images/aws/create-policy-visual-editor.png)
+![Create policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/create-policy-visual-editor.png)
 
 Set these permissions:
 

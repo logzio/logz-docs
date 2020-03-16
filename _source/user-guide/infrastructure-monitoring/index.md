@@ -13,7 +13,7 @@ contributors:
 Logz.io Infrastucture Monitoring complements the ELK stack
 with advanced tools for viewing and managing your metrics.
 
-![Logz.io Infrastructure Monitoring]({{site.baseurl}}/images/grafana/infrastructure-monitoring--annotated.png)
+![Logz.io Infrastructure Monitoring](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/infrastructure-monitoring--annotated.png)
 
 Left menu
 : The main way to get around Grafana.

@@ -54,7 +54,7 @@ from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-u
 
 Click an account in the _Time based retention plan_ panel to see its settings.
 
-![Manage the main account]({{site.baseurl}}/images/accounts/accounts--manage-main-account.png)
+![Manage the main account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts--manage-main-account.png)
 
 ### Time-based account settings
 

@@ -21,6 +21,6 @@ Main accounts and sub accounts are time-based.
 Although time-based accounts are ideal for short- and medium-term data analysis, they hold your data for a limited amount of time.
 Using [data optimizers]({{site.baseurl}}/user-guide/optimizers/configure-optimizers.html), you can store data in a timeless account, allowing you to analyze long-term patterns and trends on aggregated data.
 
-![Manage accounts]({{site.baseurl}}/images/accounts/accounts--manage-accounts.png)
+![Manage accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts--manage-accounts.png)
 
 You can find the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page by clicking **<i class="li li-gear"></i> > Settings > Manage accounts** in the top menu.

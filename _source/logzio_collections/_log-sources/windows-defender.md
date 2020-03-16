@@ -25,19 +25,19 @@ In the Windows taskbar search box, type "gpedit"
 and click **Edit group policy**.
 You'll see the _Local Group Policy Editor_.
 
-![Local Group Policy Editor]({{site.baseurl}}/images/windows/local-group-policy-editor.png)
+![Local Group Policy Editor](https://dytvr9ot2sszz.cloudfront.net/logz-docs/windows/local-group-policy-editor.png)
 
 In the left pane, select **Windows Settings > Security Settings > Local Policies > Audit Policy**.
 In the right pane, open **Audit object access**.
 
-![Audit object access Properties]({{site.baseurl}}/images/windows/audit-object-access-properties.png)
+![Audit object access Properties](https://dytvr9ot2sszz.cloudfront.net/logz-docs/windows/audit-object-access-properties.png)
 
 Select **Success** and **Failure**, and click **OK**.
 
 Back in the Windows taskbar search box, type "regedit"
 and click **Registry Editor**.
 
-![Windows Registry Editor]({{site.baseurl}}/images/windows/registry-editor-windows-defender-context-menu.png)
+![Windows Registry Editor](https://dytvr9ot2sszz.cloudfront.net/logz-docs/windows/registry-editor-windows-defender-context-menu.png)
 
 In the search bar at the top of the window, paste
 "Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender".
@@ -46,13 +46,13 @@ In the left pane, right-click the _Windows Defender_ folder,
 then click **Permissions...** to show _Permissions for Windows Defender_.
 Click **Advanced** to show _Advanced Security Settings for Windows Defender_.
 
-![Advanced Security Settings for Windows Defender]({{site.baseurl}}/images/windows/advanced-security-settings-for-windows-defender.png)
+![Advanced Security Settings for Windows Defender](https://dytvr9ot2sszz.cloudfront.net/logz-docs/windows/advanced-security-settings-for-windows-defender.png)
 
 In the _Auditing_ tab, click **Add** to show the _Auditing Entry for Windows Defender_ dialog.
 
 Click **Select a principal** to show the _Select User or Group_ dialog.
 
-![Select User or Group]({{site.baseurl}}/images/windows/select-user-or-group.png)
+![Select User or Group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/windows/select-user-or-group.png)
 
 Type "Administrators" in the text box and click **Check Names**.
 

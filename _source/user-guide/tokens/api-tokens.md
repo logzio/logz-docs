@@ -18,7 +18,7 @@ You have full control over your tokens—you can create and delete them at any t
 
 To revoke a token's permissions, delete the token.
 
-![Manage API tokens]({{site.baseurl}}/images/access-and-authentication/access-and-authentication--api-tokens.png)
+![Manage API tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/access-and-authentication--api-tokens.png)
 
 To get to this page,
 select [**<i class="li li-gear"></i> > Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens)

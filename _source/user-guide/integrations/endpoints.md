@@ -16,7 +16,7 @@ or when Logz.io finds new insights in your logs.
 Logz.io supports sending notifications to
 BigPanda, Datadog, PagerDuty, Slack, VictorOps, or your own custom endpoint.
 
-![Notification endpoints]({{site.baseurl}}/images/alerts/alerts--alert-endpoints.png)
+![Notification endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--alert-endpoints.png)
 
 You can manage your endpoints
 from [**Alerts & events > Notification endpoints**](https://app.logz.io/#/dashboard/alerts/endpoints).

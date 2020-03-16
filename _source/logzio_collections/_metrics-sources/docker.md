@@ -1,5 +1,5 @@
 ---
-title: Ship metrics with Docker
+title: Ship Docker metrics
 logo:
   logofile: docker.svg
   orientation: horizontal
@@ -14,16 +14,32 @@ shipping-tags:
   - container
 ---
 
-Docker Metrics Collector is a container that runs Metricbeat with the modules you enable at runtime.
-If you're not already running Docker Metrics Collector, follow the steps in [Configuration](#configuration) below.
+To simplify shipping metrics from one or many sources,
+we created Docker Metrics Collector.
+Docker Metrics Collector is a container
+that runs Metricbeat with the modules you enable at runtime.
 
-Otherwise, stop the container, add `docker` to the `LOGZIO_MODULES` environment variable, and restart.
-You can find the `run` command and all parameters in step 2 of the configuration below.
+#### Configuration
+
+If you're not already running Docker Metrics Collector,
+follow these steps.
+
+Otherwise, stop the container, add
+`docker`
+to the `LOGZIO_MODULES` environment variable,
+add `-v /var/run/docker.sock:/var/run/docker.sock:ro` to the command,
+and restart.
+You can find the `run` command and all parameters
+in this procedure.
 
 The `docker` module collects these metrics:
-`container`, `cpu`, `diskio`, `healthcheck`, `info`, `memory`, `network`
-
-#### Configuration {#configuration}
+`container`,
+`cpu`,
+`diskio`,
+`healthcheck`,
+`info`,
+`memory`,
+`network`
 
 <div class="tasklist">
 
@@ -37,12 +53,16 @@ docker pull logzio/docker-collector-metrics
 
 ##### Run the container
 
+You'll set your configuration using environment variables
+in the `docker run` command.
+Each parameter is formatted like this:
+`--env ENV_VARIABLE_NAME="value"`.
+
 For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run --name docker-collector-metrics \
 --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
---env LOGZIO_URL="<<LISTENER-HOST>>" \
 --env LOGZIO_MODULES="docker" \
 -v /var/run/docker.sock:/var/run/docker.sock:ro \
 logzio/docker-collector-metrics
@@ -53,14 +73,14 @@ logzio/docker-collector-metrics
 | Parameter | Description |
 |---|---|
 | LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
-| LOGZIO_URL <span class="required-param"></span> | Logz.io listener host to ship the metrics to. {% include log-shipping/replace-vars.html listener=true %} |
 | LOGZIO_MODULES <span class="required-param"></span> | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/logzio_modules`. |
-| LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | The log type you'll use with this Docker. This is shown under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
+| LOGZIO_REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
 | LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |
-| LOGZIO_ADDITIONAL_FIELDS | Semicolon-separated list of additional fields to be included with each message sent (formatted as `fieldName1=value1;fieldName2=value2`). <br> To use an environment variable as a value, format as `fieldName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. Where an environment variable can't be resolved, the field is omitted. |
+| LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
 {:.paramlist}
 
-###### Parameters for Docker Metrics Collector
+###### Parameters for the Docker module
 
 | Parameter | Description |
 |---|---|
@@ -74,7 +94,15 @@ logzio/docker-collector-metrics
 
 ##### Check Logz.io for your metrics
 
-Spin up your Docker containers if you haven't done so already.
-Give your metrics a few minutes to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your metrics a few minutes to get from your system to ours,
+and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+
+You can view your metrics on the
+Docker overview
+dashboard in Grafana.
+Just click **<i class="fas fa-th-large"></i> > Manage** in the left menu,
+then click
+**Logz.io Dashboards >**
+**Docker overview**.
 
 </div>

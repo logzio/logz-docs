@@ -4,16 +4,30 @@ logo:
   logofile: aws-ec2.svg
   orientation: vertical
 data-source: EC2
+open-source:
+  - title: Docker Metrics Collector
+    github-repo: docker-collector-metrics
 contributors:
   - imnotashrimp
 shipping-tags:
   - aws
 ---
 
-#### Guided configuration
+To simplify shipping metrics from one or many sources,
+we created Docker Metrics Collector.
+Docker Metrics Collector is a container
+that runs Metricbeat with the modules you enable at runtime.
 
-**Before you begin, you'll need**:
-[Metricbeat 7](https://www.elastic.co/downloads/beats/metricbeat)
+#### Configuration
+
+If you're not already running Docker Metrics Collector,
+follow these steps.
+
+Otherwise, stop the container, add
+`aws`
+to the `LOGZIO_MODULES` environment variable, and restart.
+You can find the `run` command and all parameters
+in this procedure.
 
 <div class="tasklist">
 
@@ -52,82 +66,60 @@ and the slug for Canada (Central) is "ca-central-1".
 Paste your region slug in your text editor.
 You'll need this for your Metricbeat configuration later.
 
-##### Download the Logz.io certificate
+##### Pull the Docker image
 
-For HTTPS shipping,
-download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-```
-
-##### _(Optional)_ Disable the system module
-
-By default, Metricbeat ships system metrics from its host.
-If you don't need these metrics,
-disable the system module:
+Download the Docker Metrics Collector image:
 
 ```shell
-sudo metricbeat modules disable system
+docker pull logzio/docker-collector-metrics
 ```
 
-##### Configure Metricbeat
+##### Run the container
 
-If you're working with the default configuration file,
-(`/etc/metricbeat/metricbeat.yml`).
-clear the contents and start with a fresh file.
+You'll set your configuration using environment variables
+in the `docker run` command.
+Each parameter is formatted like this:
+`--env ENV_VARIABLE_NAME="value"`.
 
-This code block lays out the default options
-for collecting metrics from
-EC2.
-Paste the code block.
-You can adjust it to match your AWS environment.
+For a complete list of options, see the parameters below the code block.👇
 
-```yml
-# ...
-metricbeat.config.modules.path: ${path.config}/modules.d/*.yml
-metricbeat.modules:
-- period: 300s # Must be multiples of 60
-  module: aws
-  metricsets:
-    - ec2
-  access_key_id: <<YOUR-ACCESS-KEY-ID>>
-  secret_access_key: <<YOUR-SECRET-KEY>>
-  default_region: <<YOUR-AWS-REGION>
+```shell
+docker run --name docker-collector-metrics \
+--env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_MODULES="aws" \
+--env AWS_ACCESS_KEY="<<ACCESS-KEY>>" \
+--env AWS_SECRET_KEY="<<SECRET-KEY>>" \
+--env AWS_REGION="<<AWS-REGION>>" \
+--env AWS_NAMESPACES="<<NAMESPACES>>" \
+logzio/docker-collector-metrics
 ```
 
-##### Add Logz.io to the configuration
+###### Parameters for all modules
 
-If Logz.io information isn't in the file, set it now.
+| Parameter | Description |
+|---|---|
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LOGZIO_MODULES <span class="required-param"></span> | Comma-separated list of Metricbeat modules to enable on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/logzio_modules`. |
+| LOGZIO_REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
+| LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |
+| LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
+{:.paramlist}
 
-Metricbeat can have one output only, so remove any other `output` entries.
+###### Parameters for the AWS module
 
-{% include log-shipping/replace-vars.html token=true %}
-
-{% include log-shipping/replace-vars.html listener=true %}
-
-```yaml
-# ...
-fields:
-  logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
-fields_under_root: true
-ignore_older: 3hr
-type: aws_metrics
-
-#. Logz.io output
-output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-```
-
-##### Start Metricbeat
-
-Start or restart Metricbeat for the changes to take effect.
+| Parameter | Description |
+|---|---|
+| AWS_ACCESS_KEY <span class="required-param"></span> | Your IAM user's access key ID. |
+| AWS_SECRET_KEY <span class="required-param"></span> | Your IAM user's secret key. |
+| AWS_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
+| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For EC2, this is `AWS/EC2`. |
+{:.paramlist}
 
 ##### Check Logz.io for your metrics
 
-Give your metrics a few minutes to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+Give your metrics a few minutes to get from your system to ours,
+and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
 
 You can view your metrics on the
 AWS EC2

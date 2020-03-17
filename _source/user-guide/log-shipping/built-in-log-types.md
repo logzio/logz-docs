@@ -16,11 +16,19 @@ contributors:
   - imnotashrimp
   - shalper
 ---
+#### What is parsing 
 
-Parsing is the process of analyzing logs into their finer parts. It's how unstructured logs of lengthy text documents are converted into structured, predictable data tables. 
-Logz.io can automatically parse logs from most environments. You'll only need to configure the shipper to match one of the log types listed below.
+Logs are typically long, unstructured text documents. 
+Parsing is the process that converts unstructured logs into structured, organized, and predictable data. After it's parsed, log data is more easily searched and aggregated in Kibana Discover and dashboards. 
 
-Set the `type` parameter in the shipping config to match the log source. For example, if the shipping config is set to `type: apache_access`, Logz.io automatically parses the logs as Apache access logs.  
+#### How do I enable parsing in Logz.io? 
+
+Logz.io automatically parses logs from most environments. You'll only need to configure the shipper to match one of the log types listed below. 
+
+The parameter `type` in the shipping config file controls parsing. Configure it to match your log source. 
+For example, if the shipping config is set to `type: apache_access`, Logz.io automatically parses the logs as Apache access logs.  
+
+#### Which logs does Logz.io automatically parse? 
 
 Here's the list of log types that Logz.io automatically parses:
 
@@ -53,17 +61,3 @@ Here's the list of log types that Logz.io automatically parses:
 
 
 
-#### Custom parsing
-
-When auto-parsing is not enough, you'll need custom parsing solutions. The range of customization depends on your needs. You can: 
-
-* Refine and fine-tune 
-  Get finer details using the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).
-
-  This is great when you want to further customize your data mappings, break up fields and GROK particulars out of longer strings. 
-  For example, extract the HTTP response codes (200, 201, 404...) for quick visualization and comparison.
-
-
-* Custom parsing from scratch 
-
-  Anything unique such as application logs is likely to require custom parsing. <a class="intercom-launch" href="mailto:help@logz.io">Reach out to Logz.io Support</a>." to learn more.

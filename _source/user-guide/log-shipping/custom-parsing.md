@@ -29,7 +29,7 @@ If fields are longer or contain multiple objects, this is a sign that your logs 
 
 For example, consider this `message` field. Compare the number of objects it contains to other fields, including `remoteIP`, `requestID`, `total_time`, etc.
 
-![Example of unparsed message field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipping/unparsed_message_field.png)  
+![Example of unparsed message field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipping/unparsed-message-field.png)  
 
 ### How do I apply custom parsing to my logs? 
 

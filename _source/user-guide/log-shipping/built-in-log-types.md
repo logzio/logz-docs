@@ -16,14 +16,14 @@ contributors:
   - imnotashrimp
   - shalper
 ---
-## What is parsing? 
+### What is parsing? 
 
 Logs are typically long, unstructured text documents. 
 Parsing is the process that converts unstructured logs into structured, organized, and predictable data. 
 
 After it's parsed, log data is more easily searched and aggregated in Kibana Discover and dashboards. 
 
-## How do I enable parsing in Logz.io? 
+### How do I enable parsing in Logz.io? 
 
 Logz.io automatically parses logs from most environments. You'll only need to configure the shipper to match one of the log types listed below. 
 
@@ -31,7 +31,7 @@ The parameter `type` in the shipping config file controls parsing. Configure it 
 
 For example, if the shipping config is set to `type: apache_access`, Logz.io automatically parses the logs as Apache access logs. 
 
-## Which logs does Logz.io auto-parse? 
+### Which logs does Logz.io auto-parse? 
 
 Here's the list of log types that Logz.io automatically parses:
 

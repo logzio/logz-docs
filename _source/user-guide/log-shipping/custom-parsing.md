@@ -14,13 +14,13 @@ tags:
 contributors:
     - shalper
 ---
-## What is custom parsing? 
+### What is custom parsing? 
 
 Here at Logz.io, any parsing scheme that doesn't follow Logz.io's out-of-the-box auto-parsing exactly, is considered custom parsing. 
 
 Your logs will need to be custom parsed when auto-parsing is not enough. 
 
-## How do I know if I need custom parsing?  
+### How do I know if I need custom parsing?  
 
 If you recognize unparsed or poorly parsed logs, you should consider custom parsing. 
 
@@ -31,7 +31,7 @@ For example, consider this `message` field. Compare the number of objects it con
 
 ![Example of unparsed message field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipping/unparsed_message_field.png)  
 
-## How do I apply custom parsing to my logs? 
+### How do I apply custom parsing to my logs? 
 
 It depends. Custom parsing covers a range of options so it depends on your use-case. 
 

@@ -38,9 +38,3 @@
   to = "/user-guide/tokens/:splat"
   status = 301
   force = true
-
-[[redirects]]
-  from = "/shipping/log-sources/*/:slug"
-  to= "/shipping/log-sources/:slug"
-  status = 301
-  force = true

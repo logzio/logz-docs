@@ -19,7 +19,7 @@ Notifications are typically sent when alerts are triggered, when a user shares a
 
 
 You can manage your endpoints 
-from [**Alerts & events > Alert endpoints**](https://app.logz.io/#/dashboard/alerts/endpoints), or from [**<i class="li li-gear"></i> > Settings > Notification endpoints**](https://app.logz.io/#/dashboard/alerts/endpoints). 
+from [**Alerts & events > Alert endpoints**](https://app.logz.io/#/dashboard/alerts/endpoints) or from [**<i class="li li-gear"></i> > Settings > Notification endpoints**](https://app.logz.io/#/dashboard/alerts/endpoints). 
 You can also add new endpoints when you're configuring a new notification.
 
 
@@ -29,11 +29,11 @@ Notification endpoints come in 2 forms:
 
  * **Preconfigured endpoints** -  For these, the body, method and headers are preconfigured. You'll only need to specify the API key, service key, token, or equivalent. 
  
- Supported apps include Opsgenie, BigPanda, PagerDuty, Slack, VictorOps, and Datadog. 
+   Supported apps include Opsgenie, BigPanda, PagerDuty, Slack, VictorOps, and Datadog. 
 
- * **Custom endpoints** - You'll need to specify the URL, method and headers, and optionally the message body (if relevant).  
-
-Click for [detailed instructions]({{site.baseurl}}/user-guide/integrations/custom-endpoints.html). 
+ * **Custom endpoints** - You'll need to specify the URL, method and headers, and optionally the message body (if relevant).
+  
+    Click for [detailed instructions]({{site.baseurl}}/user-guide/integrations/custom-endpoints.html). 
 
 #### To manage notification endpoints
 
@@ -58,9 +58,12 @@ Please avoid setting a custom port number for alert endpoints, as they will prev
 {:.info-box.important}
 
 
-#### Example - Adding an Opsgenie endpoint 
+#### Example - Adding preconfigured endpoints 
 
-Select **Opsgenie** from the dropdown list, name the endpoint, and fill in your Opsgenie API key. 
+Opsgenie is a typical example for Logz.io preconfigured endpoints. To add it, select **Opsgenie** from the dropdown list, name the endpoint, and fill in your Opsgenie API key. 
   
   ![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint.png)
 
+Below is another example, demonstrating a typical use case. It shows multiple Slack endpoints corresponding to different Slack channels. In our example, there are channels dedicated to production alerts, application updates, security alerts, and account overage. 
+
+![Multiple Slack endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/slack-endpoints.png)

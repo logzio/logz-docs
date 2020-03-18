@@ -48,6 +48,6 @@ will result in alerts not being sent to said endpoint.
 {:.info-box.important}
 
 * To test an endpoint after it's created, open it in edit mode. 
-Click **Run the test** and check the recepient for the test message. 
+Click **Run the test** and make sure the test message was received. 
 Logz.io will notify you if the message couldn't be sent, 
 but you'll need to confirm that the message was received. 

@@ -11,8 +11,14 @@ contributors:
   - imnotashrimp
 ---
 
-Logz.io can send notifications to your preferred endpoints. 
-These notifications might be sent when alerts trigger, when a user shares a Kibana object, or when Logz.io finds new insights in your logs. 
+Configure Logz.io to send notifications to your preferred endpoints. 
+Notifications are typically sent when alerts are triggered, when a user shares a Kibana object, or when Logz.io identifies new [insights]({{site.baseurl}}/user-guide/insights/exploring-insights.html) in your logs. 
+
+You can 
+
+
+You decide when Many popular endpoints can be configured very simply 
+
 
 Add your notification endpoints are 
 
@@ -26,6 +32,8 @@ Opsgenie, BigPanda, Datadog, PagerDuty, Slack, VictorOps, or your own custom end
 
 ![Notification endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification-endpoints-180320.png)
 
+
+![Notification endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification-endpoints-11.png)
 
 
 ![Notification endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification-endpoints.png)

@@ -54,7 +54,7 @@ Notification endpoints come in 2 forms:
 
 Alerts can only be sent on ports 80 & 443. 
 No other ports are supported.  
-Please avoid setting a custom port number for alert endpoints, as they will prevent the alerts from being sent to the endpoint.
+If you accidently set a custom port number for an alert endpoint, the alert will not be sent. 
 {:.info-box.important}
 
 

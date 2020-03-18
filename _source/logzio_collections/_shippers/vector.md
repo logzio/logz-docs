@@ -43,7 +43,7 @@ at [http sink](https://docs.vector.dev/usage/configuration/sinks/http) from Vect
   encoding = "ndjson" # enum: "ndjson" or "text"
 
   # More information on uri below this code block
-  uri = "https://<<LISTENER-HOST>>?token=<<SHIPPING-TOKEN>>&type=vector"
+  uri = "https://<<LISTENER-HOST>>:8071/?token=<<SHIPPING-TOKEN>>&type=vector"
 
   # OPTIONAL - General
   compression = "gzip" # no default, must be: "gzip" (if supplied)

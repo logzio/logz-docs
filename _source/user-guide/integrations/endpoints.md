@@ -7,16 +7,26 @@ tags:
   - endpoints
   - integrations
 contributors:
+  - shalper
   - imnotashrimp
 ---
 
-Notification endpoints can receive notifications when an alert is triggered,
+Logz.io can send notifications to your preferred endpoints. 
+These notifications might be sent when alerts trigger, when a user shares a Kibana object, or when Logz.io finds new insights in your logs. 
+
+Add your notification endpoints are 
+
+ The root-endpoint is the starting point of the API you’re requesting fromREST API can receive notifications when an alert is triggered,
 when a user shares a Kibana object,
 or when Logz.io finds new insights in your logs.
 
 
 Logz.io supports sending notifications to
 Opsgenie, BigPanda, Datadog, PagerDuty, Slack, VictorOps, or your own custom endpoint.
+
+![Notification endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification-endpoints-180320.png)
+
+
 
 ![Notification endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification-endpoints.png)
 

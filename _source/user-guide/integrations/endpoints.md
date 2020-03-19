@@ -28,7 +28,7 @@ or from [**<i class="li li-gear"></i> > Settings > Notification endpoints**](htt
 
 There are two types of endpoints.
 
- * **Preconfigured endpoints**:
+* **Preconfigured endpoints**:
   For these, the body, method, and headers are preconfigured.
   You'll need to specify authentication information,
   such as your API key, service key, or token.
@@ -62,7 +62,7 @@ No other ports are supported.
 If you accidently set a custom port number for an alert endpoint, the alert will not be sent.
 {:.info-box.important}
 
-#### Example - Adding preconfigured endpoints
+## Example - Adding preconfigured endpoints
 
 Opsgenie is a typical example for Logz.io preconfigured endpoints.
 To add it, select **Opsgenie** from the dropdown list,

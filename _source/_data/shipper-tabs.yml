@@ -13,7 +13,7 @@ tabs:
   - collection: shippers
   - collection: community-shippers
     top-content: >-
-      <p class="info-box important no-title sm">
+      <p class="info-box important no-title">
         <span class="bold">Logz.io does not test or support these projects.</span><br />
         These projects are maintained by third parties and recommended by members of the Logz.io community.
         Always test and review the code of any community project before using it.

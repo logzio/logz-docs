@@ -10,19 +10,35 @@ contributors:
   - shalper
 ---
 
-Configure a custom endpoint to send Logz.io notifications to your preferred apps - even if they aren't on the list of preconfigured options. 
+Configure a custom endpoint to send Logz.io notifications to your preferred apps,
+even if they aren't on the list of preconfigured options.
 
-Custom enpoints offer the advantage of allowing you to customize the message body too. 
+Custom endpoints offer the advantage
+of allowing you to customize the message body too.
 
-#### To add a custom endpoint 
+#### To add a custom endpoint
 
-1. To add a new custom endpoint, click **Add endpoint**. 
-Specify the URL, method and headers. 
+<div class="tasklist">
+
+#### Start the endpoint
+
+To add a new custom endpoint, click **Add endpoint**.
+Specify the URL, method, and headers.
 For POST/PUT methods, you can configure the message body, if relevant.
 
-2. Test the endpoint before saving. This is not required, but highly recommended. 
+#### Test the endpoint
 
-3. Save the endpoint. 
+Click **Run the test** to test your endpoint.
+Logz.io shows if the message was successfully sent.
 
+Check that the endpoint received the message.
+
+This is not required, but highly recommended.
+
+#### Save the endpoint
+
+Click **Save** to save your endpoint.
 
 ![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST.png)
+
+</div>

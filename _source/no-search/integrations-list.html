@@ -1,0 +1,47 @@
+---
+layout: article
+title: Logz.io integrations
+permalink: /logzio-integrations-list.html
+show-date: false
+---
+
+{%- assign tabData = site.data.shipper-tabs.tabs -%}
+{%- assign tagData = site.data.shipper-tabs.tags -%}
+
+
+{%- for tab in tabData -%}
+
+{%- comment -%}
+*   Get all the tags in this tab
+*         {%- endcomment -%}
+{%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
+{%- assign docs = thisCollection.docs | sort_natural: "data-source" -%}
+
+<div id="{{tab.collection}}">
+
+{%- comment -%}
+*   Loop through each category, and create the items for that
+*   category. Simple as that.
+*         {%- endcomment -%}
+<h2>{{thisCollection.name}}</h2>
+
+{{tab.top-content}}
+
+<ul>
+  {%- for doc in docs %}
+    {%- assign shipperUrl = doc.project-url | default: doc.url -%}
+    {%- assign docTags = doc.shipping-tags | join: " " -%}
+    <li>
+      <a href="{{shipperUrl}}">
+        {{ doc.data-source }}
+        {%- if doc.community-project == true %}
+        ({{doc.title}})
+        {%- endif %}
+      </a>
+    </li>
+  {%- endfor -%}
+</ul>
+
+</div>
+
+{%- endfor -%}

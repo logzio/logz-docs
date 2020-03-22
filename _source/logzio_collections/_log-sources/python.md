@@ -81,25 +81,33 @@ you need to set every argument that comes before it.
 | debug-flag <span class="default-param">`False`</span> | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. |
 {:.paramlist}
 
-###### Code sample
+#### Serverless platforms
 
+If you're using a serverless function, you'll need to import and add the LogzioFlusher annotation before your sender function. To do this, in the code sample below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.
+
+#### Code Example
 ```python
 import logging
 import logging.config
+# If you're using a serverless function, uncomment.
+# from logzio.flusher import LogzioFlusher
 
-# If configuration is stored at ./myconf.conf:
+# Say i have saved my configuration under ./myconf.conf
 logging.config.fileConfig('myconf.conf')
-
 logger = logging.getLogger('superAwesomeLogzioLogger')
 
-logger.info('Test log')
-logger.warn('Warning')
+# If you're using a serverless function, uncomment.
+# @LogzioFlusher(logger)
+def my_func():
+    logger.info('Test log')
+    logger.warn('Warning')
 
-try:
-    1/0
-except:
-    logger.exception("Supporting exceptions too!")
+    try:
+        1/0
+    except:
+        logger.exception("Supporting exceptions too!")
 ```
+
 
 To add dynamic metadata to your logger
 other than the constant metadata from the formatter,

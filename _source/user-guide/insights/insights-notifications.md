@@ -17,8 +17,8 @@ Logz.io Insights leverages machine learning to point out significant exceptions,
 
 Insight notifications can be sent via Slack endpoints and email.
 
-If you don't want notifications, but are interested in learning when insights were first identified, 
-you can open the [Insights](https://app.logz.io/#/dashboard/insights) tab 
+If you don't want notifications, but are interested in learning when insights were first identified,
+you can open the [Insights](https://app.logz.io/#/dashboard/insights) tab
 and investigate insights by their **first occurrence**.
 
 ![Insights notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/insight-endpoints.png)

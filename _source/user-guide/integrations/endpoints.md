@@ -33,7 +33,7 @@ There are two types of endpoints.
   You'll need to specify authentication information,
   such as your API key, service key, or token.
 
-  Supported apps include Opsgenie, BigPanda, PagerDuty, Slack, VictorOps, and Datadog.
+  Supported apps include Opsgenie (only if hosted by the US data center), BigPanda, PagerDuty, Slack, VictorOps, and Datadog.
 
 * **Custom endpoints**:
   You'll need to specify the URL, method, and headers,
@@ -58,23 +58,27 @@ There are two types of endpoints.
   or <i class="li li-trash"></i> (delete).
 
 Alerts can only be sent on ports 80 & 443.
-No other ports are supported.
-If you accidently set a custom port number for an alert endpoint, the alert will not be sent.
+If you accidently set a custom port for an alert endpoint, the alert will not be sent.
 {:.info-box.important}
 
-## Example - Adding preconfigured endpoints
+## Example - Adding an Opsgenie endpoint
 
-Opsgenie is a typical example for Logz.io preconfigured endpoints.
+Opsgenie is a typical example for a preconfigured endpoint.
 To add it, select **Opsgenie** from the dropdown list,
 name the endpoint,
 and fill in your Opsgenie API key.
 
+Note that currently only Opsgenie accounts hosted by the US data center are supported. You'll know you're in the US region if you log into your Opsgenie account at https://app.opsgenie.com. If you're hosted in another region, you can configure a [custom endpoint]({{site.baseurl}}/user-guide/integrations/custom-endpoints.html).
+{:.info-box.important}
+
 ![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint.png)
 
-Below is another example,
-demonstrating a typical use case.
-It shows multiple Slack endpoints corresponding to different Slack channels.
-In our example, there are channels dedicated to
-production alerts, application updates, security alerts, and account overage.
+## Typical use case
+
+If you're team is using Slack, you likely have multiple Slack channels to organize different projects.
+
+You can configure your Logz.io alerts to reach the right Slack channel by configuring a Slack endpoint for each channel.
+
+The example below shows different Slack channels dedicated to production and security alerts, application updates, and account overage.
 
 ![Multiple Slack endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/slack-endpoints.png)

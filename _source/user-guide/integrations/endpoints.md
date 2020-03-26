@@ -61,15 +61,14 @@ Alerts can only be sent on ports 80 & 443.
 If you accidently set a custom port for an alert endpoint, the alert will not be sent.
 {:.info-box.important}
 
-## Example - Adding a preconfigured endpoint
+## Example - Adding an Opsgenie endpoint
 
 Opsgenie is a typical example for a preconfigured endpoint.
-
 To add it, select **Opsgenie** from the dropdown list,
 name the endpoint,
 and fill in your Opsgenie API key.
 
-Note that currently only Opsgenie accounts hosted by the US data center are supported. You'll know you're in the US region if you log into your Opsgenie account at https://app.opsgenie.com.
+Note that currently only Opsgenie accounts hosted by the US data center are supported. You'll know you're in the US region if you log into your Opsgenie account at https://app.opsgenie.com. If you're hosted in another region, you can configure a [custom endpoint]({{site.baseurl}}/user-guide/integrations/custom-endpoints.html).
 {:.info-box.important}
 
 ![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint.png)

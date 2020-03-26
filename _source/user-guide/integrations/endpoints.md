@@ -64,17 +64,22 @@ If you accidently set a custom port for an alert endpoint, the alert will not be
 ## Example - Adding a preconfigured endpoint
 
 Opsgenie is a typical example for a preconfigured endpoint. 
+
 To add it, select **Opsgenie** from the dropdown list,
 name the endpoint,
-and fill in your Opsgenie API key. (Note that currently only the US data center is supported, 
-so the URL should begin with [https://api.opsgenie.com](https://docs.opsgenie.com/docs/european-service-region).)  
+and fill in your Opsgenie API key. 
+
+Note that currently only Opsgenie accounts hosted by the US data center are supported. You'll know you're in the US region if you log into your Opsgenie account at https://app.opsgenie.com. 
+{:.info-box.important}
 
 ![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint.png)
 
 ## Typical use case 
 
-If you're team is using Slack, you likely have multiple Slack channels to organize different projects. You can configure your Logz.io alerts to reach the right Slack channel by configuring a Slack endpoint for each. 
-The example below shows Slack channels dedicated to
-production alerts, application updates, security alerts, and account overage.
+If you're team is using Slack, you likely have multiple Slack channels to organize different projects. 
+
+You can configure your Logz.io alerts to reach the right Slack channel by configuring a Slack endpoint for each channel. 
+
+The example below shows different Slack channels dedicated to production and security alerts, application updates, and account overage.
 
 ![Multiple Slack endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/slack-endpoints.png)

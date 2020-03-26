@@ -57,28 +57,28 @@ There are two types of endpoints.
   and click <i class="li li-pencil"></i> (edit)
   or <i class="li li-trash"></i> (delete).
 
-Alerts can only be sent on ports 80 & 443. 
-If you accidently set a custom port for an alert endpoint, the alert will not be sent. 
+Alerts can only be sent on ports 80 & 443.
+If you accidently set a custom port for an alert endpoint, the alert will not be sent.
 {:.info-box.important}
 
 ## Example - Adding a preconfigured endpoint
 
-Opsgenie is a typical example for a preconfigured endpoint. 
+Opsgenie is a typical example for a preconfigured endpoint.
 
 To add it, select **Opsgenie** from the dropdown list,
 name the endpoint,
-and fill in your Opsgenie API key. 
+and fill in your Opsgenie API key.
 
-Note that currently only Opsgenie accounts hosted by the US data center are supported. You'll know you're in the US region if you log into your Opsgenie account at https://app.opsgenie.com. 
+Note that currently only Opsgenie accounts hosted by the US data center are supported. You'll know you're in the US region if you log into your Opsgenie account at https://app.opsgenie.com.
 {:.info-box.important}
 
 ![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint.png)
 
-## Typical use case 
+## Typical use case
 
-If you're team is using Slack, you likely have multiple Slack channels to organize different projects. 
+If you're team is using Slack, you likely have multiple Slack channels to organize different projects.
 
-You can configure your Logz.io alerts to reach the right Slack channel by configuring a Slack endpoint for each channel. 
+You can configure your Logz.io alerts to reach the right Slack channel by configuring a Slack endpoint for each channel.
 
 The example below shows different Slack channels dedicated to production and security alerts, application updates, and account overage.
 

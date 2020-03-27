@@ -75,7 +75,7 @@ Note that currently only Opsgenie accounts hosted by the US data center are supp
 
 ## Typical use case
 
-If you're team is using Slack, you likely have multiple Slack channels to organize different projects.
+If your team is using Slack, you likely have multiple Slack channels to organize different projects.
 
 You can configure your Logz.io alerts to reach the right Slack channel by configuring a Slack endpoint for each channel.
 

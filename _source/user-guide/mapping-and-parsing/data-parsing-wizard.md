@@ -3,7 +3,7 @@ layout: article
 title: The data parsing wizard
 permalink: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 flags:
-  beta: true
+  admin: true
   logzio-plan: community
 tags:
   - data-parsing
@@ -11,16 +11,27 @@ tags:
   - parsing
   - mappings  
 contributors:
+  - shalper
   - amosd92
   - tdelrios
   - imnotashrimp
 ---
 
-Parsing is the process of breaking down your log message into smaller chunks of data,
-placing each chunk into its own specific named field,
-and enriching data with additional information such as geolocation.
-Parsed logs can be more easily analyzed than raw data,
-allowing you to create rich visualizations and helpful alerts.
+### Enriching your data with advanced parsing 
+
+All of your logs should be automatically parsed by Logz.io to help you find what you need fast. But sometimes, standard parsing just won't cut it. 
+
+If you think a field isn't specific enough, you can use the 
+**data parsing wizard** to break it up into more granular components. 
+
+The wizard will allow you to test-run a GROK pattern and apply it to a specific log type. Once applied, your new GROK pattern will change your data mappings from that point forward. It's imporatant to keep in mind that the data will switch to a new index, so whenever your querying on the field that's changed, you'll need to do this separately for data that predates the change. 
+
+Parsing changes never apply retroactively. Data is parsed before it's archived, so even if you're restoring data, the parsing change will cause a break in the data mappings. 
+
+You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> > Tools > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the top menu.
+
+![Data parsing wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing-and-mapping--data-parsing-wizard.png)
+
 
 Logz.io automatically parses most log types. 
 But if you use a custom or uncommon log type, you'll require custom parsing. 

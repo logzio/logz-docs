@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Custom parsing 
+title: Advanced parsing 
 permalink: /user-guide/log-shipping/custom-parsing.html
 flags:
   admin: true
@@ -9,16 +9,17 @@ tags:
   - log-shipping
   - log-types
   - parsing 
-  - custom parsing 
-  
+   
 contributors:
     - shalper
 ---
-### What is custom parsing? 
 
-Here at Logz.io, any parsing scheme that doesn't follow Logz.io's out-of-the-box auto-parsing exactly, is considered custom parsing. 
+### Enriching your data with advanced parsing 
 
-Your logs will need to be custom parsed when auto-parsing is not enough. 
+Your data should be automatically parsed by Logz.io to help you find what you need faster. 
+If you think a field isn't specific enough, and want to tweak its parsing, you can use the 
+
+
 
 ### How do I know if I need custom parsing?  
 
@@ -29,7 +30,7 @@ If fields are longer or contain multiple objects, this is a sign that your logs 
 
 For example, consider this `message` field. Compare the number of objects it contains to other fields, including `remoteIP`, `requestID`, `total_time`, etc.
 
-![Example of unparsed message field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipping/unparsed-message-field.png)  
+![Example of unparsed message field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/unparsed_message_field.png)
 
 ### How do I apply custom parsing to my logs? 
 

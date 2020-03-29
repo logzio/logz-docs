@@ -71,6 +71,8 @@ firstLevel:
   - title: Infrastructure Monitoring
     url: /user-guide/infrastructure-monitoring/
     thirdLevel:
+    - title: Data rollups - data compression and retention
+      url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: Configure Grafana drilldown links
       url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
 

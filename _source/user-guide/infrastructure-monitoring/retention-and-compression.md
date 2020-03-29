@@ -21,15 +21,14 @@ You wouldn't want to miss the forest for the trees. Consider for example your sy
 #### Rollups explained
 
 Logz.io "rolls up" your metrics data by compacting it incrementally at 3 points:
+
 * **First rollup** - Once 3 days (72 hours) have passed since the data was logged, it is compressed. Each data point provides a metric for a 1
   minute inverval. At this point, the original raw data is no longer available.
-* **Second rollup** - Once a week has passed (7 days = 168 hours) since the raw data was first logged, the data is compressed once more. Each
-  data point provides a metric for a 10 minute inverval.
-* **Third rollup** - Once 30 days have passed since the raw data was first logged, the data is compressed once more. Each data point provides a
-  metric for a 1 hour inverval.
 
+* **Second rollup** - Once a week has passed (7 days = 168 hours) since the raw data was first logged, the data is compressed once more. Each data point provides a metric for a 10 minute inverval.
 
-Summary table
+* **Third rollup** - Once 30 days have passed since the raw data was first logged, the data is compressed once more. Each data point provides a metric for a 1 hour inverval.
+
 
 | Time passed since data was first-indexed          | Data granularity|
 |-----------------------|--------------------------------------------|

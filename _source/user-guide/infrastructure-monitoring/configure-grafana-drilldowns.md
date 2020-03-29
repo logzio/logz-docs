@@ -11,6 +11,8 @@ contributors:
   - daniel-tk
 ---
 
+Drilldown links are shortcuts that take you directly to the relevant Kibana results in your logs. You'll  provide 
+
 One of the most useful features you'll come across
 in Logz.io Infrastructure Monitoring
 is drilldown links.

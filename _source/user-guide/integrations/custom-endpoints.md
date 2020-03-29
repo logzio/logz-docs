@@ -20,13 +20,13 @@ of allowing you to customize the message body too.
 
 <div class="tasklist">
 
-#### Start the endpoint
+##### Start the endpoint
 
 To add a new custom endpoint, click **Add endpoint**.
 Specify the URL, method, and headers.
 For POST/PUT methods, you can configure the message body, if relevant.
 
-#### Test the endpoint
+##### Test the endpoint
 
 Click **Run the test** to test your endpoint.
 Logz.io shows if the message was successfully sent.
@@ -35,7 +35,7 @@ Check that the endpoint received the message.
 
 This is not required, but highly recommended.
 
-#### Save the endpoint
+##### Save the endpoint
 
 Click **Save** to save your endpoint.
 

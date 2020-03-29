@@ -71,6 +71,8 @@ firstLevel:
   - title: Infrastructure Monitoring
     url: /user-guide/infrastructure-monitoring/
     thirdLevel:
+    - title: Data rollups
+      url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: Configure Grafana drilldown links
       url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
 
@@ -179,6 +181,9 @@ firstLevel:
   secondLevel:
   - title: Notification endpoints
     url: /user-guide/integrations/endpoints.html
+    thirdLevel:
+      - title: Custom endpoints
+        url: /user-guide/integrations/custom-endpoints.html
   - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html
   - title: Grafana data source plugin

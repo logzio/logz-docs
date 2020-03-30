@@ -25,7 +25,7 @@ You can give log-monitoring sub-accounts access to view Metrics accounts that be
 
 Select [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) from the top-right corner. (This option only appears when you are on the main account.)
 
-Scroll down to the Metrics account, and select it to expand its panel. Here you'll find the account's shipping token, account name, and usage history.
+Scroll down to the Metrics account, and select it to expand its panel. Here you'll find the account's shipping token, account name, and usage history. 
 You can add any of the log-monitoring sub-accounts in the drop-down list. If the account you are looking for doesn't appear on the list, it likely belongs to a different main account.
 
 ![Managing Metrics account permissions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-account-read-permissions.png)

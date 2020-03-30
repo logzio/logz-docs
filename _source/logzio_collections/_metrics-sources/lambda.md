@@ -40,7 +40,8 @@ with these permissions:
 `ec2:DescribeInstances`,
 `ec2:DescribeRegions`,
 `iam:ListAccountAliases`,
-`sts:GetCallerIdentity`
+`sts:GetCallerIdentity`,
+`tag:GetResources`
 
 If you don't have one, set that up now.
 

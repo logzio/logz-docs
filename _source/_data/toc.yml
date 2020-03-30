@@ -73,7 +73,7 @@ firstLevel:
     thirdLevel:
     - title: Data rollups
       url: /user-guide/infrastructure-monitoring/data-rollups.html
-    - title: Configure Grafana drilldown links
+    - title: Configure drilldown links
       url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
 
   - title: Cloud SIEM

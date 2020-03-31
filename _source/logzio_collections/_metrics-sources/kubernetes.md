@@ -27,7 +27,7 @@ shipping-tags:
 ##### Run the automated deployment script
 
 ```shell
-curl -sSL https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/quickstart.sh | bash -s
+bash <(curl -s https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/quickstart.sh)
 ```
 
 | Prompt | Description |
@@ -149,4 +149,3 @@ and then open [Logz.io](https://app.logz.io/).
 
 </div>
 <!-- tabContainer:end -->
-

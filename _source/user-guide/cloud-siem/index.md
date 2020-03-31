@@ -47,7 +47,9 @@ To see your Cloud SIEM account,
 click the Logz.io logo (upper left corner),
 and then click **Security**.
 
-## Utilities supported by Cloud SIEM
+## Products supported by Cloud SIEM
+
+Logz.io's security team writes security rules for the following security products, VPNs, firewalls, etc. 
 
 {% for doc in site.log-sources %}
 {%- if doc.shipping-tags contains 'security' %}

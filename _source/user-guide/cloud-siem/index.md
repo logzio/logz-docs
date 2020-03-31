@@ -49,7 +49,7 @@ and then click **Security**.
 
 ## Products supported by Cloud SIEM
 
-Logz.io's security team writes security rules for the following security products, VPNs, firewalls, etc. 
+Logz.io provides security rules and dashboards for the following security products:  
 
 {% for doc in site.log-sources %}
 {%- if doc.shipping-tags contains 'security' %}

@@ -85,7 +85,7 @@ logzio/jaeger-logzio:latest
 |---|---|
 | ACCOUNT_TOKEN <span class="required-param"></span> | Required when using as a collector to ship traces to Logz.io. <br> {% include log-shipping/replace-vars.html token=true %} |
 | API_TOKEN	<span class="required-param"></span> | Required to read back traces from Logz.io. <br> Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from the account you want to use. |
-| REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| REGION <span class="default-param">Blank (US East)</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | GRPC_STORAGE_PLUGIN_LOG_LEVEL	<span class="default-param">`warn`</span> | The lowest log level to send. From lowest to highest, log levels are `trace`, `debug`, `info`, `warn`, `error`. <br> Controls logging for Jaeger Logz.io Collector only (not Jaeger components). |
 {:.paramlist}
 
@@ -139,7 +139,7 @@ logzio/jaeger-logzio-collector:latest
 | Parameter | Description |
 |---|---|
 | ACCOUNT_TOKEN <span class="required-param"></span> | Required when using as a collector to ship traces to Logz.io. <br> {% include log-shipping/replace-vars.html token=true %} |
-| REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to). <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| REGION <span class="default-param">Blank (US East)</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to). <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | GRPC_STORAGE_PLUGIN_LOG_LEVEL	<span class="default-param">`warn`</span> | The lowest log level to send. From lowest to highest, log levels are `trace`, `debug`, `info`, `warn`, `error`. <br> Controls logging for Jaeger Logz.io Collector only (not Jaeger components). |
 {:.paramlist}
 
@@ -159,7 +159,7 @@ logzio/jaeger-logzio-query:latest
 | Parameter | Description |
 |---|---|
 | API_TOKEN	<span class="required-param"></span> | Required to read back traces from Logz.io. <br> Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from the account you want to use. |
-| REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| REGION <span class="default-param">Blank (US East)</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | GRPC_STORAGE_PLUGIN_LOG_LEVEL	<span class="default-param">`warn`</span> | The lowest log level to send. From lowest to highest, log levels are `trace`, `debug`, `info`, `warn`, `error`. <br> Controls logging for Jaeger Logz.io Collector only (not Jaeger components). |
 {:.paramlist}
 

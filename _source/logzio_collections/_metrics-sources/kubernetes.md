@@ -30,6 +30,8 @@ shipping-tags:
 bash <(curl -s https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/quickstart.sh)
 ```
 
+###### Prompts and answers
+
 | Prompt | Description |
 |---|---|
 | Logz.io metrics shipping token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} |

@@ -76,10 +76,13 @@ info:
 securityDefinitions:
   X-API-TOKEN:
     description: >-
-      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page. To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
+      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
 
 
-      API tokens carry privileges to make changes to users and accounts, so it's important to keep your tokens secure. If you believe an API token has been compromised, delete the compromised token, and replace it with a new token in your integrations.
+      API tokens carry privileges to make changes to users and accounts,
+      so it's important to keep your tokens secure. If you believe an API token has been compromised,
+      delete the compromised token, and replace it with a new token in your integrations.
     type: apiKey
     in: header
     name: X-API-TOKEN
@@ -99,33 +102,37 @@ tags:
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage notification endpoints
-    description: >- 
-    Logz.io can send notifications to your preferred endpoints, such as Opsgenie, BigPanda, PagerDuty, Slack, VictorOps, and Datadog.
-    Notifications are typically sent when alerts are triggered, when a user shares a Kibana object, 
-    or when Logz.io Insights identifies new exceptions in your logs.
-        
-    Use these API requests to create, update, or delete notification endpoints. 
+    description: >-
+      Logz.io can send notifications to your preferred workspaces, such as Opsgenie, BigPanda, PagerDuty, and Slack.
+
+
+      Notifications are typically sent when alerts are triggered, when a user shares a Kibana object,
+      or when Logz.io Insights identifies new exceptions in your logs.
+
+
+      Use these API requests to create, update, or delete notification endpoints. If you configure a custom endpoint,
+      you can configure the notificaton message body.
+      Otherwise, you can use any of the available preconfigured endpoints.
   - name: Import or export Kibana objects
   - name: Manage shared tokens
     description: >-
-    You can share Kibana visualization and dashboard snapshots using shared tokens. 
-    Token filters are available to help you control what data to expose. 
+      You can share Kibana visualization and dashboard snapshots using shared tokens.
+      Token filters are available to help you control what data to expose.
 
 
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
-    description: >- 
-    Manage user access to your Logz.io account using API requests. 
-    
-    
-    You can create, update, suspend/unsuspend, and delete users. You can also retreive the list of active and suspended users. 
+    description: >-
+      Manage user access to your Logz.io account using API requests.
 
+
+      You can create, update, suspend/unsuspend, and delete users. You can also retreive the list of active and suspended users.
 x-tagGroups:
   - name: Log monitoring
     tags:
       - Search logs
-      - Logz.io snapshots  
+      - Logz.io snapshots
   - name: Account administration
     tags:
       - Manage users
@@ -520,27 +527,27 @@ paths:
           schema:
             type: object
             example: >-
-              { 
+              {
                 "hits": {
-                  "total": 339604, 
-                  "max_score": 0, 
-                  "hits": [ ] 
-                }, 
-                "aggregations": { 
-                  "byType": { 
-                    "doc_count_error_upper_bound": 0, 
-                    "sum_other_doc_count": 44879, 
-                    "buckets": [ 
-                      { 
-                        "key": "web-app", 
-                        "doc_count": 163690 
-                      }, { 
-                        "key": \"core-service\", 
-                        "doc_count": 64893 
-                      } 
-                    ] 
-                  } 
-                } 
+                  "total": 339604,
+                  "max_score": 0,
+                  "hits": [ ]
+                },
+                "aggregations": {
+                  "byType": {
+                    "doc_count_error_upper_bound": 0,
+                    "sum_other_doc_count": 44879,
+                    "buckets": [
+                      {
+                        "key": "web-app",
+                        "doc_count": 163690
+                      }, {
+                        "key": \"core-service\",
+                        "doc_count": 64893
+                      }
+                    ]
+                  }
+                }
               }
 
   /scroll:
@@ -2211,7 +2218,7 @@ definitions:
     description: If document size is attached to logs, `true`. Otherwise, `false`.
     default: false
     example: true
-  
+
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:
     type: object

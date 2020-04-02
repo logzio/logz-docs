@@ -33,7 +33,7 @@ curl -sSL https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-con
 | Prompt | Description |
 |---|---|
 | Logz.io metrics shipping token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} |
-| Logz.io region <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determnies your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| Logz.io region <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | Kubelet shipping protocol <span class="default-param">`http`</span> | `http` or `https`. If your Kubernetes setup is EKS, you'll need to use `https`. |
 | Cluster name <span class="default-param">Detected by the script</span> | The name of the Kubernetes cluster you're deploying in. |
 {:.paramlist}

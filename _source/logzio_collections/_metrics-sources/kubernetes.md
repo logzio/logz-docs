@@ -27,8 +27,10 @@ shipping-tags:
 ##### Run the automated deployment script
 
 ```shell
-curl -sSL https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/quickstart.sh | bash -s
+bash <(curl -s https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/quickstart.sh)
 ```
+
+###### Prompts and answers
 
 | Prompt | Description |
 |---|---|
@@ -47,7 +49,6 @@ and then open [Logz.io](https://app.logz.io/).
 
 </div>
 <!-- tab:end -->
-
 
 <!-- tab:start -->
 <div id="manual-config">
@@ -120,7 +121,6 @@ If your Kubernetes setup is EKS,
 you'll need to use the HTTPS deployment.
 {:.info-box.note}
 
-
 ###### For HTTP communication with kubelet
 
 ```shell
@@ -146,7 +146,5 @@ and then open [Logz.io](https://app.logz.io/).
 </div>
 <!-- tab:end -->
 
-
 </div>
 <!-- tabContainer:end -->
-

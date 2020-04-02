@@ -99,18 +99,33 @@ tags:
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage notification endpoints
+    description: >- 
+    Logz.io can send notifications to your preferred endpoints, such as Opsgenie, BigPanda, PagerDuty, Slack, VictorOps, and Datadog.
+    Notifications are typically sent when alerts are triggered, when a user shares a Kibana object, 
+    or when Logz.io Insights identifies new exceptions in your logs.
+        
+    Use these API requests to create, update, or delete notification endpoints. 
   - name: Import or export Kibana objects
   - name: Manage shared tokens
     description: >-
+    You can share Kibana visualization and dashboard snapshots using shared tokens. 
+    Token filters are available to help you control what data to expose. 
+
+
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
+    description: >- 
+    Manage user access to your Logz.io account using API requests. 
+    
+    
+    You can create, update, suspend/unsuspend, and delete users. You can also retreive the list of active and suspended users. 
 
 x-tagGroups:
   - name: Log monitoring
     tags:
       - Search logs
-      - Logz.io snapshots
+      - Logz.io snapshots  
   - name: Account administration
     tags:
       - Manage users

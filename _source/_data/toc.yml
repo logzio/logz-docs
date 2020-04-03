@@ -71,6 +71,8 @@ firstLevel:
   - title: Infrastructure Monitoring
     url: /user-guide/infrastructure-monitoring/
     thirdLevel:
+    - title: Getting started with Metrics
+      url: /user-guide/infrastructure-monitoring/getting-started
     - title: Configure drilldown links
       url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
 

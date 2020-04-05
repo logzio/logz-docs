@@ -97,7 +97,7 @@ Make sure to use the settings shown below.
 | Parameter | Description |
 |---|---|
 | Metrics listener host | Use the listener URL for your metrics account region. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Metrics account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the metrics account you want to ship to. |
+| Metrics account token | Use the [token](https://app.logz.io/#/dashboard/settings/manage-accounts) of the metrics account you want to ship to. |
 {:.paramlist}
 
 At the bottom of the page, select **I agree to the terms and conditions stated above**, and then click **Purchase** to deploy.

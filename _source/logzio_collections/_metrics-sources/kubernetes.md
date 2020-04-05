@@ -34,7 +34,7 @@ bash <(curl -s https://raw.githubusercontent.com/logzio/logz-docs/master/shippin
 
 | Prompt | Description |
 |---|---|
-| Logz.io metrics shipping token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} |
+| Logz.io metrics shipping token <span class="required-param"></span> | {% include metric-shipping/replace-vars.html token='noReplace' %} |
 | Logz.io region | Two-letter region code, or blank for US East (Northern Virginia). This determnies your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | Kubelet shipping protocol <span class="default-param">`http`</span> | `http` or `https`. If your Kubernetes setup is EKS, you'll need to use `https`. |
 | Cluster name <span class="default-param">Detected by the script</span> | The name of the Kubernetes cluster you're deploying in. |
@@ -78,7 +78,7 @@ git clone https://github.com/kubernetes/kube-state-metrics.git \
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include metric-shipping/replace-vars.html token=true listener=true %}
 
 ```shell
 kubectl --namespace=kube-system create secret generic logzio-metrics-secret \

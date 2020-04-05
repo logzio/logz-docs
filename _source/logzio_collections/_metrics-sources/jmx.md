@@ -79,7 +79,7 @@ java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<SHIPPING-TOKEN>>,SERVI
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/manage-accounts) <br> {% include log-shipping/replace-vars.html token=true %} |
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/manage-accounts) <br> {% include metric-shipping/replace-vars.html token=true %} |
 | SERVICE_NAME <span class="required-param"></span> | A name you define for the service. This is included in the reported metrics. |
 | LISTENER_URL <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
 | SERVICE_HOST <span class="default-param">Host machine name</span> | Hostname to be included in the reported metrics. |

@@ -2,19 +2,19 @@ swagger: '2.0'
 schemes: [ https ]
 host: api.logz.io
 x-servers:
-  - url: https://api.logz.io/v1
+  - url: https://api.logz.io/
     description: US East (Northern Virginia)
-  - url: https://api-au.logz.io/v1
+  - url: https://api-au.logz.io/
     description: Asia Pacific (Sydney)
-  - url: https://api-ca.logz.io/v1
+  - url: https://api-ca.logz.io/
     description: Canada (Central)
-  - url: https://api-eu.logz.io/v1
+  - url: https://api-eu.logz.io/
     description: Europe (Frankfurt)
-  - url: https://api-nl.logz.io/v1
+  - url: https://api-nl.logz.io/
     description: West Europe (Netherlands)
-  - url: https://api-wa.logz.io/v1
+  - url: https://api-wa.logz.io/
     description: West US 2 (Washington)
-basePath: /v1
+basePath: /
 produces: [ application/json ]
 consumes: [ application/json ]
 info:
@@ -63,7 +63,6 @@ info:
     To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
 
 
-  version: v1
   title: Logz.io API
   termsOfService: 'https://logz.io/about-us/terms-of-use/'
   contact:
@@ -128,7 +127,7 @@ x-tagGroups:
 
 paths:
   # ::::: ACCOUNTS
-  /account-management/whoami:
+  /v1/account-management/whoami:
     get:
       summary: Retrieve this account
       description: Returns a single string with the account name. Good for testing or for confirming that you're using an API token from the right account.
@@ -150,7 +149,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/WhoAmI'
-  /account-management/time-based-accounts:
+  /v1/account-management/time-based-accounts:
     get:
       summary: Retrieve all sub accounts
       description: Returns a list of sub accounts as an array of JSON objects. Must be run with an API token from the main account.
@@ -208,7 +207,7 @@ paths:
               "utilizationEnabled": true
             }
             }'
-  /account-management/time-based-accounts/detailed:
+  /v1/account-management/time-based-accounts/detailed:
     get:
       summary: Retrieve detailed information on all sub accounts
       description: Retrieves all time-based sub accounts, returned as an array of objects. Each sub account is its own object. Must be run with an API token from the main account.
@@ -225,7 +224,7 @@ paths:
       x-code-samples:
       - lang: cURL
         source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
-  /account-management/time-based-accounts/detailed/{id}:
+  /v1/account-management/time-based-accounts/detailed/{id}:
     get:
       summary: Retrieve detailed account information by ID
       description: Using account ID, returns detailed account information. Must be run with an API token from the main account.
@@ -248,7 +247,7 @@ paths:
       x-code-samples:
       - lang: cURL
         source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
-  /account-management/time-based-accounts/{id}:
+  /v1/account-management/time-based-accounts/{id}:
     get:
       summary: Retrieve sub account by ID
       description: Returns account information and configuration as a JSON object. Must be run with an API token from the main account.
@@ -337,7 +336,7 @@ paths:
           source: 'curl -X DELETE "https://api.logz.io/v1/account-management/time-based-accounts/88888" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
 
   # ::::: SEARCH, SCROLL
-  /search:
+  /v1/search:
     post:
       operationId: search
       summary: Search logs
@@ -528,7 +527,7 @@ paths:
                 } 
               }
 
-  /scroll:
+  /v1/scroll:
     post:
       summary: Scroll logs
       tags:
@@ -599,7 +598,7 @@ paths:
             $ref: '#/definitions/ScrollResponse'
 
   # ::::: AUDIT TRAIL
-  /audit-trail/event-types:
+  /v1/audit-trail/event-types:
     post:
       operationId: listAccountAuditTrails
       summary: Retrieve all event types in the audit trail
@@ -614,7 +613,7 @@ paths:
       x-code-samples:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/audit-trail/event-types" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
-  /audit-trail:
+  /v1/audit-trail:
     post:
       operationId: listAccountAuditTrailsFiltered
       summary: Retrieve a filtered list of audit trail events
@@ -636,7 +635,7 @@ paths:
             $ref: '#/definitions/AuditTrailFilteredResponse'
 
   # ::::: CLOUDTRAIL
-  /log-shipping/cloudtrails:
+  /v1/log-shipping/cloudtrails:
     get:
       operationId: getAccountCloudTrails
       summary: Retrieve all CloudTrail links
@@ -689,7 +688,7 @@ paths:
               \"prefix\": \"AWSLogs/7364988021587/myprefix\",
               \"active\": true
             }"'
-  /log-shipping/cloudtrails/{id}:
+  /v1/log-shipping/cloudtrails/{id}:
     get:
       operationId: getCloudTrail
       summary: Retrieve a CloudTrail link by ID
@@ -761,7 +760,7 @@ paths:
             $ref: '#/definitions/MessageBean'
 
   # ::::: NOTIFICATION ENDPOINTS
-  /endpoints/slack:
+  /v1/endpoints/slack:
     post:
       operationId: createSlack
       summary: Create a Slack endpoint
@@ -792,7 +791,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/slack/{id}:
+  /v1/endpoints/slack/{id}:
     put:
       tags:
         - Manage notification endpoints
@@ -829,7 +828,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/custom:
+  /v1/endpoints/custom:
     post:
       tags:
         - Manage notification endpoints
@@ -860,7 +859,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/custom/{id}:
+  /v1/endpoints/custom/{id}:
     put:
       tags:
         - Manage notification endpoints
@@ -896,7 +895,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/pager-duty:
+  /v1/endpoints/pager-duty:
     post:
       tags:
         - Manage notification endpoints
@@ -927,7 +926,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/pager-duty/{id}:
+  /v1/endpoints/pager-duty/{id}:
     put:
       tags:
         - Manage notification endpoints
@@ -964,7 +963,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/big-panda:
+  /v1/endpoints/big-panda:
     post:
       tags:
         - Manage notification endpoints
@@ -995,7 +994,7 @@ paths:
       x-code-samples:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/endpoints/big-panda" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New BigPanda endpoint\",  \"description\": \"Sends notifications to BigPanda\",  \"apiToken\": \"94ad63254a1397a51a1ae340c4f10890\",  \"appKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
-  /endpoints/big-panda/{id}:
+  /v1/endpoints/big-panda/{id}:
     put:
       tags:
         - Manage notification endpoints
@@ -1032,7 +1031,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/data-dog:
+  /v1/endpoints/data-dog:
     post:
       tags:
         - Manage notification endpoints
@@ -1063,7 +1062,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/data-dog/{id}:
+  /v1/endpoints/data-dog/{id}:
     put:
       tags:
         - Manage notification endpoints
@@ -1100,7 +1099,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/victorops:
+  /v1/endpoints/victorops:
     post:
       tags:
         - Manage notification endpoints
@@ -1131,7 +1130,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-  /endpoints/victorops/{id}:
+  /v1/endpoints/victorops/{id}:
     put:
       tags:
         - Manage notification endpoints
@@ -1168,7 +1167,7 @@ paths:
       x-code-samples:
         - lang: cURL
           source: 'curl -X PUT "https://api.logz.io/v1/endpoints/victorops/274" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{\"title\": \"New VictorOps endpoint\", \"description\": \"Sends notifications to VictorOps\", \"routingKey\": \"devops\", \"messageType\": \"WARNING\", \"serviceApiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
-  /endpoints/{id}:
+  /v1/endpoints/{id}:
     get:
       tags:
         - Manage notification endpoints
@@ -1209,7 +1208,7 @@ paths:
       responses:
         204:
           description: successful operation
-  /endpoints:
+  /v1/endpoints:
     get:
       tags:
         - Manage notification endpoints
@@ -1228,7 +1227,7 @@ paths:
               $ref: '#/definitions/Endpoint'
 
   # ::::: KIBANA IMPORT/EXPORT
-  /kibana/export:
+  /v1/kibana/export:
     post:
       tags:
         - Import or export Kibana objects
@@ -1253,7 +1252,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/KibanaExportResponse'
-  /kibana/import:
+  /v1/kibana/import:
     post:
       tags:
         - Import or export Kibana objects
@@ -1320,7 +1319,7 @@ paths:
 
 
   # ::::: SHARED TOKENS
-  /shared-tokens/filters:
+  /v1/shared-tokens/filters:
     get:
       operationId: getAllFilters
       summary: Retrieve all shared token filters
@@ -1399,7 +1398,7 @@ paths:
                 type: string
                 example: Insufficient privileges
                 description: Insufficient privileges. Contact our Support team for access to this API feature.
-  /shared-tokens/filters/{id}:
+  /v1/shared-tokens/filters/{id}:
     get:
       operationId: getFilter
       summary: Retrieve a shared token filter by ID
@@ -1484,7 +1483,7 @@ paths:
                 type: string
                 example: Insufficient privileges
                 description: Insufficient privileges. Contact our Support team for access to this API feature.
-  /shared-tokens/{id}:
+  /v1/shared-tokens/{id}:
     get:
       operationId: getToken
       summary: Retrieve a shared token by ID
@@ -1616,7 +1615,7 @@ paths:
                 type: string
                 example: Insufficient privileges
                 description: Insufficient privileges. Contact our Support team for access to this API feature.
-  /shared-tokens:
+  /v1/shared-tokens:
     get:
       operationId: getAllTokens
       summary: Retrieve all shared tokens
@@ -1700,7 +1699,7 @@ paths:
           source: 'curl -X POST "https://api.logz.io/v1/shared-tokens" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"Support shared token\", \"filters\":[339]}"'
 
   # ::::: SNAPSHOTS
-  /snapshotter:
+  /v1/snapshotter:
     post:
       tags:
         - Logz.io snapshots
@@ -1735,7 +1734,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/SnapshotCreateResponse'
-  /snapshotter/{snapshotId}:
+  /v1/snapshotter/{snapshotId}:
     get:
       tags:
         - Logz.io snapshots
@@ -1760,7 +1759,7 @@ paths:
             $ref: '#/definitions/SnapshotGetResponse'
 
   # ::::: USER MANAGEMENT
-  /user-management:
+  /v1/user-management:
     get:
       summary: Retrieve all users
       description: Returns a list of users as an array of JSON objects.
@@ -1797,7 +1796,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/UserManagementUpsertResponse'
-  /user-management/{id}:
+  /v1/user-management/{id}:
     get:
       tags:
         - Manage users
@@ -1866,7 +1865,7 @@ paths:
       responses:
         200:
           description: successful operation
-  /user-management/suspend/{id}:
+  /v1/user-management/suspend/{id}:
     post:
       tags:
         - Manage users
@@ -1887,7 +1886,7 @@ paths:
       responses:
         200:
           description: successful operation
-  /user-management/unsuspend/{id}:
+  /v1/user-management/unsuspend/{id}:
     post:
       tags:
         - Manage users

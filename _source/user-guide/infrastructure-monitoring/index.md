@@ -19,6 +19,7 @@ Use Logz.io Metrics to continuously monitor your system’s health and help you 
 
 **DevOps engineers:**
 
+* Predict potential issues before users are affected
 * Identify issues before they become critical
 * Pinpoint critical production issues and process crashes
 * Catch performance degradations earlier
@@ -29,9 +30,9 @@ Use Logz.io Metrics to continuously monitor your system’s health and help you 
 
 **Site Reliability Engineers:**
 
-* Monitor baseline to keep systems stable and dependable
+* Monitor baseline metrics to keep systems stable and dependable
 * Reduce infrastructure and cloud costs
-* Reliably forecast capacity needs
+* Forecast capacity needs reliably
 * Develop and implement system-specific processes
 * Review capacity planning forecasts
 

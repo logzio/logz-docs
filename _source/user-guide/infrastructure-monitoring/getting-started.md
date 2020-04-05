@@ -36,6 +36,7 @@ Select the dashboard and the data source to begin.
 ![Logz.io Infrastructure Monitoring](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/select-board-and-source.png)
 
 **Metrics left menu**
+
 The main way to get around. You might recgonize the layout from Grafana.
   Click <i class="fas fa-plus"></i> to create a dashboard,
   <i class="fas fa-th-large"></i> to manage your dashboards,

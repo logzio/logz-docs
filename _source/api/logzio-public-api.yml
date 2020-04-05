@@ -104,12 +104,16 @@ tags:
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
+  - name: Security rules
 
 x-tagGroups:
   - name: Log monitoring
     tags:
       - Search logs
       - Logz.io snapshots
+  - name: Cloud SIEM
+    tags:
+      - Security rules
   - name: Account administration
     tags:
       - Manage users
@@ -1908,7 +1912,28 @@ paths:
         200:
           description: successful operation
 
-
+  # ::::: SECURITY RULES
+  /v2/security/rules/events/logs/search:
+    post:
+      summary: Search for logs that triggered a security rule
+      description: Search for logs that triggered a security rule 
+      tags:
+        - Security rules
+      operationId: searchSecurityRuleEventLogs
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertEventLogsSearchRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseMapStringObject'
+          headers: {}
 
 definitions:
   # ::::: ACCOUNTS DEFINITIONS
@@ -2195,6 +2220,43 @@ definitions:
     description: If document size is attached to logs, `true`. Otherwise, `false`.
     default: false
     example: true
+
+# ::::: CLOUD SIEM DEFINITIONS
+  AlertEventLogsSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/AlertEventLogsFilter'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  AlertEventLogsFilter:
+    type: object
+    properties:
+      alertEventId:
+        type: string
+  Pagination:
+    type: object
+    properties:
+      pageNumber:
+        type: integer
+        format: int32
+      pageSize:
+        type: integer
+        format: int32
+  PagedSearchResponseMapStringObject:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: object
+      pagination:
+        $ref: '#/definitions/Pagination'
   
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:

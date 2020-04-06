@@ -95,6 +95,7 @@ tags:
 
 
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
+  - name: Alerts (for logs)
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage notification endpoints
@@ -110,6 +111,7 @@ x-tagGroups:
     tags:
       - Search logs
       - Logz.io snapshots
+      - Alerts (for logs)
   - name: Account administration
     tags:
       - Manage users
@@ -596,6 +598,93 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/ScrollResponse'
+
+  # ::::: ALERTS - LOGGING
+  '/v2/alerts/{alertId}':
+    get:
+      tags:
+        - Alerts (for logs)
+      operationId: getAlert
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+          headers: {}
+    put:
+      summary: Updates an alert
+      description: ''
+      operationId: updateAlert
+      tags:
+        - Alerts (for logs)
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertV2Request'
+        - name: alertId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+    delete:
+      operationId: deleteAlert
+      tags:
+        - Alerts (for logs)
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+          headers: {}
+  /v2/alerts:
+    get:
+      operationId: getAllAlerts
+      tags:
+        - Alerts (for logs)
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AlertV2Response'
+          headers: {}
+    post:
+      summary: Creates an alert
+      description: ''
+      operationId: createAlert
+      tags:
+        - Alerts (for logs)
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertV2Request'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
 
   # ::::: AUDIT TRAIL
   /v1/audit-trail/event-types:
@@ -2195,7 +2284,248 @@ definitions:
     description: If document size is attached to logs, `true`. Otherwise, `false`.
     default: false
     example: true
-  
+
+  # ::::: ALERT DEFINITIONS
+  AlertV2Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      updatedAt:
+        type: integer
+        format: int64
+      updatedBy:
+        type: string
+      createdAt:
+        type: integer
+        format: int64
+      createdBy:
+        type: string
+      active:
+        type: boolean
+      title:
+        type: string
+      description:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string
+      queryDefinition:
+        $ref: '#/definitions/AlertQuery'
+      trigger:
+        $ref: '#/definitions/AlertTrigger'
+      output:
+        $ref: '#/definitions/AlertOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        format: int32
+      subAlerts:
+        type: array
+        items:
+          $ref: '#/definitions/SubAlert'
+      correlations:
+        $ref: '#/definitions/SubAlertCorrelation'
+  AlertOutput:
+    type: object
+    properties:
+      recipients:
+        $ref: '#/definitions/AlertRecipients'
+      suppressNotificationsMinutes:
+        type: integer
+        format: int32
+        minimum: 0
+      format:
+        $ref: '#/definitions/AlertOutputFormat'
+      type:
+        type: string
+        enum:
+          - JSON
+          - TABLE
+  AlertOutputFormat:
+    type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - JSON
+          - TABLE
+      columns:
+        type: array
+        items:
+          $ref: '#/definitions/ColumnConfig'
+  ColumnConfig:
+    type: object
+    properties:
+      fieldName:
+        type: string
+      regex:
+        type: string
+      sort:
+        type: string
+        enum:
+          - DESC
+          - ASC
+  AlertRecipients:
+    type: object
+    properties:
+      emails:
+        type: array
+        items:
+          type: string
+      notificationEndpointIds:
+        type: array
+        items:
+          type: integer
+          format: int32
+  AlertTrigger:
+    type: object
+    properties:
+      operator:
+        type: string
+        enum:
+          - LESS_THAN
+          - GREATER_THAN
+          - LESS_THAN_OR_EQUALS
+          - GREATER_THAN_OR_EQUALS
+          - EQUALS
+          - NOT_EQUALS
+      severityThresholdTiers:
+        type: object
+        additionalProperties:
+          type: number
+          format: double
+  SubAlert:
+    type: object
+    properties:
+      queryDefinition:
+        $ref: '#/definitions/AlertQuery'
+      trigger:
+        $ref: '#/definitions/AlertTrigger'
+      outputColumns:
+        type: array
+        items:
+          $ref: '#/definitions/ColumnConfig'
+  AlertQuery:
+    type: object
+    properties:
+      query:
+        type: string
+      filters:
+        $ref: '#/definitions/BoolFilter'
+      groupBy:
+        type: array
+        items:
+          type: string
+        maxItems: 3
+        minItems: 0
+      aggregation:
+        $ref: '#/definitions/Aggregation'
+      searchTimeFrameMinutes:
+        type: integer
+        format: int32
+      shouldQueryOnAllAccounts:
+        type: boolean
+      accountIdsToQueryOn:
+        type: array
+        items:
+          type: integer
+          format: int32
+  BoolFilter:
+    type: object
+    properties:
+      bool:
+        $ref: '#/definitions/FilterLists'
+  FilterLists:
+    type: object
+    properties:
+      must:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: object
+      should:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: object
+      filter:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: object
+      must_not:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: object
+  Aggregation:
+    type: object
+    properties:
+      aggregationType:
+        type: string
+        enum:
+          - SUM
+          - MIN
+          - MAX
+          - AVG
+          - COUNT
+          - UNIQUE_COUNT
+          - NONE
+      fieldToAggregateOn:
+        type: string
+  SubAlertCorrelation:
+    type: object
+    properties:
+      correlationOperators:
+        type: array
+        items:
+          type: string
+          enum:
+            - AND
+      joins:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: string
+  AlertV2Request:
+    type: object
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string
+        maxItems: 10
+        minItems: 0
+      queryDefinition:
+        $ref: '#/definitions/AlertQuery'
+      trigger:
+        $ref: '#/definitions/AlertTrigger'
+      output:
+        $ref: '#/definitions/AlertOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        format: int32
+      subAlerts:
+        type: array
+        items:
+          $ref: '#/definitions/SubAlert'
+        maxItems: 2
+        minItems: 0
+      correlations:
+        $ref: '#/definitions/SubAlertCorrelation'
+
+
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:
     type: object

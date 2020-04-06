@@ -12,7 +12,7 @@ contributors:
 
 Monitor your infrastructure metrics to gain a clear picture of the ongoing status of your distributed cloud services at all times. Logz.io Metrics lets your team curate a handy roster of dashboards to oversee continuous deployment, CI/CD pipelines, and prevent outages, manage incidents, and remediate crashes in multi-microservice environments, hybrid infrastructures, and complex tech stacks.
 
-Use Logz.io Metrics to continuously monitor your system’s health and help you maintain system performance, speed, and resiliance. You can configure Logz.io to send your team push notifications when problematic trends first appear, and before they become critical and threaten crashes or system outages.
+Use Logz.io Metrics to continuously monitor your system’s health and help you maintain system performance, speed, and resiliance, and address problematic trends when they first appear - and before they become critical and threaten crashes or system outages.
 
 
 ## Leverage infrastructure metrics
@@ -50,18 +50,21 @@ The direct pathways between Grafana and Kibana are possible because Logz.io stor
 
 Your metrics dashboards cover all of the services and microservices in your hybrid environments in one, central place. Centralized to make your life easier and leave you more time to get the job done.
 
-Metrics dashboards cover the last 48 hours, by default, to give you the most recent activity and actionable information. You can extend the timeframe to see a history of up to 18 months, to gain perspective for comparison and reference and benchmark your goals against past achievements.
+Metrics dashboards can give you the most recent activity and actionable information or provide an extended view of up to 18 months for additional perspective and reference. 
+That way you can benchmark your goals against past achievements.
 
 
 ## Apt, relevant dashboards out-of-the-box
 
-Logz.io’s Metrics platform is pre-loaded with dozens of dashboards to help you get started immediately and get value without sweating it. Your Metrics account is ready to accept data from many environments, dockers, container systems, queue management systems, and more.
+Logz.io’s Metrics platform is pre-loaded with dozens of dashboards to help you hit the ground running and get started immediately. Your Metrics account is ready to accept data from many environments, dockers, container systems, queue management systems, and more.
 
- After configuring Metricsbeat to stream your data to Logz.io, you can select any appropriate dashboard from the list and select the data source. Each dashboard is preconfigured to match the particular data type it is named after and is production-ready without any further customization, and does not require previous expertise. The dashboards are designed by Logz.io specialists and let you get up-and-running in a matter of minutes. Learn how to select your first dashboard.
+ After configuring Metricsbeat to stream your data to Logz.io, you can select any appropriate dashboard from the list and select the data source. Each dashboard is preconfigured to match the particular data type it is named after and is production-ready without any further customization, and does not require previous expertise. The dashboards are designed by Logz.io specialists and let you get up-and-running in a matter of minutes. [Learn how to select your first dashboard]({{site.baseurl}}/user-guide/infrastructure-monitoring/getting-started).
 
-Once you’re ready to move to the next level, you can duplicate any of the preconfigured dashboards to add your own panels and changes, or create entirely new dashboards of your own. Learn how to add a new dashboard.
+Once you’re ready to move to the next level, you can duplicate any of the preconfigured dashboards to add your own panels and changes, or create entirely new dashboards of your own. [Learn how to add a new dashboard]({{site.baseurl}}/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html).
 
 
 ## Maintain data integrity over an extended time
 
-Data rollups compress the data without losing the original extremes. The original max. and min. values are kept in addition to the averages so you can graph the data more accurately despite the limitations of its compression.
+Data rollups compress the data without losing the original extremes. 
+The original max. and min. values are kept in addition to the averages 
+so you can graph the data more accurately despite its compression.

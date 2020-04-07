@@ -45,6 +45,6 @@ Select the dashboard and the data source to begin.
 
 The main way to get around. You might recognize the layout from Grafana.
 
-* Click <i class="fas fa-plus"></i> to create a new dashboard
+* Click <i class="fas fa-plus"></i> to create a dashboard
 * Click <i class="fas fa-th-large"></i> to manage your dashboards
 * Click <i class="fas fa-compass"></i> to explore your metrics

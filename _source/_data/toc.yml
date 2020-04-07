@@ -71,7 +71,11 @@ firstLevel:
   - title: Infrastructure Monitoring
     url: /user-guide/infrastructure-monitoring/
     thirdLevel:
-    - title: Configure drilldown links
+    - title: Getting started with Metrics
+      url: /user-guide/infrastructure-monitoring/getting-started
+    - title: Rollups & data compression
+      url: /user-guide/infrastructure-monitoring/data-rollups.html
+    - title: Create a new dashboard
       url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
 
   - title: Cloud SIEM

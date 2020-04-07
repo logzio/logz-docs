@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Configure Grafana drilldown links
+title: Add dashboards and configure drilldown links
 permalink: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
 flags:
   logzio-plan: pro
@@ -11,18 +11,14 @@ contributors:
   - daniel-tk
 ---
 
-Drilldown links are shortcuts that take you directly to the relevant Kibana results in your logs. You'll  provide 
-
-One of the most useful features you'll come across
-in Logz.io Infrastructure Monitoring
-is drilldown links.
-If you see something funky,
+Drilldown links are shortcuts that take you directly to the relevant Kibana results in your logs. 
+If you identify something funky in your graph and want to investigate it further,
 you can click a drilldown link
 and go straight to the related logs in Kibana.
 
-Drilldown links are preconfigured on most dashboards managed by Logz.io.
-If you're setting up your own dashboard,
-you'll need to configure drilldown links.
+Many of the dashboards managed by Logz.io come with the drilldown links preconfigured. 
+When you're setting up your own dashboard,
+you can configure your own drilldown links.
 This doc shows you how.
 
 #### Set up dashboard variables {#set-up-dashboard-variables}

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Data rollups - data compression and retention
+title: Data rollups
 permalink: /user-guide/infrastructure-monitoring/data-rollups.html
 flags:
   logzio-plan:
@@ -14,7 +14,7 @@ Your metrics data is compacted as it becomes older in a process known as **data 
 Data rollups is how Logz.io helps you focus on the changes - not the baseline.
 
 
-#### Data granularity decreases over time
+### Data granularity decreases over time
 
 Rollups optimize your visualizations by helping you focus on the
 overall picture and larger trends so you don't miss the forest for the trees.
@@ -32,7 +32,7 @@ But you would want to see CPU usage steadily creep up at a 1.5% increase per hou
 
 When you're investigating incidents, the granularity of the data will vary depending on how much time has passed. As long as you're within 3 days of the incident, you can drill down on the raw data points. As you move past the 3 day mark, you'll be able to drill down on the data at a granularity of 1 minute intervals. Once a week has passed, you'll be able to drill down to a maximum resolution of 10 minute intervals. Once a month or more has passed, the data is at its maximum compaction, and you can drill down on the hourly metrics. 
 
-#### Data point rollups
+### Available data points
 
 When compacting the metrics, Logz.io calculates 4 indicators for each unique data point (UDP):
 

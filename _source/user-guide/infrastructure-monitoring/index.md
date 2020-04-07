@@ -14,6 +14,7 @@ Monitor your infrastructure metrics to gain a clear picture of the ongoing statu
 
 Use Logz.io Metrics to continuously monitor your system’s health and help you maintain system performance, speed, and resiliance, and address problematic trends when they first appear - and before they become critical and threaten crashes or system outages.
 
+![Showcased Metrics dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-intro.png)
 
 ## Leverage infrastructure metrics
 
@@ -37,7 +38,7 @@ Use Logz.io Metrics to continuously monitor your system’s health and help you 
 * Review capacity planning forecasts
 
 
-## Grafana and Kibana combined - Correlate metrics with logs
+### Grafana and Kibana combined - Correlate metrics with logs
 
 Logz.io Metrics is a Grafana-based infrastructure monitoring platform that integrates seamlessly with the Kibana-based logging platform. Grafana is the leading open-source tool for visualizing numerical data at scale, with powerful graphing capabilities of trends, changes over time, derivatives, and inflection curves.
 
@@ -46,7 +47,7 @@ Navigate seamlessly from your metrics to your logs to save you time and hassle. 
 The direct pathways between Grafana and Kibana are possible because Logz.io stores both your metrics and logs in ElasticSearch, to enable you to drill-down from metrics visualizations directly to the corresponding logging details in Kibana.
 
 
-## Monitor complex tech stacks at a glance
+### Monitor complex tech stacks at a glance
 
 Your metrics dashboards cover all of the services and microservices in your hybrid environments in one, central place. Centralized to make your life easier and leave you more time to get the job done.
 
@@ -54,7 +55,7 @@ Metrics dashboards can give you the most recent activity and actionable informat
 That way you can benchmark your goals against past achievements.
 
 
-## Apt, relevant dashboards out-of-the-box
+### Apt, relevant dashboards out-of-the-box
 
 Logz.io’s Metrics platform is pre-loaded with dozens of dashboards to help you hit the ground running and get started immediately. Your Metrics account is ready to accept data from many environments, dockers, container systems, queue management systems, and more.
 
@@ -63,7 +64,7 @@ Logz.io’s Metrics platform is pre-loaded with dozens of dashboards to help you
 Once you’re ready to move to the next level, you can duplicate any of the preconfigured dashboards to add your own panels and changes, or create entirely new dashboards of your own. [Learn how to add a new dashboard]({{site.baseurl}}/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html).
 
 
-## Maintain data integrity over an extended time
+### Maintain data integrity over an extended time
 
 Data rollups compress the data without losing the original extremes. 
 The original max. and min. values are kept in addition to the averages 

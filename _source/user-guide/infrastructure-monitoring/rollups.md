@@ -30,8 +30,7 @@ But you would want to see CPU usage steadily creep up at a 1.5% increase per hou
 | 7 - 30 days           | 10 minute rollups            |
 | 30 day or more        | 1 hour rollups               |
 
-In other words, when you're investigating new incidents, within 3 days of their occurrence, you can drill down on the raw data points. As you move past the 3 day mark, you'll be able to drill down on the data at a granularity of 1 minute intervals. Once a week has passed, you'll be able to drill down to a maximum resolution of data point per 10 minute interval. Once a month or more has passed, the data is at its maximum compaction, allowing a maximum granularity of data point per 1 hour timeblock.
-
+When you're investigating incidents, the granularity of the data will vary depending on how much time has passed. As long as you're within 3 days of the incident, you can drill down on the raw data points. As you move past the 3 day mark, you'll be able to drill down on the data at a granularity of 1 minute intervals. Once a week has passed, you'll be able to drill down to a maximum resolution of 10 minute intervals. Once a month or more has passed, the data is at its maximum compaction, and you can drill down on the hourly metrics. 
 
 #### Data point rollups
 

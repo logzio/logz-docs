@@ -50,7 +50,7 @@ docker pull logzio/logzio-okta
 For a complete list of options, see the parameters below the code block.👇
 
 ```shell
-run docker \
+docker run \
 --detach \
 --restart always \
 --name Okta \

@@ -16,8 +16,8 @@ from a single user and identity management tool.
 
 ## What is SSO?
 
-SSO is a way to authenticate and sign in to Logz.io
-with the same credentials that you use for different services.
+SSO is a way to authenticate and sign in to different services
+with the same credentials.
 With SSO, users won't need to remember
 different usernames and passwords for each service,
 and you can manage access to all your services from one service.

@@ -39,10 +39,10 @@ In the example above, you'd have copied "dev-123456".
 
 ##### Pull the Docker image
 
-Download the logzio/docker-collector-logs image.
+Download the logzio/logzio-okta image.
 
 ```shell
-docker pull logzio/docker-collector-logs
+docker pull logzio/logzio-okta
 ```
 
 ##### Run the Docker image
@@ -50,6 +50,7 @@ docker pull logzio/docker-collector-logs
 For a complete list of options, see the parameters below the code block.👇
 
 ```shell
+docker run \
 --detach \
 --restart always \
 --name Okta \

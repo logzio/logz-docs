@@ -10,7 +10,7 @@ shipping-tags:
   - security
 ---
 
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
 Falco installed on the host,
@@ -176,19 +176,6 @@ Open Falco’s configuration file with your preferred text editor. The default l
 ```
 $nano /etc/falco/falco.yaml
 ```
-
-In the configuration file,
-find the line that begins `filename:`. 
-The filepath under `filename:` points out where Falco saves its ongoing event logs. 
-In the next step: Add Falco as an input, this filepath will replace the placeholder <<FILEPATH TO FALCO events.txt>> in the Filebeat configuration.
-
-```
-file_output:
-  enabled: true
-  keep_alive: false
-  filename: ./events.txt
-```
-
 In the configuration file,
 find the line that begins `json_output:`.
 Set the value to `true`:
@@ -201,6 +188,18 @@ json_output: true
 # (user=root ....") in the json output.
 json_include_output_property: true
 ```
+
+Next, look up the filepath to Falco's logs. 
+
+In the same configuration file, find the line that begins `filename:`. Its value points to Falco's event logs and will be needed in the next step to replace the placeholder `<<filepath-to-falco-events.txt>>`. 
+Copy the filepath and save it for the next step. You'll need it to configure Filebeat. 
+
+```
+file_output:
+  enabled: true
+  keep_alive: false
+  filename: ./events.txt
+```
 Save and Exit the falco.yaml file.
 
 ##### Add Falco as an input
@@ -209,15 +208,17 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Falco to th
 
 {% include log-shipping/replace-vars.html token=true %}
 
+Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step. 
+
 ```yaml
 ############################# Input #####################################
 filebeat.inputs:
 - type: log
   paths: 
-  -  <<FILEPATH TO FALCO events.txt>>
+  -  <<filepath-to-falco-events.txt>>
   fields:
     logzio_codec: json
-    token: <<LOGZ.IO TOKEN>>
+    token: <<SHIPPING-TOKEN>>
     type: falco
   fields_under_root: true
   encoding: utf-8
@@ -247,8 +248,6 @@ output.logstash:
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
-
-Replace the placeholder <<FILEPATH TO FALCO events.txt>> with the actual path from your Falco configuration.
 
 ##### Set Logz.io as the output
 

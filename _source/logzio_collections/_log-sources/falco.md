@@ -1,7 +1,7 @@
 ---
 title: Ship Falco logs
 logo:
-  logofile: falco.png
+  logofile: falco-logo.png
   orientation: vertical
 data-source: Falco
 contributors:
@@ -21,7 +21,7 @@ root access
 
 ##### Configure Falco rules to enrich observability
 
-Open Falco’s configuration file with your preferred text editor. 
+Open Falco’s configuration file with your preferred text editor.
 
 ```
 $nano /etc/falco/falco_rules.yaml
@@ -34,8 +34,8 @@ See your installation's [documentation](https://falco.org/docs/)
 if you need help finding the file.
 
 In the configuration file,
-find the line that begins `- macro: network_tool_procs`. 
-Copy the following directly below it: 
+find the line that begins `- macro: network_tool_procs`.
+Copy the following directly below it:
 
 ```
 - list: network_tool_binaries
@@ -43,8 +43,8 @@ Copy the following directly below it:
   items: [fierce, dnsenum, amass, dnsrecon, sublist3r, theharvester, recon-ng, netdiscover, amap, enum4linux, onesixtyone]
 ```
 
-In the configuration file, find the line that begins `Netcat Remote Code Execution in Container`. 
-Replace the entire contents of the rule with the following: 
+In the configuration file, find the line that begins `Netcat Remote Code Execution in Container`.
+Replace the entire contents of the rule with the following:
 
 ```
 - rule: Netcat Remote Code Execution in Container
@@ -67,8 +67,8 @@ I.e. nano /etc/ssh/sshd_config
 nano, vim, gedit, kwrite, vi, pico, micro, jed, emacs
 ```
 
-In the configuration file, find the line that begins `Delete or rename shell history`. 
-Replace the entire contents of the rule with the following: 
+In the configuration file, find the line that begins `Delete or rename shell history`.
+Replace the entire contents of the rule with the following:
 
 ```
 - rule: Delete or rename shell history
@@ -99,14 +99,14 @@ Replace the entire contents of the rule with the following:
   tags: [process, mitre_defense_evation]
 ```
 
-In the configuration file, find the line that begins `Delete Bash History`. 
-Replace the entire contents of the rule with the following: 
+In the configuration file, find the line that begins `Delete Bash History`.
+Replace the entire contents of the rule with the following:
 
 ```
 - rule: Delete Bash History
   desc: Detect bash history deletion
   condition: >
-    ((spawned_process and proc.name in (shred, rm, mv) and proc.args contains "bash_history") or 
+    ((spawned_process and proc.name in (shred, rm, mv) and proc.args contains "bash_history") or
      (open_write and fd.name contains "bash_history" and evt.arg.flags contains "O_TRUNC"))
   output: >
     Shell history had been deleted or renamed (user=%user.name type=%evt.type command=%proc.cmdline fd.name=%fd.name name=%evt.arg.name path=%evt.arg.path oldpath>
@@ -137,8 +137,8 @@ Replace the entire contents of the rule with the following:
   tags: [process, mitre_persistence]
 ```
 
-In the configuration file, find the line that begins `Clear Log Activities`. 
-Replace the entire contents of the rule with the following: 
+In the configuration file, find the line that begins `Clear Log Activities`.
+Replace the entire contents of the rule with the following:
 
 ```
 - rule: Clear Log Activities
@@ -171,7 +171,7 @@ sudo cp COMODORSADomainValidationSecureServerCA.crt /etc/pki/tls/certs/
 
 ##### Configure Falco to output JSON logs
 
-Open Falco’s configuration file with your preferred text editor. The default location is `/etc/falco/falco.yaml` but it depends on your installation. 
+Open Falco’s configuration file with your preferred text editor. The default location is `/etc/falco/falco.yaml` but it depends on your installation.
 
 ```
 $nano /etc/falco/falco.yaml
@@ -189,10 +189,10 @@ json_output: true
 json_include_output_property: true
 ```
 
-Next, look up the filepath to Falco's logs. 
+Next, look up the filepath to Falco's logs.
 
-In the same configuration file, find the line that begins `filename:`. Its value points to Falco's event logs and will be needed in the next step to replace the placeholder `<<filepath-to-falco-events.txt>>`. 
-Copy the filepath and save it for the next step. You'll need it to configure Filebeat. 
+In the same configuration file, find the line that begins `filename:`. Its value points to Falco's event logs and will be needed in the next step to replace the placeholder `<<filepath-to-falco-events.txt>>`.
+Copy the filepath and save it for the next step. You'll need it to configure Filebeat.
 
 ```
 file_output:
@@ -208,13 +208,13 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Falco to th
 
 {% include log-shipping/replace-vars.html token=true %}
 
-Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step. 
+Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step.
 
 ```yaml
 ############################# Input #####################################
 filebeat.inputs:
 - type: log
-  paths: 
+  paths:
   -  <<filepath-to-falco-events.txt>>
   fields:
     logzio_codec: json
@@ -223,12 +223,12 @@ filebeat.inputs:
   fields_under_root: true
   encoding: utf-8
   ignore_older: 3h
-  
-#For version 6.x and lower uncomment the line below and remove the line after it 
-#filebeat.registry_file: /var/lib/filebeat/registry 
- 
+
+#For version 6.x and lower uncomment the line below and remove the line after it
+#filebeat.registry_file: /var/lib/filebeat/registry
+
 filebeat.registry.path: /var/lib/filebeat
- 
+
 #The following processors are to ensure compatibility with version 7
 processors:
 - rename:
@@ -241,7 +241,7 @@ processors:
      - from: "log.file.path"
        to: "source"
     ignore_missing: true
-    
+
 ############################# Output ##########################################
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]

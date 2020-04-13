@@ -172,10 +172,10 @@ Open Falco’s configuration file with your preferred text editor. The default l
 $nano /etc/falco/falco.yaml
 ```
 In the configuration file,
-find the line that begins `json_output:`.
-Set the value to `true`:
+find the line that begins `json_output:` and set the value to `true`:
 
 ```
+# Whether to output events in json or text
 json_output: true
 
 # When using json output, whether or not to include the "output" property
@@ -195,7 +195,7 @@ file_output:
   keep_alive: false
   filename: ./events.txt
 ```
-Save and Exit the falco.yaml file.
+Save and exit the falco.yaml file.
 
 ##### Add Falco as an input
 

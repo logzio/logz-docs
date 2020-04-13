@@ -38,7 +38,7 @@ Copy the following directly below it:
   items: [fierce, dnsenum, amass, dnsrecon, sublist3r, theharvester, recon-ng, netdiscover, amap, enum4linux, onesixtyone]
 ```
 
-In the configuration file, find the line that begins `- Netcat Remote Code Execution in Container`.
+In the configuration file, find the line that begins `- rule: Netcat Remote Code Execution in Container`.
 Replace the entire contents of the rule with the following:
 
 ```
@@ -62,7 +62,7 @@ I.e. nano /etc/ssh/sshd_config
 nano, vim, gedit, kwrite, vi, pico, micro, jed, emacs
 ```
 
-In the configuration file, find the line that begins `- Delete or rename shell history`.
+In the configuration file, find the line that begins `- rule: Delete or rename shell history`.
 Replace the entire contents of the rule with the following:
 
 ```
@@ -94,7 +94,7 @@ Replace the entire contents of the rule with the following:
   tags: [process, mitre_defense_evation]
 ```
 
-In the configuration file, find the line that begins `- Delete Bash History`.
+In the configuration file, find the line that begins `- rule: Delete Bash History`.
 Replace the entire contents of the rule with the following:
 
 ```
@@ -132,7 +132,7 @@ Replace the entire contents of the rule with the following:
   tags: [process, mitre_persistence]
 ```
 
-In the configuration file, find the line that begins `- Clear Log Activities`.
+In the configuration file, find the line that begins `- rule: Clear Log Activities`.
 Replace the entire contents of the rule with the following:
 
 ```
@@ -206,10 +206,10 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Falco to th
 Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step.
 
 ```yaml
-############################# Input #####################################
+# ...
 filebeat.inputs:
 - type: log
-  paths:
+  paths: 
   -  <<filepath-to-falco-events.txt>>
   fields:
     logzio_codec: json
@@ -218,12 +218,12 @@ filebeat.inputs:
   fields_under_root: true
   encoding: utf-8
   ignore_older: 3h
-
-#For version 6.x and lower uncomment the line below and remove the line after it
-#filebeat.registry_file: /var/lib/filebeat/registry
-
+  
+#For version 6.x and lower uncomment the line below and remove the line after it 
+#filebeat.registry_file: /var/lib/filebeat/registry 
+ 
 filebeat.registry.path: /var/lib/filebeat
-
+ 
 #The following processors are to ensure compatibility with version 7
 processors:
 - rename:
@@ -236,7 +236,7 @@ processors:
      - from: "log.file.path"
        to: "source"
     ignore_missing: true
-
+    
 ############################# Output ##########################################
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]

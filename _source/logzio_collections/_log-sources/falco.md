@@ -21,17 +21,12 @@ root access
 
 ##### Configure Falco rules to enrich observability
 
-Open Falco’s configuration file with your preferred text editor.
+Open Falco’s configuration file with your preferred text editor. See Falco's [documentation](https://falco.org/docs/)
+if you need help finding the file.
 
 ```
 $nano /etc/falco/falco_rules.yaml
 ```
-
-Falco's configuration filename is `falco_rules.yaml`.
-Its filepath changes
-depending on your version of Falco.
-See your installation's [documentation](https://falco.org/docs/)
-if you need help finding the file.
 
 In the configuration file,
 find the line that begins `- macro: network_tool_procs`.
@@ -43,7 +38,7 @@ Copy the following directly below it:
   items: [fierce, dnsenum, amass, dnsrecon, sublist3r, theharvester, recon-ng, netdiscover, amap, enum4linux, onesixtyone]
 ```
 
-In the configuration file, find the line that begins `Netcat Remote Code Execution in Container`.
+In the configuration file, find the line that begins `- Netcat Remote Code Execution in Container`.
 Replace the entire contents of the rule with the following:
 
 ```
@@ -67,7 +62,7 @@ I.e. nano /etc/ssh/sshd_config
 nano, vim, gedit, kwrite, vi, pico, micro, jed, emacs
 ```
 
-In the configuration file, find the line that begins `Delete or rename shell history`.
+In the configuration file, find the line that begins `- Delete or rename shell history`.
 Replace the entire contents of the rule with the following:
 
 ```
@@ -99,7 +94,7 @@ Replace the entire contents of the rule with the following:
   tags: [process, mitre_defense_evation]
 ```
 
-In the configuration file, find the line that begins `Delete Bash History`.
+In the configuration file, find the line that begins `- Delete Bash History`.
 Replace the entire contents of the rule with the following:
 
 ```
@@ -137,7 +132,7 @@ Replace the entire contents of the rule with the following:
   tags: [process, mitre_persistence]
 ```
 
-In the configuration file, find the line that begins `Clear Log Activities`.
+In the configuration file, find the line that begins `- Clear Log Activities`.
 Replace the entire contents of the rule with the following:
 
 ```

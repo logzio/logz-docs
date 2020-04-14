@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Support access
+title: Grant support access
 permalink: /user-guide/accounts/support-access.html
 flags:
   admin: true

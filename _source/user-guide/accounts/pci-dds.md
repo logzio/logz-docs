@@ -14,7 +14,8 @@ contributors:
 Minimize the risk of exposing sensitive customer data with Logz.io's log redaction function and benefit from a logging management solution that offers
 automated sensitive-data scrubbing.
 
-If your logs need to be scrutinized for sensitive PPI such as customer credit card data, you can enable the PCI compliance function on your Logz.io accounts. Event logs are no exception when it comes to PCI compliance and Logz.io makes it simpler to prevent logging vulnerabilities and minimize the possibility of data breaches in your raw log files.
+Event logs are no exception when it comes to PCI compliance and Logz.io makes it simpler to prevent logging vulnerabilities and minimize the possibility of data breaches in your raw log files.
+Best practice is always to mask or redact sensitive information </i>before</i> writing it to the logs, but Logz.io PCI compliance offers an extra layer of protection that can scrutinize your logs for sensitive PPI such as customer credit card data. 
 
 If enabled, Logz.io PCI compliance runs a regex pattern on select fields in your logs in search of matches and scrubs them of any sensitive customer data before they are indexed by Logz.io. The process occurs before the data is indexed in Elasticsearch and does not affect data archiving.
 
@@ -45,7 +46,12 @@ Once you accept the legal terms and click `activate`, Logz.io Support will be au
 
 ##### Vetting the regex pattern
 
-Support will walk you through the steps of creating an appropriate regex pattern and specifying which fields to apply it to. The expression will need to be tested to verify that it doesn't interfere with the account’s normal operation and log ingestion and might take several iterations.
+Support will get in touch to process your request. You'll be asked to submit an appropriate regex pattern and specify which fields to apply it to.
+
+Logz.io Support will test the regex expression to verify that it doesn't interfere with the account’s normal operation and log ingestion. This might take several iterations.
+
+Logiz.io Support cannot intervene with the creation of the appropriate regex pattern for reasons of liability.
+{:.info-box.note}
 
 ##### Activate/Deactivate PCI compliance
 

@@ -17,15 +17,14 @@ You can control support access from [**<i class="li li-gear"></i> > Settings > G
 
 ![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/general--account-settings.png)
 
-To enable support access, set the switch to **Enabled**, choose an expiration period, and click **Update**.
+To enable support access, toggle the switch to **Enabled**, select an expiration date, and click **Update**.
 
-At the end of this time, support access will disable itself automatically.
-If you set this time period to forever, support access will remain enabled until you disable it or set a new expiration period.
+Once the expiration date passes, support access will automatically be disabled.
+If you set the expiration date to `forever`, support access will remain enabled until you disable it or set a new expiration period.
 
 ## What access am I granting?
 
-Great question!
-We don't blame you for asking.
+Great question! 
 
 When you enable support access, you're granting full administrator permissions to our Support team.
 This allows us to troubleshoot issues as quickly as possible.

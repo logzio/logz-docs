@@ -14,7 +14,7 @@ contributors:
 Minimize the risk of exposing sensitive customer data with Logz.io's log redaction function and benefit from a logging management solution that offers
 automated sensitive-data scrubbing.
 
-If your logs need to be scrutinized for sensitive PPI such as customer credit card data, you can enable the PCI compliance funtion on your Logz.io accounts. Event logs are often unencrypted and PCI compliance is necessary to prevent logging vulnerabilities and minimize the possibility of data breaches or the harvesting of customer credit card data from raw log files. 
+If your logs need to be scrutinized for sensitive PPI such as customer credit card data, you can enable the PCI compliance function on your Logz.io accounts. Event logs are no exception when it comes to PCI compliance and Logz.io makes it simpler to prevent logging vulnerabilities and minimize the possibility of data breaches in your raw log files.
 
 When enabled, logs will be subject to an automated regex search and scrubbed of any sensitive customer data before they are indexed by Logz.io. The process occurs before the data is processed by the ElasticSearch database and does not affect data archiving.
 
@@ -42,12 +42,12 @@ Once you accept the legal terms and click `activate`, Logz.io Support will be au
 
 ##### Vetting the regex pattern
 
-Support will walk you through the steps of creating an appropriate regex pattern and specifying which fields to apply it to. The process is sensitive and care must be taken to minimize its effects as it can cause ingestion latency. 
+Support will walk you through the steps of creating an appropriate regex pattern and specifying which fields to apply it to. The process is sensitive and care must be taken to minimize its effects as it can cause ingestion latency.
 
-##### Activate/Deactivate PCI compliance 
+##### Activate/Deactivate PCI compliance
 
 Once the regext pattern is approved, the changes will be applied to your data parsing patterns and take effect on your account.
 
-You can deactivate PCI compliance at any time. Go to [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the top menu and click `deactivate`. 
+You can deactivate PCI compliance at any time. Go to [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the top menu and click `deactivate`.
 
 </div>

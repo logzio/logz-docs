@@ -16,10 +16,10 @@ automated sensitive-data scrubbing.
 
 If your logs need to be scrutinized for sensitive PPI such as customer credit card data, you can enable the PCI compliance function on your Logz.io accounts. Event logs are no exception when it comes to PCI compliance and Logz.io makes it simpler to prevent logging vulnerabilities and minimize the possibility of data breaches in your raw log files.
 
-When enabled, logs will be subject to an automated regex search and scrubbed of any sensitive customer data before they are indexed by Logz.io. The process occurs before the data is processed by the ElasticSearch database and does not affect data archiving.
+If enabled, Logz.io PCI compliance runs a regex pattern on select fields in your logs in search of matches and scrubs them of any sensitive customer data before they are indexed by Logz.io. The process occurs before the data is indexed in Elasticsearch and does not affect data archiving.
 
-Logz.io's PCI compliance solution is compatible with all merchant levels,
-including the most stringent PCI Compliance Level 1.
+Logz.io's PCI compliance solution is compatible with all levels,
+including the most stringent PCI level 1 requirements.
 
 For more information on PCI compliance and DDS (Data Security Standard), see the PCI Security Standards Council's [resources](https://www.pcisecuritystandards.org/).
 {:.info-box.read}
@@ -32,13 +32,16 @@ For more information on PCI compliance and DDS (Data Security Standard), see the
 
 You can control PCI compliance from [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the top menu.
 
-![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/pci.png)
+![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/pci-activate.png)
 
-If you have more than one account or a combination of sub accounts, repeat this process for each of them.
+
+If you have more than one account or a combination of sub accounts, you'll need to repeat this process for each of them.
 
 ##### Request activation and accept the terms
 
 Once you accept the legal terms and click `activate`, Logz.io Support will be automatically notified and your ticket will be created.
+
+![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/pci.png)
 
 ##### Vetting the regex pattern
 

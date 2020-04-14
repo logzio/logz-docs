@@ -45,7 +45,7 @@ Once you accept the legal terms and click `activate`, Logz.io Support will be au
 
 ##### Vetting the regex pattern
 
-Support will walk you through the steps of creating an appropriate regex pattern and specifying which fields to apply it to. The process is sensitive and care must be taken to minimize its effects as it can cause ingestion latency.
+Support will walk you through the steps of creating an appropriate regex pattern and specifying which fields to apply it to. The expression will need to be tested to verify that it doesn't interfere with the account’s normal operation and log ingestion and might take several iterations. 
 
 ##### Activate/Deactivate PCI compliance
 

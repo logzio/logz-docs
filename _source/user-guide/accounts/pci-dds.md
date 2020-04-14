@@ -15,7 +15,7 @@ Minimize the risk of exposing sensitive customer data with Logz.io's log redacti
 automated sensitive-data scrubbing.
 
 Event logs are no exception when it comes to PCI compliance and Logz.io makes it simpler to prevent logging vulnerabilities and minimize the possibility of data breaches in your raw log files.
-Best practice is always to mask or redact sensitive information </i>before</i> writing it to the logs, but Logz.io PCI compliance offers an extra layer of protection that can scrutinize your logs for sensitive PPI such as customer credit card data. 
+Best practice is always to mask or redact sensitive information before writing it to the logs, but Logz.io PCI compliance offers an extra layer of protection that can scrutinize your logs for sensitive PPI such as customer credit card data. 
 
 If enabled, Logz.io PCI compliance runs a regex pattern on select fields in your logs in search of matches and scrubs them of any sensitive customer data before they are indexed by Logz.io. The process occurs before the data is indexed in Elasticsearch and does not affect data archiving.
 

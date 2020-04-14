@@ -103,6 +103,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-cloud-siem-account.html
     - title: Manage the Infrastructure Monitoring account
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
+    - title: PCI compliance and log redaction
+      url: /user-guide/accounts/pci-compliance.html
     - title: Support access
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing

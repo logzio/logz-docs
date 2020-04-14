@@ -25,7 +25,6 @@ If you set this time period to forever, support access will remain enabled until
 ## What access am I granting?
 
 Great question!
-We don't blame you for asking.
 
 When you enable support access, you're granting full administrator permissions to our Support team.
 This allows us to troubleshoot issues as quickly as possible.

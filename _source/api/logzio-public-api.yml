@@ -104,8 +104,16 @@ tags:
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
-  - name: Security rules
+  - name: Security events
+    description: >-
+      Security events register when security rules in the your Logz.io Cloud SIEM account are triggered.
+      
 
+      Your Logz.io security rules are managed in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC). 
+      
+      
+      You have the option to add your own rules to those managed and provided by Logz.io's team of analysts.
+      The event details are written in a log, representing the "event log".
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -113,7 +121,7 @@ x-tagGroups:
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
-      - Security rules
+      - Security events
   - name: Account administration
     tags:
       - Manage users
@@ -1915,10 +1923,19 @@ paths:
   # ::::: SECURITY RULES
   /v2/security/rules/events/search:
     post:
-      summary: Search for logs 
-      description: Search for logs  
+      summary: Search for security events 
+      description: >- 
+        Searches your Logz.io Cloud SIEM account for security events to understand your security posture and threat activity. 
+        Runs a search query to fetch the security events registered in your Logz.io Cloud SIEM account. 
+        
+
+        Security events register when security rules are triggered in your Logz.io Cloud SIEM account. 
+        To investigate the details of the event, see **Search for the logs that triggered a security rule**.
+
+        
+        No parameters are required. You can send an empty JSON body request to retrieve all of the events triggered, bound only by your security account's retention.      
       tags:
-        - Security rules
+        - Security events
       operationId: searchSecurityRulesEvents
       produces:
         - application/json
@@ -1930,27 +1947,26 @@ paths:
             $ref: '#/definitions/AlertsEventsSearchRequest'
         - name: X-API-TOKEN
           in: header
-          description: Authentication Api Token
+          description: Authentication API Token
           required: false
           type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
+        #- name: X-AUTH-TOKEN
+        #  in: header
+        #  description: Authentication User Session
+        #  required: false
+        #  type: string
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/PagedSearchResponseTriggeredAlert'
           headers: {}
-
   /v2/security/rules/events/logs/search:
     post:
-      summary: Search for logs that triggered a security rule
-      description: Search for logs that triggered a security rule 
+      summary: Search for the logs that triggered a security rule
+      description: Run a search query to fetch the raw logs to increase observability into security events. The raw logs contain many more fields and details concerning the event.
       tags:
-        - Security rules
+        - Security events
       operationId: searchSecurityRuleEventLogs
       produces:
         - application/json
@@ -2253,7 +2269,7 @@ definitions:
     default: false
     example: true
 
-# ::::: CLOUD SIEM DEFINITIONS
+  # ::::: CLOUD SIEM DEFINITIONS
   AlertEventLogsSearchRequest:
     type: object
     properties:
@@ -2268,17 +2284,25 @@ definitions:
         type: string
   Pagination:
     type: object
+    description: Default pagination is 1 page, 25 results.
     properties:
       pageNumber:
         type: integer
         format: int32
+        description: If you overshoot the page number, it will return empty, but it won't fail the request. Look for the `total` field to see how many results exist overall, and calculate your desired page numbers.
+        default: 1
+        example: 100
       pageSize:
         type: integer
         format: int32
+        description: Controls the number of results per page. Valid inputs are 1 to 1000. 
+        maximum: 1000
+        default: 25
   PagedSearchResponseMapStringObject:
     type: object
     properties:
       total:
+        description: The total number of events that answer the query. the total entities found AFTER filtering and sorting and BEFORE pagination
         type: integer
         format: int32
       results:
@@ -2307,21 +2331,35 @@ definitions:
       alertId:
         type: integer
         format: int32
+        description: Unique identifier of the security rule in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-definition-id`
+        example: 123, 123
       name:
         type: string
+        description: Name of the security rule in Logz.io Cloud SIEM
+        example: AWS - User deleted multiple DBSnapshots
       description:
         type: string
+        description: Typically an explanation of the security rule's logic and suggested next steps
+        example: Next steps...
       alertSummary:
         type: string
+        description: Equivalent to the `condition` field in the rule
+        example: N/A
       eventDate:
         type: integer
         format: int64
+        description: Epoch unix timestamp in seconds showing when the rule's conditions were met and the event was registered
+        example: N/A
       alertWindowStartDate:
         type: integer
         format: int64
+        description: Epoch unix timestamp of the earliest log involved in triggering the security rule. Security rules are typically triggered by several logs in aggregate.
+        example: N/A
       alertWindowEndDate:
         type: integer
         format: int64
+        description: Epoch unix timestamp of the latest log that was involved in this event. Security rules are typically triggered by several logs in aggregate.
+        example: N/A
       severity:
         type: string
         enum:
@@ -2330,8 +2368,12 @@ definitions:
           - MEDIUM
           - HIGH
           - SEVERE
+        description: Severity of the security event as determined by the security rule's definition
+        example: SEVERE
       alertEventId:
         type: string
+        description: Unique identifier of the security event in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-event-id`
+        example: f33333e-9c9c-9c9c-9bbf-f33333ef3333
       groupBy:
         type: object
         additionalProperties:
@@ -2343,11 +2385,16 @@ definitions:
       hits:
         type: integer
         format: int32
+        description: Number of logs that registered in the security event
+        example: 30a
   AlertsEventsSearchRequest:
     type: object
+    description: Filter by rule severity, time range, or a matching string in the security rule name. Restrict your results using sorting, pagination or filtering for a matching string in the rule name.
     properties:
       filter:
-        $ref: '#/definitions/AlertsEventsFilter'
+        $ref: '#/definitions/AlertsEventsFilter'       
+        description: Filter by rule severity, time range, or a matching string in the security rule name. Restrict your results using sorting, pagination or filtering for a matching string in the rule name.
+        summary: Filter by rule severity, time range, or a matching string in the security rule name
       sort:
         type: array
         items:

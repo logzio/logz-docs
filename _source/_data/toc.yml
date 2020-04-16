@@ -105,7 +105,7 @@ firstLevel:
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
     - title: PCI compliance and log redaction
       url: /user-guide/accounts/pci-compliance.html
-    - title: Support access
+    - title: Grant support access
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 

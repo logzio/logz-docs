@@ -106,14 +106,14 @@ tags:
   - name: Manage users
   - name: Security events
     description: >-
-      Security events register when security rules in the your Logz.io Cloud SIEM account are triggered.
+      Security events register whenever security rules trigger in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
       
+      
+      Your Logz.io Cloud SIEM is pre-loaded with security rules recommended by Logz.io's security analysts.
+      This list is continually expanded and updated. You have the option to add your own rules or edit those provided by Logz.io's team.
 
-      Your Logz.io security rules are managed in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC). 
-      
-      
-      You have the option to add your own rules to those managed and provided by Logz.io's team of analysts.
-      The event details are written in a log, representing the "event log".
+
+      Investigate a security event via the event log, listing the security rule that triggered and more, or delve deeper into the details by retrieving the raw logs that caused the security rule to trigger.      
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -1923,17 +1923,17 @@ paths:
   # ::::: SECURITY RULES
   /v2/security/rules/events/search:
     post:
-      summary: Search for security events 
-      description: >- 
-        Searches your Logz.io Cloud SIEM account for security events to understand your security posture and threat activity. 
-        Runs a search query to fetch the security events registered in your Logz.io Cloud SIEM account. 
+      summary: Search for security events
+      description: >-
+        Runs a search query to fetch the security events registered in your Logz.io Cloud SIEM account.
+        This query can be used to integrate with a SOAR automated response solution or simply to understand your security posture and identify suspicious activity in your accounts.
         
-
-        Security events register when security rules are triggered in your Logz.io Cloud SIEM account. 
-        To investigate the details of the event, see **Search for the logs that triggered a security rule**.
-
         
-        No parameters are required. You can send an empty JSON body request to retrieve all of the events triggered, bound only by your security account's retention.      
+        Security events register whenever security rules trigger in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+      
+        
+        For this query, no parameters are required. You can send the request with an empty JSON body to retrieve all of the events that have registered, bound only by your security account's retention. 
+        Note that retention for Logz.io Cloud SIEM differs from retention for your Logz.io Log Management account.
       tags:
         - Security events
       operationId: searchSecurityRulesEvents
@@ -2284,12 +2284,12 @@ definitions:
         type: string
   Pagination:
     type: object
-    description: Default pagination is 1 page, 25 results.
+    description: Default pagination is 1 page, 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
     properties:
       pageNumber:
         type: integer
         format: int32
-        description: If you overshoot the page number, it will return empty, but it won't fail the request. Look for the `total` field to see how many results exist overall, and calculate your desired page numbers.
+        description: If you overshoot the page number, it will return empty, but it won't fail the request.
         default: 1
         example: 100
       pageSize:

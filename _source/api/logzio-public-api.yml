@@ -2272,6 +2272,7 @@ definitions:
   # ::::: CLOUD SIEM DEFINITIONS
   AlertEventLogsSearchRequest:
     type: object
+    description: description 1
     properties:
       filter:
         $ref: '#/definitions/AlertEventLogsFilter'
@@ -2279,9 +2280,11 @@ definitions:
         $ref: '#/definitions/Pagination'
   AlertEventLogsFilter:
     type: object
+    description: 123
     properties:
       alertEventId:
         type: string
+        description: 4343434
   Pagination:
     type: object
     description: Default pagination is 1 page, 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
@@ -2394,6 +2397,7 @@ definitions:
         $ref: '#/definitions/AlertsEventsFilter'
         summary: Filter by rule severity, time range, or a matching string in the security rule name
       sort:
+        description: Sorting is not required, but if left blank, random sorting will result.
         type: array
         items:
           $ref: '#/definitions/AlertsEventsSortRequest'
@@ -2401,7 +2405,6 @@ definitions:
         $ref: '#/definitions/Pagination'
   AlertsEventsSortRequest:
     type: object
-    description: Sort by date and/or severity, in descending or ascending order. Sorting is not required, but if left blank, random sorting will be returned.
     properties:
       field:
         type: string
@@ -2420,7 +2423,6 @@ definitions:
       searchTerm:
         type: string
         description: Filter for a matching string in the security rule name. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
-
       severities:
         type: array
         description: Filter by the severities of the security rules. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).

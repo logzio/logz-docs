@@ -2389,11 +2389,9 @@ definitions:
         example: 30a
   AlertsEventsSearchRequest:
     type: object
-    description: Filter by rule severity, time range, or a matching string in the security rule name. Restrict your results using sorting, pagination or filtering for a matching string in the rule name.
     properties:
       filter:
-        $ref: '#/definitions/AlertsEventsFilter'       
-        description: Filter by rule severity, time range, or a matching string in the security rule name. Restrict your results using sorting, pagination or filtering for a matching string in the rule name.
+        $ref: '#/definitions/AlertsEventsFilter'
         summary: Filter by rule severity, time range, or a matching string in the security rule name
       sort:
         type: array
@@ -2403,21 +2401,29 @@ definitions:
         $ref: '#/definitions/Pagination'
   AlertsEventsSortRequest:
     type: object
+    description: Sort by date and/or severity, in descending or ascending order. Sorting is not required, but if left blank, random sorting will be returned.
     properties:
       field:
         type: string
+        description: Sort by date and/or severity. Order determines secondary sorting.
         enum:
           - DATE
           - SEVERITY
       descending:
         type: boolean
+        default: true
+        description: If left blank, descending sorting will result. If `false` results in ascending sorting.
   AlertsEventsFilter:
     type: object
+    description: Filter by rule severity, time range, and/or a matching string in the security rule name.
     properties:
       searchTerm:
         type: string
+        description: Filter for a matching string in the security rule name. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+
       severities:
         type: array
+        description: Filter by the severities of the security rules. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
         items:
           type: string
           enum:
@@ -2430,13 +2436,18 @@ definitions:
         $ref: '#/definitions/AlertTimeRange'
   AlertTimeRange:
     type: object
+    description: If you decide to add a timestamp filter, you'll need to specify a closed time range, with both the earliest and latest timestamps.
     properties:
       fromDate:
         type: integer
         format: int64
+        default: none
+        description: Use an epoch unix timestamp in seconds (not ms). Your security account retention determines the ealiest events you'll be able to retrieve.
       toDate:
         type: integer
         format: int64
+        default: none
+        description: Use an epoch unix timestamp in seconds (not ms).
   
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:

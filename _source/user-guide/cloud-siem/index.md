@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Logz.io Cloud SIEM
-permalink: /user-guide/cloud-siem/
+permalink: /user-guide/cloud-siem/intro
 flags:
   logzio-plan: pro
 tags:
@@ -11,9 +11,12 @@ tags:
   - security-research
   - security-rules
 contributors:
+  - shalper
   - imnotashrimp
   - danielberman
 ---
+Logz.io is a fully-managed observability platform powered by open-source technologies that assures scalability, availability, and security.
+Logz.io Cloud SIEM is an extension aimed at securing distributed cloud workloads with simplified, DevOps-native threat detection and security analytics. It runs security analytics and compliance tests on the log data managed by Logz.io. It is accessed from the Logz.io Security account.
 
 Logz.io Cloud SIEM combines the ELK stack
 with advanced security analytics tools

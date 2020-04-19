@@ -88,8 +88,8 @@ firstLevel:
     - title: Lookups
       url: /user-guide/lookups/
     - title: Integrate with Cortex xSOAR
-      url: /user-guide/cloud-siem/demisto-xsoar-integration.html  
-
+      url: /user-guide/cloud-siem/demisto-xsoar-integration.html
+      
 - title: Admin tools
   icon: li-gear
   secondLevel:

@@ -11,35 +11,23 @@ contributors:
   - shalper
 ---
 
-Automate your security responses to the security threats flagged by Logz.io using Cortex XSOAR (formerlly Demisto), a 3rd party tool.  
+Automate your security responses to the security threats flagged by Logz.io using [Cortex XSOAR](https://www.paloaltonetworks.com/cortex/xsoar) (formerly Demisto), the industry-leading Security Orchestration, Automation & Response (SOAR) solution. 
 
-If you're working with both Cortex XSOAR and Logz.io Cloud SIEM, you can set up the integration in Cortex XSOAR, the industry-leading Security Orchestration, Automation & Response (SOAR) solution. 
+Integrate your Logz.io Cloud SIEM with Cortex xSOAR (formerly Demisto) to automatically remediate security incidents identified by Logz.io and increase observability into incident details. The integration allows Cortex xSOAR users to implement playbooks to automatically remediate incidents identified by Logz.io Cloud SIEM. In addition, Cortex xSOAR users can query Logz.io directly from Cortex xSOAR to investigate open questions or retrieve the logs responsible for triggering security rules.
 
-Logz.io is a fully-managed observability platform powered by open-source technologies that assures scalability, availability, and security.
-
-Logz.io Cloud SIEM is an extension aimed at securing distributed cloud workloads with simplified, DevOps-native threat detection and security analytics. It runs security analytics and compliance tests on the log data managed by Logz.io. It is accessed from the Logz.io Security account.
-
-The integration of Logz.io with Demisto is a two-way integration. The integration is focused on retrieving security alerts from Logz.io and allowing Demisto users to search across the logs stored in the Logz.io platform to increase observability into incident details. .
-
-The integration allows Demisto to automatically:
-Fetch an incident when a security rule triggers in the Logz.io Security account. Fetching can be set by rule severity and/or search query.
-Trigger responses in Playbooks following incidents originating in triggered Logz.io security rules.
-Run a command to query a Logz.io Operations account for the original logs that triggered Logz.io security rules.
-In addition, Demisto analysts can query and investigate logs from a Logz.io Operations account directly from the Demisto interface. This is done using the xxxxx command.
-
+In addition, users working in Cortex xSOAR can use Logz.io commands to run queries and investigate logs directly from the Cortex xSOAR interface. 
+The log data is parsed, indexed, managed, and stored in your Logz.io Log Management account (i.e. the Operations account).
 
 
 Use Cases
-Demisto can automatically fetch incidents when security alerts trigger in Logz.io. Fetching can be limited by filtering Logz.io security alerts by severity and contents.
-Demisto Playbooks can query for logs in Logz.io to retrieve the specific events that triggered the alerts.
-Demisto analysts can query the Logz.io logging database directly from the Demisto interface.
+* Cortex xSOAR can automatically fetch incidents when security alerts trigger in Logz.io. Fetching can be limited by filtering Logz.io security alerts by severity and contents.
+* Cortex xSOAR Playbooks can query for logs in Logz.io to retrieve the specific log details that triggered as security events
+* Cortex xSOAR analysts can query the Logz.io logging database directly from the Cortex xSOAR interface.
 
-
-Logz.io is a fully-managed observability platform powered by open-source technologies that assures scalability, availability, and security.
-
-Logz.io Cloud SIEM is an extension aimed at securing distributed cloud workloads with simplified, DevOps-native threat detection and security analytics. It runs security analytics and compliance tests on the log data managed by Logz.io. It is accessed from the Logz.io Security account.
-
-The integration of Logz.io with Demisto is a two-way integration. The integration is focused on retrieving security alerts from Logz.io and allowing Demisto users to search across the logs stored in the Logz.io platform to increase observability into incident details. .
+The integration of Logz.io with Cortex xSOAR allows Cortex xSOAR to do the following automatically:
+* Fetch an incident when a security rule triggers in the Logz.io Security account. Fetching can be set by rule severity and/or search query.
+* Trigger responses in Playbooks following incidents originating in triggered Logz.io security rules.
+* Run a command to query a Logz.io Operations account for the original logs that triggered Logz.io security rules.
 
 The integration allows Demisto to automatically:
 Fetch an incident when a security rule triggers in the Logz.io Security account. Fetching can be set by rule severity and/or search query.

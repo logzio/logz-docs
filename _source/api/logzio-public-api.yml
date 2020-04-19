@@ -2280,11 +2280,11 @@ definitions:
         $ref: '#/definitions/Pagination'
   AlertEventLogsFilter:
     type: object
-    description: 123
+    description: Filter for the logs directly related to an event ID.
     properties:
       alertEventId:
         type: string
-        description: 4343434
+        description: Equivalent to the field `whatever`
   Pagination:
     type: object
     description: Default pagination is 1 page, 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
@@ -2305,7 +2305,7 @@ definitions:
     type: object
     properties:
       total:
-        description: The total number of events that answer the query. the total entities found AFTER filtering and sorting and BEFORE pagination
+        description: The total number of events that answer the query. The total entities found AFTER filtering and sorting and BEFORE pagination.
         type: integer
         format: int32
       results:
@@ -2444,11 +2444,13 @@ definitions:
         type: integer
         format: int64
         default: none
+        example: 1587134557
         description: Use an epoch unix timestamp in seconds (not ms). Your security account retention determines the ealiest events you'll be able to retrieve.
       toDate:
         type: integer
         format: int64
         default: none
+        example: 1587137557
         description: Use an epoch unix timestamp in seconds (not ms).
   
   # ::::: AUDIT TRAIL DEFINITIONS

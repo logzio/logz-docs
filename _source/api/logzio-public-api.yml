@@ -1963,8 +1963,8 @@ paths:
           headers: {}
   /v2/security/rules/events/logs/search:
     post:
-      summary: Search for the logs that triggered a security rule
-      description: Run a search query to fetch the raw logs to increase observability into security events. The raw logs contain many more fields and details concerning the event.
+      summary: Search for event logs
+      description: Run a search query to fetch the raw logs that caused a security rule to trigger and register an event. Use this query to increase observability into security events and retrieve all of the available details concerning the event.
       tags:
         - Security events
       operationId: searchSecurityRuleEventLogs
@@ -2272,7 +2272,8 @@ definitions:
   # ::::: CLOUD SIEM DEFINITIONS
   AlertEventLogsSearchRequest:
     type: object
-    description: description 1
+    required:
+      - filter
     properties:
       filter:
         $ref: '#/definitions/AlertEventLogsFilter'
@@ -2280,11 +2281,14 @@ definitions:
         $ref: '#/definitions/Pagination'
   AlertEventLogsFilter:
     type: object
-    description: Filter for the logs directly related to an event ID.
+    description: Filter for the raw logs for expanded details and observaility into the event.
+    required:
+      - alertEventId
     properties:
       alertEventId:
         type: string
-        description: Equivalent to the field `whatever`
+        description: Unique identifier of the security event in Logz.io Cloud SIEM. You can get it from the result when you run a search for security events, or from the log field `logzio-alert-event-id` in the [UI](https://app.logz.io/#/dashboard/security/research/discover?).
+        example: f33333e-9c9c-9c9c-9bbf-f33333ef3333
   Pagination:
     type: object
     description: Default pagination is 1 page, 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
@@ -2292,7 +2296,7 @@ definitions:
       pageNumber:
         type: integer
         format: int32
-        description: If you overshoot the page number, it will return empty, but it won't fail the request.
+        description: If you overshoot the page number, it will return empty with no results, but it won't fail the request.
         default: 1
         example: 100
       pageSize:
@@ -2305,9 +2309,10 @@ definitions:
     type: object
     properties:
       total:
-        description: The total number of events that answer the query. The total entities found AFTER filtering and sorting and BEFORE pagination.
+        description: The total number of events that answer the query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
         type: integer
         format: int32
+        example: 500
       results:
         type: array
         items:
@@ -2322,6 +2327,8 @@ definitions:
       total:
         type: integer
         format: int32
+        description: The total number of events that answer the query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
+        example: 500
       results:
         type: array
         items:
@@ -2379,17 +2386,23 @@ definitions:
         example: f33333e-9c9c-9c9c-9bbf-f33333ef3333
       groupBy:
         type: object
+        description: Some security rules have a condition that aggregates results by up-to 3 fields. You can manually review aggregation conditions in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
         additionalProperties:
-          type: object
+          type: map
+          maximum: 3
+          description: 1 to 3 fields used to aggregate results. The fields differ by conditions set in the security rule.
+          example: { clientip, src_ip}
       tags:
         type: array
+        description: Labels applied to help organize security rules.
         items:
           type: object
+          example: { network_threat, recon}
       hits:
         type: integer
         format: int32
-        description: Number of logs that registered in the security event
-        example: 30a
+        description: Number of results returned by the query BEFORE filtering by `groupBy`
+        example: 30
   AlertsEventsSearchRequest:
     type: object
     properties:
@@ -2405,6 +2418,8 @@ definitions:
         $ref: '#/definitions/Pagination'
   AlertsEventsSortRequest:
     type: object
+    required:
+      - field
     properties:
       field:
         type: string
@@ -2438,18 +2453,19 @@ definitions:
         $ref: '#/definitions/AlertTimeRange'
   AlertTimeRange:
     type: object
+    required:
+      - fromDate
+      - toDate
     description: If you decide to add a timestamp filter, you'll need to specify a closed time range, with both the earliest and latest timestamps.
     properties:
       fromDate:
         type: integer
         format: int64
-        default: none
         example: 1587134557
         description: Use an epoch unix timestamp in seconds (not ms). Your security account retention determines the ealiest events you'll be able to retrieve.
       toDate:
         type: integer
         format: int64
-        default: none
         example: 1587137557
         description: Use an epoch unix timestamp in seconds (not ms).
   

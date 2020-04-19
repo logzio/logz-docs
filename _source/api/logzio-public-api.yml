@@ -1923,7 +1923,7 @@ paths:
   # ::::: SECURITY RULES
   /v2/security/rules/events/search:
     post:
-      summary: Search for security events
+      summary: Fetch security events
       description: >-
         Runs a search query to fetch the security events registered in your Logz.io Cloud SIEM account.
         This query can be used to integrate with a SOAR automated response solution or simply to understand your security posture and identify suspicious activity in your accounts.
@@ -1963,7 +1963,7 @@ paths:
           headers: {}
   /v2/security/rules/events/logs/search:
     post:
-      summary: Search for event logs
+      summary: Fetch an event's raw logs
       description: Run a search query to fetch the raw logs that caused a security rule to trigger and register an event. Use this query to increase observability into security events and retrieve all of the available details concerning the event.
       tags:
         - Security events
@@ -2327,7 +2327,7 @@ definitions:
       total:
         type: integer
         format: int32
-        description: The total number of events that answer the query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
+        description: The total number of events returned by the query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
         example: 500
       results:
         type: array

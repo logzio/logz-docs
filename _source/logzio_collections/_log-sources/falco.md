@@ -143,8 +143,8 @@ Open Falco’s configuration file with your preferred text editor. The default l
 ```
 $nano /etc/falco/falco.yaml
 ```
-In the configuration file,
-find the line that begins `json_output:` and set the value to `true`:
+In the configuration file, set the output format to JSON.
+Find the line `json_output: true`.
 
 ```
 # Whether to output events in json or text
@@ -171,7 +171,7 @@ Save and exit the falco.yaml file.
 
 ##### Add Falco as an input
 
-In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Falco to the filebeat.inputs section.
+Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 
 {% include log-shipping/replace-vars.html token=true %}
 

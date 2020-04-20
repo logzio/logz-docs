@@ -10,21 +10,21 @@ shipping-tags:
   - security
 ---
 
-Falco is a container security and Kubernetes threat detection engine. 
-A behavioral activity monitor, Falco logs illegal container activity. If you ship Falco logs to your Logz.io Cloud SIEM, you can receive alerts about security events logged by Falco. 
+Falco is a container security and Kubernetes threat detection engine that logs illegal container activity at runtime. If you ship your Falco logs to your Logz.io Cloud SIEM, you can centralize your security ops and receive alerts about security events logged by Falco.
 
 Here are just a few examples of Falco security rules that are provided out-of-the-box by Logz.io's security team: attempt to remove logging data from a container, attempt to run recon tools inside a container, attempt to add potentially malicious repositories to a container.
-You can review the list of pre-configured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and search for the provided Falco [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) in your Logz.io Cloud SIEM account. 
 
-**Before you begin, you'll need**:
-Falco installed on the host,
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
-root access
+You can review the Falco resources in your Logz.io Cloud SIEM account, under the pre-configured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and search for the provided Falco [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
 * toc list
 {:toc}
 
 #### Step by step
+
+**Before you begin, you'll need**:
+Falco installed on the host,
+[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
+root access
 
 <div class="tasklist">
 

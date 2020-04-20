@@ -179,9 +179,9 @@ Save and exit the falco.yaml file.
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
-Copy and paste the code block below to the file, then replace the placeholders (explained in the next step).
+Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
 
-It adds Falco as an input, and sets Logz.io as the output.
+This code block adds Falco as an input and sets Logz.io as the output.
 
 ```yaml
 # ...
@@ -220,6 +220,8 @@ output.logstash:
 ```
 
 ##### Replace the placeholders in the Filebeat configuration
+
+Still in the same configuration file, replace the placeholders to match your specifics.
 
 * {% include log-shipping/replace-vars.html token=true %}
 

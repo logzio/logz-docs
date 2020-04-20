@@ -55,11 +55,6 @@ Replace the entire contents of the rule with the following:
     command=%proc.cmdline container_id=%container.id container_name=%container.name image=%container.image.repository:%container.image.tag)
   priority: WARNING
   tags: [network, process, mitre_execution]
-
-Trigger:
-Trigger starting a command with the followings and ending with /etc/ssh/sshd_config
-I.e. nano /etc/ssh/sshd_config
-nano, vim, gedit, kwrite, vi, pico, micro, jed, emacs
 ```
 
 In the configuration file, find the line that begins `- rule: Delete or rename shell history`.
@@ -114,22 +109,6 @@ Replace the entire contents of the rule with the following:
 
 - list: user_known_chmod_applications
   items: [hyperkube, kubelet]
-
-- rule: Set Setuid or Setgid bit
-  desc: >
-    When the setuid or setgid bits are set for an application,
-    this means that the application will run with the privileges of the owning user or group respectively.
-    Detect setuid or setgid bits set via chmod
-  condition: >
-    consider_all_chmods and chmod and (evt.arg.mode contains "S_ISUID" or evt.arg.mode contains "S_ISGID")
-    and not proc.name in (user_known_chmod_applications)
-    and not exe_running_docker_save
-  output: >
-    Setuid or setgid bit is set via chmod (fd=%evt.arg.fd filename=%evt.arg.filename mode=%evt.arg.mode user=%user.name process=%proc.name
-    command=%proc.cmdline container_id=%container.id container_name=%container.name image=%container.image.repository:%container.image.tag)
-  priority:
-    NOTICE
-  tags: [process, mitre_persistence]
 ```
 
 In the configuration file, find the line that begins `- rule: Clear Log Activities`.
@@ -151,17 +130,10 @@ Replace the entire contents of the rule with the following:
   tags: [file, mitre_defense_evasion]
 ```
 
-##### Download the Logz.io certificate
+##### Download the Logz.io certificate to your Filebeat server
 
 ```shell
-wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt
-```
-
-Copy the certificate to the proper location
-
-```
-sudo mkdir -p /etc/pki/tls/certs
-sudo cp COMODORSADomainValidationSecureServerCA.crt /etc/pki/tls/certs/
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
 ```
 
 ##### Configure Falco to output JSON logs
@@ -219,9 +191,6 @@ filebeat.inputs:
   encoding: utf-8
   ignore_older: 3h
   
-#For version 6.x and lower uncomment the line below and remove the line after it 
-#filebeat.registry_file: /var/lib/filebeat/registry 
- 
 filebeat.registry.path: /var/lib/filebeat
  
 #The following processors are to ensure compatibility with version 7
@@ -236,18 +205,13 @@ processors:
      - from: "log.file.path"
        to: "source"
     ignore_missing: true
-    
-############################# Output ##########################################
-output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ##### Set Logz.io as the output
 
-If Logz.io is not an output, add it now.
-Remove all other outputs.
+If Logz.io is not already an output, add it now. 
+Make sure Logz.io is the only output and appears only once. 
+If the file has other outputs, remove them. 
 
 {% include log-shipping/replace-vars.html listener=true %}
 

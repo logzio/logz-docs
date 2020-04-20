@@ -10,12 +10,19 @@ shipping-tags:
   - security
 ---
 
-#### Configuration
-
 **Before you begin, you'll need**:
 Falco installed on the host,
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
 root access
+
+---
+
+* toc list
+{:toc}
+
+---
+
+#### Step by step
 
 <div class="tasklist">
 
@@ -169,7 +176,7 @@ file_output:
 ```
 Save and exit the falco.yaml file.
 
-##### Configure Filebeat 
+##### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 Copy and paste the code block below to the file, then replace the placeholders (explained in the next step).
@@ -180,7 +187,7 @@ It adds Falco as an input, and sets Logz.io as the output.
 # ...
 filebeat.inputs:
 - type: log
-  paths: 
+  paths:
   -  <<filepath-to-falco-events.txt>>
   fields:
     logzio_codec: json
@@ -189,9 +196,9 @@ filebeat.inputs:
   fields_under_root: true
   encoding: utf-8
   ignore_older: 3h
-  
+
 filebeat.registry.path: /var/lib/filebeat
- 
+
 #The following processors are to ensure compatibility with version 7
 processors:
 - rename:
@@ -220,8 +227,8 @@ output.logstash:
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-One last validation - make sure Logz.io is the only output and appears only once. 
-If the file has other outputs, remove them. 
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
 
 ##### Start Filebeat
 

@@ -15,12 +15,8 @@ Falco installed on the host,
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
 root access
 
----
-
 * toc list
 {:toc}
-
----
 
 #### Step by step
 

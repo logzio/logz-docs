@@ -16,9 +16,8 @@ shipping-tags:
 
 <!-- tabContainer:start -->
 <div class="branching-container">
-
-* [Using Docker <span class="sm ital">(recommended)</span>](#docker-config)
-* [Using Metricbeat](#metricbeat-config)
+* [Using Metricbeat <span class="sm ital">(recommended)</span>](#metricbeat-config)
+* [Using Docker](#docker-config)
 {:.branching-tabs}
 
 
@@ -26,6 +25,7 @@ shipping-tags:
 <div id="docker-config">
 
 ## Docker setup
+#### Use this only to monitor linux systems. If you wish to monitor other types of system, Use [Meticbeat locally](#metricbeat-config)
 
 To simplify shipping metrics from one or many sources,
 we created Docker Metrics Collector.
@@ -66,6 +66,11 @@ For a complete list of options, see the parameters below the code block.👇
 docker run --name docker-collector-metrics \
 --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
 --env LOGZIO_MODULES="system" \
+--volume="/var/run/docker.sock:/var/run/docker.sock:ro" \
+--volume="/sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro" \
+--volume="/proc:/hostfs/proc:ro" \
+--volume="/:/hostfs:ro" \
+--net=host \
 logzio/docker-collector-metrics
 ```
 

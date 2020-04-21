@@ -10,7 +10,16 @@ shipping-tags:
   - security
 ---
 
-#### Configuration
+Falco is a container security and Kubernetes threat detection engine that logs illegal container activity at runtime. If you ship your Falco logs to your Logz.io Cloud SIEM, you can centralize your security ops and receive alerts about security events logged by Falco.
+
+Here are just a few examples of Falco security rules that are provided out-of-the-box by Logz.io's security team: attempt to remove logging data from a container, attempt to run recon tools inside a container, attempt to add potentially malicious repositories to a container.
+
+You can review the Falco resources in your Logz.io Cloud SIEM account, under the pre-configured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and search for the provided Falco [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
+
+* toc list
+{:toc}
+
+#### Step by step
 
 **Before you begin, you'll need**:
 Falco installed on the host,
@@ -55,11 +64,6 @@ Replace the entire contents of the rule with the following:
     command=%proc.cmdline container_id=%container.id container_name=%container.name image=%container.image.repository:%container.image.tag)
   priority: WARNING
   tags: [network, process, mitre_execution]
-
-Trigger:
-Trigger starting a command with the followings and ending with /etc/ssh/sshd_config
-I.e. nano /etc/ssh/sshd_config
-nano, vim, gedit, kwrite, vi, pico, micro, jed, emacs
 ```
 
 In the configuration file, find the line that begins `- rule: Delete or rename shell history`.
@@ -114,22 +118,6 @@ Replace the entire contents of the rule with the following:
 
 - list: user_known_chmod_applications
   items: [hyperkube, kubelet]
-
-- rule: Set Setuid or Setgid bit
-  desc: >
-    When the setuid or setgid bits are set for an application,
-    this means that the application will run with the privileges of the owning user or group respectively.
-    Detect setuid or setgid bits set via chmod
-  condition: >
-    consider_all_chmods and chmod and (evt.arg.mode contains "S_ISUID" or evt.arg.mode contains "S_ISGID")
-    and not proc.name in (user_known_chmod_applications)
-    and not exe_running_docker_save
-  output: >
-    Setuid or setgid bit is set via chmod (fd=%evt.arg.fd filename=%evt.arg.filename mode=%evt.arg.mode user=%user.name process=%proc.name
-    command=%proc.cmdline container_id=%container.id container_name=%container.name image=%container.image.repository:%container.image.tag)
-  priority:
-    NOTICE
-  tags: [process, mitre_persistence]
 ```
 
 In the configuration file, find the line that begins `- rule: Clear Log Activities`.
@@ -151,17 +139,10 @@ Replace the entire contents of the rule with the following:
   tags: [file, mitre_defense_evasion]
 ```
 
-##### Download the Logz.io certificate
+##### Download the Logz.io certificate to your Filebeat server
 
 ```shell
-wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt
-```
-
-Copy the certificate to the proper location
-
-```
-sudo mkdir -p /etc/pki/tls/certs
-sudo cp COMODORSADomainValidationSecureServerCA.crt /etc/pki/tls/certs/
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
 ```
 
 ##### Configure Falco to output JSON logs
@@ -171,8 +152,8 @@ Open Falco’s configuration file with your preferred text editor. The default l
 ```
 $nano /etc/falco/falco.yaml
 ```
-In the configuration file,
-find the line that begins `json_output:` and set the value to `true`:
+In the configuration file, set the output format to JSON.
+Find the line `json_output: true`.
 
 ```
 # Whether to output events in json or text
@@ -197,19 +178,18 @@ file_output:
 ```
 Save and exit the falco.yaml file.
 
-##### Add Falco as an input
+##### Configure Filebeat
 
-In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Falco to the filebeat.inputs section.
+Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
+Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
 
-{% include log-shipping/replace-vars.html token=true %}
-
-Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step.
+This code block adds Falco as an input and sets Logz.io as the output.
 
 ```yaml
 # ...
 filebeat.inputs:
 - type: log
-  paths: 
+  paths:
   -  <<filepath-to-falco-events.txt>>
   fields:
     logzio_codec: json
@@ -218,12 +198,9 @@ filebeat.inputs:
   fields_under_root: true
   encoding: utf-8
   ignore_older: 3h
-  
-#For version 6.x and lower uncomment the line below and remove the line after it 
-#filebeat.registry_file: /var/lib/filebeat/registry 
- 
+
 filebeat.registry.path: /var/lib/filebeat
- 
+
 #The following processors are to ensure compatibility with version 7
 processors:
 - rename:
@@ -236,28 +213,26 @@ processors:
      - from: "log.file.path"
        to: "source"
     ignore_missing: true
-    
-############################# Output ##########################################
-output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-```
 
-##### Set Logz.io as the output
-
-If Logz.io is not an output, add it now.
-Remove all other outputs.
-
-{% include log-shipping/replace-vars.html listener=true %}
-
-```yaml
 # ...
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
+
+##### Replace the placeholders in the Filebeat configuration
+
+Still in the same configuration file, replace the placeholders to match your specifics.
+
+* {% include log-shipping/replace-vars.html token=true %}
+
+* Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step.
+
+* {% include log-shipping/replace-vars.html listener=true %}
+
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
 
 ##### Start Filebeat
 

@@ -25,7 +25,7 @@ shipping-tags:
 <div id="docker-config">
 
 ## Docker setup
-#### Use this only to monitor linux systems. If you wish to monitor other types of system, Use [Meticbeat locally](#metricbeat-config)
+**Use this only to monitor linux systems. If you wish to monitor other types of system, Use [Meticbeat locally](#metricbeat-config)**
 
 To simplify shipping metrics from one or many sources,
 we created Docker Metrics Collector.

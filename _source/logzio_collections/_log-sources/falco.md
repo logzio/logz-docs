@@ -16,10 +16,14 @@ Here are just a few examples of Falco security rules that are provided out-of-th
 
 You can review the Falco resources in your Logz.io Cloud SIEM account, under the pre-configured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and search for the provided Falco [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
-* toc list
+###### On this page
+{:.no_toc}
+
+1. toc list
 {:toc}
 
 #### Step by step
+{:.no_toc}
 
 **Before you begin, you'll need**:
 Falco installed on the host,
@@ -139,12 +143,6 @@ Replace the entire contents of the rule with the following:
   tags: [file, mitre_defense_evasion]
 ```
 
-##### Download the Logz.io certificate to your Filebeat server
-
-```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-```
-
 ##### Configure Falco to output JSON logs
 
 Open Falco’s configuration file with your preferred text editor. The default location is `/etc/falco/falco.yaml` but it depends on your installation.
@@ -167,7 +165,7 @@ json_include_output_property: true
 
 Next, look up the filepath to Falco's logs.
 
-In the same configuration file, find the line that begins `filename:`. Its value points to Falco's event logs and will be needed in the next step to replace the placeholder `<<filepath-to-falco-events.txt>>`.
+In the same configuration file, find the line that begins `filename:`. Its value points to Falco's event logs and will be needed in a future step to replace the placeholder `<<filepath-to-falco-events.txt>>`.
 Copy the filepath and save it for the next step. You'll need it to configure Filebeat.
 
 ```
@@ -177,6 +175,12 @@ file_output:
   filename: ./events.txt
 ```
 Save and exit the falco.yaml file.
+
+##### Download the Logz.io certificate to your Filebeat server
+
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
 
 ##### Configure Filebeat
 

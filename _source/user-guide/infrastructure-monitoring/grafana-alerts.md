@@ -52,7 +52,7 @@ Hover over the graph panel name, and click **Edit**.
 
 Alerts can't run if you have any variables in your graph, so you'll need to remove them first.
 
-![Duplicate query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/duplicate-query.png)
+Click the gear **<i class="li li-gear"></i>![](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/duplicate-query.png)
 
 
 If you want to define the alerts on the same graph you use for casual monitoring, duplicate the query.

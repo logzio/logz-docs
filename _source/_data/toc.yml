@@ -29,11 +29,11 @@ firstLevel:
 
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
-- title: Working in Logz.io
+- title: Log Monitoring in Logz.io
   icon: li-bar-graph
 
   secondLevel:
-  - title: Kibana
+  - title: Kibana Discover
     url: /user-guide/kibana/
     thirdLevel:
       - title: Log patterns
@@ -68,7 +68,11 @@ firstLevel:
   - title: Live Tail
     url: /user-guide/live-tail/
 
-  - title: Infrastructure Monitoring
+- title: Infrastructure Monitoring
+  icon: li-bar-graph
+
+  secondLevel:
+  - title: Why metrics matter
     url: /user-guide/infrastructure-monitoring/
     thirdLevel:
     - title: Getting started with Metrics
@@ -80,6 +84,10 @@ firstLevel:
     - title: Create a new dashboard
       url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
 
+- title: Cloud SIEM in Logz.io
+  icon: li-bar-graph
+
+  secondLevel:
   - title: Cloud SIEM
     url: /user-guide/cloud-siem/
     thirdLevel:

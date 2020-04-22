@@ -20,17 +20,19 @@ shipping-tags:
 * [Using Docker](#docker-config)
 {:.branching-tabs}
 
-
 <!-- tab:start -->
 <div id="docker-config">
 
 ## Docker setup
-**Use this only to monitor linux systems. If you wish to monitor other types of system, Use [Meticbeat locally](#metricbeat-config)**
 
 To simplify shipping metrics from one or many sources,
 we created Docker Metrics Collector.
 Docker Metrics Collector is a container
 that runs Metricbeat with the modules you enable at runtime.
+
+This Docker container monitors Linux system metrics only.
+For other OSes, we recommend running Metricbeat locally on the system itself.
+{:.info-box.note}
 
 #### Configuration
 

@@ -19,13 +19,10 @@ while keeping your AWS account secure.
 
 ##### Copy Logz.io details
 
-Paste the **Account ID** in your text editor.
-Create an **External ID**, and paste that in your text editor as well.
-The External ID can be anything you want,
-but we recommend a name that includes "Logz.io".
+Paste the **Account ID** and **External ID** in your text editor.
 
 Enter the **S3 bucket name** and, if needed,
-**Prefix** where your logs are stored.
+the **Prefix** where your logs are stored.
 
 Click **View and copy role policy**.
 You can review the role policy to confirm the permissions we need.
@@ -46,7 +43,7 @@ Click **Another AWS account**.
 Paste the **Account ID** you copied from Logz.io.
 
 Select **Require external ID**,
-and then paste the **External ID** you made in Logz.io.
+and then paste the **External ID** from step 1.
 
 Click **Next: Permissions** to continue.
 
@@ -92,9 +89,3 @@ Copy the role ARN (top of the page).
 In Logz.io, paste the ARN in the **Role ARN** field, and then click **Save**.
 
 </div>
-
-To give Logz.io access to more S3 buckets with the same role and policy,
-you'll need to use the same external ID.
-You can find your role's external ID
-under the **Trust relationships** tab in the role summary page.
-{:.info-box.important}

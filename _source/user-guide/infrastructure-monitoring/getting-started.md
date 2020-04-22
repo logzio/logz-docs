@@ -13,6 +13,14 @@ contributors:
 
 Here's a quick tour to help you get started with your new infrastructure monitoring workspace.
 
+###### On this page
+{:.no_toc}
+1. toc list
+
+{:toc}
+#### Step by step
+{:.no_toc}”
+
 <div class="tasklist">
 
 ##### Log into your Metrics account
@@ -24,7 +32,7 @@ Don't see it? By default, your Metrics account can only be accessed from your ma
 
 ##### The welcome dashboard
 
-When you first log into Logz.io Metrics,
+  When you first log into Logz.io Metrics,
   you'll see a dashboard that gives you an overview of your account.
   This dashboard shows your account usage,
   metrics count,

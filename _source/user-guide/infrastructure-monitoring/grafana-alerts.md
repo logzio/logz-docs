@@ -13,20 +13,57 @@ contributors:
 
 Add alerts to graphs in your Metrics dashboards to be notified when they are breached. You can add the rule graphically, directly on the graph by highlighting the breach region. 
 
+###### On this page
+{:.no_toc}
+
+1. toc list
+{:toc}
+
 #### To add an alert 
-
-1. Before you begin, make sure you are on a Dashboard you have permission to edit. 
-
-Any of the pre-configured dashboards provided by Logz.io to help get you started are read-onlym by default. 
-If you start with any of those, duplicate it first. 
-
-Click the cogswheel > save as. 
-
-2. Select a graph panel. (Only the graph panel is supported at this point). Click 
-On the graph panel 
+{:.no_toc}
 
 
-3. Remove any variables. Alerts are applied to the entire dataset and don't support variables. 
+<div class="tasklist">
+
+##### Pick your dashboard
+
+Before you begin, you'll need to make sure you have permissions to edit the dashboard.
+
+If you are using any of the pre-configured dashboards provided by Logz.io, you'll need duplicate it first. 
+(They are read-only, by default.)
+
+Click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save** . 
+If you don't rename the dashboard, it will have the same name as the original dashboard, with **Copy** appended at the end. 
+
+<video autoplay loop>
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/copy-dashboard2.mp4" type="video/mp4" />
+</video>
+
+##### Edit your graph
+
+Select the graph panel you'll be using for the alert. Only the graph panel is supported at this point. 
+
+Hover over the graph panel name, and click **Edit**.
+
+![Edit Grafana Graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/edit-graph.png)
+
+
+##### Remove variables
+
+Alerts can't run if you have any variables in your graph, so you'll need to remove them first.
+
+![Duplicate query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/duplicate-query.png)
+
+
+If you want to define the alerts on the same graph you use for casual monitoring, duplicate the query.
+That way you can have both on the same panel.
+
+Click ![Duplicate query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/duplicate-query.png) to duplicate the query.
+
+
+
+
+Remove any variables. Alerts are applied to the entire dataset and don't support variables. 
    If you think about it, you shouldn't need variables here as the alert will 
    specify all the necessary information for the breached rule. 
 

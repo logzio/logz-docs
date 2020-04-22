@@ -73,6 +73,8 @@ firstLevel:
     thirdLevel:
     - title: Getting started with Metrics
       url: /user-guide/infrastructure-monitoring/getting-started
+    - title: Alerts
+      url: /user-guide/infrastructure-monitoring/alerts.html
     - title: Rollups & data compression
       url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: Create a new dashboard

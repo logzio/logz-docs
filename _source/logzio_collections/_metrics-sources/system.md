@@ -16,6 +16,7 @@ shipping-tags:
 
 <!-- tabContainer:start -->
 <div class="branching-container">
+
 * [Using Metricbeat <span class="sm ital">(recommended)</span>](#metricbeat-config)
 * [Using Docker](#docker-config)
 {:.branching-tabs}

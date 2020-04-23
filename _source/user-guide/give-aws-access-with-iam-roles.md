@@ -76,8 +76,11 @@ and then click **Next: Review** to continue to the _Review_ screen.
 
 ##### Finalize the role
 
-Give the role a **Name** and optional **Description**,
-and then click **Create role**.
+Give the role a **Name** and optional **Description**.
+We recommend beginning the name with "logzio-"
+so that it's clear you're using this role with Logz.io.
+
+Click **Create role** when you're done.
 
 ##### Copy the ARN to Logz.io
 

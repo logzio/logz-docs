@@ -8,3 +8,4 @@ _source/_data/stale-list.yml
 node_modules
 external_js
 _export-md
+wip-gitignore

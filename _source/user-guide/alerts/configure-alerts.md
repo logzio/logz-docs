@@ -13,7 +13,7 @@ contributors:
 When you set out to create an alert,
 you'll need to start with a query.
 If you haven't formed your query yet,
-we recommend starting off in Kibana
+we recommend starting in Kibana
 so you can see the results of the query in real time.
 
 Otherwise, if you already have a query and filters,
@@ -151,19 +151,20 @@ You can search triggered alert logs at any time.
 
 If you chose recipients, you can also set the output format.
 
-![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-table.png)
+![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields.png)
 
-You can choose to send **All fields** in JSON format,
-or **Custom fields** as a table.
+Choose whether to send the data as **JSON** or in a **Table**.
+If you're sending as JSON, you can send **All fields**
+or **Custom fields**.
 
 If you added any groups or used an aggregated trigger condition
 (minimum, maximum, average, or sum),
-the output will use only grouped or aggregated fields.
-To change these fields, you'll need to change your **Group by** or **Trigger if...** settings.
+the output will include only the grouped or aggregated fields.
+To change these fields, you'll need to first change your **Group by** or **Trigger if...** settings.
 {:.info-box.note}
 
-If you choose a table,
-click **<i class="li li-plus"></i> Add a field** to add a column to the table.
+If you choose a table or JSON with custom fields,
+click **<i class="li li-plus"></i> Add a field** to add the field to your output.
 You can optionally sort one field or filter the output with a regular expression.
 
 ##### Save it!

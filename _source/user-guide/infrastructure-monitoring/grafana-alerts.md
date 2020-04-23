@@ -3,7 +3,7 @@ layout: article
 title: Alerts
 permalink: /user-guide/infrastructure-monitoring/alerts.html
 flags:
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - alerts
 contributors:
@@ -11,7 +11,12 @@ contributors:
   - imnotashrimp
 ---
 
-Add alerts to graphs in your Metrics dashboards to be notified when they are breached. You can add the rule graphically, directly on the graph by highlighting the breach region. 
+Add alerts to graphs in your Metrics dashboards to be notified when values are outside of their acceptable range. You can add a threshold for a minimum duration, to avoid getting alerted of short-lived issues that were resolved on their own.
+
+You can add the rule graphically, directly on the graph by highlighting the breach region.
+
+If you're running multiple servers for load balancing purposes, rest assured that Logz.io Metrics won't send duplicte alerts. A deduplication mechanism protects against that.
+
 
 ###### On this page
 {:.no_toc}
@@ -19,7 +24,7 @@ Add alerts to graphs in your Metrics dashboards to be notified when they are bre
 1. toc list
 {:toc}
 
-#### To add an alert 
+#### To add an alert
 {:.no_toc}
 
 
@@ -29,11 +34,11 @@ Add alerts to graphs in your Metrics dashboards to be notified when they are bre
 
 Before you begin, you'll need to make sure you have permissions to edit the dashboard.
 
-If you are using any of the pre-configured dashboards provided by Logz.io, you'll need duplicate it first. 
+If you are using any of the pre-configured dashboards provided by Logz.io, you'll need duplicate it first.
 (They are read-only, by default.)
 
-Click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save** . 
-If you don't rename the dashboard, it will have the same name as the original dashboard, with **Copy** appended at the end. 
+Click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save** .
+If you don't rename the dashboard, it will have the same name as the original dashboard, with **Copy** appended at the end.
 
 <video autoplay loop>
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/copy-dashboard2.mp4" type="video/mp4" />
@@ -41,7 +46,7 @@ If you don't rename the dashboard, it will have the same name as the original da
 
 ##### Edit your graph
 
-Select the graph panel you'll be using for the alert. Only the graph panel is supported at this point. 
+Select the graph panel you'll be using for the alert. Only the graph panel is supported at this point.
 
 Hover over the graph panel name, and click **Edit**.
 
@@ -52,200 +57,50 @@ Hover over the graph panel name, and click **Edit**.
 
 Alerts can't run if you have any variables in your graph, so you'll need to remove them first.
 
-Click the gear **<i class="li li-gear"></i>![](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/duplicate-query.png)
+You can duplicate the query and hide it. That way you can add alerts to the same graph you use to monitor your dashboard.
+
+Click the copy icon **<i class="far fa-copy"></i>** to duplicate the query.
+Then click **<i class="far fa-eye-slash"></i>** to hide the query. You'll only be using it for the alert, and don't want it to appear on the graph.
+
+Remove any variables. Select a fixed value for the source and erase the query. You can leave the query blank.
+
+Click ![Duplicate query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-variables.png) to duplicate the query.
 
 
-If you want to define the alerts on the same graph you use for casual monitoring, duplicate the query.
-That way you can have both on the same panel.
+##### Add an alert
 
-Click ![Duplicate query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/duplicate-query.png) to duplicate the query.
+Click the bell **<i class="fas fa-bell"></i>** in the left panel > **Create alert** to add an alert.
 
+Next, configure the alert.
 
+* In the **Name** field, name your alert. Preferrably, use a name that will be clear to anyone on the team and future newcomers.
+* Set an **Evaluation interval** to decide how often the rule should be evaluated.
+* In the field **For**, set a time for the "silent alert". This is the time that the alert can go off before it sends a notification. For example, you could send an alert if the rule is breached for 5 minutes or longer. Use this to allow for some leeway, or "wiggle room".
 
+![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-alert.png)
 
-Remove any variables. Alerts are applied to the entire dataset and don't support variables. 
-   If you think about it, you shouldn't need variables here as the alert will 
-   specify all the necessary information for the breached rule. 
+Next, set your alert conditions.
 
-    * Name
-      Give the alert a name. Preferrably, one that will be clear to anyone on the team and future newcomers. Think clarity!
+* Define the rule's condition. You can type in the value or drag the heart **<i class="fas fa-heart"></i>** directly on the graph to make your selection.
+* You can click the condition to decide whether to set it for values above/below a threshold, within/outside a range, or when it has no value.
+* You have the option to set up multiple conditions and queries for more advanced alerts.
 
-    * Evaluation interval 
-      How often is the rule to be evaluated? 
+![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/alert-condition.png)
 
-      Set a minimum time between evaluations - `alerting.min_interval_seconds` config field 
-
-    * For 
-      Set a threshold duration for the breach. For example, send an alert if the rule is breached for 5 minutes or londer. This means that if the rule fires for less than 5 minutes, the alert will NOT be triggered. Use this to allow for some leeway, or "wiggle room".
-
-    * Conditions 
-      Which conditions must be met? 
-
-
-If you're running multiple servers for load balancing purpuses, rest assured that Logz.io Metrics won't send you duplicte alerts. A deduplication mechanism is applied to protect against that. 
-
-
-
-When you set out to create an alert,
-you'll need to start with a query.
-If you haven't formed your query yet,
-we recommend starting off in Kibana
-so you can see the results of the query in real time.
-
-Otherwise, if you already have a query and filters,
-you can create a blank alert
-from the top menu (**Alerts & Events > New alert**)
-or from the _Alert definitions_ page.
-You can also create an alert
-from Application Insights or Cognitive Insights.
-
-Community plans can have up to 50 alerts enabled at a time.
-{:.info-box.note}
-
-#### To create an alert in Kibana
-
-![Kibana 7 search bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana-7-search-bar.png)
-
-Refine your search query and filters,
-and review the returned logs
-to make sure you got the expected results.
-
-Alerts support Lucene query language only.
-You won't be able to create an alert
-from a search written in Kibana Query Language (KQL).
-{:.info-box.important}
-
-Once you're happy with your alert,
-click **Create alert** (above the query bar).
-You're taken to the _New alert_ page.
-
-Continue with _To configure an alert_. 👇
-
-#### To configure an alert
-
-<div class="tasklist">
-
-##### Name the alert
-
-Give your alert a meaningful name.
-
-If your alert is triggered,
-the name is used as the email subject or Slack heading.
-A helpful name gives the quick need-to-know-now information
-and doesn't use unnecessary words.
-
-##### Edit the search settings
-
-###### Query and filters
-
-![Alert query and filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/query-and-filters.png)
-
-If you need to change your alert query and filters,
-do that now.
-
-Your query is an important source of information
-when you're investigating a triggered alert.
-Shorten your query by using filters whenever you can.
-
-###### Group by
-
-![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--group-by.png)
-
-Moving down, you'll come to the **Group by** setting next.
-
-With _Group by_, you can choose up to 3 fields to group.
-The alert will return the aggregated results for each group.
-
-Careful: The order of group by fields matters.
-Results are grouped by
-the leftmost field, then the center field, then the right field.
-{:.info-box.important}
-
-The image above groups results by continent, then country, then city.
-If we had reversed the order (city, then country, then continent),
-it would likely generate unintended results.
-
-###### Accounts to search
-
-![Accounts to search setting](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/accounts-to-search.png)
-
-Next you'll choose the _Accounts to search_.
-
-If you choose **All accounts**,
-this alert will query the logs in all the accounts it has access to.
-This will include future accounts.
-
-To limit the alert to a set list of accounts,
-click **Just these accounts**,
-and add the accounts you want.
-This list is always limited to your selection,
-so you'll need to manually update the list if you need it to change.
-
-##### Set threshold and severity levels
-
-![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings.png)
-
-Set your threshold and severity levels in the _Trigger if..._ section.
-
-Click **Add a threshold** to set up to 5 threshold levels,
-each with its own severity tag.
-
-##### _(Optional)_ Set notification details
-
-###### Description and tags
-
-![Alert description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags.png)
-
-The **Description** is visible on the _Alert definitions_ page.
-It's also included with emails and Slack messages when the alert is triggered.
-We recommend making your description helpful to recipients,
-like telling them how to fix the issues that led to the alert.
-
-The **Tags** are useful for filtering the _Alert definitions_ page.
-
-###### Who to send it to
-
-![Recipients and suppress notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-suppress.png)
+##### Add notifications _(Optional)_
 
 If you want to send notifications or emails when the alert is triggered,
 choose notification endpoints.
-This isn't required, though—triggered alerts are still logged and searchable in Kibana.
 
-Choose the endpoints or email addresses to notify under _Who to send it to_.
-If you need help adding a new endpoint,
-see [_Notification endpoints_]({{site.baseurl}}/user-guide/integrations/endpoints.html).
+Choose the endpoints or email addresses to notify.
 
-To limit how often recipients are notified,
-choose a time period to suppress notifications.
+To limit how often recipients are notified - you'll need to scroll up to the **Evaluation interval > For** rule above. (See the instructions above).
 
 When notifications are suppressed,
-Logz.io will continue to log triggered alerts without sending notifications.
-You can search triggered alert logs at any time.
+your Metrics dashboard will show the orange marker on the graph, indicating that an alert is triggered, but not yet reached its notification threshold.
 {:.info-box.note}
-
-###### Output format
-
-If you chose recipients, you can also set the output format.
-
-![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-table.png)
-
-You can choose to send **All fields** in JSON format,
-or **Custom fields** as a table.
-
-If you added any groups or used an aggregated trigger condition
-(minimum, maximum, average, or sum),
-the output will use only grouped or aggregated fields.
-To change these fields, you'll need to change your **Group by** or **Trigger if...** settings.
-{:.info-box.note}
-
-If you choose a table,
-click **<i class="li li-plus"></i> Add a field** to add a column to the table.
-You can optionally sort one field or filter the output with a regular expression.
 
 ##### Save it!
 
-Click **Save** to save your alert.
-If the thresholds are passed and the alert is triggered,
-Logz.io will log the alert and send the configured notifications.
-
-</div>
+Click **Save <i class="far fa-save"></i>** in the top-right panel to save your dashboard (and the alert).
+If the thresholds are passed and the alert is triggered, you'll see the markers on your dashboard and receive your notifications.

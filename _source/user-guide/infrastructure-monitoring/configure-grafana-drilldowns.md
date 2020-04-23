@@ -7,6 +7,7 @@ flags:
 tags:
   - metrics
 contributors:
+  - shalper
   - imnotashrimp
   - daniel-tk
 ---
@@ -25,7 +26,7 @@ Grafana variables are indicated with a `$`.
 
 ##### Add a new dashboard and variable
 
-* In Grafana's left menu, click <i class="fas fa-plus"></i>. 
+* In Grafana's left menu, click <i class="fas fa-plus"></i>.
 * Click <i class="fas fa-cog"></i> in the dashboard toolbar (upper right corner).
 * Select **Variables** > **Add variable**.
 
@@ -43,12 +44,12 @@ Fill in the form, starting with the **General** section.
 ![Variable general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/add-variable1.png)
 
 
-Next, fill in the query options. 
+Next, fill in the query options.
 
 * For the **Data source**, select your Metrics account. (You can look it up [here](https://app.logz.io/#/dashboard/settings/manage-accounts).)
 * We recommend setting **Refresh** to automatically occur **On Dashboard Load**.
 * The **Query** field is where things get really fun. Your query object should start with `{"find": "terms"}`
-  and contain a field from your Elasticsearch index. 
+  and contain a field from your Elasticsearch index.
 
 ![Variable query options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variable-config--query-options.png)
 
@@ -72,7 +73,5 @@ to whatever makes the most sense for your metrics.
 When you're finished, scroll to the bottom of the page and click **Update**.
 
 
-You're now ready to use the variable in your new dashboard. 
+You're now ready to use the variable in your new dashboard.
 If your looking to configure Grafana drilldown links, click [here](/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html).
-
-

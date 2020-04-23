@@ -74,19 +74,18 @@ firstLevel:
   secondLevel:
   - title: Why metrics?
     url: /user-guide/infrastructure-monitoring/
-    thirdLevel:
-    - title: Highlights
-      url: /user-guide/infrastructure-monitoring/metrics-logzio
-    - title: Getting started
-      url: /user-guide/infrastructure-monitoring/getting-started
-    - title: Alerts
-      url: /user-guide/infrastructure-monitoring/alerts.html
-    - title: Dashboard variables
-      url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
-    - title: Drilldown links
-      url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
-    - title: Rollups
-      url: /user-guide/infrastructure-monitoring/data-rollups.html
+  - title: Highlights
+    url: /user-guide/infrastructure-monitoring/metrics-logzio
+  - title: Getting started
+    url: /user-guide/infrastructure-monitoring/getting-started
+  - title: Alerts
+    url: /user-guide/infrastructure-monitoring/alerts.html
+  - title: Dashboard variables
+    url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
+  - title: Drilldown links
+    url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+  - title: Rollups
+    url: /user-guide/infrastructure-monitoring/data-rollups.html
 
 - title: Cloud SIEM in Logz.io
   icon: li-bar-graph

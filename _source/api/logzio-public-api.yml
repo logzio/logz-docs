@@ -1955,6 +1955,36 @@ paths:
         #  description: Authentication User Session
         #  required: false
         #  type: string
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v2/security/rules/events/search' \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+                "filter": {
+                    "searchTerm": "Falco",
+                    "severities": [
+                        "SEVERE"
+                    ],
+                    "timeRange": {
+                        "fromDate": 1587134557,
+                        "toDate": 1587137557
+                    }
+                },
+                "sort": [
+                    {
+                        "field": "SEVERITY"
+                    },
+                    {
+                        "field": "DATE"
+                    }
+                ],
+                "pagination": {
+                    "pageNumber": 1,
+                    "pageSize": 25
+                }
+            }'
       responses:
         '200':
           description: successful operation
@@ -1963,8 +1993,8 @@ paths:
           headers: {}
   /v2/security/rules/events/logs/search:
     post:
-      summary: Fetch an event's raw logs
-      description: Run a search query to fetch the raw logs that caused a security rule to trigger and register an event. Use this query to increase observability into security events and retrieve all of the available details concerning the event.
+      summary: Fetch the logs that triggered a security event
+      description: Run a query to fetch the original logs that caused a security rule to trigger and log an event. This query returns details for one specific event - it is not a bulk action. The original raw logs contain additional details to increase observabiliy into details omitted from the security event log.
       tags:
         - Security events
       operationId: searchSecurityRuleEventLogs
@@ -2288,7 +2318,7 @@ definitions:
       alertEventId:
         type: string
         description: Unique identifier of the security event in Logz.io Cloud SIEM. You can get it from the result when you run a search for security events, or from the log field `logzio-alert-event-id` in the [UI](https://app.logz.io/#/dashboard/security/research/discover?).
-        example: f33333e-9c9c-9c9c-9bbf-f33333ef3333
+        example: 833203f9-de71-5a12-9083-9055a6d925bb
   Pagination:
     type: object
     description: Default pagination is 1 page, 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
@@ -2298,13 +2328,14 @@ definitions:
         format: int32
         description: If you overshoot the page number, it will return empty with no results, but it won't fail the request.
         default: 1
-        example: 100
+        example: 10
       pageSize:
         type: integer
         format: int32
         description: Controls the number of results per page. Valid inputs are 1 to 1000. 
         maximum: 1000
         default: 25
+        example: 100
   PagedSearchResponseMapStringObject:
     type: object
     properties:
@@ -2386,7 +2417,7 @@ definitions:
         example: f33333e-9c9c-9c9c-9bbf-f33333ef3333
       groupBy:
         type: object
-        description: Some security rules have a condition that aggregates results by up-to 3 fields. You can manually review aggregation conditions in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+        description: Some security rules have a condition that aggregates results by up to 3 fields. You can manually review aggregation conditions in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
         additionalProperties:
           type: map
           maximum: 3
@@ -2410,7 +2441,7 @@ definitions:
         $ref: '#/definitions/AlertsEventsFilter'
         summary: Filter by rule severity, time range, or a matching string in the security rule name
       sort:
-        description: Sorting is not required, but if left blank, random sorting will result.
+        description: Sorting is not required, but recommended. If omitted, Elasticsearch will determine the sorting.
         type: array
         items:
           $ref: '#/definitions/AlertsEventsSortRequest'
@@ -2437,12 +2468,14 @@ definitions:
     properties:
       searchTerm:
         type: string
+        example: Falco
         description: Filter for a matching string in the security rule name. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
       severities:
         type: array
         description: Filter by the severities of the security rules. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
         items:
           type: string
+          example: SEVERE
           enum:
             - INFO
             - LOW

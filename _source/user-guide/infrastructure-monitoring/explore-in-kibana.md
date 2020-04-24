@@ -21,7 +21,14 @@ Many of the dashboards managed by Logz.io come with the drilldown links preconfi
 When you're setting up your own dashboard,
 you can configure your own drilldown links.
 
-#### Configure Grafana drilldown links
+##### Overview
+{:.no_toc}
+
+1. toc list
+{:toc}
+
+#### Add a panel with drilldown links
+{:.no_toc}
 
 **Before you begin, you'll need**:
 [variables configured](/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links) for your dashboard.
@@ -30,11 +37,9 @@ you can configure your own drilldown links.
 
 ##### Add a new panel
 
-If you're not already in a dashboard,
-make a new one now by clicking <i class="fas fa-plus"></i> in the left menu.
+If you want to start fresh with a new dashboard, click <i class="fas fa-plus"></i> in the left menu to add it.
 
-If you don't see a new panel,
-click the **Add panel** button in the toolbar (in the upper right corner).
+To add a new panel, click the **Add panel** button in the toolbar (in the upper right corner).
 
 Click **Add Query**.
 
@@ -42,27 +47,21 @@ Click **Add Query**.
 
 ##### Configure the query and visualization
 
-![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--datasource-list.png)
-
-In the datasource list, choose your Infrastructure Monitoring account
-(Elasticsearch datasource).
+Select your Infrastructure Monitoring account from the list of datasources. (This is an Elasticsearch index).
 
 Configure the Elasticsearch **Query**.
 
-For help configuring the query,
-see [Query Editor](https://grafana.com/docs/grafana/latest/guides/basic_concepts/#query-editor)
-from Grafana.
-{:.info-box.read}
+![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--datasource-list.png)
 
 
 ##### Configure the visualization
 
 Click the _Visualization_ icon to the left to see visualization options.
 
-![Panel configuration, visualization  options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--visualization.png)
+If you plan to add alerts to the visualization, note that only **Graph** is supported. (This is a Grafana limitation.)
+{:.info-box.tip}
 
-The visualization doesn't require anything special
-for Logz.io—configure it as you normally would.
+![Panel configuration, visualization  options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--visualization.png)
 
 ##### Configure the drilldown
 

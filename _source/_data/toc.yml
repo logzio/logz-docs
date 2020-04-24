@@ -29,7 +29,7 @@ firstLevel:
 
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
-- title: Log Monitoring in Logz.io
+- title: Log Monitoring
   icon: li-bar-graph
 
   secondLevel:
@@ -69,7 +69,7 @@ firstLevel:
     url: /user-guide/live-tail/
 
 - title: Infrastructure Monitoring
-  icon: li-bar-graph
+  icon: li-eye
 
   secondLevel:
   - title: Why metrics?
@@ -87,8 +87,8 @@ firstLevel:
   - title: Rollups
     url: /user-guide/infrastructure-monitoring/data-rollups.html
 
-- title: Cloud SIEM in Logz.io
-  icon: li-bar-graph
+- title: Cloud SIEM
+  icon: li-signal
 
   secondLevel:
   - title: Cloud SIEM

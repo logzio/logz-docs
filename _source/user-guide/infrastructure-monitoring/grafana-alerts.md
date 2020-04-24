@@ -40,9 +40,9 @@ If you are using any of the pre-configured dashboards provided by Logz.io, you'l
 Click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save** .
 If you don't rename the dashboard, it will have the same name as the original dashboard, with **Copy** appended at the end.
 
-<video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/copy-dashboard2.mp4" type="video/mp4" />
-</video>
+  <video autoplay loop>
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/copy-dashboard2.mp4" type="video/mp4" />
+  </video>
 
 ##### Edit your graph
 

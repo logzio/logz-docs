@@ -64,7 +64,7 @@ Then click **<i class="far fa-eye-slash"></i>** to hide the query. You'll only b
 
 Remove any variables. Select a fixed value for the source and erase the query. You can leave the query blank.
 
-Click ![Duplicate query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-variables.png) to duplicate the query.
+![Remove variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-variables.png)
 
 
 ##### Add an alert

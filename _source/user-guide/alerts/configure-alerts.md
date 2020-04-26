@@ -149,23 +149,27 @@ You can search triggered alert logs at any time.
 
 ###### Output format
 
-If you chose recipients, you can also set the output format.
+Recipients will receive the notification with sample data,
+so you'll need to choose whether to send the data
+as **JSON** or in a **Table**.
 
 ![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields.png)
 
-Choose whether to send the data as **JSON** or in a **Table**.
-If you're sending as JSON, you can send **All fields**
-or **Custom fields**.
+If you're sending a sample JSON,
+you can include **All fields** or **Custom fields**.
+If you're sending a table with sample data,
+you can include up to 7 fields.
+
+For custom fields,
+click **<i class="li li-plus"></i> Add a field** to add the field to your output.
+You can optionally sort by one field or filter the samples with a regular expression.
 
 If you added any groups or used an aggregated trigger condition
 (minimum, maximum, average, or sum),
 the output will include only the grouped or aggregated fields.
-To change these fields, you'll need to first change your **Group by** or **Trigger if...** settings.
+To change these fields,
+you'll need to first change your **Group by** or **Trigger if...** settings.
 {:.info-box.note}
-
-If you choose a table or JSON with custom fields,
-click **<i class="li li-plus"></i> Add a field** to add the field to your output.
-You can optionally sort one field or filter the output with a regular expression.
 
 ##### Save it!
 

@@ -58,12 +58,13 @@ Make sure to use the settings shown below.
 
 | Parameter | Description |
 |---|---|
-| Logs listener host | Use the listener URL for your logs account region. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
+| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up 
+ [here]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to. |
 | Format (Default: text) | Choose one of the supported parsing formats: json/csv/text  |
 {:.paramlist}
 
-At the bottom of the page, select **I agree to the terms and conditions stated above**,
+At the bottom of the page, agree to the terms and conditions. 
 and then click **Purchase** to deploy.
 
 Deployment can take a few minutes.
@@ -121,12 +122,13 @@ Make sure to use the settings shown below.
 
 | Parameter | Description |
 |---|---|
-| Logs listener host | Use the listener URL for your logs account region. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
+| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up 
+ [here]({{site.baseurl}}/user-guide/accounts/account-region.html).  |
+| Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
 | Format (Default: text) | Choose one of the supported parsing formats: json/csv/text  |
 {:.paramlist}
 
-At the bottom of the page, select **I agree to the terms and conditions stated above**,
+At the bottom of the page, agree to the terms and conditions. 
 and then click **Purchase** to deploy.
 
 Deployment can take a few minutes.
@@ -151,7 +153,7 @@ and return to the _Containers_ page.
 
 ##### Build an event subscription
 
-In your storage account, in the left menu, click **Events**.
+In the left menu of your storage account, select **Events**.
 
 Click **+ Event Subscription** in the toolbar.
 

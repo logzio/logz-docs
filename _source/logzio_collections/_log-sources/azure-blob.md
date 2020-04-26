@@ -58,8 +58,7 @@ Make sure to use the settings shown below.
 
 | Parameter | Description |
 |---|---|
-| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up 
- [here]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to. |
 | Format (Default: text) | Choose one of the supported parsing formats: json/csv/text  |
 {:.paramlist}
@@ -122,8 +121,7 @@ Make sure to use the settings shown below.
 
 | Parameter | Description |
 |---|---|
-| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up 
- [here]({{site.baseurl}}/user-guide/accounts/account-region.html).  |
+| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here]({{site.baseurl}}/user-guide/accounts/account-region.html).  |
 | Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
 | Format (Default: text) | Choose one of the supported parsing formats: json/csv/text  |
 {:.paramlist}

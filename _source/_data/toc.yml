@@ -69,7 +69,7 @@ firstLevel:
     url: /user-guide/live-tail/
 
 - title: Infrastructure Monitoring
-  icon: li-eye
+  icon: fas fa-chart-pie
 
   secondLevel:
   - title: Why metrics?
@@ -88,7 +88,7 @@ firstLevel:
     url: /user-guide/infrastructure-monitoring/data-rollups.html
 
 - title: Cloud SIEM
-  icon: li-signal
+  icon: fas fa-shield-alt
 
   secondLevel:
   - title: Cloud SIEM

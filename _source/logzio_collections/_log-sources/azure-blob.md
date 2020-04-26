@@ -64,9 +64,7 @@ Make sure to use the settings shown below.
 {:.paramlist}
 
 At the bottom of the page, agree to the terms and conditions. 
-and then click **Purchase** to deploy.
-
-Deployment can take a few minutes.
+Then click **Purchase** to deploy. Deployment can take a few minutes.
 
 ##### Check Logz.io for your logs
 
@@ -127,9 +125,7 @@ Make sure to use the settings shown below.
 {:.paramlist}
 
 At the bottom of the page, agree to the terms and conditions. 
-and then click **Purchase** to deploy.
-
-Deployment can take a few minutes.
+Then click **Purchase** to deploy. Deployment can take a few minutes.
 
 ##### _(If needed)_ Build a blob container
 

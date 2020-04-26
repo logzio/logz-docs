@@ -106,14 +106,14 @@ tags:
   - name: Manage users
   - name: Security events
     description: >-
-      Security events register whenever security rules trigger in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+      A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
       
       
       Your Logz.io Cloud SIEM is pre-loaded with security rules recommended by Logz.io's security analysts.
-      This list is continually expanded and updated. You have the option to add your own rules or edit those provided by Logz.io's team.
+      This list is continually being expanded and updated. You can also add your own security rules.
 
 
-      Investigate a security event via the event log, listing the security rule that triggered and more, or delve deeper into the details by retrieving the raw logs that caused the security rule to trigger.      
+      You can fetch security events to investigate event logs. This query can return bulk results, listing all events that match the query filtering parameters, whether by timestamp, severity, or rule name. Fetch the raw logs that caused the security rule to trigger and log a particular event to delve deeper into the event details.
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -2373,34 +2373,34 @@ definitions:
         type: integer
         format: int32
         description: Unique identifier of the security rule in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-definition-id`
-        example: 123, 123
+        example: 450051
       name:
         type: string
         description: Name of the security rule in Logz.io Cloud SIEM
-        example: AWS - User deleted multiple DBSnapshots
+        example: AWS EC2 - Brute force SSH login attempts
       description:
         type: string
         description: Typically an explanation of the security rule's logic and suggested next steps
-        example: Next steps...
+        example: Suggested next steps...
       alertSummary:
         type: string
         description: Equivalent to the `condition` field in the rule
-        example: N/A
+        example: Alert if query '*' results GREATER_THAN_OR_EQUALS 5.00 in 10 minutes. Count on Group By '[userIdentity.userName, sourceIPAddress]'
       eventDate:
         type: integer
         format: int64
         description: Epoch unix timestamp in seconds showing when the rule's conditions were met and the event was registered
-        example: N/A
+        example: 1587860455
       alertWindowStartDate:
         type: integer
         format: int64
-        description: Epoch unix timestamp of the earliest log involved in triggering the security rule. Security rules are typically triggered by several logs in aggregate.
-        example: N/A
+        description: Unix epoch timestamp of the earliest log that inititated triggering the security rule. Security rules are typically triggered by several logs in aggregate.
+        example: 1587856855
       alertWindowEndDate:
         type: integer
         format: int64
-        description: Epoch unix timestamp of the latest log that was involved in this event. Security rules are typically triggered by several logs in aggregate.
-        example: N/A
+        description: Unix epoch timestamp of the latest log that triggered the event. Security rules are typically triggered by several logs in aggregate.
+        example: 1587860455
       severity:
         type: string
         enum:
@@ -2414,18 +2414,19 @@ definitions:
       alertEventId:
         type: string
         description: Unique identifier of the security event in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-event-id`
-        example: f33333e-9c9c-9c9c-9bbf-f33333ef3333
+        example: 27cdcf45-ae12-581a-809e-17a6bbc9ae07
       groupBy:
         type: object
-        description: Some security rules have a condition that aggregates results by up to 3 fields. You can manually review aggregation conditions in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+        description: Shows if the security rule has a `group by` condition for aggregating results. Results can be aggregated by 1 to 3 fields.
+        example: {"source_ip": "95.215.1.13"}
         additionalProperties:
           type: map
           maximum: 3
-          description: 1 to 3 fields used to aggregate results. The fields differ by conditions set in the security rule.
-          example: { clientip, src_ip}
+          description: The fields differ by rule. There can be 1-3 fields.
       tags:
         type: array
-        description: Labels applied to help organize security rules.
+        description: Labels help organize security rules
+        example: threat
         items:
           type: object
           example: { network_threat, recon}

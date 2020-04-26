@@ -80,7 +80,7 @@ firstLevel:
     url: /user-guide/infrastructure-monitoring/getting-started
   - title: Alerts
     url: /user-guide/infrastructure-monitoring/alerts.html
-  - title: Dashboard variables
+  - title: Variables
     url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
   - title: Drilldown links
     url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html

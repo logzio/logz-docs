@@ -27,37 +27,6 @@ The log data is parsed, indexed, managed, and stored in your Logz.io Log Managem
 
 * Cortex xSOAR analysts can query logs directly from the Cortex xSOAR interface.
 
-## Sample playbook 
-
-Playbooks
-Logz-Get-Events-From-Alert
-
-This Playbook gets the related logs from the Logz.io platform related to a specific Alert that was retrieved via fetch_incidents. The input covers the Logz.io Alert with all its metadata.
-Note: This playbook must use the GenericPolling mechanism : https://demisto.pan.dev/docs/generic-polling
-
-Logzio Malware Found Playbook(Demo)
-A Playbook that we are working on as part of our Demo
-Alert coming from Logz.io via our fetch command
-Mandatory fields are mapped and some unique fields from McAfee in the alert are mapped as well
-Playbook triggered if the alert comes from Logz.io which we have a fields for it
-Since its a malware found :
-Checking the hash in VT _ Hybrid analysis
-At the same time fetching the RAW Logs from Logz.io with our Task(command) we developed - will fetch the logs that triggered the alert, can be several logs
-Checking if the result from VT and Hybrid are passing our “detected engines “ for the specific hash came in
-IF result > 1 detections - go to next step
-IF NOT - assign to analyst and send Email
-(Next Step) Saving the results from VT/Hybrid/Logzio RAW Logs as evidence
-Since its a McAfee we can also try and fetch information from endpoint
-Searching the Raw Logs from Logz.io command for some fields that are related to the alert such as: path/name/action/result/errors/etc
-Filling relevant information in incident fields accordingly
-Assigning to human analyst for further investigation
-Playbook targets are to perform first analysis in an automated approach while also having the Raw Logs that triggered the Alert that came to Demisto and use those results as part of the next tasks in the playbook like every other field that contains result
-The Use :
-First automated response to Logz.io customers who uses Demisto as SOAR solution
-Collecting Data throw Demisto on the alert came in and order all the information collected inside the incident
-Having the option to communicate with your Logz.io account in order to fetch specific logs that related to the alert or even before the alert happened
-Setting up the ground in terms of static information for human analyst to take action
-Use Logz.io fields in other commands and tasks for escalated actions for example
 
 #### To set up the integration in Cortex xSOAR
 

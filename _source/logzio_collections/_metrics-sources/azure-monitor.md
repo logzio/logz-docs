@@ -57,9 +57,11 @@ You'll need this information later on, so paste it in your text editor.
 
 ##### Create a new Azure AD application
 
-Run this command to create an AD application with reader permissions.
+The Metricbeat configuration needs to include credentials for an AD application with reader permissions.
 
-Replace `<<SUBSCRIPTION-ID>>` with the `id` value from step 2.
+If you don't already have an AD application with reader permissions,
+run this command to create one.
+Replace `<<SUBSCRIPTION-ID>>` with the `id` value from step 2:
 
 ```shell
 az ad sp create-for-rbac --role reader \

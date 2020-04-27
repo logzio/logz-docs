@@ -109,11 +109,13 @@ tags:
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
       
       
-      Your Logz.io Cloud SIEM is pre-loaded with security rules recommended by Logz.io's security analysts.
-      This list is continually being expanded and updated. You can also add your own security rules.
+      Your Logz.io Cloud SIEM is pre-loaded with hundreds of security rules created and maintained by Logz.io's security analysts, and this list is continuously expanded and updated on a regular basis. You can also add your own security rules.
 
 
-      You can fetch security events to investigate event logs. This query can return bulk results, listing all events that match the query filtering parameters, whether by timestamp, severity, or rule name. Fetch the raw logs that caused the security rule to trigger and log a particular event to delve deeper into the event details.
+      To investigate into security events, you can begin by running a bulk query to fetch security event logs, either with or without applying filtering criteria. This query returns all of the events that match the query parameters and can potentially fetch events going back many months. Whenever you encounter a particular event you would like to further investigate, you can run the drilldown query to fetch the logs that triggered the security event to delve deeper into the event details.
+
+
+      These queries can be used to integrate with an automated response solution such as Cortex xSOAR or simply to understand your security posture and identify suspicious activity in your accounts.
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -1925,15 +1927,10 @@ paths:
     post:
       summary: Fetch security events
       description: >-
-        Runs a search query to fetch the security events registered in your Logz.io Cloud SIEM account.
-        This query can be used to integrate with a SOAR automated response solution or simply to understand your security posture and identify suspicious activity in your accounts.
+        Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.
+
         
-        
-        Security events register whenever security rules trigger in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
-      
-        
-        For this query, no parameters are required. You can send the request with an empty JSON body to retrieve all of the events that have registered, bound only by your security account's retention. 
-        Note that retention for Logz.io Cloud SIEM differs from retention for your Logz.io Log Management account.
+        You have the option to filter by rule name, rule severity, and/or event timestamp, and sort the results by time and/or severity, but this is not required. If you send the query with an empty JSON body, it returns all of the events logged in your Logz.io Cloud SIEM, going as far back as your account's retention permits.
       tags:
         - Security events
       operationId: searchSecurityRulesEvents
@@ -1994,7 +1991,7 @@ paths:
   /v2/security/rules/events/logs/search:
     post:
       summary: Fetch the logs that triggered a security event
-      description: Run a query to fetch the original logs linked to a particular security event. These are the original logs (i.e. application logs, server logs, etc.) that triggered a security rule and caused it to log an event. This query returns details for one specific event - it isn't a bulk action. The original raw logs contain additional details to increase observabiliy into details omitted from the security event log.
+      description: Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event. This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
       tags:
         - Security events
       operationId: searchSecurityRuleEventLogs
@@ -2021,7 +2018,6 @@ paths:
                     "pageSize": 10
                 }
               }'
-      
       responses:
         '200':
           description: successful operation
@@ -2327,13 +2323,13 @@ definitions:
         $ref: '#/definitions/Pagination'
   AlertEventLogsFilter:
     type: object
-    description: Filter for the raw logs for expanded details and observaility into the event.
+    description: Filter by the event's unique GUID to retrieve only the logs relevant to the event under investigation.
     required:
       - alertEventId
     properties:
       alertEventId:
         type: string
-        description: Unique GUID of the security event in Logz.io Cloud SIEM. You can get it from the results when you run a query to fetch security events or from event logs in the [UI](https://app.logz.io/#/dashboard/security/research/discover?), under the field `logzio-alert-event-id`.
+        description: Unique GUID of the security event in Logz.io Cloud SIEM. The GUID is returned in the results when querying to fetch security events or by inspecting an event log in the [UI](https://app.logz.io/#/dashboard/security/research/discover?) under the field `logzio-alert-event-id`.
         example: 833203f9-de71-5a12-9083-9055a6d925bb
   Pagination:
     type: object
@@ -2356,16 +2352,22 @@ definitions:
     type: object
     properties:
       total:
-        description: The total number of events that answer the query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
+        description: Returns the total number of logs linked to the security event specified in the query. This number is fixed and not affected by pagination.
         type: integer
         format: int32
-        example: 500
+        example: 5
       results:
         type: array
+        description: >-
+         Array of logs returned in answer to the query. The logs are returned in their entirety and parsed.
+         
+         
+         Note that the request will fail if the logs are no longer in the database. If you're not sure how long your logs are kept, you can check the log retention settings in your [log monitoring account](https://app.logz.io/#/dashboard/settings/usage-and-billing).
         items:
           type: object
-          additionalProperties:
-            type: object
+          example: {Array of logs}
+          #additionalProperties:
+          #  type: object
       pagination:
         $ref: '#/definitions/Pagination'
   PagedSearchResponseTriggeredAlert:
@@ -2405,17 +2407,17 @@ definitions:
       eventDate:
         type: integer
         format: int64
-        description: Epoch unix timestamp in seconds showing when the rule's conditions were met and the event was registered
+        description: UNIX timestamp in seconds showing when the rule's conditions were met and the event was triggered
         example: 1587860455
       alertWindowStartDate:
         type: integer
         format: int64
-        description: Unix epoch timestamp of the earliest log that inititated triggering the security rule. Security rules are typically triggered by several logs in aggregate.
+        description: UNIX timestamp in seconds of the earliest log that triggered the rule to log an event. It usually takes several logs under certain conditions to trigger a security rule.
         example: 1587856855
       alertWindowEndDate:
         type: integer
         format: int64
-        description: Unix epoch timestamp of the latest log that triggered the event. Security rules are typically triggered by several logs in aggregate.
+        description: UNIX timestamp in seconds of the latest log that triggered the rule to log an event. It usually takes several logs under certain conditions to trigger a security rule.
         example: 1587860455
       severity:
         type: string
@@ -2456,7 +2458,7 @@ definitions:
     properties:
       filter:
         $ref: '#/definitions/AlertsEventsFilter'
-        summary: Filter by rule severity, time range, or a matching string in the security rule name
+        summary: Filter by rule name, rule severity, or time range.
       sort:
         description: Sorting is not required, but recommended. If omitted, Elasticsearch will determine the sorting.
         type: array
@@ -2481,7 +2483,7 @@ definitions:
         description: If left blank, descending sorting will result. If `false` results in ascending sorting.
   AlertsEventsFilter:
     type: object
-    description: Filter by rule severity, time range, and/or a matching string in the security rule name.
+    description: Filter by rule name, rule severity, or time range.
     properties:
       searchTerm:
         type: string
@@ -2506,18 +2508,18 @@ definitions:
     required:
       - fromDate
       - toDate
-    description: If you decide to add a timestamp filter, you'll need to specify a closed time range, with both the earliest and latest timestamps.
+    description: Add a timerange to filter by event timestamps that fall within the range. If applied, both the earliest and latest thresholds are required.
     properties:
       fromDate:
         type: integer
         format: int64
         example: 1587134557
-        description: Use an epoch unix timestamp in seconds (not ms). Your security account retention determines the ealiest events you'll be able to retrieve.
+        description: Absolute UNIX timestamp in seconds (not milliseconds). Your security account's retention policy determines the ealiest events you'll be able to retrieve.
       toDate:
         type: integer
         format: int64
         example: 1587137557
-        description: Use an epoch unix timestamp in seconds (not ms).
+        description: Absolute UNIX timestamp in seconds (not milliseconds).
   
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:

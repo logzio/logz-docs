@@ -5,5 +5,5 @@ linkedin: sboroda
 twitter: KeeperOfTheDocs
 github: imnotashrimp
 
-logzio-role: Keeper of the Docs
+logzio-role: Keeper of the Copy
 ---

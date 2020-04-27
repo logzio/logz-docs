@@ -50,22 +50,21 @@ Make sure to use the settings shown below.
 
 | Parameter | Description |
 |---|---|
-| Resource group | Click **Create new**. Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**. |
-| Location | Choose the same region as the Azure services that will stream data to this Event Hub. |
+| Resource group | Click **Create new**. Give a meaningful **Name**, such as "logziobBlobStorageIntegration", and then click **OK**. |
+| Location | Choose the same region as the Azure services that will stream data to this Blob Storage. |
 {:.paramlist}
 
 ###### In the SETTINGS section
 
 | Parameter | Description |
 |---|---|
-| Logs listener host | Use the listener URL for your logs account region. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
+| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to. |
+| Format (Default: text) | Choose one of the supported parsing formats: json/csv/text  |
 {:.paramlist}
 
-At the bottom of the page, select **I agree to the terms and conditions stated above**,
-and then click **Purchase** to deploy.
-
-Deployment can take a few minutes.
+At the bottom of the page, agree to the terms and conditions. 
+Then click **Purchase** to deploy. Deployment can take a few minutes.
 
 ##### Check Logz.io for your logs
 
@@ -112,22 +111,21 @@ Make sure to use the settings shown below.
 
 | Parameter | Description |
 |---|---|
-| Resource group | Click **Create new**. Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**. |
-| Location | Choose the same region as the Azure services that will stream data to this Event Hub. |
+| Resource group | Choose your existing resource group, and then click **OK**. |
+| Location | Choose the same region as the Azure services that will stream data to this Blob Storage. |
 {:.paramlist}
 
 ###### In the SETTINGS section
 
 | Parameter | Description |
 |---|---|
-| Logs listener host | Use the listener URL for your logs account region. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
+| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here]({{site.baseurl}}/user-guide/accounts/account-region.html).  |
+| Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
+| Format (Default: text) | Choose one of the supported parsing formats: json/csv/text  |
 {:.paramlist}
 
-At the bottom of the page, select **I agree to the terms and conditions stated above**,
-and then click **Purchase** to deploy.
-
-Deployment can take a few minutes.
+At the bottom of the page, agree to the terms and conditions. 
+Then click **Purchase** to deploy. Deployment can take a few minutes.
 
 ##### _(If needed)_ Build a blob container
 
@@ -149,7 +147,7 @@ and return to the _Containers_ page.
 
 ##### Build an event subscription
 
-In the left menu, click **Events**.
+Open your storage account. In the left menu, select **Events**.
 
 Click **+ Event Subscription** in the toolbar.
 
@@ -175,7 +173,7 @@ Give the event subscription a meaningful **Name**.
 | Parameter | Description |
 |---|---|
 | Endpoint Type | Choose **Event Hubs**. |
-| Endpoint | Click **Select an endpoint**, then choose your new **Resource group** (we gave the sample name "logzioEventHubIntegration" above). |
+| Endpoint | Click **Select an endpoint**, then choose your resource group. |
 {:.paramlist}
 
 Click **Create** to continue.

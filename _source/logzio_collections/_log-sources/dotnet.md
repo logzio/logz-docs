@@ -89,7 +89,7 @@ logzioAppender.AddBufferSize("100");
 logzioAppender.AddBufferTimeout("00:00:05");
 logzioAppender.AddRetriesMaxAttempts("3");
 logzioAppender.AddRetriesInterval("00:00:02");
-logzioAppender.AddDebug("false");
+logzioAppender.AddDebug(false);
 
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;

@@ -119,8 +119,11 @@ function generateMdOutput(folder) {
 
 function replaceText(data, mdFormat) {
   data = data
+    // remove frontmatter
     .replace(/(---[\s\S]+?---(\n){1})/, source =>
-      '# ' + source.match(/(?<=^title: ).+$/m) + '\n') // remove frontmatter
+      '# ' + source.match(/(?<=^title: ).+$/m) + '\n')
+
+    // remove image classes .override.btn-img
     .replace(/{:.override.btn-img}(\n?)/g, '')
 
     // clean up the tasklist, add numbers
@@ -135,7 +138,7 @@ function replaceText(data, mdFormat) {
         }
     })
 
-    // convert deflists to table
+    // convert deflists to table by removing .paramlist class
     .replace(/{:.paramlist}\n/g, '')
 
     // reformat info-boxes
@@ -164,10 +167,15 @@ function replaceText(data, mdFormat) {
       return '**' + title + '**:\n' + bodyText
     })
 
+    // replace .required-param and .default-param with content
     .replace(/<span.*required-param.*\/span>/g, '(Required)')
     .replace(/<span.*default-param.*\/span>/g, source => '(Default: ' + source.replace(/<(\/*)span.*?>/g, '') + ')'
     )
+
+    // convert EOL \\ to html <br>
     .replace(/\\{2}/g, '<br>')
+
+    // convert site.baseurl to absolute url
     .replace(/{{site.baseurl}}/g, 'https://docs.logz.io')
 
     if (mdFormat === 'GFM') {

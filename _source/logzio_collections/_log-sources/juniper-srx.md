@@ -2,7 +2,7 @@
 title: Ship Juniper SRX logs
 logo:
   logofile: juniper.png
-  orientation: vertical
+  orientation: horizontal
 data-source: Juniper
 contributors:
   - shalper
@@ -32,18 +32,11 @@ root access
 
 <div class="tasklist">
 
-##### Configure Juniper SRX
-
-Open Juniper SRX’s configuration file with your preferred text editor. See Juniper SRX's [documentation](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA)
-if you need help finding the file.
-
-In the configuration file,
-find the line that begins `....`.
-
-
-##### Configure Juniper SRX to output JSON logs
+##### Configure Juniper SRX to output logs over UDP:514
 
 Open Juniper SRX’s configuration file with your preferred text editor. The default location is `....yaml` but it depends on your installation.
+See Juniper SRX's [documentation](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA)
+if you need help finding the file.
 
 Configure Juniper syslog server to send logs over port UDP/514 by default.
 
@@ -60,7 +53,7 @@ sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/CO
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
 
-This code block adds Juniper SRX as an input sent over UDP traffic. It contains the placeholder <<SHIPPING-TOKEN>> which you'll need to replace in the next step.
+This code block adds Juniper SRX as an input sent over UDP traffic. It contains the placeholder `<<SHIPPING-TOKEN>>` which you'll need to replace in the next step.
 
 ```yaml
 # ...
@@ -95,7 +88,7 @@ processors:
     ignore_missing: true
 ```
 
-Copy and paste the following code block directly below. It sets Logz.io as the output. It contains the placeholder <<LISTENER-HOST>> which you'll need to replace in the next step.  
+Copy and paste the following code block directly below. It sets Logz.io as the output. It contains the placeholder `<<LISTENER-HOST>>` which you'll need to replace in the next step.  
 
 ```yaml
 # ...

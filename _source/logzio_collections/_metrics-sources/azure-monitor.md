@@ -14,9 +14,9 @@ shipping-tags:
 To monitor your Azure service metrics,
 we recommend configuring your services
 to send their metrics to Azure Monitor.
-The Metricbeat configurations on this page
-collect metrics from Azure Monitor
-and forwards them to Logz.io.
+When you set up Metricbeat using the configuration on this page,
+Metricbeat will collect metrics from Azure Monitor
+and forward them to Logz.io.
 
 #### Metricbeat setup
 

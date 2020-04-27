@@ -1991,7 +1991,11 @@ paths:
   /v2/security/rules/events/logs/search:
     post:
       summary: Fetch the logs that triggered a security event
-      description: Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event. This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
+      description: >-
+        Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event.
+        
+        
+        This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
       tags:
         - Security events
       operationId: searchSecurityRuleEventLogs
@@ -2391,7 +2395,7 @@ definitions:
         type: integer
         format: int32
         description: Unique identifier of the security rule in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-definition-id`
-        example: 450051
+        example: 453345
       name:
         type: string
         description: Name of the security rule in Logz.io Cloud SIEM
@@ -2435,15 +2439,15 @@ definitions:
         example: 27cdcf45-ae12-581a-809e-17a6bbc9ae07
       groupBy:
         type: object
-        description: Shows if the security rule has a `group by` condition for aggregating results. Results can be aggregated by 1 to 3 fields.
-        example: {"source_ip": "95.215.1.13"}
-        additionalProperties:
-          type: map
-          maximum: 3
-          description: The fields differ by rule. There can be 1-3 fields.
+        description: Array of fields used by the security rule to aggregate results. Security rules can apply `groupBy` conditions to aggregate results by up to 3 fields. The fields differ rule by rule.
+        example: {"source_ip": "122.17.45.15" }
+        #additionalProperties:
+         # type: map
+         # maximum: 3
+         # description: The fields differ by rule. There can be 1-3 fields.
       tags:
         type: array
-        description: Labels help organize security rules
+        description: Tags are labels used to organize security rules.
         example: threat
         items:
           type: object
@@ -2451,7 +2455,7 @@ definitions:
       hits:
         type: integer
         format: int32
-        description: Number of results returned by the query BEFORE filtering by `groupBy`
+        description: Hits represent the number of logs that triggered the security rule before they were aggregated using the by `groupBy` condition.
         example: 30
   AlertsEventsSearchRequest:
     type: object

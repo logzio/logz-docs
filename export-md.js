@@ -214,9 +214,8 @@ function replaceText(data, mdFormat) {
       .replace(/\n<\/div>(\n|)/g, '')
   }
 
-  // Replace two spaces with one. We're not a typing pool.
+  // Replace too many line breaks with just enough line breaks.
   data = data
-    .replace(/ {2,}/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
 
   return data

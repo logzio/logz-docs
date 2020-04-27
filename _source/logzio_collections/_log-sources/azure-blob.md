@@ -147,7 +147,7 @@ and return to the _Containers_ page.
 
 ##### Build an event subscription
 
-In the left menu of your storage account, select **Events**.
+Open your storage account. In the left menu, select **Events**.
 
 Click **+ Event Subscription** in the toolbar.
 

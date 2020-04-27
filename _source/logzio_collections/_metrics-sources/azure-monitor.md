@@ -107,10 +107,6 @@ You'll need to replace the values surrounded by angle brackets
 using the parameters below the code block. 👇
 
 ```yaml
-metricbeat.config.modules:
-  path: ${path.config}/modules.d/*.yml
-  reload.enabled: false
-
 metricbeat.modules:
 - module: azure
   metricsets:
@@ -122,6 +118,7 @@ metricbeat.modules:
   tenant_id: '${AZURE_TENANT_ID:"<<TENANT-ID>>"}' # `tenantId` from step 2
   subscription_id: '${AZURE_SUBSCRIPTION_ID:"<<SUBSCRIPTION-ID>>"}' # `id` from step 2
   resources:
+    # 👇 Duplicate this code block for each resource whose metrics you want to ship.
     - resource_query: "resourceType eq '<<RESOURCE-TYPE>>'"
       metrics:
       - name: ["*"]

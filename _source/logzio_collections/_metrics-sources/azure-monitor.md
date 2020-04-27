@@ -12,10 +12,8 @@ shipping-tags:
 ---
 
 To monitor your Azure service metrics,
-we recommend configuring Metricbeat
-to collect metrics from Azure Monitor.
-Azure Monitor collects log and metric data
-from your Azure services.
+we recommend configuring your services
+to send their metrics to Azure Monitor.
 The Metricbeat configurations on this page
 collect metrics from Azure Monitor
 and forwards them to Logz.io.
@@ -83,9 +81,8 @@ You'll need this information later on, so paste it in your text editor.
 
 ##### Download the Logz.io certificate
 
-Now we'll set up your Metricbeat server.
-
-Download the Logz.io public certificate to your certificate authority folder.
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+You'll need to run this command on the server that hosts Metricbeat:
 
 ```shell
 sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
@@ -139,20 +136,6 @@ type: metrics
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-```
-
-To send storage metrics, add this code block to the `metric.modules` object:
-
-```yaml
-- module: azure
-  metricsets:
-  - storage
-  enabled: true
-  period: 300s
-  client_id: '${AZURE_CLIENT_ID:"<<CLIENT-ID>>"}' # `appId` from step 3
-  client_secret: '${AZURE_CLIENT_SECRET:"<<CLIENT-SECRET>>"}' # `password` from step 3
-  tenant_id: '${AZURE_TENANT_ID:"<<TENANT-ID>>"}' # `tenantId` from step 2
-  subscription_id: '${AZURE_SUBSCRIPTION_ID:"<<SUBSCRIPTION-ID>>"}' # `id` from step 2
 ```
 
 ###### Parameters

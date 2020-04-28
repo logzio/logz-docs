@@ -38,6 +38,8 @@ firstLevel:
     thirdLevel:
       - title: Log patterns
         url: /user-guide/kibana/log-patterns.html
+      - title: Share visualizations
+        url: /user-guide/kibana/share-import-export
 
   - title: Alerts
     url: /user-guide/alerts/

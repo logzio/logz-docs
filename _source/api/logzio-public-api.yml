@@ -2366,7 +2366,7 @@ definitions:
          Array of logs returned in answer to the query. The logs are returned in their entirety and parsed.
          
          
-         Note that the request will fail if the logs are no longer in the database. If you're not sure how long your logs are kept, you can check the log retention settings in your [log monitoring account](https://app.logz.io/#/dashboard/settings/usage-and-billing).
+         If the logs are no longer retained in the database, the request will return empty. You can check your account's log retention policy in your [log monitoring account](https://app.logz.io/#/dashboard/settings/usage-and-billing).
         items:
           type: object
           example: {Array of logs}

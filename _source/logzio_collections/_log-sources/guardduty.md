@@ -52,6 +52,10 @@ Choose the Kinesis data stream from step 1 from the **Stream** list.
 
 Click **Configure details** (lower right corner).
 
+##### Create a new IAM role
+
+Create a new IAM role and attach the **AWSLambdaKinesisExecutionRole** policy to the new role.
+
 ##### Create a new Lambda function
 
 This Lambda function will collect CloudWatch logs and sends them to Logz.io in bulk over HTTP.
@@ -64,9 +68,9 @@ Choose **Author from scratch**, and use this information:
 * **Runtime**:
   Choose **Python 3.7**
 * **Role**:
-  Click **Create new role from template(s)**.
-  Then, from the **Policy Templates** list, select **AWSLambdaKinesisExecutionRole**.
-
+  Select **Use an existing role**.
+  Then, select the role that you created in the previous step. It should have the **AWSLambdaKinesisExecutionRole** policy.
+   
 Click **Create Function** (bottom right corner of the page).
 After a few moments, you'll see configuration options for your Lambda function.
 

@@ -2455,7 +2455,7 @@ definitions:
       hits:
         type: integer
         format: int32
-        description: Hits represent the number of logs that triggered the security rule before they were aggregated using the by `groupBy` condition.
+        description: Hits represent the number of logs that triggered the security rule before being aggregated by the `groupBy` condition.
         example: 30
   AlertsEventsSearchRequest:
     type: object

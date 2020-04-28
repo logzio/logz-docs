@@ -109,7 +109,7 @@ tags:
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
       
       
-      Your Logz.io Cloud SIEM is pre-loaded with hundreds of security rules created and maintained by Logz.io's security analysts, and this list is continuously expanded and updated on a regular basis. You can also add your own security rules.
+      Your Logz.io Cloud SIEM is pre-loaded with hundreds of security rules created and maintained by Logz.io's security analysts. The list continues to be expanded and updated on a regular basis. You can also add your own security rules.
 
 
       To investigate into security events, you can begin by running a bulk query to fetch security event logs, either with or without applying filtering criteria. This query returns all of the events that match the query parameters and can potentially fetch events going back many months. Whenever you encounter a particular event you would like to further investigate, you can run the drilldown query to fetch the logs that triggered the security event to delve deeper into the event details.
@@ -2348,7 +2348,7 @@ definitions:
       pageSize:
         type: integer
         format: int32
-        description: Controls the number of results per page. Valid inputs are 1 to 1000. 
+        description: Controls the number of results per page. Valid inputs are 1 to 1000.
         maximum: 1000
         default: 25
         example: 100

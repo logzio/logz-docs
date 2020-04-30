@@ -10,9 +10,9 @@ shipping-tags:
   - security
 ---
 
-Juniper SRX is a firewall ...  If you ship your Juniper firewall logs to your Logz.io Cloud SIEM, you can centralize your security ops and receive alerts about security events logged by Juniper.
+Juniper SRX is a market-leading firewall for networking solutions and data center hardware platforms. If you ship your Juniper firewall logs to your Logz.io Cloud SIEM, you can centralize your security ops and receive alerts about security events logged by Juniper SRX.
 
-Here are just a few examples for security rules written specifically for Juniper SRX and provided out-of-the-box by Logz.io's security team: .....
+Here are just a few examples for security rules written specifically for Juniper SRX and provided out-of-the-box by Logz.io's security team: port scanning activity detected, failed login attempt from a malicious address, and more.
 
 You can review the Juniper SRX resources in your Logz.io Cloud SIEM account, under the pre-configured [Juniper SRX security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=juniper) and search for the provided Juniper SRX [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
@@ -34,13 +34,9 @@ root access
 
 ##### Configure Juniper SRX to output logs over UDP:514
 
-Open Juniper SRX’s configuration file with your preferred text editor. The default location is `....yaml` but it depends on your installation.
-See Juniper SRX's [documentation](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA)
-if you need help finding the file.
+Configure your Juniper syslog server to send logs over port UDP/514 by default.
 
-Configure Juniper syslog server to send logs over port UDP/514 by default.
-
-Save and exit the yaml file.
+Instructions depend on your installation, and can be found in Juniper SRX's [official documentation](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA). Contact Juniper SRX support if you need help finding the configuration instructions.
 
 ##### Download the Logz.io certificate to your Filebeat server
 

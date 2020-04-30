@@ -11,7 +11,17 @@ contributors:
   - imnotashrimp
 ---
 
-Here's a quick tour to help you get started with your new infrastructure monitoring workspace.
+This quick tour will help you get started with your new infrastructure monitoring workspace.
+
+###### Overview
+{:.no_toc}
+
+1. toc list
+{:toc}
+
+
+#### The tour
+{:.no_toc}
 
 <div class="tasklist">
 
@@ -24,25 +34,36 @@ Don't see it? By default, your Metrics account can only be accessed from your ma
 
 ##### The welcome dashboard
 
-When you first log into Logz.io Metrics,
+  When you first log into Logz.io Metrics,
   you'll see a dashboard that gives you an overview of your account.
   This dashboard shows your account usage,
   metrics count,
   and any errors we encountered when indexing your metrics.
 
 
-##### Pre-built dashboards
+##### Select a relevant dashboard
 
-Your Logz.io Metrics account comes pre-loaded with dashboards
-  that work with your data sources out-of-the-box,
+  Your Logz.io Metrics account comes pre-loaded with pre-configured dashboards
+  that work with your data sources, out-of-the-box,
   no configuration required.
-  Most of these dashboards include the
-  [drilldown links]({{site.baseurl}}/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html)
-  you'll need to explore related logs in Kibana. Our team of content developers are continuously releasing new and improved dashboards so you can check back again for additional handy dashboards and tips in the future.
 
-Select the dashboard and the data source to begin.
+  You'll need to select the dashboard and the data source to begin.
+
+  Some dashboards come in multiple flavors, depending on the shipping method. If the dashboard is empty, but you're shipping the data, try selecting another dashboard for the environment. That should do it :)
+  {:.info-box.tip}
 
 ![Logz.io Infrastructure Monitoring](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/select-board-and-source.png)
+
+
+##### Drill down from metrics to logs
+
+  Most pre-configured dashboards include the drilldown links you'll need to explore related logs in Kibana. Our team of content developers are continuously releasing new and improved dashboards so you can check back again for additional handy dashboards and tips in the future.
+
+
+##### Create an alert
+
+Once you're ready, create your first alert. You'll need to be working on a dashboard you have permissions to edit. You'll also need to work on a graph panel that doesn't contain variables. See how [here]({{site.baseurl}}/user-guide/infrastructure-monitoring/alerts.html).
+
 
 ##### Metrics left menu
 

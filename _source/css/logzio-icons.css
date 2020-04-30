@@ -99,3 +99,7 @@ i.li-stop::before {
 i.li-clear::before {
   content: "\e927"
 }
+
+i.li-grafana-duplicate::before {
+  content: "\e940";
+}

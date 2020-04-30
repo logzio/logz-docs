@@ -29,11 +29,11 @@ firstLevel:
 
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
-- title: Working in Logz.io
+- title: Log Monitoring
   icon: li-bar-graph
 
   secondLevel:
-  - title: Kibana
+  - title: Kibana Discover
     url: /user-guide/kibana/
     thirdLevel:
       - title: Log patterns
@@ -68,16 +68,29 @@ firstLevel:
   - title: Live Tail
     url: /user-guide/live-tail/
 
-  - title: Infrastructure Monitoring
-    url: /user-guide/infrastructure-monitoring/
-    thirdLevel:
-    - title: Getting started with Metrics
-      url: /user-guide/infrastructure-monitoring/getting-started
-    - title: Rollups & data compression
-      url: /user-guide/infrastructure-monitoring/data-rollups.html
-    - title: Create a new dashboard
-      url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
+- title: Infrastructure Monitoring
+  icon: fas fa-chart-pie
 
+  secondLevel:
+  - title: Why metrics?
+    url: /user-guide/infrastructure-monitoring/
+  - title: Highlights
+    url: /user-guide/infrastructure-monitoring/metrics-logzio
+  - title: Getting started
+    url: /user-guide/infrastructure-monitoring/getting-started
+  - title: Alerts
+    url: /user-guide/infrastructure-monitoring/alerts.html
+  - title: Variables
+    url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
+  - title: Drilldown links
+    url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+  - title: Rollups
+    url: /user-guide/infrastructure-monitoring/data-rollups.html
+
+- title: Cloud SIEM
+  icon: fas fa-shield-alt
+
+  secondLevel:
   - title: Cloud SIEM
     url: /user-guide/cloud-siem/
     thirdLevel:

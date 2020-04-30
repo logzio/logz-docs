@@ -9,6 +9,7 @@ tags:
   - s3
   - archive-and-restore
 contributors:
+  - shalper
   - imnotashrimp
   - danielberman
 ---
@@ -29,24 +30,34 @@ archived logs in your S3 bucket
 
 <div class="tasklist">
 
-##### Restore your archives
+##### Make your preparations
 
-Restored logs are compared against drop filters,
-as if you were shipping those logs normally.
-Double-check your drop filters
-to make sure logs you need won't be filtered.
-For more information, see [Drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/).
+There are a few things you need to check before you begin the process.
+
+1. Double-check your [Drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/) to make sure logs you need won't be filtered.
+
+    If you're planning to restore logs that could be dropped by your drop-filters, you'll need to first make the necessary changes to your drop-filters before restoring. Otherwise the logs will just be dropped right after they are restored, and before   they reach your Logz.io account.
+
+2. There's a **100 GB limit** on restoring from archive from the AWS side. If you exceed this limit, the restore will fail at the end of the process.
+
+    To avoid this outcome, we recommend calculating the volume of logs you are about to restore to make sure it is under the limit. You can make a rough calculation by looking at the daily volume of logs you ship against the number of hours you intend to restore.
+
+    You can look up your account's volume analysis [here](https://app.logz.io/#/dashboard/settings/usage-and-billing).
+
+If you disabled any drop-filters in the first step, expect your restore to be larger than shown in your volume analysis.
 {:.info-box.important}
+
+##### Restore your archives
 
 In the _Restore_ tab, give your restored account a **Name**, choose a **Time range** of up to 24 hours, and click **Restore**.
 
 The time it takes to restore your archives depends on a few factors,
 so there's no way to know how long your re-ingestion will take.
 
+You'll receive an email when the restored account is ready.
+
 As an informal guideline, if you're restoring an hour's worth of data, go have a cup of coffee.
 If you're restoring a day's worth of data, take a long lunch break.
-
-You'll receive an email when the restored account is ready.
 
 ##### Explore the restored account in Kibana
 

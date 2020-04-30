@@ -36,10 +36,11 @@ root access
 
 Configure your Juniper firewall to send logs to your Filebeat server. Make sure you meet this configuration:
 
-Log format: syslog
-Send over: UDP
-IP address: Filebeat server IP address
-Port 514
+* Log format: syslog
+* Send over: UDP
+* IP address: Filebeat server IP address
+* Port 514
+
 See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA) for more information on configuring your Juniper SRX firewall.
 
 ##### Download the Logz.io certificate to your Filebeat server

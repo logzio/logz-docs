@@ -60,9 +60,9 @@ Alerts can't run if you have any variables in your graph, so you'll need to remo
 You can duplicate the query and hide it. That way you can add alerts to the same graph you use to monitor your dashboard.
 
 Click the copy icon **<i class="far fa-copy"></i>** to duplicate the query.
-Then click **<i class="far fa-eye-slash"></i>** to hide the query. You'll only be using it for the alert, and don't want it to appear on the graph.
+Then click **<i class="far fa-eye-slash"></i>** to hide the query in the dashboard. You'll only be using it for the alert, and don't want it to appear on the graph.
 
-Remove any variables. Select a fixed value for the source and erase the query. You can leave the query blank.
+Remove any variables. Select a fixed source and erase the query or rewrite the query so it doesn't contain variables. You can also leave the query blank.
 
 ![Remove variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-variables.png)
 
@@ -81,6 +81,7 @@ Next, configure the alert.
 
 Next, set your alert conditions.
 
+* First, make sure the condition points to the right query. That's the one that doesn't contain variables.
 * Define the rule's condition. You can type in the value or drag the heart **<i class="fas fa-heart"></i>** directly on the graph to make your selection.
 * You can click the condition to decide whether to set it for values above/below a threshold, within/outside a range, or when it has no value.
 * You have the option to set up multiple conditions and queries for more advanced alerts.

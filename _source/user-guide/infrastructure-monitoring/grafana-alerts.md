@@ -57,14 +57,16 @@ Hover over the graph panel name, and click **Edit**.
 
 Alerts can't run if you have any variables in your graph, so you'll need to remove them first.
 
-You can duplicate the query and hide it. That way you can add alerts to the same graph you use to monitor your dashboard.
+One option, is to duplicate the query and remove the variables from it. That way you can add alerts to the same graph you use to monitor your dashboard.
 
 Click the copy icon **<i class="far fa-copy"></i>** to duplicate the query.
 Then click **<i class="far fa-eye-slash"></i>** to hide the query in the dashboard. You'll only be using it for the alert, and don't want it to appear on the graph.
 
-Remove any variables. Select a fixed source and erase the query or rewrite the query so it doesn't contain variables. You can also leave the query blank.
+Remove any variables. Variables are indicated by a `$` sign, as seen in the example below. These will block you from saving your alert.
 
 ![Remove variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-variables.png)
+
+Select a fixed source and erase the query or rewrite the query so it doesn't contain variables. You can also leave the query blank.
 
 
 ##### Add an alert

@@ -32,11 +32,15 @@ root access
 
 <div class="tasklist">
 
-##### Configure Juniper SRX to output logs over UDP:514
+##### Configure Juniper SRX Server logging
 
-Configure your Juniper syslog server to send logs over port UDP/514 by default.
+Configure your Juniper firewall to send logs to your Filebeat server. Make sure you meet this configuration:
 
-Instructions depend on your installation, and can be found in Juniper SRX's [official documentation](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA). Contact Juniper SRX support if you need help finding the configuration instructions.
+Log format: syslog
+Send over: UDP
+IP address: Filebeat server IP address
+Port 514
+See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA) for more information on configuring your Juniper SRX firewall.
 
 ##### Download the Logz.io certificate to your Filebeat server
 

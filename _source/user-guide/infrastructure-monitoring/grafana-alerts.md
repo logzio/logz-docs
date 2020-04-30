@@ -2,8 +2,8 @@
 layout: article
 title: Alerts
 permalink: /user-guide/infrastructure-monitoring/alerts.html
-#flags:
-  #logzio-plan: pro
+flags:
+  logzio-plan: community
 tags:
   - alerts
 contributors:

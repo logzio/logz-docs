@@ -32,11 +32,10 @@ The same process can also help you migrate from another Kibana instance to
 The first step is to export your existing dashboards, searches and visualizations out of your Kibana instance.
 
 1. In your Kibana instance, click on **<i class="li li-gear"></i> (Settings) > Saved objects** 
-2. Select **Export ... objects** and de-select any categories you don't want to export.
-3. Another way to do this is to hand-pick the objects you want to export, but this is less recommended.
-4. Click **Select all**
+2. Select **Export ____ objects**. 
+3. You can un-select any categories you want to exclude from the export. Another way to do this is to hand-pick the objects you want to export, but this is less recommended.
+4. Click **Export all**. 
 5. A JSON file with your exported objects will be saved to your default location.
-
 
 <video autoplay loop>
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-videos/export_kibana_objects.mp4" type="video/mp4" />
@@ -49,13 +48,15 @@ The full export is highly recommended. That way you can be sure that you'll have
 ##### Import objects from a JSON
 
 **Before you begin, you'll need**:
-Make sure that the relevant logs are already shipped to your Logz.io account and that the Kibana mapping is refreshed
+Make sure that the relevant logs have already shipped to your Logz.io account and refresh the Kibana mapping.
 
 Assuming you've got a JSON with your exported objects, it's time to import them into your Logz.io account.
 
 1. Open your Logz.io main account. Click **<i class="li li-gear"></i> (Settings) > Saved objects**.
-2. Click ****Import** and select the relevant JSON file.
-3. A toggle button has the option to **automatically overwrite all saved objects**. Enable it if you want the export to overwrite existing objects in case of conflict. Select the option that works for you.
-4. Done! You are ready to use your newly imported Kibana dashboards, saved searches, and visualivations.
+2. Click **Import** and select the relevant JSON file.
+3. You can toggle the option to **automatically overwrite all saved objects**. Enable it if you want the export to overwrite existing objects in case of conflict. Select the option that works for you.
 
-If any visualization or dashboard did not import, the issue is most likely a field that is referenced in the visualization but not indexed within Logz.io. Please make sure that you are shipping the correct logs and that the Kibana mapping is refreshed.
+You're done! You are ready to use your newly imported Kibana dashboards, saved searches, and visualivations.
+
+If any visualization or dashboard did not import, the issue is most likely a field that is referenced in the visualization but not indexed in your Logz.io account. Check that the relevant logs are already in the account and refresh the Kibana mapping.
+ {:.info-box.note}

@@ -2,8 +2,8 @@
 layout: article
 title: Alerts
 permalink: /user-guide/infrastructure-monitoring/alerts.html
-flags:
-  logzio-plan: pro
+#flags:
+  #logzio-plan: pro
 tags:
   - alerts
 contributors:
@@ -90,12 +90,12 @@ Next, set your alert conditions.
 
 ![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/alert-condition.png)
 
-##### Add notifications _(Optional)_
+##### Add notifications
 
 If you want to send notifications or emails when the alert is triggered,
 choose notification endpoints.
 
-Choose the endpoints or email addresses to notify.
+Endpoints can be Slack channels, email addresses, or other places your team communicates.
 
 To limit how often recipients are notified - you'll need to scroll up to the **Evaluation interval > For** rule above. (See the instructions above).
 

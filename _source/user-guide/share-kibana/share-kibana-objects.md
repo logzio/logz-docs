@@ -2,7 +2,7 @@
 layout: article
 title: Share visualizations
 permalink: /user-guide/kibana/share-import-export
-description: Share Kibana dashboards, saved searches and visualizations among your team, or migrate between Kibana instances. Export and import Kibana dashboards, Kibana saved searches, and Kibana visualizations.
+description: Share Kibana dashboards, saved searches and visualizations between accounts by exporting and importing them.
 flags:
   logzio-plan: community
 tags:
@@ -12,10 +12,7 @@ contributors:
   - boofinka
 ---
 
-You can share Kibana dashboards, saved searches and visualizations among your team. This is done by exporting and importing dashboards, saved searches, and Kibana visualizations.
-
-The same process can also help you migrate from another Kibana instance to
- Logz.io, for example, if you're migrating from a self-hosted Kibana account to Logz.io.
+You can share Kibana dashboards, saved searches and visualizations between accounts by exporting and importing them. This is helpful if you have multiple main accounts or accounts on multiple regions. You can also use this process to keep a local backup copy.
 
 
 ###### On this page

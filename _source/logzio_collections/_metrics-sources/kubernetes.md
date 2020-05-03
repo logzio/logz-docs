@@ -10,6 +10,10 @@ shipping-tags:
   - container
 ---
 
+### Prerequisites
+* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
+* Allow outgoing traffic to destination port 5015
+
 <!-- tabContainer:start -->
 <div class="branching-container">
 
@@ -67,12 +71,8 @@ If you see a response,
 that means kube-state-metrics is installed,
 and you can move on to step 2.
 
-Otherwise, deploy kube-state-metrics to your cluster.
-
-```shell
-git clone https://github.com/kubernetes/kube-state-metrics.git \
-  && kubectl --namespace=kube-system apply -f kube-state-metrics/examples/standard
-```
+Otherwise, deploy [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
+with a [compatible version](https://github.com/kubernetes/kube-state-metrics#compatibility-matrix) to your cluster.
 
 ##### Store your Logz.io credentials
 

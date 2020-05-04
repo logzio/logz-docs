@@ -20,7 +20,7 @@ fi
 
 has_kube_stat_metrics=$(kubectl get deployments --all-namespaces | grep kube-state-metrics)
 if [[ -z $has_kube_stat_metrics ]]; then
-  echo "ERROR: kube-state-metrics is not deployed in your cluster, please deploy it from https://github.com/kubernetes/kube-state-metrics and run this script again"
+  echo "ERROR: kube-state-metrics is not deployed in your cluster. Please deploy it from https://github.com/kubernetes/kube-state-metrics and run this script again"
   exit 1
 fi
 

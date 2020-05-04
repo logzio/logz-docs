@@ -127,15 +127,19 @@ Make sure to use the settings shown below.
 At the bottom of the page, agree to the terms and conditions. 
 Then click **Purchase** to deploy. Deployment can take a few minutes.
 
-##### _(If needed)_ Build a blob container
-
-If you don't have a blob container, build one now.
-
+##### Add a blob container
 In the
 [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 page, click your StorageV2 storage account to open it.
 
 Click the **Containers** card to continue to the _Containers_ page.
+
+**If you already have blob containers:** 
+
+For every blob container, in the top menu bar press **Change access level** and choose **Blob** from the **Public access level** list.
+
+
+**If you don't have a blob container, build one now:** 
 
 Click **+ Container** in the toolbar.
 

@@ -20,9 +20,8 @@ fi
 
 has_kube_stat_metrics=$(kubectl get deployments --all-namespaces | grep kube-state-metrics)
 if [[ -z $has_kube_stat_metrics ]]; then
-  git clone https://github.com/kubernetes/kube-state-metrics.git
-  kubectl --namespace=kube-system apply -f kube-state-metrics/examples/standard
-  rm  -rf kube-state-metrics
+  echo "ERROR: kube-state-metrics is not deployed in your cluster. Please deploy it from https://github.com/kubernetes/kube-state-metrics and run this script again"
+  exit 1
 fi
 
 kube_stat_ns=$(kubectl get deployments --all-namespaces -o json | jq '.items[] | select(.metadata.name == "kube-state-metrics")' | jq -r '.metadata.namespace')

@@ -10,7 +10,7 @@ shipping-tags:
   - security
 ---
 
-Juniper SRX is a networking firewall solution and data center hardware platforms. If you ship your Juniper firewall logs to your Logz.io Cloud SIEM, you can centralize your security ops and receive alerts about security events logged by Juniper SRX.
+Juniper SRX is a networking firewall solution and services gateway. If you ship your Juniper firewall logs to your Logz.io Cloud SIEM, you can centralize your security ops and receive alerts about security events logged by Juniper SRX.
 
 Here are just a few examples for security rules written specifically for Juniper SRX and provided out-of-the-box by Logz.io's security team: port scanning activity detected, failed login attempt from a malicious address, and more.
 

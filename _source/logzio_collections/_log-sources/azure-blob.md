@@ -10,28 +10,27 @@ open-source:
 contributors:
   - ronish31
   - imnotashrimp
+  - shalper
 shipping-tags:
   -  azure
 ---
 
-To simplify shipping of your logs in Azure Blob Storage,
-we provide an automated deployment process.
-
-At the end of this process,
-this integration will forward logs from Azure Blob Storage
+Logz.io provides an automated deployment process to simplify the process of shipping logs from Azure Blob Storage.
+This integration forwards logs from your Azure Blob Storage
 to your Logz.io account.
+
 
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [For a new blob storage account](#new-blob-config)
-* [For an existing blob storage account](#existing-blob-config)
+* [Use your existing blob storage account](#existing-blob-config)
+* [Create a new blob storage account](#new-blob-config)
 {:.branching-tabs}
 
 <!-- tab:start -->
 <div id="new-blob-config">
 
-#### New blob storage setup
+#### Set up a new blob storage account
 
 <div class="tasklist">
 
@@ -51,7 +50,7 @@ Make sure to use the settings shown below.
 | Parameter | Description |
 |---|---|
 | Resource group | Click **Create new**. Give a meaningful **Name**, such as "logziobBlobStorageIntegration", and then click **OK**. |
-| Location | Choose the same region as the Azure services that will stream data to this Blob Storage. |
+| Location | Select the same region as the Azure services that will stream data to this Blob Storage. |
 {:.paramlist}
 
 ###### In the SETTINGS section
@@ -60,10 +59,10 @@ Make sure to use the settings shown below.
 |---|---|
 | Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to. |
-| Format (Default: text) | Choose one of the supported parsing formats: json/csv/text  |
+| Format (Default: text) | Select one of the supported parsing formats: json/csv/text  |
 {:.paramlist}
 
-At the bottom of the page, agree to the terms and conditions. 
+At the bottom of the page, agree to the terms and conditions.
 Then click **Purchase** to deploy. Deployment can take a few minutes.
 
 ##### Check Logz.io for your logs
@@ -81,18 +80,14 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <!-- tab:start -->
 <div id="existing-blob-config">
 
-#### Existing blob storage setup
+**Before you begin, you'll need**:
+a **StorageV2 (general purpose v2)** blob storage account. If your existing blob storage account is of any other kind, it will NOT work. Instead, follow the process to set up a new blob storage account.
 
-**If you don't have a StorageV2 account, stop here.**
-Instead, set up this deployment for existing blob storage.
-\\
-\\
-This deployment works with general-purpose v2 storage accounts only.
-These are listed as "StorageV2" in the
-[_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-list,
-under the _Kind_ column.
+This deployment only works with accounts of the kind **StorageV2 (general purpose v2)**.
+You can check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) to confirm that their account kind is compatible. 
 {:.info-box.important}
+
+#### Use your existing blob storage account
 
 <div class="tasklist">
 
@@ -111,8 +106,8 @@ Make sure to use the settings shown below.
 
 | Parameter | Description |
 |---|---|
-| Resource group | Choose your existing resource group, and then click **OK**. |
-| Location | Choose the same region as the Azure services that will stream data to this Blob Storage. |
+| Resource group | Select your existing resource group, and then click **OK**. |
+| Location | Select the same region as the Azure services that will stream data to this Blob Storage. |
 {:.paramlist}
 
 ###### In the SETTINGS section
@@ -121,46 +116,38 @@ Make sure to use the settings shown below.
 |---|---|
 | Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here]({{site.baseurl}}/user-guide/accounts/account-region.html).  |
 | Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
-| Format (Default: text) | Choose one of the supported parsing formats: json/csv/text  |
+| Format (Default: text) | Select one of the supported parsing formats: json/csv/text  |
 {:.paramlist}
 
 At the bottom of the page, agree to the terms and conditions. 
 Then click **Purchase** to deploy. Deployment can take a few minutes.
 
-##### Add a blob container
+##### Set blob container permissions
+
 In the
 [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-page, click your StorageV2 storage account to open it.
+page, select the relevant account to open it. Remember, it must be a StorageV2 account to be compatible. 
 
-Click the **Containers** card to continue to the _Containers_ page.
+Click the **Containers** card to open it.
 
-**If you already have blob containers:** 
+  * If you already have blob containers, you'll need to change their access level. This is done one by one, for every blob container.
+      
+      In the top menu, select **Change access level > Public access level > Blob**.
 
-For every blob container, in the top menu bar press **Change access level** and choose **Blob** from the **Public access level** list.
-
-
-**If you don't have a blob container, build one now:** 
-
-Click **+ Container** in the toolbar.
-
-Give your container a meaningful **Name**,
-and choose **Blob** from the **Public access level** list.
-
-Press **OK** to create your container
-and return to the _Containers_ page.
+  * If you don't have a blob container, build one now. 
+    
+       Click **+ Container** in the toolbar. Give your container a meaningful **Name**, and select **Blob** from the **Public access level** list. Press **OK** to create your container.
 
 ##### Build an event subscription
 
-Open your storage account. In the left menu, select **Events**.
-
-Click **+ Event Subscription** in the toolbar.
+Open your storage account. In the left menu, select **Events**. Click **+ Event Subscription** in the toolbar and fill in the details as described next.
 
 ###### In "EVENT SUBSCRIPTION DETAILS"
 
 | Parameter | Description |
 |---|---|
 | Name | Give a meaningful name. |
-| Event Schema | Choose **Event Grid Schema** |
+| Event Schema | Select **Event Grid Schema** |
 {:.paramlist}
 
 ###### In "EVENT TYPES"
@@ -176,8 +163,8 @@ Give the event subscription a meaningful **Name**.
 
 | Parameter | Description |
 |---|---|
-| Endpoint Type | Choose **Event Hubs**. |
-| Endpoint | Click **Select an endpoint**, then choose your resource group. |
+| Endpoint Type | Select **Event Hubs**. |
+| Endpoint | Click **Select an endpoint**, then select your resource group. |
 {:.paramlist}
 
 Click **Create** to continue.

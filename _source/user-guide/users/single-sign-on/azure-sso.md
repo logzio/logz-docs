@@ -39,14 +39,14 @@ In your [Azure Portal](https://portal.azure.com/), browse to **Azure Active Dire
 Select **New application > Add from the gallery** and search for **Logz.io - Azure AD Integration**.
 
 
-##### Paste the SAML information from Support
+##### Configure the integration
 
-![Add a non-gallery application in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/configure-single-sign-on.png)
+Follow the instructions in [Azure's docs](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/logzio-cloud-observability-for-engineers-tutorial).
 
-Fill in these details from the Logz.io Support email message:
+When you get to the step **Set up single sign-on with SAML**, you'll need the SAML information you received from Logz.io Support's email.
 
-* In **Identifier (Entity ID)**, paste _Audience URI_ from the email
-* In **Reply URL (Assertion Consumer Service URL)**, paste _Single sign on URL_ from the email
+* The _Audience URI_ from Logz.io provides the SAML **Identifier (Entity ID)**.
+* The _Single sign on URL_ from Logz.io provides the SAML **Reply URL (Assertion Consumer Service URL)**. 
 
 ##### Zip the SAML certificate
 
@@ -56,12 +56,6 @@ Download the certificate file and zip it.
 You'll attach this zip file to your next email to the Support team.
 
 Save your configuration.
-
-##### Get your endpoint information
-
-Browse to **Azure Active Directory > App registrations > Endpoints**.
-
-Copy the **SAML-P SIGN-ON ENDPOINT**, and paste this in the email that you'll send to the Support team.
 
 ##### Send your SAML details to Logz.io
 

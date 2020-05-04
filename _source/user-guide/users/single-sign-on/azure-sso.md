@@ -9,6 +9,8 @@ tags:
   - sso
   - azure
 contributors:
+  - shalper
+  - afishler
   - schwin007
 ---
 
@@ -30,15 +32,12 @@ Include these items in the message:
 
 The Support team will respond with the connection information you'll need to give in Azure.
 
-##### Add Logz.io to Azure
+##### Add Logz.io as a gallery application in Azure
 
-![Add a non-gallery application in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/add-your-own-application.png)
+In your [Azure Portal](https://portal.azure.com/), browse to **Azure Active Directory  > Enterprise Applications > All applications** 
 
-In the [Azure Portal](https://portal.azure.com/), browse to **Azure Active Directory  > Enterprise Applications > New application > Non-gallery application**.
+Select **New application > Add from the gallery** and search for **Logz.io - Azure AD Integration**.
 
-In the right panel, set the **Name** to "Logz.io" and click **Add**.
-
-Click **Configure Single Sign-On**, and choose **SAML-based Sign-on**.
 
 ##### Paste the SAML information from Support
 

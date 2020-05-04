@@ -10,10 +10,6 @@ shipping-tags:
   - container
 ---
 
-### Prerequisites
-* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
-* Allow outgoing traffic to destination port 5015
-
 <!-- tabContainer:start -->
 <div class="branching-container">
 
@@ -25,6 +21,10 @@ shipping-tags:
 <div id="automated-config">
 
 #### Automated deployment
+
+**Before you begin, you'll need**:
+[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed,
+destination port 5015 is open on your firewall for outgoing traffic
 
 <div class="tasklist">
 
@@ -58,6 +58,10 @@ and then open [Logz.io](https://app.logz.io/).
 <div id="manual-config">
 
 #### Manual deployment
+
+**Before you begin, you'll need**:
+[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed,
+destination port 5015 is open on your firewall for outgoing traffic
 
 <div class="tasklist">
 

@@ -68,7 +68,7 @@ Then click **Purchase** to deploy. Deployment can take a few minutes.
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). 
-Any logs sent from this point on should appear under the type `blobStorage`. You can also upload older logs files if you'd like to send older logs.
+Any logs sent from this point on should appear under the type `blobStorage`.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
@@ -171,7 +171,7 @@ Click **Create** to continue.
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). 
-Any logs sent from this point on should appear under the type `blobStorage`. You can also upload older logs files if you'd like to send older logs.
+Any logs sent from this point on should appear under the type `blobStorage`.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

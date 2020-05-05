@@ -73,6 +73,14 @@ nl:
     - 40.68.61.65
     - 52.166.13.236
     - 52.174.154.12
+uk:
+  title: Europe (London)
+  cloud: AWS
+  listener-ips:
+    - 3.11.223.182
+    - 3.9.200.96
+    - 35.178.96.162
+    - 35.179.57.204
 wa:
   title: West US 2 (Washington)
   cloud: Azure

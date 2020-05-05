@@ -26,6 +26,10 @@ To add a new custom endpoint, click **Add endpoint**.
 Specify the URL, method, and headers.
 For POST/PUT methods, you can configure the message body, if relevant.
 
+Alerts can only be sent on ports 80 & 443.
+If you accidently set a custom port for an alert endpoint, the alert will not be sent.
+{:.info-box.important}
+
 ##### Test the endpoint
 
 Click **Run the test** to test your endpoint.

@@ -10,7 +10,6 @@ tags:
   - azure
 contributors:
   - shalper
-  - afishler
   - schwin007
 ---
 

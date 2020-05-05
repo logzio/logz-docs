@@ -67,8 +67,8 @@ Then click **Purchase** to deploy. Deployment can take a few minutes.
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open Kibana.
-If everything went according to plan, you should see logs with the type `blobStorage` in Kibana.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). 
+Any logs sent from this point on should appear under the type `blobStorage`. You can also upload older logs files if you'd like to send older logs.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
@@ -81,10 +81,9 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <div id="existing-blob-config">
 
 **Before you begin, you'll need**:
-a **StorageV2 (general purpose v2)** blob storage account. If your existing blob storage account is of any other kind, it will NOT work. Instead, follow the process to set up a new blob storage account.
+a blob storage account of the type **StorageV2 (general purpose v2)** . If your existing blob storage account is of any other kind, it will NOT work. Instead, follow the process to set up a new blob storage account.
 
-This deployment only works with accounts of the kind **StorageV2 (general purpose v2)**.
-You can check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) to confirm that their account kind is compatible. 
+Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) to make sure that they are compatible. They should be of the type **StorageV2 (general purpose v2)**.
 {:.info-box.important}
 
 #### Use your existing blob storage account
@@ -126,7 +125,7 @@ Then click **Purchase** to deploy. Deployment can take a few minutes.
 
 In the
 [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-page, select the relevant account to open it. Remember, it must be a StorageV2 account to be compatible. 
+page, select the relevant StorageV2 account.
 
 Click the **Containers** card to open it.
 
@@ -134,7 +133,7 @@ Click the **Containers** card to open it.
       
       In the top menu, select **Change access level > Public access level > Blob**.
 
-  * If you don't have a blob container, build one now. 
+  * If you don't yet have a blob container, build one now.
     
        Click **+ Container** in the toolbar. Give your container a meaningful **Name**, and select **Blob** from the **Public access level** list. Press **OK** to create your container.
 
@@ -171,8 +170,8 @@ Click **Create** to continue.
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open Kibana.
-If everything went according to plan, you should see logs with the type `blobStorage` in Kibana.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). 
+Any logs sent from this point on should appear under the type `blobStorage`. You can also upload older logs files if you'd like to send older logs.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

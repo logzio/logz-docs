@@ -163,7 +163,7 @@ and copy the **External ID** (you'll paste it in AWS in the next step).
 ##### Replace the external ID in your IAM role
 
 Browse to the [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page.
-Open the role you used for the configuration you deleted in step 1.
+Open the role used by the configuration you deleted in step 1.
 
 ![IAM role summary page, trust relationships tab](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam-role-edit-trust-relationship.png)
 
@@ -173,8 +173,17 @@ and click **Edit trust relationship** to open the policy document JSON.
 Find the line with the key `sts:ExternalId`,
 and replace the value with the Logz.io external ID you copied in step 2.
 
+For example,
+if your account's external ID is
+`logzio:aws:extid:example0nktixxe8q`,
+you would see this:
+
+```text
+"sts:ExternalId": "logzio:aws:extid:example0nktixxe8q"
+```
+
 Saving the trust policy at this point
-will change your role's external ID immediately.
+will immediately change your role's external ID.
 Any other Logz.io configurations that use this role
 will stop working until you update them.
 {:.info-box.important}
@@ -197,7 +206,7 @@ double-check your credentials in Logz.io and AWS.
 
 If there are other S3 fetcher or Archive & restore configurations
 in this account that use the same role,
-repeat steps 1, 2, and 4.
+replace those configurations with the updated external ID.
 
 Logz.io generates one external ID per account,
 so you won't need to change the role again.

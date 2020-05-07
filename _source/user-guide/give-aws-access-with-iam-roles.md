@@ -126,8 +126,8 @@ configurations that use the existing role.
 
 #### Migrate to the Logz.io external ID in the same role {#migrate-with-same-role}
 
-When update your IAM role to the Logz.io external ID,
-all log fetching and archiving configurations that rely on that role
+When you update your IAM role to the Logz.io external ID,
+all Logz.io configurations that rely on that role
 will stop working.
 Before you begin,
 make sure you know everywhere your existing IAM role is used in Logz.io.

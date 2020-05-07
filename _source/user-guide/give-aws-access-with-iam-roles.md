@@ -126,6 +126,13 @@ configurations that use the existing role.
 
 #### Migrate to the Logz.io external ID in the same role {#migrate-with-same-role}
 
+In this procedure, you'll:
+
+* Replace Logz.io configurations to use the new external ID
+* Update the external ID in your IAM role's trust policy
+
+Follow this process only if the IAM role is used in a single Logz.io account.
+
 When you update your IAM role to the Logz.io external ID,
 all Logz.io configurations that rely on that role
 will stop working.
@@ -214,6 +221,14 @@ so you won't need to change the role again.
 </div>
 
 #### Migrate to new IAM roles {#migrate-to-new-roles}
+
+In this procedure, you'll:
+
+* Create a new IAM role with the new external ID
+* Replace Logz.io configurations to use the new role
+
+You'll repeat this procedure for each Logz.io account
+where you need to fetch or archive logs in an S3 bucket.
 
 <div class="tasklist">
 

@@ -29,7 +29,7 @@ firstLevel:
 
   # ===== USER GUIDE =====
   # These docs are in the /user-guide folder
-- title: Log Monitoring
+- title: Logging
   icon: li-bar-graph
 
   secondLevel:
@@ -86,6 +86,8 @@ firstLevel:
     url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
   - title: Drilldown links
     url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+  - title: Custom metrics
+    url: /user-guide/infrastructure-monitoring/custom-metrics
   - title: Rollups
     url: /user-guide/infrastructure-monitoring/data-rollups.html
 

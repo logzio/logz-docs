@@ -560,7 +560,7 @@ paths:
       description: >-
         This endpoint can take 2 types of call request. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id` 
         (The variation in the field name is intentional) to retrieve the next batches of paginated results.
-        The endpoint returns results as stringified JSON objects.
+        This endpoint always returns results as stringified JSON objects.
         
 
         How it works: 

@@ -558,23 +558,25 @@ paths:
       tags:
         - Search logs
       description: >-
-        Runs a paginated search of your account data that returns results as stringified JSON objects.
+        This endpoint can take 2 types of call request. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id` 
+        (The variation in the field name is intentional) to retrieve the next batches of paginated results.
+        The endpoint returns results as stringified JSON objects.
         
 
-        This endpoint can take 2 types of call requests.
+        How it works: 
         
         
         First, send a request to establish the `scrollID`. This initial request contains the query object and additionl parameters, similar to the `v1/search` endpoint. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
         
         
-        Next, send the `scroll_id` in the request body to retreive a stringified json object of the results. Each call can return a maximum of 100 results, so you can resend the same `scroll_id` in the request body as is needed to retrieve all of the available results. 
-        The results are pagniated, so that every time you send the request with the `scroll_id`, the next batch of results will be returned.
+        Next, send the `scroll_id` in the request body to retreive the log results as a stringified JSON object. Each call can return a maximum of 100 results, so you can resend the same `scroll_id` in the request body as many times as needed to retrieve all of the available results.
+        The results are pagniated, and the request advances through them, one at a time, by default. So that every time you send the request with the same `scroll_id`, the next batch of results is returned.
        
 
         **Note**:
 
 
-        * Send the field `scroll_id` in requests (snake_case). 
+        * Send the field `scroll_id` in requests (snake_case).
         
         * Receive the field `scrollID` in your responses (camelCase).
       operationId: scroll

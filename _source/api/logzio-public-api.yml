@@ -2740,16 +2740,14 @@ definitions:
 
           * Can't sort on `message`
       _source:
-        type: array
+        type: object
         description: >-
-          An array of fields to return.
-          If you don't include `_source` in the request,
-          all fields are returned.
+          An object with an “Includes” array of strings specifying an array of fields to return.
+          
+          * If you omit `_source` from the request, all fields are returned.
 
-
-          **Note**:
-          Alternatively, you can pass `'_source': false`
-          to exclude the `_source` field from the results.
+          * If you pass `'_source': false`, it will exclude the `_source` field from the results.
+          
         items:
           - type: string
             description: Field to return.

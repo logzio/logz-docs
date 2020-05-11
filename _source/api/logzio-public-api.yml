@@ -363,7 +363,7 @@ paths:
       operationId: search
       summary: Search logs
       description: >-
-        Searches your account data using the Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
+        Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) query language.
 
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
@@ -460,16 +460,19 @@ paths:
                 items:
                   type: object
               _source:
-                type: array
+                type: object
                 description: >-
-                  An array of fields to return.
-                  If you don't include `_source` in the request,
-                  all fields are returned.
-
-
-                  **Note**:
-                  Alternatively, you can pass `'_source': false`
-                  to exclude the `_source` field from the results.
+                  An object with an “Includes” array of strings specifying an array of fields to return.       
+                  
+                  
+                  * If you omit `_source` from the request, all fields are returned.
+                  
+                  * If you pass `'_source': false`, it will exclude the `_source` field from the results.
+                properties:
+                  includes:
+                    type: array of strings
+                    description: Array of fields to return
+                    example: message
                 items:
                   - type: string
                     description: Field to return.
@@ -555,28 +558,25 @@ paths:
       tags:
         - Search logs
       description: >-
-        Runs a paginated search of your account data
-        using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
+        Runs a paginated search of your account data that returns results as stringified JSON objects.
+        
+
+        This endpoint can take 2 types of call requests.
+        
+        
+        First, send a request to establish the `scrollID`. This initial request contains the query object and additionl parameters, similar to the `v1/search` endpoint. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
+        
+        
+        Next, send the `scroll_id` in the request body to retreive a stringified json object of the results. Each call can return a maximum of 100 results, so you can resend the same `scroll_id` in the request body as is needed to retrieve all of the available results. 
+        The results are pagniated, so that every time you send the request with the `scroll_id`, the next batch of results will be returned.
+       
+
+        **Note**:
 
 
-        The first request should contain the query object
-        (just like using the `/search` endpoint),
-        and returns an object that contains `scrollId`.
-        You'll use this scroll ID for all subsequent requests.
-
-
-        Every subsequent request should contain the `scroll_id` string.
-        You'll use the same scroll ID for the entire series of requests.
-        (Snake_case for requests, camelCase for responses.)
-
-
-        **Subsequent request sample payload**:
-
-
-        `{ "scroll_id": "<scrollId-from-first-response>" }`
-
-
-        **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
+        * Send the field `scroll_id` in requests (snake_case). 
+        
+        * Receive the field `scrollID` in your responses (camelCase).
       operationId: scroll
       parameters:
         - in: body
@@ -2694,7 +2694,7 @@ definitions:
       scrollId:
         type: string
         readOnly: true
-        description: ID of this response. Use this in `scroll_id` in the next scroll request to retrieve the next set of scroll results.
+        description: The ID that should be passed in the following request. Clear the body of scroll request (erase the query and all other parameters), and copy in this ID. Note that the in `scroll_id` in the next scroll request to retrieve the next set of scroll results.
         example: DnF1ZXJ5VGhlbkZldGNoCQAAAAAWXRbqFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFp6B-xZTTVFrMGt4eVFnZXhQZV9YbVRrU3NnAAAAABakA8QWNjY1RUZtdWZRS1NZZWt1ZERTNHNaQQAAAAAWXRbrFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFl0W7BZTaUlka01LV1FEdTdaSWxvbkpCSDZ3AAAAABQ1nb4WVjRyRlUxZWRUU0dzbTV5VVVqYkhxdwAAAAAUdHVqFlF0b3Znei1ZUXgtZEkyZkR3M0pMbGcAAAAAFvGs6hZKVklxaXIyZ1NOQzF5NHg1cmhtVDV3AAAAABR0dWkWUXRvdmd6LVlReC1kSTJmRHczSkxsZw==
       hits:
         type: string
@@ -2706,14 +2706,13 @@ definitions:
       query:
         type: object
         description: >-
-          Search query. Uses Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
+          Add a search query to receive the `scrollID` in result. The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
 
 
-          Typically, you'll first use the `query` result to establish the search query. Then use `scroll_id` in subsequent requests.
-          
+          You can only add the `query` parameters if you are not passing the `scroll_id` in the request.
           #### Limitations
 
-          * Your query will only run on data sent today and yesterday. You can still specify a filter on `timestamp` to search a smaller time frame.
+          * The query can only run on 2 consecutive indexes. By default, the query runs on data sent today and yesterday. You can also add a filter on `timestamp` to search a smaller time frame.
 
           * When using `query_string`, `allow_leading_wildcard` must be set to `false`
 

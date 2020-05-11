@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Share visualizations
+title: Share Kibana objects
 permalink: /user-guide/kibana/share-import-export
 description: Share Kibana dashboards, saved searches and visualizations between accounts by exporting and importing them.
 flags:

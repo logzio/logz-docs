@@ -51,21 +51,30 @@ The best way to explain the guidelines is to look at a few examples. So let's ge
 
 <div class="tasklist">
 
+##### Metrics vs. Dimensions
+
+What distinguishes a metric from a dimension, you ask?
+Metric fields are used strictly for numerical values. You can use any number type, including: long, float, integer, etc.
+
+Dimension fields are always strings. Dimensions are metadata fields that add information about the metrics, such as where the data was sent from, which application part, and its relevance.
+
+This helps to ensure that the rollup mechanism will work properly. It only identifies number field types.
+
 ##### Single metric with dimensions
 
 In this example, we have one metric per document. We also have a metric field `name`, and its `value` is logged as a dimension.
 
 ```
 {
-    "metric": {
-        "name": "refresh_page.duration"
-    },
-    "dimensions": {
-        "environment": "production",
-        "version": "12.05.01",
-        "unit": "milliseconds",
-        "value": 8
-    }
+	"metric": {
+		"name": "refresh_page.duration"
+	},
+	"dimensions": {
+		"environment": "production",
+		"version": "12.05.01"
+	},
+	"unit": "milliseconds",
+	"value": 8
 }
 ```
 
@@ -96,7 +105,7 @@ By stating the measuring unit in the metric’s name, we prevent confusion, elim
 ```
 {
 	"metric": {
-		"RefreshPage.duration.ms": 8,
+		"RefreshPageDur.ms": 8,
 		"AvgPageLoadDur.ms": 23,
 		"ClicksPerSession.count": 461,
 		"AvgMemPerOp": 1520000,
@@ -113,22 +122,17 @@ By stating the measuring unit in the metric’s name, we prevent confusion, elim
 }
 ```
 
-##### Metrics vs. Dimensions
-
-What distinguishes a metric from a dimension, you ask?
-Metric fields are used strictly for numerical values. You can use any number type, including: long, float, integer, etc.
-
-Dimension fields are always strings. This helps to ensure that the rollup mechanism will work properly. It only identifies number field types.
-
 ##### What to avoid
 
 * Avoid sending `tag` and `timestamp` fields
 
   Logz.io automatically adds a timestamp to your documents during the indexing process so there's no need to duplicate it. Logz.io also adds tags so these are field names you'll want to avoid.
 
+  If you insist, you can always send similar functioning fields by modifying their field names. For example, "generated_timestamp", "my_timestamp", or "my_tags" will work.
+
 * Avoid metric analytics and aggregations
 
-  You don’t need to perform any aggregations or fancy pre-slicing-and-dicing on your metrics. Logz.io takes care of it for you. Logz.io runs analytics on your metrics by default, including division by percentiles and by standard deviation, just to name a few. 
+  You don’t need to perform any aggregations or fancy pre-slicing-and-dicing on your metrics. It's all taken care of for you. Logz.io runs analytics on your metrics by default, including division by percentiles and by standard deviation, just to name a few. 
   
   Logz.io also runs aggregations on your metrics, so that every metric you send is automatically captured with its aggregations: Max, Min, Sum, and Avg aggregations.
 

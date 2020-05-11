@@ -2709,11 +2709,11 @@ definitions:
           Search query. Uses Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
 
 
-          In Your first request of a scroll series, `query` is used to establish the search query. In all subsequent requests of the series, you'll use `scroll_id`.
-
+          Typically, you'll first use the `query` result to establish the search query. Then use `scroll_id` in subsequent requests.
+          
           #### Limitations
 
-          * Your query will run only on data sent today and yesterday. You can still specify a filter on `timestamp` to search a smaller time frame.
+          * Your query will only run on data sent today and yesterday. You can still specify a filter on `timestamp` to search a smaller time frame.
 
           * When using `query_string`, `allow_leading_wildcard` must be set to `false`
 
@@ -2747,7 +2747,11 @@ definitions:
           * If you omit `_source` from the request, all fields are returned.
 
           * If you pass `'_source': false`, it will exclude the `_source` field from the results.
-          
+        properties:
+          includes: 
+            type: array of strings
+            description: Array of fields to return
+            example: message
         items:
           - type: string
             description: Field to return.

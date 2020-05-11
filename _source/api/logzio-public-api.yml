@@ -422,6 +422,8 @@ paths:
               query:
                 type: object
                 description: >-
+                  The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
+
                   #### Limitations
 
                   * When using `query_string`, `allow_leading_wildcard` must be set to `false`
@@ -462,8 +464,7 @@ paths:
               _source:
                 type: object
                 description: >-
-                  An object with an “Includes” array of strings specifying an array of fields to return.       
-                  
+                  The object `includes` specifies an array of strings specifying an array of fields to return.
                   
                   * If you omit `_source` from the request, all fields are returned.
                   
@@ -2708,10 +2709,14 @@ definitions:
       query:
         type: object
         description: >-
-          Add a search query to receive the `scrollID` in result. The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
+          Add a search query to receive the `scrollID` in the result. 
+          
+          
+          The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
 
 
           You can only add the `query` parameters if you are not passing the `scroll_id` in the request.
+          
           #### Limitations
 
           * The query can only run on 2 consecutive indexes. By default, the query runs on data sent today and yesterday. You can also add a filter on `timestamp` to search a smaller time frame.
@@ -2743,7 +2748,7 @@ definitions:
       _source:
         type: object
         description: >-
-          An object with an “Includes” array of strings specifying an array of fields to return.
+          The object `includes` specifies an array of strings specifying an array of fields to return.
           
           * If you omit `_source` from the request, all fields are returned.
 

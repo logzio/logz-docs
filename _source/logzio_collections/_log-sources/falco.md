@@ -12,7 +12,7 @@ shipping-tags:
 
 Falco is a [CNCF-approved](https://www.cncf.io/blog/2020/01/08/toc-votes-to-move-falco-into-cncf-incubator/) container security and Kubernetes threat detection engine that logs illegal container activity at runtime.
 
-We've got a great [blog post](https://logz.io/blog/k8s-security-with-falco-and-cloud-siem/) about how shipping your Falco logs to Logz.io can help you monitor your Kubernetes API calls, audit logs, and operational logs for potentially malicious behavior, such as attempts to remove logging data from a container, to run recon tools inside a container, or add potentially malicious repositories to a container.
+We've got a great [blog post](https://logz.io/blog/k8s-security-with-falco-and-cloud-siem/) about how shipping your Falco logs to Logz.io Cloud SIEM can help you monitor your Kubernetes workloads for potentially malicious behavior, such as attempts to remove logging data from a container, to run recon tools inside a container, or add potentially malicious repositories to a container.
 
 You can review the Falco resources in your Logz.io Cloud SIEM account, under the pre-configured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and search for the provided Falco [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 

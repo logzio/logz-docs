@@ -93,15 +93,18 @@ firstLevel:
   icon: fas fa-shield-alt
 
   secondLevel:
-  - title: Cloud SIEM
+  - title: Why Cloud SIEM?
+    url: /user-guide/siem
+  - title: Getting started
     url: /user-guide/cloud-siem/
-    thirdLevel:
-    - title: Understanding your security logs
-      url: /user-guide/cloud-siem/understanding-your-security-logs.html
-    - title: Manage security rules
-      url: /user-guide/cloud-siem/manage-security-rules.html
-    - title: Lookups
-      url: /user-guide/lookups/
+  - title: Understanding your security logs
+    url: /user-guide/cloud-siem/understanding-your-security-logs.html
+  - title: Manage security rules
+    url: /user-guide/cloud-siem/manage-security-rules.html
+  - title: Lookups
+    url: /user-guide/lookups/
+  - title: Integrations
+    url: /user-guide/cloud-siem/integrations
 
 - title: Admin tools
   icon: li-gear

@@ -105,7 +105,7 @@ To send raw text:
   logger.log('This is a log message');
   ```
 
-Include this line if you're using logzio-nodejs in a severless environment, such as AWS Lambda, Azure Functions, or Google Cloud Functions:
+Include this line at the end of the run if you're using logzio-nodejs in a severless environment, such as AWS Lambda, Azure Functions, or Google Cloud Functions:
 
   ```js
   logger.sendAndClose();

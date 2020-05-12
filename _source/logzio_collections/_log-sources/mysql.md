@@ -36,7 +36,7 @@ Configuration tl;dr
 
 | Item | Description |
 |---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [New public certificate (_active from May 27, 2020_)](https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt) <br> [Public certificate (_expires May 26, 2020_)](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | Default log locations | General query log: `/var/log/mysql/mysql.log` <br> Slow query log: `/var/log/mysql/mysql-slow.log` <br> Error log: `/var/log/mysql/error.log` |
 | Log type _(for preconfigured parsing)_ | General query log: `mysql` <br> Slow query log: `mysql_slow_query` <br> Error log: `mysql_error` |

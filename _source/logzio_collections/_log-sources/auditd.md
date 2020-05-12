@@ -24,11 +24,21 @@ root access
 
 <div class="tasklist">
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
+
+Starting May 26, 2020, we'll be transitioning our listener servers
+to a new public certificate.
+To make sure your shipped data arrives at your account,
+we recommend using both the old and new certificates
+as soon as possible,
+and including both certificates in your Filebeat configuration.
+After June 1, 2020, you can safely remove the old certificate.
+{:.info-box.important}
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
 sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
 ```
 
@@ -106,7 +116,9 @@ and replace it with this code block.
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities:
+      - '/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt'
+      - '/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'
 ```
 
 ##### Start Auditbeat

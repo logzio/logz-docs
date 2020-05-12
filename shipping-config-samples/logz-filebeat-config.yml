@@ -78,4 +78,6 @@ output:
       # Run this command:
       #   `sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/`
       # For Windows, replace the filepath with the certificate's location.
-      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+      certificate_authorities:
+        - '/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt'
+        - '/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'

@@ -33,7 +33,7 @@ shipping-tags:
 **Action required**:
 Starting May 26, 2020, we'll transition our listener servers
 to a new public SSL certificate.
-Before that time,
+Before that date,
 you'll need to include both the old and new certificates
 in your configurations. \\
 \\

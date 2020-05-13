@@ -30,7 +30,7 @@ See your device's documentation if you're not sure how to do this.
 **Action required**:
 Starting May 26, 2020, we'll transition our listener servers
 to a new public SSL certificate.
-Before that time,
+Before that date,
 you'll need to include both the old and new certificates
 in your configurations. \\
 \\

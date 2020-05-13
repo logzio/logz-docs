@@ -60,14 +60,19 @@ Now click **OK** to exit all those dialogs you just opened. 😬
 
 ##### Download the Logz.io public certificate
 
-Starting May 26, 2020, we'll be transitioning our listener servers
-to a new public certificate.
-To make sure your shipped data arrives at your account,
-we recommend using both the old and new certificates
-as soon as possible,
-and including both certificates in your Filebeat configuration.
-After June 1, 2020, you can safely remove the old certificate.
-{:.info-box.important}
+**Action required**:
+Starting May 26, 2020, we'll transition our listener servers
+to a new public SSL certificate.
+Before that time,
+you'll need to include both the old and new certificates
+in your configurations. \\
+\\
+**If you send encrypted data without using both certificates after May 26,
+that data might not arrive at your Logz.io account or be archived.** \\
+\\
+You can safely remove the old certificate
+after June 5, 2020.
+{:.info-box.warning}
 
 Download the
 [new Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt)

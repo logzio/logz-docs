@@ -3,7 +3,7 @@ layout: article
 title: Custom metrics
 permalink: /user-guide/infrastructure-monitoring/custom-metrics
 flags:
-  admin: true
+  #admin: true
   #logzio-plan: pro
 tags:
   - Grafana

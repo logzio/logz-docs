@@ -78,7 +78,7 @@ In this example, we have one metric per document. We also have a metric field `n
 }
 ```
 
-This document should be rearranged so the two fields, `name` and `value` are a key-value pair. The field `unit` is made redundent if we add the units to the metric field name.
+This document should be rearranged so the two fields, `name` and `value` are a key-value pair. The field `unit` is made redundant if we add the units to the metric field name.
 
 Here's the result:
 

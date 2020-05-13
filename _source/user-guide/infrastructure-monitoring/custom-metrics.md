@@ -11,7 +11,7 @@ contributors:
   - shalper
 ---
 
-You can send your application metrics to your Logz.io Infrastructure Monitoring account and benefit from all of the advantages of your tried and true dashboards.
+You can send your application metrics to your Logz.io Infrastructure Monitoring account and create your own dashboards to start benefiting.
 
 To do this, you'll need to send your application metrics to Logz.io in JSON format and stick to the formatting guidelines.
 
@@ -66,7 +66,7 @@ In this example, we have one metric per document. We also have a metric field `n
 
 ```
 {
-	"metric": {
+	"metrics": {
 		"name": "refresh_page.duration"
 	},
 	"dimensions": {
@@ -84,7 +84,7 @@ Here's the result:
 
 ```
 {
-    "metric": {
+    "metrics": {
         "refresh_page.duration.ms": 8
     },
     "dimensions": {
@@ -104,7 +104,7 @@ By stating the measuring unit in the metric’s name, we prevent confusion, elim
 
 ```
 {
-	"metric": {
+	"metrics": {
 		"RefreshPageDur.ms": 8,
 		"AvgPageLoadDur.ms": 23,
 		"ClicksPerSession.count": 461,
@@ -170,7 +170,7 @@ This one takes all the wrong turns. After correcting it so the metric is a key-v
 
 ```
 {
-	"metric": {
+	"metrics": {
 		"Application_test_meter.count": 2
 	},
 	"dimensions": {
@@ -194,3 +194,5 @@ Let's reiterate a few best-practice recommendations for logging application metr
 * State the unit in the metric's name.
 
 * Avoid metric analytics and aggregations. Avoid adding a timestamp. Avoid the fields `tag` and `tags`.
+
+* Note that arrays are not supported.

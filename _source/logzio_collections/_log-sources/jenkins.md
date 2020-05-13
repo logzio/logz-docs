@@ -37,9 +37,23 @@ This page covers methods for shipping Jenkins system logs and build console outp
 Configuration tl;dr
 </summary>
 
+**Action required**:
+Starting May 26, 2020, we'll transition our listener servers
+to a new public SSL certificate.
+Before that date,
+you'll need to include both the old and new certificates
+in your configurations. \\
+\\
+**If you send encrypted data without using both certificates after May 26,
+that data might not arrive at your Logz.io account or be archived.** \\
+\\
+You can safely remove the old certificate
+after June 5, 2020.
+{:.info-box.warning}
+
 | Item | Description |
 |---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> **Use both certificates**: [New public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt) and [Old public certificate (_until June 5, 2020_)](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | Default log location | `/var/log/jenkins/jenkins.log` |
 | Log type _\(for preconfigured parsing\)_ | `jenkins` |
@@ -56,11 +70,26 @@ root access
 
 <div class="tasklist">
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
+
+**Action required**:
+Starting May 26, 2020, we'll transition our listener servers
+to a new public SSL certificate.
+Before that date,
+you'll need to include both the old and new certificates
+in your configurations. \\
+\\
+**If you send encrypted data without using both certificates after May 26,
+that data might not arrive at your Logz.io account or be archived.** \\
+\\
+You can safely remove the old certificate
+after June 5, 2020.
+{:.info-box.warning}
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
 sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
 ```
 
@@ -130,7 +159,9 @@ Remove all other outputs.
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities:
+      - '/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt'
+      - '/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'
 ```
 
 ##### Start Filebeat

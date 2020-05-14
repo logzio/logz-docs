@@ -29,6 +29,8 @@ shipping-tags:
 
 #### Set up docker-collector-logs
 
+{% include trust-chain-warning.html msg='docker' %}
+
 <div class="tasklist">
 
 ##### Pull the Docker image

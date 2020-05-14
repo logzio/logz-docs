@@ -11,7 +11,7 @@ const outputFormats = [ 'GFM' , 'CONTENTFUL' ]
 const collectionsFolder
   = path.join(__dirname, '_source/logzio_collections')
 const markdownFolders
-  = [ '_log-sources' , '_metrics-sources' ]
+  = [ '_log-sources' , '_metrics-sources' , '_shippers' ]
 
 let sourceFolderPaths = []
 markdownFolders.forEach(folder =>

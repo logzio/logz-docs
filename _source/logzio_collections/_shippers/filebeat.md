@@ -124,9 +124,27 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ##### Download the Logz.io public certificate
 
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+**Action required**:
+Starting May 26, 2020, we'll transition our listener servers
+to a new public SSL certificate.
+Before that date,
+you'll need to include both the old and new certificates
+in your configurations. \\
+\\
+**If you send encrypted data without using both certificates after May 26,
+that data might not arrive at your Logz.io account or be archived.** \\
+\\
+You can safely remove the old certificate
+after June 5, 2020.
+{:.info-box.warning}
 
-Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine. We recommend saving to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`.
+Download the
+[new Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt)
+to `C:\ProgramData\Winlogbeat\SectigoRSADomainValidationSecureServerCA.crt`
+and the
+[old Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
+to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
+on your machine.
 
 ##### Make your configuration file
 

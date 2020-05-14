@@ -17,11 +17,12 @@ shipping-tags:
 Starting May 26, 2020, we'll transition our listener servers
 to a new public SSL certificate.
 Before that date,
-you'll need to redeploy the latest images,
+you'll need to replace your containers
+using the latest images,
 which include both the old and new certificates. \\
 \\
 **If you send encrypted data after May 26
-without redeploying the latest containers,
+without deploying the latest containers,
 that data might not arrive at your Logz.io account or be archived.**
 {:.info-box.warning}
 

@@ -18,8 +18,6 @@ shipping-tags:
 Configuration tl;dr
 </summary>
 
-{% include trust-chain-warning.html %}
-
 | Item | Description |
 |---|---|
 | Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |

@@ -100,9 +100,17 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ##### Download the Logz.io public certificate
 
+{% include trust-chain-warning.html %}
+
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine. We recommend saving to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`.
+Download the
+[new Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt)
+to `C:\ProgramData\Winlogbeat\SectigoRSADomainValidationSecureServerCA.crt`
+and the
+[old Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
+to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
+on your machine.
 
 ##### Make your configuration file
 

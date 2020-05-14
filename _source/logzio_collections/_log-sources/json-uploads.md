@@ -150,10 +150,13 @@ Keep to these practices when shipping JSON logs over TCP:
 
 ### Sending the logs
 
+{% include trust-chain-warning.html %}
+
 To send JSON logs over TCP, download the Logz.io public certificate to a local folder.
 
 ```shell
-wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
 ```
 
 Using the certificate you just downloaded,

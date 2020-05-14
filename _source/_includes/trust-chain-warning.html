@@ -1,0 +1,48 @@
+{%- assign cutoffDate = 'May 28' -%}
+
+<p class="info-box warning">
+
+{% case include.msg -%}
+  {%- when 'docker' -%}
+    <b>Action required before {{cutoffDate}}, 2020</b>:
+    The trust chain provided here will expire on May 30,
+    and encrypted communication will stop working.
+    We'll transition our data receivers to a new certificate on {{cutoffDate}}.
+    Before {{cutoffDate}},
+    you'll need to follow the instructions below
+    to replace your containers using the latest images,
+    which include both the old and new certificates. <br>
+    <br>
+    <b>If you send encrypted data without using both certificates after {{cutoffDate}},
+    that data might not arrive at your Logz.io account or be archived.</b>
+  {%- when 'logstash' -%}
+    <b>Action required before {{cutoffDate}}, 2020</b>:
+    The trust chain provided here will expire on May 30,
+    and encrypted communication will stop working.
+    We'll transition our data receivers to a new certificate on {{cutoffDate}}.
+    Before {{cutoffDate}},
+    you'll need to follow the instructions below
+    to update your encrypted data shipping configurations
+    to include both the old and new certificates.
+    Both of the certificates are contained in a single file. <br>
+    <br>
+    <b>If you send encrypted data without using both certificates after {{cutoffDate}},
+    that data might not arrive at your Logz.io account or be archived.</b>
+  {%- else -%}
+    <b>Action required before {{cutoffDate}}, 2020</b>:
+    The trust chain provided here will expire on May 30,
+    and encrypted communication will stop working.
+    We'll transition our data receivers to a new certificate on {{cutoffDate}}.
+    Before {{cutoffDate}},
+    you'll need to follow the instructions below
+    to update your encrypted data shipping configurations
+    to include both the old and new certificates. <br>
+    <br>
+    <b>If you send encrypted data without using both certificates after {{cutoffDate}},
+    that data might not arrive at your Logz.io account or be archived.</b> <br>
+    <br>
+    You can remove the old certificate
+    only after June 5.
+{%- endcase %}
+
+</p>

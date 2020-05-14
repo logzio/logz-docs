@@ -31,12 +31,15 @@ JDK,
 
 <div class="tasklist">
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
+
+{% include trust-chain-warning.html msg='logstash' %}
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/logz-docs/master/certs/TrustExternalCARoot.crt -P /usr/share/logstash/keys/
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt \
+-P /usr/share/logstash/keys/TrustExternalCARoot.crt
 ```
 
 ##### _(If needed)_ Install the Lumberjack output plugin

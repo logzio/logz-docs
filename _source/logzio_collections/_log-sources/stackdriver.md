@@ -19,6 +19,8 @@ You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.i
 
 #### Configuration
 
+{% include trust-chain-warning.html msg='docker' %}
+
 **Before you begin, you'll need**:
 [Google Cloud SDK](https://cloud.google.com/sdk/docs/quickstarts),
 [a GCP project](https://console.cloud.google.com/projectcreate),

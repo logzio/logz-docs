@@ -207,6 +207,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ## Set up a Docker sidecar for MySQL
 
+{% include trust-chain-warning.html msg='docker' %}
+
 <div class="tasklist">
 
 ##### Pull the Docker image

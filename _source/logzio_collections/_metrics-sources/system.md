@@ -113,6 +113,8 @@ For other OSes, we recommend running Metricbeat locally on the system itself.
 
 #### Configuration
 
+{% include trust-chain-warning.html msg='docker' %}
+
 If you’re not already running Docker Metrics Collector, follow these steps.
 
 Otherwise, stop the container, add

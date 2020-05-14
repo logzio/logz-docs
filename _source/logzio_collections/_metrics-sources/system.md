@@ -33,19 +33,7 @@ shipping-tags:
 
 ##### Download the Logz.io public certificate
 
-**Action required**:
-Starting May 26, 2020, we'll transition our listener servers
-to a new public SSL certificate.
-Before that date,
-you'll need to include both the old and new certificates
-in your configurations. \\
-\\
-**If you send encrypted data without using both certificates after May 26,
-that data might not arrive at your Logz.io account or be archived.** \\
-\\
-You can safely remove the old certificate
-after June 5, 2020.
-{:.info-box.warning}
+{% include trust-chain-warning.html %}
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 

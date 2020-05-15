@@ -23,7 +23,7 @@ Configuration tl;dr
 
 | Item | Description |
 |---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> **Use both certificates**: [New public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt) and [Old public certificate (_until June 5, 2020_)](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | Default log location | _Puppet produces lots of different logs. See [Log files installed](https://puppet.com/docs/pe/2018.1/what_gets_installed_and_where.html#log-files-installed) from Puppet Labs for more information._ |
 | Log type _\(for preconfigured parsing\)_ | Puppet server: `puppetserver` <br> Puppet server access: `puppetserver-access` |
@@ -47,8 +47,7 @@ root access
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add Puppet as an input
@@ -145,9 +144,7 @@ Remove all other outputs.
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities:
-      - '/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt'
-      - '/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ##### Start Filebeat

@@ -24,10 +24,7 @@ shipping-tags:
 {% include trust-chain-warning.html %}
 
 Download the
-[new Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt)
-to `C:\ProgramData\Winlogbeat\SectigoRSADomainValidationSecureServerCA.crt`
-and the
-[old Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt)
+[Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt)
 to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
@@ -95,9 +92,7 @@ Winlogbeat can have one output only, so remove any other `output` entries.
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities:
-      - 'C:\ProgramData\Winlogbeat\SectigoRSADomainValidationSecureServerCA.crt'
-      - 'C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt'
+    certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ##### Restart Winlogbeat

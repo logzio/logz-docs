@@ -89,8 +89,7 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 You'll need to run this command on the server that hosts Metricbeat:
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### _(Optional)_ Disable the system module
@@ -137,9 +136,7 @@ ignore_older: 3hr
 type: metrics
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl.certificate_authorities:
-    - '/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt'
-    - '/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'
+  ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ###### Parameters

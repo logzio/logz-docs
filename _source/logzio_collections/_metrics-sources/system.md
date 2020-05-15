@@ -38,8 +38,7 @@ shipping-tags:
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/SectigoRSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add Logz.io configuration
@@ -67,9 +66,7 @@ Remove all other outputs.
 # ===== Outputs =====
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl.certificate_authorities:
-    - '/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt'
-    - '/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'
+    ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ##### _(If needed)_ Enable the system module

@@ -136,9 +136,7 @@ ignore_older: 3hr
 type: metrics
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl.certificate_authorities:
-    - '/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt'
-    - '/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'
+  ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ###### Parameters

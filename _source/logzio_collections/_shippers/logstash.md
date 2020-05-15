@@ -39,7 +39,7 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 
 ```shell
 sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt \
--P /usr/share/logstash/keys/TrustExternalCARoot.crt
+-O /usr/share/logstash/keys/TrustExternalCARoot.crt
 ```
 
 ##### _(If needed)_ Install the Lumberjack output plugin

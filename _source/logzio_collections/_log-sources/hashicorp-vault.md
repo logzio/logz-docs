@@ -41,7 +41,7 @@ see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from H
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt -O /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Create your configuration file for Vault

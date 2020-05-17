@@ -25,9 +25,13 @@ to avoid disruptions in sending your data to Logz.io.
 
 ## What this affects
 
-Many of the shipping methods covered in the Logz.io docs are affected,
-but not all.
-This does not affect data that you’re sending unencrypted or with higher protocols.
+This affects any shipping method where you send your data over SSL/TLS.
+It does not affect data that you’re sending unencrypted or with higher protocols.
+
+This page gives guidance
+only for working with the shipping methods covered in the docs.
+If you're working with a custom or third party shipping method,
+you'll need to check your configurations to see if they're affected.
 
 ### What this **does** affect
 

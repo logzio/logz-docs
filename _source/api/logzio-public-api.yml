@@ -126,7 +126,7 @@ tags:
       Manage user access to your Logz.io account using API requests.
 
 
-      You can create, update, suspend/unsuspend, and delete users. You can also retreive the list of active and suspended users.
+      You can create, update, suspend/unsuspend, and delete users. You can also retrieve the list of active and suspended users.
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -363,7 +363,7 @@ paths:
       operationId: search
       summary: Search logs
       description: >-
-        Searches your account data using the Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
+        Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) query language.
 
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
@@ -422,6 +422,8 @@ paths:
               query:
                 type: object
                 description: >-
+                  The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
+
                   #### Limitations
 
                   * When using `query_string`, `allow_leading_wildcard` must be set to `false`
@@ -460,16 +462,18 @@ paths:
                 items:
                   type: object
               _source:
-                type: array
+                type: object
                 description: >-
-                  An array of fields to return.
-                  If you don't include `_source` in the request,
-                  all fields are returned.
-
-
-                  **Note**:
-                  Alternatively, you can pass `'_source': false`
-                  to exclude the `_source` field from the results.
+                  The object `includes` specifies an array of strings specifying an array of fields to return.
+                  
+                  * If you omit `_source` from the request, all fields are returned.
+                  
+                  * If you pass `'_source': false`, it will exclude the `_source` field from the results.
+                properties:
+                  includes:
+                    type: array of strings
+                    description: Array of fields to return
+                    example: message
                 items:
                   - type: string
                     description: Field to return.
@@ -555,28 +559,28 @@ paths:
       tags:
         - Search logs
       description: >-
-        Runs a paginated search of your account data
-        using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
+        This endpoint can take 2 types of call requests. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id` 
+        (The variation in the field name is intentional) to fetch the next batches of paginated results.
+        This endpoint always returns results as a stringified JSON.
+        
+
+        How it works:
+        
+        
+        First, send a request to establish the `scrollID`. This initial request contains the query object and additional parameters, similar to the `v1/search` endpoint, with the exception that `dayOffset` and `accountIds` are not supported. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
+        
+        
+        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results. 
+        You'll know you've reached the last page of results, once the call keeps returning the last page of results repeatedly. Keep sending the same scroll ID as many times as needed to retrieve all of the available results.
+        The results are paginated, and the request advances through them, one at a time, by default. So that every time you send the request with the same `scroll_id`, the next batch of results is returned.
+       
+
+        **Note**:
 
 
-        The first request should contain the query object
-        (just like using the `/search` endpoint),
-        and returns an object that contains `scrollId`.
-        You'll use this scroll ID for all subsequent requests.
-
-
-        Every subsequent request should contain the `scroll_id` string.
-        You'll use the same scroll ID for the entire series of requests.
-        (Snake_case for requests, camelCase for responses.)
-
-
-        **Subsequent request sample payload**:
-
-
-        `{ "scroll_id": "<scrollId-from-first-response>" }`
-
-
-        **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
+        * Send the field `scroll_id` in requests (snake_case).
+        
+        * Receive the field `scrollID` in your responses (camelCase).
       operationId: scroll
       parameters:
         - in: body
@@ -2694,26 +2698,29 @@ definitions:
       scrollId:
         type: string
         readOnly: true
-        description: ID of this response. Use this in `scroll_id` in the next scroll request to retrieve the next set of scroll results.
+        description: Keep passing this ID in the request until you've retrieved all of the results. Copy this ID and pass it as the field `scroll_id` in a request to the same endpoint to retrieve the next page of results. (Remember to first clear the request body of all other parameters.)
         example: DnF1ZXJ5VGhlbkZldGNoCQAAAAAWXRbqFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFp6B-xZTTVFrMGt4eVFnZXhQZV9YbVRrU3NnAAAAABakA8QWNjY1RUZtdWZRS1NZZWt1ZERTNHNaQQAAAAAWXRbrFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFl0W7BZTaUlka01LV1FEdTdaSWxvbkpCSDZ3AAAAABQ1nb4WVjRyRlUxZWRUU0dzbTV5VVVqYkhxdwAAAAAUdHVqFlF0b3Znei1ZUXgtZEkyZkR3M0pMbGcAAAAAFvGs6hZKVklxaXIyZ1NOQzF5NHg1cmhtVDV3AAAAABR0dWkWUXRvdmd6LVlReC1kSTJmRHczSkxsZw==
       hits:
         type: string
         readOnly: true
-        description: Query results
+        description: Query results in stringified JSON format
   ScrollRequest:
     type: object
     properties:
       query:
         type: object
         description: >-
-          Search query. Uses Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
+          Add a search query to receive the `scrollID` in the result.
+          
+          
+          The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
 
 
-          In Your first request of a scroll series, `query` is used to establish the search query. In all subsequent requests of the series, you'll use `scroll_id`.
-
+          You can only add the `query` parameters if you are not passing the `scroll_id` in the request.
+          
           #### Limitations
 
-          * Your query will run only on data sent today and yesterday. You can still specify a filter on `timestamp` to search a smaller time frame.
+          * The query can only run on 2 consecutive indexes. By default, the query runs on data sent today and yesterday. You can also add a filter on `timestamp` to search a smaller time frame.
 
           * When using `query_string`, `allow_leading_wildcard` must be set to `false`
 
@@ -2740,16 +2747,18 @@ definitions:
 
           * Can't sort on `message`
       _source:
-        type: array
+        type: object
         description: >-
-          An array of fields to return.
-          If you don't include `_source` in the request,
-          all fields are returned.
+          The object `includes` specifies an array of strings specifying an array of fields to return.
+          
+          * If you omit `_source` from the request, all fields are returned.
 
-
-          **Note**:
-          Alternatively, you can pass `'_source': false`
-          to exclude the `_source` field from the results.
+          * If you pass `'_source': false`, it will exclude the `_source` field from the results.
+        properties:
+          includes: 
+            type: array of strings
+            description: Array of fields to return
+            example: message
         items:
           - type: string
             description: Field to return.

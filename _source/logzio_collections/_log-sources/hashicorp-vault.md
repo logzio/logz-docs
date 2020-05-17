@@ -21,15 +21,17 @@ root access
 
 ##### Configure Vault for raw log output
 
-Start or restart Vault,
-enabling raw log output to the default location.
+Configure Vault
+to enable raw log output to the default location.
+This disables log hashing
+so Filebeat can read the log files:
 
-Raw log output disables log hashing
-so Filebeat can read the log files.
 
 ```shell
 vault audit enable file file_path=/var/log/vault_audit.log log_raw=true
 ```
+
+After running this command, start or restart Vault.
 
 For more information on logging and enabling audit devices,
 see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from HashiCorp.

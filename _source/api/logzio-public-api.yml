@@ -2698,19 +2698,19 @@ definitions:
       scrollId:
         type: string
         readOnly: true
-        description: The ID that should be passed in the following request. Clear the body of scroll request (erase the query and all other parameters), and copy in this ID. Note that the in `scroll_id` in the next scroll request to retrieve the next set of scroll results.
+        description: Keep passing this ID in the request until you've retrieved all of the results. Copy this ID and pass it as the field `scroll_id` in a request to the same endpoint to retrieve the next page of results. (Remember to first clear the request body of all other parameters.)
         example: DnF1ZXJ5VGhlbkZldGNoCQAAAAAWXRbqFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFp6B-xZTTVFrMGt4eVFnZXhQZV9YbVRrU3NnAAAAABakA8QWNjY1RUZtdWZRS1NZZWt1ZERTNHNaQQAAAAAWXRbrFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFl0W7BZTaUlka01LV1FEdTdaSWxvbkpCSDZ3AAAAABQ1nb4WVjRyRlUxZWRUU0dzbTV5VVVqYkhxdwAAAAAUdHVqFlF0b3Znei1ZUXgtZEkyZkR3M0pMbGcAAAAAFvGs6hZKVklxaXIyZ1NOQzF5NHg1cmhtVDV3AAAAABR0dWkWUXRvdmd6LVlReC1kSTJmRHczSkxsZw==
       hits:
         type: string
         readOnly: true
-        description: Query results
+        description: Query results in stringified JSON format
   ScrollRequest:
     type: object
     properties:
       query:
         type: object
         description: >-
-          Add a search query to receive the `scrollID` in the result. 
+          Add a search query to receive the `scrollID` in the result.
           
           
           The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.

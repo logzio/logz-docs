@@ -90,12 +90,13 @@ just in case your team uses a different file location.
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-###### For Winlogbeat
+###### For Winlogbeat or Filebeat (Windows)
 
 Download the
 [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt)
-to the server running Winlogbeat at
-`C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
+
+* For **Winlogbeat**: Copy to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
+* For **Filebeat**: Copy to `C:\ProgramData\Filebeat\Logzio.crt`
 
 ###### For Logstash over SSL
 

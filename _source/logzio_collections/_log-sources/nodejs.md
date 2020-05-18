@@ -121,10 +121,13 @@ Include this line at the end of the run if you're using logzio-nodejs in a sever
 
 ## winston-logzio setup
 
-winston-logzio is a winston plugin and wrapper for the logzio-nodejs appender.
+This winston plugin is a wrapper for the logzio-nodejs appender, which basically means it just wraps our nodejs logzio shipper.
 With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
 
+
 #### Configure winston-logzio
+
+**Before you begin, you'll need**: Winston 3 (If you're looking for Winston 2, checkout v1.0.8)
 
 <div class="tasklist">
 
@@ -138,35 +141,52 @@ npm install winston-logzio --save
 
 ##### Configure winston-logzio
 
-Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
-
-For a complete list of options, see the configuration parameters below the code block.👇
+Here's a sample configuration that you can use as a starting point.
+Use the samples in the code block below or replace the sample with a configuration that matches your needs.
 
 ```js
-var winston = require('winston');
-var logzioWinstonTransport = require('winston-logzio');
+const winston = require('winston');
+const LogzioWinstonTransport = require('winston-logzio');
 
-// Replace these parameters with your configuration
-var loggerOptions = {
-    token: '<<SHIPPING-TOKEN>>',
-    protocol: 'https',
-    host: '<<LISTENER-HOST>>',
-    port: '8071',
-    type: 'YourLogType'
-};
+const logzioWinstonTransport = new LogzioWinstonTransport({
+  level: 'info',
+  name: 'winston_logzio',
+  token: '<<SHIPPING-TOKEN>>',
+  host: '<<LISTENER-HOST>>',
+});
 
-winston.add(logzioWinstonTransport, loggerOptions);
+
+const logger = winston.createLogger({
+    format: winston.format.simple(),
+    transports: [logzioWinstonTransport],
+});
+
+logger.log('warn', 'Just a test message');
 ```
 
-###### Parameters
+If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `logger.close()` at the end of the run.
+
+##### Replace the placeholders in the sample configuration
+
+If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
+
+* {% include log-shipping/replace-vars.html token=true %}
+
+* {% include log-shipping/replace-vars.html listener=true %}
+
+
+##### Parameters
+
+For a complete list of your options, see the configuration parameters below.👇
 
 | Parameter | Description |
 |---|---|
+| LogzioWinstonTransport | This variable determines what will be passed to the logzio nodejs logger itself. If you want to configure the nodejs logger, add any parameters you want to send to winston when initializing the transport. |
 | token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
 | protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
 | host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
 | port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
-| type <span class="default-param">`nodejs`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
+| type <span class="default-param">`nodejs`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io to determine parsing. Can't contain spaces. |
 | sendIntervalMs <span class="default-param">`2000` (2 seconds)</span> | Time to wait between retry attempts, in milliseconds. |
 | bufferSize <span class="default-param">`100`</span> | Maximum number of messages the logger will accumulate before sending them all as a bulk. |
 | numberOfRetries <span class="default-param">`3`</span> | Maximum number of retry attempts. |
@@ -176,42 +196,62 @@ winston.add(logzioWinstonTransport, loggerOptions);
 | addTimestampWithNanoSecs <span class="default-param">`false`</span> | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. <br> If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. |
 {:.paramlist}
 
-###### Code samples
+##### Additional configuration options
 
-To send a log line:
+* If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `logger.close()` at the end of the run.
 
-```js
-winston.log('info', 'winston logger configured with logzio transport');
-```
+* The winston logger by default sends all logs to the console. You can easily disable this by adding this line to your code :
 
-winston sends logs to the console by default.
-To disable this behavior:
+  ```js
+  winston.remove(winston.transports.Console);
+  ```
+* To send a log line:
 
-```js
-winston.remove(winston.transports.Console);
-```
+  ```js
+  winston.log('info', 'winston logger configured with logzio transport');
+  ```
 
-To log the last UncaughtException before Node exits:
+* To log the last UncaughtException before Node exits:
 
-```js
-var logzIOTransport = new (winstonLogzIO)(loggerOptions);
-var logger = new(winston.Logger)({
-  transports: [
-    logzIOTransport
-  ],
-  exceptionHandlers: [
-    logzIOTransport
-  ],
-  exitOnError: true    // set this to true
-});
-
-process.on('uncaughtException', function (err) {
-  logger.error("UncaughtException processing: %s", err);
-  logzIOTransport.flush( function(callback) {
-    process.exit(1);
+  ```js
+  var logzIOTransport = new (winstonLogzIO)(loggerOptions);
+  var logger = new(winston.Logger)({
+    transports: [
+      logzIOTransport
+    ],
+    exceptionHandlers: [
+      logzIOTransport
+    ],
+    exitOnError: true    // set this to true
   });
-});
-```
+  
+  process.on('uncaughtException', function (err) {
+    logger.error("UncaughtException processing: %s", err);
+    logzIOTransport.flush( function(callback) {
+      process.exit(1);
+    });
+  });
+  ```
+
+* Another configuration option
+
+  ```js
+  var winston = require('winston');
+  var logzioWinstonTransport = require('winston-logzio');
+  
+  // Replace these parameters with your configuration
+  var loggerOptions = {
+      token: '<<SHIPPING-TOKEN>>',
+      protocol: 'https',
+      host: '<<LISTENER-HOST>>',
+      port: '8071',
+      type: 'YourLogType'
+  };
+
+  winston.add(logzioWinstonTransport, loggerOptions);
+  ```
+
+
 
 </div>
 

@@ -224,7 +224,7 @@ For a complete list of your options, see the configuration parameters below.👇
     ],
     exitOnError: true    // set this to true
   });
-  
+
   process.on('uncaughtException', function (err) {
     logger.error("UncaughtException processing: %s", err);
     logzIOTransport.flush( function(callback) {
@@ -238,7 +238,7 @@ For a complete list of your options, see the configuration parameters below.👇
   ```js
   var winston = require('winston');
   var logzioWinstonTransport = require('winston-logzio');
-  
+
   // Replace these parameters with your configuration
   var loggerOptions = {
       token: '<<SHIPPING-TOKEN>>',

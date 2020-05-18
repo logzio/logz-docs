@@ -20,6 +20,7 @@ shipping-tags:
 
 * [logzio-nodejs](#logzio-nodejs-config)
 * [winston-logzio](#winston-logzio-config)
+* [winston-logzio with Typescript](#winston-typescript)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -262,5 +263,81 @@ For a complete list of your options, see the configuration parameters below.👇
 </div>
 <!-- tab:end -->
 
+
+<div id="winston-typescript">
+
+## winston-logzio setup with Typescript
+
+This winston plugin is a wrapper for the logzio-nodejs appender that runs with Typescript, which basically means it just wraps our nodejs logzio shipper.
+With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
+
+
+#### Configure winston-logzio
+
+**Before you begin, you'll need**: Winston 3 (If you're looking for Winston 2, checkout v1.0.8)
+
+<div class="tasklist">
+
+##### Add the dependency to your project
+
+Navigate to your project's folder in the command line, and run this command to install the dependency.
+
+```shell
+npm install winston-logzio --save
+```
+
+##### Configure winston-logzio with Typescript
+
+If you don't have a `tsconfig.json` file, you'll need to add it first. Start by running:
+
+```js
+tsc --init
+```
+
+On your `tsconfig.json` file, under the parameter `compilerOptions` make sure you have the `esModuleInterop` flag set to `true` or add it:
+
+```js
+"compilerOptions": {
+  ...
+  "esModuleInterop": true
+}
+```
+
+Here's a sample configuration that you can use as a starting point.
+Use the samples in the code block below or replace the sample with a configuration that matches your needs.
+
+```js
+import winston from 'winston';
+import LogzioWinstonTransport from 'winston-logzio';
+const logzioWinstonTransport = new LogzioWinstonTransport({
+  level: 'info',
+  name: 'winston_logzio',
+  token: '<<SHIPPING-TOKEN>>',
+  host: '<<LISTENER-HOST>>',
+});
+const logger = winston.createLogger({
+    format: winston.format.simple(),
+    transports: [logzioWinstonTransport],
+});
+logger.log('warn', 'Just a test message');
+```
+
+If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block.
+
+```js
+logger.close()
+```
+
+##### Replace the placeholders in the sample configuration
+
+If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
+
+* {% include log-shipping/replace-vars.html token=true %}
+
+* {% include log-shipping/replace-vars.html listener=true %}
+
+
+
+</div>
 </div>
 <!-- tabContainer:end -->

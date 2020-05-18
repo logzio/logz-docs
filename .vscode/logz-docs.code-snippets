@@ -121,7 +121,7 @@
 
   "CloudFront image URL": {
     "prefix": "cloudfront-image-url",
-    "body": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/",
+    "body": "![${1:Alt text}](${2:https://dytvr9ot2sszz.cloudfront.net/logz-docs/...})",
     "description": "URL where images are hosted. You'll still need to fill in the S3 bucket filepath."
   }
 

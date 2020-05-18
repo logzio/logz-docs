@@ -198,9 +198,13 @@ For a complete list of your options, see the configuration parameters below.👇
 
 ##### Additional configuration options
 
-* If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `logger.close()` at the end of the run.
+* If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block.
 
-* The winston logger by default sends all logs to the console. You can easily disable this by adding this line to your code :
+  ```js
+  logger.close()
+  ```
+
+* The winston logger by default sends all logs to the console. You can easily disable this by adding this line to your code:
 
   ```js
   winston.remove(winston.transports.Console);

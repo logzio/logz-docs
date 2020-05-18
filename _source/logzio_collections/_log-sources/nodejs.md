@@ -128,7 +128,7 @@ With winston-logzio, you can take advantage of the winston logger framework with
 
 #### Configure winston-logzio
 
-**Before you begin, you'll need**: Winston 3 (If you're looking for Winston 2, checkout v1.0.8)
+**Before you begin, you'll need**: Winston 3 (If you're looking for Winston 2, checkout v1.0.8). If you need to run with Typescript, follow the procedure to set up winston with Typescript.
 
 <div class="tasklist">
 

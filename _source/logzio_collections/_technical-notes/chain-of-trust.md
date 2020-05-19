@@ -54,6 +54,10 @@ For shipping methods covered in the docs, these fall into two main categories:
 
 * **If you're managing a shipping app** (such as Filebeat or Metricbeat):
   See _[To replace the certificate file](#replace-the-cert-file)_ (below)
+* **If you're shipping with rsyslog**:
+  See
+  _[To check your rsyslog configuration](#check-rsyslog-config)_
+  (below)
 * **If you deployed a Docker container managed by Logz.io**:
   See _[To update a Docker container](#update-container)_ (below)
 * **If you deployed the Kubernetes Metricbeat configmap**:
@@ -186,3 +190,57 @@ After you've confirmed you received data from the new container,
 you can safely delete the old container and image.
 
 </div>
+
+#### To check your rsyslog configuration {#check-rsyslog-config}
+
+These instructions are for an rsyslog setup
+that you customized.
+The Logz.io rsyslog setup script
+does not configure rsyslog to use SSL.
+{:.info-box.note}
+
+<div class="tasklist">
+
+##### Check the configuration file
+
+Your rsyslog implementation may or may not be using SSL/TLS over TCP.
+To find out, you'll need to check your rsyslog configuration,
+typically at `/etc/rsyslog.conf`.
+
+###### If you are using TLS/SSL
+
+Configurations using TLS/SSL over TCP
+have two main indicators:
+
+* A line that starts with
+  `@@<<LISTENER-HOST>>:5001`
+  (specifying TCP output to Logz.io port 5001),
+  where `<<LISTENER-HOST>>` is your region's listener address
+  (for example, `listener.logz.io` or `listener-eu.logz.io`).
+  followed by port **5001**.
+* Your file specifies a certificate to be used,
+  often starting with `$DefaultNetstreamDriverCAFile`.
+
+If you see these things in your conf file,
+you'll need to overwrite the existing certificate
+with the new file that contains
+both the old and the new certificates:
+
+```shell
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /path/to/your/certificate/file.crt
+```
+
+###### If you're not using TLS/SSL
+
+On the other hand, if you see something like
+`@@<<LISTENER-HOST>>:5000;moreDirectives;TLS:NO`
+and no certificate specified in the conf file,
+you don't need to do anything.
+Your data will continue to ship
+both before and after the cutover time.
+
+You can end here.
+
+##### _(If needed)_ Test the new certificate
+
+{% include trust-chain-testing.html %}

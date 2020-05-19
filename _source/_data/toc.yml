@@ -1,34 +1,16 @@
 # *** Logz.io template can handle 3 levels max ***
 # 3-level hierarchy:
-# firstLevel
-#   secondLevel
-#     thirdLevel
+# firstLevel: - contains title and icon only (no url), and secondLevel array
+#   secondLevel: - contains title and url, and thirdLevel array
+#     thirdLevel: - contains title and url
 
-# Each entry should contain 'title' and 'url'
-# Add `external: true` if an entry links to outside docs
+# Add `external: true` if an entry links to outside docs.
+# This adds the external link icon.
 
 firstLevel:
 
-  # ===== GETTING STARTED =====
-# - title: Getting Started
-
-  # secondLevel:
-  # - title: Overview
-    # url: /getting-started/overview/index.html
-
-  # - title: Quickstart
-    # url: /getting-started/quickstart/index.html
-
-    # thirdLevel:
-    # - title: Ship sample logs with Filebeat
-      # url: /placeholder.html
-    # - title: Discover
-    # - title: Install ELK Apps
-    # - title: Explore Insights
-
-
   # ===== USER GUIDE =====
-  # These docs are in the /user-guide folder
+  # These docs are generally in the /user-guide folder
 - title: Logging
   icon: li-bar-graph
 
@@ -167,8 +149,6 @@ firstLevel:
       - title: Setting S3 permissions in AWS
         url: /user-guide/archive-and-restore/set-s3-permissions.html
 
-#  - title: Give AWS access with IAM roles
-#    url: /user-guide/give-aws-access-with-iam-roles/
 
   # ===== SHIPPING AND PARSING =====
 - title: Shipping & parsing
@@ -186,15 +166,8 @@ firstLevel:
       url: /user-guide/log-shipping/log-shipping-troubleshooting.html
     - title: Listener IP addresses
       url: /user-guide/log-shipping/listener-ip-addresses.html
-    # - title: Field mapping and data parsing
-    # thirdLevel:
-    # - title: Field mapping
   - title: Data parsing
     url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
-
-  # - title: Shipping utilities
-  #   url: /shipping/shipping-utilities/
-  #   thirdLevel:
 
   # ===== INTEGRATIONS =====
 - title: Integrations

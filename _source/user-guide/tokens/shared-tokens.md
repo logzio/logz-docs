@@ -70,7 +70,7 @@ Each token filter is a `field: value` key-value pair. The value needs to be an e
 
 ##### Testing token filters
 
-It's simple to test shared tokens. You can open your sharing link in an incongnito browser window to try it out. For example, if you're trying to share a dashboard, you can add or remove token filters and refresh the view to see how the filters affect what your recipients will see.
+It's simple to test shared tokens. You can open your sharing link in an incognito browser window to try it out. For example, if you're trying to share a dashboard, you can add or remove token filters and refresh the view to see how the filters affect what your recipients will see.
 
 Remember, the Kibana filters at the dashboard or visualization level affect what your recipients can view. However, they don't control access tightly enough from a security point of view. Make sure to apply the token filters you need to keep your data secure.
 {:.info-box.warning}

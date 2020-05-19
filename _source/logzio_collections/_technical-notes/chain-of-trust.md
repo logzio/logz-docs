@@ -16,7 +16,7 @@ so you can keep sending your data without any issues.
 
 To make sure there’s a smooth transition,
 we’ll rotate certificates and establish a new chain of trust
-a few days early. This new chain won’t expire until 2038.
+a few days early.
 
 This means you’ll need to update any of your data shipping
 configurations that make use of our certificate chain.

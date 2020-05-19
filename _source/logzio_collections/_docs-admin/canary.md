@@ -13,7 +13,7 @@ contributors:
   - imnotashrimp
 ---
 
-## Top of page
+#### Top of page
 
 1. Page title is H1
 2. Beta flag is present
@@ -23,20 +23,40 @@ contributors:
 6. "Available for this plan" is Enterprise
 7. "Projects" shows a link to Logz.io docs repo in GitHub
 
-## Left toc
+#### Left toc
 
 1. Expand/collapse on click
 2. Current page is highlighted (if it's actually represented in the toc)
 3. If current page is level 3, parent is expanded
 
-## Bottom of page
+#### Data
 
-### Below the article
+1. Data shown below is **logzio-regions**:
+
+    {{site.data.logzio-regions | truncate: 500}}
+
+    Verify on these pages:
+
+    * [{{site.baseurl}}/user-guide/log-shipping/listener-ip-addresses.html]({{site.baseurl}}/user-guide/log-shipping/listener-ip-addresses.html)
+    * [{{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls)
+    * [{{site.baseurl}}/listener-ip-addresses.xml]({{site.baseurl}}/listener-ip-addresses.xml)
+
+2. Data shown below is the **toc**:
+
+    {{site.data.toc | truncate: 500}}
+
+3. Data shown below is the shipping tabs & tags:
+
+    {{site.data.shipper-tabs |  truncate: 500}}
+
+#### Bottom of page
+
+##### Below the article
 
 1. Edit this page, links to this page on master branch in GitHub
 2. Report an issue, links to new issue page in GitHub
 
-### Footer
+##### Footer
 
 1. "all" links to `/docs-admin/`, cursor is a cursor and not the pointing hand
 2. Privacy policy & terms of use link to respective page on Logz.io main site

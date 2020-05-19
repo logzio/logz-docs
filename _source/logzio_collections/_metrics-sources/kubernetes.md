@@ -26,8 +26,8 @@ shipping-tags:
 
 **Before you begin, you'll need**:
 [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed,
-destination port 5015 is open on your firewall for outgoing traffic
-
+destination port 5015 is open on your firewall for outgoing traffic,
+Kubelet read-only-port 10255 enabled (enabled by default)
 <div class="tasklist">
 
 ##### Run the automated deployment script
@@ -63,7 +63,8 @@ and then open [Logz.io](https://app.logz.io/).
 
 **Before you begin, you'll need**:
 [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed,
-destination port 5015 is open on your firewall for outgoing traffic
+destination port 5015 is open on your firewall for outgoing traffic,
+Kubelet read-only-port 10255 enabled (enabled by default)
 
 <div class="tasklist">
 

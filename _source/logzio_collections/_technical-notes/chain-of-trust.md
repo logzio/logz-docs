@@ -135,32 +135,7 @@ Restart your shipper to load the new certificate.
 
 ##### Test the new certificate
 
-Starting Monday, May 18,
-we’ll open up test listeners
-so you can confirm the new configurations will work
-after we switch to the new chain of trust.
-
-Test your new configuration
-by temporarily pointing your shipper to a testing URL for your region
-(in the table below).
-You’ll know the configuration is good
-(and that it will work after May 28)
-if you see the data coming into your account.
-
-After you’ve confirmed the configuration is good,
-revert your shipper to the production URL for your region.
-Once again, you should confirm
-the data is coming into your account as expected.
-
-| Region | Slug | Test URL | Production URL |
-|---|---|---|
-| US East (Northern Virginia) | us-east-1 | listener-us-catest.logz.io | listener.logz.io |
-| Asia Pacific (Sydney) | ap-southeast-2 | listener-au-catest.logz.io | listener-au.logz.io |
-| Canada (Central) | ca-central-1 | listener-ca-catest.logz.io | listener-ca.logz.io |
-| Europe (Frankfurt) | eu-central-1 | listener-eu-catest.logz.io | listener-eu.logz.io |
-| West Europe (Netherlands) | westeurope | listener-nl-catest.logz.io | listener-nl.logz.io |
-| Europe (London) | eu-west-2 | listener-uk-catest.logz.io | listener-uk.logz.io |
-| West US 2 (Washington) | westus2 | listener-wa-catest.logz.io | listener-wa.logz.io |
+{% include trust-chain-testing.html %}
 
 </div>
 

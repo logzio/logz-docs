@@ -33,15 +33,17 @@ contributors:
 
 1. Data shown below is **logzio-regions**:
 
-    {{site.data.logzio-regions | truncate: 500}}
-
     Verify on these pages:
 
     * [{{site.baseurl}}/user-guide/log-shipping/listener-ip-addresses.html]({{site.baseurl}}/user-guide/log-shipping/listener-ip-addresses.html)
     * [{{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls)
     * [{{site.baseurl}}/listener-ip-addresses.xml]({{site.baseurl}}/listener-ip-addresses.xml)
 
+    {{site.data.logzio-regions | truncate: 500}}
+
 2. Data shown below is the **toc**:
+
+    Verify on every page.
 
     {{site.data.toc | truncate: 500}}
 

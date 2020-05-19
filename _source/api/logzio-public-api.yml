@@ -2439,8 +2439,8 @@ definitions:
         example: 27cdcf45-ae12-581a-809e-17a6bbc9ae07
       groupBy:
         type: object
-        description: Array of fields used by the security rule to aggregate results. Security rules can apply `groupBy` conditions to aggregate results by up to 3 fields. The fields differ rule by rule.
-        example: {"source_ip": "122.17.45.15" }
+        description: A map object. Array of field:value pairs (key-value pairs) used by the security rule to aggregate results. Security rules can apply `groupBy` conditions to aggregate results by up to 3 fields. The fields differ rule by rule.
+        example: {"source_ip": "122.17.45.15", "hostname":"hostname1234" }
         #additionalProperties:
          # type: map
          # maximum: 3
@@ -2464,7 +2464,7 @@ definitions:
         $ref: '#/definitions/AlertsEventsFilter'
         summary: Filter by rule name, rule severity, or time range.
       sort:
-        description: Sorting is not required, but recommended. If omitted, Elasticsearch will determine the sorting.
+        description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
         type: array
         items:
           $ref: '#/definitions/AlertsEventsSortRequest'

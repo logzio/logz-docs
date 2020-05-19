@@ -75,13 +75,10 @@ info:
 securityDefinitions:
   X-API-TOKEN:
     description: >-
-      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
-      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page. To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
 
 
-      API tokens carry privileges to make changes to users and accounts,
-      so it's important to keep your tokens secure. If you believe an API token has been compromised,
-      delete the compromised token, and replace it with a new token in your integrations.
+      API tokens carry privileges to make changes to users and accounts, so it's important to keep your tokens secure. If you believe an API token has been compromised, delete the compromised token, and replace it with a new token in your integrations.
     type: apiKey
     in: header
     name: X-API-TOKEN
@@ -101,37 +98,32 @@ tags:
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage notification endpoints
-    description: >-
-      Logz.io can send notifications to your preferred workspaces, such as Opsgenie, BigPanda, PagerDuty, and Slack.
-
-
-      Notifications are typically sent when alerts are triggered, when a user shares a Kibana object,
-      or when Logz.io Insights identifies new exceptions in your logs.
-
-
-      Use these API requests to create, update, or delete notification endpoints. If you configure a custom endpoint,
-      you can configure the notificaton message body.
-      Otherwise, you can use any of the available preconfigured endpoints.
   - name: Import or export Kibana objects
   - name: Manage shared tokens
     description: >-
-      You can share Kibana visualization and dashboard snapshots using shared tokens.
-      Token filters are available to help you control what data to expose.
-
-
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
+  - name: Security events
     description: >-
-      Manage user access to your Logz.io account using API requests.
+      A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+      
+      
+      Your Logz.io Cloud SIEM is pre-loaded with hundreds of security rules created and maintained by Logz.io's security analysts. The list continues to be expanded and updated on a regular basis. You can also add your own security rules.
 
 
-      You can create, update, suspend/unsuspend, and delete users. You can also retrieve the list of active and suspended users.
+      To investigate into security events, you can begin by running a bulk query to fetch security event logs, either with or without applying filtering criteria. This query returns all of the events that match the query parameters and can potentially fetch events going back many months. Whenever you encounter a particular event you would like to further investigate, you can run the drilldown query to fetch the logs that triggered the security event to delve deeper into the event details.
+
+
+      These queries can be used to integrate with an automated response solution such as Cortex xSOAR or simply to understand your security posture and identify suspicious activity in your accounts.
 x-tagGroups:
   - name: Log monitoring
     tags:
       - Search logs
       - Logz.io snapshots
+  - name: Cloud SIEM
+    tags:
+      - Security events
   - name: Account administration
     tags:
       - Manage users
@@ -363,7 +355,7 @@ paths:
       operationId: search
       summary: Search logs
       description: >-
-        Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) query language.
+        Searches your account data using the Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
 
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
@@ -422,8 +414,6 @@ paths:
               query:
                 type: object
                 description: >-
-                  The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
-
                   #### Limitations
 
                   * When using `query_string`, `allow_leading_wildcard` must be set to `false`
@@ -462,18 +452,16 @@ paths:
                 items:
                   type: object
               _source:
-                type: object
+                type: array
                 description: >-
-                  The object `includes` specifies an array of strings specifying an array of fields to return.
-                  
-                  * If you omit `_source` from the request, all fields are returned.
-                  
-                  * If you pass `'_source': false`, it will exclude the `_source` field from the results.
-                properties:
-                  includes:
-                    type: array of strings
-                    description: Array of fields to return
-                    example: message
+                  An array of fields to return.
+                  If you don't include `_source` in the request,
+                  all fields are returned.
+
+
+                  **Note**:
+                  Alternatively, you can pass `'_source': false`
+                  to exclude the `_source` field from the results.
                 items:
                   - type: string
                     description: Field to return.
@@ -530,27 +518,27 @@ paths:
           schema:
             type: object
             example: >-
-              {
+              { 
                 "hits": {
-                  "total": 339604,
-                  "max_score": 0,
-                  "hits": [ ]
-                },
-                "aggregations": {
-                  "byType": {
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 44879,
-                    "buckets": [
-                      {
-                        "key": "web-app",
-                        "doc_count": 163690
-                      }, {
-                        "key": \"core-service\",
-                        "doc_count": 64893
-                      }
-                    ]
-                  }
-                }
+                  "total": 339604, 
+                  "max_score": 0, 
+                  "hits": [ ] 
+                }, 
+                "aggregations": { 
+                  "byType": { 
+                    "doc_count_error_upper_bound": 0, 
+                    "sum_other_doc_count": 44879, 
+                    "buckets": [ 
+                      { 
+                        "key": "web-app", 
+                        "doc_count": 163690 
+                      }, { 
+                        "key": \"core-service\", 
+                        "doc_count": 64893 
+                      } 
+                    ] 
+                  } 
+                } 
               }
 
   /v1/scroll:
@@ -559,28 +547,28 @@ paths:
       tags:
         - Search logs
       description: >-
-        This endpoint can take 2 types of call requests. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id` 
-        (The variation in the field name is intentional) to fetch the next batches of paginated results.
-        This endpoint always returns results as a stringified JSON.
-        
-
-        How it works:
-        
-        
-        First, send a request to establish the `scrollID`. This initial request contains the query object and additional parameters, similar to the `v1/search` endpoint, with the exception that `dayOffset` and `accountIds` are not supported. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
-        
-        
-        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results. 
-        You'll know you've reached the last page of results, once the call keeps returning the last page of results repeatedly. Keep sending the same scroll ID as many times as needed to retrieve all of the available results.
-        The results are paginated, and the request advances through them, one at a time, by default. So that every time you send the request with the same `scroll_id`, the next batch of results is returned.
-       
-
-        **Note**:
+        Runs a paginated search of your account data
+        using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
 
 
-        * Send the field `scroll_id` in requests (snake_case).
-        
-        * Receive the field `scrollID` in your responses (camelCase).
+        The first request should contain the query object
+        (just like using the `/search` endpoint),
+        and returns an object that contains `scrollId`.
+        You'll use this scroll ID for all subsequent requests.
+
+
+        Every subsequent request should contain the `scroll_id` string.
+        You'll use the same scroll ID for the entire series of requests.
+        (Snake_case for requests, camelCase for responses.)
+
+
+        **Subsequent request sample payload**:
+
+
+        `{ "scroll_id": "<scrollId-from-first-response>" }`
+
+
+        **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
       operationId: scroll
       parameters:
         - in: body
@@ -1934,7 +1922,112 @@ paths:
         200:
           description: successful operation
 
+  # ::::: SECURITY RULES
+  /v2/security/rules/events/search:
+    post:
+      summary: Fetch security events
+      description: >-
+        Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.
 
+        
+        You have the option to filter by rule name, rule severity, and/or event timestamp, and sort the results by time and/or severity, but this is not required. If you send the query with an empty JSON body, it returns all of the events logged in your Logz.io Cloud SIEM, going as far back as your account's retention permits.
+      tags:
+        - Security events
+      operationId: searchSecurityRulesEvents
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertsEventsSearchRequest'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication API Token
+          required: false
+          type: string
+        #- name: X-AUTH-TOKEN
+        #  in: header
+        #  description: Authentication User Session
+        #  required: false
+        #  type: string
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v2/security/rules/events/search' \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+                "filter": {
+                    "searchTerm": "Falco",
+                    "severities": [
+                        "SEVERE"
+                    ],
+                    "timeRange": {
+                        "fromDate": 1587134557,
+                        "toDate": 1587137557
+                    }
+                },
+                "sort": [
+                    {
+                        "field": "SEVERITY"
+                    },
+                    {
+                        "field": "DATE"
+                    }
+                ],
+                "pagination": {
+                    "pageNumber": 1,
+                    "pageSize": 25
+                }
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseTriggeredAlert'
+          headers: {}
+  /v2/security/rules/events/logs/search:
+    post:
+      summary: Fetch the logs that triggered a security event
+      description: >-
+        Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event.
+        
+        
+        This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
+      tags:
+        - Security events
+      operationId: searchSecurityRuleEventLogs
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertEventLogsSearchRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v2/security/rules/events/logs/search' \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+                "filter": {
+                    "alertEventId": "2582e212-2ccf-5550-b253-785aa3a5468f"
+                },
+                "pagination": {
+                    "pageNumber": 1,
+                    "pageSize": 10
+                }
+              }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseMapStringObject'
+          headers: {}
 
 definitions:
   # ::::: ACCOUNTS DEFINITIONS
@@ -2222,6 +2315,216 @@ definitions:
     default: false
     example: true
 
+  # ::::: CLOUD SIEM DEFINITIONS
+  AlertEventLogsSearchRequest:
+    type: object
+    required:
+      - filter
+    properties:
+      filter:
+        $ref: '#/definitions/AlertEventLogsFilter'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  AlertEventLogsFilter:
+    type: object
+    description: Filter by the event's unique GUID to retrieve only the logs relevant to the event under investigation.
+    required:
+      - alertEventId
+    properties:
+      alertEventId:
+        type: string
+        description: Unique GUID of the security event in Logz.io Cloud SIEM. The GUID is returned in the results when querying to fetch security events or by inspecting an event log in the [UI](https://app.logz.io/#/dashboard/security/research/discover?) under the field `logzio-alert-event-id`.
+        example: 833203f9-de71-5a12-9083-9055a6d925bb
+  Pagination:
+    type: object
+    description: Default pagination is 1 page, 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
+    properties:
+      pageNumber:
+        type: integer
+        format: int32
+        description: If you overshoot the page number, it will return empty with no results, but it won't fail the request.
+        default: 1
+        example: 2
+      pageSize:
+        type: integer
+        format: int32
+        description: Controls the number of results per page. Valid inputs are 1 to 1000.
+        maximum: 1000
+        default: 25
+        example: 100
+  PagedSearchResponseMapStringObject:
+    type: object
+    properties:
+      total:
+        description: Returns the total number of logs linked to the security event specified in the query. This number is fixed and not affected by pagination.
+        type: integer
+        format: int32
+        example: 5
+      results:
+        type: array
+        description: >-
+         Array of logs returned in answer to the query. The logs are returned in their entirety and parsed.
+         
+         
+         If the logs are no longer retained in the database, the request will return empty. You can check your account's log retention policy in your [log monitoring account](https://app.logz.io/#/dashboard/settings/usage-and-billing).
+        items:
+          type: object
+          example: {Array of logs}
+          #additionalProperties:
+          #  type: object
+      pagination:
+        $ref: '#/definitions/Pagination'
+  PagedSearchResponseTriggeredAlert:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+        description: The total number of events returned by the query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
+        example: 500
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/TriggeredAlert'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  TriggeredAlert:
+    type: object
+    properties:
+      alertId:
+        type: integer
+        format: int32
+        description: Unique identifier of the security rule in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-definition-id`
+        example: 453345
+      name:
+        type: string
+        description: Name of the security rule in Logz.io Cloud SIEM
+        example: AWS EC2 - Brute force SSH login attempts
+      description:
+        type: string
+        description: Typically an explanation of the security rule's logic and suggested next steps
+        example: Suggested next steps...
+      alertSummary:
+        type: string
+        description: Equivalent to the `condition` field in the rule
+        example: Alert if query '*' results GREATER_THAN_OR_EQUALS 5.00 in 10 minutes. Count on Group By '[userIdentity.userName, sourceIPAddress]'
+      eventDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in seconds showing when the rule's conditions were met and the event was triggered
+        example: 1587860455
+      alertWindowStartDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in seconds of the earliest log that triggered the rule to log an event. It usually takes several logs under certain conditions to trigger a security rule.
+        example: 1587856855
+      alertWindowEndDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in seconds of the latest log that triggered the rule to log an event. It usually takes several logs under certain conditions to trigger a security rule.
+        example: 1587860455
+      severity:
+        type: string
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        description: Severity of the security event as determined by the security rule's definition
+        example: SEVERE
+      alertEventId:
+        type: string
+        description: Unique identifier of the security event in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-event-id`
+        example: 27cdcf45-ae12-581a-809e-17a6bbc9ae07
+      groupBy:
+        type: object
+        description: A map object. Array of field:value pairs (key-value pairs) used by the security rule to aggregate results. Security rules can apply `groupBy` conditions to aggregate results by up to 3 fields. The fields differ rule by rule.
+        example: {"source_ip": "122.17.45.15", "hostname":"hostname1234" }
+        #additionalProperties:
+         # type: map
+         # maximum: 3
+         # description: The fields differ by rule. There can be 1-3 fields.
+      tags:
+        type: array
+        description: Tags are labels used to organize security rules.
+        example: threat
+        items:
+          type: object
+          example: { network_threat, recon}
+      hits:
+        type: integer
+        format: int32
+        description: Hits represent the number of logs that triggered the security rule before being aggregated by the `groupBy` condition.
+        example: 30
+  AlertsEventsSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/RulesEventsFilter'
+        summary: Filter by rule name, rule severity, or time range.
+      sort:
+        description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
+        type: array
+        items:
+          $ref: '#/definitions/RulesEventsSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  RulesEventsSortRequest:
+    type: object
+    required:
+      - field
+    properties:
+      field:
+        type: string
+        description: Sort by date and/or severity. Order determines secondary sorting.
+        enum:
+          - DATE
+          - SEVERITY
+      descending:
+        type: boolean
+        default: true
+        description: If left blank, descending sorting will result. If `false` results in ascending sorting.
+  RulesEventsFilter:
+    type: object
+    description: Filter by rule name, rule severity, or time range.
+    properties:
+      searchTerm:
+        type: string
+        example: Falco
+        description: Filter for a matching string in the security rule name. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+      severities:
+        type: array
+        description: Filter by the severities of the security rules. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+        items:
+          type: string
+          example: SEVERE
+          enum:
+            - INFO
+            - LOW
+            - MEDIUM
+            - HIGH
+            - SEVERE
+      timeRange:
+        $ref: '#/definitions/RulesTimeRange'
+  RulesTimeRange:
+    type: object
+    required:
+      - fromDate
+      - toDate
+    description: Add a timerange to filter by event timestamps that fall within the range. If applied, both the earliest and latest thresholds are required.
+    properties:
+      fromDate:
+        type: integer
+        format: int64
+        example: 1587134557
+        description: Absolute UNIX timestamp in seconds (not milliseconds). Your security account's retention policy determines the ealiest events you'll be able to retrieve.
+      toDate:
+        type: integer
+        format: int64
+        example: 1587137557
+        description: Absolute UNIX timestamp in seconds (not milliseconds).
+  
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:
     type: object
@@ -2698,29 +3001,26 @@ definitions:
       scrollId:
         type: string
         readOnly: true
-        description: Keep passing this ID in the request until you've retrieved all of the results. Copy this ID and pass it as the field `scroll_id` in a request to the same endpoint to retrieve the next page of results. (Remember to first clear the request body of all other parameters.)
+        description: ID of this response. Use this in `scroll_id` in the next scroll request to retrieve the next set of scroll results.
         example: DnF1ZXJ5VGhlbkZldGNoCQAAAAAWXRbqFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFp6B-xZTTVFrMGt4eVFnZXhQZV9YbVRrU3NnAAAAABakA8QWNjY1RUZtdWZRS1NZZWt1ZERTNHNaQQAAAAAWXRbrFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFl0W7BZTaUlka01LV1FEdTdaSWxvbkpCSDZ3AAAAABQ1nb4WVjRyRlUxZWRUU0dzbTV5VVVqYkhxdwAAAAAUdHVqFlF0b3Znei1ZUXgtZEkyZkR3M0pMbGcAAAAAFvGs6hZKVklxaXIyZ1NOQzF5NHg1cmhtVDV3AAAAABR0dWkWUXRvdmd6LVlReC1kSTJmRHczSkxsZw==
       hits:
         type: string
         readOnly: true
-        description: Query results in stringified JSON format
+        description: Query results
   ScrollRequest:
     type: object
     properties:
       query:
         type: object
         description: >-
-          Add a search query to receive the `scrollID` in the result.
-          
-          
-          The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
+          Search query. Uses Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
 
 
-          You can only add the `query` parameters if you are not passing the `scroll_id` in the request.
-          
+          In Your first request of a scroll series, `query` is used to establish the search query. In all subsequent requests of the series, you'll use `scroll_id`.
+
           #### Limitations
 
-          * The query can only run on 2 consecutive indexes. By default, the query runs on data sent today and yesterday. You can also add a filter on `timestamp` to search a smaller time frame.
+          * Your query will run only on data sent today and yesterday. You can still specify a filter on `timestamp` to search a smaller time frame.
 
           * When using `query_string`, `allow_leading_wildcard` must be set to `false`
 
@@ -2747,18 +3047,16 @@ definitions:
 
           * Can't sort on `message`
       _source:
-        type: object
+        type: array
         description: >-
-          The object `includes` specifies an array of strings specifying an array of fields to return.
-          
-          * If you omit `_source` from the request, all fields are returned.
+          An array of fields to return.
+          If you don't include `_source` in the request,
+          all fields are returned.
 
-          * If you pass `'_source': false`, it will exclude the `_source` field from the results.
-        properties:
-          includes: 
-            type: array of strings
-            description: Array of fields to return
-            example: message
+
+          **Note**:
+          Alternatively, you can pass `'_source': false`
+          to exclude the `_source` field from the results.
         items:
           - type: string
             description: Field to return.

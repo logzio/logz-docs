@@ -43,11 +43,13 @@ contributors:
 
 2. Data shown below is the **toc**:
 
-    Verify on every page.
+    Verify on any page.
 
     {{site.data.toc | truncate: 500}}
 
 3. Data shown below is the shipping tabs & tags:
+
+    Verify on [{{site.baseurl}}/shipping/]({{site.baseurl}}/shipping/)
 
     {{site.data.shipper-tabs |  truncate: 500}}
 

@@ -27,19 +27,17 @@ On this page
 {:toc}
 
 {% for r in site.data.logzio-regions -%}
-  {%- assign attribs = r[1] -%}
-  {%- case attribs.suffix -%}
-    {%- when false -%}
-      {%- assign suffix = "" -%}
+  {%- if r.suffix -%}
+      {%- assign suffix = r.suffix | prepend: "-" -%}
     {%- else -%}
-      {%- assign suffix = r[0] | prepend: "-" -%}
-  {%- endcase %}
+      {%- assign suffix = "" -%}
+  {%- endif %}
 
-## listener{{suffix}}.logz.io — _{{attribs.title}}, {{attribs.cloud}}_
+## listener{{suffix}}.logz.io — _{{r.title}}, {{r.cloud}}_
 
-If you're shipping logs to listener{{suffix}}.logz.io, open your firewall to these {{attribs.cloud}} IP addresses:
+If you're shipping logs to listener{{suffix}}.logz.io, open your firewall to these {{r.cloud}} IP addresses:
 
-{% assign sortedIPs = attribs.listener-ips | sort -%}
+{% assign sortedIPs = r.listener-ips | sort -%}
 {%- for ip in sortedIPs %}
 * {{ip}}
 {%- endfor %}

@@ -133,13 +133,12 @@ The certificate is included
 in `output` > `lumberjack` > `ssl_certificate` setting
 in your configuration file.
 
-##### Restart your shipper
+##### Restart your shipper and test
 
 Restart your shipper to load the new certificate.
 
-##### Test the new certificate
-
-{% include trust-chain-testing.html %}
+See _[Testing your new configuration](#testing)_ (below)
+for information on our testing listeners.
 
 </div>
 
@@ -242,5 +241,14 @@ both before and after the cutover time.
 You can end here.
 
 ##### _(If needed)_ Test the new certificate
+
+If you're using TLS/SSL over TCP,
+See _[Testing your new configuration](#testing)_ (below)
+for information on our testing listeners.
+
+</div>
+
+## Testing your new configuration {#testing}
+<!-- THIS WILL BE LINKED FROM AN EMAIL. DO NOT CHANGE THIS LINK. -->
 
 {% include trust-chain-testing.html %}

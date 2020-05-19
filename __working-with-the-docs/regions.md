@@ -1,0 +1,8 @@
+# Regions
+
+Regions are handled through these files:
+
+* **_source/_data/logzio-regions.yml**: The regions themselves. See this file for usage.
+* **_source/no-search/listener-ip-addresses.xml**: RSS feed, where each IP is its own entry. Used by Support.
+* **_source/user-guide/accounts/account-region.md**: Templated table at the bottom of the page, shows regions.
+* **_source/user-guide/log-shipping/listener-ip-addresses.md**: Templated page that lists IP addresses per region.

@@ -13,19 +13,31 @@ contributors:
   - imnotashrimp
 ---
 
-☝️ Check along the top of the page.
-You should see these things:
+## Top of page
 
-1. Page title
-2. Beta flag
-3. Admin flag
-4. Slack community button
-5. Contributors list
-6. "Available for this plan" - Enterprise
-7. A link to the Logz.io docs repo in GitHub
+1. Page title is H1
+2. Beta flag is present
+3. Admin flag is present
+4. Slack community button is present
+5. Contributors list shows a contributor
+6. "Available for this plan" is Enterprise
+7. "Projects" shows a link to Logz.io docs repo in GitHub
 
-## Left toc expected behavior
+## Left toc
 
-* Expand/collapse on click
-* Current page is highlighted (if it's actually represented in the toc)
-  * If current page is level 3, parent is expanded
+1. Expand/collapse on click
+2. Current page is highlighted (if it's actually represented in the toc)
+3. If current page is level 3, parent is expanded
+
+## Bottom of page
+
+### Below the article
+
+1. Edit this page, links to this page on master branch in GitHub
+2. Report an issue, links to new issue page in GitHub
+
+### Footer
+
+1. "all" links to `/docs-admin/`, cursor is a cursor and not the pointing hand
+2. Privacy policy & terms of use link to respective page on Logz.io main site
+3. "Contributors" links to contributors list in the docs

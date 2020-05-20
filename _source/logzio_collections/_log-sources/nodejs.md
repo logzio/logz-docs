@@ -338,7 +338,7 @@ If you're using the sample configuration code block, you'll need to replace the 
 
 ### Troubleshooting
 
-To fix errors related to "esModuleInterop" flag make sure you run the relavent 'tsconfig' file.
+To fix errors related to `esModuleInterop` flag make sure you run the relevant `tsconfig` file.
 These might help:
 ```
 tsc <file-name>.ts --esModuleInterop

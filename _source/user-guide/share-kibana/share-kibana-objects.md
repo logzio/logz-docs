@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Share Kibana objects
+title: Transfer Kibana objects between accounts
 permalink: /user-guide/kibana/share-import-export
 description: Share Kibana dashboards, saved searches and visualizations between accounts by exporting and importing them.
 flags:

@@ -64,7 +64,7 @@ Each token filter is a `field: value` key-value pair. The value needs to be an e
   copy in the name of a **log field** and the exact **value**. Then click **Add**.
   You can attach your new token filter to any of your shared tokens.
 
-    For example, your could add a filter for a particular environment, with a field `env` and the value `test`.
+    For example, you could add a filter for a particular environment, with a field `env` and the value `test`.
 
 * To delete a filter, hover over it, and click **delete** <i class="li li-trash"></i> to delete it. You'll be asked to confirm the deletion. 
 

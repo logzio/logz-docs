@@ -38,7 +38,7 @@ These best-practice recommendations will help you keep your data secure when usi
   
   It is always a good idea to double-check token filters before using the public sharing option to make sure they are up-to-date.
 
-* When possible, opt for in-app sharing options wherever applicable. Always exercise caution and take note of who you're sharing your links with.
+* **Exercise caution and take note of who you're sharing your links with.** Opt for in-app sharing options whenever possible. If you plan on sharing links with clients, you can use sub accounts to keep each client's logs separate and more secure.
 
 #### Managing shared tokens
 
@@ -50,8 +50,7 @@ To reach this page, click [**<i class="li li-gear"></i> > Tools > Shared tokens*
 
 ##### Working with shared tokens
 
-* To create a token, click **+Add shared token**
-  type a brief **token name**, selected **filters** and click **Add**.
+* To create a token, click **+Add shared token**, type a brief **token name**, select **filters** from the dropdown list, and click **Add**.
 * To attach filters to a token, hover over the token, click **edit** <i class="li li-pencil"></i>, select filters from the dropdown list, and click **Save**.
 * To remove filters from a token, hover over the token, click **edit** <i class="li li-pencil"></i>, <i class="li li-x"></i> out the filters you want to remove, and click **Save**.
 * To delete a token, hover over it, and click **delete** <i class="li li-trash"></i> to delete it.
@@ -63,7 +62,7 @@ Each token filter is a `field: value` key-value pair. The value needs to be an e
 * To add a new filter,
   type a brief **description**,
   copy in the name of a **log field** and the exact **value**. Then click **Add**.
-  You can add your new token filter to any of your shared tokens.
+  You can attach your new token filter to any of your shared tokens.
 
     For example, your could add a filter for a particular environment, with a field `env` and the value `test`.
 

@@ -251,4 +251,26 @@ for information on our testing listeners.
 ## Testing your new configuration {#testing}
 <!-- THIS WILL BE LINKED FROM AN EMAIL. DO NOT CHANGE THIS LINK. -->
 
-{% include trust-chain-testing.html %}
+Test your new configuration
+by temporarily pointing your shipper to a testing listener for your region
+(in the table below).
+The test listener is using the new certificate.
+You’ll know the configuration is good
+(and that it will work after May 28)
+if you see the data coming into your account.
+
+| Region | Test URL and IP address | Production URL |
+|---|---|---|
+| us-east-1 — US East (Northern Virginia) | listener-us-catest.logz.io (54.164.237.174) |listener.logz.io |
+| ap-southeast-2 — Asia Pacific (Sydney) | listener-au-catest.logz.io (54.79.44.34) |listener-au.logz.io |
+| ca-central-1 — Canada (Central) | listener-ca-catest.logz.io (99.79.1.61) |listener-ca.logz.io |
+| eu-central-1 — Europe (Frankfurt) | listener-eu-catest.logz.io (3.127.68.112) |listener-eu.logz.io |
+| westeurope — West Europe (Netherlands) | listener-nl-catest.logz.io (23.97.133.165) |listener-nl.logz.io |
+| eu-west-2 — Europe (London) | listener-uk-catest.logz.io (35.179.57.204) |listener-uk.logz.io |
+| westus2 — West US 2 (Washington) | listener-wa-catest.logz.io (52.183.40.222) |listener-wa.logz.io |
+
+After you’ve confirmed the configuration is good,
+revert your shipper to the production URL for your region
+and restart the shipper.
+Once again, you should confirm
+the data is coming into your account as expected.

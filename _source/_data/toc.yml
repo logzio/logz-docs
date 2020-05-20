@@ -38,9 +38,15 @@ firstLevel:
     thirdLevel:
       - title: Log patterns
         url: /user-guide/kibana/log-patterns.html
-      - title: Share visualizations
-        url: /user-guide/kibana/share-import-export
 
+  - title: Collaboration
+    url: /user-guide/tokens/collaboration
+    thirdLevel:
+      - title: Transfering dashboards between accounts
+        url: /user-guide/kibana/share-import-export
+      - title: Sharing externally
+        url: /user-guide/tokens/public-sharing-options.html
+        
   - title: Alerts
     url: /user-guide/alerts/
     thirdLevel:

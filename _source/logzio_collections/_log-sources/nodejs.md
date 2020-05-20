@@ -336,8 +336,17 @@ If you're using the sample configuration code block, you'll need to replace the 
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
+### Troubleshooting
 
-
+To fix errors related to "esModuleInterop" flag make sure you run the relavent 'tsconfig' file.
+These might help:
+```
+tsc <file-name>.ts --esModuleInterop
+```
+or
+```
+tsc --project tsconfig.json  
+```
 </div>
 </div>
 <!-- tabContainer:end -->

@@ -105,7 +105,7 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 
 Download the
 [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt)
-to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
+to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
 ##### Make your configuration file

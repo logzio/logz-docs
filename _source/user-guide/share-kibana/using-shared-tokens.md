@@ -28,7 +28,7 @@ When you share a dashboard, you can decide whether to share the dashboard with a
 
 * **Snapshot** - If you select the snapshot option, your recipients will view the exact same dashboard and data that you are viewing right now. The relative datepicker selection will be converted to fixed times. So if you are looking at the last 24 hours, your  recipients will view the exact same data, even if they are viewing it when it's from Sunday of last week.
 
-  Of course, this type of permalink is shortlived, as it depends on your log retention policy. Once the logs are too old, they will no longer feed the dashboard and your recipients won't have anything to see.
+  Of course, this type of permalink is short lived, as it depends on your log retention policy. Once the logs are too old, they will no longer feed the dashboard and your recipients won't have anything to see.
 
 * **Saved object** - If you share the dashboard as a saved object, your recipients will have a continual window into the current logs.
   
@@ -43,11 +43,11 @@ When you share a dashboard, you can decide whether to share the dashboard with a
 
 ##### What your recipients will see
 
-Your recipients will receive a link to the dashboard you've share with them. The dashboard will appear without the top and side navigation bars, and without the Kibana time filtering options.
+Your recipients will receive a link to the dashboard you've shared with them. The dashboard will appear without the top and side navigation bars, and without the Kibana time filtering options.
 
-Note that your recipients will not see the timeframe selected for the dashboard. You will need to communicate it to them in another way.
+Note that your recipients will not see the time frame selected for the dashboard. You will need to communicate it to them in another way.
 {:.info-box.note}
 
 ##### Testing your permalink
 
-It’s simple to test your permalink. You can open your sharing link in an incongnito browser window to try it out.
+You can open your sharing link in an incognito browser window to try it out.

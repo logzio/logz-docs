@@ -35,7 +35,7 @@ These best-practice recommendations will help you keep your data secure when usi
 
   This means that you can add or remove token filters to a shared token at any time to change access permissions. This can be done both _before or after_ the sharing link has been sent out. For example, if you've accidentally shared too much, you can add token filters to tighten control and your recipients' links will be updated accordingly.
   Of course, this works the other way as well. If you delete a sharing token, any existing sharing links that were previously sent out, will reflect the updated permissions.
-  
+
   It is always a good idea to double-check token filters before using the public sharing option to make sure they are up-to-date.
 
 * **Exercise caution and take note of who you're sharing your links with.** Opt for in-app sharing options whenever possible. If you plan on sharing links with clients, you can use sub accounts to keep each client's logs separate and more secure.
@@ -66,7 +66,7 @@ Each token filter is a `field: value` key-value pair. The value needs to be an e
 
     For example, you could add a filter for a particular environment, with a field `env` and the value `test`.
 
-* To delete a filter, hover over it, and click **delete** <i class="li li-trash"></i> to delete it. You'll be asked to confirm the deletion. 
+* To delete a filter, hover over it, and click **delete** <i class="li li-trash"></i> to delete it. You'll be asked to confirm the deletion.
 
   If the filter you just deleted was used in any sharing links, they will immediately be updated to reflect the new access permissions.
 

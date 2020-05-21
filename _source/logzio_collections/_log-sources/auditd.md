@@ -171,7 +171,7 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
-##### The configuration explained
+#### The configuration explained
 
 * To configure Auditbeat to use the new rules file, in the `auditbeat.modules` object, find the `auditd` module, we replace the `audit_rule_files` array with this:
 

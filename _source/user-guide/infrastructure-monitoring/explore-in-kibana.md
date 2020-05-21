@@ -59,30 +59,47 @@ If you plan to add alerts to the visualization, note that only **Graph** is supp
 
 ![Panel configuration, visualization  options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--visualization.png)
 
-##### Configure the drilldown
+##### Configure the drilldown link
 
-Click the _General_ icon to the left to see general options.
+Click the _General_ icon to the left, and scroll to the **Panel links** section at the bottom. 
+Click **+ Add link**.
 
-If you want to change the panel's **Title**,
-you can do that here.
+<video autoplay loop>
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/drill-down-link.mp4" type="video/mp4" />
+</video>
 
-![Panel configuration, general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--general--add-link.png)
+* Set the **Title** to **Explore in Kibana**, unless you want to name it something else.
+* Copy this endpoint to the **URL**:
 
-Scroll to the _Drilldown links_ section,
-and click **+ Add link**.
-You'll see the full drilldown link configuration.
+  ```
+  /#/explore-kibana-from-grafana?$__url_time_range&query=
+  ```
+* Write your Kibana query in Lucene syntax. Make sure there are no spaces before and after the `=` operator.
 
-![Drilldown links](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--general--drilldown-link-config.png)
+  It is a good idea to test your query in Kibana Discover to make sure you're getting the intended results.
 
-* In the **Type** list, choose **absolute**.
-* Set **Url** to `/#/expore-kibana-from-grafana`.
-* Set the **Title** to "Explore in Kibana".
-* Set **Url params** to `query=`, followed by your Kibana query (written in Lucene).
-* Turn on **Include time range**, **Include variables**, and **Open in new tab**.
+##### Query syntax and tips
 
-We recommend testing your _Url params_ query in Kibana
-to make sure you're getting the intended results.
-{:.info-box.tip}
+If you're using variables in your query, note that there is a small syntax difference depending on whether you've enabled multi-select or not. 
+
+Here's how to check your variable settings or change them:
+
+<video autoplay loop>
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/grafana-variables.mp4" type="video/mp4" />
+</video>
+
+* If **Multi-value** or **Include All option** are toggled on, write the variable name as usual - for example `$node`.
+* If they are toggled off, write the variable name between double quotes - for example `“$node”`.
+
+Suppose you have a **Node** variable filtered on a specific node. If you wish to look for Kubernetes logs related to the specific node your dashboard is currently filtered on, your URL should look like this:
+
+`/#/explore-kibana-from-grafana?$__url_time_range&query=kubernetes AND $node`
+
+If the node variable doesn't have either **Multi-value** or **Include All option** on, you'll write the variable between double quotes.
+This way you don't specify a particular value selection:
+
+`/#/explore-kibana-from-grafana?$__url_time_range&query=kubernetes AND “$node”`
+
 
 ##### Save and test
 
@@ -92,6 +109,6 @@ Save your dashboard.
 Test your new drilldown link
 by hovering over <i class="fas fa-external-link-alt"></i>
 (upper left corner of the panel),
-and then clicking **Explore in Kibana**.
+and clicking **Explore in Kibana**.
 
 ![Drilldown link](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-drilldown-link.png)

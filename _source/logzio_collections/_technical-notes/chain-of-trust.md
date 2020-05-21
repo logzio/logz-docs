@@ -52,8 +52,8 @@ This also does not affect any of the code libraries covered in the docs.
 The actions you need to take depend on how you’re shipping your data.
 For shipping methods covered in the docs, these fall into two main categories:
 
-* **If you're managing a shipping app** (such as Filebeat or Metricbeat):
-  See _[To replace the certificate file](#replace-the-cert-file)_ (below)
+* **If you're using a Beats family shipper** (such as Filebeat or Metricbeat):
+  See _[To replace the certificate file for Beats](#replace-the-cert-file)_ (below)
 * **If you're shipping with rsyslog**:
   See
   _[To check your rsyslog configuration](#check-rsyslog-config)_
@@ -64,7 +64,7 @@ For shipping methods covered in the docs, these fall into two main categories:
   Re-deploy using the instructions in
   _[Ship Kubernetes metrics]({{site.baseurl}}/shipping/metrics-sources/kubernetes.html)_
 
-#### To replace the certificate file {#replace-the-cert-file}
+#### To replace the certificate file for Beats {#replace-the-cert-file}
 
 This covers instructions for any of the Beats shippers
 (such as Filebeat, Metricbeat, Winlogbeat, or Auditbeat)
@@ -106,12 +106,6 @@ Download the
 * For **Winlogbeat**: Copy to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 * For **Filebeat**: Copy to `C:\ProgramData\Filebeat\Logzio.crt`
 
-###### For Logstash over SSL
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /usr/share/logstash/keys/TrustExternalCARoot.crt
-```
-
 ##### Check your configuration
 
 Double-check your shipper's configuration file
@@ -121,16 +115,8 @@ If the certificate location in the configuration doesn't match
 where you downloaded the file to,
 update the configuration or move the certificate.
 
-###### For a Beats family shipper
-
 The certificate is included
 in the `ssl.certificate_authorities` array
-in your configuration file.
-
-###### For Logstash over SSL
-
-The certificate is included
-in `output` > `lumberjack` > `ssl_certificate` setting
 in your configuration file.
 
 ##### Restart your shipper and test

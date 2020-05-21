@@ -38,28 +38,43 @@ JDK,
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /usr/share/logstash/keys/TrustExternalCARoot.crt
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/QuadCA.crt --create-dirs -o /usr/share/logstash/keys/TrustExternalCARoot.crt
 ```
 
-##### _(If needed)_ Install the Lumberjack output plugin
+##### Remove the Lumberjack output plugin
 
-The Lumberjack output plugin is required for SSL shipping.
-For most Logstash versions, the plugin is included by default.
+For most Logstash versions,
+the Lumberjack plugin is included by default.
+In the next step, you'll install Logz.io Lumberjack,
+which can't run alongside the original Lumberjack plugin,
+so you'll need to remove the original plugin if it's installed.
 
 To see if Lumberjack output plugin is installed,
-`cd` to your [Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html)
+`cd` to your
+[Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html)
 and run this command:
 
 ```shell
 ./logstash-plugin list | grep logstash-output-lumberjack
 ```
 
-If you see `logstash-output-lumberjack`, skip to step 3.
+If you don't see `logstash-output-lumberjack`, skip to step 3.
 
-Otherwise, you'll need to install the plugin.
+Otherwise, you'll need to remove the plugin.
 
 ```shell
-./logstash-plugin install logstash-output-lumberjack
+./logstash-plugin remove logstash-output-lumberjack
+```
+
+##### Install the Logz.io Lumberjack output plugin
+
+The Logz.io Lumberjack output plugin is required for SSL shipping.
+Run this command from your
+[Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html)
+to install the plugin:
+
+```shell
+./logstash-plugin install logstash-output-lumberjack-logzio
 ```
 
 ##### Add Logz.io to your configuration file

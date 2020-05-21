@@ -57,8 +57,8 @@ we've covered the main update processes here:
 |---|---|---|
 | Beats family shipper (such as Filebeat or Metricbeat) | See _[To replace the certificate file for Beats](#replace-the-cert-file)_ (below) |
 | Logstash over SSL | See _[To configure Logstash for multiple certificates](#logstash-multiple-certs)_ (below) |
-| rsyslog | See _[To check your rsyslog configuration](#check-rsyslog-config)_ (below) |
 | A Docker image managed by Logz.io | See _[To update a Docker container](#update-container)_ (below) |
+| rsyslog | See _[To check your rsyslog configuration](#check-rsyslog-config)_ (below) |
 | The Kubernetes Metricbeat daemonset | Re-deploy using the instructions in _[Ship Kubernetes metrics]({{site.baseurl}}/shipping/metrics-sources/kubernetes.html)_ |
 
 #### To replace the certificate file for Beats {#replace-the-cert-file}

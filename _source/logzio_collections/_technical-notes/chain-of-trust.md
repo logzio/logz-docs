@@ -50,19 +50,16 @@ This also does not affect any of the code libraries covered in the docs.
 ## How to replace your certificate
 
 The actions you need to take depend on how you’re shipping your data.
-For shipping methods covered in the docs, these fall into two main categories:
+For shipping methods covered in the docs,
+we've covered the main update processes here:
 
-* **If you're using a Beats family shipper** (such as Filebeat or Metricbeat):
-  See _[To replace the certificate file for Beats](#replace-the-cert-file)_ (below)
-* **If you're shipping with rsyslog**:
-  See
-  _[To check your rsyslog configuration](#check-rsyslog-config)_
-  (below)
-* **If you deployed a Docker container managed by Logz.io**:
-  See _[To update a Docker container](#update-container)_ (below)
-* **If you deployed the Kubernetes Metricbeat configmap**:
-  Re-deploy using the instructions in
-  _[Ship Kubernetes metrics]({{site.baseurl}}/shipping/metrics-sources/kubernetes.html)_
+| For this shipping method... | ...see these instructions |
+|---|---|---|
+| Beats family shipper (such as Filebeat or Metricbeat) | See _[To replace the certificate file for Beats](#replace-the-cert-file)_ (below) |
+| Logstash over SSL | See _[To configure Logstash for multiple certificates](#logstash-multiple-certs)_ (below) |
+| rsyslog | See _[To check your rsyslog configuration](#check-rsyslog-config)_ (below) |
+| A Docker image managed by Logz.io | See _[To update a Docker container](#update-container)_ (below) |
+| The Kubernetes Metricbeat daemonset | Re-deploy using the instructions in _[Ship Kubernetes metrics]({{site.baseurl}}/shipping/metrics-sources/kubernetes.html)_ |
 
 #### To replace the certificate file for Beats {#replace-the-cert-file}
 

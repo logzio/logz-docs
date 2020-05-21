@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Drilldown links
+title: Explore in Kibana
 permalink: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links
 flags:
   logzio-plan: pro
@@ -12,14 +12,12 @@ contributors:
   - daniel-tk
 ---
 
-Drilldown links are shortcuts that take you directly to the relevant Kibana results in your logs.
-When you identify an issue in your graph and want to investigate it further,
-you can click a drilldown link
-and go straight to the related logs.
+**Explore in Kibana** are drilldown links that give you a direct shortcut from your Metrics' visualizations to the relevant logs in Kibana.
 
-Many of the dashboards managed by Logz.io come with the drilldown links preconfigured.
-When you're setting up your own dashboard,
-you can configure your own drilldown links.
+You'll find that many of the dashboards provided out-of-the-box by Logz.io come with **Explore in Kibana** drilldown links preconfigured. But you can also add your own to any dashboards and visualizations. (The only caveat is you'll need to have edit-permissions to the dashboard, so if you don't, duplicate the dashboard first.)
+
+Drilldown links help you go straight to the related logs whenever you identify an issue in your Metrics graphs and see a need to investigate it further. They are a powerful observability tool that gives you context and visibility into the logs that coincided with the Metrics events.
+
 
 ##### Overview
 {:.no_toc}
@@ -31,21 +29,19 @@ you can configure your own drilldown links.
 {:.no_toc}
 
 **Before you begin, you'll need**:
-[variables configured](/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links) for your dashboard.
+[variables configured](/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links) in your dashboard.
 
 <div class="tasklist">
 
 ##### Add a new panel
 
-If you want to start fresh with a new dashboard, click <i class="fas fa-plus"></i> in the left menu to add it.
-
-To add a new panel, click the **Add panel** button in the toolbar (in the upper right corner).
+If you want to start fresh with a new dashboard, click <i class="fas fa-plus"></i> in the left menu to add it. Otherwise you can just add a new panel: Click the **Add panel** button in the toolbar (in the upper right corner).
 
 Click **Add Query**.
 
 ![Grafana new panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/new-panel.png)
 
-##### Configure the query and visualization
+##### Configure the panel
 
 Select your Infrastructure Monitoring account from the list of datasources. (This is an Elasticsearch index).
 

@@ -3,7 +3,7 @@ layout: article
 title: Explore in Kibana
 permalink: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links
 flags:
-  logzio-plan: pro
+  logzio-plan: community
 tags:
   - metrics
 contributors:

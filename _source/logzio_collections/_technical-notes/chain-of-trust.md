@@ -125,6 +125,58 @@ for information on our testing listeners.
 
 </div>
 
+#### To configure Logstash for multiple certificates {#logstash-multiple-certs}
+
+The default Lumberjack plugin
+is limited to using one certificate at a time.
+We've released a fork of the plugin
+that allows you to use multiple certificates,
+allowing an uninterrupted data flow
+while we update our listeners to the new chain of trust.
+
+This means that
+you'll need to replace the plugin _and_ the certificate
+wherever you're using Logstash to ship over SSL.
+
+The new Logz.io Lumberjack plugin retains the same name
+in your configuration file,
+so there's no need to update the configuration itself.
+
+<div class="tasklist">
+
+##### Download the Logz.io public certificates
+
+This will overwrite your current certificate file.
+Double-check your Logstash configuration to make sure
+it's pointing to this file location:
+
+```shell
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/QuadCA.crt --create-dirs -o /usr/share/logstash/keys/TrustExternalCARoot.crt
+```
+
+##### Replace the Logstash output plugin
+
+From your
+[Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html),
+replace the default Logstash plugin
+with the Logz.io Logstash plugin:
+
+```shell
+./logstash-plugin remove logstash-output-lumberjack
+./logstash-plugin install logstash-output-lumberjack-logzio
+```
+
+You don't need to update your configuration file.
+
+##### Restart Logstash and test
+
+Restart Logstash to load the new plugin and certificates.
+
+See _[Testing your new configuration](#testing)_ (below)
+for information on our testing listeners.
+
+</div>
+
 #### To update a Docker container {#update-container}
 
 This covers instructions for any of the

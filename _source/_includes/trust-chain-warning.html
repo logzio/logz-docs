@@ -1,11 +1,11 @@
-{%- assign cutoffDate = 'May 28' -%}
+{%- assign cutoffDate = 'May 28, 2020 at 13:00 UTC' -%}
 
 <p class="info-box warning">
 
 {% case include.msg -%}
   {%- when 'docker' -%}
-    <b>Action required before {{cutoffDate}}, 2020</b>:
-    The trust chain provided here will expire on May 30,
+    <b>Action required before {{cutoffDate}}</b>:
+    The trust chain previously provided here will expire on May 30,
     and encrypted communication will stop working.
     We'll transition our data receivers to a new certificate on {{cutoffDate}}.
     Before {{cutoffDate}},
@@ -16,8 +16,8 @@
     <b>If you send encrypted data without using both certificates after {{cutoffDate}},
     that data might not arrive at your Logz.io account or be archived.</b>
   {%- when 'logstash' -%}
-    <b>Action required before {{cutoffDate}}, 2020</b>:
-    The trust chain provided here will expire on May 30,
+    <b>Action required before {{cutoffDate}}</b>:
+    The trust chain previously provided here will expire on May 30,
     and encrypted communication will stop working.
     We'll transition our data receivers to a new certificate on {{cutoffDate}}.
     Before {{cutoffDate}},
@@ -29,8 +29,8 @@
     <b>If you send encrypted data without using both certificates after {{cutoffDate}},
     that data might not arrive at your Logz.io account or be archived.</b>
   {%- else -%}
-    <b>Action required before {{cutoffDate}}, 2020</b>:
-    The trust chain provided here will expire on May 30,
+    <b>Action required before {{cutoffDate}}</b>:
+    The trust chain previously provided here will expire on May 30,
     and encrypted communication will stop working.
     We'll transition our data receivers to a new certificate on {{cutoffDate}}.
     Before {{cutoffDate}},

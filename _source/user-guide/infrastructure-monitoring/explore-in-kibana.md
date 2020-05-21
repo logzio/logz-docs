@@ -64,9 +64,7 @@ If you plan to add alerts to the visualization, note that only **Graph** is supp
 Click the _General_ icon to the left, and scroll to the **Panel links** section at the bottom. 
 Click **+ Add link**.
 
-<video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/drill-down-link.mp4" type="video/mp4" />
-</video>
+![Add panel link in Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/add-drilldown-url.png)
 
 * Set the **Title** to **Explore in Kibana**, unless you want to name it something else.
 * Copy this endpoint to the **URL**:

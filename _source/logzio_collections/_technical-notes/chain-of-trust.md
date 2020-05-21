@@ -50,21 +50,18 @@ This also does not affect any of the code libraries covered in the docs.
 ## How to replace your certificate
 
 The actions you need to take depend on how you’re shipping your data.
-For shipping methods covered in the docs, these fall into two main categories:
+For shipping methods covered in the docs,
+we've covered the main update processes here:
 
-* **If you're managing a shipping app** (such as Filebeat or Metricbeat):
-  See _[To replace the certificate file](#replace-the-cert-file)_ (below)
-* **If you're shipping with rsyslog**:
-  See
-  _[To check your rsyslog configuration](#check-rsyslog-config)_
-  (below)
-* **If you deployed a Docker container managed by Logz.io**:
-  See _[To update a Docker container](#update-container)_ (below)
-* **If you deployed the Kubernetes Metricbeat configmap**:
-  Re-deploy using the instructions in
-  _[Ship Kubernetes metrics]({{site.baseurl}}/shipping/metrics-sources/kubernetes.html)_
+| For this shipping method... | ...see these instructions |
+|---|---|---|
+| Beats family shipper (such as Filebeat or Metricbeat) | See _[To replace the certificate file for Beats](#replace-the-cert-file)_ (below) |
+| Logstash over SSL | See _[To configure Logstash for multiple certificates](#logstash-multiple-certs)_ (below) |
+| A Docker image managed by Logz.io | See _[To update a Docker container](#update-container)_ (below) |
+| rsyslog | See _[To check your rsyslog configuration](#check-rsyslog-config)_ (below) |
+| The Kubernetes Metricbeat daemonset | Re-deploy using the instructions in _[Ship Kubernetes metrics]({{site.baseurl}}/shipping/metrics-sources/kubernetes.html)_ |
 
-#### To replace the certificate file {#replace-the-cert-file}
+#### To replace the certificate file for Beats {#replace-the-cert-file}
 
 This covers instructions for any of the Beats shippers
 (such as Filebeat, Metricbeat, Winlogbeat, or Auditbeat)
@@ -106,12 +103,6 @@ Download the
 * For **Winlogbeat**: Copy to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 * For **Filebeat**: Copy to `C:\ProgramData\Filebeat\Logzio.crt`
 
-###### For Logstash over SSL
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /usr/share/logstash/keys/TrustExternalCARoot.crt
-```
-
 ##### Check your configuration
 
 Double-check your shipper's configuration file
@@ -121,21 +112,65 @@ If the certificate location in the configuration doesn't match
 where you downloaded the file to,
 update the configuration or move the certificate.
 
-###### For a Beats family shipper
-
 The certificate is included
 in the `ssl.certificate_authorities` array
-in your configuration file.
-
-###### For Logstash over SSL
-
-The certificate is included
-in `output` > `lumberjack` > `ssl_certificate` setting
 in your configuration file.
 
 ##### Restart your shipper and test
 
 Restart your shipper to load the new certificate.
+
+See _[Testing your new configuration](#testing)_ (below)
+for information on our testing listeners.
+
+</div>
+
+#### To configure Logstash for multiple certificates {#logstash-multiple-certs}
+
+The default Lumberjack plugin
+is limited to using one certificate at a time.
+We've released a fork of the plugin
+that allows you to use multiple certificates,
+allowing an uninterrupted data flow
+while we update our listeners to the new chain of trust.
+
+This means that
+you'll need to replace the plugin _and_ the certificate
+wherever you're using Logstash to ship over SSL.
+
+The new Logz.io Lumberjack plugin retains the same name
+in your configuration file,
+so there's no need to update the configuration itself.
+
+<div class="tasklist">
+
+##### Download the Logz.io public certificates
+
+This will overwrite your current certificate file.
+Double-check your Logstash configuration to make sure
+it's pointing to this file location:
+
+```shell
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/QuadCA.crt --create-dirs -o /usr/share/logstash/keys/TrustExternalCARoot.crt
+```
+
+##### Replace the Logstash output plugin
+
+From your
+[Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html),
+replace the default Logstash plugin
+with the Logz.io Logstash plugin:
+
+```shell
+./logstash-plugin remove logstash-output-lumberjack
+./logstash-plugin install logstash-output-lumberjack-logzio
+```
+
+You don't need to update your configuration file.
+
+##### Restart Logstash and test
+
+Restart Logstash to load the new plugin and certificates.
 
 See _[Testing your new configuration](#testing)_ (below)
 for information on our testing listeners.

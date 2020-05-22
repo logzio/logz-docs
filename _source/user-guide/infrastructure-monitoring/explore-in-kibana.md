@@ -14,7 +14,7 @@ contributors:
 
 **Explore in Kibana** are drilldown links that give you a direct shortcut from your Metrics' visualizations to the relevant logs in Kibana.
 
-A few dashboards provided out-of-the-box by Logz.io come with **Explore in Kibana** drilldown links preconfigured. But generally speaking, these are very user-specific, so you'll want to set them up for yourself to suit your particular implementation.  
+A few dashboards provided out-of-the-box by Logz.io come with **Explore in Kibana** drilldown links preconfigured. But generally speaking, these are very user-specific, so you'll want to set them up for yourself to suit your particular implementation.
 
 Drilldown links help you go straight to the related logs whenever you identify an issue in your Metrics graphs and see a need to investigate it further. They are a powerful observability tool that gives you context and visibility into the logs that coincided with the Metrics events.
 
@@ -29,7 +29,8 @@ Drilldown links help you go straight to the related logs whenever you identify a
 {:.no_toc}
 
 **Before you begin, you'll need**:
-[variables configured](/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links) in your dashboard.
+Edit-permissions to the dashboard. If you don't, duplicate the dashboard first.
+It's also a good idea to have [variables configured](/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links) for your dashboard. Variables aren't required, but they are highly recommended.
 
 <div class="tasklist">
 
@@ -89,7 +90,7 @@ Here's how to check your variable settings or change them:
 * If **Multi-value** or **Include All option** are toggled on, write the variable name as usual - for example `$node`.
 * If they are toggled off, write the variable name between double quotes - for example `“$node”`.
 
-Suppose you have a **Node** variable filtered on a specific node. If you wish to look for Kubernetes logs related to the specific node your dashboard is currently filtered on, your URL should look like this:
+Suppose you have a **Node** variable filtered on a specific node. If you wish to look for Kubernetes logs related to the specific node your dashboard is currently filtered on, your URL might look like this:
 
 `/#/explore-kibana-from-grafana?$__url_time_range&query=kubernetes AND $node`
 

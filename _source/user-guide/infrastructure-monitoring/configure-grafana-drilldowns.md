@@ -74,4 +74,4 @@ When you're finished, scroll to the bottom of the page and click **Update**.
 
 
 You're now ready to use the variable in your new dashboard.
-If your looking to configure Grafana drilldown links, click [here](/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html).
+If you're looking to configure **Explore in kibana** drilldown links, click [here](/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html).

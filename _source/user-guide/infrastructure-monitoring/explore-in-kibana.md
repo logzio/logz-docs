@@ -14,7 +14,7 @@ contributors:
 
 **Explore in Kibana** are drilldown links that give you a direct shortcut from your Metrics' visualizations to the relevant logs in Kibana.
 
-You'll find that many of the dashboards provided out-of-the-box by Logz.io come with **Explore in Kibana** drilldown links preconfigured. But you can also add your own to any dashboards and visualizations. (The only caveat is you'll need to have edit-permissions to the dashboard, so if you don't, duplicate the dashboard first.)
+A few dashboards provided out-of-the-box by Logz.io come with **Explore in Kibana** drilldown links preconfigured. But generally speaking, these are very user-specific, so you'll want to set them up for yourself to suit your particular implementation.  
 
 Drilldown links help you go straight to the related logs whenever you identify an issue in your Metrics graphs and see a need to investigate it further. They are a powerful observability tool that gives you context and visibility into the logs that coincided with the Metrics events.
 

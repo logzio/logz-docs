@@ -40,6 +40,12 @@ Download and install [Auditbeat 7.7](https://www.elastic.co/guide/en/beats/audit
 
 ##### Copy auditd rules
 
+Go to the audit rules location in you auditbeat directory. The default location:
+
+```js
+cd /etc/auditbeat/audit.rules.d/
+```
+
 Rename the file `sample-rules.conf.disabled` to `audit-rules.conf`. It will hold your audit rules for Auditbeat:
 
 ```shell
@@ -171,22 +177,5 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
-#### The configuration explained
-
-* To configure Auditbeat to use the new rules file, in the `auditbeat.modules` object, find the `auditd` module, we replace the `audit_rule_files` array with this:
-
-  ```yaml
-  audit_rule_files: [ '${path.config}/audit.rules.d/*.conf' ]
-  ```
-
-* To set Logz.io as the output, we remove the output section in the configuration, and replace it with this code block:
-
-  ```yaml
-  # ...
-  output.logstash:
-    hosts: ["<<LISTENER-HOST>>.io:5015"]
-    ssl:
-      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-  ```
 
 </div>

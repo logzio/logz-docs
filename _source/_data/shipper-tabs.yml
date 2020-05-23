@@ -1,11 +1,17 @@
-# This YAML feeds the "ship your logs" page
-# Structured like so:
-# Top level: 'tabs'
-# Next level: tab name
-# Nested below that:
-#   collection: <collection-name>
-#   tags:
-#     <tag-slug>: <tag-human-readable>
+# This YAML feeds the "ship your data" page.
+# There are 2 root-level objects: `tabs` and `tags`
+
+# Tabs is an array that contains the collections to be included in the shipping page.
+# Each array item is a single entry like this - `collection: <collection-name>`
+# The collection name has to match a collection that's declared in Jekyll's _config.yml (in the `collections` object)
+# This will support future data types — like traces — when we're ready to make a collection for it.
+# So when you're ready to add a collection in the future, follow these steps:
+#   1. Add the collection to the config yaml
+#   2. Make a folder with the same name in the logzio_collections/ folder
+#   3. Add that collection here, in the `tabs` object.
+# Keep in mind there are other collections as well, so not all collections are included in this file.
+
+# The community-shippers collection links out to shippers and projects that we don't maintain.
 
 tabs:
   - collection: log-sources
@@ -18,6 +24,14 @@ tabs:
         These projects are maintained by third parties and recommended by members of the Logz.io community.
         Always test and review the code of any community project before using it.
       </p>
+
+
+# Tags is an array of tags that can be filtered on the data shipping page.
+# Each item in the array contains two properties:
+#   `slug: <kebab-cased-machine-readable-tag>` (lowercase, dashes only, no other characters)
+#   `name: <human readable name for this tag>` (This will be displayed in the docs)
+# Tags are used as an ID, so it's best to avoid changing slugs. Users will never see the slug.
+# If you want to change the way it's displayed in the docs, change the `name`.
 
 tags:
   - slug: log-shipper

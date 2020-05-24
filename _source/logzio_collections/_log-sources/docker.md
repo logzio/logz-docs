@@ -31,6 +31,13 @@ shipping-tags:
 
 {% include trust-chain-warning.html msg='docker' %}
 
+This is a Docker container that uses Filebeat to collect logs from other Docker containers and forward them to your Logz.io account.
+
+To use this container, you'll set environment variables in your Docker run command. docker-collector-logs uses those environment variables to generate a valid Filebeat configuration for the container. docker-collector-logs mounts docker.sock and the Docker logs directory to the container itself, allowing Filebeat to collect the logs and metadata.
+
+Upgrading to a newer version of a docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`).
+{:.info-box.note}
+
 <div class="tasklist">
 
 ##### Pull the Docker image

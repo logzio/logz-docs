@@ -12,7 +12,7 @@ shipping-tags:
 
 If you're using AWS WAF as a web application firewall, you can ship its alerts to your Logz.io Cloud SIEM.
 
-You can review the AWS WAF resources in your Logz.io Cloud SIEM account, under the pre-configured [security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
+You can review the AWS WAF resources in your Logz.io Cloud SIEM account, under the pre-configured [security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=waf) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
 ###### On this page
 {:.no_toc}
@@ -67,4 +67,3 @@ You'll want to configure the S3 Bucket to allow Logz.io to periodically read log
 
 If you run into issues, you can reference the [guide for troubleshooting user permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket).
 {:.info-box.tip}
-

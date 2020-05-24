@@ -53,6 +53,14 @@ contributors:
 
     {{site.data.shipper-tabs |  truncate: 500}}
 
+#### Logz.io icons
+
+<ul>
+{%- for icon in site.data.logzio-icons -%}
+<li>{{icon.class}}: <i class="li {{icon.class}}"></i></li>
+{%- endfor -%}
+</ul>
+
 #### Bottom of page
 
 ##### Below the article

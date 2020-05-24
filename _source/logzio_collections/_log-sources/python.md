@@ -25,6 +25,8 @@ they're written to the local file system for later retrieval.
 
 <div class="tasklist">
 
+**Before you begin**: Note that only the following Python versions have been tested: 2.7, 3.3, 3.4, 3.5, 3.6.
+
 ##### Add the dependency to your project
 
 Navigate to your project's folder in the command line, and run this command to install the dependency.
@@ -32,6 +34,9 @@ Navigate to your project's folder in the command line, and run this command to i
 ```shell
 pip install logzio-python-handler
 ```
+
+Tested Python versions: 2.7, 3.3, 3.4, 3.5, 3.6.
+{:.info-box.tip}
 
 ##### Configure Logz.io Python Handler for a standard Python project
 

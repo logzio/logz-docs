@@ -60,8 +60,8 @@
   },
 
   "Logz.io icon": {
-		"prefix": "logzio icon",
-		"body": "<i class=\"li li-$1\"></i>$0",
+		"prefix": "logzio-icon",
+		"body": "<i class=\"li $1\"></i>$0",
 		"description": "<i> tag for Logz.io icon"
 	},
 

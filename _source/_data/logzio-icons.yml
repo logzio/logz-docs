@@ -24,10 +24,6 @@
   class: li-left-arrow
 - escape-sequence: \e5c8
   class: li-right-arrow
-- escape-sequence: \e5c4
-  class: li-left-arrow
-- escape-sequence: \e5c8
-  class: li-right-arrow
 - escape-sequence: \e906
   class: li-ellipsis-v
   additional-css: |
@@ -65,5 +61,3 @@
   class: li-stop
 - escape-sequence: \e927
   class: li-clear
-- escape-sequence: \e940
-  class: li-grafana-duplicate

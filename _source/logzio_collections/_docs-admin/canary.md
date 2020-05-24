@@ -55,11 +55,8 @@ contributors:
 
 #### Logz.io icons
 
-<ul>
-{%- for icon in site.data.logzio-icons -%}
-<li>{{icon.class}}: <i class="li {{icon.class}}"></i></li>
-{%- endfor -%}
-</ul>
+1. Each item in this list should contain a visible icon ({{site.data.logzio-icons | size }} icons): \\
+  {% for icon in site.data.logzio-icons %} `{{icon.class}}` <i class="li {{icon.class}}"></i><br> {% endfor %}
 
 #### Bottom of page
 

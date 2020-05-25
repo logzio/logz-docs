@@ -1,52 +1,58 @@
 {%- comment -%}
-*   Drop this file in your _includes/ folder and add
-*   {% include page-date.html %} in `default` layout template.
-*
-*   - To hide, set `show-date: false` in frontmatter.
-*   - To override, set `updated: yyyy-mm-dd` in frontmatter.
-*         {%- endcomment -%}
+Gets the page date from the site.data.stale-list (in the _data folder).
+stale-list.yml is generated at build time using scripts/make-stale-list.sh
+
+Date visibility is controlled by the `show-date` property in frontmatter.
+- To hide, set `show-date: false` in frontmatter.
+- To override, set `updated: yyyy-mm-dd` in frontmatter.
+
+  {%- endcomment -%}
 
 {%- comment -%}
-*   If `show-date` is false, don't bother with this include.
-*         {%- endcomment -%}
+Hide if show-date frontmatter property is false
+  {%- endcomment -%}
 {%- unless page.show-date == false -%}
 
+  {%- comment -%}
+  Folder paths for source files & Jekyll collections. Find these in _config.yml.
+  End these values with a trailing slash.
+  Paths should match the format in stale-list.yml. In other words, match the
+    file system, not Jekyll's _config.yml.
+         {%- endcomment -%}
+  {%- assign sourceFolder = "_source/" -%}
+  {%- assign collectionsFolder = "logzio_collections/" -%}
 
-{%- comment -%}
-*   Folder paths for your source files and Jekyll collections. Find these in
-*   _config.yml. End these values with a trailing slash.
-*
-*   Paths should match the format in stale-list.yml. In other words, match the
-*   filesystem, not Jekyll's _config.yml.
-*         {%- endcomment -%}
-{%- assign sourceFolder = "_source/" -%}
-{%- assign collectionsFolder = "logzio_collections/" -%}
+  {%- assign thisPath = page.path -%}
 
-{%- assign thisPath = page.path -%}
+  {%- if page.updated  -%}
 
-{%- comment -%}
-*   If this page is part of a collection, prepend with `collectionsFolder`.
-*         {%- endcomment -%}
-{%- unless page.collection == nil -%}
-  {%- assign thisPath = thisPath | prepend: collectionsFolder -%}
-{%- endunless -%}
+    {%- comment -%}
+    If frontmatter contains the `updated` property, use that. Otherwise, use
+    the commit date from stale-list.yml.
+      {%- endcomment -%}
+    {%- assign pageDate = page.updated | default: thisRecord.committed -%}
 
-{%- comment -%}
-*   Prepend all pages with `sourceFolder`. At this point, thisPath *should*
-*   match a record in stale-list.yml.
-*         {%- endcomment -%}
-{%- assign thisPath = thisPath | prepend: sourceFolder -%}
+  {%- else -%}
 
-{%- comment -%}
-*   Find the file in stale-list.yml whose filepath matches `thisPath`.
-*         {%- endcomment -%}
-{%- assign thisRecord = site.data.stale-list.contents | where: "filepath", thisPath | first %}
+    {%- comment -%}
+    If this page is part of a collection, prepend with `collectionsFolder`.
+      {%- endcomment -%}
+      {%- unless page.collection == nil -%}
+      {%- assign thisPath = thisPath | prepend: collectionsFolder -%}
+    {%- endunless -%}
 
-{%- comment -%}
-*   If frontmatter contains `updated`, use that. Otherwise, use the commit
-*   date from stale-list.yml.
-*         {%- endcomment -%}
-{%- assign pageDate = page.updated | default: thisRecord.committed -%}
+    {%- comment -%}
+    Prepend all pages with `sourceFolder`. At this point, thisPath *should*
+    match a record in stale-list.yml.
+      {%- endcomment -%}
+    {%- assign thisPath = thisPath | prepend: sourceFolder -%}
 
-<div class="updated">{{ pageDate | date: "%b %e, %Y" }}</div>
+    {%- comment -%}
+    Find the file in stale-list.yml whose filepath matches `thisPath`.
+      {%- endcomment -%}
+    {%- assign thisRecord = site.data.stale-list.contents | where: "filepath", thisPath | first %}
+
+  {%- endif -%}
+
+  <div class="updated">{{ pageDate | date: "%b %e, %Y" }}</div>
 {%- endunless -%}

@@ -16,11 +16,11 @@
   * Include these bits only if in production
   *       {% endcomment %}
     {% if site.google_tag_manager_id -%}
-    {% include templates/google-tag-manager-head.html %}
+    {% include templates/google/tag-manager-head.html %}
     {%- endif %}
 
     {% if site.google_analytics_id -%}
-    {% include templates/google-analytics.html %}
+    {% include templates/google/google-analytics.html %}
     {%- endif %}
 
   {%- endunless -%}

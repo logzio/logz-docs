@@ -26,6 +26,8 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
 
 {% include trust-chain-warning.html msg='docker' %}
 
+
+
 <div class="tasklist">
 
 ##### Pull the Docker image
@@ -51,10 +53,18 @@ logzio/docker-collector-logs
 
 ###### Parameters
 
+Upgrading to a newer version of docker-collector-logs while it is already running
+will cause it to resend logs that are within the `ignoreOlder` timeframe.
+You can minimize log duplicates
+by setting the `ignoreOlder` parameter of the new docker
+to a lower value (for example, `20m`).
+{:.info-box.note}
+
 | Parameter | Description |
 |---|---|
 | LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} |
 | LOGZIO_URL <span class="required-param"></span> | Your Logz.io listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
+ ignoreOlder <span class="default-param">`3h`</span>|  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). |
 {:.paramlist}
 
 ##### Check Logz.io for your logs

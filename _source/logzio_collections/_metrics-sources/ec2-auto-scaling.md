@@ -4,6 +4,7 @@ logo:
   logofile: aws-ec2-auto-scaling.svg
   orientation: vertical
 data-source: EC2 Auto Scaling
+template-tags: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
     github-repo: docker-collector-metrics

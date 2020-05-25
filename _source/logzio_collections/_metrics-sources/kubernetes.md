@@ -84,7 +84,9 @@ with a [compatible version](https://github.com/kubernetes/kube-state-metrics#com
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include log-shipping/replace-vars.html token=true %}
+
+{% include log-shipping/replace-vars.html listener=true %}
 
 ```shell
 kubectl --namespace=kube-system create secret generic logzio-metrics-secret \

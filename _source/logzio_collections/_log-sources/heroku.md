@@ -25,7 +25,9 @@ Run this command in the command line.
 heroku drains:add "http://<<LISTENER-HOST>>:8081?token=<<SHIPPING-TOKEN>>" -a <<HEROKU-APP-NAME>>
 ```
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include log-shipping/replace-vars.html token=true %}
+
+{% include log-shipping/replace-vars.html listener=true %}
 
 Replace `<<HEROKU-APP-NAME>>` with the name of the app in Heroku.
 

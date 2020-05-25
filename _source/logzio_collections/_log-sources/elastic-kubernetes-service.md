@@ -44,7 +44,9 @@ However, you can deploy a custom configuration if your environment needs it. {%-
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include log-shipping/replace-vars.html token=true %}
+
+{% include log-shipping/replace-vars.html listener=true %}
 
 ```shell
 kubectl create secret generic logzio-logs-secret \

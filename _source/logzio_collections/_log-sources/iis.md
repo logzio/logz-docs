@@ -22,7 +22,9 @@ admin access
 
 Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include log-shipping/replace-vars.html token=true %}
+
+{% include log-shipping/replace-vars.html listener=true %}
 
 ```conf
 define ROOT C:\\Program Files (x86)\\nxlog

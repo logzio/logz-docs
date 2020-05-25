@@ -48,10 +48,6 @@ It has 3 secondary parameters: `prepend`, `append`, `isMidSentence`
   {%- endcase -%}
 {%- endif -%}
 
-{%- if include.token and include.listener -%}
-    <br /> <br />
-{%- endif -%}
-
 {%- if include.listener -%}
   {%- case include.listener -%}
     {%- when 'noReplace' -%}

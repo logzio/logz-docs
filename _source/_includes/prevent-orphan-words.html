@@ -1,16 +1,17 @@
 {%- comment -%}
-*   This file goes in your Jekyll _includes/ folder. It prevents orphan words
-*   by replacing the last space in the string with a non-breaking space.
-*
-*   Usage:
-*   Pass `str` (a string) to this include. Returns the string with last space
-*   replaced with `&nbsp;`.
-*
-*   Example:
-*     {%- include prevent-orphan-words.html str="You can call me Al." -%}
-*   Results in:
-*     "You can call me&nbsp;Al."
-*         {%- endcomment -%}
+This prevents orphan words by replacing the last space in the string with a
+non-breaking space.
+
+Usage:
+Pass `str` (a string) to this include. Returns the string with last space
+replaced with `&nbsp;`.
+
+Example:
+  {%- include prevent-orphan-words.html str="You can call me Al." -%}
+Results in:
+  "You can call me&nbsp;Al."
+
+  {%- endcomment -%}
 
 {{- include.str
   | split: ""

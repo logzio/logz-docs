@@ -5,6 +5,12 @@ where configuration is in-app
 This include takes these arguments:
   toolId: can be `filebeat-wizard` or `s3-config`
 
+=== IMPORTANT ===
+Any page that uses this include needs to have the `logzio-app-url` property
+in the frontmatter.
+
+Example usage:
+  {% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
 {%- endcomment -%}
 
 {%- case include.toolId -%}

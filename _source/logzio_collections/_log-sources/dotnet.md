@@ -4,7 +4,7 @@ logo:
   logofile: dotnet.svg
   orientation: vertical
 data-source: .NET code
-template-tags: ["library"]
+templates: ["library"]
 open-source:
   - title: logzio-dotnet
     github-repo: logzio-dotnet

@@ -4,7 +4,7 @@ logo:
   logofile: wazuh.svg
   orientation: vertical
 data-source: Wazuh
-template-tags: ["filebeat"]
+templates: ["filebeat"]
 contributors:
   - imnotashrimp
   - schwin007

@@ -4,7 +4,7 @@ logo:
   logofile: docker.svg
   orientation: horizontal
 data-source: Docker container
-template-tags: ["docker", ""]
+templates: ["docker", ""]
 open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs

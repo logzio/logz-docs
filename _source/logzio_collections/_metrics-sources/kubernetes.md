@@ -4,7 +4,7 @@ logo:
   logofile: kubernetes.svg
   orientation: vertical
 data-source: Kubernetes
-template-tags: ["", "k8s-daemonset"]
+templates: ["", "k8s-daemonset"]
 contributors:
   - imnotashrimp
 shipping-tags:

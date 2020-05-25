@@ -4,7 +4,7 @@ logo:
   logofile: azure.svg
   orientation: horizontal
 data-source: Microsoft Graph
-template-tags: [""]
+templates: [""]
 open-source:
   - title: Logzio-MSGraph
     github-repo: microsoft-graph

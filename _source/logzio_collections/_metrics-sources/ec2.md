@@ -4,7 +4,7 @@ logo:
   logofile: aws-ec2.svg
   orientation: vertical
 data-source: EC2
-template-tags: ["docker-metricbeat"]
+templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
     github-repo: docker-collector-metrics

@@ -4,7 +4,7 @@ logo:
   logofile: kubernetes.svg
   orientation: vertical
 data-source: Kubernetes
-template-tags: ["k8s-daemonset"]
+templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-k8s
     github-repo: logzio-k8s

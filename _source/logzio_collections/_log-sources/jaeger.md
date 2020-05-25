@@ -4,7 +4,7 @@ logo:
   logofile: jaeger.svg
   orientation: vertical
 data-source: Jaeger
-template-tags: ["tracing-integration"]
+templates: ["tracing-integration"]
 description: Here's how you can use Logz.io as data storage for Jaeger traces.
 open-source:
   - title: Jaeger-Logz.io Trace Storage

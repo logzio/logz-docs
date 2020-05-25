@@ -4,7 +4,7 @@ logo:
   logofile: docker.svg
   orientation: horizontal
 data-source: Docker performance logs
-template-tags: ["docker"]
+templates: ["docker"]
 contributors:
   - imnotashrimp
 shipping-tags:

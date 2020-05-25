@@ -4,7 +4,7 @@ logo:
   logofile: aws-lambda.svg
   orientation: vertical
 data-source: Lambda
-template-tags: ["docker-metricbeat"]
+templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
     github-repo: docker-collector-metrics

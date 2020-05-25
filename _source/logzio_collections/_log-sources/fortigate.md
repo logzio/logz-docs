@@ -4,7 +4,7 @@ logo:
   logofile: fortinet.svg
   orientation: vertical
 data-source: FortiGate
-template-tags: ["network-device-filebeat"]
+templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
 shipping-tags:

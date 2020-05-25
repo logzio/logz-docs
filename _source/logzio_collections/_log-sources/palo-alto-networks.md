@@ -4,7 +4,7 @@ logo:
   logofile: palo-alto-networks.svg
   orientation: horizontal
 data-source: Palo Alto Networks
-template-tags: ["network-device-filebeat"]
+templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
 shipping-tags:

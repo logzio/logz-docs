@@ -7,7 +7,7 @@ open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs
 data-source: Elastic Container Service
-template-tags: ["docker"]
+templates: ["docker"]
 contributors:
   - imnotashrimp
   - supereli

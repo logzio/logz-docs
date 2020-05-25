@@ -4,7 +4,7 @@ logo:
   logofile: ossec.png
   orientation: vertical
 data-source: OSSEC
-template-tags: ["filebeat"]
+templates: ["filebeat"]
 contributors:
   - imnotashrimp
   - schwin007

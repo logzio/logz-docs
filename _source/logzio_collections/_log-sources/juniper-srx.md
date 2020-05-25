@@ -4,7 +4,7 @@ logo:
   logofile: juniper.png
   orientation: horizontal
 data-source: Juniper
-template-tags: ["network-device-filebeat"]
+templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:

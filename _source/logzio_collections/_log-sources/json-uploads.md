@@ -4,7 +4,7 @@ logo:
   logofile: json.svg
   orientation: vertical
 data-source: JSON uploads
-template-tags: [""]
+templates: [""]
 contributors:
   - imnotashrimp
 shipping-tags:

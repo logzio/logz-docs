@@ -4,7 +4,7 @@ logo:
   logofile: falco-logo.png
   orientation: vertical
 data-source: Falco
-template-tags: ["network-device-filebeat"]
+templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:

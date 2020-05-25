@@ -4,7 +4,7 @@ logo:
   logofile: nodejs.svg
   orientation: vertical
 data-source: Node.js code
-template-tags: ["library"]
+templates: ["library"]
 open-source:
   - title: logzio-nodejs
     github-repo: logzio-nodejs

@@ -4,7 +4,7 @@ logo:
   logofile: java.svg
   orientation: vertical
 data-source: Java code
-template-tags: ["library"]
+templates: ["library"]
 open-source:
   - title: Logzio Log4j 2 Appender
     github-repo: logzio-log4j2-appender

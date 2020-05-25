@@ -4,7 +4,7 @@ logo:
   logofile: cisco.svg
   orientation: vertical
 data-source: Cisco ASA
-template-tags: ["network-device-filebeat"]
+templates: ["network-device-filebeat"]
 contributors:
   - shalper
   - imnotashrimp

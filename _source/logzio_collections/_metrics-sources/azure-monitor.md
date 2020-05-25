@@ -4,7 +4,7 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 data-source: Azure Monitor
-template-tags: ["metricbeat"]
+templates: ["metricbeat"]
 contributors:
   - imnotashrimp
   - yotamloe

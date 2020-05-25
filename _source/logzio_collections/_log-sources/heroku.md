@@ -4,7 +4,7 @@ logo:
   logofile: heroku.svg
   orientation: vertical
 data-source: Heroku
-template-tags: [""]
+templates: [""]
 contributors:
   - imnotashrimp
 shipping-tags:

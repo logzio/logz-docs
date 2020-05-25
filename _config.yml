@@ -143,6 +143,3 @@ include:
 # Don't mess with these, unless you're willing to move a lot of files around.
 source: ./_source
 destination: ./_site
-
-# ===== SEARCH =====
-# addsearch_key: 

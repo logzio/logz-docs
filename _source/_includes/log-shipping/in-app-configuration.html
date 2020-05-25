@@ -1,8 +1,10 @@
 {%- comment -%}
-*
-*  This include takes these arguments:
-*    toolId: can be `filebeat-wizard` or `s3-config`
-*
+This include is used for S3 and Filebeat,
+where configuration is in-app
+
+This include takes these arguments:
+  toolId: can be `filebeat-wizard` or `s3-config`
+
 {%- endcomment -%}
 
 {%- case include.toolId -%}

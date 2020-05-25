@@ -16,18 +16,18 @@
   * Include these bits only if in production
   *       {% endcomment %}
     {% if site.google_tag_manager_id -%}
-    {% include google-tag-manager-head.html %}
+    {% include templates/google-tag-manager-head.html %}
     {%- endif %}
 
     {% if site.google_analytics_id -%}
-    {% include google-analytics.html %}
+    {% include templates/google-analytics.html %}
     {%- endif %}
 
   {%- endunless -%}
   {% endif -%}
 
   {%- if site.intercom_app_id %}
-  {% include intercom.html %}
+  {% include templates/intercom.html %}
   {%- endif -%}
 
   {%- if page.noindex %}

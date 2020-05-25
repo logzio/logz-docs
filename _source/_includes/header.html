@@ -37,12 +37,12 @@
   <nav class="site-actions">
     <ul>
     {% unless page.searchbox == false %}
-      <li>{% include lunr-header.html %}</li>
+      <li>{% include lunr/lunr-header.html %}</li>
     {% endunless %}
       <li id="log-in"><a href="https://app.logz.io" target="_top">Log In</a></li>
     </ul>
   </nav>
-{% include lunr-results.html %}
+{% include lunr/lunr-results.html %}
 
   {% comment %}
   {% unless jekyll.environment == "production" -%}

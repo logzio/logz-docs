@@ -1,4 +1,8 @@
-// Left toc
+// Add anchors on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function(event) {
+  anchors.add();
+});
+
 $( function() {
   // Show/hide animations for left-side TOC. Also animates caret icon.
   $('ul.toc-child > li.toc-active')

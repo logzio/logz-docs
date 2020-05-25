@@ -25,6 +25,8 @@ they're written to the local file system for later retrieval.
 
 <div class="tasklist">
 
+**Before you begin**: Note that only the following Python versions have been tested: 2.7, 3.3, 3.4, 3.5, 3.6.
+
 ##### Add the dependency to your project
 
 Navigate to your project's folder in the command line, and run this command to install the dependency.
@@ -32,6 +34,9 @@ Navigate to your project's folder in the command line, and run this command to i
 ```shell
 pip install logzio-python-handler
 ```
+
+Tested Python versions: 2.7, 3.3, 3.4, 3.5, 3.6.
+{:.info-box.tip}
 
 ##### Configure Logz.io Python Handler for a standard Python project
 
@@ -81,25 +86,33 @@ you need to set every argument that comes before it.
 | debug-flag <span class="default-param">`False`</span> | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. |
 {:.paramlist}
 
-###### Code sample
+#### Serverless platforms
 
+If you're using a serverless function, you'll need to import and add the LogzioFlusher annotation before your sender function. To do this, in the code sample below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.
+
+#### Code Example
 ```python
 import logging
 import logging.config
+# If you're using a serverless function, uncomment.
+# from logzio.flusher import LogzioFlusher
 
-# If configuration is stored at ./myconf.conf:
+# Say i have saved my configuration under ./myconf.conf
 logging.config.fileConfig('myconf.conf')
-
 logger = logging.getLogger('superAwesomeLogzioLogger')
 
-logger.info('Test log')
-logger.warn('Warning')
+# If you're using a serverless function, uncomment.
+# @LogzioFlusher(logger)
+def my_func():
+    logger.info('Test log')
+    logger.warn('Warning')
 
-try:
-    1/0
-except:
-    logger.exception("Supporting exceptions too!")
+    try:
+        1/0
+    except:
+        logger.exception("Supporting exceptions too!")
 ```
+
 
 To add dynamic metadata to your logger
 other than the constant metadata from the formatter,

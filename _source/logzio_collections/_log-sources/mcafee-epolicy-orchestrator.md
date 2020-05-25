@@ -4,6 +4,7 @@ logo:
   logofile: mcafee.svg
   orientation: vertical
 data-source: McAfee ePolicy Orchestrator
+template-tags: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
 shipping-tags:

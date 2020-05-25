@@ -4,6 +4,7 @@ logo:
   logofile: windows.svg
   orientation: vertical
 data-source: Active Directory (Windows Server)
+template-tags: ["winlogbeat"]
 contributors:
   - imnotashrimp
 shipping-tags:

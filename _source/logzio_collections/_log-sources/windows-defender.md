@@ -4,6 +4,7 @@ logo:
   logofile: windows-defender.svg
   orientation: vertical
 data-source: Windows Defender
+template-tags: ["winlogbeat"]
 contributors:
   - imnotashrimp
   - dorisnaaman

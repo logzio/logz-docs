@@ -4,6 +4,7 @@ logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
 data-source: CloudWatch
+template-tags: ["lambda", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudWatch
 open-source:
   - title: CloudWatch Lambda Log Shipper

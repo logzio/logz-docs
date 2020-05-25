@@ -7,7 +7,7 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 data-source: Azure diagnostic logs
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Diagnostics-settings
+template-tags: ["azure-deployment"]
 tags:
   - azure
   - event-hubs

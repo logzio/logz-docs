@@ -7,6 +7,7 @@ open-source:
   - title: Logzio Golang API client
     github-repo: logzio-go
 data-source: Go code
+template-tags: ["library"]
 contributors:
   - imnotashrimp
 shipping-tags:

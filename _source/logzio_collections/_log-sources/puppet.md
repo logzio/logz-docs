@@ -4,6 +4,7 @@ logo:
   logofile: puppet.png
   orientation: vertical
 data-source: Puppet
+template-tags: ["filebeat"]
 contributors:
   - amosd92
   - imnotashrimp

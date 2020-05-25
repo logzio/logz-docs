@@ -4,6 +4,7 @@ logo:
   logofile: linux.svg
   orientation: vertical
 data-source: Linux
+template-tags: ["rsyslog"]
 contributors:
   - imnotashrimp
 shipping-tags:

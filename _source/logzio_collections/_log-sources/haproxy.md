@@ -4,6 +4,7 @@ logo:
   logofile: haproxy.png
   orientation: horizontal
 data-source: HAProxy
+template-tags: ["rsyslog"]
 contributors:
   - imnotashrimp
 shipping-tags:

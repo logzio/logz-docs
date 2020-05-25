@@ -4,6 +4,7 @@ logo:
   logofile: aws-cloudfront.svg
   orientation: vertical
 data-source: CloudFront
+template-tags: ["s3-fetcher"]
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudFront
 contributors:
   - idohalevi

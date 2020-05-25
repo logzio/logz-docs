@@ -4,10 +4,10 @@ logo:
   logofile: mysql.svg
   orientation: horizontal
 data-source: MySQL
+template-tags: ["filebeat", "docker"]
 open-source:
   - title: mysql-logs
     github-repo: mysql-logs
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/MySQL-Logs
 contributors:
   - imnotashrimp
   - amosd92

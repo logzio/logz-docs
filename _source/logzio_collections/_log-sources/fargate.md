@@ -4,6 +4,7 @@ logo:
   logofile: aws-fargate.svg
   orientation: vertical
 data-source: Fargate
+template-tags: [""]
 contributors:
   - ronish31
   - imnotashrimp

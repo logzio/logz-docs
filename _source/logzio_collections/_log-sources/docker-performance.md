@@ -4,7 +4,7 @@ logo:
   logofile: docker.svg
   orientation: horizontal
 data-source: Docker performance logs
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Perfagent
+template-tags: ["docker"]
 contributors:
   - imnotashrimp
 shipping-tags:

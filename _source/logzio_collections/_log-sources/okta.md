@@ -4,6 +4,7 @@ logo:
   logofile: okta.png
   orientation: vertical
 data-source: Okta
+template-tags: ["docker"]
 contributors:
   - imnotashrimp
 shipping-tags:

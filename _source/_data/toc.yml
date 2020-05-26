@@ -94,7 +94,7 @@ firstLevel:
 
   secondLevel:
   - title: Why Cloud SIEM?
-    url: /user-guide/siem
+    url: /user-guide/siem/intro/
   - title: Getting started
     url: /user-guide/cloud-siem/
   - title: Understanding your security logs

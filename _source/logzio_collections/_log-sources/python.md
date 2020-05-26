@@ -70,9 +70,11 @@ format={"additional_field": "value"}
 ```
 
 
-##### Dict Config
+###### Dict Config
 
-If you are using Python 3.8, it is recommended to use the `logging.config.dictConfig` method, as mentioned in Python's [documentation](https://docs.python.org/3/library/logging.config.html#configuration-file-format).
+This is an alternative configuration option recommended if you are using Python 3.8. 
+
+See Python's [documentation](https://docs.python.org/3/library/logging.config.html#configuration-file-format) regarding the `logging.config.dictConfig` method.
 
 ```yml
 LOGGING = {
@@ -122,8 +124,8 @@ you need to set every argument that comes before it.
 | timeout <span class="default-param">`3`</span> | Time to wait between log draining attempts, in seconds. |
 | listener-url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
 | debug-flag <span class="default-param">`False`</span> | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. |
-|Backup logs <span class="default-param">`True`</span>| If set to False, disables the local backup of logs in case of failure. |
-| Network timeout <span class="default-param">`10`</span> | Timeout in seconds, int or float, for sending the logs to Logz.io. |
+|backup-logs <span class="default-param">`True`</span>| If set to False, disables the local backup of logs in case of failure. |
+| network-timeout <span class="default-param">`10`</span> | Timeout in seconds, int or float, for sending the logs to Logz.io. |
 {:.paramlist}
 
 #### Serverless platforms

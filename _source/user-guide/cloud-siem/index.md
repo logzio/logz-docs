@@ -3,7 +3,7 @@ layout: article
 title: Getting started with Logz.io Cloud SIEM
 permalink: /user-guide/cloud-siem/
 flags:
-  logzio-plan: pro
+  logzio-plan: enterprise
 tags:
   - security-analytics
   - security-summary

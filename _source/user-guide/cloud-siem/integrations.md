@@ -3,7 +3,7 @@ layout: article
 title: Integrations available for Logz.io Cloud SIEM
 permalink: /user-guide/cloud-siem/integrations
 flags:
-  logzio-plan: pro
+  logzio-plan: enterprise
 tags:
   - security-analytics
   - security-summary

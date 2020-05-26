@@ -3,7 +3,7 @@ layout: article
 title: Understanding your security logs
 permalink: /user-guide/cloud-siem/understanding-your-security-logs.html
 flags:
-  logzio-plan: pro
+  logzio-plan: enterprise
 tags:
   - security-analytics
   - security-summary

@@ -3,7 +3,7 @@ layout: article
 title: Manage security rules
 permalink: /user-guide/cloud-siem/manage-security-rules.html
 flags:
-  logzio-plan: pro
+  logzio-plan: enterprise
 tags:
   - security-analytics
   - security-rules

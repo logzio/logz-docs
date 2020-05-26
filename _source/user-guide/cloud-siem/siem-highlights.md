@@ -3,7 +3,7 @@ layout: article
 title: Highlights
 permalink: /user-guide/siem/highlights/
 flags:
-  logzio-plan:
+  logzio-plan: enterprise
 tags:
   - security
   - siem

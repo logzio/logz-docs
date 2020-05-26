@@ -3,7 +3,7 @@ layout: article
 title: About Cloud SIEM
 permalink: /user-guide/siem/intro/
 flags:
-  logzio-plan:
+  logzio-plan: enterprise
 tags:
   - security
   - siem

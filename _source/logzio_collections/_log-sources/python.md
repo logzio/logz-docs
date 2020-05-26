@@ -72,7 +72,7 @@ format={"additional_field": "value"}
 
 ###### Dict Config
 
-This is an alternative configuration option recommended if you are using Python 3.8. 
+This is an alternative configuration option recommended if you are using Python 3.8.
 
 See Python's [documentation](https://docs.python.org/3/library/logging.config.html#configuration-file-format) regarding the `logging.config.dictConfig` method.
 
@@ -91,9 +91,9 @@ LOGGING = {
             'class': 'logzio.handler.LogzioHandler',
             'level': 'INFO',
             'formatter': 'logzioFormat',
-            'token': '<<LOGZIO-TOKEN>>',
+            'token': '<<SHIPPING-TOKEN>>',
             'logs_drain_timeout': 5,
-            'url': 'https://<<LOGZIO-URL>>:8071'
+            'url': 'https://<<LISTENER-HOST>>:8071'
         }
     },
     'loggers': {
@@ -106,13 +106,15 @@ LOGGING = {
 }
 ```
 
-Replace:
-* <<LOGZIO-TOKEN>> - your logz.io account token.
-* <<LOGZIO-URL>> - logz.io url, as described [here](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls).
+###### Replace the placeholders
+
+* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/replace-vars.html listener=true %} 
+
 
 ##### Parameters
 
-Arguments must be configured in the order shown.
+The order of the arguments is important. Arguments _must_ be configured in the order shown here.
 For example, to set debug-flag to `True`,
 you need to set every argument that comes before it.
 {:.info-box.important}

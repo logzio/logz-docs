@@ -76,7 +76,7 @@ This is an alternative configuration option recommended if you are using Python 
 
 See Python's [documentation](https://docs.python.org/3/library/logging.config.html#configuration-file-format) regarding the `logging.config.dictConfig` method.
 
-```yml
+```python
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

@@ -58,5 +58,20 @@ When we say "template",
 we mean these docs should follow roughly the same flow.
 
 {% for template in templates -%}
-- {{template}}
+`{{template}}`
+{%- unless forloop.last -%} , {% endunless -%}
 {% endfor %}
+
+{% for template in templates %}
+  {%- assign docsWithThisTemplate = shippingCollections | where_exp: "doc", "doc.templates contains template" -%}
+
+  ### Template: {{template}}
+
+  Used in:
+
+  {%- for doc in docsWithThisTemplate %}
+    [{{doc.data-source}}]({{doc.url |  prepend: site.baseurl}})
+    {%- unless forloop.last -%} , {% endunless -%}
+  {% endfor %}
+
+{% endfor -%}

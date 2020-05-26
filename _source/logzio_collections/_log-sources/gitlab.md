@@ -4,7 +4,7 @@ logo:
   logofile: gitlab.svg
   orientation: vertical
 data-source: GitLab
-templates: ["filebeat"]
+templates: [beats-logs]
 contributors:
   - amosd92
   - imnotashrimp

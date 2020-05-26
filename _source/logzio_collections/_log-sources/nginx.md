@@ -4,7 +4,7 @@ logo:
   logofile: nginx.svg
   orientation: horizontal
 data-source: nginx
-templates: ["filebeat"]
+templates: [beats-logs]
 contributors:
   - amosd92
   - imnotashrimp

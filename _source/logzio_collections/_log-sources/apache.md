@@ -4,7 +4,7 @@ logo:
   logofile: apache.svg
   orientation: vertical
 data-source: Apache HTTPS Server 2
-templates: ["filebeat"]
+templates: [beats-logs]
 contributors:
   - amosd92
   - imnotashrimp

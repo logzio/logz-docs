@@ -4,7 +4,7 @@ logo:
   logofile: windows.svg
   orientation: vertical
 data-source: Windows
-templates: ["winlogbeat", "nxlog"]
+templates: ["beats-logs", "nxlog"]
 contributors:
   - imnotashrimp
 shipping-tags:

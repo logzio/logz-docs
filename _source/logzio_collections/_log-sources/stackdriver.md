@@ -7,7 +7,7 @@ logo:
   logofile: gcp-stackdriver.svg
   orientation: vertical
 data-source: Stackdriver
-templates: [""]
+templates: ["no-template"]
 contributors:
   - ronish31
   - imnotashrimp

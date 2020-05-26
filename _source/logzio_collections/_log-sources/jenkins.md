@@ -4,7 +4,7 @@ logo:
   logofile: jenkins.png
   orientation: vertical
 data-source: Jenkins
-templates: [beats-logs, ""]
+templates: [beats-logs, "no-template"]
 open-source:
   - title: Jenkins Logstash Plugin
     github-repo: logstash-plugin

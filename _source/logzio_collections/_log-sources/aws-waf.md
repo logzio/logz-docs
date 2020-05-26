@@ -4,7 +4,7 @@ logo:
   logofile: AWS-WAF.svg
   orientation: vertical
 data-source: AWS WAF
-templates: [""]
+templates: ["no-template"]
 contributors:
   - shalper
 shipping-tags:

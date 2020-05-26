@@ -126,7 +126,7 @@ you need to set every argument that comes before it.
 | timeout <span class="default-param">`3`</span> | Time to wait between log draining attempts, in seconds. |
 | listener-url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
 | debug-flag <span class="default-param">`False`</span> | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. |
-|backup-logs <span class="default-param">`True`</span>| If set to False, disables the local backup of logs in case of failure. |
+| backup-logs <span class="default-param">`True`</span>| If set to False, disables the local backup of logs in case of failure. |
 | network-timeout <span class="default-param">`10`</span> | Timeout in seconds, int or float, for sending the logs to Logz.io. |
 {:.paramlist}
 

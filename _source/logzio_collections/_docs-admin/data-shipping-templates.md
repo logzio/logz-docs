@@ -4,20 +4,35 @@ title: Data shipping templates
 show-date: false
 ---
 
-{%- assign tabs = site.data.shipper-tabs.tabs | where:"templated",true -%}
+###### On this page
+{:.no_toc}
 
-{%- comment -%} Create empty arrays {%- endcomment -%}
+* item
+{:toc}
+
+{% assign tabs = site.data.shipper-tabs.tabs | where:"templated",true -%}
+
+{% comment -%} Build the array of shipping {%- endcomment -%}
 {%- assign shippingCollections = "" | split: "" -%}
-{%- assign templates = "" | split: "" -%}
-
-{%- comment -%} Now add shipping docs to the array {%- endcomment -%}
 {%- for tab in tabs -%}
   {%- assign thisCollection = site.collections |  where: "label", tab.collection | first -%}
   {%- assign thisCollectionDocs = thisCollection.docs | sort_natural: "data-source" -%}
   {%- assign shippingCollections = shippingCollections | concat: thisCollectionDocs -%}
 {%- endfor -%}
 
-{%- comment -%} Generate the table of all shipping sources {%- endcomment -%}
+{% comment -%} Build the array of template tags {%- endcomment -%}
+{%- assign templates = "" | split: "" -%}
+{%- for doc in shippingCollections -%}
+  {%- for template in doc.templates -%}
+    {%- assign thisTemplate = template | split: "|" -%}
+    {%- assign templates = templates | concat: thisTemplate -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign templates = templates | uniq | sort_natural -%}
+
+## Overview of shipping sources
+
+{% comment -%} Generate the table of all shipping sources {%- endcomment -%}
 | Source | Data | Templates | Open source projects |
 |---|---|---|
 {%- for doc in shippingCollections %}
@@ -31,4 +46,17 @@ show-date: false
       {%- endfor -%}
     {%- endif -%}
   |
-{%- endfor -%}
+{%- endfor %}
+
+## Shipping templates
+
+This covers only data sources
+(**not** shippers or community shippers).
+
+These are the tags used in the shipping docs.
+When we say "template",
+we mean these docs should follow roughly the same flow.
+
+{% for template in templates -%}
+- {{template}}
+{% endfor %}

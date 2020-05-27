@@ -122,7 +122,10 @@ logzio/docker-collector-metrics
 
 ##### Monitor advanced EC2 metrics (_Optional_)
 
-If you want, you can also monitor advanced EC2 metrics, including disk memory and swap memory. To enable this option, you'll need to install and configure a Cloudwatch agent on your machine and specify the **CWAgent** namespace.
+If you want, you can also monitor advanced EC2 metrics, including disk memory and swap memory. 
+
+To enable this option, you'll need to install and configure a Cloudwatch agent on your machine and specify the **CWAgent** namespace.
+
 See the official instructions for [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).
 
 

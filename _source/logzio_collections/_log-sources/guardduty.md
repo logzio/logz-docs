@@ -7,7 +7,7 @@ open-source:
   - title: Kinesis Stream Shipper - Lambda
     github-repo: logzio_aws_serverless/tree/master/python3/kinesis
 data-source: GuardDuty
-templates: ["lambda", "cloudformation"]
+templates: ["lambda-kinesis", "cloudformation"]
 contributors:
   - idohalevi
   - imnotashrimp

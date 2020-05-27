@@ -4,7 +4,7 @@ logo:
   logofile: zipkin.svg
   orientation: vertical
 data-source: Zipkin
-templates: ["tracing-integration"]
+templates: ["no-template"]
 description: Here's how you can use Logz.io as data storage for Zipkin traces.
 open-source:
   - title: Zipkin-Logz.io Trace Storage

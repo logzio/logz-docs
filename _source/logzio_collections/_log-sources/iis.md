@@ -4,7 +4,7 @@ logo:
   logofile: iis.png
   orientation: horizontal
 data-source: Microsoft IIS
-templates: ["nxlog"]
+templates: ["no-template"]
 contributors:
   - imnotashrimp
 shipping-tags:

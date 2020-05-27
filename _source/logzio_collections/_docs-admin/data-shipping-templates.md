@@ -74,4 +74,13 @@ we mean these docs should follow roughly the same flow.
     {%- unless forloop.last -%} , {% endunless -%}
   {% endfor %}
 
+  {% assign thisTemplateFramework = site.data.shipper-tabs.templates | where: 'slug', template | first %}
+  {% if thisTemplateFramework.outline %}
+
+##### The framework
+
+{{thisTemplateFramework.outline | markdownify }}
+
+  {% endif %}
+
 {% endfor -%}

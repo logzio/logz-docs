@@ -96,17 +96,7 @@ logzio/docker-collector-metrics
 | DOCKER_KEY | Filepath to Docker key for connecting to Docker over TLS. |
 {:.paramlist}
 
-##### Check Logz.io for your metrics
+{% include metric-shipping/open-dashboard.html title="Docker overview" %}
 
-Give your metrics a few minutes to get from your system to ours,
-and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
-
-You can view your metrics on the
-Docker overview
-dashboard in Grafana.
-Just click **<i class="fas fa-th-large"></i> > Manage** in the left menu,
-then click
-**Logz.io Dashboards >**
-**Docker overview**.
 
 </div>

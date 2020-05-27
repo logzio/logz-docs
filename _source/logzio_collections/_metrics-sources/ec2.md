@@ -106,6 +106,7 @@ logzio/docker-collector-metrics
 | LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
 | LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |
 | LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
+{% include metric-shipping/debug-param.html %}
 {:.paramlist}
 
 ###### Parameters for the AWS module
@@ -118,17 +119,18 @@ logzio/docker-collector-metrics
 | AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For EC2, this is `AWS/EC2`. |
 {:.paramlist}
 
-##### Check Logz.io for your metrics
 
-Give your metrics a few minutes to get from your system to ours,
-and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+##### Monitor advanced EC2 metrics (_Optional_)
 
-You can view your metrics on the
-AWS EC2
-dashboard in Grafana.
-Just click **<i class="fas fa-th-large"></i> > Manage** in the left menu,
-then click
-**Logz.io Dashboards >**
-**AWS EC2**.
+If you want, you can also monitor advanced EC2 metrics, including disk memory and swap memory. 
+
+To enable this option, you'll need to install and configure a Cloudwatch agent on your machine and specify the **CWAgent** namespace.
+
+See the official instructions for [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).
+
+
+{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/EC2" %}
+
+
 
 </div>

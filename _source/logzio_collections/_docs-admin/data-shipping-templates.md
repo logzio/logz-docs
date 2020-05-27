@@ -15,14 +15,7 @@ show-date: false
 {%- endfor -%}
 
 {% comment -%} Build the array of template tags {%- endcomment -%}
-{%- assign templates = "" | split: "" -%}
-{%- for doc in shippingCollections -%}
-  {%- for template in doc.templates -%}
-    {%- assign thisTemplate = template | split: "|" -%}
-    {%- assign templates = templates | concat: thisTemplate -%}
-  {%- endfor -%}
-{%- endfor -%}
-{%- assign templates = templates | uniq | sort_natural -%}
+{%- assign templates = shippingCollections | map: 'templates' | uniq | sort_natural -%}
 
 <details>
 

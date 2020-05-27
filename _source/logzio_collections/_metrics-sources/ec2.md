@@ -13,8 +13,21 @@ shipping-tags:
   - aws
 ---
 
+
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Ship EC2 over Docker container](#ec2-docker)
+* [Ship over self-hosted Metricbeat](#ec2-vanilla)
+{:.branching-tabs}
+
+
+
+<!-- tab:start -->
+<div id="ec2-docker">
+
 To simplify shipping metrics from one or many sources,
-we created Docker Metrics Collector.
+we created a Docker Metrics Collector. The
 Docker Metrics Collector is a container
 that runs Metricbeat with the modules you enable at runtime.
 
@@ -124,13 +137,135 @@ logzio/docker-collector-metrics
 
 If you want, you can also monitor advanced EC2 metrics, including disk memory and swap memory. 
 
-To enable this option, you'll need to install and configure a Cloudwatch agent on your machine and specify the **CWAgent** namespace.
+To enable this option, you’ll need to install and configure a CloudWatch agent on your machine and specify the **CWAgent** namespace under the AWS_NAMESPACES parameter. For example:
 
-See the official instructions for [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).
+```
+--env AWS_NAMESPACES="AWS/EC2,CWAgent"
+```
+
+For additional instructions, see more about [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).
 
 
 {% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/EC2" %}
 
+</div>
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="ec2-vanilla">
+
+You have the option to ship CloudWatch metrics directly over Metricbeat, without a Docker container.
+
+**Recommended version**: Metricbeat version 7.5.x
+
+#### Configuration
+
+{% include trust-chain-warning.html msg='docker' %}
+
+<div class="tasklist">
+
+##### Set up your IAM user
+
+You'll need an [IAM user](https://console.aws.amazon.com/iam/home)
+with these permissions:
+`cloudwatch:GetMetricData`,
+`cloudwatch:ListMetrics`,
+`ec2:DescribeInstances`,
+`ec2:DescribeRegions`,
+`iam:ListAccountAliases`,
+`sts:GetCallerIdentity`
+
+If you don't have one, set that up now.
+
+Create an **Access key ID** and **Secret access key** for the IAM user,
+and paste them in your text editor.
+
+You'll need these for your Metricbeat configuration later.
+
+##### Get your metrics region
+
+You'll need to specify the AWS region you're collecting metrics from.
+
+![AWS region menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/region-menu.png)
+
+Find your region's slug in the region menu
+(in the top menu, on the right side).
+
+For example:
+The slug for US East (N. Virginia)
+is "us-east-1",
+and the slug for Canada (Central) is "ca-central-1".
+
+Paste your region slug in your text editor.
+You'll need this for your Metricbeat configuration later.
+
+##### Example configuration
+
+```yml
+metricbeat.modules:
+- module: aws
+  period: 300s
+  metricsets:
+    - cloudwatch
+  metrics: #specify aws namespaces you want to monitor, just add namspaces from AWS list
+    - namespace: <<namespace 1>>
+
+  access_key_id: '<<access_key_id>>'
+  secret_access_key: '<<secret_access_key>>'
+
+fields:
+  logzio_codec: json
+  token: <<SHIPPING-TOKEN>>
+fields_under_root: true
+ignore_older: 3hr
+type: metrics
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
+
+###### Parameters for all modules
+
+| Parameter | Description |
+|---|---|
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LOGZIO_MODULES <span class="required-param"></span> | Comma-separated list of Metricbeat modules to enable on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/logzio_modules`. |
+| LOGZIO_REGION <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
+| LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |
+| LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
+{% include metric-shipping/debug-param.html %}
+{:.paramlist}
+
+###### Parameters for the AWS module
+
+| Parameter | Description |
+|---|---|
+| AWS_ACCESS_KEY <span class="required-param"></span> | Your IAM user's access key ID. |
+| AWS_SECRET_KEY <span class="required-param"></span> | Your IAM user's secret key. |
+| AWS_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
+| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For EC2, this is `AWS/EC2`. |
+{:.paramlist}
+
+
+##### Monitor advanced EC2 metrics (_Optional_)
+
+If you want, you can also monitor advanced EC2 metrics, including disk memory and swap memory. 
+
+To enable this option, you’ll need to install and configure a CloudWatch agent on your machine and specify the **CWAgent** namespace under the AWS_NAMESPACES parameter. For example:
+
+```
+--env AWS_NAMESPACES="AWS/EC2,CWAgent"
+```
+
+For additional instructions, see more about [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).
+
+
+{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/EC2" %}
+
+</div>
+<!-- tab:end -->
 
 
 </div>

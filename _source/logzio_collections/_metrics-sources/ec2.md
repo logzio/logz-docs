@@ -50,12 +50,13 @@ in this procedure.
 
 You'll need an [IAM user](https://console.aws.amazon.com/iam/home)
 with these permissions:
-`cloudwatch:GetMetricData`,
-`cloudwatch:ListMetrics`,
-`ec2:DescribeInstances`,
-`ec2:DescribeRegions`,
-`iam:ListAccountAliases`,
-`sts:GetCallerIdentity`
+
+* `cloudwatch:GetMetricData`
+* `cloudwatch:ListMetrics`
+* `ec2:DescribeInstances`
+* `ec2:DescribeRegions`
+* `iam:ListAccountAliases`
+* `sts:GetCallerIdentity`
 
 If you don't have one, set that up now.
 
@@ -139,8 +140,12 @@ If you want, you can also monitor advanced EC2 metrics, including disk memory an
 
 To enable this option, you’ll need to install and configure a CloudWatch agent on your machine and specify the **CWAgent** namespace under the AWS_NAMESPACES parameter. For example:
 
-```
---env AWS_NAMESPACES="AWS/EC2,CWAgent"
+```yml
+metricsets:
+    - cloudwatch
+  metrics: #specify aws namespaces you want to monitor, just add namspaces from AWS list
+    - namespace: AWS/EC2
+    - namespace: CWAgent
 ```
 
 For additional instructions, see more about [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).
@@ -169,12 +174,13 @@ You have the option to ship CloudWatch metrics directly over Metricbeat, without
 
 You'll need an [IAM user](https://console.aws.amazon.com/iam/home)
 with these permissions:
-`cloudwatch:GetMetricData`,
-`cloudwatch:ListMetrics`,
-`ec2:DescribeInstances`,
-`ec2:DescribeRegions`,
-`iam:ListAccountAliases`,
-`sts:GetCallerIdentity`
+
+* `cloudwatch:GetMetricData`
+* `cloudwatch:ListMetrics`
+* `ec2:DescribeInstances`
+* `ec2:DescribeRegions`
+* `iam:ListAccountAliases`
+* `sts:GetCallerIdentity`
 
 If you don't have one, set that up now.
 
@@ -200,7 +206,35 @@ and the slug for Canada (Central) is "ca-central-1".
 Paste your region slug in your text editor.
 You'll need this for your Metricbeat configuration later.
 
-##### Example configuration
+##### Download the Logz.io public certificate to your Metricbeat server
+
+{% include trust-chain-warning.html %}
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+
+```shell
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
+```
+
+##### _(Optional)_ Disable the system module
+
+By default, Metricbeat ships system metrics from its host.
+If you don't need these metrics,
+disable the system module:
+
+```shell
+sudo metricbeat modules disable system
+```
+
+##### Configure Metricbeat
+
+If you're working with the default configuration file,
+(`/etc/metricbeat/metricbeat.yml`), clear the contents and start with a fresh file.
+
+This code block lays out the default options
+for collecting metrics from EC2.
+Paste the code block.
+Then adjust it to match your AWS environment.
 
 ```yml
 metricbeat.modules:
@@ -209,7 +243,7 @@ metricbeat.modules:
   metricsets:
     - cloudwatch
   metrics: #specify aws namespaces you want to monitor, just add namspaces from AWS list
-    - namespace: <<namespace 1>>
+    - namespace: <<namespace>>
 
   access_key_id: '<<access_key_id>>'
   secret_access_key: '<<secret_access_key>>'
@@ -225,7 +259,18 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For the complete list of all valid namespaces, see this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html).
+##### Replace the placeholders in your Metricbeat configuration
+
+Still in the same configuration file, replace the placeholders to match your specifics.
+
+* {% include log-shipping/replace-vars.html token=true %}
+
+* {% include log-shipping/replace-vars.html listener=true %}
+
+* Replace the namespaces you want to ship from. You can refer to this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for the complete list of valid AWS namespaces.
+
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
 
 
 ##### Monitor advanced EC2 metrics (_Optional_)
@@ -234,11 +279,19 @@ If you want, you can also monitor advanced EC2 metrics, including disk memory an
 
 To enable this option, you’ll need to install and configure a CloudWatch agent on your machine and specify the **CWAgent** namespace under the AWS_NAMESPACES parameter. For example:
 
-```
---env AWS_NAMESPACES="AWS/EC2,CWAgent"
+```yml
+metricsets:
+    - cloudwatch
+  metrics: #specify aws namespaces you want to monitor, just add namspaces from AWS list
+    - namespace: AWS/EC2
+    - namespace: CWAgent
 ```
 
 For additional instructions, see more about [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).
+
+##### Start Metricbeat
+
+Start or restart Metricbeat for the changes to take effect.
 
 
 {% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/EC2" %}

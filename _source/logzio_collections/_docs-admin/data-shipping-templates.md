@@ -29,11 +29,10 @@ Overview of shipping sources
 {%- for doc in shippingCollections %}
 | [{{ doc.data-source }}]({{doc.url | prepend: site.baseurl }}) | {{ doc.collection | split: "-" | first -}}
   | {{ doc.templates | inspect -}}
-  | {%- if doc.open-source -%}
-      {%- for project in doc.open-source -%}
-        [ {{- project.title -}} ]( {{- project.github-repo -}} )
-        {%- unless forloop.last -%} , <br> {%- endunless -%}
-      {%- endfor -%}
+  | {%- for project in doc.open-source -%}
+      [ {{- project.title -}} ]( {{- project.github-repo -}} )
+      {%- unless forloop.last -%} , <br> {%- endunless -%}
+    {%- endfor -%}
     {%- endif -%}
   |
 {%- endfor %}

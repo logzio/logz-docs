@@ -4,12 +4,6 @@ title: Data shipping templates
 show-date: false
 ---
 
-###### On this page
-{:.no_toc}
-
-* item
-{:toc}
-
 {% assign tabs = site.data.shipper-tabs.tabs | where:"templated",true -%}
 
 {% comment -%} Build the array of shipping {%- endcomment -%}
@@ -30,14 +24,17 @@ show-date: false
 {%- endfor -%}
 {%- assign templates = templates | uniq | sort_natural -%}
 
-## Overview of shipping sources
+<details>
+
+<summary>
+Overview of shipping sources
+</summary>
 
 {% comment -%} Generate the table of all shipping sources {%- endcomment -%}
 | Source | Data | Templates | Open source projects |
 |---|---|---|
 {%- for doc in shippingCollections %}
-| {{ doc.data-source -}}
-  | {{ doc.collection | split: "-" | first -}}
+| [{{ doc.data-source }}]({{doc.url | prepend: site.baseurl }}) | {{ doc.collection | split: "-" | first -}}
   | {{ doc.templates | inspect -}}
   | {%- if doc.open-source -%}
       {%- for project in doc.open-source -%}
@@ -48,7 +45,13 @@ show-date: false
   |
 {%- endfor %}
 
-## Shipping templates
+</details>
+
+<details>
+
+<summary>
+Shipping templates
+</summary>
 
 This covers only data sources
 (**not** shippers or community shippers).
@@ -84,3 +87,13 @@ we mean these docs should follow roughly the same flow.
   {% endif %}
 
 {% endfor -%}
+
+</details>
+
+<details>
+
+<summary>
+
+</summary>
+
+</details>

@@ -104,6 +104,8 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Lookups
       url: /user-guide/lookups/
+    - title: Integrate with Cortex xSOAR
+      url: /user-guide/cloud-siem/xsoar-integration/
 
 - title: Admin tools
   icon: li-gear

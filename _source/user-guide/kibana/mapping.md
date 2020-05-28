@@ -33,10 +33,10 @@ from the top menu.
 
 Kibana maps each field's type so it knows how to display it according to its capabilities. For example:
 
-* If it’s a string, Kibana won’t allow you to run any mathematical queries on the field. 
+* If it’s a string, Kibana won’t allow you to run any mathematical queries on the field.
 * If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization or a `group by` rule.
 
-Kibana mappings are important whenever you want to perform any sort of action on a field, such as visualize it, aggregate by it, or use it in an alert. 
+Kibana mappings are important whenever you want to perform any sort of action on a field, such as visualize it, aggregate by it, or use it in an alert.
 
 ### Kibana Mapping vs. Elasticsearch mapping
 

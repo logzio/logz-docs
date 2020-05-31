@@ -247,6 +247,7 @@ metricbeat.modules:
 
   access_key_id: '<<access_key_id>>'
   secret_access_key: '<<secret_access_key>>'
+default_region: <<YOUR-AWS-REGION>>
 
 fields:
   logzio_codec: json

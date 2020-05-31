@@ -243,7 +243,7 @@ metricbeat.modules:
   metricsets:
     - cloudwatch
   metrics: #specify aws namespaces you want to monitor, just add namspaces from AWS list
-    - namespace: <<namespace>>
+    - namespace: AWS/EC2
 
   access_key_id: '<<access_key_id>>'
   secret_access_key: '<<secret_access_key>>'
@@ -277,7 +277,7 @@ If the file has other outputs, remove them.
 
 If you want, you can also monitor advanced EC2 metrics, including disk memory and swap memory. 
 
-To enable this option, you’ll need to install and configure a CloudWatch agent on your machine and specify the **CWAgent** namespace under the AWS_NAMESPACES parameter. For example:
+To enable this option, you’ll need to install and configure a CloudWatch agent on your machine and specify the **CWAgent** namespace under the metrics section. For example:
 
 ```yml
 metricsets:

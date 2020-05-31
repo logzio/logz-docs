@@ -18,12 +18,11 @@ Sometimes, it will appear that a field in Kibana is not mapped. The mapping icon
 
 Whenever you see the message **Field not indexed**, this is simply an indication that the field is not indexed because nothing in your Kibana account is dependent on it. It wasn't required for any of your account's alerts, filters, saved searches, visualizations, dashboards, or any other Kibana objects.
 
-### If a field is not mapped
+### If a field is not indexed
 
 If a field is not mapped in Kibana, there are a few actions you won't be able to perform on it:
 
 1. You can't visualize it.
-
 2. You can't filter on it. It simply won’t appear in the drop-down filter list.
 
 
@@ -36,5 +35,5 @@ In Kibana Discover, on the left preview menu, identify the unmapped field. Click
 The field will now be added to your default Kibana mapping.
 
 <video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/refresh-kibana-mapping1.mp4" type="video/mp4" />
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/refresh-kibana-mapping6.mp4" type="video/mp4" />
 </video>

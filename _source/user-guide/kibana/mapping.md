@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Field Mapping
+title: Refresh Mapping
 permalink: /user-guide/kibana/mapping/
 flags:
   logzio-plan: community
@@ -10,33 +10,50 @@ contributors:
   - shalper
 ---
 
-You might have noticed that the paricular fields mapped by Kibana tend to vary. This is because your Kibana mapping is dynamic and responds to the accounts you have selected.
+Kibana maps each field by value type so it knows how to display it according to its capabilities. For example:
 
-By default, Kibana maps only 1000 fields to keep querying and filtering performance at top speed.
+* If it’s a string, Kibana won’t allow you to run any mathematical queries on the field.
+* If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization or a `group by` rule.
 
-Here's how Kibana does it. First, it finds every field that your account is actively using - in visualizations, dashboards, saved searches, alerts, and optimizers - and makes sure that those fields are mapped.
+Kibana mappings are important whenever you want to perform any sort of action on a field, such as visualize it, aggregate by it, or use it in an alert.
 
-Let's say you have 10k fields in your database index, but are actively using 300 fields. Then Kibana will map 300 required fields and another 700 random fields.
-
-If you have more than 1000 required fields, Kibana will cover them all. Kibana will still ensure that _all_ of them are mapped every time.
 
 ### Refresh Kibana mapping
 
-If you find that many of the fields you are interested in exploring aren't mapped, you can always refresh your Kibana mapping from your settings.
+If you find that many of the fields you are interested in exploring aren't mapped, you can always refresh your Kibana mapping.
 
 To refresh your mapping,
 select [<i class="li li-gear"></i> > General > Refresh mapping](https://app.logz.io/#/dashboard/settings/general)
 from the top menu.
 
 
+### Mapped vs. unmapped fields
+
+Kibana's capabilities are most powerful for mapped fields. 
+Fields that aren't indexed, are fully searchable and can be queried. 
+But they will not appear in filters and don't support 1-click visualizations. 
+
+| Action | Mapped field | Unmapped field |
+|---|---|
+| Filtering | <i class="fas fa-check"></i> | <i class="fas fa-times"></i> |
+| Appears in filtering menu | <i class="fas fa-check"></i> | <i class="fas fa-times"></i> |
+| Can be visualized | <i class="fas fa-check"></i> | <i class="fas fa-times"></i> |
+| Searchable | <i class="fas fa-check"></i> | <i class="fas fa-check"></i> |
+
+
+
 ### Kibana mapping explained
 
-Kibana maps each field's type so it knows how to display it according to its capabilities. For example:
+You might have noticed that the particular fields mapped by Kibana tend to vary. This is because your Kibana mapping is dynamic and responds to the particular dataset you've selected. The larger the dataset, the more likely it is for fields to be unmapped by Kibana.
 
-* If it’s a string, Kibana won’t allow you to run any mathematical queries on the field.
-* If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization or a `group by` rule.
+By default, Kibana maps only 1000 fields to keep querying and filtering performance at top speed.
 
-Kibana mappings are important whenever you want to perform any sort of action on a field, such as visualize it, aggregate by it, or use it in an alert.
+Here's how Kibana does it. First, it finds every field that your account is actively using - in visualizations, dashboards, saved searches, alerts, and optimizers - and makes sure that those fields are mapped.
+
+Let's say you have 10k fields in your database index, but are actively using 300 fields. Then Kibana will first map your 300 required fields and then map another 700 random fields.
+
+Kibana will always make sure that all of your required fields are mapped by default. So even if you have more than 1000 required fields, Kibana will cover them all and ensure that _all_ of them are mapped every time.
+
 
 ### Kibana Mapping vs. Elasticsearch mapping
 

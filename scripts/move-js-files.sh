@@ -8,8 +8,8 @@ fi
 
 mvJs()
 {
-  echo '  ' $2
-  cp $1 $JEKYLL_JS_DEST
+  echo '  ' $1
+  cp $2 $JEKYLL_JS_DEST
 }
 
 # To add a new js library, lines should follow this format:

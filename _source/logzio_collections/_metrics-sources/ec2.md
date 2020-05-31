@@ -267,7 +267,6 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* Replace the namespaces you want to ship from. You can refer to this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) for the complete list of valid AWS namespaces.
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.

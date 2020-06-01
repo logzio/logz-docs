@@ -74,8 +74,6 @@ we mean these docs should follow roughly the same flow.
   {% assign thisTemplateFramework = site.data.shipper-tabs.templates | where: 'slug', template | first %}
   {% if thisTemplateFramework.outline %}
 
-##### The framework
-
 {{thisTemplateFramework.outline | markdownify }}
 
   {% endif %}
@@ -94,7 +92,7 @@ Shipping docs per open source project
 | Project | Used in |
 |---|---|---|
 {%- for project in projects %}
-| {{ project.title }} / {{ project.github-repo -}}
+| {{ project.title }} <br> [logzio/{{ project.github-repo -}}]({{site.github.org_url}}/{{project.github-repo}}) {{ "" -}}
 | {%- capture docsWithThisProject -%}
     {%- assign docsWithOpenSource = shippingCollections | where_exp: "doc", "doc.open-source" -%}
     {%- for doc in docsWithOpenSource -%}

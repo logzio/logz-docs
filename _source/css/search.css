@@ -5,7 +5,7 @@ div.search-container {
   height: 35px;
 }
 
-div.search-container input.addsearch, input.search {
+input.search {
   height: 35px;
   width: 270px;
   background: var(--background-light);

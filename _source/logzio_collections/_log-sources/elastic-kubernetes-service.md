@@ -4,6 +4,7 @@ logo:
   logofile: aws-eks.svg
   orientation: vertical
 data-source: Elastic Kubernetes Service
+templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-k8s
     github-repo: logzio-k8s
@@ -44,7 +45,9 @@ However, you can deploy a custom configuration if your environment needs it. {%-
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include log-shipping/replace-vars.html token=true %}
+
+{% include log-shipping/replace-vars.html listener=true %}
 
 ```shell
 kubectl create secret generic logzio-logs-secret \

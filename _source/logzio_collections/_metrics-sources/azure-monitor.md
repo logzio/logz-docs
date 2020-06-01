@@ -4,6 +4,7 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 data-source: Azure Monitor
+templates: ["no-template"]
 contributors:
   - imnotashrimp
   - yotamloe

@@ -4,6 +4,7 @@ logo:
   logofile: azure-blob.svg
   orientation: vertical
 data-source: Azure Blob Storage
+templates: ["azure-deployment"]
 open-source:
   - title: logzio-azure-blob
     github-repo: logzio-azure-blob

@@ -4,6 +4,7 @@ logo:
   logofile: java.svg
   orientation: vertical
 data-source: JMX
+templates: ["no-template", "no-template"]
 open-source:
   - title: jmx2logzio
     github-repo: jmx2logzio

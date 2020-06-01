@@ -1,14 +1,14 @@
 <div class="article-info-container">
   {%- unless page.show-date == false and page.community-info == false-%}
-  <div>
-    {% include page-info/page-date.html %}
-    {% include page-info/contributor-list.html %}
-  </div>
+    <div>
+      {% include page-info/page-date.html %}
+      {% include page-info/contributor-list.html %}
+    </div>
   {%- endunless -%}
   {% include page-info/rss-subscribe.html %}
   {% include page-info/logzio-plan.html %}
 </div>
 
 <div class="article-info-container">
-  {% include open-source.html %}
+  {% include page-info/open-source.html %}
 </div>

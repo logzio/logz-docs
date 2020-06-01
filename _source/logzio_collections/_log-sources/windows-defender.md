@@ -4,6 +4,7 @@ logo:
   logofile: windows-defender.svg
   orientation: vertical
 data-source: Windows Defender
+templates: ["beats-logs"]
 contributors:
   - imnotashrimp
   - dorisnaaman

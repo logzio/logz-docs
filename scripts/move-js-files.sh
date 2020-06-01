@@ -6,22 +6,20 @@ if [ ! -d "$JEKYLL_JS_DEST" ]; then
   mkdir $JEKYLL_JS_DEST
 fi
 
-echo '  jquery'
-cp 'node_modules/jquery/dist/jquery.min.js' $JEKYLL_JS_DEST
+mvJs()
+{
+  echo '  ' $1
+  cp $2 $JEKYLL_JS_DEST
+}
 
-echo '  tablesorter'
-cp 'node_modules/tablesorter/dist/js/jquery.tablesorter.min.js' $JEKYLL_JS_DEST
+# To add a new js library, lines should follow this format:
+# `mvJs <shortname> <path/to/node/module.min.js>`
 
-echo '  clipboardjs'
-cp 'node_modules/clipboard/dist/clipboard.min.js' $JEKYLL_JS_DEST
-
-echo '  smoothscroll'
-cp 'node_modules/smooth-scroll/dist/smooth-scroll.min.js' $JEKYLL_JS_DEST
-
-echo '  redoc'
-cp 'node_modules/redoc/bundles/redoc.standalone.js' $JEKYLL_JS_DEST
-
-echo '  anchorjs'
-cp 'node_modules/anchor-js/anchor.min.js' $JEKYLL_JS_DEST
+mvJs jquery node_modules/jquery/dist/jquery.min.js
+mvJs tablesorter node_modules/tablesorter/dist/js/jquery.tablesorter.min.js
+mvJs clipboardjs node_modules/clipboard/dist/clipboard.min.js
+mvJs smoothscroll node_modules/smooth-scroll/dist/smooth-scroll.min.js
+mvJs redoc node_modules/redoc/bundles/redoc.standalone.js
+mvJs anchorjs node_modules/anchor-js/anchor.min.js
 
 echo ...done

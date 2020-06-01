@@ -4,6 +4,7 @@ logo:
   logofile: docker.svg
   orientation: horizontal
 data-source: Docker container
+templates: ["docker", "no-template"]
 open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs
@@ -203,7 +204,9 @@ docker run --log-driver=logzio/logzio-logging-plugin \
 ```
 {% endraw %}
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include log-shipping/replace-vars.html token=true %}
+
+{% include log-shipping/replace-vars.html listener=true %}
 
 For a complete list of options, see the configuration parameters in step 2.☝️
 

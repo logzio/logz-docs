@@ -25,8 +25,11 @@
   publish = "_site/"
   command = "JEKYLL_ENV=develop ./build.sh"
 
+# REDIRECTS. Precede each block with `[[redirects]]`,
+# and leave a blank line in between each block.
 # Netlify doc on redirects:
-# https://www.netlify.com/docs/redirects/
+# https://docs.netlify.com/routing/redirects/#syntax-for-the-netlify-configuration-file
+
 [[redirects]]
   from = "https://logz-docs.netlify.com/*"
   to = "https://docs.logz.io/:splat"

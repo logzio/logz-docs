@@ -4,6 +4,7 @@ logo:
   logofile: linux.svg
   orientation: vertical
 data-source: auditd
+templates: ["beats-logs"]
 contributors:
   - imnotashrimp
 shipping-tags:

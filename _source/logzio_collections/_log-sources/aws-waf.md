@@ -4,10 +4,12 @@ logo:
   logofile: AWS-WAF.svg
   orientation: vertical
 data-source: AWS WAF
+templates: ["no-template"]
 contributors:
   - shalper
 shipping-tags:
   - security
+  - aws
 ---
 
 If you're using AWS WAF as a web application firewall, you can ship its alerts to your Logz.io Cloud SIEM.

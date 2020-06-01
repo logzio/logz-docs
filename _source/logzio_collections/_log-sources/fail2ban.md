@@ -4,6 +4,7 @@ logo:
   logofile: fail2ban.png
   orientation: vertical
 data-source: Fail2ban
+templates: [beats-logs]
 contributors:
   - imnotashrimp
 shipping-tags:

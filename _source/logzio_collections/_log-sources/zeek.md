@@ -4,6 +4,7 @@ logo:
   logofile: zeek.png
   orientation: vertical
 data-source: Zeek
+templates: [beats-logs]
 contributors:
   - imnotashrimp
 shipping-tags:

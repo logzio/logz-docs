@@ -4,6 +4,7 @@ logo:
   logofile: python.svg
   orientation: vertical
 data-source: Python code
+templates: ["library"]
 open-source:
   - title: Logz.io Python Handler
     github-repo: logzio-python-handler

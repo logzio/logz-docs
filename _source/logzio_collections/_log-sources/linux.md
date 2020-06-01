@@ -4,6 +4,7 @@ logo:
   logofile: linux.svg
   orientation: vertical
 data-source: Linux
+templates: ["no-template"]
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -37,7 +38,9 @@ root access
 
 ##### Run the rsyslog configuration script
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include log-shipping/replace-vars.html token=true %}
+
+{% include log-shipping/replace-vars.html listener=true %}
 
 ```shell
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz \

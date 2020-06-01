@@ -4,6 +4,7 @@ logo:
   logofile: network-device.svg
   orientation: horizontal
 data-source: Network device
+templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
   - schwin007

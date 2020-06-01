@@ -4,6 +4,7 @@ logo:
   logofile: gauge.svg
   orientation: vertical
 data-source: System
+templates: ["metricbeat", "docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
     github-repo: docker-collector-metrics

@@ -3,7 +3,8 @@ title: Ship Cisco ASA Server logs
 logo:
   logofile: cisco.svg
   orientation: vertical
-data-source: Cisco ASA 
+data-source: Cisco ASA
+templates: ["network-device-filebeat"]
 contributors:
   - shalper
   - imnotashrimp

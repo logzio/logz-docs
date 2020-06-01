@@ -4,6 +4,7 @@ logo:
   logofile: wazuh.svg
   orientation: vertical
 data-source: Wazuh
+templates: [beats-logs]
 contributors:
   - imnotashrimp
   - schwin007

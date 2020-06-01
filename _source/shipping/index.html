@@ -10,87 +10,108 @@ community-info: false
 {%- assign tabData = site.data.shipper-tabs.tabs -%}
 {%- assign tagData = site.data.shipper-tabs.tags -%}
 
+{%- comment -%} Outer container {%- endcomment -%}
 <div class="branching-container">
 
-<ul class="branching-tabs">
-{%- for tab in tabData-%}
-  {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
-  <li><a href="#{{tab.collection}}">{{thisCollection.name}}</a></li>
-{%- endfor -%}
-</ul>
+  {%- comment -%} Tabs {%- endcomment -%}
+  <ul class="branching-tabs">
+    {%- comment -%} Loop through the tabs in shipper-tabs.yml {%- endcomment -%}
+    {%- for tab in tabData -%}
+      {%- comment -%} Find the collection whose name matches this tab {%- endcomment -%}
+      {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
+      <li><a href="#{{tab.collection}}">{{thisCollection.name}}</a></li>
+    {%- endfor -%}
+  </ul>
 
-{%- for tab in tabData -%}
 
-{%- comment -%}
-*   Get all the tags in this tab
-*         {%- endcomment -%}
-{%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
-{%- assign docs = thisCollection.docs | sort_natural: "data-source" -%}
-{%- assign tagsInThisTab = "" | split: "" -%}
-{%- comment -%} Get the tags in this collection {%- endcomment -%}
-{%- for doc in docs -%}
-  {%- assign tagsInThisTab = doc.shipping-tags | concat: tagsInThisTab -%}
-{%- endfor -%}
-{%- assign tagsInThisTab = tagsInThisTab | uniq | sort | reverse -%}
+  {%- comment -%} Loop through the tabs in shipper-tabs.yml {%- endcomment -%}
+  {%- for tab in tabData -%}
 
-{%- assign tagsInThisTabSize = tagsInThisTab | size -%}
-{%- unless tagsInThisTabSize == 1 -%}
-{%- comment -%} Map tag slugs to proper names {%- endcomment -%}
-{%- for tag in tagsInThisTab -%}
-  {%- assign thisTag = tagData | where: "slug", tag -%}
-  {%- assign tagsInThisTab = tagsInThisTab | pop | unshift: thisTag -%}
-{%- endfor -%}
-{%- endunless -%}
+    {%- comment -%}
+      Get the collection whose name matches this tab
+    {%- endcomment -%}
+    {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
 
-<div id="{{tab.collection}}">
+    {%- comment -%} Get the docs in this collection {%- endcomment -%}
+    {%- assign docs = thisCollection.docs | sort_natural: "data-source" -%}
 
-{%- comment -%}
-*   Page filters. Makes a filter link for each tag.
-*         {%- endcomment -%}
-{%- unless tagsInThisTabSize == 1 -%}
-<nav id="card-filters">
-  <div class="filters-inline-header">Filters:</div>
-  <div class="filter-items">
-      <a class="filter-btn fancy-link" data-filter="all">All</a>
-    {%- for tag in tagsInThisTab %}
-      <a class="filter-btn fancy-link" data-filter="{{tag[0].slug}}">{{tag[0].name}}</a>
-    {% endfor -%}
-  </div>
-</nav>
-{%- endunless -%}
+    {%- comment -%}
+      Get the tags used in this collection.
+      This will be used to generate the filter list at the top
+      of the tab.
+    {%- endcomment -%}
+    {%- assign tagsInThisTab = "" | split: "" -%}
+    {%- for doc in docs -%}
+      {%- assign tagsInThisTab = doc.shipping-tags | concat: tagsInThisTab -%}
+    {%- endfor -%}
+    {%- assign tagsInThisTab = tagsInThisTab | uniq | sort | reverse -%}
 
-{{tab.top-content}}
+    {%- comment -%} Get the number of tags in this collection {%- endcomment -%}
+    {%- assign tagsInThisTabSize = tagsInThisTab | size -%}
 
-{%- comment -%}
-*   Loop through each category, and create the shipping cards for that
-*   category. Simple as that.
-*         {%- endcomment -%}
+    {%- comment -%} If there's only one tag in this collection,
+      don't generate the tag filters for this tab.
+      {%- endcomment -%}
+    {%- unless tagsInThisTabSize == 1 -%}
+      {%- comment -%} Map tag slugs to human-readable names
+        so that we can display the human-readable name
+        {%- endcomment -%}
+      {%- for tag in tagsInThisTab -%}
+        {%- assign thisTag = tagData | where: "slug", tag -%}
+        {%- assign tagsInThisTab = tagsInThisTab | pop | unshift: thisTag -%}
+      {%- endfor -%}
+    {%- endunless -%}
 
-<div class="card-container">
-  <div class="cards mini-cards">
-  {%- for doc in docs %}
-    {%- assign shipperUrl = doc.project-url | default: doc.url -%}
-    {%- assign docTags = doc.shipping-tags | join: " " -%}
-    <div class="card mini-card filter {{docTags}}
-      {%- if doc.community-project == true %} community-project-card{%- endif -%}"
-      data-source="{{doc.data-source | slugify}}">
-      <a href="{{shipperUrl}}">
-      <div class="card-icon {{doc.logo.orientation}}" style="background-image: url('https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/{{doc.logo.logofile}}');" alt="{{doc.data-source}} logo">
+    {%- comment -%} Tab panel {%- endcomment -%}
+    <div id="{{tab.collection}}">
+
+      {%- comment -%}
+      *   Page filters. Makes a filter link for each tag.
+      *         {%- endcomment -%}
+      {%- unless tagsInThisTabSize == 1 -%}
+        <nav id="card-filters">
+          <div class="filters-inline-header">Filters:</div>
+          <div class="filter-items">
+            <a class="filter-btn fancy-link" data-filter="all">All</a>
+            {%- for tag in tagsInThisTab %}
+              <a class="filter-btn fancy-link" data-filter="{{tag[0].slug}}">{{tag[0].name}}</a>
+            {% endfor -%}
+          </div>
+        </nav>
+      {%- endunless -%}
+
+      {{tab.top-content}}
+
+      {%- comment -%}
+      *   Loop through each category, and create the shipping cards for that
+      *   category. Simple as that.
+      *         {%- endcomment -%}
+
+      <div class="card-container">
+        <div class="cards mini-cards">
+          {%- for doc in docs %}
+            {%- assign shipperUrl = doc.project-url | default: doc.url -%}
+            {%- assign docTags = doc.shipping-tags | join: " " -%}
+            <div class="card mini-card filter {{docTags}}
+              {%- if doc.community-project == true %} community-project-card{%- endif -%}"
+              data-source="{{doc.data-source | slugify}}">
+              <a href="{{shipperUrl}}">
+              <div class="card-icon {{doc.logo.orientation}}" style="background-image: url('https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/{{doc.logo.logofile}}');" alt="{{doc.data-source}} logo">
+              </div>
+              <div class="card-text">
+                <span class="card-title">{{ doc.data-source }}</span>
+                {%- if doc.community-project == true %}
+                <p>{{doc.title}}</p>
+                {%- endif %}
+              </div>
+              </a>
+            </div>
+          {%- endfor -%}
+        </div>
       </div>
-      <div class="card-text">
-        <span class="card-title">{{ doc.data-source }}</span>
-        {%- if doc.community-project == true %}
-        <p>{{doc.title}}</p>
-        {%- endif %}
-      </div>
-      </a>
+
     </div>
+
   {%- endfor -%}
-  </div>
-</div>
-
-</div>
-
-{%- endfor -%}
 
 </div>

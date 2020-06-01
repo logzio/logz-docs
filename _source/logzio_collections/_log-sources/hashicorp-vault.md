@@ -4,6 +4,7 @@ logo:
   logofile: hashicorp-vault.svg
   orientation: horizontal
 data-source: HashiCorp Vault
+templates: [beats-logs]
 contributors:
   - imnotashrimp
   - dorisnaaman

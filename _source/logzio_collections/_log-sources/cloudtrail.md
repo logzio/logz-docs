@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 data-source: CloudTrail
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudTrail
+templates: ["s3-fetcher"]
 contributors:
   - idohalevi
   - imnotashrimp

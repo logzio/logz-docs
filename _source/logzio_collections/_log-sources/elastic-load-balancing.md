@@ -4,6 +4,7 @@ logo:
   logofile: aws-elb.svg
   orientation: vertical
 data-source: Elastic Load Balancing
+templates: ["s3-fetcher"]
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ELB
 contributors:
   - idohalevi

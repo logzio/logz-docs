@@ -10,12 +10,9 @@
 # in the templates via {{ site.myvariable }}.
 title: Logz.io Docs
 copyright: 2020 Logz.io
-description: >- # this means to ignore newlines until "baseurl:"
-  Parse, visualize, set up alerts & leverage AI with cloud-based ELK.
-  AWS Integration · Long-term Data Retention · Essential DevOps Tool · Multi-role Definitions
-  Services: Log Analytics, DevOps Automation, Critical Event Prediction
-baseurl: "" # the subpath of your site, e.g. /blog
+# description:
 url: "https://docs.logz.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
 favicon: https://logz.io/custom_icon.png
 
 # Community buttons
@@ -29,15 +26,15 @@ youtube_url: https://www.youtube.com/channel/UC9Rc1hpWHUju8O2rYHAUVXA
 google_plus_url: https://plus.google.com/+LogzIo/
 linkedin_url: https://www.linkedin.com/company/4831888
 
-# If true, the Atom/RSS icon will link to feed.xml
-show_atom_feed: false
-
 # GitHub repository paths - Leave beginning slashes, unless field is empty.
 github:
   org_url:  https://github.com/logzio # only edit username - leave base URL
   repo_name: /logz-docs
   edit_branch: /master # which branch do you want users to edit?
   issue_template: docs-issue # GitHub template for new issues, without the .md extension. Leave blank if no template.
+
+# If true, the Atom/RSS icon will be visible
+show_atom_feed: false
 
 # if you use google analytics or tag manager, add your tracking id here. To disable, remove or comment out the line
 # google_analytics_id: ''
@@ -47,14 +44,12 @@ google_tag_manager_id: GTM-NH9MTDW
 intercom_app_id: bkz9ugqv
 
 # ===== COLLECTIONS =====
-# Collections are the highest-level categories of Logz.io content.
+# Jekyll docs on collections: https://jekyllrb.com/docs/collections/
 
 collections_dir: logzio_collections # all collections are contained in this directory
 
 collections:
-  contributors:
-    output: true
-    permalink: /contributors/:name
+  ## DATA SHIPPING COLLECTIONS ##
   log-sources:
     output: true
     permalink: /shipping/log-sources/:slug.html
@@ -72,6 +67,11 @@ collections:
     output: true
     permalink: /shipping/shippers/:slug.html
     name: Shippers
+
+  ## ALL OTHER COLLECTIONS ##
+  contributors:
+    output: true
+    permalink: /contributors/:name
   docs-admin:
     output: true
     permalink: /docs-admin/:path/
@@ -89,6 +89,9 @@ collections:
     tags: false
     community-info: false
 
+# ===== FRONT MATTER DEFAULTS =====
+# Jekyll docs on front matter defaults:
+#   https://jekyllrb.com/docs/configuration/front-matter-defaults/
 defaults:
   - scope:
       path: no-search
@@ -140,6 +143,3 @@ include:
 # Don't mess with these, unless you're willing to move a lot of files around.
 source: ./_source
 destination: ./_site
-
-# ===== SEARCH =====
-# addsearch_key: 

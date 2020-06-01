@@ -4,6 +4,7 @@ logo:
   logofile: check-point.png
   orientation: vertical
 data-source: Check Point
+templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
 shipping-tags:

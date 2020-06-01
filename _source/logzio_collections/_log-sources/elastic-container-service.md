@@ -7,7 +7,7 @@ open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs
 data-source: Elastic Container Service
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ECS
+templates: ["docker"]
 contributors:
   - imnotashrimp
   - supereli
@@ -25,7 +25,6 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
 #### Deploy the Docker collector
 
 {% include trust-chain-warning.html msg='docker' %}
-
 
 
 <div class="tasklist">
@@ -64,7 +63,7 @@ to a lower value (for example, `20m`).
 |---|---|
 | LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} |
 | LOGZIO_URL <span class="required-param"></span> | Your Logz.io listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
- ignoreOlder <span class="default-param">`3h`</span>|  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). |
+| ignoreOlder <span class="default-param">`3h`</span> |  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). |
 {:.paramlist}
 
 ##### Check Logz.io for your logs

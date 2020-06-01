@@ -11,9 +11,9 @@ permalink: /listener-ip-addresses.xml
     <atom:link href="{{site.url}}{{site.baseurl}}{{page.permalink}}" rel="self" type="application/rss+xml" />
 
     {% for region in site.data.logzio-regions -%}
-      {%- for ip in region[1].listener-ips -%}
+      {%- for ip in region.listener-ips -%}
     <item>
-        <title>{{ip}} - {{region[1].cloud}} - {{region[1].title}}</title>
+        <title>{{ip}} - {{region.cloud}} - {{region.title}}</title>
     </item>
       {%- endfor -%}
     {%- endfor %}

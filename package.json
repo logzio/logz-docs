@@ -35,7 +35,8 @@
     "redoc": "^2.0.0-rc.23",
     "smooth-scroll": "^16.1.2",
     "styled-components": "^4.4.1",
-    "tablesorter": "^2.31.2"
+    "tablesorter": "^2.31.2",
+    "tocbot": "^4.11.1"
   },
   "devDependencies": {}
 }

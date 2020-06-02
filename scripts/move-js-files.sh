@@ -21,5 +21,6 @@ mvJs clipboardjs node_modules/clipboard/dist/clipboard.min.js
 mvJs smoothscroll node_modules/smooth-scroll/dist/smooth-scroll.min.js
 mvJs redoc node_modules/redoc/bundles/redoc.standalone.js
 mvJs anchorjs node_modules/anchor-js/anchor.min.js
+mvJs tocbot node_modules/tocbot/dist/tocbot.min.js
 
 echo ...done

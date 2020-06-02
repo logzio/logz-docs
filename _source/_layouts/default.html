@@ -12,31 +12,36 @@
 <div class="big-container">
     {% include templates/left-toc.html %}
 
-    <div class="body-container">
-    {%- if page.data-source -%}
-    <div class="breadcrumbs">
-      <span><a href="{{site.baseurl}}/shipping/">Ship your data</a></span>
-      <span>{{ page.data-source }}</span>
-    </div>
-    {%- endif -%}
-    <div class="title-container">
-        <h1 class="post-title">
-          {%- if page.layout == "contributor-profile" -%}
+    <div class="small-container">
+
+      <div class="body-container">
+        {%- if page.data-source -%}
+        <div class="breadcrumbs">
+          <span><a href="{{site.baseurl}}/shipping/">Ship your data</a></span>
+          <span>{{ page.data-source }}</span>
+        </div>
+        {%- endif -%}
+        <div class="title-container">
+          <h1 class="post-title">
+            {%- if page.layout == "contributor-profile" -%}
             {% avatar {{ page.github }} %}
-          {%- endif -%}
-          {{- page.title | escape -}}
-        </h1>
-      {% include page-info/page-flags.html %}
-      {% unless page.slackin == false %}
-        <div class="slackin"><script async defer src="https://community-slack.logz.io/slackin.js"></script></div>
-      {% endunless %}
-    </div>
-    {% include page-info/community.html %}
-      {{ content }}
+            {%- endif -%}
+            {{- page.title | escape -}}
+          </h1>
+          {% include page-info/page-flags.html %}
+          {% unless page.slackin == false %}
+          <div class="slackin"><script async defer src="https://community-slack.logz.io/slackin.js"></script></div>
+          {% endunless %}
+        </div>
+        {% include page-info/community.html %}
+        {{ content }}
 
-      {% include templates/github-buttons.html %}
+        {% include templates/github-buttons.html %}
+      </div> <!-- /.body-container -->
+      {% include templates/this-page-toc.html %}
+    </div> <!-- /.small-container -->
 
-    </div> <!-- /.body-container -->
+
   </div> <!-- /div.big-container -->
   {% include templates/footer.html %}
   </body>

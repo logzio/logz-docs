@@ -17,6 +17,7 @@
 @import url('flags.css');
 @import url('cards.css');
 @import url('code.css');
+@import url('this-page-toc.css');
 /* If you need to import more css files, put them at the bottom of the list. */
 
 /* ===== PAGE LAYOUT ===== */
@@ -37,6 +38,10 @@ div.big-container {
   justify-content: flex-start;
   align-items: stretch;
   align-content: flex-start;
+}
+
+.small-container {
+  display: flex;
 }
 
 .title-container {

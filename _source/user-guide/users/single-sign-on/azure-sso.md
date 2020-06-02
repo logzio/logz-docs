@@ -52,6 +52,8 @@ click the **Certificate (Base64)** download link (next to the certificate).
 Download the certificate file and zip it.
 You'll need to email this zip file to the Logz.io Support team in the next step.
 
+![SAML Certificate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-cer.png)
+
 Save your configuration.
 
 ##### Send your SAML details to Logz.io
@@ -61,6 +63,9 @@ Draft a new [email to Support](mailto:help@logz.io), and include these items:
 * Your zipped SAML Signing Certificate (from the previous step).
 * Your SAML-P SIGN-ON ENDPOINT.
   This is your Azure **Login URL**.
+
+  ![Azure SAML-P SIGN-ON ENDPOINT](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-login.png)
+
 
 ##### Configure Azure to send user groups
 

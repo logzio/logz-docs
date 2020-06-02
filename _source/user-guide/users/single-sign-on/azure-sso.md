@@ -9,8 +9,11 @@ tags:
   - sso
   - azure
 contributors:
+  - shalper
   - schwin007
 ---
+
+Logz.io offers a quick integration for SSO with Azure.
 
 #### To set up single sign-on for Azure
 
@@ -30,69 +33,61 @@ Include these items in the message:
 
 The Support team will respond with the connection information you'll need to give in Azure.
 
-##### Add Logz.io to Azure
+##### Add Logz.io as a gallery application in Azure
 
-![Add a non-gallery application in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/add-your-own-application.png)
+Log into your [Azure Portal](https://portal.azure.com/) and follow the instructions in [Azure's docs](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/logzio-cloud-observability-for-engineers-tutorial) for adding the **Logz.io - Azure AD Integration** from the  Gallery.
 
-In the [Azure Portal](https://portal.azure.com/), browse to **Azure Active Directory  > Enterprise Applications > New application > Non-gallery application**.
+##### Configure the integration
 
-In the right panel, set the **Name** to "Logz.io" and click **Add**.
+When you get to the step **Set up single sign-on with SAML**, you'll need the SAML information you received from Logz.io Support's email.
 
-Click **Configure Single Sign-On**, and choose **SAML-based Sign-on**.
-
-##### Paste the SAML information from Support
-
-![Add a non-gallery application in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/configure-single-sign-on.png)
-
-Fill in these details from the Logz.io Support email message:
-
-* In **Identifier (Entity ID)**, paste _Audience URI_ from the email
-* In **Reply URL (Assertion Consumer Service URL)**, paste _Single sign on URL_ from the email
+* The _Audience URI_ from Logz.io is the SAML **Identifier (Entity ID)**.
+* The _Single sign on URL_ from Logz.io is the SAML **Reply URL (Assertion Consumer Service URL)**.
 
 ##### Zip the SAML certificate
 
-In the SAML Signing Certificate section of the page, click the **Certificate (Base64)** download link (next to the certificate).
+In the SAML Signing Certificate section of the page,
+click the **Certificate (Base64)** download link (next to the certificate).
 
 Download the certificate file and zip it.
-You'll attach this zip file to your next email to the Support team.
+You'll need to email this zip file to the Logz.io Support team in the next step.
+
+![SAML Certificate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-cer.png)
 
 Save your configuration.
-
-##### Get your endpoint information
-
-Browse to **Azure Active Directory > App registrations > Endpoints**.
-
-Copy the **SAML-P SIGN-ON ENDPOINT**, and paste this in the email that you'll send to the Support team.
 
 ##### Send your SAML details to Logz.io
 
 Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
-* Your zipped certificate (from step 4)
-* Your SAML-P SIGN-ON ENDPOINT (from step 5)
+* Your zipped SAML Signing Certificate (from the previous step).
+* Your SAML-P SIGN-ON ENDPOINT.
+  This is your Azure **Login URL**.
+
+  ![Azure SAML-P SIGN-ON ENDPOINT](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-login.png)
+
 
 ##### Configure Azure to send user groups
 
-Return to the App registrations page.
+Return to the App registrations page in your [Azure Portal](https://portal.azure.com/).
 If you don't see Logz.io, click **View all applications**.
 
 Open the **Logz.io** application, and then click **Manifest**.
 In the manifest JSON, set groupMembershipClaims to `"All"`.
 Click **Save** (top of the page).
 
-##### _(Optional)_ Restrict Logz.io access to specific user groups
+##### _(Optional)_ Restrict access to Logz.io to specific user groups
 
 ![Add group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/sso--manage-groups.png)
 
 By default, all Azure users with Logz.io access can sign in to your Logz.io accounts.
 
 You can restrict this access from the [Manage users page](https://app.logz.io/#/dashboard/settings/manage-users) for each of your accounts.
-To do this, click **Add group**, and then paste your group's Object ID from Azure.
-Do this for each group that should have access to this account.
+Click **Add group**, and then paste the group's **Object ID** from Azure for each group that should have access to the account in Logz.io.
 
 ##### Receive confirmation from Support
 
 When Support has created your Azure + Logz.io connection, you're done!
-You can start logging in to Logz.io through your Apps portal.
+You can start logging in to Logz.io through your Azure Apps portal.
 
 </div>

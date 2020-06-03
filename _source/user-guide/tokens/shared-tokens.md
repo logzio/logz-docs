@@ -16,13 +16,13 @@ contributors:
 
 Shared tokens give you the option to share Kibana dashboards and visualizations with stakeholders who don't have access to your Logz.io account.
 
-Note that also non-admin users of your account will be able to use the account's Shared tokens.
+Note that also non-admin users of your account will be able to use the account's shared tokens.
 
 ## Best-practice security recommendations
 
-A Shared token has access to all of its account logs. When using a Shared token, it is better not to rely on the Kibana filters applied to the dashboard or visualizations being shared. Instead, it is best to limit access at the token level using token filters.
+A shared token has access to all of its account logs. When using a shared token, it is better not to rely on the Kibana filters applied to the dashboard or visualizations being shared. Instead, it is best to limit access at the token level using token filters.
 
-These best-practice recommendations will help you keep your data secure when using Shared tokens:
+These best-practice recommendations will help you keep your data secure when using shared tokens:
 
 * **Shared tokens can potentially give read-only access to all logs in your account.**
 
@@ -30,9 +30,9 @@ These best-practice recommendations will help you keep your data secure when usi
 
 * **Shared tokens do not expire.**
 
-  Always make sure to cancel them once they are no longer needed. Rotating your Shared tokens often is a good idea in general and another way to make sure old tokens get canceled.
+  Always make sure to cancel them once they are no longer needed. Rotating your shared tokens often is a good idea in general and another way to make sure old tokens get canceled.
 
-  For example, even if you've shared a snapshot, and the logs of the snapshot are no longer in retention, the link you've sent using the Shared token is still active and has access to the logging database. Always make sure to delete the token once it has fulfilled its purpose.
+  For example, the shared token powering the sharing link of a snapshot is still active and continues to enable access to the logging database even after the logs included in the snapshot are no longer in retention. Always make sure to delete the token once it has fulfilled its purpose.
 
 * **Changes in token filters take effect immediately.**
 

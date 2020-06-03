@@ -3100,6 +3100,7 @@ definitions:
       - fullName
       - username
       - roles
+      - accountID
     properties:
       username:
         type: string

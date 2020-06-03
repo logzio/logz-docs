@@ -37,5 +37,7 @@
     "styled-components": "^4.4.1",
     "tablesorter": "^2.31.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "git-hooks": "^1.1.10"
+  }
 }

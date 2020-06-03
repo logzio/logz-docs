@@ -42,7 +42,7 @@ When creating a bucket, you'll only need to fill in 2 parameters which you can g
 * {PREFIX} is your **Prefix**. If you don't have a prefix, leave it blank.
 
 Logz.io fetches logs that are generated after configuring an S3 bucket.
-Past logs are not sent to Logz.io.
+Logz.io cannot fetch past logs retroactively.
 {:.info-box.important}
 
 ##### Check Logz.io for your logs

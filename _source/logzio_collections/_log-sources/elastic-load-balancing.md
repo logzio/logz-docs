@@ -12,7 +12,9 @@ shipping-tags:
   - aws
 ---
 
-When you set Logz.io to fetch Elastic Load Balancing logs, Logz.io will periodically read logs from the configured S3 bucket. Elastic Load Balancing logs are useful for application usage intelligence and monitoring.
+When you set Logz.io to fetch Elastic Load Balancing (ELB) logs, Logz.io will periodically read logs from the configured S3 bucket. Elastic Load Balancing logs are useful for application usage intelligence and monitoring.
+
+{% include log-shipping/s3-bucket.html service="ELB" %}
 
 #### Configuration
 
@@ -41,7 +43,7 @@ For help with setting this up, see these docs from AWS:
 <!-- logzio-inject:s3-config -->
 
   Logz.io fetches logs that are generated after configuring an S3 bucket.
-  Past logs are not sent to Logz.io.
+  Logz.io cannot fetch past logs retroactively.
   {:.info-box.important}
 
 ##### Check Logz.io for your logs

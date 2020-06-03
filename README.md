@@ -354,8 +354,7 @@ Here's a list of branch groups that we should use
 to clarify what we're working on.
 
 * api
-* log-shipping
-* metrics-shipping
+* shipping
 * ui
 * docs-tooling
 * docs-misc

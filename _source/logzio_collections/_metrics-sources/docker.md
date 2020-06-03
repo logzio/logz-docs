@@ -23,8 +23,6 @@ that runs Metricbeat with the modules you enable at runtime.
 
 #### Configuration
 
-{% include trust-chain-warning.html msg='docker' %}
-
 If you're not already running Docker Metrics Collector,
 follow these steps.
 

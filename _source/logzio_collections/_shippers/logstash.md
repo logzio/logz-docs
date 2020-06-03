@@ -33,8 +33,6 @@ JDK,
 
 ##### Download the Logz.io public certificate
 
-{% include trust-chain-warning.html msg='logstash' %}
-
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell

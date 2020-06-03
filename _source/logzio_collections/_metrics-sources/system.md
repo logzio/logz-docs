@@ -34,8 +34,6 @@ shipping-tags:
 
 ##### Download the Logz.io public certificate
 
-{% include trust-chain-warning.html %}
-
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
@@ -110,8 +108,6 @@ For other OSes, we recommend running Metricbeat locally on the system itself.
 {:.info-box.note}
 
 #### Configuration
-
-{% include trust-chain-warning.html msg='docker' %}
 
 If you’re not already running Docker Metrics Collector, follow these steps.
 

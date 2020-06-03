@@ -24,8 +24,6 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
 
 #### Deploy the Docker collector
 
-{% include trust-chain-warning.html msg='docker' %}
-
 
 <div class="tasklist">
 

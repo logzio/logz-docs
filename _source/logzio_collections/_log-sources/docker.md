@@ -30,8 +30,6 @@ shipping-tags:
 
 #### Set up docker-collector-logs
 
-{% include trust-chain-warning.html msg='docker' %}
-
 This is a Docker container that uses Filebeat to collect logs
 from other Docker containers and forward them to your Logz.io account.
 

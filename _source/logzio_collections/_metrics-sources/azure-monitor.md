@@ -84,8 +84,6 @@ You'll need this information later on, so paste it in your text editor.
 
 ##### Download the Logz.io public certificate
 
-{% include trust-chain-warning.html %}
-
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 You'll need to run this command on the server that hosts Metricbeat:
 

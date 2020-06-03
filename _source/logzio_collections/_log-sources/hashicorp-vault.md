@@ -39,8 +39,6 @@ see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from H
 
 ##### Download the Logz.io public certificate
 
-{% include trust-chain-warning.html %}
-
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell

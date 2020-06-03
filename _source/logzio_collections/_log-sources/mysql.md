@@ -34,8 +34,6 @@ shipping-tags:
 Configuration tl;dr
 </summary>
 
-{% include trust-chain-warning.html %}
-
 | Item | Description |
 |---|---|
 | Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt) |
@@ -75,8 +73,6 @@ sudo /etc/init.d/mysql restart
 ```
 
 ##### Download the Logz.io public certificate
-
-{% include trust-chain-warning.html %}
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -203,8 +199,6 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <div id="docker-sidecar-config">
 
 ## Set up a Docker sidecar for MySQL
-
-{% include trust-chain-warning.html msg='docker' %}
 
 <div class="tasklist">
 

@@ -11,8 +11,6 @@ shipping-tags:
   - container
 ---
 
-{% include trust-chain-warning.html msg='docker' %}
-
 <!-- tabContainer:start -->
 <div class="branching-container">
 

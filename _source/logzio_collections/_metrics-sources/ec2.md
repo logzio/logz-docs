@@ -34,8 +34,6 @@ that runs Metricbeat with the modules you enable at runtime.
 
 #### Configuration
 
-{% include trust-chain-warning.html msg='docker' %}
-
 If you're not already running Docker Metrics Collector,
 follow these steps.
 
@@ -167,8 +165,6 @@ You have the option to ship CloudWatch metrics directly over Metricbeat, without
 
 #### Configuration
 
-{% include trust-chain-warning.html msg='docker' %}
-
 <div class="tasklist">
 
 ##### Set up your IAM user
@@ -208,8 +204,6 @@ Paste your region slug in your text editor.
 You'll need this for your Metricbeat configuration later.
 
 ##### Download the Logz.io public certificate to your Metricbeat server
-
-{% include trust-chain-warning.html %}
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 

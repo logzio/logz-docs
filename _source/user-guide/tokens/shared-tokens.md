@@ -16,25 +16,25 @@ contributors:
 
 Shared tokens give you the option to share Kibana dashboards and visualizations with stakeholders who don't have access to your Logz.io account.
 
-Note that also non-admin users of your account will be able to use the account's shared tokens.
+Note that also non-admin users of your account will be able to use the account's Shared tokens.
 
 ## Best-practice security recommendations
 
 A Shared token has access to all of its account logs. When using a Shared token, it is better not to rely on the Kibana filters applied to the dashboard or visualizations being shared. Instead, it is best to limit access at the token level using token filters.
 
-These best-practice recommendations will help you keep your data secure when using shared tokens:
+These best-practice recommendations will help you keep your data secure when using Shared tokens:
 
 * **Shared tokens can potentially give read-only access to all logs in your account.**
- 
+
   It is therefore strongly recommended that you apply **token filters** to every token.
 
-* **Shared tokens do not expire.** 
+* **Shared tokens do not expire.**
 
   Always make sure to cancel them once they are no longer needed. Rotating your Shared tokens often is a good idea in general and another way to make sure old tokens get canceled.
 
   For example, even if you've shared a snapshot, and the logs of the snapshot are no longer in retention, the link you've sent using the Shared token is still active and has access to the logging database. Always make sure to delete the token once it has fulfilled its purpose.
 
-* **Changes in token filters take effect immediately.** 
+* **Changes in token filters take effect immediately.**
 
   Any changes will be reflected in affected sharing links, regardless of when they were created.
 
@@ -43,7 +43,7 @@ These best-practice recommendations will help you keep your data secure when usi
 
   It is always a good idea to double-check token filters before using the public sharing option to make sure they are up-to-date.
 
-* **Exercise caution and take note of who you're sharing your links with.** 
+* **Exercise caution and take note of who you're sharing your links with.**
 
   Opt for in-app sharing options whenever possible. If you plan on sharing links with clients, you can use sub accounts to keep each client's logs separate and more secure.
 

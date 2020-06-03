@@ -18,27 +18,34 @@ Shared tokens give you the option to share Kibana dashboards and visualizations 
 
 Note that also non-admin users of your account will be able to use the account's shared tokens.
 
-Shared tokens access your logging database (because they are Elasticsearch tokens). In other words, they exist outside of Kibana filters. This means you shouldn't rely on the filters you'll apply to the dashboards or visualizations you are sharing. Instead, you'll need to control what you're sharing using token filters.
-{:.info-box.warning}
+## Best-practice security recommendations
 
-#### Best-practice recommendations
+A Shared token has access to all of its account logs. When using a Shared token, it is better not to rely on the Kibana filters applied to the dashboard or visualizations being shared. Instead, it is best to limit access at the token level using token filters.
 
 These best-practice recommendations will help you keep your data secure when using shared tokens:
 
-* **Shared tokens can potentially give read-only access to all logs in your account.** It is therefore strongly recommended that you apply **token filters** to every token.
+* **Shared tokens can potentially give read-only access to all logs in your account.**
+ 
+  It is therefore strongly recommended that you apply **token filters** to every token.
 
-* **Shared tokens do not expire.** Always make sure to cancel them once they are no longer needed. Rotating your Shared tokens often is a good idea in general and another way to make sure old tokens get canceled.
+* **Shared tokens do not expire.** 
+
+  Always make sure to cancel them once they are no longer needed. Rotating your Shared tokens often is a good idea in general and another way to make sure old tokens get canceled.
 
   For example, even if you've shared a snapshot, and the logs of the snapshot are no longer in retention, the link you've sent using the Shared token is still active and has access to the logging database. Always make sure to delete the token once it has fulfilled its purpose.
 
-* **Changes in token filters take effect immediately.** Any changes will be reflected in affected sharing links, regardless of when they were created.
+* **Changes in token filters take effect immediately.** 
+
+  Any changes will be reflected in affected sharing links, regardless of when they were created.
 
   This means that you can add or remove token filters to a shared token at any time to change access permissions. This can be done both _before or after_ the sharing link has been sent out. For example, if you've accidentally shared too much, you can add token filters to tighten control and your recipients' links will be updated accordingly.
   Of course, this works the other way as well. If you delete a sharing token, any existing sharing links that were previously sent out, will reflect the updated permissions.
 
   It is always a good idea to double-check token filters before using the public sharing option to make sure they are up-to-date.
 
-* **Exercise caution and take note of who you're sharing your links with.** Opt for in-app sharing options whenever possible. If you plan on sharing links with clients, you can use sub accounts to keep each client's logs separate and more secure.
+* **Exercise caution and take note of who you're sharing your links with.** 
+
+  Opt for in-app sharing options whenever possible. If you plan on sharing links with clients, you can use sub accounts to keep each client's logs separate and more secure.
 
 #### Managing shared tokens
 

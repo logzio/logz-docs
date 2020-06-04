@@ -1,9 +1,9 @@
 ---
 layout: article
-title: Grafana data source plugin
+title: Grafana data source
 permalink: /integrations/grafana-data-source-plugin.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 open-source:
   - title: Logz.io datasource for Grafana
     github-repo: grafana-logzio-datasource
@@ -14,14 +14,25 @@ contributors:
   - imnotashrimp
 ---
 
-Logz.io is an official Grafana data source plugin.
-The plugin allows you to view your Logz.io-stored metrics
-in a Grafana instance that you manage.
+If you're self-hosting Grafana
+or using a hosted Grafana service,
+you can ship your metrics to your Logz.io account
+and use Logz.io as your Grafana datasource.
 
-#### Install Logz.io datasource for Grafana
+To make this work,
+you'll need an API token for your Logz.io account.
+
+If you're running Grafana 6.5 or lower,
+you can use our legacy plugin
+[Logz.io datasource for Grafana](https://github.com/logzio/grafana-logzio-datasource).
+Hower, this plugin is deprecated,
+and we recommend upgrading to Grafana 6.7 or higher.
+{:.info-box.note}
+
+#### Set up Logz.io as a datasource for Grafana
 
 **Before you begin, you'll need**:
-Write access to Grafana,
+Grafana 6.7 or higher,
 Logz.io API access
 
 <div class="tasklist">
@@ -51,7 +62,7 @@ In **Logz.io API Key**,
 paste an [API token](https://app.logz.io/#/dashboard/settings/api-tokens)
 from the account you want to use.
 
-Leave the _Elasticsearch details_ section as it is.
+Leave the _Elasticsearch details_ section as is.
 Logz.io overrides these settings.
 
 Click **Save & Test**.

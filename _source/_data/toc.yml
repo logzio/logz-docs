@@ -181,7 +181,7 @@ firstLevel:
     url: /user-guide/integrations/endpoints.html
   - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html
-  - title: Grafana data source plugin
+  - title: Grafana data source
     url: /integrations/grafana-data-source-plugin.html
 
 

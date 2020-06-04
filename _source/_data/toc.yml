@@ -18,8 +18,10 @@ firstLevel:
   - title: Kibana Discover
     url: /user-guide/kibana/
     thirdLevel:
-      - title: Log patterns
-        url: /user-guide/kibana/log-patterns.html
+      - title: Field Mapping
+        url: /user-guide/kibana/mapping/
+      - title: Field not indexed
+        url: /user-guide/kibana/mapping/field-not-indexed/
       - title: Share visualizations
         url: /user-guide/kibana/share-import-export
 
@@ -33,12 +35,15 @@ firstLevel:
 
   - title: Reports
     url: /user-guide/reports/
+
   - title: Optimizers
     url: /user-guide/optimizers/
     thirdLevel:
     - title: Configure optimizers
       url: /user-guide/optimizers/configure-optimizers.html
-
+  - title: Log patterns
+    url: /user-guide/kibana/log-patterns.html
+  
   - title: Insights
     url: /user-guide/insights/
     thirdLevel:

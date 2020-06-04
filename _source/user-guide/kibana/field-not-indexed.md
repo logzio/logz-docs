@@ -10,7 +10,7 @@ contributors:
   - shalper
 ---
 
-Sometimes, it will appear that a field in Kibana is not mapped. The mapping icon will show a <i class="fas fa-question"></i> question mark indicating that the field was not mapped.
+Sometimes, it will appear that a field in Kibana is not mapped. The mapping icon will show a <i class="fas fa-question"></i> question mark indicating that the field is not mapped in Kibana. 
 
 
 ![Kibana field not indexed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/field-not-indexed.png)

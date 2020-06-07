@@ -31,8 +31,6 @@ shipping-tags:
 
 ##### Download the Logz.io public certificate
 
-{% include trust-chain-warning.html %}
-
 Download the
 [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt)
 to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`

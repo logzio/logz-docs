@@ -41,8 +41,6 @@ const use_json = T &redef;
 
 ##### Download the Logz.io public certificate
 
-{% include trust-chain-warning.html %}
-
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell

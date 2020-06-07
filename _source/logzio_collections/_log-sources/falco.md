@@ -179,8 +179,6 @@ Save and exit the falco.yaml file.
 
 ##### Download the Logz.io public certificate to your Filebeat server
 
-{% include trust-chain-warning.html %}
-
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell

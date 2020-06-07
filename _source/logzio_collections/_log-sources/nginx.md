@@ -21,8 +21,6 @@ shipping-tags:
 Configuration tl;dr
 </summary>
 
-{% include trust-chain-warning.html %}
-
 | Item | Description |
 |---|---|
 | Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt) |
@@ -43,8 +41,6 @@ root access
 <div class="tasklist">
 
 ##### Download the Logz.io public certificate
-
-{% include trust-chain-warning.html %}
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 

@@ -151,8 +151,6 @@ Keep to these practices when shipping JSON logs over TCP:
 
 ### Sending the logs
 
-{% include trust-chain-warning.html %}
-
 To send JSON logs over TCP, download the Logz.io public certificate to a local folder.
 
 ```shell

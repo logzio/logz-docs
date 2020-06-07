@@ -9,50 +9,46 @@ Date visibility is controlled by the `show-date` property in frontmatter.
   {%- endcomment -%}
 
 {%- comment -%}
-Hide if show-date frontmatter property is false
-  {%- endcomment -%}
+*   If `show-date` is false, don't bother with this include.
+*         {%- endcomment -%}
 {%- unless page.show-date == false -%}
 
-  {%- comment -%}
-  Folder paths for source files & Jekyll collections. Find these in _config.yml.
-  End these values with a trailing slash.
-  Paths should match the format in stale-list.yml. In other words, match the
-    file system, not Jekyll's _config.yml.
-         {%- endcomment -%}
-  {%- assign sourceFolder = "_source/" -%}
-  {%- assign collectionsFolder = "logzio_collections/" -%}
 
-  {%- assign thisPath = page.path -%}
+{%- comment -%}
+*   Folder paths for your source files and Jekyll collections. Find these in
+*   _config.yml. End these values with a trailing slash.
+*
+*   Paths should match the format in stale-list.yml. In other words, match the
+*   filesystem, not Jekyll's _config.yml.
+*         {%- endcomment -%}
+{%- assign sourceFolder = "_source/" -%}
+{%- assign collectionsFolder = "logzio_collections/" -%}
 
-  {%- if page.updated  -%}
+{%- assign thisPath = page.path -%}
 
-    {%- comment -%}
-    If frontmatter contains the `updated` property, use that. Otherwise, use
-    the commit date from stale-list.yml.
-      {%- endcomment -%}
-    {%- assign pageDate = page.updated | default: thisRecord.committed -%}
+{%- comment -%}
+*   If this page is part of a collection, prepend with `collectionsFolder`.
+*         {%- endcomment -%}
+{%- unless page.collection == nil -%}
+  {%- assign thisPath = thisPath | prepend: collectionsFolder -%}
+{%- endunless -%}
 
-  {%- else -%}
+{%- comment -%}
+*   Prepend all pages with `sourceFolder`. At this point, thisPath *should*
+*   match a record in stale-list.yml.
+*         {%- endcomment -%}
+{%- assign thisPath = thisPath | prepend: sourceFolder -%}
 
-    {%- comment -%}
-    If this page is part of a collection, prepend with `collectionsFolder`.
-      {%- endcomment -%}
-      {%- unless page.collection == nil -%}
-      {%- assign thisPath = thisPath | prepend: collectionsFolder -%}
-    {%- endunless -%}
+{%- comment -%}
+*   Find the file in stale-list.yml whose filepath matches `thisPath`.
+*         {%- endcomment -%}
+{%- assign thisRecord = site.data.stale-list.contents | where: "filepath", thisPath | first %}
 
-    {%- comment -%}
-    Prepend all pages with `sourceFolder`. At this point, thisPath *should*
-    match a record in stale-list.yml.
-      {%- endcomment -%}
-    {%- assign thisPath = thisPath | prepend: sourceFolder -%}
+{%- comment -%}
+*   If frontmatter contains `updated`, use that. Otherwise, use the commit
+*   date from stale-list.yml.
+*         {%- endcomment -%}
+{%- assign pageDate = page.updated | default: thisRecord.committed -%}
 
-    {%- comment -%}
-    Find the file in stale-list.yml whose filepath matches `thisPath`.
-      {%- endcomment -%}
-    {%- assign thisRecord = site.data.stale-list.contents | where: "filepath", thisPath | first %}
-
-  {%- endif -%}
-
-  <div class="updated">{{ pageDate | date: "%b %e, %Y" }}</div>
+<div class="updated">{{ pageDate | date: "%b %e, %Y" }}</div>
 {%- endunless -%}

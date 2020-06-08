@@ -13,6 +13,8 @@ contributors:
   - shalper
 ---
 
+Threat intelligence,
+
 Logz.io Cloud SIEM (_Security Information and Event Management_) is a security system that funnels info and alerts from numerous security services into a single observability platform.
 
 Logz.io Cloud SIEM integrates with dozens of security services, including firewalls, end point security, network security, identity management security, and even container security.

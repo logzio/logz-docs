@@ -122,7 +122,7 @@ configurations that use the existing role.
   and replace current Logz.io configurations.
   See
   [_Migrate to new IAM roles_](#migrate-to-new-roles)
-  (belower).
+  (below).
 
 #### Migrate to the Logz.io external ID in the same role {#migrate-with-same-role}
 

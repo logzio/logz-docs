@@ -1,61 +1,77 @@
 ---
-title: Ship EC2 metrics
+title: Ship Kubernetes metrics with HELM
 logo:
-  logofile: aws-ec2.svg
+  logofile: helm-icon-color.
   orientation: vertical
-data-source: EC2
-templates: ["docker-metricbeat"]
+data-source: Helm
+templates: ["no-template"]
 open-source:
-  - title: Docker Metrics Collector
-    github-repo: docker-collector-metrics
+  - title: Helm Metrics Collector
+    github-repo: logzio-helm
 contributors:
-  - imnotashrimp
+  - mirii1994
+  - shalper
 shipping-tags:
-  - aws
+  - container
 ---
 
-
-# Logzio-k8s-metrics
-
-Helm is a tool for managing Charts. Charts are packages of pre-configured Kubernetes resources.  
+Helm is a tool for managing packages of pre-configured Kubernetes resources, known as Charts.
 Logzio-k8s-metrics allows you to ship metrics from your Kubernetes cluster.
 
-### Prerequisites:
-* [Helm CLI](https://helm.sh/docs/intro/install/) installed
-* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
-* Allow outgoing traffic to destination port 5015
+**Before you begin, you'll need**:
+[Helm CLI](https://helm.sh/docs/intro/install/) installed,
+[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed, and allow outgoing traffic to destination port 5015
 
 You have two options for deployment:
 * [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
 * [Custom configuration](#custom-config)
+* [Advanced options](#configurations)
+{:.branching-tabs}
 
 <div id="default-config">
 
-### Automatic deployment:
+#### Automatic deployment
 
-#### 1. Run the automated deployment script
+<div class="tasklist">
+
+##### Run the automated deployment script
+
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/logzio/logzio-helm/master/quickstart-metrics.sh)
 ```
 
-##### Prompts and answers
+##### Add the configuration
+
+Follow through the system's prompts and provide the requested parameters.
 
 | Prompt | Answer |
 |---|---|
 | Logz.io metrics shipping token (Required) | The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. |
 | Logz.io region (Default: `Blank (US East)`) | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you’re shipping the logs to) and API URL. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| Cluster name (Default: `detected by the script` | The name of the Kubernetes cluster you’re deploying in. |
+| Cluster name (Default: `detected by the script` | Name of the Kubernetes cluster in which you are deploying. |
 
-#### 2. Check Logz.io for your metrics
+##### Check Logz.io for your metrics
+
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
+
+
+## To uninstall the Chart
+
+Run the following command to remove all k8s components associated with the Chart and delete the release.
+For example, to uninstall the `logzio-k8s-metrics` deployment, run:
+
+```shell
+helm uninstall --namespace=kube-system logzio-k8s-metrics
+```
 
 </div>
 
 <div id="custom-config">
 
-### Manually deployment:
+#### Manual deployment
 
-#### 1. Store your Logz.io credentials
+##### Add your Logz.io credentials
+
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
 Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
@@ -68,9 +84,9 @@ kubectl --namespace=kube-system create secret generic logzio-metrics-secret \
   --from-literal=logzio-metrics-listener-host=<<LISTENER-HOST>>
 ```
 
-#### 2. Store your cluster details
+##### Store your cluster details
 
-Replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command to save your cluster details as a Kubernetes secret.
+Run the command below to save your cluster details as a Kubernetes secret. The command has placeholders that you'll need to replace with your own cluster information.
 
 ```shell
 kubectl --namespace=kube-system create secret generic cluster-details \
@@ -79,25 +95,50 @@ kubectl --namespace=kube-system create secret generic cluster-details \
 --from-literal=cluster-name=<<CLUSTER-NAME>>
 ```
 
-#### 3. Add logzio-k8s-metrics repo to your helm repo list
+Replace the following placeholders in the command before running it: 
+
+* `<<KUBE-STATE-METRICS-NAMESPACE>>`
+* `<<KUBE-STATE-METRICS-PORT>>`
+* `<<CLUSTER-NAME>>`
+
+
+##### Add logzio-k8s-metrics repo to your helm repo list
 
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm/metricbeat
 ```
 
-#### 4. Deploy
+##### Deploy
 
 ```shell
 helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 ```
 
-#### 5. Check Logz.io for your metrics
+#### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
+## To uninstall the Chart
+
+Run the following command to remove all k8s components associated with the Chart and delete the release.
+For example, to uninstall the `logzio-k8s-metrics` deployment, run:
+
+```shell
+helm uninstall --namespace=kube-system logzio-k8s-metrics
+```
+
 </div>
 
-### Configuration
+<div id="configurations">
+
+If you want to change the default values, specify each parameter argument in the format `--set key=value[,key=value]` immediately after the command `helm install`. For example, to set the `imageTag` and `terminationGracePeriodSeconds`, run:
+
+```shell
+helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-metrics \
+  --set=imageTag=7.7.0,terminationGracePeriodSeconds=30
+```
+
+#### Configuration options
 
 | Parameter | Description | Default |
 |---|---|---|
@@ -137,18 +178,4 @@ Give your metrics some time to get from your system to ours, and then open [Logz
 | `deployment.resources` | Allows you to set the resources for Metricbeat Deployment. | see [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml) |
 | `deployment.secretMounts` | Allows you easily mount a secret as a file inside the Deployment Useful for mounting certificates and other secrets. | see [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml) |
 
-If you wish to change the default values, specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
-```shell
-helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-metrics \
-  --set=imageTag=7.7.0,terminationGracePeriodSeconds=30
-```
-
-### Uninstalling the Chart
-
-The command removes all the k8s components associated with the chart and deletes the release.  
-To uninstall the `logzio-k8s-metrics` deployment:
-
-```shell
-helm uninstall --namespace=kube-system logzio-k8s-metrics
-```

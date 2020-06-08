@@ -1,7 +1,7 @@
 ---
 title: Ship Kubernetes metrics with HELM
 logo:
-  logofile: helm-icon-color.
+  logofile: helm-icon-color.png
   orientation: vertical
 data-source: Helm
 templates: ["no-template"]
@@ -22,7 +22,8 @@ Logzio-k8s-metrics allows you to ship metrics from your Kubernetes cluster.
 [Helm CLI](https://helm.sh/docs/intro/install/) installed,
 [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed, and allow outgoing traffic to destination port 5015
 
-You have two options for deployment:
+<div class="branching-container">
+
 * [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
 * [Custom configuration](#custom-config)
 * [Advanced options](#configurations)
@@ -64,6 +65,8 @@ For example, to uninstall the `logzio-k8s-metrics` deployment, run:
 helm uninstall --namespace=kube-system logzio-k8s-metrics
 ```
 
+</div>
+<!-- tab:end -->
 </div>
 
 <div id="custom-config">
@@ -128,6 +131,7 @@ helm uninstall --namespace=kube-system logzio-k8s-metrics
 ```
 
 </div>
+</div>
 
 <div id="configurations">
 
@@ -179,3 +183,4 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 | `deployment.secretMounts` | Allows you easily mount a secret as a file inside the Deployment Useful for mounting certificates and other secrets. | see [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml) |
 
 
+</div>

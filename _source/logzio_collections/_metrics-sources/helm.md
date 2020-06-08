@@ -123,7 +123,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/metricbeat
 helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 ```
 
-#### Check Logz.io for your metrics
+##### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 

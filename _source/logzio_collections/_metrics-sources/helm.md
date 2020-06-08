@@ -33,6 +33,8 @@ Logzio-k8s-metrics allows you to ship metrics from your Kubernetes cluster.
 
 #### Automatic deployment
 
+This is the simplest method of deployment but it doesn't offer advanced configuration options.
+
 <div class="tasklist">
 
 ##### Run the automated deployment script
@@ -56,7 +58,7 @@ Follow through the system's prompts and provide the requested parameters.
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
 
-## To uninstall the Chart
+### To uninstall the Chart
 
 Run the following command to remove all k8s components associated with the Chart and delete the release.
 For example, to uninstall the `logzio-k8s-metrics` deployment, run:
@@ -72,6 +74,10 @@ helm uninstall --namespace=kube-system logzio-k8s-metrics
 <div id="custom-config">
 
 #### Manual deployment
+
+This method of deployment gives you greater control over the configuration.
+
+<div class="tasklist">
 
 ##### Add your Logz.io credentials
 
@@ -98,7 +104,7 @@ kubectl --namespace=kube-system create secret generic cluster-details \
 --from-literal=cluster-name=<<CLUSTER-NAME>>
 ```
 
-Replace the following placeholders in the command before running it: 
+Replace the following placeholders in the command before running it:
 
 * `<<KUBE-STATE-METRICS-NAMESPACE>>`
 * `<<KUBE-STATE-METRICS-PORT>>`
@@ -121,14 +127,6 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
-## To uninstall the Chart
-
-Run the following command to remove all k8s components associated with the Chart and delete the release.
-For example, to uninstall the `logzio-k8s-metrics` deployment, run:
-
-```shell
-helm uninstall --namespace=kube-system logzio-k8s-metrics
-```
 
 </div>
 </div>
@@ -183,4 +181,5 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 | `deployment.secretMounts` | Allows you easily mount a secret as a file inside the Deployment Useful for mounting certificates and other secrets. | see [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml) |
 
 
+</div>
 </div>

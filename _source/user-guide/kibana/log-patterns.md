@@ -27,9 +27,6 @@ To open Log Patterns, click the **Patterns** tab in [Kibana Discover](https://ap
 
 ## Understanding Log Patterns
 
-Log Patterns recognizes these types of data: \\
-`Ip`, `Email`, `Url`, `Number`, `Path`, `Guid`, `Hash`, `Syslogtimestamp`, `Date`
-
 You can sort your log patterns by time, count, or ratio.
 
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-annotated1.png)
@@ -64,18 +61,15 @@ Kibana's default time range is the last 15 minutes. You can select another time 
 Log Patterns take into account _constants_ and _variables_.
 This is best explained with an example. Here's a pattern that contains both:
 
-```
-Duplicate entry `Email` for session `Guid`
-```
+![Duplicate entry `Email` for session `Guid`](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-patterns1.png)
 
-Constants are displayed as is.
-In this example, `Duplicate entry` and `for session` are constants.
-So those exact phrases are in all logs with this pattern.
 
-Variables are highlighted and categorized by data type
-(e.g., `Number`, `Ip`, `Url`, `Date`).
-In this example,
-Logz.io identified `Email` and `Guid` data in all logs with this pattern.
+In this example, `Duplicate entry` and `for session` are constants, and `Email` and `Guid` are the variables.
+You can tell the variables from the constants, because variables are highlighted.
 
-If a variable wasn't tagged with a data type,
-Logz.io marks it with a wildcard expression: `.*`.
+Log Patterns recognizes these data types as named variables: \\
+`Ip`, `Email`, `Url`, `Number`, `Path`, `Guid`, `Hash`, `Syslogtimestamp`, `Date`
+
+Variables that don't belong to any of these data types are indicated as wildcards: `.*`.
+
+![reloading account [.*] log patterns matcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-patterns2.png)

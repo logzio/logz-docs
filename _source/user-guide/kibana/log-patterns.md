@@ -61,7 +61,7 @@ Kibana's default time range is the last 15 minutes. You can select another time 
 Log Patterns take into account _constants_ and _variables_.
 This is best explained with an example. Here's a pattern that contains both:
 
-![Duplicate entry `Email` for session `Guid`](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-patterns1.png)
+![Duplicate entry `Email` for session `Guid`](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-pattern1.png)
 
 
 In this example, `Duplicate entry` and `for session` are constants, and `Email` and `Guid` are the variables.
@@ -72,4 +72,4 @@ Log Patterns recognizes these data types as named variables: \\
 
 Variables that don't belong to any of these data types are indicated as wildcards: `.*`.
 
-![reloading account [.*] log patterns matcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-patterns2.png)
+![reloading account `.*`log patterns matcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-pattern2.png)

@@ -1,7 +1,7 @@
 ---
 title: Ship SonicWall logs
 logo:
-  logofile: sonicwall.svg
+  logofile: SonicWall-Logo.svg
   orientation: vertical
 data-source: SonicWall
 contributors:
@@ -11,7 +11,6 @@ shipping-tags:
   - security
 ---
 
-
 #### Configuration
 
 <div class="tasklist">
@@ -20,7 +19,7 @@ shipping-tags:
 
 These are the prerequisites you'll need before you can begin:
 
-* SonicWall NGFW
+* [SonicWall firewall](https://www.sonicwall.com/products/firewalls)
 * [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * root access
 

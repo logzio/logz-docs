@@ -32,7 +32,7 @@ You can sort your log patterns by time, count, or ratio.
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-annotated1.png)
 
 Time
-: The timestamp of the first log with this pattern in this time range.
+: The timestamp of the first log belonging to this pattern in the selected time range.
 
 Count
 : The number of logs with this pattern in this time range.

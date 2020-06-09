@@ -7,6 +7,8 @@ data-source: Kubernetes
 templates: ["no-template", "no-template"]
 contributors:
   - imnotashrimp
+  - shalper
+  - yyyogev
 shipping-tags:
   - container
 ---
@@ -23,10 +25,15 @@ shipping-tags:
 
 #### Automated deployment
 
+
 **Before you begin, you'll need**:
-[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed,
-destination port 5015 is open on your firewall for outgoing traffic,
-Kubelet read-only-port 10255 enabled (enabled by default)
+
+* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
+* Destination port 5015 open on your firewall for outgoing traffic
+* Kubelet read-only-port 10255 enabled. Kubelet read-only-port 10255 is enabled by default on some cluster versions. If it isn't enabled, follow [Kubernetes's instructions](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) for enabling 10255 as a read-only-port in Kubelet's config file.
+
+
+
 <div class="tasklist">
 
 ##### Run the automated deployment script
@@ -60,10 +67,12 @@ and then open [Logz.io](https://app.logz.io/).
 
 #### Manual deployment
 
+
 **Before you begin, you'll need**:
-[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed,
-destination port 5015 is open on your firewall for outgoing traffic,
-Kubelet read-only-port 10255 enabled (enabled by default)
+
+* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
+* Destination port 5015 open on your firewall for outgoing traffic
+* Kubelet read-only-port 10255 enabled. Kubelet read-only-port 10255 is enabled by default on some cluster versions. If it isn't enabled, follow [Kubernetes's instructions](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/) for enabling 10255 as a read-only-port in Kubelet's config file.
 
 <div class="tasklist">
 

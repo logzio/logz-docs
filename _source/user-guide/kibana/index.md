@@ -26,7 +26,7 @@ Histogram
 
 Document table
 : View the results of your search query. Click on any log document to open it and view the fields and values
-{:.letter-labels}
 
 Log Patterns
-: Logz.io groups your logs using advanced clustering techniques to help identify anomalies that would otherwise be missed  
+: Logz.io groups your logs using advanced clustering techniques to help identify anomalies that would otherwise be missed. [Learn more about Log Patterns]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
+{:.letter-labels}

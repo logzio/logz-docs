@@ -11,6 +11,7 @@ shipping-tags:
   - security
 ---
 
+
 #### Configuration
 
 <div class="tasklist">
@@ -19,21 +20,22 @@ shipping-tags:
 
 These are the prerequisites you'll need before you can begin:
 
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
+* SonicWall NGFW
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * root access
 
-##### Configure Cisco ASA Server logging
+##### Configure SonicWall Server logging
 
-Configure your Cisco ASA firewall to send logs to your Filebeat server.
+Configure your SonicWall firewall to send logs to your Filebeat server.
 Make sure you meet this configuration:
 
 * Log format: syslog
-* Send over: TCP
+* Send over: UDP
 * IP address: Filebeat server IP address
-* Port 6514
+* Port 514
 
-See [Cisco docs](https://www.cisco.com/c/en/us/support/security/index.html) for more information
-on configuring your Cisco ASA firewall.
+See [SonicWall docs](https://www.sonicwall.com/support/technical-documentation/?language=English) for more information
+on configuring your SonicWall firewall.
 
 ##### Download the Logz.io public certificate to your Filebeat server
 
@@ -43,18 +45,19 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-##### Add TCP traffic as an input
+##### Configure Filebeat
 
-In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
+Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous contents.
+(Replace the file’s contents with this code block.)
 
-{% include log-shipping/replace-vars.html token=true %}
+This code block adds SonicWall as an input sent over UDP traffic.
 
 ```yaml
 # ...
 filebeat.inputs:
-- type: tcp
+- type: udp
   max_message_size: 10MiB
-  host: "0.0.0.0:6514"
+  host: "0.0.0.0:514"
 
   fields:
     logzio_codec: plain
@@ -62,17 +65,12 @@ filebeat.inputs:
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
     token: <<SHIPPING-TOKEN>>
-    type: cisco-asa
+    type: sonicwall
   fields_under_root: true
   encoding: utf-8
   ignore_older: 3h
-```
 
-If you're running Filebeat 7, paste this code block.
-Otherwise, you can leave it out.
-
-```yaml
-# ... For Filebeat 7 only ...
+  # ... For Filebeat 7 only ...
 filebeat.registry.path: /var/lib/filebeat
 processors:
 - rename:
@@ -85,21 +83,12 @@ processors:
     - from: "log.file.path"
       to: "source"
     ignore_missing: true
+  ignore_older: 3h
 ```
 
-If you're running Filebeat 6, paste this code block.
+Copy and paste the following code block directly below.
+It sets Logz.io as the output.
 
-```yaml
-# ... For Filebeat 6 only ...
-registry_file: /var/lib/filebeat/registry
-```
-
-##### Set Logz.io as the output
-
-If Logz.io is not an output, add it now.
-(Remove all other outputs - there should only be 1 output in the configuration file.) 
-
-{% include log-shipping/replace-vars.html listener=true %}
 
 ```yaml
 # ...
@@ -108,6 +97,17 @@ output.logstash:
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
+
+##### Replace the placeholders in the Filebeat configuration
+
+Still in the same configuration file, replace the placeholders to match your specifics.
+
+* {% include log-shipping/replace-vars.html token=true %}
+
+* {% include log-shipping/replace-vars.html listener=true %}
+
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
 
 ##### Start Filebeat
 

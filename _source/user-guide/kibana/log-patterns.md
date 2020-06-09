@@ -3,37 +3,36 @@ layout: article
 title: Log patterns
 description: Log Patterns analyzes log messages and groups them according to detected patterns. We built Log Patterns to live alongside your logs in Kibana. You can see your patterns under the Patterns tab, and then click the Logs tab to return Kibana's familiar Discover view.
 permalink: /user-guide/kibana/log-patterns.html
-flags:
-  beta: true
-  logzio-plan: pro
+#flags:
+  #beta: true
+  #logzio-plan: pro
 tags:
   - log-patterns
 contributors:
   - danielberman
   - imnotashrimp
+  - shalper
 ---
 
-The Log Patterns feature dissects incoming logs and
-groups them according to detected patterns.
+Log Patterns runs advanced clustering algorithms to group logs by their frequency of occurrence to help you identify patterns in your logs. Use Patterns to quickly single out unique or unusual events from the mass of recurring and repetitive events.
+
 As your logs come into Kibana, you'll see how they fit into existing patterns,
-in real time.
+in near real time.
 
-The Log Patterns view shows how often each pattern happens.
-So you can quickly identify unique or unusual events,
-as well as recurring and repetitive events.
+Log patterns can help you surface logs you might have otherwise missed, logs that should be captured by [Optimizers]({{site.baseurl}}/user-guide/optimizers/configure-optimizers.html) and saved to a Timeless Account for long-term retention, or logs that you don't need to ship to your account and can be dropped using [drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/).
 
-You can use log patterns to surface logs you might have otherwise missed,
-or you can use it to identify unnecessary logs that you no longer want to ship to your account.
+![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns2.png)
 
-![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns.png)
-
-Log Patterns lives alongside your logs in [Kibana](https://app.logz.io/#/dashboard/kibana).
-You can see patterns under the **Patterns** tab,
-while the familiar _Discover_ view is now under the **Logs** tab.
+To open Log Patterns, click the **Patterns** tab in [Kibana Discover](https://app.logz.io/#/dashboard/kibana).
 
 ## Understanding Log Patterns
 
-![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-annotated.png)
+Log Patterns recognizes these types of data: \\
+`Ip`, `Email`, `Url`, `Number`, `Path`, `Guid`, `Hash`, `Syslogtimestamp`, `Date`
+
+You can sort your log patterns by time, count, or ratio.
+
+![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-annotated1.png)
 
 Time
 : The timestamp of the first log with this pattern in this time range.
@@ -50,23 +49,24 @@ Pattern
 : The pattern itself.
   Data types (such as IP addresses, numbers, or URLs) are shown in brown.
   Hover over a pattern to see the familiar Kibana filter controls.
+
+Filter value
+: Click these to filter for or filter out the logs that match a pattern. You'll be taken to the **Logs** tab,
+where you'll see the logs that match your filter. You can use this option as the basis for a query which you can use for alerts, drop filters, visualizations, and more.
 {:.letter-labels}
 
-Logz.io calculates _Time_, _Count_, and _Ratio_ using the Kibana time range.
-In other words, when you change the time range,
-_Time_, _Count_, and _Ratio_ are recalculated.
-Kibana's default time range in 15 minutes.
+Kibana's default time range is the last 15 minutes. You can select another time range using the Histogram or the time picker to view Log Patterns for any time range you need.
 {:.info-box.note}
 
-You can sort the list by time, count, or ratio.
 
-### Exploring log patterns
+## Constants vs. Variables
 
-Patterns comprise two parts:
-_constants_ and _variables_.
-This example contains both:
+Log Patterns take into account _constants_ and _variables_.
+This is best explained with an example. Here's a pattern that contains both:
 
-![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-pattern.png)
+```
+Duplicate entry `Email` for session `Guid`
+```
 
 Constants are displayed as is.
 In this example, `Duplicate entry` and `for session` are constants.
@@ -79,20 +79,3 @@ Logz.io identified `Email` and `Guid` data in all logs with this pattern.
 
 If a variable wasn't tagged with a data type,
 Logz.io marks it with a wildcard expression: `.*`.
-
-###### What data will I see?
-
-Log Patterns recognizes these types of data: \\
-`Ip`, `Email`, `Url`, `Number`, `Path`, `Guid`, `Hash`, `Syslogtimestamp`, `Date`
-
-#### To see logs according to a pattern
-
-* Kibana filter controls are shown in each pattern's row,
-  on the right.
-* To see the logs that match a pattern,
-  click the **+** magnifying glass.
-* To see only the logs that don't match a pattern,
-  click the **-** magnifying glass.
-
-You'll be taken to the _Logs_ tab,
-where you'll see the logs that match your filter.

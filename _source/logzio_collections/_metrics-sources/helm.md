@@ -15,28 +15,21 @@ contributors:
 shipping-tags:
   - container
 ---
-
-* <!-- tabContainer:start -->
-* <div class="branching-container">
-
-* [Automated deployment <span class="sm ital">(recommended)</span>](#automated-config)
-* [Manual deployment](#manual-config)
-* {:.branching-tabs}
-
-* <!-- tab:start -->
-* <div id="automated-config">
-
 Helm is a tool for managing packages of pre-configured Kubernetes resources, known as Charts.
 Logzio-k8s-metrics allows you to ship metrics from your Kubernetes cluster.
 
 **Before you begin, you'll need**:
-* [Helm CLI](https://helm.sh/docs/intro/install/) installed
-
-* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
-
-* Allow outgoing traffic to destination port 5015.
+[Helm CLI](https://helm.sh/docs/intro/install/) installed,
+[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed, and allow outgoing traffic to destination port 5015
 
 
+<div class="branching-container">
+* [Default configuration _recommended_](#default-config)
+* [Custom configuration](#custom-config)
+* [Advanced options](#configurations)
+{:.branching-tabs}
+
+<div id="default-config">
 
 #### Automatic deployment
 

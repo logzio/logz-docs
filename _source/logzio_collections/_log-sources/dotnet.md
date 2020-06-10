@@ -27,7 +27,9 @@ shipping-tags:
 #### Configure log4net
 
 **Before you begin, you'll need**:
-log4net 2.0.8 or higher
+
+* log4net 2.0.8 or higher
+* .Net Core SDK version 2.0 or higher
 
 <div class="tasklist">
 
@@ -188,7 +190,9 @@ For the example above, you'd use `MyAppLogzioAppender`.
 #### Configure NLog
 
 **Before you begin, you'll need**:
-NLog 4.5.0 or higher
+
+* NLog 4.5.0 or higher
+* .Net Core SDK version 2.0 or higher
 
 <div class="tasklist">
 

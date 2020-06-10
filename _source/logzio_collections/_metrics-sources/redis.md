@@ -12,7 +12,7 @@ contributors:
   - danieltk
   - shalper
 shipping-tags:
-  - platform-service
+
 ---
 
 You can ship Redis metrics using Metricbeat.

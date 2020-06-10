@@ -4,15 +4,9 @@ logo:
   logofile: redis.svg
   orientation: vertical
 data-source: Redis
-templates: ["docker-metricbeat"]
-open-source:
-  - title: 
-    github-repo: 
 contributors:
   - danieltk
   - shalper
-shipping-tags:
-
 ---
 
 You can ship Redis metrics using Metricbeat.

@@ -14,6 +14,8 @@ shipping-tags:
   - security
 ---
 
+{% include log-shipping/s3-bucket.html service="CloudTrail" %}
+
 #### Configuration
 
 **Before you begin, you'll need**:
@@ -33,8 +35,15 @@ For help with setting up a new trail, see [Overview for Creating a Trail](https:
 
 <!-- logzio-inject:s3-config -->
 
+When creating a bucket, you'll only need to fill in 2 parameters which you can get from your CloudTrail AWS path. The AWS path structure for cloudtrail looks like this:
+
+{BUCKET_NAME}/{PREFIX}/AWSLogs/{AWS_ACCOUNT_ID}/elasticloadbalancing/{REGION}/
+
+* {BUCKET_NAME} is your **S3 bucket name**
+* {PREFIX} is your **Prefix**. If you don't have a prefix, leave it blank.
+
 Logz.io fetches logs that are generated after configuring an S3 bucket.
-Past logs are not sent to Logz.io.
+Logz.io cannot fetch past logs retroactively.
 {:.info-box.important}
 
 ##### Check Logz.io for your logs

@@ -127,6 +127,14 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
+### To uninstall the Chart
+
+Run the following command to remove all k8s components associated with the Chart and delete the release.
+For example, to uninstall the `logzio-k8s-metrics` deployment, run:
+
+```shell
+helm uninstall --namespace=kube-system logzio-k8s-metrics
+```
 
 </div>
 </div>

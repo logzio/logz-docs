@@ -190,7 +190,9 @@ For the example above, you'd use `MyAppLogzioAppender`.
 #### Configure NLog
 
 **Before you begin, you'll need**:
-NLog 4.5.0 or higher
+
+* NLog 4.5.0 or higher
+* .Net Core SDK version 2.0 or higher
 
 <div class="tasklist">
 

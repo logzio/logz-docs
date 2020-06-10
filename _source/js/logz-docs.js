@@ -1,19 +1,38 @@
+// Add anchors on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function(event) {
+  anchors.add();
+});
+
 $( function() {
   // Show/hide animations for left-side TOC. Also animates caret icon.
-  $('ul.toc-child > li.toc-active').find('ul.toc-grandchild').show().addClass('show').siblings('span.toc-heading').find('span.collapse-button').addClass('show');
-  $('ul.toc-grandchild > li.toc-active').parent('ul.toc-grandchild').show().addClass('show').siblings('span.toc-heading').find('span.collapse-button').addClass('show');
+  $('ul.toc-child > li.toc-active')
+    .find('ul.toc-grandchild')
+    .show()
+    .addClass('show')
+    .siblings('span.toc-heading')
+    .find('span.collapse-button')
+    .addClass('show');
+  $('ul.toc-grandchild > li.toc-active')
+    .parent('ul.toc-grandchild')
+    .show()
+    .addClass('show')
+    .siblings('span.toc-heading')
+    .find('span.collapse-button')
+    .addClass('show');
 
-  $('ul.toc-child').find('li.has-child > span.toc-heading').on('click', function() {
-    let submenu = $(this).siblings('ul.toc-grandchild');
-    let caret = $(submenu).siblings('span.toc-heading').find('span.collapse-button');
+  $('ul.toc-child')
+    .find('li.has-child > span.toc-heading')
+    .on('click', function() {
+      let submenu = $(this).siblings('ul.toc-grandchild');
+      let caret = $(submenu).siblings('span.toc-heading').find('span.collapse-button');
 
-    if (submenu.hasClass('show') == true) {
-      submenu.slideUp().removeClass('show');
-      caret.removeClass('show');
-    } else {
-      submenu.slideDown().addClass('show');
-      caret.addClass('show');
-    }
+      if (submenu.hasClass('show') == true) {
+        submenu.slideUp().removeClass('show');
+        caret.removeClass('show');
+      } else {
+        submenu.slideDown().addClass('show');
+        caret.addClass('show');
+      }
   });
 });
 

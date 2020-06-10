@@ -4,6 +4,7 @@ logo:
   logofile: windows-defender.svg
   orientation: vertical
 data-source: Windows Defender
+templates: ["beats-logs"]
 contributors:
   - imnotashrimp
   - dorisnaaman
@@ -58,11 +59,12 @@ Type "Administrators" in the text box and click **Check Names**.
 
 Now click **OK** to exit all those dialogs you just opened. 😬
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
 
-Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine.
-
-We'll place the certificate in `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt` for this example.
+Download the
+[Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt)
+to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
+on your machine.
 
 ##### Configure Windows input
 

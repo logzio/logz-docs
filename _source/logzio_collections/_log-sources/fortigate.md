@@ -4,6 +4,7 @@ logo:
   logofile: fortinet.svg
   orientation: vertical
 data-source: FortiGate
+templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -44,10 +45,12 @@ set port 514
 end
 ```
 
-##### Download the Logz.io certificate to your Filebeat server
+##### Download the Logz.io public certificate to your Filebeat server
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add UDP traffic as an input

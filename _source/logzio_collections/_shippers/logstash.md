@@ -31,33 +31,12 @@ JDK,
 
 <div class="tasklist">
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/logz-docs/master/certs/TrustExternalCARoot.crt -P /usr/share/logstash/keys/
-```
-
-##### _(If needed)_ Install the Lumberjack output plugin
-
-The Lumberjack output plugin is required for SSL shipping.
-For most Logstash versions, the plugin is included by default.
-
-To see if Lumberjack output plugin is installed,
-`cd` to your [Logstash bin directory](https://www.elastic.co/guide/en/logstash/current/dir-layout.html)
-and run this command:
-
-```shell
-./logstash-plugin list | grep logstash-output-lumberjack
-```
-
-If you see `logstash-output-lumberjack`, skip to step 3.
-
-Otherwise, you'll need to install the plugin.
-
-```shell
-./logstash-plugin install logstash-output-lumberjack
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /usr/share/logstash/keys/TrustExternalCARoot.crt
 ```
 
 ##### Add Logz.io to your configuration file

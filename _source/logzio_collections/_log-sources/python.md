@@ -4,10 +4,13 @@ logo:
   logofile: python.svg
   orientation: vertical
 data-source: Python code
+templates: ["library"]
 open-source:
   - title: Logz.io Python Handler
     github-repo: logzio-python-handler
 contributors:
+  - mirii1994
+  - shalper
   - imnotashrimp
 shipping-tags:
   - from-your-code
@@ -24,6 +27,8 @@ they're written to the local file system for later retrieval.
 #### Set up Logz.io Python Handler
 
 <div class="tasklist">
+
+**Supported versions**: Python 3.5 or newer. 
 
 ##### Add the dependency to your project
 
@@ -65,9 +70,52 @@ level=INFO
 format={"additional_field": "value"}
 ```
 
-###### Parameters
 
-Arguments must be configured in the order shown.
+###### Dict Config
+
+This is an alternative configuration option recommended if you are using Python 3.8.
+
+See Python's [documentation](https://docs.python.org/3/library/logging.config.html#configuration-file-format) regarding the `logging.config.dictConfig` method.
+
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'logzioFormat': {
+            'format': '{"additional_field": "value"}',
+            'validate': False
+        }
+    },
+    'handlers': {
+        'logzio': {
+            'class': 'logzio.handler.LogzioHandler',
+            'level': 'INFO',
+            'formatter': 'logzioFormat',
+            'token': '<<SHIPPING-TOKEN>>',
+            'logs_drain_timeout': 5,
+            'url': 'https://<<LISTENER-HOST>>:8071'
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['logzio'],
+            'propogate': True
+        }
+    }
+}
+```
+
+###### Replace the placeholders
+
+* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/replace-vars.html listener=true %} 
+
+
+##### Parameters
+
+The order of the arguments is important. Arguments _must_ be configured in the order shown here.
 For example, to set debug-flag to `True`,
 you need to set every argument that comes before it.
 {:.info-box.important}
@@ -79,27 +127,37 @@ you need to set every argument that comes before it.
 | timeout <span class="default-param">`3`</span> | Time to wait between log draining attempts, in seconds. |
 | listener-url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
 | debug-flag <span class="default-param">`False`</span> | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. |
+| backup-logs <span class="default-param">`True`</span>| If set to False, disables the local backup of logs in case of failure. |
+| network-timeout <span class="default-param">`10`</span> | Timeout in seconds, int or float, for sending the logs to Logz.io. |
 {:.paramlist}
 
-###### Code sample
+#### Serverless platforms
 
+If you're using a serverless function, you'll need to import and add the LogzioFlusher annotation before your sender function. To do this, in the code sample below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.
+
+#### Code Example
 ```python
 import logging
 import logging.config
+# If you're using a serverless function, uncomment.
+# from logzio.flusher import LogzioFlusher
 
-# If configuration is stored at ./myconf.conf:
-logging.config.fileConfig('myconf.conf')
-
+# Say i have saved my configuration in a dictionary form in variable named myconf
+logging.config.dictConfig(myconf)
 logger = logging.getLogger('superAwesomeLogzioLogger')
 
-logger.info('Test log')
-logger.warn('Warning')
+# If you're using a serverless function, uncomment.
+# @LogzioFlusher(logger)
+def my_func():
+    logger.info('Test log')
+    logger.warn('Warning')
 
-try:
-    1/0
-except:
-    logger.exception("Supporting exceptions too!")
+    try:
+        1/0
+    except:
+        logger.exception("Supporting exceptions too!")
 ```
+
 
 To add dynamic metadata to your logger
 other than the constant metadata from the formatter,

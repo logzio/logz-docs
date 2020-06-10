@@ -48,21 +48,20 @@
       "logo:",
       "  logofile: ${2:aws-guardduty}.svg",
       "  orientation: ${3|vertical,horizontal|} ${4:# Usually, this is vertical}",
-      "data-source: ${4:Amazon GuardDuty} ${5:# This is the title on the log shipping page}",
-      "logzio-app-url: ${6:(not always required) https://app.logz.io/#/dashboard/data-sources/AWS-costandusagereport}",
+      "data-source: ${5:Amazon GuardDuty} ${6:# This is the title on the log shipping page}",
       "contributors:",
-      "  - imnotashrimp",
-      "  ${7:- idohalevi}",
+      "  - shalper",
+      "  ${8:- idohalevi}",
       "shipping-tags:",
-      "  - $8 ${9:# See _source/_data/shipper-tabs.yml for tag options}",
+      "  - $9 ${10:# See _source/_data/shipper-tabs.yml for tag options}",
       "---",
       "$0"
     ]
   },
 
   "Logz.io icon": {
-		"prefix": "logzio icon",
-		"body": "<i class=\"li li-$1\"></i>$0",
+		"prefix": "logzio-icon",
+		"body": "<i class=\"li $1\"></i>$0",
 		"description": "<i> tag for Logz.io icon"
 	},
 
@@ -121,7 +120,7 @@
 
   "CloudFront image URL": {
     "prefix": "cloudfront-image-url",
-    "body": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/",
+    "body": "![${1:Alt text}](${2:https://dytvr9ot2sszz.cloudfront.net/logz-docs/...})",
     "description": "URL where images are hosted. You'll still need to fill in the S3 bucket filepath."
   }
 

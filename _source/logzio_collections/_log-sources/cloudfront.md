@@ -4,6 +4,7 @@ logo:
   logofile: aws-cloudfront.svg
   orientation: vertical
 data-source: CloudFront
+templates: ["s3-fetcher"]
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudFront
 contributors:
   - idohalevi
@@ -14,6 +15,8 @@ shipping-tags:
 
 When you set Logz.io to fetch CloudFront logs, Logz.io will periodically read logs from the configured S3 bucket.
 CloudFront logs are useful for auditing/security monitoring and business intelligence.
+
+{% include log-shipping/s3-bucket.html service="CloudFront" %}
 
 #### Configuration
 
@@ -36,7 +39,7 @@ For help with this, see [Configuring and Using CloudFront Access Logs](https://d
 <!-- logzio-inject:s3-config -->
 
 Logz.io fetches logs that are generated after configuring an S3 bucket.
-Past logs are not sent to Logz.io.
+Logz.io cannot fetch past logs retroactively.
 {:.info-box.important}
 
 ##### Check Logz.io for your logs

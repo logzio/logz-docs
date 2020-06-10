@@ -4,6 +4,7 @@ logo:
   logofile: haproxy.png
   orientation: horizontal
 data-source: HAProxy
+templates: ["no-template"]
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -57,7 +58,9 @@ listen INPUT_NAME_TCP
 
 Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include log-shipping/replace-vars.html token=true %}
+
+{% include log-shipping/replace-vars.html listener=true %}
 
 ```conf
 $ModLoad imuxsock # provides support for local system logging

@@ -4,6 +4,7 @@ logo:
   logofile: hashicorp-vault.svg
   orientation: horizontal
 data-source: HashiCorp Vault
+templates: [beats-logs]
 contributors:
   - imnotashrimp
   - dorisnaaman
@@ -21,25 +22,27 @@ root access
 
 ##### Configure Vault for raw log output
 
-Start or restart Vault,
-enabling raw log output to the default location.
+Configure Vault
+to enable raw log output to the default location.
+This disables log hashing
+so Filebeat can read the log files:
 
-Raw log output disables log hashing
-so Filebeat can read the log files.
 
 ```shell
 vault audit enable file file_path=/var/log/vault_audit.log log_raw=true
 ```
 
+After running this command, start or restart Vault.
+
 For more information on logging and enabling audit devices,
 see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from HashiCorp.
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Create your configuration file for Vault

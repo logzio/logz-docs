@@ -1,43 +1,27 @@
 # *** Logz.io template can handle 3 levels max ***
 # 3-level hierarchy:
-# firstLevel
-#   secondLevel
-#     thirdLevel
+# firstLevel: - contains title and icon only (no url), and secondLevel array
+#   secondLevel: - contains title and url, and thirdLevel array
+#     thirdLevel: - contains title and url
 
-# Each entry should contain 'title' and 'url'
-# Add `external: true` if an entry links to outside docs
+# Add `external: true` if an entry links to outside docs.
+# This adds the external link icon.
 
 firstLevel:
 
-  # ===== GETTING STARTED =====
-# - title: Getting Started
-
-  # secondLevel:
-  # - title: Overview
-    # url: /getting-started/overview/index.html
-
-  # - title: Quickstart
-    # url: /getting-started/quickstart/index.html
-
-    # thirdLevel:
-    # - title: Ship sample logs with Filebeat
-      # url: /placeholder.html
-    # - title: Discover
-    # - title: Install ELK Apps
-    # - title: Explore Insights
-
-
   # ===== USER GUIDE =====
-  # These docs are in the /user-guide folder
-- title: Log Monitoring
+  # These docs are generally in the /user-guide folder
+- title: Logging
   icon: li-bar-graph
 
   secondLevel:
   - title: Kibana Discover
     url: /user-guide/kibana/
     thirdLevel:
-      - title: Log patterns
-        url: /user-guide/kibana/log-patterns.html
+      - title: Field Mapping
+        url: /user-guide/kibana/mapping/
+      - title: Field not indexed
+        url: /user-guide/kibana/mapping/field-not-indexed/
       - title: Share visualizations
         url: /user-guide/kibana/share-import-export
 
@@ -51,12 +35,15 @@ firstLevel:
 
   - title: Reports
     url: /user-guide/reports/
+
   - title: Optimizers
     url: /user-guide/optimizers/
     thirdLevel:
     - title: Configure optimizers
       url: /user-guide/optimizers/configure-optimizers.html
-
+  - title: Log patterns
+    url: /user-guide/kibana/log-patterns.html
+  
   - title: Insights
     url: /user-guide/insights/
     thirdLevel:
@@ -84,8 +71,10 @@ firstLevel:
     url: /user-guide/infrastructure-monitoring/alerts.html
   - title: Variables
     url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
-  - title: Drilldown links
+  - title: Explore in Kibana
     url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+  - title: Custom metrics
+    url: /user-guide/infrastructure-monitoring/custom-metrics
   - title: Rollups
     url: /user-guide/infrastructure-monitoring/data-rollups.html
 
@@ -102,6 +91,8 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Lookups
       url: /user-guide/lookups/
+    - title: Integrate with Cortex xSOAR
+      url: /user-guide/cloud-siem/xsoar-integration/
 
 - title: Admin tools
   icon: li-gear
@@ -165,8 +156,6 @@ firstLevel:
       - title: Setting S3 permissions in AWS
         url: /user-guide/archive-and-restore/set-s3-permissions.html
 
-#  - title: Give AWS access with IAM roles
-#    url: /user-guide/give-aws-access-with-iam-roles/
 
   # ===== SHIPPING AND PARSING =====
 - title: Shipping & parsing
@@ -184,15 +173,8 @@ firstLevel:
       url: /user-guide/log-shipping/log-shipping-troubleshooting.html
     - title: Listener IP addresses
       url: /user-guide/log-shipping/listener-ip-addresses.html
-    # - title: Field mapping and data parsing
-    # thirdLevel:
-    # - title: Field mapping
   - title: Data parsing
     url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
-
-  # - title: Shipping utilities
-  #   url: /shipping/shipping-utilities/
-  #   thirdLevel:
 
   # ===== INTEGRATIONS =====
 - title: Integrations

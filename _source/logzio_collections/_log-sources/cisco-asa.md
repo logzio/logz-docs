@@ -3,7 +3,8 @@ title: Ship Cisco ASA Server logs
 logo:
   logofile: cisco.svg
   orientation: vertical
-data-source: Cisco ASA 
+data-source: Cisco ASA
+templates: ["network-device-filebeat"]
 contributors:
   - shalper
   - imnotashrimp
@@ -34,10 +35,12 @@ Make sure you meet this configuration:
 See [Cisco docs](https://www.cisco.com/c/en/us/support/security/index.html) for more information
 on configuring your Cisco ASA firewall.
 
-##### Download the Logz.io certificate to your Filebeat server
+##### Download the Logz.io public certificate to your Filebeat server
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add TCP traffic as an input

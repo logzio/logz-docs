@@ -1,15 +1,13 @@
 ---
 title: Ship logs from Microsoft Graph
-open-source:
-  - title: Logzio-MSGraph
-    github-repo: microsoft-graph
 logo:
   logofile: azure.svg
   orientation: horizontal
 data-source: Microsoft Graph
-tags:
-  - azure
-  - event-hubs
+templates: ["no-template"]
+open-source:
+  - title: Logzio-MSGraph
+    github-repo: microsoft-graph
 contributors:
   - yyyogev
   - imnotashrimp

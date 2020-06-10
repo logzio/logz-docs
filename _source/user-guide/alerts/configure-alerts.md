@@ -16,12 +16,14 @@ If you haven't formed your query yet,
 we recommend starting in Kibana
 so you can see the results of the query in real time.
 
-Otherwise, if you already have a query and filters,
+If you already have a query and filters,
 you can create a blank alert
 from the top menu (**Alerts & Events > New alert**)
 or from the _Alert definitions_ page.
+
 You can also create an alert
-from Application Insights or Cognitive Insights.
+from Application Insights or Cognitive Insights,
+or you can duplicate an existing alert.
 
 Community plans can have up to 50 alerts enabled at a time.
 {:.info-box.note}
@@ -42,6 +44,22 @@ from a search written in Kibana Query Language (KQL).
 Once you're happy with your alert,
 click **Create alert** (above the query bar).
 You're taken to the _New alert_ page.
+
+Continue with _To configure an alert_. 👇
+
+#### To create an alert from another alert
+
+![Duplicate alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/duplicate-alert.png)
+
+You can duplicate an alert from the
+[_Alert definitions_](https://app.logz.io/#/dashboard/triggers/alert-definitions)
+page when you want to reuse its configuration
+without recreating it from scratch.
+To do this,
+hover over the alert,
+click its action menu (<i class="li li-ellipsis-v"></i>),
+and then click **Duplicate**.
+You're taken to the _Edit alert_ page.
 
 Continue with _To configure an alert_. 👇
 

@@ -4,6 +4,7 @@ logo:
   logofile: json.svg
   orientation: vertical
 data-source: JSON uploads
+templates: ["no-template"]
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -153,7 +154,7 @@ Keep to these practices when shipping JSON logs over TCP:
 To send JSON logs over TCP, download the Logz.io public certificate to a local folder.
 
 ```shell
-wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/TrustExternalCARoot_and_USERTrustRSAAAACA.crt
 ```
 
 Using the certificate you just downloaded,
@@ -184,7 +185,7 @@ LogLevel INFO
 </Input>
 <Output out>
     Module  om_ssl
-    CAFile /etc/nxlog/certs/COMODORSADomainValidationSecureServerCA.crt
+    CAFile /etc/nxlog/certs/TrustExternalCARoot_and_USERTrustRSAAAACA.crt
     AllowUntrusted FALSE
     Host    listener.logz.io
     Exec    $OutputModule="om_ssl"; to_json();

@@ -4,10 +4,10 @@ logo:
   logofile: mysql.svg
   orientation: horizontal
 data-source: MySQL
+templates: [beats-logs, "docker"]
 open-source:
   - title: mysql-logs
     github-repo: mysql-logs
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/MySQL-Logs
 contributors:
   - imnotashrimp
   - amosd92
@@ -36,7 +36,7 @@ Configuration tl;dr
 
 | Item | Description |
 |---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | Default log locations | General query log: `/var/log/mysql/mysql.log` <br> Slow query log: `/var/log/mysql/mysql-slow.log` <br> Error log: `/var/log/mysql/error.log` |
 | Log type _(for preconfigured parsing)_ | General query log: `mysql` <br> Slow query log: `mysql_slow_query` <br> Error log: `mysql_error` |
@@ -72,12 +72,12 @@ Restart MySQL.
 sudo /etc/init.d/mysql restart
 ```
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add MySQL as an input

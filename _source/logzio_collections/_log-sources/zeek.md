@@ -4,6 +4,7 @@ logo:
   logofile: zeek.png
   orientation: vertical
 data-source: Zeek
+templates: [beats-logs]
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -38,10 +39,12 @@ Set the value to `T` (true):
 const use_json = T &redef;
 ```
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add Zeek as an input

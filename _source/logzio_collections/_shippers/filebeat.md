@@ -29,7 +29,7 @@ Configuration tl;dr
 
 | Item | Description |
 |---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 {:.paramlist}
 
@@ -53,12 +53,12 @@ Configuration tl;dr
 
 <div class="tasklist">
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Make your configuration file
@@ -93,11 +93,14 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 <div class="tasklist">
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-Download the [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) to your machine. We recommend saving to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`.
+Download the
+[Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt)
+to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`
+on your machine.
 
 ##### Make your configuration file
 

@@ -4,6 +4,7 @@ logo:
   logofile: puppet.png
   orientation: vertical
 data-source: Puppet
+templates: [beats-logs]
 contributors:
   - amosd92
   - imnotashrimp
@@ -21,7 +22,7 @@ Configuration tl;dr
 
 | Item | Description |
 |---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Encryption certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt) |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | Default log location | _Puppet produces lots of different logs. See [Log files installed](https://puppet.com/docs/pe/2018.1/what_gets_installed_and_where.html#log-files-installed) from Puppet Labs for more information._ |
 | Log type _\(for preconfigured parsing\)_ | Puppet server: `puppetserver` <br> Puppet server access: `puppetserver-access` |
@@ -38,12 +39,12 @@ root access
 
 <div class="tasklist">
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add Puppet as an input

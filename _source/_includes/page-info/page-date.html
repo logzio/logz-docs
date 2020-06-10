@@ -1,10 +1,12 @@
 {%- comment -%}
-*   Drop this file in your _includes/ folder and add
-*   {% include page-date.html %} in `default` layout template.
-*
-*   - To hide, set `show-date: false` in frontmatter.
-*   - To override, set `updated: yyyy-mm-dd` in frontmatter.
-*         {%- endcomment -%}
+Gets the page date from the site.data.stale-list (in the _data folder).
+stale-list.yml is generated at build time using scripts/make-stale-list.sh
+
+Date visibility is controlled by the `show-date` property in frontmatter.
+- To hide, set `show-date: false` in frontmatter.
+- To override, set `updated: yyyy-mm-dd` in frontmatter.
+
+  {%- endcomment -%}
 
 {%- comment -%}
 *   If `show-date` is false, don't bother with this include.

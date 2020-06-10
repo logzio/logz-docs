@@ -4,6 +4,7 @@ logo:
   logofile: check-point.png
   orientation: vertical
 data-source: Check Point
+templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -57,10 +58,12 @@ If you restart the management server, you'll need to run `cp_log_export` again
 to restart the exporter.
 {:.info-box.note}
 
-##### Download the Logz.io certificate to your Filebeat server
+##### Download the Logz.io public certificate to your Filebeat server
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add UDP traffic as an input

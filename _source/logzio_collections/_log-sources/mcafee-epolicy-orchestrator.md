@@ -4,6 +4,7 @@ logo:
   logofile: mcafee.svg
   orientation: vertical
 data-source: McAfee ePolicy Orchestrator
+templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
 shipping-tags:
@@ -41,12 +42,12 @@ sudo openssl req -newkey rsa:2048 -nodes \
 -out /etc/filebeat/certificates/McafeeEpo.crt
 ```
 
-##### Download the Logz.io certificate to your Filebeat server
+##### Download the Logz.io public certificate to your Filebeat server
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add TCP traffic as an input

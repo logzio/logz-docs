@@ -4,6 +4,7 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 data-source: Azure Monitor
+templates: ["no-template"]
 contributors:
   - imnotashrimp
   - yotamloe
@@ -81,13 +82,13 @@ You'll need this information later on, so paste it in your text editor.
 "password": "e6ab6d24-4907-5d11-a132-a171ef55355d",
 ```
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 You'll need to run this command on the server that hosts Metricbeat:
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### _(Optional)_ Disable the system module

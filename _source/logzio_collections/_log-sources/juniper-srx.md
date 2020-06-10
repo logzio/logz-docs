@@ -4,6 +4,7 @@ logo:
   logofile: juniper.png
   orientation: horizontal
 data-source: Juniper
+templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:
@@ -43,10 +44,12 @@ Configure your Juniper firewall to send logs to your Filebeat server. Make sure 
 
 See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA) for more information on configuring your Juniper SRX firewall.
 
-##### Download the Logz.io certificate to your Filebeat server
+##### Download the Logz.io public certificate to your Filebeat server
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Configure Filebeat
@@ -96,7 +99,7 @@ Copy and paste the following code block directly below. It sets Logz.io as the o
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']    
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ##### Replace the placeholders in the Filebeat configuration

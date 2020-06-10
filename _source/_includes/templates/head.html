@@ -1,0 +1,45 @@
+{%- assign pageTitle = page.title | default: page.hidden-title | default: "" -%}
+{%- unless pageTitle == "" %}{% assign pageTitle = pageTitle | prepend: ' | ' %}{% endunless -%}
+
+<head>
+  <title>{{site.title}}{{pageTitle}}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- if jekyll.environment == 'production' %}
+  {%- unless page.no-analytics == true -%}
+  {% comment %}
+  * Include these bits only if in production
+  *       {% endcomment %}
+    {% if site.google_tag_manager_id -%}
+    {% include templates/google/tag-manager-head.html %}
+    {%- endif %}
+
+    {% if site.google_analytics_id -%}
+    {% include templates/google/google-analytics.html %}
+    {%- endif %}
+
+  {%- endunless -%}
+  {% endif -%}
+
+  {%- if site.intercom_app_id %}
+  {% include templates/intercom.html %}
+  {%- endif -%}
+
+  {%- if page.noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif -%}
+
+  {% include templates/imports.html %}
+
+  <!-- the one stylesheet to rule them all -->
+  {% if page.layout=="api-ref" %}
+    <link rel="stylesheet" href="{{site.baseurl}}/css/logz-api-ref.css">
+  {%- else -%}
+  <link rel="stylesheet" href="{{site.baseurl}}/css/logz-docs.css">
+  {% endif %}
+
+  {%- feed_meta -%}
+  {% seo %}
+</head>

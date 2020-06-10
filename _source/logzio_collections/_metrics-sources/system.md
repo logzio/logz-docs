@@ -4,6 +4,7 @@ logo:
   logofile: gauge.svg
   orientation: vertical
 data-source: System
+templates: ["metricbeat", "docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
     github-repo: docker-collector-metrics
@@ -31,12 +32,12 @@ shipping-tags:
 
 <div class="tasklist">
 
-##### Download the Logz.io certificate
+##### Download the Logz.io public certificate
 
-Download the Logz.io public certificate to your certificate authority folder.
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add Logz.io configuration
@@ -64,7 +65,7 @@ Remove all other outputs.
 # ===== Outputs =====
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ##### _(If needed)_ Enable the system module
@@ -158,20 +159,10 @@ logzio/docker-collector-metrics
 | LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
 | LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |
 | LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
+{% include metric-shipping/debug-param.html %}
 {:.paramlist}
 
-##### Check Logz.io for your metrics
-
-Give your metrics a few minutes to get from your system to ours,
-and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
-
-You can view your metrics on the
-System Metrics
-dashboard in Grafana.
-Just click **<i class="fas fa-th-large"></i> > Manage** in the left menu,
-then click
-**Logz.io Dashboards >**
-**System Metrics**.
+{% include metric-shipping/open-dashboard.html title="System Metrics" %}
 
 </div>
 

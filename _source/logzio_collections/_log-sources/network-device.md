@@ -4,6 +4,7 @@ logo:
   logofile: network-device.svg
   orientation: horizontal
 data-source: Network device
+templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
   - schwin007
@@ -25,12 +26,12 @@ root access
 Configure your network device to send logs to your Filebeat server, TCP port 9000.
 See your device's documentation if you're not sure how to do this.
 
-##### Download the Logz.io certificate to your Filebeat server
+##### Download the Logz.io public certificate to your Filebeat server
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add TCP traffic as an input

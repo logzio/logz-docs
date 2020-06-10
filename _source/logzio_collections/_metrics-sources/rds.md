@@ -4,6 +4,7 @@ logo:
   logofile: aws-rds.svg
   orientation: vertical
 data-source: RDS
+templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
     github-repo: docker-collector-metrics
@@ -103,6 +104,7 @@ logzio/docker-collector-metrics
 | LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
 | LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |
 | LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
+{% include metric-shipping/debug-param.html %}
 {:.paramlist}
 
 ###### Parameters for the AWS module
@@ -115,17 +117,7 @@ logzio/docker-collector-metrics
 | AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For RDS, this is `AWS/RDS`. |
 {:.paramlist}
 
-##### Check Logz.io for your metrics
+{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/RDS" %}
 
-Give your metrics a few minutes to get from your system to ours,
-and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
-
-You can view your metrics on the
-AWS RDS
-dashboard in Grafana.
-Just click **<i class="fas fa-th-large"></i> > Manage** in the left menu,
-then click
-**Logz.io Dashboards >**
-**AWS RDS**.
 
 </div>

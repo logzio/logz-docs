@@ -1,10 +1,13 @@
-# When naming the region, take from AWS and Azure docs
-# AWS: https://aws.amazon.com/about-aws/global-infrastructure/regions_az/?p=ngi&loc=2
-# Azure: https://azure.microsoft.com/en-us/global-infrastructure/locations/
+# This file is an array of Logz.io regions
+# Each entry has these properties:
+#   title: Human readable title, determined by the cloud provider
+#     AWS: https://aws.amazon.com/about-aws/global-infrastructure/regions_az/?p=ngi&loc=2
+#     Azure: https://azure.microsoft.com/en-us/global-infrastructure/locations/
+#   cloud: `AWS` | `Azure`
+#   suffix: The two-letter region code that we append to the app, listener, and api urls. No suffix for US East.
+#   listener-ips: Array of IP addresses. Any changes to IP addresses must be reviewed and approved by Core.
 
-us:
-  title: US East (Northern Virginia)
-  suffix: false
+- title: US East (Northern Virginia)
   cloud: AWS
   listener-ips:
     - 23.22.183.192
@@ -23,7 +26,7 @@ us:
     - 52.87.10.17
     - 52.87.4.83
     - 54.210.40.1
-au:
+- suffix: au
   title: Asia Pacific (Sydney)
   cloud: AWS
   listener-ips:
@@ -35,7 +38,7 @@ au:
     - 13.54.20.120
     - 3.104.255.132
     - 54.206.91.46
-ca:
+- suffix: ca
   title: Canada (Central)
   cloud: AWS
   listener-ips:
@@ -47,7 +50,7 @@ ca:
     - 52.60.247.110
     - 99.79.113.22
     - 52.60.89.173
-eu:
+- suffix: eu
   title: Europe (Frankfurt)
   cloud: AWS
   listener-ips:
@@ -61,7 +64,7 @@ eu:
     - 52.57.139.219
     - 52.57.23.254
     - 52.57.24.166
-nl:
+- suffix: nl
   title: West Europe (Netherlands)
   cloud: Azure
   listener-ips:
@@ -73,7 +76,15 @@ nl:
     - 40.68.61.65
     - 52.166.13.236
     - 52.174.154.12
-wa:
+- suffix: uk
+  title: Europe (London)
+  cloud: AWS
+  listener-ips:
+    - 3.11.223.182
+    - 3.9.200.96
+    - 35.178.96.162
+    - 35.179.57.204
+- suffix: wa
   title: West US 2 (Washington)
   cloud: Azure
   listener-ips:

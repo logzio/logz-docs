@@ -1,0 +1,42 @@
+{%- unless page.community-info == false or layout.community-info == false -%}
+
+  {%- assign repoPath = site.github.org_url | append: site.github.repo_name -%}
+
+  {%- capture editPath -%}
+    {{ repoPath | append: "/tree" | append: site.github.edit_branch -}}
+    {{- site.source | remove_first: "." | append: "/" }}
+    {%- if page.collection -%}
+      {{site.collections_dir | append: "/"}}
+    {%- endif -%}
+    {{page.path}}
+  {%- endcapture -%}
+
+  {%- capture issuePath -%}
+    {{ repoPath | append: "/issues/new" }}
+    {%- if site.github.issue_template -%}
+      ?template={{site.github.issue_template}}.md
+    {%- endif -%}
+  {%- endcapture %}
+
+
+  <div class="feedback-container">
+
+    <div class="feedback inline-header ">
+      Contribute to the docs
+    </div>
+
+    <div class="feedback button edit">
+      <a class="fancy-link" href="{{ editPath }}" target="_blank">
+        <span class="icon">{% octicon mark-github %}</span>
+        <span>Edit this page</span>
+      </a>
+    </div>
+
+    <div class="feedback button issue">
+      <a class="fancy-link" href="{{ issuePath }}" target="_blank">
+        <span class="icon">{% octicon issue-opened %}</span>
+        <span>Report an issue</span>
+      </a>
+    </div>
+  </div>
+{%- endunless -%}

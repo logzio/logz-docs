@@ -28,6 +28,7 @@ shipping-tags:
 
 **Before you begin, you'll need**:
 log4net 2.0.8 or higher
+.Net Core SDK version 2.0 or higher
 
 <div class="tasklist">
 

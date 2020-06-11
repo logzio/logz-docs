@@ -1,28 +1,28 @@
 ---
-title: Ship Azure Event Hub metrics 
+title: Ship SQL database metrics
 logo:
-  logofile: azure-monitor.svg
+  logofile: change_this.svg
   orientation: vertical
-data-source: Azure Event hub
+data-source: Azure SQL databases
 contributors:
   - yotamloe
   - shalper
-  - imnotashrimp
 shipping-tags:
   - azure
 
 ---
 
-You can ship Azure Event Hub metrics using Metricbeat to monitor your Azure services. 
-First, you'll need to configure your services
-to send their metrics to Azure Monitor. 
-Next, you'll configure Metricbeat
-to collect metrics from Azure Event Hub
+To monitor your Azure service metrics,
+we recommend configuring your services
+to send their metrics to Azure Monitor.
+When you set up Metricbeat using the configuration on this page,
+Metricbeat will collect metrics from Azure SQL databases
 and forward them to [Logz.io](http://logz.io/).
 
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
+
 * [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/7.6/metricbeat-installation.html),
 * [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or higher
 
@@ -32,28 +32,32 @@ and forward them to [Logz.io](http://logz.io/).
 
 Run this command in the command line:
 
-```shell
-az login
 ```
+az login
+
+```
+
 To complete the process, sign in through your browser.
 
 ##### Get your subscription details
 
 Run this command:
 
-```shell
+```
 az account show | grep '"id"\\|"tenantId"'
+
 ```
 
 The response shows the subscription ID (the `id` field)
 and tenant ID (the `tenantId` field).
 You'll need this information later on, so paste it in your text editor.
 
-Here's a sample response
+##### Sample response
 
-```shell
-"id": "b3a47bd3-5197-58c2-aeb0-c8c65de8765e",
-"tenantId": "22a49a95-4cac-573d-903e-b8915fdce438",
+```
+"id": "d94b1fba-0289-557e-b063-0b6bfc1bdca0",
+"tenantId": "9ae0715a-0689-56e8-bb88-2b22f1fa7299",
+
 ```
 
 ##### Create a new Azure AD application
@@ -64,46 +68,52 @@ If you don't already have an AD application with reader permissions,
 run this command to create one.
 Replace `<<SUBSCRIPTION-ID>>` with the `id` value from step 2:
 
-```shell
+```
 az ad sp create-for-rbac --role reader \\
 --scopes /subscriptions/<<SUBSCRIPTION-ID>> \\
 -n logzio-metricbeat \\
 | grep '"appId"\\|"password"'
+
 ```
 
 The response shows the client ID (the `appId` field)
 and client secret (the `password` field).
 You'll need this information later on, so paste it in your text editor.
 
-Here's a sample response
+##### Sample response
 
-```shell
-"appId": "5928684d-ce1f-55e5-b7f0-1b161c982109",
-"password": "85a75902-e75a-5b55-9142-bbb317e0eb5a",
+```
+"appId": "3dcdf53e-f93f-5902-8df2-235c8635aa4d",
+"password": "e6ab6d24-4907-5d11-a132-a171ef55355d",
+
 ```
 
 ##### Download the [Logz.io](http://logz.io/) public certificate
 
+
+
 For HTTPS shipping, download the [Logz.io](http://logz.io/) public certificate to your certificate authority folder.
 You'll need to run this command on the server that hosts Metricbeat:
 
-```yml
+```
 sudo curl <https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt> --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
+
 ```
 
 ##### (_Optional_) Disable the system module
 
 By default, Metricbeat ships system metrics from its host.
-Disable this module so you don't unintentionally send host metrics.
+Disable this module so you don't unintentionally send host metrics:
 
-```yml
+```
 sudo metricbeat modules disable system
+
 ```
 
 ##### Add [Logz.io](http://logz.io/) configuration
 
 Now you'll set up the Metricbeat
-to collect metrics from Azure Event hub.
+to collect metrics from Azure SQL databases.
 
 You'll need to replace the values surrounded by angle brackets
 `<< >>`
@@ -123,10 +133,10 @@ metricbeat.modules:
   refresh_list_interval: 600s
 	resources:
     # 👇 Duplicate this code block for each resource type whose metrics you want to ship.
-    - resource_query: "resourceType eq 'Microsoft.EventHub/namespaces'"
+ - resource_query: "resourceType eq 'Microsoft.Sql/servers/databases'"
       metrics:
       - name: ["*"]
-        namespace: "Microsoft.EventHub/namespaces"
+        namespace: "Microsoft.Sql/servers/databases"
 
 fields:
   logzio_codec: json

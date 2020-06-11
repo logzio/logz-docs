@@ -46,6 +46,10 @@ Replace the General configuration with Logz.io settings.
 
 {% include log-shipping/replace-vars.html token=true %}
 
+Make sure you're using the shipping token for your **METRICS ACCOUNT** and not the shipping token from the main account.
+You can find your metrics account token by clicking the cogwheel icon, selecting Settings -> Manage Accounts, and scrolling down to the metrics account information.
+{:.info-box.note}
+
 ```yaml
 # ===== General =====
 fields:

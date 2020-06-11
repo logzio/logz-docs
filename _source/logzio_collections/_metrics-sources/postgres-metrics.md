@@ -1,9 +1,9 @@
 ---
-title: Ship Azure MySQL metrics
+title: Ship Azure PostgreSQL metrics
 logo:
   logofile: change_this.svg
   orientation: vertical
-data-source: Azure MySQLs
+data-source: Azure PostgreSQLs
 contributors:
   - yotamloe
   - shalper
@@ -16,7 +16,7 @@ To monitor your Azure service metrics,
 we recommend configuring your services
 to send their metrics to Azure Monitor.
 When you set up Metricbeat using the configuration on this page,
-Metricbeat will collect metrics from Azure MySQLs
+Metricbeat will collect metrics from Azure PostgreSQLs
 and forward them to [Logz.io](http://logz.io/).
 
 #### Metricbeat setup
@@ -108,7 +108,7 @@ sudo metricbeat modules disable system
 ##### Add [Logz.io](http://logz.io/) configuration
 
 Now you'll set up the Metricbeat
-to collect metrics from Azure MySQL.
+to collect metrics from Azure PostgreSQL.
 
 You'll need to replace the values surrounded by angle brackets
 `<< >>`
@@ -128,10 +128,11 @@ metricbeat.modules:
   refresh_list_interval: 600s
 	resources:
     # 👇 Duplicate this code block for each resource type whose metrics you want to ship.
-		- resource_query: "resourceType eq 'Microsoft.DBforMySQL/servers'"
+		- resource_query: "resourceType eq 'Microsoft.DBforPostgreSQL/servers'"
       metrics:
       - name: ["*"]
-        namespace: "Microsoft.DBforMySQL/servers"
+        namespace: "Microsoft.DBforPostgreSQL/servers"
+
 fields:
   logzio_codec: json
   token: <<SHIPPING-TOKEN>>

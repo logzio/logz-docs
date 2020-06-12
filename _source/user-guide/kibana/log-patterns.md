@@ -1,11 +1,9 @@
 ---
 layout: article
 title: Log patterns
-description: Log Patterns analyzes log messages and groups them according to detected patterns. We built Log Patterns to live alongside your logs in Kibana. You can see your patterns under the Patterns tab, and then click the Logs tab to return Kibana's familiar Discover view.
 permalink: /user-guide/kibana/log-patterns.html
-#flags:
-  #beta: true
-  #logzio-plan: pro
+flags:
+  logzio-plan: community
 tags:
   - log-patterns
 contributors:
@@ -14,12 +12,10 @@ contributors:
   - shalper
 ---
 
-Log Patterns runs advanced clustering algorithms to group logs by their frequency of occurrence to help you identify patterns in your logs. Use Patterns to quickly single out unique or unusual events from the mass of recurring and repetitive events.
+Log Patterns runs advanced clustering algorithms to group logs with similar message fields by their frequency of occurrence. Log patterns can help you to quickly single out unique or unusual events from the mass of recurring and repetitive events or identify errors that are more frequent so you know where to focus your efforts.
 
-As your logs come into Kibana, you'll see how they fit into existing patterns,
-in near real time.
-
-Log patterns can help you surface logs you might have otherwise missed, logs that should be captured by [Optimizers]({{site.baseurl}}/user-guide/optimizers/configure-optimizers.html) and saved to a Timeless Account for long-term retention, or logs that you don't need to ship to your account and can be dropped using [drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/).
+As your logs come into Kibana, you'll see how they fit into patterns,
+in near real time. Log patterns will help you surface logs you might have otherwise missed, and logs that can be filtered out by default using [drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/) to lower costs and data volume.
 
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns2.png)
 
@@ -27,33 +23,33 @@ To open Log Patterns, click the **Patterns** tab in [Kibana Discover](https://ap
 
 ## Understanding Log Patterns
 
+Log Patterns analyzes the same data subset as the log document table. The data returned is determined by the time range, filters, and search query. So you can dive into patterns for any selection of logs that is relevant to you.
+
+By default, Kibana's date picker is set to return data from the last 15 minutes. You can select another time range using the Histogram or the time picker to view Log Patterns for any time range you need. As you apply additional filters or adjust the search query, the patterns will be re-calculated for the new set of data under review.
+
 You can sort your log patterns by time, count, or ratio.
 
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-annotated1.png)
 
 Time
-: The timestamp of the first log belonging to this pattern in the selected time range.
+: The timestamp of the earliest log that matches the pattern.
 
 Count
-: The number of logs with this pattern in this time range.
-  You'll see patterns with the highest counts at the top of the Patterns list by default.
+: The number of logs matching the pattern.
+  The highest count will be shown at the top of the list by default. Click the title to switch between ascending and descending order.
 
 Ratio
-: The ratio of logs with this pattern,
-  as compared to total logs in this time range.
+: The ratio of logs matching the pattern,
+  relative to the total logs in the dataset. 
+  Click the title to switch between ascending and descending order.
 
 Pattern
-: The pattern itself.
-  Data types (such as IP addresses, numbers, or URLs) are shown in brown.
-  Hover over a pattern to see the familiar Kibana filter controls.
+: The patterns identified in the message field.
 
-Filter value
+Filters
 : Click these to filter for or filter out the logs that match a pattern. You'll be taken to the **Logs** tab,
 where you'll see the logs that match your filter. You can use this option as the basis for a query which you can use for alerts, drop filters, visualizations, and more.
 {:.letter-labels}
-
-Kibana's default time range is the last 15 minutes. You can select another time range using the Histogram or the time picker to view Log Patterns for any time range you need.
-{:.info-box.note}
 
 
 ## Constants vs. Variables

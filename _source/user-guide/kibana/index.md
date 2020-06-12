@@ -22,11 +22,11 @@ Account
 : Choose which accounts to search. Sub accounts can be created to separate data by environment, microservice, team, and more. [Learn more about sub accounts.]({{site.baseurl}}/user-guide/accounts/manage-the-main-account-and-sub-accounts.html)
 
 Histogram
-: Select a time range directly from the histogram of using the date picker.
+: Select a time range directly from the histogram or using the date picker.
 
 Document table
-: View the results of your search query. Click on any log document to open it and view the field:value pairs or switch to the raw JSON document.
+: View the results of your search query. Click on any log document to open it and view the table of field:value pairs or switch to the raw JSON document.
 
 Log Patterns
-: Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also helps to surface issues and errors that might otherwise go unnoticed. [Learn more about Log Patterns]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
+: Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also helps to surface issues and errors that might otherwise go unnoticed. [Learn more about Log Patterns.]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
 {:.letter-labels}

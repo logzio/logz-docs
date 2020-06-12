@@ -23,9 +23,9 @@ To open Log Patterns, click the **Patterns** tab in [Kibana Discover](https://ap
 
 ## Understanding Log Patterns
 
-Log Patterns analyzes the same data subset as the log document table. The data returned is determined by the time range, filters, and search query. So you can dive into patterns for any selection of logs that is relevant to you.
+Log Patterns analyzes the subset of data as the log document table. This is determined by the time range, filters, and search query applied.
 
-By default, Kibana's date picker is set to return data from the last 15 minutes. You can select another time range using the Histogram or the time picker to view Log Patterns for any time range you need. As you apply additional filters or adjust the search query, the patterns will be re-calculated for the new set of data under review.
+As you make changes to the dataset and apply different filters, change the time frame, or adjust the search query - Log Patterns will recalculate to cover the new set of data under review. By default, Kibana's date picker is set to return data from the last 15 minutes. You can select another time range using the Histogram or the time picker to view Log Patterns for any time range you need. 
 
 You can sort your log patterns by time, count, or ratio.
 

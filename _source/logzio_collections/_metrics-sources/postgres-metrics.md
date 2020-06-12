@@ -155,8 +155,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-##### Check [Logz.io](http://logz.io/) for your metrics
-
-Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+{% include metric-shipping/open-dashboard.html title="Azure PostgreSQL" %}
+{:.paramlist}
 
 </div>

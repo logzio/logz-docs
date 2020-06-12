@@ -1,7 +1,7 @@
 ---
 title: Ship Azure PostgreSQL metrics
 logo:
-  logofile: change_this.svg
+  logofile: postgresql.svg
   orientation: vertical
 data-source: Azure PostgreSQLs
 contributors:

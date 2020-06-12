@@ -1,7 +1,7 @@
 ---
 title: Ship Azure Event Hub metrics 
 logo:
-  logofile: azure-monitor.svg
+  logofile: azure-event-hubs.svg
   orientation: vertical
 data-source: Azure Event hub
 contributors:

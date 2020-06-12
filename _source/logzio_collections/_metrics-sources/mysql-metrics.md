@@ -1,7 +1,7 @@
 ---
 title: Ship Azure MySQL metrics
 logo:
-  logofile: change_this.svg
+  logofile: mysql.svg
   orientation: vertical
 data-source: Azure MySQLs
 contributors:

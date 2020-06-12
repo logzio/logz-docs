@@ -18,15 +18,15 @@ When you first sign in to Logz.io, you'll find yourself at the Discover page. Yo
 Query bar
 : This is where you type your search query
 
-Account and field selection
-: Choose the accounts to search and add fields to the preview table
+Account
+: Choose which accounts to search. Sub accounts can be created to separate data by environment, microservice, team, and more. [Learn more about sub accounts.]({{site.baseurl}}/user-guide/accounts/manage-the-main-account-and-sub-accounts.html)
 
 Histogram
-: This shows you the volume of data returned for your search query. You can select a time period directly from here
+: Select a time range directly from the histogram of using the date picker.
 
 Document table
-: View the results of your search query. Click on any log document to open it and view the fields and values
+: View the results of your search query. Click on any log document to open it and view the field:value pairs or switch to the raw JSON document.
 
 Log Patterns
-: Logz.io groups your logs using advanced clustering techniques to help identify anomalies that would otherwise be missed. [Learn more about Log Patterns]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
+: Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also helps to surface issues and errors that might otherwise go unnoticed. [Learn more about Log Patterns]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
 {:.letter-labels}

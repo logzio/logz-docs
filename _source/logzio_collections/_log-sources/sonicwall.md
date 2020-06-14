@@ -32,6 +32,7 @@ Make sure you meet this configuration:
 * IP address: Filebeat server IP address
 * Port 514
 
+* (SonicWall firewall sends logs over UDP by default.) 
 See [SonicWall docs](https://www.sonicwall.com/support/technical-documentation/?language=English) for more information
 on configuring your SonicWall firewall.
 

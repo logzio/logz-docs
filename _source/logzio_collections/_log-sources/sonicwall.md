@@ -29,7 +29,6 @@ Configure your SonicWall firewall to send logs to your Filebeat server.
 Make sure you meet this configuration:
 
 * Log format: syslog
-* Send over: UDP
 * IP address: Filebeat server IP address
 * Port 514
 

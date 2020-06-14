@@ -49,7 +49,7 @@ Follow through the system's prompts and provide the requested parameters.
 
 | Prompt | Answer |
 |---|---|
-| Logz.io metrics shipping token (Required) | The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. |
+| Logz.io metrics shipping token (Required) | The [token](https://app.logz.io/#/dashboard/settings/manage-accounts) of the account you want to ship to. |
 | Logz.io region (Default: `Blank (US East)`) | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you’re shipping the logs to) and API URL. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | Cluster name (Default: `detected by the script` | Name of the Kubernetes cluster in which you are deploying. |
 
@@ -83,7 +83,7 @@ This method of deployment gives you greater control over the configuration.
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-accounts) of the account you want to ship to.
 
 Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 

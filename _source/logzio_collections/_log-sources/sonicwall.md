@@ -1,8 +1,8 @@
 ---
 title: Ship SonicWall logs
 logo:
-  logofile: sonicwall-small.svg
-  orientation: vertical
+  logofile: SonicWall-Logo.svg
+  orientation: horizontal
 data-source: SonicWall
 contributors:
   - shalper

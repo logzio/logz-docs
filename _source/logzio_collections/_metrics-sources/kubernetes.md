@@ -39,7 +39,7 @@ shipping-tags:
 ##### Run the automated deployment script
 
 ```shell
-bash <(curl -s https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/quickstart.sh)
+bash <(curl -s https://raw.githubusercontent.com/logzio/logzio-helm/master/quickstart-metrics.sh)
 ```
 
 ###### Prompts and answers

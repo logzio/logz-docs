@@ -1,7 +1,7 @@
 ---
 title: Ship Azure App Service metrics
 logo:
-  logofile: change_this.svg
+  logofile: azure-app-services.svg
   orientation: vertical
 data-source: Azure App Services
 contributors:

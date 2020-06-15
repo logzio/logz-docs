@@ -1,9 +1,9 @@
 ---
-title: Ship Azure ServiceBus metrics
+title: Ship Azure Service Bus metrics
 logo:
-  logofile: change_this.svg
+  logofile: azure-service-bus.svg
   orientation: vertical
-data-source: Azure ServiceBuss
+data-source: Azure Service Bus
 contributors:
   - yotamloe
   - shalper
@@ -130,7 +130,9 @@ metricbeat.modules:
     # 👇 Duplicate this code block for each resource type whose metrics you want to ship.
  - resource_query: "resourceType eq 'Microsoft.ServiceBus/namespaces'"
       metrics:
-      - name: ["SuccessfulRequests","ServerErrors","UserErrors","ThrottledRequests","IncomingRequests","IncomingMessages","OutgoingMessages","Size","Messages","ActiveMessages"]
+      - name: ["SuccessfulRequests","ServerErrors","UserErrors",
+      "ThrottledRequests","IncomingRequests","IncomingMessages",
+      "OutgoingMessages","Size","Messages","ActiveMessages"]
         namespace: "Microsoft.ServiceBus/namespaces"
         dimensions:
         - name: "EntityName"

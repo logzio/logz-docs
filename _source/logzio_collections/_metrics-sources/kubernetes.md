@@ -105,19 +105,12 @@ kubectl --namespace=kube-system create secret generic logzio-metrics-secret \
 
 ##### Store your cluster details
 
-Paste the kube-state-metrics namespace in your text editor.
-You can find it by running this command.
+Look up the following cluster details and copy them into your text editor or another convenient place for quick reference. 
+
+Run the following command to get your <kube-state-metrics-namespace>.
 
 ```shell
 kubectl get service --all-namespaces | grep -E 'kube-state-metrics|NAMESPACE'
-```
-
-Next, run a command to find the kube-state-metrics port under `http-metrics`.
-
-```shell
-kubectl get service -n <KUBE-STATE-METRICS-NAMESPACE> kube-state-metrics -o yaml
-```
-
 Paste the cluster name in your text editor.
 You can find it by running this command,
 or if you manage Kubernetes in AWS or Azure,

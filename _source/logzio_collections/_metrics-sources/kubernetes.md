@@ -112,7 +112,7 @@ You can find it by running this command.
 kubectl get service --all-namespaces | grep -E 'kube-state-metrics|NAMESPACE'
 ```
 
-Then find kube-state-metrics port by running this command under `http-metrics`.
+Then find kube-state-metrics port under `http-metrics` when running this command.
 ```shell
 kubectl get service -n <KUBE-STATE-METRICS-NAMESPACE> kube-state-metrics -o yaml
 ```

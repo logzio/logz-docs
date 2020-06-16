@@ -21,4 +21,4 @@ Scroll down to the Metrics account section,
 and click the account you want to ship to.
 The account's token and other settings will be shown.
 
-![Metrics Shipping Token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-token.png)
+![Metrics Shipping Token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-token-resized.png)

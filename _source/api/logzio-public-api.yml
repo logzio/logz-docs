@@ -216,6 +216,8 @@ paths:
             "email": "help@logz.io",
             "accountName": "AWS Lambda svr 3",
             "maxDailyGB": 5,
+            "reservedDailyGB": 3,
+            "isFlexible": true,
             "retentionDays": 5,
             "searchable": true,
             "accessible": false,
@@ -324,6 +326,8 @@ paths:
           -d "{
             \"accountName\": \"AWS Lambda svr 3\",
             \"maxDailyGB\": 5,
+            "reservedDailyGB\": 3,
+            "isFlexible\": true,
             \"retentionDays\": 5,
             \"searchable\": true,
             \"accessible\": false,
@@ -1975,10 +1979,19 @@ definitions:
       maxDailyGB:
         type: number
         format: float
+        example: 5
+      reservedDailyGB:
+        type: number
+        format: float
+        description: Daily volume, in GB, reserved only for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
+        example: 3
+      isFlexible:
+        boolean: true
+        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity. If `false`, the account's storage capacity is capped by its reserved daily GB.
       retentionDays:
         type: integer
         format: int32
-        description: Data retention time, in days
+        description: How long log data is stored in the Kibana account, in days.
   DailyUsagesList:
     type: object
     properties:
@@ -2001,6 +2014,13 @@ definitions:
         format: float
         description: Maximum daily usage, in GB
         example: 5
+      reservedDailyGB:
+        type: number
+        format: float
+        description: Daily volume, in GB, reserved only for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
+      isFlexible:
+        boolean: true
+        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity. If `false`, the account's storage capacity is capped by its reserved daily GB.
       retentionDays:
         type: integer
         format: int32
@@ -2071,6 +2091,13 @@ definitions:
         description: Maximum daily usage, in GB. Must be ≥ `1` if you want the account to receive any logs. If set to `0` and you ship logs, the account will be suspended for 24 hours.
         example: 5
         default: 0
+      reservedDailyGB:
+        type: number
+        format: float
+        description: Daily volume, in GB, reserved only for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
+      isFlexible:
+        boolean: true
+        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity. If `false`, the account's storage capacity is capped by its reserved daily GB.
       retentionDays:
         type: integer
         format: int32
@@ -2176,6 +2203,15 @@ definitions:
         format: float
         description: Maximum daily usage, in GB
         example: 100
+      reservedDailyGB:
+        type: number
+        format: float
+        min: 1
+        description: Daily volume, in GB, reserved only for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
+      isFlexible:
+        boolean: true
+        default: true
+        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity. If `false`, the account's storage capacity is capped by its reserved daily GB.
       retentionDays:
         type: integer
         format: int32

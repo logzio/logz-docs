@@ -15,15 +15,13 @@ shipping-tags:
   - container
 ---
 
-# logzio-k8s
-
-For Kubernetes, a DaemonSet ensures that some or all nodes run a copy of a pod.
-This implementation is uses a Fluentd DaemonSet to collect Kubernetes logs.
-Fluentd is flexible enough and has the proper plugins to distribute logs to different third parties such as Logz.io.
-
 The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
 
-You have two options for deployment:
+A DaemonSet ensures that some or all Kubernetes nodes run a copy of a pod.
+This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io.
+Fluentd is a great option because it is flexible enough and has the right plugins to distribute logs to Logz.io and other third-party apps.
+
+<div class="branching-container">
 
 * [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
 * [Custom configuration](#custom-config)
@@ -32,16 +30,19 @@ You have two options for deployment:
 
 ## Deploy logzio-k8s with default configuration
 
-For most environments, we recommend using the default configuration.
-However, you can deploy a custom configuration if your environment needs it.
+For most environments, the default configuration is recommended. If your environment requires a custom configuration, you can follow the steps to deploy a custom configuration.
 
-### To deploy logzio-k8s
 
-#### 1.  Store your Logz.io credentials
+#### To deploy logzio-k8s
+
+<div class="tasklist">
+
+##### Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. <br>
+Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+
 Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
 For more information on finding your account's region,
 see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
@@ -53,26 +54,27 @@ kubectl create secret generic logzio-logs-secret \
 -n kube-system
 ```
 
-#### 2.  Deploy the DaemonSet
+##### Deploy the DaemonSet
 
-For an RBAC cluster:
+For an RBAC cluster, run:
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml
 ```
 
-Or for a non-RBAC cluster:
+Or, if you have a non-RBAC cluster, run this instead:
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml
 ```
 
-For container runtime Containerd:
+For container runtime Containerd, run:
+
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml
 ```
 
-#### 3.  Check Logz.io for your logs
+#####  Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
 and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
@@ -80,6 +82,18 @@ and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 If you still don't see your logs,
 see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
+
+## Disabling systemd input
+
+To suppress Fluentd system messages, set the environment variable `FLUENTD_SYSTEMD_CONF` to `disable` in your Kubernetes environment.
+
+### Disable Prometheus input plugins
+
+By default, the latest images launch `prometheus` plugins to monitor Fluentd.
+If you'd like to disable the Prometheus input plugin, set the environment variable `FLUENTD_PROMETHEUS_CONF` to `disable` in your Kubernetes configuration.
+
+
+</div>
 </div>
 <!-- tab:end -->
 
@@ -87,18 +101,22 @@ see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/
 <!-- tab:start -->
 <div id="custom-config">
 
-## Deploy logzio-k8s with custom configuration
+## Deploy logzio-k8s with a custom configuration
 
 You can customize the configuration of the Fluentd container.
 This is done using a ConfigMap that overwrites the default DaemonSet.
 
-### To deploy logzio-k8s
+#### To deploy logzio-k8s
 
-#### 1.  Store your Logz.io credentials
+<div class="tasklist">
+
+#####  Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. <br>
+Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. 
+
+
 Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
 For more information on finding your account's region,
 see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
@@ -110,15 +128,16 @@ kubectl create secret generic logzio-logs-secret \
 -n kube-system
 ```
 
-#### 2.  Configure Fluentd
+##### Configure Fluentd
 
-Download either
-the [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml)
-or the [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml)
-or the [containerd Daemonset](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml)
-and open the file in your text editor.
+Download one of these three depending on which one fits your requirements:
 
-Customize the integration environment variables configurations with the parameters shown below.
+* [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml)
+* [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml)
+* [Containerd Daemonset](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml)
+
+
+Open the file in your text editor and customize the integration environment variables. The available parameters and their defaults are shown below.
 
 **Parameters**
 
@@ -135,26 +154,27 @@ Customize the integration environment variables configurations with the paramete
 | LOGZIO_FLUSH_THREAD_COUNT | **Default**: `2` <br>  Number of threads to flush the buffer. |
 | LOGZIO_LOG_LEVEL | **Default**: `info` <br> The log level for this container. |
 
-#### 3.  Deploy the DaemonSet
+##### Deploy the DaemonSet
 
-For the RBAC DaemonSet:
+For a RBAC DaemonSet, run:
 
 ```shell
 kubectl apply -f /path/to/logzio-daemonset-rbac.yaml
 ```
 
-For the non-RBAC DaemonSet:
+For a non-RBAC DaemonSet, run:
 
 ```shell
 kubectl apply -f /path/to/logzio-daemonset.yaml
 ```
 
-For container runtime Containerd:
+For a container runtime Containerd, run:
+
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml
 ```
 
-#### 4.  Check Logz.io for your logs
+#####  Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
 and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
@@ -162,36 +182,18 @@ and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 If you still don't see your logs,
 see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-</div>
-<!-- tab:end -->
 
 ## Disabling systemd input
 
-To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+To suppress Fluentd system messages, set the environment variable `FLUENTD_SYSTEMD_CONF` to `disable` in your Kubernetes environment.
 
-### Disable prometheus input plugins
+### Disable Prometheus input plugins
 
-By default, latest images launch `prometheus` plugins to monitor fluentd.
-You can disable prometheus input plugin by setting `disable` to `FLUENTD_PROMETHEUS_CONF` environment variable in your kubernetes configuration.
+By default, the latest images launch `prometheus` plugins to monitor Fluentd.
+If you'd like to disable the Prometheus input plugin, set the environment variable `FLUENTD_PROMETHEUS_CONF` to `disable` in your Kubernetes configuration.
+
+</div>
+</div>
+<!-- tab:end -->
 
 
-
-### Changelog
-- v1.1.3
-  - Support containerd.
-- v1.1.2
-  - Fix token display issue.
-- v1.1.1
-  - Upgrade fluentd base image to v.1.10.4
-- v1.1.0
-  - Update deprecated conifg
-- v1.0.9
-  - Update base image
-  - Update libjemalloc package
-- v1.0.8
-  - Update deprecated APIs
-- v1.0.7
-  - Update dependencies
-- v1.0.6
-  - Use Kubernets secrets for Shipping Token and Listener URL.
-  - Fix log level

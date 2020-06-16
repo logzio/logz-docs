@@ -1987,11 +1987,12 @@ definitions:
         example: 3
       isFlexible:
         boolean: true
-        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity. If `false`, the account's storage capacity is capped by its reserved daily GB.
+        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity or its daily maximum - whichever comes first. If `false`, the account's storage capacity is capped by its reserved daily GB.
+        example: true
       retentionDays:
         type: integer
         format: int32
-        description: How long log data is stored in the Kibana account, in days.
+        description: How long log data is stored and searchable in Kibana, in days.
   DailyUsagesList:
     type: object
     properties:
@@ -2018,13 +2019,15 @@ definitions:
         type: number
         format: float
         description: Daily volume, in GB, reserved only for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
+        example: 3
       isFlexible:
         boolean: true
-        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity. If `false`, the account's storage capacity is capped by its reserved daily GB.
+        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity or its daily maximum - whichever comes first. If `false`, the account's storage capacity is capped by its reserved daily GB.
+        example: true
       retentionDays:
         type: integer
         format: int32
-        description: Data retention time, in days
+        description: How long log data is stored and searchable in Kibana, in days.
         minimum: 1
         example: 5
       searchable:
@@ -2095,13 +2098,15 @@ definitions:
         type: number
         format: float
         description: Daily volume, in GB, reserved only for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
+        example: 3
       isFlexible:
         boolean: true
-        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity. If `false`, the account's storage capacity is capped by its reserved daily GB.
+        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity or its daily maximum - whichever comes first. If `false`, the account's storage capacity is capped by its reserved daily GB.
+        example: true
       retentionDays:
         type: integer
         format: int32
-        description: Data retention time, in days
+        description: How long log data is stored and searchable in Kibana, in days.
         minimum: 1
         example: 5
       searchable:
@@ -2207,15 +2212,17 @@ definitions:
         type: number
         format: float
         min: 1
+        example: 3
         description: Daily volume, in GB, reserved only for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
       isFlexible:
         boolean: true
         default: true
-        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity. If `false`, the account's storage capacity is capped by its reserved daily GB.
+        example: true
+        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity or its daily maximum - whichever comes first. If `false`, the account's storage capacity is capped by its reserved daily GB.
       retentionDays:
         type: integer
         format: int32
-        description: Data retention time, in days
+        description: How long log data is stored and searchable in Kibana, in days.
         example: 5
       searchable:
         $ref: "#/definitions/Searchable"

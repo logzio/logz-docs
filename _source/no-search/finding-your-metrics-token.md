@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Finding your Metrics account token
+title: Look up your Metrics account token
 permalink: /user-guide/accounts/finding-your-metrics-account-token/
 flags:
   admin: true

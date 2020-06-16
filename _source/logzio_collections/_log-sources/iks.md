@@ -1,7 +1,7 @@
 ---
 title: Ship IKS logs
 logo:
-  logofile: iks.svg
+  logofile: iks.png
   orientation: vertical
 data-source: IBM Cloud Kubernetes Service
 templates: ["k8s-daemonset"]
@@ -25,12 +25,12 @@ Fluentd is a great option because it is flexible enough and has the right plugin
 
 * [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
 * [Custom configuration](#custom-config)
+{:.branching-tabs}
 
 <div id="default-config">
 
-## Deploy logzio-k8s with default configuration
-
-For most environments, the default configuration is recommended. If your environment requires a custom configuration, you can follow the steps to deploy a custom configuration.
+For most environments, deploying logzio-k8s with the default configuration is recommended.
+If your environment requires a custom configuration, follow the steps for deploying a custom configuration.
 
 
 #### To deploy logzio-k8s
@@ -101,9 +101,7 @@ If you'd like to disable the Prometheus input plugin, set the environment variab
 <!-- tab:start -->
 <div id="custom-config">
 
-## Deploy logzio-k8s with a custom configuration
-
-You can customize the configuration of the Fluentd container.
+You can deploy logzio-k8s with a custom configuration by customizing the Fluentd container configuration.
 This is done using a ConfigMap that overwrites the default DaemonSet.
 
 #### To deploy logzio-k8s

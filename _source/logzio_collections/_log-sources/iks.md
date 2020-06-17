@@ -133,19 +133,7 @@ Open the file in your text editor and customize the integration environment vari
 
 ##### Deploy the DaemonSet
 
-For a RBAC DaemonSet, run:
-
-```shell
-kubectl apply -f /path/to/logzio-daemonset-rbac.yaml
-```
-
-For a non-RBAC DaemonSet, run:
-
-```shell
-kubectl apply -f /path/to/logzio-daemonset.yaml
-```
-
-For a container runtime Containerd, run:
+Run:
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml

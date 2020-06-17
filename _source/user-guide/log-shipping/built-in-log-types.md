@@ -28,22 +28,22 @@ If you are just looking to tweak an existing parsing schema, and would rather do
 | AWS CloudTrail        | `cloudtrail`                               |
 | AWS ELB               | `elb`                                      |
 | AWS Fargate           | `fargate`                                  |
+| AWS GuardDuty             | `guardduty`                                |
 | AWS VPCFlow           | `vpcflow`                                  |
 | AWS Route 53          | `route_53`                                 |
 | AWS S3 access         | `S3Access`                                 |
+| AWS WAF         | `awswaf`                                 |
 | Checkpoint            | `checkpoint`                               |
 | Cisco ASA             | `cisco-asa`                                |
 | Cisco Meraki          | `cisco-meraki`                             |
 | Docker                | `docker_logs`                              |
 | Docker Collector Logs | `docker-collector-logs`                    |
 | Elasticsearch         | `elasticsearch`                            |
-| fail2ban              | `fail2ban`                                 |
+| Fail2ban              | `fail2ban`                                 |
 | Falco                 | `falco`                                    |
 | Fortigate             | `fortigate`                               |
 | GPFS                  | `gpfs`                                     |
-| Guardduty             | `guardduty`                                |
-| HAProxy               | `haproxy`                                  |
-| IIS               | `iis`                                  |
+| HAProxy Load Balancer              | `haproxy`                                  |
 | Jenkins               | `jenkins`                                  |
 | Juniper                  | `juniper`                             |
 | Kafka                 | `kafka_server`                             |
@@ -56,14 +56,14 @@ If you are just looking to tweak an existing parsing schema, and would rather do
 | MySQL monitor         | `mysql_monitor`                            |
 | MySQL slow query      | `mysql_slow_query`                         |
 | Nagios                | `nagios`                                   |
-| nginx access          | `nginx`, `nginx_access`, `nginx-access`    |
-| nginx error           | `nginx-error`                              |
+| NGINX access          | `nginx`, `nginx_access`, `nginx-access`    |
+| NGINX error           | `nginx-error`                              |
 | OSSEC                 | `ossec`                                    |
 | Palo Alto Networks    | `paloalto`                                  |
 | Performance-tab       | `performance-tab`                                  |
 | Sonicwall                | `sonicwall`                                  |
-| vpcflow           | `vpcflow`                             |
-| wineventlog           | `wineventlog`                             |
+| VPC Flow           | `vpcflow`                             |
+| Windows WinEventLog          | `wineventlog`                             |
 | Zeek           | `zeek`                              |
 | Zipkin span           | `zipkinSpan`                             |
 

@@ -37,6 +37,11 @@ After running this command, start or restart Vault.
 For more information on logging and enabling audit devices,
 see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from HashiCorp.
 
+Setting the parameter `raw_log` to true, sends all the data collected by Vault in clear text.
+This is necessary due to a limitation presented by the Vault and is in the process of being resolved.
+If you need some information redacted from the logs before they are indexed, please contact Support.
+{:.info-box.important}
+
 ##### Download the Logz.io public certificate
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.

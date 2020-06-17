@@ -83,14 +83,6 @@ If you still don't see your logs,
 see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
-## Disabling systemd input
-
-To suppress Fluentd system messages, set the environment variable `FLUENTD_SYSTEMD_CONF` to `disable` in your Kubernetes environment.
-
-### Disable Prometheus input plugins
-
-By default, the latest images launch `prometheus` plugins to monitor Fluentd.
-If you'd like to disable the Prometheus input plugin, set the environment variable `FLUENTD_PROMETHEUS_CONF` to `disable` in your Kubernetes configuration.
 
 
 </div>
@@ -193,5 +185,4 @@ If you'd like to disable the Prometheus input plugin, set the environment variab
 </div>
 </div>
 <!-- tab:end -->
-
 

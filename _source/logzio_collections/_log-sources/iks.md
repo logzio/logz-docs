@@ -55,20 +55,7 @@ kubectl create secret generic logzio-logs-secret \
 ```
 
 ##### Deploy the DaemonSet
-
-For an RBAC cluster, run:
-
-```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml
-```
-
-Or, if you have a non-RBAC cluster, run this instead:
-
-```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml
-```
-
-For container runtime Containerd, run:
+Run:
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml
@@ -185,4 +172,3 @@ If you'd like to disable the Prometheus input plugin, set the environment variab
 </div>
 </div>
 <!-- tab:end -->
-

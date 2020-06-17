@@ -11,14 +11,19 @@ contributors:
   - shalper
 ---
 
-Cloud SIEM will help your team get notified automatically about issues demanding immediate attention and manage the system's security posture and prioritize threats and security incidents in a single platform.
+Drastically reduce threat detection time and MTTR and effectively prioritize threats across your systems with Cloud SIEM.
+
+  will help your team get notified automatically about issues demanding immediate attention and manage the system's security posture and prioritize threats and security incidents in a single platform.
 
 
 ### Threat Intelligence
 
-Cross reference incoming logs with threat feeds to identify malicious IPs, DNSs, and URLs.
+Cloud SIEM cross references incoming logs against industry-recommended threat feeds to identify malicious IPs, DNSs, and URLs.
 
-Logz.io Cloud SIEM enriches security by using industry accepted Threat Intelligence feeds containing lists of known or potential bad actors on the Internet. Logs sent to Logz.io are scanned for appearances of any IOCs (Indicator of Compromise) and enriched when they are found.
+
+### Geolocation enrichment
+
+Cloud SIEM adds geolocation enrichment for malicious and suspected IPs, DNSs, and URLs. Both  are IPs Logz.io Cloud SIEM enriches security by using industry accepted Threat Intelligence feeds containing lists of known or potential bad actors on the Internet. Logs sent to Logz.io are scanned for appearances of any IOCs (Indicator of Compromise) and enriched when they are found.
 
 ### Pre-built Rules and Dashboards
 

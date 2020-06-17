@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Built-in log types
+title: Automatically parsed log types
 permalink: /user-guide/log-shipping/built-in-log-types.html
 tags:
   - log-shipping
@@ -8,35 +8,62 @@ tags:
 contributors:
   - schwin007
   - imnotashrimp
+  - shalper
+  - boofinka
 ---
 
-The `type` field identifies your log type. Logz.io parses logs based on `type`. For example, if a log type is `apache_access`, Logz.io automatically parses these logs as Apache access logs.
+Logz.io will automatically parse logs shipped from most platforms, services, containers, servers, and more.
 
-This table shows the built-in log types that Logz.io supports. If you don't see your log type here, you can create custom data parsing using the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).
+In Kibana, you'll notice a field named `type`. The `type` field identifies the log type and determines which pre-built pipeline is used to parse the data. The `type` for each log source is specified in the configuration file and can be changed, if needed. For example, the Filebeat configuration for Apache access logs sets the log type as `apache_access`. This lets Logz.io automatically parse logs received from an Apache web server using Logz.io's prebuilt pipeline.
+
+This table shows the built-in log types that Logz.io supports out-of-the-box. If you don't see your log type here, contact support to request a new pipeline. Parsing-as-a-service is included in your package and we're happy to offer it.
+
+If you are just looking to tweak an existing parsing schema, and would rather do it yourself, you can customize an existing parsing type using GROK patterns with the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).
 
 | Description           | Type                                       |
 |-----------------------|--------------------------------------------|
 | Apache access         | `apache`, `apache_access`, `apache-access` |
+| Auditd                | `auditd`                                   |
 | AWS CloudFront        | `cloudfront`                               |
 | AWS CloudTrail        | `cloudtrail`                               |
 | AWS ELB               | `elb`                                      |
+| AWS Fargate           | `fargate`                                  |
 | AWS VPCFlow           | `vpcflow`                                  |
 | AWS Route 53          | `route_53`                                 |
 | AWS S3 access         | `S3Access`                                 |
+| Checkpoint            | `checkpoint`                               |
+| Cisco ASA             | `cisco-asa`                                |
+| Cisco Meraki          | `cisco-meraki`                             |
+| Docker                | `docker_logs`                              |
+| Docker Collector Logs | `docker-collector-logs`                    |
 | Elasticsearch         | `elasticsearch`                            |
+| fail2ban              | `fail2ban`                                 |
+| Falco                 | `falco`                                    |
+| Fortigate             | `fortigate`                               |
 | GPFS                  | `gpfs`                                     |
+| Guardduty             | `guardduty`                                |
 | HAProxy               | `haproxy`                                  |
+| IIS               | `iis`                                  |
 | Jenkins               | `jenkins`                                  |
+| Juniper                  | `juniper`                             |
 | Kafka                 | `kafka_server`                             |
+| Mcafee EPO            | `mcafee_epo`                                      |
 | Microsoft IIS         | `iis`                                      |
 | MongoDB               | `mongodb`                                  |
 | Monit                 | `monit`                                    |
 | MySQL                 | `mysql`                                    |
 | MySQL error           | `mysql_error`                              |
-| MySQL slow query      | `mysql_slow_query`                         |
 | MySQL monitor         | `mysql_monitor`                            |
+| MySQL slow query      | `mysql_slow_query`                         |
 | Nagios                | `nagios`                                   |
 | nginx access          | `nginx`, `nginx_access`, `nginx-access`    |
 | nginx error           | `nginx-error`                              |
 | OSSEC                 | `ossec`                                    |
-| Zipkin span           | `zipkinSpan`                               |
+| Palo Alto Networks    | `paloalto`                                  |
+| Performance-tab       | `performance-tab`                                  |
+| Sonicwall                | `sonicwall`                                  |
+| vpcflow           | `vpcflow`                             |
+| wineventlog           | `wineventlog`                             |
+| Zeek           | `zeek`                              |
+| Zipkin span           | `zipkinSpan`                             |
+

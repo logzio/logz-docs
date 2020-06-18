@@ -20,22 +20,19 @@ root access
 
 <div class="tasklist">
 
-##### Configure Vault for raw log output
+##### Configure Vault to output raw logs
 
-Configure Vault
-to enable raw log output to the default location.
-This disables log hashing
-so Filebeat can read the log files:
+Configure Vault to enable raw log output to the default location.
+After making the change, start or restart Vault for the changes to take effect.
 
 
-```shell
-vault audit enable file file_path=/var/log/vault_audit.log log_raw=true
-```
+Disabling log hashing means that Vault will send logs in clear text. This is required at this time, because Vault supports decryption for only a limited number of fields that don’t match the fields required by Logz.io Cloud SIEM. When this limition is resolved, the requirement to send raw logs will be lifted.
+{:.info-box.important}
 
-After running this command, start or restart Vault.
 
 For more information on logging and enabling audit devices,
 see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from HashiCorp.
+
 
 ##### Download the Logz.io public certificate
 

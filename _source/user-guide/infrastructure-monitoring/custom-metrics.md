@@ -24,8 +24,9 @@ To do this, you'll need to send your application metrics to Logz.io in JSON form
 #### JSON format
 {:.no_toc}
 
-Our guiding principle is to use key-value pairs to define metrics and their dimensions.
-Here's the general template.
+Our guiding principle is to use key-value pairs to define metrics and their dimensions. 
+
+Metrics are sent as minified JSON objects, with one JSON object per line. But for the purpose of this tutorial, it's easier to explain the general template using a beautified JSON.
 
   ```
   {
@@ -196,3 +197,5 @@ Let's reiterate a few best-practice recommendations for logging application metr
 * Avoid metric analytics and aggregations. Avoid adding a timestamp. Avoid the fields `tag` and `tags`.
 
 * Note that arrays are not supported.
+
+* Minify the JSON to compress it and place each object on a separate line before shipping the data.

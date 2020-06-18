@@ -99,11 +99,13 @@ tags:
       
 
       * If fixed, the account's daily available volume is limited by its reserved daily GB. This is a fixed volume limit and there is no overage protection. Once the limit is exceeded, the account will stop receiving logs until the daily volume limit resets at 00:00 UTC.
+      
+      
       * If flexible, account volume is managed by defining 2 tiers: the first tier is the account's reserved daily GB. This is guaranteed capacity that is dedicated for the account and cannot be used by any other account.
       The second tier is the account's Max Daily GB. This is the account's "overage" protection. If the account exceeds its daily reserved volume, it can continue receiving data, as long as shared volume is available.
       
       
-      How to set up shared volume: Keep a share of your plan volume unallocated to maximize the value you get from your daily volume capacity.
+      To set up shared volume, keep a share of your plan volume unallocated. Shared volume will help to maximize the value you get from your daily volume capacity.
       Unallocated capacity is set aside as **Shared volume** and can be can be used by any account with flexible capacity enabled.
   - name: Search logs
     description: >-

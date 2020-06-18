@@ -88,20 +88,6 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Set Logz.io as the output
-
-If  
-
-{% include log-shipping/replace-vars.html listener=true %}
-
-```yaml
-# ...
-output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-```
-
 ##### Replace the placeholders in your Filebeat configuration
 
 Still in the same configuration file, replace the placeholders to match your specifics.

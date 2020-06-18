@@ -102,11 +102,11 @@ tags:
       
       
       * If flexible, account volume is managed by defining 2 tiers: the first tier is the account's reserved daily GB. This is guaranteed capacity that is dedicated for the account and cannot be used by any other account.
-      The second tier is the account's Max Daily GB. This is the account's "overage" protection. If the account exceeds its daily reserved volume, it can continue receiving data, as long as shared volume is available.
+      The second tier is the account's max daily GB. This is the account's "overage" protection. If the account exceeds its daily reserved volume, it can continue receiving data, as long as shared volume is available.
       
       
       To set up shared volume, keep a share of your plan volume unallocated. Shared volume will help to maximize the value you get from your daily volume capacity.
-      Unallocated capacity is set aside as **Shared volume** and can be can be used by any account with flexible capacity enabled.
+      Unallocated capacity is set aside as **shared volume** and can be can be used by any account with flexible capacity enabled.
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.
@@ -1991,19 +1991,29 @@ definitions:
         type: boolean
       esIndexPrefix:
         type: string
-      maxDailyGB:
-        type: number
-        format: float
-        example: 5
+      isFlexible:
+        boolean: true
+        default: false
+        description: >-
+          If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
+          
+          
+          If `false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+        example: true
       reservedDailyGB:
         type: number
         format: float
-        description: Daily volume, in GB, reserved only for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
+        description: >-
+          Daily volume, in GB, strictly reserved for the specific account. This storage is guarenteed and cannot be used by any other accounts.
+
+
+          * If `null` 
         example: 3
-      isFlexible:
-        boolean: true
-        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity or its daily maximum - whichever comes first. If `false`, the account's storage capacity is capped by its reserved daily GB.
-        example: true
+      maxDailyGB:
+        type: number
+        format: float
+        description: 
+        example: 5
       retentionDays:
         type: integer
         format: int32
@@ -2025,24 +2035,41 @@ definitions:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
-      maxDailyGB:
-        type: number
-        format: float
-        description: Maximum daily usage, in GB
-        example: 5
+      isFlexible:
+        boolean: true
+        default: false
+        description: >-
+          If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
+          
+          
+          If `false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+        example: true
       reservedDailyGB:
         type: number
         format: float
-        description: Daily volume, in GB, reserved only for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
+        default: null
+        description: >-
+          * If `isFlexible=true`, cannot be null. Daily volume, in GB, reserved for the specific account. This storage is guarenteed and cannot be used up by any other accounts.
+
+
+          * If `isFlexible=true`, this field is irrelevant. Leave null.
         example: 3
-      isFlexible:
-        boolean: true
-        description: If `true`, the account has access to shared storage. Once the data shipped to the account exceeds the account's daily reserved volume, the account can continue to receive data as allowed by shared storage capacity or its daily maximum - whichever comes first. If `false`, the account's storage capacity is capped by its reserved daily GB.
-        example: true
+      maxDailyGB:
+        type: number
+        format: float
+        description: >-
+          Daily volume cap, in GB.
+
+
+          * If `isFlexible=true`, this is overage protection. The account can continue to receive data up to its daily max as long as shared volume is available.
+
+
+          * If `isFlexible=false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+        example: 5
       retentionDays:
         type: integer
         format: int32
-        description: How long log data is stored and searchable in Kibana, in days.
+        description: This is how long log data is stored and searchable in Kibana, in days.
         minimum: 1
         example: 5
       searchable:
@@ -2055,7 +2082,7 @@ definitions:
           type: integer
           format: int32
           example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data
+        description: IDs of accounts that can access this account's data.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:

@@ -1998,13 +1998,13 @@ definitions:
           If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
           
           
-          If `false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          If `false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
         example: true
       reservedDailyGB:
         type: number
         format: float
         description: >-
-          Daily volume, in GB, strictly reserved for the specific account. This storage is guarenteed and cannot be used by any other accounts.
+          Daily volume, in GB, strictly reserved for the specific account. This capacity is guaranteed and cannot be used by any other accounts.
 
 
           * If `null` 
@@ -2030,6 +2030,8 @@ definitions:
     required:
       - accountName
       - sharingObjectsAccounts
+      - maxDailyGB
+      - reservedDailyGB
     properties:
       accountName:
         type: string
@@ -2042,7 +2044,7 @@ definitions:
           If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
           
           
-          If `false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          If `false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
         example: true
       reservedDailyGB:
         type: number
@@ -2052,7 +2054,7 @@ definitions:
           Only relevant if flexible storage is enabled.
 
 
-          * If `isFlexible=true`, cannot be null. Guarenteed daily volume, in GB, allocated for the specific account. This capacity is reserved to a specific account and cannot be used by any other accounts.
+          * If `isFlexible=true`, cannot be null. Guaranteed daily volume, in GB, allocated for the specific account. This capacity is reserved for the account and cannot be used by any other accounts.
 
 
           * If `isFlexible=true`, this field is irrelevant. Leave null.
@@ -2067,7 +2069,7 @@ definitions:
           * If `isFlexible=true`, this is overage protection. The account can continue to receive data up to its daily max as long as shared volume is available.
 
 
-          * If `isFlexible=false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          * If `isFlexible=false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
         example: 5
       retentionDays:
         type: integer
@@ -2123,6 +2125,8 @@ definitions:
       - email
       - sharingObjectsAccounts
       - retentionDays
+      - maxDailyGB
+      - reservedDailyGB
     properties:
       email:
         type: string
@@ -2140,7 +2144,7 @@ definitions:
           If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
           
           
-          If `false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          If `false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
         example: true
       reservedDailyGB:
         type: number
@@ -2150,7 +2154,7 @@ definitions:
           Only relevant if flexible storage is enabled.
 
 
-          * If `isFlexible=true`, cannot be null. Guarenteed daily volume, in GB, allocated for the specific account. This capacity is reserved to a specific account and cannot be used by any other accounts.
+          * If `isFlexible=true`, cannot be null. Guaranteed daily volume, in GB, allocated for the specific account. This capacity is reserved for the account and cannot be used by any other accounts.
 
 
           * If `isFlexible=true`, this field is irrelevant. Leave null.
@@ -2165,7 +2169,7 @@ definitions:
           * If `isFlexible=true`, this is overage protection. The account can continue to receive data up to its daily max as long as shared volume is available.
 
 
-          * If `isFlexible=false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          * If `isFlexible=false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
         example: 5
       retentionDays:
         type: integer
@@ -2274,7 +2278,7 @@ definitions:
           If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
           
           
-          If `false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          If `false`, the account's capacity is strictly limited to its `maxDailyGB` with no overage protection.
         example: true
       reservedDailyGB:
         type: number
@@ -2284,7 +2288,7 @@ definitions:
           Only relevant if flexible storage is enabled.
 
 
-          * If `isFlexible=true`, cannot be null. Guarenteed daily volume, in GB, allocated for the specific account. This capacity is reserved to a specific account and cannot be used by any other accounts.
+          * If `isFlexible=true`, cannot be null. Guaranteed daily volume, in GB, allocated for the specific account. This capacity is reserved for the account and cannot be used by any other accounts.
 
 
           * If `isFlexible=true`, this field is irrelevant. Leave null.
@@ -2299,7 +2303,7 @@ definitions:
           * If `isFlexible=true`, this is overage protection. The account can continue to receive data up to its daily max as long as shared volume is available.
 
 
-          * If `isFlexible=false`, the account's storage capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          * If `isFlexible=false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
         example: 5
       retentionDays:
         type: integer

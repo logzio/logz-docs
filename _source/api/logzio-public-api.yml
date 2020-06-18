@@ -817,7 +817,7 @@ paths:
       tags:
         - Manage log shipping tokens
       summary: Update a log shipping token
-      description: Changes the name of a log shipping token or switches status between enabled/disabled.
+      description: Enables/disables a log shipping token and/or renames it.
       operationId: updateLogShippingToken
       parameters:
         - name: id
@@ -884,7 +884,7 @@ paths:
         - Manage log shipping tokens
       summary: Get number of available tokens
       description: >-
-        Returns the number of log shipping tokens that can be enabled.
+        Returns the number of log shipping tokens currently in use and the number of available tokens that can be enabled.
         Disabled tokens don't count against the token limit.
       operationId: getLogShippingTokensLimits
       x-code-samples:

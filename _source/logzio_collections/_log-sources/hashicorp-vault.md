@@ -22,9 +22,7 @@ root access
 
 ##### Configure Vault to output raw logs
 
-Configure Vault
-to enable raw log output to the default location.
-
+Configure Vault to enable raw log output to the default location.
 After making the change, start or restart Vault for the changes to take effect.
 
 

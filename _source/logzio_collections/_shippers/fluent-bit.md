@@ -37,11 +37,14 @@ according to the [instructions from Fluent Bit](https://docs.fluentbit.io/manual
 ##### Install and configure the Logz.io plugin
 
 For Linux:
+
 ```shell
 wget -o /fluent-bit/plugins/out_logzio.so \
 https://github.com/logzio/fluent-bit-logzio-output/blob/master/build/out_logzio-linux.so
 ```
+
 For MacOS:
+
 ```shell
 wget -o /fluent-bit/plugins/out_logzio.so \
     https://github.com/logzio/fluent-bit-logzio-output/raw/master/build/out_logzio-macOS.so

@@ -21,14 +21,14 @@ To do this, you'll need to send your application metrics to Logz.io in JSON form
 1. toc list
 {:toc}
 
-#### JSON format
-{:.no_toc}
+
+<div class="tasklist">
+
+##### Metrics vs. Dimensions
 
 Our guiding principle is to use key-value pairs to define metrics and their dimensions.
 
-Metrics are sent as minified JSON objects, with one JSON object per line. But for the purpose of this tutorial, it's easier to explain the general template using a beautified JSON.
-
-  ```
+ ```
   {
 	"metrics": {
 		"my_first_metric.unit": number,
@@ -37,21 +37,13 @@ Metrics are sent as minified JSON objects, with one JSON object per line. But fo
 		"my_fourtn_metrlc.unit": number
 	},
 	"dimensions": {
-		"dimension_l": "value",
-		"dimension_2": "value",
-		"dimension_3": "value",
-		"dimension_4": "value"
+		"dimension_l": "string",
+		"dimension_2": "string",
+		"dimension_3": "string",
+		"dimension_4": "string"
 	}
   }
   ```
-
-The reason being that we want to send _fewer and longer_ documents.
-By grouping all possible metrics and dimensions into one document we maximize Elasticsearch's indexing power. In general, the _number_ of documents has a greater impact on Elasticsearch indexing power than document length.
-
-
-<div class="tasklist">
-
-##### Metrics vs. Dimensions
 
 What distinguishes a metric from a dimension, you ask?
 Metric fields are used strictly for numerical values. You can use any number type, including: long, float, integer, etc.
@@ -63,9 +55,7 @@ The [rollup mechanism]({{site.baseurl}}/user-guide/infrastructure-monitoring/dat
 
 ##### How to format metrics
 
-The best way to explain the guidelines is to look at a few examples. So let's get to it.
-
-This tutorial will walk you through a typical example of how to best format a metric before sending it to Logz.io.
+The best way to explain the guidelines is to look at a few examples. This tutorial will walk you through a typical example of how to best format a metric before sending it.
 
 ###### Before
 {:.no_toc}
@@ -92,7 +82,7 @@ This example shows a rather inefficient way of sending metrics. There are severa
 ###### After
 {:.no_toc}
 
-This document should be rearranged to reduce the number of fields. The metric's `name` and `value` should be sent as a key-value pair, and the `unit` should be appended to the name. The metric is now named `refresh_page.duration.ms`. Here's the result:
+Rearrange the document to reduce the number of fields. If the metric's `name` and `value` are sent as a key-value pair and the `unit` is appended to the name, they are all collapsed into just one field named `refresh_page.duration.ms`. Here's the result:
 
 ```
 {
@@ -111,6 +101,9 @@ Formatting your data in this way will make it easier to query and visualize your
 ##### Stack metrics that share the same dimensions
 
 Metrics that share the same dimensions should be sent together as a single document.
+
+Stacking metrics is important because we want to send _fewer and longer_ documents.
+By grouping all possible metrics and dimensions into one document we maximize Elasticsearch's indexing power. In general, the _number_ of documents has a greater impact on Elasticsearch indexing power than document length.
 
 To make this work, you'll need to state the measuring unit in the metric’s name, instead of sending the unit as a dimension.
 Here's an example of metric stacking:
@@ -134,6 +127,12 @@ Here's an example of metric stacking:
 	}
 }
 ```
+
+##### Format the JSON for shipping
+
+Metrics are sent as minified JSON objects, with one JSON object per line. 
+
+(The examples above show beautified JSON because they are easier to explain. The metrics wouldn't be sent that .
 
 ##### What to avoid
 

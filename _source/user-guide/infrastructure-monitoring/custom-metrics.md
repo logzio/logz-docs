@@ -48,7 +48,6 @@ Metrics are sent as minified JSON objects, with one JSON object per line. But fo
 The reason being that we want to send _fewer and longer_ documents.
 By grouping all possible metrics and dimensions into one document we maximize Elasticsearch's indexing power. In general, the _number_ of documents has a greater impact on Elasticsearch indexing power than document length.
 
-The best way to explain the guidelines is to look at a few examples. So let's get to it.
 
 <div class="tasklist">
 
@@ -64,15 +63,17 @@ The [rollup mechanism]({{site.baseurl}}/user-guide/infrastructure-monitoring/dat
 
 ##### How to format metrics
 
-This tutorial walks you through a typical example of how to best format a metric before sending it to Logz.io.
+The best way to explain the guidelines is to look at a few examples. So let's get to it.
+
+This tutorial will walk you through a typical example of how to best format a metric before sending it to Logz.io.
 
 ###### Before
+{:.no_toc}
 
 This example shows a rather inefficient way of sending metrics. There are several issues here:
 
-1. The data is sent with one metric per document.
-2. The metric field is identified by a field:value pair `"name": "refresh_page.duration"`.
-3. The `value` and measuring unit of the metric are logged as 2 separate dimensions.
+1. The data is organized as one metric per document.
+2. The metric field is split up into many fields. The name is sent as a field:value pair `"name": "refresh_page.duration"`, and the `value` and measuring `unit` are logged as 2 separate dimensions.
 
 ```
 {
@@ -89,10 +90,9 @@ This example shows a rather inefficient way of sending metrics. There are severa
 ```
 
 ###### After
+{:.no_toc}
 
-This document should be rearranged so the two fields, `name` and `value` are a key-value pair. The field `unit` is made redundant if we add the measuring unit to the metric field name.
-
-Here's the result:
+This document should be rearranged to reduce the number of fields. The metric's `name` and `value` should be sent as a key-value pair, and the `unit` should be appended to the name. The metric is now named `refresh_page.duration.ms`. Here's the result:
 
 ```
 {
@@ -106,15 +106,14 @@ Here's the result:
 }
 ```
 
-The metric is now named `refresh_page.duration.ms`. Formatting your data in this way will make it easier to query and visualize your metrics. Plus, it has the added advantage of making it possible to stack metrics with the same dimensions in the same document.
+Formatting your data in this way will make it easier to query and visualize your metrics. Plus, it has the added advantage of making it possible to stack metrics with the same dimensions in the same document.
 
-##### Group metrics that share the same dimensions
+##### Stack metrics that share the same dimensions
 
-Metrics that share the same dimensions can be sent together as a single document.
+Metrics that share the same dimensions should be sent together as a single document.
 
-To make this work, you'll need to state the measuring unit in the metric’s name, instead of sending the unit as a dimension. This makes it possible to stack metrics in the same document and send them more efficiently. 
-
-Here's an example:
+To make this work, you'll need to state the measuring unit in the metric’s name, instead of sending the unit as a dimension.
+Here's an example of metric stacking:
 
 ```
 {
@@ -135,7 +134,6 @@ Here's an example:
 	}
 }
 ```
-
 
 ##### What to avoid
 
@@ -216,6 +214,8 @@ Let's reiterate a few best-practice recommendations for logging application metr
 * Avoid metric analytics and aggregations.
   Avoid adding a timestamp.
   Avoid the fields `tag` and `tags`.
+
+* Stack metrics that share the same dimensions in the same document to send them more efficiently.
 
 * Keep in mind that arrays are not well-supported.
 

@@ -107,7 +107,7 @@ kubectl create secret generic logzio-logs-secret \
 
 ##### Configure Fluentd
 
-Download our [Containerd Daemonset](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml).
+Download Logz.io's [Containerd Daemonset](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml).
 
 
 Open the file in your text editor and customize the integration environment variables. The available parameters and their defaults are shown below.
@@ -144,7 +144,7 @@ If you still don't see your logs,
 see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
-## Disabling systemd input
+### Disabling systemd input
 
 To suppress Fluentd system messages, set the environment variable `FLUENTD_SYSTEMD_CONF` to `disable` in your Kubernetes environment.
 

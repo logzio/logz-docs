@@ -19,8 +19,11 @@ Helm is a tool for managing packages of pre-configured Kubernetes resources, kno
 Logzio-k8s-metrics allows you to ship metrics from your Kubernetes cluster.
 
 **Before you begin, you'll need**:
-[Helm CLI](https://helm.sh/docs/intro/install/) installed,
-[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed, and allow outgoing traffic to destination port 5015
+
+* [Helm CLI](https://helm.sh/docs/intro/install/) installed
+* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
+* Allow outgoing traffic to destination port 5015
+* Kubelet read-only-port 10255 enabled. Kubelet read-only-port 10255 is enabled by default on some cluster versions. If it isn’t enabled, follow Kubernetes’s instructions for enabling 10255 as a read-only-port in Kubelet’s config file
 
 
 <div class="branching-container">
@@ -187,6 +190,7 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 | `deployment.securityContext` | Configurable [securityContext](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) for Metricbeat Deployment pod execution environment. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `deployment.resources` | Allows you to set the resources for Metricbeat Deployment. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `deployment.secretMounts` | Allows you to easily mount a secret as a file inside the Deployment Useful for mounting certificates and other secrets. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
+| `namespace` | Chart's namespace | `kube-system` |
 
 
 </div>

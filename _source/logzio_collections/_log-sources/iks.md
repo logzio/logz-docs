@@ -107,11 +107,7 @@ kubectl create secret generic logzio-logs-secret \
 
 ##### Configure Fluentd
 
-Download one of these three depending on which one fits your requirements:
-
-* [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml)
-* [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml)
-* [Containerd Daemonset](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml)
+Download our [Containerd Daemonset](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml).
 
 
 Open the file in your text editor and customize the integration environment variables. The available parameters and their defaults are shown below.

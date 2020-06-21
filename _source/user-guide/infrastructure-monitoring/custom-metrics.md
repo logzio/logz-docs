@@ -130,9 +130,10 @@ Here's an example of metric stacking:
 
 ##### Format the JSON for shipping
 
-Metrics are sent as minified JSON objects, with one JSON object per line. 
+Minify the JSON to compact it and separate the objects so there is only one JSON object per line.
+Metrics are sent as minified JSON objects with one JSON object per line.
 
-(The examples above show beautified JSON because they are easier to explain. The metrics wouldn't be sent that .
+(The examples above show beautified JSON because they are easier to explain. The metrics can't be sent that way.)
 
 ##### What to avoid
 

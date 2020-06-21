@@ -4,7 +4,7 @@ title: Custom metrics
 permalink: /user-guide/infrastructure-monitoring/custom-metrics
 flags:
   #admin: true
-  #logzio-plan: pro
+  logzio-plan: community
 tags:
   - Grafana
 contributors:
@@ -24,7 +24,7 @@ To do this, you'll need to send your application metrics to Logz.io in JSON form
 #### JSON format
 {:.no_toc}
 
-Our guiding principle is to use key-value pairs to define metrics and their dimensions. 
+Our guiding principle is to use key-value pairs to define metrics and their dimensions.
 
 Metrics are sent as minified JSON objects, with one JSON object per line. But for the purpose of this tutorial, it's easier to explain the general template using a beautified JSON.
 
@@ -45,7 +45,7 @@ Metrics are sent as minified JSON objects, with one JSON object per line. But fo
   }
   ```
 
-The reason being that we want to send _fewer and longer_ documents. 
+The reason being that we want to send _fewer and longer_ documents.
 By grouping all possible metrics and dimensions into one document we maximize Elasticsearch's indexing power. In general, the _number_ of documents has a greater impact on Elasticsearch indexing power than document length.
 
 The best way to explain the guidelines is to look at a few examples. So let's get to it.
@@ -59,11 +59,20 @@ Metric fields are used strictly for numerical values. You can use any number typ
 
 Dimension fields are always strings. Dimensions are metadata fields that add information about the metrics, such as where the data was sent from, which application part, and its relevance.
 
-This helps to ensure that the rollup mechanism will work properly. It only identifies number field types.
+The [rollup mechanism]({{site.baseurl}}/user-guide/infrastructure-monitoring/data-rollups.html) only identifies number field types, which is why it's so important to send metrics as number field types and dimensions as strings.
 
-##### Single metric with dimensions
 
-In this example, we have one metric per document. We also have a metric field `name`, and its `value` is logged as a dimension.
+##### How to format metrics
+
+This tutorial walks you through a typical example of how to best format a metric before sending it to Logz.io.
+
+###### Before
+
+This example shows a rather inefficient way of sending metrics. There are several issues here:
+
+1. The data is sent with one metric per document.
+2. The metric field is identified by a field:value pair `"name": "refresh_page.duration"`.
+3. The `value` and measuring unit of the metric are logged as 2 separate dimensions.
 
 ```
 {
@@ -79,7 +88,9 @@ In this example, we have one metric per document. We also have a metric field `n
 }
 ```
 
-This document should be rearranged so the two fields, `name` and `value` are a key-value pair. The field `unit` is made redundant if we add the units to the metric field name.
+###### After
+
+This document should be rearranged so the two fields, `name` and `value` are a key-value pair. The field `unit` is made redundant if we add the measuring unit to the metric field name.
 
 Here's the result:
 
@@ -95,13 +106,15 @@ Here's the result:
 }
 ```
 
-The metric is now named `refresh_page.duration.ms`. This makes it easier to query and visualize our metrics. An added advantage is that we can stack metrics with the same dimensions in the same document.
+The metric is now named `refresh_page.duration.ms`. Formatting your data in this way will make it easier to query and visualize your metrics. Plus, it has the added advantage of making it possible to stack metrics with the same dimensions in the same document.
 
-##### Multiple metrics with the same dimensions
+##### Group metrics that share the same dimensions
 
-Next, let's examine a list of metrics that share the same dimensions.
+Metrics that share the same dimensions can be sent together as a single document.
 
-By stating the measuring unit in the metric’s name, we prevent confusion, eliminate another dimension, and allow metric stacking in the same document. So it’s a win-win.
+To make this work, you'll need to state the measuring unit in the metric’s name, instead of sending the unit as a dimension. This makes it possible to stack metrics in the same document and send them more efficiently. 
+
+Here's an example:
 
 ```
 {
@@ -123,6 +136,7 @@ By stating the measuring unit in the metric’s name, we prevent confusion, elim
 }
 ```
 
+
 ##### What to avoid
 
 * Avoid sending `tag` and `timestamp` fields
@@ -133,8 +147,8 @@ By stating the measuring unit in the metric’s name, we prevent confusion, elim
 
 * Avoid metric analytics and aggregations
 
-  You don’t need to perform any aggregations or fancy pre-slicing-and-dicing on your metrics. It's all taken care of for you. Logz.io runs analytics on your metrics by default, including division by percentiles and by standard deviation, just to name a few. 
-  
+  You don’t need to perform any aggregations or fancy pre-slicing-and-dicing on your metrics. It's all taken care of for you. Logz.io runs analytics on your metrics by default, including division by percentiles and by standard deviation, just to name a few.
+
   Logz.io also runs aggregations on your metrics, so that every metric you send is automatically captured with its aggregations: Max, Min, Sum, and Avg aggregations.
 
 Here's an example of what to avoid.
@@ -186,16 +200,23 @@ This one takes all the wrong turns. After correcting it so the metric is a key-v
 }
 ```
 
+##### Requirements
+
+* Minify the JSON to compress it and place each object on a separate line before shipping the data.
+
+* Use metric fields for numerical values & dimensions for text.
+
+
 ##### Best practices
 
 Let's reiterate a few best-practice recommendations for logging application metrics.
 
-* Use metric fields for numerical values & dimensions for text.
-
 * State the unit in the metric's name.
 
-* Avoid metric analytics and aggregations. Avoid adding a timestamp. Avoid the fields `tag` and `tags`.
+* Avoid metric analytics and aggregations.
+  Avoid adding a timestamp.
+  Avoid the fields `tag` and `tags`.
 
-* Note that arrays are not supported.
+* Keep in mind that arrays are not well-supported.
 
-* Minify the JSON to compress it and place each object on a separate line before shipping the data.
+

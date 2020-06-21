@@ -3,7 +3,7 @@ layout: article
 title: Getting started with Metrics
 permalink: /user-guide/infrastructure-monitoring/getting-started
 flags:
-  logzio-plan:
+  logzio-plan: community
 tags:
   - metrics
 contributors:

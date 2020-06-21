@@ -3,7 +3,7 @@ layout: article
 title: Highlights of Logz.io Metrics
 permalink: /user-guide/infrastructure-monitoring/metrics-logzio
 flags:
-  logzio-plan:
+  logzio-plan: community
 tags:
   - metrics
 contributors:

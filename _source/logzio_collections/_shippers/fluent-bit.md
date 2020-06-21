@@ -32,13 +32,22 @@ shipping-tags:
 
 If you haven't installed Fluent Bit yet,
 you can build it from source
-according to the [instructions from Fluent Bit](https://docs.fluentbit.io/manual/installation/build_install).
+according to the [instructions from Fluent Bit](https://docs.fluentbit.io/manual/installation/sources/build-and-install).
 
 ##### Install and configure the Logz.io plugin
 
+For Linux:
+
 ```shell
 wget -o /fluent-bit/plugins/out_logzio.so \
-https://github.com/logzio/fluent-bit-logzio-output/blob/master/build/out_logzio.so
+https://github.com/logzio/fluent-bit-logzio-output/blob/master/build/out_logzio-linux.so
+```
+
+For MacOS:
+
+```shell
+wget -o /fluent-bit/plugins/out_logzio.so \
+    https://github.com/logzio/fluent-bit-logzio-output/raw/master/build/out_logzio-macOS.so
 ```
 
 In your Fluent Bit configuration file (`fluent-bit.conf` by default),

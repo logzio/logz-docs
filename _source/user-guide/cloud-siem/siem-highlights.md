@@ -11,21 +11,20 @@ contributors:
   - shalper
 ---
 
-Drastically reduce threat detection time and mean-time-to-response. Cloud SIEM is an essential tool to help prioritize threats across system and security tools more effectively.
+Logz.io Cloud SIEM will help you detect threats and investigate security incidents as soon as you start sending logs.
+Here's how Logz.io Cloud SIEM will get you there.
+
+Logz.io Cloud SIEM is built on top of the ELK Stack so teams can use familiar analytics tools for securing their environments.
+
+Cloud SIEM will help you set priorities and decide which events to investigate first based on their severity, threat level, and by correlating them with industry-standard threat intelligence feeds. Cloud SIEM will help you reduce mean-time-to-response and improve team productivity.
 
 
-### Extensive security observability at no effort
+### Start identifying threats immediately
 
 Pre-configured security rules and monitoring dashboards make it simple to start identifying threats straight away.
 The list of rules and dashboards is continuously expanding and Logz.io's dedicated team of security experts adds content and improvements on a regular basis.
 
-You can configure your own notification settings and threshold triggers on any security rule to stay notified in real time of security incidents.
-
-### Quick set up
-
-Benefit from an extensive, fully configured SIEM that will save your team the effort of configuring hundreds of alerts and dashboards.
-
-Each integration includes a set of pre-configured security rules and dashboards, that can form the basis of your security operations. You can make additional changes to any existing rules, dashboards, and reports to further expand on them.
+You can configure your own notification settings and threshold triggers for any security rule to stay notified in real time of security incidents.
 
 ### Threat Intelligence
 
@@ -35,13 +34,20 @@ Cloud SIEM uses the same application logs used for monitoring production issues 
 Logs are scanned for appearances of IOCs (Indicator of Compromise) and enriched when they are found.
 
 
-### Geolocation enrichment
+### Drill-downs
 
-Cloud SIEM adds geolocation enrichment for malicious and suspected IPs, DNSs, and URLs. Out-of-the-box dashboards include threat geolocation maps to make it easy to pinpoint threats by their place of origin.
+Investigate events using drill-down links that direct you to the relevant dashboard.
+
+
+Benefit from an extensive, fully configured SIEM that will save your team the effort of configuring hundreds of alerts and dashboards.
+
+Each integration includes a set of pre-configured security rules and dashboards that can form the basis of your security operations. You can make additional changes to any existing rules, dashboards, and reports to further expand on them.
+
+
 
 ### Reports and Compliance
 
-Built-in reports, rules and integrations will help you comply with regulatory standards such as PCI and GDPR requirements. You can schedule reports to auto-generate for audit and oversight purposes.
+Send periodical reports to help comply with regulatory standards such as PCI and GDPR requirements. You can schedule reports to auto-generate for audit and oversight purposes.
 
 
 ### Dedicated support from security experts
@@ -50,4 +56,4 @@ Benefit from ongoing security guidance from Logz.io's team of security experts a
 
 ### Extended retention
 
-Cloud SIEM retains logs of any triggered security rules for 10 years! This timeframe will allow you to develop and implement processes and keep records for future reference.
+Cloud SIEM retains logs of any triggered security rules for 10 years! This timeframe will allow you to track developments over time and investigate 

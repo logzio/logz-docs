@@ -20,8 +20,9 @@ Logzio-k8s-metrics allows you to ship metrics from your Kubernetes cluster.
 
 **Before you begin, you'll need**:
 
-* [Helm CLI](https://helm.sh/docs/intro/install/) installed,
-* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed, and allow outgoing traffic to destination port 5015,
+* [Helm CLI](https://helm.sh/docs/intro/install/) installed
+* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
+* Allow outgoing traffic to destination port 5015
 * Kubelet read-only-port 10255 enabled. Kubelet read-only-port 10255 is enabled by default on some cluster versions. If it isn’t enabled, follow Kubernetes’s instructions for enabling 10255 as a read-only-port in Kubelet’s config file
 
 

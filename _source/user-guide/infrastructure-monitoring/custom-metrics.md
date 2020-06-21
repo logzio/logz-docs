@@ -198,16 +198,19 @@ This one takes all the wrong turns. After correcting it so the metric is a key-v
 }
 ```
 
-##### Requirements
+##### Summary of requirements & best practices
+
+Let's reiterate a few requirements and best-practice recommendations for logging application metrics.
+
+###### Requirements
+{:.no_toc}
 
 * Minify the JSON to compress it and place each object on a separate line before shipping the data.
 
 * Use metric fields for numerical values & dimensions for text.
 
-
-##### Best practices
-
-Let's reiterate a few best-practice recommendations for logging application metrics.
+###### Best practices
+{:.no_toc}
 
 * State the unit in the metric's name.
 

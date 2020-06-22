@@ -9,6 +9,7 @@ tags:
   - sso
 contributors:
   - imnotashrimp
+  - shalper
 ---
 
 Single sign-on (SSO) allows you to manage access to your Logz.io account
@@ -53,12 +54,18 @@ Each group can be given "Admin", "User", or "Configured per user" permissions.
 
 Permissions are set at the group level
 unless a group is set to "Configured per user".
-If a user is part of multiple groups,
+If a user belongs to multiple groups,
 they will get the highest permissions set.
 
 For example:
 If someone is part of an "User" group and an "Admin" group,
 they'll receive admin permissions.
+
+###### Admin access to sub accounts
+
+You'll need to ensure you have at least one Admin user explicitely set for every sub account before enabling SSO.
+
+Once SSO is enabeled, Admins on the main account will not be have admin access to sub accounts unless they are already configured as admins on the sub account before SSO was enabled.
 
 ## Available identity providers
 

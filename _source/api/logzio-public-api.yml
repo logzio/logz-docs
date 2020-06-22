@@ -923,7 +923,7 @@ paths:
               },
               "sort": [
                 {
-                  "field": "NAME",
+                  "field": "name",
                   "descending": true
                 }
               ],
@@ -3044,7 +3044,7 @@ definitions:
       createdBy:
         type: string
         description: Email address of the user who created this token.
-        example: you.got.this.sara@gmail.com
+        example: you.got.this@gmail.com
       enabled:
         type: boolean
         description: If this token is enabled, `true`. If it's disabled, `false`.
@@ -3092,8 +3092,8 @@ definitions:
             - CREATED_AT
             - NAME
           description: >-
-            To sort by creation date, use `"CREATED_AT"`.
-            To sort by name, use `"NAME"`.
+            To sort by creation date, use `"createdAt"`.
+            To sort by name, use `"name"`.
           example: NAME
         descending:
           type: boolean

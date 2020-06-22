@@ -4,7 +4,7 @@ title: Custom metrics
 permalink: /user-guide/infrastructure-monitoring/custom-metrics
 flags:
   #admin: true
-  #logzio-plan: pro
+  logzio-plan: community
 tags:
   - Grafana
 contributors:
@@ -21,13 +21,14 @@ To do this, you'll need to send your application metrics to Logz.io in JSON form
 1. toc list
 {:toc}
 
-#### JSON format
-{:.no_toc}
+
+<div class="tasklist">
+
+##### Metrics vs. Dimensions
 
 Our guiding principle is to use key-value pairs to define metrics and their dimensions.
-Here's the general template.
 
-  ```
+ ```
   {
 	"metrics": {
 		"my_first_metric.unit": number,
@@ -36,33 +37,33 @@ Here's the general template.
 		"my_fourtn_metrlc.unit": number
 	},
 	"dimensions": {
-		"dimension_l": "value",
-		"dimension_2": "value",
-		"dimension_3": "value",
-		"dimension_4": "value"
+		"dimension_l": "string",
+		"dimension_2": "string",
+		"dimension_3": "string",
+		"dimension_4": "string"
 	}
   }
   ```
-
-The reason being that we want to send _fewer and longer_ documents. 
-By grouping all possible metrics and dimensions into one document we maximize Elasticsearch's indexing power. In general, the _number_ of documents has a greater impact on Elasticsearch indexing power than document length.
-
-The best way to explain the guidelines is to look at a few examples. So let's get to it.
-
-<div class="tasklist">
-
-##### Metrics vs. Dimensions
 
 What distinguishes a metric from a dimension, you ask?
 Metric fields are used strictly for numerical values. You can use any number type, including: long, float, integer, etc.
 
 Dimension fields are always strings. Dimensions are metadata fields that add information about the metrics, such as where the data was sent from, which application part, and its relevance.
 
-This helps to ensure that the rollup mechanism will work properly. It only identifies number field types.
+The [rollup mechanism]({{site.baseurl}}/user-guide/infrastructure-monitoring/data-rollups.html) only identifies number field types, which is why it's so important to send metrics as number field types and dimensions as strings.
 
-##### Single metric with dimensions
 
-In this example, we have one metric per document. We also have a metric field `name`, and its `value` is logged as a dimension.
+##### How to format metrics
+
+The best way to explain the guidelines is to look at a few examples. This tutorial will walk you through a typical example of how to best format a metric before sending it.
+
+###### Before
+{:.no_toc}
+
+This example shows a rather inefficient way of sending metrics. There are several issues here:
+
+1. The data is organized as one metric per document.
+2. The metric field is split up into many fields. The name is sent as a field:value pair `"name": "refresh_page.duration"`, and the `value` and measuring `unit` are logged as 2 separate dimensions.
 
 ```
 {
@@ -78,9 +79,10 @@ In this example, we have one metric per document. We also have a metric field `n
 }
 ```
 
-This document should be rearranged so the two fields, `name` and `value` are a key-value pair. The field `unit` is made redundant if we add the units to the metric field name.
+###### After
+{:.no_toc}
 
-Here's the result:
+Rearrange the document to reduce the number of fields. If the metric's `name` and `value` are sent as a key-value pair and the `unit` is appended to the name, they are all collapsed into just one field named `refresh_page.duration.ms`. Here's the result:
 
 ```
 {
@@ -94,13 +96,17 @@ Here's the result:
 }
 ```
 
-The metric is now named `refresh_page.duration.ms`. This makes it easier to query and visualize our metrics. An added advantage is that we can stack metrics with the same dimensions in the same document.
+Formatting your data in this way will make it easier to query and visualize your metrics. Plus, it has the added advantage of making it possible to stack metrics with the same dimensions in the same document.
 
-##### Multiple metrics with the same dimensions
+##### Stack metrics that share the same dimensions
 
-Next, let's examine a list of metrics that share the same dimensions.
+Metrics that share the same dimensions should be sent together as a single document.
 
-By stating the measuring unit in the metric’s name, we prevent confusion, eliminate another dimension, and allow metric stacking in the same document. So it’s a win-win.
+Stacking metrics is important because we want to send _fewer and longer_ documents.
+By grouping all possible metrics and dimensions into one document we maximize Elasticsearch's indexing power. In general, the _number_ of documents has a greater impact on Elasticsearch indexing power than document length.
+
+To make this work, you'll need to state the measuring unit in the metric’s name, instead of sending the unit as a dimension.
+Here's an example of metric stacking:
 
 ```
 {
@@ -122,6 +128,13 @@ By stating the measuring unit in the metric’s name, we prevent confusion, elim
 }
 ```
 
+##### Format the JSON for shipping
+
+Minify the JSON to compact it and separate the objects so there is only one JSON object per line.
+Metrics are sent as minified JSON objects with one JSON object per line.
+
+(The examples above show beautified JSON because they are easier to explain. The metrics can't be sent that way.)
+
 ##### What to avoid
 
 * Avoid sending `tag` and `timestamp` fields
@@ -132,8 +145,8 @@ By stating the measuring unit in the metric’s name, we prevent confusion, elim
 
 * Avoid metric analytics and aggregations
 
-  You don’t need to perform any aggregations or fancy pre-slicing-and-dicing on your metrics. It's all taken care of for you. Logz.io runs analytics on your metrics by default, including division by percentiles and by standard deviation, just to name a few. 
-  
+  You don’t need to perform any aggregations or fancy pre-slicing-and-dicing on your metrics. It's all taken care of for you. Logz.io runs analytics on your metrics by default, including division by percentiles and by standard deviation, just to name a few.
+
   Logz.io also runs aggregations on your metrics, so that every metric you send is automatically captured with its aggregations: Max, Min, Sum, and Avg aggregations.
 
 Here's an example of what to avoid.
@@ -185,14 +198,28 @@ This one takes all the wrong turns. After correcting it so the metric is a key-v
 }
 ```
 
-##### Best practices
+##### Summary of requirements & best practices
 
-Let's reiterate a few best-practice recommendations for logging application metrics.
+Let's reiterate a few requirements and best-practice recommendations for logging application metrics.
+
+###### Requirements
+{:.no_toc}
+
+* Minify the JSON to compress it and place each object on a separate line before shipping the data.
 
 * Use metric fields for numerical values & dimensions for text.
 
+###### Best practices
+{:.no_toc}
+
 * State the unit in the metric's name.
 
-* Avoid metric analytics and aggregations. Avoid adding a timestamp. Avoid the fields `tag` and `tags`.
+* Avoid metric analytics and aggregations.
+  Avoid adding a timestamp.
+  Avoid the fields `tag` and `tags`.
 
-* Note that arrays are not supported.
+* Stack metrics that share the same dimensions in the same document to send them more efficiently.
+
+* Keep in mind that arrays are not well-supported.
+
+

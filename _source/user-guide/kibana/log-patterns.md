@@ -15,7 +15,8 @@ contributors:
 Log Patterns runs advanced clustering algorithms to group logs with similar message fields by their frequency of occurrence. Log patterns can help you to quickly single out unique or unusual events from the mass of recurring and repetitive events or identify errors that are more frequent so you know where to focus your efforts.
 
 As your logs come into Kibana, you'll see how they fit into patterns,
-in near real time. Log patterns will help you surface logs you might have otherwise missed, and logs that can be filtered out by default using [drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/) to lower costs and data volume.
+in near real time. Log patterns will help you surface logs you might have otherwise missed, and uninteresting logs that can be filtered out.
+
 
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns2.png)
 
@@ -52,7 +53,12 @@ Pattern
 
 Filters
 : Click these to filter for or filter out the logs that match a pattern. You'll be taken to the **Logs** tab,
-where you'll see the logs that match your filter. You can use this option as the basis for a query which you can use for alerts, drop filters, visualizations, and more.
+where you'll see the logs that match your filter.
+  
+  Patterns filters can be used in saved searches, visualizations, and dashboards. They can also be pinned across all apps, excluded, and temporarily disabled.
+  
+  ![Patterns filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-filter1.png)
+
 {:.letter-labels}
 
 

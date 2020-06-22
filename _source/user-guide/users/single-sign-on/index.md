@@ -65,7 +65,7 @@ they'll receive admin permissions.
 
 You'll need to ensure you have at least one Admin user explicitely set for every sub account before enabling SSO.
 
-Once SSO is enabeled, Admins on the main account will not be have admin access to sub accounts unless they are already configured as admins on the sub account before SSO was enabled.
+Once SSO is enabeled, Admins on the main account will not have admin access to sub accounts unless they were already configured as admins on the sub account before SSO was enabled.
 
 ## Available identity providers
 

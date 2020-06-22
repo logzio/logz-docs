@@ -25,7 +25,7 @@ To open Log Patterns, click the **Patterns** tab in [Kibana Discover](https://ap
 
 Log Patterns is an alternative view to the log document table. It shows the same logs organized in a different way.
 
-While the log document table is organized chronologically by default, Patterns is organized by default by their frequency of appearence, so that the most common log patterns are shown at the top.
+While the log document table is organized chronologically by default, the Log Patterns tab reorganizes logs by their frequency of appearance, so that the most common log patterns are shown at the top by default.
 
 If you are looking for rare or infrequent logs, Patterns can help you find those easily. You can click the *Ratio* column header to invert the table and see the least common logs on top.
 

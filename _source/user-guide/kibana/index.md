@@ -46,8 +46,8 @@ Select the time range for your search. There are many ways to select the timefra
 
 The logs returned by your search are your results. Depending on the timeframe you've selected, the results can be set to continuously auto-refresh and can be quite dynamic.
 
-* **Histogram** -  Select a time range directly from the histogram or using the date picker.
+* **Histogram** -  The Histogram shows the distribution of logs over time. It is often easier to see when logs were sent when graphed directly on the timeline. You can also select a time range directly from the histogram using a drag-and-drop motion or by clicking a data bar.
 
-* **Document table** - View the results of your search query. Click on any log document to open it and view the table of field:value pairs or switch to the raw JSON document.
+* **Document table** - View the results of your search query. Click on any log document to open it and view the data mapped into field:value pairs. You can also switch to the raw JSON document view.
 
 * **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also helps to surface issues and errors that might otherwise go unnoticed. [Learn more about Log Patterns.]({{site.baseurl}}/user-guide/kibana/log-patterns.html)

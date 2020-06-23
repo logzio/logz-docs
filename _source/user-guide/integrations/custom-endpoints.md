@@ -20,7 +20,7 @@ of allowing you to customize the message body too.
 
 <div class="tasklist">
 
-###### Add the endpoint
+##### Add the endpoint
 
 To add a new custom endpoint, click **Add endpoint**.
 Specify the URL, method, and headers.
@@ -28,17 +28,17 @@ For POST/PUT methods, you can configure the message body, if relevant.
 
 ###### Ports & security considerations
 
-It is best to avoid opening a port in your firewall to allow access for custom endpoints.
-
-The Logz.io IP range is used by all customers, so it should be used with caution.
-If you do open a port for a Logz.io custom endpoint, follow these best practices:
-
-* Make sure that you add a token in your custom payload and verify that the token exists in the endpoint.
-* Allow external access only to this specific endpoint.
-
 Alerts can only be sent on ports 80 & 443.
 If you accidently set a custom port for an alert endpoint, the alert will not be sent.
-{:.info-box.important}
+
+It is best to avoid opening a port in your firewall to allow access for Logz.io custom endpoints.
+This is because the Logz.io IP range is used by all customers and should be treated with caution.
+
+If you decide to open a port on your firewall for a Logz.io custom endpoint, follow these best practices:
+
+* Make sure to add a token in your custom payload and verify that the token exists in the endpoint.
+* Allow external access only to this specific endpoint.
+
 
 ##### Test the endpoint
 

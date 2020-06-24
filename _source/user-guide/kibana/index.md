@@ -19,7 +19,7 @@ You can use the Discover page to filter logs, search for specific events, and cr
 
 #### Set you query criteria
 
-Kibana Discover is designed to help you investigate immense volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selecter are all designed to help you find the logs you want. Together, they are the _query criteria_ that determine which logs are returned from your Elasticsearch logging database.
+Kibana Discover is designed to help you investigate immense volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selector are all designed to help you find the logs you want. Together, they are the _query criteria_ that determine which logs are returned from your Elasticsearch logging database.
 
 <div class="tasklist">
 
@@ -56,7 +56,7 @@ The logs returned by your search are your results. Depending on the time frame y
 
   If you click on a log, it opens so you can view its entire contents mapped into field:value pairs. You can also switch to the raw JSON document view.
 
-* **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also helps to surface issues and errors that might otherwise go unnoticed. [Learn more about Log Patterns.]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
+* **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also help to surface issues and errors that might otherwise go unnoticed. [Learn more about Log Patterns.]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
 
 ##### Take action following your results
 

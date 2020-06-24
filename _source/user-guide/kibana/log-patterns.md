@@ -20,7 +20,7 @@ in near real time. Log patterns will help you surface logs you might have otherw
 
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns2.png)
 
-To open Log Patterns, click the **Patterns** tab in [Kibana Discover](https://app.logz.io/#/dashboard/kibana).
+To open Log Patterns, click the **Patterns** tab in Kibana Discover.
 
 ## Understanding Log Patterns
 
@@ -54,17 +54,15 @@ Pattern
 Filters
 : Click these to filter for or filter out the logs that match a pattern. You'll be taken to the **Logs** tab,
 where you'll see the logs that match your filter.
-  
-  Patterns filters can be used in saved searches, visualizations, and dashboards. They can also be pinned across all apps, excluded, and temporarily disabled.
+{:.letter-labels}
+
+  Patterns function as filters and can be used in saved searches, visualizations, and dashboards. They can also be pinned across all apps, inverted, and temporarily disabled. Unlike other filters, Pattern filters cannot be edited.
   
   ![Patterns filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-filter1.png)
 
-{:.letter-labels}
-
-
 ## Variables
 
-In the Patterns view, some specifics in the log document are identified as _variables_ and substituted by their variable category name. This "simplification" is meant to help identify relevant log patterns without worrying about the particular details.
+In the Patterns view, some specifics in the log document are identified as _variables_ and substituted by their category name. The simplification is meant to help identify relevant log patterns without worrying about the particular details.
 
 Most variables are straightforward categories, including: \\
 `Ip`, `Email`, `Url`, `Number`, `Path`, `Guid`, `Hash`, `Syslogtimestamp`, `Date`

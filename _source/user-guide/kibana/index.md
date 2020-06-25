@@ -17,7 +17,7 @@ You can use the Discover page to filter logs, search for specific events, and cr
 
 ![Kibana Discover Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana-discover-intro.png)
 
-#### Set your query criteria
+#### Searching your logs
 
 Kibana Discover is designed to help you investigate massive volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selector are all designed to help you find the logs you want. Together, they are the _query criteria_ that determine which logs are returned from your Elasticsearch logging database.
 

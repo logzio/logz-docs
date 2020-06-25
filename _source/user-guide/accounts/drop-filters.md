@@ -14,10 +14,11 @@ contributors:
 
 Drop filters offer a great way to filter out logs from an account to help manage your account volume and lower costs.
 
-Drop filters evaluate logs for field:value exact matches. Incoming logs that match your account's active drop filters will not be indexed and will not appear in your Kibana account. Dropped logs are not searchable, cannot trigger alerts, and can not appear in dashboards, reports, or anything else.
+Drop filters evaluate logs for field:value exact matches. Incoming logs that match your account's active drop filters will not be indexed and will not appear in your Kibana account. Dropped logs are not searchable, cannot trigger alerts, and will not appear in dashboards, reports, or anything else. However, dropped logs will be archived if you are archiving logs.
 
 You can turn drop filters on and off, as often as you like, making them ideal for logs that are only needed sometimes.
-In general, we recommend using drop filters for logs that are needed sometimes. If you have logs that are never needed, it's best to avoid shipping them at all.
+
+In general, drop filters are recommended for logs that are needed infrequently, while logs that are never needed should not be shipping at all.
 
 
 ![Drop filters list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filters-list.png)

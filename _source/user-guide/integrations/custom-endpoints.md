@@ -33,10 +33,15 @@ If you accidently set a custom port for an alert endpoint, the alert will not be
 
 It is best to avoid opening a port in your firewall to allow access for Logz.io custom endpoints.
 This is because the Logz.io IP range is used by all customers and should be treated with caution.
+\\
+\\
+The Logz.io IP range is used by all customers and should be treated with caution.
+{:.info-box.important}
 
 If you decide to open a port on your firewall for a Logz.io custom endpoint, follow these best practices:
 
-* Make sure to add a token in your custom payload and verify that the token exists in the endpoint.
+* Make sure to add a verification token in the JSON payload of the custom endpoint
+ and verify that the token exists on the receiving end.
 * Allow external access only to this specific endpoint.
 
 Here's an example of a JSON payload for an alert that includes a verification token:
@@ -50,9 +55,6 @@ Here's an example of a JSON payload for an alert that includes a verification to
 "alert_event_samples": "<alert_samples>"
 }
 ```
-
-The Logz.io IP range is used by all customers and should be treated with caution.
-{:.info-box.important}
 
 
 ##### Test the endpoint

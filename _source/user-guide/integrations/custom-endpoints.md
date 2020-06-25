@@ -39,6 +39,21 @@ If you decide to open a port on your firewall for a Logz.io custom endpoint, fol
 * Make sure to add a token in your custom payload and verify that the token exists in the endpoint.
 * Allow external access only to this specific endpoint.
 
+Here's an example of a JSON payload for an alert that includes a verification token:
+
+```json
+{
+"token": "<SomeSecurityToken>",
+"alert_title": "<alert_title>",
+"alert_description": "<alert_description>",
+"alert_severity": "<alert_severity>",
+"alert_event_samples": "<alert_samples>"
+}
+```
+
+The Logz.io IP range is used by all customers and should be treated with caution.
+{:.info-box.important}
+
 
 ##### Test the endpoint
 

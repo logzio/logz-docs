@@ -35,9 +35,7 @@ firstLevel:
   secondLevel:
   - title: Kibana Discover
     url: /user-guide/kibana/
-    thirdLevel:
-      - title: Log patterns
-        url: /user-guide/kibana/log-patterns.html
+  
 
   - title: Alerts
     url: /user-guide/alerts/

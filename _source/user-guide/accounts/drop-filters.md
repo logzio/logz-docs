@@ -18,7 +18,7 @@ Drop filters evaluate logs for field:value exact matches. Incoming logs that mat
 
 You can turn drop filters on and off, as often as you like, making them ideal for logs that are only needed sometimes.
 
-In general, drop filters are recommended for logs that are needed infrequently, while logs that are never needed should not be shipping at all.
+In general, drop filters are recommended for logs that are needed infrequently, while logs that are never needed should not be shipped at all.
 
 
 ![Drop filters list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filters-list.png)

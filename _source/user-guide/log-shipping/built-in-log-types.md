@@ -16,8 +16,6 @@ Logz.io will automatically parse logs shipped from many platforms, services, con
 
 In Kibana, you'll notice a field named `type`. The `type` field identifies the log type and determines which pre-built pipeline is used to parse the data. 
 
-The `type` for each log source is specified in the configuration file and can be changed, if needed. For example, the Filebeat configuration for Apache access logs sets the log type as `apache_access`. This lets Logz.io automatically parse logs received from an Apache web server using the Logz.io prebuilt pipeline.
-
 This table shows the built-in log types that Logz.io supports out-of-the-box. If you don't see your log type here, contact support to request a new pipeline. Parsing-as-a-service is included in your package and we're happy to offer it.
 
 If you are just looking to tweak an existing parsing schema, and would rather do it yourself, you can customize an existing parsing type using Grok patterns with the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).

@@ -12,9 +12,9 @@ contributors:
 ---
 
 Logz.io Cloud SIEM will help you detect threats and investigate security incidents as soon as you start sending logs.
-Here's how Logz.io Cloud SIEM will get you there.
+Here's how your Cloud SIEM will get you there.
 
-Logz.io Cloud SIEM is built on top of the ELK Stack so teams can use familiar analytics tools for securing their environments.
+The Cloud SIEM is built on top of the ELK Stack so teams can use familiar analytics tools for securing their environments.
 
 Cloud SIEM will help you set priorities and decide which events to investigate first based on their severity, threat level, and by correlating them with industry-standard threat intelligence feeds. Cloud SIEM will help you reduce mean-time-to-response and improve team productivity.
 
@@ -36,18 +36,12 @@ Logs are scanned for appearances of IOCs (Indicator of Compromise) and enriched 
 
 ### Drill-downs
 
-Investigate events using drill-down links that direct you to the relevant dashboard.
-
-
-Benefit from an extensive, fully configured SIEM that will save your team the effort of configuring hundreds of alerts and dashboards.
-
-Each integration includes a set of pre-configured security rules and dashboards that can form the basis of your security operations. You can make additional changes to any existing rules, dashboards, and reports to further expand on them.
-
+Investigate events using drilldown links that direct you to the relevant dashboard.
 
 
 ### Reports and Compliance
 
-Send periodical reports to help comply with regulatory standards such as PCI and GDPR requirements. You can schedule reports to auto-generate for audit and oversight purposes.
+Send periodical reports to help comply with regulatory standards inlcuding PCI and GDPR. You can schedule reports to auto-generate for audit and oversight purposes.
 
 
 ### Dedicated support from security experts
@@ -56,4 +50,4 @@ Benefit from ongoing security guidance from Logz.io's team of security experts a
 
 ### Extended retention
 
-Cloud SIEM retains logs of any triggered security rules for 10 years! This timeframe will allow you to track developments over time and investigate 
+Cloud SIEM retains logs of any triggered security rules for 10 years! This extended timeframe ensures that your company retains information long enough to investigate incidents and be covered in case of inquiries.

@@ -18,7 +18,6 @@ In Kibana, you'll notice a field named `type`. The `type` field identifies the l
 
 This table shows the built-in log types that Logz.io supports out-of-the-box. If you don't see your log type here, contact support to request a new pipeline. Parsing-as-a-service is included in your package and we're happy to offer it.
 
-If you are just looking to tweak an existing parsing schema, and would rather do it yourself, you can customize an existing parsing type using Grok patterns with the [data parsing wizard]({{site.baseurl}}/user-guide/mapping-and-parsing/data-parsing-wizard.html).
 
 
 | Description           | Type                                       |

@@ -12,9 +12,9 @@ contributors:
   - boofinka
 ---
 
-Logz.io will automatically parse logs shipped from many platforms, services, containers, servers, and more.
+Logz.io automatically parses logs shipped from many platforms, services, containers, servers, and more.
 
-In Kibana, you'll notice a field named `type`. The `type` field identifies the log type and determines which pre-built pipeline is used to parse the data. 
+In Kibana, you'll notice a field named `type`. This log type is a parameter in the shipping configuration that determines which pre-built pipeline is used to parse the data.
 
 This table shows the built-in log types that Logz.io supports out-of-the-box. If you don't see your log type here, contact support to request a new pipeline. Parsing-as-a-service is included in your package and we're happy to offer it.
 

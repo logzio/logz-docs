@@ -106,7 +106,7 @@ firstLevel:
   - title: Lookups
     url: /user-guide/lookups/
   - title: Integrations
-    url: /user-guide/cloud-siem/integrations
+    url: /user-guide/cloud-siem/integrations/
 
 - title: Admin tools
   icon: li-gear

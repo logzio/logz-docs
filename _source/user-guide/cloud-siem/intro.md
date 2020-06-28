@@ -19,7 +19,7 @@ Logz.io Cloud SIEM integrates with dozens of security services, including firewa
 
 You can simply turn on Cloud SIEM to enrich logs with security information to identify malicious activity. If you want to take it up a notch, you can ship logs from more of your company's security services and products to benefit even more. The rest happens automatically.
 
-Your Cloud SIEM will help you convert a sprawling mass of security operations into a single security observability platform, and allow any team, regardless of its size, to oversee even the largest cloud infrastructures at scale.
+Cloud SIEM can help your team drastically reduce threat detection time and oversee even the largest cloud infrastructures at scale.
 
 
 ![Showcase Security SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-intro.png)

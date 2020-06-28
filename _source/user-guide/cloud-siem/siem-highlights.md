@@ -34,14 +34,18 @@ Cloud SIEM uses the same application logs used for monitoring production issues 
 Logs are scanned for appearances of IOCs (Indicator of Compromise) and enriched when they are found.
 
 
-### Drill-downs
+### Drilldowns
 
 Investigate events using drilldown links that direct you to the relevant dashboard.
 
 
-### Reports and Compliance
+### Reports
 
-Send periodical reports to help comply with regulatory standards inlcuding PCI and GDPR. You can schedule reports to auto-generate for audit and oversight purposes.
+Generate scheduled reporting for audits and to track progress over time.
+
+### Compliance
+
+Cloud SIEM helps you comply with regulatory standards such as GDPR and PCI using built-in reports, rules, and dashboards.
 
 
 ### Dedicated support from security experts

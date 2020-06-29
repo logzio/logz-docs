@@ -495,7 +495,22 @@ paths:
 
                   **Note:** You can use `aggs` or `aggregations` as the field name
                 example: { "byType": { "terms": { "field": "type", "size": 5 } } }
-      x-code-samples:
+              highlight:
+                type: array
+                default: unified
+                description: >-
+                  Elasticsearch supports three highlighters: unified, plain, and fvh (fast vector highlighter). You can specify the highlighter type you want to use for each field.
+                items:
+                  type: object
+              docvalue_fields:
+                type: 
+                default: 
+                description: >-
+                  bla bla
+                items:
+                  type: object
+
+                x-code-samples:
         - lang: cURL
           source: >-
             curl -X POST https://api.logz.io/v1/search \

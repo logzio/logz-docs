@@ -22,6 +22,7 @@ and forward them to Logz.io.
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
+
 [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/7.6/metricbeat-installation.html),
 [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or higher
 
@@ -51,7 +52,7 @@ You'll need this information later on, so paste it in your text editor.
 
 ###### Sample response
 
-```text
+```shell
 "id": "d94b1fba-0289-557e-b063-0b6bfc1bdca0",
 "tenantId": "9ae0715a-0689-56e8-bb88-2b22f1fa7299",
 ```
@@ -77,7 +78,7 @@ You'll need this information later on, so paste it in your text editor.
 
 ###### Sample response
 
-```text
+```shell
 "appId": "3dcdf53e-f93f-5902-8df2-235c8635aa4d",
 "password": "e6ab6d24-4907-5d11-a132-a171ef55355d",
 ```
@@ -138,24 +139,13 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-###### Parameters
-
-| Parameter | Description |
-|---|---|
-| client_id | Azure client ID. Replace `<<CLIENT-ID>>` with the `appId` value from step 3. |
-| client_secret | Azure client secret. Replace `<<CLIENT-SECRET>>` with the `password` value from step 3. |
-| tenant_id | Azure tenant ID. Replace `<<TENANT-ID>>` with `tenantId` from step 2. |
-| subscription_id | Azure subscription ID. Replace `<<SUBSCRIPTION-ID>>` with `id` from step 2. |
-| resources _and_ namespace | Replace `<<RESOURCE-TYPE>>` with the Azure services you want to monitor. You can find these values in the _Resource type_ column in [_Metrics and Dimensions Supported_](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric-near-real-time#metrics-and-dimensions-supported) from Microsoft. |
-| fields.token | {% include log-shipping/replace-vars.html token=true %} |
-| output.logstash.hosts | {% include log-shipping/replace-vars.html listener=true %} |
-{:.paramlist}
+{% include metric-shipping/azure-params.html %}
 
 ##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
 
 {% include metric-shipping/open-dashboard.html title="Azure Monitor" %}
-{:.paramlist}
+
 
 </div>

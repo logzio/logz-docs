@@ -1,9 +1,9 @@
 ---
 title: Ship Azure VM metrics
 logo:
-  logofile: change_this.svg
+  logofile: azure-vm_large.svg
   orientation: vertical
-data-source: Azure VMs
+data-source: Azure VM Metrics
 contributors:
   - yotamloe
   - shalper
@@ -50,12 +50,11 @@ The response shows the subscription ID (the `id` field)
 and tenant ID (the `tenantId` field).
 You'll need this information later on, so paste it in your text editor.
 
-##### Sample response
+###### Sample response
 
 ```
 "id": "d94b1fba-0289-557e-b063-0b6bfc1bdca0",
 "tenantId": "9ae0715a-0689-56e8-bb88-2b22f1fa7299",
-
 ```
 
 ##### Create a new Azure AD application
@@ -66,7 +65,7 @@ If you don't already have an AD application with reader permissions,
 run this command to create one.
 Replace `<<SUBSCRIPTION-ID>>` with the `id` value from step 2:
 
-```yml
+```
 az ad sp create-for-rbac --role reader \\
 --scopes /subscriptions/<<SUBSCRIPTION-ID>> \\
 -n logzio-metricbeat \\
@@ -77,12 +76,11 @@ The response shows the client ID (the `appId` field)
 and client secret (the `password` field).
 You'll need this information later on, so paste it in your text editor.
 
-##### Sample response
+###### Sample response
 
-```yml
+```
 "appId": "3dcdf53e-f93f-5902-8df2-235c8635aa4d",
 "password": "e6ab6d24-4907-5d11-a132-a171ef55355d",
-
 ```
 
 ##### Download the [Logz.io](http://logz.io/) public certificate
@@ -144,17 +142,13 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-### Parameters
-
-[Untitled](https://www.notion.so/05ec10c2952641fb97880a955e7d5b1f)
-
-{:.paramlist}
+{% include metric-shipping/azure-params.html %}
 
 ##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
 
 {% include metric-shipping/open-dashboard.html title="Azure VM" %}
-{:.paramlist}
+
 
 </div>

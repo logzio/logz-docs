@@ -23,6 +23,7 @@ and forward them to [Logz.io](http://logz.io/).
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
+
 * [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/7.6/metricbeat-installation.html),
 * [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or higher
 
@@ -50,7 +51,7 @@ The response shows the subscription ID (the `id` field)
 and tenant ID (the `tenantId` field).
 You'll need this information later on, so paste it in your text editor.
 
-Here's a sample response
+###### sample response
 
 ```shell
 "id": "b3a47bd3-5197-58c2-aeb0-c8c65de8765e",
@@ -76,7 +77,7 @@ The response shows the client ID (the `appId` field)
 and client secret (the `password` field).
 You'll need this information later on, so paste it in your text editor.
 
-Here's a sample response
+###### sample response
 
 ```shell
 "appId": "5928684d-ce1f-55e5-b7f0-1b161c982109",
@@ -97,7 +98,7 @@ sudo curl <https://raw.githubusercontent.com/logzio/public-certificates/master/T
 By default, Metricbeat ships system metrics from its host.
 Disable this module so you don't unintentionally send host metrics.
 
-```yml
+```
 sudo metricbeat modules disable system
 ```
 
@@ -139,11 +140,8 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
-### Parameters
 
-[Untitled](https://www.notion.so/05ec10c2952641fb97880a955e7d5b1f)
-
-{:.paramlist}
+{% include metric-shipping/azure-params.html %}
 
 ##### Start Metricbeat
 

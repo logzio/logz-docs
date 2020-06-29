@@ -1,9 +1,9 @@
 ---
-title: Ship SQL database metrics
+title: Ship SQL Database metrics
 logo:
-  logofile: change_this.svg
+  logofile: azure-sql-database_large.svg
   orientation: vertical
-data-source: Azure SQL databases
+data-source: Azure SQL Database
 contributors:
   - yotamloe
   - shalper
@@ -34,7 +34,6 @@ Run this command in the command line:
 
 ```
 az login
-
 ```
 
 To complete the process, sign in through your browser.
@@ -45,19 +44,17 @@ Run this command:
 
 ```
 az account show | grep '"id"\\|"tenantId"'
-
 ```
 
 The response shows the subscription ID (the `id` field)
 and tenant ID (the `tenantId` field).
 You'll need this information later on, so paste it in your text editor.
 
-##### Sample response
+###### Sample response
 
 ```
 "id": "d94b1fba-0289-557e-b063-0b6bfc1bdca0",
 "tenantId": "9ae0715a-0689-56e8-bb88-2b22f1fa7299",
-
 ```
 
 ##### Create a new Azure AD application
@@ -73,19 +70,17 @@ az ad sp create-for-rbac --role reader \\
 --scopes /subscriptions/<<SUBSCRIPTION-ID>> \\
 -n logzio-metricbeat \\
 | grep '"appId"\\|"password"'
-
 ```
 
 The response shows the client ID (the `appId` field)
 and client secret (the `password` field).
 You'll need this information later on, so paste it in your text editor.
 
-##### Sample response
+###### Sample response
 
 ```
 "appId": "3dcdf53e-f93f-5902-8df2-235c8635aa4d",
 "password": "e6ab6d24-4907-5d11-a132-a171ef55355d",
-
 ```
 
 ##### Download the [Logz.io](http://logz.io/) public certificate
@@ -97,7 +92,6 @@ You'll need to run this command on the server that hosts Metricbeat:
 
 ```
 sudo curl <https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt> --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-
 ```
 
 ##### (_Optional_) Disable the system module
@@ -107,7 +101,6 @@ Disable this module so you don't unintentionally send host metrics:
 
 ```
 sudo metricbeat modules disable system
-
 ```
 
 ##### Add [Logz.io](http://logz.io/) configuration
@@ -147,20 +140,15 @@ type: metrics
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-
 ```
 
-### Parameters
-
-[Untitled](https://www.notion.so/05ec10c2952641fb97880a955e7d5b1f)
-
-{:.paramlist}
+{% include metric-shipping/azure-params.html %}
 
 ##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
 
 {% include metric-shipping/open-dashboard.html title="Azure SQL" %}
-{:.paramlist}
+
 
 </div>

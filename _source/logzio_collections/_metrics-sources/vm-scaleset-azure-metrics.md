@@ -3,7 +3,7 @@ title: Ship Azure VM Scaleset metrics
 logo:
   logofile: azure-VMs.svg
   orientation: vertical
-data-source: Azure VM Scalesets
+data-source: Azure VM Scaleset
 contributors:
   - yotamloe
   - shalper

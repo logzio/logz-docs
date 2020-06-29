@@ -149,7 +149,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure AppService" %}
-{:.paramlist}
+{% include metric-shipping/open-dashboard.html title="Azure App Service" %}
+
 
 </div>

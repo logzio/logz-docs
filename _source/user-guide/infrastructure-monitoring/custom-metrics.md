@@ -144,7 +144,6 @@ You can use any of the following shippers to send your application metrics to Lo
 {%- endfor -%}
 
 <br>
-<br>
 
 ##### What to avoid
 

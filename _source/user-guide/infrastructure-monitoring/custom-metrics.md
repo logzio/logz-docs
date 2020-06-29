@@ -137,13 +137,15 @@ Metrics are sent as minified JSON objects with one JSON object per line.
 
 You can use any of the following shippers to send your application metrics to Logz.io:
 
+
+
+
 {% for doc in site.log-sources %}
 {%- if doc.shipping-tags contains 'from-your-code' %}
 * [{{doc.data-source}}]({{doc.url}})
 {%- endif -%}
 {%- endfor -%}
 
-<br>
 <br>
 
 ##### What to avoid

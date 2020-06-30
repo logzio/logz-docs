@@ -92,9 +92,12 @@ tags:
   - name: Who am I
   - name: Manage sub accounts
     description: >-
-      Use these API requests to create, update, retrieve, or delete sub accounts and to allocate daily capacity between sub accounts.
+      Use these API requests to create, update, retrieve, or delete sub accounts and to distribute daily capacity between sub accounts.
 
 
+      **Daily volume capacity** - This is the 
+      
+      
       **Flexible vs. Fixed volume allocation**
 
       

@@ -77,9 +77,9 @@ by running `brew install telnet`.
 | rsyslog over TLS                        | 5001 |
 | TLS/SSL over TCP                        | 5052 |
 
-###### If you see "Connected to listener-group.logz.io"
+###### If you see "Connected to listener-group.logz-data.com"
 
-If you see "Connected to listener-group.logz.io",
+If you see "Connected to listener-group.logz-data.com",
 your shipper can connect to the Logz.io listener.
 
 To exit telnet, type Ctrl+], and then type `quit`.

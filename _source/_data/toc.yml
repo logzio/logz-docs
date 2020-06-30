@@ -164,17 +164,18 @@ firstLevel:
   secondLevel:
   - title: Ship your data to Logz.io
     url: /shipping/
-  - title: Log shipping info
+  - title: Log shipping intro
     url: /user-guide/log-shipping/
     thirdLevel:
-    - title: Built-in log types
-      url: /user-guide/log-shipping/built-in-log-types.html
     - title: Log shipping troubleshooting
       url: /user-guide/log-shipping/log-shipping-troubleshooting.html
     - title: Listener IP addresses
       url: /user-guide/log-shipping/listener-ip-addresses.html
-  - title: Data parsing
-    url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+  - title: Default parsing
+    url: /user-guide/log-shipping/built-in-log-types.html
+    thirdLevel:
+    - title: Parsing Wizard
+      url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
   # ===== INTEGRATIONS =====
 - title: Integrations

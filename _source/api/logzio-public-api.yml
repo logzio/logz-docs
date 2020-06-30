@@ -92,13 +92,27 @@ tags:
   - name: Who am I
   - name: Manage sub accounts
     description: >-
-      Use these API requests to create, update, retrieve, or delete sub accounts.
+      Use these API requests to create, update, retrieve, or delete sub accounts and to allocate daily capacity between sub accounts.
 
 
-      For each sub account, account volume can be managed as fixed or flexible volume.
+      **Flexible vs. Fixed volume allocation**
+
+      
+      Your plan's total volume can be allocated among your sub accounts in several ways. If daily volume capacity is flexible, any capacity that remains unallocated is **Shared volume**.   to a can be strictrly allocated between accounts depends on whether **flexible volume** is 
+      
+      
+       to determine how much data each sub account can receive per day. 
+      
+      
+      Each sub account can be given a daily capacity of to receive data is measured in GB per day and referred to as the account's daily volume. 
+      
+      
+      **Daily volume** can be allocated as fixed or flexible volume.
       
 
-      * If fixed, the account's daily available volume is limited by its reserved daily GB. This is a fixed volume limit and there is no overage protection. Once the limit is exceeded, the account will stop receiving logs until the daily volume limit resets at 00:00 UTC.
+      * If fixed, every sub account has a fixed capacity. It is determined by the `maxDailyGB` parameter. Data This volume is
+      
+      limit daily available volume is limited by its reserved daily GB. This is a fixed volume limit and there is no overage protection. Once the limit is exceeded, the account will stop receiving logs until the daily volume limit resets at 00:00 UTC.
       
       
       * If flexible, account volume is managed by defining 2 tiers: the first tier is the account's reserved daily GB. This is guaranteed capacity that is dedicated for the account and cannot be used by any other account.

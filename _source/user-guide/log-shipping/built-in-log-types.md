@@ -1,11 +1,13 @@
 ---
 layout: article
-title: Built-in log types
+title: Default parsing
 permalink: /user-guide/log-shipping/built-in-log-types.html
 tags:
   - log-shipping
   - log-types
+  - parsing
 contributors:
+  - shalper
   - schwin007
   - imnotashrimp
 ---

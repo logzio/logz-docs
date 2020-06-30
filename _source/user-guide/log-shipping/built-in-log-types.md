@@ -12,7 +12,7 @@ contributors:
 
 Logz.io automatically parses logs shipped from many platforms, services, containers, servers, and more.
 
-The shipping configuration for each log includes a log **type** parameter that determines which pipeline is used to parse the data. In Kibana, it is indicated by a field named `type`. For example, if a log type is `apache_access`, Logz.io automatically parses these logs as Apache access logs.
+The shipping configuration for each log includes a log **type** parameter that determines which pipeline is used to parse the data. In Kibana, it is indicated by a field named `type`.
 
 Logz.io offers many pre-built parsing pipelines for a large number of log sources, as shown below. If you need a new pipeline created or want a customized version of an existing pipeline, contact Logz.io Support. Parsing-as-a-service is included in your package and we're happy to offer it.
 

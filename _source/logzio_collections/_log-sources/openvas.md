@@ -1,7 +1,7 @@
 ---
 title: Ship OpenVAS logs
 logo:
-  logofile: falco-logo.png
+  logofile: greenbone_icon.png
   orientation: vertical
 data-source: OpenVAS
 templates: ["network-device-filebeat"]

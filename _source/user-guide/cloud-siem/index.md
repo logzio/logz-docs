@@ -46,13 +46,3 @@ Security rules
 To see your Cloud SIEM account,
 click the Logz.io logo (upper left corner),
 and then click **Security**.
-
-## Products supported by Cloud SIEM
-
-Logz.io provides security rules and dashboards for the following security products:  
-
-{% for doc in site.log-sources %}
-{%- if doc.shipping-tags contains 'security' %}
-* [{{doc.data-source}}]({{doc.url}})
-{%- endif -%}
-{%- endfor -%}

@@ -139,12 +139,8 @@ If you want, you can also monitor advanced EC2 metrics, including disk memory an
 
 To enable this option, you’ll need to install and configure a CloudWatch agent on your machine and specify the **CWAgent** namespace under the AWS_NAMESPACES parameter. For example:
 
-```yml
-metricsets:
-    - cloudwatch
-  metrics: #specify aws namespaces you want to monitor, just add namspaces from AWS list
-    - namespace: AWS/EC2
-    - namespace: CWAgent
+```shell
+--env AWS_NAMESPACES="CWAgent,AWS/EC2"
 ```
 
 For additional instructions, see more about [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).

@@ -24,7 +24,7 @@ You can ship Redis metrics using Metricbeat.
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-```
+```shell
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
@@ -32,15 +32,14 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 
 Replace the General configuration with Logz.io settings.
 
-Replace `<<SHIPPING-TOKEN>>` with the token of the account you want to ship to.
+{% include metric-shipping/replace-metrics-token.html %}
 
-```
+```shell
 # ===== General =====
 fields:
   logzio_codec: json
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
-
 ```
 
 ##### Set Logz.io as the output
@@ -49,12 +48,11 @@ If Logz.io is not an output, add it now. Remove all other outputs.
 
 Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
-```
+```shell
 # ===== Outputs =====
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-
 ```
 
 
@@ -62,7 +60,7 @@ output.logstash:
 
 
 
-```
+```yml
 metricbeat.modules:
 - module: redis
   metricsets: ["info", "keyspace", "key"]
@@ -83,7 +81,6 @@ type: metrics
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-
 ```
 
 For the full Metricbeat configuration options for the Redis module, including explanations about hosts options and key pattern syntax, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-redis.html).
@@ -92,7 +89,7 @@ For the full Metricbeat configuration options for the Redis module, including ex
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include metric-shipping/replace-metrics-token.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

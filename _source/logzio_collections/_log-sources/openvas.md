@@ -64,7 +64,7 @@ filebeat.inputs:
     - [OUTPUT_PATH]
   fields:
     logzio_codec: plain
-    token: [LOGZIO TOKEN]
+    token: <<SHIPPING-TOKEN>>
     type: openvas
   fields_under_root: true
   encoding: utf-8
@@ -96,7 +96,7 @@ processors:
 #...
 output:
   logstash:
-    hosts: ["listener.logz.io:5015"]
+    hosts: ["<<LISTENER-HOST>>:5015"]
     ssl:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
@@ -107,9 +107,9 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * Replace the placeholder `[OUTPUT_PATH]` with the filepath to the folder where you’ll be keeping your reports. For example: `/home/kali/Downloads/Filebeat_read/*.csv`
 
-* Replace the placeholder `[LOGZIO TOKEN]` with your Logz.io shipping token. For example: `token: GytrttFFcPOomhaaahYUipoiTYUxvYtt`.
+* {% include log-shipping/replace-vars.html token=true %}
 
-* Replace the placeholder `["listener.logz.io:5015"]` with the Logz.io listener for your region.
+* {% include log-shipping/replace-vars.html listener=true %}
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.

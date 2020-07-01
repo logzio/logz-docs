@@ -10,6 +10,7 @@ open-source:
     github-repo: docker-collector-metrics
 contributors:
   - imnotashrimp
+  - shalper
 shipping-tags:
   - os
   - container
@@ -44,11 +45,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 
 Replace the General configuration with Logz.io settings.
 
-{% include log-shipping/replace-vars.html token=true %}
-
-Make sure you're using the shipping token for your **METRICS ACCOUNT** and not the shipping token from the main account.
-You can find your metrics account token by clicking the cogwheel icon, selecting Settings -> Manage Accounts, and scrolling down to the metrics account information.
-{:.info-box.note}
+{% include metric-shipping/replace-metrics-token.html %}
 
 ```yaml
 # ===== General =====
@@ -157,7 +154,7 @@ logzio/docker-collector-metrics
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LOGZIO_TOKEN <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
 | LOGZIO_MODULES <span class="required-param"></span> | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/logzio_modules`. |
 | LOGZIO_REGION <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |

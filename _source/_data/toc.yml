@@ -82,7 +82,9 @@ firstLevel:
   icon: fas fa-shield-alt
 
   secondLevel:
-  - title: Cloud SIEM
+  - title: Why Cloud SIEM?
+    url: /user-guide/siem/intro/
+  - title: Getting started
     url: /user-guide/cloud-siem/
     thirdLevel:
     - title: Understanding your security logs
@@ -91,8 +93,12 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Lookups
       url: /user-guide/lookups/
+  - title: Integrations
+    url: /user-guide/cloud-siem/integrations/
+    thirdLevel:
     - title: Integrate with Cortex xSOAR
       url: /user-guide/cloud-siem/xsoar-integration/
+
 
 - title: Admin tools
   icon: li-gear

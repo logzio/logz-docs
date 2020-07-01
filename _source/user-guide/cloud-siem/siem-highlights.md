@@ -12,14 +12,16 @@ contributors:
 ---
 
 Logz.io Cloud SIEM will help you detect threats and investigate security incidents as soon as you start sending logs.
-Here's how your Cloud SIEM will get you there.
+Here's how your Cloud SIEM will help you reduce mean-time-to-response and improve team productivity.
+
+
+### Familiar interface
 
 The Cloud SIEM is built on top of the ELK Stack so teams can use familiar analytics tools for securing their environments.
 
-Cloud SIEM will help you set priorities and decide which events to investigate first based on their severity, threat level, and by correlating them with industry-standard threat intelligence feeds. Cloud SIEM will help you reduce mean-time-to-response and improve team productivity.
+Powerful enough to run on petabytes of data, Cloud SIEM aggregates security incidents to help you set priorities and decide which events to investigate first based on their severity, threat level, and by correlating them with industry-standard threat intelligence feeds.
 
-
-### Start identifying threats immediately
+### Zero ramp-up time
 
 Pre-configured security rules and monitoring dashboards make it simple to start identifying threats straight away.
 The list of rules and dashboards is continuously expanding and Logz.io's dedicated team of security experts adds content and improvements on a regular basis.
@@ -52,6 +54,6 @@ Cloud SIEM helps you comply with regulatory standards such as GDPR and PCI using
 
 Benefit from ongoing security guidance from Logz.io's team of security experts and get access to world-class customer support.
 
-### Extended retention
+### 10 Year retention
 
 Cloud SIEM retains logs of any triggered security rules for 10 years! This extended timeframe ensures that your company retains information long enough to investigate incidents and be covered in case of inquiries.

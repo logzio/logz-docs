@@ -1,9 +1,9 @@
 ---
 layout: article
-title: Logz.io Cloud SIEM
+title: Getting started with Cloud SIEM
 permalink: /user-guide/cloud-siem/
 flags:
-  logzio-plan: pro
+  logzio-plan: enterprise
 tags:
   - security-analytics
   - security-summary
@@ -11,6 +11,7 @@ tags:
   - security-research
   - security-rules
 contributors:
+  - shalper
   - imnotashrimp
   - danielberman
 ---
@@ -18,41 +19,31 @@ contributors:
 Logz.io Cloud SIEM combines the ELK stack
 with advanced security analytics tools
 to help you identify and remediate threats to your system.
-With Cloud SIEM, you can identify
-potential indicators of compromise
-by correlating your Logz.io data with lists of known threats.
 
-![Logz.io Cloud SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics--annotated.png)
+To open your Cloud SIEM account,
+click the Logz.io logo (upper left corner),
+and then click **Security**.
+
+![Logz.io Cloud SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-getting-started.png)
 
 Summary
 : The first thing you see when you sign in to your security account.
   The summary dashboard shows the last 24 hours of events that Logz.io found in your log data.
 
 Threats
-: Using publicly available threat feeds,
-  this screen shows the potential threats from known bad actors on the internet.
+: The Threats dashboard shows you potential threats by correlating your logs with lists of known threats using publicly available threat feeds.
 
-Research
-: Use Kibana to drill down into your logs,
-  helping you better understand specific events and threats.
+Research & Dashboards
+: Use Kibana Discover to drill down into your logs, or select dashboards to review.
+  Cloud SIEM helps you quickly investigate specific events and threats.
 
-Security rules
-: This page contains preconfigured security rules.
-  When security rules are triggered,
-  you’ll see the results on the Summary and Threats dashboards.
-  You can also create your own custom rules.
+Reports
+: Schedule reports to be sent out on a regular basis.
+
+Rules
+: Manage your SIEM's preconfigured rules, or add your own.
+  When a security rule triggers, a security event is logged
+  and written to the relevant dashboards as well as the Summary and Threats dashboards.
 {:.letter-labels}
 
-To see your Cloud SIEM account,
-click the Logz.io logo (upper left corner),
-and then click **Security**.
 
-## Products supported by Cloud SIEM
-
-Logz.io provides security rules and dashboards for the following security products:  
-
-{% for doc in site.log-sources %}
-{%- if doc.shipping-tags contains 'security' %}
-* [{{doc.data-source}}]({{doc.url}})
-{%- endif -%}
-{%- endfor -%}

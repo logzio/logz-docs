@@ -128,9 +128,7 @@ metricbeat.modules:
     # 👇 Duplicate this code block for each resource type whose metrics you want to ship.
  - resource_query: "resourceType eq 'Microsoft.ServiceBus/namespaces'"
       metrics:
-      - name: ["SuccessfulRequests","ServerErrors","UserErrors",
-      "ThrottledRequests","IncomingRequests","IncomingMessages",
-      "OutgoingMessages","Size","Messages","ActiveMessages"]
+      - name: ["SuccessfulRequests","ServerErrors","UserErrors","ThrottledRequests","IncomingRequests","IncomingMessages","OutgoingMessages","Size","Messages","ActiveMessages"]
         namespace: "Microsoft.ServiceBus/namespaces"
         dimensions:
         - name: "EntityName"
@@ -150,7 +148,6 @@ type: metrics
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-
 ```
 
 {% include metric-shipping/azure-params.html %}

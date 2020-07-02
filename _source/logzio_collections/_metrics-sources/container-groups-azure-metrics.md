@@ -16,7 +16,7 @@ To monitor your Azure service metrics,
 we recommend configuring your services
 to send their metrics to Azure Monitor.
 When you set up Metricbeat using the configuration on this page,
-Metricbeat will collect metrics from Azure PostgreSQLs
+Metricbeat will collect metrics from Azure Container Groups
 and forward them to [Logz.io](http://logz.io/).
 
 #### Metricbeat setup

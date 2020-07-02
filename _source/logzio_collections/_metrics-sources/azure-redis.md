@@ -1,9 +1,9 @@
 ---
-title: Ship Azure Redis cache metrics
+title: Ship Azure Redis Cache metrics
 logo:
   logofile: azure-cache-for-redis.svg
   orientation: vertical
-data-source: Azure Redis cache
+data-source: Azure Redis Cache
 contributors:
   - yotamloe
   - shalper

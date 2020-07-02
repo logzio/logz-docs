@@ -21,10 +21,8 @@ and forward them to [Logz.io](http://logz.io/).
 
 #### Metricbeat setup
 
-**Before you begin, you'll need**:
+{% include metric-shipping/azure-services-requirements.html %}
 
-* [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/7.6/metricbeat-installation.html),
-* [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or higher
 
 <div class="tasklist">
 

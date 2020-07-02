@@ -3,7 +3,7 @@ title: Ship Azure VM metrics
 logo:
   logofile: azure-vm_large.svg
   orientation: vertical
-data-source: Azure VM Metrics
+data-source: Azure VM
 contributors:
   - yotamloe
   - shalper

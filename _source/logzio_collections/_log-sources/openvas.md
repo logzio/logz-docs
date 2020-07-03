@@ -6,7 +6,7 @@ logo:
 data-source: OpenVAS
 templates: ["network-device-filebeat"]
 contributors:
-  - moshekruger
+  - shalper
 shipping-tags:
   - security
 ---
@@ -15,37 +15,28 @@ OpenVAS reporting allows you to create a report from one or more OpenVAS/Greenbo
 
 OpenVAS reports are typically generated manually, as needed. There are also third-party tools for scheduling OpenVAS to generate reports automatically.
 
-The following instructions show you how to configure Filebeat to automatically send OpenVAS reports to Logz.io. 
-
-###### On this page
-{:.no_toc}
-
-1. toc list
-{:toc}
+The following instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.
 
 #### Step by step
-{:.no_toc}
-
-**Before you begin, you'll need**:
-
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 
-* root access
 
 <div class="tasklist">
 
-##### Generate a CSV report in OpenVAS
 
-After completing a scan in OpenVAS, perform the following steps:
+**Before you begin, you'll need**:
 
-Click the **Scans tab**, then choose **Reports**. 
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* root access
 
-In the list of scans that is displayed, click the desired report date.
 
-In the page that is displayed, at the top left, choose **CSV Results** in the drop-down, then click the green arrow immediately to its right.
+##### Download the Logz.io public certificate to your Filebeat server
 
-![OpenVAS image](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/openvas.png.)
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
-The file downloads to the default Downloads path set for your Web browser. You can either copy the CSV report file to the folder you set in Filebeat, or set the browser’s default Downloads location to that folder.
+```shell
+sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
+```
+
+If you're using a windows machine, see the [instructions for installing Filebeat for Windows]({{site.baseurl}}/shipping/filebeat-for-windows.html).
 
 
 ##### Configure Filebeat
@@ -56,12 +47,13 @@ Copy and paste the code block below, overwriting the previous contents. (You wan
 This code block adds OpenVAS as an input and sets Logz.io as the output.
 
 ```yaml
-#...
+# ...
 filebeat.inputs:
 
 - type: log
   paths:
-    - [OUTPUT_PATH]
+    - <<filepath-to-openvas-reports.csv>>
+    - /home/kali/Downloads/Filebeat_read/*.csv
   fields:
     logzio_codec: plain
     token: <<SHIPPING-TOKEN>>
@@ -101,11 +93,12 @@ output:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
+
 ##### Replace the placeholders in the Filebeat configuration
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* Replace the placeholder `[OUTPUT_PATH]` with the filepath to the folder where you’ll be keeping your reports. For example: `/home/kali/Downloads/Filebeat_read/*.csv`
+* Replace the filepath placeholder `<<filepath-to-openvas-reports.csv>>`. Type in the folder where you’ll be keeping your OpenVAS reports.
 
 * {% include log-shipping/replace-vars.html token=true %}
 
@@ -117,6 +110,20 @@ If the file has other outputs, remove them.
 ##### Start Filebeat
 
 Start or restart Filebeat for the changes to take effect.
+<br>
+Filebeat is now configured to send OpenVAS CSV reports directly to Logz.io.
+
+##### Generate a CSV report in OpenVAS
+
+After completing a scan in OpenVAS, perform the following steps to generate a CSV report.
+
+1. Click the **Scans tab**, then choose **Reports**.
+2. Select a report from the list.
+3. The report summary will open. Select **CSV Results** from the drop-down menu (top left corner) and click the download option (It's the green arrow <i class="fas fa-long-arrow-alt-down"></i>).
+
+    ![OpenVAS image](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/openvas.png)
+
+4. The CSV file will be downloaded to the default Downloads path set for your Web browser, unless you've changed the default. Make sure it is the same path as set in your Filebeat configuration above.
 
 ##### Check Logz.io for your logs
 
@@ -125,3 +132,4 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+

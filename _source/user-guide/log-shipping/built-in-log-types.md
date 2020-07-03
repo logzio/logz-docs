@@ -64,6 +64,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | nginx error           | `nginx-error`                              |
 | NGINX access          | `nginx`, `nginx_access`, `nginx-access`    |
 | NGINX error           | `nginx-error`                              |
+| OpenVAS                 | `openvas`                                    |
 | OSSEC                 | `ossec`                                    |
 | Zipkin span           | `zipkinSpan`                               |
 | Palo Alto Networks    | `paloalto`                                  |

@@ -124,8 +124,7 @@ After completing a scan in OpenVAS, perform the following steps to generate a CS
 
     ![OpenVAS image](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/openvas.png)
 
-4. The CSV file will be downloaded to the default Downloads path set for your Web browser. <br>
-If your Filebeat is configued to read reports from another folder, you can manually copy OpenVAS reports to another folder or change the browser's default Downloads path.
+4. The CSV file will be downloaded to the default Downloads path set for your Web browser. <br> If your Filebeat is configued to read reports from another folder, you can manually copy OpenVAS reports to another folder or change the browser's default Downloads path.
 
 ##### Check Logz.io for your logs
 

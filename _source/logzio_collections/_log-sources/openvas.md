@@ -19,14 +19,14 @@ Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to rev
 
 #### Step by step
 
-<div class="tasklist">
-
 
 **Before you begin, you'll need**:
 
 * [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * root access
+* [OpenVAS](https://www.openvas.org/about.html)
 
+<div class="tasklist">
 
 ##### Download the Logz.io public certificate to your Filebeat server
 
@@ -52,8 +52,7 @@ filebeat.inputs:
 
 - type: log
   paths:
-    - <<filepath-to-openvas-reports.csv>>
-    - /home/kali/Downloads/Filebeat_read/*.csv
+    - <<filepath-to-openvas-reports>>/*.csv
   fields:
     logzio_codec: plain
     token: <<SHIPPING-TOKEN>>
@@ -98,7 +97,7 @@ output:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* Replace the filepath placeholder `<<filepath-to-openvas-reports.csv>>`. Type in the folder where you’ll be keeping your OpenVAS reports.
+* Replace the filepath placeholder `<<filepath-to-openvas-reports` with the file path to the folder where you’ll be keeping your OpenVAS reports. For example, `/home/kali/Downloads/Filebeat_read/*.csv` will look for any file with a csv extension under that path.
 
 * {% include log-shipping/replace-vars.html token=true %}
 

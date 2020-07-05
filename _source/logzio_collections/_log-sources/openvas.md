@@ -52,7 +52,7 @@ filebeat.inputs:
 
 - type: log
   paths:
-    - <<filepath-to-openvas-reports>>/*.csv
+    - <<FILEPATH-TO-OPENVAS-REPORTS>>/*.csv
   fields:
     logzio_codec: plain
     token: <<SHIPPING-TOKEN>>
@@ -97,7 +97,7 @@ output:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* Replace the filepath placeholder `<<filepath-to-openvas-reports` with the file path to the folder where you’ll be keeping your OpenVAS reports. For example, `/home/kali/Downloads/Filebeat_read/*.csv` will look for any file with a csv extension under that path.
+* Replace the filepath placeholder `<<FILEPATH-TO-OPENVAS-REPORTS>>` with the file path to the folder where you’ll be keeping your OpenVAS reports. For example, `/home/kali/Downloads/Filebeat_read/*.csv` will look for any file with a csv extension under that path.
 
 * {% include log-shipping/replace-vars.html token=true %}
 
@@ -114,17 +114,18 @@ Filebeat is now configured to send OpenVAS CSV reports directly to Logz.io.
 
 ##### Generate a CSV report in OpenVAS
 
-OpenVAS reports are typically generated manually, as needed. There are also third-party tools for scheduling OpenVAS to generate reports automatically.
+OpenVAS reports are typically generated manually, as needed.
 
 After completing a scan in OpenVAS, perform the following steps to generate a CSV report.
 
-1. Click the **Scans tab**, then choose **Reports**.
-2. Select a report from the list.
+1. Click the **Scans tab**, then select **Reports**.
+2. Select a report from the list of results.
 3. The report summary will open. Select **CSV Results** from the drop-down menu (top left corner) and click the download option (It's the green arrow <i class="fas fa-long-arrow-alt-down"></i>).
 
     ![OpenVAS image](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/openvas.png)
 
-4. The CSV file will be downloaded to the default Downloads path set for your Web browser, unless you've changed the default. Make sure it is the same path as set in your Filebeat configuration above.
+4. The CSV file will be downloaded to the default Downloads path set for your Web browser. <br>
+If your Filebeat is configued to read reports from another folder, you can manually copy OpenVAS reports to another folder or change the browser's default Downloads path.
 
 ##### Check Logz.io for your logs
 

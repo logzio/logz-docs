@@ -84,6 +84,8 @@ firstLevel:
   secondLevel:
   - title: Why Cloud SIEM?
     url: /user-guide/siem/intro/
+  - title: Highlights
+    url: /user-guide/siem/highlights/
   - title: Getting started
     url: /user-guide/cloud-siem/
     thirdLevel:

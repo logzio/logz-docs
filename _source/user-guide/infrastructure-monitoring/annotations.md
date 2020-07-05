@@ -11,11 +11,11 @@ contributors:
   - daniel-tk
 ---
 
-Mark events on your Metrics dashboards in response to specific logs in your main logging account.
+Annotations can mark events on your Metrics dashboards based on data from a logging account. For example, an annotation can indicate when a particular error log or configuration change occured based on logs written to your main logging account.
 
 Annotations offer another way to correlate your metrics with your logs, to help you figure out _why_ things are happening. Annotations are similar to using [Markers]({{site.baseurl}}/user-guide/insights/markers.html) in your logging [Insights]({{site.baseurl}}/user-guide/insights/exploring-insights.html).
 
-When you add Annotations to a dashboard, they will apply to any relevant visualizations by default. You can add multiple annotations to a dashboard and toggle them on and off to get the right view.
+
 
 #### Configure an annotation
 
@@ -25,85 +25,62 @@ When you add Annotations to a dashboard, they will apply to any relevant visuali
 
 Before you begin, you'll need to make sure you have permissions to edit the dashboard.
 
-If you are using any of the pre-configured dashboards provided by Logz.io, you'll need to duplicate it first.
-(They are read-only, by default.)
-
-Click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save** .
-If you don't rename the dashboard, it will have the same name as the original dashboard, with **Copy** appended at the end.
-
-  <video autoplay loop>
-    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/copy-dashboard2.mp4" type="video/mp4" />
-  </video>
+If you are using any of the pre-configured dashboards provided by Logz.io, you'll first need to select the option to make it editable. (You can also click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save**).
 
 ##### Add a new annotation
 
 Go to the dashboard's settings:
 
-* Click <i class="fas fa-cog"></i> in the dashboard toolbar (upper right corner).
+* Click the gear **<i class="li li-gear"></i>** in the dashboard's top menu (upper right corner).
 * Select **Annotations** > **New**.
+* The annotation form will appear. Fill in the form, starting with the **General** section.
+  1. Give a short **Name**. The name should describe the significance of the event.
+  2. Select a logging account as the **Data source**. This is the relevant Kibana account.
 
-![Add Dashboard Annotation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/annotation-example.png)
+<video autoplay loop>
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/grafana7-annotations.mp4" type="video/mp4" />
+</video>
 
-Fill in the form, starting with the **General** section.
+##### Decide which logs should trigger the annotation
 
-* Give a short **Name**. The name should describe the significance of the event.
-* Select a logging account as the **Data source**. This is the relevant Kibana account.
+Type in a _Kibana_ query in Lucene syntax.
 
-##### Define the query
+The query determines which logs will be marked as events in your dashboard.
+It's best if you double-check your query results in [Kibana Discover](/user-guide/kibana/) to make sure it is specific enough.
 
-The query determines which logs will be marked as events in your dashboard. It is a typical Lucene query. Be sure to make the query specific enough to select only for logs that indicate the event you want to capture.
+Note that the annoation query does not support Grafana variables.
 
-##### Set significant fields
+##### Decide how the annotation should appear in the dashboard
 
-Decide which fields from the logs returned by the query, will be shown. the critical information from the log that will be shown when hovering over the marker. t the appearence of the annotation
+If you hover over the annotation in the dashboard, it can show additional information, as set by these fields:
 
-![Add Dashboard Annotation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/annotation-example.png)
+* **Text** - Type in the log field name that is of most interest. The field's value will be shown when hovering over the marker. In the example shown below, the `message` field was selected.
 
-
-Next, fill in the query options.
-
-* For the **Data source**, select your Metrics account. (You can look it up [here](https://app.logz.io/#/dashboard/settings/manage-accounts).)
-* We recommend setting **Refresh** to automatically occur **On Dashboard Load**.
-* The **Query** field is where things get really fun. Your query object should start with `{"find": "terms"}`
-  and contain a field from your Elasticsearch index.
-
-![Variable query options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variable-config--query-options.png)
-
-  Your query can reference another Grafana variable.
-  In this example, `$cluster` references another variable.
-
-  ```json
-  {"find": "terms", "field": "kubernetes.node.name", "query": "cluster:$cluster"}
-  ```
-  Otherwise, the query can be set to a specific field. For example:
-
-  ```json
-  {"find": "terms", "field": "host.name"}
-  ```
-
-##### Configure the remaining options and save
-
-The remaining options can be set
-to whatever makes the most sense for your metrics.
-
-When you're finished, scroll to the bottom of the page and click **Update**.
+* **Tags** - Type in one or more log field names. The values of the fields will appear as tags when you hover over an annotation in the dashboard.
 
 
-##### Example
+##### Save the annotation & dashboard
+
+When you're finished, save the annotation.
+You'll be able to see it in action. If you are satisfied with it, save the changes to the dashboard (when prompted).
+
+
+### Example
 
 Here's a good example of when you might find annotations useful. Imagine having a marker indicate every time there is a configuration change in your Kubernetes cluster. This could help to see if a specific configuration change caused problems in the cluster.
 
-After selecting the relevant log account, define a query that will return only Kubernetes configuration change logs. 
+After selecting the relevant log account, define a query that will return only Kubernetes configuration change logs.
 
-The query selected for this example is `loglevel:Configuration AND namespace:"kube-system"`. In other words, this query looks for logs that have 2 field:value pairs.
+The query selected for this example is `loglevel:Configuration AND namespace:"kube-system"`.
+<br>
+In other words, this query says “for this annotation, return only logs that have the field `loglevel` with the value `CONFIGURATION`, and the field `namespace` with the value `kube-system`.
 
-When a log is found that answers the query, it will appear as a vertical marker on the dashboard. When you hover over the marker, it will show the `message` field. (The `message` field is specified under `Text`). The value of the `service` field will appear as a tag.
+![Add Dashboard Annotation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/annotation-example.png)
 
+When a log is found that answers the query, it will appear as a vertical marker on the dashboard.
 
+When you hover over the marker, it will show the `message` field and the value of the `service` field will appear as a tag.
 
+Here's how this annotation will actually look on a dashboard.
 
- (in a free translation, the query says “for this annotation return only logs which has the field ’loglevel’ with the value ‘CONFIGURATION’, and the field ‘namespace’ with the value ‘kube-system’).
-For these logs we chose to present the content of their ‘message’ field (under the ‘Text’ box) and content of their ‘service’ field (as a tag, under the ‘Tags’) box.
-Now let us see how does this annotation actually looks like de facto:   
-
-
+![Add Dashboard Annotation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-annoation-in-dashboard.png)

@@ -3,9 +3,8 @@ layout: article
 title: Log shipping tokens
 permalink: /user-guide/tokens/log-shipping-tokens/
 flags:
-  beta: true
+  alpha: true
   admin: true
-  logzio-plan: community
 tags:
   - tokens
   - account-tokens

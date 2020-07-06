@@ -26,6 +26,10 @@ div.page-flags {
   color: var(--infobox-important);
 }
 
+.flag.alpha {
+  color: var(--infobox-important);
+}
+
 /* feature boxes */
 
 div.feature-box {

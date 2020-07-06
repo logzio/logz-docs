@@ -13,7 +13,7 @@ contributors:
   - shalper
 ---
 
-Log shipping tokens (formerly: account token) tell Logz.io which account to send your data to. <br> 
+Log shipping tokens tell Logz.io which account to send your data to. <br>
 Every account has its own set of tokens.
 
 You need to be an account admin to access your tokens and to view or manage them.
@@ -39,6 +39,6 @@ Log shipping tokens are used in the shipping configuration to direct data to the
 
 To view your tokens, go to [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). Click any **Token** to copy it.
 
-When configuring your log shippers, replace the <<SHIPPING-TOKEN>> placeholder with one of your enabled log shipping tokens. See more in the [log shipping guide](/shipping/).
+When configuring your log shippers, replace the <<SHIPPING-TOKEN>> placeholder with one of your enabled log shipping tokens. See more in the [log shipping guide]({{site.baseurl}}/shipping/).
 
 If you are using the shipping instructions in the [Logz.io app](https://app.logz.io/#/dashboard/data-sources/Filebeat), keep in mind that the configurations include the default token for the account from which you are viewing the page. You can replace the token with any other active token, as needed.

@@ -12,7 +12,8 @@ contributors:
   - shalper
 ---
 
-Log shipping tokens tell Logz.io which account to send your data to. <br>
+Log shipping tokens are used in shipper configurations to direct data to the relevant Logz.io account.
+<br>
 Every account has its own set of tokens.
 
 You need to be an account admin to access your tokens and to view or manage them.

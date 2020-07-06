@@ -4,6 +4,9 @@
   {% if page.flags.beta -%}
     <div class="flag beta">Beta</div>
   {%- endif %}
+  {% if page.flags.alpha -%}
+    <div class="flag alpha">Alpha - by invitation only</div>
+  {%- endif %}
   {% if page.flags.admin -%}
     <div class="flag admin">For admins</div>
   {%- endif %}

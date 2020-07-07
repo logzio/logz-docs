@@ -92,19 +92,19 @@ tags:
   - name: Who am I
   - name: Manage sub accounts
     description: >-
-      Use these API requests to create, update, retrieve, or delete sub accounts and to distribute daily capacity between sub accounts.
+      Use these API requests to create, update, retrieve, or delete sub accounts and to allocate daily capacity to sub accounts.
 
 
-      **Daily volume capacity** - This is the 
+      **Daily capacity** - The volume of data that an account can index per day can be configured in two ways, depending on whether the account's  . If **flexible**, determine how much data each sub account can receive per day.
       
       
-      **Flexible vs. Fixed volume allocation**
+      
 
       
       Your plan's total volume can be allocated among your sub accounts in several ways. If daily volume capacity is flexible, any capacity that remains unallocated is **Shared volume**.   to a can be strictrly allocated between accounts depends on whether **flexible volume** is 
       
       
-       to determine how much data each sub account can receive per day. 
+     
       
       
       Each sub account can be given a daily capacity of to receive data is measured in GB per day and referred to as the account's daily volume. 
@@ -2009,27 +2009,34 @@ definitions:
       esIndexPrefix:
         type: string
       isFlexible:
-        boolean: true
+        type: boolean
         default: false
         description: >-
-          If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
+          If `true`, 2 parameters determine the volume of data that the account can index per calendar day:
           
           
-          If `false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          * `reservedDailyGB` (Required) - determines the volume that is reserved for the account. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB` (as long as shared volume is available).
+
+
+          * `maxDailyGB` (Optional) - can be used to set an upper limit on the volume that the account can index. Indexing capacity above `reservedDailyGB` is not guaranteed and is conditional on the availability of shared volume. If null, the account has unlimited access to shared volume.
+
+          
+          If `false`, only `maxDailyGB` determines the volume of data that the account can index per calendar day. The parameter `reservedDailyGB` is irrelevant.
         example: true
       reservedDailyGB:
         type: number
         format: float
         description: >-
-          Daily volume, in GB, strictly reserved for the specific account. This capacity is guaranteed and cannot be used by any other accounts.
-
-
-          * If `null` 
+          Required if `isFlexible=true`, irrelevant if `isFlexible=false`.
+          
+          
+          Determines the daily volume in GB reserved for the account. This capacity is guaranteed and cannot be used by any other accounts.
         example: 3
       maxDailyGB:
         type: number
         format: float
-        description: 
+        description: >-
+          Required if `isFlexible=false`, optional if `isFlexible=true`.
         example: 5
       retentionDays:
         type: integer

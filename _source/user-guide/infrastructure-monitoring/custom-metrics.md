@@ -138,8 +138,6 @@ Metrics are sent as minified JSON objects with one JSON object per line.
 You can use any of the following shippers to send your application metrics to Logz.io:
 
 
-
-
 {% for doc in site.log-sources %}
 {%- if doc.shipping-tags contains 'from-your-code' %}
 * [{{doc.data-source}}]({{doc.url}})
@@ -147,6 +145,22 @@ You can use any of the following shippers to send your application metrics to Lo
 {%- endfor -%}
 
 <br>
+
+
+##### Contact support to request a custom rollups config
+
+Your Metrics account offers 18 month retention, by default. This is to allow you to establish your baseline and make comparisons over a substantial time frame.
+
+Data rollups are used to compress the data without losing the original extremes. The original max, min, and average values are kept so you can graph the data more accurately despite its compression. For more information, see [Rollups](/user-guide/infrastructure-monitoring/data-rollups.html).
+
+To kick off this process, send an email to help@logz.io requesting a custom metrics config. Include the following in your message:
+
+1. Your Logz.io Metrics account ID or [token](/user-guide/accounts/finding-your-metrics-account-token/).
+2. At least 5 sample JSONs of your custom metrics.
+3. If you are sending multiple metricsets,
+add descriptions to clarify which metricsets are associated with which dimensions.
+
+Configuring the rollups for your custom metrics is included in your package and we're happy to offer it!
 
 ##### What to avoid
 

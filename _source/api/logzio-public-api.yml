@@ -95,35 +95,12 @@ tags:
       Use these API requests to create, update, retrieve, or delete sub accounts and to allocate daily capacity to sub accounts.
 
 
-      **Daily capacity** - The volume of data that an account can index per day can be configured in two ways, depending on whether the account's  . If **flexible**, determine how much data each sub account can receive per day.
-      
-      
-      
-
-      
-      Your plan's total volume can be allocated among your sub accounts in several ways. If daily volume capacity is flexible, any capacity that remains unallocated is **Shared volume**.   to a can be strictrly allocated between accounts depends on whether **flexible volume** is 
-      
-      
-     
-      
-      
-      Each sub account can be given a daily capacity of to receive data is measured in GB per day and referred to as the account's daily volume. 
-      
-      
-      **Daily volume** can be allocated as fixed or flexible volume.
-      
-
-      * If fixed, every sub account has a fixed capacity. It is determined by the `maxDailyGB` parameter. Data This volume is
-      
-      limit daily available volume is limited by its reserved daily GB. This is a fixed volume limit and there is no overage protection. Once the limit is exceeded, the account will stop receiving logs until the daily volume limit resets at 00:00 UTC.
-      
-      
-      * If flexible, account volume is managed by defining 2 tiers: the first tier is the account's reserved daily GB. This is guaranteed capacity that is dedicated for the account and cannot be used by any other account.
-      The second tier is the account's max daily GB. This is the account's "overage" protection. If the account exceeds its daily reserved volume, it can continue receiving data, as long as shared volume is available.
-      
-      
-      To set up shared volume, keep a share of your plan volume unallocated. Shared volume will help to maximize the value you get from your daily volume capacity.
-      Unallocated capacity is set aside as **shared volume** and can be can be used by any account with flexible capacity enabled.
+      ### Shared volume
+        
+      This feature is in Alpha. Contact Support to request early access.
+        
+    
+      **Shared volume** can be enabled to allow accounts to share indexing capacity. To enable shared volume, go to the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts) in the Logz.io app and toggle the button **Use flexible volume** to turn it on.
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.
@@ -222,7 +199,8 @@ paths:
         source: 'curl --request GET --url "https://api.logz.io/v1/account-management/time-based-accounts" --header "X-API-TOKEN: <token>"'
     post:
       summary: Create a sub account
-      description: Creates a new time-based sub account. Must be run with an API token from the main account.
+      description: >-
+        Creates a new logging sub account. Must be run with an API token from the main account.
       tags:
         - Manage sub accounts
       operationId: createTimeBasedAccount
@@ -2007,36 +1985,43 @@ definitions:
       active:
         type: boolean
       esIndexPrefix:
+        description: Prefix of the Elasticsearch Index used to index the data.
         type: string
       isFlexible:
         type: boolean
         default: false
         description: >-
-          If `true`, 2 parameters determine the volume of data that the account can index per calendar day:
+          Indicates whether the plan has **shared volume** enabled.
           
           
-          * `reservedDailyGB` (Required) - determines the volume that is reserved for the account. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB` (as long as shared volume is available).
-
-
-          * `maxDailyGB` (Optional) - can be used to set an upper limit on the volume that the account can index. Indexing capacity above `reservedDailyGB` is not guaranteed and is conditional on the availability of shared volume. If null, the account has unlimited access to shared volume.
+          If `true`, the volume of data that the account can index per calendar day is determined by 2 parameters: `reservedDailyGB` (Required) and  `maxDailyGB` (Optional, can be null).
 
           
-          If `false`, only `maxDailyGB` determines the volume of data that the account can index per calendar day. The parameter `reservedDailyGB` is irrelevant.
+          If `false`, the volume of data that the account can index per calendar day is determined only by `maxDailyGB`. The parameter `reservedDailyGB` does not apply.
         example: true
       reservedDailyGB:
         type: number
         format: float
         description: >-
-          Required if `isFlexible=true`, irrelevant if `isFlexible=false`.
-          
-          
-          Determines the daily volume in GB reserved for the account. This capacity is guaranteed and cannot be used by any other accounts.
+          * If `isFlexible=false`, this field does not apply.
+   
+         
+          * If `isFlexible=true`, this determines the daily volume in GB reserved for the account. This capacity is guaranteed and cannot be used by any other accounts.
         example: 3
       maxDailyGB:
         type: number
         format: float
         description: >-
-          Required if `isFlexible=false`, optional if `isFlexible=true`.
+          The maximum volume of data that an account can index per calendar day.
+
+
+          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
+
+
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
+          
+          
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
         example: 5
       retentionDays:
         type: integer
@@ -2054,46 +2039,47 @@ definitions:
     required:
       - accountName
       - sharingObjectsAccounts
-      - maxDailyGB
-      - reservedDailyGB
     properties:
       accountName:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
       isFlexible:
-        boolean: true
+        type: boolean
         default: false
         description: >-
-          If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
+          If `true`, the volume of data that the account can index per calendar day is determined by 2 parameters: `reservedDailyGB` (Required) and `maxDailyGB` (Optional, can be null).
           
+           
+          Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its daily maximum, as long as shared volume is available. If the daily maximum is null, the account is not capped and can continue to index data as long as shared volume is available.
+
           
-          If `false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          If `false`, the volume of data that the account can index per calendar day is determined only by `maxDailyGB`. The parameter `reservedDailyGB` does not apply and should be null.
         example: true
       reservedDailyGB:
         type: number
         format: float
         default: null
         description: >-
-          Only relevant if flexible storage is enabled.
-
-
-          * If `isFlexible=true`, cannot be null. Guaranteed daily volume, in GB, allocated for the specific account. This capacity is reserved for the account and cannot be used by any other accounts.
-
-
-          * If `isFlexible=true`, this field is irrelevant. Leave null.
+          * If `isFlexible=false`, this field does not apply. Leave it null.
+   
+         
+          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
         example: 3
       maxDailyGB:
         type: number
         format: float
         description: >-
-          Daily volume cap, in GB.
+          The maximum volume of data that an account can index per calendar day.
 
 
-          * If `isFlexible=true`, this is overage protection. The account can continue to receive data up to its daily max as long as shared volume is available.
+          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
 
 
-          * If `isFlexible=false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
+          
+          
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
         example: 5
       retentionDays:
         type: integer
@@ -2149,8 +2135,6 @@ definitions:
       - email
       - sharingObjectsAccounts
       - retentionDays
-      - maxDailyGB
-      - reservedDailyGB
     properties:
       email:
         type: string
@@ -2162,38 +2146,41 @@ definitions:
         description: Name of the account
         example: AWS Lambda svr 3
       isFlexible:
-        boolean: true
+        type: boolean
         default: false
         description: >-
-          If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
+          If `true`, the volume of data that the account can index per calendar day is determined by 2 parameters: `reservedDailyGB` (Required) and `maxDailyGB` (Optional, can be null).
           
+           
+          Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its daily maximum, as long as shared volume is available. If the daily maximum is null, the account is not capped and can continue to index data as long as shared volume is available.
+
           
-          If `false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          If `false`, the volume of data that the account can index per calendar day is determined only by `maxDailyGB`. The parameter `reservedDailyGB` does not apply and should be null.
         example: true
       reservedDailyGB:
         type: number
         format: float
         default: null
         description: >-
-          Only relevant if flexible storage is enabled.
-
-
-          * If `isFlexible=true`, cannot be null. Guaranteed daily volume, in GB, allocated for the specific account. This capacity is reserved for the account and cannot be used by any other accounts.
-
-
-          * If `isFlexible=true`, this field is irrelevant. Leave null.
+          * If `isFlexible=false`, this field does not apply. Leave it null.
+   
+         
+          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
         example: 3
       maxDailyGB:
         type: number
         format: float
         description: >-
-          Daily volume cap, in GB.
+          The maximum volume of data that an account can index per calendar day.
 
 
-          * If `isFlexible=true`, this is overage protection. The account can continue to receive data up to its daily max as long as shared volume is available.
+          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
 
 
-          * If `isFlexible=false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
+          
+          
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
         example: 5
       retentionDays:
         type: integer
@@ -2296,43 +2283,46 @@ definitions:
         description: Account log shipping token (unique to this account)
         example: f483abe93b
       isFlexible:
-        boolean: true
+        type: boolean
         default: false
         description: >-
-          If `true`, the account has access to shared storage for overage protection. Once the data shipped to the account exceeds the account's reserved daily GB, the account can continue to receive data up to its `maxDailyGB` (as long as shared volume is available). 
+          Indicates whether the plan has **shared volume** enabled.
           
           
-          If `false`, the account's capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          If `true`, the volume of data that the account can index per calendar day is determined by 2 parameters: `reservedDailyGB` (Required) and  `maxDailyGB` (Optional, can be null).
+
+          
+          If `false`, the volume of data that the account can index per calendar day is determined only by `maxDailyGB`. The parameter `reservedDailyGB` does not apply and should be null.
         example: true
       reservedDailyGB:
         type: number
         format: float
         default: null
         description: >-
-          Only relevant if flexible storage is enabled.
+          * If `isFlexible=false`, this field does not apply and will not be returned.
 
 
-          * If `isFlexible=true`, cannot be null. Guaranteed daily volume, in GB, allocated for the specific account. This capacity is reserved for the account and cannot be used by any other accounts.
-
-
-          * If `isFlexible=true`, this field is irrelevant. Leave null.
+          * If `isFlexible=true`, determines the daily volume in GBs that is reserved for the account.
         example: 3
       maxDailyGB:
         type: number
         format: float
         description: >-
-          Daily volume cap, in GB.
+          The maximum volume of data that an account can index per calendar day.
 
 
-          * If `isFlexible=true`, this is overage protection. The account can continue to receive data up to its daily max as long as shared volume is available.
+          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
 
 
-          * If `isFlexible=false`, the account's volume capacity is strictly limited to its `maxDailyGB` with no overage protection.
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available. 
+          
+          
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
         example: 5
       retentionDays:
         type: integer
         format: int32
-        description: How long log data is stored and searchable in Kibana, in days.
+        description: How long log data is retained in the Elasticsearch Index and searchable in Kibana, in days.
         example: 5
       searchable:
         $ref: "#/definitions/Searchable"
@@ -2344,7 +2334,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/SharingAccount'
-        description: Accounts that can access this account's data
+        description: Accounts that have permissions to access this account's Kibana objects.
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
   TimeBasedAccountCreationResponse:

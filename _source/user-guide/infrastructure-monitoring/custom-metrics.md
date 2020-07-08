@@ -154,8 +154,9 @@ This is to allow you to establish your baseline and make comparisons over a subs
 
 Data rollups are used to compress the data without losing the original extremes. The original max, min, and average values are kept so you can graph the data more accurately despite its compression. For more information, see [Rollups](/user-guide/infrastructure-monitoring/data-rollups.html).
 
-To kick off this process, send an email to help@logz.io requesting a custom metrics config.
-Include the following in your message:
+To kick off this process, <a href="mailto:help@logz.io?subject=Requesting a custom metrics rollup config &body= Hi! I'd like to send custom metrics. Here's my info: 1. Logz.io Metrics account ID or token. 2. 5 sample JSONs 3. Dimensions associated with each Metricset.">email Support</a> to request a custom rollups config.
+
+Include the following details in your message:
 
 1. Your Logz.io Metrics account ID or [token](/user-guide/accounts/finding-your-metrics-account-token/).
 2. At least 5 sample JSONs of your custom metrics.

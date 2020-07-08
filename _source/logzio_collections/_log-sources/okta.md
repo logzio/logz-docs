@@ -52,10 +52,22 @@ touch tenants-credentials.yml
 
 Insert your tenants credentials into the YAML file in the following format:
 
-```
+```yml
 tenants_credentials:
     - okta_api_key: <<OKTA-API-KEY>>
       okta_domain: <<OKTA-DOMAIN>>
+```
+
+This shipper supports up to 50 tenants. For multiple tenants, add your Okta API key and domain for each tenant. See the following example:
+
+```yml
+tenants_credentials:
+    - okta_api_key: 123456a
+      okta_domain: logzio-dev-123.okta.com
+    - okta_api_key: 123456b
+      okta_domain: logzio-dev-123.okta.com
+    - okta_api_key: 123456c
+      okta_domain: logzio-dev-123.oktapreview.com
 ```
 
 ###### Parameters
@@ -65,23 +77,12 @@ tenants_credentials:
 | OKTA_API_KEY <span class="required-param"></span> | The Okta API key copied in step 1. |
 | OKTA_DOMAIN <span class="required-param"></span> | The Okta domain copied in step 1. It is found under the **Issuer URI column** in your Okta developer console. <br> Supports these [Okta domains](https://developer.okta.com/docs/guides/find-your-domain/findorg/): <br> example.oktapreview.com, example.okta.com, example.okta-emea.com |
 
-Save the file on your working directory. That's the same one you're running the docker from.
 
 YAML files are sensitive to spaces and tabs. It's a good idea to run your code through a YAML validator to make sure that its structure is correct.
 {:.info-box.tip}
 
+Save the file on your working directory. That's the same one you're running the docker from.
 
-This shipper supports up to 50 tenants. For multiple tenants, add your Okta API key and domain for each tenant. See the following example:
-
-```
-tenants_credentials:
-    - okta_api_key: 123456a
-      okta_domain: logzio-dev-123.okta.com
-    - okta_api_key: 123456b
-      okta_domain: logzio-dev-123.okta.com
-    - okta_api_key: 123456c
-      okta_domain: logzio-dev-123.oktapreview.com
-```
 
 ##### Pull the Docker image
 

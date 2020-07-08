@@ -81,7 +81,7 @@ tenants_credentials:
 YAML files are sensitive to spaces and tabs. It's a good idea to run your code through a YAML validator to make sure that its structure is correct.
 {:.info-box.tip}
 
-Save the file on your working directory. That's the same one you're running the docker from.
+Save the file in your working directory. That's the same one you're running the docker from.
 
 
 ##### Pull the Docker image

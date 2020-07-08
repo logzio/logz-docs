@@ -41,13 +41,6 @@ and paste it in your text editor. In the following example, you'd have copied "d
 
 ![Okta URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/okta-issuer-uri.png)
 
-##### Pull the Docker image
-
-Download the logzio/logzio-okta Docker image:
-
-```shell
-docker pull logzio/logzio-okta
-```
 
 ##### Create your tenants-credentials YAML
 
@@ -65,19 +58,6 @@ tenants_credentials:
       okta_domain: <<OKTA-DOMAIN>>
 ```
 
-This shipper supports up to 50 tenants. For multiple tenants, add your Okta API key and domain for each tenant. See the following example:
-
-```
-tenants_credentials:
-    - okta_api_key: 123456a
-      okta_domain: logzio-dev-123.okta.com
-    - okta_api_key: 123456b
-      okta_domain: logzio-dev-123.okta.com
-    - okta_api_key: 123456c
-      okta_domain: logzio-dev-123.oktapreview.com
-```
-
-
 ###### Parameters
 
 | Parameter | Description |
@@ -91,9 +71,29 @@ YAML files are sensitive to spaces and tabs. It's a good idea to run your code t
 {:.info-box.tip}
 
 
+This shipper supports up to 50 tenants. For multiple tenants, add your Okta API key and domain for each tenant. See the following example:
+
+```
+tenants_credentials:
+    - okta_api_key: 123456a
+      okta_domain: logzio-dev-123.okta.com
+    - okta_api_key: 123456b
+      okta_domain: logzio-dev-123.okta.com
+    - okta_api_key: 123456c
+      okta_domain: logzio-dev-123.oktapreview.com
+```
+
+##### Pull the Docker image
+
+Download the logzio/logzio-okta image:
+
+```shell
+docker pull logzio/logzio-okta
+```
+
 ##### Run the Docker image
 
-Replace the placeholders in the code sample below before running it. Run:
+Replace the placeholders in the code sample below before running it. Then run:
 
 ```shell
 docker run \

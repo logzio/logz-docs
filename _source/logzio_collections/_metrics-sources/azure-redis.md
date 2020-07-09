@@ -144,7 +144,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure Shippers" %}
+{% include metric-shipping/open-dashboard.html title="Azure Redis cache monitor" %}
 {:.paramlist}
 
 </div>

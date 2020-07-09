@@ -16,7 +16,7 @@ To monitor your Azure service metrics,
 we recommend configuring your services
 to send their metrics to Azure Monitor.
 When you set up Metricbeat using the configuration on this page,
-Metricbeat will collect metrics from Azure ServiceBus services
+Metricbeat will collect metrics from Azure Service Bus
 and forward them to [Logz.io](http://logz.io/).
 
 #### Metricbeat setup
@@ -153,7 +153,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure ServiceBus" %}
+{% include metric-shipping/open-dashboard.html title="Azure Service Bus monitor" %}
 
 
 </div>

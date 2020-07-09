@@ -151,7 +151,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure Container Instances" %}
+{% include metric-shipping/open-dashboard.html title="Azure Container Instances monitor" %}
 
 
 </div>

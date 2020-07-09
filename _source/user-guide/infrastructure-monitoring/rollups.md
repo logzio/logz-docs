@@ -40,3 +40,43 @@ When compacting the metrics, Logz.io calculates 4 indicators for each unique dat
 * Max
 * Min
 * Count
+
+
+### Default rollups
+
+The following is a list of rollup configs that are pre-configured and available by default:
+
+* Aws (Major services and namespaces, including EC2, S3, RDS, SQS)
+* Azure (Major Azure sevices)
+* Consul
+* Docker
+* Elasticsearch
+* Etcd
+* Jolokia
+* Kubernetes
+* Mongodb
+* MySQL
+* Nginx
+* PHP_FPM
+* Postgresql
+* Prometheus
+* Redis
+* System
+* vSphere
+* Windows
+
+### Requesting a custom rollups config
+
+Configuring the rollups for your custom metrics is included in your package and we're happy to offer it!
+
+
+To kick off this process, <a href="mailto:help@logz.io?subject=Requesting a custom metrics rollup config &body= Hi! I'd like to send custom metrics. Here's my info: 1. Logz.io Metrics account ID or token. 2. 5 sample JSONs 3. Dimensions associated with each Metricset.">email Support</a> to request a custom rollups config.
+
+Include the following details in your message:
+
+1. Your Logz.io Metrics account ID or [token](/user-guide/accounts/finding-your-metrics-account-token/).
+2. At least 5 sample JSONs of your custom metrics.
+3. If you are sending multiple metricsets,
+add descriptions to clarify which dimensions are associated with each metricset.
+
+

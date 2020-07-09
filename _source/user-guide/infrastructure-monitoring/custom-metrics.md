@@ -152,7 +152,7 @@ You can use any of the following shippers to send your application metrics to Lo
 Your Metrics account offers 18 month retention, by default.
 This is to allow you to establish your baseline and make comparisons over a substantial time frame.
 
-Data rollups are used to compress the data without losing the original extremes. The original max, min, and average values are kept so you can graph the data more accurately despite its compression. For more information, see [Rollups](/user-guide/infrastructure-monitoring/data-rollups.html).
+Data rollups are used to compress the data without losing the original extremes. The original max, min, and average values are kept so you can graph the data more accurately despite its compression. For more information and the list of default configs, see [Rollups](/user-guide/infrastructure-monitoring/data-rollups.html).
 
 To kick off this process, <a href="mailto:help@logz.io?subject=Requesting a custom metrics rollup config &body= Hi! I'd like to send custom metrics. Here's my info: 1. Logz.io Metrics account ID or token. 2. 5 sample JSONs 3. Dimensions associated with each Metricset.">email Support</a> to request a custom rollups config.
 

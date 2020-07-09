@@ -161,7 +161,7 @@ Include the following details in your message:
 1. Your Logz.io Metrics account ID or [token](/user-guide/accounts/finding-your-metrics-account-token/).
 2. At least 5 sample JSONs of your custom metrics.
 3. If you are sending multiple metricsets,
-add descriptions to clarify which metricsets are associated with which dimensions.
+add descriptions to clarify which dimensions are associated with each metricset.
 
 Configuring the rollups for your custom metrics is included in your package and we're happy to offer it!
 
@@ -251,5 +251,4 @@ Let's reiterate a few requirements and best-practice recommendations for logging
 * Stack metrics that share the same dimensions in the same document to send them more efficiently.
 
 * Keep in mind that arrays are not well-supported.
-
 

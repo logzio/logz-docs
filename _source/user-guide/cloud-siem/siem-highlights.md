@@ -23,20 +23,22 @@ The list of rules and dashboards is continuously expanding and Logz.io's dedicat
 You can configure your own notification settings and threshold triggers for any security rule to stay notified in real time of security incidents.
 
 
-### Investigate events systematically with structured workflows
+### Follow structured workflows
 
-Easily investigate security events using Cloud SIEM's **Investigate** and **Drilldown** features.
+Structured workflows help you investigate events more systematically and methodically.
 
-Click the **Investigate** button in your triggered alerts to review the logs and get all of the relevant details surrounding the event.
+Cloud SIEM's **Investigate** and **Drilldown** features take the guesswork out of the investigative process:
 
-Then, continue your investigation using **Drilldown links** that take you directly from the most informative fields to other relevant dashboards so you can further expand your understanding of the event.
+Begin with the relevant dashboards, where summary lists of triggered alerts are displayed. Click the **Investigate** button in any specific alert to review the raw logs and get all of the relevant details surrounding the event.
 
-You can add your own Drilldown links to add to pre-built workflows and fine tune your processes.
+Then, continue your investigation using **Drilldown links** that take you directly from the most informative fields in an alert to other relevant dashboards. Drilldown links help guide you through your next steps in the investigation so you can continue to expand your understanding of the event.
+
+You can always add your own Drilldown links to fine tune your processes.
 
 
-### Threat Intelligence
+### Direct your threat hunting efforts
 
-A dedicated dashboard will help you perform preemptive threat hunting more effeciently.
+A dedicated Threat Intelligence dashboard will help you perform preemptive threat hunting more effeciently.
 
 Cloud SIEM cross references incoming logs against industry-recommended threat feeds to identify malicious IPs, DNSs, and URLs. Logs are scanned for appearances of IOCs (Indicator of Compromise) and enriched when they are found.
 

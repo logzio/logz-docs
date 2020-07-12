@@ -16,9 +16,12 @@ This will impede your ability to search your logs efficienty.
 
 Log data sent in an array cannot be used for configuring alerts or creating visualizations. This is why it's important to parse arrays into multiple log documents.
 
-#### Shipping methods that support arrays
+Some shipping methods offer the option to parse an array of JSON objects into discrete events. That way, the logs can be fully parsed and mapped by Logz.io.
 
-1. The Logz.io Kinesis Lambda function supports the option to parse an array of JSON objects into discrete events. That way, the logs can be fully parsed and mapped by Logz.io.
+
+### Shipping methods that support arrays
+
+* The [Logz.io Kinesis Lambda function]({{site.base.url}}/shipping/log-sources/kinesis.html) - The parameter `MESSAGES_ARRAY` controls the option to parse an array of JSON objects into discrete events.
 
 #### Parsed array: before & after
 
@@ -49,9 +52,9 @@ Here's an example of a log document that contains an array in the `messages` fie
 }
 ```
 
-If the option to split the array is enabled, the array will be split into separate logs, with identical metadata. (Note that the field `level` became duplicate, and as a result the field taken from the array overrides the metadata).
+If the shipper has the option to split the array enabled, the array will be split into separate logs with identical metadata. Note that as a result, the field `level` which would have been duplicated in the process, is merged and as a result the field from the array overrides the metadata field.
 
-In this example, the original log will be split into the following 3 logs. These are the ones that will be mapped in Logz.io:
+In this example, the original log will be split into the following 3 logs. These are the logs that will be mapped in Logz.io:
 
 ```
 {

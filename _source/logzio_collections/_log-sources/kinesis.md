@@ -13,6 +13,7 @@ contributors:
   - idohalevi
   - imnotashrimp
   - ronish31
+  - yyyogev
 shipping-tags:
   - aws
 ---
@@ -46,21 +47,10 @@ Click **Create Function** (bottom right corner of the page). After a few moments
 
 You'll need this page later on, so keep it open.
 
-##### Zip the source files
+##### Download the Kinesis stream shipper
 
-Clone the Kinesis Stream Shipper - Lambda project from GitHub to your computer,
-and zip the Python files in the `src/` folder.
+Download the [latest Kinesis stream shipper](https://github.com/logzio/logzio_aws_serverless/releases). It is a zip file.
 
-```shell
-git clone https://github.com/logzio/logzio_aws_serverless.git \
-&& cd logzio_aws_serverless/python3/kinesis/ \
-&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper \
-&& cp src/lambda_function.py dist \
-&& cd dist/ \
-&& zip logzio-kinesis lambda_function.py python3/shipper/*
-```
-
-You'll upload `logzio-kinesis.zip` in the next step.
 
 ##### Upload the zip file and set environment variables
 
@@ -76,10 +66,12 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 | Parameter | Description |
 |---|---|
 | TOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} <!-- logzio-inject:account-token --> |
-| URL <span class="required-param"></span> | Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > {% include log-shipping/replace-vars.html listener=true %} <!-- logzio-inject:listener-url --> |
+| REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| URL (Deprecated) | Use REGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`). For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html). <!-- logzio-inject:listener-url --> |
 | TYPE <span class="default-param">`kinesis_lambda`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
 | FORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
 | COMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
+| MESSAGES_ARRAY | Point to the field containing a JSON array. As a result, the record will be split into multiple log documents based on a field containing an array of messages. For more information see [parse array of JSON objects into multiple logs](https://github.com/logzio/logzio_aws_serverless/blob/master/python3/kinesis/parse-json-array.md). **Note**: This option only works if the `FORMAT` is set to `json`. |
 {:.paramlist}
 
 ##### Configure the function's basic settings

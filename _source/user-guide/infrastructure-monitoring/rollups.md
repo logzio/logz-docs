@@ -59,8 +59,8 @@ As long as you're within 3 days of the incident, you can drill down on the raw d
 
 The following is a list of rollup configs that are pre-configured and available by default:
 
-* Aws (Major services and namespaces, including EC2, S3, RDS, SQS)
-* Azure (Major Azure sevices)
+* AWS services and namespaces
+* Azure services
 * Consul
 * Docker
 * Elasticsearch
@@ -91,5 +91,4 @@ Include the following details in your message:
 2. At least 5 sample JSONs of your custom metrics.
 3. If you are sending multiple metricsets,
 add descriptions to clarify which dimensions are associated with each metricset.
-
 

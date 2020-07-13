@@ -12,7 +12,7 @@ contributors:
 ---
 
 Logs that are received as a JSON array cannot be properly parsed or mapping into fields.
-This will impede your ability to search your logs efficienty.
+This will impede your ability to search your logs efficiently.
 
 Log data sent in an array cannot be used for configuring alerts or creating visualizations. This is why it's important to parse arrays into multiple log documents.
 

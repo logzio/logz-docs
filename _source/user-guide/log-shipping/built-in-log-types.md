@@ -45,7 +45,6 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Falco                 | `falco`                                    |
 | Fortigate             | `fortigate`                               |
 | GPFS                  | `gpfs`                                     |
-| HAProxy               | `haproxy`                                  |
 | HAProxy Load Balancer              | `haproxy`                                  |
 | Jenkins               | `jenkins`                                  |
 | Juniper                  | `juniper`                             |
@@ -56,14 +55,12 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Monit                 | `monit`                                    |
 | MySQL                 | `mysql`                                    |
 | MySQL error           | `mysql_error`                              |
-| MySQL slow query      | `mysql_slow_query`                         |
 | MySQL monitor         | `mysql_monitor`                            |
 | MySQL slow query      | `mysql_slow_query`                         |
 | Nagios                | `nagios`                                   |
-| nginx access          | `nginx`, `nginx_access`, `nginx-access`    |
-| nginx error           | `nginx-error`                              |
 | NGINX access          | `nginx`, `nginx_access`, `nginx-access`    |
 | NGINX error           | `nginx-error`                              |
+| OpenVAS                 | `openvas`                                    |
 | OSSEC                 | `ossec`                                    |
 | Zipkin span           | `zipkinSpan`                               |
 | Palo Alto Networks    | `paloalto`                                  |

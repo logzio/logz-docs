@@ -29,5 +29,3 @@ To be completed by the docs team upon merge:
 - [ ] Teams to update with the new information:
 - [ ] Replace original content on the support portal with 'this page has been moved to ...' - paste the URL
 - [ ] Update these log shipping pages in the app: - paste the URL
-
-<!-- Credit goes to Pantheon Systems docs team for most of this template. Thanks, guys! -->

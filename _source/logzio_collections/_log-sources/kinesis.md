@@ -118,7 +118,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ##### Download the Kinesis stream shipper
 
-Download our latest Kinesis stream shipper zip file from the [releases page](https://github.com/logzio/logzio_aws_serverless/releases).
+Download the [latest Kinesis stream shipper](https://github.com/logzio/logzio_aws_serverless/releases). It is a zip file.
 
 ##### Create the CloudFormation package and upload to S3
 

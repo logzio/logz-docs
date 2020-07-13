@@ -11,9 +11,7 @@ shipping-tags:
   - security
 ---
 
-[OpenVAS](https://www.openvas.org/about.html) (Open Vulnerability Assessment System) is an open source vulnerability scanner.
-
-The following instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.
+[OpenVAS](https://www.openvas.org/about.html) (Open Vulnerability Assessment System) is an open source vulnerability scanner. The following instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.
 
 Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to review events triggered by pre-configured [OpenVAS security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=openvas) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?).
 
@@ -35,9 +33,6 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 ```shell
 sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
 ```
-
-If you're using a windows machine, see the [instructions for installing Filebeat for Windows]({{site.baseurl}}/shipping/filebeat-for-windows.html).
-
 
 ##### Configure Filebeat
 

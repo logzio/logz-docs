@@ -19,7 +19,10 @@ shipping-tags:
 #### Configuration
 
 **Before you begin, you'll need**:
-`s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
+
+* `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
+
+* {% include log-shipping/s3-bucket-file-order.html %}
 
 <div class="tasklist">
 
@@ -35,12 +38,20 @@ For help with setting up a new trail, see [Overview for Creating a Trail](https:
 
 <!-- logzio-inject:s3-config -->
 
-When creating a bucket, you'll only need to fill in 2 parameters which you can get from your CloudTrail AWS path. The AWS path structure for cloudtrail looks like this:
+When creating a bucket, you'll only need to fill in 2 parameters which you can get from your CloudTrail AWS path. The AWS path structure for CloudTrail looks like this:
 
-{BUCKET_NAME}/{PREFIX}/AWSLogs/{AWS_ACCOUNT_ID}/elasticloadbalancing/{REGION}/
+{BUCKET_NAME}/{PREFIX_IF_EXISTS}/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/
 
-* {BUCKET_NAME} is your **S3 bucket name**
-* {PREFIX} is your **Prefix**. If you don't have a prefix, leave it blank.
+* {BUCKET_NAME} is your **S3 bucket name**.
+
+* {PREFIX} is your CloudTrail path.
+
+  If you don't have a prefix, put down `/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/`.
+  <br>
+  If you have a prefix, put down `{PREFIX}/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/`.
+
+* {Region} is not needed. Logz.io will pull data from all regions in AWS for the specified bucket and account.
+
 
 Logz.io fetches logs that are generated after configuring an S3 bucket.
 Logz.io cannot fetch past logs retroactively.

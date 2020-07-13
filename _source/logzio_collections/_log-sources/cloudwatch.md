@@ -33,7 +33,7 @@ shipping-tags:
 
 ##### Create a new Lambda function
 
-This Lambda function will collect CloudWatch logs and sends them to Logz.io in bulk over HTTP.
+This Lambda function will collect CloudWatch logs and sends them to Logz.io in bulk over HTTPS.
 
 Open the AWS Lambda Console, and click **Create function**.
 Choose **Author from scratch**, and use this information:

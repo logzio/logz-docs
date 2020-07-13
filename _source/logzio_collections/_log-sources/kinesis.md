@@ -71,7 +71,7 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 | TYPE <span class="default-param">`kinesis_lambda`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
 | FORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
 | COMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
-| MESSAGES_ARRAY | Point to the field containing a JSON array. As a result, the record will be split into multiple log documents based on a field containing an array of messages. For more information see [parse array of JSON objects into multiple logs](https://github.com/logzio/logzio_aws_serverless/blob/master/python3/kinesis/parse-json-array.md). **Note**: This option only works if the `FORMAT` is set to `json`. |
+| MESSAGES_ARRAY | Name the field containing a JSON array that will be used to split the log document. [Learn more]({{site.baseurl}}/user-guide/mapping-and-parsing/split-json-array.html). **Note**: This option only works if the `FORMAT` is set to `json`. |
 {:.paramlist}
 
 ##### Configure the function's basic settings
@@ -110,24 +110,15 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 #### Automated CloudFormation deployment
 
 **Before you begin, you'll need**:
-AWS CLI,
-an S3 bucket to store the CloudFormation package
+
+* AWS CLI
+* An S3 bucket to store the CloudFormation package
 
 <div class="tasklist">
 
-##### Zip the source files
+##### Download the Kinesis stream shipper
 
-Clone the Kinesis Stream Shipper - Lambda project from GitHub to your computer,
-and zip the Python files in the `src/` folder.
-
-```shell
-git clone https://github.com/logzio/logzio_aws_serverless.git \
-&& cd logzio_aws_serverless/python3/kinesis/ \
-&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper \
-&& cp src/lambda_function.py dist \
-&& cd dist/ \
-&& zip logzio-kinesis lambda_function.py python3/shipper/*
-```
+Download our latest Kinesis stream shipper zip file from the [releases page](https://github.com/logzio/logzio_aws_serverless/releases).
 
 ##### Create the CloudFormation package and upload to S3
 
@@ -135,8 +126,8 @@ Create the CloudFormation package using the AWS CLI.
 Replace `<<YOUR-S3-BUCKET>>` with the S3 bucket name where you'll be uploading this package.
 
 ```shell
-cd ../ \
-&& aws cloudformation package \
+curl -o sam-template.yaml https://raw.githubusercontent.com/logzio/logzio_aws_serverless/master/python3/kinesis/sam-template.yaml
+aws cloudformation package \
   --template sam-template.yaml \
   --output-template-file kinesis-template.output.yaml \
   --s3-bucket <<YOUR-S3-BUCKET>>
@@ -149,12 +140,12 @@ Deploy the CloudFormation package using AWS CLI.
 For a complete list of options, see the configuration parameters below the code block. 👇
 
 ```shell
-aws cloudformation deploy
---template-file $(pwd)/cloudformation-template.output.yaml
---stack-name logzio-kinesis-logs-lambda-stack
---parameter-overrides
-  LogzioTOKEN='<<SHIPPING-TOKEN>>'
-  KinesisStream='<<KINESIS-STREAM-NAME>>'
+aws cloudformation deploy \
+--template-file $(pwd)/kinesis-template.output.yaml \
+--stack-name logzio-kinesis-logs-lambda-stack \
+--parameter-overrides \
+  LogzioTOKEN='<<SHIPPING-TOKEN>>' \
+  KinesisStream='<<KINESIS-STREAM-NAME>>' \
 --capabilities "CAPABILITY_IAM"
 ```
 
@@ -164,7 +155,8 @@ aws cloudformation deploy
 |---|---|
 | LogzioTOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
 | KinesisStream <span class="required-param"></span> | The name of the Kinesis stream where this function will listen for updates. |
-| LogzioURL <span class="default-param">`https://listener.logz.io:8071`</span> | Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > {% include log-shipping/replace-vars.html listener='noReplace' %} <!-- logzio-inject:listener-url --> |
+| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| LogzioURL (Deprecated) | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. |
 | LogzioTYPE <span class="default-param">`kinesis_lambda`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
 | LogzioFORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
 | LogzioCOMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |

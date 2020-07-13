@@ -57,6 +57,8 @@ As long as you're within 3 days of the incident, you can drill down on the raw d
 
 ### Default rollups
 
+If you are using Metricbeat (or another method that relies on Metricbeat) as your shipper, Logz.io will apply a default rollup config to compress your metrics.
+
 The following is a list of rollup configs that are pre-configured and available by default:
 
 * Aws (Major services and namespaces, including EC2, S3, RDS, SQS)

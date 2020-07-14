@@ -1,5 +1,5 @@
 ---
-title: Ship Azure App Service metrics
+title: Ship Azure App Services metrics
 logo:
   logofile: azure-app-services.svg
   orientation: vertical
@@ -146,7 +146,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure App Service" %}
+{% include metric-shipping/open-dashboard.html title="Azure App Services monitor" %}
 
 
 </div>

@@ -36,7 +36,7 @@ You can always add your own Drilldown links to fine tune your processes.
 
 ### Direct your threat hunting efforts
 
-A dedicated Threat Intelligence dashboard will help you perform preemptive threat hunting more effeciently.
+A dedicated Threat Intelligence dashboard will help you perform preemptive threat hunting more efficiently.
 
 Cloud SIEM cross references incoming logs against industry-recommended threat feeds to identify malicious IPs, DNSs, and URLs. Logs are scanned for appearances of IOCs (Indicator of Compromise) and enriched when they are found.
 

@@ -16,7 +16,7 @@ Here's how your Cloud SIEM will help you reduce mean-time-to-response and improv
 
 ### Get started in minutes
 
-Pre-configured security rules and monitoring dashboards make it simple to start identifying threats straight away.
+Pre-configured security rules and monitoring dashboards make it simple to start identifying security incidents and attacks straight away.
 
 The list of rules and dashboards is continuously expanding and Logz.io's dedicated team of security experts adds content and improvements on a regular basis.
 
@@ -27,11 +27,9 @@ You can configure your own notification settings and threshold triggers for any 
 
 Structured workflows help you investigate events more systematically and methodically.
 
-Cloud SIEM's **Investigate** and **Drilldown** features take the guesswork out of the investigative process:
+Begin with the Summary dashboard or with another relevant dashboard. Start by reviewing the summary lists of rules that have triggered. Click the **Investigate** button in any specific event to review the raw logs and get all of the relevant details surrounding it.
 
-Begin with the relevant dashboards, where summary lists of triggered alerts are displayed. Click the **Investigate** button in any specific alert to review the raw logs and get all of the relevant details surrounding the event.
-
-Then, continue your investigation using **Drilldown links** that take you directly from the most informative fields in an alert to other relevant dashboards. Drilldown links help guide you through your next steps in the investigation so you can continue to expand your understanding of the event.
+Then, continue your investigation using **Drilldown links** that take you directly from the most informative fields in logs to other relevant dashboards. Drilldown links help guide you through your next steps in the investigation so you can continue to expand your understanding of the event.
 
 You can always add your own Drilldown links to fine tune your processes.
 

@@ -72,6 +72,11 @@ metricbeat.modules:
   # Redis hosts
   hosts: ["<<REDIS-HOST>>:6379"]
 
+processors:
+  - add_host_metadata: ~
+  - include_fields: # Collected metrics
+      fields: ['token','logzio_codec','event.module','metricset.name','host.name','agent.hostname', 'redis.info.clients.blocked', 'redis.info.clients.connected', 'redis.info.cpu.used.sys', 'redis.info.cpu.used.user', 'redis.info.memory.fragmentation.ratio', 'redis.info.memory.used.value', 'redis.info.slowlog.count', 'redis.info.stats.keys.evicted', 'redis.info.stats.keyspace.hits', 'redis.info.stats.keyspace.misses', 'redis.info.stats.net.input.bytes', 'redis.info.stats.net.output.bytes', 'redis.key.id', 'redis.keyspace.id']
+
 fields:
   logzio_codec: json
   token: <<SHIPPING-TOKEN>>

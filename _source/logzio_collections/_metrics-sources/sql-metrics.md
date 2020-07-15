@@ -125,8 +125,8 @@ metricbeat.modules:
   # 👇 Duplicate this code block for each resource type whose metrics you want to ship.
   - resource_query: "resourceType eq 'Microsoft.Sql/servers/databases'"
     metrics:
-      - name: ["*"]
-        namespace: "Microsoft.Sql/servers/databases"
+    - name: ["*"]
+      namespace: "Microsoft.Sql/servers/databases"
 
 fields:
   logzio_codec: json

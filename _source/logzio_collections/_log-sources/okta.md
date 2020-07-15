@@ -5,6 +5,9 @@ logo:
   orientation: vertical
 data-source: Okta
 templates: ["docker"]
+open-source:
+  - title: logzio-okta
+    github-repo: logzio-okta
 contributors:
   - imnotashrimp
   - ronish31

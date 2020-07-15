@@ -1,5 +1,5 @@
 ---
-title: Ship SQL Database metrics
+title: Ship Azure SQL Database metrics
 logo:
   logofile: azure-sql-database_large.svg
   orientation: vertical

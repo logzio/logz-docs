@@ -71,7 +71,7 @@ firstLevel:
     url: /user-guide/infrastructure-monitoring/alerts.html
   - title: Variables
     url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
-  - title: Correlations
+  - title: Log correlations
     url: /user-guide/infrastructure-monitoring/grafana-correlations/
     thirdLevel:
     - title: Annotations

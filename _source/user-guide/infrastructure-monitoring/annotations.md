@@ -43,7 +43,7 @@ Go to the dashboard's settings:
 
 ##### Decide which logs should trigger the annotation
 
-You'll be using a Kibana search query to select the logs you want to mark on your dashboard. They will appear as vertical markers on the dashboard' timeline to indicate when they were sent.
+You'll be using a Kibana search query to select the logs you want to mark on your dashboard. They will appear as vertical markers on the dashboard's timeline to indicate when they were sent.
 
 Type in a _Kibana_ query in Lucene syntax.
 It's best if you double-check your query results in [Kibana Discover](/user-guide/kibana/) to make sure it is specific enough.

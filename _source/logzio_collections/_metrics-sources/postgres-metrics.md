@@ -121,13 +121,12 @@ metricbeat.modules:
   tenant_id: '${AZURE_TENANT_ID:"<<TENANT-ID>>"}' # `tenantId` from step 2
   subscription_id: '${AZURE_SUBSCRIPTION_ID:"<<SUBSCRIPTION-ID>>"}' # `id` from step 2
   refresh_list_interval: 600s
-	resources:
+  resources:
     # 👇 Duplicate this code block for each resource type whose metrics you want to ship.
-		- resource_query: "resourceType eq 'Microsoft.DBforPostgreSQL/servers'"
+    - resource_query: "resourceType eq 'Microsoft.DBforPostgreSQL/servers'"
       metrics:
       - name: ["*"]
         namespace: "Microsoft.DBforPostgreSQL/servers"
-
 fields:
   logzio_codec: json
   token: <<SHIPPING-TOKEN>>

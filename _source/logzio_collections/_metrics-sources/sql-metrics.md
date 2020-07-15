@@ -1,5 +1,5 @@
 ---
-title: Ship SQL Database metrics
+title: Ship Azure SQL Database metrics
 logo:
   logofile: azure-sql-database_large.svg
   orientation: vertical
@@ -121,12 +121,12 @@ metricbeat.modules:
   tenant_id: '${AZURE_TENANT_ID:"<<TENANT-ID>>"}' # `tenantId` from step 2
   subscription_id: '${AZURE_SUBSCRIPTION_ID:"<<SUBSCRIPTION-ID>>"}' # `id` from step 2
   refresh_list_interval: 600s
-	resources:
-    # 👇 Duplicate this code block for each resource type whose metrics you want to ship.
- - resource_query: "resourceType eq 'Microsoft.Sql/servers/databases'"
-      metrics:
-      - name: ["*"]
-        namespace: "Microsoft.Sql/servers/databases"
+  resources:
+  # 👇 Duplicate this code block for each resource type whose metrics you want to ship.
+  - resource_query: "resourceType eq 'Microsoft.Sql/servers/databases'"
+    metrics:
+    - name: ["*"]
+      namespace: "Microsoft.Sql/servers/databases"
 
 fields:
   logzio_codec: json

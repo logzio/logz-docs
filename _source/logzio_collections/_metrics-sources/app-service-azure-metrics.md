@@ -109,7 +109,7 @@ You'll need to replace the values surrounded by angle brackets
 `<< >>`
 using the parameters below the code block. 👇
 
-```
+```yml
 metricbeat.modules:
 - module: azure
   metricsets:
@@ -121,9 +121,9 @@ metricbeat.modules:
   tenant_id: '${AZURE_TENANT_ID:"<<TENANT-ID>>"}' # `tenantId` from step 2
   subscription_id: '${AZURE_SUBSCRIPTION_ID:"<<SUBSCRIPTION-ID>>"}' # `id` from step 2
   refresh_list_interval: 600s
-	resources:
+  resources:
     # 👇 Duplicate this code block for each resource type whose metrics you want to ship.
-		- resource_query: "resourceType eq 'Microsoft.Web/sites'"
+    - resource_query: "resourceType eq 'Microsoft.Web/sites'"
       metrics:
       - name: ["*"]
         namespace: "Microsoft.Web/sites"
@@ -137,7 +137,6 @@ type: metrics
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-
 ```
 
 {% include metric-shipping/azure-params.html %}

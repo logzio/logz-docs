@@ -23,21 +23,22 @@ You'll need to know your account's region to configure shippers to send data to 
 All services related to your account are hosted in the same region. This means you'll ship logs, sign in, and access the API from the same region as your account.
 
 
-## How can I find my region?
+## How to look up your account region
 
-To locate your region, sign in to Logz.io and look at the URL in the address bar.
+You can find your account's region by selecting [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) from the top menu.
+
+Another option is to sign in to your Logz.io account and look at the URL in the address bar.
 
 If you see `app.logz.io`, your account is hosted in the US East (Northern Virginia).
 All other regions have a two-letter region code.
-For example, if you see `app-eu.logz.io`, then your account is in the Europe (Frankfurt).
+For example, if you see `app-eu.logz.io`, then your account is in the Europe (Frankfurt) region.
 
-Your listener host (where you ship logs) and API host will always be in the same region as your account.
 
-Read on for a list of region codes and URLs.
+## Available regions
 
-## Regions and URLs
+Your listener host and API host will always be in the same region as your account.
 
-| Region | Cloud | App host | Listener host | API host | Region code |
+| Region | Cloud | Logz.io account host | Listener host | API host | Region code |
 |---|---|---|
 {% for r in regions -%}
   {%- if r.suffix -%}

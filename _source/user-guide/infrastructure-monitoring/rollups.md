@@ -3,7 +3,7 @@ layout: article
 title: Data rollups
 permalink: /user-guide/infrastructure-monitoring/data-rollups.html
 flags:
-  logzio-plan:
+  logzio-plan: community
 tags:
 contributors:
   - shalper

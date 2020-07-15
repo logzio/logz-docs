@@ -71,8 +71,13 @@ firstLevel:
     url: /user-guide/infrastructure-monitoring/alerts.html
   - title: Variables
     url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
-  - title: Explore in Kibana
-    url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+  - title: Log correlations
+    url: /user-guide/infrastructure-monitoring/grafana-correlations/
+    thirdLevel:
+    - title: Annotations
+      url: /user-guide/infrastructure-monitoring/annotations/
+    - title: Explore in Kibana
+      url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
   - title: Custom metrics
     url: /user-guide/infrastructure-monitoring/custom-metrics
   - title: Rollups

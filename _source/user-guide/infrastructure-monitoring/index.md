@@ -3,7 +3,7 @@ layout: article
 title: Infrastructure Monitoring
 permalink: /user-guide/infrastructure-monitoring/
 flags:
-  logzio-plan:
+  logzio-plan: community
 tags:
   - metrics
 contributors:

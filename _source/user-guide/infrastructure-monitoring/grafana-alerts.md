@@ -34,7 +34,7 @@ If you're running multiple servers for load balancing purposes, you'll be happy 
 
 Before you begin, you'll need to make sure you have permissions to edit the dashboard.
 
-If you are using any of the pre-configured dashboards provided by Logz.io, you'll need duplicate it first.
+If you are using any of the pre-configured dashboards provided by Logz.io, you'll need to duplicate it first.
 (They are read-only, by default.)
 
 Click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save** .

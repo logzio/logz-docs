@@ -20,7 +20,10 @@ To ship Okta logs,
 you'll deploy a Docker container
 to collect the logs and forward them to Logz.io using Logstash.
 
-You can send logs from multiple Okta tenants and any okta domain.
+You can send logs from multiple Okta tenants and any Okta domain.
+
+If you want to ship from multiple Okta tenants with the same docker, you'll need to use the latest configurtion using a tenants-credentials.yml file.
+{:.info-box.note}
 
 #### Configuration
 

@@ -57,10 +57,18 @@ Still in the same configuration file, replace the placeholders to match your spe
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
 
+##### Move the configuration file to the Metricbeat folder
 
-##### Start Metricbeat
+Move the configuration file to `C:\Program Files\Metricbeat\metricbeat.yml`.
+
+##### Restart Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
+
+```powershell
+PS C:\Program Files\Metricbeat> Restart-Service metricbeat
+```
+
 
 ##### Check Logz.io for your metrics
 

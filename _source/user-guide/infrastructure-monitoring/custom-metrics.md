@@ -138,8 +138,6 @@ Metrics are sent as minified JSON objects with one JSON object per line.
 You can use any of the following shippers to send your application metrics to Logz.io:
 
 
-
-
 {% for doc in site.log-sources %}
 {%- if doc.shipping-tags contains 'from-your-code' %}
 * [{{doc.data-source}}]({{doc.url}})
@@ -147,6 +145,25 @@ You can use any of the following shippers to send your application metrics to Lo
 {%- endfor -%}
 
 <br>
+
+
+##### Contact support to request a custom rollups config
+
+Your Metrics account offers 18 month retention, by default.
+This is to allow you to establish your baseline and make comparisons over a substantial time frame.
+
+Data rollups are used to compress the data without losing the original extremes. The original max, min, and average values are kept so you can graph the data more accurately despite its compression. For more information and the list of default configs, see [Rollups](/user-guide/infrastructure-monitoring/data-rollups.html).
+
+To kick off this process, <a href="mailto:help@logz.io?subject=Requesting a custom metrics rollup config &body= Hi! I'd like to send custom metrics. Here's my info: 1. Logz.io Metrics account ID or token. 2. 5 sample JSONs 3. Dimensions associated with each Metricset.">email Support</a> to request a custom rollups config.
+
+Include the following details in your message:
+
+1. Your Logz.io Metrics account ID or [token](/user-guide/accounts/finding-your-metrics-account-token/).
+2. At least 5 sample JSONs of your custom metrics.
+3. If you are sending multiple metricsets,
+add descriptions to clarify which dimensions are associated with each metricset.
+
+Configuring the rollups for your custom metrics is included in your package and we're happy to offer it!
 
 ##### What to avoid
 
@@ -234,5 +251,4 @@ Let's reiterate a few requirements and best-practice recommendations for logging
 * Stack metrics that share the same dimensions in the same document to send them more efficiently.
 
 * Keep in mind that arrays are not well-supported.
-
 

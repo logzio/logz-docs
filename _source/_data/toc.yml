@@ -22,8 +22,6 @@ firstLevel:
         url: /user-guide/kibana/mapping/
       - title: Field not indexed
         url: /user-guide/kibana/mapping/field-not-indexed/
-      - title: Share visualizations
-        url: /user-guide/kibana/share-import-export
 
   - title: Alerts
     url: /user-guide/alerts/
@@ -53,7 +51,13 @@ firstLevel:
       url: /user-guide/insights/markers.html
     - title: Insights notifications
       url: /user-guide/insights/insights-notifications.html
-
+  - title: Collaboration
+    url: /user-guide/tokens/collaboration
+    thirdLevel:
+    - title: Sharing links
+      url: /user-guide/tokens/sharing-links.html
+    - title: Importing & exporting objects
+      url: /user-guide/kibana/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
 
@@ -71,8 +75,13 @@ firstLevel:
     url: /user-guide/infrastructure-monitoring/alerts.html
   - title: Variables
     url: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
-  - title: Explore in Kibana
-    url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+  - title: Log correlations
+    url: /user-guide/infrastructure-monitoring/grafana-correlations/
+    thirdLevel:
+    - title: Annotations
+      url: /user-guide/infrastructure-monitoring/annotations/
+    - title: Explore in Kibana
+      url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
   - title: Custom metrics
     url: /user-guide/infrastructure-monitoring/custom-metrics
   - title: Rollups
@@ -82,7 +91,11 @@ firstLevel:
   icon: fas fa-shield-alt
 
   secondLevel:
-  - title: Cloud SIEM
+  - title: Why Cloud SIEM?
+    url: /user-guide/siem/intro/
+  - title: Highlights
+    url: /user-guide/siem/highlights/
+  - title: Getting started
     url: /user-guide/cloud-siem/
     thirdLevel:
     - title: Understanding your security logs
@@ -91,8 +104,12 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Lookups
       url: /user-guide/lookups/
+  - title: Integrations
+    url: /user-guide/cloud-siem/integrations/
+    thirdLevel:
     - title: Integrate with Cortex xSOAR
       url: /user-guide/cloud-siem/xsoar-integration/
+
 
 - title: Admin tools
   icon: li-gear
@@ -174,6 +191,8 @@ firstLevel:
   - title: Default parsing
     url: /user-guide/log-shipping/built-in-log-types.html
     thirdLevel:
+    - title: Split an array
+      url: /user-guide/mapping-and-parsing/split-json-array.html
     - title: Parsing Wizard
       url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 

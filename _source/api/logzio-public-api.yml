@@ -2167,10 +2167,6 @@ definitions:
         type: string
         description: Name of the account
         example: 404 errors
-      accountToken:
-        type: string
-        description: Account log shipping token (unique to this account)
-        example: f483abe93b
       maxDailyGB:
         type: number
         format: float

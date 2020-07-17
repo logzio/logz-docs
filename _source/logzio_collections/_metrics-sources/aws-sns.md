@@ -1,9 +1,9 @@
 ---
-title: Ship Redshift metrics
+title: Ship Amazon SNS metrics
 logo:
-  logofile: 
+  logofile: aws-sns.svg
   orientation: vertical
-data-source: 
+data-source: Amazon SNS
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
@@ -18,13 +18,13 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Ship Redshift metrics over Docker container](#Redshift-docker)
-* [Ship over self-hosted Metricbeat](#Redshift-vanilla)
+* [Ship SNS metrics over Docker container](#SNS-docker)
+* [Ship over self-hosted Metricbeat](#SNS-vanilla)
 {:.branching-tabs}
 
 
 <!-- tab:start -->
-<div id="Redshift-docker">
+<div id="SNS-docker">
 
 To simplify shipping metrics from one or many sources,
 we created a Docker Metrics Collector. The
@@ -128,16 +128,16 @@ logzio/docker-collector-metrics
 | AWS_ACCESS_KEY <span class="required-param"></span> | Your IAM user's access key ID. |
 | AWS_SECRET_KEY <span class="required-param"></span> | Your IAM user's secret key. |
 | AWS_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
-| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For Redshift, this is `AWS/Redshift`. For the complete list of all valid namespaces, see this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). |
+| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For SNS, this is `AWS/SNS`. For the complete list of all valid namespaces, see this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). |
 {:.paramlist}
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Redshift" %}
+{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/SNS" %}
 
 </div>
 </div>
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="Redshift-vanilla">
+<div id="SNS-vanilla">
 
 You have the option to ship CloudWatch metrics directly over Metricbeat, without a Docker container.
 
@@ -207,7 +207,7 @@ If you're working with the default configuration file,
 (`/etc/metricbeat/metricbeat.yml`), clear the contents and start with a fresh file.
 
 This code block lays out the default options
-for collecting metrics from Redshift.
+for collecting metrics from SNS.
 Paste the code block.
 Then adjust it to match your AWS environment.
 
@@ -218,7 +218,7 @@ metricbeat.modules:
   metricsets:
     - cloudwatch
   metrics: #specify aws namespaces you want to monitor, just add namspaces from AWS list
-    - namespace: AWS/Redshift
+    - namespace: AWS/SNS
 
   access_key_id: '<<access_key_id>>'
   secret_access_key: '<<secret_access_key>>'
@@ -252,7 +252,7 @@ If the file has other outputs, remove them.
 Start or restart Metricbeat for the changes to take effect.
 
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Redshift" %}
+{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/SNS" %}
 
 </div>
 <!-- tab:end -->

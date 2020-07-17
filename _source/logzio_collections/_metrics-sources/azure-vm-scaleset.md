@@ -1,9 +1,9 @@
 ---
-title: Ship Azure VM Scaleset metrics
+title: Ship Azure VM Scale Sets metrics
 logo:
-  logofile: azure-VMs.svg
+  logofile: azure-vm-scale-sets.svg
   orientation: vertical
-data-source: Azure VM Scaleset
+data-source: Azure VM Scale Sets
 contributors:
   - yotamloe
   - shalper
@@ -16,7 +16,7 @@ To monitor your Azure service metrics,
 we recommend configuring your services
 to send their metrics to Azure Monitor.
 When you set up Metricbeat using the configuration on this page,
-Metricbeat will collect metrics from Azure VM Scalesets
+Metricbeat will collect metrics from Azure VM Scale Sets
 and forward them to [Logz.io](http://logz.io/).
 
 #### Metricbeat setup
@@ -145,7 +145,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure VM Scaleset monitor" %}
+{% include metric-shipping/open-dashboard.html title="Azure VM Scale Sets monitor" %}
 
 
 </div>

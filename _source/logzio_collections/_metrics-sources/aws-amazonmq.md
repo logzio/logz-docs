@@ -1,9 +1,9 @@
 ---
-title: Ship AmazonMQ metrics
+title: Ship Amazon MQ metrics
 logo:
-  logofile: 
+  logofile: aws-mq.svg
   orientation: vertical
-data-source: 
+data-source: Amazon MQ
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

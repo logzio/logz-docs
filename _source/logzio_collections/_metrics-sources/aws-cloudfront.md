@@ -1,9 +1,9 @@
 ---
 title: Ship CloudFront metrics
 logo:
-  logofile: 
+  logofile: aws-cloudfront.svg
   orientation: vertical
-data-source: 
+data-source: AWS CloudFront
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

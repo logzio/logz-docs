@@ -3,7 +3,7 @@ title: Ship Application ELB metrics
 logo:
   logofile: aws-app-elb.svg
   orientation: vertical
-data-source: AWS App ELB
+data-source: Amazon App ELB
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

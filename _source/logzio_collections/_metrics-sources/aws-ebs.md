@@ -3,7 +3,7 @@ title: Ship Elastic Block Store metrics
 logo:
   logofile: aws-ebs.svg
   orientation: vertical
-data-source: AWS EBS
+data-source: Amazon EBS
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

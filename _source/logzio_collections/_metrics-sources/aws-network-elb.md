@@ -3,7 +3,7 @@ title: Ship Network ELB metrics
 logo:
   logofile: elb-network.svg
   orientation: vertical
-data-source: Network ELB
+data-source: Amazon Network ELB
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

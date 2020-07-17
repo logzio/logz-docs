@@ -3,7 +3,7 @@ title: Ship AWS Classic ELB metrics
 logo:
   logofile: aws-classic-elb.svg
   orientation: vertical
-data-source: AWS Classic ELB
+data-source: Amazon Classic ELB
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

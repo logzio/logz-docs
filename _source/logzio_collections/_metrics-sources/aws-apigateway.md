@@ -3,7 +3,7 @@ title: Ship AWS Api Gateway metrics
 logo:
   logofile: aws-api-gateway.svg
   orientation: vertical
-data-source: AWS API Gateway
+data-source: Amazon API Gateway
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

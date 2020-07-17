@@ -3,7 +3,7 @@ title: Ship AWS DynamoDB metrics
 logo:
   logofile: aws-dynamodb.svg
   orientation: vertical
-data-source: AWS DynamoDB
+data-source: Amazon DynamoDB
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

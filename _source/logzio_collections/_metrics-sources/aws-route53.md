@@ -3,7 +3,7 @@ title: Ship Route53 metrics
 logo:
   logofile: Amazon-Route-53.svg
   orientation: vertical
-data-source: Route 53
+data-source: Amazon Route 53
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

@@ -1,9 +1,9 @@
 ---
-title: Ship Kinesis Firehose metrics
+title: Ship Kinesis metrics
 logo:
-  logofile: 
+  logofile: Amazon-Kinesis.svg
   orientation: vertical
-data-source: 
+data-source: Amazon Kinesis
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
@@ -18,13 +18,13 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Ship Kinesis Firehose metrics over Docker container](#Kinesis-Firehose-docker)
-* [Ship over self-hosted Metricbeat](#Kinesis-Firehose-vanilla)
+* [Ship Kinesis metrics over Docker container](#Kinesis-docker)
+* [Ship over self-hosted Metricbeat](#Kinesis-vanilla)
 {:.branching-tabs}
 
 
 <!-- tab:start -->
-<div id="Kinesis-Firehose-docker">
+<div id="Kinesis-docker">
 
 To simplify shipping metrics from one or many sources,
 we created a Docker Metrics Collector. The
@@ -128,17 +128,17 @@ logzio/docker-collector-metrics
 | AWS_ACCESS_KEY <span class="required-param"></span> | Your IAM user's access key ID. |
 | AWS_SECRET_KEY <span class="required-param"></span> | Your IAM user's secret key. |
 | AWS_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
-| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For Kinesis Firehose, this is `AWS/Firehose`. For the complete list of all valid namespaces, see this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). |
+| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For Kinesis, this is `AWS/Kinesis`. For the complete list of all valid namespaces, see this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). |
 {:.paramlist}
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Kinesis Firehose" %}
+{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Kinesis" %}
 
 </div>
 </div>
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="Kinesis-Firehose-vanilla">
+<div id="Kinesis-vanilla">
 
 You have the option to ship CloudWatch metrics directly over Metricbeat, without a Docker container.
 
@@ -208,7 +208,7 @@ If you're working with the default configuration file,
 (`/etc/metricbeat/metricbeat.yml`), clear the contents and start with a fresh file.
 
 This code block lays out the default options
-for collecting metrics from Kinesis Firehose.
+for collecting metrics from Kinesis.
 Paste the code block.
 Then adjust it to match your AWS environment.
 
@@ -219,7 +219,7 @@ metricbeat.modules:
   metricsets:
     - cloudwatch
   metrics: #specify aws namespaces you want to monitor, just add namspaces from AWS list
-    - namespace: AWS/Firehose
+    - namespace: AWS/Kinesis
 
   access_key_id: '<<access_key_id>>'
   secret_access_key: '<<secret_access_key>>'
@@ -253,7 +253,7 @@ If the file has other outputs, remove them.
 Start or restart Metricbeat for the changes to take effect.
 
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Kinesis Firehose" %}
+{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Kinesis" %}
 
 </div>
 <!-- tab:end -->

@@ -3,7 +3,7 @@ title: Ship AWS Athena metrics
 logo:
   logofile: aws-athena.svg
   orientation: vertical
-data-source: AWS Athena
+data-source: Amazon Athena
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

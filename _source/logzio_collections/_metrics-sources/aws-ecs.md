@@ -1,9 +1,9 @@
 ---
 title: Ship ECS metrics
 logo:
-  logofile: 
+  logofile: amazon-ecs.svg
   orientation: vertical
-data-source: 
+data-source: ECS
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

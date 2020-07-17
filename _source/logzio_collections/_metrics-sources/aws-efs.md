@@ -1,9 +1,9 @@
 ---
 title: Ship EFS metrics
 logo:
-  logofile: 
+  logofile: aws-efs.svg
   orientation: vertical
-data-source: 
+data-source: Amazon EFS
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

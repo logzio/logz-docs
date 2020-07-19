@@ -90,17 +90,20 @@ security:
 
 tags:
   - name: Who am I
-  - name: Manage sub accounts
+  - name: Manage accounts
     description: >-
       Use these API requests to create, update, retrieve, or delete sub accounts and to allocate daily capacity to sub accounts.
 
 
-      ### Shared volume
+      ### Flexible storage & shared volume
         
-      This feature is in Alpha. Contact Support to request early access.
-        
-    
-      **Shared volume** can be enabled to allow accounts to share indexing capacity. To enable shared volume, go to the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts) in the Logz.io app and toggle the button **Use flexible volume** to turn it on.
+      Flexible storate and shared volume can be enabled to allow accounts to share indexing capacity.
+      
+      
+      To enable shared volume, go to the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts) in the Logz.io app and toggle the button **Use flexible volume** to turn it on.
+      
+      
+      If enabled, all accounts will include an additional parameter: `reservedDailyGB`.
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.
@@ -145,7 +148,7 @@ x-tagGroups:
     tags:
       - Manage users
       - Who am I
-      - Manage sub accounts
+      - Manage accounts
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
@@ -182,10 +185,10 @@ paths:
             $ref: '#/definitions/WhoAmI'
   /v1/account-management/time-based-accounts:
     get:
-      summary: Retrieve all sub accounts
-      description: Returns a list of sub accounts as an array of JSON objects. Must be run with an API token from the main account.
+      summary: Retrieve list of all accounts
+      description: Returns a list of accounts as an array of JSON objects. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage accounts
       operationId: getAll
       responses:
         200:
@@ -202,7 +205,7 @@ paths:
       description: >-
         Creates a new logging sub account. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage accounts
       operationId: createTimeBasedAccount
       parameters:
         - in: body
@@ -246,7 +249,7 @@ paths:
       summary: Retrieve detailed information on all sub accounts
       description: Retrieves all time-based sub accounts, returned as an array of objects. Each sub account is its own object. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage accounts
       operationId: getAllDetailedTimeBasedAccount
       responses:
         200:
@@ -263,7 +266,7 @@ paths:
       summary: Retrieve detailed account information by ID
       description: Using account ID, returns detailed account information. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage accounts
       operationId: getDetailedTimeBasedAccount
       parameters:
         - name: id
@@ -286,7 +289,7 @@ paths:
       summary: Retrieve sub account by ID
       description: Returns account information and configuration as a JSON object. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage accounts
       operationId: get
       parameters:
         - name: id
@@ -305,10 +308,10 @@ paths:
       - lang: cURL
         source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
     put:
-      summary: Update a sub account
-      description: Updates a sub account. Must be run with an API token from the main account.
+      summary: Update an account
+      description: Updates the main account's volume, or updates a sub account. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage accounts
       operationId: updateTimeBasedAccount
       parameters:
         - name: id
@@ -354,7 +357,7 @@ paths:
       summary: Delete a sub account
       description: Using an account ID, deletes a sub account. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage accounts
       operationId: deleteTimeBasedAccount
       parameters:
         - name: id

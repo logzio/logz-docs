@@ -43,7 +43,7 @@ fields_under_root: true
 # ===== Outputs =====
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
-    ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    ssl.certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ##### Replace the placeholders in the configuration

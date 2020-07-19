@@ -3,7 +3,7 @@ layout: article
 title: Security events
 permalink: /user-guide/cloud-siem/security-events.html
 flags:
-  logzio-plan: pro
+  logzio-plan: enterprise
 tags:
   - logz.io-security
   - siem

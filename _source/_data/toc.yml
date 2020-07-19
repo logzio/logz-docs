@@ -100,6 +100,8 @@ firstLevel:
   - title: Security events
     url: /user-guide/cloud-siem/security-events.html
     thirdLevel:
+    - title: Summary dashboard
+      url: /user-guide/cloud-siem/summary-dashboard.html
     - title: Understanding your security logs
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
     - title: Manage security rules

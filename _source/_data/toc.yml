@@ -97,6 +97,8 @@ firstLevel:
     url: /user-guide/siem/highlights/
   - title: Getting started
     url: /user-guide/cloud-siem/
+  - title: Security events
+    url: /user-guide/cloud-siem/security-events.html
     thirdLevel:
     - title: Understanding your security logs
       url: /user-guide/cloud-siem/understanding-your-security-logs.html

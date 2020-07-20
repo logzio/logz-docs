@@ -9,18 +9,24 @@ tags:
   - cloud-siem
 contributors:
   - shalper
-  - imnotashrimp
 ---
 
-The Summary dashboard aggregates all security events identified by Cloud SIEM in the past 24 hours. It is essentialy a 24-hour summary of all triggered security rules.
+The Summary dashboard aggregates all security events identified by Cloud SIEM in the past 24 hours. It is the best place to begin any investigation and asses the scope of response that will be necessary.
 
-![Logz.io Cloud SIEM Summary page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics-summary.png)
+![Logz.io Cloud SIEM Summary page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/security-analytics-summary-annotated.png)
 
-A count of security events concerning access, threats, audit, and endpoint security are listed at the top. This is a count of events triggered by rules tagged as **access**, **threat**, **audit**, and **endpoint**, respectively.
+Tagged rules
+: A count of security events concerning access, threats, audit, and endpoint security are listed at the top. This is a count of events triggered by rules tagged as **access**, **threat**, **audit**, and **endpoint**, respectively.
 
-An interactive map shows the origin of attackers across the world and clusters them by their level of activity.
+Events over time
+: A line graph indicating the number of events that registered over the past 24 hours. It can give you an immediate sense of activity peaks and provide warning of an active attack. By observing changes in the frequency and number of events, you'll be able to immediately spot unusual activity.
 
-A graph of events over time indicates the number of events that registered over the past 24 hours. It can give you an immediate sense of activity peaks and provide warning of an active attack. By observing changes in the frequency and number of events, you'll be able to immediately spot unusual activity.
+Summary of events
+: A list of all security rules that triggered and how many times they triggered.
+
+Attacker origin
+: An interactive map shows the origin of attackers across the world and clusters them by their level of activity.
+{:.letter-labels}
 
 
 Moving down the page, you can see the number of events and how many unique rules were triggered.

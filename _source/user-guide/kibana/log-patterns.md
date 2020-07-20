@@ -22,15 +22,16 @@ in near real time. Log patterns will help you surface logs you might have otherw
 
 To open Log Patterns, click the **Patterns** tab in Kibana Discover.
 
-## Understanding Log Patterns
+## What are Log Patterns?
 
-Log Patterns is an alternative view to the log document table. It shows the same logs organized in a different way.
+Log Patterns offers an alternative view to the standard log document table in Kibana Discover. It shows the same logs organized in a different way.
 
-While the log document table is organized chronologically by default, the Log Patterns tab reorganizes logs by their frequency of appearance, so that the most common log patterns are shown at the top by default.
+While the log document table is organized chronologically by default, the Log Patterns tab reorganizes logs into groups and reorganizes them by their frequency of appearance. By default, the most common log patterns are shown at the top.
 
-If you are looking for rare or infrequent logs, Patterns can help you find those easily. You can click the *Ratio* column header to invert the table and see the least common logs on top.
+If you are looking for outliers, Patterns can help you find those easily. Click the *Ratio* column header to invert the sorting and see the least common logs on top.
 
-As you make changes to the dataset and apply different filters, change the time frame, or adjust the search query - Log Patterns will recalculate to cover the new set of data under review. By default, Kibana's date picker is set to return data from the last 15 minutes. You can select another time range using the Histogram or the time picker to view Log Patterns for any time range you need.
+Log Patterns recalculates every time you submit a new query in Kibana Discover.
+It responds to every change in your query, when you apply different filters, change the time frame, or adjust the search query.
 
 You can sort your log patterns by their time of first occurrence, count, or ratio.
 
@@ -52,13 +53,14 @@ Pattern
 : The patterns identified in the message field.
 
 Filters
-: Click these to filter for or filter out the logs that match a pattern. You'll be taken to the **Logs** tab,
-where you'll see the logs that match your filter.
-{:.letter-labels}
+: Patterns function as filters and can be used in saved searches, visualizations, and dashboards. They can also be pinned across all apps, inverted, and temporarily disabled. 
 
-  Patterns function as filters and can be used in saved searches, visualizations, and dashboards. They can also be pinned across all apps, inverted, and temporarily disabled. Unlike other filters, Pattern filters cannot be edited.
-  
-  ![Patterns filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-filter1.png)
+    You can filter for or filter out the logs that match a pattern. You'll be taken to the **Logs** tab in Kibana Discover, where you'll see the logs that match your filter.
+
+    Unlike other filters, Pattern filters cannot be edited.
+   
+    ![Patterns filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-filter1.png)
+{:.letter-labels}
 
 ## Variables
 

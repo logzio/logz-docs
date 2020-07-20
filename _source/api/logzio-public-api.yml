@@ -293,9 +293,9 @@ paths:
         The endpoint behaves differently for the main and sub accounts.
       
 
-        * For the main account, only updates volume capacity. Can only update 2 parameters: `maxDailyGB` and `reservedDailyGB`.
+        * For the main account, it can only update volume capacity. You can only update 2 parameters: `maxDailyGB` and `reservedDailyGB`.
         
-        * For sub accounts, updates all settings. You can update any parameter, including the account name, capacity, etc.
+        * For sub accounts, it can update all settings. You can update any parameter, including the account name, capacity, etc.
       tags:
         - Manage time-based log accounts
       operationId: updateTimeBasedAccount

@@ -53,7 +53,7 @@ and paste it in your text editor. In the following example, you'd have copied "d
 Build your tenants-credentials.yml:
 
 ```
-touch tenants-credentials.yml
+mkdir ~/logzio-okta && touch ~/logzio-okta/tenants-credentials.yml && open ~/logzio-okta/tenants-credentials.yml
 ```
 
 Insert your tenants credentials into the YAML file in the following format:
@@ -108,7 +108,7 @@ docker run \
 --name Okta \
 --env LOGZIO_TOKEN=<<SHIPPING-TOKEN>> \
 --env LOGZIO_LISTENER_HOST=<<LISTENER-HOST>> \
--v $(pwd)/tenants-credentials.yml:/usr/share/logstash/tenants-credentials.yml \
+-v ~/logzio-okta/tenants-credentials.yml:/usr/share/logstash/tenants-credentials.yml \
 -t logzio/logzio-okta
 ```
 

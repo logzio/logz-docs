@@ -90,23 +90,33 @@ security:
 
 tags:
   - name: Who am I
-  - name: Manage accounts
+  - name: Manage time-based log accounts
     description: >-
-      Use these API requests to create, update, retrieve, or delete sub accounts and to allocate daily capacity to sub accounts.
+      Use these API requests to manage time-based log accounts:
+      
+      * Create, update, or delete a sub account.
+
+      * Allocate daily capacity to the main account and/or sub accounts.
+      
+      * Retrieve account activity stats and/or account configuration details.
 
 
       ### Flexible storage & shared volume
         
-      Flexible storate and shared volume can be enabled to allow accounts to share indexing capacity.
+      Flexible storage and shared volume allow accounts to share indexing capacity.
       
       
       To enable shared volume, go to the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts) in the Logz.io app and toggle the button **Use flexible volume** to turn it on.
       
       
-      If enabled, all accounts will include an additional parameter: `reservedDailyGB`.
+      To determine whether flexible storage is enabled, run a `Get` request to retrieve account details.
+      
+      * If `isFlexible` is true, flexible storage is enabled and every account has reserved capacity set by the parameter `reservedDailyGB`.
+      
+      * If false, flexible storage is disabled and the parameter `reservedDailyGB` is null.
   - name: Search logs
     description: >-
-      Use the Elasticsearch Search API DSL query language to search your Logz.io data.
+      Use the Elasticsearch Search API DSL query language to search your log data.
 
 
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
@@ -148,7 +158,7 @@ x-tagGroups:
     tags:
       - Manage users
       - Who am I
-      - Manage accounts
+      - Manage time-based log accounts
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
@@ -185,10 +195,17 @@ paths:
             $ref: '#/definitions/WhoAmI'
   /v1/account-management/time-based-accounts:
     get:
-      summary: Retrieve list of all accounts
-      description: Returns a list of accounts as an array of JSON objects. Must be run with an API token from the main account.
+      summary: Retrieve settings for all accounts
+      description: >-
+        
+        Returns account settings for the main account and all of its associated sub accounts.
+        
+
+        * The list of accounts is returned as an array of JSON objects.
+        
+        * Must be run with an API token from the main account.
       tags:
-        - Manage accounts
+        - Manage time-based log accounts
       operationId: getAll
       responses:
         200:
@@ -205,7 +222,7 @@ paths:
       description: >-
         Creates a new logging sub account. Must be run with an API token from the main account.
       tags:
-        - Manage accounts
+        - Manage time-based log accounts
       operationId: createTimeBasedAccount
       parameters:
         - in: body
@@ -244,52 +261,14 @@ paths:
               "utilizationEnabled": true
             }
             }'
-  /v1/account-management/time-based-accounts/detailed:
-    get:
-      summary: Retrieve detailed information on all sub accounts
-      description: Retrieves all time-based sub accounts, returned as an array of objects. Each sub account is its own object. Must be run with an API token from the main account.
-      tags:
-        - Manage accounts
-      operationId: getAllDetailedTimeBasedAccount
-      responses:
-        200:
-          description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/DetailedTimeBasedAccount'
-      x-code-samples:
-      - lang: cURL
-        source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
-  /v1/account-management/time-based-accounts/detailed/{id}:
-    get:
-      summary: Retrieve detailed account information by ID
-      description: Using account ID, returns detailed account information. Must be run with an API token from the main account.
-      tags:
-        - Manage accounts
-      operationId: getDetailedTimeBasedAccount
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          format: int32
-          description: ID of the account to retrieve
-          x-example: 99999
-      responses:
-        200:
-          description: successful operation
-          schema:
-            $ref: '#/definitions/DetailedTimeBasedAccount'
-      x-code-samples:
-      - lang: cURL
-        source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
+
+
   /v1/account-management/time-based-accounts/{id}:
     get:
-      summary: Retrieve sub account by ID
-      description: Returns account information and configuration as a JSON object. Must be run with an API token from the main account.
+      summary: Retrieve account settings by ID
+      description: Returns account configuration settings as a JSON object. Must be run with an API token from the main account.
       tags:
-        - Manage accounts
+        - Manage time-based log accounts
       operationId: get
       parameters:
         - name: id
@@ -309,9 +288,16 @@ paths:
         source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
     put:
       summary: Update an account
-      description: Updates the main account's volume, or updates a sub account. Must be run with an API token from the main account.
+      description: >- 
+      
+        The endpoint behaves differently for the main and sub accounts.
+      
+
+        * For the main account, only updates volume capacity. Can only update 2 parameters: `maxDailyGB` and `reservedDailyGB`.
+        
+        * For sub accounts, updates all settings. You can update any parameter, including the account name, capacity, etc.
       tags:
-        - Manage accounts
+        - Manage time-based log accounts
       operationId: updateTimeBasedAccount
       parameters:
         - name: id
@@ -340,7 +326,6 @@ paths:
             \"accountName\": \"AWS Lambda svr 3\",
             \"maxDailyGB\": 5,
             "reservedDailyGB\": 3,
-            "isFlexible\": true,
             \"retentionDays\": 5,
             \"searchable\": true,
             \"accessible\": false,
@@ -355,9 +340,9 @@ paths:
           }"
     delete:
       summary: Delete a sub account
-      description: Using an account ID, deletes a sub account. Must be run with an API token from the main account.
+      description: Deletes a sub account by its account ID. Must be run with an API token from the main account.
       tags:
-        - Manage accounts
+        - Manage time-based log accounts
       operationId: deleteTimeBasedAccount
       parameters:
         - name: id
@@ -365,7 +350,7 @@ paths:
           required: true
           type: integer
           format: int32
-          description: ID of the account to delete
+          description: ID of the account to be deleted.
           x-example: 99999
       responses:
         204:
@@ -373,6 +358,55 @@ paths:
       x-code-samples:
         - lang: cURL
           source: 'curl -X DELETE "https://api.logz.io/v1/account-management/time-based-accounts/88888" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
+  /v1/account-management/time-based-accounts/detailed:
+    get:
+      summary: Retrieve detailed information for all accounts
+      description: >-
+        Returns detailed account information for the main account and all of its associated sub accounts. Information includes usage and sharing permissions for Kibana objects.
+
+        * The list of accounts is returned as an array of JSON objects. Each sub account is its own object.
+        
+        * Must be run with an API token from the main account.
+      tags:
+        - Manage time-based log accounts
+      operationId: getAllDetailedTimeBasedAccount
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DetailedTimeBasedAccount'
+      x-code-samples:
+      - lang: cURL
+        source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
+  /v1/account-management/time-based-accounts/detailed/{id}:
+    get:
+      summary: Retrieve detailed account information by account ID
+      description: Returns detailed account information. Must be run with an API token from the main account.
+      tags:
+        - Manage time-based log accounts
+      operationId: getDetailedTimeBasedAccount
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the account to retrieve
+          x-example: 99999
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/DetailedTimeBasedAccount'
+      x-code-samples:
+      - lang: cURL
+        source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
+
+
+
+
 
   # ::::: SEARCH, SCROLL
   /v1/search:
@@ -2047,18 +2081,6 @@ definitions:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
-      isFlexible:
-        type: boolean
-        default: false
-        description: >-
-          If `true`, the volume of data that the account can index per calendar day is determined by 2 parameters: `reservedDailyGB` (Required) and `maxDailyGB` (Optional, can be null).
-          
-           
-          Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its daily maximum, as long as shared volume is available. If the daily maximum is null, the account is not capped and can continue to index data as long as shared volume is available.
-
-          
-          If `false`, the volume of data that the account can index per calendar day is determined only by `maxDailyGB`. The parameter `reservedDailyGB` does not apply and should be null.
-        example: true
       reservedDailyGB:
         type: number
         format: float
@@ -2148,24 +2170,12 @@ definitions:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
-      isFlexible:
-        type: boolean
-        default: false
-        description: >-
-          If `true`, the volume of data that the account can index per calendar day is determined by 2 parameters: `reservedDailyGB` (Required) and `maxDailyGB` (Optional, can be null).
-          
-           
-          Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its daily maximum, as long as shared volume is available. If the daily maximum is null, the account is not capped and can continue to index data as long as shared volume is available.
-
-          
-          If `false`, the volume of data that the account can index per calendar day is determined only by `maxDailyGB`. The parameter `reservedDailyGB` does not apply and should be null.
-        example: true
       reservedDailyGB:
         type: number
         format: float
         default: null
         description: >-
-          * If `isFlexible=false`, this field does not apply. Leave it null.
+          * If `isFlexible=false`, don't send this field or send it null.
    
          
           * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
@@ -2283,7 +2293,7 @@ definitions:
         example: 404 errors
       accountToken:
         type: string
-        description: Account log shipping token (unique to this account)
+        description: Account log shipping token (unique to every account)
         example: f483abe93b
       isFlexible:
         type: boolean
@@ -2302,10 +2312,9 @@ definitions:
         format: float
         default: null
         description: >-
-          * If `isFlexible=false`, this field does not apply and will not be returned.
+          * If `isFlexible=false`, this field does not apply and will be null.
 
-
-          * If `isFlexible=true`, determines the daily volume in GBs that is reserved for the account.
+          * If `isFlexible=true`, this determines the daily volume in GBs that is reserved for the account.
         example: 3
       maxDailyGB:
         type: number

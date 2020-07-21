@@ -15,16 +15,21 @@ Cloud SIEM logs a security event every time a security rule triggers in your Sec
 
 The event log includes details about the security incident and the rule that caused it to trigger. It also offers a button **Investigate** to quickly pull up the logs to be investigated directly in Kibana Discover.
 
+![Logz.io Cloud SIEM Summary page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/investigate-events.png)
+
 ### Fields of interest
 
 |---|---|
-| type: logzio-alerts | All security event logs belong to this log type. |
-| sub-type: security_rule | All security event logs belong to this sub-type. |
-| logzio-alert-definition-id | Every security rule in Logz.io Cloud SIEM has a unique identifier. The identifier can be used to aggregate all events triggered by the same rule. |
+| Time | Indicates when the rule triggered.|
+| logzio-alert-title | The name of the security rule in your Cloud SIEM |
+| logzio-alert-triggered-severity | Severity of the event, as determined by the thresholds set in the rule. |
 | logzio-hits | The number of logs involved in the security event. This is the number of logs that triggered the security rule before applying any aggregations, if applicable. |
-| logzio-investigate | Click the **Investigate** button to pull up the logs responsible for triggering the rule in Kibana Discover. The appropriate filters and search query are applied to returns only the relevant logs. Notice the number of **hits** in Kibana Discover matches the number in the event log. |
+| logzio-investigate | Click the **Investigate** button to pull up the logs responsible for triggering the rule in Kibana Discover. The appropriate filters and search query are already applied so ensure it returns only the relevant logs. <br> Notice the number of **hits** in Kibana Discover matches the number of hits in the event log. |
 {:.paramlist}
 
+### Other paths of investigation
+
+You can click on the **<i class="far fa-caret-square-down"></i>** button to expand the document and view the full event log or view surrounding documents.
 
 ### Log retention concerns
 

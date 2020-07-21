@@ -38,7 +38,7 @@ Logs of security events, that is logs of triggered rules, are kept for 10 years.
 
 When you click the **Investigate** button for an event, you are pulling up logs from your short-term logging account. The availability of these logs depends on the retention plan in your Log Analytics account.
 
-Log retention typically spans between 3-30 days. If you are an admin of the Main logging account, you can look up the retention policy on the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
+Log retention typically spans between 3-30 days. If you are an admin of the main logging account, you can look up the retention policy on the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
 
 ### Investigate expired logs
 

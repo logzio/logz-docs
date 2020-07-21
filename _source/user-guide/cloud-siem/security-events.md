@@ -13,7 +13,7 @@ contributors:
 
 Cloud SIEM logs a security event every time a rule triggers. The terms **triggered rules** and **security events** have the same meaning and are used interchangeably.
 
-The event log includes details about the security incident and the rule that caused it to trigger. It also offers an **Investigate** drill down button to quickly pull up the logs that triggered the specific event.
+The event log includes details about the security incident and the rule that caused it to trigger. It also offers an **Investigate** link to quickly pull up the logs that triggered the specific event.
 
 ![Logz.io Cloud SIEM Summary page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/investigate-600px.png)
 
@@ -22,7 +22,7 @@ The event log includes details about the security incident and the rule that cau
 |---|---|
 | Time | Indicates when the rule triggered.|
 | logzio-alert-title | The name of the security rule in your Cloud SIEM |
-| logzio-alert-triggered-severity | Severity of the event, as defined in the rule's trigger settings and is customizable. |
+| logzio-alert-triggered-severity | Severity of the event, as defined in the rule's trigger settings. It is customizable. |
 | logzio-hits | The number of logs involved in the security event. This is the number of logs that triggered the security rule before applying any aggregations, if applicable. |
 | logzio-investigate | Click the **Investigate** button to pull up the logs responsible for triggering the rule. The appropriate filters and search query are already applied to ensure it returns only the relevant logs. |
 {:.paramlist}
@@ -30,7 +30,7 @@ The event log includes details about the security incident and the rule that cau
 
 ### Other paths of investigation
 
-You can click on the **<i class="far fa-caret-square-down"></i>** button to expand the document and view the full event log or view surrounding documents.
+You can click the **<i class="fas fa-angle-right"></i>** button to expand the document. You'll be able to view the full event log and view surrounding documents.
 
 ### Log retention concerns
 
@@ -44,7 +44,6 @@ Log retention typically spans between 3-30 days. If you are an admin of the Main
 
 If you would like to investigate logs after they have expired from the logging database, you have the following options:
 
-1. Set up [archiving](/user-guide/archive-and-restore/). Once logs are no longer in retention, they can be resored from archive.
+1. Set up [archiving](/user-guide/archive-and-restore/). Once logs are no longer in retention, they can be restored from the archive.
 
 2. Set up [Optimizers](/user-guide/optimizers/configure-optimizers.html) to capture logs and save them to a [Timeless account](/user-guide/accounts/manage-timeless-accounts.html).
-

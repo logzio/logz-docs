@@ -1891,6 +1891,27 @@ paths:
       responses:
         200:
           description: successful operation
+  /v1/user-management/{id}/recursive:
+    delete:
+      tags:
+        - Manage users
+      summary: Delete a user from all sub accounts
+      description: Delete a user from the main account and all of the associated sub accounts. Revokes a user's access to your accounts.
+      operationId: deleteUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the user
+          example: 11300
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X DELETE "https://api.logz.io/v1/user-management/11300/recursive" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
+      responses:
+        200:
+          description: successful operation
   /v1/user-management/suspend/{id}:
     post:
       tags:

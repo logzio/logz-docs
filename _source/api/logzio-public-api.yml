@@ -363,7 +363,7 @@ paths:
       operationId: search
       summary: Search logs
       description: >-
-        Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) query language.
+        Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) query language and returnes up to 10,000 results per query.
 
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.

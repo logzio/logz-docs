@@ -1,9 +1,9 @@
 ---
-title: Ship RDS metrics
+title: Ship Lambda metrics
 logo:
-  logofile: aws-rds.svg
+  logofile: AWS-Lambda.svg
   orientation: vertical
-data-source: RDS
+data-source: Amazon Lambda
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
@@ -37,10 +37,12 @@ in this procedure.
 You'll need an [IAM user](https://console.aws.amazon.com/iam/home)
 with these permissions:
 `cloudwatch:GetMetricData`,
+`cloudwatch:ListMetrics`,
+`ec2:DescribeInstances`,
 `ec2:DescribeRegions`,
 `iam:ListAccountAliases`,
-`rds:DescribeDBInstances`,
-`sts:GetCallerIdentity`
+`sts:GetCallerIdentity`,
+`tag:GetResources`
 
 If you don't have one, set that up now.
 
@@ -114,10 +116,10 @@ logzio/docker-collector-metrics
 | AWS_ACCESS_KEY <span class="required-param"></span> | Your IAM user's access key ID. |
 | AWS_SECRET_KEY <span class="required-param"></span> | Your IAM user's secret key. |
 | AWS_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
-| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For RDS, this is `AWS/RDS`. |
+| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For Lambda, this is `AWS/Lambda`. |
 {:.paramlist}
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/RDS" %}
+{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Lambda" %}
 
 
 </div>

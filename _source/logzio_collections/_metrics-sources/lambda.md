@@ -1,7 +1,7 @@
 ---
 title: Ship Lambda metrics
 logo:
-  logofile: aws-lambda.svg
+  logofile: AWS-Lambda.svg
   orientation: vertical
 data-source: Lambda
 templates: ["docker-metricbeat"]

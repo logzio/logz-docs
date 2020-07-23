@@ -1,9 +1,9 @@
 ---
-title: Ship Lambda metrics
+title: Ship S3 metrics
 logo:
-  logofile: AWS-Lambda.svg
+  logofile: aws-s3.svg
   orientation: vertical
-data-source: Lambda
+data-source: Amazon S3
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector
@@ -38,11 +38,9 @@ You'll need an [IAM user](https://console.aws.amazon.com/iam/home)
 with these permissions:
 `cloudwatch:GetMetricData`,
 `cloudwatch:ListMetrics`,
-`ec2:DescribeInstances`,
 `ec2:DescribeRegions`,
 `iam:ListAccountAliases`,
-`sts:GetCallerIdentity`,
-`tag:GetResources`
+`sts:GetCallerIdentity`
 
 If you don't have one, set that up now.
 
@@ -67,6 +65,18 @@ and the slug for Canada (Central) is "ca-central-1".
 
 Paste your region slug in your text editor.
 You'll need this for your Metricbeat configuration later.
+
+##### _(Optional)_ Enable S3 request metrics
+
+The Metricbeat configuration
+you'll set up later
+collects S3 request metrics.
+These metrics aren't enabled by default.
+
+This is a per-bucket setting.
+If you're not sure how to enable request metrics, see
+[How Do I Configure Request Metrics for an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/configure-metrics.html)
+from AWS.
 
 ##### Pull the Docker image
 
@@ -116,10 +126,9 @@ logzio/docker-collector-metrics
 | AWS_ACCESS_KEY <span class="required-param"></span> | Your IAM user's access key ID. |
 | AWS_SECRET_KEY <span class="required-param"></span> | Your IAM user's secret key. |
 | AWS_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
-| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For Lambda, this is `AWS/Lambda`. |
+| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For S3, this is `AWS/S3`. |
 {:.paramlist}
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Lambda" %}
-
+{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/S3" %}
 
 </div>

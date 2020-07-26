@@ -25,7 +25,7 @@ Once you are ready to investigate a particular IP, click the IP drill down link.
 
 ### Log fields of interest
 
-Logz.io enriches logs with appearences of malicious and suspected IPs to make them easier and faster to track, investigate, and remediate. Below is the list of enrichment fields.
+Logz.io enriches logs with appearances of malicious and suspected IPs to make them easier and faster to track, investigate, and remediate. Below is the list of enrichment fields.
 
 |---|---|
 | logzio_security.ioc.malicious_ip | The IP flagged by Logz.io. It is also a **drill down link** to the **IP Investigation** dashboard to help you quickly pull up the relevant logs involving the IP. |

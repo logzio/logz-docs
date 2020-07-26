@@ -12,7 +12,7 @@ contributors:
 ---
 
 Cloud SIEM scans logs for malicious IPs using threat feeds as intel sources.
-The **Threat Overview** dashboard aggregates all suspected IPs from all sources in a single observation platform.
+The **Threat Overview** dashboard aggregates all suspected IPs from all sources in a single observability platform.
 
 You can filter the dashboard by feed name, feed confidence, or country of origin. You can also filter by log type to select for logs written by specific security services.
 
@@ -28,11 +28,11 @@ Once you are ready to investigate a particular IP, click the IP drill down link.
 Logz.io enriches logs with appearances of malicious and suspected IPs to make them easier and faster to track, investigate, and remediate. Below is the list of enrichment fields.
 
 |---|---|
-| logzio_security.ioc.malicious_ip | The IP flagged by Logz.io. It is also a **drill down link** to the **IP Investigation** dashboard to help you quickly pull up the relevant logs involving the IP. |
-| logzio_security.origin_feeds | The name of the feed which served as the source of the threat intel. To research the feed provider, the last time the feed was synced, and more, go to **Threats > Threat Intelligence Feeds** from the top menu and review the feed information. |
-| logzio_security.severity | The severity of the threat is extrapolated by the confidence assigned to the feed. Feed confidence is determined by Logz.io and is not configurable. |
-| logzio_security.context | Indicates when a malicious host is involved. |
-| currentDate | | 
+| logzio_security.ioc.malicious_ip | The malicious or suspected IP. It is also a **drill down link**. Click on it to open the **IP Investigation** dashboard and quickly pull up the relevant logs and a summary of its activity. |
+| logzio_security.origin_feeds | The feed name is the threat intelligence source. To research the feed provider, the last time the feed was synced, and more, go to **Threats > Threat Intelligence Feeds** from the top menu and review the feed information. |
+| logzio_security.severity | The severity of the threat is extrapolated from the confidence assigned to the feed. Feed confidence is determined by Logz.io and is not configurable. |
+| logzio_security.context | Indicates if a malicious host is involved. |
+| currentDate | |
 | timestamp | |
 {:.paramlist}
 

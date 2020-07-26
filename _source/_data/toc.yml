@@ -99,6 +99,8 @@ firstLevel:
     url: /user-guide/cloud-siem/
   - title: Investigate security events
     url: /user-guide/cloud-siem/security-events.html
+  - title: Investigate IP threats
+    url: /user-guide/cloud-siem/security-threats.html
     thirdLevel:
     - title: Understanding your security logs
       url: /user-guide/cloud-siem/understanding-your-security-logs.html

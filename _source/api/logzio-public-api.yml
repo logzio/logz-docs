@@ -1875,7 +1875,7 @@ paths:
       tags:
         - Manage users
       summary: Delete a user
-      description: Revokes a user's access to your accounts
+      description: Revokes a user's access to the account. The API token determines the account the user will be deleted from.
       operationId: deleteUser
       parameters:
         - name: id
@@ -1895,9 +1895,9 @@ paths:
     delete:
       tags:
         - Manage users
-      summary: Delete a user from all sub accounts
-      description: Delete a user from the main account and all of the associated sub accounts. Revokes a user's access to your accounts.
-      operationId: deleteUser
+      summary: Delete a user from all accounts
+      description: Delete a user from the main account and all of the associated sub accounts. Must be run with an API token for the main account.
+      operationId: deleteUserRecursively
       parameters:
         - name: id
           in: path

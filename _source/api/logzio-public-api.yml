@@ -1896,7 +1896,7 @@ paths:
       tags:
         - Manage users
       summary: Delete a user from all accounts
-      description: Delete a user from the main account and all of the associated sub accounts. Must be run with an API token for the main account.
+      description: Deletes a user from the main account and all of the associated sub accounts. Must be run with an API token for the main account.
       operationId: deleteUserRecursively
       parameters:
         - name: id

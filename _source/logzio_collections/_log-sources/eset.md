@@ -1,7 +1,7 @@
 ---
 title: Ship logs from ESET
 logo:
-  logofile: eset.svg
+  logofile: eset.png
   orientation: vertical
 data-source: ESET
 templates: ["network-device-filebeat"]

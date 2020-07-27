@@ -26,7 +26,7 @@ Once you are ready to investigate a particular IP, click the IP drilldown link. 
 
 ### Log enrichment
 
-Logz.io enriches logs with appearances of malicious and suspected IPs (as well as DNSs and URLs) to make them easier and faster to track, investigate, and remediate. Below is the list of enrichment fields.
+Logz.io enriches logs with appearances of malicious and suspected IPs, DNSs, and URLs, to make them easier and faster to track, investigate, and remediate. Below is the list of enrichment fields.
 
 ![Attacker IP list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/malicious-ip-logs.png)
 

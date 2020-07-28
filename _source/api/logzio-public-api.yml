@@ -122,12 +122,12 @@ tags:
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
-  - name: Archive 
+  - name: Archive logs
     description: >-
-      Manage user access to your Logz.io account using API requests.
+      Archive logs to AWS or Azure Blob for the option to restore them and query them past the standard retention. Logs are archived before they are indexed and analyzed by Logz.io. Drop filters scan the data downstream in the ingestion pipeline and have no effect on archiving.
 
 
-      You can create, update, suspend/unsuspend, and delete users. You can also retrieve the list of active and suspended users.
+      You can create a new archive account, restore from archiving, test an archive. You can also retrieve the list of active archives.
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -141,6 +141,7 @@ x-tagGroups:
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
+      - Archive logs
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -643,177 +644,20 @@ paths:
 
   # ::::: Archive
   /archive/v2/settings:
-  get:
-    tags:
-      - ArchiveV2
-    operationId: getSettingsForAccount
-    consumes:
-      - application/json
-    produces:
-      - application/json
-    parameters:
-      - name: X-API-TOKEN
-        in: header
-        description: Authentication Api Token
-        required: false
-        type: string
-      - name: X-AUTH-TOKEN
-        in: header
-        description: Authentication User Session
-        required: false
-        type: string
-    responses:
-      '200':
-        description: successful operation
-        schema:
-          $ref: '#/definitions/ArchiveSettingsResponse'
-        headers: {}
-  post:
-    tags:
-      - ArchiveV2
-    operationId: createSettings
-    consumes:
-      - application/json
-    produces:
-      - application/json
-    parameters:
-      - in: body
-        name: body
-        required: false
-        schema:
-          $ref: '#/definitions/ArchiveSettings'
-      - name: X-API-TOKEN
-        in: header
-        description: Authentication Api Token
-        required: false
-        type: string
-      - name: X-AUTH-TOKEN
-        in: header
-        description: Authentication User Session
-        required: false
-        type: string
-    responses:
-      default:
-        description: successful operation
-  /archive/v2/settings/test:
-  post:
-    tags:
-      - ArchiveV2
-    operationId: testSettings
-    consumes:
-      - application/json
-    produces:
-      - application/json
-    parameters:
-      - in: body
-        name: body
-        required: false
-        schema:
-          $ref: '#/definitions/TestStorageRequest'
-      - name: X-API-TOKEN
-        in: header
-        description: Authentication Api Token
-        required: false
-        type: string
-      - name: X-AUTH-TOKEN
-        in: header
-        description: Authentication User Session
-        required: false
-        type: string
-    responses:
-      default:
-        description: successful operation
-  /archive/v2/settings/{id}:
-  get:
-    tags:
-      - ArchiveV2
-    operationId: getSettings
-    consumes:
-      - application/json
-    produces:
-      - application/json
-    parameters:
-      - name: id
-        in: path
-        required: true
-        type: integer
-        format: int32
-      - name: X-API-TOKEN
-        in: header
-        description: Authentication Api Token
-        required: false
-        type: string
-      - name: X-AUTH-TOKEN
-        in: header
-        description: Authentication User Session
-        required: false
-        type: string
-    responses:
-      '200':
-        description: successful operation
-        schema:
-          $ref: '#/definitions/ArchiveSettingsResponse'
-        headers: {}
-  put:
-    tags:
-      - ArchiveV2
-    operationId: updateSettings
-    consumes:
-      - application/json
-    produces:
-      - application/json
-    parameters:
-      - name: id
-        in: path
-        required: true
-        type: integer
-        format: int32
-      - in: body
-        name: body
-        required: false
-        schema:
-          $ref: '#/definitions/ArchiveSettings'
-      - name: X-API-TOKEN
-        in: header
-        description: Authentication Api Token
-        required: false
-        type: string
-      - name: X-AUTH-TOKEN
-        in: header
-        description: Authentication User Session
-        required: false
-        type: string
-    responses:
-      default:
-        description: successful operation
-  delete:
-    tags:
-      - ArchiveV2
-    operationId: deleteSettings
-    consumes:
-      - application/json
-    produces:
-      - application/json
-    parameters:
-      - name: id
-        in: path
-        required: true
-        type: integer
-        format: int32
-      - name: X-API-TOKEN
-        in: header
-        description: Authentication Api Token
-        required: false
-        type: string
-      - name: X-AUTH-TOKEN
-        in: header
-        description: Authentication User Session
-        required: false
-        type: string
-    responses:
-      default:
-        description: successful operation
-
+    get:
+      summary: Set up archiving
+      description: Authenticates User Session
+      tags:
+        - Archive logs
+      operationId: getSettingsForAccount
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ArchiveSettingsResponse'
+          headers: {}
 
   # ::::: AUDIT TRAIL
   /v1/audit-trail/event-types:
@@ -3316,80 +3160,71 @@ definitions:
 
   # ::::: Archive DEFINITIONS
   ArchiveSettings:
-  type: object
-  properties:
-    storageType:
-      type: string
-      enum:
-        - S3
-        - BLOB
-    enabled:
-      type: boolean
-    compressed:
-      type: boolean
-    amazonS3StorageSettings:
-      $ref: '#/definitions/S3StorageSettings'
-    azureBlobStorageSettings:
-      $ref: '#/definitions/BlobSettings'
-    valid:
-      type: boolean
-ArchiveSettingsResponse:
-  type: object
-  properties:
-    id:
-      type: integer
-      format: int32
-    settings:
-      $ref: '#/definitions/ArchiveSettings'
-BlobSettings:
-  type: object
-  properties:
-    tenantId:
-      type: string
-    clientId:
-      type: string
-    clientSecret:
-      type: string
-    accountName:
-      type: string
-    containerName:
-      type: string
-    path:
-      type: string
-S3IamCredentials:
-  type: object
-  properties:
-    arn:
-      type: string
-    externalId:
-      type: string
-S3SecretCredentials:
-  type: object
-  properties:
-    accessKey:
-      type: string
-    secretKey:
-      type: string
-S3StorageSettings:
-  type: object
-  properties:
-    credentialsType:
-      type: string
-      enum:
-        - IAM
-        - KEYS
-    path:
-      type: string
-    s3SecretCredentials:
-      $ref: '#/definitions/S3SecretCredentials'
-    s3IamCredentials:
-      $ref: '#/definitions/S3IamCredentials'
-TestStorageRequest:
-  type: object
-  properties:
-    id:
-      type: integer
-      format: int32
-    archiveSettings:
-      $ref: '#/definitions/ArchiveSettings'
-
+    type: object
+    properties:
+      storageType:
+        type: string
+        enum:
+          - S3
+          - BLOB
+      enabled:
+        type: boolean
+      compressed:
+        type: boolean
+      amazonS3StorageSettings:
+        $ref: '#/definitions/S3StorageSettings'
+      azureBlobStorageSettings:
+        $ref: '#/definitions/BlobSettings'
+      valid:
+        type: boolean
+  ArchiveSettingsResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      settings:
+        $ref: '#/definitions/ArchiveSettings'
+  BlobSettings:
+    type: object
+    properties:
+      tenantId:
+        type: string
+      clientId:
+        type: string
+      clientSecret:
+        type: string
+      accountName:
+        type: string
+      containerName:
+        type: string
+      path:
+        type: string
+  S3IamCredentials:
+    type: object
+    properties:
+      arn:
+        type: string
+      externalId:
+        type: string
+  S3SecretCredentials:
+    type: object
+    properties:
+      accessKey:
+        type: string
+      secretKey:
+        type: string
+  S3StorageSettings:
+    type: object
+    properties:
+      credentialsType:
+        type: string
+        enum:
+          - IAM
+          - KEYS
+      path:
+        type: string
+      s3SecretCredentials:
+        $ref: '#/definitions/S3SecretCredentials'
+      s3IamCredentials:
+        $ref: '#/definitions/S3IamCredentials'

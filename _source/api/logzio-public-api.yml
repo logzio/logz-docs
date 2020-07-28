@@ -645,8 +645,8 @@ paths:
   # ::::: Archive
   /archive/v2/settings:
     get:
-      summary: Set up archiving
-      description: Authenticates User Session
+      summary: Retrieve archiving settings
+      description: Gets the current archiving settings for a time-based log account.
       tags:
         - Archive logs
       operationId: getSettingsForAccount
@@ -659,6 +659,8 @@ paths:
             $ref: '#/definitions/ArchiveSettingsResponse'
           headers: {}
     post:
+      summary: Set up archiving
+      description: Configure archiving for a time-based log account.
       tags:
         - Archive logs
       operationId: createSettings
@@ -687,6 +689,8 @@ paths:
           description: successful operation
   /archive/v2/settings/test:
     post:
+      summary: Test archive settings
+      description: Test the settings by...? 
       tags:
         - Archive logs
       operationId: testSettings
@@ -715,6 +719,8 @@ paths:
           description: successful operation
   /archive/v2/settings/{id}:
     get:
+      summary: Retreive archive settings
+      description: Get the archiving settings of a logging account.
       tags:
         - Archive logs
       operationId: getSettings
@@ -728,6 +734,7 @@ paths:
           required: true
           type: integer
           format: int32
+          description: ID of the time-based log account.
         - name: X-API-TOKEN
           in: header
           description: Authentication Api Token
@@ -745,6 +752,8 @@ paths:
             $ref: '#/definitions/ArchiveSettingsResponse'
           headers: {}
     put:
+      summary: Update archive settings
+      description: Updates the settings for an archive selected by its archive ID.
       tags:
         - Archive logs
       operationId: updateSettings
@@ -758,6 +767,7 @@ paths:
           required: true
           type: integer
           format: int32
+          description: ID of the time-based log account
         - in: body
           name: body
           required: false
@@ -777,6 +787,8 @@ paths:
         default:
           description: successful operation
     delete:
+      summary: Delete an archive
+      description: Deletes the archiving settings for a log account.
       tags:
         - Archive logs
       operationId: deleteSettings
@@ -790,6 +802,7 @@ paths:
           required: true
           type: integer
           format: int32
+          description: ID of the time-based log account
         - name: X-API-TOKEN
           in: header
           description: Authentication Api Token

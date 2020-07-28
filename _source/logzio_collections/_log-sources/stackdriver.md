@@ -94,7 +94,7 @@ Select **JSON** and click **CREATE** to save the private key to your machine.
 * Click **DONE** to return to the _Service accounts_ page.
 
 * Rename it in the following format: '<<project-id>>-credentials.json' - replace to your project id.  
-Move it to the `~/logzio-pubsub` folder you've created at the beginning of this step.  
+Move it to the `/etc/logzio-pubsub` folder you've created at the beginning of this step.  
 **Important note: If you are naming it differently please follow [these steps]() as well.
 </div>
 
@@ -158,9 +158,15 @@ docker pull logzio/logzio-pubsub
 
 ##### Run the container
 
-Run this command from `logzio-pubsub/`,
-where you stored `pubsub-input.yml`
-and `credentials-file.json`.
+Replace <<PROJECT_ID>>  with your project id and run the following command.  
+Important notes before running:
+
+* When working with multiple topics, for every credentials file you've created add this line:  
+```-v /etc/logzio-pubsub/<<PROJECT_ID>>-credentials.json:/logzio-pubsub/<<PROJECT_ID>>-credentials-file.json \```
+and insert your project id instead of the parameters.  
+* If you've named your credentials file manually follow [these steps](#cred-info) as well.   
+* For Mac users: To fix issues with mounting files from root directory please add the path '/etc/logzio-pubsub' to your Docker File Sharing. Click [here](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d) for a guide on how to fix this issue - you can use docker desktop or manually edit your Docker configuration file.  
+For more information about mounting files from root directory click [here](https://docs.docker.com/docker-for-mac/osxfs/#namespaces).
 
 ```shell
 docker run --name logzio-pubsub \
@@ -168,17 +174,6 @@ docker run --name logzio-pubsub \
 -v /etc/logzio-pubsub/<<PROJECT_ID>>-credentials.json:/logzio-pubsub/<<PROJECT_ID>>-credentials.json \
 logzio/logzio-pubsub
 ```
-
-Replace <<PROJECT_ID>>  with your project id and run this command.  
-Important notes:  
-** If you've named your credentials file manually follow [these steps](#cred-info) as well.   
-** When working with multiple topics, for every credentials file you've created add this line:  
-```-v ~/logzio-pubsub/<<PROJECT_ID>>-credentials.json:/logzio-pubsub/<<PROJECT_ID>>-credentials-file.json \```
-and insert your project id instead of the parameters.  
-** For Mac users: To fix issues with mounting files from root directory please add the path '/etc/logzio-pubsub' to your Docker File Sharing.  
-Click [here](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d) for a guide on how to fix this issue - you can use docker desktop or manually edit your Docker configuration file.  
-For more information about mounting files from root directory click [here](https://docs.docker.com/docker-for-mac/osxfs/#namespaces).
-
 
 
 ##### Check Logz.io for your logs
@@ -197,7 +192,7 @@ In both cases, if you wish to name it differently please follow these instructio
 1. On step 3 - building your 'pubsub-input.yml' file, please add the field 'credentials_file' with your credentials file's name as the value.
 For an example of adding this field go to [input example file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml).
 2. On step 5 - running the docker, for every credentials file you've created add this line:
-'-v ~/logzio-pubsub/<credentials-file-name>.json:/logzio-pubsub/<credentials-file-name>.json \'
+'-v /etc/logzio-pubsub/<credentials-file-name>.json:/logzio-pubsub/<credentials-file-name>.json \'
 and replace '<credentials-file-name>' with your credentials file's name.
 </div>
 

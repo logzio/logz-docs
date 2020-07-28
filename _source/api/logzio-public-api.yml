@@ -288,14 +288,15 @@ paths:
         source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
     put:
       summary: Update an account
-      description: >- 
-      
-        The endpoint behaves differently for the main and sub accounts.
-      
+      description: >-
+        Updates the account settings of a main account or sub account, with some exceptions, noted below:
 
-        * For the main account, `retentionDays` cannot be updated. If `isFlexible=false`, cannot update the parameters: `maxDailyGB` and `reservedDailyGB`. If `isFlexible=true`, cannot update retention. 
-        
-        * For sub accounts, it can update all settings. You can update any parameter, including the account name, capacity, etc.
+        * Shared volume can only be enabled or disabled from the application. The parameter `isFlexible` cannot be changed using the endpoint. It must be returned as it was received.
+
+        * For the main account, the parameter `retentionDays` cannot be updated. It is determined by the plan you purchased.
+
+        * For the main account, if `isFlexible=false`, the parameters `maxDailyGB` and `reservedDailyGB` cannot be updated using this endpoint.
+
       tags:
         - Manage time-based log accounts
       operationId: updateTimeBasedAccount
@@ -2098,7 +2099,7 @@ definitions:
           The maximum volume of data that an account can index per calendar day.
 
 
-          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
+          * If `isFlexible=false` this parameter can only be used to update a sub account, but not a main account. It determines the only capacity reserved for use by the account. It cannot be null.
 
 
           * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.

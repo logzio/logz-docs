@@ -660,7 +660,7 @@ paths:
           headers: {}
     post:
       tags:
-        - ArchiveV2
+        - Archive logs
       operationId: createSettings
       consumes:
         - application/json
@@ -688,7 +688,7 @@ paths:
   /archive/v2/settings/test:
     post:
       tags:
-        - ArchiveV2
+        - Archive logs
       operationId: testSettings
       consumes:
         - application/json

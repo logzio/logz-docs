@@ -676,13 +676,8 @@ paths:
             $ref: '#/definitions/ArchiveSettings'
         - name: X-API-TOKEN
           in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
+          description: The authentication API Token which also identifies the account
+          required: true
           type: string
       responses:
         default:
@@ -690,7 +685,7 @@ paths:
   /archive/v2/settings/test:
     post:
       summary: Test archive settings
-      description: Test the settings by...? 
+      description: Tests the settings and returns the status code to confirm that a connection with the provider was established.
       tags:
         - Archive logs
       operationId: testSettings
@@ -706,13 +701,8 @@ paths:
             $ref: '#/definitions/TestStorageRequest'
         - name: X-API-TOKEN
           in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
+          description: The authentication API Token which also identifies the account
+          required: true
           type: string
       responses:
         default:
@@ -734,16 +724,12 @@ paths:
           required: true
           type: integer
           format: int32
-          description: ID of the time-based log account.
+          description: ID of the archive settings.
+          example: 33
         - name: X-API-TOKEN
           in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
+          description: The authentication API Token which also identifies the account
+          required: true
           type: string
       responses:
         '200':
@@ -753,7 +739,11 @@ paths:
           headers: {}
     put:
       summary: Update archive settings
-      description: Updates the settings for an archive selected by its archive ID.
+      description: >- 
+        Updates the settings for the account's archive. For example, switch between AWS and Azure Blob or vice versa, update credentials, or switch between IAM roles and authentication keys. 
+        
+        
+        Only one archive can be active per account.
       tags:
         - Archive logs
       operationId: updateSettings
@@ -767,7 +757,7 @@ paths:
           required: true
           type: integer
           format: int32
-          description: ID of the time-based log account
+          description: ID of the archive settings.
         - in: body
           name: body
           required: false
@@ -775,20 +765,15 @@ paths:
             $ref: '#/definitions/ArchiveSettings'
         - name: X-API-TOKEN
           in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
+          description: The authentication API Token which also identifies the account
+          required: true
           type: string
       responses:
         default:
           description: successful operation
     delete:
       summary: Delete an archive
-      description: Deletes the archiving settings for a log account.
+      description: Deletes the archiving settings for a time-based log account.
       tags:
         - Archive logs
       operationId: deleteSettings
@@ -802,16 +787,11 @@ paths:
           required: true
           type: integer
           format: int32
-          description: ID of the time-based log account
+          description: ID of the archive settings.
         - name: X-API-TOKEN
           in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
+          description: The authentication API Token which also identifies the account
+          required: true
           type: string
       responses:
         default:
@@ -3327,10 +3307,13 @@ definitions:
         enum:
           - S3
           - BLOB
+        description: Archive to an AWS S3 bucket or Azure Blob storage.
       enabled:
         type: boolean
+        description:
       compressed:
         type: boolean
+        description: If enabled, logs are compressed before they are archived.
       amazonS3StorageSettings:
         $ref: '#/definitions/S3StorageSettings'
       azureBlobStorageSettings:
@@ -3343,6 +3326,7 @@ definitions:
       id:
         type: integer
         format: int32
+        description: Unique ID of the archive settings.
       settings:
         $ref: '#/definitions/ArchiveSettings'
   BlobSettings:
@@ -3350,23 +3334,31 @@ definitions:
     properties:
       tenantId:
         type: string
+        description: AWS Tenant?
       clientId:
         type: string
+        description: AWS client ID?
       clientSecret:
         type: string
+        description: AWS client secret? 
       accountName:
         type: string
+        description: Account? 
       containerName:
         type: string
+        description: Specify the name of an existing container? Create a new container?
       path:
         type: string
+        description: Path to the S3 bucket? 
   S3IamCredentials:
     type: object
     properties:
       arn:
         type: string
+        description: ???
       externalId:
         type: string
+        description: External ID of IAM credentials
   S3SecretCredentials:
     type: object
     properties:

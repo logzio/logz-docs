@@ -291,7 +291,6 @@ paths:
       description: >-
         Updates the account settings of a main account or sub account, with some exceptions, noted below:
 
-        * Shared volume can only be enabled or disabled from the application. The parameter `isFlexible` cannot be changed using the endpoint. It must be returned as it was received.
 
         * For the main account, the parameter `retentionDays` cannot be updated. It is determined by the plan you purchased.
 

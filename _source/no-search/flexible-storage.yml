@@ -24,6 +24,9 @@ info:
     This API is documented using the **OpenAPI 2.0** specification.
     <!-- You can browse the API documentation on this page, or you can download the specification file. -->
 
+    # Beta feature
+
+    This documentation version accompanies the [shared storage beta release](/beta-api-flexible-storage/#tag/Manage-time-based-log-accounts). We recommend using the main API documentation (docs.logz.io/api/) for all other endpoints.
 
     ### Updates and improvements
 
@@ -63,7 +66,7 @@ info:
     To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
 
 
-  title: Logz.io API
+  title: Logz.io API - Flexible Storage Beta Version
   termsOfService: 'https://logz.io/about-us/terms-of-use/'
   contact:
     email: help@logz.io

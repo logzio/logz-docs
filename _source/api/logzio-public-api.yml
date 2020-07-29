@@ -1,20 +1,19 @@
----
-layout: none
----
-
 swagger: '2.0'
 schemes: [ https ]
 host: api.logz.io
 x-servers:
-{%- for region in site.data.logzio-regions %}
-  - url: https://api
-  {%- if region.suffix -%}
-    -{{region.suffix}}
-  {%- endif -%}
-  .logz.io/
-    description: {{region.title}}
-{% endfor -%}
-basePath: /
+  - url: https://api.logz.io
+    description: US East (Northern Virginia)
+  - url: https://api-au.logz.io
+    description: Asia Pacific (Sydney)
+  - url: https://api-ca.logz.io
+    description: Canada (Central)
+  - url: https://api-eu.logz.io
+    description: Europe (Frankfurt)
+  - url: https://api-nl.logz.io
+    description: West Europe (Netherlands)
+  - url: https://api-wa.logz.io
+    description: West US 2 (Washington)
 produces: [ application/json ]
 consumes: [ application/json ]
 info:
@@ -62,7 +61,6 @@ info:
     API call and response rates are limited per individual account.
     To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
 
-
   title: Logz.io API
   termsOfService: 'https://logz.io/about-us/terms-of-use/'
   contact:
@@ -75,13 +73,10 @@ info:
 securityDefinitions:
   X-API-TOKEN:
     description: >-
-      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
-      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page. To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
 
 
-      API tokens carry privileges to make changes to users and accounts,
-      so it's important to keep your tokens secure. If you believe an API token has been compromised,
-      delete the compromised token, and replace it with a new token in your integrations.
+      API tokens carry privileges to make changes to users and accounts, so it's important to keep your tokens secure. If you believe an API token has been compromised, delete the compromised token, and replace it with a new token in your integrations.
     type: apiKey
     in: header
     name: X-API-TOKEN
@@ -101,32 +96,17 @@ tags:
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage notification endpoints
-    description: >-
-      Logz.io can send notifications to your preferred workspaces, such as Opsgenie, BigPanda, PagerDuty, and Slack.
-
-
-      Notifications are typically sent when alerts are triggered, when a user shares a Kibana object,
-      or when Logz.io Insights identifies new exceptions in your logs.
-
-
-      Use these API requests to create, update, or delete notification endpoints. If you configure a custom endpoint,
-      you can configure the notificaton message body.
-      Otherwise, you can use any of the available preconfigured endpoints.
   - name: Import or export Kibana objects
   - name: Manage shared tokens
     description: >-
-      You can share Kibana visualization and dashboard snapshots using shared tokens.
-      Token filters are available to help you control what data to expose.
-
-
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
+  - name: Manage log shipping tokens
+    description: >-
+      Use these API requests to create, update, retrieve, or delete shipping tokens.
+      
   - name: Logz.io snapshots
   - name: Manage users
-    description: >-
-      Manage user access to your Logz.io account using API requests.
 
-
-      You can create, update, suspend/unsuspend, and delete users. You can also retrieve the list of active and suspended users.
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -138,6 +118,7 @@ x-tagGroups:
       - Who am I
       - Manage sub accounts
       - Manage shared tokens
+      - Manage log shipping tokens
       - Manage notification endpoints
       - Import or export Kibana objects
   - name: Data security
@@ -363,7 +344,7 @@ paths:
       operationId: search
       summary: Search logs
       description: >-
-        Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) query language and returnes up to 10,000 results per query.
+        Searches your account data using the Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
 
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
@@ -422,8 +403,6 @@ paths:
               query:
                 type: object
                 description: >-
-                  The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
-
                   #### Limitations
 
                   * When using `query_string`, `allow_leading_wildcard` must be set to `false`
@@ -452,7 +431,6 @@ paths:
                 type: integer
                 description: Number of results to return
                 default: 10
-                maximum: 10,000
                 example: 50
               sort:
                 type: array
@@ -463,42 +441,24 @@ paths:
                 items:
                   type: object
               _source:
-                type: object
+                type: array
                 description: >-
-                  The object `includes` specifies an array of strings specifying an array of fields to return.
-                  
-                  * If you omit `_source` from the request, all fields are returned.
-                  
-                  * If you pass `'_source': false`, it will exclude the `_source` field from the results.
-                properties:
-                  includes:
-                    type: array of strings
-                    description: Array of fields to return
-                    example: message
+                  An array of fields to return.
+                  If you don't include `_source` in the request,
+                  all fields are returned.
+
+
+                  **Note**:
+                  Alternatively, you can pass `'_source': false`
+                  to exclude the `_source` field from the results.
                 items:
                   - type: string
                     description: Field to return.
               post_filter:
                 type: object
-                description: A filter applied after the aggregations have been calculated. Useful for reusing a single query to calculate several outputs with different filtering criteria. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-post-filter.html) for details.
-              docvalue_fields:
-                type: object
-                description: Powers inverted indexing. Allows queries to look up the search term in unique sorted list of terms, for faster access to the list of documents that contain the term. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-docvalue-fields.html) for details.
-              version:
-                type: object
-                description: Returns a version for each result. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-version.html) for details.
-              store:
-                type: array of objects
-                description: Useful for querying for fields that don’t appear in the _source field or querying for larger documents by date or title. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/mapping-store.html) for details.
-              highlight:
-                type: object
-                description: Highlight strings in one or more fields in your search results. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-highlighting.html) for details.
-              aggregations:
+              aggs:
                 type: object
                 description: >-
-                  Apply field aggregations. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html) for details.
-
-
                   #### Limitations
 
                   * When using the `size` element, the value must be ≤ `1000`
@@ -576,28 +536,28 @@ paths:
       tags:
         - Search logs
       description: >-
-        This endpoint can take 2 types of call requests. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id` 
-        (The variation in the field name is intentional) to fetch the next batches of paginated results.
-        This endpoint always returns results as a stringified JSON.
-        
-
-        How it works:
-        
-        
-        First, send a request to establish the `scrollID`. This initial request contains the query object and additional parameters, similar to the `v1/search` endpoint, with the exception that `dayOffset` and `accountIds` are not supported. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
-        
-        
-        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results. 
-        You'll know you've reached the last page of results, once the call keeps returning the last page of results repeatedly. Keep sending the same scroll ID as many times as needed to retrieve all of the available results.
-        The results are paginated, and the request advances through them, one at a time, by default. So that every time you send the request with the same `scroll_id`, the next batch of results is returned.
-       
-
-        **Note**:
+        Runs a paginated search of your account data
+        using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
 
 
-        * Send the field `scroll_id` in requests (snake_case).
-        
-        * Receive the field `scrollID` in your responses (camelCase).
+        The first request should contain the query object
+        (just like using the `/search` endpoint),
+        and returns an object that contains `scrollId`.
+        You'll use this scroll ID for all subsequent requests.
+
+
+        Every subsequent request should contain the `scroll_id` string.
+        You'll use the same scroll ID for the entire series of requests.
+        (Snake_case for requests, camelCase for responses.)
+
+
+        **Subsequent request sample payload**:
+
+
+        `{ "scroll_id": "<scrollId-from-first-response>" }`
+
+
+        **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
       operationId: scroll
       parameters:
         - in: body
@@ -801,6 +761,182 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/MessageBean'
+
+  # ::::: SHIPPING TOKENS
+  /v1/log-shipping/tokens:
+    post:
+      tags:
+        - Manage log shipping tokens
+      summary: Create a log shipping token
+      description: Creates a log shipping token for this account.
+      operationId: createNewLogShippingToken
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl --location --request POST ‘https://api.logz.io/v1/log-shipping/tokens’ \
+            --header ‘X-API-TOKEN: <token>’ \
+            --data-raw ‘{“name”:“token-name”}’
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+      responses:
+        '201':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/{id}:
+    get:
+      tags:
+        - Manage log shipping tokens
+      summary: Retrieve a log shipping token by ID
+      description: Returns details for the specified shipping token.
+      operationId: getLogShippingTokenById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/{id}' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    put:
+      tags:
+        - Manage log shipping tokens
+      summary: Update a log shipping token
+      description: Enables/disables a log shipping token and/or renames it.
+      operationId: updateLogShippingToken
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X PUT 'https://api.logz.io/v1/log-shipping/tokens/1900' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "name": "staging eu",
+              "enabled": true
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    delete:
+      tags:
+        - Manage log shipping tokens
+      summary: Delete a log shipping token
+      description: >-
+        Deletes a log shipping token by its ID, while providing relevant information about the token's recent status and activity.
+        
+        
+        An account must have at least 1 enabled token. You won't be able to disable or delete the last token. 
+        
+        **Important**: Active tokens can be deleted using this call. Confirm that a token is no longer needed before deleting it.
+      operationId: deleteLogShippingToken
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X DELETE 'https://api.logz.io/v1/log-shipping/tokens/786351' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/limits:
+    get:
+      tags:
+        - Manage log shipping tokens
+      summary: Get number of available tokens
+      description: >-
+        Returns the number of log shipping tokens currently in use and the number of available tokens that can be enabled.
+        Disabled tokens don't count against the token limit.
+      operationId: getLogShippingTokensLimits
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/limits' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensLimitsResponse'
+  /v1/log-shipping/tokens/search:
+    post:
+      tags:
+        - Manage log shipping tokens
+      summary: Retrieve log shipping tokens
+      description: Returns the relevant shipping tokens, filterd, sorted and paginated as per the request.   
+      operationId: searchLogShippingTokens
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensSearchRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/log-shipping/tokens/search' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "filter": {
+                "enabled": true
+              },
+              "sort": [
+                {
+                  "field": "name",
+                  "descending": true
+                }
+              ],
+              "pagination": {
+                "pageNumber": 3,
+                "pageSize": 15
+              }
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseShippingTokensModel'
 
   # ::::: NOTIFICATION ENDPOINTS
   /v1/endpoints/slack:
@@ -2184,6 +2320,10 @@ definitions:
         type: string
         description: Name of the account
         example: 404 errors
+      accountToken:
+        type: string
+        description: Account log shipping token (unique to this account)
+        example: f483abe93b
       maxDailyGB:
         type: number
         format: float
@@ -2711,29 +2851,26 @@ definitions:
       scrollId:
         type: string
         readOnly: true
-        description: Keep passing this ID in the request until you've retrieved all of the results. Copy this ID and pass it as the field `scroll_id` in a request to the same endpoint to retrieve the next page of results. (Remember to first clear the request body of all other parameters.)
+        description: ID of this response. Use this in `scroll_id` in the next scroll request to retrieve the next set of scroll results.
         example: DnF1ZXJ5VGhlbkZldGNoCQAAAAAWXRbqFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFp6B-xZTTVFrMGt4eVFnZXhQZV9YbVRrU3NnAAAAABakA8QWNjY1RUZtdWZRS1NZZWt1ZERTNHNaQQAAAAAWXRbrFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFl0W7BZTaUlka01LV1FEdTdaSWxvbkpCSDZ3AAAAABQ1nb4WVjRyRlUxZWRUU0dzbTV5VVVqYkhxdwAAAAAUdHVqFlF0b3Znei1ZUXgtZEkyZkR3M0pMbGcAAAAAFvGs6hZKVklxaXIyZ1NOQzF5NHg1cmhtVDV3AAAAABR0dWkWUXRvdmd6LVlReC1kSTJmRHczSkxsZw==
       hits:
         type: string
         readOnly: true
-        description: Query results in stringified JSON format
+        description: Query results
   ScrollRequest:
     type: object
     properties:
       query:
         type: object
         description: >-
-          Add a search query to receive the `scrollID` in the result.
-          
-          
-          The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
+          Search query. Uses Elasticsearch [Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search.html) query language.
 
 
-          You can only add the `query` parameters if you are not passing the `scroll_id` in the request.
-          
+          In Your first request of a scroll series, `query` is used to establish the search query. In all subsequent requests of the series, you'll use `scroll_id`.
+
           #### Limitations
 
-          * The query can only run on 2 consecutive indexes. By default, the query runs on data sent today and yesterday. You can also add a filter on `timestamp` to search a smaller time frame.
+          * Your query will run only on data sent today and yesterday. You can still specify a filter on `timestamp` to search a smaller time frame.
 
           * When using `query_string`, `allow_leading_wildcard` must be set to `false`
 
@@ -2744,9 +2881,7 @@ definitions:
         type: integer
         format: int32
         description: Number of results to return
-        default: 10
-        maximum: 1,000
-        example: 50
+        example: 10
       from:
         type: integer
         format: int32
@@ -2762,18 +2897,16 @@ definitions:
 
           * Can't sort on `message`
       _source:
-        type: object
+        type: array
         description: >-
-          The object `includes` specifies an array of strings specifying an array of fields to return.
-          
-          * If you omit `_source` from the request, all fields are returned.
+          An array of fields to return.
+          If you don't include `_source` in the request,
+          all fields are returned.
 
-          * If you pass `'_source': false`, it will exclude the `_source` field from the results.
-        properties:
-          includes: 
-            type: array of strings
-            description: Array of fields to return
-            example: message
+
+          **Note**:
+          Alternatively, you can pass `'_source': false`
+          to exclude the `_source` field from the results.
         items:
           - type: string
             description: Field to return.
@@ -2877,6 +3010,135 @@ definitions:
           example: 339
         description: IDs of filters to attach to the token. To remove all filters, use an empty array `[]`.
 
+  # ::::: SHIPPING TOKENS DEFINITIONS
+  ShippingTokensModel:
+    type: object
+    properties:
+      name:
+        type: string
+        description: This token's name.
+        example: apac prod
+      id:
+        type: integer
+        format: int32
+        description: This token's ID.
+        example: 786351
+      token:
+        type: string
+        description: The token itself.
+        example: 6bLXmMA6FLibc7ySSqNcCfvbhtqT0rPS
+      updatedAt:
+        type: integer
+        format: int64
+        description: Unix timestamp of when this token was last updated.
+        example: 414720000
+      updatedBy:
+        type: string
+        description: Email address of the last user to update this token.
+        example: shalom.the.mighty@gmail.com
+      createdAt:
+        type: integer
+        format: int64
+        description: Unix timestamp of when this token was created.
+        example: 389836800
+      createdBy:
+        type: string
+        description: Email address of the user who created this token.
+        example: you.got.this@gmail.com
+      enabled:
+        type: boolean
+        description: If this token is enabled, `true`. If it's disabled, `false`.
+  ShippingTokensRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Descriptive name for this token.
+          example: staging eu
+        enabled:
+          type: boolean
+          default: true
+          description: To enable this token, `true`. To disable, `false`.
+  ShippingTokensLimitsResponse:
+      type: object
+      properties:
+        maxAllowedTokens:
+          type: integer
+          format: int32
+          description: The number of log shipping tokens this account can have.
+          example: 50
+        numOfEnabledTokens:
+          type: integer
+          format: int32
+          description: The number of log shipping tokens currently enabled for this account.
+          example: 27
+  ShippingTokensSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/ShippingTokensFilterRequest'
+      sort:
+        type: array
+        description: Sorts the results before returning them.
+        items:
+          $ref: '#/definitions/ShippingTokensSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  ShippingTokensSortRequest:
+      type: object
+      properties:
+        field:
+          type: string
+          enum:
+            - CREATED_AT
+            - NAME
+          description: >-
+            To sort by creation date, use `"createdAt"`.
+            To sort by name, use `"name"`.
+          example: NAME
+        descending:
+          type: boolean
+          description: >-
+            For descending order, use `true`.
+            For ascending order, use `false`.
+
+  ShippingTokensFilterRequest:
+      type: object
+      description: Filters your search for token attributes.
+      properties:
+        enabled:
+          type: boolean
+          description: >-
+            Set to `true` to filter for enabled tokens.
+            Set to `false` to filter for disabled tokens.
+
+  PagedSearchResponseShippingTokensModel:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/ShippingTokensModel'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  Pagination:
+      type: object
+      description: Controls page number and sizing of paginated results.
+      properties:
+        pageNumber:
+          type: integer
+          format: int32
+          description: Page number of paginated group of results.
+          example: 3
+        pageSize:
+          type: integer
+          format: int32
+          description: Number of results to include on each page.
+          example: 15
+
   # ::::: SNAPSHOTS DEFINITIONS
   SnapshotCreateResponse:
     type: object
@@ -2909,28 +3171,19 @@ definitions:
         type: array
         items:
           type: string
-        description: >-
-          URLs of Slack webhooks that you want to send this snapshot to.
-          <br> At least one of `emails`, `slackWebhookUrls`, and `endpoints` is required with each request.
-          If all three are missing, the request will fail.
+        description: URLs of Slack webhooks that you want to send this snapshot to
         example: ["https://hooks.slack.com/services/CC29C43F8/7E6E833FB/Ebe297580E7FaC354F9D4d7"]
       endpoints:
         type: array
         items:
           type: integer
           format: int32
-        description: >-
-          IDs of notification endpoints that you want to send this snapshot to
-          <br> At least one of `emails`, `slackWebhookUrls`, and `endpoints` is required with each request.
-          If all three are missing, the request will fail.
+        description: IDs of notification endpoints that you want to send this snapshot to
       emails:
         type: array
         items:
           type: string
-        description: >-
-          Email addresses that you want to send this snapshot to
-          <br> At least one of `emails`, `slackWebhookUrls`, and `endpoints` is required with each request.
-          If all three are missing, the request will fail.
+        description: Email addresses that you want to send this snapshot to
       message:
         type: string
         description: Message to send to the shared object recipients
@@ -3115,7 +3368,6 @@ definitions:
       - fullName
       - username
       - roles
-      - accountID
     properties:
       username:
         type: string

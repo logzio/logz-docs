@@ -59,13 +59,14 @@ You can build it through:
 Build your credentials file using your Google Cloud project ID.  
 Before you begin, make sure your 'gcloud' CLI is installed. If not, execute the following:
   1. Download the 'google-cloud-sdk' to '/etc/logzio-pubsub'
-  2. Run  ```/etc/logzio-pubsub/google-cloud-sdk/install.sh```
+  2. Run  ```source '/etc/logzio-pubsub/google-cloud-sdk/path.bash.inc'```  
+ **If you are not login to gcloud you will be requested to login through your browser.
 
-Then replace '<project_id>' with your project id and run:
+Then replace the placeholder with your project id and run:
 
 ```shell
-wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/create_credentials.py \
-&& python create_credentials.py PROJECT_ID=<project_id>
+wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/create-credentials.py \
+&& python create_credentials.py <<project_id>>
 ```
 
 Run this command for each project you're working with.  
@@ -101,7 +102,7 @@ Move it to the `/etc/logzio-pubsub` folder you've created at the beginning of th
 ##### Build your Pub/Sub input YAML file
 
 Make `pubsub-input.yml`, which will hold your Pub/Sub input configuration.  
-To create the file run the following command as root and then open the file in your text editor:
+To create the file run the following command as root then open the file in your text editor:
 
 ```shell
 touch /etc/logzio-pubsub/pubsub-input.yml
@@ -185,9 +186,9 @@ and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 <div id="cred-info">
 
 ####  Information about the credentials file
-When creating the credentials file through the [command line](#ceredentials_cmd) your credentials file is named by default in the following format:  
+When creating the credentials file through the [command line](#credentials-cmd) your credentials file is named by default in the following format:  
 '<<project_id>>-credentials.json'.  
-When creating the credentials file through the [gcp console](#credentials_console) you are requested to name the file in that format.  
+When creating the credentials file through the [gcp console](#credentials-console) you are requested to name the file in that format.  
 In both cases, if you wish to name it differently please follow these instructions:
 1. On step 3 - building your 'pubsub-input.yml' file, please add the field 'credentials_file' with your credentials file's name as the value.
 For an example of adding this field go to [input example file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml).

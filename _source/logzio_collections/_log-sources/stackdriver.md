@@ -97,7 +97,7 @@ Select **JSON** and click **CREATE** to save the private key to your machine.
 
 * Click **DONE** to return to the _Service accounts_ page.
 
-* Rename it in the following format: `<project-id>-credentials.json` - replace to your project id.  
+* Rename it in the following format: `<project-id>-credentials.json` - replace to your project id.
 Move it to the `/etc/logzio-pubsub` folder you've created at the beginning of this step.
 
 ###### Variation
@@ -188,7 +188,7 @@ logzio/logzio-pubsub
 
 * If your credentials file name isn't of the default format `<<project_id>>-credentials.json`, follow [the steps below](#cred-info) as well.
 
-* If you're using a Mac, you'll need to fix issues with mounting files from root directory. 
+* If you're using a Mac, you'll need to fix issues with mounting files from root directory.
 Add the path '/etc/logzio-pubsub' to your Docker File Sharing. Click [here](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d) for a guide on how to fix this issue - you can use docker desktop or manually edit your Docker configuration file.
 For more information about mounting files from the root directory click [here](https://docs.docker.com/docker-for-mac/osxfs/#namespaces).
 

@@ -20,11 +20,6 @@ shipping-tags:
 
 <div class="tasklist">
 
-##### Configure ESET Admin Console to forward logs to Filebeat
-
-You'll need to configure ESET server to forward logs to Filebeat over port 6514.
-
-
 ##### Install the ESET certificate on your Filebeat server
 
 ESET sends encrypted data,
@@ -46,11 +41,13 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-##### Add TCP traffic as an input
 
-In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
+##### Configure Filebeat
 
-{% include log-shipping/replace-vars.html token=true %}
+Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
+Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
+
+This code block adds ESET as an input and sets Logz.io as the output.
 
 ```yaml
 # ...
@@ -85,22 +82,24 @@ processors:
     - from: "log.file.path"
       to: "source"
     ignore_missing: true
-```
 
-##### Set Logz.io as the output
-
-If Logz.io is not an output, add it now.
-Remove all other outputs.
-
-{% include log-shipping/replace-vars.html listener=true %}
-
-```yaml
 # ...
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
+
+##### Replace the placeholders in the Filebeat configuration
+
+Still in the same configuration file, replace the placeholders to match your specifics.
+
+* {% include log-shipping/replace-vars.html token=true %}
+
+* {% include log-shipping/replace-vars.html listener=true %}
+
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
 
 ##### Start Filebeat
 
@@ -120,7 +119,7 @@ Scroll down to **Server Settings** and configure the Syslog server:
   1. In the **SYSLOG SERVER** section, enable the option to **Use Syslog server**. Fill in the details:
 
   * **Host** - Enter your host address.
-  * **Port** - Enter your port number.
+  * **Port** - Enter your port number. (Port 6514 unless you've changed the default)
   * **Format** - Select **BSD** as the log format.
   * **Transport** - Select the **TLS** protocol.
 

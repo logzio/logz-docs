@@ -110,7 +110,7 @@ Start or restart Filebeat for the changes to take effect.
 
 Open the ESET Admin Console on the **Security Management Center**.
 
-  1. In the left side menu, click **<i class="fas fa-ellipsis-h"></i> > More > Server Settings**.
+  1. On the left side menu, click **<i class="fas fa-ellipsis-h"></i> > More > Server Settings**.
   2. Expand the **Advanced Settings** option.
 
 ![ESET Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/eset-admin-console.png)

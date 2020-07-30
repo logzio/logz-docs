@@ -14,9 +14,11 @@ shipping-tags:
 
 **Before you begin, you'll need**:
 
+* [ESET Endpoint Protection Advanced](https://www.eset.com/us/business/endpoint-protection-advanced/download/) installed
+* ESET Admin Console locally installed. (The cloud management console does not support sending logs to a Syslog server and therefore is not supported.)
 * [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * root access
-* ESET Admin Console locally installed. The cloud management console does not support sending logs to a Syslog server.
+
 
 <div class="tasklist">
 

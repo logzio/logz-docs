@@ -58,9 +58,9 @@ You can build it through:
 
 Build your credentials file using your Google Cloud project ID.  
 Before you begin, make sure your 'gcloud' CLI is installed. If not, execute the following:
-  1. Download the 'google-cloud-sdk' to '/etc/logzio-pubsub'
+  1. [Download](https://cloud.google.com/sdk/docs/quickstarts) the 'google-cloud-sdk' to '/etc/logzio-pubsub'
   2. Run  ```source '/etc/logzio-pubsub/google-cloud-sdk/path.bash.inc'```  
- **If you are not login to gcloud you will be requested to login through your browser.
+ **If you are not logged in to gcloud you will be requested to login through your browser.
 
 Then replace the placeholder with your project id and run:
 
@@ -94,7 +94,7 @@ Select **JSON** and click **CREATE** to save the private key to your machine.
 
 * Click **DONE** to return to the _Service accounts_ page.
 
-* Rename it in the following format: '<<project-id>>-credentials.json' - replace to your project id.  
+* Rename it in the following format: `<project-id>-credentials.json` - replace to your project id.  
 Move it to the `/etc/logzio-pubsub` folder you've created at the beginning of this step.  
 **Important note: If you are naming it differently please follow [these steps]() as well.
 </div>
@@ -194,7 +194,7 @@ In both cases, if you wish to name it differently please follow these instructio
 For an example of adding this field go to [input example file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml).
 2. On step 5 - running the docker, for every credentials file you've created add this line:
 '-v /etc/logzio-pubsub/<credentials-file-name>.json:/logzio-pubsub/<credentials-file-name>.json \'
-and replace '<credentials-file-name>' with your credentials file's name.
+and replace `credentials-file-name` with your credentials file's name.
 </div>
 
 </div>

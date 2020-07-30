@@ -118,14 +118,14 @@ Open the ESET Admin Console on the **Security Management Center**.
 
 Scroll down to **Server Settings** and configure the Syslog server:
 
-  1. In the **SYSLOG SERVER** section, enable the option to **Use Syslog server**. Fill in the details:
+In the **SYSLOG SERVER** section, enable the option to **Use Syslog server**. Fill in the details:
 
   * **Host** - Enter your host address.
   * **Port** - Enter your port number. (Port 6514 unless you've changed the default)
   * **Format** - Select **BSD** as the log format.
   * **Transport** - Select the **TLS** protocol.
 
-  2. In the **LOGGING** section, enable the option to **Export logs to Syslog**. Fill in the details:
+In the **LOGGING** section, enable the option to **Export logs to Syslog**. Fill in the details:
 
   * **Exported logs format** - Select the **JSON** format.
 

@@ -28,14 +28,11 @@ Grafana’s Explore mode has two views: Metrics and Logs.
 
 **Add a screenshot pointing at Metrics view**
 
-The metrics view is a graph panel you can use to explore your data. It's a playground. 
-You can try out queries, as you would in any other panel. The key is to use Lucene syntax. 
+The metrics view is a playground you can use to explore your data. It's a graph panel where you can try out queries, as you would with any other panel. The key is to use Lucene syntax.
 
 It can be useful for getting general information about what's going on in your metrics account.
 
-For example, if you'd like to check which Metricbeat modules you currently have, use the following query:
-
-group by the field `event.module`. 
+For example, if you'd like to check which Metricbeat modules you currently have, use a group by the field `event.module`. 
 
 
 If you're interested in looking up your metricsets, add a group by the field `metricset.name`. , what hosts are shipping metrics into your account (add a group by the field host.name), etc.
@@ -49,10 +46,25 @@ If you're interested in looking up your metricsets, add a group by the field `me
 
 
 ### Logs View
+
 **Add a screenshot pointing at Logs view**
-**For those of you who know Kibana - this is exactly like Kibana, only for your metrics** - Sara can we have a sentence like this? I think It’ll help
-The logs view gives you visibility into your metrics account at the log level. You should use it when you want to build or edit a dashboard, or when you want to know how specific metrics logs are structured. To do that, simply query for the desired type of log you wish to investigate using Lucene syntax (no query at all will just return all metrics logs in your account), then click on one of the results to open it in a document view. The document view provides a great understanding to which metrics and dimensions are being sent in the same document, and about the metadata of those metrics (from which host was it sent, what is its metricset, what cluster etc.). You can even get a preview of other values of any specific field, by clicking on the 3 bars icon on the left of the field name.
-**Add a screenshot showing a click on the 3 bars**
+
+For those of you who know Kibana Discover- this is exactly like Kibana, only for your metrics.
+
+The logs view gives you visibility into your metrics account at the log level.
+It can be useful when you want to build or edit a dashboard, or when you want to know how specific metrics logs are structured. 
+
+If you want the system to return all the metrics logs in your account, simply leave the query empty.
+
+Once you have a better idea of what you are looking for, query for the log type you are after. The key is to use Lucene syntax.
+
+Then click on one of the results to open it in a document view. The document view will show you which metrics and dimensions are being sent in the same document and includes the metadata for those metrics (for example, the sending host, metricset, cluster, etc. for the metrics). 
+
+You can click the <i class="fas fa-signal"></i> icon for a top-N analysis of the most common values for the field.
+
+![Top-N analysis in Grafana Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/top-n-grafana-explore.png)
+
+
 Split and Synch options
 If you want, you can split your Explore mode screen to two different Explore screens, and have both of them with the same view type (both on logs or both on metrics) or have each one showing a different view type.
 **Add a screenshot showing the split button and a split screen with logs and metrics views**

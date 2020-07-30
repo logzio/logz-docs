@@ -773,9 +773,10 @@ paths:
       x-code-samples:
         - lang: cURL
           source: >-
-            curl --location --request GET 'https://api.logz.io/v1/account-management/whoami/' \
+            curl -L -X POST 'https://api.logz.io/log-shipping/tokens' \
             --header 'X-API-TOKEN: <token>' \
             --header 'Content-Type: application/json'
+            --data-raw '{ "name": "token-name", "enabled": "true" }'
       parameters:
         - in: body
           name: body
@@ -792,7 +793,7 @@ paths:
       tags:
         - Manage log shipping tokens
       summary: Retrieve a log shipping token by ID
-      description: Returns the specified shipping token.
+      description: Returns details for the specified shipping token.
       operationId: getLogShippingTokenById
       parameters:
         - name: id
@@ -3057,6 +3058,7 @@ definitions:
           example: staging eu
         enabled:
           type: boolean
+          default: true
           description: To enable this token, `true`. To disable, `false`.
   ShippingTokensLimitsResponse:
       type: object

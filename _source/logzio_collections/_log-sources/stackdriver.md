@@ -64,7 +64,7 @@ Before you begin, you'll need the gcloud command-line tool (CLI) installed. If i
 
   1. [Download](https://cloud.google.com/sdk/docs/quickstarts) the 'google-cloud-sdk' to '/etc/logzio-pubsub'.
   2. Run  ```source '/etc/logzio-pubsub/google-cloud-sdk/path.bash.inc'```.
-  If you're are not already logged in to gcloud, your browser will prompt you to login.
+  If you're are not already logged in to gcloud, you will be requested to login through your browser.
 
 Run the following command for each project you're working with. Replace the placeholder with your project id before running the command:
 
@@ -73,7 +73,7 @@ wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/create-creden
 && python create_credentials.py <<project_id>>
 ```
 
-If you rename the file, follow [these steps]() as well.
+If you rename the file, follow [these steps](#cred-info) as well.
 
 
 </div>

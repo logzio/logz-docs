@@ -836,7 +836,7 @@ paths:
       x-code-samples:
         - lang: cURL
           source: >-
-            curl -L -X PUT 'https://api.logz.io/v1/log-shipping/tokens/1900' \
+            curl -L -X PUT 'https://api.logz.io/v1/log-shipping/tokens/{id}' \
             -H 'X-API-TOKEN: <token>' \
             -H 'Content-Type: application/json' \
             --data-raw '{

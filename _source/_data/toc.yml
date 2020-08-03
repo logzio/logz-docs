@@ -99,15 +99,20 @@ firstLevel:
     url: /user-guide/cloud-siem/
   - title: Investigate security events
     url: /user-guide/cloud-siem/security-events.html
-  - title: Investigate malicious IPs
-    url: /user-guide/cloud-siem/malicious-IPs.html
     thirdLevel:
     - title: Understanding your security logs
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
-    - title: Manage security rules
-      url: /user-guide/cloud-siem/manage-security-rules.html
-    - title: Lookups
-      url: /user-guide/lookups/
+  - title: Investigate malicious IPs
+    url: /user-guide/cloud-siem/malicious-IPs.html
+    thirdLevel:
+    - title: Threat Intelligence
+      url: /user-guide/cloud-siem/threat-intelligence.html
+    - title: Add a private feed
+      url: /user-guide/cloud-siem/private-feeds.html
+  - title: Manage security rules
+    url: /user-guide/cloud-siem/manage-security-rules.html
+  - title: Lookups
+    url: /user-guide/lookups/
   - title: Integrations
     url: /user-guide/cloud-siem/integrations/
     thirdLevel:

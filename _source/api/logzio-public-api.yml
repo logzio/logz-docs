@@ -657,7 +657,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/ArchiveSettingsResponse'
-          headers: {}
     post:
       summary: Set up archiving
       description: Configure archiving for a time-based log account.
@@ -702,7 +701,6 @@ paths:
         - name: X-API-TOKEN
           in: header
           description: The authentication API Token which also identifies the account
-          required: true
           type: string
       responses:
         default:
@@ -763,11 +761,6 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/ArchiveSettings'
-        - name: X-API-TOKEN
-          in: header
-          description: The authentication API Token which also identifies the account
-          required: true
-          type: string
       responses:
         default:
           description: successful operation
@@ -788,11 +781,6 @@ paths:
           type: integer
           format: int32
           description: ID of the archive settings.
-        - name: X-API-TOKEN
-          in: header
-          description: The authentication API Token which also identifies the account
-          required: true
-          type: string
       responses:
         default:
           description: successful operation
@@ -3307,19 +3295,23 @@ definitions:
         enum:
           - S3
           - BLOB
-        description: Archive to an AWS S3 bucket or Azure Blob storage.
+        description: Archive to an AWS S3 bucket or Azure Blob storage. If using `S3`, include the parameters for `amazonS3StorageSettings`. If using `BLOB`, include the parameters for `BlobSettings`.
+        default: none
+        example: S3
       enabled:
         type: boolean
-        description:
+        description: If `true`, archiving is currently enabled.
+        default: none
+        example: true
       compressed:
         type: boolean
         description: If enabled, logs are compressed before they are archived.
+        default: false
+        example: false
       amazonS3StorageSettings:
         $ref: '#/definitions/S3StorageSettings'
       azureBlobStorageSettings:
         $ref: '#/definitions/BlobSettings'
-      valid:
-        type: boolean
   ArchiveSettingsResponse:
     type: object
     properties:
@@ -3327,6 +3319,8 @@ definitions:
         type: integer
         format: int32
         description: Unique ID of the archive settings.
+        default: 0
+        example: 323
       settings:
         $ref: '#/definitions/ArchiveSettings'
   BlobSettings:
@@ -3334,31 +3328,35 @@ definitions:
     properties:
       tenantId:
         type: string
-        description: AWS Tenant?
+        description: AWS Tenant
       clientId:
         type: string
-        description: AWS client ID?
+        description: AWS client ID
       clientSecret:
         type: string
-        description: AWS client secret? 
+        description: AWS client secret
       accountName:
         type: string
-        description: Account? 
+        description: AWS account name
       containerName:
         type: string
         description: Specify the name of an existing container? Create a new container?
       path:
         type: string
-        description: Path to the S3 bucket? 
+        description: >- 
+          Path to the S3 bucket.
+          
+          
+          Currently, there is only an option to restore from root.
   S3IamCredentials:
     type: object
     properties:
       arn:
         type: string
-        description: ???
+        description: Amazon Resource Name (ARN) to uniquely identify the S3 bucket.
       externalId:
         type: string
-        description: External ID of IAM credentials
+        description: External ID of ???
   S3SecretCredentials:
     type: object
     properties:

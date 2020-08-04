@@ -58,8 +58,12 @@ Fill in the form to configure the connection.
 
 1. **URL** - Type in the URL where your feed is hosted. It provides the base URL for the API request.
 2. **Method** - Select the request method for the API request. Available methods: GET / POST / PUT.
-3. **Headers** - Send 1 header per line. (Separate headers on a new line.)
-  If your feed is password protected, you’ll need to encrypt the credentials (64 bit) and pass them as authentication headers. See the placeholder for an example.
+3. **Headers** - Add headers to the API request if they are needed.
+
+    Send 1 header per line. (In other words, separate headers with line breaks.)
+  
+    If your feed is password protected, you'll need to encode the credentials (username:password in base64) and pass them as an authorization header. See [this page](/user-guide/encoding-authorization-header.html) for further instructions.
+
 
 ##### Give the sync some time
 
@@ -72,8 +76,7 @@ If the connection fails at some point in the future, say if the feed is migrated
 
 ##### To manage private feeds
 
-* To edit or delete a private feed,
-  hover over the feed in the list,
+To edit or delete a private feed, hover over the feed in the list,
   and click <i class="li li-pencil"></i> (edit)
   or <i class="li li-trash"></i> (delete).
 

@@ -1892,7 +1892,7 @@ paths:
       tags:
         - Manage users
       summary: Delete a user
-      description: Revokes a user's access to your accounts
+      description: Revokes a user's access to the account. The API token determines the account the user will be deleted from.
       operationId: deleteUser
       parameters:
         - name: id
@@ -1905,6 +1905,31 @@ paths:
       x-code-samples:
         - lang: cURL
           source: 'curl -X DELETE "https://api.logz.io/v1/user-management/11300" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
+      responses:
+        200:
+          description: successful operation
+  /v1/user-management/{id}/recursive:
+    delete:
+      tags:
+        - Manage users
+      summary: Delete a user from all accounts
+      description: >-
+        Deletes a user from the main account and all associated sub accounts. Must be run with an API token for the main account.
+
+
+        The user will not be deleted from accounts for which there are no other users. In other words, any accounts where the user is the last user will be skipped. The success message will list accounts that were skipped.
+      operationId: deleteUserRecursively
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the user
+          example: 11300
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X DELETE "https://api.logz.io/v1/user-management/11300/recursive" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
       responses:
         200:
           description: successful operation

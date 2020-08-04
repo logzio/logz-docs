@@ -15,7 +15,7 @@ contributors:
 This feature is in Alpha. Contact Support to request early access.
 {:.info-box.note}
 
-Your can enrich threat detection with your own private feed of malicious IPs. To do so, you'll need to maintain an IOC-specific feed for IPs and make it accessible by API to Logz.io.
+You can enrich threat detection with your own private feed of malicious IPs. To do so, you'll need to maintain an IOC-specific feed for IPs and make it accessible by API to Logz.io.
 
 ![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)
 
@@ -82,3 +82,4 @@ To edit or delete a private feed, hover over the feed in the list,
 
 If you delete a private feed, Logz.io will stop using it to enrich logs immediately.
 
+![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/feed-info.png)

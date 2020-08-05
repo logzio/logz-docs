@@ -33,6 +33,6 @@ Logz.io enriches logs with appearances of malicious and suspected IPs, DNSs, and
 |---|---|
 | logzio_security.ioc.malicious_ip | The malicious or suspected IP. It is also a **drilldown link**. Click on it to open the **IP Investigation** dashboard and quickly pull up the relevant logs and a summary of the IP's activity. |
 | logzio_security.origin_feeds | The name of the threat intelligence feed that defined the IP as malicious. To research the feed, the last time the feed was synced, and more, go to **Threats > Threat Intelligence Feeds** from the top menu and review the feed information. |
-| logzio_security.severity | The severity is extrapolated from the confidence assigned to the feed. Feed confidence is determined by Logz.io and is not configurable. |
+| logzio_security.severity | Threats are ranked by severity on a scale of 1-5, 5 being the highest, to help reduce false-positives and to promote response to higher-risk threats. Severity is extrapolated from the feed's confidence. Feed confidence is determined by Logz.io and is not configurable. |
 | logzio_security.context | Additional context as provided by the threat intelligence feed. |
 {:.paramlist}

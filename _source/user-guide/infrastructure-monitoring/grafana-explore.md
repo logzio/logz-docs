@@ -14,13 +14,10 @@ contributors:
 
 Whether you just started sending metrics into your metrics account for the first time, and you want to know if your metrics arrived or not, or you’re a long-time user who wants to examine the structure of your metrics documents in order to create a new monitoring dashboard - Grafana’s Explore mode is the best way to do it.
 
+
+To go to Grafana’s Explore, click on the **Explore icon <i class="far fa-compass"></i>** on the left side menu.
+
 ![screenshot pointing at Explore button]()
-
-To go to Grafana’s Explore, click on the Explore button on the left side bar from any Grafana dashboard screen.
-
-Click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save** .
-
-
 
 Grafana’s Explore mode has two views: Metrics and Logs.
 
@@ -70,11 +67,3 @@ If you want, you can split your Explore mode screen to two different Explore scr
 **Add a screenshot showing the split button and a split screen with logs and metrics views**
 You can even use the link option in order to link the time range of the two screens, which will allow you to view your metrics logs both in metrics and logs view, for the same time range.
 **Add a screenshot showing the link button and a linked screen with logs and metrics views**
-
-
-
-
- 
-
-
-

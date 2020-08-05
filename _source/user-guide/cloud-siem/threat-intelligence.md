@@ -14,8 +14,6 @@ Cloud SIEM cross references incoming logs against lists of known Indicators of C
 
 When an IOC is detected, the original log is [enriched with the relevant details](/user-guide/cloud-siem/malicious-IPs.html#log-enrichment).
 
-Threat severity is determined by the confidence of the source. The severity is ranked on a scale of 1-5, 5 being the highest, to help reduce false-positives and to promote response to higher-risk threats.
-
 
 #### Review feeds
 

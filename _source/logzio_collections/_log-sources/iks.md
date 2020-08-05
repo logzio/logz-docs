@@ -132,7 +132,7 @@ Open the file in your text editor and customize the integration environment vari
 Run:
 
 ```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml
+kubectl apply -f /path/to/logzio-daemonset-containerd.yaml
 ```
 
 #####  Check Logz.io for your logs

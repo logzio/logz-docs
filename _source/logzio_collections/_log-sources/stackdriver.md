@@ -70,7 +70,7 @@ Run the following command for each project you're working with. Replace the plac
 
 ```shell
 wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/create-credentials.py \
-&& python create_credentials.py <<project_id>>
+&& python create-credentials.py <<project_id>>
 ```
 
 If you rename the file, follow [these steps](#cred-info) as well.

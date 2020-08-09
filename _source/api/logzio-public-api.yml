@@ -98,6 +98,7 @@ tags:
 
 
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
+  - name: Insights
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage notification endpoints
@@ -131,6 +132,7 @@ x-tagGroups:
   - name: Log monitoring
     tags:
       - Search logs
+      - Insights
       - Logz.io snapshots
   - name: Account administration
     tags:
@@ -639,6 +641,40 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/ScrollResponse'
+
+  # ::::: Log Insights
+  /insights/public-list:
+    post:
+      tags:
+        - Insights
+      summary: Public API - list insights
+      description: ''
+      operationId: listInsightsPublicAPI
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/PublicGetAccountInsightsRequest'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+        - name: X-AUTH-TOKEN
+          in: header
+          description: Authentication User Session
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PageResponsePublicAccountInsightResponse'
 
   # ::::: AUDIT TRAIL
   /v1/audit-trail/event-types:
@@ -3093,6 +3129,523 @@ definitions:
       snapshotTimeZone:
         type: string
 
+  # ::::: Log Insights
+  PageResponsePublicAccountInsightResponse:
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 500
+      from:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 2147483647
+      total:
+        type: integer
+        format: int64
+        minimum: 0
+        maximum: 500
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/PublicAccountInsightResponse'
+  PublicAccountInsightResponse:
+    type: object
+    properties:
+      insightId:
+        type: string
+        readOnly: true
+      insightType:
+        type: string
+        readOnly: true
+        enum:
+          - PUBLIC_CI
+          - LOGCEPTION
+      tagName:
+        type: string
+        readOnly: true
+      description:
+        type: string
+        readOnly: true
+      links:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      additionalData:
+        type: object
+        readOnly: true
+        additionalProperties:
+          type: object
+      firstOccurrence:
+        type: integer
+        format: int64
+        readOnly: true
+      lastOccurrence:
+        type: integer
+        format: int64
+        readOnly: true
+      count:
+        type: integer
+        format: int64
+        readOnly: true
+      logTypes:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      kibanaLink:
+        type: string
+        readOnly: true
+      insightTitle:
+        type: string
+  PublicGetAccountInsightsRequest:
+    type: object
+    properties:
+      from:
+        type: integer
+        format: int32
+        readOnly: true
+      size:
+        type: integer
+        format: int32
+        readOnly: true
+      startDate:
+        type: integer
+        format: int64
+        readOnly: true
+      endDate:
+        type: integer
+        format: int64
+        readOnly: true
+      types:
+        type: array
+        readOnly: true
+        items:
+          type: string
+          enum:
+            - PUBLIC_CI
+            - LOGCEPTION
+      tagNames:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      logTypes:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      onlyNew:
+        type: boolean
+        readOnly: true
+      sortBy:
+        type: string
+        readOnly: true
+        enum:
+          - OCCURRENCES
+          - TAG_NAME
+          - SEVERITY
+          - TITLE
+          - LAST_OCCURRENCE
+          - FIRST_OCCURRENCE
+      asc:
+        type: boolean
+        readOnly: true
+      search:
+        type: string
+        readOnly: true
+      timeZone:
+        type: string
+        readOnly: true
+  InsightSampleLog:
+    type: object
+    properties:
+      source:
+        type: object
+        readOnly: true
+        additionalProperties:
+          type: object
+      id:
+        type: string
+        readOnly: true
+  InsightOccurrences:
+    type: object
+    properties:
+      insightId:
+        type: string
+        readOnly: true
+      occurrences:
+        type: integer
+        format: int64
+        readOnly: true
+  InsightsBucket:
+    type: object
+    properties:
+      time:
+        type: integer
+        format: int64
+        readOnly: true
+      insightOccurrences:
+        type: array
+        readOnly: true
+        items:
+          $ref: '#/definitions/InsightOccurrences'
+  InsightsChart:
+    type: object
+    properties:
+      insightsBuckets:
+        type: array
+        items:
+          $ref: '#/definitions/InsightsBucket'
+  GetInsightsChartsRequest:
+    type: object
+    properties:
+      startDate:
+        type: integer
+        format: int64
+        readOnly: true
+      endDate:
+        type: integer
+        format: int64
+        readOnly: true
+      insightIds:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      interval:
+        type: string
+        readOnly: true
+  AccountInsightWithAnalyticsResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        readOnly: true
+      type:
+        type: string
+        readOnly: true
+        enum:
+          - PUBLIC_CI
+          - LOGCEPTION
+      assignee:
+        type: integer
+        format: int32
+        readOnly: true
+      title:
+        type: string
+        readOnly: true
+      description:
+        type: string
+        readOnly: true
+      links:
+        type: string
+        readOnly: true
+      severity:
+        type: string
+        readOnly: true
+        enum:
+          - LOW
+          - MEDIUM
+          - HIGH
+      status:
+        type: string
+        readOnly: true
+        enum:
+          - ACTIVE
+          - SOLVED
+          - DISMISSED
+      firstOccurrence:
+        type: integer
+        format: int64
+        readOnly: true
+      textLastEditedDate:
+        type: string
+        format: date-time
+        readOnly: true
+      textLastEditedBy:
+        type: integer
+        format: int32
+        readOnly: true
+      severityLastEditedDate:
+        type: string
+        format: date-time
+        readOnly: true
+      severityLastEditedBy:
+        type: integer
+        format: int32
+        readOnly: true
+      additionalData:
+        type: object
+        readOnly: true
+        additionalProperties:
+          type: object
+      lastOccurrence:
+        type: integer
+        format: int64
+        readOnly: true
+      occurrences:
+        type: integer
+        format: int64
+        readOnly: true
+      logTypes:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      sparkline:
+        type: object
+        readOnly: true
+        additionalProperties:
+          type: integer
+          format: int64
+      helpful:
+        type: boolean
+        readOnly: true
+      tagName:
+        type: string
+  PageResponseAccountInsightWithAnalyticsResponse:
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 500
+      from:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 2147483647
+      total:
+        type: integer
+        format: int64
+        minimum: 0
+        maximum: 500
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/AccountInsightWithAnalyticsResponse'
+  GetAccountInsightsRequest:
+    type: object
+    properties:
+      ids:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      from:
+        type: integer
+        format: int32
+        readOnly: true
+      size:
+        type: integer
+        format: int32
+        readOnly: true
+      startDate:
+        type: integer
+        format: int64
+        readOnly: true
+      endDate:
+        type: integer
+        format: int64
+        readOnly: true
+      types:
+        type: array
+        readOnly: true
+        items:
+          type: string
+          enum:
+            - PUBLIC_CI
+            - LOGCEPTION
+      status:
+        type: array
+        readOnly: true
+        items:
+          type: string
+          enum:
+            - ACTIVE
+            - SOLVED
+            - DISMISSED
+      assignees:
+        type: array
+        readOnly: true
+        items:
+          type: integer
+          format: int32
+      tagNames:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      logTypes:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      onlyNew:
+        type: boolean
+        readOnly: true
+      sortBy:
+        type: string
+        readOnly: true
+        enum:
+          - OCCURRENCES
+          - TAG_NAME
+          - SEVERITY
+          - TITLE
+          - LAST_OCCURRENCE
+          - FIRST_OCCURRENCE
+      sparklineInterval:
+        type: string
+        readOnly: true
+      asc:
+        type: boolean
+        readOnly: true
+      search:
+        type: string
+        readOnly: true
+  AccountInsightResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        readOnly: true
+      type:
+        type: string
+        readOnly: true
+        enum:
+          - PUBLIC_CI
+          - LOGCEPTION
+      assignee:
+        type: integer
+        format: int32
+        readOnly: true
+      title:
+        type: string
+        readOnly: true
+      description:
+        type: string
+        readOnly: true
+      links:
+        type: string
+        readOnly: true
+      severity:
+        type: string
+        readOnly: true
+        enum:
+          - LOW
+          - MEDIUM
+          - HIGH
+      status:
+        type: string
+        readOnly: true
+        enum:
+          - ACTIVE
+          - SOLVED
+          - DISMISSED
+      firstOccurrence:
+        type: integer
+        format: int64
+        readOnly: true
+      textLastEditedDate:
+        type: string
+        format: date-time
+        readOnly: true
+      textLastEditedBy:
+        type: integer
+        format: int32
+        readOnly: true
+      severityLastEditedDate:
+        type: string
+        format: date-time
+        readOnly: true
+      severityLastEditedBy:
+        type: integer
+        format: int32
+        readOnly: true
+      additionalData:
+        type: object
+        readOnly: true
+        additionalProperties:
+          type: object
+      helpful:
+        type: boolean
+        readOnly: true
+      tagName:
+        type: string
+  AccountInsightEditableData:
+    type: object
+    properties:
+      status:
+        type: string
+        readOnly: true
+        enum:
+          - ACTIVE
+          - SOLVED
+          - DISMISSED
+      title:
+        type: string
+        readOnly: true
+      description:
+        type: string
+        readOnly: true
+      links:
+        type: string
+        readOnly: true
+      severity:
+        type: string
+        readOnly: true
+        enum:
+          - LOW
+          - MEDIUM
+          - HIGH
+      id:
+        type: string
+  UpdateAccountInsightsRequest:
+    type: object
+    properties:
+      request:
+        type: array
+        readOnly: true
+        items:
+          $ref: '#/definitions/AccountInsightEditableData'
+  AssignInsightRequest:
+    type: object
+    properties:
+      assigneeId:
+        type: integer
+        format: int32
+      message:
+        type: string
+  InsightsAlertData:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        readOnly: true
+      emailNotifications:
+        type: array
+        readOnly: true
+        items:
+          type: string
+      notificationEndpointIds:
+        type: array
+        readOnly: true
+        items:
+          type: integer
+          format: int32
+      enabled:
+        type: boolean
+        readOnly: true
+
+
+
   # ::::: USER MANAGEMENT DEFINITIONS
   User:
     type: object
@@ -3163,3 +3716,4 @@ definitions:
           format: int32
         description: For user access, `2`. For admin access, `3`.
         example: [2]
+

@@ -12,7 +12,8 @@ contributors:
   - daniel-tk
 ---
 
-Whether you just started sending metrics into your metrics account for the first time, and you want to know if your metrics arrived or not, or you’re a long-time user who wants to examine the structure of your metrics documents in order to create a new monitoring dashboard - Grafana’s Explore mode is the best way to do it.
+Grafana's Explore mode is 
+Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, or you’re a long-time user and want to examine the structure of your metrics documents in order to create a new monitoring dashboard - Grafana’s Explore mode is the best way to do it.
 
 
 To go to Grafana’s Explore, click on the **Explore icon <i class="far fa-compass"></i>** on the left side menu.

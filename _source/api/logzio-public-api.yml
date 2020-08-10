@@ -124,10 +124,13 @@ tags:
   - name: Manage users
   - name: Archive logs
     description: >-
-      Archive logs to AWS or Azure Blob for the option to restore them and query them past the standard retention. Logs are archived before they are indexed and analyzed by Logz.io. Drop filters scan the data downstream in the ingestion pipeline and have no effect on archiving.
+      You can archive logs to an AWS S3 bucket or Azure Blob. Archiving gives you the option to restore logs and query them after they have expired from your time-based account.
+      
+      
+      Logs are archived before they are indexed and analyzed by Logz.io. This means that if you are using drop filters, logs that will be dropped will still be archived and available to be restored, if necessary.
 
 
-      You can create a new archive account, restore from archiving, test an archive. You can also retrieve the list of active archives.
+      Use the following endpoints to create a new archive, test an account's archiving settings, and restore data from an archive. You can also retrieve the list of active archives.
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -659,7 +662,7 @@ paths:
             $ref: '#/definitions/ArchiveSettingsResponse'
     post:
       summary: Set up archiving
-      description: Configure archiving for a time-based log account.
+      description: Configure archiving for a time-based log account. One archive can be configured per account (or sub account).
       tags:
         - Archive logs
       operationId: createSettings
@@ -673,17 +676,12 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/ArchiveSettings'
-        - name: X-API-TOKEN
-          in: header
-          description: The authentication API Token which also identifies the account
-          required: true
-          type: string
       responses:
         default:
           description: successful operation
   /archive/v2/settings/test:
     post:
-      summary: Test archive settings
+      summary: Test archiving settings
       description: Tests the settings and returns the status code to confirm that a connection with the provider was established.
       tags:
         - Archive logs
@@ -698,17 +696,13 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/TestStorageRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: The authentication API Token which also identifies the account
-          type: string
       responses:
         default:
           description: successful operation
   /archive/v2/settings/{id}:
     get:
-      summary: Retreive archive settings
-      description: Get the archiving settings of a logging account.
+      summary: Retrieve archiving settings
+      description: Retrieves an archiving settings by the ID of the settings.
       tags:
         - Archive logs
       operationId: getSettings
@@ -724,11 +718,6 @@ paths:
           format: int32
           description: ID of the archive settings.
           example: 33
-        - name: X-API-TOKEN
-          in: header
-          description: The authentication API Token which also identifies the account
-          required: true
-          type: string
       responses:
         '200':
           description: successful operation
@@ -736,12 +725,21 @@ paths:
             $ref: '#/definitions/ArchiveSettingsResponse'
           headers: {}
     put:
-      summary: Update archive settings
+      summary: Update archiving settings
       description: >- 
-        Updates the settings for the account's archive. For example, switch between AWS and Azure Blob or vice versa, update credentials, or switch between IAM roles and authentication keys. 
+        Updates the archiving settings for a time-based log account. (The API token identifies the account.)
         
         
-        Only one archive can be active per account.
+        You can use this endpoint to:
+        
+        * Switch between AWS and Azure Blob archiving or vice versa.
+
+        * Update credentials
+        
+        * Switch between AWS authentication keys and IAM roles.
+        
+        
+        Note that only one archive can be active per account.
       tags:
         - Archive logs
       operationId: updateSettings
@@ -765,7 +763,7 @@ paths:
         default:
           description: successful operation
     delete:
-      summary: Delete an archive
+      summary: Delete archiving settings
       description: Deletes the archiving settings for a time-based log account.
       tags:
         - Archive logs
@@ -3295,22 +3293,24 @@ definitions:
         enum:
           - S3
           - BLOB
-        description: Archive to an AWS S3 bucket or Azure Blob storage. If using `S3`, include the parameters for `amazonS3StorageSettings`. If using `BLOB`, include the parameters for `BlobSettings`.
+        description: Specifies which settings are applicable - AWS S3 bucket or Azure Blob storage.
         default: none
         example: S3
       enabled:
         type: boolean
         description: If `true`, archiving is currently enabled.
-        default: none
+        default: true
         example: true
       compressed:
         type: boolean
-        description: If enabled, logs are compressed before they are archived.
-        default: false
-        example: false
+        description: If `true`, logs are compressed before they are archived.
+        default: true
+        example: true
       amazonS3StorageSettings:
+        description: Applicable settings when the `storageType` is `S3`.
         $ref: '#/definitions/S3StorageSettings'
       azureBlobStorageSettings:
+        description: Applicable settings when the `storageType` is `Blob`.
         $ref: '#/definitions/BlobSettings'
   ArchiveSettingsResponse:
     type: object
@@ -3328,37 +3328,31 @@ definitions:
     properties:
       tenantId:
         type: string
-        description: AWS Tenant
+        description: Azure Blob Tenant
       clientId:
         type: string
-        description: AWS client ID
+        description: Azure client ID
       clientSecret:
         type: string
-        description: AWS client secret
+        description: Azure client secret
       accountName:
         type: string
-        description: AWS account name
+        description: Azure account name
       containerName:
         type: string
-        description: Specify the name of an existing container? Create a new container?
+        description:
       path:
         type: string
-        description: >- 
-          Path to the S3 bucket.
-          
-          
-          Currently, there is only an option to restore from root.
+        description:
   S3IamCredentials:
     type: object
     properties:
       arn:
         type: string
         description: Amazon Resource Name (ARN) to uniquely identify the S3 bucket.
-      externalId:
-        type: string
-        description: External ID of ???
   S3SecretCredentials:
     type: object
+    description: Authentication with S3 Secret Credentials is supported for backward compatibility. IAM roles are strongly recommended.
     properties:
       accessKey:
         type: string

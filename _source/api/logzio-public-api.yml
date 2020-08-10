@@ -657,11 +657,6 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/PublicGetAccountInsightsRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -2478,7 +2473,6 @@ definitions:
       id:
         type: integer
         format: int32
-        readOnly: true
         minimum: 1
         description: ??
   CloudTrailRequest:
@@ -2508,7 +2502,6 @@ definitions:
     properties:
       message:
         type: string
-        readOnly: true
 
   # ::::: NOTIFICATION ENDPOINTS DEFINITIONS
   EndpointUpsertResponse:
@@ -2673,12 +2666,10 @@ definitions:
     properties:
       kibanaVersion:
         type: string
-        readOnly: true
         description: The version of Kibana used at the time of export
         example: 4.0.0-beta3
       hits:
         type: array
-        readOnly: true
         items:
           type: object
         description: Exported Kibana objects
@@ -2699,28 +2690,24 @@ definitions:
     properties:
       created:
         type: array
-        readOnly: true
         items:
           type: string
           example: E-commerce-App-Transactions-overtime
         description: Name of Kibana objects that were created
       updated:
         type: array
-        readOnly: true
         items:
           type: string
           example: HTTP-Response-over-time
         description: Names of the Kibana objects that were overwritten. Objects are shown here only if `override` was `true` in the import call.
       ignored:
         type: array
-        readOnly: true
         items:
           type: string
           example: Transaction-overtime
         description: Names of the Kibana objects that were not overwritten. Objects are shown here only if `override` was `false` in the import call.
       failed:
         type: array
-        readOnly: true
         items:
           type: string
           example: Apache-Response-Over-Time
@@ -2759,16 +2746,13 @@ definitions:
       code:
         type: integer
         format: int32
-        readOnly: true
         example: 200
       scrollId:
         type: string
-        readOnly: true
         description: Keep passing this ID in the request until you've retrieved all of the results. Copy this ID and pass it as the field `scroll_id` in a request to the same endpoint to retrieve the next page of results. (Remember to first clear the request body of all other parameters.)
         example: DnF1ZXJ5VGhlbkZldGNoCQAAAAAWXRbqFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFp6B-xZTTVFrMGt4eVFnZXhQZV9YbVRrU3NnAAAAABakA8QWNjY1RUZtdWZRS1NZZWt1ZERTNHNaQQAAAAAWXRbrFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFl0W7BZTaUlka01LV1FEdTdaSWxvbkpCSDZ3AAAAABQ1nb4WVjRyRlUxZWRUU0dzbTV5VVVqYkhxdwAAAAAUdHVqFlF0b3Znei1ZUXgtZEkyZkR3M0pMbGcAAAAAFvGs6hZKVklxaXIyZ1NOQzF5NHg1cmhtVDV3AAAAABR0dWkWUXRvdmd6LVlReC1kSTJmRHczSkxsZw==
       hits:
         type: string
-        readOnly: true
         description: Query results in stringified JSON format
   ScrollRequest:
     type: object
@@ -3122,6 +3106,53 @@ definitions:
         type: string
 
   # ::::: Log Insights
+  PublicGetAccountInsightsRequest:
+    type: object
+    properties:
+      from:
+        type: integer
+        format: int32
+      size:
+        type: integer
+        format: int32
+      startDate:
+        type: integer
+        format: int64
+      endDate:
+        type: integer
+        format: int64
+      types:
+        type: array
+        items:
+          type: string
+          enum:
+            - PUBLIC_CI
+            - LOGCEPTION
+      tagNames:
+        type: array
+        items:
+          type: string
+      logTypes:
+        type: array
+        items:
+          type: string
+      onlyNew:
+        type: boolean
+      sortBy:
+        type: string
+        enum:
+          - OCCURRENCES
+          - TAG_NAME
+          - SEVERITY
+          - TITLE
+          - LAST_OCCURRENCE
+          - FIRST_OCCURRENCE
+      asc:
+        type: boolean
+      search:
+        type: string
+      timeZone:
+        type: string
   PageResponsePublicAccountInsightResponse:
     type: object
     properties:
@@ -3151,110 +3182,42 @@ definitions:
     properties:
       insightId:
         type: string
-        readOnly: true
       insightType:
         type: string
-        readOnly: true
         enum:
           - PUBLIC_CI
           - LOGCEPTION
       tagName:
         type: string
-        readOnly: true
       description:
         type: string
-        readOnly: true
       links:
         type: array
-        readOnly: true
         items:
           type: string
       additionalData:
         type: object
-        readOnly: true
         additionalProperties:
           type: object
       firstOccurrence:
         type: integer
         format: int64
-        readOnly: true
       lastOccurrence:
         type: integer
         format: int64
-        readOnly: true
       count:
         type: integer
         format: int64
-        readOnly: true
       logTypes:
         type: array
-        readOnly: true
         items:
           type: string
       kibanaLink:
         type: string
-        readOnly: true
+        description: Drill down link to view the logs that match the insight in Kibana Discover. 
       insightTitle:
         type: string
-  PublicGetAccountInsightsRequest:
-    type: object
-    properties:
-      from:
-        type: integer
-        format: int32
-        readOnly: true
-      size:
-        type: integer
-        format: int32
-        readOnly: true
-      startDate:
-        type: integer
-        format: int64
-        readOnly: true
-      endDate:
-        type: integer
-        format: int64
-        readOnly: true
-      types:
-        type: array
-        readOnly: true
-        items:
-          type: string
-          enum:
-            - PUBLIC_CI
-            - LOGCEPTION
-      tagNames:
-        type: array
-        readOnly: true
-        items:
-          type: string
-      logTypes:
-        type: array
-        readOnly: true
-        items:
-          type: string
-      onlyNew:
-        type: boolean
-        readOnly: true
-      sortBy:
-        type: string
-        readOnly: true
-        enum:
-          - OCCURRENCES
-          - TAG_NAME
-          - SEVERITY
-          - TITLE
-          - LAST_OCCURRENCE
-          - FIRST_OCCURRENCE
-      asc:
-        type: boolean
-        readOnly: true
-      search:
-        type: string
-        readOnly: true
-      timeZone:
-        type: string
-        readOnly: true
+        example: My great insight
 
 
 

@@ -100,6 +100,7 @@ tags:
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
+  - name: S3 Buckets
   - name: Manage notification endpoints
     description: >-
       Logz.io can send notifications to your preferred workspaces, such as Opsgenie, BigPanda, PagerDuty, and Slack.
@@ -146,6 +147,7 @@ x-tagGroups:
   - name: AWS security and audit
     tags:
       - Manage CloudTrail links
+      - S3 Buckets
 
 paths:
   # ::::: ACCOUNTS
@@ -801,6 +803,134 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/MessageBean'
+
+  # ::::: S3 log shipping
+  /log-shipping/s3-buckets/logzio-accountId:
+    get:
+      tags:
+        - S3 Buckets
+      operationId: getLogzioAccountId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        default:
+          description: successful operation
+  /log-shipping/s3-buckets:
+    get:
+      tags:
+        - S3 Buckets
+      operationId: getS3Buckets
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+      responses:
+        default:
+          description: successful operation
+    post:
+      tags:
+        - S3 Buckets
+      operationId: createBuckets
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/S3BucketRequest'
+      responses:
+        default:
+          description: successful operation
+  '/log-shipping/s3-buckets/{id}':
+    get:
+      tags:
+        - S3 Buckets
+      operationId: getS3Bucket
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: successful operation
+    put:
+      tags:
+        - S3 Buckets
+      operationId: updateBucket
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/S3BucketRequest'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+        - name: X-AUTH-TOKEN
+          in: header
+          description: Authentication User Session
+          required: false
+          type: string
+      responses:
+        default:
+          description: successful operation
+    delete:
+      tags:
+        - S3 Buckets
+      operationId: deleteBucket
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: successful operation
+  /log-shipping/s3-buckets/aws-assume-role-details:
+    get:
+      tags:
+        - S3 Buckets
+      operationId: getAWSAssumeRoleDetails
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AWSAssumeRoleDetails'
+          headers: {}
+
 
   # ::::: NOTIFICATION ENDPOINTS
   /v1/endpoints/slack:
@@ -2418,6 +2548,54 @@ definitions:
         description: To sort results in descending order, `true`. For ascending order, `false`.
       includeFiltersData:
         type: boolean
+
+  # ::::: S3 DEFINITIONS
+  S3BucketRequest:
+    type: object
+    properties:
+      accessKey:
+        type: string
+      secretKey:
+        type: string
+      arn:
+        type: string
+      bucket:
+        type: string
+      prefix:
+        type: string
+      active:
+        type: boolean
+      addS3ObjectKeyAsLogField:
+        type: boolean
+      region:
+        type: string
+        enum:
+          - US_EAST_1
+          - US_EAST_2
+          - US_WEST_1
+          - US_WEST_2
+          - EU_WEST_1
+          - EU_WEST_2
+          - EU_WEST_3
+          - EU_CENTRAL_1
+          - AP_NORTHEAST_1
+          - AP_NORTHEAST_2
+          - AP_SOUTHEAST_1
+          - AP_SOUTHEAST_2
+          - SA_EAST_1
+          - AP_SOUTH_1
+          - CA_CENTRAL_1
+      logsType:
+        type: string
+  AWSAssumeRoleDetails:
+    type: object
+    properties:
+      logzioAWSAccountId:
+        type: string
+      assignedExternalId:
+        type: string
+
+
 
   # ::::: CLOUDTRAIL DEFINITIONS
   CloudTrailResponse:

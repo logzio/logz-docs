@@ -28,7 +28,7 @@ Grafana’s Explore mode has two views: Metrics and Logs.
 
 Which view is better, depends on your goal:
 
-* The Logs view is ideal for learning the structure of your logs as preparation for configuring new dashboards. It is unique to Grafana Explore.
+* The Logs view is ideal for exploring the structure of your metrics' documents as preparation for configuring new dashboards. It is unique to Grafana Explore.
 * The Metrics view is useful for getting general information about what's going on in your metrics account.
 
 ### Metrics View
@@ -68,7 +68,7 @@ When you're ready to dive into specifics, click on one of the results to open th
 
 You can click the <i class="fas fa-signal"></i> icon for a top-N analysis of the most common values for the field.
 
-![Top-N analysis in Grafana Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/top-n-grafana-explore.png)
+![Top-N analysis in Grafana Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore-top-n-distribution.png)
 
 
 ### Split and Sync

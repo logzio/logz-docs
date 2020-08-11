@@ -681,7 +681,7 @@ paths:
           description: successful operation
   /archive/v2/settings/test:
     post:
-      summary: Test archiving settings
+      summary: Test archive settings
       description: Tests the settings and returns the status code to confirm that a connection with the provider was established.
       tags:
         - Archive logs
@@ -701,7 +701,7 @@ paths:
           description: successful operation
   /archive/v2/settings/{id}:
     get:
-      summary: Retrieve archiving settings
+      summary: Retrieve archive settings
       description: Retrieves an archiving settings by the ID of the settings.
       tags:
         - Archive logs
@@ -725,7 +725,7 @@ paths:
             $ref: '#/definitions/ArchiveSettingsResponse'
           headers: {}
     put:
-      summary: Update archiving settings
+      summary: Update archive settings
       description: >- 
         Updates the archiving settings for a time-based log account. (The API token identifies the account.)
         
@@ -763,7 +763,7 @@ paths:
         default:
           description: successful operation
     delete:
-      summary: Delete archiving settings
+      summary: Delete archive settings
       description: Deletes the archiving settings for a time-based log account.
       tags:
         - Archive logs
@@ -3287,14 +3287,15 @@ definitions:
   # ::::: Archive DEFINITIONS
   ArchiveSettings:
     type: object
+    required:
+    - storageType
     properties:
       storageType:
         type: string
         enum:
           - S3
           - BLOB
-        description: Specifies which settings are applicable - AWS S3 bucket or Azure Blob storage.
-        default: none
+        description: Selects the storage provider. If `S3`, data is archived to an AWS S3 bucket. If `BLOB`, data is archived to Azure Blob storage.
         example: S3
       enabled:
         type: boolean
@@ -3319,7 +3320,6 @@ definitions:
         type: integer
         format: int32
         description: Unique ID of the archive settings.
-        default: 0
         example: 323
       settings:
         $ref: '#/definitions/ArchiveSettings'
@@ -3352,6 +3352,9 @@ definitions:
         description: Amazon Resource Name (ARN) to uniquely identify the S3 bucket.
   S3SecretCredentials:
     type: object
+    required:
+    - accessKey
+    - secretKey
     description: Authentication with S3 Secret Credentials is supported for backward compatibility. IAM roles are strongly recommended.
     properties:
       accessKey:
@@ -3362,6 +3365,7 @@ definitions:
     type: object
     properties:
       credentialsType:
+        description: Specifies which credentials will be used for authentication.
         type: string
         enum:
           - IAM

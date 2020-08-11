@@ -99,6 +99,11 @@ tags:
 
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
   - name: Insights
+    description: >-
+      Logz.io monitors your logs for application errors and other issues that have been identified in the open source community.
+
+
+      You can set up an alert to receive details when new or recurring insights are spotted in your system.
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage notification endpoints
@@ -645,11 +650,14 @@ paths:
   # ::::: Log Insights
   /insights/public-list:
     post:
-      summary: Get list of log insights
+      summary: Get short list of log insights
       tags:
         - Insights
       description: >-
         Get top insights. Application insights are error level logs grouped by their messages. Cognitive insights correlate your logs with  vulnerabilities and issues that are trending in the open source community.
+
+
+        Insights are tracked for their appearance over time and their over time tected is Once a new Insight is detected, it will s are tracked You can general issues that have 
       operationId: listInsights
       parameters:
         - in: body
@@ -3109,18 +3117,32 @@ definitions:
   PublicGetAccountInsightsRequest:
     type: object
     properties:
-      from:
-        type: integer
-        format: int32
-      size:
-        type: integer
-        format: int32
       startDate:
         type: integer
         format: int64
+        description: UNIX timestamp in milliseconds specifying the start date for the query time frame.
+        default: Now - 15 minutes
+        example: 1592904389950
       endDate:
         type: integer
         format: int64
+        description: UNIX timestamp in milliseconds specifying the end date for the query time frame.
+        default: now
+        example: 1592254800000
+      from:
+        type: integer
+        format: int32
+        description: Of the results found, the first result to return. Must be a non-negative integer.
+        default: 0
+        example: 0
+      size:
+        type: integer
+        format: int32
+        description: Number of results to return. Must be a positive integer between 1-100.
+        default: 10
+        maximum: 100
+        minimum: 1
+        example: 100
       types:
         type: array
         items:
@@ -3128,16 +3150,28 @@ definitions:
           enum:
             - PUBLIC_CI
             - LOGCEPTION
+        description: Filters results by Insight type. `LOGCEPTION` filters for application insights. `PUBLIC_CI` filters for cognitive insights.
+        default: null
+        example: LOGCEPTION
       tagNames:
         type: array
         items:
           type: string
+        description: Filters results on Insight tags values.
+        default: null
+        example: 
       logTypes:
         type: array
         items:
           type: string
+        description: Filters results by log type value. An array of strings. Can use `OR` relations.
+        default: null
+        example: [“log-engine” OR ”spark”]
       onlyNew:
         type: boolean
+        description: Filters for Insights that first occurred in the given time frame. In other words, excludes Insights that were first identified before or after the time frame.
+        default: false
+        example: true
       sortBy:
         type: string
         enum:
@@ -3147,12 +3181,24 @@ definitions:
           - TITLE
           - LAST_OCCURRENCE
           - FIRST_OCCURRENCE
+        description: Sorts Insights by the selected parameter.
+        default: OCCURRENCES
+        example: SEVERITY
       asc:
         type: boolean
+        description: If `false`, sorts Insights in descending order for the selected `sortBy` paramater. For example, from the most frequently occurring to the least, from the highest severity to the lowest severity, by Title in descending alphabetical order from Z-A, etc.
+        default: false
+        example: true
       search:
         type: string
+        description: Searches for an Insights by its name.
+        default: null
+        example: Exception
       timeZone:
         type: string
+        description: Converts timestamps to the selected time zone.
+        default: UTC=0
+        example: America/Los_Angeles
   PageResponsePublicAccountInsightResponse:
     type: object
     properties:
@@ -3166,13 +3212,13 @@ definitions:
         format: int32
         minimum: 0
         maximum: 2147483647
-        description: Unix timestamp
+        description: UNIX timestamp in milliseconds.
       total:
         type: integer
         format: int64
         minimum: 0
         maximum: 500
-        description: Maximum results to return.
+        description: Maximum number of results to return.
       results:
         type: array
         items:
@@ -3182,42 +3228,62 @@ definitions:
     properties:
       insightId:
         type: string
+        description: An ID identifying the Insight. Can be used to track the insight's occurrence in the environment over time.
+        example: "cf484f4c381c3e408a23accc5b487947d2f68791"
       insightType:
         type: string
         enum:
           - PUBLIC_CI
           - LOGCEPTION
+        description: Indicates if results are filtered by Insight type. `LOGCEPTION` filters for application insights. `PUBLIC_CI` filters for cognitive insights.
+        example: PUBLIC_CI
       tagName:
         type: string
+        description:
+        example: ignite
       description:
         type: string
+        description: A helpful description of the issue.
+        example: A match for the phrase - <'Could not find the language line'> was identified in the log message. As mentioned in the cited links, this may indicate that an issue has taken place that requires your attention.
       links:
         type: array
         items:
           type: string
+        description: Only relevant for `PUBLIC_CI` Insights. Provides reference links to recommended resources for further investigation of the issue.
+        example: https://github.com/benedmunds/CodeIgniter-Ion-Auth/issues/784 https://www.sitepoint.com/multi-language-support-in-codeigniter/ http://forum.codeigniter.com/thread-383.html https://community.invoiceplane.com/t/topic/3322 https://www.zonwhois.com/www/gwdcanada.com.html
       additionalData:
         type: object
+        description: what is additional data??
         additionalProperties:
           type: object
       firstOccurrence:
         type: integer
         format: int64
+        description: UNIX timestamp in milliseconds specifying the earliest appearance of an insight with this ID. The lookback period is up to 8 months.
+        example: 1591181276000
       lastOccurrence:
         type: integer
         format: int64
+        description: UNIX timestamp in milliseconds specifying the latest appearance of an insight with this ID in the selected time frame for the query.
+        example: 1591253121194
       count:
         type: integer
         format: int64
+        description: How many times an Insight with the same ID occurred in the selected time frame.
+        example: 66
       logTypes:
         type: array
         items:
           type: string
+        description: Log types is ???
+        example: ["app-server", "user-analytics"]
       kibanaLink:
         type: string
-        description: Drill down link to view the logs that match the insight in Kibana Discover. 
+        description: Only relevant for `LOGCEPTION` Insights. Provides a drill down link to pull up the logs that match the Insight in Kibana Discover.
       insightTitle:
         type: string
-        example: My great insight
+        description: The title of the Insight.
+        example: "Could not find the language line create_user_validation_phone_label"
 
 
 

@@ -649,7 +649,11 @@ paths:
   /archive/v2/settings:
     get:
       summary: Retrieve archiving settings
-      description: Gets the current archiving settings for a time-based log account.
+      description: >-
+        Gets the current archive settings for a time-based log account.
+
+
+        Note that only one archive can be active per account.
       tags:
         - Archive logs
       operationId: getSettingsForAccount
@@ -732,11 +736,11 @@ paths:
         
         You can use this endpoint to:
         
-        * Switch between AWS and Azure Blob archiving or vice versa.
+        * Switch archive settings between AWS and Azure Blob Storage or vice versa.
 
-        * Update credentials
+        * Update credentials.
         
-        * Switch between AWS authentication keys and IAM roles.
+        * Switch your AWS authentication method between credential keys and IAM roles.
         
         
         Note that only one archive can be active per account.
@@ -3295,7 +3299,7 @@ definitions:
         enum:
           - S3
           - BLOB
-        description: Selects the storage provider. If `S3`, data is archived to an AWS S3 bucket. If `BLOB`, data is archived to Azure Blob storage.
+        description: Specifies the storage provider. If `S3`, the   `amazonS3StorageSettings` are relevant. If `BLOB`, the `azureBlobStorageSettings` are relevant.
         example: S3
       enabled:
         type: boolean
@@ -3325,6 +3329,12 @@ definitions:
         $ref: '#/definitions/ArchiveSettings'
   BlobSettings:
     type: object
+    required:
+    - tenantId
+    - clientId
+    - clientSecret
+    - accountName
+    - containerName
     properties:
       tenantId:
         type: string
@@ -3340,10 +3350,10 @@ definitions:
         description: Azure account name
       containerName:
         type: string
-        description:
+        description: The container name.
       path:
         type: string
-        description:
+        description: The path is optional.
   S3IamCredentials:
     type: object
     properties:
@@ -3363,9 +3373,12 @@ definitions:
         type: string
   S3StorageSettings:
     type: object
+    required: 
+    - credentialsType
+    - path
     properties:
       credentialsType:
-        description: Specifies which credentials will be used for authentication.
+        description: Specifies which credentials will be used for authentication, either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.
         type: string
         enum:
           - IAM

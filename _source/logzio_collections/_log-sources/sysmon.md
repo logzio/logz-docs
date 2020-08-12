@@ -11,14 +11,14 @@ shipping-tags:
   - security
 ---
 
-System Monitor (Sysmon) is a Windows system service that monitors log system activity to the Windows event log. It tracks process creations, network connections, and changes to file creation time.
+System Monitor (Sysmon) is a Windows system service that monitors and logs system activity of the Windows event log. It tracks process creations, network connections, and changes to file creation time.
 
 
 #### Configuration
 
 **Before you begin, you'll need**:
-* [Winlogbeat 7.0.0](https://www.elastic.co/downloads/past-releases/winlogbeat-7-0-0) or
-[Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html) installed
+
+* [Winlogbeat 7](https://www.elastic.co/downloads/past-releases/winlogbeat-7-0-0) installed.
 
 * [Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) installed and configured according to the following [configuration](https://github.com/SwiftOnSecurity/sysmon-config).
 
@@ -33,7 +33,8 @@ on your machine.
 
 ##### Configure Windows applications as an input
 
-If you're working with the default configuration file, clear the contents and start with a fresh file. (The default location is 'C:\ProgramData\Elastic\Beats\winlogbeat\winlogbeat.yml' or 'C:\Program Files\Winlogbeat\winlogbeat.yml'.)
+If you're working with the default configuration file, clear the contents and start with a fresh file. (The default location is `C:\ProgramData\Elastic\Beats\winlogbeat\winlogbeat.yml` or `C:\Program Files\Winlogbeat\winlogbeat.yml`.)
+
 
 Paste this code block:
 
@@ -47,7 +48,6 @@ fields:
   token: {{API_TOKEN}}
   type: wineventlog
 fields_under_root: true
-# ... For Winlogbeat 7 only ...
 processors:
   - rename:
       fields:
@@ -69,6 +69,7 @@ output.logstash:
   ssl:
     certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
+
 
 ##### Replace the placeholders in the configuration
 

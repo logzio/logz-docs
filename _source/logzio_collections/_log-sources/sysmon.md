@@ -11,26 +11,16 @@ shipping-tags:
   - security
 ---
 
-System Monitor (Sysmon) is a Windows system service and device driver that, once installed on a system, remains resident across system reboots to monitor and log system activity to the Windows event log. It provides detailed information about process creations, network connections, and changes to file creation time.
+System Monitor (Sysmon) is a Windows system service that monitors log system activity to the Windows event log. It tracks process creations, network connections, and changes to file creation time.
 
 
 #### Configuration
 
 **Before you begin, you'll need**:
-[Winlogbeat 7.0.0](https://www.elastic.co/downloads/past-releases/winlogbeat-7-0-0) or
-[Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html)
+* [Winlogbeat 7.0.0](https://www.elastic.co/downloads/past-releases/winlogbeat-7-0-0) or
+[Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html) installed
 
-* Sysmon installed: https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
-
-* Sysmon configured
-
-The rules and dashboards were made and tested with the following configuration:
-
-https://github.com/SwiftOnSecurity/sysmon-config - Connect to preview 
-
-Winlogbeat installed
-
-https://app.logz.io/#/dashboard/data-sources/Windows
+* [Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) installed and configured according to the following [configuration](https://github.com/SwiftOnSecurity/sysmon-config).
 
 <div class="tasklist">
 
@@ -43,9 +33,7 @@ on your machine.
 
 ##### Configure Windows applications as an input
 
-If you're working with the default configuration file,
-(`C:\Program Files\Winlogbeat\winlogbeat.yml`)
-clear the contents and start with a fresh file.
+If you're working with the default configuration file, clear the contents and start with a fresh file. (The default location is 'C:\ProgramData\Elastic\Beats\winlogbeat\winlogbeat.yml' or 'C:\Program Files\Winlogbeat\winlogbeat.yml'.)
 
 Paste this code block:
 
@@ -82,13 +70,20 @@ output.logstash:
     certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Replace the parameters
+##### Replace the placeholders in the configuration
 
-Winlogbeat can have one output only, so remove any other `output` entries.
+Still in the same configuration file, replace the placeholders to match your specifics.
 
-{% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars.html token=true %}
+
+* {% include log-shipping/replace-vars.html listener=true %}
+
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
 
 ##### Restart Winlogbeat
+
+Open PowerShell as an admin and run this command:
 
 ```powershell
 Restart-Service winlogbeat

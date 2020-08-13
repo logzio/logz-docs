@@ -3,7 +3,7 @@ title: Ship Active Directory logs from Windows Server
 logo:
   logofile: windows.svg
   orientation: vertical
-data-source: Active Directory (Windows Server)
+data-source: Active Directory
 templates: ["beats-logs"]
 contributors:
   - imnotashrimp

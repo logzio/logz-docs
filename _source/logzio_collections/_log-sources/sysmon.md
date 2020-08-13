@@ -3,7 +3,7 @@ title: Ship Sysmon logs from Windows Server
 logo:
   logofile: windows.svg
   orientation: vertical
-data-source: Sysmon (System Monitor)
+data-source: Sysmon
 templates: ["beats-logs"]
 contributors:
   - shalper
@@ -20,7 +20,7 @@ System Monitor (Sysmon) is a Windows system service that monitors and logs syste
 
 * [Winlogbeat 7](https://www.elastic.co/downloads/past-releases/winlogbeat-7-0-0) installed.
 
-* [Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) installed and configured according to the following [configuration](https://github.com/SwiftOnSecurity/sysmon-config).
+* [Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon) installed and configured according to the [SwiftOnSecurity configuration](https://github.com/SwiftOnSecurity/sysmon-config).
 
 <div class="tasklist">
 
@@ -33,7 +33,7 @@ on your machine.
 
 ##### Configure Windows applications as an input
 
-If you're working with the default configuration file, clear the contents and start with a fresh file. (The default location is `C:\ProgramData\Elastic\Beats\winlogbeat\winlogbeat.yml` or `C:\Program Files\Winlogbeat\winlogbeat.yml`.)
+If you're working with the default configuration file, clear the contents and start with a fresh file. (The location may be `C:\ProgramData\Elastic\Beats\winlogbeat\winlogbeat.yml` or `C:\Program Files\Winlogbeat\winlogbeat.yml`, depending on where you installed it.)
 
 
 Paste this code block:
@@ -45,7 +45,7 @@ winlogbeat.event_logs:
     ignore_older: 72h
 fields:
   logzio_codec: json
-  token: {{API_TOKEN}}
+  token: <<SHIPPING-TOKEN>>
   type: wineventlog
 fields_under_root: true
 processors:

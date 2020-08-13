@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Custom metrics
+title: Send custom metrics
 permalink: /user-guide/infrastructure-monitoring/custom-metrics
 flags:
   #admin: true

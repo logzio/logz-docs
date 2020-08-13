@@ -1,9 +1,9 @@
 ---
-title: Ship Kubernetes metrics with HELM
+title: Ship Kubernetes metrics over HELM
 logo:
   logofile: helm-icon-color.png
   orientation: vertical
-data-source: Helm
+data-source: Kubernetes over Helm
 templates: ["no-template","no-template"]
 open-source:
   - title: Helm Metrics Collector

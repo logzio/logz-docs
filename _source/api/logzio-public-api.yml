@@ -2322,10 +2322,10 @@ definitions:
       - filter
     properties:
       filter:
-        $ref: '#/definitions/AlertEventLogsFilter'
+        $ref: '#/definitions/RuleEventLogsFilter'
       pagination:
         $ref: '#/definitions/Pagination'
-  AlertEventLogsFilter:
+  RuleEventLogsFilter:
     type: object
     description: Filter by the event's unique GUID to retrieve only the logs relevant to the event under investigation.
     required:

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Getting started with Metrics
+title: Getting started with Logz.io Metrics
 permalink: /user-guide/infrastructure-monitoring/getting-started
 flags:
   logzio-plan: community

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Explore in Kibana
-permalink: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links
+permalink: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
 flags:
   logzio-plan: community
 tags:

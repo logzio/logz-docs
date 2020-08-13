@@ -67,10 +67,14 @@ firstLevel:
   secondLevel:
   - title: Why metrics?
     url: /user-guide/infrastructure-monitoring/
-  - title: Highlights
-    url: /user-guide/infrastructure-monitoring/metrics-logzio
+    thirdLevel:
+    - title: Highlights
+      url: /user-guide/infrastructure-monitoring/metrics-logzio
   - title: Getting started
     url: /user-guide/infrastructure-monitoring/getting-started
+    thirdLevel:
+    - title: OOTB Dashboards
+      url: /user-guide/metrics/integrations.html
   - title: Alerts
     url: /user-guide/infrastructure-monitoring/alerts.html
   - title: Variables
@@ -82,12 +86,15 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/annotations/
     - title: Explore in Kibana
       url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
-  - title: Custom metrics
-    url: /user-guide/infrastructure-monitoring/custom-metrics
-  - title: Rollups
-    url: /user-guide/infrastructure-monitoring/data-rollups.html
-  - title: Explore your metrics
-    url: /user-guide/infrastructure-monitoring/grafana-explore/
+  - title: Your Metrics data sources
+    url: /user-guide/metrics/data-sources.html
+    thirdLevel:
+    - title: Custom metrics
+      url: /user-guide/infrastructure-monitoring/custom-metrics
+    - title: Rollups
+      url: /user-guide/infrastructure-monitoring/data-rollups.html
+    - title: Explore mode
+      url: /user-guide/infrastructure-monitoring/grafana-explore/
 
 - title: Cloud SIEM
   icon: fas fa-shield-alt

@@ -6,7 +6,7 @@ flags:
   logzio-plan: community
 open-source:
   - title: Terraform provider
-    github-repo: logzio_terraform_provider, logzio_terraform_client
+    github-repo: logzio_terraform_provider
   - title: Terraform client
     github-repo: logzio_terraform_client
 tags:
@@ -23,7 +23,7 @@ Logz.io Terraform provider
 
 ### Supported operations
 
-Supports CRUD operations for managing Logz.io users, alerts, and notification endpoints.
+Supports CRUD operations for managing [Logz.io users](), [alerts](), managing [sub accounts]() and [notification endpoints]().
 (CRUD stands for: create, read, update and delete.)
 
 #### What's new?

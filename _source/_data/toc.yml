@@ -125,17 +125,16 @@ firstLevel:
 - title: Admin tools
   icon: li-gear
   secondLevel:
-  - title: Accounts
+  - title: Manage accounts
     url: /user-guide/accounts/
-
     thirdLevel:
-    - title: Manage the main account and sub accounts
+    - title: Main & sub log accounts
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
-    - title: Manage timeless accounts
+    - title: Timeless log accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
-    - title: Manage the Cloud SIEM account
+    - title: Cloud SIEM account
       url: /user-guide/accounts/manage-the-cloud-siem-account.html
-    - title: Manage the Infrastructure Monitoring account
+    - title: Infrastructure Monitoring accounts
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
     - title: PCI compliance and log redaction
       url: /user-guide/accounts/pci-compliance.html
@@ -143,16 +142,8 @@ firstLevel:
       url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
-  - title: Regions
-    url: /user-guide/accounts/account-region.html
-  - title: Account usage
-    url: /user-guide/accounts/manage-account-usage.html
 
-    thirdLevel:
-    - title: Drop filters
-      url: /user-guide/accounts/drop-filters/
-
-  - title: Users
+  - title: Manage users
     url: /user-guide/users/
     thirdLevel:
     - title: Multi-factor authentication
@@ -160,12 +151,14 @@ firstLevel:
   - title: Single sign-on
     url: /user-guide/users/single-sign-on/
     thirdLevel:
-    - title: Azure single sign-on
+    - title: Azure SSO
       url: /user-guide/users/single-sign-on/azure-sso.html
-    - title: Okta single sign-on
+    - title: Okta SSO
       url: /user-guide/users/single-sign-on/okta-sso.html
-    - title: OneLogin single sign-on
+    - title: OneLogin SSO
       url: /user-guide/users/single-sign-on/onelogin-sso.html
+  - title: Regions
+    url: /user-guide/accounts/account-region.html
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:
@@ -173,6 +166,11 @@ firstLevel:
       url: /user-guide/tokens/shared-tokens.html
     - title: Manage API tokens
       url: /user-guide/tokens/api-tokens.html
+  - title: Optimize & Save
+    url: /user-guide/accounts/manage-account-usage.html
+    thirdLevel:
+    - title: Drop filters
+      url: /user-guide/accounts/drop-filters/
 
   - title: Archive & restore
     url: /user-guide/archive-and-restore/
@@ -181,7 +179,7 @@ firstLevel:
         url: /user-guide/archive-and-restore/configure-archiving.html
       - title: Restore archived logs
         url: /user-guide/archive-and-restore/restore-archived-logs.html
-      - title: Setting S3 permissions in AWS
+      - title: S3 permissions in AWS
         url: /user-guide/archive-and-restore/set-s3-permissions.html
 
 
@@ -192,7 +190,7 @@ firstLevel:
   secondLevel:
   - title: Ship your data to Logz.io
     url: /shipping/
-  - title: Log shipping intro
+  - title: Log shipping resources
     url: /user-guide/log-shipping/
     thirdLevel:
     - title: Log shipping troubleshooting
@@ -220,7 +218,8 @@ firstLevel:
     url: /integrations/alice-slack-chatbot.html
   - title: Grafana data source plugin
     url: /integrations/grafana-data-source-plugin.html
-
+  - title: Terraform integration
+    url: /integrations/terraform.html
 
   - title: API reference
     url: /api/

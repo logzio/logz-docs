@@ -646,7 +646,7 @@ paths:
             $ref: '#/definitions/ScrollResponse'
 
   # ::::: Archive
-  /archive/v2/settings:
+  /v2/archive/settings:
     get:
       summary: Retrieve archiving settings
       description: >-
@@ -683,7 +683,7 @@ paths:
       responses:
         default:
           description: successful operation
-  /archive/v2/settings/test:
+  /v2/archive/settings/test:
     post:
       summary: Test archive settings
       description: Tests the settings and returns the status code to confirm that a connection with the provider was established.
@@ -703,7 +703,7 @@ paths:
       responses:
         default:
           description: successful operation
-  /archive/v2/settings/{id}:
+  /v2/archive/settings/{id}:
     get:
       summary: Retrieve archive settings
       description: Retrieves an archiving settings by the ID of the settings.

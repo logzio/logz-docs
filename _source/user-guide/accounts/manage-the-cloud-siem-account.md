@@ -26,7 +26,7 @@ or email [the Sales team](mailto:sales@logz.io).
 #### To manage your Cloud SIEM accounts
 
 Each Security account is a separate entity, with its own users, rules, and feeds.
-Security accounts can’t access each others Dashboards, Rules, Private feeds, or data.
+Security accounts can’t access each other's dashboards, rules, private feeds, or data.
 
 
 <div class="tasklist">

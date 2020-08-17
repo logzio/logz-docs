@@ -124,13 +124,14 @@ tags:
   - name: Manage users
   - name: Archive logs
     description: >-
-      You can archive logs to an AWS S3 bucket or Azure Blob. Archiving gives you the option to restore logs and query them after they have expired from your time-based account.
+      You can archive logs to an AWS S3 bucket or Azure Blob Storage. Archiving gives you the option to restore logs and query them after they have expired from your time-based account.
       
+
+      You can use the following endpoints to retrieve, set up, test, and update an account's archive settings.
       
-      Logs are archived before they are indexed and analyzed by Logz.io. This means that if you are using drop filters, logs that will be dropped will still be archived and available to be restored, if necessary.
 
+      Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
 
-      Use the following endpoints to create a new archive, test an account's archiving settings, and restore data from an archive. You can also retrieve the list of active archives.
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -3354,6 +3355,7 @@ definitions:
         $ref: '#/definitions/ArchiveSettings'
   BlobSettings:
     type: object
+    description: Applicable settings when the `storageType` is `Blob`.
     required:
     - tenantId
     - clientId
@@ -3401,6 +3403,7 @@ definitions:
     required: 
     - credentialsType
     - path
+    description: Applicable settings when the `storageType` is `S3`.
     properties:
       credentialsType:
         description: Specifies which credentials will be used for authentication, either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.

@@ -25,6 +25,10 @@ or email [the Sales team](mailto:sales@logz.io).
 
 #### To manage your Cloud SIEM accounts
 
+Each Security account is a separate entity, with its own users, rules, and feeds.
+Security accounts can’t access each others Dashboards, Rules, Private feeds, or data.
+
+
 <div class="tasklist">
 
 ##### Add a Cloud SIEM account
@@ -39,7 +43,7 @@ The number of accounts you can create is listed.
 ![Manage the Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-security-account.png)
 
 
-##### Set read permissions
+##### Configure your new account
 
 ![Manage the Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-security-accounts.png)
 
@@ -47,7 +51,7 @@ The number of accounts you can create is listed.
 Fill in the form:
 
 1. **Name** (or rename) the account.
-2. **Enable Cloud SIEM on these accounts** - Select the log accounts to be monitored. You'll be giving the security account **read permissions** so it can monitor and enrich the logs.
+2. **Enable Cloud SIEM on these accounts** - Select the log accounts to be secured. You'll be giving the security account **read permissions** so it can monitor and enrich the logs.
 
     Logs are not shipped directly to your Cloud SIEM accounts. Instead, you'll grant read-access to log accounts you want a security account to monitor.
 

@@ -89,7 +89,7 @@ security:
   - X-API-TOKEN: []
 
 tags:
-  - name: Grafana API gateway
+  - name: Grafana gateway
   - name: Who am I
   - name: Manage sub accounts
     description: Use these API requests to create, update, retrieve, or delete sub accounts.
@@ -147,17 +147,29 @@ x-tagGroups:
   - name: AWS security and audit
     tags:
       - Manage CloudTrail links
+  - name: Grafana API Gateway
+    tags:
+      - Grafana gateway
+    description: Grafana API Gateway to supported endpoints.
 
 paths:
   # ::::: GRAFANA
-  /v1/grafana/api/:
+  /v1/grafana/api/api/alerts/:
     get:
     summary: Gateway to Grafana API
     description: >-
       Supported endpoings:
 
       * [Grafana Alerting](https://grafana.com/docs/grafana/latest/http_api/alerting/)
-      * 
+    tags:
+      - Grafana gateway
+    operationId: Grafana
+    produces:
+      - application/json
+    parameters:
+    responses:
+      200:
+        description: successful operation
 
   # ::::: ACCOUNTS
   /v1/account-management/whoami:

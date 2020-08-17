@@ -122,11 +122,15 @@ tags:
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
+  - name: Archive logs
     description: >-
-      Manage user access to your Logz.io account using API requests.
+      You can archive logs to an AWS S3 bucket or Azure Blob. Archiving gives you the option to restore logs and query them after they have expired from your time-based account.
+      
+      
+      Logs are archived before they are indexed and analyzed by Logz.io. This means that if you are using drop filters, logs that will be dropped will still be archived and available to be restored, if necessary.
 
 
-      You can create, update, suspend/unsuspend, and delete users. You can also retrieve the list of active and suspended users.
+      Use the following endpoints to create a new archive, test an account's archiving settings, and restore data from an archive. You can also retrieve the list of active archives.
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -140,6 +144,7 @@ x-tagGroups:
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
+      - Archive logs
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -639,6 +644,150 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/ScrollResponse'
+
+  # ::::: Archive
+  /v2/archive/settings:
+    get:
+      summary: Retrieve archiving settings
+      description: >-
+        Gets the current archive settings for a time-based log account.
+
+
+        Note that only one archive can be active per account.
+      tags:
+        - Archive logs
+      operationId: getSettingsForAccount
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ArchiveSettingsResponse'
+    post:
+      summary: Set up archiving
+      description: Configure archiving for a time-based log account. One archive can be configured per account (or sub account).
+      tags:
+        - Archive logs
+      operationId: createSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ArchiveSettings'
+      responses:
+        default:
+          description: successful operation
+  /v2/archive/settings/test:
+    post:
+      summary: Test archive settings
+      description: Tests the settings and returns the status code to confirm that a connection with the provider was established.
+      tags:
+        - Archive logs
+      operationId: testSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/TestStorageRequest'
+      responses:
+        default:
+          description: successful operation
+  /v2/archive/settings/{id}:
+    get:
+      summary: Retrieve archive settings
+      description: Retrieves an archiving settings by the ID of the settings.
+      tags:
+        - Archive logs
+      operationId: getSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the archive settings.
+          example: 33
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ArchiveSettingsResponse'
+          headers: {}
+    put:
+      summary: Update archive settings
+      description: >- 
+        Updates the archiving settings for a time-based log account. (The API token identifies the account.)
+        
+        
+        You can use this endpoint to:
+        
+        * Switch archive settings between AWS and Azure Blob Storage or vice versa.
+
+        * Update credentials.
+        
+        * Switch your AWS authentication method between credential keys and IAM roles.
+        
+        
+        Note that only one archive can be active per account.
+      tags:
+        - Archive logs
+      operationId: updateSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the archive settings.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ArchiveSettings'
+      responses:
+        default:
+          description: successful operation
+    delete:
+      summary: Delete archive settings
+      description: Deletes the archiving settings for a time-based log account.
+      tags:
+        - Archive logs
+      operationId: deleteSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the archive settings.
+      responses:
+        default:
+          description: successful operation
+
+
 
   # ::::: AUDIT TRAIL
   /v1/audit-trail/event-types:
@@ -3163,3 +3312,113 @@ definitions:
           format: int32
         description: For user access, `2`. For admin access, `3`.
         example: [2]
+
+  # ::::: Archive DEFINITIONS
+  ArchiveSettings:
+    type: object
+    required:
+    - storageType
+    properties:
+      storageType:
+        type: string
+        enum:
+          - S3
+          - BLOB
+        description: Specifies the storage provider. If `S3`, the   `amazonS3StorageSettings` are relevant. If `BLOB`, the `azureBlobStorageSettings` are relevant.
+        example: S3
+      enabled:
+        type: boolean
+        description: If `true`, archiving is currently enabled.
+        default: true
+        example: true
+      compressed:
+        type: boolean
+        description: If `true`, logs are compressed before they are archived.
+        default: true
+        example: true
+      amazonS3StorageSettings:
+        description: Applicable settings when the `storageType` is `S3`.
+        $ref: '#/definitions/S3StorageSettings'
+      azureBlobStorageSettings:
+        description: Applicable settings when the `storageType` is `Blob`.
+        $ref: '#/definitions/BlobSettings'
+  ArchiveSettingsResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Unique ID of the archive settings.
+        example: 323
+      settings:
+        $ref: '#/definitions/ArchiveSettings'
+  BlobSettings:
+    type: object
+    required:
+    - tenantId
+    - clientId
+    - clientSecret
+    - accountName
+    - containerName
+    properties:
+      tenantId:
+        type: string
+        description: Azure Blob Tenant
+      clientId:
+        type: string
+        description: Azure client ID
+      clientSecret:
+        type: string
+        description: Azure client secret
+      accountName:
+        type: string
+        description: Azure account name
+      containerName:
+        type: string
+        description: The container name.
+      path:
+        type: string
+        description: The path is optional.
+  S3IamCredentials:
+    type: object
+    properties:
+      arn:
+        type: string
+        description: Amazon Resource Name (ARN) to uniquely identify the S3 bucket.
+  S3SecretCredentials:
+    type: object
+    required:
+    - accessKey
+    - secretKey
+    description: Authentication with S3 Secret Credentials is supported for backward compatibility. IAM roles are strongly recommended.
+    properties:
+      accessKey:
+        type: string
+      secretKey:
+        type: string
+  S3StorageSettings:
+    type: object
+    required: 
+    - credentialsType
+    - path
+    properties:
+      credentialsType:
+        description: Specifies which credentials will be used for authentication, either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.
+        type: string
+        enum:
+          - IAM
+          - KEYS
+      path:
+        type: string
+      s3SecretCredentials:
+        $ref: '#/definitions/S3SecretCredentials'
+      s3IamCredentials:
+        $ref: '#/definitions/S3IamCredentials'
+  TestStorageRequest:
+    type: object
+    properties:
+    id:
+      type: integer
+      format: int32
+    archiveSettings:
+      $ref: '#/definitions/ArchiveSettings'

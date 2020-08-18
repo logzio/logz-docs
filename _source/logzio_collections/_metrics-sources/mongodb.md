@@ -1,7 +1,7 @@
 ---
 title: Ship MongoDB metrics
 logo:
-  logofile:
+  logofile: mongodb.svg
   orientation: vertical
 data-source: MongoDB
 contributors:
@@ -16,7 +16,8 @@ You can ship MongoDB metrics using Metricbeat.
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
-[Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
+
+* [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
 
 <div class="tasklist">
 
@@ -32,7 +33,6 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 
 Replace the General configuration with Logz.io settings.
 
-{% include metric-shipping/replace-metrics-token.html %}
 
 ```shell
 # ===== General =====
@@ -41,12 +41,11 @@ fields:
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
 ```
+{% include metric-shipping/replace-metrics-token.html %}
 
 ##### Set Logz.io as the output
 
 If Logz.io is not an output, add it now. Remove all other outputs.
-
-Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 ```shell
 # ===== Outputs =====
@@ -54,11 +53,14 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
+{% include log-shipping/replace-vars.html listener=true %}
 
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
 
 ##### Add MongoDB module configuration
 
-
+Still in the same configuration file, copy and paste the code block below:
 
 ```yml
 - module: mongodb
@@ -81,7 +83,8 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For the full Metricbeat configuration options for the Mongo DB module, including explanations about SSL oprions, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-mongodb.html).
+For a full list of available Metricbeat configuration options for the MongoDB module, including explanations about SSL options, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-mongodb.html).
+
 
 ##### Replace the placeholders in the configuration
 
@@ -93,7 +96,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * The hosts must be passed as MongoDB URLs in the format: `[mongodb://][user:pass@]host[:port]`
 
-* Replace the placeholders `<<USER>>` and `<<PASS>>` with your Mongo DB credentials.
+* Replace the placeholders `<<USER>>` and `<<PASS>>` with your MongoDB credentials.
 
 ##### Start Metricbeat
 

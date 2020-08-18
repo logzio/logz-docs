@@ -1,22 +1,23 @@
 ---
-title: Ship Etcd V3 metrics
+title: Ship etcd metrics
 logo:
-  logofile:
+  logofile: etcd-logo.png
   orientation: vertical
-data-source: Etcd V3
+data-source: etcd
 contributors:
-  - shalper
   - yotamloe
 shipping-tags:
   - platform-service
 ---
 
-You can ship Etcd metrics using Metricbeat.
+You can ship etcd metrics using Metricbeat.
 
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
-[Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher, Etcd 3.2 or 3.3
+
+* [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
+* etcd v3.2 or v3.3
 
 <div class="tasklist">
 
@@ -28,11 +29,10 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-##### Add Logz.io configuration
+##### Add the Logz.io configuration
 
-Replace the General configuration with Logz.io settings.
-
-{% include metric-shipping/replace-metrics-token.html %}
+Open the Metricbeat configuration file (/etc/metricbeat/metricbeat.yml) with your preferred text editor.
+Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following Logz.io settings:
 
 ```shell
 # ===== General =====
@@ -42,11 +42,13 @@ fields:
 fields_under_root: true
 ```
 
+{% include metric-shipping/replace-metrics-token.html %}
+
+
 ##### Set Logz.io as the output
 
-If Logz.io is not an output, add it now. Remove all other outputs.
+Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
 
-Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 ```shell
 # ===== Outputs =====
@@ -55,10 +57,14 @@ output.logstash:
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
+{% include log-shipping/replace-vars.html listener=true %}
 
-##### Add Etcd module configuration
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
 
+##### Add etcd module configuration
 
+Still in the same configuration file, copy and paste the code block below:
 
 ```yml
 metricbeat.modules:
@@ -84,7 +90,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For the full Metricbeat configuration options for the Etcd module, including explanations about TLS connections, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-etcd.html).
+For a full list of available Metricbeat configuration options for the etcd module, including explanations about TLS connections, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-etcd.html).
 
 ##### Replace the placeholders in the configuration
 
@@ -94,7 +100,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* `localhost:2379` is the default address for Etcd, change it if youre runnning Etcd in a different address.
+* `localhost:2379` is the default address for Etcd, change it if you're runnning etcd from a different address.
 
 ##### Start Metricbeat
 

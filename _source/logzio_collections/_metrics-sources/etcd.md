@@ -31,7 +31,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 
 ##### Add Logz.io to your Metricbeat configuration
 
-Open the Metricbeat configuration file (<<PATH_TO_METRICBEAT>>/metricbeat.yml) with your preferred text editor.
+Open the Metricbeat configuration file (`<<PATH_TO_METRICBEAT>>/metricbeat.yml`) with your preferred text editor.
 
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following Logz.io settings:
 

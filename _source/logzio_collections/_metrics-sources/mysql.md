@@ -1,23 +1,23 @@
 ---
-title: Ship Redis metrics
+title: Ship MySQL metrics
 logo:
-  logofile: redis.svg
-  orientation: vertical
-data-source: Redis
+  logofile: mysql.svg
+  orientation: horizontal
+data-source: MySQL
 contributors:
-  - daniel-tk
   - shalper
+  - yotamloe
 shipping-tags:
   - database
 ---
 
-You can ship Redis metrics using Metricbeat.
+You can ship MySQL metrics using Metricbeat.
 
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
 
-* [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
+* [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher.
 
 <div class="tasklist">
 
@@ -42,7 +42,6 @@ fields:
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
 ```
-
 {% include metric-shipping/replace-metrics-token.html %}
 
 ##### Set Logz.io as the output
@@ -63,26 +62,28 @@ One last validation - make sure Logz.io is the only output and appears only once
 If the file has other outputs, remove them.
 
 
-##### Add Redis module configuration
 
-Still in the same configuration file, copy and paste the code block below:
+##### Add MySQL module configuration
+
+Still in the same configuration file, copy and paste the code block directly below:
+
 
 ```yml
 metricbeat.modules:
-- module: redis
-  metricsets: ["info", "keyspace", "key"]
-  enabled: true
-  key.patterns:
-    - pattern: '<<KEY_NAME>>'
-	period: 10s
+- module: mysql
+  metricsets:
+    - "status"
+    #- "galera_status"
+  period: 10s
 
-  # Redis hosts
-  hosts: ["<<REDIS-HOST>>:6379"]
+  # Host DSN should be defined as "user:pass@tcp(127.0.0.1:3306)/"
+  # or "unix(/var/lib/mysql/mysql.sock)/",
+  hosts: ["<<USERNAME>>:<<PASSWORD>>@tcp(127.0.0.1:3306)/"]
 
 processors:
   - add_host_metadata: ~
   - include_fields: # Collected metrics
-      fields: ['token','logzio_codec','event.module','metricset.name','host.name','agent.hostname', 'redis.info.clients.blocked', 'redis.info.clients.connected', 'redis.info.cpu.used.sys', 'redis.info.cpu.used.user', 'redis.info.memory.fragmentation.ratio', 'redis.info.memory.used.value', 'redis.info.slowlog.count', 'redis.info.stats.keys.evicted', 'redis.info.stats.keyspace.hits', 'redis.info.stats.keyspace.misses', 'redis.info.stats.net.input.bytes', 'redis.info.stats.net.output.bytes', 'redis.key.id', 'redis.keyspace.id']
+      fields: ["mysql.status.bytes.received", "mysql.status.bytes.sent", "mysql.status.command.delete", "mysql.status.command.insert", "mysql.status.command.select", "mysql.status.command.update", "mysql.status.connections", "mysql.status.open.files", "mysql.status.opened", "mysql.status.threads.created", "mysql.status.threads.running", "event.module", "metricset.name", "agent.hostname", "host.name","token","logzio_codec","type","service.type"]
 
 fields:
   logzio_codec: json
@@ -95,7 +96,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For a full list of available Metricbeat configuration options for the Redis module, including explanations about hosts and key pattern syntax, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-redis.html).
+For a full list of available Metricbeat configuration options for the MySQL module, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-mysql.html).
 
 ##### Replace the placeholders in the configuration
 
@@ -105,16 +106,16 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* Replace the placeholder `<<REDIS-HOST>>` with the URL that is used to connect to Redis. The typical formats are `redis://[:password@]host[:port][/db-number][?option=value]` or `redis://HOST[:PORT][?password=PASSWORD[&db=DATABASE]`.
+* Replace the placeholders `<<USERNAME>>` and `<<PASSWORD>>` with your MySQL credentials.
 
-* Replace the `<<KEY_NAME>>` patterns.
+* When configuring the hosts option, you'll need to use a valid MySQL data source name of the following format: `[username[:password]@][protocol[(address)]]/`
+
+* `@tcp(127.0.0.1:3306)` is the default address for MySQL. Change it if you're runnning MySQL on a different port.
 
 ##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
 
-##### Check [Logz.io](http://logz.io/) for your metrics
-
-Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/grafana/).
+{% include metric-shipping/open-dashboard.html title="MySQL" %}
 
 </div>

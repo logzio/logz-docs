@@ -1,23 +1,23 @@
 ---
-title: Ship Redis metrics
+title: Ship etcd metrics
 logo:
-  logofile: redis.svg
+  logofile: etcd-logo.png
   orientation: vertical
-data-source: Redis
+data-source: etcd
 contributors:
-  - daniel-tk
-  - shalper
+  - yotamloe
 shipping-tags:
   - database
 ---
 
-You can ship Redis metrics using Metricbeat.
+You can ship etcd metrics using Metricbeat.
 
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
 
 * [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
+* etcd v3.2 or v3.3
 
 <div class="tasklist">
 
@@ -45,6 +45,7 @@ fields_under_root: true
 
 {% include metric-shipping/replace-metrics-token.html %}
 
+
 ##### Set Logz.io as the output
 
 Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
@@ -62,27 +63,22 @@ output.logstash:
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
 
-
-##### Add Redis module configuration
+##### Add etcd module configuration
 
 Still in the same configuration file, copy and paste the code block below:
 
 ```yml
 metricbeat.modules:
-- module: redis
-  metricsets: ["info", "keyspace", "key"]
-  enabled: true
-  key.patterns:
-    - pattern: '<<KEY_NAME>>'
-	period: 10s
-
-  # Redis hosts
-  hosts: ["<<REDIS-HOST>>:6379"]
+- module: etcd
+  metricsets: ["metrics","store"]
+  period: 10s
+  hosts: ["localhost:2379"]
 
 processors:
   - add_host_metadata: ~
-  - include_fields: # Collected metrics
-      fields: ['token','logzio_codec','event.module','metricset.name','host.name','agent.hostname', 'redis.info.clients.blocked', 'redis.info.clients.connected', 'redis.info.cpu.used.sys', 'redis.info.cpu.used.user', 'redis.info.memory.fragmentation.ratio', 'redis.info.memory.used.value', 'redis.info.slowlog.count', 'redis.info.stats.keys.evicted', 'redis.info.stats.keyspace.hits', 'redis.info.stats.keyspace.misses', 'redis.info.stats.net.input.bytes', 'redis.info.stats.net.output.bytes', 'redis.key.id', 'redis.keyspace.id']
+  - include_fields: # Collected metrics ⬇️
+      fields: ["etcd.disk.backend_commit_duration.ns.sum", "etcd.disk.mvcc_db_total_size.bytes", "etcd.disk.wal_fsync_duration.ns.sum", "etcd.network.client_grpc_received.bytes", "etcd.network.client_grpc_sent.bytes", "etcd.server.grpc_handled.count", "etcd.server.grpc_started.count", "etcd.server.has_leader", "etcd.server.leader_changes.count", "etcd.server.proposals_committed.count", "etcd.server.proposals_failed.count", "etcd.server.proposals_pending.count", "etcd.store.compareanddelete.fail", "etcd.store.compareanddelete.success", "etcd.store.compareandswap.fail", "etcd.store.compareandswap.success", "etcd.store.create.fail", "etcd.store.create.success", "etcd.store.delete.fail", "etcd.store.delete.success", "etcd.store.expire.count", "etcd.store.gets.fail", "etcd.store.gets.success", "etcd.store.sets.fail", "etcd.store.sets.success", "etcd.store.update.fail", "etcd.store.update.success", "etcd.store.watchers", "token", "logzio_codec", "event.module", "metricset.name", "host.name", "agent.hostname", "type", "service.type"]
+
 
 fields:
   logzio_codec: json
@@ -95,7 +91,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For a full list of available Metricbeat configuration options for the Redis module, including explanations about hosts and key pattern syntax, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-redis.html).
+For a full list of available Metricbeat configuration options for the etcd module, including explanations about TLS connections, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-etcd.html).
 
 ##### Replace the placeholders in the configuration
 
@@ -105,16 +101,13 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* Replace the placeholder `<<REDIS-HOST>>` with the URL that is used to connect to Redis. The typical formats are `redis://[:password@]host[:port][/db-number][?option=value]` or `redis://HOST[:PORT][?password=PASSWORD[&db=DATABASE]`.
-
-* Replace the `<<KEY_NAME>>` patterns.
+* `localhost:2379` is the default address for etcd, change it if you're runnning etcd from a different address.
 
 ##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
 
-##### Check [Logz.io](http://logz.io/) for your metrics
-
-Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/grafana/).
+{% include metric-shipping/open-dashboard.html title="Etcd" %}
 
 </div>
+

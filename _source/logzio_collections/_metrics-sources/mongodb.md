@@ -1,17 +1,17 @@
 ---
-title: Ship Redis metrics
+title: Ship MongoDB metrics
 logo:
-  logofile: redis.svg
+  logofile: mongodb.svg
   orientation: vertical
-data-source: Redis
+data-source: MongoDB
 contributors:
-  - daniel-tk
   - shalper
+  - yotamloe
 shipping-tags:
   - database
 ---
 
-You can ship Redis metrics using Metricbeat.
+You can ship MongoDB metrics using Metricbeat.
 
 #### Metricbeat setup
 
@@ -35,6 +35,7 @@ Open the Metricbeat configuration file (`<<PATH_TO_METRICBEAT>>/metricbeat.yml`)
 
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following Logz.io settings:
 
+
 ```shell
 # ===== General =====
 fields:
@@ -42,13 +43,11 @@ fields:
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
 ```
-
 {% include metric-shipping/replace-metrics-token.html %}
 
 ##### Set Logz.io as the output
 
 Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
-
 
 ```shell
 # ===== Outputs =====
@@ -56,33 +55,24 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
-
 {% include log-shipping/replace-vars.html listener=true %}
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
 
-
-##### Add Redis module configuration
+##### Add MongoDB module configuration
 
 Still in the same configuration file, copy and paste the code block below:
 
 ```yml
-metricbeat.modules:
-- module: redis
-  metricsets: ["info", "keyspace", "key"]
+- module: mongodb
+  metricsets: ["dbstats", "status", "collstats", "metrics", "replstatus"]
+  period: 10s
   enabled: true
-  key.patterns:
-    - pattern: '<<KEY_NAME>>'
-	period: 10s
-
-  # Redis hosts
-  hosts: ["<<REDIS-HOST>>:6379"]
+  hosts: ["mongodb://<<USER>>:<<PASS>>@localhost:27017"]
 
 processors:
   - add_host_metadata: ~
-  - include_fields: # Collected metrics
-      fields: ['token','logzio_codec','event.module','metricset.name','host.name','agent.hostname', 'redis.info.clients.blocked', 'redis.info.clients.connected', 'redis.info.cpu.used.sys', 'redis.info.cpu.used.user', 'redis.info.memory.fragmentation.ratio', 'redis.info.memory.used.value', 'redis.info.slowlog.count', 'redis.info.stats.keys.evicted', 'redis.info.stats.keyspace.hits', 'redis.info.stats.keyspace.misses', 'redis.info.stats.net.input.bytes', 'redis.info.stats.net.output.bytes', 'redis.key.id', 'redis.keyspace.id']
 
 fields:
   logzio_codec: json
@@ -95,7 +85,8 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For a full list of available Metricbeat configuration options for the Redis module, including explanations about hosts and key pattern syntax, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-redis.html).
+For a full list of available Metricbeat configuration options for the MongoDB module, including explanations about SSL options, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-mongodb.html).
+
 
 ##### Replace the placeholders in the configuration
 
@@ -105,16 +96,14 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* Replace the placeholder `<<REDIS-HOST>>` with the URL that is used to connect to Redis. The typical formats are `redis://[:password@]host[:port][/db-number][?option=value]` or `redis://HOST[:PORT][?password=PASSWORD[&db=DATABASE]`.
+* The hosts must be passed as MongoDB URLs in the format: `[mongodb://][user:pass@]host[:port]`
 
-* Replace the `<<KEY_NAME>>` patterns.
+* Replace the placeholders `<<USER>>` and `<<PASS>>` with your MongoDB credentials.
 
 ##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
 
-##### Check [Logz.io](http://logz.io/) for your metrics
-
-Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/grafana/).
+{% include metric-shipping/open-dashboard.html title="MongoDB" %}
 
 </div>

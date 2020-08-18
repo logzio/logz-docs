@@ -8,7 +8,7 @@ contributors:
   - daniel-tk
   - shalper
 shipping-tags:
-  - platform-service
+  - database
 ---
 
 You can ship Redis metrics using Metricbeat.
@@ -16,7 +16,8 @@ You can ship Redis metrics using Metricbeat.
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
-[Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
+
+* [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
 
 <div class="tasklist">
 
@@ -28,11 +29,11 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-##### Add Logz.io configuration
+##### Add Logz.io to your Metricbeat configuration
 
-Replace the General configuration with Logz.io settings.
+Open the Metricbeat configuration file (<<PATH_TO_METRICBEAT>>/metricbeat.yml) with your preferred text editor.
 
-{% include metric-shipping/replace-metrics-token.html %}
+Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following Logz.io settings:
 
 ```shell
 # ===== General =====
@@ -42,11 +43,12 @@ fields:
 fields_under_root: true
 ```
 
+{% include metric-shipping/replace-metrics-token.html %}
+
 ##### Set Logz.io as the output
 
 If Logz.io is not an output, add it now. Remove all other outputs.
 
-Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 ```shell
 # ===== Outputs =====
@@ -55,10 +57,15 @@ output.logstash:
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
+{% include log-shipping/replace-vars.html listener=true %}
+
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
+
 
 ##### Add Redis module configuration
 
-
+Still in the same configuration file, copy and paste the code block below:
 
 ```yml
 metricbeat.modules:
@@ -88,7 +95,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For the full Metricbeat configuration options for the Redis module, including explanations about hosts options and key pattern syntax, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-redis.html).
+For a full list of available Metricbeat configuration options for the etcd module, including explanations about hosts options and key pattern syntax, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-redis.html).
 
 ##### Replace the placeholders in the configuration
 
@@ -98,7 +105,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* Replace the placeholder `<<REDIS-HOST>>` with the URL that is used to connect to Redis. The typical formats are `redis://[:password@]host[:port][/db-number][?option=value]` or `redis://HOST[:PORT][?password=PASSWORD[&db=DATABASE]`. 
+* Replace the placeholder `<<REDIS-HOST>>` with the URL that is used to connect to Redis. The typical formats are `redis://[:password@]host[:port][/db-number][?option=value]` or `redis://HOST[:PORT][?password=PASSWORD[&db=DATABASE]`.
 
 * Replace the `<<KEY_NAME>>` patterns.
 

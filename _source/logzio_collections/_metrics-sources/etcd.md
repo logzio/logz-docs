@@ -7,7 +7,7 @@ data-source: etcd
 contributors:
   - yotamloe
 shipping-tags:
-  - platform-service
+  - database
 ---
 
 You can ship etcd metrics using Metricbeat.

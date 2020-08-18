@@ -95,7 +95,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For a full list of available Metricbeat configuration options for the etcd module, including explanations about hosts options and key pattern syntax, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-redis.html).
+For a full list of available Metricbeat configuration options for the Redis module, including explanations about hosts and key pattern syntax, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-redis.html).
 
 ##### Replace the placeholders in the configuration
 

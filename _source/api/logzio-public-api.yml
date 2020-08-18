@@ -100,7 +100,7 @@ tags:
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
-  - name: S3 Buckets
+  - name: Manage S3 Buckets
   - name: Manage notification endpoints
     description: >-
       Logz.io can send notifications to your preferred workspaces, such as Opsgenie, BigPanda, PagerDuty, and Slack.
@@ -147,7 +147,7 @@ x-tagGroups:
   - name: AWS security and audit
     tags:
       - Manage CloudTrail links
-      - S3 Buckets
+      - Manage S3 Buckets
 
 paths:
   # ::::: ACCOUNTS
@@ -807,8 +807,10 @@ paths:
   # ::::: S3 log shipping
   /log-shipping/s3-buckets/logzio-accountId:
     get:
+      summary: Get Logz.io account ID
+      description: Retrieve the Logz.io account ID associated with the S3 bucket.
       tags:
-        - S3 Buckets
+        - Manage S3 Buckets
       operationId: getLogzioAccountId
       consumes:
         - application/json
@@ -819,8 +821,10 @@ paths:
           description: successful operation
   /log-shipping/s3-buckets:
     get:
+      summary: Retrieve all S3 bucket links
+      description: Returns a list of all S3 links attached to your Logz.io account.
       tags:
-        - S3 Buckets
+        - Manage S3 Buckets
       operationId: getS3Buckets
       consumes:
         - application/json
@@ -831,8 +835,10 @@ paths:
         default:
           description: successful operation
     post:
+      summary: Create an S3 bucket link
+      description: Creates a new link to your data in an AWS S3 bucket.
       tags:
-        - S3 Buckets
+        - Manage S3 Buckets
       operationId: createBuckets
       consumes:
         - application/json
@@ -849,8 +855,10 @@ paths:
           description: successful operation
   '/log-shipping/s3-buckets/{id}':
     get:
+      summary: Retrieve an S3 link by ID
+      description: Returns connection information for a single S3 bucket link.
       tags:
-        - S3 Buckets
+        - Manage S3 Buckets
       operationId: getS3Bucket
       consumes:
         - application/json
@@ -866,8 +874,10 @@ paths:
         default:
           description: successful operation
     put:
+      summary: Update an S3 link
+      description: Updates connection information for an S3 bucket link.
       tags:
-        - S3 Buckets
+        - Manage S3 Buckets
       operationId: updateBucket
       consumes:
         - application/json
@@ -884,22 +894,14 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/S3BucketRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
       responses:
         default:
           description: successful operation
     delete:
+      summary: Delete an S3 link
+      description: Deletes a Logz.io link to an S3 bucket.
       tags:
-        - S3 Buckets
+        - Manage S3 Buckets
       operationId: deleteBucket
       consumes:
         - application/json
@@ -916,8 +918,10 @@ paths:
           description: successful operation
   /log-shipping/s3-buckets/aws-assume-role-details:
     get:
+      summary: Get IAM details
+      description: Returns the AWS IAM role details for the S3 bucket.
       tags:
-        - S3 Buckets
+        - Manage S3 Buckets
       operationId: getAWSAssumeRoleDetails
       consumes:
         - application/json
@@ -2587,13 +2591,19 @@ definitions:
           - CA_CENTRAL_1
       logsType:
         type: string
+        description: ?? Log type used to parse the data. See [log types with default parsing supported out-of-the-box by Logz.io](/user-guide/log-shipping/built-in-log-types.html).
+        example:
   AWSAssumeRoleDetails:
     type: object
     properties:
       logzioAWSAccountId:
         type: string
+        description: ??
+        example:
       assignedExternalId:
         type: string
+        description: ??
+        example: 
 
 
 

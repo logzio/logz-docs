@@ -101,6 +101,8 @@ tags:
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage S3 Buckets
+    description: >-
+      Ship logs to Logz.io using an S3 bucket. Supports ELB, S3 Access, CloudFront, VPC Flow logs. If you're looking to ship CloudTrail logs, see the designated endpoints.
   - name: Manage notification endpoints
     description: >-
       Logz.io can send notifications to your preferred workspaces, such as Opsgenie, BigPanda, PagerDuty, and Slack.
@@ -805,20 +807,6 @@ paths:
             $ref: '#/definitions/MessageBean'
 
   # ::::: S3 log shipping
-  /log-shipping/s3-buckets/logzio-accountId:
-    get:
-      summary: Get Logz.io account ID
-      description: Retrieve the Logz.io account ID associated with the S3 bucket.
-      tags:
-        - Manage S3 Buckets
-      operationId: getLogzioAccountId
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      responses:
-        default:
-          description: successful operation
   /log-shipping/s3-buckets:
     get:
       summary: Retrieve all S3 bucket links

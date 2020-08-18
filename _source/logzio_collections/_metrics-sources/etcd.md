@@ -29,9 +29,10 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-##### Add the Logz.io configuration
+##### Add Logz.io to your Metricbeat configuration
 
 Open the Metricbeat configuration file (/etc/metricbeat/metricbeat.yml) with your preferred text editor.
+
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following Logz.io settings:
 
 ```shell

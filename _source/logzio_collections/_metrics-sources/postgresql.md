@@ -1,14 +1,14 @@
 ---
 title: Ship PostgreSQL metrics
 logo:
-  logofile: 
+  logofile: postgresql.svg
   orientation: vertical
 data-source: PostgreSQL
 contributors:
   - shalper
   - yotamloe
 shipping-tags:
-  - platform-service
+  - database
 ---
 
 You can ship PostgreSQL metrics using Metricbeat.
@@ -16,7 +16,8 @@ You can ship PostgreSQL metrics using Metricbeat.
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
-[Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
+
+* [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
 
 <div class="tasklist">
 
@@ -28,11 +29,12 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-##### Add Logz.io configuration
+##### Add Logz.io to your Metricbeat configuration
 
-Replace the General configuration with Logz.io settings.
+Open the Metricbeat configuration file (/etc/metricbeat/metricbeat.yml) with your preferred text editor.
 
-{% include metric-shipping/replace-metrics-token.html %}
+Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following Logz.io settings:
+
 
 ```shell
 # ===== General =====
@@ -41,6 +43,8 @@ fields:
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
 ```
+
+{% include metric-shipping/replace-metrics-token.html %}
 
 ##### Set Logz.io as the output
 

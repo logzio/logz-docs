@@ -1,14 +1,14 @@
 ---
 title: Ship MySQL metrics
 logo:
-  logofile: 
-  orientation: vertical
+  logofile: mysql.svg
+  orientation: horizontal
 data-source: MySQL
 contributors:
   - shalper
   - yotamloe
 shipping-tags:
-  - platform-service
+  - database
 ---
 
 You can ship MySQL metrics using Metricbeat.
@@ -16,7 +16,8 @@ You can ship MySQL metrics using Metricbeat.
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
-[Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
+
+* [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher.
 
 <div class="tasklist">
 
@@ -28,11 +29,11 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-##### Add Logz.io configuration
+##### Add Logz.io to your Metricbeat configuration
 
-Replace the General configuration with Logz.io settings.
+Open the Metricbeat configuration file (/etc/metricbeat/metricbeat.yml) with your preferred text editor.
 
-{% include metric-shipping/replace-metrics-token.html %}
+Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following Logz.io settings:
 
 ```shell
 # ===== General =====
@@ -41,12 +42,12 @@ fields:
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
 ```
+{% include metric-shipping/replace-metrics-token.html %}
 
 ##### Set Logz.io as the output
 
 If Logz.io is not an output, add it now. Remove all other outputs.
 
-Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 ```shell
 # ===== Outputs =====
@@ -55,9 +56,14 @@ output.logstash:
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
+
+
 
 ##### Add MySQL module configuration
 
+Still in the same configuration file, copy and paste the code block directly below:
 
 
 ```yml
@@ -88,7 +94,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For the full Metricbeat configuration options for the Mysql module, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-mysql.html).
+For a full list of available Metricbeat configuration options for the MySQL module, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-mysql.html).
 
 ##### Replace the placeholders in the configuration
 
@@ -100,9 +106,9 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * Replace the placeholders `<<USERNAME>>` and `<<PASSWORD>>` with your MySQL credentials.
 
-* When configuring the hosts option, you must use a valid MySQL data source name, use the following format: `[username[:password]@][protocol[(address)]]/`
+* When configuring the hosts option, you'll need to use a valid MySQL data source name of the following format: `[username[:password]@][protocol[(address)]]/`
 
-* `@tcp(127.0.0.1:3306)` is the default address for MySQL, change it if youre runnning MySQL in a different port.
+* `@tcp(127.0.0.1:3306)` is the default address for MySQL. Change it if you're runnning MySQL on a different port.
 
 ##### Start Metricbeat
 

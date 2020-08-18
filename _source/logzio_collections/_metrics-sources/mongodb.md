@@ -47,7 +47,7 @@ fields_under_root: true
 
 ##### Set Logz.io as the output
 
-If Logz.io is not an output, add it now. Remove all other outputs.
+Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
 
 ```shell
 # ===== Outputs =====

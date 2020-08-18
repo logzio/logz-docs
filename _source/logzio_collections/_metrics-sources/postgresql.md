@@ -48,9 +48,7 @@ fields_under_root: true
 
 ##### Set Logz.io as the output
 
-If Logz.io is not an output, add it now. Remove all other outputs.
-
-Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
 
 ```shell
 # ===== Outputs =====
@@ -58,6 +56,11 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
+
+{% include log-shipping/replace-vars.html listener=true %}
+
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
 
 
 ##### Add PostgreSQL module configuration
@@ -109,9 +112,11 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* When configuring the hosts option, you must use a valid Postgresql URI (example: `postgresql://localhost:5432/postgres?sslmode=disable`). Replace the placeholder `<<URI>>` using the following format: `[postgresql://[user[:password]@][netloc][:port][,...][/dbname][?param1=value1&...]`
+* When configuring the hosts option, you must use a valid PostgreSQL URI (example: `postgresql://localhost:5432/postgres?sslmode=disable`). 
 
-For more inforamtion about postgres URI and connection string parmeters, please see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING).
+  Replace the placeholder `<<URI>>` using the following format: `[postgresql://[user[:password]@][netloc][:port][,...][/dbname][?param1=value1&...]`
+
+  For more information about PostgreSQL URI and connection string parmeters, please see [PostgreSQL's documentation](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING).
 
 ##### Start Metricbeat
 

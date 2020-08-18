@@ -46,7 +46,7 @@ fields_under_root: true
 
 ##### Set Logz.io as the output
 
-If Logz.io is not an output, add it now. Remove all other outputs.
+Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
 
 
 ```shell
@@ -55,6 +55,8 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
+
+{% include log-shipping/replace-vars.html listener=true %}
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.

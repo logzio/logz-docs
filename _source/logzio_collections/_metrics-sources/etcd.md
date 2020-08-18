@@ -101,7 +101,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* `localhost:2379` is the default address for Etcd, change it if you're runnning etcd from a different address.
+* `localhost:2379` is the default address for etcd, change it if you're runnning etcd from a different address.
 
 ##### Start Metricbeat
 

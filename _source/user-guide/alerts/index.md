@@ -34,13 +34,13 @@ You'll see a paginated list of all alerts configured for your account.
 
 * You can click the **Menu button <i class="li li-ellipsis-v"></i>** to edit, duplicate, or delete an alert.
 
-* To view the alert logs (that is the logs written by the alert) over the last 3 days, click the **Menu button <i class="li li-ellipsis-v"></i>** and select **View last events**.
+* To view the alert logs over the last 3 days, click the **Menu button <i class="li li-ellipsis-v"></i>** and select **View last events**.
 
   You'll be taken to Kibana Discover, with the logs filtered by the alert ID over the last 36 hours. Each log document represents an event when the alert triggered.
 
-  You can click the **Investigate** button to drill down on the raw logs that caused the alert to trigger for further details.
+  You can click the **Investigate** button to drill down on the raw logs that caused the alert to trigger.
 
-* You can filter the list of alerts by tags, severity, who created and/or updated the alert, and the alert's status, whether it is active or disabled.
+* You can filter the list of alerts by tags, severity, who created and/or updated the alert, and its status (whether it is active or disabled).
 
   <video autoplay loop>
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/filter-alerts.mp4" type="video/mp4" />

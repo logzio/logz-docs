@@ -28,7 +28,7 @@ from the top menu.
 
 You'll see a paginated list of all alerts configured for your account.
 
-* You'll be able to enable/disable alerts, as needed.
+* You can enable/disable alerts, as needed.
 
 * You can click the column headers to sort the list by **severity** or chronologically by when alerts were **created** or **updated**.
 

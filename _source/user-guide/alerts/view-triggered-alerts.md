@@ -7,29 +7,19 @@ flags:
 tags:
   - alerts
 contributors:
+  - shalper
   - imnotashrimp
 ---
 
-Logz.io creates a log entry every time an alert is triggered,
-even if no notification is sent out.
-So if an alert is triggered while notifications are suppressed,
-or if you configured a non-critical alert without notifications,
-the alert is still logged.
+The **Triggered alerts** page offers a handy list of alerts that were recently triggered.
+It can help to verify and troubleshoot an alert. 
 
-![Triggered alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--triggered-alerts.png)
+![Triggered alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/triggered-log-alerts.png)
 
-To view triggered alerts,
+To view the **Triggered alerts** page,
 select [**Alerts & Events > Triggered alerts**](https://app.logz.io/#/dashboard/triggers/triggered-alerts)
 from the top menu.
 
-#### View a triggered alert in Kibana
+* To view the raw logs for a particular event, click the button **View in Kibana**.
 
-To see a triggered alert in Kibana,
-hover over the alert,
-and then click **View in Kibana**.
-
-![View triggered alert in Kibana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--view-in-kibana.png)
-
-This takes you to the alert query for the time period that triggered the alert.
-Using Kibana, you can explore your logs
-and get a better idea of the conditions that led to the triggered alert.
+  You'll be taken to Kibana Discover, with the logs filtered to return the exact logs that caused the alert to trigger. Using Kibana, you can explore your logs and get a better idea of the conditions that led to the triggered alert.

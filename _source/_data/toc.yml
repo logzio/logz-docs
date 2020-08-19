@@ -132,17 +132,17 @@ firstLevel:
 - title: Admin tools
   icon: li-gear
   secondLevel:
-  - title: Accounts
+  - title: Manage accounts
     url: /user-guide/accounts/
 
     thirdLevel:
-    - title: Manage the main account and sub accounts
+    - title: Time-based log accounts
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
-    - title: Manage timeless accounts
+    - title: Timeless log accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
-    - title: Manage the Cloud SIEM account
+    - title: Security accounts
       url: /user-guide/accounts/manage-the-cloud-siem-account.html
-    - title: Manage the Infrastructure Monitoring account
+    - title: Metrics accounts
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
     - title: PCI compliance and log redaction
       url: /user-guide/accounts/pci-compliance.html

@@ -19,54 +19,14 @@ produces: [ application/json ]
 consumes: [ application/json ]
 info:
   description: >-
-    # Introduction
-
-    This API is documented using the **OpenAPI 2.0** specification.
-    <!-- You can browse the API documentation on this page, or you can download the specification file. -->
-
-    # Beta feature
-
-    This documentation version accompanies the [shared storage beta release](/beta-api-flexible-storage/#tag/Manage-time-based-log-accounts). We recommend using the main API documentation (docs.logz.io/api/) for all other endpoints.
-
-    ### Updates and improvements
-
-    We update this document regularly to reflect changes and improvements to the Logz.io API.
-    If you'd like to suggest corrections or improvements to this document, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
-
-
-    # Notes on alerting
-
-    Please note that alerting is not yet covered in this document.
-    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
-
-
-    # Account region and API URL
-
-    To find your account region, sign in to Logz.io and look at the URL in the address bar.
-    Your API URL has the same two-letter code that you see in the address bar when you're logged in.
-
-
-    For more information, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
-
-
-    # Authentication
-
-    The Logz.io API is available to Enterprise plan subscribers.
-    You can create new API tokens in [Logz.io](https://app.logz.io/#/dashboard/settings/api-tokens).
-    You can revoke API permissions at any time.
-
-    If you don't have an Enterprise account, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
+    This documentation accompanies the release of the flexible storage beta feature.
+    
+    For all other endpoints, please refer to our main documentation under [docs.logz.io/api/](docs.logz.io/api/).
 
     <!-- ReDoc-Inject: <security-definitions> -->
 
 
-    # Rate limiting
-
-    API call and response rates are limited per individual account.
-    To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
-
-
-  title: Logz.io API - Flexible Storage Beta Version
+  title: Logz.io API - Flexible Storage
   termsOfService: 'https://logz.io/about-us/terms-of-use/'
   contact:
     email: help@logz.io
@@ -153,24 +113,9 @@ tags:
 
       You can create, update, suspend/unsuspend, and delete users. You can also retrieve the list of active and suspended users.
 x-tagGroups:
-  - name: Log monitoring
-    tags:
-      - Search logs
-      - Logz.io snapshots
   - name: Account administration
     tags:
-      - Manage users
-      - Who am I
       - Manage time-based log accounts
-      - Manage shared tokens
-      - Manage notification endpoints
-      - Import or export Kibana objects
-  - name: Data security
-    tags:
-      - Retrieve audit trail
-  - name: AWS security and audit
-    tags:
-      - Manage CloudTrail links
 
 paths:
   # ::::: ACCOUNTS

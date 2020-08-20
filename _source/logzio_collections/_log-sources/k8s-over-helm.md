@@ -6,8 +6,6 @@ logo:
 data-source: Kubernetes over Helm
 templates: ["k8s-daemonset"]
 open-source:
-  - title: logzio-k8s
-    github-repo: logzio-k8s
   - title: logzio-helm
     github-repo: logzio-helm
 contributors:
@@ -23,7 +21,12 @@ Helm is a tool for managing packages of pre-configured Kubernetes resources usin
 Logzio-k8s-logs allows you to ship logs from your Kubernetes cluster to Logz.io.
 You can either deploy this daemonset with the standrad Filebeat configuration or with Filebeat autodiscover.
 
-For further information about Filebeat's autodiscover please see [Autodiscover documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
+For further information about Filebeat's autodiscover please see [Elastic's documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
+
+**Before you begin, you'll need**:
+
+* [Helm CLI](https://helm.sh/docs/intro/install/) installed
+* Allow outgoing traffic to destination port 5015
 
 <div class="branching-container">
 * [Standard configuration](#standard-config)
@@ -37,10 +40,6 @@ For further information about Filebeat's autodiscover please see [Autodiscover d
 
 #### Standard configuration
 
-**Before you begin, you'll need**:
-
-* [Helm CLI](https://helm.sh/docs/intro/install/) installed
-* Allow outgoing traffic to destination port 5015
 
 <div class="tasklist">
 
@@ -176,7 +175,7 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 | `configType` | Specifies which configuration to use for Filebeat. Set to `autodiscover` to use autodiscover. | `standard` |
 | `filebeatConfig.standardConfig` | Standard Filebeat configuration, using `filebeat.input`. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
 | `filebeatConfig.autodiscoverConfig` | Autodiscover Filebeat configuration, using `filebeat.autodiscover`. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
-| `filebeatConfig.autoCustomConfig` | Autodiscover Filebeat custom configuration, using `filebeat.autodiscover`. Should be used if you want to use your custimized autodiscover config | {} |
+| `filebeatConfig.autoCustomConfig` | Autodiscover Filebeat custom configuration, using `filebeat.autodiscover`. Required when you're using your custimized autodiscover config | {} |
 | `serviceAccount.create` | Specifies whether a service account should be created. | `true` |
 | `serviceAccount.name` | Name of the service account. | `filebeat` |
 | `terminationGracePeriod` | Termination period (in seconds) to wait before killing Filebeat pod process on pod shutdown. | `30` |
@@ -187,10 +186,10 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 | `daemonset.logzioType` | The log type you'll use with this Daemonset. This is shown in your logs under the `type` field in Kibana. Logz.io applies parsing based on type. | `filebeat` |
 | `daemonset.fieldsUnderRoot` | If this option is set to true, the custom fields are stored as top-level fields in the output document instead of being grouped under a `fields` sub-dictionary. | `"true"` |
 | `daemonset.securityContext` | Configurable [securityContext](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) for Filebeat DaemonSet pod execution environment. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
-| `daemonset.resources` | Allows you to set the resources for Filebeat Daemonset. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
+| `daemonset.resources` | Sets the resources for Filebeat Daemonset. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
 | `daemonset.volumes` | Templatable string of additional `volumes` to be passed to the DaemonSet. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
 | `daemonset.volumeMounts` | Templatable string of additional `volumeMounts` to be passed to the DaemonSet. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
-| `secrets.logzioShippingToken`| Secret with your [logzio shipping token](https://app.logz.io/#/dashboard/settings/general). | `""` |
+| `secrets.logzioShippingToken`| Secret with your logzio shipping token. | `""` |
 | `secrets.logzioRegion`| Secret with your [logzio region](https://docs.logz.io/user-guide/accounts/account-region.html). Defaults to US East. | `" "` |
 | `secrets.clusterName`| Secret with your cluster name. | `""` |
 

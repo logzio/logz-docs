@@ -161,9 +161,11 @@ firstLevel:
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/
 
-  - title: Users
-    url: /user-guide/users/
+  - title: User permissions
+    url: /user-guide/user-permissions/
     thirdLevel:
+    - title: Users
+      url: /user-guide/users/
     - title: Multi-factor authentication
       url: /user-guide/users/multi-factor-authentication.html
   - title: Single sign-on

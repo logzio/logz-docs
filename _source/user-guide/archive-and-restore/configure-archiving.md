@@ -26,11 +26,11 @@ If you need long-term storage for your logs
 but don't need to keep those logs searchable at all times,
 S3 archiving is a cost-effective solution.
 
-For more information on S3 object storage classes,
+Buckets set to cold storage (**S3 Glacier** and **S3 Glacier Deep Archive** storage classes) cannot be restored from, as the files are not available for real-time access. For more information on S3 object storage classes,
 see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)
 from Amazon.
-{:.info-box.read}
+{:.info-box.important}
 
 #### To set up archiving
 

@@ -14,6 +14,22 @@ contributors:
   - shalper
 ---
 
+When you set up your logging account.
+
+
+![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flexible-volume-enabled.png)
+
+
+### Flexible storage & shared volume
+
+Flexible storage and shared volume allow accounts to share indexing capacity.
+
+To enable shared volume, go to the Manage accounts page in the Logz.io app and toggle the button Use flexible volume to turn it on.
+
+To determine whether flexible storage is enabled, run a Get request to retrieve account details.
+
+If isFlexible is true, flexible storage is enabled and every account has reserved capacity set by the parameter reservedDailyGB.
+If false, flexible storage is disabled and the parameter reservedDailyGB is null
 
 
 

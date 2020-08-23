@@ -1,6 +1,6 @@
 ---
 layout: article
-title: User permissions
+title: Roles 
 permalink: /user-guide/user-permissions/
 flags:
   admin: true
@@ -11,18 +11,12 @@ contributors:
   - shalper
 ---
 
+User roles determine their permissions and access level.
 
-To maintain your account's security,
-account admins can add and remove users as needed.
-You can change user access permissions at any time.
+There are 4 permission levels: Main account Admin / User, Sub account Admin / User.
+Below is a list of user permissions by account type and user rule.
 
-Users who are part of the main account
-will have access to all sub accounts and timeless accounts.
-To limit user access,consider adding users
-only to the sub accounts and timeless accounts that they will need to search.
-
-To keep your data even more secure,
-limit the number of admins in each account.
+As always, limit the number of admins in each account, to keep your data even more secure.
 
 ## Main account
 
@@ -31,7 +25,11 @@ limit the number of admins in each account.
 | Read all sub accounts | <i class="fas fa-check"></i>| <i class="fas fa-check"></i> |
 | Read all timeless accounts | <i class="fas fa-check"></i>| <i class="fas fa-check"></i> |
 
-CRUD stands for Create, Read, Update, Delete.
+Anyone with a User role in the main account has access to all sub accounts and timeless accounts. You can limit access to sub account data , consider adding users
+only to the sub accounts and timeless accounts that they will need to search.
+
+The acronym CRUD stands for Create, Read, Update, Delete.
+{:.info-box.important}
 
 | Permissions | Admin | User |
 |---|---|---|
@@ -45,8 +43,8 @@ CRUD stands for Create, Read, Update, Delete.
 | Manage users | CRUD | <i class="fas fa-times"></i> |
 | Notification channels | CRUD | CRUD |
 | [Grant Support access](/user-guide/accounts/support-access.html) | <i class="fas fa-check"></i>  | <i class="fas fa-times"></i> |
-
-
+| System status | Read | Read |
+| Livetail | <i class="fas fa-check"></i> | <i class="fas fa-check"></i> |
 
 
 ## Sub account
@@ -54,8 +52,8 @@ CRUD stands for Create, Read, Update, Delete.
 | Permissions | Admin | User |
 |---|---|---|
 | Manage account | <i class="fas fa-times"></i> | <i class="fas fa-times"></i> |
-| Other Sub accounts <br> under the same Main account | <i class="fas fa-times"></i> | <i class="fas fa-times"></i> | 
-| Timeless accounts | CRUD | Read |
+| Other Sub accounts <br> the same Main account | <i class="fas fa-times"></i> | <i class="fas fa-times"></i> |
+| Timeless accounts | Read | Read |
 | Log shipping tokens | CRUD | <i class="fas fa-times"></i> |
 | Shared tokens | CRUD | Read |
 | Add filters to Shared tokens | <i class="fas fa-check"></i>  | <i class="fas fa-times"></i> |

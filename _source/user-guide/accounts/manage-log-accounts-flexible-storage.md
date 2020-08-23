@@ -1,18 +1,21 @@
 ---
 layout: article
-title: Manage the main account and sub accounts
-permalink: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
+title: Flexible volume logging
+permalink: /user-guide/accounts/flexible-volume-logging.html
 flags:
   admin: true
   logzio-plan: community
+  alpha: true
 tags:
   - accounts
   - main-account
   - sub-accounts
 contributors:
-  - imnotashrimp
-  - ayigal
+  - shalper
 ---
+
+
+
 
 Each Logz.io plan starts off with a main account.
 If you're on a Pro or Enterprise plan,

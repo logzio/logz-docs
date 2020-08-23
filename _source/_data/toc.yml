@@ -140,6 +140,8 @@ firstLevel:
     thirdLevel:
     - title: Time-based log accounts
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
+    - title: Flexible volume log accounts
+      url: /user-guide/accounts/flexible-volume-logging.html
     - title: Timeless log accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
     - title: Security accounts

@@ -60,7 +60,7 @@ Replace `<<CLUSTER-NAME>>` with your cluster's name.
 ```shell
 helm install --namespace=kube-system \
 --set secrets.logzioShippingToken='<<SHIPPING-TOKEN>>' \
---set secrets.logzioListener='<<LISTENER-REGION>>' \
+--set secrets.logzioRegion='<<LISTENER-REGION>>' \
 --set secrets.clusterName='<<CLUSTER-NAME>>' \
 logzio-k8s-logs logzio-helm/logzio-k8s-logs
 ```
@@ -219,4 +219,3 @@ To uninstall the `logzio-k8s-logs` deployment:
 helm uninstall --namespace=kube-system logzio-k8s-logs
 ```
 </div>
-

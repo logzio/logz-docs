@@ -14,19 +14,63 @@ contributors:
   - shalper
 ---
 
-When you set up your logging account.
+When you set up your logging accounts, you have the option to create separate sub accounts to control access more tightly.
+
+If you want to send data more
+
+![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flexible-volume-sub-accounts.png)
 
 
-![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flexible-volume-enabled.png)
 
 
 ### Flexible storage & shared volume
 
-Flexible storage and shared volume allow accounts to share indexing capacity.
+You have the option to enable flexible volume to allow accounts to share indexing capacity.
 
-To enable shared volume, go to the Manage accounts page in the Logz.io app and toggle the button Use flexible volume to turn it on.
+![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flexible-volume-enabled.png)
 
-To determine whether flexible storage is enabled, run a Get request to retrieve account details.
+If flexible volume is enabled, you can leave a certain amount of volume unallocated. Unreserved volume is shown as **shared volume** that accounts can utilize dynamically, as needed.
+
+
+#### Configure accounts to use flexible volume
+
+<div class="tasklist">
+
+##### Enable flexible volume
+
+To enable flexible volume, go to the Manage accounts page from your Main account. Then toggle the button **Use flexible volume** to turn it on.
+
+##### Configure a sub account
+
+Click **Add sub account**.
+
+Name your account. Then set the account's daily capacity:
+
+* **Reserved volume** - This is the volume that is guaranteed for the account per calendar day.
+* **Cap this account's volume**
+    * If you leave this option unchecked, the account has unlimited access to shared volume. 
+    
+    Once the account exhausts its daily volume, it can continue to receive and index data as long as shared volume is available.
+
+   * If you checkoff this option to enable it, another field will appear:  **Volume cap**.
+      This is the maximum volume that the account can index per calendar day.  The Any   DailyGB (Required) and maxDailyGB (Optional, can be null).
+
+
+![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/configure-sub-account-flexible-vol.png)
+
+
+
+
+
+
+of data that an account can index per calendar day is determined by 2 parameters:
+
+
+If flexible volume is enabled, the volume of data that an account can index per calendar day is determined by 2 parameters:
+
+If false, the volume of data that the account can index per calendar day is determined only by maxDailyGB. The parameter reservedDailyGB does not apply and should be null.
+
+If enabled, any accounts 
 
 If isFlexible is true, flexible storage is enabled and every account has reserved capacity set by the parameter reservedDailyGB.
 If false, flexible storage is disabled and the parameter reservedDailyGB is null

@@ -166,7 +166,7 @@ firstLevel:
   - title: User permissions
     url: /user-guide/user-permissions/
     thirdLevel:
-    - title: Users
+    - title: Manage users
       url: /user-guide/users/
     - title: Multi-factor authentication
       url: /user-guide/users/multi-factor-authentication.html

@@ -52,11 +52,11 @@ provider "logzio" {
 }
 ```
 
-Note that the base url includes a 2-letter region code that differs depending on where your Logz.io account is hosted. See [this page](https://docs.logz.io/user-guide/accounts/account-region.html) for further information. The default is null for 
+Note that the base url includes a 2-letter region code that differs depending on where your Logz.io account is hosted. See [this page](https://docs.logz.io/user-guide/accounts/account-region.html) for further information. The default base_url is `api.logz.io` for accounts hosted by US East (Northern Virginia).
 
 Replace {var.api_token} with the API token of your account. Note that every log account, including sub accounts, has its own set of dedicated API tokens.
 
-For example, here's what a provider for 
+Here's an example for the provider parameters:
 
 ```
 provider "logzio" {
@@ -65,7 +65,7 @@ provider "logzio" {
 }
 ```
 
-### Example
+### Example - Create Slack notification endpoint
 
 It is very easy to get up and running quickly with Logz.io's Terroafrom Provider.
 
@@ -103,15 +103,16 @@ resource "logzio_alert" "my_alert" {
 }
 ```
 
+### Example - Create user endpoint
 
 ```
 variable "api_token" {
   type = "string"
-  description = "your logzio API token"
+  description = "Your logzio API token"
 }
 
 variable "account_id" {
-  description = "the account id you want to use to create your user in"
+  description = "The account ID where the new user will be created"
 }
 
 provider "logzio" {

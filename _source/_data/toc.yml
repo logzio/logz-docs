@@ -225,6 +225,8 @@ firstLevel:
     thirdLevel:
       - title: Custom endpoints
         url: /user-guide/integrations/custom-endpoints.html
+  - title: Terraform API integration
+    url: /integrations/terraform/
   - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html
   - title: Grafana data source plugin

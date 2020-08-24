@@ -5,7 +5,7 @@ permalink: /integrations/terraform/
 flags:
   logzio-plan: pro
 open-source:
-  - title: Terraform
+  - title: Logz.io-Terraform-Provider
     github-repo: logzio_terraform_provider
 tags:
   - integrations
@@ -14,11 +14,11 @@ contributors:
   - shalper
 ---
 
-Logz.io Terraform provider offers a great way to integrate with Logz.io's API. Terraform wraps the API code with ... and ... 
+Logz.io Terraform Provider offers a great way to build integrations with Logz.io's API. Terraform is an infrastructure orchestrator written in Hashicorp Language (HCL). It is a popular IAC tool that converts manual configuration processes to code.
 
 ### Supported endpoints
 
-The following API endpoints are currently supported:
+You can use Terraform to run any of the following Logz.io API endpoints:
 
 * [User management](https://docs.logz.io/api/#tag/Manage-users) - CRUD operations (The acronym CRUD stands for Create, Read, Update, Delete.)
 * [Notification channels](https://docs.logz.io/api/#tag/Manage-notification-endpoints) - custom and pre-configured integrations.
@@ -56,7 +56,7 @@ Note that the base url includes a 2-letter region code that differs depending on
 
 Replace {var.api_token} with the API token of your account. Note that every log account, including sub accounts, has its own set of dedicated API tokens.
 
-For example, here's the provider for 
+For example, here's what a provider for 
 
 ```
 provider "logzio" {
@@ -67,7 +67,11 @@ provider "logzio" {
 
 ### Example
 
-This simple example will create a Logz.io Slack notification endpoint (you'll need to provide the right URL) and an alert that is triggered should Logz.io record 10 loglevel:ERROR messages in 5 minutes. To make this example work you will also need to provide your Logz.io API token.
+It is very easy to get up and running quickly with Logz.io's Terroafrom Provider.
+
+This example will create a Logz.io Slack notification endpoint for an existing alert. This example assumes you have an alert that will trigger whenever Logz.io records 10 loglevel:ERROR messages in 5 minutes.
+
+If you want to try out this example, you will need to fill in the specifics for your account, and provide your Logz.io API token and base_url.
 
 ```
 provider "logzio" {

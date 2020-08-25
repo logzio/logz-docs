@@ -48,7 +48,7 @@ The Terraform provider works with any of the supported Logz.io endpoints listed 
 ```bash
 provider "logzio" {
   api_token = "${var.api_token}"
-  base_url = "${var.your_api_endpoint}" #e.g. https://api-au.logz.io
+  region= "${var.your_api_region}" #e.g. https://api-au.logz.io
 }
 ```
 
@@ -56,14 +56,7 @@ Note that the base url includes a 2-letter region code that differs depending on
 
 Replace {var.api_token} with the API token of your account. Note that every log account, including sub accounts, has its own set of dedicated API tokens.
 
-Here's an example for the provider parameters:
 
-```
-provider "logzio" {
-  api_token = "${f0ce8690-06ea-5dab-aa4f-5016555aebb1}"
-  base_url = "${https://api-au.logz.io}"
-}
-```
 
 ### Example - Create Slack notification endpoint
 
@@ -104,7 +97,7 @@ resource "logzio_alert" "my_alert" {
 }
 ```
 
-### Example - Create user endpoint
+### Example - Create user
 
 ```
 variable "api_token" {
@@ -118,6 +111,7 @@ variable "account_id" {
 
 provider "logzio" {
   api_token = var.api_token
+  region = var.region
 }
 
 resource "logzio_user" "my_user" {
@@ -126,4 +120,14 @@ resource "logzio_user" "my_user" {
   roles = [ 2 ]
   account_id = var.account_id
 }
+```
+
+You'll run the above plan using this bash script:
+First replace the variables with your specifics: ${LOGZIO_API_TOKEN},
+
+```
+export TF_LOG=DEBUG
+terraform init
+TF_VAR_api_token=${LOGZIO_API_TOKEN} TF_VAR_region=${LOGZIO_REGION} terraform plan -out terraform.plan
+terraform apply terraform.plan
 ```

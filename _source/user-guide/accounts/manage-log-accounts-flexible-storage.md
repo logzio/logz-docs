@@ -14,23 +14,26 @@ contributors:
   - shalper
 ---
 
-When you set up your logging accounts, you have the option to create separate sub accounts to control access more tightly.
+The first log account you create is your main logging account. You have the option add sub accounts, each with their own separate data index, alerts, users, dashboards, etc.
 
-If you want to send data more
+You can manage your accounts
+from [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts). This page is only available when you are logged into the main account for your Logz.io plan.
 
 ![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flexible-volume-sub-accounts.png)
 
 
+### Capacity planning: Flexible storage & shared volume
 
+You have the option to enable flexible volume so that accounts can share indexing capacity.
 
-### Flexible storage & shared volume
+This option allows you to utilize more of your indexing capacity and make the most of your logging capacity in Logz.io.
 
-You have the option to enable flexible volume to allow accounts to share indexing capacity.
+With flexible volume enabled, you can leave a portion of your plan volume unallocated. This is your plan's **shared volume**. Shared volume is available for accounts to utilize dynamically, as needed.
+
+When accounts exhaust their reserved indexing capcity for the day, they will be able to tap into **shared volume** and continue receiving and indexing data. If you want to prevent an account from using up excessive shared volume, you have the option to cap it. That way it has a firm maximum daily volume that it cannot exceed.
+
 
 ![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flexible-volume-enabled.png)
-
-If flexible volume is enabled, you can leave a certain amount of volume unallocated. Unreserved volume is shown as **shared volume** that accounts can utilize dynamically, as needed.
-
 
 #### Configure accounts to use flexible volume
 
@@ -38,7 +41,10 @@ If flexible volume is enabled, you can leave a certain amount of volume unalloca
 
 ##### Enable flexible volume
 
-To enable flexible volume, go to the Manage accounts page from your Main account. Then toggle the button **Use flexible volume** to turn it on.
+You can manage your accounts
+from [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts). This page is only available when you are logged into the main account for your Logz.io plan.
+
+To enable flexible volume, toggle the button **Use flexible volume** to turn it on.
 
 ##### Configure a sub account
 
@@ -46,67 +52,41 @@ Click **Add sub account**.
 
 Name your account. Then set the account's daily capacity:
 
-* **Reserved volume** - This is the volume that is guaranteed for the account per calendar day.
-* **Cap this account's volume**
-    * If you leave this option unchecked, the account has unlimited access to shared volume. 
-    
-    Once the account exhausts its daily volume, it can continue to receive and index data as long as shared volume is available.
+* **Reserved volume** - This is the volume that is guaranteed for the account per calendar day. It can be 1 GB or more.
 
-   * If you checkoff this option to enable it, another field will appear:  **Volume cap**.
-      This is the maximum volume that the account can index per calendar day.  The Any   DailyGB (Required) and maxDailyGB (Optional, can be null).
+* **Cap this account's volume**
+    * If you leave this option unchecked, the account has unlimited access to shared volume.
+    
+      Once the account exhausts its daily volume, it can continue to receive and index data as long as shared volume is available.
+
+   * If you enable this option, another field will appear:  **Volume cap**.
+      
+      This is the maximum volume that the account can index per calendar day. 
+      
+      It cannot be greater than the sum of the account's reserved volume and available shared volume.
 
 
 ![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/configure-sub-account-flexible-vol.png)
-
-
-
-
-
-
-of data that an account can index per calendar day is determined by 2 parameters:
-
-
-If flexible volume is enabled, the volume of data that an account can index per calendar day is determined by 2 parameters:
-
-If false, the volume of data that the account can index per calendar day is determined only by maxDailyGB. The parameter reservedDailyGB does not apply and should be null.
-
-If enabled, any accounts 
-
-If isFlexible is true, flexible storage is enabled and every account has reserved capacity set by the parameter reservedDailyGB.
-If false, flexible storage is disabled and the parameter reservedDailyGB is null
-
 
 
 Each Logz.io plan starts off with a main account.
 If you're on a Pro or Enterprise plan,
 you can create sub accounts to help manage user access to your data.
 
-## The main account
+## Data sharing and control
 
-All users in your main account
-can search your data in sub accounts and timeless accounts.
+All users in your main account have read access to the data in all logging sub accounts and timeless accounts. This means they can search logs, view and create dashboards, configure alerts, etc.
+
 To limit data visibility,
 you can route different logs to different sub accounts.
 (More on [sub accounts](#sub-accounts) and [managing your accounts](#managing-your-accounts) below.)
 
-### Permissions for main account admins
-
-Admin users of the main account also have these permissions:
-
-* Create, view, update, and delete users in the main account and sub accounts,
-  including other admin users
-* Create, view, update, and delete sub accounts
-* Create, view, update, and delete timeless accounts
-* Create and delete shared tokens and API tokens
-
-Because of the high level of permissions,
-we recommend limiting the number of admin users in the main account.
 
 ## Sub accounts {#sub-accounts}
 
 Sub accounts help you control data usage and manage user access to your logs.
 By shipping different logs to different sub accounts,
-you can define data volumes and retention periods for independent environments.
+you can configure different data volumes for independent environments.
 
 ## Managing your accounts {#managing-your-accounts}
 

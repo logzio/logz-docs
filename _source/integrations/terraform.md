@@ -69,9 +69,10 @@ provider "logzio" {
 
 It is very easy to get up and running quickly with Logz.io's Terroafrom Provider.
 
-This example will create a Logz.io Slack notification endpoint for an existing alert. This example assumes you have an alert that will trigger whenever Logz.io records 10 loglevel:ERROR messages in 5 minutes.
+This example adds a Slack notification for an existing alert. This example assumes you have an alert that will trigger whenever Logz.io records 10 loglevel:ERROR messages in 10 minutes.
 
-If you want to try out this example, you will need to fill in the specifics for your account, and provide your Logz.io API token and base_url.
+
+If you want to try out this example, you will need to first fill in the specifics for your account, including and provide your Logz.io API token and base_url.
 
 ```
 provider "logzio" {
@@ -92,10 +93,10 @@ resource "logzio_alert" "my_alert" {
   query_string = "loglevel:ERROR"
   operation = "GREATER_THAN"
   notification_emails = []
-  search_timeframe_minutes = 5
+  search_timeframe_minutes = 10
   value_aggregation_type = "NONE"
   alert_notification_endpoints = ["${logzio_endpoint.my_endpoint.id}"]
-  suppress_notifications_minutes = 5
+  suppress_notifications_minutes = 30
   severity_threshold_tiers {
       severity = "HIGH",
       threshold = 10
@@ -120,8 +121,8 @@ provider "logzio" {
 }
 
 resource "logzio_user" "my_user" {
-  username = "test.user@this.test"
-  fullname = "test user"
+  username = "user_name@fun.io"
+  fullname = "John Doe"
   roles = [ 2 ]
   account_id = var.account_id
 }

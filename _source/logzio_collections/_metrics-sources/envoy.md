@@ -80,10 +80,10 @@ The final file should look like this:
 
 ```yml
 metricbeat.modules:
-- module: prometheus
+- module: prometheus 
   period: 10s
-  hosts: ["localhost:8500"]
-  metrics_path: /v1/agent/metrics
+  hosts: ["localhost:19000"]
+  metrics_path: /stats
   query:
     format: prometheus
 

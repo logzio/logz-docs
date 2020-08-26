@@ -648,9 +648,9 @@ paths:
             $ref: '#/definitions/ScrollResponse'
 
   # ::::: Log Insights
-  /insights/public-list:
+  /v1/insights/list:
     post:
-      summary: Get short list of log insights
+      summary: Get Insights list
       tags:
         - Insights
       description: >-
@@ -658,7 +658,7 @@ paths:
 
 
         Insights are tracked for their appearance over time and their over time tected is Once a new Insight is detected, it will s are tracked You can general issues that have 
-      operationId: listInsights
+      operationId: getPublicInsights
       parameters:
         - in: body
           name: body
@@ -3116,6 +3116,9 @@ definitions:
   # ::::: Log Insights
   PublicGetAccountInsightsRequest:
     type: object
+    required:
+      - insightTypes
+      - 
     properties:
       startDate:
         type: integer
@@ -3143,7 +3146,7 @@ definitions:
         maximum: 100
         minimum: 1
         example: 100
-      types:
+      insightTypes:
         type: array
         items:
           type: string
@@ -3166,7 +3169,7 @@ definitions:
           type: string
         description: Filters results by log type value. An array of strings. Can use `OR` relations.
         default: null
-        example: ["log-engine", "spark"]
+        example: ["log-engine","spark"]
       onlyNew:
         type: boolean
         description: Filters for Insights that first occurred in the given time frame. In other words, excludes Insights that were first identified before or after the time frame.
@@ -3191,7 +3194,7 @@ definitions:
         example: true
       search:
         type: string
-        description: Searches for an Insights by its name.
+        description: Searches for an Gs by its name.
         default: null
         example: Exception
       timeZone:

@@ -27,9 +27,9 @@ You can review the Falco resources in your Logz.io Cloud SIEM account, under the
 {:.no_toc}
 
 **Before you begin, you'll need**:
-Falco installed on the host,
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
-root access
+
+* Falco installed on the host
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)* Root access
 
 <div class="tasklist">
 

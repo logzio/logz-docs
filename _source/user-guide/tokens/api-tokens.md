@@ -4,7 +4,7 @@ title: Manage API tokens
 permalink: /user-guide/tokens/api-tokens.html
 flags:
   admin: true
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - tokens
   - api-tokens
@@ -12,11 +12,10 @@ contributors:
   - imnotashrimp
 ---
 
-If you're an Enterprise plan subscriber,
+If you're an Enterprise or Pro plan subscriber,
 your account includes API access.
-You have full control over your tokens—you can create and delete them at any time.
 
-To revoke a token's permissions, delete the token.
+API tokens are unique to each account. The only exception are a subset of account counfiguration operations that must be run with the API token of the main account.
 
 ![Manage API tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/access-and-authentication--api-tokens.png)
 
@@ -26,9 +25,14 @@ in the top menu.
 
 #### Working with API tokens
 
-* To create an API token,
-  type a brief **token name** and click **Save**.
-* To delete an API token,
-  click the token's <i class="li li-x"></i>.
+You have full control over your API tokens, to create and delete them at any time.
 
-Deleting a token affects any integrations that use that token. Make sure you update integrations that use a token you deleted.
+* To create an API token,
+  type a brief **token name** and click **Add**.
+
+* To delete an API token,
+  hover over the token and click the token's <i class="li li-x"></i>.
+
+  To revoke a token's permissions, delete the token.
+  
+  Deleting a token affects any integrations that use that token. Make sure you update integrations that use a token you deleted.

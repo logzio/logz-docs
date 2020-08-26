@@ -6,7 +6,6 @@ logo:
 data-source: Consul
 contributors:
   - shalper
-  - doronbargo
 shipping-tags:
   - Networking
 ---

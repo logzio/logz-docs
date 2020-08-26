@@ -92,7 +92,7 @@ resource "logzio_alert" "my_alert" {
   query_string = "loglevel:ERROR"
   operation = "GREATER_THAN"
   notification_emails = []
-  search_timeframe_minutes = 5
+  search_timeframe_minutes = 10
   value_aggregation_type = "NONE"
   alert_notification_endpoints = ["${logzio_endpoint.my_endpoint.id}"]
   suppress_notifications_minutes = 5

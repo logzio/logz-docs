@@ -38,15 +38,13 @@ Open the Metricbeat configuration file (`<<PATH_TO_METRICBEAT>>/metricbeat.yml`)
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:
 
 ```yml
-
 metricbeat.modules:
-- module: prometheus
+- module: prometheus 
   period: 10s
-  hosts: ["localhost:8500"]
-  metrics_path: /v1/agent/metrics
+  hosts: ["localhost:19000"]
+  metrics_path: /stats
   query:
     format: prometheus
-
 ```
 
 ##### Add Logzio fields 
@@ -81,6 +79,7 @@ If the file has other outputs, remove them.
 The final file should look like this:
 
 ```yml
+metricbeat.modules:
 - module: prometheus
   period: 10s
   hosts: ["localhost:8500"]

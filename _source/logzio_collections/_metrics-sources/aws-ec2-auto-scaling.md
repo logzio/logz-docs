@@ -3,7 +3,7 @@ title: Ship EC2 Auto Scaling metrics
 logo:
   logofile: aws-ec2-auto-scaling.svg
   orientation: vertical
-data-source: EC2 Auto Scaling
+data-source: Amazon EC2 Auto Scaling
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

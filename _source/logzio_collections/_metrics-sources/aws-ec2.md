@@ -3,7 +3,7 @@ title: Ship EC2 metrics
 logo:
   logofile: aws-ec2.svg
   orientation: vertical
-data-source: EC2
+data-source: Amazon EC2
 templates: ["docker-metricbeat"]
 open-source:
   - title: Docker Metrics Collector

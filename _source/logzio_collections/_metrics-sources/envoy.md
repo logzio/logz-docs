@@ -30,12 +30,28 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-##### Add Logz.io to your Metricbeat configuration
+##### Add Prometheus module configuration
+
 
 Open the Metricbeat configuration file (`<<PATH_TO_METRICBEAT>>/metricbeat.yml`) with your preferred text editor.
 
-Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following Logz.io settings:
+Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:
 
+```yml
+
+metricbeat.modules:
+- module: prometheus
+  period: 10s
+  hosts: ["localhost:8500"]
+  metrics_path: /v1/agent/metrics
+  query:
+    format: prometheus
+
+```
+
+##### Add Logzio fields 
+
+Still in the same configuration file, copy and paste the code block below to set Logzio required fields:
 
 ```shell
 # ===== General =====
@@ -61,8 +77,8 @@ output.logstash:
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
 
-##### Add Prometheus module configuration
-Still in the same configuration file, copy and paste the code block below:
+
+The final file should look like this:
 
 ```yml
 - module: prometheus

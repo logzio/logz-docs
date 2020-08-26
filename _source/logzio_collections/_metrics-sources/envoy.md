@@ -6,7 +6,6 @@ logo:
 data-source: Envoy
 contributors:
   - shalper
-  - doronbargo
 
 shipping-tags:
   - Networking

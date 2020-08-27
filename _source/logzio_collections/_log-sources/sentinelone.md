@@ -123,7 +123,7 @@ Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your S
 
     Save your changes.
 
-##### Configure SentinelOne to send logs
+##### Configure SentinelOne to send notifications
 
 In the same screen, open the **NOTIFICATIONS** tab, and fill in the details:
 

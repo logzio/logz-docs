@@ -106,7 +106,7 @@ Start or restart Filebeat for the changes to take effect.
 
 ##### Configure SentinelOne to send logs to Logzio
 
-Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your SYSLOG server.
+Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your Syslog server.
 
 ![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin.png)
 
@@ -127,9 +127,9 @@ Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your S
 
 In the same screen, open the **NOTIFICATIONS** tab, and fill in the details:
 
-1. Under **Notification Types**, go through the list of options and check off the **Syslog** option.
+Under **Notification Types**, go through the list of options and check off the **Syslog** option.
 
-  We recommend checking off all notification options to send logs to the Syslog server. However, this is optional. Note that if you leave some notification options disabled, it may interfere with Logz.io's detection rules.
+We recommend checking off all notification options to send logs to the Syslog server. However, this is optional. Note that if you leave some notification options disabled, it may interfere with Logz.io's detection rules.
 
 
 ![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin2.png)

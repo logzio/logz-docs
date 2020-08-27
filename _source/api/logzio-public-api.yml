@@ -536,32 +536,77 @@ paths:
       x-code-samples:
         - lang: cURL
           source: >-
-            curl -X POST https://api.logz.io/v1/search \
-              -H 'Content-Type: application/json' \
-              -H 'X-API-TOKEN: <token>' \
-              -d '{
-              "size": 10,
-              "query": {
-                "bool": {
-                  "must": [{
-                    "range": {
-                      "@timestamp": {
-                        "gte": "now-5m",
-                        "lte": "now"
-                      }
+            curl -L -X POST 'https://api.logz.io/v1/search' \
+            -H 'X-USER-TOKEN: <TOKEN>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+                "aggs": {
+                    "filter_agg": {
+                        "filter": {
+                            "geo_bounding_box": {
+                                "ignore_unmapped": true,
+                                "geoip.location": {
+                                    "top_left": {
+                                        "lat": 90,
+                                        "lon": -180
+                                    },
+                                    "bottom_right": {
+                                        "lat": -90,
+                                        "lon": 180
+                                    }
+                                }
+                            }
+                        },
+                        "aggs": {
+                            "2": {
+                                "geohash_grid": {
+                                    "field": "geoip.location",
+                                    "precision": 2
+                                },
+                                "aggs": {
+                                    "3": {
+                                        "geo_centroid": {
+                                            "field": "geoip.location"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
-                  }]
+                },
+                "_source": {
+                    "excludes": []
+                },
+                "size": 0,
+                "stored_fields": [
+                    "*"
+                ],
+                "query": {
+                    "bool": {
+                        "must": [
+                            {
+                                "query_string": {
+                                    "query": "type: elb",
+                                    "analyze_wildcard": true,
+                                    "time_zone": "Asia/Jerusalem"
+                                }
+                            },
+                            {
+                                "range": {
+                                    "@timestamp": {
+                                        "format": "strict_date_optional_time",
+                                        "gte": "2020-08-24T03:36:21.536Z",
+                                        "lte": "2020-08-27T03:36:21.536Z"
+                                    }
+                                }
+                            }
+                        ],
+                        "filter": [],
+                        "should": [],
+                        "must_not": []
+                    }
                 }
-              },
-              "aggs": {
-                "byType": {
-                  "terms": {
-                    "field": "type",
-                    "size": 5
-                  }
-                }
-              }
-            }' '
+            }
       responses:
         200:
           description: successful query
@@ -569,26 +614,52 @@ paths:
             type: object
             example: >-
               {
-                "hits": {
-                  "total": 339604,
-                  "max_score": 0,
-                  "hits": [ ]
-                },
-                "aggregations": {
-                  "byType": {
-                    "doc_count_error_upper_bound": 0,
-                    "sum_other_doc_count": 44879,
-                    "buckets": [
-                      {
-                        "key": "web-app",
-                        "doc_count": 163690
-                      }, {
-                        "key": \"core-service\",
-                        "doc_count": 64893
-                      }
-                    ]
-                  }
-                }
+              	"hits": {
+              		"total": 84999,
+              		"max_score": 0.0,
+              		"hits": []
+              	},
+              	"aggregations": {
+              		"filter_agg": {
+              			"doc_count": 84993,
+              			"2": {
+              				"buckets": [{
+              						"key": "9y",
+              						"doc_count": 56991,
+              						"3": {
+              							"location": {
+              								"lat": 37.84110782838944,
+              								"lon": -97.61373866764158
+              							},
+              							"count": 56991
+              						}
+              					},
+              					{
+              						"key": "dr",
+              						"doc_count": 16854,
+              						"3": {
+              							"location": {
+              								"lat": 40.75135015282778,
+              								"lon": -73.99954361094764
+              							},
+              							"count": 16854
+              						}
+              					},
+              					{
+              						"key": "r1",
+              						"doc_count": 3975,
+              						"3": {
+              							"location": {
+              								"lat": -37.80999420576922,
+              								"lon": 144.9643624754236
+              							},
+              							"count": 3975
+              						}
+              					}
+              				]
+              			}
+              		}
+              	}
               }
 
   /v1/scroll:

@@ -1,7 +1,7 @@
 ---
 title: Ship logs from SentinelOne
 logo:
-  logofile: sentinelone.png
+  logofile: sentintelone-icon.png
   orientation: vertical
 data-source: SentinelOne
 templates: ["network-device-filebeat"]
@@ -54,7 +54,7 @@ This code block adds SentinelOne as an input and sets Logz.io as the output.
 filebeat.inputs:
 - type: syslog
   protocol.udp:
-    host: "<<SYSLOG_IP>>:<<PORT>>"
+    host: "<<SYSLOG-IP>>:<<PORT>>"
   fields:
     logzio_codec: plain
     token: <<SHIPPING-TOKEN>>
@@ -95,7 +95,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* Replace  <<SYSLOG_IP>>:<<PORT>> with your syslog IP and PORT details.
+* Replace  `<<SYSLOG-IP>>:<<PORT>>` with your syslog IP and PORT details.
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
@@ -106,27 +106,34 @@ Start or restart Filebeat for the changes to take effect.
 
 ##### Configure SentinelOne to send logs to Logzio
 
-Open the SentinelOne Admin Console.
+Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your SYSLOG server.
 
-  1. In the left side menu, click **<i class="fas fa-ellipsis-h"></i> > More > Server Settings**.
-  2. Expand the **Advanced Settings** option.
+![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin.png)
 
-![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/SentinelOne-admin-console.png)
+1. Select your site.
+2. In the left side menu, click the **Settings** slider icon **<i class="fas fa-sliders-h"></i>**.
 
-Scroll down to **Server Settings** and configure the Syslog server:
+3. Open the **INTEGRATIONS** tab, and fill in the details:
 
-In the **SYSLOG SERVER** section, enable the option to **Use Syslog server**. Fill in the details:
+    1. Under **Types**, select **SYSLOG**.
+    2. Toggle the button to **enable SYSLOG**.
+    3. **Host** - Enter your SYSLOG server IP address and port.
+    4. **TLS** - Leave TLS unchecked. It should remain disabled.
+    5. **Formatting** - Select **CEF2**.
 
-  * **Host** - Enter your host address.
-  * **Port** - Enter your port number. (Port 6514 unless you've changed the default)
-  * **Format** - Select **BSD** as the log format.
-  * **Transport** - Select the **TLS** protocol.
+    Save your changes.
 
-In the **LOGGING** section, enable the option to **Export logs to Syslog**. Fill in the details:
+##### Configure SentinelOne to send logs
 
-  * **Exported logs format** - Select the **JSON** format.
+In the same screen, open the **NOTIFICATIONS** tab, and fill in the details:
 
-![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/SentinelOne-admin-console-2.png)
+1. Under **Notification Types**, go through the list of options and check off the **Syslog** option.
+
+  We recommend checking off all notification options to send logs to the Syslog server. However, this is optional. Note that if you leave some notification options disabled, it may interfere with Logz.io's detection rules.
+
+
+![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin2.png)
+
 
 
 ##### Check Logz.io for your logs

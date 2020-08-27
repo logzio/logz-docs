@@ -47,8 +47,8 @@ half-cards:
   - title: Videos
     url: "https://logz.io/learn/video/"
 
-  - title: Academy
-    url: "http://academy.logz.io/"
+  - title: Free trial
+    url: "https://logz.io/freetrial/"
 ---
 
 <!-- No content here.

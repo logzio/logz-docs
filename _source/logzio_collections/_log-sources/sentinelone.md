@@ -50,22 +50,20 @@ Copy and paste the code block below, overwriting the previous contents. (You wan
 This code block adds SentinelOne as an input and sets Logz.io as the output.
 
 ```yaml
-# ...
+# ... Filebeat inputs
 filebeat.inputs:
-- type: syslog
-  protocol.udp:
-    host: "<<SYSLOG-IP>>:<<PORT>>"
+- type: tcp
+  max_message_size: 10MiB
+  host: "0.0.0.0:6514"
+  ssl.enabled: true
+  ssl.certificate: "/etc/filebeat/certificates/SentinelOne.crt"
+  ssl.key: "/etc/filebeat/certificates/SentinelOne.key"
+  ssl.verification_mode: none
   fields:
-    logzio_codec: plain
+    logzio_codec: json
     token: <<SHIPPING-TOKEN>>
     type: sentinel_one
   fields_under_root: true
-#For version 6.x and lower uncomment the line below and remove the line after it 
-logging.level: debug
-logging.to_files: true
-logging.files:
-  path: /home/logzio/
-  name: filebeat.log
 filebeat.registry.path: /var/lib/filebeat
 #The following processors are to ensure compatibility with version 7
 processors:
@@ -79,10 +77,11 @@ processors:
      - from: "log.file.path"
        to: "source"
     ignore_missing: true
-############################# Output ##########################################
+
+### Outputs
 output:
   logstash:
-    hosts: ["<<LISTENER>>:5015"]
+    hosts: ["<<LISTENER-HOST>>:5015"]
     ssl:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
@@ -95,7 +94,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* Replace  `<<SYSLOG-IP>>:<<PORT>>` with your syslog IP and PORT details.
+* Replace the host with your syslog IP and port details. The above example has `host: "0.0.0.0:6514"` but you should change it to your specifics.
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
@@ -108,20 +107,18 @@ Start or restart Filebeat for the changes to take effect.
 
 Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your Syslog server.
 
-![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin.png)
-
 1. Select your site.
 2. In the left side menu, click the **Settings** slider icon **<i class="fas fa-sliders-h"></i>**.
-
 3. Open the **INTEGRATIONS** tab, and fill in the details:
-
     1. Under **Types**, select **SYSLOG**.
     2. Toggle the button to **enable SYSLOG**.
     3. **Host** - Enter your SYSLOG server IP address and port.
-    4. **TLS** - Leave TLS unchecked. It should remain disabled.
+    4. **TLS** - Enable TLS.
     5. **Formatting** - Select **CEF2**.
+    6. Save your changes.
 
-    Save your changes.
+![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin4.png)
+
 
 ##### Configure SentinelOne to send notifications
 

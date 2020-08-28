@@ -94,7 +94,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* Replace the host with your syslog IP and port details. The above example has `host: "0.0.0.0:6514"` but you should change it to your specifics.
+* Replace the host port with your syslog port details. The above example has `host: "0.0.0.0:6514"` but you should change it to your specifics.
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
@@ -124,9 +124,9 @@ Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your S
 
 In the same screen, open the **NOTIFICATIONS** tab, and fill in the details:
 
-Under **Notification Types**, go through the list of options and check off the **Syslog** option.
+Under **Notification Types**, check all options under **Syslog** notifications.
 
-We recommend checking off all notification options to send logs to the Syslog server. However, this is optional. Note that if you leave some notification options disabled, it may interfere with Logz.io's detection rules.
+We recommend enabling all notification options to send Syslog logs. Still, it is optional. Note that if you leave some Syslog notification options disabled, it may interfere with Logz.io's detection rules.
 
 
 ![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin2.png)

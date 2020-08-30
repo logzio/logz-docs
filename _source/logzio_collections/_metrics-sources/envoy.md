@@ -1,10 +1,11 @@
 ---
 title: Ship Envoy metrics
 logo:
-  logofile:
+  logofile: envoy.svg
   orientation: vertical
 data-source: Envoy
 contributors:
+  - Doron-Bargo
   - shalper
 
 shipping-tags:

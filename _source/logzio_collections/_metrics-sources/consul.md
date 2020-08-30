@@ -1,10 +1,11 @@
 ---
 title: Ship Consul metrics
 logo:
-  logofile:
+  logofile: consul.svg
   orientation: vertical
 data-source: Consul
 contributors:
+  - Doron-Bargo
   - shalper
 shipping-tags:
   - Networking
@@ -22,7 +23,7 @@ You can ship Consul metrics using Metricbeat.
 
 ##### Update Consul configuration with the telemetry stanza
 
-Go to one of the Consul servers and create a new file name prometheus.json under Consul's config library ( usually it's /etc/consul.d )
+Go to one of the Consul servers and create a new file named prometheus.json under Consul's config library. ( It's usually under `/etc/consul.d`.)
 
 Update the file with the following telemetry stanza:
 
@@ -37,9 +38,9 @@ Update the file with the following telemetry stanza:
 
 Save the file and restart the Consul on this server.
 
-Now the metrics of this Consul server will be expose locally in Prometheus format under the following endpoint - http://localhost:8500/v1/agent/metrics
+Now the metrics of this Consul server will be exposed locally in Prometheus format under the following endpoint - http://localhost:8500/v1/agent/metrics
 
-Do the same for all Consul's servers and agents.
+Repeat this process for all Consul's servers and agents.
 
 ##### Download the Logz.io public certificate
 

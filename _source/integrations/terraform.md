@@ -18,14 +18,14 @@ The Logz.io Terraform Provider offers a great way to build integrations with Log
 
 Terraform is an infrastructure orchestrator written in Hashicorp Language (HCL). It is a popular IAC tool that converts manual configuration processes to code. We've got a great [blog post](https://logz.io/blog/terraform-vs-ansible-vs-puppet/), if you're in for an intro about Terraform.
 
-This guide assumes working familiarity with Terraform. It does not replace the 
+This guide assumes working familiarity with HashiCorp Terraform. We recommend refrencing the official [Terraform guides and tutorials](https://www.terraform.io/guides/index.html) for general guidelines.
 
 ### Supported endpoints
 
-You can use Terraform to run any of the following Logz.io API endpoints:
+You can use Terraform to run any of the following Logz.io API endpoints. All CRUD (CRUD stands for Create, Read, Update, Delete) operations are supported:
 
-* [User management](https://docs.logz.io/api/#tag/Manage-users) - CRUD operations (The acronym CRUD stands for Create, Read, Update, Delete.)
-* [Notification channels](https://docs.logz.io/api/#tag/Manage-notification-endpoints) - custom and pre-configured integrations.
+* [User management](https://docs.logz.io/api/#tag/Manage-users)
+* [Notification channels](https://docs.logz.io/api/#tag/Manage-notification-endpoints)
 * [Log-based alerts](https://github.com/logzio/public-api/tree/master/alerts)
 * [Sub accounts](https://docs.logz.io/api/#tag/Manage-sub-accounts)
 
@@ -40,19 +40,18 @@ You can use Terraform to run any of the following Logz.io API endpoints:
 
 ##### Get the Terraform provider
 
-The easiest way to get the provider and the JetBrains IDE HCL meta-data is to run [the script provided in our GitHub repo](https://github.com/logzio/logzio_terraform_provider/blob/master/scripts/update_plugin.sh). It is found under `./scripts/update_plugin.sh`.
+The easiest way to get the provider and the JetBrains IDE HCL meta-data is to run the script provided in our [GitHub repo](https://github.com/logzio/logzio_terraform_provider/blob/master/scripts/update_plugin.sh). It is found under `./scripts/update_plugin.sh`.
 
 ```bash
 ./scripts/build.sh
 ```
 
-You'll need to edit the variable: `PROVIDER_VERSION` and put the latest provider version.
+If you have a need to update the version, edit the variable: `PROVIDER_VERSION`. Otherwise, run the script as is.
 
-If you're using a *nix style system, you can build from the project root. This will copy it into your [plugins directory](https://www.terraform.io/docs/configuration/providers.html#third-party-plugins).  Otherwise, you can copy it into your Terraform templates folder instead.
 
 ##### Using the provider
 
-The Terraform provider works with any of the supported Logz.io endpoints listed at the top of this page.
+The Terraform provider works with any of the supported Logz.io endpoints listed above.
 
 ```bash
 provider "logzio" {
@@ -61,7 +60,7 @@ provider "logzio" {
 }
 ```
 
-Note that the base url includes a 2-letter region code that differs depending on where your Logz.io account is hosted. See [this page](https://docs.logz.io/user-guide/accounts/account-region.html) for further information. The default base_url is `api.logz.io` for accounts hosted by US East (Northern Virginia).
+The region variable is needed if your account is hosted anywhere other than Note that the base url includes a 2-letter region code that differs depending on where your Logz.io account is hosted. See [this page](https://docs.logz.io/user-guide/accounts/account-region.html) for further information. The default base_url is `api.logz.io` for accounts hosted by US East (Northern Virginia).
 
 Replace {var.api_token} with the API token of your account. Note that every log account, including sub accounts, has its own set of dedicated API tokens.
 

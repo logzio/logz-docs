@@ -14,7 +14,11 @@ contributors:
   - shalper
 ---
 
-Logz.io Terraform Provider offers a great way to build integrations with Logz.io's API. Terraform is an infrastructure orchestrator written in Hashicorp Language (HCL). It is a popular IAC tool that converts manual configuration processes to code.
+The Logz.io Terraform Provider offers a great way to build integrations with Logz.io's API.
+
+Terraform is an infrastructure orchestrator written in Hashicorp Language (HCL). It is a popular IAC tool that converts manual configuration processes to code. We've got a great [blog post](https://logz.io/blog/terraform-vs-ansible-vs-puppet/), if you're in for an intro about Terraform.
+
+This guide assumes working familiarity with Terraform. It does not replace the 
 
 ### Supported endpoints
 
@@ -28,6 +32,11 @@ You can use Terraform to run any of the following Logz.io API endpoints:
 #### Working with Terraform
 
 <div class="tasklist">
+
+**Before you begin, you'll need**:
+
+* [Terrafrom CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+* [Logz.io API token]()
 
 ##### Get the Terraform provider
 

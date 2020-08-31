@@ -3117,20 +3117,16 @@ definitions:
   PublicGetAccountInsightsRequest:
     type: object
     required:
-      - insightTypes
-      - 
     properties:
       startDate:
         type: integer
         format: int64
-        description: UNIX timestamp in milliseconds specifying the start date for the query time frame.
-        default: Now - 15 minutes
+        description: UNIX timestamp in seconds specifying the start date for the query time frame. By default, returns now - 15 minutes.
         example: 1592904389950
       endDate:
         type: integer
         format: int64
-        description: UNIX timestamp in milliseconds specifying the end date for the query time frame.
-        default: now
+        description: UNIX timestamp in seconds specifying the end date for the query time frame. By default, returns now.
         example: 1592254800000
       from:
         type: integer
@@ -3154,22 +3150,22 @@ definitions:
             - PUBLIC_CI
             - LOGCEPTION
         description: Filters results by Insight type. `LOGCEPTION` filters for application insights. `PUBLIC_CI` filters for cognitive insights.
-        default: null
-        example: LOGCEPTION
+        default: ["PUBLIC_CI", "LOGCEPTION"]
+        example: ["PUBLIC_CI", "LOGCEPTION"]
       tagNames:
         type: array
         items:
           type: string
         description: Filters results on Insight tags values.
         default: null
-        example: 
+        example:
       logTypes:
         type: array
         items:
           type: string
-        description: Filters results by log type value. An array of strings. Can use `OR` relations.
+        description: Filters results by log type values.
         default: null
-        example: ["log-engine","spark"]
+        example: ["log-engine", "spark"]
       onlyNew:
         type: boolean
         description: Filters for Insights that first occurred in the given time frame. In other words, excludes Insights that were first identified before or after the time frame.
@@ -3178,15 +3174,12 @@ definitions:
       sortBy:
         type: string
         enum:
-          - OCCURRENCES
-          - TAG_NAME
-          - SEVERITY
-          - TITLE
-          - LAST_OCCURRENCE
           - FIRST_OCCURRENCE
+          - LAST_OCCURRENCE
+          - COUNT
         description: Sorts Insights by the selected parameter.
-        default: OCCURRENCES
-        example: SEVERITY
+        default: COUNT
+        example: COUNT
       asc:
         type: boolean
         description: If `false`, sorts Insights in descending order for the selected `sortBy` paramater. For example, from the most frequently occurring to the least, from the highest severity to the lowest severity, by Title in descending alphabetical order from Z-A, etc.
@@ -3197,11 +3190,11 @@ definitions:
         description: Searches for an Gs by its name.
         default: null
         example: Exception
-      timeZone:
-        type: string
-        description: Converts timestamps to the selected time zone.
-        default: UTC=0
-        example: America/Los_Angeles
+#      timeZone:
+#        type: string
+#        description: Converts timestamps to the selected time zone.
+#        default: UTC=0
+#        example: America/Los_Angeles
   PageResponsePublicAccountInsightResponse:
     type: object
     properties:

@@ -1,7 +1,7 @@
 ---
-title: Ship Envoy metrics
+title: Send Envoy metrics
 logo:
-  logofile: envoy.svg
+  logofile: envoy-proxy.svg
   orientation: vertical
 data-source: Envoy
 contributors:
@@ -10,7 +10,9 @@ shipping-tags:
   - networking
 ---
 
-You can ship Envoy metrics using Metricbeat.
+Envoy is a cloud-native high-performance proxy and a recognized [CNCF project](https://cncf-branding.netlify.app/projects/envoy/).
+
+You can send Envoy metrics to Logz.io using Metricbeat.
 
 #### Metricbeat setup
 

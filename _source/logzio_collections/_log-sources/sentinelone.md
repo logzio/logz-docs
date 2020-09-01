@@ -14,8 +14,8 @@ shipping-tags:
 
 **Before you begin, you'll need**:
 
-* SentinelOne Console installed. (Use current manufacturer instructions.)
-* root access
+* SentinelOne installed
+* Root access
 
 
 <div class="tasklist">

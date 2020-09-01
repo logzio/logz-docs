@@ -20,6 +20,8 @@ You can ship HashiCorp Consul metrics using Metricbeat.
 
 <div class="tasklist">
 
+**Please note that the following steps need to be done on all consul servers and clients
+
 ##### Update Consul configuration with the telemetry stanza
 
 Go to one of the Consul servers and create a new file named prometheus.json under your Consul config library. ( It's usually under `/etc/consul.d`.)
@@ -39,9 +41,6 @@ Save the file and restart the Consul on the server.
 
 Now the metrics of this Consul server will be exposed locally in Prometheus format under the following endpoint - http://127.0.0.1:8500/v1/agent/metrics?format=prometheus
 
-##### Repeat for all Consul servers and agents
-
-Repeat this process for every Consul server and agent that should be sending metrics data to Logz.io.
 
 ##### Download the Logz.io public certificate
 

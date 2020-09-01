@@ -7,7 +7,7 @@ data-source: MySQL
 templates: [beats-logs, "docker"]
 open-source:
   - title: mysql-logs
-    github-repo: mysql-logs
+    github-repo: logzio-mysql-logs
 contributors:
   - imnotashrimp
   - amosd92

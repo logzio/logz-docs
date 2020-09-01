@@ -37,7 +37,7 @@ Update the file with the following telemetry stanza:
 
 Save the file and restart the Consul on the server.
 
-Now the metrics of this Consul server will be exposed locally in Prometheus format under the following [endpoint](http://localhost:8500/v1/agent/metrics) - http://localhost:8500/v1/agent/metrics
+Now the metrics of this Consul server will be exposed locally in Prometheus format under the following endpoint - http://127.0.0.1:8500/v1/agent/metrics?format=prometheus
 
 ##### Repeat for all Consul servers and agents
 

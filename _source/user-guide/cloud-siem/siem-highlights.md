@@ -49,9 +49,6 @@ Benefit from a smooth onboarding experience with Logz.io's security experts and 
 
 Your first-class experience doesn't end there. Ongoing guidance and customer support will ensure the success and ROI of your implementation.
 
-### 10 Year retention
+### 10 year retention of triggered rule logs
 
-Cloud SIEM retains security logs for 10 years. Those include logs of any triggered security rules.
-
-This extended time frame ensures that your company retains information long enough to investigate incidents without loss of critical data.
-
+Cloud SIEM logs a security event every time a rule triggers. The event log includes details of the security incident and the rule that caused it to trigger. These event logs are retained for 10 years.

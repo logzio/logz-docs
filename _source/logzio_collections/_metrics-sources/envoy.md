@@ -12,14 +12,15 @@ shipping-tags:
 
 You can ship Envoy metrics using Metricbeat.
 
-** Please note that the following configuration needs to be performed on all relevant Envoy servers. 
+Please note that the following configuration needs to be performed on all relevant Envoy servers. 
+{:.info-box.important}
 
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
 
 * [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation-configuration.html) or higher.
-* Check that Envoy's metrics are available under [http://localhost:19000/stats?format=prometheus](http://localhost:19000/stats?format=prometheus) 
+* Check that Envoy's metrics are available at [http://localhost:19000/stats?format=prometheus](http://localhost:19000/stats?format=prometheus) 
 
 <div class="tasklist">
 

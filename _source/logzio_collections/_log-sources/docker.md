@@ -46,6 +46,8 @@ by setting the `ignoreOlder` parameter of the new docker
 to a lower value (for example, `20m`).
 {:.info-box.note}
 
+*Note:* Upgrading to version 0.1.0 includes breaking changes. Please see this project's [change log]([https://github.com/logzio/docker-collector-logs/tree/update#change-log](https://github.com/logzio/docker-collector-logs/tree/update#change-log)) for further information.
+
 <div class="tasklist">
 
 ##### Pull the Docker image
@@ -155,12 +157,12 @@ For a complete list of options, see the configuration parameters below the code 
 |---|---|
 | logzio-token <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
 | logzio-url <span class="required-param"></span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
-| logzio-dir-path	<span class="required-param"></span> | Unsent logs are saved to this location on the disk. |
+| logzio-dir-path <span class="required-param"></span> | Unsent logs are saved to this location on the disk. |
 | logzio-source | Event source. |
 | logzio-format <span class="default-param">`text`</span> | Log message format, either `json` or `text`. |
 | logzio-tag {% raw %} <span class="default-param">`{{.ID}}` (Container ID)</span> {% endraw %} | Log tag. For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. |
 | labels | Comma-separated list of labels to include in the log message. |
-| env |	Comma-separated list of environment variables to include in the log message. |
+| env | Comma-separated list of environment variables to include in the log message. |
 | env-regex | A regular expression to match logging-related environment variables. Used for advanced log tag options. If there is collision between the `label` and `env` keys, `env` wins. Both options add additional fields to the attributes of a logging message. |
 | logzio-attributes | JSON-formatted metadata to include in the log message. |
 {:.paramlist}

@@ -3,8 +3,8 @@ layout: article
 title: Log shipping tokens
 permalink: /user-guide/tokens/log-shipping-tokens/
 flags:
-  alpha: true
   admin: true
+  logzio-plan: community
 tags:
   - tokens
   - account-tokens
@@ -13,10 +13,10 @@ contributors:
 ---
 
 Log shipping tokens are used in shipper configurations to direct data to the relevant Logz.io account.
-<br>
+
 Every account has its own set of tokens.
 
-You need to be an account admin to access your tokens and to view or manage them.
+You need to be an account admin to access your tokens, view them and manage them.
 
 To manage your log shipping tokens, select an account, and then select [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) in the top menu.
 
@@ -30,7 +30,9 @@ You can have up to 5 tokens enabled simultaneously.
 
 * To delete a token, hover over it, and click **delete** <i class="li li-trash"></i> to delete it. A confirmation module will ask you to confirm the action.
 
-* To enable or disable a token, toggle the control. <br> Every account is required to have at least one enabled token at any given time, so you will be blocked from disabling the last token.
+* To enable or disable a token, toggle the control. <br> Every account is required to have at least one enabled token at any given time.
+
+  If there is only one token, it can't be disabled or deleted.
 
 
 #### Using log shipping tokens

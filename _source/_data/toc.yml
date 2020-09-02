@@ -178,6 +178,8 @@ firstLevel:
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:
+    - title: Manage log shipping tokens
+      url: /user-guide/tokens/log-shipping-tokens/
     - title: Manage shared tokens
       url: /user-guide/tokens/shared-tokens.html
     - title: Manage API tokens

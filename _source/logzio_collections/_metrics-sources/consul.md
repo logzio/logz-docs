@@ -12,6 +12,8 @@ shipping-tags:
 
 You can ship HashiCorp Consul metrics using Metricbeat.
 
+You will need to repeat the following procedure for each Consul server and client that should be sending metrics to Logz.io.
+
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
@@ -20,7 +22,6 @@ You can ship HashiCorp Consul metrics using Metricbeat.
 
 <div class="tasklist">
 
-**Please note that the following steps need to be done on all consul servers and clients
 
 ##### Update Consul configuration with the telemetry stanza
 

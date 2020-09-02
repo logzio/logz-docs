@@ -46,7 +46,7 @@ by setting the `ignoreOlder` parameter of the new docker
 to a lower value (for example, `20m`).
 {:.info-box.note}
 
-*Note:* Version 0.1.0 includes breaking changes. Please see this project's [change log]([https://github.com/logzio/docker-collector-logs/tree/update#change-log](https://github.com/logzio/docker-collector-logs/tree/update#change-log)) for further information.
+*Note:* Version 0.1.0 includes breaking changes. Please see this project's [change log](https://github.com/logzio/docker-collector-logs/tree/update#change-log) for further information.
 
 <div class="tasklist">
 

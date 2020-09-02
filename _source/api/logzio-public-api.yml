@@ -113,6 +113,10 @@ tags:
       you can configure the notificaton message body.
       Otherwise, you can use any of the available preconfigured endpoints.
   - name: Import or export Kibana objects
+  - name: Manage log shipping tokens
+    description: >-
+      Use these API requests to create, update, retrieve, or delete shipping tokens.
+
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.
@@ -157,6 +161,7 @@ x-tagGroups:
       - Manage users
       - Who am I
       - Manage sub accounts
+      - Manage log shipping tokens
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects

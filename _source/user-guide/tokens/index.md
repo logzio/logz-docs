@@ -31,8 +31,9 @@ The short answer: **Log shipping token**
 The Log shipping token tells Logz.io which account to send your data to.
 Every account has its own set of tokens.
 
-To manage your log shipping tokens, select an account, and then select [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) in the top menu.
-Click any **Token** to copy it.
+To manage your log shipping tokens, select an account. Then select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) in the top menu and select the **Log shipping tokens** tab.
+
+You can click any **Token** to copy it with one-click.
 
 * For more information on [managing log shipping tokens]({{site.baseurl}}/user-guide/tokens/log-shipping-tokens/)
 

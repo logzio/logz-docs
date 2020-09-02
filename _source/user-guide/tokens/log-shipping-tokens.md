@@ -14,17 +14,17 @@ contributors:
 
 Log shipping tokens are used in shipper configurations to direct data to the relevant Logz.io account.
 
-Every account has its own set of tokens.
+Every account has its own set of tokens. Only account admins have permissions to access the account tokens, view them and manage them.
 
-You need to be an account admin to access your tokens, view them and manage them.
+To manage your log shipping tokens, select an account. Then select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) in the top menu and select the **Log shipping tokens** tab.
 
-To manage your log shipping tokens, select an account, and then select [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) in the top menu.
+
 
 #### Managing log shipping tokens
 
 You can have up to 5 tokens enabled simultaneously.
 
-* To create a token, click **+Add log shipping token**, type in a **name**, then click **Add**. The new token will be enabled by default.
+* To create a token, click **+ New log shipping token**, type in a **name**, then click **Add**. The new token will be enabled by default.
 
 * To rename a token, hover over the token, click **edit** <i class="li li-pencil"></i> and type in a new name. Then click **Save**.
 
@@ -37,13 +37,14 @@ You can have up to 5 tokens enabled simultaneously.
 
 #### Using log shipping tokens
 
-Log shipping tokens are used in the shipping configuration to direct data to the relevant Logz.io account.
+Log shipping tokens are used in the shipping configuration to send data to the relevant Logz.io account.
 
-To view your tokens, go to [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). Click any **Token** to copy it.
+To view your default token, go to [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general). You can click the token to copy it.
 
-When configuring your log shippers, replace the `<<SHIPPING-TOKEN>>` placeholder with one of your enabled log shipping tokens. See more in the [log shipping guide]({{site.baseurl}}/shipping/).
+The default token is auto-populated in the [configuration instructions](https://app.logz.io/#/dashboard/data-sources/) in the app. You can replace the token with another enabled token.
 
-If you are using the shipping instructions in the [Logz.io app](https://app.logz.io/#/dashboard/data-sources/Filebeat), keep in mind that the configurations include the default token for the account from which you are viewing the page. You can replace the token with any other active token, as needed.
+If you prefer to view the configuration instructions outside the app, note that you will need to replace the the `<<SHIPPING-TOKEN>>` parameter with one of your enabled log shipping tokens. See more in the [log shipping guide]({{site.baseurl}}/shipping/).
+
 
 #### Security advantages
 

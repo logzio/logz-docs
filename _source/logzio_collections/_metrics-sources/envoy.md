@@ -12,14 +12,16 @@ shipping-tags:
 
 You can ship Envoy metrics using Metricbeat.
 
+**Please note that the following configuration need to be done on all envoy servers
+
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
 
 * [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation-configuration.html) or higher.
+* Check that Envoy's metrics are avialble under http://localhost:19000/stats?format=prometheus 
 
 <div class="tasklist">
-
 
 ##### Download the Logz.io public certificate
 
@@ -30,7 +32,6 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 ```
 
 ##### Add Prometheus module configuration
-
 
 Open the Metricbeat configuration file (`<<PATH_TO_METRICBEAT>>/metricbeat.yml`) with your preferred text editor.
 

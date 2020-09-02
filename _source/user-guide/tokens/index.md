@@ -34,6 +34,8 @@ Every account has its own set of tokens.
 To manage your log shipping tokens, select an account, and then select [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) in the top menu.
 Click any **Token** to copy it.
 
+* For more information on [managing log shipping tokens]({{site.baseurl}}/user-guide/tokens/log-shipping-tokens/)
+
 ### Share dashboards and more
 
 The short answer: **Shared token**

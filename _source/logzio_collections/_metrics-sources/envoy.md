@@ -14,14 +14,17 @@ Envoy is a cloud-native high-performance proxy and a recognized [CNCF project](h
 
 You can send Envoy metrics to Logz.io using Metricbeat.
 
+Please note that the following configuration needs to be performed on all relevant Envoy servers. 
+{:.info-box.important}
+
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
 
 * [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation-configuration.html) or higher.
+* Check that Envoy's metrics are available at [http://localhost:19000/stats?format=prometheus](http://localhost:19000/stats?format=prometheus) 
 
 <div class="tasklist">
-
 
 ##### Download the Logz.io public certificate
 
@@ -32,7 +35,6 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 ```
 
 ##### Add Prometheus module configuration
-
 
 Open the Metricbeat configuration file (`<<PATH_TO_METRICBEAT>>/metricbeat.yml`) with your preferred text editor.
 

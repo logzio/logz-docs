@@ -91,7 +91,7 @@ security:
 tags:
   - name: Who am I
   - name: Manage sub accounts
-    description: Use these API requests to create, update, retrieve, or delete sub accounts.
+    description: Use these API endpoints to create, update, retrieve, or delete sub accounts.
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.
@@ -109,10 +109,14 @@ tags:
       or when Logz.io Insights identifies new exceptions in your logs.
 
 
-      Use these API requests to create, update, or delete notification endpoints. If you configure a custom endpoint,
+      Use these API endpoints to create, update, or delete notification endpoints. If you configure a custom endpoint,
       you can configure the notificaton message body.
       Otherwise, you can use any of the available preconfigured endpoints.
   - name: Import or export Kibana objects
+  - name: Manage log shipping tokens
+    description: >-
+      Use these API endpoints to create, update, retrieve, or delete log shipping tokens.
+
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.
@@ -157,6 +161,7 @@ x-tagGroups:
       - Manage users
       - Who am I
       - Manage sub accounts
+      - Manage log shipping tokens
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
@@ -1524,6 +1529,185 @@ paths:
                 }
               ]
             }"
+
+
+  # ::::: SHIPPING TOKENS
+  /v1/log-shipping/tokens:
+    post:
+      tags:
+        - Manage log shipping tokens
+      summary: Create a log shipping token
+      description: Creates a log shipping token for this account.
+      operationId: createNewLogShippingToken
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/log-shipping/tokens' \
+            --header 'X-API-TOKEN: <token>' \
+            --header 'Content-Type: application/json'
+            --data-raw '{ "name": "token-name", "enabled": "true" }'
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+      responses:
+        '201':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/{id}:
+    get:
+      tags:
+        - Manage log shipping tokens
+      summary: Retrieve a log shipping token by ID
+      description: Returns details for the specified shipping token.
+      operationId: getLogShippingTokenById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/{id}' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    put:
+      tags:
+        - Manage log shipping tokens
+      summary: Update a log shipping token
+      description: Enables/disables a log shipping token and/or renames it.
+      operationId: updateLogShippingToken
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X PUT 'https://api.logz.io/v1/log-shipping/tokens/{id}' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "name": "staging eu",
+              "enabled": true
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    delete:
+      tags:
+        - Manage log shipping tokens
+      summary: Delete a log shipping token
+      description: >-
+        Deletes a log shipping token by its ID, while providing relevant information about the token's recent status and activity.
+        
+        
+        An account must have at least 1 enabled token. You won't be able to disable or delete the last token. 
+        
+        **Important**: Active tokens can be deleted using this call. Confirm that a token is no longer needed before deleting it.
+      operationId: deleteLogShippingToken
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X DELETE 'https://api.logz.io/v1/log-shipping/tokens/786351' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/limits:
+    get:
+      tags:
+        - Manage log shipping tokens
+      summary: Get number of available tokens
+      description: >-
+        Returns the number of log shipping tokens currently in use and the number of available tokens that can be enabled.
+        Disabled tokens don't count against the token limit.
+      operationId: getLogShippingTokensLimits
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/limits' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensLimitsResponse'
+  /v1/log-shipping/tokens/search:
+    post:
+      tags:
+        - Manage log shipping tokens
+      summary: Retrieve log shipping tokens
+      description: Returns the relevant shipping tokens, filterd, sorted and paginated as per the request.   
+      operationId: searchLogShippingTokens
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensSearchRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/log-shipping/tokens/search' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "filter": {
+                "enabled": true
+              },
+              "sort": [
+                {
+                  "field": "name",
+                  "descending": true
+                }
+              ],
+              "pagination": {
+                "pageNumber": 3,
+                "pageSize": 15
+              }
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseShippingTokensModel'
+
 
 
   # ::::: SHARED TOKENS
@@ -3758,3 +3942,117 @@ definitions:
       format: int32
     archiveSettings:
       $ref: '#/definitions/ArchiveSettings'
+
+  # ::::: SHIPPING TOKENS DEFINITIONS
+  ShippingTokensModel:
+    type: object
+    properties:
+      name:
+        type: string
+        description: This token's name.
+        example: apac prod
+      id:
+        type: integer
+        format: int32
+        description: This token's ID.
+        example: 786351
+      token:
+        type: string
+        description: The token itself.
+        example: 6bLXmMA6FLibc7ySSqNcCfvbhtqT0rPS
+      updatedAt:
+        type: integer
+        format: int64
+        description: Unix timestamp of when this token was last updated.
+        example: 414720000
+      updatedBy:
+        type: string
+        description: Email address of the last user to update this token.
+        example: shalom.the.mighty@gmail.com
+      createdAt:
+        type: integer
+        format: int64
+        description: Unix timestamp of when this token was created.
+        example: 389836800
+      createdBy:
+        type: string
+        description: Email address of the user who created this token.
+        example: you.got.this@gmail.com
+      enabled:
+        type: boolean
+        description: If this token is enabled, `true`. If it's disabled, `false`.
+  ShippingTokensRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Descriptive name for this token.
+          example: staging eu
+        enabled:
+          type: boolean
+          default: true
+          description: To enable this token, `true`. To disable, `false`.
+  ShippingTokensLimitsResponse:
+      type: object
+      properties:
+        maxAllowedTokens:
+          type: integer
+          format: int32
+          description: The number of log shipping tokens this account can have.
+          example: 50
+        numOfEnabledTokens:
+          type: integer
+          format: int32
+          description: The number of log shipping tokens currently enabled for this account.
+          example: 27
+  ShippingTokensSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/ShippingTokensFilterRequest'
+      sort:
+        type: array
+        description: Sorts the results before returning them.
+        items:
+          $ref: '#/definitions/ShippingTokensSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  ShippingTokensSortRequest:
+      type: object
+      properties:
+        field:
+          type: string
+          enum:
+            - CREATED_AT
+            - NAME
+          description: >-
+            To sort by creation date, use `"createdAt"`.
+            To sort by name, use `"name"`.
+          example: NAME
+        descending:
+          type: boolean
+          description: >-
+            For descending order, use `true`.
+            For ascending order, use `false`.
+
+  ShippingTokensFilterRequest:
+      type: object
+      description: Filters your search for token attributes.
+      properties:
+        enabled:
+          type: boolean
+          description: >-
+            Set to `true` to filter for enabled tokens.
+            Set to `false` to filter for disabled tokens.
+  PagedSearchResponseShippingTokensModel:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/ShippingTokensModel'
+      pagination:
+        $ref: '#/definitions/Pagination'

@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 data-source: Envoy
 contributors:
+  - doron-bargo
   - shalper
 shipping-tags:
   - networking

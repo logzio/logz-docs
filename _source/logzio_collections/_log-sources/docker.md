@@ -12,11 +12,14 @@ open-source:
     github-repo: docker-logging-plugin
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Docker-Logging
 contributors:
+  - mirii1994
+  - shalper
   - imnotashrimp
   - amosd92
 shipping-tags:
   - container
 ---
+
 
 <!-- tabContainer:start -->
 <div class="branching-container">
@@ -28,25 +31,29 @@ shipping-tags:
 <!-- tab:start -->
 <div id="docker-collector-logs-config">
 
-#### Set up docker-collector-logs
 
-This is a Docker container that uses Filebeat to collect logs
+docker-collector-logs is a Docker container that uses Filebeat to collect logs
 from other Docker containers and forward them to your Logz.io account.
 
 To use this container, you'll set environment variables in your Docker run command.
+
 docker-collector-logs uses those environment variables to
 generate a valid Filebeat configuration for the container.
 docker-collector-logs mounts docker.sock and the Docker logs directory
 to the container itself, allowing Filebeat to collect the logs and metadata.
 
-Upgrading to a newer version of docker-collector-logs while it is already running
+
+### Upgrading to a newer version
+
+* Upgrading to a newer version of docker-collector-logs while it is already running
 will cause it to resend logs that are within the `ignoreOlder` timeframe.
 You can minimize log duplicates
 by setting the `ignoreOlder` parameter of the new docker
 to a lower value (for example, `20m`).
-{:.info-box.note}
 
-*Note:* Version 0.1.0 includes breaking changes. Please see this project's [change log](https://github.com/logzio/docker-collector-logs/tree/update#change-log) for further information.
+* Version 0.1.0 of docker-collector-logs includes breaking changes. Please see the project's [change log](https://github.com/logzio/docker-collector-logs/tree/update#change-log) for further information.
+
+#### Set up docker-collector-logs
 
 <div class="tasklist">
 

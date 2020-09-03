@@ -13,6 +13,8 @@ contributors:
   - supereli
   - amosd92
   - idohalevi
+  - mirii1994
+  - shalper
 shipping-tags:
   - aws
 ---
@@ -21,6 +23,9 @@ This integration uses Filebeat in a Docker container to forward logs from Amazon
 
 To use docker-collector-logs, you'll set environment variables when you run the container.
 The Docker logs directory and docker.sock are mounted to the container, allowing Filebeat to collect the logs and metadata.
+
+{% include log-shipping/docker-collector-logs.md %}
+
 
 #### Deploy the Docker collector
 
@@ -49,13 +54,6 @@ logzio/docker-collector-logs
 ```
 
 ###### Parameters
-
-Upgrading to a newer version of docker-collector-logs while it is already running
-will cause it to resend logs that are within the `ignoreOlder` timeframe.
-You can minimize log duplicates
-by setting the `ignoreOlder` parameter of the new docker
-to a lower value (for example, `20m`).
-{:.info-box.note}
 
 | Parameter | Description |
 |---|---|

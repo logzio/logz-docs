@@ -254,6 +254,6 @@ firstLevel:
   - title: Videos
     url: https://logz.io/learn/video/
     external: true
-  - title: Status
-    url: http://status.logz.io/
-    external: true
+  - title: Report a security issue
+    url: /report-a-security-issue/
+    external: false

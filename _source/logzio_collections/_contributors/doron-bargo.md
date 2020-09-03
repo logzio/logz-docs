@@ -1,9 +1,7 @@
 ---
 title: Doron Bargo
+linkedin: 
 github: Doron-Bargo
 
-logzio-role: Director of Integrations at Logz.io
+logzio-role: Director of Integrations
 ---
-
-{% comment %} LEAVE CONTENT EMPTY {% endcomment %}
-

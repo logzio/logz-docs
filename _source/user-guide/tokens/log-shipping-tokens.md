@@ -4,7 +4,7 @@ title: Log shipping tokens
 permalink: /user-guide/tokens/log-shipping-tokens/
 flags:
   admin: true
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - tokens
   - account-tokens

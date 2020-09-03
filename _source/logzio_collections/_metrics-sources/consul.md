@@ -12,6 +12,8 @@ shipping-tags:
 
 You can ship HashiCorp Consul metrics using Metricbeat.
 
+You will need to repeat the following procedure for each Consul server and client that will be sending metrics to Logz.io.
+
 #### Metricbeat setup
 
 **Before you begin, you'll need**:
@@ -19,6 +21,7 @@ You can ship HashiCorp Consul metrics using Metricbeat.
 * [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation-configuration.html) or higher.
 
 <div class="tasklist">
+
 
 ##### Update Consul configuration with the telemetry stanza
 
@@ -37,11 +40,13 @@ Update the file with the following telemetry stanza:
 
 Save the file and restart the Consul on the server.
 
-Now the metrics of this Consul server will be exposed locally in Prometheus format under the following [endpoint](http://localhost:8500/v1/agent/metrics) - http://localhost:8500/v1/agent/metrics
+##### Check the localhost on the Consul server
 
-##### Repeat for all Consul servers and agents
+Now the metrics for this Consul server will be exposed locally in Prometheus format under the following endpoint:
 
-Repeat this process for every Consul server and agent that should be sending metrics data to Logz.io.
+```
+http://127.0.0.1:8500/v1/agent/metrics?format=prometheus
+```
 
 ##### Download the Logz.io public certificate
 

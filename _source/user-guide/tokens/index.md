@@ -4,7 +4,7 @@ title: Tokens
 permalink: /user-guide/tokens/
 flags:
   admin: true
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - tokens
   - api-tokens

@@ -140,16 +140,18 @@ firstLevel:
     thirdLevel:
     - title: Time-based log accounts
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
+    - title: Flexible volume log accounts
+      url: /user-guide/accounts/flexible-volume.html
     - title: Timeless log accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
     - title: Security accounts
       url: /user-guide/accounts/manage-the-cloud-siem-account.html
     - title: Metrics accounts
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
-    - title: PCI compliance and log redaction
-      url: /user-guide/accounts/pci-compliance.html
-    - title: Support access
-      url: /user-guide/accounts/support-access.html
+  - title: PCI compliance
+    url: /user-guide/accounts/pci-compliance.html
+  - title: Granting access to Logz.io Support
+    url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
   - title: Regions

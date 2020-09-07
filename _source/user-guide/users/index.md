@@ -8,22 +8,13 @@ flags:
 tags:
   - users
 contributors:
+  - shalper
   - imnotashrimp
 ---
 
-To maintain your account's security,
-account admins can add and remove users as needed.
-You can change user access permissions at any time.
+Account Admins can manage users and change user access permissions at any time.
 
-Users who are part of the main account
-will have access to all sub accounts and timeless accounts.
-To limit user access,consider adding users
-only to the sub accounts and timeless accounts that they will need to search.
-
-To keep your data even more secure,
-limit the number of admins in each account.
-
-![Manage users](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/access-and-authentication--manage-users.png)
+![Manage users](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/manage-users-admin.png)
 
 You can get to this page
 by selecting [**<i class="li li-gear"></i> > Settings > User management**](https://app.logz.io/#/dashboard/settings/manage-users)
@@ -32,18 +23,21 @@ in the top menu.
 Community plans have a maximum of 50 users.
 {:.info-box.note}
 
-#### To add or remove users
+### Add or remove a user
 
-* To add users,
-  click **Add user** at the bottom of your users list.
-* To remove a user,
-  click the user's menu (<i class="fas fa-bars"></i>),
-  and then click **Delete**.
+* To add a user,
+  click the button **+New user** at the top of the page.
 
-#### To suspend or unsuspend users
+* To delete a user, hover over the item and click **delete** <i class="li li-trash"></i> to delete it. You'll be asked to confirm the deletion.
 
-To suspend or unsuspend a user,
-click the user's menu (<i class="fas fa-bars"></i>),
-and then click **Suspend** or **Unsuspend**.
+### Suspend or unsuspend a user
 
-If a user is suspended, their icon is red.
+* To suspend or unsuspend a user, hover over the user,
+click the **Menu button <i class="li li-ellipsis-v"></i>**
+and then click **Suspend** or **Unsuspend**. The user's status will change.
+
+### Edit role or rename a user
+
+* To change the user's role (Admin/User)rename, hover over the user, click **edit** <i class="li li-pencil"></i>, make your changes, and then click **Save**.
+
+* To rename a user, hover over the user, click **edit** <i class="li li-pencil"></i>, make your changes, and then click **Save**.

@@ -15,7 +15,7 @@ contributors:
 
 Flexible volume gives you more control over how you allocate space between your accounts.
 
-With flexible volume, accounts can share indexing capacity and use it as needed, instead of reserving capacity in advance in a fixed manner.
+With flexible volume, accounts can share indexing capacity and use it as needed, instead of reserving capacity in advance in a fixed manner. When properly configured, shared volume can help to optimize distribution and minimize the risk of running out of space.
 
 
 ![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shared-volume.png)
@@ -23,7 +23,7 @@ With flexible volume, accounts can share indexing capacity and use it as needed,
 Flexible volume is a global setting that applies to your time-based logging accounts. To reach it, go to [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts). This page is only available when logged in to the main account as an admin user.
 
 
-## Reserved vs. Shared volume
+## Volume settings
 
 * **Reserved volume**
 
@@ -36,14 +36,29 @@ Flexible volume is a global setting that applies to your time-based logging acco
 
   With flexible volume enabled, you can leave a portion of your plan volume unallocated. This is your plan's shared volume. Shared volume is available for accounts to use dynamically, as needed.
 
+  Notification emails are sent to account admins to alert them when utilization of shared volume reaches 80% and 100%.
+
+
 * **Volume cap**
 
   If you'd like to avoid situations where daily capacity is over-used by certain accounts, you can cap them.
+
+  Notification emails are sent to account admins to alert them when account utilization reaches 80% and 100% of its cap.
 
 * **If reserved volume is zero**
 
   It is possible for an account to have zero reserved volume. In this case, data capacity is entirely dependent on the availability of shared volume. Keep in mind that this configuration does not guarantee indexing capacity for the account and subsequently could lead to data loss whenever shared volume is not available.
 
+### Account utilization notifications
+
+When flexible volume is enabled, your plan's shared volume helps to protect against data loss. Still, to help prevent surprises and help you avoid data loss, Logz.io sends out notification emails to account admins to alert them of the following:
+
+| Utilization | 1st notification | 2nd notification |
+|---|---|---|
+| Shared volume | 80% | 100% |
+| Account cap | 80% | 100% |
+
+[Account utilization metrics](/user-guide/accounts/manage-account-usage.html) are less accurate when flexible volume is enabled. This is because utilization is dynamic and constantly reshuffling between accounts, on an as-needed basis. If you prefer to rely on utlization logs as an accurate measure, consider sticking to the fixed volume plan instead.
 
 #### Configure flexible capacity accounts
 

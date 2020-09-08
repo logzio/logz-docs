@@ -27,18 +27,22 @@ Flexible volume is a global setting that applies to your time-based logging acco
 
 * **Reserved volume**
 
-  If you'd like to gaurantee indexing capacity to high priority accounts, you can configure their reserved volume. You are not required to allocate reserved volume. If you prefer, you can set reserved volume at zero to add even more flexibility.
+  If you'd like to guarantee indexing capacity to high priority accounts, you can configure their reserved volume. You are not required to allocate reserved volume. If you prefer, you can set reserved volume at zero to add even more flexibility.
 
   After an account fills its daily reserved volume, it can continue to index data using shared volume until it hits its cap or shared volume is spent for the day.
 
+
+* **Shared volume**
+
+  With flexible volume enabled, you can leave a portion of your plan volume unallocated. This is your plan's shared volume. Shared volume is available for accounts to use dynamically, as needed.
 
 * **Volume cap**
 
   If you'd like to avoid situations where daily capacity is over-used by certain accounts, you can cap them.
 
-* **No reserved volume, with or without a cap**
+* **If reserved volume is zero**
 
-  You can leave the reserved volume at zero. In this case, data capacity is entirely dependent on the availability of shared volume. Keep in mind that this configuration does not gaurantee indexing capacity for the account and subsequently could lead to data loss whenever shared volume is not available.
+  It is possible for an account to have zero reserved volume. In this case, data capacity is entirely dependent on the availability of shared volume. Keep in mind that this configuration does not guarantee indexing capacity for the account and subsequently could lead to data loss whenever shared volume is not available.
 
 
 #### Configure flexible capacity accounts

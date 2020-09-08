@@ -4,7 +4,7 @@ title: Accounts
 permalink: /user-guide/accounts/
 flags:
   admin: true
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - accounts
   - sub-accounts
@@ -29,10 +29,16 @@ You can find the [Manage accounts](https://app.logz.io/#/dashboard/settings/mana
 
 * **Flexible capacity**
 
-    You can make the most of your plan's indexing capacity by switching to flexible volume. Flexible volume makes it easier to ensure that accounts don't max out their indexing capacity. [Explore your options](/user-guide/accounts/flexible-volume.html)
+    You can make the most of your plan's indexing capacity by switching to flexible volume. Flexible volume makes it easier to ensure that accounts don't max out their indexing capacity. [Explore flexible plan options](/user-guide/accounts/flexible-volume.html)
 
-* **Long term storage**
+* **Long-term storage**
 
-    Main accounts and sub accounts are time-based. Although time-based accounts are ideal for short- and medium-term data analysis, they hold your data for a limited amount of time.
+    Optimizers are great for analyzing long-term patterns and trends on aggregated data.
+    
+    You can use [data optimizers](/user-guide/optimizers/configure-optimizers.html) to copy select data from your logs and store them long term in a timeless account. Data stored to timeless accounts is easily searched and continuously available without requiring additional steps to restore the data. [Explore timeless accounts](/user-guide/accounts/manage-timeless-accounts.html)
 
-    Using [data optimizers](/user-guide/optimizers/configure-optimizers.html), you can store data in a timeless account, allowing you to analyze long-term patterns and trends on aggregated data.
+* **Archive and restore data**
+
+    You can connect your Logz.io accounts to an S3 bucket or Azure Blob Storage to archive your logs. [Explore archiving options](/user-guide/archive-and-restore/)
+
+    Before searching archived data, you'll need to restore it to its own temporary account. [Explore data restoring options](/user-guide/archive-and-restore/restore-archived-logs.html)

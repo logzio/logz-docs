@@ -73,8 +73,6 @@ Configure the account's daily capacity:
 
    * If you enable this option, another field will appear:  **Volume cap**.
 
-      This is the maximum volume that the account can index per calendar day.
-
-      It cannot be greater than the sum of the account's reserved volume and available shared volume.
+      This is the maximum volume that the account can index per calendar day. It cannot be greater than the sum of the account's reserved volume and available shared volume.
 
 ![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/configure-flexible-volume.png)

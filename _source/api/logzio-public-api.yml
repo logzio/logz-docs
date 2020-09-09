@@ -95,7 +95,11 @@ tags:
   - name: Grafana gateway
   - name: Who am I
   - name: Manage sub accounts
-    description: Use these API endpoints to create, update, retrieve, or delete sub accounts.
+    description: >-
+      Use these API endpoints to create, update, retrieve, or delete sub accounts.
+
+
+      We are in the process of rolling out a new beta feature - [flexible volume plan configuration](/user-guide/accounts/flexible-volume.html). If your account has the option to switch to flexible volume, please refer to the [beta documentation](/beta-api-flexible-storage/).
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.

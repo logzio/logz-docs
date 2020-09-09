@@ -31,12 +31,6 @@ info:
     If you'd like to suggest corrections or improvements to this document, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
 
 
-    # Notes on alerting
-
-    Please note that alerting is not yet covered in this document.
-    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
-
-
     # Account region and API URL
 
     To find your account region, sign in to Logz.io and look at the URL in the address bar.
@@ -61,6 +55,15 @@ info:
 
     API call and response rates are limited per individual account.
     To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
+
+
+    # Notes on alerting
+
+    Please note that alerting is not yet covered in this document.
+    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
+
+
+    
 
 
   title: Logz.io API
@@ -89,6 +92,7 @@ security:
   - X-API-TOKEN: []
 
 tags:
+  - name: Grafana gateway
   - name: Who am I
   - name: Manage sub accounts
     description: Use these API endpoints to create, update, retrieve, or delete sub accounts.
@@ -172,8 +176,38 @@ x-tagGroups:
   - name: AWS security and audit
     tags:
       - Manage CloudTrail links
+  - name: Grafana API Gateway
+    tags:
+      - Grafana gateway
+    description: Grafana API Gateway to supported endpoints.
 
 paths:
+  # ::::: GRAFANA
+  /v1/grafana/api/{GRAFANA_API_URL}:
+    get:
+      summary: Grafana API Capabilities
+      description: >-
+        Prepend your Logz.io API Gateway to the relevant Grafana API endpoint.
+     
+     
+        Supported endpoints:
+          * [Alerting](https://grafana.com/docs/grafana/latest/http_api/alerting/)
+          * [Annotations](https://grafana.com/docs/grafana/latest/http_api/annotations/)
+          * [Dashboard](https://grafana.com/docs/grafana/latest/http_api/dashboard/)
+          * [Dashboard versions](https://grafana.com/docs/grafana/latest/http_api/dashboard_versions/)
+          * [Folder/dashboard search](https://grafana.com/docs/grafana/latest/http_api/folder_dashboard_search/)
+          * [Snapshot](https://grafana.com/docs/grafana/latest/http_api/snapshot/)
+
+    
+      tags:
+        - Grafana gateway
+      operationId: grafanaGateway
+      produces:
+        - application/json
+      parameters:
+
+
+
   # ::::: ACCOUNTS
   /v1/account-management/whoami:
     get:

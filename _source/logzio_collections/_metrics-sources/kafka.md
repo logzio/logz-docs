@@ -1,68 +1,77 @@
 ---
-title: Ship kafka metrics
-logo:
-  logofile: logo.png
+title: Ship Kafka metrics
+logo: 
+  logofile: kafka.svg
   orientation: vertical
-data-source: kafka
+data-source: Kafka
 contributors:
   - yotamloe
 shipping-tags:
-  - services || kafka
+ - platform-service
 ---
 
-You can ship kafka metrics to logz.io using Metricbeat.
+You can ship Kafka metrics to logz.io using Metricbeat.
+
+#### Configuration
+
 **Before you begin, you'll need**:
 
-* Server or a cluster with kafka installed
-* Host with [Docker](https://www.docker.com/get-started) and [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher installed
+* A server or cluster with Kafka installed
+* A host installed with [Docker](https://www.docker.com/get-started) and [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
+
+
+
+##### Expose metrics
+
+The first step is to expose Kafka metrics using the [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter) and [Kafka exporter](https://hub.docker.com/r/danielqsj/kafka-exporter).
 
 <div class="tasklist">
 
-### Expose metrics
+##### JMX exporter
 
-First we will expose kafka metrics using [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter) and [kafka exporter](https://hub.docker.com/r/danielqsj/kafka-exporter) :
-
-#### JMX exporter:
-
-In your kafka server go to the directory where kafka is installed on your machine
+In your Kafka server, go to the directory where Kafka is installed on your machine:
 
 ```shell
-cd {path_to_kafka_dir}
+cd {path_to_Kafka_dir}
 ```
 
-Download prometheus JMX exporter
+Download the Prometheus JMX exporter:
 
 ```shell
 curl -L -O https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.6/jmx_prometheus_javaagent-0.6.jar
 ```
 
-Download the exporter configuration file
+Download the exporter configuration file:
 
 ```shell
-curl -L -O https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/kafka-2_0_0.yml
+curl -L -O https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/Kafka-2_0_0.yml
 ```
 
-Reatart the kafka server with this `KAFKA_OPTS` variable assignment
+Restart your Kafka server with this `KAFKA_OPTS` variable assignment:
 
 ```shell
-KAFKA_OPTS="$KAFKA_OPTS -javaagent:{path_to_kafka_dir}/jmx_prometheus_javaagent-0.6.jar=7071:{path_to_kafka_dir}/kafka-metrics.yaml.yml" \
+KAFKA_OPTS="$KAFKA_OPTS -javaagent:{path_to_Kafka_dir}/jmx_prometheus_javaagent-0.6.jar=7071:{path_to_Kafka_dir}/Kafka-metrics.yaml.yml" \
 ```
 
-Test JMX exporter metrics endpoint **(Optional)**
+At this point, the metrics for your Kafka server should be locally exposed in Prometheus format.
+It's recommended that you test your JMX exporter metrics endpoint:
 
 ```shell
-curl https://{kafka_server_address}:7071/metrics
+curl https://{Kafka_server_address}:7071/metrics
 ```
 
-#### Kafka exporter:
 
-On your host run [danielqsj/kafka-exporter](https://hub.docker.com/r/danielqsj/kafka-exporter) docker image and specify your kafka servers adress (you can add multiple `kafka.server` arguments)
+##### Kafka exporter
+
+On your host, run the [danielqsj/Kafka-exporter](https://hub.docker.com/r/danielqsj/Kafka-exporter) docker image. Specify the address of your Kafka server. To specify multiple servers, you can add multiple `kafka.server` arguments.
 
 ```shell
 docker run -ti --rm -p 9308:9308 danielqsj/kafka-exporter --kafka.server=kafka:9092 [--kafka.server=another-server]
 ```
 
-Test kafka exporter metrics endpoint **(Optional)**
+
+At this point, the metrics for your Kafka server should be locally exposed.
+It's recommended that you test your Kafka exporter metrics endpoint:
 
 ```shell
 curl https://localhost:9308/metrics
@@ -75,7 +84,7 @@ curl https://localhost:9308/metrics
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 ```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 ##### Add Logz.io to your Metricbeat configuration
@@ -112,7 +121,7 @@ output.logstash:
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
 
-##### Add kafka configuration
+##### Add the Kafka configuration
 
 Still in the same configuration file, copy and paste the code block below:
 
@@ -123,7 +132,7 @@ metricbeat.modules:
 - module: prometheus
   period: 10s
   metricsets: ["collector"]
-  hosts: ["<<kafka_server_address>>:7071"]
+  hosts: ["<<Kafka_server_address>>:7071"]
   metrics_path: /metrics
 
 # Kafka exporter metrics
@@ -138,8 +147,8 @@ processors:
   - add_fields:
       target: fields
       fields:
-        module: kafka
-        kafka.cluster: <<cluster_tag>>
+        module: Kafka
+        Kafka.cluster: <<cluster_tag>>
 
 fields:
   logzio_codec: json
@@ -152,19 +161,15 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For a full list of available Metricbeat configuration options for the prometheus module, including explanations about TLS connections, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-prometheus.html).
+For a full list of available Metricbeat configuration options for the Prometheus module, including explanations about TLS connections, see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-prometheus.html).
 
 ##### Replace the placeholders in the configuration
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include metric-shipping/replace-metrics-token.html %}
+* Edit the `hosts` field for prometheus JMX metrics. Specify a comma separated list of addresses for your Kafka servers. (For example: `hosts: ["Kafka1:7071","Kafka2:7071"]` )
 
-* {% include log-shipping/replace-vars.html listener=true %}
-
-* Edit the `hosts` field for prometheus JMX metrics, specify comma separated list of your kafka servers adresses (exapmle: `hosts: ["kafka1:7071","kafka2:7071"]` )
-
-* Replace `<<cluster_tag>>` with a custome  string value to help you identify your kafka cluster, this can be helpful if you are running multi cluster kafka environment
+* Replace `<<cluster_tag>>` with a custom string value to help you identify your Kafka cluster. This can be helpful if you are running a multi-cluster Kafka environment.
 
 ##### Start Metricbeat
 

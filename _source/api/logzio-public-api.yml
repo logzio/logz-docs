@@ -171,7 +171,7 @@ paths:
           * [Dashboard versions](https://grafana.com/docs/grafana/latest/http_api/dashboard_versions/)
           * [Folder/dashboard search](https://grafana.com/docs/grafana/latest/http_api/folder_dashboard_search/)
           * [Snapshot](https://grafana.com/docs/grafana/latest/http_api/snapshot/)
-          * Search
+
     
       tags:
         - Grafana gateway

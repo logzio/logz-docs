@@ -131,7 +131,7 @@ firstLevel:
       url: /user-guide/cloud-siem/xsoar-integration/
 
 
-- title: Admin tools
+- title: Admin
   icon: li-gear
   secondLevel:
   - title: Manage accounts
@@ -163,11 +163,13 @@ firstLevel:
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/
 
-  - title: Users
+  - title: User management
     url: /user-guide/users/
     thirdLevel:
     - title: Multi-factor authentication
       url: /user-guide/users/multi-factor-authentication.html
+    - title: Permission levels
+      url: /user-guide/accounts/permissions/
   - title: Single sign-on
     url: /user-guide/users/single-sign-on/
     thirdLevel:

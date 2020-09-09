@@ -27,7 +27,7 @@ You can find the [Manage accounts](https://app.logz.io/#/dashboard/settings/mana
 
     You can control access to different sets of data by shipping your logs to different sub accounts, each with its own set of users. You can also use account default permissions to determine who can access and read the data.
 
-* **Flexible capacity**
+* **Flexible capacity** (Beta)
 
     You can make the most of your plan's indexing capacity by switching to flexible volume. Flexible volume makes it easier to ensure that accounts don't max out their indexing capacity. [Explore flexible plan options](/user-guide/accounts/flexible-volume.html)
 

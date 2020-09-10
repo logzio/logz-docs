@@ -25,17 +25,22 @@ The new flexible retention policy supports capacity sharing between multiple acc
 ##### New fields
 
 The updated response API for managing sub accounts has 2 additional fields:
+
 1. `reservedDailyGB` (Float)
 2. `isFlexible` (Boolean)
 
 
 All the API endpoints for managing sub accounts are affected by this change:
+
 * Retrieve all sub accounts
 * Create a sub account
 * Retrieve detailed information on all sub accounts
 * Retrieve detailed account information by ID
 * Retrieve sub account by ID
 * Update a sub account
+* Delete a sub account
+
+Please reference the post-update API documentation for the relevant endpoints [here](/beta-api-flexible-storage/).
 
 ###### Potential issues and proposed solution
 
@@ -54,6 +59,6 @@ API endpoints affected by the change:
 
 ###### Potential issues and proposed solution
 
-You might run into issues if you are using the response and don’t make the necessary adjustments. Any calculations and actions using the API output might be broken or yield incorrect results if they are defined without taking into consideration the main account details.
+Any calculations and actions using the API output might be broken or yield incorrect results if they are defined without taking into consideration the main account details.
 
-To avoid issues, please select only the sub accounts from the call output before applying any downstream actions on them.
+If you are using the response, you will need to make the necessary adjustments to avoid running into issues. Please select only the sub accounts from the call output before applying any downstream actions.

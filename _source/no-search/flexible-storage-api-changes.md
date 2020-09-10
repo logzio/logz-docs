@@ -1,6 +1,6 @@
 ---
 layout: article
-title: API changes following the release of flexible volume capability
+title: API changes following the release of flexible volume
 permalink: /user-guide/accounts/flexible-volume-announcement/
 flags:
 tags:
@@ -11,14 +11,14 @@ contributors:
   - shalper
 ---
 
-Giving customers greater and better flexibility to manage their account capacity has been a central goal on our readmap. A central capability toward this goal has been updated account management capcabilities that support the option to configure shared volume and flexible storage.
+The new flexible volume plan configuration supports capacity sharing between multiple accounts.
+
+With flexible volume enabled, you can reserve a portion of your plan for specific accounts and cap the total volume an account can use per day.
+
+As a result, there have been some updates affecting existing API endpoints described in detail below. Please reference the post-update API documentation for the relevant endpoints [here](/beta-api-flexible-storage/).
 
 
-In a cloud-native world, log volumes are extremely dynamic, changing often on even a daily basis. The plan is to phase out our fixed daily allocation plan and allow users to reserve a portion of their plan for each specific account and to cap the total allocation an account can have.
-
-The new flexible retention policy supports capacity sharing between multiple accounts.
-
-#### API changes accompanying this version update
+#### What's changed in the API
 
 <div class="tasklist">
 
@@ -28,7 +28,6 @@ The updated response API for managing sub accounts has 2 additional fields:
 
 1. `reservedDailyGB` (Float)
 2. `isFlexible` (Boolean)
-
 
 All the API endpoints for managing sub accounts are affected by this change:
 
@@ -40,25 +39,24 @@ All the API endpoints for managing sub accounts are affected by this change:
 * Update a sub account
 * Delete a sub account
 
-Please reference the post-update API documentation for the relevant endpoints [here](/beta-api-flexible-storage/).
 
-###### Potential issues and proposed solution
+###### Potential issues
 
 If you've added a validation on the number of fields arriving in the response API, the API could fail.
 
 Please update the validation to account for the 2 new fields, or consider canceling the validation.
 
-###### Adding the main account as another object to the response list
+##### Added main account information to some responses
 
-Some APIs return a list of sub accounts as a list of objects. We’ll be adding the main account to that list as an additional object. Currently, the list of objects includes only sub accounts, but not the main account.
+The response list for the following endpoints now includes the main account as an additional object. Previously, the list of objects included only sub accounts, but not the main account.
 
-API endpoints affected by the change:
+Affected endpoints:
 
 * Retrieve all sub accounts
 * Retrieve detailed information on all sub accounts
 
-###### Potential issues and proposed solution
+###### Potential issues
 
-Any calculations and actions using the API output might be broken or yield incorrect results if they are defined without taking into consideration the main account details.
+If you are using the API output to perform any calculations or actions, the API might break or yield incorrect results.
 
-If you are using the response, you will need to make the necessary adjustments to avoid running into issues. Please select only the sub accounts from the call output before applying any downstream actions.
+Please update your implementation to take into consideration the main account details included in the response. You can avoid issues by selecting for sub account objects from the call output before applying any downstream actions.

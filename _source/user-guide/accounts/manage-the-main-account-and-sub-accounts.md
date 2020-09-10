@@ -61,6 +61,6 @@ Sub accounts share the same setting options as the main account (See the list ab
 
 | Settings | Description |
 |---|---|
-| **Enable main account users to access this account** | If enabled, all main account users will automatically have user-role permissions to the sub account. This means they can view the log data in the sub account. If disabled, users will need to be explicitely added to the sub account to have access to it. |
+| **Enable main account users to access this account** | If enabled, all main account users will automatically have user-role permissions to the sub account. This means they can view the log data in the sub account. If disabled, users will need to be explicitly added to the sub account to have access to it. |
 | **Searchable from the main account** | If enabled, data stored in the sub account, can be searched directly from the main account in Kibana. |
 {:.paramlist}

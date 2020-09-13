@@ -1,6 +1,6 @@
 ---
 title: Ship Kafka metrics
-logo: 
+logo:
   logofile: kafka.svg
   orientation: vertical
 data-source: Kafka
@@ -19,9 +19,7 @@ You can ship Kafka metrics to logz.io using Metricbeat.
 * A server or cluster with Kafka installed
 * A host installed with [Docker](https://www.docker.com/get-started) and [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
 
-
-
-##### Expose metrics
+### Expose metrics
 
 The first step is to expose Kafka metrics using the [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter) and [Kafka exporter](https://hub.docker.com/r/danielqsj/kafka-exporter).
 

@@ -10,8 +10,8 @@ open-source:
     github-repo: logzio-helm
 contributors:
   - mirii1994
-  - shalper
   - ronish31
+  - shalper
 shipping-tags:
   - container
 ---
@@ -29,14 +29,14 @@ You can either deploy this Daemonset with the standard configuration, or with au
 
 
 <div class="branching-container">
-* [Default configuration _recommended_](#default-config)
-* [Custom configuration](#manual-config)
-* [Advanced options](#configurations)
+* [Automated configuration _recommended_](#automated-config)
+* [Manual configuration](#manual-config)
+* [Advanced configuration](#configurations)
 {:.branching-tabs}
 
-<div id="default-config">
+<div id="automated-config">
 
-#### Automatic deployment
+#### Automated deployment
 
 This is the simplest method of deployment but it doesn't offer advanced configuration options.
 
@@ -126,13 +126,15 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/metricbeat
 ##### Deploy
 
 You have three options for deployment:
+
 * [Standard configuration](#standard-config)
 * [Autodiscover configuration](#autodiscover-config)
 * [Custom configuration](#custom-config)
 
 <div id="standard-config">
 
-##### Deploy with standard configuration:
+###### Deploy with standard configuration
+
 ```shell
 helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 ```
@@ -140,28 +142,34 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 
 <div id="autodiscover-config">
 
-##### Deploy with Autodiscover configuration:
+###### Deploy with Autodiscover configuration:
+
 This Daemonset's default autodiscover configuration is [hints based](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover-hints.html):
+
 ```shell
 helm install --namespace=kube-system \
 --set configType='autodiscover' \
 logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 ```
-*For more information about Autodiscover:* [Kubernetes configuration](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover.html#_kubernetes)
+
+* For more information about Autodiscover, see [Kubernetes configuration](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover.html#_kubernetes)
 , [autodiscover's appenders](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover-advanced.html).
 
 </div>
 
 <div id="custom-config">
 
-##### Deploy with custom configuration:
+###### Deploy with custom configuration:
+
 ```shell
 helm install --namespace=kube-system \
 --set configType='auto-custom' \
 --set-file metricbeatConfig.autoCustomConfig=/path/to/your/config.yaml \
 logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 ```
-*Note:* If you're using a custom config, please make sure that you're using a `.yaml` file in the following structure:
+
+If you're using a custom config, please make sure that you're using a valid `.yaml` file in the following structure:
+
 ```
 metricbeat.yml: |-
   metricbeat.config.modules:
@@ -201,8 +209,10 @@ For example, to uninstall the `logzio-k8s-metrics` deployment, run:
 helm uninstall --namespace=kube-system logzio-k8s-metrics
 ```
 
-</div>
 
+
+</div>
+</div>
 <div id="configurations">
 
 If you want to change the default values, specify each parameter argument in the format `--set key=value[,key=value]` immediately after the command `helm install`. For example, to set the `imageTag` and `terminationGracePeriodSeconds`, run:
@@ -257,3 +267,4 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 
 </div>
 </div>
+

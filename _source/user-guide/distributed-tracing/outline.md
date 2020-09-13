@@ -43,9 +43,9 @@ How are spans grouped?
 
 # What you will see - what a set of spans in a trace looks like
 
-Search 
-Compare
-Alternate views
+Search <br>
+Alternate views <br>
+Compare <br>
 
 ### Examples
 

@@ -41,7 +41,7 @@ Update the file with the following telemetry stanza:
 
 Save the file and restart the Consul on the server.
 
-##### Check the localhost on the Consul server
+##### Test the localhost on the Consul server
 
 Now the metrics for this Consul server will be exposed locally in Prometheus format under the following endpoint:
 

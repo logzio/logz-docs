@@ -2195,6 +2195,43 @@ paths:
             $ref: '#/definitions/SnapshotGetResponse'
 
   # ::::: USER MANAGEMENT
+  /v1/user-management/recursive:
+    get:
+      summary: Retrieve users in all associated accounts
+      description: Returns a list of users in the main account and all associated sub accounts as an array of JSON objects. Must be run with an API token for the main account.
+      tags:
+        - Manage users
+      operationId: listAllAccountUsers
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X GET "https://api.logz.io/v1/user-management/recursive" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
+    post:
+      summary: Create a user
+      description: Creates a new user with specified permissions to access your log data
+      tags:
+        - Manage users
+      operationId: createUser
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/UserManagementUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/user-management" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>" -d "{ \"username\": \"artvandelay@kramerica.com\",  \"fullName\": \"Art Vandelay\",  \"accountID\": 11111,  \"roles\": [ 2 ]}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/UserManagementUpsertResponse'
   /v1/user-management:
     get:
       summary: Retrieve all users
@@ -3824,7 +3861,7 @@ definitions:
       accountID:
         type: integer
         format: int32
-        description: ID of the account attached to the user
+        description: Logz.io account ID.
         example: 55555
       roles:
         type: array

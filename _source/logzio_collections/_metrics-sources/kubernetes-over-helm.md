@@ -32,6 +32,7 @@ You can either deploy this Daemonset with the standard configuration, or with au
 * [Automated configuration _recommended_](#automated-config)
 * [Manual configuration](#manual-config)
 * [Advanced configuration](#configurations)
+* [Uninstall](#uninstall)
 {:.branching-tabs}
 
 <div id="automated-config">
@@ -63,15 +64,6 @@ Follow through the system's prompts and provide the requested parameters.
 
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
-
-### To uninstall the Chart
-
-Run the following command to remove all k8s components associated with the Chart and delete the release.
-For example, to uninstall the `logzio-k8s-metrics` deployment, run:
-
-```shell
-helm uninstall --namespace=kube-system logzio-k8s-metrics
-```
 
 </div>
 <!-- tab:end -->
@@ -130,6 +122,7 @@ You have three options for deployment:
 * [Standard configuration](#standard-config)
 * [Autodiscover configuration](#autodiscover-config)
 * [Custom configuration](#custom-config)
+* [Uninstall](#uninstall)
 
 <div id="standard-config">
 
@@ -200,14 +193,6 @@ metricbeat.yml: |-
 
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
-### To uninstall the Chart
-
-Run the following command to remove all k8s components associated with the Chart and delete the release.
-For example, to uninstall the `logzio-k8s-metrics` deployment, run:
-
-```shell
-helm uninstall --namespace=kube-system logzio-k8s-metrics
-```
 
 
 
@@ -263,6 +248,20 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 | `deployment.resources` | Allows you to set the resources for Metricbeat Deployment. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `deployment.secretMounts` | Allows you to easily mount a secret as a file inside the Deployment Useful for mounting certificates and other secrets. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `namespace` | Chart's namespace | `kube-system` |
+
+
+</div>
+
+<div id="uninstall">
+
+#### To uninstall the chart
+
+To uninstall the chart, run the following command to remove all k8s components associated with the Chart and delete the release.
+For example, to uninstall the `logzio-k8s-metrics` deployment, run:
+
+```shell
+helm uninstall --namespace=kube-system logzio-k8s-metrics
+```
 
 
 </div>

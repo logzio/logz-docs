@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Tren Micro Sample Configuration
+title: Trend Micro Sample Configuration
 permalink: /user-guide/security/trend-micro-configuration-sample/
 tags:
   - security

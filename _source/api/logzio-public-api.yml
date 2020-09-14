@@ -2195,6 +2195,30 @@ paths:
             $ref: '#/definitions/SnapshotGetResponse'
 
   # ::::: USER MANAGEMENT
+  /v1/user-management/recursive:
+    get:
+      summary: Retrieve users in all associated accounts
+      description: >-
+        Returns a list of users in the main account and all associated sub accounts as an array of JSON objects per account.
+        
+        
+        If a user appears in multiple accounts, it will be listed separately under each account.
+        
+        
+        **Note:** Must be run with an API token belonging to the main account.
+      tags:
+        - Manage users
+      operationId: listAllAccountUsers
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X GET "https://api.logz.io/v1/user-management/recursive" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
   /v1/user-management:
     get:
       summary: Retrieve all users
@@ -3824,7 +3848,7 @@ definitions:
       accountID:
         type: integer
         format: int32
-        description: ID of the account attached to the user
+        description: Logz.io account ID.
         example: 55555
       roles:
         type: array

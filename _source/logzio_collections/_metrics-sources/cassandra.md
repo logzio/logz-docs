@@ -1,25 +1,43 @@
+---
+title: Ship Cassandra metrics
+logo:
+  logofile: cassandra_logo.svg
+  orientation: horizontal
+data-source: Cassandra
+contributors:
+  - daniel-tk
+  - shalper
+shipping-tags:
+  - database
+---
 
-You can ship Cassandra metrics to [logz.io](http://logz.io/) using Metricbeat. **Before you begin, you'll need**:
 
-- Server or a cluster with Cassandra installed
-- [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher installed
+You can ship Cassandra metrics to Logz.io using Metricbeat.
 
-### **Expose Cassandra metrics**
+#### Metricbeat setup
 
-First, we will expose the Cassandra metrics using [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter):
+**Before you begin, you'll need**:
 
-1. On the machine in which Cassandra is installed, navigate to Cassandra's lib directory
+* A server or cluster with Cassandra installed
+* [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher installed
+
+<div class="tasklist">
+
+
+##### Expose Cassandra metrics
+
+First, we will expose Cassandra metrics using [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter):
+
+Open the Cassandra library directory. You can run the following command on the machine where Cassandra is installed to navigate to the right place:
 
 ```
 cd {path_to_cassandra_lib_dir}
-
 ```
 
-2. Download prometheus JMX exporter
+###### Download Prometheus JMX exporter
 
 ```
 curl -L -O https://search.maven.org/remotecontent?filepath=io/prometheus/jmx/jmx_prometheus_javaagent/0.13.0/jmx_prometheus_javaagent-0.13.0.jar
-
 ```
 
 3. Download the JMX exporter Cassandra configuration

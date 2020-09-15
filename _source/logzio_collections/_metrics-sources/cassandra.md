@@ -11,10 +11,10 @@ shipping-tags:
   - database
 ---
 
-
 You can ship Cassandra metrics to Logz.io using Metricbeat.
 
-#### Metricbeat setup
+
+#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -25,7 +25,9 @@ You can ship Cassandra metrics to Logz.io using Metricbeat.
 
 ### Expose metrics
 
-The first step is to expose Kafka metrics using the [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter).
+The first step is to expose Cassandra metrics using the [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter).
+
+
 
 
 ##### JMX exporter
@@ -33,7 +35,7 @@ The first step is to expose Kafka metrics using the [Prometheus JMX exporter](ht
 In your Cassandra server, go to the directory where Cassandra is installed on your machine:
 
 ```shell
-cd {path_to_Kafka_dir}
+cd {path_to_cassandra_dir}
 ```
 
 Download the Prometheus JMX exporter:
@@ -48,27 +50,29 @@ Download the exporter configuration file for Cassandra:
 curl -L -O https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/cassandra.yml
 ```
 
-#### These steps should be performed on all Cassandra nodes
+##### Configure Cassandra to forward metrics to Metricbeat
 
-##### Configure Cassandra
+You will need to repeat the following procedure for each Cassandra node that will be sending metrics to Logz.io.
 
-In order to integrate Cassandra with the JMX exporter, we'll need to add one line to Cassandra's configuration file:
+In order to integrate Cassandra with the JMX exporter, we'll need to add one line to Cassandra's configuration file.
 
-1. Navigate to Cassandra's configuration directory (in my case, it is located in /etc/cassandra. Might also be found in /etc/cassandra/conf). Open the file 'cassandra-env.sh' in edit mode .
+Navigate to the Cassandra configuration directory. (Depending on the installation method, it may be located under `/etc/cassandra` or `/etc/cassandra/conf`.) Open the file `cassandra-env.sh` in edit mode.
 
-2. Without deleting or changing any of the content of the file, simply add the following line (note that the paths here should match to the Cassandra paths you used):
+Without deleting or changing any of the content of the file, add the following line (after making the necessary changes to match the paths to your details):
 
 ```
 JVM_OPTS="$JVM_OPTS -javaagent:/lib/jmx_prometheus_javaagent-0.13.0.jar=7070:/lib/cassandra.yml"
 ```
 
-3. Save your changes and restart Cassandra
+##### Restart Cassandra
+
+Save your changes and restart Cassandra.
 
 ```
 systemctl restart cassandra
 ```
 
-##### Test JMX exporter metrics endpoint **(Optional)**
+##### Verify the JMX exporter metrics endpoint
 
 At this point, the metrics for your Cassandra server should be locally exposed in Prometheus format.
 It's recommended that you test your JMX exporter metrics endpoint:
@@ -76,9 +80,14 @@ It's recommended that you test your JMX exporter metrics endpoint:
 ```
 curl http://<<Cassandra_host>>:7070
 ```
-### Metricbeat monitoring setup
 
-### Download the [Logz.io](http://logz.io/) public certificate**
+
+
+### Metricbeat setup
+
+Now that metrics are exposed, set up Metricbeat monitoring to send the data to Logz.io.
+
+##### Download the Logz.io public certificate
 
 For HTTPS shipping, download the [Logz.io](http://logz.io/) public certificate to your certificate authority folder.
 
@@ -90,7 +99,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AA
 
 Open the Metricbeat configuration file (`<<PATH_TO_METRICBEAT>>/metricbeat.yml`) with your preferred text editor.
 
-Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following [Logz.io](http://logz.io/) settings:
+Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following Logz.io settings:
 
 ```
 # ===== General =====
@@ -98,12 +107,11 @@ fields:
   logzio_codec: json
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
-
 ```
 
 {% include metric-shipping/replace-metrics-token.html %}
 
-### **Set Logz.io as the output
+##### Set Logz.io as the output
 
 Still in the same configuration file, check if [Logz.io](http://logz.io/) is already an output. If not, add it now.
 
@@ -119,7 +127,7 @@ output.logstash:
 
 One last validation - make sure [Logz.io](http://logz.io/) is the only output and appears only once. If the file has other outputs, remove them.
 
-##### Add Cassandra configuration
+##### Add the Cassandra configuration
 
 Still in the same configuration file, copy and paste the code block below:
 
@@ -161,7 +169,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include metric-shipping/replace-metrics-token.html %}
 * {% include log-shipping/replace-vars.html listener=true %}
-* Edit the `hosts` field for prometheus JMX metrics, specify comma separated list of your Cassandra servers adresses (exapmle: `hosts: ["cassandra1:7070","cassandra2:7070"]` )
+* Edit the `hosts` field for prometheus JMX metrics. Specify a comma-separated list of your Cassandra server adresses, (for example: `hosts: ["cassandra1:7070","cassandra2:7070"]`).
 * Replace `<<CLUSTER-TAG>>` with a custom string value to help you identify your Cassandra cluster. This can be helpful if you're running a multi-cluster Cassandra environment.
 
 ##### Start Metricbeat

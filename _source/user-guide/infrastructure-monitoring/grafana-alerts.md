@@ -17,7 +17,7 @@ Add alerts to graphs in your Metrics dashboards to be notified when values are o
 Alerts can be configured to send notifications via your preferred [channels]({{site.baseurl}}/user-guide/integrations/endpoints.html) and email.
 You can also add a condition so an alert holds off for a certain time before it sends out notifications. During this time, the alert will appear on the graph in your dashboard as orange, before it switches to red. This will prevent triggering alerts for short-lived issues that are resolved on their own and help reduce alert fatigue.
 
-Automated *Resolved* alerts are sent for your Slack, email, and PagerDuty alert notification endpoints when your tracked metrics values drop below the configured alert thresholds. 
+When one of your tracked metrics values goes below the current alert threshold, we’ll automatically notify you that the alert was resolved via your Slack, email, and PagerDuty alert notification endpoints.
 
 If you're running multiple servers for load balancing purposes, you'll be happy to know that Logz.io Metrics won't send duplicte alerts. A deduplication mechanism protects against that.
 

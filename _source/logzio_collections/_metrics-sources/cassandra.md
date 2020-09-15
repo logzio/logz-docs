@@ -2,7 +2,7 @@
 title: Ship Cassandra metrics
 logo:
   logofile: cassandra_logo.svg
-  orientation: horizontal
+  orientation: vertical
 data-source: Cassandra
 contributors:
   - daniel-tk
@@ -23,69 +23,70 @@ You can ship Cassandra metrics to Logz.io using Metricbeat.
 
 <div class="tasklist">
 
+### Expose metrics
 
-##### Expose Cassandra metrics
+The first step is to expose Kafka metrics using the [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter).
 
-First, we will expose Cassandra metrics using [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter):
 
-Open the Cassandra library directory. You can run the following command on the machine where Cassandra is installed to navigate to the right place:
+##### JMX exporter
 
+In your Cassandra server, go to the directory where Cassandra is installed on your machine:
+
+```shell
+cd {path_to_Kafka_dir}
 ```
-cd {path_to_cassandra_lib_dir}
-```
 
-###### Download Prometheus JMX exporter
+Download the Prometheus JMX exporter:
 
 ```
 curl -L -O https://search.maven.org/remotecontent?filepath=io/prometheus/jmx/jmx_prometheus_javaagent/0.13.0/jmx_prometheus_javaagent-0.13.0.jar
 ```
 
-3. Download the JMX exporter Cassandra configuration
+Download the exporter configuration file for Cassandra:
 
 ```
 curl -L -O https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/cassandra.yml
-
 ```
 
-#### These steps should be performed in all Cassandra nodes
+#### These steps should be performed on all Cassandra nodes
 
-### **Configure Cassandra**
+##### Configure Cassandra
 
-In order to integrate Cassandra with JMX exporter, we'll need to add one line to Cassandra's configuration file:
+In order to integrate Cassandra with the JMX exporter, we'll need to add one line to Cassandra's configuration file:
 
 1. Navigate to Cassandra's configuration directory (in my case, it is located in /etc/cassandra. Might also be found in /etc/cassandra/conf). Open the file 'cassandra-env.sh' in edit mode .
 
-2. Without deleting or changing any of the content of the file, simply add the following line (note that the paths here should match to the Cassandra paths you used):  
-```
-JVM_OPTS="$JVM_OPTS -javaagent:/lib/jmx_prometheus_javaagent-0.13.0.jar=7070:/lib/cassandra.yml"
+2. Without deleting or changing any of the content of the file, simply add the following line (note that the paths here should match to the Cassandra paths you used):
 
 ```
-3. Save your changes and restart cassandra
+JVM_OPTS="$JVM_OPTS -javaagent:/lib/jmx_prometheus_javaagent-0.13.0.jar=7070:/lib/cassandra.yml"
+```
+
+3. Save your changes and restart Cassandra
 
 ```
 systemctl restart cassandra
-
 ```
 
-Test JMX exporter metrics endpoint **(Optional)**
+##### Test JMX exporter metrics endpoint **(Optional)**
+
+At this point, the metrics for your Cassandra server should be locally exposed in Prometheus format.
+It's recommended that you test your JMX exporter metrics endpoint:
 
 ```
-curl http://<Cassandra_host>>:7070
-
+curl http://<<Cassandra_host>>:7070
 ```
+### Metricbeat monitoring setup
 
-### **Configure Metricbeat**
-
-### **Download the [Logz.io](http://logz.io/) public certificate**
+### Download the [Logz.io](http://logz.io/) public certificate**
 
 For HTTPS shipping, download the [Logz.io](http://logz.io/) public certificate to your certificate authority folder.
 
 ```
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
-### **Add [Logz.io](http://logz.io/) to your Metricbeat configuration**
+##### Add Logz.io to your Metricbeat configuration
 
 Open the Metricbeat configuration file (`<<PATH_TO_METRICBEAT>>/metricbeat.yml`) with your preferred text editor.
 
@@ -102,7 +103,7 @@ fields_under_root: true
 
 {% include metric-shipping/replace-metrics-token.html %}
 
-### **Set [Logz.io](http://logz.io/) as the output**
+### **Set Logz.io as the output
 
 Still in the same configuration file, check if [Logz.io](http://logz.io/) is already an output. If not, add it now.
 
@@ -118,7 +119,7 @@ output.logstash:
 
 One last validation - make sure [Logz.io](http://logz.io/) is the only output and appears only once. If the file has other outputs, remove them.
 
-### **Add Cassandra configuration**
+##### Add Cassandra configuration
 
 Still in the same configuration file, copy and paste the code block below:
 
@@ -152,19 +153,19 @@ output.logstash:
 
 ```
 
-For a full list of available Metricbeat configuration options for the prometheus module, including explanations about TLS connections, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-prometheus.html).
+For a full list of available Metricbeat configuration options for the Prometheus module, including explanations about TLS connections, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-prometheus.html).
 
-### **Replace the placeholders in the configuration**
+##### Replace the placeholders in the configuration
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-- {% include metric-shipping/replace-metrics-token.html %}
-- {% include log-shipping/replace-vars.html listener=true %}
-- Edit the `hosts` field for prometheus JMX metrics, specify comma separated list of your cassandra servers adresses (exapmle: `hosts: ["cassandra1:7070","cassandra2:7070"]` )
-- Replace `<<CLUSTER-TAG>>` with a custome string value to help you identify your cassandra cluster, this can be helpful if you are running multi cluster cassandra environment
+* {% include metric-shipping/replace-metrics-token.html %}
+* {% include log-shipping/replace-vars.html listener=true %}
+* Edit the `hosts` field for prometheus JMX metrics, specify comma separated list of your Cassandra servers adresses (exapmle: `hosts: ["cassandra1:7070","cassandra2:7070"]` )
+* Replace `<<CLUSTER-TAG>>` with a custom string value to help you identify your Cassandra cluster. This can be helpful if you're running a multi-cluster Cassandra environment.
 
-### **Start Metricbeat**
+##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Etcd" %}
+{% include metric-shipping/open-dashboard.html title="Cassandra" %}

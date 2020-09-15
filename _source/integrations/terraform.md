@@ -38,7 +38,7 @@ The following Logz.io API endpoints are supported by this provider:
 **Before you begin, you'll need**:
 
 * [Terraform CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli)
-* [Logz.io API token]()
+* [Logz.io API token](/)
 
 ##### Get the Terraform Logz.io Provider
 
@@ -53,9 +53,9 @@ Run it:
 ```
 
 
-##### Using the Terraform Logz.io Provider
+##### Configuring the provider
 
-The provider configuration accepts the following arguments:
+The provider accepts the following arguments:
 
 * **api_token** - (Required) The API token is used for authentication. [Learn more](/user-guide/tokens/api-tokens.html).
 

@@ -8,7 +8,7 @@ tags:
   - trend micro configuration
   - xml
 contributors:
-  - shalper
+  - dorisnaaman
 ---
 
 ```xml

@@ -99,7 +99,7 @@ Start or restart Filebeat for the changes to take effect.
 
 ##### Configure Trend Micro agents to forward logs to Filebeat
 
-The process for configuring Trend Micro to send logs to your Syslog server involves several steps. All of them are performed in the Trend Micro Cloud One console. You can also reference the [official documentaton published by Trend Micro](https://cloudone.trendmicro.com/docs/workload-security/event-syslog/).
+The process for configuring Trend Micro to send logs to your Syslog server involves several steps. All of them are performed in the Trend Micro Cloud One console. You can also reference the [official documentation published by Trend Micro](https://cloudone.trendmicro.com/docs/workload-security/event-syslog/).
 
 First, log into your Trend Micro Cloud One console.
 

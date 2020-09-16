@@ -12,14 +12,14 @@ shipping-tags:
   - security
 ---
 
-Trend Micro [Deep Security Software](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/deep-security.html) is a hybrid cloud runtime security solution.
+Trend Micro [Cloud One - Workload Security](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/cloud-one-workload-security.html) (formerly Deep Security Software) is a hybrid cloud runtime security solution.
 
 You can review the Trend Micro resources in your security account, including pre-configured [security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=trend%20micro) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
 
 **Before you begin, you'll need**:
 
-* Credentials for [Trend Micro Deep Security Cloud One](https://cloudone.trendmicro.com/)
+* Credentials for [Trend Micro Cloud One](https://cloudone.trendmicro.com/)
 * [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * Root access
 
@@ -27,7 +27,7 @@ You can review the Trend Micro resources in your security account, including pre
 
 ##### Install the Trend Micro certificate on your Filebeat server {#key}
 
-Trend Micro sends encrypted data, so you'll need to install the Trend Micro certificate on the Filebeat server.
+Trend Micro sends encrypted data, so you'll need to install the Trend Micro certificate on your Filebeat server.
 
 ```
 sudo mkdir /etc/filebeat/certificates
@@ -110,11 +110,11 @@ First, log into your Trend Micro - Deep Security Cloud One console.
     1. **Name** - Provide a name for the new Syslog configuration. For example: Logz.io.
     2. **Server Name** and **Server Port** - Provide the IP address and port 6514.
     3. **Event Format** - Select **Log Event Extended Format 2.0**.
-    4. Checkoff the box for **Include time zone in events**.
+    4. Check the box to **Include time zone in events**.
     5. **Transport** - Select **TLS**.
     6. Save your changes.
 
-    ![Trend Micro Deep Security Cloud One screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/trendmicro-console1.png)
+    ![Trend Micro Cloud One screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/trendmicro-console1.png)
 
 
 5. Open the **Credentials** tab, and fill in the details:

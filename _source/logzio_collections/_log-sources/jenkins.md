@@ -10,6 +10,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - ci-cd
+---
 
 ## Filebeat setup for Jenkins
 

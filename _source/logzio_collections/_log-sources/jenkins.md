@@ -5,21 +5,11 @@ logo:
   orientation: vertical
 data-source: Jenkins
 templates: [beats-logs, "no-template"]
-open-source:
-  - title: Jenkins Logstash Plugin
-    github-repo: logstash-plugin
 contributors:
   - amosd92
   - imnotashrimp
 shipping-tags:
   - ci-cd
----
-
-This page covers methods for shipping Jenkins system logs and build console output.
-
-* To ship build console output (build logs), use the Jenkins plugin.
-* To ship Jenkins system logs, use Filebeat.
-
 
 ## Filebeat setup for Jenkins
 

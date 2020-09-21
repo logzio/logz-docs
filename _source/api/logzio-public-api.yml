@@ -42,19 +42,16 @@ info:
 
     # Authentication
 
-    The Logz.io API is available to Enterprise plan subscribers.
-    You can create new API tokens in [Logz.io](https://app.logz.io/#/dashboard/settings/api-tokens).
-    You can revoke API permissions at any time.
-
-    If you don't have an Enterprise account, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
+    The Logz.io API is available to Pro and Enterprise plan subscribers.
+    You can generate and delete API tokens in your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/api).
 
     <!-- ReDoc-Inject: <security-definitions> -->
 
 
     # Rate limiting
 
-    API call and response rates are limited per individual account.
-    To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
+    API call and response rates are limited.
+    To find out your rate limits or request changes to your plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success Team</a>.
 
 
     # Notes on alerting

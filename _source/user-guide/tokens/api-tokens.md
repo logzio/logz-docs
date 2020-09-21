@@ -14,9 +14,8 @@ contributors:
 
 If you're an Enterprise or Pro plan subscriber,
 your account includes API access.
-You have full control over your tokens to create and delete them at any time.
 
-To revoke a token's permissions, delete the token.
+API tokens are unique to each account. The only exception are a subset of account counfiguration operations that must be run with the API token of the main account.
 
 ![Manage API tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/tokens/api-tokens.png)
 
@@ -25,6 +24,8 @@ select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz
 
 
 #### Working with API tokens
+
+You have full control over your API tokens, to create and delete them at any time.
 
 * To create an API token, click **+ New API token**. Type a brief **token name** and click **Add**.
 * To delete an API token, hover over it, and click **delete** <i class="li li-trash"></i> to delete it.

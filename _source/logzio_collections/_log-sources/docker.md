@@ -12,11 +12,14 @@ open-source:
     github-repo: docker-logging-plugin
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Docker-Logging
 contributors:
+  - mirii1994
+  - shalper
   - imnotashrimp
   - amosd92
 shipping-tags:
   - container
 ---
+
 
 <!-- tabContainer:start -->
 <div class="branching-container">
@@ -28,23 +31,16 @@ shipping-tags:
 <!-- tab:start -->
 <div id="docker-collector-logs-config">
 
-#### Set up docker-collector-logs
-
-This is a Docker container that uses Filebeat to collect logs
+This integration is a Docker container that uses Filebeat to collect logs
 from other Docker containers and forward them to your Logz.io account.
 
-To use this container, you'll set environment variables in your Docker run command.
-docker-collector-logs uses those environment variables to
-generate a valid Filebeat configuration for the container.
-docker-collector-logs mounts docker.sock and the Docker logs directory
-to the container itself, allowing Filebeat to collect the logs and metadata.
+To use docker-collector-logs, you'll set environment variables when you run the container.
+The Docker logs directory and docker.sock are mounted to the container, allowing Filebeat to collect the logs and metadata.
 
-Upgrading to a newer version of docker-collector-logs while it is already running
-will cause it to resend logs that are within the `ignoreOlder` timeframe.
-You can minimize log duplicates
-by setting the `ignoreOlder` parameter of the new docker
-to a lower value (for example, `20m`).
-{:.info-box.note}
+
+{% include log-shipping/docker-collector-logs.md %}
+
+#### Deploy the Docker collector
 
 <div class="tasklist">
 
@@ -155,12 +151,12 @@ For a complete list of options, see the configuration parameters below the code 
 |---|---|
 | logzio-token <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
 | logzio-url <span class="required-param"></span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
-| logzio-dir-path	<span class="required-param"></span> | Unsent logs are saved to this location on the disk. |
+| logzio-dir-path <span class="required-param"></span> | Unsent logs are saved to this location on the disk. |
 | logzio-source | Event source. |
 | logzio-format <span class="default-param">`text`</span> | Log message format, either `json` or `text`. |
 | logzio-tag {% raw %} <span class="default-param">`{{.ID}}` (Container ID)</span> {% endraw %} | Log tag. For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. |
 | labels | Comma-separated list of labels to include in the log message. |
-| env |	Comma-separated list of environment variables to include in the log message. |
+| env | Comma-separated list of environment variables to include in the log message. |
 | env-regex | A regular expression to match logging-related environment variables. Used for advanced log tag options. If there is collision between the `label` and `env` keys, `env` wins. Both options add additional fields to the attributes of a logging message. |
 | logzio-attributes | JSON-formatted metadata to include in the log message. |
 {:.paramlist}

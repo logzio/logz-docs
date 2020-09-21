@@ -131,7 +131,7 @@ firstLevel:
       url: /user-guide/cloud-siem/xsoar-integration/
 
 
-- title: Admin tools
+- title: Admin
   icon: li-gear
   secondLevel:
   - title: Manage accounts
@@ -140,16 +140,18 @@ firstLevel:
     thirdLevel:
     - title: Time-based log accounts
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
+    - title: Flexible volume log accounts
+      url: /user-guide/accounts/flexible-volume.html
     - title: Timeless log accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
     - title: Security accounts
       url: /user-guide/accounts/manage-the-cloud-siem-account.html
     - title: Metrics accounts
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
-    - title: PCI compliance and log redaction
-      url: /user-guide/accounts/pci-compliance.html
-    - title: Support access
-      url: /user-guide/accounts/support-access.html
+  - title: PCI compliance
+    url: /user-guide/accounts/pci-compliance.html
+  - title: Granting access to Logz.io Support
+    url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
   - title: Regions
@@ -161,11 +163,13 @@ firstLevel:
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/
 
-  - title: Users
+  - title: User management
     url: /user-guide/users/
     thirdLevel:
     - title: Multi-factor authentication
       url: /user-guide/users/multi-factor-authentication.html
+    - title: Permission levels
+      url: /user-guide/accounts/permissions/
   - title: Single sign-on
     url: /user-guide/users/single-sign-on/
     thirdLevel:
@@ -178,6 +182,8 @@ firstLevel:
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:
+    - title: Manage log shipping tokens
+      url: /user-guide/tokens/log-shipping-tokens/
     - title: Manage shared tokens
       url: /user-guide/tokens/shared-tokens.html
     - title: Manage API tokens
@@ -251,12 +257,9 @@ firstLevel:
   - title: Blog
     url: https://logz.io/blog/
     external: true
-  - title: Academy
-    url: http://academy.logz.io/
-    external: true
   - title: Videos
     url: https://logz.io/learn/video/
     external: true
-  - title: Status
-    url: http://status.logz.io/
-    external: true
+  - title: Report a security issue
+    url: /report-a-security-issue/
+    external: false

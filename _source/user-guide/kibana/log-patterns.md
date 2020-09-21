@@ -3,7 +3,7 @@ layout: article
 title: Log patterns
 permalink: /user-guide/kibana/log-patterns.html
 flags:
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - log-patterns
 contributors:

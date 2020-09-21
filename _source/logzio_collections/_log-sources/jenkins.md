@@ -52,6 +52,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
 
 {% include log-shipping/replace-vars.html token=true %}
+Replace <<JENKINS-HOME>> with home location of your Jenkins installation
 
 ```yaml
 # ...

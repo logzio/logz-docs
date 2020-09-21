@@ -657,17 +657,14 @@ paths:
   # ::::: Log Insights
   /v1/insights/list:
     get:
-      summary: Get Insights list
+      summary: Get the list of Insights
       tags:
         - Insights
       description: >-
         Get the list of Insights that match your search criteria.
 
 
-        Insights are tracked for their appearance over time. Once a new Insight is detected, it receives an Insight ID and is tracked for as long as it recurrs.
-
-
-        The lookback period of Insights first occurence goes back 6 months.
+        Whenever a new Insight is detected, it receives an Insight ID and is tracked for as long as it recurs. The lookback period for Insights is 6 months.
       operationId: getPublicInsights
       parameters:
         - in: body

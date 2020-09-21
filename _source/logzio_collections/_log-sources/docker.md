@@ -58,7 +58,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run --name docker-collector-logs \
---env LOGZIO_TOKEN="<SHIPPING-TOKEN>" \
+--env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
 -v /var/run/docker.sock:/var/run/docker.sock:ro \
 -v /var/lib/docker/containers:/var/lib/docker/containers \
 logzio/docker-collector-logs

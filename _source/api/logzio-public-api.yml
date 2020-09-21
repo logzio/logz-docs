@@ -100,10 +100,17 @@ tags:
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
   - name: Insights
     description: >-
-      Logz.io monitors your logs for application errors and other issues that have been identified in the open source community.
+      Logz.io monitors your logs for Insights to help you preempt issues and alert you of potential problems.
+      
+      
+      There are two types of Insights:
+
+      * LOGCEPTION - Application errors and exceptions identified in the stack trace.
+
+      * PUBLIC_CI - Cognitive Insights correlate your logs with  vulnerabilities and issues that are trending in the open source community.
 
 
-      You can set up an alert to receive details when new or recurring insights are spotted in your system.
+      You have the option to set up an alert so you can get notified of the details when new or recurring insights are spotted in your system.
   - name: Retrieve audit trail
   - name: Manage CloudTrail links
   - name: Manage notification endpoints
@@ -649,15 +656,18 @@ paths:
 
   # ::::: Log Insights
   /v1/insights/list:
-    post:
+    get:
       summary: Get Insights list
       tags:
         - Insights
       description: >-
-        Get top insights. Application insights are error level logs grouped by their messages. Cognitive insights correlate your logs with  vulnerabilities and issues that are trending in the open source community.
+        Get the list of Insights that match your search criteria.
 
 
-        Insights are tracked for their appearance over time and their over time tected is Once a new Insight is detected, it will s are tracked You can general issues that have 
+        Insights are tracked for their appearance over time. Once a new Insight is detected, it receives an Insight ID and is tracked for as long as it recurrs.
+
+
+        The lookback period of Insights first occurence goes back 6 months.
       operationId: getPublicInsights
       parameters:
         - in: body
@@ -3121,12 +3131,12 @@ definitions:
       startDate:
         type: integer
         format: int64
-        description: UNIX timestamp in seconds specifying the start date for the query time frame. By default, returns now - 15 minutes.
+        description: UNIX timestamp in seconds specifying the start date for the query time frame. By default, returns "now - 15 minutes".
         example: 1592904389950
       endDate:
         type: integer
         format: int64
-        description: UNIX timestamp in seconds specifying the end date for the query time frame. By default, returns now.
+        description: UNIX timestamp in seconds specifying the end date for the query time frame. By default, returns "now".
         example: 1592254800000
       from:
         type: integer
@@ -3149,26 +3159,26 @@ definitions:
           enum:
             - PUBLIC_CI
             - LOGCEPTION
-        description: Filters results by Insight type. `LOGCEPTION` filters for application insights. `PUBLIC_CI` filters for cognitive insights.
+        description: Filters results by Insight type. `LOGCEPTION` filters for application insights. `PUBLIC_CI` filters for Cognitive Insights.
         default: ["PUBLIC_CI", "LOGCEPTION"]
         example: ["PUBLIC_CI", "LOGCEPTION"]
       tagNames:
         type: array
         items:
           type: string
-        description: Filters results on Insight tags values.
+        description: Filters results by the tag values used to categorize Insights.
         default: null
         example:
       logTypes:
         type: array
         items:
           type: string
-        description: Filters results by log type values.
+        description: Filters results by [log type](/log-shipping/built-in-log-types.html).
         default: null
         example: ["log-engine", "spark"]
       onlyNew:
         type: boolean
-        description: Filters for Insights that first occurred in the given time frame. In other words, excludes Insights that were first identified before or after the time frame.
+        description: Filters for Insights that first occurred in the selected time frame. In other words, excludes Insights that were first identified before or after the selected time range.
         default: false
         example: true
       sortBy:
@@ -3182,12 +3192,12 @@ definitions:
         example: COUNT
       asc:
         type: boolean
-        description: If `false`, sorts Insights in descending order for the selected `sortBy` paramater. For example, from the most frequently occurring to the least, from the highest severity to the lowest severity, by Title in descending alphabetical order from Z-A, etc.
+        description: If `false`, sorts Insights in descending order. The order depends on the selected `sortBy` paramater.
         default: false
         example: true
       search:
         type: string
-        description: Searches for an Gs by its name.
+        description: Searches for an Insight by its title.
         default: null
         example: Exception
 #      timeZone:
@@ -3203,6 +3213,7 @@ definitions:
         format: int32
         minimum: 0
         maximum: 500
+        description: Number of results to return per page. Must be a positive integer between 0-500.
       from:
         type: integer
         format: int32
@@ -3214,7 +3225,7 @@ definitions:
         format: int64
         minimum: 0
         maximum: 500
-        description: Maximum number of results to return.
+        description: Total number of results found.
       results:
         type: array
         items:
@@ -3224,22 +3235,22 @@ definitions:
     properties:
       insightId:
         type: string
-        description: An ID identifying the Insight. Can be used to track the insight's occurrence in the environment over time.
+        description: An ID identifying the Insight. Can be used to track the Insight's occurrence in the environment over time.
         example: "cf484f4c381c3e408a23accc5b487947d2f68791"
       insightType:
         type: string
         enum:
           - PUBLIC_CI
           - LOGCEPTION
-        description: Indicates if results are filtered by Insight type. `LOGCEPTION` filters for application insights. `PUBLIC_CI` filters for cognitive insights.
+        description: Indicates which filtering criteria by Insight type was applied.
         example: PUBLIC_CI
       tagName:
         type: string
-        description:
+        description: Indicates which filtering criteria by tags was applied.
         example: ignite
       description:
         type: string
-        description: A helpful description of the issue.
+        description: A helpful description of the issue identified by the Insight. The description is automatically generated by Logz.io.
         example: A match for the phrase - <'Could not find the language line'> was identified in the log message. As mentioned in the cited links, this may indicate that an issue has taken place that requires your attention.
       links:
         type: array
@@ -3249,18 +3260,18 @@ definitions:
         example: https://github.com/benedmunds/CodeIgniter-Ion-Auth/issues/784 https://www.sitepoint.com/multi-language-support-in-codeigniter/ http://forum.codeigniter.com/thread-383.html https://community.invoiceplane.com/t/topic/3322 https://www.zonwhois.com/www/gwdcanada.com.html
       additionalData:
         type: object
-        description: what is additional data??
+        description: Additional details about the Insight.
         additionalProperties:
           type: object
       firstOccurrence:
         type: integer
         format: int64
-        description: UNIX timestamp in milliseconds specifying the earliest appearance of an insight with this ID. The lookback period is up to 8 months.
+        description: UNIX timestamp in milliseconds specifying the earliest appearance of an Insight with the same ID. The lookback period is up to 6 months.
         example: 1591181276000
       lastOccurrence:
         type: integer
         format: int64
-        description: UNIX timestamp in milliseconds specifying the latest appearance of an insight with this ID in the selected time frame for the query.
+        description: UNIX timestamp in milliseconds specifying the most recent appearance of an Insight with the same ID in the selected time frame.
         example: 1591253121194
       count:
         type: integer
@@ -3271,11 +3282,11 @@ definitions:
         type: array
         items:
           type: string
-        description: Log types is ???
+        description:
         example: ["app-server", "user-analytics"]
       kibanaLink:
         type: string
-        description: Only relevant for `LOGCEPTION` Insights. Provides a drill down link to pull up the logs that match the Insight in Kibana Discover.
+        description: Only relevant for `LOGCEPTION` Insights. Provides a drill-down link to fetch the raw logs that match the Insight in Kibana Discover.
       insightTitle:
         type: string
         description: The title of the Insight.

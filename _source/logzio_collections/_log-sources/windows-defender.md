@@ -62,7 +62,7 @@ Now click **OK** to exit all those dialogs you just opened. 😬
 ##### Download the Logz.io public certificate
 
 Download the
-[Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt)
+[Logz.io public certificate]({% include log-shipping/certificate-path.md %})
 to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 

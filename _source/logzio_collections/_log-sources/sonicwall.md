@@ -35,13 +35,7 @@ Make sure you meet this configuration:
 SonicWall firewall sends logs over UDP by default. See [SonicWall docs](https://www.sonicwall.com/support/technical-documentation/?language=English) for more information
 on configuring your SonicWall firewall.
 
-##### Download the Logz.io public certificate to your Filebeat server
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Configure Filebeat
 

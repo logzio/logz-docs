@@ -77,13 +77,7 @@ curl https://localhost:9308/metrics
 
 ### Metricbeat monitoring setup
 
-##### Download the Logz.io public certificate
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Metricbeat server" %}
 
 ##### Add Logz.io to your Metricbeat configuration
 

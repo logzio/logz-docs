@@ -23,17 +23,11 @@ Please note that the following configuration needs to be performed on all releva
 **Before you begin, you'll need**:
 
 * [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation-configuration.html) or higher.
-* Check that Envoy's metrics are available at [http://localhost:19000/stats?format=prometheus](http://localhost:19000/stats?format=prometheus) 
+* Check that Envoy's metrics are available at [http://localhost:19000/stats?format=prometheus](http://localhost:19000/stats?format=prometheus)
 
 <div class="tasklist">
 
-##### Download the Logz.io public certificate
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md %}
 
 ##### Add Prometheus module configuration
 

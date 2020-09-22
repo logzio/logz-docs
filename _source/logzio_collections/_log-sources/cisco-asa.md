@@ -35,13 +35,7 @@ Make sure you meet this configuration:
 See [Cisco docs](https://www.cisco.com/c/en/us/support/security/index.html) for more information
 on configuring your Cisco ASA firewall.
 
-##### Download the Logz.io public certificate to your Filebeat server
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Add TCP traffic as an input
 

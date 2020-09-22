@@ -3253,11 +3253,11 @@ definitions:
         type: array
         items:
           type: string
-        description: Only relevant for `PUBLIC_CI` Insights. Provides reference links to recommended resources for further investigation of the issue.
+        description: Only applicable for `PUBLIC_CI` Insights. Provides reference links to recommended resources for further investigation of the issue.
         example: https://github.com/benedmunds/CodeIgniter-Ion-Auth/issues/784 https://www.sitepoint.com/multi-language-support-in-codeigniter/ http://forum.codeigniter.com/thread-383.html https://community.invoiceplane.com/t/topic/3322 https://www.zonwhois.com/www/gwdcanada.com.html
       additionalData:
         type: object
-        description: Additional details about the Insight.
+        description: Only applicable for `LOGCEPTION` Insights. Provides relevant excerpts from the stacktrace about the exception in question.
         additionalProperties:
           type: object
       firstOccurrence:
@@ -3283,7 +3283,7 @@ definitions:
         example: ["app-server", "user-analytics"]
       kibanaLink:
         type: string
-        description: Only relevant for `LOGCEPTION` Insights. Provides a drill-down link to fetch the raw logs that match the Insight in Kibana Discover.
+        description: Only applicable for `LOGCEPTION` Insights. Provides a drill-down link to fetch the raw logs that match the Insight in Kibana Discover.
       insightTitle:
         type: string
         description: The title of the Insight.

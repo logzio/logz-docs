@@ -30,22 +30,17 @@ Configuration tl;dr
 
 </details>
 
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
-[GitLab](https://about.gitlab.com/installation/) installed locally,
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
+
+* [GitLab](https://about.gitlab.com/installation/) locally installed
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
 [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
 
 <div class="tasklist">
 
-##### Download the Logz.io public certificate
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Add GitLab as an input
 

@@ -17,7 +17,7 @@ shipping-tags:
 
 **Before you begin, you'll need**:
 
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) 
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * root access
 
 <div class="tasklist">
@@ -36,13 +36,7 @@ Make sure you meet this configuration:
 See [Cisco Meraki docs](https://documentation.meraki.com/zGeneral_Administration/Monitoring_and_Reporting/Syslog_Server_Overview_and_Configuration) for more information
 on configuring your Syslog Server.
 
-##### Download the Logz.io public certificate to your Filebeat server
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-```
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Configure Filebeat
 

@@ -27,9 +27,10 @@ You can review the Juniper SRX resources in your Logz.io Cloud SIEM account, und
 {:.no_toc}
 
 **Before you begin, you'll need**:
-Juniper SRX,
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
-root access
+
+* Juniper SRX
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* Root access
 
 <div class="tasklist">
 
@@ -44,13 +45,7 @@ Configure your Juniper firewall to send logs to your Filebeat server. Make sure 
 
 See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA) for more information on configuring your Juniper SRX firewall.
 
-##### Download the Logz.io public certificate to your Filebeat server
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Configure Filebeat
 
@@ -75,8 +70,8 @@ filebeat.inputs:
     type: juniper
   fields_under_root: true
   encoding: utf-8
-  ignore_older: 3h 
-  
+  ignore_older: 3h
+
   # ... For Filebeat 7 only ...
 filebeat.registry.path: /var/lib/filebeat
 processors:
@@ -92,7 +87,7 @@ processors:
     ignore_missing: true
 ```
 
-Copy and paste the following code block directly below. It sets Logz.io as the output. It contains the placeholder `<<LISTENER-HOST>>` which you'll need to replace in the next step.  
+Copy and paste the following code block directly below. It sets Logz.io as the output. It contains the placeholder `<<LISTENER-HOST>>` which you'll need to replace in the next step.
 
 ```yaml
 # ...

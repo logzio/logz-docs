@@ -12,11 +12,12 @@ shipping-tags:
   - security
 ---
 
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
-root access
+
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* Root access
 
 <div class="tasklist">
 
@@ -34,13 +35,7 @@ For more information on logging and enabling audit devices,
 see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from HashiCorp.
 
 
-##### Download the Logz.io public certificate
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Create your configuration file for Vault
 

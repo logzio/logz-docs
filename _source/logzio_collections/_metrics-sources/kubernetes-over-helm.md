@@ -196,6 +196,7 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 ```
 
 To override configurations such as `metricbeatConfig.autoCustomConfig`, `deployment.metricbeatConfig.custom` and `daemonset.metricbeatConfig.custom`, use the `--set-file` argument in `helm install`. For example,
+
 ```shell
 helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-metrics \
   --set-file deployment.metricbeatConfig.custom=/path/to/your/config.yaml

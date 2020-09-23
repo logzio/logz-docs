@@ -27,12 +27,11 @@ You can ship Cassandra metrics to Logz.io using Metricbeat.
 
 The first step is to expose Cassandra metrics using the [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter).
 
-
-
+You will need to download the JMX exporter on each casandra node.
 
 ##### JMX exporter
 
-In your Cassandra server, go to the directory where Cassandra is installed on your machine:
+Go to the directory where Cassandra is installed on your machine:
 
 ```shell
 cd {path_to_cassandra_dir}
@@ -50,11 +49,9 @@ Download the exporter configuration file for Cassandra:
 curl -L -O https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/cassandra.yml
 ```
 
-##### Configure Cassandra to forward metrics to Metricbeat
+##### Configure Cassandra to forward metrics via Metricbeat
 
-You will need to repeat the following procedure for each Cassandra node that will be sending metrics to Logz.io.
-
-In order to integrate Cassandra with the JMX exporter, we'll need to add one line to Cassandra's configuration file.
+In order to integrate Cassandra with the JMX exporter, we'll need to add one line to the Cassandra configuration file.
 
 Navigate to the Cassandra configuration directory. (Depending on the installation method, it may be located under `/etc/cassandra` or `/etc/cassandra/conf`.) Open the file `cassandra-env.sh` in edit mode.
 

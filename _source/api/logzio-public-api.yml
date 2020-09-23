@@ -3164,14 +3164,12 @@ definitions:
         items:
           type: string
         description: Filters results by the tag values used to categorize Insights.
-        default: null
         example:
       logTypes:
         type: array
         items:
           type: string
         description: Filters results by [log type](/log-shipping/built-in-log-types.html).
-        default: null
         example: ["log-engine", "spark"]
       onlyNew:
         type: boolean

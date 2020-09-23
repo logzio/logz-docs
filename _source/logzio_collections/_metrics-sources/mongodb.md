@@ -5,8 +5,8 @@ logo:
   orientation: vertical
 data-source: MongoDB
 contributors:
-  - shalper
   - yotamloe
+  - shalper
 shipping-tags:
   - database
 ---

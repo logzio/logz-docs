@@ -27,7 +27,7 @@ You can ship Cassandra metrics to Logz.io using Metricbeat.
 
 The first step is to expose Cassandra metrics using the [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter).
 
-You will need to download the JMX exporter on each casandra node.
+You will need to download the JMX exporter on each Cassandra node.
 
 ##### JMX exporter
 
@@ -84,13 +84,7 @@ curl http://<<Cassandra_host>>:7070
 
 Now that metrics are exposed, set up Metricbeat monitoring to send the data to Logz.io.
 
-##### Download the Logz.io public certificate
-
-For HTTPS shipping, download the [Logz.io](http://logz.io/) public certificate to your certificate authority folder.
-
-```
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md %}
 
 ##### Add Logz.io to your Metricbeat configuration
 

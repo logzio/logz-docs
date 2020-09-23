@@ -20,6 +20,8 @@ Terraform is an infrastructure orchestrator written in Hashicorp Language (HCL).
 
 This guide assumes working knowledge of HashiCorp Terraform. If you're new to Terraform, we've got a great [introduction](https://logz.io/blog/terraform-vs-ansible-vs-puppet/) if you're in for one. We also recommend the official [Terraform guides and tutorials](https://www.terraform.io/guides/index.html).
 
+For additional examples, other than those provided here, see our [GitHub project](https://github.com/logzio/logzio_terraform_provider/tree/master/examples).
+
 ### Capabilities
 
 You can use the Terraform Logz.io Provider to manage users and log accounts in Logz.io, create and update log-based alerts and notification channels, and more.
@@ -62,15 +64,18 @@ The provider accepts the following arguments:
 * **region** - (Defaults to null) The 2-letter region code identifies where your Logz.io account is hosted.
 Defaults to null for accounts hosted in the US East - Northern Virginia region. [Learn more](https://docs.logz.io/user-guide/accounts/account-region.html)
 
-Example
+###### Example
+
+You can pass the variables in a bash command for the arguments:
 
 ```bash
 provider "logzio" {
-  api_token = "${var.api_token}"
-  region= "${var.your_api_region}"
+  api_token = var.api_token
+  region= var.your_api_region
 }
 ```
 </div>
+
 
 ### Example - Create a new alert and a new Slack notification endpoint
 
@@ -82,8 +87,8 @@ The alert in this example will trigger whenever Logz.io records 10 loglevel:ERRO
 
 ```
 provider "logzio" {
-  api_token = "${var.8387abb8-4831-53af-91de-5cd3784d9774}"
-  region= "${var.au}"
+  api_token = "8387abb8-4831-53af-91de-5cd3784d9774"
+  region= "au"
 }
 
 resource "logzio_endpoint" "my_endpoint" {

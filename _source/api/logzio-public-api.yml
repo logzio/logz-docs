@@ -3128,12 +3128,12 @@ definitions:
       startDate:
         type: integer
         format: int64
-        description: UNIX timestamp in seconds specifying the start date for the query time frame. By default, returns "now - 15 minutes".
+        description: UNIX timestamp in milliseconds specifying the start date for the query time frame. By default, returns the past 15 minutes ("now - 15 minutes" translated into a UNIX timestamp).
         example: 1592904389950
       endDate:
         type: integer
         format: int64
-        description: UNIX timestamp in seconds specifying the end date for the query time frame. By default, returns "now".
+        description: UNIX timestamp in milliseconds specifying the end date for the query time frame. By default, returns the current time ("now" translated into a UNIX timestamp).
         example: 1592254800000
       from:
         type: integer

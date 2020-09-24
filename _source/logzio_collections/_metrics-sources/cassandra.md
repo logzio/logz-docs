@@ -49,7 +49,7 @@ Download the exporter configuration file for Cassandra:
 curl -L -O https://raw.githubusercontent.com/prometheus/jmx_exporter/master/example_configs/cassandra.yml
 ```
 
-##### Configure Cassandra to forward metrics via Metricbeat
+##### Configure Cassandra to forward metrics via JMX exporter
 
 In order to integrate Cassandra with the JMX exporter, we'll need to add one line to the Cassandra configuration file.
 

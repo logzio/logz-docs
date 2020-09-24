@@ -16,16 +16,19 @@ shipping-tags:
   - container
 ---
 Helm is a tool for managing packages of pre-configured Kubernetes resources, known as Charts.
-Logzio-k8s-metrics allows you to ship metrics from your Kubernetes cluster.
-You can either deploy this Daemonset with the standard configuration, or with autodiscover configuration. For further information about Metricbeat's autodiscover please see [Autodiscover documentation](https://www.elastic.co/guide/en/beats/metricbeat/7.9/configuration-autodiscover.html).
-*Note*: This integration supports Autodiscover with Metricbeat version 7.6+ and defaults to Metricbeat 7.9.1.
+
+You can ship metrics from your Kubernetes cluster using Logzio-k8s-metrics.
+
+This Daemonset can be deployed using a standard configuration or [Metricbeat autodiscover](https://www.elastic.co/guide/en/beats/metricbeat/7.9/configuration-autodiscover.html), for even more powerful automation.
 
 **Before you begin, you'll need**:
 
 * [Helm CLI](https://helm.sh/docs/intro/install/) installed
 * [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
+* [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher for Autodiscover support. This integration defaults to Metricbeat 7.9.1.
 * To allow outgoing traffic to destination port 5015
 * Kubelet read-only-port 10255 enabled. Kubelet read-only-port 10255 is enabled by default on some cluster versions. If it isn’t enabled, follow Kubernetes’s instructions for enabling 10255 as a read-only-port in Kubelet’s config file
+
 
 
 <div class="branching-container">

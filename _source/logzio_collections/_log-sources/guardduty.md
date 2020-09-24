@@ -78,16 +78,17 @@ You'll need this page later on, so keep it open.
 
 ##### Download the Kinesis stream shipper
 
-Download our latest Kinesis stream shipper zip file from the [releases page](https://github.com/logzio/logzio_aws_serverless/releases).
+Download the latest Kinesis stream shipper zip file from the [Logz.io GitHub page](https://github.com/logzio/logzio_aws_serverless/releases).
 
-You'll upload `logzio-kinesis-0.0.2.zip` in the next step.
+By default, the zip file will be named `logzio-kinesis-0.0.2.zip`.
 
-##### Upload the zip file and set environment variables
+##### Upload the zip file
 
-In the _Function_ code section of Lambda, find the **Code entry type** list.
-Choose **Upload a .ZIP file** from this list.
+In the _Function_ code section of Lambda, open the **Code entry type** list and select **Upload a .ZIP file**.
 
-Click **Upload**, and choose the zip file you created earlier (`logzio-kinesis-0.0.2.zip`).
+Click **Upload** and select the zip file you created in the previous step (`logzio-kinesis-0.0.2.zip`).
+
+##### Set environment variables
 
 In the _Environment variables_ section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
@@ -166,9 +167,12 @@ Choose the Kinesis data stream from step 1 from the **Stream** list.
 
 Click **Configure details** (lower right corner).
 
+
 ##### Download the Kinesis stream shipper
 
-Download our latest Kinesis stream shipper zip file from the [releases page](https://github.com/logzio/logzio_aws_serverless/releases).
+Download the latest Kinesis stream shipper zip file from the [Logz.io GitHub page](https://github.com/logzio/logzio_aws_serverless/releases).
+
+By default, the zip file will be named `logzio-kinesis-0.0.2.zip`.
 
 ##### Create the CloudFormation package and upload to S3
 

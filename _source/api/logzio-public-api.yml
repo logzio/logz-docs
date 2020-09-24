@@ -2761,7 +2761,7 @@ definitions:
         type: null
         nullable: true
         description: Email address of the user who created the account
-        example: null
+        example: my.email@company.com
       accountName:
         type: string
         description: Name of the account
@@ -3100,7 +3100,6 @@ definitions:
       search:
         type: string
         description: Searches for an Insight by its title.
-        default: null
         example: Exception
 #      timeZone:
 #        type: string

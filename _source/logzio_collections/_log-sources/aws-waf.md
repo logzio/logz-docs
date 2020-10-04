@@ -30,24 +30,23 @@ You can review the AWS WAF resources in your Logz.io Cloud SIEM account, under t
 
 ##### Configure AWS WAF to enrich observability
 
-The first thing you'll need is to add a rule to your AWS WAF to send all HTTP request logs. Otherwise, the logs won't be sent from AWS WAF.
+The first thing you'll need is to add a rule to your AWS WAF to send all HTTP request logs.
 
-1. In your AWS WAF console, go to your web ACLs screen and choose the relevant region.
-2. Select an ACL that you can add your own rules to.
-3. In the ACL screen, go to the rules tab and add a rule.
-    1. For the **Rule type**, select **Regular Rule**.
+1. Open your AWS WAF admin console.
+Go to your web **ACLs** screen and select the relevant **Region**.
+2. Select an **ACL** that you can add your own rules to.
+3. In the **ACL** screen, open the **Rules** tab, add your own rule, and fill in the details:
+    1. **Rule type** - Select **Regular Rule**.
     2. Use the **OR** separator.
     3. Next, create a statement with the following fields:
         * **Inspect: HTTP method**
         * **Match type: Starts with string**
-        * **String to match: GET OR POST**        
-          We recommend monitoring both GET and POST methods. You can add additional statements, separated by OR for every HTTP method you would like to monitor.
-    5. For the **Than** operator, use the **Count** action.
+        * **String to match: GET**
+    4. Add additional statements, separated by **OR** for every HTTP method you would like to monitor. At the very least, we recommend monitoring GET and POST methods.
+    5. **Then** - Select the **Count** action.
     6. Save the rule.
-  4. Adjust the rule's hierarchy.
+  4. Adjust the rule's hierarchy, if relevant. If the ACL has other rules, it is recommended that this rule be as high in the hierarchy as possible, taking the other rules’ logic into consideration.
 
-  If you have other rules in your ACL, we recommend that this rule be as high up as possible in the hierarchy. That way it can take the logic of the other rules into consideration as well.
-  {:.info-box.tip}
 
 ##### Configure AWS WAF to send logs to an S3 Bucket
 

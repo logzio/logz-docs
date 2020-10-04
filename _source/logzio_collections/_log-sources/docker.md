@@ -78,6 +78,7 @@ logzio/docker-collector-logs
 | skipContainerName | Comma-separated list of containers you want to ignore. If a container's name partially matches a name on the list, that container's logs are ignored. Otherwise, its logs are shipped. <br> **Note**: Can't be used with matchContainerName |
 | includeLines | Comma-separated list of regular expressions to match the lines that you want to include. <br> **Note**: Regular expressions in this list should not contain commas. |
 | excludeLines | Comma-separated list of regular expressions to match the lines that you want to exclude. <br> **Note**: Regular expressions in this list should not contain commas. |
+| renameFields | Rename fields with every message sent, formatted as `"oldName,newName;oldName2,newName2"`. To use an environment variable, format as `"oldName,newName;oldName2,$ENV_VAR_NAME"`. When using an environment variable, it should be the only value in the field. If the environment variable can't be resolved, the field will be omitted. |
 {:.paramlist}
 
 By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.

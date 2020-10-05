@@ -11,11 +11,11 @@ contributors:
   - shalper
 ---
 
-Drilldown links help direct investigations by adding direct links between log fields and suggested dashboards.
+A drilldown link is a redirect link that takes users directly from an informative log field to another dashboard, already filtered by the selected field.
 
-You can add drilldown links to convert log fields into hyperlinks that help to simplify the navigation in Kibana and between dashboards. Wherever the field appears in a log document, visualization, dashboard, etc. it will also function as a drilldown link that opens another, pre-selected dashboard.
+When investigating a security incident through the logs, drilldown links make it possible to simply click on an informative field (such as an IP address, username, or hostname) to open a dashboard filtered by the selected field to review it in a much wider context.
 
-You can manage drilldown links to help speed up investigations and to structure your team's workflow and processes.
+Adding Drilldown links to your security account will help you speed up and streamline investigations and structure your team's workflows and processes.
 
 Drilldown links are configurable from the account settings. To get to this page,
 select [**<i class="li li-gear"></i> > Tools > Drilldown settings**](https://app.logz.io/#/dashboard/settings/drilldowns) in the top menu.

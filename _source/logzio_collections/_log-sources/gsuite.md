@@ -98,11 +98,13 @@ filebeat.registry.path: /var/lib/filebeat
 ############################# Processors #####################################
 # The following processors are to ensure compatibility with version 7
 processors:
-- rename:
-    fields:
-    - from: "source"
-      to: "gsuite_source"
-    ignore_missing: true
+- if:
+    has_fields: ['gsuite']
+  then:
+  - rename:
+      fields:
+      - from: "source"
+        to: "gsuite_source"
 - rename:
     fields:
     - from: "agent"

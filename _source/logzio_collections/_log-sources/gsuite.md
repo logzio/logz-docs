@@ -36,7 +36,7 @@ Follow the official G Suite [tutorial](https://support.google.com/gsuitemigrate/
 * Go to **Main menu** > **Security** > **API controls**.
 * In the Domain-wide delegation pane, select **Manage Domain Wide Delegation**.
 * Click **Add new**, and fill in the details:
-    * **Client ID** - Enter the Client ID obtained in the first step, when creating the service account. It is also found in the JSON key file.
+    * **Client ID** - Enter the service account's Client ID - you can find it in the service account's details under "Unique ID" or in the "client_id" filed of the credentials file that was auto-downloaded when you created a new key for your service account.
     * **OAuth Scopes** - Enter [https://www.googleapis.com/auth/admin.reports.audit.readonly](https://www.googleapis.com/auth/admin.reports.audit.readonly)
     * Click **Authorize** to confirm your changes.
 
@@ -46,15 +46,24 @@ Follow the official G Suite [tutorial](https://support.google.com/gsuitemigrate/
 
 ##### Configure Filebeat
 
-Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
-Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
-
-This code block adds G Suite as an input and sets Logz.io as the output.
-
+Open the Filebeat configuration file (the default path `/etc/filebeat/filebeat.yml`) with your preferred text editor.
+Copy and paste the code block below, overwriting the previous contents.
 
 ```yaml
-# ... filebeat.modules:
+############################# Filebeat #####################################
 
+
+############################# General #####################################
+fields:
+  logzio_codec: json
+  token: <<SHIPPING-TOKEN>>
+  type: gsuite
+fields_under_root: true
+encoding: utf-8
+ignore_older: 3h
+
+############################# Modules #####################################
+filebeat.modules:
 - module: gsuite
   saml:
     enabled: true
@@ -81,15 +90,31 @@ This code block adds G Suite as an input and sets Logz.io as the output.
     var.jwt_file: "<<PATH_TO_CERDNTIALS_FILE>>"
     var.delegated_account: "<<DELEGATED_ACCOUNT_EMAIL>>"
 
-fields:
-  logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
-  type: gsuite
-fields_under_root: true
-encoding: utf-8
-ignore_older: 3h
+############################# Input #####################################
 
-#... Output
+############################# Registry #####################################
+filebeat.registry.path: /var/lib/filebeat
+
+############################# Processors #####################################
+# The following processors are to ensure compatibility with version 7
+processors:
+- rename:
+    fields:
+    - from: "source"
+      to: "gsuite_source"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "agent"
+      to: "filebeat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source"
+    ignore_missing: true
+
+############################# Output #####################################
   logstash:
     hosts: ["<<LISTENER-HOST>>:5015"]
     ssl:
@@ -106,17 +131,13 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
-* Replace `<<PATH_TO_CREDENTIALS_FILE>>` with the relative path to the credentials file (for example `./credentials_file.json`).
+* Replace `<<PATH_TO_CREDENTIALS_FILE>>` with the path to the credentials file (for example `./credentials_file.json` if the credentials file is in the same path as `filebeat.yml`).
 
 * Replace `<<DELEGATED_ACCOUNT_EMAIL>>` with the email address of the admin G Suite user (for example `user@example.com`).
-
-One last validation - make sure Logz.io is the only output and appears only once.
-If the file has other outputs, remove them.
 
 ##### Start Filebeat
 
 Start or restart Filebeat for the changes to take effect.
-
 
 ##### Check Logz.io for your logs
 

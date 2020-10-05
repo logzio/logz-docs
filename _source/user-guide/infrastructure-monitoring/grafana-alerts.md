@@ -21,6 +21,12 @@ For better alerts management and to help you focus only on active alerts, when a
 
 Resolved alert notifications are available for Slack, PagerDuty, and email notification endpoints.
 
+To help you reduce the noise associated with receiving notifications for multiple instances of the same alert, you can use the Acknowledge status to assign the alert to a team member or to yourself, as well as manage alerts that are already under investigation (as determined by the ACK policy you manage in your notification software).
+
+When you receive an alert with the same alert ID, if the alert has the Acknowledge status, your notification endpoint will not repeat the notification.
+
+The Acknowledge status is available for the PagerDuty notification endpoint.
+
 If you're running multiple servers for load balancing purposes, you'll be happy to know that Logz.io Metrics won't send duplicte alerts. A deduplication mechanism protects against that.
 
 ###### On this page

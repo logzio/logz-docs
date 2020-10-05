@@ -1,9 +1,9 @@
 ---
-title: Ship logs from GSuite
+title: Ship logs from G Suite
 logo:
   logofile: gsuite-logo.svg
   orientation: horizontal
-data-source: GSuite
+data-source: G Suite
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

@@ -17,17 +17,21 @@ Add alerts to graphs in your Metrics dashboards to be notified when values are o
 Alerts can be configured to send notifications via your preferred [channels]({{site.baseurl}}/user-guide/integrations/endpoints.html) and email.
 You can also add a condition so an alert holds off for a certain time before it sends out notifications. During this time, the alert will appear on the graph in your dashboard as orange, before it switches to red. This will prevent triggering alerts for short-lived issues that are resolved on their own and help reduce alert fatigue.
 
+If you're running multiple servers for load balancing purposes, you'll be happy to know that Logz.io Metrics won't send duplicte alerts. A deduplication mechanism protects against that.
+
+### Resolved alerts
+
 For better alerts management and to help you focus only on active alerts, when a tracked metric returns to its accepted values (below the current alert threshold), you'll get notified automatically that the triggered alert was resolved. 
 
 Resolved alert notifications are available for Slack, PagerDuty, and email notification endpoints.
+
+### Acknowledged alerts
 
 To help you reduce the noise associated with receiving notifications for multiple instances of the same alert, you can use the Acknowledge status to assign the alert to a team member or to yourself, as well as manage alerts that are already under investigation (as determined by the ACK policy you manage in your notification software).
 
 When you receive an alert with the same alert ID, if the alert has the Acknowledge status, your notification endpoint will not repeat the notification.
 
 The Acknowledge status is available for the PagerDuty notification endpoint.
-
-If you're running multiple servers for load balancing purposes, you'll be happy to know that Logz.io Metrics won't send duplicte alerts. A deduplication mechanism protects against that.
 
 ###### On this page
 {:.no_toc}

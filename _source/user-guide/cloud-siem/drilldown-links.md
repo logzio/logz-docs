@@ -13,7 +13,7 @@ contributors:
 
 A drilldown link is a redirect link that takes users directly from an informative log field to another dashboard, already filtered by the selected field.
 
-When investigating a security incident through the logs, drilldown links make it possible to simply click on an informative field (such as an IP address, username, or hostname) to open a related dashboard, filtered by the selected field, and review the field in a wider context.
+When investigating a security incident through the logs, drilldown links make it possible to simply click on an informative field (such as an IP address, username, or hostname) to open a related dashboard, filtered by the selected field, and review the event in a wider context.
 
 Adding Drilldown links to your security account will help you speed up and streamline investigations and structure your team's workflows and processes.
 

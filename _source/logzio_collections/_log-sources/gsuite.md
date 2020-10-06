@@ -117,10 +117,10 @@ processors:
     ignore_missing: true
 
 ############################# Output #####################################
-  logstash:
-    hosts: ["<<LISTENER-HOST>>:5015"]
-    ssl:
-      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 For a full list of available Filebeat configuration options for the G Suite module, please see Filebeat's [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/_configure_the_module.html).

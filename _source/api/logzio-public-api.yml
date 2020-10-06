@@ -2659,7 +2659,7 @@ definitions:
       email:
         type: string
         pattern: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
-        description: Account administrator's email address
+        description: Email address of an existing admin user on the main account which will also become the admin of the account being created
         example: help@logz.io
       accountName:
         type: string

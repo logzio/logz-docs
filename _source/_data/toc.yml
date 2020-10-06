@@ -113,6 +113,8 @@ firstLevel:
     thirdLevel:
     - title: Research & Dashboards
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
+    - title: Drilldown links
+      url: /user-guide/cloud-siem/drilldown-links/
   - title: Investigate malicious IPs
     url: /user-guide/cloud-siem/malicious-IPs.html
     thirdLevel:

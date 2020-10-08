@@ -111,7 +111,7 @@ hierarchy.Configured = true;
 | bufferTimeout <span class="default-param">`00:00:05`</span> | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. |
 | retriesMaxAttempts <span class="default-param">`3`</span> | Maximum number of attempts to connect to Logz.io. |
 | retriesInterval <span class="default-param">`00:00:02`</span> | Time to wait between retries, as _hh:mm:ss.fff_. |
-| gzip <span class="default-param">`false`</span| To compress the data before shipping, `true`. Otherwise, `false`. |
+| gzip <span class="default-param">`false`</span>| To compress the data before shipping, `true`. Otherwise, `false`. |
 | debug <span class="default-param">`false`</span> | To print debug messsages to the console and trace log, `true`. Otherwise, `false`. |
 {:.paramlist}
 

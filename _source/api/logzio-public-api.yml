@@ -99,10 +99,17 @@ tags:
 
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
   - name: Retrieve audit trail
-  - name: Manage CloudTrail links
-  - name: Manage S3 Buckets
+  - name: Connect to CloudTrail
+    description: Establish a connection to ship logs to the Logz.io observability platform via an S3 bucket. Supports CloudTrail logs.
+  - name: Connect to S3 Buckets
     description: >-
-      Ship logs to Logz.io using an S3 bucket. Supports ELB, S3 Access, CloudFront, VPC Flow logs. If you're looking to ship CloudTrail logs, see the designated endpoints.
+      Establish a connection to ship logs to the Logz.io observability platform via an S3 bucket. Supports ELB, S3 Access, CloudFront, VPC Flow logs.
+      
+      
+      If you're looking to ship CloudTrail logs, use the designated endpoints.
+
+
+      Authentication can be established with either S3 secret credentials or ARNs (for AWS IAM Roles). Authentication with S3 Secret Credentials is supported for backward compatibility. Authentication with ARNs (for IAM Roles) is strongly recommended.
   - name: Manage notification endpoints
     description: >-
       Logz.io can send notifications to your preferred workspaces, such as Opsgenie, BigPanda, PagerDuty, and Slack.
@@ -146,10 +153,12 @@ x-tagGroups:
   - name: Data security
     tags:
       - Retrieve audit trail
-  - name: AWS security and audit
+  - name: Connect with AWS resources
+    description: >-
+      
     tags:
-      - Manage CloudTrail links
-      - Manage S3 Buckets
+      - Connect to CloudTrail
+      - Connect to S3 Buckets
 
 paths:
   # ::::: ACCOUNTS
@@ -685,14 +694,14 @@ paths:
   /v1/log-shipping/cloudtrails:
     get:
       operationId: getAccountCloudTrails
-      summary: Retrieve all CloudTrail links
+      summary: Retrieve all connected CloudTrail resources
       description: >-
-        Returns a list of CloudTrail links attached to your Logz.io account
+        Returns a list of CloudTrail resources connected to your Logz.io account.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       responses:
         200:
           description: successful operation
@@ -705,14 +714,17 @@ paths:
           source: 'curl -X GET "https://api.logz.io/v1/log-shipping/cloudtrails" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
     post:
       operationId: createCloudTrail
-      summary: Create a CloudTrail link
+      summary: Create a new CloudTrail connector
       description: >-
-        Creates a new link to your CloudTrail data in an AWS S3 bucket.
+        Establishes a new connection to a CloudTrail resource. As a result, logs from your CloudTrail resource will ship to the connected Logz.io account via an AWS S3 bucket.
+        
+        
+        CloudTrail logs will be parsed using the Logz.io custom CloudTrail parsing pipeline.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       parameters:
         - in: body
           name: body
@@ -738,21 +750,21 @@ paths:
   /v1/log-shipping/cloudtrails/{id}:
     get:
       operationId: getCloudTrail
-      summary: Retrieve a CloudTrail link by ID
+      summary: Retrieve CloudTrail connector by ID
       description: >-
-        Returns connection information on a single CloudTrail link.
+        Returns details for a CloudTrail connector, identified by its ID.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       parameters:
         - name: id
           in: path
           required: true
           type: integer
           format: int32
-          description: ID of the CloudTrail link
+          description: Logz.io ID of the CloudTrail connector
       responses:
         200:
           description: successful operation
@@ -760,14 +772,14 @@ paths:
             $ref: '#/definitions/CloudTrailResponse'
     put:
       operationId: updateCloudTrail
-      summary: Update a CloudTrail link
+      summary: Update a CloudTrail connector
       description: >-
-        Updates connection information for a CloudTrail link.
+        Updates details for a CloudTrail connector.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       parameters:
         - in: body
           name: body
@@ -775,6 +787,7 @@ paths:
           schema:
             $ref: '#/definitions/CloudTrailRequest'
         - name: id
+          description: Logz.io ID of the CloudTrail connector.
           in: path
           required: true
           type: integer
@@ -786,16 +799,17 @@ paths:
             $ref: '#/definitions/MessageBean'
     delete:
       operationId: deleteCloudTrail
-      summary: Delete a CloudTrail link
+      summary: Delete a CloudTrail connector
       description: >-
-        Deletes a Logz.io link to CloudTrail.
+        Deletes a CloudTrail connector. As a result, CloudTrail will stop shipping data to your Logz.io account.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       parameters:
         - name: id
+          description: Logz.io ID of the CloudTrail connector.
           in: path
           required: true
           type: integer
@@ -809,10 +823,10 @@ paths:
   # ::::: S3 log shipping
   /log-shipping/s3-buckets:
     get:
-      summary: Retrieve all S3 bucket links
-      description: Returns a list of all S3 links attached to your Logz.io account.
+      summary: Retrieve all connected S3 buckets
+      description: Returns a list of all S3 buckets connected to your Logz.io account.
       tags:
-        - Manage S3 Buckets
+        - Connect to S3 Buckets
       operationId: getS3Buckets
       consumes:
         - application/json
@@ -823,10 +837,17 @@ paths:
         default:
           description: successful operation
     post:
-      summary: Create an S3 bucket link
-      description: Creates a new link to your data in an AWS S3 bucket.
+      summary: Create a new S3 bucket connector
+      description: >-
+        Establishes a new connection to an S3 bucket. As a result, logs from your AWS resource will ship to the connected Logz.io account via an AWS S3 bucket.
+        
+        
+        Logs will be parsed using the Logz.io custom parsing pipeline for the resource.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage S3 Buckets
+        - Connect to S3 Buckets
       operationId: createBuckets
       consumes:
         - application/json
@@ -843,10 +864,10 @@ paths:
           description: successful operation
   '/log-shipping/s3-buckets/{id}':
     get:
-      summary: Retrieve an S3 link by ID
-      description: Returns connection information for a single S3 bucket link.
+      summary: Retrieve an S3 bucket connector by ID
+      description: Returns connection details for an S3 bucket connector.
       tags:
-        - Manage S3 Buckets
+        - Connect to S3 Buckets
       operationId: getS3Bucket
       consumes:
         - application/json
@@ -854,6 +875,7 @@ paths:
         - application/json
       parameters:
         - name: id
+          description: Logz.io ID of the S3 Bucket connector. You can run the relevant GET endpoints to retrieve the ID.
           in: path
           required: true
           type: integer
@@ -862,10 +884,10 @@ paths:
         default:
           description: successful operation
     put:
-      summary: Update an S3 link
-      description: Updates connection information for an S3 bucket link.
+      summary: Update an S3 bucket connector
+      description: Updates connection details for an S3 bucket connector.
       tags:
-        - Manage S3 Buckets
+        - Connect to S3 Buckets
       operationId: updateBucket
       consumes:
         - application/json
@@ -874,6 +896,7 @@ paths:
       parameters:
         - name: id
           in: path
+          description: Logz.io ID of the S3 Bucket connector. You can run the relevant GET endpoints to retrieve the ID.
           required: true
           type: integer
           format: int32
@@ -886,10 +909,10 @@ paths:
         default:
           description: successful operation
     delete:
-      summary: Delete an S3 link
-      description: Deletes a Logz.io link to an S3 bucket.
+      summary: Delete an S3 connector
+      description: Deletes an S3 bucket connector. As a result, the connected AWS resource will stop shipping logs to your Logz.io account.
       tags:
-        - Manage S3 Buckets
+        - Connect to S3 Buckets
       operationId: deleteBucket
       consumes:
         - application/json
@@ -897,6 +920,7 @@ paths:
         - application/json
       parameters:
         - name: id
+          description: Logz.io ID of the S3 bucket connector. You can run the relevant GET endpoints to retrieve the ID.
           in: path
           required: true
           type: integer
@@ -906,10 +930,18 @@ paths:
           description: successful operation
   /log-shipping/s3-buckets/aws-assume-role-details:
     get:
-      summary: Get IAM details
-      description: Returns the AWS IAM role details for the S3 bucket.
+      summary: Get account information for IAM Role
+      description: >-
+        Returns the Logz.io parameters required to create an AWS IAM Role in the AWS admin console.
+        
+        
+        The next steps after running this endpoint:
+
+        * Open your AWS Admin Console and create a new IAM Role. Provides the ARN for the following step.
+
+        * Run the endpoint to create a new connection. Provide the ARN for authentication.
       tags:
-        - Manage S3 Buckets
+        - Connect to S3 Buckets
       operationId: getAWSAssumeRoleDetails
       consumes:
         - application/json
@@ -2544,23 +2576,42 @@ definitions:
   # ::::: S3 DEFINITIONS
   S3BucketRequest:
     type: object
+    required:
+    - bucket
+    - region
+    - logsType
     properties:
       accessKey:
         type: string
+        description: AWS S3 bucket access key
+        example: ee07df5801500745419c6dff
       secretKey:
         type: string
+        description: AWS S3 bucket secret key
+        example: 506d891fe2163a511b450eddc3279539f6
       arn:
         type: string
+        description: Amazon Resource Name (ARN) to uniquely identify the S3 bucket. To generate a new ARN, create a new IAM Role in your AWS admin console.
       bucket:
         type: string
+        description: AWS S3 bucket name
+        example: AWS bucket
       prefix:
         type: string
+        description: Prefix of the AWS S3 bucket
+        example: AWSLogs/7364988021587/myprefix
       active:
         type: boolean
+        description: If `true`, the S3 bucket connector is active and logs are being shipped to Logz.io. If `false`, the connector is disabled.
+        example: true
       addS3ObjectKeyAsLogField:
         type: boolean
+        default: true
+        description: If `true`, enriches logs with a new field detailing the S3 object key.
+        example: true
       region:
         type: string
+        description: Specify one supported AWS region.
         enum:
           - US_EAST_1
           - US_EAST_2
@@ -2579,19 +2630,24 @@ definitions:
           - CA_CENTRAL_1
       logsType:
         type: string
-        description: ?? Log type used to parse the data. See [log types with default parsing supported out-of-the-box by Logz.io](/user-guide/log-shipping/built-in-log-types.html).
-        example:
+        enum:
+          - elb
+          - vpcflow
+          - S3Access
+          - cloudfront
+        description: Specify the log type you will be sending to Logz.io. As a result, Logz.io will apply the appropriate parsing pipeline. [Learn more about parsing options supported by Logz.io](/user-guide/log-shipping/built-in-log-types.html).
+        example: elb
   AWSAssumeRoleDetails:
     type: object
     properties:
       logzioAWSAccountId:
         type: string
-        description: ??
+        description: Logz.io account ID. Provide this account ID when creating a new AWS IAM Role.
         example:
       assignedExternalId:
         type: string
-        description: ??
-        example: 
+        description: Logz.io external ID. Provide this external ID when creating a new AWS IAM Role.
+        example:
 
 
 
@@ -2602,7 +2658,7 @@ definitions:
       id:
         type: integer
         format: int32
-        description: ID of the CloudTrail link
+        description: Logz.io ID of the CloudTrail connector. Use this ID to perform operations on the connector using Logz.io API endpoints.
         example: 15
       accessKey:
         type: string
@@ -2614,11 +2670,11 @@ definitions:
         example: cloudtrails bucket
       prefix:
         type: string
-        description: AWS S3 key prefix
+        description: Prefix of the AWS S3 bucket
         example: AWSLogs/7364988021587/myprefix
       active:
         type: boolean
-        description: If the CloudTrail link is active, `true`. If it is disabled, `false`.
+        description: If `true`, the CloudTrail connector is active and logs are being shipped to Logz.io. If `false`, the connector is disabled.
         example: true
   IdBean:
     type: object
@@ -2628,7 +2684,7 @@ definitions:
         format: int32
         readOnly: true
         minimum: 1
-        description: ??
+        description: Logz.io ID of the CloudTrail connector. Use this ID to perform operations on the connector using Logz.io API endpoints.
   CloudTrailRequest:
     type: object
     properties:
@@ -2646,11 +2702,11 @@ definitions:
         example: LogzioBucket
       prefix:
         type: string
-        description: AWS S3 key prefix
+        description: Prefix of the AWS S3 bucket
         example: AWSLogs/7364988021587/myprefix
       active:
         type: boolean
-        description: If the CloudTrail link is active, `true`. If it is disabled, `false`.
+        description: If `true`, the CloudTrail connector is active and logs are being shipped to Logz.io. If `false`, the connector is disabled.
   MessageBean:
     type: object
     properties:

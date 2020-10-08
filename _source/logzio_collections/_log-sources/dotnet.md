@@ -67,6 +67,7 @@ _Option 1: In a configuration file_
     <bufferTimeout>00:00:05</bufferTimeout>
     <retriesMaxAttempts>3</retriesMaxAttempts>
     <retriesInterval>00:00:02</retriesInterval>
+    <gzip>true</gzip>
     <debug>false</debug>
 
   </appender>
@@ -93,6 +94,7 @@ logzioAppender.AddBufferTimeout("00:00:05");
 logzioAppender.AddRetriesMaxAttempts("3");
 logzioAppender.AddRetriesInterval("00:00:02");
 logzioAppender.AddDebug(false);
+logzioAppender.AddGzip(true);
 
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;

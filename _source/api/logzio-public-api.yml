@@ -3516,7 +3516,7 @@ definitions:
       id:
         type: integer
         format: int32
-        description: ID of the CloudTrail link
+        description: Logz.io ID of the CloudTrail connector. Use this ID to perform operations on the connector using Logz.io API endpoints.
         example: 15
       accessKey:
         type: string
@@ -3528,11 +3528,11 @@ definitions:
         example: cloudtrails bucket
       prefix:
         type: string
-        description: AWS S3 key prefix
+        description: Prefix of the AWS S3 bucket
         example: AWSLogs/7364988021587/myprefix
       active:
         type: boolean
-        description: If the CloudTrail link is active, `true`. If it is disabled, `false`.
+        description: If `true`, the CloudTrail connector is active and logs are being shipped to Logz.io. If `false`, the connector is disabled.
         example: true
   IdBean:
     type: object
@@ -3542,7 +3542,7 @@ definitions:
         format: int32
         readOnly: true
         minimum: 1
-        description: ??
+        description: Logz.io ID of the CloudTrail connector. Use this ID to perform operations on the connector using Logz.io API endpoints.
   CloudTrailRequest:
     type: object
     properties:
@@ -3560,11 +3560,11 @@ definitions:
         example: LogzioBucket
       prefix:
         type: string
-        description: AWS S3 key prefix
+        description: Prefix of the AWS S3 bucket
         example: AWSLogs/7364988021587/myprefix
       active:
         type: boolean
-        description: If the CloudTrail link is active, `true`. If it is disabled, `false`.
+        description: If `true`, the CloudTrail connector is active and logs are being shipped to Logz.io. If `false`, the connector is disabled.
   MessageBean:
     type: object
     properties:

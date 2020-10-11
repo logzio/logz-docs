@@ -1,11 +1,9 @@
 ---
 title: Ship .NET logs
-data-source:
+data-source:chef_automate
 templates: ["library"]
 open-source:
   - title: Chef Automate
-contributors:
-  - doronbargo
 shipping-tags:
   - Security
   - ci-cd

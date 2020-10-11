@@ -1,26 +1,26 @@
 ---
-title: Ship Chef Automate data
+title: Ship Chef Automate data 
 logo:
   logofile: consul1.png
-  orientation: vertical
-data-source: Chef Automate
+  orientation: vertical 
+data-source: Chef Automate 
 contributors:
   - doron-bargo
-  - shalper
+  - shalper 
 shipping-tags:
   - security
-  - ci-cd
+  - ci-cd 
 ---
 
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Operational Logs](#opertional-config)
-* [InfoSpec Compliance](#infospec-config)
+* [Operational Logs](#Opertional-config)
+* [InSpec Compliance](#Inspec-config)
 {:.branching-tabs}
 
 <!-- tab:start -->
-<div id="opertional-config">
+<div id="Opertional-config">
 
 You can ship Chef-Automate operational logs using Journalbeat
 #### Journalbeat setup
@@ -86,11 +86,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 </div>
 <!-- tab:end -->
 
-
-<!-- tab:end -->
-
 <!-- tab:start -->
-<div id="infospec-config">
+<div id="inspec-config">
 
 To get Infospec compliance report you will have to set a webhook using Chef Automate UI
 
@@ -120,6 +117,7 @@ Once you run Inspec compliance report, the report will be shipped to your Logzio
 
 </div>
 </div>
+<!-- tab:end -->
 </div>
 <!-- tabContainer:end -->
 

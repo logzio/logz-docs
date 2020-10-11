@@ -1070,7 +1070,11 @@ paths:
   /log-shipping/s3-buckets:
     get:
       summary: Retrieve all connected S3 buckets
-      description: Returns a list of all S3 buckets connected to your Logz.io account.
+      description: >-
+        Returns a list of all S3 buckets connected to your Logz.io account.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getS3Buckets
@@ -1115,7 +1119,11 @@ paths:
   '/log-shipping/s3-buckets/{id}':
     get:
       summary: Retrieve an S3 bucket connector by ID
-      description: Returns connection details for an S3 bucket connector by its ID.
+      description: >-
+        Returns connection details for an S3 bucket connector by its ID.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getS3Bucket
@@ -1137,7 +1145,11 @@ paths:
               $ref: '#/definitions/S3BucketResponse'
     put:
       summary: Update an S3 bucket connector
-      description: Updates connection details for an S3 bucket connector.
+      description: >-
+        Updates connection details for an S3 bucket connector.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: updateBucket
@@ -1162,7 +1174,11 @@ paths:
           description: successful operation
     delete:
       summary: Delete an S3 connector
-      description: Deletes an S3 bucket connector. As a result, the connected AWS resource will stop shipping logs to your Logz.io account.
+      description: >-
+        Deletes an S3 bucket connector. As a result, the connected AWS resource will stop shipping logs to your Logz.io account.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: deleteBucket
@@ -1192,6 +1208,9 @@ paths:
         * Open your AWS admin console and create a new IAM Role. Once the role is created, you will obtain an ARN for it. Keep it handy for the next step.
 
         * Create a new S3 bucket connector. Provide the ARN from the previous step in the request body.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getAWSAssumeRoleDetails

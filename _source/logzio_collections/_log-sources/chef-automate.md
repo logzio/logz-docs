@@ -3,12 +3,12 @@ title: Ship Chef Automate data
 logo:
   logofile: consul1.png
   orientation: vertical
-data-source:Chef Automate
+data-source: Chef Automate
 contributors:
   - doron-bargo
   - shalper
 shipping-tags:
-  - Security
+  - security
   - ci-cd
 ---
 

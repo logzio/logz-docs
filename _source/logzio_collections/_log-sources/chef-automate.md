@@ -1,7 +1,5 @@
 ---
 title: Ship .NET logs
-logo:
-  logofile:
 data-source:
 templates: ["library"]
 open-source:

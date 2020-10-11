@@ -1,9 +1,12 @@
 ---
-title: Ship .NET logs
-data-source:chef_automate
-templates: ["library"]
-open-source:
-  - title: Chef Automate
+title: Ship Chef Automate data
+logo:
+  logofile: consul1.png
+  orientation: vertical
+data-source:Chef Automate
+contributors:
+  - doron-bargo
+  - shalper
 shipping-tags:
   - Security
   - ci-cd

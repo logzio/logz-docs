@@ -12,7 +12,7 @@ shipping-tags:
   - security
 ---
 
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
@@ -42,13 +42,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 -out /etc/filebeat/certificates/McafeeEpo.crt
 ```
 
-##### Download the Logz.io public certificate to your Filebeat server
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Add TCP traffic as an input
 

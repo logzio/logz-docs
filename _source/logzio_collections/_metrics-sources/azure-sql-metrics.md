@@ -80,16 +80,7 @@ You'll need this information later on, so paste it in your text editor.
 "password": "e6ab6d24-4907-5d11-a132-a171ef55355d",
 ```
 
-##### Download the [Logz.io](http://logz.io/) public certificate
-
-
-
-For HTTPS shipping, download the [Logz.io](http://logz.io/) public certificate to your certificate authority folder.
-You'll need to run this command on the server that hosts Metricbeat:
-
-```
-sudo curl <https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt> --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Metricbeat server" clarification="You'll need to run this command on the server that hosts Metricbeat:" %}
 
 ##### (_Optional_) Disable the system module
 

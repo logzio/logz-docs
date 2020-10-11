@@ -62,6 +62,8 @@ tags:
     name: Databases
   - slug: traces
     name: Tracing
+  - slug: networking
+    name: Networking
 
 
 # templates is an array of rough procedures that are used by multiple shipping

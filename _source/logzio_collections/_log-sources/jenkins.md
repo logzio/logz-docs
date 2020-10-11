@@ -5,30 +5,12 @@ logo:
   orientation: vertical
 data-source: Jenkins
 templates: [beats-logs, "no-template"]
-open-source:
-  - title: Jenkins Logstash Plugin
-    github-repo: logstash-plugin
 contributors:
   - amosd92
   - imnotashrimp
 shipping-tags:
   - ci-cd
 ---
-
-This page covers methods for shipping Jenkins system logs and build console output.
-
-* To ship build console output (build logs), use the Jenkins plugin.
-* To ship Jenkins system logs, use Filebeat.
-
-<!-- tabContainer:start -->
-<div class="branching-container">
-
-* [Filebeat](#filebeat-config)
-* [Jenkins plugin](#jenkins-plugin-config)
-{:.branching-tabs}
-
-<!-- tab:start -->
-<div id="filebeat-config">
 
 ## Filebeat setup for Jenkins
 
@@ -40,7 +22,7 @@ Configuration tl;dr
 
 | Item | Description |
 |---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt) |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | Default log location | `/var/log/jenkins/jenkins.log` |
 | Log type _\(for preconfigured parsing\)_ | `jenkins` |
@@ -48,28 +30,24 @@ Configuration tl;dr
 
 </details>
 
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
-root access
+
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
+[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
+* Root access
 
 <div class="tasklist">
 
-##### Download the Logz.io public certificate
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Add Jenkins as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
 
 {% include log-shipping/replace-vars.html token=true %}
+Replace <<JENKINS-HOME>> with home location of your Jenkins installation
 
 ```yaml
 # ...
@@ -77,6 +55,7 @@ filebeat.inputs:
 - type: log
   paths:
   - /var/log/jenkins/jenkins.log
+  - /var/<<JENKINS-HOME>>/jobs/*/builds/lastFailedBuild/log
   fields:
     logzio_codec: plain
 
@@ -144,99 +123,3 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-</div>
-
-</div>
-<!-- tab:end -->
-
-<!-- tab:start -->
-<div id="jenkins-plugin-config">
-
-## Jenkins Logstash Plugin setup
-
-This is a temporary fork of a Jenkins-maintained project named Jenkins Logstash Plugin.
-We're working toward merging our implementation in the Jenkins repo.
-For full documentation and all configuration options, see the original [Jenkins Logstash Plugin](https://github.com/jenkinsci/logstash-plugin) repo on GitHub.
-{:.info-box.note}
-
-Jenkins Logstash Plugin sends Jenkins build logs to your Logz.io account.
-The plugin is configured per project.
-You can choose to stream a project's build logs or to send only the last logs of each build.
-
-#### To configure Jenkins Logstash Plugin
-
-**Before you begin, you'll need**:
-[JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html),
-[Maven](https://maven.apache.org/install.html)
-
-<div class="tasklist">
-
-##### Clone the Jenkins Logstash Plugin repo
-
-Clone the Jenkins Logstash Plugin repo and `cd` into the logstash-plugin folder.
-
-```shell
-git clone https://github.com/logzio/logstash-plugin
-cd logstash-plugin
-```
-
-##### Load the plugin in Jenkins
-
-Set Maven to use JDK 8, and then build the plugin.
-
-```shell
-JAVA_HOME=/path/to/jdk/8/ mvn package
-```
-
-Copy `logstash-plugin/target/logstash.hpi` to your Jenkins plugins folder on your Jenkins server.
-
-```shell
-cp /path/to/repo/logstash-plugin/target/logstash.hpi $JENKINS_HOME/plugins
-```
-
-Restart Jenkins for the changes to take effect.
-You can do this by browsing to `http://<<JENKINS-SERVER>>/restart` or `http://<<JENKINS-SERVER>>/safeRestart`.
-
-##### Configure the plugin in Jenkins
-
-Log in to the Jenkins UI and navigate to **Manage Jenkins > Configure System**.
-
-In the _Logstash_ section, select **Enable sending logs to an Indexer**, and then set these options:
-
-* In the **Indexer Type** list, choose **Logz.io**.
-* **Logz.io Host**: Your region's listener host.
-  For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
-* **Logz.io Token**: The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
-
-Click **Save**.
-
-##### Enable the plugin in your Jenkins jobs
-
-In each Jenkins job, click **Configure** in the left menu to set your logging preferences.
-
-Make sure you enable only one of these options.
-If both options are enabled, Jenkins Logstash Plugin will send duplicate logs Logz.io.
-{:.info-box.important}
-
-###### To stream all logs
-
-In the _General_ section, select **Send console log to Logstash**, and click **Save**.
-
-###### To send only the last logs of each build
-
-In the _Post-build Actions_ section (at the bottom of the page), select **Add post-build action > Send console log to Logstash**.
-In the **Max lines** box, type the number of logs you want to send per build, and then click **Save**.
-
-##### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-
-If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
-</div>
-
-</div>
-<!-- tab:end -->
-
-</div>
-<!-- tabContainer:end -->

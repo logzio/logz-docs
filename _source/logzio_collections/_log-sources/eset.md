@@ -17,7 +17,7 @@ shipping-tags:
 * [ESET Endpoint Protection Advanced](https://www.eset.com/us/business/endpoint-protection-advanced/download/) installed
 * ESET Admin Console locally installed. (The cloud management console does not support sending logs to a Syslog server and therefore is not supported.)
 * [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
-* root access
+* Root access
 
 
 <div class="tasklist">
@@ -35,14 +35,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 -out /etc/filebeat/certificates/ESET.crt
 ```
 
-##### Download the Logz.io public certificate to your Filebeat server
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
-
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Configure Filebeat
 

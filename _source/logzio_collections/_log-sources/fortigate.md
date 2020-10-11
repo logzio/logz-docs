@@ -15,9 +15,10 @@ shipping-tags:
 #### Configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
-root access
+
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
+[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
+* Root access
 
 <div class="tasklist">
 
@@ -45,13 +46,7 @@ set port 514
 end
 ```
 
-##### Download the Logz.io public certificate to your Filebeat server
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
 ##### Add UDP traffic as an input
 

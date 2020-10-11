@@ -4,16 +4,12 @@ title: Add a private feed
 permalink: /user-guide/cloud-siem/private-feeds.html
 flags:
   logzio-plan: enterprise
-  alpha: true
 tags:
   - security-analytics
   - security-rules
 contributors:
   - shalper
 ---
-
-This feature is in Alpha. Please contact the <a class="intercom-launch" href="mailto:help@logz.io">Support team or your account manager</a> to request early access.
-{:.info-box.note}
 
 You can enrich threat detection with your own private feed of malicious IPs. To do so, you'll need to maintain an IOC-specific feed for IPs and make it accessible by HTTP/HTTPS to Logz.io.
 

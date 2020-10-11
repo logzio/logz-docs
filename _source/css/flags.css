@@ -46,7 +46,7 @@ div.feature-box {
 
 div.feature-box span {
   padding: 0;
-  color: var(--border-light);
+  color: var(--border-very-light);
   border: none;
 }
 

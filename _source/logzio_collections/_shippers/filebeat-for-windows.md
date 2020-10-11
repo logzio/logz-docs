@@ -34,7 +34,7 @@ see [Log shipping sources]({{site.baseurl}}/shipping/).
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 Download the
-[Logz.io public certificate](https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt)
+[Logz.io public certificate]({% include log-shipping/certificate-path.md %})
 to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 

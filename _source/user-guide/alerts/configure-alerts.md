@@ -7,61 +7,14 @@ flags:
 tags:
   - alerts
 contributors:
+  - shalper
   - imnotashrimp
 ---
 
-When you set out to create an alert,
-you'll need to start with a query.
-If you haven't formed your query yet,
-we recommend starting in Kibana
-so you can see the results of the query in real time.
+You can set up Logz.io log alerts to automatically get notified about issues that demand attention.
 
-If you already have a query and filters,
-you can create a blank alert
-from the top menu (**Alerts & Events > New alert**)
-or from the _Alert definitions_ page.
-
-You can also create an alert
-from Application Insights or Cognitive Insights,
-or you can duplicate an existing alert.
-
-Community plans can have up to 50 alerts enabled at a time.
+Community plans can have only a limited number of alerts enabled at once. See the official [pricing page](https://logz.io/pricing/) for details.
 {:.info-box.note}
-
-#### To create an alert in Kibana
-
-![Kibana 7 search bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana-7-search-bar.png)
-
-Refine your search query and filters,
-and review the returned logs
-to make sure you got the expected results.
-
-Alerts support Lucene query language only.
-You won't be able to create an alert
-from a search written in Kibana Query Language (KQL).
-{:.info-box.important}
-
-Once you're happy with your alert,
-click **Create alert** (above the query bar).
-You're taken to the _New alert_ page.
-
-Continue with _To configure an alert_. 👇
-
-#### To create an alert from another alert
-
-![Duplicate alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/duplicate-alert.png)
-
-You can duplicate an alert from the
-[_Alert definitions_](https://app.logz.io/#/dashboard/triggers/alert-definitions)
-page when you want to reuse its configuration
-without recreating it from scratch.
-To do this,
-hover over the alert,
-click its action menu (<i class="li li-ellipsis-v"></i>),
-and then click **Duplicate**.
-You're taken to the _Edit alert_ page.
-
-Continue with _To configure an alert_. 👇
 
 #### To configure an alert
 
@@ -69,59 +22,56 @@ Continue with _To configure an alert_. 👇
 
 ##### Name the alert
 
-Give your alert a meaningful name.
+Give your alert a meaningful name. When your alert triggers, its name is used as the email subject or notification heading.
 
-If your alert is triggered,
-the name is used as the email subject or Slack heading.
-A helpful name gives the quick need-to-know-now information
-and doesn't use unnecessary words.
+##### Search components
 
-##### Edit the search settings
+Next, set the search components. They determine which logs to look for and in which account.
+
+![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-search-component.png)
 
 ###### Query and filters
 
-![Alert query and filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/query-and-filters.png)
+You can use any combination of filters and a search query. Note the following:
 
-If you need to change your alert query and filters,
-do that now.
+* Use a Lucene search query.
+  * You have the option to use wildcards.
+  * Kibana Query Language (KQL) is not supported.
 
-Your query is an important source of information
-when you're investigating a triggered alert.
-Shorten your query by using filters whenever you can.
+* All Kibana Filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
 
-###### Group by
+
+Once you're done refining your search query and filters,
+click **Preview in Kibana** to review the returned logs
+and make sure you get the expected results.
+
+
+###### Group-by (order matters!)
+
+You have the option to apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.
+
+The order of group-by fields matters. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from Left-To-Right.)
+
+For example, the following will group results by continent, then country, then city:
 
 ![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--group-by.png)
 
-Moving down, you'll come to the **Group by** setting next.
+That's because the results are aggregated in the following order:
 
-With _Group by_, you can choose up to 3 fields to group.
-The alert will return the aggregated results for each group.
+1. geoip.continent_code
+2. geoip.country_name
+3. geoip.city_name
 
-Careful: The order of group by fields matters.
-Results are grouped by
-the leftmost field, then the center field, then the right field.
-{:.info-box.important}
-
-The image above groups results by continent, then country, then city.
 If we had reversed the order (city, then country, then continent),
-it would likely generate unintended results.
+it would likely have generated unintended results.
 
 ###### Accounts to search
 
-![Accounts to search setting](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/accounts-to-search.png)
+Next, select the **Accounts to search**. An account is the equivalent of an Elasticsearch index.
 
-Next you'll choose the _Accounts to search_.
+* If you select **All accounts**, the alert will query the logs in all the accounts it has access to. It will automatically include any accounts added in the future.
 
-If you choose **All accounts**,
-this alert will query the logs in all the accounts it has access to.
-This will include future accounts.
-
-To limit the alert to a set list of accounts,
-click **Just these accounts**,
-and add the accounts you want.
-This list is always limited to your selection,
-so you'll need to manually update the list if you need it to change.
+* You can select specific accounts. Select **Just these accounts** and add the relevant accounts from the dropdown list.
 
 ##### Set threshold and severity levels
 

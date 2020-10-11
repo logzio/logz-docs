@@ -28,6 +28,8 @@ firstLevel:
     thirdLevel:
     - title: Configure an alert
       url: /user-guide/alerts/configure-an-alert.html
+    - title: Adding alerts
+      url: /user-guide/alerts/new-alert.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
 
@@ -67,10 +69,14 @@ firstLevel:
   secondLevel:
   - title: Why metrics?
     url: /user-guide/infrastructure-monitoring/
-  - title: Highlights
-    url: /user-guide/infrastructure-monitoring/metrics-logzio
+    thirdLevel:
+    - title: Highlights
+      url: /user-guide/infrastructure-monitoring/metrics-logzio
   - title: Getting started
     url: /user-guide/infrastructure-monitoring/getting-started
+    thirdLevel:
+    - title: OOTB Dashboards
+      url: /user-guide/metrics/integrations.html
   - title: Alerts
     url: /user-guide/infrastructure-monitoring/alerts.html
   - title: Variables
@@ -82,10 +88,15 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/annotations/
     - title: Explore in Kibana
       url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
-  - title: Custom metrics
-    url: /user-guide/infrastructure-monitoring/custom-metrics
-  - title: Rollups
-    url: /user-guide/infrastructure-monitoring/data-rollups.html
+  - title: Your Metrics data sources
+    url: /user-guide/metrics/data-sources.html
+    thirdLevel:
+    - title: Custom metrics
+      url: /user-guide/infrastructure-monitoring/custom-metrics
+    - title: Rollups
+      url: /user-guide/infrastructure-monitoring/data-rollups.html
+    - title: Explore mode
+      url: /user-guide/infrastructure-monitoring/grafana-explore/
 
 - title: Cloud SIEM
   icon: fas fa-shield-alt
@@ -100,8 +111,10 @@ firstLevel:
   - title: Investigate security events
     url: /user-guide/cloud-siem/security-events.html
     thirdLevel:
-    - title: Understanding your security logs
+    - title: Research & Dashboards
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
+    - title: Drilldown links
+      url: /user-guide/cloud-siem/drilldown-links/
   - title: Investigate malicious IPs
     url: /user-guide/cloud-siem/malicious-IPs.html
     thirdLevel:
@@ -120,25 +133,27 @@ firstLevel:
       url: /user-guide/cloud-siem/xsoar-integration/
 
 
-- title: Admin tools
+- title: Admin
   icon: li-gear
   secondLevel:
-  - title: Accounts
+  - title: Manage accounts
     url: /user-guide/accounts/
 
     thirdLevel:
-    - title: Manage the main account and sub accounts
+    - title: Time-based log accounts
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
-    - title: Manage timeless accounts
+    - title: Flexible volume log accounts
+      url: /user-guide/accounts/flexible-volume.html
+    - title: Timeless log accounts
       url: /user-guide/accounts/manage-timeless-accounts.html
-    - title: Manage the Cloud SIEM account
+    - title: Security accounts
       url: /user-guide/accounts/manage-the-cloud-siem-account.html
-    - title: Manage the Infrastructure Monitoring account
+    - title: Metrics accounts
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
-    - title: PCI compliance and log redaction
-      url: /user-guide/accounts/pci-compliance.html
-    - title: Support access
-      url: /user-guide/accounts/support-access.html
+  - title: PCI compliance
+    url: /user-guide/accounts/pci-compliance.html
+  - title: Granting access to Logz.io Support
+    url: /user-guide/accounts/support-access.html
     # - title: Usage and billing
 
   - title: Regions
@@ -150,11 +165,13 @@ firstLevel:
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/
 
-  - title: Users
+  - title: User management
     url: /user-guide/users/
     thirdLevel:
     - title: Multi-factor authentication
       url: /user-guide/users/multi-factor-authentication.html
+    - title: Permission levels
+      url: /user-guide/accounts/permissions/
   - title: Single sign-on
     url: /user-guide/users/single-sign-on/
     thirdLevel:
@@ -167,6 +184,8 @@ firstLevel:
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:
+    - title: Manage log shipping tokens
+      url: /user-guide/tokens/log-shipping-tokens/
     - title: Manage shared tokens
       url: /user-guide/tokens/shared-tokens.html
     - title: Manage API tokens
@@ -214,6 +233,8 @@ firstLevel:
     thirdLevel:
       - title: Custom endpoints
         url: /user-guide/integrations/custom-endpoints.html
+  - title: Terraform Logz.io Provider
+    url: /integrations/terraform/
   - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html
   - title: Grafana data source plugin
@@ -238,12 +259,9 @@ firstLevel:
   - title: Blog
     url: https://logz.io/blog/
     external: true
-  - title: Academy
-    url: http://academy.logz.io/
-    external: true
   - title: Videos
     url: https://logz.io/learn/video/
     external: true
-  - title: Status
-    url: http://status.logz.io/
-    external: true
+  - title: Report a security issue
+    url: /report-a-security-issue/
+    external: false

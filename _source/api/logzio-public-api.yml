@@ -31,12 +31,6 @@ info:
     If you'd like to suggest corrections or improvements to this document, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
 
 
-    # Notes on alerting
-
-    Please note that alerting is not yet covered in this document.
-    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
-
-
     # Account region and API URL
 
     To find your account region, sign in to Logz.io and look at the URL in the address bar.
@@ -48,19 +42,25 @@ info:
 
     # Authentication
 
-    The Logz.io API is available to Enterprise plan subscribers.
-    You can create new API tokens in [Logz.io](https://app.logz.io/#/dashboard/settings/api-tokens).
-    You can revoke API permissions at any time.
-
-    If you don't have an Enterprise account, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
+    The Logz.io API is available to Pro and Enterprise plan subscribers.
+    You can generate and delete API tokens in your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/api).
 
     <!-- ReDoc-Inject: <security-definitions> -->
 
 
     # Rate limiting
 
-    API call and response rates are limited per individual account.
-    To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
+    API call and response rates are limited.
+    To find out your rate limits or request changes to your plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success Team</a>.
+
+
+    # Notes on alerting
+
+    Please note that alerting is not yet covered in this document.
+    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
+
+
+    
 
 
   title: Logz.io API
@@ -89,15 +89,39 @@ security:
   - X-API-TOKEN: []
 
 tags:
+  - name: Grafana gateway
   - name: Who am I
   - name: Manage sub accounts
-    description: Use these API requests to create, update, retrieve, or delete sub accounts.
+    description: >-
+      Use these API endpoints to create, update, retrieve, or delete sub accounts.
+
+
+      We are in the process of rolling out [flexible volume plan configuration](/user-guide/accounts/flexible-volume.html). A new beta feature.
+      
+      
+      * If your account has the option to switch to flexible volume, please refer to the updated [documentation](/beta-api-flexible-storage/) for the beta API.
+
+
+      * For additional information about what's changed in the API, [click here](/user-guide/accounts/flexible-volume-announcement/).
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.
 
 
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
+  - name: Insights
+    description: >-
+      Logz.io monitors your logs for Insights to help you preempt issues and alert you of potential problems.
+      
+      
+      There are two types of Insights:
+
+      * LOGCEPTION - Application errors and exceptions identified in the stack trace.
+
+      * PUBLIC_CI - Cognitive Insights correlate your logs with  vulnerabilities and issues that are trending in the open source community.
+
+
+      You have the option to set up an alert so you can get notified of the details when new or recurring insights are spotted in your system.
   - name: Retrieve audit trail
   - name: Connect to CloudTrail
     description: Establish a connection to ship logs to the Logz.io observability platform via an S3 bucket. Supports CloudTrail logs.
@@ -119,10 +143,14 @@ tags:
       or when Logz.io Insights identifies new exceptions in your logs.
 
 
-      Use these API requests to create, update, or delete notification endpoints. If you configure a custom endpoint,
+      Use these API endpoints to create, update, or delete notification endpoints. If you configure a custom endpoint,
       you can configure the notificaton message body.
       Otherwise, you can use any of the available preconfigured endpoints.
   - name: Import or export Kibana objects
+  - name: Manage log shipping tokens
+    description: >-
+      Use these API endpoints to create, update, retrieve, or delete log shipping tokens.
+
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.
@@ -132,24 +160,47 @@ tags:
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
+  - name: Security events
     description: >-
-      Manage user access to your Logz.io account using API requests.
+      A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+      
+      
+      Your Logz.io Cloud SIEM is pre-loaded with hundreds of security rules created and maintained by Logz.io's security analysts. The list continues to be expanded and updated on a regular basis. You can also add your own security rules.
 
 
-      You can create, update, suspend/unsuspend, and delete users. You can also retrieve the list of active and suspended users.
+      To investigate into security events, you can begin by running a bulk query to fetch security event logs, either with or without applying filtering criteria. This query returns all of the events that match the query parameters and can potentially fetch events going back many months. Whenever you encounter a particular event you would like to further investigate, you can run the drilldown query to fetch the logs that triggered the security event to delve deeper into the event details.
+
+
+      These queries can be used to integrate with an automated response solution such as Cortex xSOAR or simply to understand your security posture and identify suspicious activity in your accounts.
+  - name: Archive logs
+    description: >-
+      You can archive logs to an AWS S3 bucket or Azure Blob Storage. Archiving gives you the option to restore logs and query them after they have expired from your time-based account.
+      
+
+      You can use the following endpoints to retrieve, set up, test, and update an account's archive settings.
+      
+
+      Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
+
 x-tagGroups:
   - name: Log monitoring
     tags:
       - Search logs
+      - Insights
       - Logz.io snapshots
+  - name: Cloud SIEM
+    tags:
+      - Security events
   - name: Account administration
     tags:
       - Manage users
       - Who am I
       - Manage sub accounts
+      - Manage log shipping tokens
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
+      - Archive logs
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -159,8 +210,39 @@ x-tagGroups:
     tags:
       - Connect to CloudTrail
       - Connect to S3 Buckets
+  - name: Grafana API Gateway
+    tags:
+      - Grafana gateway
+    description: Grafana API Gateway to supported endpoints.
+
 
 paths:
+  # ::::: GRAFANA
+  /v1/grafana/api/{GRAFANA_API_URL}:
+    get:
+      summary: Grafana API Capabilities
+      description: >-
+        Prepend your Logz.io API Gateway to the relevant Grafana API endpoint.
+     
+     
+        Supported endpoints:
+          * [Alerting](https://grafana.com/docs/grafana/latest/http_api/alerting/)
+          * [Annotations](https://grafana.com/docs/grafana/latest/http_api/annotations/)
+          * [Dashboard](https://grafana.com/docs/grafana/latest/http_api/dashboard/)
+          * [Dashboard versions](https://grafana.com/docs/grafana/latest/http_api/dashboard_versions/)
+          * [Folder/dashboard search](https://grafana.com/docs/grafana/latest/http_api/folder_dashboard_search/)
+          * [Snapshot](https://grafana.com/docs/grafana/latest/http_api/snapshot/)
+
+    
+      tags:
+        - Grafana gateway
+      operationId: grafanaGateway
+      produces:
+        - application/json
+      parameters:
+
+
+
   # ::::: ACCOUNTS
   /v1/account-management/whoami:
     get:
@@ -652,6 +734,173 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/ScrollResponse'
+
+  # ::::: Archive
+  /v2/archive/settings:
+    get:
+      summary: Retrieve archiving settings
+      description: >-
+        Gets the current archive settings for a time-based log account.
+
+
+        Note that only one archive can be active per account.
+      tags:
+        - Archive logs
+      operationId: getSettingsForAccount
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ArchiveSettingsResponse'
+    post:
+      summary: Set up archiving
+      description: Configure archiving for a time-based log account. One archive can be configured per account (or sub account).
+      tags:
+        - Archive logs
+      operationId: createSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ArchiveSettings'
+      responses:
+        default:
+          description: successful operation
+  /v2/archive/settings/test:
+    post:
+      summary: Test archive settings
+      description: Tests the settings and returns the status code to confirm that a connection with the provider was established.
+      tags:
+        - Archive logs
+      operationId: testSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/TestStorageRequest'
+      responses:
+        default:
+          description: successful operation
+  /v2/archive/settings/{id}:
+    get:
+      summary: Retrieve archive settings
+      description: Retrieves an archiving settings by the ID of the settings.
+      tags:
+        - Archive logs
+      operationId: getSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the archive settings.
+          example: 33
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ArchiveSettingsResponse'
+          headers: {}
+    put:
+      summary: Update archive settings
+      description: >- 
+        Updates the archiving settings for a time-based log account. (The API token identifies the account.)
+        
+        
+        You can use this endpoint to:
+        
+        * Switch archive settings between AWS and Azure Blob Storage or vice versa.
+
+        * Update credentials.
+        
+        * Switch your AWS authentication method between credential keys and IAM roles.
+        
+        
+        Note that only one archive can be active per account.
+      tags:
+        - Archive logs
+      operationId: updateSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the archive settings.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ArchiveSettings'
+      responses:
+        default:
+          description: successful operation
+    delete:
+      summary: Delete archive settings
+      description: Deletes the archiving settings for a time-based log account.
+      tags:
+        - Archive logs
+      operationId: deleteSettings
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the archive settings.
+      responses:
+        default:
+          description: successful operation
+
+  # ::::: Log Insights
+  /v1/insights/list:
+    get:
+      summary: Get the list of Insights
+      tags:
+        - Insights
+      description: >-
+        Get the list of Insights that match your search criteria.
+
+
+        Whenever a new Insight is detected, it receives an Insight ID and is tracked for as long as it recurs. The lookback period for Insights is 6 months.
+      operationId: getPublicInsights
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/PublicGetAccountInsightsRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PageResponsePublicAccountInsightResponse'
+
 
   # ::::: AUDIT TRAIL
   /v1/audit-trail/event-types:
@@ -1515,6 +1764,185 @@ paths:
             }"
 
 
+  # ::::: SHIPPING TOKENS
+  /v1/log-shipping/tokens:
+    post:
+      tags:
+        - Manage log shipping tokens
+      summary: Create a log shipping token
+      description: Creates a log shipping token for this account.
+      operationId: createNewLogShippingToken
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/log-shipping/tokens' \
+            --header 'X-API-TOKEN: <token>' \
+            --header 'Content-Type: application/json'
+            --data-raw '{ "name": "token-name", "enabled": "true" }'
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+      responses:
+        '201':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/{id}:
+    get:
+      tags:
+        - Manage log shipping tokens
+      summary: Retrieve a log shipping token by ID
+      description: Returns details for the specified shipping token.
+      operationId: getLogShippingTokenById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/{id}' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    put:
+      tags:
+        - Manage log shipping tokens
+      summary: Update a log shipping token
+      description: Enables/disables a log shipping token and/or renames it.
+      operationId: updateLogShippingToken
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X PUT 'https://api.logz.io/v1/log-shipping/tokens/{id}' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "name": "staging eu",
+              "enabled": true
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    delete:
+      tags:
+        - Manage log shipping tokens
+      summary: Delete a log shipping token
+      description: >-
+        Deletes a log shipping token by its ID, while providing relevant information about the token's recent status and activity.
+        
+        
+        An account must have at least 1 enabled token. You won't be able to disable or delete the last token. 
+        
+        **Important**: Active tokens can be deleted using this call. Confirm that a token is no longer needed before deleting it.
+      operationId: deleteLogShippingToken
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X DELETE 'https://api.logz.io/v1/log-shipping/tokens/786351' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/limits:
+    get:
+      tags:
+        - Manage log shipping tokens
+      summary: Get number of available tokens
+      description: >-
+        Returns the number of log shipping tokens currently in use and the number of available tokens that can be enabled.
+        Disabled tokens don't count against the token limit.
+      operationId: getLogShippingTokensLimits
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/limits' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensLimitsResponse'
+  /v1/log-shipping/tokens/search:
+    post:
+      tags:
+        - Manage log shipping tokens
+      summary: Retrieve log shipping tokens
+      description: Returns the relevant shipping tokens, filterd, sorted and paginated as per the request.   
+      operationId: searchLogShippingTokens
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensSearchRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/log-shipping/tokens/search' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "filter": {
+                "enabled": true
+              },
+              "sort": [
+                {
+                  "field": "name",
+                  "descending": true
+                }
+              ],
+              "pagination": {
+                "pageNumber": 3,
+                "pageSize": 15
+              }
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseShippingTokensModel'
+
+
+
   # ::::: SHARED TOKENS
   /v1/shared-tokens/filters:
     get:
@@ -1956,6 +2384,30 @@ paths:
             $ref: '#/definitions/SnapshotGetResponse'
 
   # ::::: USER MANAGEMENT
+  /v1/user-management/recursive:
+    get:
+      summary: Retrieve users in all associated accounts
+      description: >-
+        Returns a list of users in the main account and all associated sub accounts as an array of JSON objects per account.
+        
+        
+        If a user appears in multiple accounts, it will be listed separately under each account.
+        
+        
+        **Note:** Must be run with an API token belonging to the main account.
+      tags:
+        - Manage users
+      operationId: listAllAccountUsers
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X GET "https://api.logz.io/v1/user-management/recursive" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
   /v1/user-management:
     get:
       summary: Retrieve all users
@@ -2130,6 +2582,112 @@ paths:
         200:
           description: successful operation
 
+  # ::::: SECURITY RULES
+  /v2/security/rules/events/search:
+    post:
+      summary: Fetch security events
+      description: >-
+        Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.
+
+        
+        You have the option to filter by rule name, rule severity, and/or event timestamp, and sort the results by time and/or severity, but this is not required. If you send the query with an empty JSON body, it returns all of the events logged in your Logz.io Cloud SIEM, going as far back as your account's retention permits.
+      tags:
+        - Security events
+      operationId: searchSecurityRulesEvents
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertsEventsSearchRequest'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication API Token
+          required: false
+          type: string
+        #- name: X-AUTH-TOKEN
+        #  in: header
+        #  description: Authentication User Session
+        #  required: false
+        #  type: string
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v2/security/rules/events/search' \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+                "filter": {
+                    "searchTerm": "Falco",
+                    "severities": [
+                        "SEVERE"
+                    ],
+                    "timeRange": {
+                        "fromDate": 1587134557,
+                        "toDate": 1587137557
+                    }
+                },
+                "sort": [
+                    {
+                        "field": "SEVERITY"
+                    },
+                    {
+                        "field": "DATE"
+                    }
+                ],
+                "pagination": {
+                    "pageNumber": 1,
+                    "pageSize": 25
+                }
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseTriggeredAlert'
+          headers: {}
+  /v2/security/rules/events/logs/search:
+    post:
+      summary: Fetch the logs that triggered a security event
+      description: >-
+        Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event.
+        
+        
+        This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
+      tags:
+        - Security events
+      operationId: searchSecurityRuleEventLogs
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertEventLogsSearchRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v2/security/rules/events/logs/search' \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+                "filter": {
+                    "alertEventId": "2582e212-2ccf-5550-b253-785aa3a5468f"
+                },
+                "pagination": {
+                    "pageNumber": 1,
+                    "pageSize": 10
+                }
+              }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseMapStringObject'
+          headers: {}
 
 
 definitions:
@@ -2251,11 +2809,12 @@ definitions:
       - email
       - sharingObjectsAccounts
       - retentionDays
+      - maxDailyGB
     properties:
       email:
         type: string
         pattern: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
-        description: Account administrator's email address
+        description: Email address of an existing admin user on the main account which will also become the admin of the account being created
         example: help@logz.io
       accountName:
         type: string
@@ -2264,9 +2823,8 @@ definitions:
       maxDailyGB:
         type: number
         format: float
-        description: Maximum daily usage, in GB. Must be ≥ `1` if you want the account to receive any logs. If set to `0` and you ship logs, the account will be suspended for 24 hours.
+        description: Maximum daily usage, in GB. If set to `0` and you ship logs, the account will be suspended until the index rotates at midnight UTC.
         example: 5
-        default: 0
       retentionDays:
         type: integer
         format: int32
@@ -2358,7 +2916,7 @@ definitions:
         type: null
         nullable: true
         description: Email address of the user who created the account
-        example: null
+        example: my.email@company.com
       accountName:
         type: string
         description: Name of the account
@@ -2413,6 +2971,382 @@ definitions:
     description: If document size is attached to logs, `true`. Otherwise, `false`.
     default: false
     example: true
+
+  # ::::: CLOUD SIEM DEFINITIONS
+  AlertEventLogsSearchRequest:
+    type: object
+    required:
+      - filter
+    properties:
+      filter:
+        $ref: '#/definitions/RuleEventLogsFilter'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  RuleEventLogsFilter:
+    type: object
+    description: Filter by the event's unique GUID to retrieve only the logs relevant to the event under investigation.
+    required:
+      - alertEventId
+    properties:
+      alertEventId:
+        type: string
+        description: Unique GUID of the security event in Logz.io Cloud SIEM. The GUID is returned in the results when querying to fetch security events or by inspecting an event log in the [UI](https://app.logz.io/#/dashboard/security/research/discover?) under the field `logzio-alert-event-id`.
+        example: 833203f9-de71-5a12-9083-9055a6d925bb
+  Pagination:
+    type: object
+    description: Default pagination is 1 page, 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
+    properties:
+      pageNumber:
+        type: integer
+        format: int32
+        description: If you overshoot the page number, it will return empty with no results, but it won't fail the request.
+        default: 1
+        example: 2
+      pageSize:
+        type: integer
+        format: int32
+        description: Controls the number of results per page. Valid inputs are 1 to 1000.
+        maximum: 1000
+        default: 25
+        example: 100
+  PagedSearchResponseMapStringObject:
+    type: object
+    properties:
+      total:
+        description: Returns the total number of logs linked to the security event specified in the query. This number is fixed and not affected by pagination.
+        type: integer
+        format: int32
+        example: 5
+      results:
+        type: array
+        description: >-
+         Array of logs returned in answer to the query. The logs are returned in their entirety and parsed.
+         
+         
+         If the logs are no longer retained in the database, the request will return empty. You can check your account's log retention policy in your [log monitoring account](https://app.logz.io/#/dashboard/settings/usage-and-billing).
+        items:
+          type: object
+          example: {Array of logs}
+          #additionalProperties:
+          #  type: object
+      pagination:
+        $ref: '#/definitions/Pagination'
+  PagedSearchResponseTriggeredAlert:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+        description: The total number of events returned by the query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
+        example: 500
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/TriggeredAlert'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  TriggeredAlert:
+    type: object
+    properties:
+      alertId:
+        type: integer
+        format: int32
+        description: Unique identifier of the security rule in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-definition-id`
+        example: 453345
+      name:
+        type: string
+        description: Name of the security rule in Logz.io Cloud SIEM
+        example: AWS EC2 - Brute force SSH login attempts
+      description:
+        type: string
+        description: Typically an explanation of the security rule's logic and suggested next steps
+        example: Suggested next steps...
+      alertSummary:
+        type: string
+        description: Equivalent to the `condition` field in the rule
+        example: Alert if query '*' results GREATER_THAN_OR_EQUALS 5.00 in 10 minutes. Count on Group By '[userIdentity.userName, sourceIPAddress]'
+      eventDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in seconds showing when the rule's conditions were met and the event was triggered
+        example: 1587860455
+      alertWindowStartDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in seconds of the earliest log that triggered the rule to log an event. It usually takes several logs under certain conditions to trigger a security rule.
+        example: 1587856855
+      alertWindowEndDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in seconds of the latest log that triggered the rule to log an event. It usually takes several logs under certain conditions to trigger a security rule.
+        example: 1587860455
+      severity:
+        type: string
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        description: Severity of the security event as determined by the security rule's definition
+        example: SEVERE
+      alertEventId:
+        type: string
+        description: Unique identifier of the security event in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-event-id`
+        example: 27cdcf45-ae12-581a-809e-17a6bbc9ae07
+      groupBy:
+        type: object
+        description: A map object. Array of field:value pairs (key-value pairs) used by the security rule to aggregate results. Security rules can apply `groupBy` conditions to aggregate results by up to 3 fields. The fields differ rule by rule.
+        example: {"source_ip": "122.17.45.15", "hostname":"hostname1234" }
+        #additionalProperties:
+         # type: map
+         # maximum: 3
+         # description: The fields differ by rule. There can be 1-3 fields.
+      tags:
+        type: array
+        description: Tags are labels used to organize security rules.
+        example: threat
+        items:
+          type: object
+          example: { network_threat, recon}
+      hits:
+        type: integer
+        format: int32
+        description: Hits represent the number of logs that triggered the security rule before being aggregated by the `groupBy` condition.
+        example: 30
+  AlertsEventsSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/RulesEventsFilter'
+        summary: Filter by rule name, rule severity, or time range.
+      sort:
+        description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
+        type: array
+        items:
+          $ref: '#/definitions/RulesEventsSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  RulesEventsSortRequest:
+    type: object
+    required:
+      - field
+    properties:
+      field:
+        type: string
+        description: Sort by date and/or severity. Order determines secondary sorting.
+        enum:
+          - DATE
+          - SEVERITY
+      descending:
+        type: boolean
+        default: true
+        description: If left blank, descending sorting will result. If `false` results in ascending sorting.
+  RulesEventsFilter:
+    type: object
+    description: Filter by rule name, rule severity, or time range.
+    properties:
+      searchTerm:
+        type: string
+        example: Falco
+        description: Filter for a matching string in the security rule name. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+      severities:
+        type: array
+        description: Filter by the severities of the security rules. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+        items:
+          type: string
+          example: SEVERE
+          enum:
+            - INFO
+            - LOW
+            - MEDIUM
+            - HIGH
+            - SEVERE
+      timeRange:
+        $ref: '#/definitions/RulesTimeRange'
+  RulesTimeRange:
+    type: object
+    required:
+      - fromDate
+      - toDate
+    description: Add a timerange to filter by event timestamps that fall within the range. If applied, both the earliest and latest thresholds are required.
+    properties:
+      fromDate:
+        type: integer
+        format: int64
+        example: 1587134557
+        description: Absolute UNIX timestamp in seconds (not milliseconds). Your security account's retention policy determines the ealiest events you'll be able to retrieve.
+      toDate:
+        type: integer
+        format: int64
+        example: 1587137557
+        description: Absolute UNIX timestamp in seconds (not milliseconds).
+
+  # ::::: Log Insights
+  PublicGetAccountInsightsRequest:
+    type: object
+    required:
+    properties:
+      startDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the start date for the query time frame. By default, returns the past 15 minutes ("now - 15 minutes" translated into a UNIX timestamp).
+        example: 1592904389950
+      endDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the end date for the query time frame. By default, returns the current time ("now" translated into a UNIX timestamp).
+        example: 1592254800000
+      from:
+        type: integer
+        format: int32
+        description: Of the results found, the first result to return. Must be a non-negative integer.
+        default: 0
+        example: 0
+      size:
+        type: integer
+        format: int32
+        description: Number of results to return. Must be a positive integer between 1-100.
+        default: 10
+        maximum: 100
+        minimum: 1
+        example: 100
+      insightTypes:
+        type: array
+        items:
+          type: string
+          enum:
+            - PUBLIC_CI
+            - LOGCEPTION
+        description: Filters results by Insight type. `LOGCEPTION` filters for application insights. `PUBLIC_CI` filters for Cognitive Insights.
+        default: ["PUBLIC_CI", "LOGCEPTION"]
+        example: ["PUBLIC_CI", "LOGCEPTION"]
+      tagNames:
+        type: array
+        items:
+          type: string
+        description: Filters results by the tag values used to categorize Insights.
+        example:
+      logTypes:
+        type: array
+        items:
+          type: string
+        description: Filters results by [log type](/log-shipping/built-in-log-types.html).
+        example: ["log-engine", "spark"]
+      onlyNew:
+        type: boolean
+        description: Filters for Insights that first occurred in the selected time frame. In other words, excludes Insights that were first identified before or after the selected time range.
+        default: false
+        example: true
+      sortBy:
+        type: string
+        enum:
+          - FIRST_OCCURRENCE
+          - LAST_OCCURRENCE
+          - COUNT
+        description: Sorts Insights by the selected parameter.
+        default: COUNT
+        example: COUNT
+      asc:
+        type: boolean
+        description: If `false`, sorts Insights in descending order. The order depends on the selected `sortBy` paramater.
+        default: false
+        example: true
+      search:
+        type: string
+        description: Searches for an Insight by its title.
+        example: Exception
+#      timeZone:
+#        type: string
+#        description: Converts timestamps to the selected time zone.
+#        default: UTC=0
+#        example: America/Los_Angeles
+  PageResponsePublicAccountInsightResponse:
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 500
+        description: Number of results to return per page. Must be a positive integer between 0-500.
+      from:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 2147483647
+        description: UNIX timestamp in milliseconds.
+      total:
+        type: integer
+        format: int64
+        minimum: 0
+        maximum: 500
+        description: Total number of results found.
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/PublicAccountInsightResponse'
+  PublicAccountInsightResponse:
+    type: object
+    properties:
+      insightId:
+        type: string
+        description: An ID identifying the Insight in Logz.io. Can be used to track the Insight's occurrence in the environment over time.
+        example: "cf484f4c381c3e408a23accc5b487947d2f68791"
+      insightType:
+        type: string
+        enum:
+          - PUBLIC_CI
+          - LOGCEPTION
+        description: Identifies the type of Insight as either `LOGCEPTION` (application insights) or `PUBLIC_CI` (Cognitive Insights).
+        example: PUBLIC_CI
+      tagName:
+        type: string
+        description: Tags applied to the Insight help to categorize it.
+        example: ignite
+      description:
+        type: string
+        description: A helpful description of the issue identified by the Insight. The description is generated by Logz.io.
+        example: A match for the phrase - <'Could not find the language line'> was identified in the log message. As mentioned in the cited links, this may indicate that an issue has taken place that requires your attention.
+      links:
+        type: array
+        items:
+          type: string
+        description: Only applicable for `PUBLIC_CI` Insights. Provides reference links to recommended resources for further investigation of the issue.
+        example: https://github.com/benedmunds/CodeIgniter-Ion-Auth/issues/784 https://www.sitepoint.com/multi-language-support-in-codeigniter/ http://forum.codeigniter.com/thread-383.html https://community.invoiceplane.com/t/topic/3322 https://www.zonwhois.com/www/gwdcanada.com.html
+      additionalData:
+        type: object
+        description: Only applicable for `LOGCEPTION` Insights. Provides relevant excerpts from the stacktrace about the exception in question.
+        additionalProperties:
+          type: object
+      firstOccurrence:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the earliest appearance of the Insight. The lookback period is up to 6 months.
+        example: 1591181276000
+      lastOccurrence:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the most recent appearance of the Insight in the selected time frame.
+        example: 1591253121194
+      count:
+        type: integer
+        format: int64
+        description: The number of times the Insight occurred during the selected time frame.
+        example: 66
+      logTypes:
+        type: array
+        items:
+          type: string
+        description:
+        example: ["app-server", "user-analytics"]
+      kibanaLink:
+        type: string
+        description: Only applicable for `LOGCEPTION` Insights. Provides a drill-down link to fetch the raw logs that match the Insight in Kibana Discover.
+      insightTitle:
+        type: string
+        description: The title of the Insight.
+        example: "Could not find the language line create_user_validation_phone_label"
 
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:
@@ -3345,7 +4279,7 @@ definitions:
       accountID:
         type: integer
         format: int32
-        description: ID of the account attached to the user
+        description: Logz.io account ID.
         example: 55555
       roles:
         type: array
@@ -3395,3 +4329,229 @@ definitions:
           format: int32
         description: For user access, `2`. For admin access, `3`.
         example: [2]
+
+  # ::::: Archive DEFINITIONS
+  ArchiveSettings:
+    type: object
+    required:
+    - storageType
+    properties:
+      storageType:
+        type: string
+        enum:
+          - S3
+          - BLOB
+        description: Specifies the storage provider. If `S3`, the   `amazonS3StorageSettings` are relevant. If `BLOB`, the `azureBlobStorageSettings` are relevant.
+        example: S3
+      enabled:
+        type: boolean
+        description: If `true`, archiving is currently enabled.
+        default: true
+        example: true
+      compressed:
+        type: boolean
+        description: If `true`, logs are compressed before they are archived.
+        default: true
+        example: true
+      amazonS3StorageSettings:
+        description: Applicable settings when the `storageType` is `S3`.
+        $ref: '#/definitions/S3StorageSettings'
+      azureBlobStorageSettings:
+        description: Applicable settings when the `storageType` is `Blob`.
+        $ref: '#/definitions/BlobSettings'
+  ArchiveSettingsResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Unique ID of the archive settings.
+        example: 323
+      settings:
+        $ref: '#/definitions/ArchiveSettings'
+  BlobSettings:
+    type: object
+    description: Applicable settings when the `storageType` is `Blob`.
+    required:
+    - tenantId
+    - clientId
+    - clientSecret
+    - accountName
+    - containerName
+    properties:
+      tenantId:
+        type: string
+        description: Azure Blob Tenant
+      clientId:
+        type: string
+        description: Azure client ID
+      clientSecret:
+        type: string
+        description: Azure client secret
+      accountName:
+        type: string
+        description: Azure account name
+      containerName:
+        type: string
+        description: The container name.
+      path:
+        type: string
+        description: The path is optional.
+  S3IamCredentials:
+    type: object
+    properties:
+      arn:
+        type: string
+        description: Amazon Resource Name (ARN) to uniquely identify the S3 bucket.
+  S3SecretCredentials:
+    type: object
+    required:
+    - accessKey
+    - secretKey
+    description: Authentication with S3 Secret Credentials is supported for backward compatibility. IAM roles are strongly recommended.
+    properties:
+      accessKey:
+        type: string
+      secretKey:
+        type: string
+  S3StorageSettings:
+    type: object
+    required: 
+    - credentialsType
+    - path
+    description: Applicable settings when the `storageType` is `S3`.
+    properties:
+      credentialsType:
+        description: Specifies which credentials will be used for authentication, either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.
+        type: string
+        enum:
+          - IAM
+          - KEYS
+      path:
+        type: string
+      s3SecretCredentials:
+        $ref: '#/definitions/S3SecretCredentials'
+      s3IamCredentials:
+        $ref: '#/definitions/S3IamCredentials'
+  TestStorageRequest:
+    type: object
+    properties:
+    id:
+      type: integer
+      format: int32
+    archiveSettings:
+      $ref: '#/definitions/ArchiveSettings'
+
+  # ::::: SHIPPING TOKENS DEFINITIONS
+  ShippingTokensModel:
+    type: object
+    properties:
+      name:
+        type: string
+        description: This token's name.
+        example: apac prod
+      id:
+        type: integer
+        format: int32
+        description: This token's ID.
+        example: 786351
+      token:
+        type: string
+        description: The token itself.
+        example: 6bLXmMA6FLibc7ySSqNcCfvbhtqT0rPS
+      updatedAt:
+        type: integer
+        format: int64
+        description: Unix timestamp of when this token was last updated.
+        example: 414720000
+      updatedBy:
+        type: string
+        description: Email address of the last user to update this token.
+        example: shalom.the.mighty@gmail.com
+      createdAt:
+        type: integer
+        format: int64
+        description: Unix timestamp of when this token was created.
+        example: 389836800
+      createdBy:
+        type: string
+        description: Email address of the user who created this token.
+        example: you.got.this@gmail.com
+      enabled:
+        type: boolean
+        description: If this token is enabled, `true`. If it's disabled, `false`.
+  ShippingTokensRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Descriptive name for this token.
+          example: staging eu
+        enabled:
+          type: boolean
+          default: true
+          description: To enable this token, `true`. To disable, `false`.
+  ShippingTokensLimitsResponse:
+      type: object
+      properties:
+        maxAllowedTokens:
+          type: integer
+          format: int32
+          description: The number of log shipping tokens this account can have.
+          example: 50
+        numOfEnabledTokens:
+          type: integer
+          format: int32
+          description: The number of log shipping tokens currently enabled for this account.
+          example: 27
+  ShippingTokensSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/ShippingTokensFilterRequest'
+      sort:
+        type: array
+        description: Sorts the results before returning them.
+        items:
+          $ref: '#/definitions/ShippingTokensSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  ShippingTokensSortRequest:
+      type: object
+      properties:
+        field:
+          type: string
+          enum:
+            - CREATED_AT
+            - NAME
+          description: >-
+            To sort by creation date, use `"createdAt"`.
+            To sort by name, use `"name"`.
+          example: NAME
+        descending:
+          type: boolean
+          description: >-
+            For descending order, use `true`.
+            For ascending order, use `false`.
+
+  ShippingTokensFilterRequest:
+      type: object
+      description: Filters your search for token attributes.
+      properties:
+        enabled:
+          type: boolean
+          description: >-
+            Set to `true` to filter for enabled tokens.
+            Set to `false` to filter for disabled tokens.
+  PagedSearchResponseShippingTokensModel:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/ShippingTokensModel'
+      pagination:
+        $ref: '#/definitions/Pagination'

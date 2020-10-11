@@ -11,11 +11,12 @@ shipping-tags:
   - server-app
 ---
 
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
-[NXLog](http://nxlog.org/products/nxlog-community-edition/download),
-admin access
+
+* [NXLog](http://nxlog.org/products/nxlog-community-edition/download)
+* Admin access
 
 <div class="tasklist">
 

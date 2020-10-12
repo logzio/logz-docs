@@ -126,8 +126,8 @@ tags:
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
-      
-      
+
+
       Your Logz.io Cloud SIEM is pre-loaded with hundreds of security rules created and maintained by Logz.io's security analysts. The list continues to be expanded and updated on a regular basis. You can also add your own security rules.
 
 
@@ -138,10 +138,10 @@ tags:
   - name: Archive logs
     description: >-
       You can archive logs to an AWS S3 bucket or Azure Blob Storage. Archiving gives you the option to restore logs and query them after they have expired from your time-based account.
-      
+
 
       You can use the following endpoints to retrieve, set up, test, and update an account's archive settings.
-      
+
 
       Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
 
@@ -489,9 +489,9 @@ paths:
                 type: object
                 description: >-
                   The object `includes` specifies an array of strings specifying an array of fields to return.
-                  
+
                   * If you omit `_source` from the request, all fields are returned.
-                  
+
                   * If you pass `'_source': false`, it will exclude the `_source` field from the results.
                 properties:
                   includes:
@@ -599,27 +599,27 @@ paths:
       tags:
         - Search logs
       description: >-
-        This endpoint can take 2 types of call requests. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id` 
+        This endpoint can take 2 types of call requests. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id`
         (The variation in the field name is intentional) to fetch the next batches of paginated results.
         This endpoint always returns results as a stringified JSON.
-        
+
 
         How it works:
-        
-        
+
+
         First, send a request to establish the `scrollID`. This initial request contains the query object and additional parameters, similar to the `v1/search` endpoint, with the exception that `dayOffset` and `accountIds` are not supported. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
-        
-        
-        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results. 
+
+
+        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results.
         You'll know you've reached the last page of results, once the call keeps returning the last page of results repeatedly. Keep sending the same scroll ID as many times as needed to retrieve all of the available results.
         The results are paginated, and the request advances through them, one at a time, by default. So that every time you send the request with the same `scroll_id`, the next batch of results is returned.
-       
+
 
         **Note**:
 
 
         * Send the field `scroll_id` in requests (snake_case).
-        
+
         * Receive the field `scrollID` in your responses (camelCase).
       operationId: scroll
       parameters:
@@ -664,8 +664,46 @@ paths:
             $ref: '#/definitions/ScrollResponse'
 
   # ::::: Alerts V2
+  /v2/alerts:
+    get:
+      summary: Retrieve all alerts
+      description: Returns the complete list of all applicable alerts.
+      tags:
+        - Alerts
+      operationId: getAllAlerts
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AlertV2Response'
+          headers: {}
+    post:
+      summary: Creates an alert
+      description: ''
+      tags:
+        - Alerts
+      operationId: createAlert
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertV2Request'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
   /v2/alerts/{alertId}:
     get:
+      summary: Retrieves an alert
+      description: Returns a specific alert identified by its ID.
       tags:
         - Alerts
       operationId: getAlert
@@ -677,16 +715,6 @@ paths:
           required: true
           type: integer
           format: int32
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -694,10 +722,10 @@ paths:
             $ref: '#/definitions/AlertV2Response'
           headers: {}
     put:
-      tags:
-        - Alerts
       summary: Updates an alert
       description: ''
+      tags:
+        - Alerts
       operationId: updateAlert
       produces:
         - application/json
@@ -712,22 +740,14 @@ paths:
           required: true
           type: integer
           format: int32
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/AlertV2Response'
     delete:
+      summary: Deletes an alert
+      description: ''
       tags:
         - Alerts
       operationId: deleteAlert
@@ -739,177 +759,12 @@ paths:
           required: true
           type: integer
           format: int32
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/AlertV2Response'
           headers: {}
-  /v2/alerts:
-    get:
-      tags:
-        - Alerts
-      operationId: getAllAlerts
-      produces:
-        - application/json
-      parameters:
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/AlertV2Response'
-          headers: {}
-    post:
-      summary: Creates an alert
-      description: ''
-      operationId: createAlert
-      produces:
-        - application/json
-      parameters:
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/AlertV2Request'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/AlertV2Response'
-  /v2/alerts/tags/search:
-    post:
-      operationId: searchAccountTags
-      produces:
-        - application/json
-      parameters:
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/TagsSearchRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/PagedSearchResponseString'
-          headers: {}
-  /v2/alerts/{id}/enable:
-    post:
-      operationId: enableAlert
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          format: int32
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
-      responses:
-        default:
-          description: successful operation
-  /v2/alerts/generate-samples:
-    post:
-      operationId: generateSamples
-      produces:
-        - application/json
-      parameters:
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/SamplesV2Request'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/SamplesV2Response'
-          headers: {}
-  /v2/alerts/{id}/disable:
-    post:
-      operationId: disableAlert
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          format: int32
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
-        - name: X-AUTH-TOKEN
-          in: header
-          description: Authentication User Session
-          required: false
-          type: string
-      responses:
-        default:
-          description: successful operation
 
 
 
@@ -998,19 +853,19 @@ paths:
           headers: {}
     put:
       summary: Update archive settings
-      description: >- 
+      description: >-
         Updates the archiving settings for a time-based log account. (The API token identifies the account.)
-        
-        
+
+
         You can use this endpoint to:
-        
+
         * Switch archive settings between AWS and Azure Blob Storage or vice versa.
 
         * Update credentials.
-        
+
         * Switch your AWS authentication method between credential keys and IAM roles.
-        
-        
+
+
         Note that only one archive can be active per account.
       tags:
         - Archive logs
@@ -2400,7 +2255,7 @@ paths:
       description: >-
         Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.
 
-        
+
         You have the option to filter by rule name, rule severity, and/or event timestamp, and sort the results by time and/or severity, but this is not required. If you send the query with an empty JSON body, it returns all of the events logged in your Logz.io Cloud SIEM, going as far back as your account's retention permits.
       tags:
         - Security events
@@ -2464,8 +2319,8 @@ paths:
       summary: Fetch the logs that triggered a security event
       description: >-
         Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event.
-        
-        
+
+
         This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
       tags:
         - Security events
@@ -2785,7 +2640,6 @@ definitions:
 
   # ::::: Alert
 
-
   Aggregation:
     type: object
     properties:
@@ -2801,7 +2655,6 @@ definitions:
           - NONE
       fieldToAggregateOn:
         type: string
-
   AlertV2Response:
     type: object
     properties:
@@ -2828,12 +2681,16 @@ definitions:
         type: array
         items:
           type: string
+      queryDefinition:
+        $ref: '#/definitions/AlertQuery'
+      trigger:
+        $ref: '#/definitions/AlertTrigger'
       output:
         $ref: '#/definitions/AlertOutput'
       searchTimeFrameMinutes:
         type: integer
         format: int32
-      subAlerts:
+      subComponents:
         type: array
         items:
           $ref: '#/definitions/SubAlert'
@@ -2848,26 +2705,46 @@ definitions:
         type: integer
         format: int32
         minimum: 0
+      format:
+        $ref: '#/definitions/AlertOutputFormat'
       type:
         type: string
         enum:
           - JSON
           - TABLE
+  AlertOutputFormat:
+    type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - JSON
+          - TABLE
+      columns:
+        type: array
+        items:
+          $ref: '#/definitions/ColumnConfig'
   AlertQuery:
     type: object
     properties:
       query:
+        description: Provide a Kibana query written in Lucene syntax. The query along with the filters selects the relevant logs.
         type: string
       filters:
+        description: Specify Kibana filters to select relevant logs. The filters along with the query select for the relevant logs.
         $ref: '#/definitions/BoolFilter'
       groupBy:
         type: array
+        description: Applies group by rules to aggregate results by a field's values. Up to 3 aggregations are possible. When aggregations are applied, the alert evaluates the query and filters per value per group by field.
         items:
           type: string
         maxItems: 3
         minItems: 0
       aggregation:
         $ref: '#/definitions/Aggregation'
+      searchTimeFrameMinutes:
+        type: integer
+        format: int32
       shouldQueryOnAllAccounts:
         type: boolean
       accountIdsToQueryOn:
@@ -2925,26 +2802,35 @@ definitions:
     properties:
       title:
         type: string
+        description: Provide a title for the alert
       description:
         type: string
+        description: Provide an explanation and context of the significane of the alert. Consider adding information about the action that should be taken in response when the alert triggers.
       tags:
         type: array
+        description: Provide one or more tags to help classify your alerts and provide filtering criteria.
         items:
           type: string
         maxItems: 10
         minItems: 0
+      queryDefinition:
+        $ref: '#/definitions/AlertQuery'
+      trigger:
+        $ref: '#/definitions/AlertTrigger'
       output:
         $ref: '#/definitions/AlertOutput'
       searchTimeFrameMinutes:
         type: integer
         format: int32
-      subAlerts:
+      subComponents:
         type: array
         items:
           $ref: '#/definitions/SubAlert'
       correlations:
         $ref: '#/definitions/SubAlertCorrelation'
       enabled:
+        type: boolean
+      correlatedAlertsApi:
         type: boolean
   AlertTrigger:
     type: object
@@ -3019,6 +2905,11 @@ definitions:
           type: string
       pagination:
         $ref: '#/definitions/Pagination'
+  TagsFilter:
+    type: object
+    properties:
+      searchTerm:
+        type: string
   TagsSearchRequest:
     type: object
     properties:
@@ -3026,11 +2917,6 @@ definitions:
         $ref: '#/definitions/TagsFilter'
       pagination:
         $ref: '#/definitions/Pagination'
-  TagsFilter:
-    type: object
-    properties:
-      searchTerm:
-        type: string
   AlertSamples:
     type: object
     properties:
@@ -3141,8 +3027,8 @@ definitions:
         type: array
         description: >-
          Array of logs returned in answer to the query. The logs are returned in their entirety and parsed.
-         
-         
+
+
          If the logs are no longer retained in the database, the request will return empty. You can check your account's log retention policy in your [log monitoring account](https://app.logz.io/#/dashboard/settings/usage-and-billing).
         items:
           type: object
@@ -3793,13 +3679,13 @@ definitions:
         type: object
         description: >-
           Add a search query to receive the `scrollID` in the result.
-          
-          
+
+
           The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
 
 
           You can only add the `query` parameters if you are not passing the `scroll_id` in the request.
-          
+
           #### Limitations
 
           * The query can only run on 2 consecutive indexes. By default, the query runs on data sent today and yesterday. You can also add a filter on `timestamp` to search a smaller time frame.
@@ -3834,12 +3720,12 @@ definitions:
         type: object
         description: >-
           The object `includes` specifies an array of strings specifying an array of fields to return.
-          
+
           * If you omit `_source` from the request, all fields are returned.
 
           * If you pass `'_source': false`, it will exclude the `_source` field from the results.
         properties:
-          includes: 
+          includes:
             type: array of strings
             description: Array of fields to return
             example: message
@@ -4294,7 +4180,7 @@ definitions:
         type: string
   S3StorageSettings:
     type: object
-    required: 
+    required:
     - credentialsType
     - path
     description: Applicable settings when the `storageType` is `S3`.

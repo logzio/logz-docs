@@ -69,7 +69,7 @@ fields:
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
 ignore_older: 3hr
-type: metrics
+type: chef_automate
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
@@ -91,7 +91,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:start -->
 <div id="inspec-config">
 
-You'll need to set a webhook to generate an Infospec compliance report. This is done from the Chef Automate admin console.
+To automaticly recive new InSpec compliance report in your Logz.io evniroment you'll need to set a webhook. This is done from the Chef Automate admin console.
 
 <div class="tasklist">
 
@@ -106,7 +106,7 @@ Go to **Settings > Notifications > Create Notification**
 
 ##### Set Logz.io parameters
 
-* **Name** - Choose a name for the notification (Logzio - Security)
+* **Name** - Choose a name for the notification (for example: Logzio - Security)
 * **Webhook type** - Webhook
 * **Failure type** - InSpec compliance scan failures
 * **Webhook URL** - `http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=inspec_compliance`

@@ -1,28 +1,29 @@
 ---
-title: Ship Chef Automate data 
+title: Ship Chef Automate data
 logo:
-  logofile: consul1.png
-  orientation: vertical 
-data-source: Chef Automate 
+  logofile: chef-automate-logo.svg
+  orientation: horizontal
+data-source: Chef Automate
 contributors:
   - doron-bargo
-  - shalper 
+  - shalper
 shipping-tags:
   - security
-  - ci-cd 
+  - ci-cd
 ---
 
 <!-- tabContainer:start -->
 <div class="branching-container">
 
 * [Operational Logs](#Opertional-config)
-* [InSpec Compliance](#Inspec-config)
+* [InSpec Compliance](#inspec-config)
 {:.branching-tabs}
 
 <!-- tab:start -->
 <div id="Opertional-config">
 
-You can ship Chef-Automate operational logs using Journalbeat
+You can ship Chef-Automate operational logs using Journalbeat.
+
 #### Journalbeat setup
 
 **Before you begin, you'll need**:
@@ -31,7 +32,7 @@ You can ship Chef-Automate operational logs using Journalbeat
 
 <div class="tasklist">
 
-{% Download log-shipping/certificate.md server="to your Chef Automate server" %}
+{% include log-shipping/certificate.md server="to your Chef Automate server" %}
 
 
 ##### Add chef automate journal as as input
@@ -51,6 +52,7 @@ processors:
       target_prefix: ""
       overwrite_keys: true
 ```
+
 Replace <<JOURNAL_DIRECTORY>> with your Journal directory name ( under /var/log/journal)
 
 ##### Set Logz.io as the output
@@ -89,35 +91,51 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:start -->
 <div id="inspec-config">
 
-To get Infospec compliance report you will have to set a webhook using Chef Automate UI
+You'll need to set a webhook to generate an Infospec compliance report. This is done from the Chef Automate admin console.
 
 <div class="tasklist">
 
 ##### Create new webhook
-In Chef Automate UI go to Setting -> Notifications -> Create Notification
-<<PICTURE configuration - need to add numbers>>
+
+Open the Chef Automate admin console.
+
+Go to **Settings > Notifications > Create Notification**
+
+![Create notification in Chef Automate admin console](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/chef-automate.png)
+
 
 ##### Set Logz.io parameters
-Name - Choose a name for the notification (Logzio - Security)
-Webhook type - Webhook
-Failure type - InSpec compliance scan failures
-Webhook URL - http://<<Listener>>:8070/?token=<<Your Security Token>>&type=inspec_compliance
 
-<<Picture notification param>>
+* **Name** - Choose a name for the notification (Logzio - Security)
+* **Webhook type** - Webhook
+* **Failure type** - InSpec compliance scan failures
+* **Webhook URL** - `http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=inspec_compliance`
 
-replace <<Listener>> and <<Token>>
+
+{% include log-shipping/replace-vars.html token=true %}
+
+{% include log-shipping/replace-vars.html listener=true %}
+
+![notification param]()
+
 
 ##### Test Notification
-Press the test notification and look for the following log in your Logzio Security account
-<<picture kibana >
-Press create notification
+
+Press the test notification and look for the following log in your Logzio Security account.
+
+![Kibana notification]()
+
+Press create notification.
 
 
-Once you run Inspec compliance report, the report will be shipped to your Logzio security account
+Once you run the Inspec compliance report, the report will be shipped to your Logzio security account on a regular basis.
 
 </div>
 </div>
+
 <!-- tab:end -->
+
 </div>
+
 <!-- tabContainer:end -->
 

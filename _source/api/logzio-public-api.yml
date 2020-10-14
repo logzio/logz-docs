@@ -151,6 +151,14 @@ tags:
     description: >-
       Use these API endpoints to create, update, retrieve, or delete log shipping tokens.
   - name: Drop filters
+    description: >-
+      Drop filters offer a great way to filter out logs from an account to help manage your account volume and lower costs.
+      
+      
+      Drop filters evaluate logs for field:value exact matches. Incoming logs that match your account's active drop filters will not be indexed and will not appear in your Kibana account. Dropped logs are not searchable, cannot trigger alerts, and will not appear in dashboards, reports, or anything else.
+      
+      
+      Drop filters do not affect archiving, as archiving happens earlier in the pipeline. Therefore, logs that are dropped using drop filters can be archived and restored in the event that they become relevant.
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.

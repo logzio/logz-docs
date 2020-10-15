@@ -667,7 +667,7 @@ paths:
   /v2/alerts:
     get:
       summary: Retrieve all alerts
-      description: Returns the complete list of all applicable alerts.
+      description: Returns the complete list of all alerts configured for the account.
       tags:
         - Alerts
       operationId: getAllAlerts
@@ -682,8 +682,8 @@ paths:
               $ref: '#/definitions/AlertV2Response'
           headers: {}
     post:
-      summary: Creates an alert
-      description: ''
+      summary: Create an alert
+      description: Creates and activates a new alert.
       tags:
         - Alerts
       operationId: createAlert
@@ -702,8 +702,8 @@ paths:
             $ref: '#/definitions/AlertV2Response'
   /v2/alerts/{alertId}:
     get:
-      summary: Retrieves an alert
-      description: Returns a specific alert identified by its ID.
+      summary: Retrieve an alert
+      description: Returns alert details by alert ID.
       tags:
         - Alerts
       operationId: getAlert
@@ -722,8 +722,8 @@ paths:
             $ref: '#/definitions/AlertV2Response'
           headers: {}
     put:
-      summary: Updates an alert
-      description: ''
+      summary: Update an alert
+      description: Changes alert details. The alert is identified by its alert ID in the Logz.io database.
       tags:
         - Alerts
       operationId: updateAlert
@@ -746,8 +746,8 @@ paths:
           schema:
             $ref: '#/definitions/AlertV2Response'
     delete:
-      summary: Deletes an alert
-      description: ''
+      summary: Delete an alert
+      description: Deletes an alert. The alert is identified by its alert ID in the Logz.io database.
       tags:
         - Alerts
       operationId: deleteAlert
@@ -2661,28 +2661,47 @@ definitions:
       id:
         type: integer
         format: int32
+        description: ID of the alert in the Logz.io database.
+        example: 
       updatedAt:
         type: integer
         format: int64
+        description: ID of the alert in the Logz.io database.
+        example: 
       updatedBy:
         type: string
+        description: ID of the alert in the Logz.io database.
+        example: 
       createdAt:
         type: integer
         format: int64
+        description: ID of the alert in the Logz.io database.
+        example: 
       createdBy:
         type: string
+        description: ID of the alert in the Logz.io database.
+        example: 
       enabled:
         type: boolean
+        description: ID of the alert in the Logz.io database.
+        example: 
       title:
         type: string
+        description: ID of the alert in the Logz.io database.
+        example: 
       description:
         type: string
+        description: ID of the alert in the Logz.io database.
+        example: 
       tags:
         type: array
+        description: ID of the alert in the Logz.io database.
+        example: 
         items:
           type: string
       queryDefinition:
         $ref: '#/definitions/AlertQuery'
+        definition: Use a combination of filters, a Lucene query, and group-by rules, and aggregations, to determine which logs the alert should look for. The order of evaluation is filters, query, group by fields, aggregations.
       trigger:
         $ref: '#/definitions/AlertTrigger'
       output:
@@ -2690,6 +2709,8 @@ definitions:
       searchTimeFrameMinutes:
         type: integer
         format: int32
+        description: The timeframe for evaluating the alert criteria, in minutes.
+        example: 
       subComponents:
         type: array
         items:
@@ -2714,9 +2735,11 @@ definitions:
           - TABLE
   AlertOutputFormat:
     type: object
+    description: Selects the output format for the alert notification.
     properties:
       type:
         type: string
+        description: Select JSON to send the alert notification in JSON format. Otherwise, select `TABLE` to send a truncated text notification.
         enum:
           - JSON
           - TABLE
@@ -2731,21 +2754,23 @@ definitions:
         description: Provide a Kibana query written in Lucene syntax. The query along with the filters selects the relevant logs.
         type: string
       filters:
-        description: Specify Kibana filters to select relevant logs. The filters along with the query select for the relevant logs.
         $ref: '#/definitions/BoolFilter'
       groupBy:
-        type: array
         description: Applies group by rules to aggregate results by a field's values. Up to 3 aggregations are possible. When aggregations are applied, the alert evaluates the query and filters per value per group by field.
+        type: array
         items:
           type: string
         maxItems: 3
         minItems: 0
       aggregation:
+        summary: aggregation rules
         $ref: '#/definitions/Aggregation'
       searchTimeFrameMinutes:
+        description:
         type: integer
         format: int32
       shouldQueryOnAllAccounts:
+        description: Only applicable when the alert is run from the main account. If `true`, the alert runs on the main account and all associated sub accounts. If `false`, only accounts specifically selected by the `accountIdsToQueryOn` field will be evaluated.
         type: boolean
       accountIdsToQueryOn:
         type: array
@@ -2799,6 +2824,8 @@ definitions:
         type: boolean
   AlertV2Request:
     type: object
+    required:
+      - title
     properties:
       title:
         type: string
@@ -2806,6 +2833,7 @@ definitions:
       description:
         type: string
         description: Provide an explanation and context of the significane of the alert. Consider adding information about the action that should be taken in response when the alert triggers.
+        example: 
       tags:
         type: array
         description: Provide one or more tags to help classify your alerts and provide filtering criteria.
@@ -2851,6 +2879,7 @@ definitions:
           format: double
   BoolFilter:
     type: object
+    description: Apply `must` and `must_not` filters to the monitoring alert. Filters are more efficient compared to a query, so it's recommended to opt for a filter over a query, where possible. See [Elasticsearch Bool-Query](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html) for more detail.
     properties:
       bool:
         $ref: '#/definitions/FilterLists'
@@ -2868,6 +2897,7 @@ definitions:
           - ASC
   FilterLists:
     type: object
+    description: Filter the logs using 
     properties:
       must:
         type: array
@@ -2875,18 +2905,18 @@ definitions:
           type: object
           additionalProperties:
             type: object
-      should:
-        type: array
-        items:
-          type: object
-          additionalProperties:
-            type: object
-      filter:
-        type: array
-        items:
-          type: object
-          additionalProperties:
-            type: object
+#      should:
+#        type: array
+#        items:
+#          type: object
+#          additionalProperties:
+#            type: object
+#      filter:
+#        type: array
+#        items:
+#          type: object
+#          additionalProperties:
+#            type: object
       must_not:
         type: array
         items:

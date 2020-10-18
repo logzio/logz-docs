@@ -28,20 +28,32 @@ from the top menu.
 
 You'll see a paginated list of all alerts configured for your account.
 
-* You can enable/disable alerts, as needed.
+## Order or filter the list
 
 * You can click the column headers to sort the list by **severity** or chronologically by when alerts were **created** or **updated**.
 
-* You can click the **Menu button <i class="li li-ellipsis-v"></i>** to edit, duplicate, or delete an alert.
-
-* To view the alert logs over the last 3 days, click the **Menu button <i class="li li-ellipsis-v"></i>** and select **View last events**.
-
-  You'll be taken to Kibana Discover, with the logs filtered by the alert ID over the last 36 hours. Each log document represents an event when the alert triggered.
-
-  You can click the **Investigate** button to drill down on the raw logs that caused the alert to trigger.
-
-* You can filter the list of alerts by tags, severity, who created and/or updated the alert, and its status (whether it is active or disabled).
+* Filter the list of alerts by multiple criteria, including tags, severity, who created and/or updated the alert, and status (active/disabled).
 
   <video autoplay loop>
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/filter-alerts.mp4" type="video/mp4" />
   </video>
+
+
+## Enable or disable alerts temporarily
+
+* Toggle the **Active** button, to enable or disable an alert, as needed. You have the option to filter the list of alerts by their **Active** state.
+
+
+## Edit, duplicate, or delete an alert
+
+* You can click the **Menu button <i class="li li-ellipsis-v"></i>** to edit, duplicate, or delete an alert.
+
+## View the latest events when the alert tiggered
+
+* You can view the logs written by the alert over the last 3 days. Each log represents a discrete incident when the alert triggered.
+
+  Click the **Menu button <i class="li li-ellipsis-v"></i>** and select **View last events**.
+
+  You'll be taken to the Kibana Discover view, filtered by the alert ID over the last 36 hours. Each log document represents an event, when the alert's query and triggering conditions were met.
+
+  You can click the **Investigate** button to drill down on the raw logs that caused the alert to trigger.

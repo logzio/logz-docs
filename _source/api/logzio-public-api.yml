@@ -666,13 +666,14 @@ paths:
   # ::::: Alerts V2
   /v2/alerts:
     get:
+      operationId: getAllAlerts
       summary: Retrieve all alerts
       description: Returns the complete list of all alerts configured for the account.
       tags:
         - Alerts
-      operationId: getAllAlerts
       produces:
         - application/json
+      parameters:
       responses:
         '200':
           description: successful operation
@@ -683,7 +684,7 @@ paths:
           headers: {}
     post:
       summary: Create an alert
-      description: Creates and activates a new alert.
+      description: Configures a new alert and activates it.
       tags:
         - Alerts
       operationId: createAlert
@@ -700,6 +701,7 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/AlertV2Response'
+
   /v2/alerts/{alertId}:
     get:
       summary: Retrieve an alert
@@ -723,7 +725,7 @@ paths:
           headers: {}
     put:
       summary: Update an alert
-      description: Changes alert details. The alert is identified by its alert ID in the Logz.io database.
+      description: Reconfigures, changes or updates an alert. The alert is identified by its alert ID in the Logz.io database.
       tags:
         - Alerts
       operationId: updateAlert
@@ -746,11 +748,11 @@ paths:
           schema:
             $ref: '#/definitions/AlertV2Response'
     delete:
+      operationId: deleteAlert
       summary: Delete an alert
       description: Deletes an alert. The alert is identified by its alert ID in the Logz.io database.
       tags:
         - Alerts
-      operationId: deleteAlert
       produces:
         - application/json
       parameters:
@@ -765,7 +767,6 @@ paths:
           schema:
             $ref: '#/definitions/AlertV2Response'
           headers: {}
-
 
 
   # ::::: Archive
@@ -2639,7 +2640,6 @@ definitions:
     example: true
 
   # ::::: Alert
-
   Aggregation:
     type: object
     properties:
@@ -2661,56 +2661,49 @@ definitions:
       id:
         type: integer
         format: int32
-        description: ID of the alert in the Logz.io database.
+        description: ID
         example: 
       updatedAt:
         type: integer
         format: int64
-        description: ID of the alert in the Logz.io database.
+        description: ID
         example: 
       updatedBy:
         type: string
-        description: ID of the alert in the Logz.io database.
+        description: ID
         example: 
       createdAt:
         type: integer
         format: int64
-        description: ID of the alert in the Logz.io database.
+        description: ID
         example: 
       createdBy:
         type: string
-        description: ID of the alert in the Logz.io database.
+        description: ID
         example: 
       enabled:
         type: boolean
-        description: ID of the alert in the Logz.io database.
+        description: ID
         example: 
       title:
         type: string
-        description: ID of the alert in the Logz.io database.
+        description: ID
         example: 
       description:
         type: string
-        description: ID of the alert in the Logz.io database.
+        description: ID
         example: 
       tags:
         type: array
-        description: ID of the alert in the Logz.io database.
-        example: 
         items:
           type: string
-      queryDefinition:
-        $ref: '#/definitions/AlertQuery'
-        definition: Use a combination of filters, a Lucene query, and group-by rules, and aggregations, to determine which logs the alert should look for. The order of evaluation is filters, query, group by fields, aggregations.
-      trigger:
-        $ref: '#/definitions/AlertTrigger'
+        description: ID
+        example: 
       output:
         $ref: '#/definitions/AlertOutput'
       searchTimeFrameMinutes:
         type: integer
         format: int32
-        description: The timeframe for evaluating the alert criteria, in minutes.
-        example: 
       subComponents:
         type: array
         items:
@@ -2726,57 +2719,50 @@ definitions:
         type: integer
         format: int32
         minimum: 0
-      format:
-        $ref: '#/definitions/AlertOutputFormat'
       type:
         type: string
+        description: >-
+          Selects the output format for the alert notification.
+          
+          
+          Select JSON to send the alert notification in JSON format. Otherwise, select `TABLE` to send a truncated text notification.
         enum:
           - JSON
           - TABLE
-  AlertOutputFormat:
-    type: object
-    description: Selects the output format for the alert notification.
-    properties:
-      type:
-        type: string
-        description: Select JSON to send the alert notification in JSON format. Otherwise, select `TABLE` to send a truncated text notification.
-        enum:
-          - JSON
-          - TABLE
-      columns:
-        type: array
-        items:
-          $ref: '#/definitions/ColumnConfig'
   AlertQuery:
     type: object
     properties:
       query:
-        description: Provide a Kibana query written in Lucene syntax. The query along with the filters selects the relevant logs.
         type: string
+        description: Provide a Kibana query written in Lucene syntax. The query along with the filters selects the relevant logs.
+        default: "*"
+        example:
       filters:
         $ref: '#/definitions/BoolFilter'
       groupBy:
-        description: Applies group by rules to aggregate results by a field's values. Up to 3 aggregations are possible. When aggregations are applied, the alert evaluates the query and filters per value per group by field.
         type: array
+        description: >-
+          Aggregate results by field values. If group by rules are applied, the alert only returns a unique count of the results aggregated by unique values.
+          
+          
+          * Up to 3 aggregations are possible.
+          * When aggregations are applied, the alert evaluates the query and filters per value per group by field.
         items:
           type: string
         maxItems: 3
         minItems: 0
       aggregation:
-        summary: aggregation rules
         $ref: '#/definitions/Aggregation'
-      searchTimeFrameMinutes:
-        description:
-        type: integer
-        format: int32
       shouldQueryOnAllAccounts:
-        description: Only applicable when the alert is run from the main account. If `true`, the alert runs on the main account and all associated sub accounts. If `false`, only accounts specifically selected by the `accountIdsToQueryOn` field will be evaluated.
         type: boolean
+        default: true
+        description: Only applicable when the alert is run from the main account. If `true`, the alert runs on the main account and all associated sub accounts. If `false`, only accounts specifically selected by the `accountIdsToQueryOn` field will be evaluated.
       accountIdsToQueryOn:
         type: array
         items:
           type: integer
           format: int32
+
   AlertRecipients:
     type: object
     properties:
@@ -2824,27 +2810,17 @@ definitions:
         type: boolean
   AlertV2Request:
     type: object
-    required:
-      - title
     properties:
       title:
         type: string
-        description: Provide a title for the alert
       description:
         type: string
-        description: Provide an explanation and context of the significane of the alert. Consider adding information about the action that should be taken in response when the alert triggers.
-        example: 
       tags:
         type: array
-        description: Provide one or more tags to help classify your alerts and provide filtering criteria.
         items:
           type: string
         maxItems: 10
         minItems: 0
-      queryDefinition:
-        $ref: '#/definitions/AlertQuery'
-      trigger:
-        $ref: '#/definitions/AlertTrigger'
       output:
         $ref: '#/definitions/AlertOutput'
       searchTimeFrameMinutes:
@@ -2857,8 +2833,6 @@ definitions:
       correlations:
         $ref: '#/definitions/SubAlertCorrelation'
       enabled:
-        type: boolean
-      correlatedAlertsApi:
         type: boolean
   AlertTrigger:
     type: object

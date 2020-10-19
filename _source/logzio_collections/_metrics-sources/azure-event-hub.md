@@ -22,7 +22,7 @@ and forward them to [Logz.io](http://logz.io/).
 
 #### Metricbeat setup
 
-{% include metric-shipping/azure-services-requirements.html %}
+{% include metric-shipping/azure-services-requirements.md %}
 
 <div class="tasklist">
 
@@ -130,7 +130,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{% include metric-shipping/azure-params.html %}
+{% include metric-shipping/azure-params.md %}
 
 {:.paramlist}
 
@@ -138,7 +138,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure Event hubs monitor" %}
+{% include metric-shipping/open-dashboard.md title="Azure Event hubs monitor" %}
 
 
 </div>

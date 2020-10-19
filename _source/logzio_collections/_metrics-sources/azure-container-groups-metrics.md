@@ -21,7 +21,7 @@ and forward them to Logz.io.
 
 #### Metricbeat setup
 
-{% include metric-shipping/azure-services-requirements.html %}
+{% include metric-shipping/azure-services-requirements.md %}
 
 <div class="tasklist">
 
@@ -136,13 +136,13 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{% include metric-shipping/azure-params.html %}
+{% include metric-shipping/azure-params.md %}
 
 ##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure Container Instances monitor" %}
+{% include metric-shipping/open-dashboard.md title="Azure Container Instances monitor" %}
 
 
 </div>

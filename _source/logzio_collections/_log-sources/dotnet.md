@@ -104,8 +104,8 @@ hierarchy.Configured = true;
 
 | Parameter | Description |
 |---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
-| listenerUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.md %} |
+| listenerUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars-listener.md %} |
 | type <span class="default-param">`log4net`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | bufferSize <span class="default-param">`100`</span> | Maximum number of messages the logger will accumulate before sending them all as a bulk. |
 | bufferTimeout <span class="default-param">`00:00:05`</span> | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. |
@@ -276,8 +276,8 @@ LogManager.Configuration = config;
 
 | Parameter | Description |
 |---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
-| listenerUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.md %} |
+| listenerUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars-listener.md %} |
 | logzioType <span class="default-param">`nlog`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | bufferSize <span class="default-param">`100`</span> | Maximum number of messages the logger will accumulate before sending them all as a bulk. |
 | bufferTimeout <span class="default-param">`00:00:05`</span> | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. |

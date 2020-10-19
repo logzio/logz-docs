@@ -80,9 +80,9 @@ java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<SHIPPING-TOKEN>>,SERVI
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
+| LOGZIO_TOKEN <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.md %} |
 | SERVICE_NAME <span class="required-param"></span> | A name you define for the service. This is included in the reported metrics. |
-| LISTENER_URL <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
+| LISTENER_URL <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. {% include log-shipping/replace-vars-listener.md %} |
 | SERVICE_HOST <span class="default-param">Host machine name</span> | Hostname to be included in the reported metrics. |
 | POLLING_INTERVAL_IN_SEC <span class="default-param">`30`</span> | Metrics polling interval, in seconds. |
 | WHITE_LIST_REGEX <span class="default-param">`.*` (match everything)</span> | Only metrics matching this regex will be sent. |
@@ -169,7 +169,7 @@ For help, see our [example configuration file](https://raw.githubusercontent.com
 | service.poller.metrics-polling-interval-in-seconds <span class="default-param">`30`</span> | Metrics polling interval, in seconds. |
 | extra-dimensions | A dictionary of key-values that will be added to the dimensions of the collected metrics. |
 | logzio-java-sender.url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| logzio-java-sender.token <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
+| logzio-java-sender.token <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.md %} |
 | logzio-java-sender.from-disk <span class="default-param">`true`</span> | If `true`, metrics are stored on disk until they're shipped (see [If from-disk=true](#jolokia-if-fromdisk-true)). If `false`, metrics persist in memory until they're shipped (see [If from-disk=false](#jolokia-if-fromdisk-false)). |
 {:.paramlist}
 

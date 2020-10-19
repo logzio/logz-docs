@@ -83,7 +83,7 @@ logzio/jaeger-logzio:latest
 
 | Parameter | Description |
 |---|---|
-| ACCOUNT_TOKEN <span class="required-param"></span> | Required when using as a collector to ship traces to Logz.io. <br> {% include log-shipping/replace-vars.html token=true %} |
+| ACCOUNT_TOKEN <span class="required-param"></span> | Required when using as a collector to ship traces to Logz.io. <br> {% include log-shipping/replace-vars.md %} |
 | API_TOKEN <span class="required-param"></span> | Required to read back traces from Logz.io. <br> Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from the account you want to use. |
 | REGION <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | GRPC_STORAGE_PLUGIN_LOG_LEVEL <span class="default-param">`warn`</span> | The lowest log level to send. From lowest to highest, log levels are `trace`, `debug`, `info`, `warn`, `error`. <br> Controls logging for Jaeger Logz.io Collector only (not Jaeger components). |
@@ -140,7 +140,7 @@ logzio/jaeger-logzio-collector:latest
 
 | Parameter | Description |
 |---|---|
-| ACCOUNT_TOKEN <span class="required-param"></span> | Required when using as a collector to ship traces to Logz.io. <br> {% include log-shipping/replace-vars.html token=true %} |
+| ACCOUNT_TOKEN <span class="required-param"></span> | Required when using as a collector to ship traces to Logz.io. <br> {% include log-shipping/replace-vars.md %} |
 | REGION <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to). <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | GRPC_STORAGE_PLUGIN_LOG_LEVEL	<span class="default-param">`warn`</span> | The lowest log level to send. From lowest to highest, log levels are `trace`, `debug`, `info`, `warn`, `error`. <br> Controls logging for Jaeger Logz.io Collector only (not Jaeger components). |
 | COLLECTOR_ZIPKIN_HTTP_PORT | If you're using a Zipkin implementation to create traces, set this environment variable to the HTTP port for the Zipkin collector service. |

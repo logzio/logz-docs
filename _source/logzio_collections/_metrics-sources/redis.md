@@ -37,7 +37,7 @@ fields:
 fields_under_root: true
 ```
 
-{% include metric-shipping/replace-metrics-token.html %}
+{% include metric-shipping/replace-metrics-token.md %}
 
 ##### Set Logz.io as the output
 
@@ -51,7 +51,7 @@ output.logstash:
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
@@ -95,9 +95,9 @@ For a full list of available Metricbeat configuration options for the Redis modu
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include metric-shipping/replace-metrics-token.html %}
+* {% include metric-shipping/replace-metrics-token.md %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 * Replace the placeholder `<<REDIS-HOST>>` with the URL that is used to connect to Redis. The typical formats are `redis://[:password@]host[:port][/db-number][?option=value]` or `redis://HOST[:PORT][?password=PASSWORD[&db=DATABASE]`.
 

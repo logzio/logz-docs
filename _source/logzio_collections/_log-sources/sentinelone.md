@@ -84,9 +84,9 @@ output:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/replace-vars.md %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 * Replace the host port with your syslog port details. The above example has `host: "0.0.0.0:6514"` but you should change it to your specifics.
 

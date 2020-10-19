@@ -43,13 +43,13 @@ Otherwise, for HTTP shipping, use this configuration:
 http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
 ```
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ###### Query parameters
 
 | Parameter | Description |
 |---|---|
-| token <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| token <span class="required-param"></span> | {% include log-shipping/replace-vars.md %} <!-- logzio-inject:account-token --> |
 | type <span class="default-param">`http-bulk`</span> | The log type you'll use with this upload. This is shown in your logs under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
 {:.paramlist}
 
@@ -147,7 +147,7 @@ Keep to these practices when shipping JSON logs over TCP:
 * Each log line must be 500,000 bytes or less
 * Include your account token as a top-level property: \\
   `{ ... "token": "<<SHIPPING-TOKEN>>" , ... }`
-  {% include log-shipping/replace-vars.html token=true prepend="<br>" %}
+  {% include log-shipping/replace-vars.md token=true prepend="<br>" %}
 
 ### Sending the logs
 
@@ -160,7 +160,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 Using the certificate you just downloaded,
 send the logs to TCP port 5052 at
 <!-- logzio-inject:listener-url -->
-{% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
+{% include log-shipping/replace-vars.md listener='noReplace' isMidSentence=true %}
 
 ###### Code sample: NXLog
 

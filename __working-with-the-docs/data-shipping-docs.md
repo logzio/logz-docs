@@ -13,7 +13,7 @@ Shipper collections & templating are handled through these files:
 * **_source/_data/shipper-tabs.yml**: Feeds the shipping landing page - including the tabs and the cards. Usage is explained in file comments.
 * **_source/shipping/index.html**: The index page for the shipping docs. Loops over the array and tags, and generates the page.
 * **_source/_includes/log-shipping/in-app-configuration.html**: If a page has a configuration component in-app, use this include. This is currently used for Filebeat (which has the cofiguration button) and the S3 pages (which has the S3 credentials component).
-* **_source/_includes/log-shipping/replace-vars.html**: For the reusable for replacing shipping token and listener host.
+* **_source/_includes/log-shipping/replace-vars.md**: For the reusable for replacing shipping token and listener host.
 
 ## Community shippers
 

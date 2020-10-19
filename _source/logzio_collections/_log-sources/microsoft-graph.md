@@ -101,8 +101,8 @@ logLevel: INFO
 
 | Parameter | Description |
 |---|---|
-| senderParams.accountToken <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} |
-| senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span> | Listener URL. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| senderParams.accountToken <span class="required-param"></span> | {% include log-shipping/replace-vars.md %} |
+| senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span> | Listener URL. <br> {% include log-shipping/replace-vars-listener.md %} |
 | senderParams.fromDisk <span class="default-param">`true`</span> | If `true`, logs are stored on disk until they're shipped (see [If from-disk=true](#if-fromdisk-true)). If `false`, logs persist in memory until they're shipped (see [If from-disk=false](#if-fromdisk-false)). |
 | senderParams.senderDrainIntervals <span class="default-param">`30`</span> | How often the sender should drain the queue, in seconds. |
 | azureADClient.tenantId <span class="required-param"></span> | Azure Active Directory tenant ID. <br> You can find this in the _Overview_ section of the app you registered in step 1. |

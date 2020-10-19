@@ -37,7 +37,7 @@ fields:
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
 ```
-{% include metric-shipping/replace-metrics-token.html %}
+{% include metric-shipping/replace-metrics-token.md %}
 
 ##### Set Logz.io as the output
 
@@ -49,7 +49,7 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
@@ -86,9 +86,9 @@ For a full list of available Metricbeat configuration options for the MongoDB mo
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include metric-shipping/replace-metrics-token.html %}
+* {% include metric-shipping/replace-metrics-token.md %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 * The hosts must be passed as MongoDB URLs in the format: `[mongodb://][user:pass@]host[:port]`
 
@@ -98,6 +98,6 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="MongoDB" %}
+{% include metric-shipping/open-dashboard.md title="MongoDB" %}
 
 </div>

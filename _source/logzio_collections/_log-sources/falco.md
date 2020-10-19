@@ -226,11 +226,11 @@ output.logstash:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/replace-vars.md %}
 
 * Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step.
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.

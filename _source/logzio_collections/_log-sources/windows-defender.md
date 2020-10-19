@@ -74,7 +74,7 @@ clear the contents and start with a fresh file.
 
 Paste this code block.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
 ```yaml
 winlogbeat.event_logs:
@@ -121,7 +121,7 @@ If Logz.io isn't the output, set it now.
 
 Winlogbeat can have one output only, so remove any other `output` entries.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ```yaml
 output.logstash:

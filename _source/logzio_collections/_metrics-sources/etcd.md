@@ -37,7 +37,7 @@ fields:
 fields_under_root: true
 ```
 
-{% include metric-shipping/replace-metrics-token.html %}
+{% include metric-shipping/replace-metrics-token.md %}
 
 
 ##### Set Logz.io as the output
@@ -52,7 +52,7 @@ output.logstash:
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
@@ -91,9 +91,9 @@ For a full list of available Metricbeat configuration options for the etcd modul
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include metric-shipping/replace-metrics-token.html %}
+* {% include metric-shipping/replace-metrics-token.md %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 * `localhost:2379` is the default address for etcd, change it if you're runnning etcd from a different address.
 
@@ -101,7 +101,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Etcd" %}
+{% include metric-shipping/open-dashboard.md title="Etcd" %}
 
 </div>
 

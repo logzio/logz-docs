@@ -113,14 +113,14 @@ logzio/docker-collector-metrics
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
+| LOGZIO_TOKEN <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.md %} |
 | LOGZIO_MODULES <span class="required-param"></span> | Comma-separated list of Metricbeat modules to enable on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/modules`. |
 | LOGZIO_REGION <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
 | LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |
 | LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
 | HOSTNAME <span class="default-param">``</span> | Insert your host name if you want it to appear in the metrics' `host.name`. If null, host.name will show the container's ID. |
-{% include metric-shipping/debug-param.html %}
+{% include metric-shipping/debug-param.md %}
 {:.paramlist}
 
 ###### Parameters for the AWS module
@@ -147,7 +147,7 @@ To enable this option, you’ll need to install and configure a CloudWatch agent
 For additional instructions, see more about [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).
 
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/EC2" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/EC2" %}
 
 </div>
 </div>
@@ -249,9 +249,9 @@ output.logstash:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include metric-shipping/replace-metrics-token.html %} 
+* {% include metric-shipping/replace-metrics-token.md %} 
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 
 One last validation - make sure Logz.io is the only output and appears only once.
@@ -279,7 +279,7 @@ For additional instructions, see more about [installing the CloudWatch agent](ht
 Start or restart Metricbeat for the changes to take effect.
 
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/EC2" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/EC2" %}
 
 </div>
 <!-- tab:end -->

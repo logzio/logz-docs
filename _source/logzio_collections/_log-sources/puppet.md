@@ -49,7 +49,7 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Puppet to t
   See [Advanced Logging Configuration](https://puppet.com/docs/puppetserver/5.1/config_logging_advanced.html) from Puppet for more information.
   {:.info-box.tip}
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
 ```yaml
 # ...
@@ -128,7 +128,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ```yaml
 # ...

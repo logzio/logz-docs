@@ -154,9 +154,9 @@ output.logstash:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/replace-vars.md %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 
 ##### Start Auditbeat

@@ -38,9 +38,9 @@ root access
 
 ##### Run the rsyslog configuration script
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ```shell
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz \

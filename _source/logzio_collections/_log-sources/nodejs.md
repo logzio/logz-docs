@@ -71,9 +71,9 @@ var logger = require('logzio-nodejs').createLogger({
 
 | Parameter | Description |
 |---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
+| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.md %} |
 | protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
-| host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
+| host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars-listener.md %} |
 | port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
 | type <span class="default-param">`nodejs`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | sendIntervalMs <span class="default-param">`2000` (2 seconds)</span> | Time to wait between retry attempts, in milliseconds. |
@@ -172,9 +172,9 @@ If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Fun
 
 If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/replace-vars.md %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 
 ##### Parameters
@@ -184,9 +184,9 @@ For a complete list of your options, see the configuration parameters below.👇
 | Parameter | Description |
 |---|---|
 | LogzioWinstonTransport | This variable determines what will be passed to the logzio nodejs logger itself. If you want to configure the nodejs logger, add any parameters you want to send to winston when initializing the transport. |
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
+| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.md %} |
 | protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
-| host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
+| host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars-listener.md %} |
 | port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
 | type <span class="default-param">`nodejs`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io to determine parsing. Can't contain spaces. |
 | sendIntervalMs <span class="default-param">`2000` (2 seconds)</span> | Time to wait between retry attempts, in milliseconds. |
@@ -333,9 +333,9 @@ logger.close()
 
 If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/replace-vars.md %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 ### Troubleshooting
 

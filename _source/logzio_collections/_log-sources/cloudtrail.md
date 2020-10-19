@@ -14,7 +14,7 @@ shipping-tags:
   - security
 ---
 
-{% include log-shipping/s3-bucket.html service="CloudTrail" %}
+{% include log-shipping/s3-bucket.md service="CloudTrail" %}
 
 #### Configuration
 
@@ -24,7 +24,7 @@ shipping-tags:
 
 * If you plan on using an IAM role to authenticate your connection, you can get the role policy by filling out the bucket information and clicking the "Get the role policy" button.
 
-* {% include log-shipping/s3-bucket-file-order.html %}
+* {% include log-shipping/s3-bucket-file-order.md %}
 
 <div class="tasklist">
 

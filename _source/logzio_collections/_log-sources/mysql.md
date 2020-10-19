@@ -78,7 +78,7 @@ sudo /etc/init.d/mysql restart
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
 ```yaml
 # ...
@@ -164,7 +164,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ```yaml
 # ...
@@ -221,8 +221,8 @@ logzio/mysql-logs
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
-| LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.md %} <!-- logzio-inject:account-token --> |
+| LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/replace-vars-listener.md %} |
 | MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span> | Path to the MySQL error log. |
 | MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span> | Path to the MySQL slow query log. |
 | MYSQL_LOG_FILE <span class="default-param">`/var/log/mysql/mysql.log`</span> | Path to the MySQL general log. |

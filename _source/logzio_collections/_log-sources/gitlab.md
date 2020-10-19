@@ -49,7 +49,7 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add GitLab to t
 GitLab has an advanced logging framework that ships a variety of different system logs.
 We recommend reading [Log system](https://docs.gitlab.com/ee/administration/logs.html) from GitLab and modifying the Filebeat sample configuration according to your needs.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
 ```yaml
 # ...
@@ -142,7 +142,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ```yaml
 # ...

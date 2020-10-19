@@ -45,9 +45,9 @@ However, you can deploy a custom configuration if your environment needs it. {%-
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
@@ -91,7 +91,7 @@ This is done using a ConfigMap that overwrites the default DaemonSet.
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
+{% include log-shipping/replace-vars.md token=true listener=true %}
 
 ```shell
 kubectl create secret generic logzio-logs-secret \

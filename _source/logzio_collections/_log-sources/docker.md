@@ -68,7 +68,7 @@ logzio/docker-collector-logs
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.md %} <!-- logzio-inject:account-token --> |
 | LOGZIO_REGION | Default: US region.<br> Logz.io region code to ship the logs to. This region code changes depending on the region your account is hosted in. For example, accounts in the EU region have region code `eu`.<br /> For more information, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) on the Logz.io Docs. |
 | LOGZIO_TYPE <span class="default-param">Docker image name</span> | The log type you'll use with this Docker. This is shown in your logs under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
 | LOGZIO_CODEC <span class="default-param">`plain`</span> | Set to `json` if shipping JSON logs. Otherwise, set to `plain`. |
@@ -149,8 +149,8 @@ For a complete list of options, see the configuration parameters below the code 
 
 | Parameter | Description |
 |---|---|
-| logzio-token <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
-| logzio-url <span class="required-param"></span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio-token <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.md %} <!-- logzio-inject:account-token --> |
+| logzio-url <span class="required-param"></span> | Listener URL and port. <br> {% include log-shipping/replace-vars-listener.md %} |
 | logzio-dir-path <span class="required-param"></span> | Unsent logs are saved to this location on the disk. |
 | logzio-source | Event source. |
 | logzio-format <span class="default-param">`text`</span> | Log message format, either `json` or `text`. |
@@ -198,9 +198,9 @@ docker run --log-driver=logzio/logzio-logging-plugin \
 ```
 {% endraw %}
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 For a complete list of options, see the configuration parameters in step 2.☝️
 

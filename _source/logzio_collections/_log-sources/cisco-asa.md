@@ -41,7 +41,7 @@ on configuring your Cisco ASA firewall.
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
 ```yaml
 # ...
@@ -91,9 +91,9 @@ registry_file: /var/lib/filebeat/registry
 ##### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
-(Remove all other outputs - there should only be 1 output in the configuration file.) 
+(Remove all other outputs - there should only be 1 output in the configuration file.)
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ```yaml
 # ...

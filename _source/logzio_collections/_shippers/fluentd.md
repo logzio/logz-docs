@@ -56,7 +56,7 @@ See the configuration parameters below the code block.👇
 
 | Parameter | Description |
 |---|---|
-| endpoint_url | Your Logz.io region's listener URL, account token, and log type. <br> {% include log-shipping/replace-vars.html listener=true %} <br> {% include log-shipping/replace-vars.html token=true %} |
+| endpoint_url | Your Logz.io region's listener URL, account token, and log type. <br> {% include log-shipping/replace-vars-listener.md %} <br> {% include log-shipping/replace-vars.md %} |
 | output_include_time | To add a timestamp to your logs when they're processed, `true` (recommended). Otherwise, `false`. |
 | output_include_tags | To add the `fluentd` tag to logs, `true`. Otherwise, `false`. If `true`, use in combination with `output_tags_fieldname`. |
 | output_tags_fieldname <span class="default-param">`fluentd_tag`</span> | If `output_include_tags` is `true`, sets output tag's field name. |

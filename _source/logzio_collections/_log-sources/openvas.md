@@ -94,9 +94,9 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * Replace the filepath placeholder `<<FILEPATH-TO-OPENVAS-REPORTS>>` with the file path to the folder where you’ll be keeping your OpenVAS reports. For example, `/home/kali/Downloads/Filebeat_read/*.csv` will look for any file with a csv extension under that path.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/replace-vars.md %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/replace-vars-listener.md %}
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.

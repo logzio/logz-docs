@@ -45,9 +45,9 @@ Add these code blocks to the end of your existing Logstash configuration file.
 
 Make sure the `mutate` block is the last item in the `filters` block.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ```conf
 filter {
@@ -98,8 +98,8 @@ Add these code blocks to the end of your existing Logstash configuration file.
 
 Make sure the `mutate` block is the last item in the `filters` block.
 
-{% include log-shipping/replace-vars.html token=true %} \\
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars.md %} \\
+{% include log-shipping/replace-vars-listener.md %}
 
 ```conf
 filter {

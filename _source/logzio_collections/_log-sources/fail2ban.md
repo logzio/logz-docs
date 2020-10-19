@@ -27,7 +27,7 @@ root access
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Fail2ban to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.md %}
 
 ```yaml
 # ...
@@ -80,7 +80,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars-listener.md %}
 
 ```yaml
 # ...

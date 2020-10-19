@@ -181,6 +181,7 @@ tags:
       
 
       Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
+  - name: Restore logs
 
 x-tagGroups:
   - name: Log monitoring
@@ -878,71 +879,69 @@ paths:
         default:
           description: successful operation
 
-   '/restore-request/{id}/configuration':
-        get:
-            tags:
-                - restore-request
-            operationId: getRestoreAccountConfiguration
-            consumes:
+  /restore-request/{id}/configuration:
+    get:
+      tags:
+        - Restore logs
+      operationId: getRestoreAccountConfiguration
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+            in: path
+            required: true
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+                    $ref: '#/definitions/RestoreAccountConfiguration'
+          headers: {}
+    put:
+      tags:
+        - restore-request
+      operationId: setRestoreAccountConfiguration
+      consumes:
                 - application/json
-            produces:
+      produces:
                 - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreAccountConfiguration'
-                    headers: {}
-        put:
-            tags:
-                - restore-request
-            operationId: setRestoreAccountConfiguration
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-                - 
+      parameters:
+        - name: id
+        - in: path
+        - required: true
+        - type: integer
+        - format: int32
+        - 
                     in: body
                     name: body
                     required: false
                     schema:
                         $ref: '#/definitions/RestoreAccountConfiguration'
-            responses:
+      responses:
                 '200':
                     description: successful operation
                     schema:
                         $ref: '#/definitions/RestoreAccountConfiguration'
                     headers: {}
-        delete:
-            tags:
-                - restore-request
-            operationId: deleteRestoreAccountConfiguration
-            consumes:
+    delete:
+      tags:
+        - restore-request
+      operationId: deleteRestoreAccountConfiguration
+      consumes:
                 - application/json
-            produces:
+      produces:
                 - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-            responses:
+      parameters:
+      
+        name: id
+        in: path
+        required: true
+        type: integer
+        format: int32
+      responses:
                 '200':
                     description: successful operation
                     schema:

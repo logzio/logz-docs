@@ -23,12 +23,19 @@ firstLevel:
       - title: Field not indexed
         url: /user-guide/kibana/mapping/field-not-indexed/
 
+  - title: Dashboards & Visualizations
+    url: /user-guide/dashboards/
+    thirdLevel:
+    - title: Aggregations
+      url: /user-guide/kibana/aggregations/
   - title: Alerts
     url: /user-guide/alerts/
     thirdLevel:
     - title: Configure an alert
       url: /user-guide/alerts/configure-an-alert.html
-    - title: Adding alerts
+    - title: Correlate queries
+      url: /user-guide/alerts/correlated-alert/
+    - title: Shortcuts
       url: /user-guide/alerts/new-alert.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html

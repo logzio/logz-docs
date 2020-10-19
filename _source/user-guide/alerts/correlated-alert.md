@@ -1,22 +1,24 @@
 ---
 layout: article
-title: Configure an alert
-permalink: /user-guide/alerts/configure-an-alert.html
+title: Correlate 2 queries
+permalink: /user-guide/alerts/correlated-alert/
 flags:
   logzio-plan: community
 tags:
   - alerts
 contributors:
   - shalper
-  - imnotashrimp
 ---
 
-You can set up Logz.io log alerts to automatically get notified about issues that demand attention.
+Some security situations are best captured by correlating events. These events may be concurrent or in sequence.
 
-Community plans have a limit on the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
-{:.info-box.note}
+For example, the receival of an email attachment followed by a malware infection, or the detection of privilege elevation followed by a configuration change are much more strongly identified as high severity security events, compared with the discrete events alone.
 
-#### To configure an alert
+#### Configuring a correlated alert
+
+Here's an overview of the steps for configuring a correlated alert:
+1. toc list
+{:toc}
 
 <div class="tasklist">
 
@@ -26,7 +28,7 @@ Give your alert a meaningful name. When your alert triggers, its name is used as
 
 ##### Search components
 
-Next, set the search components. This determines which logs to look for and in which accounts.
+Decide which logs the alert should look for and in which accounts. There are your search components.
 
 ![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-search-component.png)
 
@@ -44,6 +46,10 @@ You can use any combination of filters and a search query. Note the following:
 Once you're done refining your search query and filters,
 click **Preview in Kibana** to review the returned logs
 and make sure you get the expected results.
+
+###### Joining aggregations
+
+The field `logzio-alert-join-values`
 
 
 ###### Group-by (order matters!)
@@ -146,3 +152,4 @@ If the thresholds are passed and the alert is triggered,
 Logz.io will log the alert and send the configured notifications.
 
 </div>
+

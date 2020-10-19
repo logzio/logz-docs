@@ -98,6 +98,18 @@ firstLevel:
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
 
+- title: Distributed Tracing
+  icon: fas fa-chart-pie
+
+  secondLevel:
+  - title: Why distributed tracing?
+    url: /user-guide/distributed-tracing/
+    thirdLevel:
+    - title: Highlights
+      url: /user-guide/distributed-tracing/tracing-highlight.html
+  - title: Getting started
+    url: /user-guide/idistributed-tracing//getting-started-tracing
+
 - title: Cloud SIEM
   icon: fas fa-shield-alt
 

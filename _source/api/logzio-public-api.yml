@@ -173,15 +173,13 @@ tags:
 
       These queries can be used to integrate with an automated response solution such as Cortex xSOAR or simply to understand your security posture and identify suspicious activity in your accounts.
   - name: Archive logs
+  - name: Restore logs
     description: >-
-      You can archive logs to an AWS S3 bucket or Azure Blob Storage. Archiving gives you the option to restore logs and query them after they have expired from your time-based account.
+      You can restore logs from an AWS S3 bucket or Azure Blob Storage. Restoring gives you the option to query logs after they have expired from your time-based account.
       
 
-      You can use the following endpoints to retrieve, set up, test, and update an account's archive settings.
+      You can use the following endpoints to 
       
-
-      Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
-
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -1149,6 +1147,273 @@ paths:
                     headers: {}
     '/restore-request/limits/{accountId}':
 
+
+  # ::::: Restore
+  /v1/restore-request/{id}/configuration':
+    get:
+      summary:
+      description:
+      tags:
+        - restore-request
+      operationId: getRestoreAccountConfiguration
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+          - name: id
+            in: path
+            required: true
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreAccountConfiguration'
+          headers: {}
+    put:
+        tags:
+            - restore-request
+        operationId: setRestoreAccountConfiguration
+        consumes:
+            - application/json
+        produces:
+            - application/json
+        parameters:
+            - name: id
+              in: path
+              required: true
+              type: integer
+              format: int32
+            - in: body
+              name: body
+              required: false
+              schema:
+                $ref: '#/definitions/RestoreAccountConfiguration'
+        responses:
+            '200':
+                description: successful operation
+                schema:
+                    $ref: '#/definitions/RestoreAccountConfiguration'
+                headers: {}
+  /v1/archive/restore:
+    get:
+        tags:
+            - Restore
+        operationId: getRestoreRequestsForAccountApi
+        consumes:
+            - application/json
+        produces:
+            - application/json
+        parameters: []
+        responses:
+            '200':
+                description: successful operation
+                schema:
+                    type: array
+                    items:
+                        $ref: '#/definitions/RestoreApiResponse'
+                headers: {}
+    post:
+        tags:
+            - Restore
+        operationId: createRestore
+        consumes:
+            - application/json
+        produces:
+            - application/json
+        parameters:
+            - 
+                in: body
+                name: body
+                required: false
+                schema:
+                    $ref: '#/definitions/RestoreApiRequest'
+        responses:
+            '200':
+                description: successful operation
+                schema:
+                    $ref: '#/definitions/RestoreApiResponse'
+                headers: {}
+  /v1/archive/restore/{id}':
+    get:
+      tags:
+        - Restore
+      operationId: getRestoreRequestByIdApi
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+    delete:
+      tags:
+        - Restore
+      operationId: abortRestoreRequestApi
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+  /v1/restore-request:
+    get:
+      summary:
+      description:
+      tags:
+          - Restore
+      operationId: getRestoreRequestsForAccount
+      consumes:
+          - application/json
+      produces:
+          - application/json
+      parameters:
+        - name: account_id
+          in: query
+          required: false
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RestoreRequestData'
+          headers: {}
+    post:
+      summary:
+      description:
+      tags:
+        - Restore
+      operationId: createRestoreRequest
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RestoreInternalRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreRequestData'
+          headers: {}
+  /v1/restore-request/{id}':
+    get:
+      tags:
+        - Restore
+      operationId: getRestoreRequestById
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreRequestData'
+          headers: {}
+    delete:
+      tags:
+        - Restore
+      operationId: abortRestoreRequest
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreRequestData'
+          headers: {}
+  /v1/restore-request/{id}/expiry':
+    put:
+      tags:
+        - Restore
+      operationId: updateExpiry
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - in: body
+          name: body
+          required: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreRequestData'
+          headers: {}
+  /v1/restore-request/limits/{accountId}':
+    get:
+      tags:
+        - Restore
+      operationId: getRestoreLimitsForAccount
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreAccountLimitsResponse'
+          headers: {}
+   
 
   # ::::: Log Insights
   /v1/insights/list:
@@ -4917,7 +5182,7 @@ definitions:
       pagination:
         $ref: '#/definitions/Pagination'
  
- # ::::: Restore DEFINITIONS
+  # ::::: Restore DEFINITIONS
   RestoreAccountConfiguration:
     type: object
     properties:
@@ -5005,56 +5270,56 @@ definitions:
         type: integer
         format: int32
       accountName:
-                type: string
+        type: string
       archiveSettingsId:
-                type: integer
-                format: int32
+        type: integer
+        format: int32
       volume:
-                type: number
-                format: float
+        type: number
+        format: float
       startTime:
-                type: integer
-                format: int64
+        type: integer
+        format: int64
       endTime:
-                type: integer
-                format: int64
+        type: integer
+        format: int64
       status:
-                type: string
-                enum:
-                    - PENDING
-                    - TASK_SUBMITTED
-                    - IN_PROGRESS
-                    - AWAIT_INDEXING
-                    - ACTIVE
-                    - LIMIT_EXCEEDED
-                    - ABORTED
-                    - FAILED
-                    - DELETED
-                    - EXPIRED
+        type: string
+        enum:
+          - PENDING
+          - TASK_SUBMITTED
+          - IN_PROGRESS
+          - AWAIT_INDEXING
+          - ACTIVE
+          - LIMIT_EXCEEDED
+          - ABORTED
+          - FAILED
+          - DELETED
+          - EXPIRED
       startedAt:
-                type: integer
-                format: int64
+        type: integer
+        format: int64
       finishedAt:
-                type: integer
-                format: int64
+        type: integer
+        format: int64
       expiresAt:
-                type: integer
-                format: int64
+        type: integer
+        format: int64
       createdAt:
-                type: integer
-                format: int64
+        type: integer
+        format: int64
       createdBy:
-                type: integer
-                format: int32
+        type: integer
+        format: int32
       userType:
-                type: string
-                enum:
-                    - USER_TOKEN
-                    - HUMAN
-                    - INTERNAL
+        type: string
+        enum:
+          - USER_TOKEN
+          - HUMAN
+          - INTERNAL
       logsWritten:
-                type: integer
-                format: int64
+        type: integer
+        format: int64
   RestoreInternalRequest:
     type: object
     properties:
@@ -5087,3 +5352,19 @@ definitions:
         type: integer
         format: int64
   RestoreAccountLimitsResponse:
+    type: object
+    properties:
+      maxRestoreTimeInHours:
+        type: integer
+        format: int32
+      maxAllowedActiveRequests:
+        type: integer
+        format: int32
+      maxAllowedInProgress:
+        type: integer
+        format: int32
+      numOfActiveRequests:
+        type: integer
+        format: int32
+      reachedMaxInProgressRequests:
+          type: boolean

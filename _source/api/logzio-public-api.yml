@@ -90,6 +90,7 @@ security:
 
 tags:
   - name: Grafana gateway
+    description: Grafana API Gateway to supported endpoints.
   - name: Who am I
   - name: Manage sub accounts
     description: >-
@@ -180,6 +181,15 @@ tags:
 
       You can use the following endpoints to 
       
+
+      Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
+  - name: Restore logs
+    description: >-
+      Restore logs from archive.
+
+
+      Restore again.
+
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -198,9 +208,8 @@ x-tagGroups:
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
-      - Archive logs
   - name: Administer logs
-    tags:   
+    tags:
       - Archive logs
       - Restore logs
   - name: Data security
@@ -213,8 +222,7 @@ x-tagGroups:
   - name: Grafana API Gateway
     tags:
       - Grafana gateway
-    description: Grafana API Gateway to supported endpoints.
-  
+
 paths:
   # ::::: GRAFANA
   /v1/grafana/api/{GRAFANA_API_URL}:
@@ -876,276 +884,6 @@ paths:
         default:
           description: successful operation
 
-   '/restore-request/{id}/configuration':
-        get:
-            tags:
-                - restore-request
-            operationId: getRestoreAccountConfiguration
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreAccountConfiguration'
-                    headers: {}
-        put:
-            tags:
-                - restore-request
-            operationId: setRestoreAccountConfiguration
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-                - 
-                    in: body
-                    name: body
-                    required: false
-                    schema:
-                        $ref: '#/definitions/RestoreAccountConfiguration'
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreAccountConfiguration'
-                    headers: {}
-        delete:
-            tags:
-                - restore-request
-            operationId: deleteRestoreAccountConfiguration
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreAccountConfiguration'
-                    headers: {}
-    /archive/restore:
-        get:
-            tags:
-                - Restore
-            operationId: getRestoreRequestsForAccountApi
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters: []
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        type: array
-                        items:
-                            $ref: '#/definitions/RestoreApiResponse'
-                    headers: {}
-        post:
-            tags:
-                - Restore
-            operationId: createRestore
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    in: body
-                    name: body
-                    required: false
-                    schema:
-                        $ref: '#/definitions/RestoreApiRequest'
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreApiResponse'
-                    headers: {}
-    '/archive/restore/{id}':
-        get:
-            tags:
-                - Restore
-            operationId: getRestoreRequestByIdApi
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreApiResponse'
-                    headers: {}
-        delete:
-            tags:
-                - Restore
-            operationId: abortRestoreRequestApi
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreApiResponse'
-                    headers: {}
-    /restore-request:
-        get:
-            tags:
-                - Restore
-            operationId: getRestoreRequestsForAccount
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: account_id
-                    in: query
-                    required: false
-                    type: integer
-                    format: int32
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        type: array
-                        items:
-                            $ref: '#/definitions/RestoreRequestData'
-                    headers: {}
-        post:
-            tags:
-                - Restore
-            operationId: createRestoreRequest
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    in: body
-                    name: body
-                    required: false
-                    schema:
-                        $ref: '#/definitions/RestoreInternalRequest'
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreRequestData'
-                    headers: {}
-    '/restore-request/{id}':
-        get:
-            tags:
-                - Restore
-            operationId: getRestoreRequestById
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreRequestData'
-                    headers: {}
-        delete:
-            tags:
-                - Restore
-            operationId: abortRestoreRequest
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreRequestData'
-                    headers: {}
-    '/restore-request/{id}/expiry':
-        put:
-            tags:
-                - Restore
-            operationId: updateExpiry
-            consumes:
-                - application/json
-            produces:
-                - application/json
-            parameters:
-                - 
-                    name: id
-                    in: path
-                    required: true
-                    type: integer
-                    format: int32
-                - 
-                    in: body
-                    name: body
-                    required: false
-                    schema:
-                        type: integer
-                        format: int64
-            responses:
-                '200':
-                    description: successful operation
-                    schema:
-                        $ref: '#/definitions/RestoreRequestData'
-                    headers: {}
-    '/restore-request/limits/{accountId}':
 
 
   # ::::: Restore

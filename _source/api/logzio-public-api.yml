@@ -2721,7 +2721,7 @@ paths:
 
   # ::::: DROP FILTERS
 
-  /logs/drop-filters/{id}/activate:
+  /v1/drop-filters/{id}/activate:
     post:
       summary: Activate drop filter by ID
       description: Activate drop filters
@@ -2737,13 +2737,14 @@ paths:
           in: path
           required: true
           type: string
+          description: ID of the account??
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
           headers: {}
-  /logs/drop-filters/{id}/deactivate:
+  /v1/drop-filters/{id}/deactivate:
     post:
       summary: Deactivate drop filters
       description: Deactivate drop filters
@@ -2765,7 +2766,7 @@ paths:
           schema:
             $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
           headers: {}
-  /logs/drop-filters/search:
+  /v1/drop-filters/search:
     post:
       summary: Search drop filters
       description: Search drop filters
@@ -2778,14 +2779,14 @@ paths:
         - application/json
       parameters:
       responses:
-        '200':
+      '200':
           description: successful operation
           schema:
             type: array
             items:
               $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
           headers: {}
-  /logs/drop-filters/{id}:
+  /v1/drop-filters/{id}:
     delete:
       summary: Delete drop filter by ID
       description: Delete a drop filter identified by its ID
@@ -2807,7 +2808,7 @@ paths:
           schema:
             $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
           headers: {}
-  /logs/drop-filters:
+  /v1/drop-filters:
     post:
       summary: Create drop filter
       description: Create and activate a new drop filter
@@ -4551,10 +4552,16 @@ definitions:
     properties:
       id:
         type: string
+        description: id of???
+        example: 123
       active:
         type: boolean
+        description: If `true`, the drop filter is active and logs that match the filter are dropped before indexing. If `false`, the drop filter is disabled.
+        default: True
       logType:
         type: string
+        description: Filters results by [log type](/log-shipping/built-in-log-types.html).
+        example: apache
       fieldConditions:
         type: array
         items:

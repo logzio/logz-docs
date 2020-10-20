@@ -54,21 +54,25 @@ collections:
     output: true
     permalink: /shipping/log-sources/:slug.html
     name: Logs
+    id: :slug
     in-shipping-manifest: true
   metrics-sources:
     output: true
     permalink: /shipping/metrics-sources/:slug.html
     name: Metrics
+    id: :slug
     in-shipping-manifest: true
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html
-    in-shipping-manifest: true
     name: Community shippers
+    id: :slug
+    in-shipping-manifest: true
   shippers:
     output: true
     permalink: /shipping/shippers/:slug.html
     name: Shippers
+    id: :slug
     in-shipping-manifest: true
 
   ## ALL OTHER COLLECTIONS ##

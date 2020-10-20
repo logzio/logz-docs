@@ -59,14 +59,17 @@ collections:
     output: true
     permalink: /shipping/metrics-sources/:slug.html
     name: Metrics
+    in-shipping-manifest: true
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html
+    in-shipping-manifest: true
     name: Community shippers
   shippers:
     output: true
     permalink: /shipping/shippers/:slug.html
     name: Shippers
+    in-shipping-manifest: true
 
   ## ALL OTHER COLLECTIONS ##
   contributors:

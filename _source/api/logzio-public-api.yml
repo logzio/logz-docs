@@ -890,7 +890,7 @@ paths:
   /restore-request/{id}/configuration':
     get:
       summary: Retrieve account configuration
-      description: Retrieves the configuration information for the specified account
+      description: Returns the configuration information for the specified account
       tags:
         - Restore request
       operationId: getRestoreAccountConfiguration
@@ -912,7 +912,7 @@ paths:
           headers: {}
     put:
       summary: Update restored account configuration 
-      description: Updates the account configuration to parameters retrieved from archive 
+      description: Updates the account configuration with parameters retrieved from archive 
       tags:
         - Restore request
       operationId: setRestoreAccountConfiguration
@@ -940,7 +940,7 @@ paths:
   /archive/restore:
     get:
       summary: Retrieve restore requests
-      description: Retrieves restore requests for an account   
+      description: Returns restore requests for an account   
       tags:
           - Restore request
       operationId: getRestoreRequestsForAccountApi
@@ -958,8 +958,8 @@ paths:
               $ref: '#/definitions/RestoreApiResponse'
           headers: {}
     post:
-      summary: 
-      description:
+      summary: Create restore request
+      description: Creates a request to restore data
       tags:
         - Restore request
       operationId: createRestore
@@ -968,22 +968,21 @@ paths:
       produces:
         - application/json
       parameters:
-          - 
-              in: body
-              name: body
-              required: false
-              schema:
-                  $ref: '#/definitions/RestoreApiRequest'
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RestoreApiRequest'
       responses:
-          '200':
-              description: successful operation
-              schema:
-                  $ref: '#/definitions/RestoreApiResponse'
-              headers: {}
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
   /archive/restore/{id}':
     get:
-      summary: Retrieve 
-      description:
+      summary: Retrieve a restore request by its ID
+      description: Returns a specific restore request
       tags:
         - Restore request
       operationId: getRestoreRequestByIdApi
@@ -1004,8 +1003,8 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
     delete:
-      summary:
-      description:
+      summary: Deletes a restore request
+      description: Cancels a request to restore data from archive
       tags:
         - Restore request
       operationId: abortRestoreRequestApi
@@ -1027,8 +1026,8 @@ paths:
           headers: {}
   /restore-request:
     get:
-      summary:
-      description:
+      summary: Retrieve restore requests for an account
+      description: Retuns previous restore requests for an account
       tags:
         - Restore request
       operationId: getRestoreRequestsForAccount
@@ -1051,8 +1050,8 @@ paths:
             $ref: '#/definitions/RestoreRequestData'
           headers: {}
     post:
-      summary:
-      description:
+      summary: Create restore request
+      description: Creates a request to restore data
       tags:
         - Restore request
       operationId: createRestoreRequest
@@ -1074,8 +1073,8 @@ paths:
           headers: {}
   /restore-request/{id}':
     get:
-      summary:
-      description:
+      summary: Retrieve restore request by ID
+      description: Returns a specific restore request
       tags:
         - Restore request
       operationId: getRestoreRequestById
@@ -1096,8 +1095,8 @@ paths:
             $ref: '#/definitions/RestoreRequestData'
           headers: {}
     delete:
-      summary:
-      description:
+      summary: Delete a restore request
+      description: Cancels a restore request
       tags:
         - Restore request
       operationId: abortRestoreRequest
@@ -1120,7 +1119,7 @@ paths:
   /restore-request/{id}/expiry':
     put:
       summary: Uodate expiry
-      description: Updates the expiry for a restore request
+      description: Changes the expiry for a restore request
       tags:
         - Restore request
       operationId: updateExpiry
@@ -1148,8 +1147,8 @@ paths:
           headers: {}
   /restore-request/limits/{accountId}':
     get:
-      summary: Restore account limits
-      description: Restores the limits for an account
+      summary: Retrieve account data limits
+      description: Returns the data limits for an account
       tags:
         - Restore request
       operationId: getRestoreLimitsForAccount

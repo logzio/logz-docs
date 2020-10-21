@@ -20,9 +20,13 @@ $( function() {
     .find('span.collapse-button')
     .addClass('show');
 
+  $('li.has-child > span.toc-heading a')
+    .on('click', function(e) { e.preventDefault();});
+
   $('ul.toc-child')
     .find('li.has-child > span.toc-heading')
-    .on('click', function() {
+    .on('click', function(e) {
+      e.preventDefault();
       let submenu = $(this).siblings('ul.toc-grandchild');
       let caret = $(submenu).siblings('span.toc-heading').find('span.collapse-button');
 

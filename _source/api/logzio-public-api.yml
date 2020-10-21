@@ -1006,7 +1006,7 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
     delete:
-      summary: Deletes a restore request
+      summary: Delete a restore request
       description: Cancels a request to restore data from archive
       tags:
         - Restore request
@@ -1030,14 +1030,14 @@ paths:
   /restore-request:
     get:
       summary: Retrieve restore requests for an account
-      description: Retuns previous restore requests for an account
+      description: Returns previous restore requests for an account
       tags:
         - Restore request
       operationId: getRestoreRequestsForAccount
       consumes:
-          - application/json
+        - application/json
       produces:
-         - application/json
+        - application/json
       parameters:
         - name: account_id
           in: query

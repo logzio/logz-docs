@@ -2720,56 +2720,10 @@ paths:
           headers: {}
 
   # ::::: DROP FILTERS
-
-  /v1/drop-filters/{id}/activate:
-    post:
-      summary: Activate drop filter by ID
-      description: Activate drop filters
-      tags:
-        - Drop filters
-      operationId: activate
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-          description: ID of the account??
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
-          headers: {}
-  /v1/drop-filters/{id}/deactivate:
-    post:
-      summary: Deactivate drop filters
-      description: Deactivate drop filters
-      tags:
-        - Drop filters
-      operationId: deactivate
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: string
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
-          headers: {}
   /v1/drop-filters/search:
     post:
-      summary: Search drop filters
-      description: Search drop filters
+      summary: Retrieve drop filters
+      description: Returns all drop filters configured in the account, both active and inactive.
       tags:
         - Drop filters
       operationId: getAllForAccount
@@ -2786,10 +2740,57 @@ paths:
             items:
               $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
           headers: {}
+
+  /v1/drop-filters/{id}/activate:
+    post:
+      summary: Activate a drop filter
+      description: Activates a drop filter identified by its ID. Run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+      tags:
+        - Drop filters
+      operationId: activate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters/{id}/deactivate:
+    post:
+      summary: Deactivate a drop filter
+      description: Deactivate a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: deactivate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
   /v1/drop-filters/{id}:
     delete:
-      summary: Delete drop filter by ID
-      description: Delete a drop filter identified by its ID
+      summary: Delete a drop filter
+      description: Deletes a drop filter identified by its ID.
       tags:
         - Drop filters
       operationId: delete

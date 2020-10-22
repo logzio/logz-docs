@@ -20,9 +20,6 @@ $( function() {
     .find('span.collapse-button')
     .addClass('show');
 
-  $('li.has-child > span.toc-heading a')
-    .on('click', function(e) { e.preventDefault();});
-
   $('ul.toc-child')
     .find('li.has-child > span.toc-heading')
     .on('click', function(e) {

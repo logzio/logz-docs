@@ -4466,22 +4466,27 @@ definitions:
     properties:
       tenantId:
         type: string
-        description: Azure Blob Tenant
+        description: Azure Active Directory Tenant ID
       clientId:
         type: string
-        description: Azure client ID
+        description: The Key. It is found under the Access keys section of the storage account.
+        example: oneaEdrgaB/SZZkF+sDyOlvimnicxlbVewVumkwbJsFEdyYaYQTF==
       clientSecret:
         type: string
-        description: Azure client secret
+        description: The Connection string. It is found under the Access keys section of the storage account.
+        example: DefaultEndpointsProtocol=https;AccountName=Myaccount;AccountKey=oneaEdrgaB/SZZkF+sDyOlvimnicxlbVewVumkwbJsFEdyYaYQTF==;EndpointSuffix=core.windows.net
       accountName:
         type: string
-        description: Azure account name
+        description: Name of the Azure storage account that holds the container where the logs will be archived.
+        example: Mystorageaccount
       containerName:
         type: string
-        description: The container name.
+        description: The name of the container where the logs will be archived.
+        example: Mycontainername
       path:
         type: string
-        description: The path is optional.
+        description: Optional. This is the sub-folder under the root container name.
+        example: subfolder
   S3IamCredentials:
     type: object
     properties:

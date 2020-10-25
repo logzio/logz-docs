@@ -183,12 +183,12 @@ tags:
 
       Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
 
-  - name: Restore request
+  - name: Restore logs
     description: >-
-      ! check this - You can restore data from an AWS S3 bucket or Azure Blob Storage. Restoring gives you the option to query logs after they have expired from your time-based account.
+      You can restore logs from an AWS S3 bucket or Azure Blob Storage. Restoring gives you the option to query logs after they have expired from your time-based account.
       
 
-      You can use the following endpoints to retrieve, set up, test, and update an account's archive settings.
+      You can use the following endpoints to retrieve, set up, test, and update an account's restore settings.
       
 
       Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
@@ -214,7 +214,7 @@ x-tagGroups:
   - name: Administer logs
     tags:
       - Archive logs
-      - Restore request
+      - Restore logs
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -890,68 +890,18 @@ paths:
 
 
   # ::::: Restore
-  /restore-request/{id}/configuration':
-    get:
-      summary: Retrieve account configuration
-      description: Returns the configuration information for the specified account
-      tags:
-        - Restore request
-      operationId: getRestoreAccountConfiguration
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-          - name: id
-            in: path
-            required: true
-            type: integer
-            format: int32
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/RestoreAccountConfiguration'
-          headers: {}
-    put:
-      summary: Update restored account configuration 
-      description: Updates the account configuration with parameters retrieved from archive 
-      tags:
-        - Restore request
-      operationId: setRestoreAccountConfiguration
-      consumes:
-         - application/json
-      produces:
-         - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          format: int32
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/RestoreAccountConfiguration'
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/RestoreAccountConfiguration'
-          headers: {}
   /archive/restore:
     get:
-      summary: Retrieve restore requests
-      description: Returns restore requests for an account   
+      summary: Retrieve all log restores 
+      description: Returns all log restores for an account, including the restored volume in GB and the restore status  
       tags:
-          - Restore request
+          - Restore logs
       operationId: getRestoreRequestsForAccountApi
       consumes:
           - application/json
       produces:
           - application/json
-      parameters: []
+      parameters:
       responses:
         '200':
           description: successful operation
@@ -962,9 +912,9 @@ paths:
           headers: {}
     post:
       summary: Create restore request
-      description: Creates a request to restore data
+      description: Creates a request to restore log data
       tags:
-        - Restore request
+        - Restore logs
       operationId: createRestore
       consumes:
         - application/json
@@ -984,10 +934,10 @@ paths:
           headers: {}
   /archive/restore/{id}':
     get:
-      summary: Retrieve a restore request by its ID
-      description: Returns a specific restore request
+      summary: Retrieves a restore by its ID
+      description: Returns all the information for a specific log restore 
       tags:
-        - Restore request
+        - Restore logs
       operationId: getRestoreRequestByIdApi
       consumes:
         - application/json
@@ -1006,10 +956,10 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
     delete:
-      summary: Delete a restore request
-      description: Cancels a request to restore data from archive
+      summary: Delete a restore 
+      description: Aborts a specific log restore that is in progress
       tags:
-        - Restore request
+        - Restore logs
       operationId: abortRestoreRequestApi
       consumes:
         - application/json
@@ -1027,151 +977,6 @@ paths:
           schema:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
-  /restore-request:
-    get:
-      summary: Retrieve restore requests for an account
-      description: Returns previous restore requests for an account
-      tags:
-        - Restore request
-      operationId: getRestoreRequestsForAccount
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: account_id
-          in: query
-          required: false
-          type: integer
-          format: int32
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            type: array
-            items:
-            $ref: '#/definitions/RestoreRequestData'
-          headers: {}
-    post:
-      summary: Create restore request
-      description: Creates a request to restore data
-      tags:
-        - Restore request
-      operationId: createRestoreRequest
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/RestoreInternalRequest'
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/RestoreRequestData'
-          headers: {}
-  /restore-request/{id}':
-    get:
-      summary: Retrieve restore request by ID
-      description: Returns a specific restore request
-      tags:
-        - Restore request
-      operationId: getRestoreRequestById
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          format: int32
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/RestoreRequestData'
-          headers: {}
-    delete:
-      summary: Delete a restore request
-      description: Cancels a restore request
-      tags:
-        - Restore request
-      operationId: abortRestoreRequest
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          format: int32
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/RestoreRequestData'
-          headers: {}
-  /restore-request/{id}/expiry':
-    put:
-      summary: Uodate expiry
-      description: Changes the expiry for a restore request
-      tags:
-        - Restore request
-      operationId: updateExpiry
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          format: int32
-        - in: body
-          name: body
-          required: false
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/RestoreRequestData'
-          headers: {}
-  /restore-request/limits/{accountId}':
-    get:
-      summary: Retrieve account data limits
-      description: Returns the data limits for an account
-      tags:
-        - Restore request
-      operationId: getRestoreLimitsForAccount
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: accountId
-          in: path
-          required: true
-          type: integer
-          format: int32
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/RestoreAccountLimitsResponse'
-          headers: {}
-   
 
   # ::::: Log Insights
   /v1/insights/list:

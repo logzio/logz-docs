@@ -248,7 +248,7 @@ firstLevel:
   - title: Grafana data source plugin
     url: /integrations/grafana-data-source-plugin.html
 
-  # ===== API Reference =====
+  # ===== API Reference ===== 
   - title: API reference
     url: /api/
   - title: API cookbook

@@ -25,6 +25,8 @@ For better alerts management and to help you focus only on active alerts, when a
 
 Resolved alert notifications are available for Slack, PagerDuty, Opsgenie, and email notification endpoints.
 
+See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/endpoints.html#opsgenie-notifications-for-resolved-metrics-alerts) for more information.
+
 ### Acknowledged alerts
 
 To help you reduce the noise associated with receiving notifications for multiple instances of the same alert, you can use the Acknowledge status to assign the alert to a team member or to yourself, as well as manage alerts that are already under investigation (as determined by the ACK policy you manage in your notification software).

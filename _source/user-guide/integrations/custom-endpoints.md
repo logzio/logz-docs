@@ -35,7 +35,6 @@ It is best to avoid opening a port in your firewall to allow access for Logz.io 
 This is because the Logz.io IP range is used by all customers and should be treated with caution.
 \\
 \\
-The Logz.io IP range is used by all customers and should be treated with caution.
 {:.info-box.important}
 
 If you decide to open a port on your firewall for a Logz.io custom endpoint, follow these best practices:

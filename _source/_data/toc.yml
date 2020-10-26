@@ -63,6 +63,7 @@ firstLevel:
   - title: Live Tail
     url: /user-guide/live-tail/
 
+  # ===== METRICS - INFRASTRUCTURE MONITORING =====
 - title: Infrastructure Monitoring
   icon: fas fa-chart-pie
 
@@ -98,6 +99,7 @@ firstLevel:
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
 
+  # ===== CLOUD SIEM =====      
 - title: Cloud SIEM
   icon: fas fa-shield-alt
 
@@ -132,7 +134,7 @@ firstLevel:
     - title: Integrate with Cortex xSOAR
       url: /user-guide/cloud-siem/xsoar-integration/
 
-
+  # ===== ADMIN =====
 - title: Admin
   icon: li-gear
   secondLevel:
@@ -154,7 +156,7 @@ firstLevel:
     url: /user-guide/accounts/pci-compliance.html
   - title: Granting access to Logz.io Support
     url: /user-guide/accounts/support-access.html
-    # - title: Usage and billing
+  # - title: Usage and billing
 
   - title: Regions
     url: /user-guide/accounts/account-region.html
@@ -165,6 +167,7 @@ firstLevel:
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/
 
+  # ===== USER MANAGEMENT =====
   - title: User management
     url: /user-guide/users/
     thirdLevel:
@@ -191,6 +194,7 @@ firstLevel:
     - title: Manage API tokens
       url: /user-guide/tokens/api-tokens.html
 
+  # ===== Archive & Restore =====
   - title: Archive & restore
     url: /user-guide/archive-and-restore/
     thirdLevel:
@@ -233,6 +237,10 @@ firstLevel:
     thirdLevel:
       - title: Custom endpoints
         url: /user-guide/integrations/custom-endpoints.html
+    thirdLevel:
+      - title: Opsgenie notifications for resolved metrics alerts
+        url: /user-guide/integrations/resolved-metrics-alerts.html
+
   - title: Terraform Logz.io Provider
     url: /integrations/terraform/
   - title: Alice, your Slack chatbot
@@ -240,7 +248,7 @@ firstLevel:
   - title: Grafana data source plugin
     url: /integrations/grafana-data-source-plugin.html
 
-
+  # ===== API Reference =====
   - title: API reference
     url: /api/
   - title: API cookbook
@@ -253,7 +261,7 @@ firstLevel:
     - title: Backing up Kibana objects to GitHub
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
 
-# ===== MORE =====
+  # ===== MORE =====
 - title: ""
   secondLevel:
   - title: Blog

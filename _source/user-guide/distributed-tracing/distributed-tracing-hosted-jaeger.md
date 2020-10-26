@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Distributed Tracing with Jaeger
-permalink: /user-guide/distributed-tracing/
+permalink: /user-guide/distributed-tracing/overview
 flags:
   logzio-plan: community
   beta: true

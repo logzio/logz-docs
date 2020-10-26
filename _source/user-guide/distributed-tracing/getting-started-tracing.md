@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Getting started with Logz.io Distributed Tracing
-permalink: /user-guide/distributed=tracing/getting-started
+permalink: /user-guide/distributed-tracing/getting-started
 flags:
   logzio-plan: community
 tags:

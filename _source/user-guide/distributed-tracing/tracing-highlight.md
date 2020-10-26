@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Highlights of Logz.io Metrics
-permalink: /user-guide/distributed-tracing/tracing-logzio
+permalink: /user-guide/distributed-tracing/highlights
 flags:
   logzio-plan: community
 tags:

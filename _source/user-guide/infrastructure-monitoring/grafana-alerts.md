@@ -25,7 +25,7 @@ For better alerts management and to help you focus only on active alerts, when a
 
 Resolved alert notifications are available for Slack, PagerDuty, Opsgenie, and email notification endpoints.
 
-See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/integrations/resolved-metrics-alerts.html) for more information.
+See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/resolved-metrics-alerts.html) for more information.
 
 ### Acknowledged alerts
 

@@ -74,7 +74,7 @@ Note that currently only Opsgenie accounts hosted by the US data center are supp
 
 ![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint.png)
 
-See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/integrations/resolved-metrics-alerts.html) for related information.
+See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/resolved-metrics-alerts.html) for related information.
 
 ## Typical use case
 

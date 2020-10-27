@@ -1,0 +1,77 @@
+---
+title: Ship Alcide kAudit logs
+logo:
+  logofile: alcide.png
+  orientation: vertical
+data-source: Alcide kAudit
+contributors:
+  - shalper
+shipping-tags:
+  - server-app
+  - security
+---
+
+Alcide kAudit is a security service for monitoring Kubernetes audit logs, and easily
+identifying abnormal administrative activity and compromised Kubernetes resources.
+
+You can review the Alcide kAudit logs in your security account, including a pre-configured [Alcide dashboard in Logz.io](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
+
+#### Configuration
+
+You can configure a HTTPS webhook integration with Alcide kAudit. See [Alcide docs](https://alcide.atlassian.net/wiki/spaces/PUB/pages/1466728736/Exporting+kAudit+Findings) for more information on exporting kAudit findings.
+
+Each alert type requires a separate integration. If you plan to send all data to Logz.io, you will need to configure 3 HTTPS API integrations, one per alert type.
+
+**Before you begin, you'll need**:
+
+* Access to [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/) platform
+* A shipping token and listener host information for your [Logz.io Operations account](https://app.logz.io/)
+
+<div class="tasklist">
+
+##### Configure an Alcide kAudit integration for detections
+
+First, log into your Alcide kAudit console.
+
+1. Select **Integrations** from the left menu.
+2. Select **Add New Integration** and select the **HTTPS API** integration from the dropdown menu.
+3. Fill in the new integration form:
+    1. **Name** - Provide a name for the new HTTPS API integration. For example: Logz.io.
+    2. **URL** - Paste the Logz.io webhook URL.
+
+        ```
+        https://<<LISTENER-HOST>>:8071?token=<<SHIPPING-TOKEN>>&type=alcide-kaudit
+        ```
+
+        Before copying the webhook, replace the placeholders to match your specifics:
+
+        {% include log-shipping/replace-vars.html token=true %}
+
+        {% include log-shipping/replace-vars.html listener=true %}
+    3. **Alert type** - Select **Detections** from the dropdown list.
+      
+        Select all available sub-selections:
+
+        * **Category** - select all categories: **Incident** and **Anomaly**
+        * **Entity type** - select all types: **Cluster**, **User**, **Resource**
+
+##### Configure an Alcide kAudit integration for audit violations
+
+Repeat the above steps, only this time select **Alert type** - **Audit Violations**.
+
+Leave the default configurations. No sub-selections are required.
+
+##### Configure an Alcide kAudit integration for audit activity
+
+Repeat the above steps, only this time select **Alert type** - **Audit Activity**.
+
+Leave the default configurations. No sub-selections are required.
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search or filter for Alcide logs, under `type:alcide-kaudit`.
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+
+</div>

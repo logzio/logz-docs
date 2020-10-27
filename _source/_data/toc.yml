@@ -236,7 +236,7 @@ firstLevel:
       - title: Custom endpoints
         url: /user-guide/integrations/custom-endpoints.html   
     thirdLevel:
-      - title: Opsgenie resolved metrics alerts
+      - title: Opsgenie metrics alerts
         url: /user-guide/integrations/resolved-metrics-alerts.html         
   - title: Terraform Logz.io Provider
     url: /integrations/terraform/

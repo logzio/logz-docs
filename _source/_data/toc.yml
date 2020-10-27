@@ -234,11 +234,10 @@ firstLevel:
     url: /user-guide/integrations/endpoints.html
     thirdLevel:
       - title: Custom endpoints
-        url: /user-guide/integrations/custom-endpoints.html
+        url: /user-guide/integrations/custome-endpoints.html   
     thirdLevel:
       - title: Opsgenie notifications for resolved metrics alerts
         url: /user-guide/integrations/resolved-metrics-alerts.html         
-
   - title: Terraform Logz.io Provider
     url: /integrations/terraform/
   - title: Alice, your Slack chatbot

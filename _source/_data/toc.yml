@@ -43,7 +43,7 @@ firstLevel:
       url: /user-guide/optimizers/configure-optimizers.html
   - title: Log patterns
     url: /user-guide/kibana/log-patterns.html
-  
+
   - title: Insights
     url: /user-guide/insights/
     thirdLevel:
@@ -62,7 +62,8 @@ firstLevel:
       url: /user-guide/kibana/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
-
+ 
+    # ===== METRICS INFRASTRUCTURE MONITORING =====
 - title: Infrastructure Monitoring
   icon: fas fa-chart-pie
 
@@ -98,6 +99,7 @@ firstLevel:
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
 
+  # ===== CLOUD SIEM =====
 - title: Cloud SIEM
   icon: fas fa-shield-alt
 
@@ -132,7 +134,7 @@ firstLevel:
     - title: Integrate with Cortex xSOAR
       url: /user-guide/cloud-siem/xsoar-integration/
 
-
+  # ===== ADMIN =====
 - title: Admin
   icon: li-gear
   secondLevel:
@@ -233,6 +235,9 @@ firstLevel:
     thirdLevel:
       - title: Custom endpoints
         url: /user-guide/integrations/custom-endpoints.html
+      - title: Opsgenie notifications for resolved metrics alerts
+        url: /user-guide/integrations/resolved-metrics-alerts.html
+
   - title: Terraform Logz.io Provider
     url: /integrations/terraform/
   - title: Alice, your Slack chatbot
@@ -240,7 +245,7 @@ firstLevel:
   - title: Grafana data source plugin
     url: /integrations/grafana-data-source-plugin.html
 
-
+    # ===== API Reference =====
   - title: API reference
     url: /api/
   - title: API cookbook
@@ -253,7 +258,7 @@ firstLevel:
     - title: Backing up Kibana objects to GitHub
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
 
-# ===== MORE =====
+  # ===== MORE =====
 - title: ""
   secondLevel:
   - title: Blog

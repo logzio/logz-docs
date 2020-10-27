@@ -23,11 +23,6 @@ firstLevel:
       - title: Field not indexed
         url: /user-guide/kibana/mapping/field-not-indexed/
 
-  - title: Dashboards & Visualizations
-    url: /user-guide/dashboards/
-    thirdLevel:
-    - title: Aggregations
-      url: /user-guide/kibana/aggregations/
   - title: Alerts
     url: /user-guide/alerts/
     thirdLevel:

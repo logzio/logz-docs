@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Create an alert
+title: Alert shortcuts
 permalink: /user-guide/alerts/new-alert.html
 flags:
   logzio-plan: community
@@ -10,7 +10,7 @@ contributors:
   - shalper
 ---
 
-There are several ways to configure the search components for an alert:
+Sometimes, you may want to take shortcuts when creating an alert. You have several options for shortening the process:
 
 1. toc list
 {:toc}
@@ -18,13 +18,14 @@ There are several ways to configure the search components for an alert:
 
 ### Create an alert from Kibana Discover
 
-The easiest option is to first test out the filters and query directly in **Kibana Discover**, then click the button **Create alert** to copy over the filters, query, and selected accounts.
+Your easiest option is to first test out filters and a search query directly in **Kibana Discover** or reuse a saved search. When the search captures the right logs, click the button **Create alert** to copy over the search criteria and begin configuring an alert.
 
   <video autoplay loop>
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/create-alert.mp4" type="video/mp4" />
   </video>
 
-  The alert form will automatically be filled in with the search query, filters, and selected accounts.
+  The alert form will automatically inherit the search query, filters, and selected accounts.
+
 
 ### Create an alert from an Insight
 

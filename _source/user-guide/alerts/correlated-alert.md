@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Correlate 2 queries
+title: Correlate queries
 permalink: /user-guide/alerts/correlated-alert/
 flags:
   logzio-plan: community
@@ -10,13 +10,17 @@ contributors:
   - shalper
 ---
 
-Some security situations are best captured by correlating events. These events may be concurrent or in sequence.
+Some security situations are best captured by correlating events. These events may be simultaneous or occur in sequence.
 
-For example, the receival of an email attachment followed by a malware infection, or the detection of privilege elevation followed by a configuration change are much more strongly identified as high severity security events, compared with the discrete events alone.
+For example, an email attachment followed by a malware infection, or privilege elevation followed by a configuration change, or a bruteforce attack followed by a successful login. These are all examples where correlating events identify high severity security events more strongly compared with the discrete events alone.
 
 #### Configuring a correlated alert
+{:.no_toc}
 
-Here's an overview of the steps for configuring a correlated alert:
+To correlate logs, we need to configure 2 search queries, select an aggregation criteria, and join the queries.
+This tutorial assumes you are familiar with the process of configuring a single-query alert.
+It explains what's different when correlating queries.
+
 1. toc list
 {:toc}
 
@@ -24,132 +28,93 @@ Here's an overview of the steps for configuring a correlated alert:
 
 ##### Name the alert
 
-Give your alert a meaningful name. When your alert triggers, its name is used as the email subject or notification heading.
+The name should convey the significance of the combined security event for both queries together.
 
-##### Search components
+For example, "Brute-force from malicious address followed by malware download".
 
-Decide which logs the alert should look for and in which accounts. There are your search components.
+##### Add another query
 
-![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-search-component.png)
+Click **+ Add another query** to add Query 2 and the join option.
 
-###### Query and filters
+![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/add-another-query.png)
 
-You can use any combination of filters and a search query. Note the following:
+##### Query 1 & Query 2
 
-* Use a Lucene search query.
-  * You have the option to use wildcards.
-  * Kibana Query Language (KQL) is not supported.
+The form now has 2 sections: Query 1 & Query 2.
 
-* All Kibana Filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
+There is no significance to their order. If Query 1 and Query 2 are interchanged, the results will be the same.
+
+The following criteria are similar for both the single-query and multi-query alert:
+
+* Fill in the free search and filtering criteria as usual.
+* Select the **Accounts to search**.
+* You can preview the results in Kibana Discover for each query independently. Click **Preview in Kibana** to open the results for the past 24 hours in another tab.
+* If you change your mind, you can delete either of the queries. Click **X Delete query** to return to a single-query form.
+
+![empty alert form with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/query1and2.png)
+
+##### Group by fields (_required_)
+
+To correlate the logs found by multiple queries, we'll need to run a join function on the aggregated results. The first step is to aggregate results using **group by** rules.
+
+Select at least 1 **group by** field for each of the queries.
+
+Each group-by function takes all field values and divides them into buckets. The buckets are dynamically built - one per unique field value. The results in each bucket are then counted.
+
+Order matters. When grouping by multiple fields, the function runs from first to last.
+
+![Alert with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
+
+##### Join the queries (_strongly recommended_)
+
+Now that your queries have group by aggregation rules defined, you can join the queries.
+
+Joining allows you to run the alert on the intersection between two queries. (It's like an SQL Inner Join function that looks for values that are common to both fields.)
+
+Available join options are automatically shown. The suggestions are ordered pairs of the group by fields.
+
+Select the pairs you want to enable. You can join as many as 3 group by fields.
+
+![Add a group by field function for both queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-join-queries.png)
+
+Joined fields are indicated by the **link icon <i class="fas fa-link"></i>**.
+
+When the alert triggers, the event log will have the field `logzio-alert-join-values` showing the join function.
 
 
-Once you're done refining your search query and filters,
-click **Preview in Kibana** to review the returned logs
-and make sure you get the expected results.
+##### Trigger conditions
 
-###### Joining aggregations
+When the alert has 2 queries, you can set a single condition for each of your queries, and a single severity level.
 
-The field `logzio-alert-join-values`
+![Conditions and severity for correlated alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-trigger-conditions.png)
 
+The alert conditions are evaluated over regular intervals. The period for evaluation can range between a minimum of 5 minutes and a maximum of 24 hours/1 day.
 
-###### Group-by (order matters!)
+##### Notification output
 
-You have the option to apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.
+It's a good idea to add a description that works for both queries and the event they capture together.
 
-The order of group-by fields matters. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from Left-To-Right.)
+The notification will be a log count of the results, aggregated by the values of the group by fields.
 
-For example, the following will group results by continent, then country, then city:
+You have the option to send the data
+as **JSON** or as a **Table**.
 
-![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--group-by.png)
-
-That's because the results are aggregated in the following order:
-
-1. geoip.continent_code
-2. geoip.country_name
-3. geoip.city_name
-
-If we had reversed the order (city, then country, then continent),
-it would likely have generated unintended results.
-
-###### Accounts to search
-
-Next, select the **Accounts to search**. An account is the equivalent of an Elasticsearch index.
-
-* If you select **All accounts**, the alert will query the logs in all the accounts it has access to. It will automatically include any accounts added in the future.
-
-* You can select specific accounts. Select **Just these accounts** and add the relevant accounts from the dropdown list.
-
-##### Set threshold and severity levels
-
-![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings.png)
-
-Set your threshold and severity levels in the _Trigger if..._ section.
-
-Click **Add a threshold** to set up to 5 threshold levels,
-each with its own severity tag.
-
-##### _(Optional)_ Set notification details
-
-###### Description and tags
-
-![Alert description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags.png)
-
-The **Description** is visible on the _Alert definitions_ page.
-It's also included with emails and Slack messages when the alert is triggered.
-We recommend making your description helpful to recipients,
-like telling them how to fix the issues that led to the alert.
-
-The **Tags** are useful for filtering the _Alert definitions_ page.
-
-###### Who to send it to
-
-![Recipients and suppress notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-suppress.png)
-
-If you want to send notifications or emails when the alert is triggered,
-choose notification endpoints.
-This isn't required, though—triggered alerts are still logged and searchable in Kibana.
-
-Choose the endpoints or email addresses to notify under _Who to send it to_.
-If you need help adding a new endpoint,
-see [_Notification endpoints_]({{site.baseurl}}/user-guide/integrations/endpoints.html).
-
-To limit how often recipients are notified,
-choose a time period to suppress notifications.
-
-When notifications are suppressed,
-Logz.io will continue to log triggered alerts without sending notifications.
-You can search triggered alert logs at any time.
-{:.info-box.note}
-
-###### Output format
-
-Recipients will receive the notification with sample data,
-so you'll need to choose whether to send the data
-as **JSON** or in a **Table**.
-
-![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields.png)
-
-If you're sending a sample JSON,
-you can include **All fields** or **Custom fields**.
-If you're sending a table with sample data,
-you can include up to 7 fields.
-
-For custom fields,
-click **<i class="li li-plus"></i> Add a field** to add the field to your output.
-You can optionally sort by one field or filter the samples with a regular expression.
-
-If you added any groups or used an aggregated trigger condition
-(minimum, maximum, average, or sum),
-the output will include only the grouped or aggregated fields.
-To change these fields,
-you'll need to first change your **Group by** or **Trigger if...** settings.
-{:.info-box.note}
+![Notifications are auto-configured](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-output-options.png)
 
 ##### Save it!
 
-Click **Save** to save your alert.
-If the thresholds are passed and the alert is triggered,
-Logz.io will log the alert and send the configured notifications.
+Click **Save** at the top of the form to save your alert.
+
+##### Working with correlated alerts
+
+Correlated alerts are indicated by the 2-part condition sets, as shown below.
+
+![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-conditions.png)
+
+When a correlated alert triggers, the event will be split into 2 logs - 1 per query. The alert log will be numbered as 1/2 and 2/2, respectively.
+
+You can click **Investigate** on each of the associated event log, to look into the details that led to the alert triggering.
+
+![Investigate correlated events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-event-logs.png)
 
 </div>
-

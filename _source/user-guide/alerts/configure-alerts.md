@@ -45,7 +45,6 @@ Once you're done refining your search query and filters,
 click **Preview in Kibana** to review the returned logs
 and make sure you get the expected results.
 
-
 ###### Group-by (order matters!)
 
 You have the option to apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.
@@ -54,16 +53,10 @@ The order of group-by fields matters. Results are grouped in the order in which 
 
 For example, the following will group results by continent, then country, then city:
 
-![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--group-by.png)
+![Ordered group by field functions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/ordered-group-by.png)
 
-That's because the results are aggregated in the following order:
-
-1. geoip.continent_code
-2. geoip.country_name
-3. geoip.city_name
-
-If we had reversed the order (city, then country, then continent),
-it would likely have generated unintended results.
+If we reverse the order (city, then country, then continent),
+it will likely generate unintended results.
 
 ###### Accounts to search
 
@@ -75,12 +68,11 @@ Next, select the **Accounts to search**. An account is the equivalent of an Elas
 
 ##### Set threshold and severity levels
 
+Set your threshold and severity levels.
+
+In the _Trigger if..._ section, click **Add a threshold** to set as many as 5 threshold conditions, each with its own severity tag.
+
 ![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings.png)
-
-Set your threshold and severity levels in the _Trigger if..._ section.
-
-Click **Add a threshold** to set up to 5 threshold levels,
-each with its own severity tag.
 
 ##### _(Optional)_ Set notification details
 

@@ -15,8 +15,8 @@ Decide on your tracing source, make deployment decisions, decide whether or not 
 
 If you’re deploying distributed tracing on Kubernetes, we recommend the following blog post: A Guide to Deploying Jaeger on Kubernetes in Production.   <-link placeholder->
 
-1. Deploying tracing components
-2. Setting up instrumentation
+1.  [Deploying tracing components](/user-guide/distributed-tracing/deploying-components.html)
+2.  [Setting up instrumentation](/user-guide/distributed-tracing/tracing-instrumentation.html)
 
 
 

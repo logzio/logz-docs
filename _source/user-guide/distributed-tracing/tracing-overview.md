@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Distributed Tracing with Jaeger
+title: Why Distributed Tracing?
 permalink: /user-guide/distributed-tracing/overview
 flags:
   logzio-plan: community
@@ -30,6 +30,7 @@ Logz.io gives you amazing granularity to look under the hood at how your microse
 
 Distributed tracing is a method used to profile and monitor applications, especially those built with microservices. Distributed tracing helps you pinpoint where failures occur and what causes poor performance when you analyze the fully mapped trace.
 
+### Traces and spans
 A trace is a snapshot of the lifecycle of a single service or request transaction and maps the execution path the request takes through the system. Each trace is composed of a varying number of spans which must all be executed for the transaction to be successful.  
 
 A span is the primary building block of a distributed trace. Spans represent an individual unit of work done in a distributed system. Each component of the distributed system contributes a span - a named, timed operation representing a piece of the workflow. Spans can (and generally do) contain “References” to other spans, which allows multiple spans to be assembled into one complete trace - a visualization of the life of a request as it moves through various microservices in a distributed systems. The edges between the spans which make up a trace indicate parent/child relationships.

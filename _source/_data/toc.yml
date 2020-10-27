@@ -98,9 +98,9 @@ firstLevel:
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
 
-
+  # ===== Distributed TRACING =====
 - title: Distributed Tracing
-  icon: fas fa-span-bars    #where does this file get placed/created?
+  icon: fas fa-align-left    
 
   secondLevel:
   - title: Why Distributed Tracing?
@@ -111,6 +111,11 @@ firstLevel:
     
   - title: Getting started
     url: /user-guide/distributed-tracing/getting-started/
+    thirdlevel:
+    - title: Deploying components in your system
+      url: /user-guide/distributed-tracing/deploying-components
+    - title: Setting up instrumentation and ingesting traces
+      url: /user-guide/distributed-tracing/tracing-instrumentation.html    
 
 
 

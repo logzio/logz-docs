@@ -18,9 +18,11 @@ You can review the Alcide kAudit logs in your security account, including a pre-
 
 #### Configuration
 
-You can configure a HTTPS webhook integration with Alcide kAudit. See [Alcide docs](https://alcide.atlassian.net/wiki/spaces/PUB/pages/1466728736/Exporting+kAudit+Findings) for more information on exporting kAudit findings.
+You can configure a HTTPS webhook integration with Alcide kAudit.
 
 Each alert type requires a separate integration. If you plan to send all data to Logz.io, you will need to configure 3 HTTPS API integrations, one per alert type.
+
+For more information on exporting kAudit findings, see the official [Alcide docs](https://alcide.atlassian.net/wiki/spaces/PUB/pages/1466728736/Exporting+kAudit+Findings).
 
 **Before you begin, you'll need**:
 
@@ -66,6 +68,8 @@ Leave the default configurations. No sub-selections are required.
 Repeat the above steps, only this time select **Alert type** - **Audit Activity**.
 
 Leave the default configurations. No sub-selections are required.
+
+
 
 ##### Check Logz.io for your logs
 

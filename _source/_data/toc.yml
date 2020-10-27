@@ -234,7 +234,7 @@ firstLevel:
     url: /user-guide/integrations/endpoints.html
     thirdLevel:
       - title: Custom endpoints
-        url: /user-guide/integrations/custome-endpoints.html   
+        url: /user-guide/integrations/custom-endpoints.html   
     thirdLevel:
       - title: Opsgenie notifications for resolved metrics alerts
         url: /user-guide/integrations/resolved-metrics-alerts.html         

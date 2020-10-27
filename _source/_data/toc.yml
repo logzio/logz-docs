@@ -114,6 +114,8 @@ firstLevel:
       url: /user-guide/distributed-tracing/deploying-components
     - title: Setting up instrumentation and ingesting traces
       url: /user-guide/distributed-tracing/tracing-instrumentation 
+  - title: The Grand Distributed Tracing Tour
+    url: /user-guide/distributed-tracing/tracing-tour
 
 
 

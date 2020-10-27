@@ -105,17 +105,15 @@ firstLevel:
   secondLevel:
   - title: Why Distributed Tracing?
     url: /user-guide/distributed-tracing/overview/
-
   - title: Highlights
-    url: /user-guide/distributed-tracing/highlights/
-    
+    url: /user-guide/distributed-tracing/highlights/   
   - title: Getting started
     url: /user-guide/distributed-tracing/getting-started/
-    thirdlevel:
+    thirdLevel:
     - title: Deploying components in your system
       url: /user-guide/distributed-tracing/deploying-components
     - title: Setting up instrumentation and ingesting traces
-      url: /user-guide/distributed-tracing/tracing-instrumentation.html    
+      url: /user-guide/distributed-tracing/tracing-instrumentation 
 
 
 

@@ -41,14 +41,15 @@ docker run -e ACCOUNT_TOKEN=<<SHIPPING-TOKEN>> \
  -p 14250:14250 \
 logzio/jaeger-logzio-collector:latest
 ~~~
+{: .language-haskell}
 
 The complete list of collector parameters is presented below. In addition to these parameters, you can also use [Jaeger's collector parameters](https://www.jaegertracing.io/docs/1.18/cli/#jaeger-collector-grpc-plugin).
 
  Collector Parameter | Description
  ------------ | -------------
-  ACCOUNT_TOKEN (Required) | - The account token is required when you use the collector to send traces to Logz.io <br> -  Replace <SHIPPING-TOKEN> with the token of the account you want to send data to
+  ACCOUNT_TOKEN (Required) | - The account token is required when you use the collector to send traces to Logz.io <br> -  Replace `<SHIPPING-TOKEN>` with the token of the account you want to send data to
 REGION | -   Optional two-letter region code that determines the suggested listener URL (where you will be sending trace data to)  <br>-   Find your region code in the Regions and URLs table <br>-   This parameter is left blank for US East (Northern Virginia)
-GRPC_STORAGE_PLUGIN_LOG_LEVEL| -   The lowest log level to send <br> -   Default: warn. <br>-   From lowest to highest, log levels are: trace, debug, info, warn, error <br>-   Controls logging only for the Jaeger Logz.io Collector  <br>-   Does not affect Jaeger components
+GRPC_STORAGE_PLUGIN_LOG_LEVEL| -   The lowest log level to send <br> -   Default: **warn** <br>-   From lowest to highest, log levels are: **trace, debug, info, warn, error** <br>-   Controls logging only for the Jaeger Logz.io Collector  <br>-   Does not affect Jaeger components
 COLLECTOR_ZIPKIN_HTTP_PORT | If you’re using a Zipkin implementation to create traces, set this optional environment variable to the HTTP port for the Zipkin collector service
 
 ### Agent
@@ -58,16 +59,13 @@ You can deploy an agent as a sidecar container or as a Host Daemon. Although dep
 When deciding the best approach for your environment, consider the following factors: 
 
 1.  **Do you need to lower the number of open connections?** 
-
     Sending a high number of spans to the collector can create many open connections. The agent can help with load balancing and lowering the number of connections from your application itself. 
-
 2.  **Is there benefit in enriching the spans?** 
-
     The agent can enrich spans by adding tags that are not available at the collector level, such as region or pod name, which are often exposed at lower levels.
 
 ### Kubernetes deployment reference
 
-If you’re working with Kubernetes, use this yaml file as a reference to deploy the collector/agent, and use the output of kubectl explain deployment as your apiVersion value.
+If you’re working with Kubernetes, use this yaml file as a reference to deploy the collector/agent, and use the output of `kubectl explain deployment` as your **apiVersion** value.
 
 ~~~
 apiVersion: v1
@@ -183,3 +181,4 @@ items:
         hostNetwork: true
         dnsPolicy: ClusterFirstWithHostNet
 ~~~  
+{: .language-haskell}

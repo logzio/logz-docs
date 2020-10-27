@@ -18,7 +18,7 @@ You can review the Alcide kAudit logs in your security account, including a pre-
 
 #### Configuration
 
-You can configure a HTTPS webhook integration with Alcide kAudit.
+You can configure a HTTPS API integration with Alcide kAudit.
 
 Each alert type requires a separate integration. If you plan to send all data to Logz.io, you will need to configure 3 HTTPS API integrations, one per alert type.
 

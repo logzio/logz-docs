@@ -109,27 +109,27 @@ You can search triggered alert logs at any time.
 
 ###### Output format
 
-Recipients will receive the notification with sample data,
-so you'll need to choose whether to send the data
-as **JSON** or in a **Table**.
+When triggered, the alert will send out a notification with sample data.
+
+If the alert includes any aggregation or group by rule, the notification output defaults to the group by/aggregated fields.
+
+Otherwise, you control the data format. It can be either **JSON** or a **Table**.
+
+  * If you select JSON, you can choose to send all fields or select fields.
+  * If you select a table, you can send as many as 7 fields.
 
 ![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields.png)
 
-If you're sending a sample JSON,
-you can include **All fields** or **Custom fields**.
-If you're sending a table with sample data,
-you can include up to 7 fields.
+To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule.
 
-For custom fields,
-click **<i class="li li-plus"></i> Add a field** to add the field to your output.
-You can optionally sort by one field or filter the samples with a regular expression.
+###### Using REGEX filters
 
-If you added any groups or used an aggregated trigger condition
-(minimum, maximum, average, or sum),
-the output will include only the grouped or aggregated fields.
-To change these fields,
-you'll need to first change your **Group by** or **Trigger if...** settings.
-{:.info-box.note}
+You can "clean" the data in the notification using REGEX filters. If you add a REGEX filter, it will select for the data you want to include in the alert output.
+
+There is no danger that a REGEX filter will disrupt the notification.
+
+* If the REGEX matches the relevant data, you will see only the desired results.
+* If the REGEX _does not_ match, the filter will be disregarded and the alert output will include the full content of the field.
 
 ##### Save it!
 

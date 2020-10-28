@@ -12,6 +12,8 @@ shipping-tags:
 <div class="branching-container">
 
 <!-- tab:start -->
+This implementation is uses a filebeat DaemonSet to collect Kubernetes logs. allows you to ship logs from your Kubernetes cluster to Logz.io.
+You can either deploy this Daemonset with the standrad configuration, or with autodiscover configuration. For further information about Filebeat's autodiscover please see [Autodiscover documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
 <div id="standard-config">
 
 **Before you begin, you'll need**:
@@ -46,6 +48,7 @@ kubectl create secret generic logzio-logs-secret \
 ```
 
 ##### For autodiscover configuration deployment:
+Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running.
 ```shell
  kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-autodiscovery-configuration.yaml
 ```

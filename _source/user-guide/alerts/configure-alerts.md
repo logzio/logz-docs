@@ -41,9 +41,8 @@ You can use any combination of filters and a search query. Note the following:
 * All Kibana Filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
 
 
-Once you're done refining your search query and filters,
-click **Preview in Kibana** to review the returned logs
-and make sure you get the expected results.
+Once you're done refining your search query and filters, you can
+click **Preview in Kibana** to open Kibana Discover in another tab. It can help to review the returned logs and make sure you get the expected results.
 
 ###### Group-by (order matters!)
 

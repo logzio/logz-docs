@@ -42,20 +42,21 @@ First, log into your Alcide kAudit console.
     2. **URL** - Paste the Logz.io webhook URL.
 
         ```
-        https://<<LISTENER-HOST>>:8071?token=<<SHIPPING-TOKEN>>&type=alcide-kaudit
+        https://<<LISTENER-HOST>>:8071
         ```
 
-        Before copying the webhook, replace the placeholders to match your specifics:
-
-        {% include log-shipping/replace-vars.html token=true %}
-
+        Before copying the webhook, determine the appropriate listener for your account.
         {% include log-shipping/replace-vars.html listener=true %}
-    3. **Alert type** - Select **Detections** from the dropdown list.
+    3. **Token** - Paste in the Logz.io Shipping Token.
+       {% include log-shipping/replace-vars.html token=true %}
+    4. **Alert type** - Select **Detections** from the dropdown list.
 
         Select all available sub-selections:
 
         * **Category** - select all categories: **Incident** and **Anomaly**
         * **Entity type** - select all types: **Cluster**, **User**, **Resource**
+
+![Set up an Alcide kAudit integration with Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/alcide-integration.png)
 
 ##### Configure an Alcide kAudit integration for audit violations
 

@@ -11,12 +11,16 @@ contributors:
 ---
 Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in logz.io 
 
-Decide on your tracing source, make deployment decisions, decide whether or not to use an agent, and determine the best instrumentation strategy for your system. 
 
-If you’re deploying distributed tracing on Kubernetes, we recommend the following blog post: A Guide to Deploying Jaeger on Kubernetes in Production.   <-link placeholder->
+#### Next steps:
+{:.no_toc}
 
-1.  [Deploying tracing components](/user-guide/distributed-tracing/deploying-components.html)
-2.  [Setting up instrumentation](/user-guide/distributed-tracing/tracing-instrumentation.html)
+<div class="tasklist">
 
+##### [Deploy tracing components](/user-guide/distributed-tracing/deploying-components.html)
+Decide on your tracing source, make deployment decisions, and decide whether or not to use an agent to send tracing data to Logz.io.
 
+##### [Set up instrumentation](/user-guide/distributed-tracing/tracing-instrumentation.html)
+Determine the best instrumentation strategy for your system: Manual or automatic instrumentation.
 
+If you’re deploying distributed tracing on Kubernetes, we recommend the following blog post: [A Guide to Deploying Jaeger on Kubernetes in Production](https://logz.io/blog/jaeger-kubernetes-best-practices/). 

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Highlights of Logz.io Metrics
+title: Highlights of Logz.io Distributed Tracing
 permalink: /user-guide/distributed-tracing/highlights
 flags:
   logzio-plan: community

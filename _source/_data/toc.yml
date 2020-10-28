@@ -105,8 +105,9 @@ firstLevel:
   secondLevel:
   - title: Why Distributed Tracing?
     url: /user-guide/distributed-tracing/overview/
-  - title: Highlights
-    url: /user-guide/distributed-tracing/highlights/   
+    thirdLevel: 
+    - title: Highlights
+      url: /user-guide/distributed-tracing/highlights/   
   - title: Getting started
     url: /user-guide/distributed-tracing/getting-started/
     thirdLevel:
@@ -115,8 +116,18 @@ firstLevel:
     - title: Setting up instrumentation and ingesting traces
       url: /user-guide/distributed-tracing/tracing-instrumentation 
   - title: The Grand Distributed Tracing Tour
-    url: /user-guide/distributed-tracing/tracing-tour
-
+    url: /user-guide/distributed-tracing/tracing-tour/
+    thirdLevel:
+    - title: Trace Timeline
+      url: /user-guide/distributed-tracing/trace-timeline/
+    - title: Trace Graph
+      url: /user-guide/distributed-tracing/trace-graph/
+    - title: Trace Statistics
+      url: /user-guide/distributed-tracing/trace-statistics/
+    - title: Trace JSON
+      url: /user-guide/distributed-tracing/trace-json/      
+  - title: Logs and Traces - The Kibana-Jaeger Connection
+    url:
 
 
 - title: Cloud SIEM

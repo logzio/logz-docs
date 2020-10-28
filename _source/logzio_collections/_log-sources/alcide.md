@@ -45,16 +45,15 @@ First, log into your Alcide kAudit console.
         https://<<LISTENER-HOST>>:8071
         ```
 
-        Before copying the webhook, determine the appropriate listener for your account.
-        {% include log-shipping/replace-vars.html listener=true %}
+        Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`). For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
     3. **Token** - Paste in the [Logz.io shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) of the account you want to ship to.
 
     4. **Alert type** - Select **Detections** from the dropdown list.
 
         Select all available sub-selections:
 
+        * **Entity Type** - select all types: **Cluster**, **User**, **Resource**
         * **Category** - select all categories: **Incident** and **Anomaly**
-        * **Entity type** - select all types: **Cluster**, **User**, **Resource**
 
 ![Set up an Alcide kAudit integration with Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/alcide-integration.png)
 

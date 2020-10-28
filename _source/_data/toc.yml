@@ -125,9 +125,13 @@ firstLevel:
     - title: Trace Statistics
       url: /user-guide/distributed-tracing/trace-statistics/
     - title: Trace JSON
-      url: /user-guide/distributed-tracing/trace-json/      
+      url: /user-guide/distributed-tracing/trace-json/ 
+    - title: Compare traces
+     url: /user-guide/distributed-tracing/compare-traces   
+    - title: Topology graphs
+      url: /user-guide/distributed-tracing/topology-system_architecture    
   - title: Logs and Traces - The Kibana-Jaeger Connection
-    url:
+    url:  /user-guide/distributed-tracing/correlate_logs_and_traces.md
 
 
 - title: Cloud SIEM

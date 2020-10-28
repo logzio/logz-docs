@@ -14,13 +14,13 @@ shipping-tags:
 Alcide kAudit is a security service for monitoring Kubernetes audit logs, and easily
 identifying abnormal administrative activity and compromised Kubernetes resources.
 
-You can review the Alcide kAudit logs in your security account, including a pre-configured [Alcide dashboard in Logz.io](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
+You can review Alcide kAudit findings in your Logz.io security account, including a pre-configured [Alcide dashboard in Logz.io](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
 #### Configuration
 
-You can configure a HTTPS API integration with Alcide kAudit.
+You can configure an Alcide kAudit integration that uses the Logz.io HTTPS API. The integration can be configured from the kAudit app or kAudit Kubernetes ConfigMap.
 
-Each alert type requires a separate integration. If you plan to send all data to Logz.io, you will need to configure 3 HTTPS API integrations, one per alert type.
+Each finding type requires a separate configuration. If you plan to send all kAudit data to Logz.io, you will need to configure 3 HTTPS API integrations, one per finding type.
 
 For more information on exporting kAudit findings, see the official [Alcide docs](https://alcide.atlassian.net/wiki/spaces/PUB/pages/1466728736/Exporting+kAudit+Findings).
 
@@ -51,7 +51,7 @@ First, log into your Alcide kAudit console.
 
         {% include log-shipping/replace-vars.html listener=true %}
     3. **Alert type** - Select **Detections** from the dropdown list.
-      
+
         Select all available sub-selections:
 
         * **Category** - select all categories: **Incident** and **Anomaly**
@@ -61,6 +61,9 @@ First, log into your Alcide kAudit console.
 
 Repeat the above steps, only this time select **Alert type** - **Audit Violations**.
 
+In the field **Report**, select the **Details** option.
+Leave all other default configurations.
+
 Leave the default configurations. No sub-selections are required.
 
 ##### Configure an Alcide kAudit integration for audit activity
@@ -69,13 +72,10 @@ Repeat the above steps, only this time select **Alert type** - **Audit Activity*
 
 Leave the default configurations. No sub-selections are required.
 
-
-
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search or filter for Alcide logs, under `type:alcide-kaudit`.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
 
 </div>

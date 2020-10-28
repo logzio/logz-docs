@@ -47,8 +47,8 @@ First, log into your Alcide kAudit console.
 
         Before copying the webhook, determine the appropriate listener for your account.
         {% include log-shipping/replace-vars.html listener=true %}
-    3. **Token** - Paste in the Logz.io Shipping Token.
-       {% include log-shipping/replace-vars.html token=true %}
+    3. **Token** - Paste in the [Logz.io shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) of the account you want to ship to.
+
     4. **Alert type** - Select **Detections** from the dropdown list.
 
         Select all available sub-selections:

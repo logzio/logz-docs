@@ -2703,6 +2703,7 @@ definitions:
         $ref: '#/definitions/AlertOutput'
       searchTimeFrameMinutes:
         type: integer
+        minimum: 
         format: int32
       subComponents:
         type: array
@@ -2808,6 +2809,8 @@ definitions:
           $ref: '#/definitions/ColumnConfig'
       shouldUseAllFields:
         type: boolean
+        description: Only relevant when no aggregations or group by rules are used. When the alert triggers, the notification ouput will include entire logs in the sample data.
+        default: false
   AlertV2Request:
     type: object
     properties:
@@ -2826,6 +2829,10 @@ definitions:
       searchTimeFrameMinutes:
         type: integer
         format: int32
+        minimum: 5
+        maximum: 1440
+        definition: The time range for the scan. It is a sliding window, with 1 minute granularity. The minimum and maximum values are not validated, but if they are used, the results will be less accurate, due to certain limitations.
+        example: 20
       subComponents:
         type: array
         items:
@@ -2848,6 +2855,9 @@ definitions:
           - NOT_EQUALS
       severityThresholdTiers:
         type: object
+        definition: key:value pairs, must be ordered logically, in accordance with the operator.
+        example: {Info:2, MEDIUM:4}
+        default: MEDIUM
         additionalProperties:
           type: number
           format: double

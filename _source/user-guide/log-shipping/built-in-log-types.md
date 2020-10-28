@@ -24,6 +24,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 
 | Description           | Type                                       |
 |-----------------------|--------------------------------------------|
+| Alcide kAudit         | `alcide-kaudit` |
 | Apache access         | `apache`, `apache_access`, `apache-access` |
 | Auditd                | `auditd`                                   |
 | AWS CloudFront        | `cloudfront`                               |

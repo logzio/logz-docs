@@ -64,8 +64,6 @@ Repeat the above steps, only this time select **Alert type** - **Audit Violation
 In the field **Report**, select the **Details** option.
 Leave all other default configurations.
 
-Leave the default configurations. No sub-selections are required.
-
 ##### Configure an Alcide kAudit integration for audit activity
 
 Repeat the above steps, only this time select **Alert type** - **Audit Activity**.

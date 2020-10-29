@@ -12,11 +12,12 @@ contributors:
   - shalper
 ---
 
-Some security situations are best captured by correlating events. These events may be simultaneous or occur in sequence.
+Some security incidents are best detected by a sequence of logs originated by different products, i.e. log types.
+
+For example: an email attachment followed by a malware infection.
+In this example, the first event is detected by an email security product and the second event is detected by an endpoint security product. In this case 2 separate events can be defined using a correlated alert.
 
 Correlated events are instrumental for reducing false-positives. By defining a more specific use case that contains 2 scenarios, the trigger can be more sensitive and reduce unwanted noise.
-
-For example, an email attachment followed by a malware infection, or privilege elevation followed by a configuration change, or a brute force attack followed by a successful login. These are all examples where correlating events identify high severity security events more strongly compared with the discrete events alone.
 
 #### Configuring a correlated rule
 {:.no_toc}

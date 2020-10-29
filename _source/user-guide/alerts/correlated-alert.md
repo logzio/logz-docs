@@ -10,9 +10,11 @@ contributors:
   - shalper
 ---
 
-Some situations are best captured by correlating events captured by different logs. These events may occur simultaneously or occur in sequence.
+Some incidents are best detected by a sequence of logs detected by different logs, these may be different log types, log fields, or even accounts.
 
-Correlated events are instrumental for reducing false-positives. By defining a more specific use case that contains 2 scenarios, the trigger can be more sensitive and reduce unwanted noise.
+For example: a deployment on a particular microservice, coinciding with an error on another environment. In this case, 2 separate events can be correlated to trigger an alert.
+
+Correlated alerts are instrumental for reducing false-positives. By defining a more specific use case that contains 2 scenarios, the trigger can be more sensitive and reduce unwanted noise.
 
 #### Configuring a correlated alert
 {:.no_toc}
@@ -83,7 +85,6 @@ Joined fields are indicated by the **link icon <i class="fas fa-link"></i>**.
 
 When the alert triggers, the event log will have the field `logzio-alert-join-values` showing the join function.
 
-
 ##### Trigger conditions
 
 When an alert has 2 queries, you can set a single condition for each of your queries, and a single severity.
@@ -94,13 +95,23 @@ As usual, each query can take a different time frame and a different condition f
 
 The alert conditions are evaluated over regular intervals. The period for evaluation can range between a minimum of 5 minutes and a maximum of 24 hours/1 day.
 
-##### Notification output
+##### Notification description
 
 It's a good idea to add a description that works for both queries and the event they capture together.
 
-If the alert includes any aggregations or group by fields, the notification output defaults to the group by/aggregated fields. Otherwise, you control which data to include.
+##### Default output for aggregations/join values
 
-You have the option to send the data
+* If the alert includes any aggregations or group by fields, the notification output defaults to the group by/aggregated fields.
+
+* If the alert includes a join function, the output will default to a table that contains all buckets of the shared values in the join fields. For example:
+
+    | Joined value | Q1 | Q2 |
+    |---|---|---|
+    |value1       |       10  |  15|
+    |value2       |       6   |  3 |
+
+
+Otherwise, you control which data to include. You have the option to send the data
 as **JSON** or as a **Table**. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format)
 
 ![Notifications are auto-configured](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-output-options.png)

@@ -134,7 +134,7 @@ firstLevel:
   - title: Logs and Traces - The Kibana-Jaeger Connection
     url:  /user-guide/distributed-tracing/correlate_logs_and_traces.md
 
-    
+      
   # ===== CLOUD SIEM =====
 - title: Cloud SIEM
   icon: fas fa-shield-alt

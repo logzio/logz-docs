@@ -1,7 +1,7 @@
 ---
 layout: article
-title: Correlating Distributed Tracing and logs
-permalink: /user-guide/distributed-tracing/correlate_logs_and_traces
+title: Correlate logs and traces
+permalink: /user-guide/distributed-tracing/correlate-traces
 flags:
   logzio-plan: community
 tags:
@@ -9,7 +9,7 @@ tags:
 contributors:
   - yberlinger
 ---
-Harness the power of Kibana and your logs for more context and insights with Logz.io Distributed Tracing.
+Make the Jaeger-Kibana connection: Harness the power of Kibana and Jaeger for more context and insights with Logz.io Distributed Tracing when you correlate logs with traces.
 
 <miniTOC> What can I do with my trace and span data in Kibana?
 

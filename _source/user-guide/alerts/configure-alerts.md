@@ -16,7 +16,7 @@ You can set up Logz.io log alerts to automatically get notified about issues tha
 Community plans have a limit on the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
 {:.info-box.note}
 
-#### To configure an alert
+#### Configuring an alert
 
 <div class="tasklist">
 
@@ -119,16 +119,16 @@ Otherwise, you control the data format. It can be either **JSON** or a **Table**
 
 ![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields.png)
 
-To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule.
+To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter.
 
-###### Using REGEX filters
+###### Using regex filters
 
-You can "clean" the data in the notification using REGEX filters. If you add a REGEX filter, it will select for the data you want to include in the alert output.
+You can "clean" the data in the notification using regex filters. If you add a regex filter, it will select for the data you want to include in the alert output.
 
-There is no danger that a REGEX filter will disrupt the notification.
+There is no danger that a regex filter will disrupt the notification.
 
-* If the REGEX matches the relevant data, you will see only the desired results.
-* If the REGEX _does not_ match, the filter will be disregarded and the alert output will include the full content of the field.
+* If the regex matches the relevant data, you will see only the desired results.
+* If the regex _does not_ match, the filter will be disregarded and the alert output will include the full content of the field.
 
 ##### Save it!
 

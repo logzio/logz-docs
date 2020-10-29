@@ -10,16 +10,15 @@ contributors:
   - shalper
 ---
 
-Some security situations are best captured by correlating events. These events may be simultaneous or occur in sequence.
+Some situations are best captured by correlating events captured by different logs. These events may occur simultaneously or occur in sequence.
 
-For example, an email attachment followed by a malware infection, or privilege elevation followed by a configuration change, or a bruteforce attack followed by a successful login. These are all examples where correlating events identify high severity security events more strongly compared with the discrete events alone.
+To correlate logs, we need to configure 2 search queries, and select an aggregation criteria.
+This tutorial assumes you are familiar with the process of configuring a single-query alert.
+It explains what's different when correlating queries.
+
 
 #### Configuring a correlated alert
 {:.no_toc}
-
-To correlate logs, we need to configure 2 search queries, select an aggregation criteria, and join the queries.
-This tutorial assumes you are familiar with the process of configuring a single-query alert.
-It explains what's different when correlating queries.
 
 1. toc list
 {:toc}
@@ -47,33 +46,31 @@ There is no significance to their order. If Query 1 and Query 2 are interchanged
 The following criteria are similar for both the single-query and multi-query alert:
 
 * Fill in the free search and filtering criteria as usual.
+* You have the option to aggregate results for as many as 3 fields. Select **group by** fields from the dropdown list.
+    
+  Each group-by function takes all field values and divides them into buckets. The buckets are dynamically built - one per unique field value. The results in each bucket are then counted.
+
+  Order matters. When grouping by multiple fields, the function runs from first to last.
 * Select the **Accounts to search**.
 * You can preview the results in Kibana Discover for each query independently. Click **Preview in Kibana** to open the results for the past 24 hours in another tab.
 * If you change your mind, you can delete either of the queries. Click **X Delete query** to return to a single-query form.
 
 ![empty alert form with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/query1and2.png)
 
-##### Group by fields (_required_)
+##### Group by fields and joining the queries (_optional_)
 
-To correlate the logs found by multiple queries, we'll need to run a join function on the aggregated results. The first step is to aggregate results using **group by** rules.
+If you opt to join the queries, you must also select aggregation criteria and fields to join. When the queries are joined, the values of the join fields must match for the alert to trigger.
 
-Select at least 1 **group by** field for each of the queries.
+First, select the **group by** fields for each of the queries. You can select as many as 3.
+Now that your queries have group by aggregation alerts defined, you can join them.
 
-Each group-by function takes all field values and divides them into buckets. The buckets are dynamically built - one per unique field value. The results in each bucket are then counted.
-
-Order matters. When grouping by multiple fields, the function runs from first to last.
-
-![Alert with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
-
-##### Join the queries (_strongly recommended_)
-
-Now that your queries have group by aggregation rules defined, you can join the queries.
-
-Joining allows you to run the alert on the intersection between two queries. (It's like an SQL Inner Join function that looks for values that are common to both fields.)
+Select the join pairs you want to enable. You can enable as many as 3 pairs.
 
 Available join options are automatically shown. The suggestions are ordered pairs of the group by fields.
 
-Select the pairs you want to enable. You can join as many as 3 group by fields.
+![Alert with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
+
+When joined, the alert looks for values that are common to both group by fields. This means the alert will only trigger if it finds matching values for the joined field pairs.
 
 ![Add a group by field function for both queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-join-queries.png)
 
@@ -84,7 +81,9 @@ When the alert triggers, the event log will have the field `logzio-alert-join-va
 
 ##### Trigger conditions
 
-When the alert has 2 queries, you can set a single condition for each of your queries, and a single severity level.
+When an alert has 2 queries, you can set a single condition for each of your queries, and a single severity.
+
+As usual, each query can take a different time frame and a different condition for a selected field.
 
 ![Conditions and severity for correlated alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-trigger-conditions.png)
 
@@ -94,10 +93,10 @@ The alert conditions are evaluated over regular intervals. The period for evalua
 
 It's a good idea to add a description that works for both queries and the event they capture together.
 
-The notification will be a log count of the results, aggregated by the values of the group by fields.
+If the alert includes any aggregations or group by fields, the notification output defaults to the group by/aggregated fields. Otherwise, you control which data to include.
 
 You have the option to send the data
-as **JSON** or as a **Table**.
+as **JSON** or as a **Table**. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format)
 
 ![Notifications are auto-configured](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-output-options.png)
 

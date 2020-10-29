@@ -126,6 +126,9 @@ firstLevel:
       url: /user-guide/cloud-siem/private-feeds.html
   - title: Manage security rules
     url: /user-guide/cloud-siem/manage-security-rules.html
+    thirdLevel:
+    - title: Correlate queries
+      url: /user-guide/siem/security-correlated-queries/
   - title: Lookups
     url: /user-guide/lookups/
   - title: Integrations

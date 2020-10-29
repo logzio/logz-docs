@@ -11,9 +11,10 @@ contributors:
 ---
 Make the Jaeger-Kibana connection: Harness the power of Kibana and Jaeger for more context and insights with Logz.io Distributed Tracing when you correlate logs with traces.
 
-<miniTOC> What can I do with my trace and span data in Kibana?
+What can I do with my trace and span data in Kibana?
 
 ## Visualizing traces in Kibana
+
 Kibana is great for creating meaningful visualizations from log data, so why not use Kibana to visualize traces too? 
 
 We’ve put together examples of visualizations over distributed tracing telemetry that we think you’ll find helpful. 
@@ -26,11 +27,13 @@ A status code histogram can help you recognize when many bad requests between se
 
 To create these visualizations:
 
-1. In Kibana., from the **Visualization** menu, select **_Create new visualization_**.
+1. In Kibana, from the **Visualization** menu, select **_Create new visualization_**.
+
     ![Creating a new visualization](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/kibana_histogram.png)
 
 2. Select the *Line* visualization type. 
     The X-axis represents the timestamp of the span and the Y-axis shows the number of occurrences of each status code for the account.
+
     ![Line visualization](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/kibana_line_vis.png)
 
 ## Telemetry correlation
@@ -41,9 +44,9 @@ To search for the logs related to a specific trace or the request transaction wh
 
 Enriching logs with trace ID and span ID must be performed before or during the data collection process, and before sending the data to Logz.io.
 
-The enrichment process depends on the language and log type: You will have to [configure your deployment](/user-guide/distributed-tracing/deploying-components)  to perform these actions _before_ the data is ingested into Logz.io, because retroactive correlation is not available.  
+The enrichment process depends on the language and log type: You will have to [configure your deployment](/user-guide/distributed-tracing/deploying-components) to perform these actions _before_ the data is ingested into Logz.io, because retroactive correlation is not available.  
 
-Contact [support]() for additional information on enriching your logs. 
+Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team for additional information on enriching your logs. </a>.
 
 ### Correlating Logs and Traces
 

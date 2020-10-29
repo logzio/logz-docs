@@ -25,3 +25,4 @@ This view lets you simplify and focus on the patterns within a trace. You can gr
     + Self time min or max
     + Self time in duration
     
+    

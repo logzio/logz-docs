@@ -95,4 +95,3 @@ By default, the trace opens in the timeline view. Select an option for different
 
 ##### View Topology graphs, including service architecture, for your system
 
-

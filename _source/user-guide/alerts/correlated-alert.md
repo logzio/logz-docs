@@ -12,13 +12,18 @@ contributors:
 
 Some situations are best captured by correlating events captured by different logs. These events may occur simultaneously or occur in sequence.
 
-To correlate logs, we need to configure 2 search queries, and select an aggregation criteria.
-This tutorial assumes you are familiar with the process of configuring a single-query alert.
-It explains what's different when correlating queries.
-
+Correlated events are instrumental for reducing false-positives. By defining a more specific use case that contains 2 scenarios, the trigger can be more sensitive and reduce unwanted noise.
 
 #### Configuring a correlated alert
 {:.no_toc}
+
+To correlate events, we need to configure 2 search queries, each with its own trigger condition. For the alert to trigger, both conditions must be statified in their selected time frames, respectively.
+
+If you opt to join the queries, you must also select aggregation criteria and fields to join. When the queries are joined, the values of the join fields must also match for the alert to trigger.
+
+This tutorial assumes you are familiar with the process of configuring a single-query alert.
+It explains what's different when correlating queries.
+
 
 1. toc list
 {:toc}

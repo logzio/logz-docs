@@ -14,12 +14,14 @@ contributors:
 
 Some security situations are best captured by correlating events. These events may be simultaneous or occur in sequence.
 
+Correlated events are instrumental for reducing false-positives. By defining a more specific use case that contains 2 scenarios, the trigger can be more sensitive and reduce unwanted noise.
+
 For example, an email attachment followed by a malware infection, or privilege elevation followed by a configuration change, or a brute force attack followed by a successful login. These are all examples where correlating events identify high severity security events more strongly compared with the discrete events alone.
 
 #### Configuring a correlated rule
 {:.no_toc}
 
-To correlate logs, we need to configure 2 search queries. For the rule to trigger, both conditions must be statified in their selected time frames, respectively.
+To correlate events, we need to configure 2 search queries, each with its own trigger condition. For the rule to trigger, both conditions must be statified in their selected time frames, respectively.
 
 If you opt to join the queries, you must also select aggregation criteria and fields to join. When the queries are joined, the values of the join fields must also match for the rule to trigger.
 

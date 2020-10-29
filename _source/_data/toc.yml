@@ -99,7 +99,7 @@ firstLevel:
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
 
-  # ===== DISTRIBUTED TRACING =====
+    # ===== DISTRIBUTED TRACING =====
 - title: Distributed Tracing
   icon: fas fa-align-left    
 
@@ -109,15 +109,15 @@ firstLevel:
     thirdLevel: 
     - title: Highlights
       url: /user-guide/distributed-tracing/tracing-highlights/   
-  - title: Getting started
-    url: /user-guide/distributed-tracing/getting-started/
+    - title: Getting started
+      url: /user-guide/distributed-tracing/getting-started/
     thirdLevel:
     - title: Deploying components in your system
       url: /user-guide/distributed-tracing/deploying-components
     - title: Setting up instrumentation and ingesting traces
       url: /user-guide/distributed-tracing/tracing-instrumentation 
-  - title: The Grand Distributed Tracing Tour
-    url: /user-guide/distributed-tracing/tracing-tour/
+    - title: The Grand Distributed Tracing Tour
+      url: /user-guide/distributed-tracing/tracing-tour/
     thirdLevel:
     - title: Trace Timeline
       url: /user-guide/distributed-tracing/trace-timeline/
@@ -128,11 +128,11 @@ firstLevel:
     - title: Trace JSON
       url: /user-guide/distributed-tracing/trace-json/ 
     - title: Compare traces
-     url: /user-guide/distributed-tracing/compare-traces   
+      url: /user-guide/distributed-tracing/compare-traces   
     - title: Topology graphs
       url: /user-guide/distributed-tracing/topology-system_architecture    
-  - title: Logs and Traces - The Kibana-Jaeger Connection
-    url:  /user-guide/distributed-tracing/correlate_logs_and_traces.md
+    - title: Logs and Traces - The Kibana-Jaeger Connection
+      url:  /user-guide/distributed-tracing/correlate_logs_and_traces.md
 
     
   # ===== CLOUD SIEM =====

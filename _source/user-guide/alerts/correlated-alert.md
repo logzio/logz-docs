@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Correlate queries
+title: Correlated alerts
 permalink: /user-guide/alerts/correlated-alert/
 flags:
   logzio-plan: community

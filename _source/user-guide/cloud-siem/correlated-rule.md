@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Correlate queries
+title: Correlated rules
 permalink: /user-guide/siem/security-correlated-queries/
 flags:
   logzio-plan: enterprise

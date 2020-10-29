@@ -107,7 +107,7 @@ firstLevel:
     url: /user-guide/distributed-tracing/overview/
     thirdLevel: 
     - title: Highlights
-      url: /user-guide/distributed-tracing/highlights/   
+      url: /user-guide/distributed-tracing/tracing-highlights/   
   - title: Getting started
     url: /user-guide/distributed-tracing/getting-started/
     thirdLevel:

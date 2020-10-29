@@ -108,12 +108,14 @@ Click **Save** at the top of the form to save your alert.
 
 Correlated alerts are indicated by the 2-part condition sets, as shown below.
 
-![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-conditions.png)
+![2 conditions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-conditions.png)
 
-When a correlated alert triggers, the event will be split into 2 logs - 1 per query. The alert log will be numbered as 1/2 and 2/2, respectively.
+When a correlated alert triggers, the event is split into 2 logs - 1 per query, each with its own **Investigate** drilldown link. The event logs will be numbered 1/2 and 2/2, respectively.
 
-You can click **Investigate** on each of the associated event log, to look into the details that led to the alert triggering.
+If the alert has a join function, there is also a field `logzio-alert-join-values`, indicating the matching values that fulfilled the join field condition.
+In this case, the drilldown process involves another step. 
 
-![Investigate correlated events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-event-logs.png)
+* First, click **<i class="fas fa-search-plus"></i>** to filter in on the field `logzio-alert-join-values`. 
+* Next, click **Investigate** on each of the associated event logs, to look into the raw logs for the details that led to the alert triggering.
 
 </div>

@@ -115,11 +115,13 @@ Correlated rules are indicated by the 2-part condition sets, as shown below.
 
 ![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-conditions.png)
 
-When a correlated rule triggers, the event will be split into 2 logs - 1 per query. The rule log will be numbered as 1/2 and 2/2, respectively.
+When a correlated rule triggers, the event is split into 2 logs - 1 per query, each with its own **Investigate** drilldown link. The rule logs will be numbered 1/2 and 2/2, respectively.
 
-When investigating a correlated event, the first step is to filter in on the field `logzio-alert-join-values`. The field `logzio-alert-join-values` indicates the matching values that resulted in the correlation.
+If the rule has a join function, there is also a field `logzio-alert-join-values`, indicating the matching values that fulfilled the join field condition.
+In this case, the drilldown process involves another step. 
 
-Next, click **Investigate** on each of the associated event logs, to look into the raw logs for the details that led to the rule triggering.
+* First, click **<i class="fas fa-search-plus"></i>** to filter in on the field `logzio-alert-join-values`. 
+* Next, click **Investigate** on each of the associated event logs, to look into the raw logs for the details that led to the rule triggering.
 
 ![Investigate correlated events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-event-logs.png)
 

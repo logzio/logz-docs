@@ -29,4 +29,5 @@ You can:
 * Highlight the service nodes by the span duration ![service graph total time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_graph3-time.png)
 
 Highlight by the request duration for the span ![Service graph self time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_graph4-self-time.png)
-
+ 
+ 

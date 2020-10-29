@@ -7,7 +7,7 @@ flags:
 tags:
   - distributed tracing
 contributors:
-  - yberlinger
+  - yberlinger   
 ---
 You’ll need to install and deploy the following components for distributed tracing:
 

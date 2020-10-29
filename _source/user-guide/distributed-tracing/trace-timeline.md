@@ -34,3 +34,4 @@ Patterns to look out for:
 - A sequence of spans that looks like a staircase may indicate an opportunity for performance improvement by increasing parallelism for the relevant microservices. ![staircase pattern](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/staircase_spans.png)
 
 - When all the spans end at the same time, there may be a connectivity issue that is causing timeouts or errors. ![spans end at same time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spans_end_together.png)
+

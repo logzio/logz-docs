@@ -18,7 +18,8 @@ Kibana is great for creating meaningful visualizations from log data, so why not
 
 We’ve put together examples of visualizations over distributed tracing telemetry that we think you’ll find helpful. 
 
-
+  
+  
 ### Just a taste: Status code histogram
 
 A status code histogram can help you recognize when many bad requests between services occurred.

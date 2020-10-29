@@ -12,8 +12,8 @@ contributors:
 Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in logz.io 
 
 
-#### Next steps:
-{:.no_toc}
+#### Next steps: 
+{:.no_toc}  
 
 <div class="tasklist">
 
@@ -24,3 +24,4 @@ Decide on your tracing source, make deployment decisions, and decide whether or 
 Determine the best instrumentation strategy for your system: Manual or automatic instrumentation.
 
 If you’re deploying distributed tracing on Kubernetes, we recommend the following blog post: [A Guide to Deploying Jaeger on Kubernetes in Production](https://logz.io/blog/jaeger-kubernetes-best-practices/). 
+

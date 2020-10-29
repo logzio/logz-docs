@@ -37,6 +37,7 @@ Two traces were selected for comparison in the Search page. They both have about
 ![Spans for comparison](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spans_for_com[are].png)
 
 
+
 When you compare traces, the spans are grouped into nodes. 
 
 In the image below, the grey nodes indicate that both traces include the node and an equal number of spans.  

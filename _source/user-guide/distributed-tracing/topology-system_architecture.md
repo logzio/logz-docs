@@ -25,7 +25,7 @@ This ability is genuinely useful when it’s not possible to view that service i
 2. Enter a service or operation in the search box to highlight it in the deep dependency graph.
 
 ![pick your service or operation]()  DDG
-
+ 
 ## Viewing system architecture graphs
 The system architecture graphs are based on all the recent spans in a trace. You can see the connected services in your environment in a force directed graph or in a directed acyclic graph (DAG). 
 

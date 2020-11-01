@@ -51,15 +51,15 @@ Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team f
 ### Correlating Logs and Traces
 
 1. Once the trace ID is part of the log attributes, open the Kibana left menu, and select **Management**.
-    ![text](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace1.png)
+    ![Open Kibana management](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace1.png)
 2. To manage log index patterns, click **Index pattern** and go to your default index pattern settings.
-    ![text](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace2.png)
+    ![Go to index pattern settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace2.png)
 3. Search for the trace ID field you want to correlate with your logs and select **Edit**. In this example, the field name is **traceID**.
-    ![text](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace3.png)
+    ![search for and edit the traceID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace3.png)
 4. Change the **Format** to **URL** and enable **Open in a new tab**.
-    ![text](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace4.png)
+    ![Change format and open](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace4.png)
 5. Using your main account, insert the following template in the **URL template** field of the Jaeger user interface (UI), and **Save field**. 
     `https://app.logz.io/#/dashboard/jaeger/trace/{{value}}`
 
 Each traceID attribute functions as a drill down link that leads you to the correlated trace view in Jaeger. 
-![text](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace5.png)
+![traceID to Trace view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace5.png)

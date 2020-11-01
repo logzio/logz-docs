@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Topology graphs
+title: Topology diagrams
 permalink: /user-guide/distributed-tracing/topology-system_architecture
 flags:
   logzio-plan: community
@@ -11,7 +11,7 @@ contributors:
   - yberlinger
 ---
 
-## View Topology Graphs
+## View Topology Diagrams
 
 ### Viewing a deep dependency graph
 The deep dependency graph is based on the results of your trace query. The graph lets you focus on the up- and downstream hops of a service call, as well as define the aggregation and graph density for the  layout.
@@ -26,10 +26,10 @@ This ability is genuinely useful when it’s not possible to view that service i
 
 ![pick your service or operation]()  DDG
  
-## Viewing system architecture graphs
-The system architecture graphs are based on all the recent spans in a trace. You can see the connected services in your environment in a force directed graph or in a directed acyclic graph (DAG). 
+## Viewing system architecture diagrams
+The system architecture diagrams are based on all the recent spans in a trace. You can see the connected services in your environment in a force directed graph or in a directed acyclic graph (DAG). 
 
-For more information on the Jaeger site, see [https://www.jaegertracing.io/docs/1.20/features/#system-architecture](https://www.jaegertracing.io/docs/1.20/features/#system-architecture)
+For more information, see [https://www.jaegertracing.io/docs/1.20/features/#system-architecture](https://www.jaegertracing.io/docs/1.20/features/#system-architecture) [icon for external link]
 
 ### Viewing the force directed graph
 To highlight a specific service in the force directed graph, you can drag and zoom in on the image. 

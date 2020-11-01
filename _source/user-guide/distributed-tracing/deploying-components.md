@@ -4,6 +4,7 @@ title: Deploying components in your system
 permalink: /user-guide/distributed-tracing/deploying-components
 flags:
   logzio-plan: community
+  beta: true
 tags:
   - distributed tracing
 contributors:
@@ -16,9 +17,8 @@ We support the Jaeger, Zipkin, OpenTracing, and OpenTelemetry instrumentation li
 
 **Agent (optional)** - The Agent component acts as a “buffer” between the tracer and the collector. Because it sits so close to the instrumentation, we use UDP to enhance performance and reduce round trips. 
 
-**Collector (required)** - The collector receives spans and runs them through a processing pipeline. It can receive spans from the agents or directly from the instrumentation, depending on the implementation. The collector is also responsible for batching spans and sending them to Logz.io.
+**Collector (required)** - The collector receives spans and runs them through a processing pipeline. It can receive spans from the agents or directly from the instrumentation, depending on the implementation. The collector is also responsible for batching spans and sending them to Logz.io. ![Distributed tracing architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_architecture.png)
 
-  *  ARCHITECTURE DIAGRAM PLACEHOLDER *
 
 ## Component overview
 Because Logz.io embraces open source, we opted for Jaeger. Except for the collector integration, everything you need to deploy is created and maintained by the open source community, which means that the Logz.io support team can focus more effectively on the issues that the community can’t resolve. 
@@ -65,120 +65,4 @@ When deciding the best approach for your environment, consider the following fac
 
 ### Kubernetes deployment reference
 
-If you’re working with Kubernetes, use this yaml file as a reference to deploy the collector/agent, and use the output of `kubectl explain deployment` as your **apiVersion** value.
-
-~~~
-apiVersion: v1
-kind: List
-items:
-- apiVersion: extensions/v1beta1
-  kind: Deployment
-  metadata:
-    name: jaeger-logzio-collector
-    labels:
-      app: jaeger
-      app.kubernetes.io/name: jaeger
-      app.kubernetes.io/component: collector
-    namespace: monitoring
-  spec:
-    replicas: 2
-    strategy:
-      type: Recreate
-    template:
-      metadata:
-        labels:
-          app: jaeger
-          app.kubernetes.io/name: jaeger
-          app.kubernetes.io/component: collector
-      spec:
-        containers:
-        - image: logzio/jaeger-logzio-collector:latest
-          name: jaeger-logzio-collector
-          ports:
-          - containerPort: 14267
-            protocol: TCP
-          - containerPort: 14268
-            protocol: TCP
-          - containerPort: 9411
-            protocol: TCP
-          - containerPort: 14250
-            protocol: TCP
-          readinessProbe:
-            httpGet:
-              path: "/"
-              port: 14269
-          env:
-          - name: ACCOUNT_TOKEN
-            value: {{ .Values.monitoring_config.jaeger_token }}
-{{- if and .Values.environment (eq .Values.environment "staging") }}
-          - name: CUSTOM_LISTENER_URL
-            value: https://{{ .Values.monitoring_config.listener }}:8071
-{{- end }}
-
-- apiVersion: v1
-  kind: Service
-  metadata:
-    name: jaeger-logzio-collector
-    labels:
-      app: jaeger
-      app.kubernetes.io/name: jaeger
-      app.kubernetes.io/component: collector
-    namespace: monitoring
-  spec:
-    ports:
-    - name: jaeger-collector-tchannel
-      port: 14267
-      protocol: TCP
-      targetPort: 14267
-    - name: jaeger-collector-http
-      port: 14268
-      protocol: TCP
-      targetPort: 14268
-    - name: jaeger-collector-zipkin
-      port: 9411
-      protocol: TCP
-      targetPort: 9411
-    - name: jaeger-collector-grpc
-      port: 14250
-      protocol: TCP
-      targetPort: 14250
-    selector:
-      app.kubernetes.io/name: jaeger
-      app.kubernetes.io/component: collector
-    type: ClusterIP
-
-
-- apiVersion: extensions/v1beta1
-  kind: DaemonSet
-  metadata:
-    name: jaeger-agent
-    labels:
-      app: jaeger
-      app.kubernetes.io/name: jaeger
-      app.kubernetes.io/component: agent
-    namespace: monitoring
-  spec:
-    template:
-      metadata:
-        labels:
-          app: jaeger
-          app.kubernetes.io/name: jaeger
-          app.kubernetes.io/component: agent
-      spec:
-        containers:
-        - name: jaeger-agent
-          image: jaegertracing/jaeger-agent:1.18.0
-          args: ["--reporter.grpc.host-port=jaeger-logzio-collector:14250"]
-          ports:
-          - containerPort: 5775
-            protocol: UDP
-          - containerPort: 6831
-            protocol: UDP
-          - containerPort: 6832
-            protocol: UDP
-          - containerPort: 5778
-            protocol: TCP
-        hostNetwork: true
-        dnsPolicy: ClusterFirstWithHostNet
-~~~  
-{: .language-haskell}
+If you’re working with Kubernetes, use [this yaml file](/user-guide/distributed-tracing/k8s-deployment) as a reference to deploy the collector/agent, and use the output of `kubectl explain deployment` as your **apiVersion** value.

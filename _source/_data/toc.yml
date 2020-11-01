@@ -114,6 +114,8 @@ firstLevel:
     thirdLevel:
     - title: Deploying components in your system
       url: /user-guide/distributed-tracing/deploying-components
+    - title: Kubernetes deployment reference
+      url: /user-guide/distributed-tracing/k8s-deployment
     - title: Setting up instrumentation and ingesting traces
       url: /user-guide/distributed-tracing/tracing-instrumentation 
   - title: The Grand Distributed Tracing Tour
@@ -129,7 +131,7 @@ firstLevel:
       url: /user-guide/distributed-tracing/trace-json/ 
     - title: Compare traces
       url: /user-guide/distributed-tracing/compare-traces   
-    - title: Topology graphs
+    - title: Topology diagrams
       url: /user-guide/distributed-tracing/topology-system_architecture    
   - title: Correlate logs and traces
     url:  /user-guide/distributed-tracing/correlate-traces/

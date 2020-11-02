@@ -1,7 +1,7 @@
 #### Configuring a correlated {{include.name}}
 {:.no_toc}
 
-To correlate events, we need to configure 2 search queries, each with its own trigger condition. For the {{include.name}} to trigger, both conditions must be statified.
+To correlate events, we need to configure 2 search queries, each with its own trigger condition. For the {{include.name}} to trigger, both conditions must be satisfied.
 
 If you opt to join the queries, you must also select aggregation criteria and fields to join. When the queries are joined, the values of the join fields must match for the {{include.name}} to trigger.
 

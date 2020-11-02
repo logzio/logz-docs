@@ -1,9 +1,9 @@
 #### Configuring a correlated {{include.name}}
 {:.no_toc}
 
-To correlate events, we need to configure 2 search queries, each with its own trigger condition. For the {{include.name}} to trigger, both conditions must be statified in their selected time frames, respectively.
+To correlate events, we need to configure 2 search queries, each with its own trigger condition. For the {{include.name}} to trigger, both conditions must be statified.
 
-If you opt to join the queries, you must also select aggregation criteria and fields to join. When the queries are joined, the values of the join fields must also match for the {{include.name}} to trigger.
+If you opt to join the queries, you must also select aggregation criteria and fields to join. When the queries are joined, the values of the join fields must match for the {{include.name}} to trigger.
 
 This tutorial assumes you are familiar with the process of configuring a single-query {{include.name}}.
 It explains what's different when correlating queries.
@@ -18,11 +18,11 @@ It explains what's different when correlating queries.
 
 The name should convey the significance of the combined event for both queries together.
 
-For example, "Brute-force from malicious address followed by malware download".
+For example, "Brute-force attack from malicious address followed by malware download".
 
 ##### Add another query
 
-Click **+ Add another query** to add Query 2 and the join option.
+Click **+ Add another query** to add the option to correlate queries.
 
 ![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/add-another-query.png)
 
@@ -35,6 +35,7 @@ There is no significance to their order. If Query 1 and Query 2 are interchanged
 The following criteria are similar for both the single-query and multi-query {{include.name}}:
 
 * Fill in the free search and filtering criteria as usual.
+* If you are only using filters, leave a wildcard **asterisk (*)** in the free search box.
 * You have the option to aggregate results for as many as 3 fields. Select **group by** fields from the dropdown list.
     
   Each group-by function takes all field values and divides them into buckets. The buckets are dynamically built - one per unique field value. The results in each bucket are then counted.
@@ -91,6 +92,7 @@ It's a good idea to add a description that works for both queries and what they 
     |value1       |       10  |  15|
     |value2       |       6   |  3 |
 
+Alert was triggered for group by value {field}={value}.
 
 Otherwise, you control which data to include. You have the option to send the data
 as **JSON** or as a **Table**. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format)
@@ -112,7 +114,7 @@ When a correlated {{include.name}} triggers, the event is split into 2 logs - 1 
 If the {{include.name}} has a join function, there is also a field `logzio-alert-join-values`, indicating the matching values that fulfilled the join field condition.
 In this case, the drilldown process involves another step.
 
-* First, click **<i class="fas fa-search-plus"></i>** to filter in on the field `logzio-alert-join-values`. 
+* First, click **<i class="fas fa-search-plus"></i>** to filter in on a value in the field `logzio-alert-join-values`.
 * Next, click **Investigate** on each of the associated event logs, to look into the raw logs for the details that led to the {{include.name}} triggering.
 
 </div>

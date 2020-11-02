@@ -62,7 +62,7 @@ All of these spans together make up the full trace.
 
 ## Further reading
 
-* [Logz.io Distributing Tracing blog]()
+* [Logz.io Distributing Tracing blog]()  fill in the link!!! 
 * [Deploying Jaeger on Kubernetes](https://logz.io/blog/jaeger-kubernetes-best-practices/)
 * [Jaeger Persistent Storage](https://logz.io/blog/jaeger-persistence/)
 * [Jaeger deep-dive](https://www.youtube.com/watch?v=zb0fdU6c0KU)

@@ -23,7 +23,6 @@ $( function() {
   $('ul.toc-child')
     .find('li.has-child > span.toc-heading')
     .on('click', function(e) {
-      e.preventDefault();
       let submenu = $(this).siblings('ul.toc-grandchild');
       let caret = $(submenu).siblings('span.toc-heading').find('span.collapse-button');
 

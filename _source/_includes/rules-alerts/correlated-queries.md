@@ -37,25 +37,21 @@ The following criteria are similar for both the single-query and multi-query {{i
 * Fill in the free search and filtering criteria as usual.
 * If you are only using filters, leave a wildcard **asterisk (*)** in the free search box.
 * You have the option to aggregate results for as many as 3 fields. Select **group by** fields from the dropdown list.
-    
-  Each group-by function takes all field values and divides them into buckets. The buckets are dynamically built - one per unique field value. The results in each bucket are then counted.
-
-  Order matters. When grouping by multiple fields, the function runs from first to last.
 * Select the **Accounts to search**.
 * You can preview the results in Kibana Discover for each query independently. Click **Preview in Kibana** to open the results for the past 24 hours in another tab.
 * If you change your mind, you can delete either of the queries. Click **X Delete query** to return to a single-query form.
 
 ![empty alert form with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/query1and2.png)
 
-##### Group by fields and joining the queries (_optional_)
+##### Joining the queries (_optional_)
 
-If you opt to join the queries, you must also select aggregation criteria and fields to join. When the queries are joined, the values of the join fields must match for the {{include.name}} to trigger.
+If you opt to join the queries, you must first add group by fields that will aggregate results by values. When the queries are joined, the values of the join fields must match for the {{include.name}} to trigger.
 
-* First, select the **group by** fields for each of the queries. You can select as many as 3.
-* Now that your querie results have group by aggregations defined, you can join them.
+* First, select the **group by** fields for each of the queries. You can select as many as 3. These act as count aggregations.
+* As a result, the alert will count the query results returned per value of the group by field. This allows you to join the results by searching for overlapping values that are the same for the join field pairs.
 * Select the join pairs you want to enable. You can enable as many as 3 pairs.
 
-Available join options are automatically shown. The suggestions are ordered pairs of the group by fields.
+Available join options are automatically determined by the order of your group by fields. The suggestions are ordered pairs of the group by fields.
 
 ![Alert with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
 
@@ -71,11 +67,11 @@ When the {{include.name}} triggers, the event log will have the field `logzio-al
 
 When an {{include.name}} has 2 queries, you can set a single condition for each of your queries, and a single severity.
 
-As usual, each query can take a different time frame and a different condition for a selected field.
+As usual, each query can take a different condition for a field of your choice.
 
 ![Conditions and severity for correlated {{include.name}}](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-trigger-conditions.png)
 
-The {{include.name}} conditions are evaluated over regular intervals. The period for evaluation can range between a minimum of 5 minutes and a maximum of 24 hours/1 day.
+The {{include.name}} conditions are evaluated over regular intervals. The time frame for evaluating the conditions is the same for both queries. It can range between a minimum of 5 minutes and a maximum of 24 hours/1 day.
 
 ##### Notification description
 
@@ -85,14 +81,7 @@ It's a good idea to add a description that works for both queries and what they 
 
 * If the {{include.name}} includes any aggregations or group by fields, the notification output defaults to the group by/aggregated fields.
 
-* If the {{include.name}} includes a join function, the output will default to a table that contains all buckets of the shared values in the join fields. For example:
-
-    | Joined value | Q1 | Q2 |
-    |---|---|---|
-    |value1       |       10  |  15|
-    |value2       |       6   |  3 |
-
-Alert was triggered for group by value {field}={value}.
+* If the {{include.name}} includes a join function, the output will contain separate sample data tables for each query.
 
 Otherwise, you control which data to include. You have the option to send the data
 as **JSON** or as a **Table**. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format)
@@ -111,7 +100,7 @@ Correlated {{include.name}}s are indicated by the 2-part condition set, as shown
 
 When a correlated {{include.name}} triggers, the event is split into 2 logs - 1 per query, each with its own **Investigate** drilldown link. The event logs will be numbered 1/2 and 2/2, respectively.
 
-If the {{include.name}} has a join function, there is also a field `logzio-alert-join-values`, indicating the matching values that fulfilled the join field condition.
+If the {{include.name}} has a join function, there is also a field `logzio-alert-join-values`, indicating the matching values that correlate the joined field pair.
 In this case, the drilldown process involves another step.
 
 * First, click **<i class="fas fa-search-plus"></i>** to filter in on a value in the field `logzio-alert-join-values`.

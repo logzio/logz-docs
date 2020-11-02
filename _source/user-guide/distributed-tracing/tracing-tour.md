@@ -32,6 +32,7 @@ Don’t see it? By default, your Distributed Tracing account is accessed from yo
 After you log in to your Distributed Tracing account, you’ll want to find traces to view, either by trace ID lookup, by searching for traces, or by uploading a JSON file:  ![Look up a trace or load a JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-panel1.png)
 
 * To look up a trace by its trace ID, get the trace ID from your service logs and use it to link from logs to traces (and vice versa) in Kibana.
+  ![traceID lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traceid.png)
 
 * To upload a JSON file, click or drag a JSON file that contains at least one trace to this area.
 
@@ -40,13 +41,13 @@ You search for and view traces on the **Search** page.
 Use the following fields to search for traces: 
 ![Search traces page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_search_fields_table.png)
     
-###### Tag formatting requirements:
+###### Tag formatting requirements
 * Use a space for conjunctions 
 * Enclose values that contain whitespace in quotes
 * Tag formatting requirements are summarized here: [logfmt (https://brandur.org/logfmt)](https://brandur.org/logfmt) 
 * A list of recommended tags can be found here: [https://github.com/opentracing/specification/blob/master/semantic_conventions.md](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)
 
-**Tag examples:** 
+###### Tag examples
 
 *  `error=true` returns the traces with spans that are tagged as an error
 *  `error=true db.statement="select * from User"`  returns the traces with spans that are tagged as `error=true`, which also include the requested db statement.
@@ -92,6 +93,7 @@ By default, the trace opens in the timeline view. Select an option for different
 **[What can I do in the Trace JSON?](/user-guide/distributed-tracing/trace-json)**
 
 ##### Compare traces
+[Select traces for comparison and find out how they differ.](/user-guide/distributed-tracing/compare-traces)
 
-##### View Topology graphs, including service architecture, for your system
-
+##### View Topology diagrams, including service architecture, for your system
+[Configure the deep dependency, force directed, and directed acyclic graphs to highlight service paths](/user-guide/distributed-tracing/compare-traces)

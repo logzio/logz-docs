@@ -104,11 +104,10 @@ firstLevel:
   icon: fas fa-align-left    
 
   secondLevel:
+  - title: Highlights and navigation
+    url: /user-guide/distributed-tracing/tracing-highlights/  
   - title: Why Distributed Tracing?
-    url: /user-guide/distributed-tracing/overview/
-    thirdLevel: 
-    - title: Highlights
-      url: /user-guide/distributed-tracing/tracing-highlights/   
+    url: /user-guide/distributed-tracing/overview/  
   - title: Getting started
     url: /user-guide/distributed-tracing/getting-started/
     thirdLevel:

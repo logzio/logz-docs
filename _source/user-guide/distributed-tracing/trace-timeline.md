@@ -10,20 +10,29 @@ tags:
 contributors:
   - yberlinger
 ---
-![Trace timeline view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_timeline_view.png)
+Start here and dig in: 
+![basic timeline](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/timeline1.png)
 
-+ Click a span bar or span name to view its details, including tags, process, and logs information. ![see span bar details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/span_bar_details.png)
+In the timeline, each horizontal bar is a span with a unique ID. The services are color-coded to help you identify and track the services involved. The duration of each span is indicated and the relative duration is represented by the length of the span’s horizontal bar. A red error icon in the Services & Operations tree indicates that the span was tagged as an error. 
 
-    Expanded details: ![expand span details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/expand_span_details.png)
+* View the spans included in the space, color coded by service, nested by operation.
+* Expand and collapse the spans within the trace.
+* Click a span to view its details, including tags and process information.
 
-+ Click a log marker to see the log details for a specific time. ![see log details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/span_log_details.png)
 
+Spans also include tags and the log. In the example below, the SQL span attached the SQL query to the span’s tags. The spanID is located in the lower right corner.
+    ![Expanded span](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/span_expand.png)
 
-+ Use the hairlines at the top of the page to focus on a specific time or request segments during the trace.  ![pick and view a time span](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/pick_time_granularity.png)
+Use the hairlines at the top of the page to focus on specific time segments during the trace.
+    ![Hairlines to focus](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_tr-timeline-hairs.png)
 
-+ Expand and Collapse the spans in the **Service & Operation** list and change the size of the span area. ![expand & collapse](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/expand_collapse_list.png)
+Click a log marker to see the log details for a specific time. 
+    ![see log details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/span_log_details.png)
 
-_**Troubleshooting with the trace timeline**_
+Expand and Collapse the spans in the **Service & Operation** list and change the size of the span area. 
+    ![expand & collapse](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/expand_collapse_list.png)
+
+### Troubleshooting with the trace timeline
 
 The trace timeline can help you find patterns that might indicate potential issues with the system flow.
 

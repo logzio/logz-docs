@@ -67,4 +67,4 @@ Each traceID attribute functions as a drill down link that leads you to the corr
 
 ### From traceID to Kibana
 You can jump from a trace in Jaeger to view it in Kibana: 
-    ![traceID lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/view-in-kibana.png)
+![traceID lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/view-in-kibana.png)

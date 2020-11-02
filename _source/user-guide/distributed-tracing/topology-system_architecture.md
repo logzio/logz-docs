@@ -11,34 +11,40 @@ contributors:
   - yberlinger
 ---
 
-## View Topology Diagrams
+## View Topology Diagrams   (C0ming SOON!)
 
 ### Viewing a deep dependency graph
 The deep dependency graph is based on the results of your trace query. The graph lets you focus on the up- and downstream hops of a service call, as well as define the aggregation and graph density for the  layout.
 
 You can use the deep dependency graph to view a partial graph relevant to your service of interest. 
-This ability is genuinely useful when it’s not possible to view that service in a system architecture graph, especially if you have hundreds of services (or many more), where hovering to find a specific service isn’t feasible.
+This ability is genuinely useful when it’s not possible to view that service in a system architecture graph, especially if you have hundreds of services (or many more), where hovering to find a specific service isn’t feasible. [Link to Jaeger deep dependency documentation](https://www.jaegertracing.io/docs/1.20/features/#deep-dependency-graph)
 
-![jaeger on deep dependency](https://www.jaegertracing.io/docs/1.20/features/#deep-dependency-graph)
+1. In the top right of the search results, click **Deep Dependency Graph** (next to the **Sort** drop-down).
+![Open DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/open-ddg.png)
 
-1. In the top right of the search results, click **Deep Dependency Graph** (next to order by drop-down).
+![Layout DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/deep_depend_graph-layout2.png)
+
 2. Enter a service or operation in the search box to highlight it in the deep dependency graph.
+![highlight DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/ddgraph_highligh.png)
 
-![pick your service or operation]()  DDG
  
-## Viewing system architecture diagrams
+## Viewing system architecture diagrams   (--Coming SOON!--)
 The system architecture diagrams are based on all the recent spans in a trace. You can see the connected services in your environment in a force directed graph or in a directed acyclic graph (DAG). 
 
 For more information, see [https://www.jaegertracing.io/docs/1.20/features/#system-architecture](https://www.jaegertracing.io/docs/1.20/features/#system-architecture) [icon for external link]
 
 ### Viewing the force directed graph
 To highlight a specific service in the force directed graph, you can drag and zoom in on the image. 
+![Force directed graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/force-directed-graph.png)
 
 To change the focus and see service dependencies, you can click a node to highlight the segments for the spans that are related to that node.
+![Force graph context switch](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/force-directed3.gif)
+
 
 ### Viewing the directed acyclic graph (DAG)
-To view the details of the calls in the directed acyclic graph(DAG), you can drag and zoom in on the image. 
+To view the details of the calls in the directed acyclic graph (DAG), you can drag and zoom in on the image. 
 
 The lines represent the interaction requests between the connected services. The numbers you see are the number of interaction requests between those services over the last 7 days.
 
 To make it easier to see values in the graph, you can grab and drag the nodes to rearrange them.
+![2 views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_tr-dag-2views.png)

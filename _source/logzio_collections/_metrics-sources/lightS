@@ -4,15 +4,28 @@ open-source:
   - title: Light Synthetic Monitoring
     github-repo: logzio-Lights
 logo:
-  logofile:
+  logofile: kafka.svg
   orientation: vertical
-data-source:
+data-source: Kafka
 tags:
   - aws
 contributors:
   - doronbargo
 shipping-tags:
   - aws
+---
+
+
+---
+title: Ship Kafka metrics
+logo:
+  logofile: kafka.svg
+  orientation: vertical
+data-source: Kafka
+contributors:
+  - yotamloe
+shipping-tags:
+ - platform-service
 ---
 
 LightS is a web monitoring solution to check availability and load performance of your web site.

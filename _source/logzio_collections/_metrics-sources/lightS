@@ -3,9 +3,9 @@ title: LightS
 open-source:
   - title: Light Synthetic Monitoring
 logo:
-  logofile: kafka.svg
+  logofile: logz-symbol.svg
   orientation: vertical
-data-source: Kafka
+data-source: LightS
 tags:
   - aws
 contributors:
@@ -20,9 +20,9 @@ This solution will be deployed on your AWS account.
 
 
 
-## Setup
+#### Configuration
 
-#### Create Task
+##### Create Task
 
 <div class="tasklist">
 
@@ -36,7 +36,7 @@ Keep the defaults and click Next on the following screen
 
 ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-create-stack.png)
 
-##### Specify stack details
+###### Specify stack details
 
 ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-stack-details.png)
 
@@ -51,13 +51,13 @@ Keep the defaults and click Next on the following screen
 
 and click Next
 
-#### Configure stack
+##### Configure stack
 
 On the following page fill Tags to easily identified your Lambda function and press Next
 ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-configure-stack.png)
 
 
-##### Confirm IAM Role permissions and create the stack
+###### Confirm IAM Role permissions and create the stack
 
 AWS will automatically show a notice requesting that you acknowledge that AWS CloudFormation might create IAM resources.
 
@@ -65,7 +65,7 @@ AWS will automatically show a notice requesting that you acknowledge that AWS Cl
 
 Check the box to acknowledge this option and click **Create stack**.
 
-### 5. Open your Synthetic Monitoring dashboard in Logz.io
+##### Open your Synthetic Monitoring dashboard in Logz.io
 
 Give your metrics some time to get from your system to ours, and then open [Logz.io Metrics](https://app.logz.io/#/dashboard/grafana/).
 

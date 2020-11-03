@@ -11,7 +11,7 @@ contributors:
   - yberlinger
 ---
 
-## View Topology Diagrams   (C0ming SOON!)
+## View Topology Diagrams   (Coming SOON!)
 
 ### Viewing a deep dependency graph
 The deep dependency graph is based on the results of your trace query. The graph lets you focus on the up- and downstream hops of a service call, as well as define the aggregation and graph density for the  layout.

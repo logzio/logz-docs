@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Highlights of Logz.io Distributed Tracing
+title: Distributed Tracing table of contents
 permalink: /user-guide/distributed-tracing/tracing-highlights
 flags:
   logzio-plan: community
@@ -11,7 +11,7 @@ contributors:
 ---
 ### Oh, the Traces You'll Go! 
 
-An overview of what you can do with Logz.io Distributed Tracing. This section includes the following topics: 
+This section includes the following topics: 
 
 * [Why Distributed Tracing?](/user-guide/distributed-tracing/tracing-overview): An overview of Logz.io's Jaeger-powered tracing solution
 * [Getting started](/user-guide/distributed-tracing/getting-started-tracing): What you need to decide and set up to use Logz.io Distributed Tracing

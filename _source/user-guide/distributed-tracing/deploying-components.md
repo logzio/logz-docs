@@ -44,7 +44,7 @@ logzio/jaeger-logzio-collector:latest
 ```
 
 The complete list of collector parameters is presented below. In addition to these parameters, you can also use 
- <a href ="https://www.jaegertracing.io/docs/1.18/cli/#jaeger-collector-grpc-plugin)" target="_blank">Jaeger's collector parameters</a>.
+ <a href ="https://www.jaegertracing.io/docs/1.18/cli/#jaeger-collector-grpc-plugin" target="_blank">Jaeger's collector parameters</a>.
 
  Collector Parameter | Description
  ------------ | -------------

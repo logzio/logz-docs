@@ -106,9 +106,6 @@ firstLevel:
   secondLevel:
   - title: Why Distributed Tracing?
     url: /user-guide/distributed-tracing/overview/
-    thirdLevel:  
-    - title: Distributed Tracing table of contents
-      url: /user-guide/distributed-tracing/tracing-highlights/  
   - title: Getting started
     url: /user-guide/distributed-tracing/getting-started/
     thirdLevel:

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Manage security rules
+title: Configure a security rule
 permalink: /user-guide/cloud-siem/manage-security-rules.html
 flags:
   logzio-plan: pro
@@ -22,7 +22,7 @@ You can create new security rules to supplement the built-in rules.
 You can also update any preconfigured rule at any time, including adding a notification endpoint (like email or Slack) or changing trigger thresholds.
 
 
-#### To configure an rule
+#### To configure a rule
 
 <div class="tasklist">
 

@@ -28,7 +28,7 @@ firstLevel:
     thirdLevel:
     - title: Configure an alert
       url: /user-guide/alerts/configure-an-alert.html
-    - title: Correlate alerts
+    - title: Correlated alerts
       url: /user-guide/alerts/correlated-alert/
     - title: Shortcuts
       url: /user-guide/alerts/new-alert.html
@@ -124,7 +124,7 @@ firstLevel:
       url: /user-guide/cloud-siem/threat-intelligence.html
     - title: Add a private feed
       url: /user-guide/cloud-siem/private-feeds.html
-  - title: Manage security rules
+  - title: Configure a security rule
     url: /user-guide/cloud-siem/manage-security-rules.html
     thirdLevel:
     - title: Correlated rules

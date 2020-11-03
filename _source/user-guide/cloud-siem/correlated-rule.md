@@ -19,6 +19,6 @@ In this example, the first event is detected by an email security product and th
 
 Correlated events are instrumental for reducing false-positives. By defining a more specific use case that contains 2 scenarios, the trigger can be more sensitive and reduce unwanted noise.
 
-{% include /rules-alerts/correlated-queries.md name="rule" %}
+{% include /rules-alerts/correlated-queries.md name="rule" link="/user-guide/cloud-siem/manage-security-rules.html" %}
 
 ![Investigate correlated events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-event-logs.png)

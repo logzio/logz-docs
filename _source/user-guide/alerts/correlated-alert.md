@@ -16,4 +16,4 @@ For example: a deployment on a particular microservice, coinciding with an error
 
 Correlated alerts are instrumental for reducing false-positives. By defining a more specific use case that contains 2 scenarios, the trigger can be more sensitive and reduce unwanted noise.
 
-{% include /rules-alerts/correlated-queries.md name="alert" %}
+{% include /rules-alerts/correlated-queries.md name="alert" link="/user-guide/alerts/configure-an-alert.html" %}

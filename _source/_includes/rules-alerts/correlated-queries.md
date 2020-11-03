@@ -5,7 +5,7 @@ To correlate events, we need to configure 2 search queries, each with its own tr
 
 If you opt to join the queries, you must also select aggregation criteria and fields to join. When the queries are joined, the values of the join fields must match for the {{include.name}} to trigger.
 
-This tutorial assumes you are familiar with the process of configuring a single-query {{include.name}}.
+This tutorial assumes you are familiar with the process of configuring a [single-query {{include.name}}]({{include.link}}).
 It explains what's different when correlating queries.
 
 
@@ -47,21 +47,31 @@ The following criteria are similar for both the single-query and multi-query {{i
 
 If you opt to join the queries, you must first add group by fields that will aggregate results by values. When the queries are joined, the values of the join fields must match for the {{include.name}} to trigger.
 
-* First, select the **group by** fields for each of the queries. You can select as many as 3. These act as count aggregations.
-* As a result, the alert will count the query results returned per value of the group by field. This allows you to join the results by searching for overlapping values that are the same for the join field pairs.
+* First, select the **group by** fields for each of the queries.
+  * You can select as many as 3 fields.
+  * The number of group by fields can differ between the queries.
+* Group by fields provide criteria for count aggregations.
+
+  As a result, the alert will count the query results returned per value of the group by field. This allows you to join the results by searching for overlapping values that are the same for the join field pairs.
 * Select the join pairs you want to enable. You can enable as many as 3 pairs.
 
-Available join options are automatically determined by the order of your group by fields. The suggestions are ordered pairs of the group by fields.
+  Available join options are automatically determined by the order of your group by fields. The suggestions are ordered pairs of the group by fields.
+
+  Queries can have a different number of group by fields (for example query 1, one group by field, query 2, two group by fields) - the join can still be executed on the min number of fields and this will be a valid alert
+
 
 ![Alert with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
 
-When joined, the {{include.name}} looks for values that are common to both group by fields. This means the {{include.name}} will only trigger if it finds matching values for the joined field pairs.
+When joined, the {{include.name}} looks for values that are common to the field pairs selected for joining the queries. This means the {{include.name}} will only trigger if it finds matching values for the join field pairs.
 
 ![Add a group by field function for both queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-join-queries.png)
 
 Joined fields are indicated by the **link icon <i class="fas fa-link"></i>**.
 
-When the {{include.name}} triggers, the event log will have the field `logzio-alert-join-values` showing the join function.
+When the {{include.name}} triggers, the event log will specify the matching values that triggered the {{include.name}} in the field `logzio-alert-join-values`.
+
+For example, if we enable 2 joins: by the fields hostname and then IP address, the field `logzio-alert-join-values` will contain comma-separated pairs, such as `Host1, 247.23.11.58`, `Host2, 44.76.131.4`.
+
 
 ##### Trigger conditions
 
@@ -75,18 +85,21 @@ The {{include.name}} conditions are evaluated over regular intervals. The time f
 
 ##### Notification description
 
-It's a good idea to add a description that works for both queries and what they capture together.
+It's a good idea to add a description that works for both queries and what they capture together. As usual, best practice is to include a playbook that covers the steps needed to investigate and remediate the incident.
 
-##### Default output for aggregations/join values
+##### Default vs. Custom output
 
-* If the {{include.name}} includes any aggregations or group by fields, the notification output defaults to the group by/aggregated fields.
+You have the option to send notification sample data in **JSON** or **Table** format.
 
-* If the {{include.name}} includes a join function, the output will contain separate sample data tables for each query.
-
-Otherwise, you control which data to include. You have the option to send the data
-as **JSON** or as a **Table**. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format)
+For each query, the sample data included in the notifications may either be automatically selected or customized. This depends on whether the query includes any aggregations, group by fields, max/min conditions, etc. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format)
 
 ![Notifications are auto-configured](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-output-options.png)
+
+* If a query includes an aggregation of some kind, the notification output defaults to the group by/aggregated fields.
+
+  Otherwise, you can select as many as 7 fields to include in the notification, and run regex filters to edit and "clean" them. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format)
+
+* If the queries are joined, they necessarily include group by fields. The notification output will contain a separate table for each query, with sample values that triggered the {{include.name}}.
 
 ##### Save it!
 
@@ -98,12 +111,24 @@ Correlated {{include.name}}s are indicated by the 2-part condition set, as shown
 
 ![2 conditions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-conditions.png)
 
-When a correlated {{include.name}} triggers, the event is split into 2 logs - 1 per query, each with its own **Investigate** drilldown link. The event logs will be numbered 1/2 and 2/2, respectively.
+When a correlated {{include.name}} triggers, it writes 2 event logs - 1 per query. The event logs will be numbered 1/2 and 2/2, respectively.
 
-If the {{include.name}} has a join function, there is also a field `logzio-alert-join-values`, indicating the matching values that correlate the joined field pair.
-In this case, the drilldown process involves another step.
+To investigate correlated events, it's best to follow this filtering approach:
 
-* First, click **<i class="fas fa-search-plus"></i>** to filter in on a value in the field `logzio-alert-join-values`.
-* Next, click **Investigate** on each of the associated event logs, to look into the raw logs for the details that led to the {{include.name}} triggering.
+1. Filter by the alert name or ID. This will return a list of all logs of the triggered {{include.name}} for your search time frame. This list can potentially be quite large.
+2. Next, we want to isolate particular incidents. We have several filtering options.
+
+  * We can filter for the matching group by values.
+    
+    Expand the log to reveal the full list of fields. Hover over the field that begins with `logzio-alert-group-ids` and click **<i class="fas fa-search-plus"></i>** to filter in on its value.
+
+    If you prefer, you can filter by the relevant field, rather than the value, from the top filtering menu.
+
+    ![Filter by group by value](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/filter-by-logzio-alert-group-ids.png)
+  
+  * If the queries are joined, we can filter for the matching join values.
+    
+    Expand the log to reveal the full list of fields. Hover over the field `logzio-alert-join-values` and click **<i class="fas fa-search-plus"></i>** to filter in on its value.
+3.  You are now ready to drilldown on the raw logs that triggered {{include.name}}. Click the **Investigate** drilldown link in each event log to open the details of the event.
 
 </div>

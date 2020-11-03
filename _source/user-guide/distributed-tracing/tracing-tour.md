@@ -30,8 +30,7 @@ Don’t see it? By default, your Distributed Tracing account is accessed from yo
 
 ##### Find traces 
 After you log in to your Distributed Tracing account, you’ll want to find traces to view, either by trace ID lookup, by searching for traces, or by uploading a JSON file:  
-
-![Look up a trace or load a JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-panel1.png)
+  ![Look up a trace or load a JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-panel1.png)
 
 * Enter a trace ID (taken from service logs, or from another resource) to see its relevant data.  
   If your data sampling is performed on the collector side, a trace ID pulled from your logs may not have a matching trace in Jaeger.
@@ -64,7 +63,7 @@ Use the following fields to search for traces:
 
 The trace results timeline visualizes traces over the *lookback* period you selected for the search. 
 
-Each circle represents a trace: The larger the circle, the more spans that trace includes. Click a circle to view the trace. A trace that includes fewer spans may indicate a short end-to-end transaction or may be missing information because the [instrumentation was incomplete or missing](https://app.logz.io/#/distributed-tracing/tracing-instrumentation/). 
+Each circle represents a trace: The larger the circle, the more spans that trace includes. Click a circle to view the trace. A trace that includes fewer spans may indicate a short end-to-end transaction or may be missing information because the [instrumentation ](https://app.logz.io/#/distributed-tracing/tracing-instrumentation/) was incomplete or missing. 
 ![results timeline1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/results-timeline1.png)
 
 This view helps you find patterns and identify when the returned results happened.

@@ -23,7 +23,7 @@ We support the Jaeger, Zipkin, OpenTracing, and OpenTelemetry instrumentation li
 ## Component overview
 Because Logz.io embraces open source, we opted for Jaeger. Except for the collector integration, everything you need to deploy is created and maintained by the open source community, which means that the Logz.io support team can focus more effectively on the issues that the community can’t resolve. 
 
-## Logz.io Jaeger Collector
+### Logz.io Jaeger Collector
 Logz.io captures end-to-end distributed transactions from your applications and infrastructure with trace spans sent directly to Logz.io via the Jaeger Collector which you install inside your environment.
 
 The Logz.io integration builds on the Jaeger Collector base image and uses the gRPC plugin framework, to enable communication between the collector and Logz.io.
@@ -31,7 +31,7 @@ The Logz.io integration builds on the Jaeger Collector base image and uses the g
 Configure the Logz.io extension with shell variables or environment variables. The required ports are described 
 <a href ="https://www.jaegertracing.io/docs/1.18/deployment/#collectors)" target="_blank">here</a>.
 
-```s
+```bash
 docker run -e ACCOUNT_TOKEN=<<SHIPPING-TOKEN>> \
  --network=net-logzio \
  --name=jaeger-logzio-collector \

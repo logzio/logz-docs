@@ -20,7 +20,7 @@ If you hit a wall, we’ll do our best to provide support to help you solve your
 ## Instrumentation options: Automatic or Manual
 Automatic Instrumentation uses an intelligent auto-instrumenting agent which communicates with the software you run to extract tracing data. These agents instrument common application libraries and frameworks. 
 
-A manual instrumentation strategy provides full control of the instrumentation: You can decide when to start and stop a trace, and what tags to add to each of the spans.
+A manual instrumentation strategy provides full control of the instrumentation: You can define the boundaries of a trace, and what tags to add to each of the spans.
 
 ### Comparison: Automatic vs. manual instrumentation
 

@@ -20,7 +20,7 @@ In the timeline, each horizontal bar is a span with a unique ID. The services ar
 * Click a span to view its details, including tags and process information.
 
 
-Spans also include tags and the log. In the example below, the SQL span attached the SQL query to the span’s tags. The spanID is located in the lower right corner.
+Spans also include tags and multiple logs, depending on how you set up your instrumentation. The tags and process sections indicate span context.   In the example below, the SQL span attached the SQL query to the span’s tags. The spanID is located in the lower right corner. 
     ![Expanded span](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/span_expand.png)
 
 Use the hairlines at the top of the page to focus on specific time segments during the trace.

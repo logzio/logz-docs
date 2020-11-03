@@ -12,7 +12,7 @@ contributors:
 ---
 If you’re working with Kubernetes, use this yaml file as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value.
 
-```
+```yaml
 apiVersion: v1
 kind: List
 items:
@@ -126,4 +126,3 @@ items:
         hostNetwork: true
         dnsPolicy: ClusterFirstWithHostNet
 ``` 
-{: .language-haskell}

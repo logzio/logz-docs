@@ -17,7 +17,7 @@ contributors:
 The deep dependency graph is based on the results of your trace query. The graph lets you focus on the up- and downstream hops of a service call, as well as define the aggregation and graph density for the  layout.
 
 You can use the deep dependency graph to view a partial graph relevant to your service of interest. 
-This ability is genuinely useful when it’s not possible to view that service in a system architecture graph, especially if you have hundreds of services (or many more), where hovering to find a specific service isn’t feasible. [Link to Jaeger deep dependency documentation](https://www.jaegertracing.io/docs/1.20/features/#deep-dependency-graph)
+This ability is genuinely useful when it’s not possible to view that service in a system architecture graph, especially if you have hundreds of services (or many more), where hovering to find a specific service isn’t feasible. [See the Jaeger deep dependency documentation.](https://www.jaegertracing.io/docs/1.20/features/#deep-dependency-graph)
 
 1. In the top right of the search results, click **Deep Dependency Graph** (next to the **Sort** drop-down).
 ![Open DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/open-ddg.png)
@@ -31,7 +31,8 @@ This ability is genuinely useful when it’s not possible to view that service i
 ## Viewing system architecture diagrams   (--Coming SOON!--)
 The system architecture diagrams are based on all the recent spans in a trace. You can see the connected services in your environment in a force directed graph or in a directed acyclic graph (DAG). 
 
-For more information, see [https://www.jaegertracing.io/docs/1.20/features/#system-architecture](https://www.jaegertracing.io/docs/1.20/features/#system-architecture) [icon for external link]
+For more information, see the <a href = "https://www.jaegertracing.io/docs/1.20/features/#system-architecture" target="_blank">Jaeger system architecture documentation. </a> (external link)
+
 
 ### Viewing the force directed graph
 To highlight a specific service in the force directed graph, you can drag and zoom in on the image. 

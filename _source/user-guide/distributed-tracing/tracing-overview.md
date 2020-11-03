@@ -60,12 +60,14 @@ Logz.io visualizes and maps application requests as they execute across microser
 All of these spans together make up the full trace. 
 ![services to spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_micro2spans.png)
 
-## Further reading
+## Further reading 
 
-* [Logz.io Distributing Tracing blog]()  fill in the link!!! 
-* [Deploying Jaeger on Kubernetes](https://logz.io/blog/jaeger-kubernetes-best-practices/)
-* [Jaeger Persistent Storage](https://logz.io/blog/jaeger-persistence/)
-* [Jaeger deep-dive](https://www.youtube.com/watch?v=zb0fdU6c0KU)
-* [Jaegertracing.io](https://www.jaegertracing.io/)
-* [Jaeger on Medium](https://medium.com/jaegertracing) 
-* [Jaeger tracing community chat](https://gitter.im/jaegertracing/Lobby)
+* <a href ="https://logz.io/tag/distributed-tracing/" target="_blank">Logz.io Distributing Tracing blog</a>  
+* <a href ="https://logz.io/tag/Jaeger/" target="_blank">Logz.io blog articles on Jaeger</a> 
+* <a href ="https://logz.io/blog/jaeger-kubernetes-best-practices/" target="_blank">Deploying Jaeger on Kubernetes</a> 
+* <a href ="https://logz.io/blog/jaeger-persistence/" target="_blank">Jaeger Persistent Storage</a>
+* <a href ="https://www.youtube.com/watch?v=zb0fdU6c0KU" target="_blank">Jaeger deep-dive</a> (external link)
+* <a href ="https://www.jaegertracing.io" target="_blank">Jaegertracing.io</a> (external link)
+* <a href ="https://medium.com/jaegertracing" target="_blank">Jaeger on Medium</a> (external link)
+* <a href ="https://gitter.im/jaegertracing/Lobby" target="_blank">Jaeger tracing community chat</a> (external link)
+

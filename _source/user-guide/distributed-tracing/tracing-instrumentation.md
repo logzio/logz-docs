@@ -31,25 +31,25 @@ We recommend that you first instrument the frameworks that are supported out-of-
 
 You can use Jaeger or Zipkin libraries. Select the one that is best suited for your use case:  
 
-* Jaeger client libraries: [https://www.jaegertracing.io/docs/latest/client-libraries/#supported-librarieshttps://www.jaegertracing.io/docs/1.17/client-libraries/#supported-libraries](https://www.jaegertracing.io/docs/latest/client-libraries/#supported-librarieshttps://www.jaegertracing.io/docs/1.17/client-libraries/#supported-libraries)
-* Zipkin libraries: [https://zipkin.io/pages/tracers_instrumentation](https://zipkin.io/pages/tracers_instrumentation)
+* <a href="https://www.jaegertracing.io/docs/latest/client-libraries/#supported-librarieshttps://www.jaegertracing.io/docs/1.17/client-libraries/#supported-libraries" target="_blank">Jaeger client libraries</a> (external link)
+* <a href="https://zipkin.io/pages/tracers_instrumentation" target="_blank">Zipkin libraries</a> (external link)
 
 ### Tutorials 
 Recommended instrumentation tutorials, by language:
 
-* [C#](https://github.com/yurishkuro/opentracing-tutorial/tree/master/csharp)
-* [Go](https://github.com/yurishkuro/opentracing-tutorial/tree/master/go)
-* [Java](https://github.com/yurishkuro/opentracing-tutorial/tree/master/java)
-* [Python](https://github.com/yurishkuro/opentracing-tutorial/tree/master/python)
-* [Node.js](https://github.com/yurishkuro/opentracing-tutorial/tree/master/nodejs)
+* <a href ="https://github.com/yurishkuro/opentracing-tutorial/tree/master/csharp" target="_blank">C#</a> (external link)
+* <a href ="https://github.com/yurishkuro/opentracing-tutorial/tree/master/go" target="_blank">Go</a> (external link)
+* <a href ="https://github.com/yurishkuro/opentracing-tutorial/tree/master/java" target="_blank">Java</a> (external link)
+* <a href ="https://github.com/yurishkuro/opentracing-tutorial/tree/master/python" target="_blank">Python</a> (external link)
+* <a href ="https://github.com/yurishkuro/opentracing-tutorial/tree/master/nodejs" target="_blank">Node.js</a> (external link)
+
 
 ### Auto instrumentation resources
 The following open infrastructure projects include built-in auto instrumentation:
 
-* [Istio](https://istio.io/latest/docs/tasks/observability/distributed-tracing/jaeger/)
-* [Envoy](https://www.envoyproxy.io/docs/envoy/latest/start/sandboxes/jaeger_tracing)
-* [Grafana](https://grafana.com/docs/grafana/latest/administration/configuration/)
-* [Traefik](https://docs.traefik.io/observability/tracing/jaeger/)
-* [VertX](https://vertx-ci.github.io/vertx-4-preview/docs/vertx-opentracing/java/)
-* [Kong](https://docs.konghq.com/hub/kong-inc/zipkin/) 
-
+* <a href ="https://istio.io/latest/docs/tasks/observability/distributed-tracing/jaeger/" target="_blank">Istio</a> (external link)
+* <a href ="https://www.envoyproxy.io/docs/envoy/latest/start/sandboxes/jaeger_tracing" target="_blank">Envoy</a> (external link)
+* <a href ="https://grafana.com/docs/grafana/latest/administration/configuration/" target="_blank">Grafana</a> (external link)
+* <a href ="https://docs.traefik.io/observability/tracing/jaeger/" target="_blank">Traefik</a> (external link)
+* <a href ="https://vertx-ci.github.io/vertx-4-preview/docs/vertx-opentracing/java/" target="_blank">VertX</a> (external link)
+* <a href ="https://docs.konghq.com/hub/kong-inc/zipkin/" target="_blank">Kong</a> (external link)

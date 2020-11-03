@@ -9,7 +9,7 @@ tags:
 contributors:
   - yberlinger
 ---
-Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in logz.io 
+Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in Logz.io.
 
 
 #### Next steps: 

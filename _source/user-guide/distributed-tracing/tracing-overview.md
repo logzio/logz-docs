@@ -66,8 +66,8 @@ All of these spans together make up the full trace.
 * <a href ="https://logz.io/tag/Jaeger/" target="_blank">Logz.io blog articles on Jaeger</a> 
 * <a href ="https://logz.io/blog/jaeger-kubernetes-best-practices/" target="_blank">Deploying Jaeger on Kubernetes</a> 
 * <a href ="https://logz.io/blog/jaeger-persistence/" target="_blank">Jaeger Persistent Storage</a>
-* <a href ="https://www.youtube.com/watch?v=zb0fdU6c0KU" target="_blank">Jaeger deep-dive</a> (external link)
-* <a href ="https://www.jaegertracing.io" target="_blank">Jaegertracing.io</a> (external link)
-* <a href ="https://medium.com/jaegertracing" target="_blank">Jaeger on Medium</a> (external link)
-* <a href ="https://gitter.im/jaegertracing/Lobby" target="_blank">Jaeger tracing community chat</a> (external link)
+* <a href ="https://www.youtube.com/watch?v=zb0fdU6c0KU" target="_blank">Jaeger deep-dive</a> 
+* <a href ="https://www.jaegertracing.io" target="_blank">Jaegertracing.io</a> 
+* <a href ="https://medium.com/jaegertracing" target="_blank">Jaeger on Medium</a> 
+* <a href ="https://gitter.im/jaegertracing/Lobby" target="_blank">Jaeger tracing community chat</a> 
 

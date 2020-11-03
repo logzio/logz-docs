@@ -31,7 +31,7 @@ This ability is genuinely useful when it’s not possible to view that service i
 ## Viewing system architecture diagrams   (--Coming SOON!--)
 The system architecture diagrams are based on all the recent spans in a trace. You can see the connected services in your environment in a force directed graph or in a directed acyclic graph (DAG). 
 
-For more information, see the <a href = "https://www.jaegertracing.io/docs/1.20/features/#system-architecture" target="_blank">Jaeger system architecture documentation. </a> (external link)
+For more information, see the <a href = "https://www.jaegertracing.io/docs/1.20/features/#system-architecture" target="_blank">Jaeger system architecture documentation. </a> 
 
 
 ### Viewing the force directed graph

@@ -104,7 +104,7 @@ firstLevel:
   icon: fas fa-align-left    
 
   secondLevel:
-  - title: Highlights and navigation
+  - title: Logz.io Distributed Tracing contents
     url: /user-guide/distributed-tracing/tracing-highlights/  
   - title: Why Distributed Tracing?
     url: /user-guide/distributed-tracing/overview/  

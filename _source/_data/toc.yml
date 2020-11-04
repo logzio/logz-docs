@@ -202,6 +202,8 @@ firstLevel:
         url: /user-guide/archive-and-restore/restore-archived-logs.html
       - title: Setting S3 permissions in AWS
         url: /user-guide/archive-and-restore/set-s3-permissions.html
+      - title: Setting permissions in Microsoft Azure
+        url: /user-guide/archive-and-restore/azure-blob-permissions/
 
 
   # ===== SHIPPING AND PARSING =====

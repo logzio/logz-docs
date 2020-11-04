@@ -105,30 +105,35 @@ For each query, the sample data included in the notifications may either be auto
 
 Click **Save** at the top of the form to save your {{include.name}}.
 
-##### Working with correlated {{include.name}}s
+##### Investigating correlated {{include.name}}s
 
 Correlated {{include.name}}s are indicated by the 2-part condition set, as shown below.
 
 ![2 conditions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-conditions.png)
 
-When a correlated {{include.name}} triggers, it writes 2 event logs - 1 per query. The event logs will be numbered 1/2 and 2/2, respectively.
+When a correlated {{include.name}} triggers, it writes 2 event logs - 1 per query. The event logs will be numbered 1/2 and 2/2, respectively. Each event log has its own **Investigate** drilldown link.
+
+![Correlated events are numbered](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/numbered-events-1.png)
 
 To investigate correlated events, it's best to follow this filtering approach:
 
 1. Filter by the alert name or ID. This will return a list of all logs of the triggered {{include.name}} for your search time frame. This list can potentially be quite large.
+
 2. Next, we want to isolate particular incidents. We have several filtering options.
 
-  * We can filter for the matching group by values.
-    
-    Expand the log to reveal the full list of fields. Hover over the field that begins with `logzio-alert-group-ids` and click **<i class="fas fa-search-plus"></i>** to filter in on its value.
+    * We can filter for the matching group by values.
 
-    If you prefer, you can filter by the relevant field, rather than the value, from the top filtering menu.
+      Expand the log to reveal the full list of fields. Hover over the field that begins with `logzio-alert-group-ids` and click **<i class="fas fa-search-plus"></i>** to filter in on its value. If each query has different group-by fields, data in the columns will alternate as shown below.
 
-    ![Filter by group by value](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/filter-by-logzio-alert-group-ids.png)
+      ![Correlated events may be grouped by different fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-events-groupby.png)
+
+      If you prefer, you can filter by the relevant field, rather than the value, from the top filtering menu.
+
+      ![Filter by group by value](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/logzio-alert-group-ids.png)
   
-  * If the queries are joined, we can filter for the matching join values.
+    * If the queries are joined, we can filter for the matching join values.
     
-    Expand the log to reveal the full list of fields. Hover over the field `logzio-alert-join-values` and click **<i class="fas fa-search-plus"></i>** to filter in on its value.
+      Expand the log to reveal the full list of fields. Hover over the field `logzio-alert-join-values` and click **<i class="fas fa-search-plus"></i>** to filter in on its value.
 3.  You are now ready to drilldown on the raw logs that triggered {{include.name}}. Click the **Investigate** drilldown link in each event log to open the details of the event.
 
 </div>

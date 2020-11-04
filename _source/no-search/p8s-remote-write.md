@@ -85,8 +85,7 @@ Custom selection of dashboards is not possible with bulk import. All your dashbo
 *TBD: Script that runs against your Grafana endpoint to collect all dashboards. Import pending.
 Script name, name of grafana endpoint, API token. Needs to be tested w/listener & public endpoint...
 
-
-You'll need to include the following Grafana and Logz.io parameters: 
+You'll need to include the following Grafana and Logz.io parameters when prompted in the CLI: 
 
 * Name of the new folder for your dashboards
 * URL ? 

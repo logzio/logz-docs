@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Configuring remote write for Prometheus
-permalink: /user-guide/metrics/p8s-remote-write.html
+permalink: /user-guide/infrastructure-monitoring/p8s-remote-write.html
 flags:
   logzio-plan: community
   Beta: yes
@@ -18,7 +18,7 @@ Integrate your Prometheus toolkit with the Logz.io Metrics platform to continuou
 
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
 
-Export your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.    <!---  AI-provide a link to guidelines --->
+Export your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.    
 
 ### Configuring Remote Write to Logz.io
 
@@ -31,7 +31,7 @@ Within Prometheus:
   - To find the default token in the [General Settings](https://app.logz.io/#/dashboard/settings/general) page , click **<i class="li li-gear"></i> > Settings > General** in the top menu.
 
 <video autoplay loop>
-    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/go-to-acct_settings2.mp4" type="video/mp4"/>
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/p8sgo-to-acct_settings2.mp4" type="video/mp4"/>
 </video>
 
   - To find the correct listener URL for your region, look [here](/user-guide/log-shipping/listener-ip-addresses.html). 
@@ -64,7 +64,10 @@ To import dashboards:
 
 ### Bulk import of dashboards via script 
 
-Provide the following Grafana and Logz.io paramaters: 
+All your dashboard folders are imported into a single folder within Logz.io. 
+
+You'll need to include the following Grafana and Logz.io paramaters: 
+
 * Name of the new folder for your dashboards
 * Location of the logz.io API token
 * Address

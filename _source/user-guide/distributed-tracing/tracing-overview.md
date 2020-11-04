@@ -61,7 +61,7 @@ Microservice B calls microservices C and D.
 Logz.io visualizes and maps application requests as they execute across microservices. We represent the microservice calls by time spans: Each bar in the image below is a span. 
 
 All of these spans together make up the full trace. 
-![services to spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_micro2spans.png)
+![services to spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_micropans.png)
 
 ### Quick Links: Oh, the Traces You'll Go! 
 

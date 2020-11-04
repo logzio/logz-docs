@@ -30,7 +30,7 @@ Don’t see it? By default, your Distributed Tracing account is accessed from yo
 
 ##### Find traces 
 After you log in to your Distributed Tracing account, you’ll want to find traces to view, either by trace ID lookup, by searching for traces, or by uploading a JSON file:  
-  ![Look up a trace or load a JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-panel1.png)
+  ![Look up a trace or load a JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-panel.png)
 
 * Enter a trace ID (taken from service logs, or from another resource) to see its relevant data.  
   If your data sampling is performed on the collector side, a trace ID pulled from your logs may not have a matching trace in Jaeger.
@@ -42,7 +42,7 @@ After you log in to your Distributed Tracing account, you’ll want to find trac
 ##### Search for traces 
 You search for and view traces on the **Search** page. 
 Use the following fields to search for traces: 
-![Search traces page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_search_fields_table.png)
+![Search traces page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/search_fields_table.png)
     
 ###### Tag formatting requirements
 * Use a space for conjunctions 

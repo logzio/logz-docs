@@ -18,7 +18,21 @@ Integrate your Prometheus toolkit with the Logz.io Metrics platform to continuou
 
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
 
-Export your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.    
+If you have multiple Prometheus server instances, you'll have to add Logz.io as an endpoint for each instance. 
+
+By default, all metrics in your Prometheus server(s) will be sent to Logz.io. To drop or send specific metrics, add Prometheus labeling before enabling the remote write, or as part of the remote write configuration. You can read more about Prometheus relabeling tricks <a href ="https://medium.com/quiq-blog/prometheus-relabeling-tricks-6ae62c56cbda" target="_blank">here. <i class="fas fa-external-link-alt"></i> </a> 
+
+* TBD: Set parallelism level for sending data - how many connections to open to the remote write listener. While the default is 1000, but we recommend configuring much fewer connections. 
+
+* TBD: This is set in the configuration file. Parameter for # of connections (more data --o--> more channels)
+  Sending data - best practice in configuring connection channels: 
+
+* TBD: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. 
+
+You can read more about Prometheus Remote Write Tuning <a href ="https://prometheus.io/docs/practices/remote_write/" target="_blank">here. <i class="fas fa-external-link-alt"></i> </a> 
+
+Once your metrics are flowing, export your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
+
 
 ### Configuring Remote Write to Logz.io
 
@@ -36,8 +50,6 @@ Within Prometheus:
 
   - To find the correct listener URL for your region, look [here](/user-guide/log-shipping/listener-ip-addresses.html). 
 
-You can read more about Prometheus Remote Write Tuning <a href ="https://prometheus.io/docs/practices/remote_write/" target="_blank">here. <i class="fas fa-external-link-alt"></i> </a> 
-
 Your incoming time series data is saved with matching retention and aggregation, according to the existing solution and your account plan:
 
   - 3 days - raw data
@@ -45,13 +57,13 @@ Your incoming time series data is saved with matching retention and aggregation,
   - 30 days - 10-minute downsampling
   - 18 months- 60-minute downsampling
 
-### Importing dashboards from Grafana
+## Importing dashboards from Grafana
 You can import your existing dashboards to Logz.io either manually or via a bulk process. 
 Notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.
 
-After your Prometheus metrics begin to arrive to Logz.io:  
+### Importing individual dashboards
 
-To import dashboards:
+To import individual dashboards: 
 
 1. Log into Logz.io and navigate to the **Metrics** tab.
 2. In the left navigation pane, click **+** and select **Import**.
@@ -62,13 +74,21 @@ To import dashboards:
     For more information see [Upload JSON logs]({{site.baseurl}}/user-guide/shipping/log-sources/json-uploads.html). 
   - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them. 
 
-### Bulk import of dashboards via script 
+### Bulk dashboard import via script 
 
-All your dashboard folders are imported into a single folder within Logz.io. 
+Bulk import is supported for Grafana version 6 and above.
 
-You'll need to include the following Grafana and Logz.io paramaters: 
+As noted earlier, annotations and notification endpoints cannot be imported, thus dashboards that include these (and other) external resources will break during bulk import.
+
+Custom selection of dashboards is not possible with bulk import. All your dashboard folders are imported to a single folder within Logz.io.
+
+*TBD: Script that runs against your Grafana endpoint to collect all dashboards. Import pending.
+Script name, name of grafana endpoint, API token. Needs to be tested w/listener & public endpoint...
+
+
+You'll need to include the following Grafana and Logz.io parameters: 
 
 * Name of the new folder for your dashboards
-* Location of the logz.io API token
-* Address
-* Account number
+* URL ? 
+* Logz.io metrics token
+* Logz.io API token

@@ -77,7 +77,7 @@ Still on the Storage container page, select **Access Control (IAM)** from the le
 
 ![Assign App & Role to your Storage container](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-container-access.png)
 
-Select **Add role assignements**.
+Select **Add role assignments**.
 
 ![Add role assignment to your Storage container](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-container-add-role-assignment.png)
 

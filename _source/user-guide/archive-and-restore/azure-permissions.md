@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Setting Azure Blob Storage permissions
-permalink: /user-guide/archive-and-restore/set-azure-permissions.html
+permalink: /user-guide/archive-and-restore/azure-blob-permissions/
 tags:
   - Azure Blob Storage
   - archive-and-restore
@@ -11,91 +11,92 @@ contributors:
 
 You can archive your logs for long-term storage by sending them to a Microsoft Azure Storage container.
 
-Logz.io will need these permissions:
+### Minimal permissions
 
-* To **archive** to a bucket,
-  we need `s3:PutObject` permissions
-* To **restore** archives,
-  we need `s3:ListBucket` and `s3:GetObject` permissions
+Logz.io will need:
 
-You'll set these permissions for an AWS IAM user or role,
-depending on which authentication method you choose in Logz.io.
+* **Storage Blob Data Contributor** permissions to archive data to a Microsoft Azure Storage account.
+* **Storage Blob Data Reader** permissions to restore data from a Microsoft Azure Storage account.
 
-We recommend allowing all three permissions
-so you won't run into any issues when you need to restore.
-{:.info-box.tip}
 
-## Sample policy
+#### Setting up a Storage container and App registration in Microsoft Azure {#grant-access-to-azure-storage}
 
-This code block shows a policy with all three permissions enabled:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:ListBucket",
-        "s3:PutObject",
-        "s3:GetObject"
-      ],
-      "Resource": [
-        "arn:aws:s3:::<BUCKET-NAME>",
-        "arn:aws:s3:::<BUCKET-NAME>/*"
-      ]
-    }
-  ]
-}
-```
-
-## Testing your configuration
-
-To confirm `PutObject` permissions,
-you can fill in your credentials on the
-[Archive & restore](https://app.logz.io/#/dashboard/tools/archive-and-restore) page,
-and then click **Test connection**.
-
-To test for `ListBucket` and `GetObject` permissions,
-you can use [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
-
-#### To test your IAM permissions
-
-**Before you begin, you'll need**:
-[AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-configured with the IAM credentials you're testing
+**Before you begin, you'll need**: Permissions to manage a Storage container and App registration in Microsoft Azure.
 
 <div class="tasklist">
 
-##### Create a test file
+##### Create an App registration
 
-Make a new dummy file for testing purposes.
+Open your [Azure Portal](https://portal.azure.com/).
+Select **Azure Active Directory** > **App registrations** from the left-menu.
 
-```shell
-touch DELETE-logzio-test.txt
-```
+![Create Azure Storage account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-app-registration.png)
 
-##### Run the tests
+If you have an existing App registration you can use, select it. Otherwise create a new one.
 
-Test `PutObject` permissions by moving your dummy file to the bucket:
+Click **+ New registration** to create an **App registration**. Name it, leave the default settings and click **Register**.
 
-```shell
-aws s3 mv DELETE-logzio-test.txt s3://<BUCKET-NAME>/
-```
+![Create new App registration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-new-app.png)
 
-Test `ListBucket` permissions by listing the bucket contents:
+##### Copy the App registration parameters
 
-```shell
-aws s3 ls s3://<BUCKET-NAME>/
-```
+The App **Overview** page provides 2 of the credentials required to fill-in the form in Logz.io: **Application (client) ID** & **Directory (tenant) ID**.
 
-Test `GetObject` permissions by copying your dummy file to the bucket:
+Copy them for future reference.
 
-```shell
-aws s3 cp s3://<BUCKET-NAME>/DELETE-logzio-test.txt SUCCESSFUL-GetObject-perms.txt
-```
+![Create Azure Storage account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-app-id.png)
 
-If all the commands are successful,
-Logz.io can archive and restore your logs with these credentials.
+##### Create & copy the Client secret password
+
+On the same **App registration** page, select **Certificates & secrets** from the left-menu.
+Click **+ New client secret** to create a new one. Select a time frame for its expiration, add a description, and click **Add**.
+
+Copy the secret for future reference. (Note that the password value will not be available once you leave the page.)
+
+![Create Azure App Client secret](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-certificates-secrets.png)
+
+##### Create a Storage account
+
+Click the **main menu <i class="fas fa-bars"></i>** in the top-left corner, and select **Storage account**.
+
+If you have an existing Storage account you can use, select it. Otherwise create a new one.
+
+Click **+ Create** to create a new account.
+
+![Create Azure Storage account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/create-azure-storage-account.png)
+
+##### Create a Storage container
+
+In the Storage account, create a storage container (or select an existing one).
+
+![Create Azure Storage container](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-container.png)
+
+##### Assign App & role to your Storage container
+
+Still on the Storage container page, select **Access Control (IAM)** from the left-menu.
+
+![Assign App & Role to your Storage container](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-container-access.png)
+
+Select **Add role assignements**.
+
+![Add role assignment to your Storage container](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-container-add-role-assignment.png)
+
+Fill in the form:
+
+* **Role** - Select **Storage Blob Data Contributor**.
+* **Assign access to** - Leave the defaults unchanged. They should be **User, group, or service principal**
+* **Select** - Start typing in the name of the app and select it from the dropdown list.
+* Click **save**.
+
+![Add role assignment to your Storage container](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-container-add-role-assignment1.png)
+
+##### Configure Logz.io Archive & Restore
+
+Open your [Logz.io app](https://app.logz.io/#/dashboard/tools/archive-and-restore).
+
+In the **Archive configuration** tab, select the **Azure** tab, and fill in the form with the credentials you created and copied in the previous steps.
+
+![Configure Logz.io connection to Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/archive-to-azure.png)
 
 </div>
+

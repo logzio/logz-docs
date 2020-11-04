@@ -111,7 +111,7 @@ To limit how often recipients are notified,
 choose a time period to suppress notifications.
 
 When notifications are suppressed,
-Logz.io will continue to log triggered alerts without sending notifications.
+Logz.io will continue to log triggered alerts without sending notifications; even if a 'group by' operator is applied.
 You can search triggered alert logs at any time.
 {:.info-box.note}
 

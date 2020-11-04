@@ -12,37 +12,38 @@ contributors:
   - imnotashrimp
   - ayigal
   - schwin007
+  - shalper
 ---
 
-![Archive settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/archive-settings.png)
+![Archive settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/archive-settings-112020.png)
 
-The Logz.io archiver copies incoming logs to your Amazon S3 bucket.
+You can archive logs to either an Amazon S3 bucket or a Microsoft Azure Storage account.
+
 This allows you to save data for as long as you require,
-without needing extended retention from Logz.io.
-Instead, you can determine your own requirements
+without needing extended retention from Logz.io. Archiving provides a cost-effective solution for long-term storage of logs that don't need to be instantly searchable.
+
+The Logz.io archiver copies incoming logs to your selected storage container.
+
+## Archiving to an AWS S3 bucket
+
+You can determine your own requirements
 and choose the right S3 object storage class for your needs.
 
-If you need long-term storage for your logs
-but don't need to keep those logs searchable at all times,
-S3 archiving is a cost-effective solution.
-
-Buckets set to cold storage (**S3 Glacier** and **S3 Glacier Deep Archive** storage classes) cannot be restored from, as the files within them are not available for real-time access. For more information on S3 object storage classes,
-see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/)
-from Amazon.
+Buckets set to cold storage (**S3 Glacier** and **S3 Glacier Deep Archive** storage classes) cannot be restored from, as the files within them are not available for real-time access. See AWS documentation to learn more about [storage classes in general](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
+and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/).
 {:.info-box.important}
 
 #### To set up archiving
 
 **Before you begin, you'll need**:
-`PutObject`, `ListBucket`, and `GetObject`
-permissions for an S3 bucket
+
+* An AWS S3 bucket with appropriate permissions. The recommended permissions are `PutObject`, `ListBucket`, and `GetObject`. [Learn more](/user-guide/archive-and-restore/set-s3-permissions.html)
 
 <div class="tasklist">
 
 ##### Enter your bucket information and S3 credentials
 
-You can choose to authenticate with an IAM role
+Select an authentication method. You can choose to authenticate with an IAM role
 or an access key.
 
 For stronger security,

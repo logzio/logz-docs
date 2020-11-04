@@ -25,7 +25,7 @@ contributors:
 
 Your Distributed Tracing account complements your logging ELK stack. To reach it, log into your Logz.io Operations workspace and select the **Jaeger** or **Tracing** tab.
 
-Don’t see it? By default, your Distributed Tracing account is accessed from your main account. If you don’t see the **Tracing**  tab, the account doesn’t have permissions to it. [Learn how to grant sub accounts permissions for Tracing](link placeholder).
+Don’t see it? By default, your Distributed Tracing account is accessed from your main account. If you don’t see the **Tracing**  tab, the account doesn’t have permissions to it. [Learn how to grant sub accounts permissions for Tracing](/user-guide/users/).
 ![tracing tour](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_tour1.png)
 
 ##### Find traces 
@@ -47,8 +47,8 @@ Use the following fields to search for traces:
 ###### Tag formatting requirements
 * Use a space for conjunctions 
 * Enclose values that contain whitespace in quotes
-* Tag formatting requirements are summarized here: [logfmt (https://brandur.org/logfmt)](https://brandur.org/logfmt) 
-* A list of recommended tags can be found here: [https://github.com/opentracing/specification/blob/master/semantic_conventions.md](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)
+* Tag formatting requirements are summarized here: [logfmt <i class="fas fa-external-link-alt"></i>](https://brandur.org/logfmt) 
+* A list of recommended tags can be found here: [https://github.com/opentracing/specification/blob/master/semantic_conventions.md <i class="fas fa-external-link-alt"></i>](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)
 
 ###### Tag examples
 
@@ -99,4 +99,4 @@ By default, the trace opens in the timeline view. Select an option for different
 [Select traces for comparison and find out how they differ.](/user-guide/distributed-tracing/compare-traces)
 
 ##### View Topology diagrams, including service architecture, for your system
-[Configure the deep dependency, force directed, and directed acyclic graphs to highlight service paths](/user-guide/distributed-tracing/compare-traces)
+[Configure the deep dependency, force directed, and directed acyclic graphs to highlight service paths.](/user-guide/distributed-tracing/compare-traces)

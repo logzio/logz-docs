@@ -46,7 +46,7 @@ Each span is defined by its:
 
 * Start timestamp, and span duration 
 
-* Set of key:value span Tags: Tags are key:value pairs that enable user-defined span annotations. You can use these tags to query, filter, and understand trace data.  
+* Set of span Tags: These `key:value` pair tags enable user-defined span annotations. You can use these tags to query, filter, and understand trace data.  
 
 * Span Logs, which include information about the exceptions or error that occured in the request
 
@@ -77,9 +77,9 @@ All of these spans together make up the full trace.
 * <a href ="https://logz.io/tag/Jaeger/" target="_blank">Logz.io blog articles on Jaeger</a> 
 * <a href ="https://logz.io/blog/jaeger-kubernetes-best-practices/" target="_blank">Deploying Jaeger on Kubernetes</a> 
 * <a href ="https://logz.io/blog/jaeger-persistence/" target="_blank">Jaeger Persistent Storage</a>
-* <a href ="https://www.youtube.com/watch?v=zb0fdU6c0KU" target="_blank">Jaeger deep-dive</a> 
-* <a href ="https://www.jaegertracing.io" target="_blank">Jaegertracing.io</a> 
-* <a href ="https://medium.com/jaegertracing" target="_blank">Jaeger on Medium</a> 
-* <a href ="https://gitter.im/jaegertracing/Lobby" target="_blank">Jaeger tracing community chat</a> 
+* <a href ="https://www.youtube.com/watch?v=zb0fdU6c0KU" target="_blank">Jaeger deep-dive <i class="fas fa-external-link-alt"></i></a> 
+* <a href ="https://www.jaegertracing.io" target="_blank">Jaegertracing.io <i class="fas fa-external-link-alt"></i></a> 
+* <a href ="https://medium.com/jaegertracing" target="_blank">Jaeger on Medium <i class="fas fa-external-link-alt"></i></a>
+* <a href ="https://gitter.im/jaegertracing/Lobby" target="_blank">Jaeger tracing community chat <i class="fas fa-external-link-alt"></i></a> 
 
 

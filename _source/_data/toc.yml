@@ -64,6 +64,7 @@ firstLevel:
     url: /user-guide/live-tail/
  
     # ===== METRICS INFRASTRUCTURE MONITORING =====
+    # the Prometheus remote write topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory
 - title: Infrastructure Monitoring
   icon: fas fa-chart-pie
 
@@ -92,8 +93,6 @@ firstLevel:
   - title: Your Metrics data sources
     url: /user-guide/metrics/data-sources.html
     thirdLevel:
-    - title: Remote write for Prometheus
-      url: /user-guide/metrics/p8s-remote-write
     - title: Custom metrics
       url: /user-guide/infrastructure-monitoring/custom-metrics
     - title: Rollups

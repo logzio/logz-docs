@@ -17,23 +17,17 @@ contributors:
 
 ![Archive settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/archive-settings-112020.png)
 
-You can archive logs to either an Amazon S3 bucket or a Microsoft Azure Storage account.
+You can archive logs to either an Amazon S3 bucket or a Microsoft Azure Storage container.
 
-This allows you to save data for as long as you require,
-without needing extended retention from Logz.io. Archiving provides a cost-effective solution for long-term storage of logs that don't need to be instantly searchable.
+The Logz.io archiver copies incoming logs to your selected storage container. The data is archived in its "raw" state - pre-indexing and pre-mapping.
 
-The Logz.io archiver copies incoming logs to your selected storage container.
+###### On this page
+{:.no_toc}
 
-## Archiving to an AWS S3 bucket
+1. toc list
+{:toc}
 
-You can determine your own requirements
-and choose the right S3 object storage class for your needs.
-
-Buckets set to cold storage (**S3 Glacier** and **S3 Glacier Deep Archive** storage classes) cannot be restored from, as the files within them are not available for real-time access. See AWS documentation to learn more about [storage classes in general](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/).
-{:.info-box.important}
-
-#### To set up archiving
+#### To set up archiving in AWS
 
 **Before you begin, you'll need**:
 
@@ -63,14 +57,36 @@ If everything checks out, click **Start archiving** to save your settings.
 From now on, Logz.io will archive your logs as they come in.
 You can stop archiving at any time.
 
-</div>
-
-## Managing your S3 credentials
+##### Switching between IAM roles and Access keys
 
 If you need to change your S3 configuration —
 including switching between access key and IAM role authentication —
 make the changes in the _Settings_ tab and click **Update settings**.
 
 You can remove your credentials from Logz.io at any time
-by clicking **Stop archiving**
+by clicking **Pause archiving**
 and selecting **Remove my S3 settings** in the confirmation box.
+
+</div>
+
+#### To set up archiving in Microsoft Azure
+
+**Before you begin, you'll need**:
+
+* A Storage container with an App registration with appropriate permissions. [Learn more](/user-guide/archive-and-restore/azure-blob-permissions/#minimal-permissions)
+
+<div class="tasklist">
+
+##### Enter your container information and credentials
+
+Fill in the form with the requested container information and IDs. [Detailed instructions](/user-guide/archive-and-restore/azure-blob-permissions/)
+
+##### Test your connection and save
+
+Click **Test connection** to make sure Logz.io can connect to your container and has the right permissions.
+
+If everything checks out, click **Start archiving** to save your settings.
+From now on, Logz.io will archive your logs as they come in.
+You can stop archiving at any time.
+
+</div>

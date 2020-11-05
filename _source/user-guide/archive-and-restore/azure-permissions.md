@@ -55,6 +55,9 @@ Copy the secret for future reference. (Note that the password value will not be 
 
 ![Create Azure App Client secret](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/azure-certificates-secrets.png)
 
+If the secret is set to expire, you will need to remember to renew the credentials and reconfigure archiving in Logz.io!
+{:.info-box.note}
+
 ##### Create a Storage account
 
 Click the **main menu <i class="fas fa-bars"></i>** in the top-left corner, and select **Storage account**.

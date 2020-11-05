@@ -106,29 +106,20 @@ Logz.io will continue to log triggered alerts without sending notifications.
 You can search triggered alert logs at any time.
 {:.info-box.note}
 
-###### Output format
+###### Output format & content
 
 When triggered, the alert will send out a notification with sample data.
 
-If the alert includes any aggregation or group by rule, the notification output defaults to the group by/aggregated fields.
+Sample data can be sent in either **JSON** or **Table** formats. Toggle the button to select your preferred format.
 
-Otherwise, you control the data format. It can be either **JSON** or a **Table**.
+If the alert includes any aggregation or group by field, the notification output will send the aggregated results by default.
 
-  * If you select JSON, you can choose to send all fields or select fields.
+To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](/user-guide/alerts/regex-filters.html)
+
+  * If you select the JSON format, you can send the full log (with all fields) or select as many as 7 fields.
   * If you select a table, you can send as many as 7 fields.
 
 ![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields.png)
-
-To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter.
-
-###### Using regex filters
-
-You can "clean" the data in the notification using regex filters. If you add a regex filter, it will select for the data you want to include in the alert output.
-
-There is no danger that a regex filter will disrupt the notification.
-
-* If the regex matches the relevant data, you will see only the desired results.
-* If the regex _does not_ match, the filter will be disregarded and the alert output will include the full content of the field.
 
 ##### Save it!
 

@@ -34,6 +34,8 @@ firstLevel:
       url: /user-guide/alerts/new-alert.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
+    - title: Trim alert notifications with regex
+      url: /user-guide/alerts/regex-filters.html
 
   - title: Reports
     url: /user-guide/reports/

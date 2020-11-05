@@ -33,5 +33,5 @@ Restore archived logs
 : Re-ingest up to 24 hours of archived logs.
 
 Restored accounts
-: Data is restored to temporary account. The list of Restored accounts includes information about who made the request and its status. [Learn more](/user-guide/archive-and-restore/restore-archived-logs.html)
+: Data is restored to a temporary account. The list of Restored accounts includes information about who made the request and its status. [Learn more](/user-guide/archive-and-restore/restore-archived-logs.html)
 {:.letter-labels}

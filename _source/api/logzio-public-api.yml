@@ -152,13 +152,13 @@ tags:
       Use these API endpoints to create, update, retrieve, or delete log shipping tokens.
   - name: Drop filters
     description: >-
-      Drop filters offer a great way to filter out logs from an account to help manage your account volume and lower costs.
+      Drop filters provide a solution for filtering out logs before they are indexed in your account to help lower costs and reduce account volume.
+
+      
+      Drop filters evaluate logs for exact field:value matches. Any log results that match active drop filters will not be indexed. This means they will not appear in your Kibana account, will not be searchable, trigger alerts, or appear in dashboards.
       
       
-      Drop filters evaluate logs for field:value exact matches. Incoming logs that match your account's active drop filters will not be indexed and will not appear in your Kibana account. Dropped logs are not searchable, cannot trigger alerts, and will not appear in dashboards, reports, or anything else.
-      
-      
-      Drop filters do not affect archiving, as archiving happens earlier in the pipeline. Therefore, logs that are dropped using drop filters can be archived and restored in the event that they become relevant.
+      Archiving is not affected by drop filters. Logs dropped by drop filters will still be archived, if archiving is configured for the account. With archiving configured, you can readily use drop filters to reduce logging bulk and restore the logs in the event that they become relevant.
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.
@@ -2735,7 +2735,9 @@ paths:
         '200':
           description: successful operation
           schema:
-            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+            type: array
+            items:
+              $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
           headers: {}
 
   /v1/drop-filters/{id}/activate:
@@ -2826,7 +2828,7 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+            $ref: '#/definitions/DropFiltersCreateRequest'
       responses:
         '200':
           description: successful operation
@@ -4541,6 +4543,19 @@ definitions:
         example: [2]
 
   # ::::: DROP FILTERS
+  DropFiltersCreateRequest:
+    type: object
+    properties:
+      logType:
+        type: string
+        nullable: true
+        description: Filters for the [log type](/log-shipping/built-in-log-types.html).
+        example: apache
+      fieldConditions:
+        type: array
+        items:
+          $ref: '#/definitions/FieldCondition'
+
 
   FieldCondition:
     type: object
@@ -4564,7 +4579,7 @@ definitions:
       active:
         type: boolean
         description: If `true`, the drop filter is active and logs that match the filter are dropped before indexing. If `false`, the drop filter is disabled.
-        default: True
+        example: true
       logType:
         type: string
         description: Filters for the [log type](/log-shipping/built-in-log-types.html).

@@ -60,7 +60,7 @@ If you opt to join the queries, you must first add group by fields that will agg
   Queries can have a different number of group by fields (for example query 1, one group by field, query 2, two group by fields) - the join can still be executed on the min number of fields and this will be a valid alert
 
 
-![Alert with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
+![{{include.name}} with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
 
 When joined, the {{include.name}} looks for values that are common to the field pairs selected for joining the queries. This means the {{include.name}} will only trigger if it finds matching values for the join field pairs.
 
@@ -87,53 +87,17 @@ The {{include.name}} conditions are evaluated over regular intervals. The time f
 
 It's a good idea to add a description that works for both queries and what they capture together. As usual, best practice is to include a playbook that covers the steps needed to investigate and remediate the incident.
 
-##### Default vs. Custom output
+##### Configure output per query
 
 You have the option to send notification sample data in **JSON** or **Table** format.
+Toggle the button to select your preferred format.
 
-For each query, the sample data included in the notifications may either be automatically selected or customized. This depends on whether the query includes any aggregations, group by fields, max/min conditions, etc. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format)
+Next, select the output fields for each query, as applicable. As usual, if the query has aggregations (or group-by fields) definted, the output will be auto-selected, and the aggregated results will be sent by default. Otherwise, you can select which fields to include. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format--content)
 
 ![Notifications are auto-configured](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-output-options.png)
-
-* If a query includes an aggregation of some kind, the notification output defaults to the group by/aggregated fields.
-
-  Otherwise, you can select as many as 7 fields to include in the notification, and run regex filters to edit and "clean" them. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format)
-
-* If the queries are joined, they necessarily include group by fields. The notification output will contain a separate table for each query, with sample values that triggered the {{include.name}}.
 
 ##### Save it!
 
 Click **Save** at the top of the form to save your {{include.name}}.
 
-##### Investigating correlated {{include.name}}s
 
-Correlated {{include.name}}s are indicated by the 2-part condition set, as shown below.
-
-![2 conditions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-conditions.png)
-
-When a correlated {{include.name}} triggers, it writes 2 event logs - 1 per query. The event logs will be numbered 1/2 and 2/2, respectively. Each event log has its own **Investigate** drilldown link.
-
-![Correlated events are numbered](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/numbered-events-1.png)
-
-To investigate correlated events, it's best to follow this filtering approach:
-
-1. Filter by the alert name or ID. This will return a list of all logs of the triggered {{include.name}} for your search time frame. This list can potentially be quite large.
-
-2. Next, we want to isolate particular incidents. We have several filtering options.
-
-    * We can filter for the matching group by values.
-
-      Expand the log to reveal the full list of fields. Hover over the field that begins with `logzio-alert-group-ids` and click **<i class="fas fa-search-plus"></i>** to filter in on its value. If each query has different group-by fields, data in the columns will alternate as shown below.
-
-      ![Correlated events may be grouped by different fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-events-groupby.png)
-
-      If you prefer, you can filter by the relevant field, rather than the value, from the top filtering menu.
-
-      ![Filter by group by value](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/logzio-alert-group-ids.png)
-  
-    * If the queries are joined, we can filter for the matching join values.
-    
-      Expand the log to reveal the full list of fields. Hover over the field `logzio-alert-join-values` and click **<i class="fas fa-search-plus"></i>** to filter in on its value.
-3.  You are now ready to drilldown on the raw logs that triggered {{include.name}}. Click the **Investigate** drilldown link in each event log to open the details of the event.
-
-</div>

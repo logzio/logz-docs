@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Trim alert notifications with regex filters
+title: Trim output with regex filters
 permalink: /user-guide/alerts/regex-filters.html
 flags:
   logzio-plan: community

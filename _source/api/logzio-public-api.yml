@@ -2723,7 +2723,7 @@ paths:
   /v1/drop-filters/search:
     post:
       summary: Retrieve drop filters
-      description: Returns all drop filters configured in the account, both active and inactive.
+      description: Returns all drop filters configured for the account, both active and inactive.
       tags:
         - Drop filters
       operationId: getAllForAccount
@@ -2739,12 +2739,11 @@ paths:
             type: array
             items:
               $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
-          headers: {}
 
   /v1/drop-filters/{id}/activate:
     post:
       summary: Activate a drop filter
-      description: Activates a drop filter identified by its ID. Run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+      description: Activates a drop filter identified by its ID.
       tags:
         - Drop filters
       operationId: activate
@@ -2757,7 +2756,8 @@ paths:
           in: path
           required: true
           type: string
-          description: Drop filter ID. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
       responses:
         '200':
           description: successful operation
@@ -2767,7 +2767,7 @@ paths:
   /v1/drop-filters/{id}/deactivate:
     post:
       summary: Deactivate a drop filter
-      description: Deactivate a drop filter identified by its ID.
+      description: Deactivates a drop filter identified by its ID.
       tags:
         - Drop filters
       operationId: deactivate
@@ -2780,7 +2780,8 @@ paths:
           in: path
           required: true
           type: string
-          description: Drop filter ID. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
       responses:
         '200':
           description: successful operation
@@ -2803,6 +2804,8 @@ paths:
           in: path
           required: true
           type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
       responses:
         '200':
           description: successful operation
@@ -2812,7 +2815,7 @@ paths:
   /v1/drop-filters:
     post:
       summary: Create drop filter
-      description: Create and activate a new drop filter
+      description: Creates and activates a new drop filter.
       tags:
         - Drop filters
       operationId: create
@@ -4546,25 +4549,31 @@ definitions:
     properties:
       fieldName:
         type: string
+        description: Exact field name in your Kibana mapping for the selected `logType`.
+        example: response
       value:
         type: object
+        description: Exact field value. The filter looks for an exact value match of the entire string.
+        example: 200
+
   LogsDropFiltersPipelineDefinition:
     type: object
     properties:
       id:
         type: string
-        description: id of???
-        example: 123
+        description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+        example: f54406c1-b4ad-5969-8542-f6a3e9df5c79
       active:
         type: boolean
         description: If `true`, the drop filter is active and logs that match the filter are dropped before indexing. If `false`, the drop filter is disabled.
         default: True
       logType:
         type: string
-        description: Filters results by [log type](/log-shipping/built-in-log-types.html).
+        description: Filters for the [log type](/log-shipping/built-in-log-types.html).
         example: apache
       fieldConditions:
         type: array
+        description: Filters for an exact match of a field:value pair.
         items:
           $ref: '#/definitions/FieldCondition'
 

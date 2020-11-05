@@ -42,13 +42,13 @@ Within Prometheus:
 1. Define Logz.io as a new endpoint, using remote write.
 2. Provide the Logz.io metrics account token and listener address (URL).
 
-  - To find the default token in the [General Settings](https://app.logz.io/#/dashboard/settings/general) page , click **<i class="li li-gear"></i> > Settings > General** in the top menu.
+  - To find the default token in the <a href ="https://app.logz.io/#/dashboard/settings/general" target="_blank">General Settings</a> page, click **<i class="li li-gear"></i> > Settings > General** in the top menu.
 
 <video autoplay loop>
     <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/p8sgo-to-acct_settings2.mp4" type="video/mp4"/>
 </video>
 
-  - To find the correct listener URL for your region, look [here](/user-guide/log-shipping/listener-ip-addresses.html). 
+  - To find the correct listener URL for your region, look in the <a href ="/user-guide/log-shipping/listener-ip-addresses.html" target="_blank">_Listener IP Addresses_</a> topic. 
 
 Your incoming time series data is saved with matching retention and aggregation, according to the existing solution and your account plan:
 

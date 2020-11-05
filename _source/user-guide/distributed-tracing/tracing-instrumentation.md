@@ -13,8 +13,7 @@ Logz.io makes the process of collecting data from the software as easy as possib
 
 There’s a growing trend to do this for every type of library, software system, infrastructure component, such as proxies and service meshes, and even for orchestration systems, such as Kubernetes itself.
 
-Logz.io’s distributed tracing solution is designed to support a variety of popular open source instrumentation libraries, including OpenTracing, Jaeger, and Zipkin.
-
+Logz.io’s distributed tracing solution is designed to support a variety of popular open source instrumentation libraries, including OpenTracing, Jaeger, and Zipkin.    <!--AI when these are integrated:OpenCensus and OpenTelemetry--!
 If you hit a wall, we’ll do our best to provide support to help you solve your instrumentation issues. 
 
 ## Instrumentation options: Automatic or Manual
@@ -29,7 +28,7 @@ A manual instrumentation strategy provides full control of the instrumentation: 
 ## Instrumentation recommendations and resources
 We recommend that you first instrument the frameworks that are supported out-of-the-box, before proceeding with manual instrumentation to fine-tune the data. This will make instrumentation much easier and minimize the code you must write.
 
-You can use Jaeger or Zipkin libraries. Select the one that is best suited for your use case:  
+You can use Jaeger or Zipkin libraries. Select the one that is best suited for your use case:    <!--AI when these are integrated:OpenCensus and OpenTelemetry--!
 
 * <a href="https://www.jaegertracing.io/docs/latest/client-libraries/#supported-librarieshttps://www.jaegertracing.io/docs/1.17/client-libraries/#supported-libraries" target="_blank">Jaeger client libraries</a> <i class="fas fa-external-link-alt"></i>
 * <a href="https://zipkin.io/pages/tracers_instrumentation" target="_blank">Zipkin libraries</a> <i class="fas fa-external-link-alt"></i>

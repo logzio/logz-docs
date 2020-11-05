@@ -52,13 +52,12 @@ If you opt to join the queries, you must first add group by fields that will agg
   * The number of group by fields can differ between the queries.
 * Group by fields provide criteria for count aggregations.
 
-  As a result, the alert will count the query results returned per value of the group by field. This allows you to join the results by searching for overlapping values that are the same for the join field pairs.
+  As a result, the {{include.name}} will count the query results returned per value of the group by field. This allows you to join the results by searching for overlapping values that are the same for the join field pairs.
 * Select the join pairs you want to enable. You can enable as many as 3 pairs.
 
   Available join options are automatically determined by the order of your group by fields. The suggestions are ordered pairs of the group by fields.
 
-  Queries can have a different number of group by fields (for example query 1, one group by field, query 2, two group by fields) - the join can still be executed on the min number of fields and this will be a valid alert
-
+  You do not have to join all of the group by fields, and the queries can have a different number of group by fields.
 
 ![{{include.name}} with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
 

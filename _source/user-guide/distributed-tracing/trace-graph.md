@@ -18,6 +18,8 @@ Hover over a span in the graph to see its details.
 ![trace graph key](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_graph-key.png)
 
 - Click **?** to view the graph legend.
+  Total time shows the duration of parent and child spans and presents the span time as a percentage of total trace duration
+  Selftime shows the duration for the parent span and presents the parent span selftime as a percentage of span total time
 - Click the options to see the trace graph colored by:
     - Service - default view
     - Total time - total duration of a span, including the time spent waiting on child spans

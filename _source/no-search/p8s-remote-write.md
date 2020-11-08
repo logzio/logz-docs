@@ -52,10 +52,10 @@ Within Prometheus:
 
 Your incoming time series data is saved with matching retention and aggregation, according to the existing solution and your account plan:
 
-  - 3 days - raw data
+<!-->  - 3 days - raw data
   - 7 days - 1-minute downsampling
   - 30 days - 10-minute downsampling
-  - 18 months- 60-minute downsampling
+  - 18 months- 60-minute downsampling -->
 
 ## Importing dashboards from Grafana
 You can import your existing dashboards to Logz.io either manually or via a bulk process. 

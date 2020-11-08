@@ -30,7 +30,7 @@ We recommend that you first instrument the frameworks that are supported out-of-
 
 You can use Jaeger, OpenTelemetry, or Zipkin libraries. Select the one that is best suited for your use case:    <!--AI when these are integrated:OpenCensus --!
 
-* <a href="https://www.jaegertracing.io/docs/latest/client-libraries/#supported-librarieshttps://www.jaegertracing.io/docs/1.17/client-libraries/#supported-libraries" target="_blank">Jaeger client libraries</a> <i class="fas fa-external-link-alt"></i>
+* <a href="https://www.jaegertracing.io/docs/latest/client-libraries/#supported-libraries" target="_blank">Jaeger client libraries</a> <i class="fas fa-external-link-alt"></i>
 * <a href="https://zipkin.io/pages/tracers_instrumentation" target="_blank">Zipkin libraries</a> <i class="fas fa-external-link-alt"></i>
 
 ### Tutorials 

@@ -12,6 +12,7 @@ contributors:
 ---
 ### **_Coming soon!_**
 
-Create a JSON file of the trace you’re viewing, and save it. 
+Generate the JSON representation for a trace (with all its data) from your search, then copy and paste the text to a file or into a ticket to capture the trace information. 
 
-For example, if you have a ticket open on retention issues, generate and attach the relevant traces as a JSON file for later viewing when you work on the ticket.
+At a later time, you can load the JSON directly into the Jaeger interface without having to search and view the trace data, even after the retention period for that data has expired. 
+

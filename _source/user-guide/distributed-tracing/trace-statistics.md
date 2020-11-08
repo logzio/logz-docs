@@ -10,7 +10,7 @@ tags:
 contributors:
   - yberlinger
 ---
-This view lets you simplify and focus on the patterns within a trace. You can group the spans by up to two statistical properties, and use different metrics to highlight the results. 
+This view lets you simplify and focus on the patterns within a trace. You can group the spans by up to two tag attributes, and use different metrics to highlight and compare the results within the groups. You can use this view to spot high latencies and anomalies in services. 
 
 + View the details of the trace within a table
 + Select group and subgroup filters for the table

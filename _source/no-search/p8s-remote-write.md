@@ -44,9 +44,11 @@ Within Prometheus:
 
   - To find the default token in the <a href ="https://app.logz.io/#/dashboard/settings/general" target="_blank">General Settings</a> page, click **<i class="li li-gear"></i> > Settings > General** in the top menu.
 
-<video autoplay loop>
+![General settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1.png)
+
+<!-- <video autoplay loop>
     <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/p8sgo-to-acct_settings2.mp4" type="video/mp4"/>
-</video>
+</video>  -->
 
   - To find the correct listener URL for your region, look in the <a href ="/user-guide/log-shipping/listener-ip-addresses.html" target="_blank">_Listener IP Addresses_</a> topic. 
 

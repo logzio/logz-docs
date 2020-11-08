@@ -13,10 +13,10 @@ contributors:
 
 You can set up Logz.io log alerts to automatically get notified about issues that demand attention.
 
-Community plans can have only a limited number of alerts enabled at once. See the official [pricing page](https://logz.io/pricing/) for details.
+Community plans have a limit on the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
 {:.info-box.note}
 
-#### To configure an alert
+#### Configuring an alert
 
 <div class="tasklist">
 
@@ -26,7 +26,10 @@ Give your alert a meaningful name. When your alert triggers, its name is used as
 
 ##### Search components
 
-Next, set the search components. They determine which logs to look for and in which account.
+Next, set the search components. This determines which logs to look for and in which accounts.
+
+If you intend to create a correlated alert with 2 queries, see the [this guide](/user-guide/alerts/correlated-alert/).
+
 
 ![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-search-component.png)
 
@@ -38,13 +41,11 @@ You can use any combination of filters and a search query. Note the following:
   * You have the option to use wildcards.
   * Kibana Query Language (KQL) is not supported.
 
-* All Kibana Filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
+* All filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
 
 
-Once you're done refining your search query and filters,
-click **Preview in Kibana** to review the returned logs
-and make sure you get the expected results.
-
+Once you're done refining your search query and filters, you can
+click **Preview in Kibana** to open Kibana Discover in another tab. It can help to review the returned logs and make sure you get the expected results.
 
 ###### Group-by (order matters!)
 
@@ -54,16 +55,10 @@ The order of group-by fields matters. Results are grouped in the order in which 
 
 For example, the following will group results by continent, then country, then city:
 
-![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--group-by.png)
+![Ordered group by field functions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/ordered-group-by.png)
 
-That's because the results are aggregated in the following order:
-
-1. geoip.continent_code
-2. geoip.country_name
-3. geoip.city_name
-
-If we had reversed the order (city, then country, then continent),
-it would likely have generated unintended results.
+If we reverse the order (city, then country, then continent),
+it will likely generate unintended results.
 
 ###### Accounts to search
 
@@ -75,12 +70,11 @@ Next, select the **Accounts to search**. An account is the equivalent of an Elas
 
 ##### Set threshold and severity levels
 
+Set your threshold and severity levels.
+
+In the _Trigger if..._ section, click **Add a threshold** to set as many as 5 threshold conditions, each with its own severity tag.
+
 ![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings.png)
-
-Set your threshold and severity levels in the _Trigger if..._ section.
-
-Click **Add a threshold** to set up to 5 threshold levels,
-each with its own severity tag.
 
 ##### _(Optional)_ Set notification details
 
@@ -93,7 +87,7 @@ It's also included with emails and Slack messages when the alert is triggered.
 We recommend making your description helpful to recipients,
 like telling them how to fix the issues that led to the alert.
 
-The **Tags** are useful for filtering the _Alert definitions_ page.
+The **Tags** are useful for filtering. They can be used to create filtered visualizations and dashboards or to filter the _Alert definitions_ page.
 
 ###### Who to send it to
 
@@ -115,29 +109,20 @@ Logz.io will continue to log triggered alerts without sending notifications.
 You can search triggered alert logs at any time.
 {:.info-box.note}
 
-###### Output format
+###### Output format & content
 
-Recipients will receive the notification with sample data,
-so you'll need to choose whether to send the data
-as **JSON** or in a **Table**.
+When triggered, the alert will send out a notification with sample data.
+
+Sample data can be sent in either **JSON** or **Table** formats. Toggle the button to select your preferred format.
+
+If the alert includes any aggregation or group by field, the notification output will send the aggregated results by default.
+
+To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](/user-guide/alerts/regex-filters.html)
+
+  * If you select the JSON format, you can send the full log (with all fields) or select as many as 7 fields.
+  * If you select a table, you can send as many as 7 fields.
 
 ![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields.png)
-
-If you're sending a sample JSON,
-you can include **All fields** or **Custom fields**.
-If you're sending a table with sample data,
-you can include up to 7 fields.
-
-For custom fields,
-click **<i class="li li-plus"></i> Add a field** to add the field to your output.
-You can optionally sort by one field or filter the samples with a regular expression.
-
-If you added any groups or used an aggregated trigger condition
-(minimum, maximum, average, or sum),
-the output will include only the grouped or aggregated fields.
-To change these fields,
-you'll need to first change your **Group by** or **Trigger if...** settings.
-{:.info-box.note}
 
 ##### Save it!
 

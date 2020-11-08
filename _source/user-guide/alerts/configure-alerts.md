@@ -28,6 +28,9 @@ Give your alert a meaningful name. When your alert triggers, its name is used as
 
 Next, set the search components. This determines which logs to look for and in which accounts.
 
+If you intend to create a correlated alert with 2 queries, see the [this guide](/user-guide/alerts/correlated-alert/).
+
+
 ![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-search-component.png)
 
 ###### Query and filters
@@ -38,7 +41,7 @@ You can use any combination of filters and a search query. Note the following:
   * You have the option to use wildcards.
   * Kibana Query Language (KQL) is not supported.
 
-* All Kibana Filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
+* All filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
 
 
 Once you're done refining your search query and filters, you can
@@ -84,7 +87,7 @@ It's also included with emails and Slack messages when the alert is triggered.
 We recommend making your description helpful to recipients,
 like telling them how to fix the issues that led to the alert.
 
-The **Tags** are useful for filtering the _Alert definitions_ page.
+The **Tags** are useful for filtering. They can be used to create filtered visualizations and dashboards or to filter the _Alert definitions_ page.
 
 ###### Who to send it to
 

@@ -74,7 +74,7 @@ For example, if we enable 2 joins: by the fields hostname and then IP address, t
 
 ##### Trigger conditions
 
-When an {{include.name}} has 2 queries, you can set a single condition for each of your queries, and a single severity.
+When the {{include.name}} has 2 queries, you can set a single condition for each of your queries, and a single severity.
 
 As usual, each query can take a different condition for a field of your choice.
 

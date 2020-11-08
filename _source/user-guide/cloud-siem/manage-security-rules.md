@@ -34,6 +34,8 @@ Give your rule a meaningful name. When your rule triggers, its name is used as t
 
 Next, set the search components. This determines which logs to look for and in which accounts.
 
+If you intend to create a correlated rule with 2 queries, see [this guide](/user-guide/siem/security-correlated-queries/).
+
 ![rule group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/configure-security-rule.png)
 
 ###### Query and filters
@@ -44,7 +46,7 @@ You can use any combination of filters and a search query. Note the following:
   * You have the option to use wildcards.
   * Kibana Query Language (KQL) is not supported.
 
-* All Kibana Filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
+* All filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
 
 Once you're done refining your search query and filters, you can
 click **Preview in Kibana** to open Kibana Discover in another tab. It can help to review the returned logs and make sure you get the expected results.

@@ -103,6 +103,41 @@ firstLevel:
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
 
+    # ===== DISTRIBUTED TRACING =====
+- title: Distributed Tracing
+  icon: fas fa-align-left    
+
+  secondLevel:
+  - title: Why Distributed Tracing?
+    url: /user-guide/distributed-tracing/
+  - title: Getting started
+    url: /user-guide/distributed-tracing/getting-started-tracing/
+    thirdLevel:
+    - title: Deploying components in your system
+      url: /user-guide/distributed-tracing/deploying-components
+    - title: Kubernetes deployment reference
+      url: /user-guide/distributed-tracing/k8s-deployment
+    - title: Setting up instrumentation and ingesting traces
+      url: /user-guide/distributed-tracing/tracing-instrumentation 
+  - title: The Grand Distributed Tracing Tour
+    url: /user-guide/distributed-tracing/tracing-tour/
+    thirdLevel: 
+    - title: Trace Timeline
+      url: /user-guide/distributed-tracing/trace-timeline/
+    - title: Trace Graph
+      url: /user-guide/distributed-tracing/trace-graph/
+    - title: Trace Statistics
+      url: /user-guide/distributed-tracing/trace-statistics/
+    - title: Trace JSON
+      url: /user-guide/distributed-tracing/trace-json/ 
+    - title: Compare traces
+      url: /user-guide/distributed-tracing/compare-traces   
+    - title: Topology diagrams
+      url: /user-guide/distributed-tracing/topology-system_architecture    
+  - title: Correlate logs and traces
+    url:  /user-guide/distributed-tracing/correlate-traces/
+
+      
   # ===== CLOUD SIEM =====
 - title: Cloud SIEM
   icon: fas fa-shield-alt

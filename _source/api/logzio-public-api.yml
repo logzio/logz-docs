@@ -60,9 +60,6 @@ info:
     For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
 
 
-    
-
-
   title: Logz.io API
   termsOfService: 'https://logz.io/about-us/terms-of-use/'
   contact:
@@ -75,13 +72,16 @@ info:
 securityDefinitions:
   X-API-TOKEN:
     description: >-
-      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
-      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+      You can manage your API tokens from the [Logz.io API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
+      
+      
+      API tokens are account-specific. You will need to be logged into the relevant Log Management or SIEM account to view the API tokens associated with it.
 
 
-      API tokens carry privileges to make changes to users and accounts,
-      so it's important to keep your tokens secure. If you believe an API token has been compromised,
-      delete the compromised token, and replace it with a new token in your integrations.
+      To manage your API tokens, log into the relevant account in your Logz.io platform, click the gear in the top-right menu, and select [**Tools > Manage tokens > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+
+      
+      It's important to keep your tokens secure. API tokens carry privileges to make changes to users and accounts, so if you believe an API token has been compromised, delete it, and replace it with a new token in your integrations.
     type: apiKey
     in: header
     name: X-API-TOKEN
@@ -241,7 +241,7 @@ paths:
           * [Folder/dashboard search](https://grafana.com/docs/grafana/latest/http_api/folder_dashboard_search/)
           * [Snapshot](https://grafana.com/docs/grafana/latest/http_api/snapshot/)
 
-    
+        **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
       tags:
         - Grafana gateway
       operationId: grafanaGateway
@@ -2621,6 +2621,9 @@ paths:
 
         
         You have the option to filter by rule name, rule severity, and/or event timestamp, and sort the results by time and/or severity, but this is not required. If you send the query with an empty JSON body, it returns all of the events logged in your Logz.io Cloud SIEM, going as far back as your account's retention permits.
+
+
+        **Note:** Run this endpoint with an API token for your Logz.io Security account.
       tags:
         - Security events
       operationId: searchSecurityRulesEvents
@@ -2632,16 +2635,7 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/AlertsEventsSearchRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication API Token
-          required: false
-          type: string
-        #- name: X-AUTH-TOKEN
-        #  in: header
-        #  description: Authentication User Session
-        #  required: false
-        #  type: string
+
       x-code-samples:
         - lang: cURL
           source: >-
@@ -2686,6 +2680,9 @@ paths:
         
         
         This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
+
+
+        **Note:** Run this endpoint with an API token for your Logz.io Security account.
       tags:
         - Security events
       operationId: searchSecurityRuleEventLogs

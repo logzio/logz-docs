@@ -57,7 +57,7 @@ Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team f
 3. Search for the trace ID field you want to correlate with your logs and select **Edit**. In this example, the field name is **traceID**.
     ![search for and edit the traceID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace3.png)
 4. Change the **Format** to **URL** and enable **Open in a new tab**.
-    ![Change format and open](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace4.png)
+    ![Change format and open](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace4a.png)
 5. Using your main account, insert the following template in the **URL template** field of the Jaeger user interface (UI), and **Save field**. 
     `https://app.logz.io/#/dashboard/jaeger/trace/{{value}}`
 

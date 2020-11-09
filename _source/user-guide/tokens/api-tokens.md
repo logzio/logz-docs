@@ -35,3 +35,13 @@ You have full control over your API tokens, to create and delete them at any tim
 * To delete an API token, hover over it, and click **delete** <i class="li li-trash"></i> to delete it.
 
   Deleting a token affects any integrations that use that token. Make sure you update integrations that use a token you deleted.
+
+
+
+| Account type | How to get the API token |
+|---|---|
+| Log Management main account | Log into the Main Log Management account, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab. |
+| Log Management sub account | Log into the Log Management sub account, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab. |
+| Metrics account | Log into the Main Log Management account, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab. |
+| Security account | Log into the security account, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab.   |
+

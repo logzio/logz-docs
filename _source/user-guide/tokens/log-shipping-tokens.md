@@ -4,7 +4,7 @@ title: Log shipping tokens
 permalink: /user-guide/tokens/log-shipping-tokens/
 flags:
   admin: true
-  logzio-plan: pro
+  logzio-plan: community
 tags:
   - tokens
   - account-tokens
@@ -18,11 +18,12 @@ Every account has its own set of tokens. Only account admins have permissions to
 
 To manage your log shipping tokens, select an account. Then select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) in the top menu and select the **Log shipping tokens** tab.
 
-
+Community plans have a limit on the number of tokens that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
+{:.info-box.note}
 
 #### Managing log shipping tokens
 
-You can have up to 5 tokens enabled simultaneously.
+You can have several tokens enabled simultaneously. The limit is clearly stated directly on the page and depends on your account level.
 
 * To create a token, click **+ New log shipping token**, type in a **name**, then click **Add**. The new token will be enabled by default.
 
@@ -46,7 +47,7 @@ The default token is auto-populated in the [configuration instructions](https://
 If you prefer to view the configuration instructions outside the app, note that you will need to replace the the `<<SHIPPING-TOKEN>>` parameter with one of your enabled log shipping tokens. See more in the [log shipping guide]({{site.baseurl}}/shipping/).
 
 
-#### Security advantages
+### Security advantages
 
 Having multiple log shipping tokens gives you greater control to manage your tokens and to decide when and how to reset them for regulatory compliance reasons or for security best-practices.
 

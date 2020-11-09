@@ -98,7 +98,7 @@ and then click **Create**.
         "logDriver": "awsfirelens",
         "options": {
           "Name": "Http",
-          "Host": "listener.logz.io",
+          "Host": "<<LISTENER-HOST>>",
           "URI": "/?token=<<SHIPPING-TOKEN>>&type=fargate",
           "Port": "8071",
           "tls": "on",
@@ -131,7 +131,7 @@ and then click **Create**.
 | Parameter | Description |
 |---|---|
 | image | Replace `<<YOUR-APP-IMAGE>>` with the name of the image you want to ship logs from. |
-| logConfiguration.options.Host | Your region's listener host. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| logConfiguration.options.Host | Replace `<<LISTENER-HOST>>` with with the [listener URL]({{site.baseurl}}/user-guide/accounts/account-region.html) of the account you want to ship to. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | logConfiguration.options.URI | {% include log-shipping/replace-vars.html token=true %} |
 {:.paramlist}
 

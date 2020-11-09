@@ -1,5 +1,5 @@
 ---
-title: Ship Azure Event Hub metrics 
+title: Ship Azure Event Hub metrics
 logo:
   logofile: azure-event-hubs.svg
   orientation: vertical
@@ -13,9 +13,9 @@ shipping-tags:
 
 ---
 
-You can ship Azure Event Hub metrics using Metricbeat to monitor your Azure services. 
+You can ship Azure Event Hub metrics using Metricbeat to monitor your Azure services.
 First, you'll need to configure your services
-to send their metrics to Azure Monitor. 
+to send their metrics to Azure Monitor.
 Next, you'll configure Metricbeat
 to collect metrics from Azure Event Hub
 and forward them to [Logz.io](http://logz.io/).
@@ -80,14 +80,7 @@ You'll need this information later on, so paste it in your text editor.
 "password": "85a75902-e75a-5b55-9142-bbb317e0eb5a",
 ```
 
-##### Download the [Logz.io](http://logz.io/) public certificate
-
-For HTTPS shipping, download the [Logz.io](http://logz.io/) public certificate to your certificate authority folder.
-You'll need to run this command on the server that hosts Metricbeat:
-
-```
-sudo curl <https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt> --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Metricbeat server" %}
 
 ##### (_Optional_) Disable the system module
 

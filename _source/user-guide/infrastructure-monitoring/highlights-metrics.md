@@ -47,7 +47,7 @@ Once you’re ready to move to the next level, you can duplicate any of the prec
 
 ### Maintain data integrity over an extended time
 
-Your Lgoz.io Metrics account offers 18 month retention by default, to keep your data long enough to establish your baseline and make comparisons over a substantial time frame. 
+Your Logz.io Metrics account offers 18 month retention by default, to keep your data long enough to establish your baseline and make comparisons over a substantial time frame. 
 
 Data rollups compress the data without losing the original extremes. 
 The original max. and min. values are kept in addition to the averages 

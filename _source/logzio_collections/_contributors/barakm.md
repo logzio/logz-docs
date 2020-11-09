@@ -1,6 +1,6 @@
 ---
 title: Barak Merimovich
-linkedin: https://www.linkedin.com/in/barakmerimovich/
+linkedin: /barakmerimovich/
 github: barakm
 
 logzio-role: Head of Architecture

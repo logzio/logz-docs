@@ -59,7 +59,6 @@ For a complete list of options, see the parameters below the code block.👇
 ```shell
 docker run --name docker-collector-logs \
 --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
---env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
 -v /var/run/docker.sock:/var/run/docker.sock:ro \
 -v /var/lib/docker/containers:/var/lib/docker/containers \
 logzio/docker-collector-logs
@@ -70,7 +69,7 @@ logzio/docker-collector-logs
 | Parameter | Description |
 |---|---|
 | LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
-| LOGZIO_URL <span class="required-param"></span> | Logz.io listener URL to ship the logs to. {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_REGION | Default: US region.<br> Logz.io region code to ship the logs to. This region code changes depending on the region your account is hosted in. For example, accounts in the EU region have region code `eu`.<br /> For more information, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) on the Logz.io Docs. |
 | LOGZIO_TYPE <span class="default-param">Docker image name</span> | The log type you'll use with this Docker. This is shown in your logs under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
 | LOGZIO_CODEC <span class="default-param">`plain`</span> | Set to `json` if shipping JSON logs. Otherwise, set to `plain`. |
 | ignoreOlder <span class="default-param">`3h`</span>|  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). |
@@ -79,6 +78,7 @@ logzio/docker-collector-logs
 | skipContainerName | Comma-separated list of containers you want to ignore. If a container's name partially matches a name on the list, that container's logs are ignored. Otherwise, its logs are shipped. <br> **Note**: Can't be used with matchContainerName |
 | includeLines | Comma-separated list of regular expressions to match the lines that you want to include. <br> **Note**: Regular expressions in this list should not contain commas. |
 | excludeLines | Comma-separated list of regular expressions to match the lines that you want to exclude. <br> **Note**: Regular expressions in this list should not contain commas. |
+| renameFields | Rename fields with every message sent, formatted as `"oldName,newName;oldName2,newName2"`. To use an environment variable, format as `"oldName,newName;oldName2,$ENV_VAR_NAME"`. When using an environment variable, it should be the only value in the field. If the environment variable can't be resolved, the field will be omitted. |
 {:.paramlist}
 
 By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.

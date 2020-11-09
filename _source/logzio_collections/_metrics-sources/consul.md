@@ -41,7 +41,7 @@ Update the file with the following telemetry stanza:
 
 Save the file and restart the Consul on the server.
 
-##### Check the localhost on the Consul server
+##### Test the localhost on the Consul server
 
 Now the metrics for this Consul server will be exposed locally in Prometheus format under the following endpoint:
 
@@ -49,13 +49,7 @@ Now the metrics for this Consul server will be exposed locally in Prometheus for
 http://127.0.0.1:8500/v1/agent/metrics?format=prometheus
 ```
 
-##### Download the Logz.io public certificate
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Metricbeat server" clarification="You'll need to run this command on the server that hosts Metricbeat:" %}
 
 ##### Set metricbeat modules on Consul servers
 

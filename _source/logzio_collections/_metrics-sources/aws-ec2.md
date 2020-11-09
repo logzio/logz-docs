@@ -200,13 +200,7 @@ and the slug for Canada (Central) is "ca-central-1".
 Paste your region slug in your text editor.
 You'll need this for your Metricbeat configuration later.
 
-##### Download the Logz.io public certificate to your Metricbeat server
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Metricbeat server" %}
 
 ##### _(Optional)_ Disable the system module
 

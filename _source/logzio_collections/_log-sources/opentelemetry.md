@@ -12,8 +12,7 @@ shipping-tags:
 ---
 
 Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces to Logz.io from different APM agents, such as Jaeger, Zipkin, etc.
-Jaeger-Logz.io is a storage option for Jaeger.
-It allows Jaeger to store distributed traces on your Logz.io account.
+
 
 #### How it works
 
@@ -35,7 +34,7 @@ You can use [this config file](https://github.com/open-telemetry/opentelemetry-c
 
 Save the file as `config.yaml`
 
-3. Deploy the OpenTelemetry collector.
+3. Deploy the OpenTelemetry collector and mount the config file you saved.
 
 ```
 docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 -p 9411:9411 \

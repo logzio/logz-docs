@@ -12,8 +12,13 @@ shipping-tags:
 <div class="branching-container">
 
 <!-- tab:start -->
-This implementation is uses a filebeat DaemonSet to collect Kubernetes logs. allows you to ship logs from your Kubernetes cluster to Logz.io.
-You can either deploy this Daemonset with the standrad configuration, or with autodiscover configuration. For further information about Filebeat's autodiscover please see [Autodiscover documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
+This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your cluster and ship them to Logz.io.</br>
+You have 3 ways to deploy this Daemonset:
+* Standard configuration - standard built-in configuration.
+* Autodiscover configuration - built-in configuration that uses Filebeat's autodiscover and hints system.
+* Custom configuration - upload logz.io Daemonset with your own configuration.
+For For further information about Filebeat's autodiscover please see [Autodiscover documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
+
 <div id="standard-config">
 
 **Before you begin, you'll need**:
@@ -44,7 +49,7 @@ kubectl create secret generic logzio-logs-secret \
 
 ##### For standard configuration deployment:
 ```shell
- kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
+kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
 ##### For autodiscover configuration deployment:
@@ -55,9 +60,50 @@ Autodiscover allows you to adapt settings as changes happen. By defining configu
 
 ##### If you want to apply  your one custom configuration:
 Download standard-configmap.yaml and apply your changes there, make sure that you will have the same structure of the file.
-  
+
 ```shell
-kubectl apply -f /Users/fadikhatib/logzio/integration-team/logz-docs/_source/logzio_collections/_log-sources/standard-filebeat-daemonset.yaml -f <<Your-custom-configuration-file.yaml>>
+wget https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
+```
+
+**Note:** You suppose to make changes only to the content of the field 'filebeat.yml' (witch contains a basic Filebeat configuration),for more information about configuring filebeat see [Configure Filebeatedit](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html)
+```
+filebeat.yml: |-
+  
+  # ...
+  # Start editing your configuration here 
+  filebeat.inputs:
+  - type: container
+    paths:
+      - /var/log/containers/*.log
+    processors:
+      - add_kubernetes_metadata:
+          host: ${NODE_NAME}
+          matchers:
+          - logs_path:
+              logs_path: "/var/log/containers/"
+
+  processors:
+    - add_cloud_metadata: ~
+  # ...
+  # End editing your configuration here (you are not suppose to change 'fields' and 'output' )
+
+  fields:
+    logzio_codec: ${LOGZIO_CODEC}
+    token: ${LOGZIO_LOGS_SHIPPING_TOKEN}
+    cluster: ${CLUSTER_NAME}
+    type: ${LOGZIO_TYPE}
+  fields_under_root: true
+  ignore_older: ${IGNORE_OLDER}
+  output:
+    logstash:
+      hosts: ["${LOGZIO_LOGS_LISTENER_HOST}:5015"]
+      ssl:
+        certificate_authorities: ['/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt']
+---
+```
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f <<Your-custom-configuration-file.yaml>>
 ```
 
 #### 3. Check Logz.io for your logs

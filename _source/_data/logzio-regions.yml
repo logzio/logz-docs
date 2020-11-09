@@ -7,7 +7,8 @@
 #   suffix: The two-letter region code that we append to the app, listener, and api urls. No suffix for US East.
 #   listener-ips: Array of IP addresses. Any changes to IP addresses must be reviewed and approved by Core.
 
-- title: US East (Northern Virginia)
+- suffix: us
+  title: US East (Northern Virginia)
   cloud: AWS
   listener-ips:
     - 23.22.183.192

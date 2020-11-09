@@ -70,6 +70,6 @@ and then select your data's original **Time Range**.
 {:.info-box.tip}
 
 Now you're ready to search your restored account!
-Just be aware of the expiration—once the restored account expires, you'll have to restore it if you need it again.
+Just be aware of the expiration—once the restored account expires after 5 days, you'll have to restore it if you need it again.
 
 </div>

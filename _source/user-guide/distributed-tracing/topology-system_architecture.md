@@ -38,11 +38,9 @@ For more information, see the <a href = "https://www.jaegertracing.io/docs/1.20/
 
 ### Viewing the force directed graph  (--Coming SOON!--)
 To highlight a specific service in the force directed graph, you can drag and zoom in on the image. 
-![Force directed graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/force-directed-graph.png)
 
 To change the focus and see service dependencies, you can click a node to highlight the segments for the spans that are related to that node.
-<!--![Force graph context switch](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/force-directed3.gif)-->
-
+![Change focus in force directed graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/fgraph-animated.gif)
 
 ### Viewing the directed acyclic graph (DAG)
 To view the details of the calls in the directed acyclic graph (DAG), you can drag and zoom in on the image. 

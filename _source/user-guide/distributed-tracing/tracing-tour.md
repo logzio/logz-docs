@@ -112,4 +112,4 @@ By default, the trace opens in the timeline view. Select an option for different
 [Select traces for comparison and find out how they differ.](/user-guide/distributed-tracing/compare-traces)
 
 ##### View Topology diagrams for your system
-[Configure the deep dependency, force directed, and directed acyclic graphs to highlight service paths.](/user-guide/distributed-tracing/compare-traces)
+[Configure the deep dependency, force directed, and directed acyclic graphs to highlight service paths.](/user-guide/distributed-tracing/topology-system_architecture/)

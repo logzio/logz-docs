@@ -25,8 +25,8 @@ contributors:
 
 Your Distributed Tracing account complements your logging ELK stack. To reach it, log into your Logz.io Operations workspace and select the **Jaeger** or **Tracing** tab.
 
-Don’t see it? By default, your Distributed Tracing account is accessed from your main account. If you don’t see the **Tracing**  tab, the account doesn’t have permissions to it. [Learn how to grant sub accounts permissions for Tracing](/user-guide/users/).
-![tracing tour](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_tour1.png)
+By default, your Distributed Tracing account is accessed from your main account. 
+![tracing tour](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_tour1a.png)
 
 ##### Find traces 
 After you log in to your Distributed Tracing account, you’ll want to find traces to view, either by trace ID lookup, by searching for traces, or by uploading a JSON file:  
@@ -42,7 +42,20 @@ After you log in to your Distributed Tracing account, you’ll want to find trac
 ##### Search for traces 
 You search for and view traces on the **Search** page. 
 Use the following fields to search for traces: 
-![Search traces page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/search_fields_table.png)
+![Search traces page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-search-fields1.png)
+
+
+|-----------------+----------------|
+| Field | Description  |
+|---------------+---------------|
+| Service   |Select a service in your system  |
+| Operation | Select an available operation from the list        |
+| Tags      | Each span has its own set of tags <br>Use the preconfigured tags that were used to enrich your traces to further refine your trace searches<br>The added business logic information makes for easier debug processes |
+|Lookback                        |Select the time frame for the query|
+|Min and Max Duration  |Set the minimum and maximum durations for the traces you want the query to      return<br> Use these parameters to obtain more focused results and reveal performance issues |
+| Limit Results                  |Set the maximum number of results for the query <br>Up to 500 traces can be returned|      
+|-----------------+----------------|
+
     
 ###### Tag formatting requirements
 * Use a space for conjunctions 

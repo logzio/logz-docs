@@ -91,7 +91,7 @@ The **Tags** are useful for filtering. They can be used to create filtered visua
 
 ###### Who to send it to
 
-![Recipients and suppress notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-suppress.png)
+![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-wait.png)
 
 If you want to send notifications or emails when the alert is triggered,
 choose notification endpoints.
@@ -102,12 +102,7 @@ If you need help adding a new endpoint,
 see [_Notification endpoints_]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 
 To limit how often recipients are notified,
-choose a time period to suppress notifications.
-
-When notifications are suppressed,
-Logz.io will continue to log triggered alerts without sending notifications.
-You can search triggered alert logs at any time.
-{:.info-box.note}
+choose a time period to wait between sending out notifications. Logz.io will continue to log triggered alerts without sending notifications, and you will be able to [review triggered alerts](/user-guide/alerts/view-triggered-alerts.html) directly from the Logz.io platform at any time.
 
 ###### Output format & content
 

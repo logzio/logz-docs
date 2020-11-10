@@ -228,11 +228,13 @@ firstLevel:
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:
-    - title: Manage log shipping tokens
+    - title: Log shipping tokens
       url: /user-guide/tokens/log-shipping-tokens/
-    - title: Manage shared tokens
+    - title: Metrics shipping token
+      url: /user-guide/accounts/finding-your-metrics-account-token/
+    - title: Shared tokens
       url: /user-guide/tokens/shared-tokens.html
-    - title: Manage API tokens
+    - title: API tokens
       url: /user-guide/tokens/api-tokens.html
 
   - title: Archive & restore

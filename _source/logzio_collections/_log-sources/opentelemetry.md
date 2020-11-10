@@ -11,12 +11,17 @@ shipping-tags:
   - traces
 ---
 
-Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces to Logz.io from different APM agents, such as Jaeger, Zipkin, etc.
+Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces to Logz.io from different APM agents, such as Jaeger, Zipkin, and so on.
 
 
 #### How it works
 
-The OpenTelemetry Collector pipeline has 3 main components know as receivers, processors and exporters. In addition, to extensions built in OpenTelemetry for additional functionality such as diagnostics and health checks. OpenTelemetry have dedicated collector for contributed components such as Logz.io exporter.
+The OpenTelemetry Collector pipeline has the following main components: 
+* Receivers
+* Processors 
+* Exporters. 
+
+OpenTelemetry also includes extentions for additional functionality such as diagnostics and health checks. OpenTelemetry has a dedicated collector for contributed components, such as the Logz.io exporter.
 
 #### Deploy OpenTelemetry Collector with Logz.io Exporter
 
@@ -26,9 +31,9 @@ docker pull otel/opentelemetry-collector-contrib:latest
 ```
 
 2. Create a config file to mount to the container. The config file must include the required components for the OpenTelemetry Collector - receivers, processors, exporters, services and optional extensions.
-You can use [this config file](https://github.com/open-telemetry/opentelemetry-collector-contrib/exporter/logzioexporter/example/config.yaml) as a starting point with the following logzio exporter parameters:
+You can use [this config file](https://github.com/open-telemetry/opentelemetry-collector-contrib/exporter/logzioexporter/example/config.yaml) as a starting point, with the following logzio exporter parameters:
 
-* `account_token` (Required): Your logz.io account token for your tracing account.
+* `account_token` (Required): The Logz.io account token for your tracing account.
 * `region` (Optional): Your logz.io account [region code](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). Defaults to `us`. Required only if your logz.io region is different than US.
 * `custom_listener_address` (Optional): Custom traces endpoint, for dev. This will override the region parameter.
 

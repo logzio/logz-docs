@@ -1,5 +1,8 @@
 ---
 title: Ship traces with OpenTelemetry to Logz.io
+logo:
+  logofile: cisco-meraki-logo.png
+  orientation: horizontal
 data-source: Jaeger, Zipkin, OpenCensus, OpenTelemetry
 description: How to deploy an OpenTelemetry Collector for traces to logz.io
 open-source:

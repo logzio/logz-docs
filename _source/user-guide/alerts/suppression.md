@@ -18,11 +18,9 @@ To avoid this problem, you can add a waiting period between alert notifications 
 
 ### Escalations and De-escalations
 
-If you have several thresholds with different severities configured for an alert, each is evaluated independently when it comes to waiting between notifications.
+If you add a waiting period between notifications, they do not delay notifications of escalations or de-escalations.
 
-If the same alert triggers multiple times within the waiting period but for _different thresholds_, the notifications for each threshold is sent out without waiting. 
-
-In other words, if you add a waiting period between notifications, they do not delay notifications of escalations or de-escalations.
+If you have several thresholds with different severities configured for an alert, each is evaluated independently. If the same alert triggers multiple times within the waiting period but for _different thresholds_, a notification for each threshold is sent out without waiting.
 
 ![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/multiple-thresholds.png)
 

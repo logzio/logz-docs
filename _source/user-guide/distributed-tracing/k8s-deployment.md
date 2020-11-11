@@ -3,7 +3,7 @@ layout: article
 title: Kubernetes deployment reference
 permalink: /user-guide/distributed-tracing/k8s-deployment
 flags:
-  logzio-plan: community
+  logzio-plan: pro enterprise
   beta: true 
 tags:
   - distributed tracing

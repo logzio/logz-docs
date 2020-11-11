@@ -3,7 +3,7 @@ layout: article
 title: Compare traces
 permalink: /user-guide/distributed-tracing/compare-traces
 flags:
-  logzio-plan: community
+  logzio-plan: pro enterprise
   beta: true
 tags:
   - distributed tracing

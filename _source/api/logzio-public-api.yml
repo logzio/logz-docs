@@ -2714,6 +2714,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
   AlertOutput:
     type: object
+    description: Add output parameters for Logz.io to automatically send out notifications with sample results when the alert triggers.
     properties:
       recipients:
         $ref: '#/definitions/AlertRecipients'
@@ -2722,7 +2723,7 @@ definitions:
         format: int32
         minimum: 5
         maximum: 1440
-        description: Add a waiting period in minutes to space out notifications. [Learn more](docs.logz.io/user-guide/alerts/suppress-notifications/)
+        description: Add a waiting period in minutes to space out notifications.
         example: 60
       type:
         type: string
@@ -2768,9 +2769,9 @@ definitions:
     properties:
       emails:
         type: array
+        description: Array of email addresses that should be notified when the alert triggers.
         items:
           type: string
-          description: Array of email addresses that should be notified when the alert triggers.
           example: tom.a@logz.io, tim.a@logz.io
       notificationEndpointIds:
         type: array
@@ -2781,6 +2782,7 @@ definitions:
           example: 10101, 10102
   SubAlert:
     type: object
+    description: Sets the search and trigger criteria for an alert. You can send an array of 2 objects to correlate logs from 2 queries [Corresponding UI](https://docs.logz.io/user-guide/alerts/correlated-alert/).
     properties:
       queryDefinition:
         $ref: '#/definitions/AlertQuery'
@@ -2801,14 +2803,15 @@ definitions:
           description: Join the fields
       joins:
         type: array
+        description: Specify an array of field pairs. The fields must be ordered pairs of the group by fields already in use in the alert query.
         items:
           type: object
           additionalProperties:
             type: string
-            description: Specify fields. Only fields already in use in the alert for group by operations are permitted.
-            example: request, response
+            example: {request, response}
   SubAlertOutput:
     type: object
+    description: Selects the data output to be sent in the notification when the alert triggers. Not applicable if the alert includes any group by or aggregation operations. When using group by fields or triggering on aggregated results, default output is sent.
     properties:
       columns:
         type: array
@@ -2816,8 +2819,8 @@ definitions:
           $ref: '#/definitions/ColumnConfig'
       shouldUseAllFields:
         type: boolean
-        description: Only relevant when no aggregations or group by rules are used. When the alert triggers, the notification ouput will include entire logs in the sample data.
-        default: false
+        description: If `true`, the notification ouput will include entire logs with all of their fields in the sample data.
+        default: true
   AlertV2Request:
     type: object
     required:
@@ -2871,18 +2874,13 @@ definitions:
           - NOT_EQUALS
       severityThresholdTiers:
         type: object
+        definition: Set a severity label per trigger threshold as a key:value pair.
         enum:
           - INFO
           - LOW
           - MEDIUM
           - HIGH
           - SEVERE
-        definition: >-
-          Set a severity label per trigger threshold as a key:value pair. When the trigger conditions are met, the triggered alert will be labeled with the appropriate severity.
-          
-          
-          * If the alert has a single `subComponent`, as many as 5 severity-threshold pairs can be set. The severities must be ordered logically, in ascending order in accordance with the operator.
-          * If the alert has multiple `subComponents`, use only a single key:value pair.
         example: {MEDIUM:10, HIGH:100, SEVERE:300}
         default: MEDIUM
         additionalProperties:
@@ -2896,19 +2894,23 @@ definitions:
         $ref: '#/definitions/FilterLists'
   ColumnConfig:
     type: object
+    description: Customize the alert output to be sent out in notifications when the alert triggers.
     properties:
       fieldName:
         type: string
+        description: Specify the fields to be included in the notification.
       regex:
         type: string
+        description: Trims the data using regex filters. [Learn more](https://docs.logz.io/user-guide/alerts/regex-filters.html)
       sort:
         type: string
+        description: Sorts the data by the returned field values.
         enum:
           - DESC
           - ASC
   FilterLists:
     type: object
-    description: Filter the logs using 
+    description: Runs filters on the data (before the search query is applied). The most efficient way to grab the logs you are looking for.
     properties:
       must:
         type: array
@@ -2916,18 +2918,6 @@ definitions:
           type: object
           additionalProperties:
             type: object
-#      should:
-#        type: array
-#        items:
-#          type: object
-#          additionalProperties:
-#            type: object
-#      filter:
-#        type: array
-#        items:
-#          type: object
-#          additionalProperties:
-#            type: object
       must_not:
         type: array
         items:

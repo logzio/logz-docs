@@ -684,7 +684,7 @@ paths:
           headers: {}
     post:
       summary: Create an alert
-      description: Configures a new alert and activates it.
+      description: Configures and activates a new alert.
       tags:
         - Alerts
       operationId: createAlert
@@ -725,7 +725,7 @@ paths:
           headers: {}
     put:
       summary: Update an alert
-      description: Reconfigures, changes or updates an alert. The alert is identified by its alert ID in the Logz.io database.
+      description: Applies changes to an alert, identified by its ID.
       tags:
         - Alerts
       operationId: updateAlert
@@ -750,7 +750,7 @@ paths:
     delete:
       operationId: deleteAlert
       summary: Delete an alert
-      description: Deletes an alert. The alert is identified by its alert ID in the Logz.io database.
+      description: Deletes an alert identified by its ID.
       tags:
         - Alerts
       produces:
@@ -2661,50 +2661,51 @@ definitions:
       id:
         type: integer
         format: int32
-        description: ID
-        example: 
+        description: Logz.io alert ID
+        example: 627816
       updatedAt:
         type: integer
         format: int64
-        description: ID
-        example: 
+        description: Date and time in UTC when the alert was last updated
+        example: 2020-04-02T18:58:16.000Z
       updatedBy:
         type: string
-        description: ID
-        example: 
+        description: Email of the user who last updated the alert
+        example: tomer@logz.io
       createdAt:
         type: integer
         format: int64
-        description: ID
-        example: 
+        description: Date and time in UTC when the alert was first created updated.
+        example: 2020-02-02T18:58:16.000Z
       createdBy:
         type: string
-        description: ID
-        example: 
+        description: Email of the user who first created the alert
+        example: tomer@logz.io
       enabled:
         type: boolean
-        description: ID
-        example: 
+        description: If `true`, the alert is currently active.
+        exampe: true
       title:
         type: string
-        description: ID
-        example: 
+        description: Alert title
+        example: Excessive WARN levels in PROD
       description:
         type: string
-        description: ID
-        example: 
+        description: A description of the event, its significance, and suggested next steps or instructions for the team
+        example: Steps to remediate...
       tags:
         type: array
         items:
           type: string
-        description: ID
-        example: 
+        description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
+        example: network
       output:
         $ref: '#/definitions/AlertOutput'
       searchTimeFrameMinutes:
         type: integer
-        minimum: 
+        minimum: 5
         format: int32
+        description: The minimum recommended search timeframe is 5 minutes. Anything shorter will be less reliable and unnecessarily resource-heavy
       subComponents:
         type: array
         items:
@@ -2719,14 +2720,13 @@ definitions:
       suppressNotificationsMinutes:
         type: integer
         format: int32
-        minimum: 0
+        minimum: 5
+        maximum: 1440
+        description: Add a waiting period in minutes to space out notifications. [Learn more](docs.logz.io/user-guide/alerts/suppress-notifications/)
+        example: 60
       type:
         type: string
-        description: >-
-          Selects the output format for the alert notification.
-          
-          
-          Select JSON to send the alert notification in JSON format. Otherwise, select `TABLE` to send a truncated text notification.
+        description: Selects the output format for the alert notification.
         enum:
           - JSON
           - TABLE
@@ -2735,19 +2735,14 @@ definitions:
     properties:
       query:
         type: string
-        description: Provide a Kibana query written in Lucene syntax. The query along with the filters selects the relevant logs.
+        description: Provide a Kibana search query written in Lucene syntax. The search query together with the filters select for the relevant logs.
         default: "*"
-        example:
+        example: type:apache_access
       filters:
         $ref: '#/definitions/BoolFilter'
       groupBy:
         type: array
-        description: >-
-          Aggregate results by field values. If group by rules are applied, the alert only returns a unique count of the results aggregated by unique values.
-          
-          
-          * Up to 3 aggregations are possible.
-          * When aggregations are applied, the alert evaluates the query and filters per value per group by field.
+        description: Specify 1-3 fields by which to group the results and count them. If you apply a group by operation, the alert returns a count of the results aggregated by unique values.
         items:
           type: string
         maxItems: 3
@@ -2757,25 +2752,33 @@ definitions:
       shouldQueryOnAllAccounts:
         type: boolean
         default: true
+        example: false
         description: Only applicable when the alert is run from the main account. If `true`, the alert runs on the main account and all associated sub accounts. If `false`, only accounts specifically selected by the `accountIdsToQueryOn` field will be evaluated.
       accountIdsToQueryOn:
         type: array
+        description: Specify Account IDs to select which accounts the alert should monitor.
         items:
           type: integer
           format: int32
+          example: 2321, 2421
 
   AlertRecipients:
     type: object
+    description: Add email addresses and/or endpoint channels to automatically receive notifications when the alert triggers.
     properties:
       emails:
         type: array
         items:
           type: string
+          description: Array of email addresses that should be notified when the alert triggers.
+          example: tom.a@logz.io, tim.a@logz.io
       notificationEndpointIds:
         type: array
+        description: Array of IDs of pre-configured endpoint channels that should be notified when the alert triggers.
         items:
           type: integer
           format: int32
+          example: 10101, 10102
   SubAlert:
     type: object
     properties:
@@ -2787,6 +2790,7 @@ definitions:
         $ref: '#/definitions/SubAlertOutput'
   SubAlertCorrelation:
     type: object
+    description: Runs a join filter when scanning the data. The alert will only trigger when matching values are found.
     properties:
       correlationOperators:
         type: array
@@ -2794,12 +2798,15 @@ definitions:
           type: string
           enum:
             - AND
+          description: Join the fields
       joins:
         type: array
         items:
           type: object
           additionalProperties:
             type: string
+            description: Specify fields. Only fields already in use in the alert for group by operations are permitted.
+            example: request, response
   SubAlertOutput:
     type: object
     properties:
@@ -2813,17 +2820,26 @@ definitions:
         default: false
   AlertV2Request:
     type: object
+    required:
+      - title
+      - searchTimeFrameMinutes
     properties:
       title:
         type: string
+        description: Alert title
+        example: Excessive WARN levels in PROD
       description:
         type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team
+        example: Steps to remediate...
       tags:
         type: array
         items:
           type: string
         maxItems: 10
         minItems: 0
+        description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
+        example: network
       output:
         $ref: '#/definitions/AlertOutput'
       searchTimeFrameMinutes:
@@ -2831,7 +2847,7 @@ definitions:
         format: int32
         minimum: 5
         maximum: 1440
-        definition: The time range for the scan. It is a sliding window, with 1 minute granularity. The minimum and maximum values are not validated, but if they are used, the results will be less accurate, due to certain limitations.
+        definition: The time frame for the scan is a sliding window, with 1 minute granularity. The recommended minimum and maximum values are not validated, but are required to guarantee the alert's accuracy.
         example: 20
       subComponents:
         type: array
@@ -2855,8 +2871,19 @@ definitions:
           - NOT_EQUALS
       severityThresholdTiers:
         type: object
-        definition: key:value pairs, must be ordered logically, in accordance with the operator.
-        example: {Info:2, MEDIUM:4}
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        definition: >-
+          Set a severity label per trigger threshold as a key:value pair. When the trigger conditions are met, the triggered alert will be labeled with the appropriate severity.
+          
+          
+          * If the alert has a single `subComponent`, as many as 5 severity-threshold pairs can be set. The severities must be ordered logically, in ascending order in accordance with the operator.
+          * If the alert has multiple `subComponents`, use only a single key:value pair.
+        example: {MEDIUM:10, HIGH:100, SEVERE:300}
         default: MEDIUM
         additionalProperties:
           type: number

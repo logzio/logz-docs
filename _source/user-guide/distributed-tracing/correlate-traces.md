@@ -3,7 +3,7 @@ layout: article
 title: Correlate logs and traces
 permalink: /user-guide/distributed-tracing/correlate-traces
 flags:
-  logzio-plan: community
+  logzio-plan: pro enterprise
 tags:
   - distributed tracing
 contributors:

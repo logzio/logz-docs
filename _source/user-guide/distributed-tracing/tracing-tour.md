@@ -3,7 +3,7 @@ layout: article
 title: The Grand Distributed Tracing Tour
 permalink: /user-guide/distributed-tracing/tracing-tour
 flags:
-  logzio-plan: community
+  logzio-plan: pro enterprise
   beta: true
 tags:
   - distributed tracing
@@ -16,7 +16,6 @@ contributors:
 1. toc list
 {:toc}
 
-#### Next steps:
 {:.no_toc}
 
 <div class="tasklist">
@@ -28,18 +27,7 @@ Your Distributed Tracing account complements your logging ELK stack. To reach it
 By default, your Distributed Tracing account is accessed from your main account. 
 ![tracing tour](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_tour1a.png)
 
-##### Find traces 
-After you log in to your Distributed Tracing account, you’ll want to find traces to view, either by trace ID lookup, by searching for traces, or by uploading a JSON file:  
-  ![Look up a trace or load a JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-panel.png)
-
-* Enter a trace ID (taken from service logs, or from another resource) to see its relevant data.  
-  If your data sampling is performed on the collector side, a trace ID pulled from your logs may not have a matching trace in Jaeger.
-
-  ![traceID lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traceid.png)
-
-* To upload a JSON file, click or drag a JSON file that contains at least one trace to this area.  _Coming soon!_
-
-##### Search for traces 
+##### Search for traces. 
 You search for and view traces on the **Search** page. 
 Use the following fields to search for traces: 
 ![Search traces page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-search-fields1.png)
@@ -69,7 +57,7 @@ Use the following fields to search for traces:
 *  `error=true db.statement="select * from User"`  returns the traces with spans that are tagged as `error=true`, which also include the requested db statement.
 *  `http.status_code=500` returns the traces with a communication error   
 
-##### View trace search results on the Search page
+##### View trace search results on the Search page.
 ![Search results](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_search-results.png)
 
 **Results timeline**
@@ -93,7 +81,7 @@ The colors represent the different services involved in the trace. Each trace sh
 Sort trace results by the time they occured, by duration, or by the number of spans. 
 ![sort trace list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-sort_traces.png)
 
-##### View a trace on the Trace page
+##### View a trace on the Trace page.
 Click a trace from the trace results timeline or from the trace results list to view its trace page. 
 
 By default, the trace opens in the timeline view. Select an option for different perspectives: 
@@ -108,8 +96,18 @@ By default, the trace opens in the timeline view. Select an option for different
 
 **[What can I do in the Trace JSON?](/user-guide/distributed-tracing/trace-json)**
 
+##### Find a specific trace. 
+After you log in to your Distributed Tracing account, if you need to view a specific trace, you can use trace ID lookup or upload a JSON file. 
+  ![Look up a trace or load a JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-panel.png)
+
+* To investigate specific incidents identified by a unique trace ID, use the search box to retrieve the trace data.  Make sure to tag your logs with the proper context to be able to locate the trace ID.
+  <br>If data sampling is configured to occur on the collector side, some traces may not be available in the Jaeger UI.  
+  ![traceID lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traceid.png)
+
+* To upload a JSON file, click or drag a JSON file that contains at least one trace to this area.  _Coming soon!_
+
 ##### Compare traces
-[Select traces for comparison and find out how they differ.](/user-guide/distributed-tracing/compare-traces)
+[Select traces for comparison](/user-guide/distributed-tracing/compare-traces) and find out how they differ.
 
 ##### View Topology diagrams for your system
-[Configure the deep dependency, force directed, and directed acyclic graphs to highlight service paths.](/user-guide/distributed-tracing/topology-system_architecture/)
+Leverage the power of [topology diagrams](/user-guide/distributed-tracing/topology-system_architecture/) to obtain better observability for your system services and how they interact with each other.

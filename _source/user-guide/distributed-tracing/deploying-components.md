@@ -3,7 +3,7 @@ layout: article
 title: Deploying components in your system
 permalink: /user-guide/distributed-tracing/deploying-components
 flags:
-  logzio-plan: community
+  logzio-plan: pro enterprise
   beta: true
 tags:
   - distributed tracing

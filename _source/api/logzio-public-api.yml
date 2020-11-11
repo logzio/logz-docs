@@ -2704,17 +2704,19 @@ definitions:
       searchTimeFrameMinutes:
         type: integer
         minimum: 5
+        maximum: 1440
         format: int32
-        description: The minimum recommended search timeframe is 5 minutes. Anything shorter will be less reliable and unnecessarily resource-heavy
+        description: The minimum recommended search timeframe is 5 minutes. Anything shorter will be less reliable and unnecessarily resource-heavy.
       subComponents:
         type: array
+        description: Sets the search criteria using a search query, filters, group by aggregations, accounts to search, and trigger conditions.
         items:
           $ref: '#/definitions/SubAlert'
       correlations:
         $ref: '#/definitions/SubAlertCorrelation'
   AlertOutput:
     type: object
-    description: Add output parameters for Logz.io to automatically send out notifications with sample results when the alert triggers.
+    description: Automatically sends out notifications with sample results when the alert triggers.
     properties:
       recipients:
         $ref: '#/definitions/AlertRecipients'
@@ -2723,11 +2725,11 @@ definitions:
         format: int32
         minimum: 5
         maximum: 1440
-        description: Add a waiting period in minutes to space out notifications.
+        description: Add a waiting period in minutes to space out notifications. Does not affect the alert's triggering, only 
         example: 60
       type:
         type: string
-        description: Selects the output format for the alert notification.
+        description: Selects the output format for the sample data to be sent in the alert notification.
         enum:
           - JSON
           - TABLE
@@ -2743,6 +2745,7 @@ definitions:
         $ref: '#/definitions/BoolFilter'
       groupBy:
         type: array
+        nullable: true
         description: Specify 1-3 fields by which to group the results and count them. If you apply a group by operation, the alert returns a count of the results aggregated by unique values.
         items:
           type: string
@@ -2782,7 +2785,6 @@ definitions:
           example: 10101, 10102
   SubAlert:
     type: object
-    description: Sets the search and trigger criteria for an alert. You can send an array of 2 objects to correlate logs from 2 queries [Corresponding UI](https://docs.logz.io/user-guide/alerts/correlated-alert/).
     properties:
       queryDefinition:
         $ref: '#/definitions/AlertQuery'
@@ -2792,7 +2794,7 @@ definitions:
         $ref: '#/definitions/SubAlertOutput'
   SubAlertCorrelation:
     type: object
-    description: Runs a join filter when scanning the data. The alert will only trigger when matching values are found.
+    description: Only applicable when multiple sub components are in use. Selects a logic for correlating the alert’s sub components.
     properties:
       correlationOperators:
         type: array
@@ -2800,18 +2802,17 @@ definitions:
           type: string
           enum:
             - AND
-          description: Join the fields
+          description: Both sub components must meet their triggering criteria for the alert to trigger.
       joins:
         type: array
-        description: Specify an array of field pairs. The fields must be ordered pairs of the group by fields already in use in the alert query.
+        description: Joins the group by fields from the first and second sub-components. Specifys which group by fields must have the same values to trigger the alert. The key represents the index of the sub component in the array (The first component is 0, the second is 1). The fields must be ordered pairs of the group by fields already in use in the `queryDefinition`.
         items:
           type: object
           additionalProperties:
-            type: string
-            example: {request, response}
+          example: {0: "region", 1: "region"}
   SubAlertOutput:
     type: object
-    description: Selects the data output to be sent in the notification when the alert triggers. Not applicable if the alert includes any group by or aggregation operations. When using group by fields or triggering on aggregated results, default output is sent.
+    description: Selects the data output to be sent in the notification when the alert triggers. Not applicable, when grouping by fields or aggregating results, as the output is auto-selected.
     properties:
       columns:
         type: array
@@ -2854,6 +2855,7 @@ definitions:
         example: 20
       subComponents:
         type: array
+        description: Sets the search criteria using a search query, filters, group by aggregations, accounts to search, and trigger conditions.
         items:
           $ref: '#/definitions/SubAlert'
       correlations:
@@ -2881,11 +2883,11 @@ definitions:
           - MEDIUM
           - HIGH
           - SEVERE
-        example: {MEDIUM:10, HIGH:100, SEVERE:300}
-        default: MEDIUM
         additionalProperties:
           type: number
           format: double
+          example: {MEDIUM:10.0, HIGH:100.0, SEVERE:300.0}
+          default: MEDIUM:10.0
   BoolFilter:
     type: object
     description: Apply `must` and `must_not` filters to the monitoring alert. Filters are more efficient compared to a query, so it's recommended to opt for a filter over a query, where possible. See [Elasticsearch Bool-Query](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html) for more detail.

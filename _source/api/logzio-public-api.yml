@@ -2709,10 +2709,13 @@ definitions:
         minimum: 5
         maximum: 1440
         format: int32
-        description: >- 
-          The time frame for evaluating the log data. 
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
           
           
+          The recommended minimum and maximum values are not validated, but needed to guarantee the alert's accuracy.
+
+
           The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
 
 
@@ -2847,8 +2850,6 @@ definitions:
   AlertV2Request:
     type: object
     required:
-      - title
-      - searchTimeFrameMinutes
     properties:
       title:
         type: string
@@ -2870,10 +2871,20 @@ definitions:
         $ref: '#/definitions/AlertOutput'
       searchTimeFrameMinutes:
         type: integer
-        format: int32
         minimum: 5
         maximum: 1440
-        definition: The time frame for the scan is a sliding window, with 1 minute granularity. The recommended minimum and maximum values are not validated, but are required to guarantee the alert's accuracy.
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+          
+          
+          The recommended minimum and maximum values are not validated, but needed to guarantee the alert's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
         example: 20
       subComponents:
         type: array
@@ -2886,6 +2897,7 @@ definitions:
         type: boolean
   AlertTrigger:
     type: object
+    description: Sets an additional triggering threshold and severity tab to label the event when the alert triggers.
     properties:
       operator:
         type: string
@@ -2898,7 +2910,6 @@ definitions:
           - NOT_EQUALS
       severityThresholdTiers:
         type: object
-        definition: Set a severity label per trigger threshold as a key:value pair.
         enum:
           - INFO
           - LOW
@@ -2910,6 +2921,8 @@ definitions:
           format: double
           example: {MEDIUM:10.0, HIGH:100.0, SEVERE:300.0}
           default: MEDIUM:10.0
+          description: Set a severity label per trigger threshold as a key:value pair.
+
   BoolFilter:
     type: object
     description: Apply `must` and `must_not` filters to the monitoring alert. Filters are more efficient compared to a query, so it's recommended to opt for a filter over a query, where possible. See [Elasticsearch Bool-Query](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html) for more detail.

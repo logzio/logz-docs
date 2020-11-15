@@ -13,6 +13,7 @@ permalink: /data/shipping-manifest.json
 {%- endcase -%}
 {%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
 
+
 {% capture json -%}
   "updatedAt": "{{ "now" | date: "%Y-%m-%d %H:%M" }}",
   "collections": [
@@ -42,8 +43,8 @@ permalink: /data/shipping-manifest.json
               {% endif -%}
               "logo": "{{ site.source
                 | split: "." | last
-                | append: "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/"
-                | append: d.logo.logofile,
+                | append: d.logo.logofile
+                | prepend: "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/ }}",
               "filepath": "{{ site.source
                 | split: "." | last
                 | append: "/"

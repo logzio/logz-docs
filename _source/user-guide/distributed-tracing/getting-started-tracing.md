@@ -26,8 +26,9 @@ You’ll find your Distributed Tracing account information in the Manage account
 Look up your accounts region code in the General Settings page, here:  <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> > Settings > General**.
 ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1.png)
 
-You can also find your region code in the <a href="/user-guide/accounts/account-region.html" target ="_blank"> Regions table.
-URLs are available in the <a href="user-guide/log-shipping/listener-ip-addresses.html" target ="_blank"> Listener IP addresses page.
+You can also find your region code in the <a href="/user-guide/accounts/account-region.html" target ="_blank"> Regions table.</a>
+
+URLs are available in the <a href="user-guide/log-shipping/listener-ip-addresses.html" target ="_blank"> Listener IP addresses page.</a>
 
 ##### Deploy tracing components
 Decide on your tracing source, make deployment decisions, and decide whether or not to use an agent to send tracing data to Logz.io.

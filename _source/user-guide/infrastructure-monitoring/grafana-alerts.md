@@ -23,7 +23,9 @@ If you're running multiple servers for load balancing purposes, you'll be happy 
 
 For better alerts management and to help you focus only on active alerts, when a tracked metric returns to its accepted values (below the current alert threshold), you'll get notified automatically that the triggered alert was resolved. 
 
-Resolved alert notifications are available for Slack, PagerDuty, and email notification endpoints.
+Resolved alert notifications are available for Slack, PagerDuty, Opsgenie, and email notification endpoints.
+
+See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/resolved-metrics-alerts.html) for more information.
 
 ### Acknowledged alerts
 

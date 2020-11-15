@@ -60,9 +60,6 @@ info:
     For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
 
 
-    
-
-
   title: Logz.io API
   termsOfService: 'https://logz.io/about-us/terms-of-use/'
   contact:
@@ -75,13 +72,16 @@ info:
 securityDefinitions:
   X-API-TOKEN:
     description: >-
-      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
-      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+      You can manage your API tokens from the [Logz.io API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
+      
+      
+      API tokens are account-specific. You will need to be logged into the relevant Log Management or SIEM account to view the API tokens associated with it.
 
 
-      API tokens carry privileges to make changes to users and accounts,
-      so it's important to keep your tokens secure. If you believe an API token has been compromised,
-      delete the compromised token, and replace it with a new token in your integrations.
+      To manage your API tokens, log into the relevant account in your Logz.io platform, click the gear in the top-right menu, and select [**Tools > Manage tokens > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+
+      
+      It's important to keep your tokens secure. API tokens carry privileges to make changes to users and accounts, so if you believe an API token has been compromised, delete it, and replace it with a new token in your integrations.
     type: apiKey
     in: header
     name: X-API-TOKEN
@@ -150,7 +150,15 @@ tags:
   - name: Manage log shipping tokens
     description: >-
       Use these API endpoints to create, update, retrieve, or delete log shipping tokens.
+  - name: Drop filters
+    description: >-
+      Drop filters provide a solution for filtering out logs before they are indexed in your account to help lower costs and reduce account volume.
 
+      
+      Drop filters evaluate logs for exact field:value matches. Any log results that match active drop filters will not be indexed. This means they will not appear in your Kibana account, will not be searchable, trigger alerts, or appear in dashboards.
+      
+      
+      Archiving is not affected by drop filters. Logs dropped by drop filters will still be archived, if archiving is configured for the account. With archiving configured, you can readily use drop filters to reduce logging bulk and restore the logs in the event that they become relevant.
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.
@@ -196,11 +204,14 @@ x-tagGroups:
       - Manage users
       - Who am I
       - Manage sub accounts
-      - Manage log shipping tokens
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
+  - name: Manage data shipping
+    tags:
+      - Manage log shipping tokens
       - Archive logs
+      - Drop filters
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -230,7 +241,7 @@ paths:
           * [Folder/dashboard search](https://grafana.com/docs/grafana/latest/http_api/folder_dashboard_search/)
           * [Snapshot](https://grafana.com/docs/grafana/latest/http_api/snapshot/)
 
-    
+        **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
       tags:
         - Grafana gateway
       operationId: grafanaGateway
@@ -1962,8 +1973,6 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseShippingTokensModel'
 
-
-
   # ::::: SHARED TOKENS
   /v1/shared-tokens/filters:
     get:
@@ -2612,6 +2621,9 @@ paths:
 
         
         You have the option to filter by rule name, rule severity, and/or event timestamp, and sort the results by time and/or severity, but this is not required. If you send the query with an empty JSON body, it returns all of the events logged in your Logz.io Cloud SIEM, going as far back as your account's retention permits.
+
+
+        **Note:** Run this endpoint with an API token for your Logz.io Security account.
       tags:
         - Security events
       operationId: searchSecurityRulesEvents
@@ -2623,16 +2635,7 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/AlertsEventsSearchRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication API Token
-          required: false
-          type: string
-        #- name: X-AUTH-TOKEN
-        #  in: header
-        #  description: Authentication User Session
-        #  required: false
-        #  type: string
+
       x-code-samples:
         - lang: cURL
           source: >-
@@ -2677,6 +2680,9 @@ paths:
         
         
         This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
+
+
+        **Note:** Run this endpoint with an API token for your Logz.io Security account.
       tags:
         - Security events
       operationId: searchSecurityRuleEventLogs
@@ -2709,6 +2715,124 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseMapStringObject'
           headers: {}
+
+  # ::::: DROP FILTERS
+  /v1/drop-filters/search:
+    post:
+      summary: Retrieve drop filters
+      description: Returns all drop filters configured for the account, both active and inactive.
+      tags:
+        - Drop filters
+      operationId: getAllForAccount
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+
+  /v1/drop-filters/{id}/activate:
+    post:
+      summary: Activate a drop filter
+      description: Activates a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: activate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters/{id}/deactivate:
+    post:
+      summary: Deactivate a drop filter
+      description: Deactivates a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: deactivate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters/{id}:
+    delete:
+      summary: Delete a drop filter
+      description: Deletes a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: delete
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters:
+    post:
+      summary: Create drop filter
+      description: Creates and activates a new drop filter.
+      tags:
+        - Drop filters
+      operationId: create
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/DropFiltersCreateRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+
 
 
 definitions:
@@ -4414,6 +4538,55 @@ definitions:
           format: int32
         description: For user access, `2`. For admin access, `3`.
         example: [2]
+
+  # ::::: DROP FILTERS
+  DropFiltersCreateRequest:
+    type: object
+    properties:
+      logType:
+        type: string
+        nullable: true
+        description: Filters for the [log type](/log-shipping/built-in-log-types.html).
+        example: apache
+      fieldConditions:
+        type: array
+        items:
+          $ref: '#/definitions/FieldCondition'
+
+
+  FieldCondition:
+    type: object
+    properties:
+      fieldName:
+        type: string
+        description: Exact field name in your Kibana mapping for the selected `logType`.
+        example: response
+      value:
+        type: object
+        description: Exact field value. The filter looks for an exact value match of the entire string.
+        example: 200
+
+  LogsDropFiltersPipelineDefinition:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+        example: f54406c1-b4ad-5969-8542-f6a3e9df5c79
+      active:
+        type: boolean
+        description: If `true`, the drop filter is active and logs that match the filter are dropped before indexing. If `false`, the drop filter is disabled.
+        example: true
+      logType:
+        type: string
+        description: Filters for the [log type](/log-shipping/built-in-log-types.html).
+        example: apache
+      fieldConditions:
+        type: array
+        description: Filters for an exact match of a field:value pair.
+        items:
+          $ref: '#/definitions/FieldCondition'
+
 
   # ::::: Archive DEFINITIONS
   ArchiveSettings:

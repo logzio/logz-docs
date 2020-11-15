@@ -14,7 +14,7 @@ If you’re working with Kubernetes, use this yaml file as a reference to deploy
 
 Make sure you use the correct Jaeger version for the `jaeger-agent` image. 
 
-Look up your Distributed Tracing `ACCOUNT TOKEN` at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts page**</a>. 
+Look up your Distributed Tracing `ACCOUNT TOKEN` at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page. 
 
 Look up your `CUSTOM_LISTENER_URL` on the <a href="/user-guide/log-shipping/listener-ip-addresses.html" target ="_blank"> Listener IP addresses page</a>.
 

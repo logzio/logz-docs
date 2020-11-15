@@ -18,7 +18,7 @@ _Before you begin:_
 
 + Look up your Distributed Tracing `ACCOUNT TOKEN` at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page. 
 
-+ Look up your `CUSTOM_LISTENER_URL` on the <a href="/user-guide/log-shipping/listener-ip-addresses.html" target ="_blank"> Listener IP addresses </a>page.
++ Look up your `CUSTOM_LISTENER_URL` on the <a href="/user-guide/accounts/account-region.html" target ="_blank"> Regions and Listener Hosts </a>page.
 
 
 ```yaml
@@ -66,7 +66,7 @@ items:
             value: # obtained from Logz.io in Manage Accounts > Distributed Tracing
 {{- if and .Values.environment (eq .Values.environment "staging") }}
           - name: CUSTOM_LISTENER_URL 
-            value: # obtained from Logz.io Listener IP addresses table
+            value: # obtained from Logz.io Regions and Listener hosts table
 {{- end }}
 
 - apiVersion: v1

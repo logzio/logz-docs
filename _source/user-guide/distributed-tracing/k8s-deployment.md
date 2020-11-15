@@ -60,11 +60,11 @@ items:
               path: "/"
               port: 14269
           env:
-          - name: ACCOUNT_TOKEN # obtained from Logz.io in Manage Accounts > Distributed Tracing
-            value: {{ .Values.monitoring_config.jaeger_token }}
+          - name: ACCOUNT_TOKEN 
+            value: # obtained from Logz.io in Manage Accounts > Distributed Tracing
 {{- if and .Values.environment (eq .Values.environment "staging") }}
-          - name: CUSTOM_LISTENER_URL # obtained from Logz.io Listener IP addresses table
-            value: https://{{ .Values.monitoring_config.listener }}:8071
+          - name: CUSTOM_LISTENER_URL 
+            value: # obtained from Logz.io Listener IP addresses table
 {{- end }}
 
 - apiVersion: v1

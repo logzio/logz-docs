@@ -20,7 +20,7 @@
     "Jaeger",
     "distributed tracing"
   ],
-  "author": ["Shalom Boroda", "Sara Halper", "Yael Berlinger" ],
+  "author": ["Shalom Boroda", "Sara Halper", "Yael Berlinger"],
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/logzio/logz-docs/issues"

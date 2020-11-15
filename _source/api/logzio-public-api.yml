@@ -2642,9 +2642,11 @@ definitions:
   # ::::: Alert
   Aggregation:
     type: object
+    description: Specifies a trigger condition that is the threshold. When the logs are found 
     properties:
       aggregationType:
         type: string
+        description: Selects the type of aggregation for the trigger condition.
         enum:
           - SUM
           - MIN
@@ -2655,6 +2657,7 @@ definitions:
           - NONE
       fieldToAggregateOn:
         type: string
+        description: Selects the field on which to run the aggregation for the trigger condition.
   AlertV2Response:
     type: object
     properties:
@@ -2706,10 +2709,17 @@ definitions:
         minimum: 5
         maximum: 1440
         format: int32
-        description: The minimum recommended search timeframe is 5 minutes. Anything shorter will be less reliable and unnecessarily resource-heavy.
+        description: >- 
+          The time frame for evaluating the log data. 
+          
+          
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
       subComponents:
         type: array
-        description: Sets the search criteria using a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        description: Determines when the alert should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
         items:
           $ref: '#/definitions/SubAlert'
       correlations:
@@ -2725,21 +2735,27 @@ definitions:
         format: int32
         minimum: 5
         maximum: 1440
-        description: Add a waiting period in minutes to space out notifications. Does not affect the alert's triggering, only 
+        description: Add a waiting period in minutes to space out notifications. (The alert will still trigger but will not send out notifications during the waiting period.)
         example: 60
       type:
         type: string
-        description: Selects the output format for the sample data to be sent in the alert notification.
+        description: Selects the output format for the alert notification. If the alert has no aggregations/group by fields, `JSON` offers the option to send full sample logs without selecting specific fields.
         enum:
           - JSON
           - TABLE
   AlertQuery:
     type: object
+    description: Determines when the alert should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
     properties:
       query:
         type: string
-        description: Provide a Kibana search query written in Lucene syntax. The search query together with the filters select for the relevant logs.
+        description: >-
+          Provide a Kibana search query written in Lucene syntax. The search query together with the filters select for the relevant logs.
+          
+          
+          Cannot be null - send an asterisk wildcard `*` if not using a search query.
         default: "*"
+        nullable: false
         example: type:apache_access
       filters:
         $ref: '#/definitions/BoolFilter'
@@ -2768,17 +2784,17 @@ definitions:
 
   AlertRecipients:
     type: object
-    description: Add email addresses and/or endpoint channels to automatically receive notifications when the alert triggers.
+    description: Add email addresses and/or endpoint channels to automatically receive notifications with sample data when the alert triggers.
     properties:
       emails:
         type: array
-        description: Array of email addresses that should be notified when the alert triggers.
+        description: Array of email addresses to be notified when the alert triggers.
         items:
           type: string
           example: tom.a@logz.io, tim.a@logz.io
       notificationEndpointIds:
         type: array
-        description: Array of IDs of pre-configured endpoint channels that should be notified when the alert triggers.
+        description: Array of IDs of pre-configured endpoint channels to notify when the alert triggers.
         items:
           type: integer
           format: int32
@@ -2794,7 +2810,7 @@ definitions:
         $ref: '#/definitions/SubAlertOutput'
   SubAlertCorrelation:
     type: object
-    description: Only applicable when multiple sub components are in use. Selects a logic for correlating the alert’s sub components.
+    description: Only applicable when multiple sub-components are in use. Selects a logic for correlating the alert’s sub-components.
     properties:
       correlationOperators:
         type: array
@@ -2802,10 +2818,16 @@ definitions:
           type: string
           enum:
             - AND
-          description: Both sub components must meet their triggering criteria for the alert to trigger.
       joins:
         type: array
-        description: Joins the group by fields from the first and second sub-components. Specifys which group by fields must have the same values to trigger the alert. The key represents the index of the sub component in the array (The first component is 0, the second is 1). The fields must be ordered pairs of the group by fields already in use in the `queryDefinition`.
+        description: >-
+          Specifies which group by fields must have the same values to trigger the alert.
+
+
+          Joins the group by fields from the first and second sub-components. The key represents the index of the sub component in the array (See the example - the index of the first sub-component is 0, the second is 1).
+          
+          
+          The fields must be ordered pairs of the group by fields already in use in the `queryDefinition`.
         items:
           type: object
           additionalProperties:

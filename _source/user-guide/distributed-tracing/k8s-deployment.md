@@ -12,8 +12,15 @@ contributors:
 ---
 If you’re working with Kubernetes, use this yaml file as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value.
 
+Make sure you use the correct Jaeger version for the `jaeger-agent` image. 
+
+Look up your Distributed Tracing `ACCOUNT TOKEN` at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page. 
+
+Look up your `CUSTOM_LISTENER_URL` on the <a href="/user-guide/log-shipping/listener-ip-addresses.html" target ="_blank"> Listener IP addresses </a>page.
+
+
 ```yaml
-apiVersion: v1
+apiVersion: apps/v1
 kind: List
 items:
 - apiVersion: extensions/v1beta1
@@ -37,7 +44,7 @@ items:
           app.kubernetes.io/component: collector
       spec:
         containers:
-        - image: logzio/jaeger-logzio-collector:latest
+        - image: logzio/jaeger-logzio-collector:latest  
           name: jaeger-logzio-collector
           ports:
           - containerPort: 14267
@@ -53,10 +60,10 @@ items:
               path: "/"
               port: 14269
           env:
-          - name: ACCOUNT_TOKEN
+          - name: ACCOUNT_TOKEN # obtained from Logz.io in Manage Accounts > Distributed Tracing
             value: {{ .Values.monitoring_config.jaeger_token }}
 {{- if and .Values.environment (eq .Values.environment "staging") }}
-          - name: CUSTOM_LISTENER_URL
+          - name: CUSTOM_LISTENER_URL # obtained from Logz.io Listener IP addresses table
             value: https://{{ .Values.monitoring_config.listener }}:8071
 {{- end }}
 
@@ -112,7 +119,7 @@ items:
       spec:
         containers:
         - name: jaeger-agent
-          image: jaegertracing/jaeger-agent:1.18.0
+          image: jaegertracing/jaeger-agent:1.18.0   # Relace "1.18.0" with the latest Jaeger version
           args: ["--reporter.grpc.host-port=jaeger-logzio-collector:14250"]
           ports:
           - containerPort: 5775

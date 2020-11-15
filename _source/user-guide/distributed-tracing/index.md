@@ -32,6 +32,6 @@ Maximize value with Logz.io's observability platform and use your favorite open 
 * [Search for traces](/user-guide/distributed-tracing/tracing-tour): Log in and get on the trace 
 * [View the trace timeline](/user-guide/distributed-tracing/trace-timeline): Dig into the details of each span
 * [Compare traces](/user-guide/distributed-tracing/compare-traces): See where traces differ from each other by comparing node blocks
-* [Correlate logs and traces](/user-guide/distributed-tracing/correlate-traces): Harness Kibana and Jaeger together for even more powerful insights.
+* [Correlate logs and traces](/user-guide/distributed-tracing/correlate-traces): Harness Kibana and Jaeger together for more powerful insights.
 
 

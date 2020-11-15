@@ -17,12 +17,12 @@ The available diagrams are based either on the traces you search for (deep depen
 ### Viewing a deep dependency graph
 The deep dependency graph describes how the services in traces are connected to each other, based on the results of the trace search query you run.  The graph lets you focus on the up- and downstream hops of a service call, as well as define the aggregation and graph density for the  layout. 
 
-From the <a href="https://www.jaegertracing.io/docs/latest/features/#deep-dependency-graph" target="_blank">Jaeger deep dependency documentation, <i class="fas fa-external-link-alt"></i> </a> the deep depency graph is:
+From the <a href="https://www.jaegertracing.io/docs/latest/features/#deep-dependency-graph" target="_blank">Jaeger deep dependency documentation <i class="fas fa-external-link-alt"></i> </a>, the deep depency graph is...
 
-> Also known as “Transitive Dependency Graph”, where a chain `A -> B -> C` means that `A` has a transitive dependency  on `C`. A single graph requires a “focal” service (shown in pink) and only displays the paths passing through that service. Typically, this type of graph does not represent the full architecture of the system, unless there is a service that is connected to everything, e.g. an API gateway, and it is selected as a focal service.
+> ...also known as “Transitive Dependency Graph”, where a chain `A -> B -> C` means that `A` has a transitive dependency  on `C`. A single graph requires a “focal” service (shown in pink) and only displays the paths passing through that service. Typically, this type of graph does not represent the full architecture of the system, unless there is a service that is connected to everything, e.g. an API gateway, and it is selected as a focal service.
 
 Use the deep dependency graph to view a partial graph relevant to your service of interest. 
-This ability is genuinely useful when it’s not possible to view that service in a system architecture graph, especially if you have hundreds of services (or many more), where hovering to find a specific service isn’t feasible. <a href="https://www.jaegertracing.io/docs/latest/features/#deep-dependency-graph" target="_blank">See the Jaeger deep dependency documentation </a> <i class="fas fa-external-link-alt"></i>
+This ability is genuinely useful when it’s not possible to view that service in a system architecture graph, especially if you have hundreds of services (or many more), where hovering to find a specific service isn’t feasible. 
 
 1. In the top right of the search results, click **Deep Dependency Graph** (next to the **Sort** drop-down).
      ![Open DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/open-ddg.png) You can set which service to focus on as origin (in pink) and expand and collapse the levels in the diagram.![Layout DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/deep_depend_graph-layout2.png)

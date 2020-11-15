@@ -2813,7 +2813,11 @@ definitions:
         $ref: '#/definitions/SubAlertOutput'
   SubAlertCorrelation:
     type: object
-    description: Only applicable when multiple sub-components are in use. Selects a logic for correlating the alert’s sub-components.
+    description: >-
+      Only applicable when multiple sub-components are in use. Selects a logic for correlating the alert’s sub-components.
+
+
+      `AND` is currently the only supported operator. When `AND` is the `correlationOperator`, both sub-components must meet their triggering criteria for the alert to trigger.
     properties:
       correlationOperators:
         type: array
@@ -2821,6 +2825,7 @@ definitions:
           type: string
           enum:
             - AND
+
       joins:
         type: array
         description: >-
@@ -2908,8 +2913,18 @@ definitions:
           - GREATER_THAN_OR_EQUALS
           - EQUALS
           - NOT_EQUALS
+        example: GREATER_THAN_OR_EQUALS
+        description: Specifies the operator for evaluating the results.
       severityThresholdTiers:
         type: object
+        description: >-
+          Sets a severity label per trigger threshold as a key:value pair.
+          
+          
+          If using more than one sub-component, only 1 severityThresholdTiers is allowed. Otherwise, 1 per `enum` are allowed (for a total of 5 thresholds of increasing severities).
+
+
+          Increasing severity must adhere to the logic of the operator.
         enum:
           - INFO
           - LOW
@@ -2917,11 +2932,12 @@ definitions:
           - HIGH
           - SEVERE
         additionalProperties:
-          type: number
-          format: double
-          example: {MEDIUM:10.0, HIGH:100.0, SEVERE:300.0}
-          default: MEDIUM:10.0
-          description: Set a severity label per trigger threshold as a key:value pair.
+        default:
+          MEDIUM: 10.0
+        example:
+          MEDIUM: 10.0
+          HIGH: 100.0
+          SEVERE: 300.0
 
   BoolFilter:
     type: object
@@ -2931,7 +2947,7 @@ definitions:
         $ref: '#/definitions/FilterLists'
   ColumnConfig:
     type: object
-    description: Customize the alert output to be sent out in notifications when the alert triggers.
+    summary: Customize the alert output to be sent out in notifications when the alert triggers.
     properties:
       fieldName:
         type: string

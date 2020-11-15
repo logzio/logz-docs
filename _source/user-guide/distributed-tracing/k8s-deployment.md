@@ -12,6 +12,7 @@ contributors:
 ---
 If you’re working with Kubernetes, use this yaml file as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value.
 
+
 _Before you begin:_
 
 + Make sure you use the correct Jaeger version for the `jaeger-agent` image. 
@@ -62,6 +63,7 @@ items:
               path: "/"
               port: 14269
           env:
+
           - name: ACCOUNT_TOKEN 
             value: # obtained from Logz.io in Manage Accounts > Distributed Tracing
 {{- if and .Values.environment (eq .Values.environment "staging") }}

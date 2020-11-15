@@ -30,6 +30,7 @@ You can also find your region code in the <a href="/user-guide/accounts/account-
 
 URLs are available in the <a href="/user-guide/log-shipping/listener-ip-addresses.html" target ="_blank"> Listener IP addresses </a>page.
 
+
 ##### Deploy tracing components
 Decide on your tracing source, make deployment decisions, and decide whether or not to use an agent to send tracing data to Logz.io.
 <a href="/user-guide/distributed-tracing/deploying-components.html" target ="_blank"> Read more about deploying tracing components.</a>

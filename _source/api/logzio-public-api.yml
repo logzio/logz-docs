@@ -31,12 +31,6 @@ info:
     If you'd like to suggest corrections or improvements to this document, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
 
 
-    # Notes on alerting
-
-    Please note that alerting is not yet covered in this document.
-    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
-
-
     # Account region and API URL
 
     To find your account region, sign in to Logz.io and look at the URL in the address bar.
@@ -123,6 +117,11 @@ tags:
   - name: Logz.io snapshots
   - name: Manage users
   - name: Alerts
+    description: >-
+      Logz.io alerts use a Kibana search query to continuously scan your logs and alert you when a certain set of conditions is met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
+
+
+      When alerts trigger, they write event logs. Event logs of triggered alerts are always available and searchable in Kibana - just filter for logzio-alert:exists. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -717,6 +716,8 @@ paths:
           required: true
           type: integer
           format: int32
+          description: Unique identifier of the alert in Logz.io.
+          example: 563412
       responses:
         '200':
           description: successful operation
@@ -742,6 +743,8 @@ paths:
           required: true
           type: integer
           format: int32
+          description: Unique identifier of the alert in Logz.io.
+          example: 563412
       responses:
         '200':
           description: successful operation
@@ -761,6 +764,8 @@ paths:
           required: true
           type: integer
           format: int32
+          description: Unique identifier of the alert in Logz.io.
+          example: 563412
       responses:
         '200':
           description: successful operation
@@ -2664,16 +2669,16 @@ definitions:
       id:
         type: integer
         format: int32
-        description: Logz.io alert ID
+        description: Logz.io alert ID.
         example: 627816
       updatedAt:
         type: integer
         format: int64
-        description: Date and time in UTC when the alert was last updated
+        description: Date and time in UTC when the alert was last updated.
         example: 2020-04-02T18:58:16.000Z
       updatedBy:
         type: string
-        description: Email of the user who last updated the alert
+        description: Email of the user who last updated the alert.
         example: tomer@logz.io
       createdAt:
         type: integer
@@ -2682,7 +2687,7 @@ definitions:
         example: 2020-02-02T18:58:16.000Z
       createdBy:
         type: string
-        description: Email of the user who first created the alert
+        description: Email of the user who first created the alert.
         example: tomer@logz.io
       enabled:
         type: boolean
@@ -2690,11 +2695,11 @@ definitions:
         exampe: true
       title:
         type: string
-        description: Alert title
+        description: Alert title.
         example: Excessive WARN levels in PROD
       description:
         type: string
-        description: A description of the event, its significance, and suggested next steps or instructions for the team
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
         example: Steps to remediate...
       tags:
         type: array
@@ -2862,7 +2867,7 @@ definitions:
         example: Excessive WARN levels in PROD
       description:
         type: string
-        description: A description of the event, its significance, and suggested next steps or instructions for the team
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
         example: Steps to remediate...
       tags:
         type: array
@@ -2900,6 +2905,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
       enabled:
         type: boolean
+        description: If `true`, the alert is enabled and active.
   AlertTrigger:
     type: object
     description: Sets an additional triggering threshold and severity tab to label the event when the alert triggers.
@@ -2947,7 +2953,7 @@ definitions:
         $ref: '#/definitions/FilterLists'
   ColumnConfig:
     type: object
-    summary: Customize the alert output to be sent out in notifications when the alert triggers.
+    description: Customize the alert output to be sent out in notifications when the alert triggers.
     properties:
       fieldName:
         type: string
@@ -2969,8 +2975,13 @@ definitions:
         type: array
         items:
           type: object
+          enum: 
+            - match_phrase
           additionalProperties:
             type: object
+            example:
+              query: WARN
+              
       must_not:
         type: array
         items:

@@ -15,9 +15,11 @@ shipping-tags:
 This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your cluster and ship them to Logz.io.
 
 You have 3 ways to deploy this Daemonset:
+
 * Standard configuration - standard built-in configuration.
 * Autodiscover configuration - built-in configuration that uses Filebeat's autodiscover and hints system.
 * Custom configuration - upload logz.io Daemonset with your own configuration.
+
 For For further information about Filebeat's autodiscover please see [Autodiscover documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
 
 <div id="standard-config">
@@ -55,6 +57,7 @@ kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipp
 
 ##### For autodiscover configuration deployment:
 Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running.
+
 ```shell
  kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-autodiscovery-configuration.yaml
 ```
@@ -67,6 +70,7 @@ wget https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-s
 ```
 
 **Note:** You suppose to make changes only to the content of the field 'filebeat.yml' (witch contains a basic Filebeat configuration),for more information about configuring filebeat see [Configure Filebeatedit](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html)
+
 ```
 filebeat.yml: |-
   

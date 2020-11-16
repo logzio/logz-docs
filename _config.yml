@@ -23,7 +23,6 @@ edit_enabled: true
 facebook_url: https://www.facebook.com/logz.io
 twitter_url: https://twitter.com/logzio
 youtube_url: https://www.youtube.com/channel/UC9Rc1hpWHUju8O2rYHAUVXA
-google_plus_url: https://plus.google.com/+LogzIo/
 linkedin_url: https://www.linkedin.com/company/4831888
 
 # GitHub repository paths - Leave beginning slashes, unless field is empty.

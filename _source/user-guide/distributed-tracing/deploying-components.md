@@ -64,9 +64,7 @@ When deciding the best approach for your environment, consider the following fac
 2.  **Is there benefit in enriching the spans?** 
     The agent can enrich spans by adding tags that are not available at the collector level, such as region or pod name, which are often exposed at lower levels.
 
-#### Deploy a Jaeger agent
-
-To deploy a Jaeger agent in a Docker environment:
+### *To deploy a Jaeger agent in a Docker environment*
 
 ```bash
 docker run \  ## make sure to expose only the ports you use in your deployment scenario!
@@ -78,6 +76,8 @@ docker run \  ## make sure to expose only the ports you use in your deployment s
  jaegertracing/jaeger-agent:1.20  ## Use the relevant agent version
   ```
 
-### Kubernetes deployment reference
+Refer to the <a href="https://www.jaegertracing.io/docs/latest/deployment/#agent" target="_blank"> Jaeger documentation <i class="fas fa-external-link-alt"></i> </a> for the agent version.
+
+### *Kubernetes deployment reference*
 
 If you’re working with Kubernetes, use [this yaml file](/user-guide/distributed-tracing/k8s-deployment) as a reference to deploy the collector/agent, and use the output of `kubectl explain deployment` as your **apiVersion** value.

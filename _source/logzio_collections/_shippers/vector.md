@@ -49,8 +49,8 @@ at [http sink](https://docs.vector.dev/usage/configuration/sinks/http) from Vect
   compression = "gzip" # no default, must be: "gzip" (if supplied)
 
   # OPTIONAL - Batching
-  batch_size = 9000000 # bytes - Logz.io max batch is 10MB
-  batch_timeout = 3
+  batch.max_bytes = 9000000 # bytes - Logz.io max batch is 10MB
+  batch.timeout_secs = 3
 
   # OPTIONAL - Buffer
   [sinks.logzio.buffer]

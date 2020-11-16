@@ -49,18 +49,21 @@ These best-practice recommendations will help you keep your data secure when usi
 
 #### Managing shared tokens
 
-To reach this page, click [**<i class="li li-gear"></i> > Tools > Shared tokens**](https://app.logz.io/#/dashboard/settings/shared-tokens) in the top menu.
+To manage your shared tokens, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) in the top menu and select the **Shared tokens** tab.
 
-![Manage shared tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/token-filters.png)
+![Manage shared tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/tokens/shared-tokens.png)
 
 <div class="tasklist">
 
 ##### Working with shared tokens
 
 * To create a token, click **+Add shared token**, type a brief **token name**, select **filters** from the dropdown list, and click **Add**.
+* To delete a token, hover over it, and click **delete** <i class="li li-trash"></i> to delete it.
+
+
 * To attach filters to a token, hover over the token, click **edit** <i class="li li-pencil"></i>, select filters from the dropdown list, and click **Save**.
 * To remove filters from a token, hover over the token, click **edit** <i class="li li-pencil"></i>, <i class="li li-x"></i> out the filters you want to remove, and click **Save**.
-* To delete a token, hover over it, and click **delete** <i class="li li-trash"></i> to delete it.
+
 
 ##### Working with token filters
 

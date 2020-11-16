@@ -17,7 +17,7 @@ we recommend configuring your services
 to send their metrics to Azure Monitor.
 When you set up Metricbeat using the configuration on this page,
 Metricbeat will collect metrics from Azure Container Groups
-and forward them to [Logz.io](http://logz.io/).
+and forward them to Logz.io.
 
 #### Metricbeat setup
 
@@ -80,16 +80,7 @@ You'll need this information later on, so paste it in your text editor.
 "password": "e6ab6d24-4907-5d11-a132-a171ef55355d",
 ```
 
-##### Download the [Logz.io](http://logz.io/) public certificate
-
-
-
-For HTTPS shipping, download the [Logz.io](http://logz.io/) public certificate to your certificate authority folder.
-You'll need to run this command on the server that hosts Metricbeat:
-
-```yml
-sudo curl <https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt> --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
+{% include log-shipping/certificate.md server="to your Metricbeat server" %}
 
 ##### (_Optional_) Disable the system module
 
@@ -100,7 +91,7 @@ Disable this module so you don't unintentionally send host metrics:
 sudo metricbeat modules disable system
 ```
 
-##### Add [Logz.io](http://logz.io/) configuration
+##### Add Logz.io configuration
 
 Now you'll set up the Metricbeat
 to collect metrics from Azure ContainerGroups.

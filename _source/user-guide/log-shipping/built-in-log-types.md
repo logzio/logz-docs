@@ -24,6 +24,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 
 | Description           | Type                                       |
 |-----------------------|--------------------------------------------|
+| Alcide kAudit         | `alcide-kaudit` |
 | Apache access         | `apache`, `apache_access`, `apache-access` |
 | Auditd                | `auditd`                                   |
 | AWS CloudFront        | `cloudfront`                               |
@@ -62,10 +63,12 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | NGINX error           | `nginx-error`                              |
 | OpenVAS                 | `openvas`                                    |
 | OSSEC                 | `ossec`                                    |
-| Zipkin span           | `zipkinSpan`                               |
+| Trend Micro                 | `trendmicro_deep`                    |
 | Palo Alto Networks    | `paloalto`                                  |
 | Performance-tab       | `performance-tab`                                  |
 | Sonicwall                | `sonicwall`                                  |
+| Stormshield                | `stormshield`                              |
+| Sysmon                | `wineventlog`                              |
 | VPC Flow           | `vpcflow`                             |
 | Windows WinEventLog          | `wineventlog`                             |
 | Zeek           | `zeek`                              |

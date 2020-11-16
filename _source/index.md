@@ -41,14 +41,15 @@ cards:
     li-class: li-signal
 
 half-cards:
-  - title: Blog
-    url: "https://logz.io/blog/"
+  - title: Free trial
+    url: "https://logz.io/freetrial/"
 
-  - title: Videos
-    url: "https://logz.io/learn/video/"
+  - title: Webinars
+    url: "https://logz.io/learn/webinar/"
 
-  - title: Academy
-    url: "http://academy.logz.io/"
+  - title: Features
+    url: "https://logz.io/learn/product/"
+
 ---
 
 <!-- No content here.

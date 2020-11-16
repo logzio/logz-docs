@@ -1,7 +1,7 @@
 ---
 title: Ship k8s logs with Helm via Filebeat
 logo:
-  logofile: kubernetes.svg
+  logofile: helm-icon-color.png
   orientation: vertical
 data-source: Kubernetes over Helm
 templates: ["k8s-daemonset"]
@@ -19,7 +19,7 @@ You can use a Helm chart to ship k8s logs to Logz.io via Filebeat.
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.
 Logzio-k8s-logs allows you to ship logs from your Kubernetes cluster to Logz.io.
-You can either deploy this Daemonset with the standrad Filebeat configuration or with Filebeat autodiscover.
+You can either deploy this Daemonset with the standard Filebeat configuration or with Filebeat autodiscover.
 
 For further information about Filebeat's autodiscover please see [Elastic's documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
 
@@ -27,6 +27,10 @@ For further information about Filebeat's autodiscover please see [Elastic's docu
 
 * [Helm CLI](https://helm.sh/docs/intro/install/) installed
 * Allow outgoing traffic to destination port 5015
+
+Helm 2 will reach [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-released/#:~:text=6%20months%20after%20Helm%203's,Helm%202%20will%20formally%20end). This document follows the command syntax recommended for Helm 3, but the Chart will work with both Helm 2 and Helm 3.
+{:.info-box.note}
+
 
 <div class="branching-container">
 * [Standard configuration](#standard-config)
@@ -175,7 +179,7 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 | `configType` | Specifies which configuration to use for Filebeat. Set to `autodiscover` to use autodiscover. | `standard` |
 | `filebeatConfig.standardConfig` | Standard Filebeat configuration, using `filebeat.input`. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
 | `filebeatConfig.autodiscoverConfig` | Autodiscover Filebeat configuration, using `filebeat.autodiscover`. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
-| `filebeatConfig.autoCustomConfig` | Autodiscover Filebeat custom configuration, using `filebeat.autodiscover`. Required when you're using your custimized autodiscover config | {} |
+| `filebeatConfig.autoCustomConfig` | Autodiscover Filebeat custom configuration, using `filebeat.autodiscover`. Required when you're using your customized autodiscover config | {} |
 | `serviceAccount.create` | Specifies whether a service account should be created. | `true` |
 | `serviceAccount.name` | Name of the service account. | `filebeat` |
 | `terminationGracePeriod` | Termination period (in seconds) to wait before killing Filebeat pod process on pod shutdown. | `30` |

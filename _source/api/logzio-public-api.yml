@@ -42,19 +42,22 @@ info:
 
     # Authentication
 
-    The Logz.io API is available to Enterprise plan subscribers.
-    You can create new API tokens in [Logz.io](https://app.logz.io/#/dashboard/settings/api-tokens).
-    You can revoke API permissions at any time.
-
-    If you don't have an Enterprise account, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
+    The Logz.io API is available to Pro and Enterprise plan subscribers.
+    You can generate and delete API tokens in your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/api).
 
     <!-- ReDoc-Inject: <security-definitions> -->
 
 
     # Rate limiting
 
-    API call and response rates are limited per individual account.
-    To find out your rate limits or to make changes to your account plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success team</a>.
+    API call and response rates are limited.
+    To find out your rate limits or request changes to your plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success Team</a>.
+
+
+    # Notes on alerting
+
+    Please note that alerting is not yet covered in this document.
+    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
 
 
   title: Logz.io API
@@ -69,13 +72,16 @@ info:
 securityDefinitions:
   X-API-TOKEN:
     description: >-
-      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
-      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+      You can manage your API tokens from the [Logz.io API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
+      
+      
+      API tokens are account-specific. You will need to be logged into the relevant Log Management or SIEM account to view the API tokens associated with it.
 
 
-      API tokens carry privileges to make changes to users and accounts,
-      so it's important to keep your tokens secure. If you believe an API token has been compromised,
-      delete the compromised token, and replace it with a new token in your integrations.
+      To manage your API tokens, log into the relevant account in your Logz.io platform, click the gear in the top-right menu, and select [**Tools > Manage tokens > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+
+      
+      It's important to keep your tokens secure. API tokens carry privileges to make changes to users and accounts, so if you believe an API token has been compromised, delete it, and replace it with a new token in your integrations.
     type: apiKey
     in: header
     name: X-API-TOKEN
@@ -83,17 +89,51 @@ security:
   - X-API-TOKEN: []
 
 tags:
+  - name: Grafana gateway
   - name: Who am I
   - name: Manage sub accounts
-    description: Use these API requests to create, update, retrieve, or delete sub accounts.
+    description: >-
+      Use these API endpoints to create, update, retrieve, or delete sub accounts.
+
+
+      We are in the process of rolling out [flexible volume plan configuration](/user-guide/accounts/flexible-volume.html). A new beta feature.
+      
+      
+      * If your account has the option to switch to flexible volume, please refer to the updated [documentation](/beta-api-flexible-storage/) for the beta API.
+
+
+      * For additional information about what's changed in the API, [click here](/user-guide/accounts/flexible-volume-announcement/).
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.
 
 
       To ensure system performance and data availability, we've introduced some limitations to the original Elasticsearch specification. These limitations are detailed in the applicable API calls below.
+  - name: Insights
+    description: >-
+      Logz.io monitors your logs for Insights to help you preempt issues and alert you of potential problems.
+      
+      
+      There are two types of Insights:
+
+      * LOGCEPTION - Application errors and exceptions identified in the stack trace.
+
+      * PUBLIC_CI - Cognitive Insights correlate your logs with  vulnerabilities and issues that are trending in the open source community.
+
+
+      You have the option to set up an alert so you can get notified of the details when new or recurring insights are spotted in your system.
   - name: Retrieve audit trail
-  - name: Manage CloudTrail links
+  - name: Connect to CloudTrail
+    description: Establish a connection to ship logs to the Logz.io observability platform via an S3 bucket. Supports CloudTrail logs.
+  - name: Connect to S3 Buckets
+    description: >-
+      Establish a connection for the Logz.io fetcher to fetch logs to the Logz.io observability platform via an S3 bucket. Supports ELB, S3 Access, CloudFront, VPC Flow logs.
+      
+      
+      If you're looking to fetch CloudTrail logs, use the designated endpoints.
+
+
+      Authentication can be established with either S3 secret credentials or ARNs (for AWS IAM Roles). Authentication with S3 Secret Credentials is supported for backward compatibility. Authentication with ARNs (for IAM Roles) is strongly recommended.
   - name: Manage notification endpoints
     description: >-
       Logz.io can send notifications to your preferred workspaces, such as Opsgenie, BigPanda, PagerDuty, and Slack.
@@ -103,10 +143,22 @@ tags:
       or when Logz.io Insights identifies new exceptions in your logs.
 
 
-      Use these API requests to create, update, or delete notification endpoints. If you configure a custom endpoint,
+      Use these API endpoints to create, update, or delete notification endpoints. If you configure a custom endpoint,
       you can configure the notificaton message body.
       Otherwise, you can use any of the available preconfigured endpoints.
   - name: Import or export Kibana objects
+  - name: Manage log shipping tokens
+    description: >-
+      Use these API endpoints to create, update, retrieve, or delete log shipping tokens.
+  - name: Drop filters
+    description: >-
+      Drop filters provide a solution for filtering out logs before they are indexed in your account to help lower costs and reduce account volume.
+
+      
+      Drop filters evaluate logs for exact field:value matches. Any log results that match active drop filters will not be indexed. This means they will not appear in your Kibana account, will not be searchable, trigger alerts, or appear in dashboards.
+      
+      
+      Archiving is not affected by drop filters. Logs dropped by drop filters will still be archived, if archiving is configured for the account. With archiving configured, you can readily use drop filters to reduce logging bulk and restore the logs in the event that they become relevant.
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.
@@ -149,6 +201,7 @@ x-tagGroups:
     tags:
       - Search logs
       - Alerts
+      - Insights
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
@@ -161,15 +214,50 @@ x-tagGroups:
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
+  - name: Manage data shipping
+    tags:
+      - Manage log shipping tokens
       - Archive logs
+      - Drop filters
   - name: Data security
     tags:
       - Retrieve audit trail
-  - name: AWS security and audit
+  - name: Connect to AWS resources
     tags:
-      - Manage CloudTrail links
+      - Connect to CloudTrail
+      - Connect to S3 Buckets
+  - name: Grafana API Gateway
+    tags:
+      - Grafana gateway
+    description: Grafana API Gateway to supported endpoints.
 
 paths:
+  # ::::: GRAFANA
+  /v1/grafana/api/{GRAFANA_API_URL}:
+    get:
+      summary: Grafana API Capabilities
+      description: >-
+        Prepend your Logz.io API Gateway to the relevant Grafana API endpoint.
+     
+     
+        Supported endpoints:
+          * [Alerting](https://grafana.com/docs/grafana/latest/http_api/alerting/)
+          * [Annotations](https://grafana.com/docs/grafana/latest/http_api/annotations/)
+          * [Dashboard](https://grafana.com/docs/grafana/latest/http_api/dashboard/)
+          * [Dashboard versions](https://grafana.com/docs/grafana/latest/http_api/dashboard_versions/)
+          * [Folder/dashboard search](https://grafana.com/docs/grafana/latest/http_api/folder_dashboard_search/)
+          * [Snapshot](https://grafana.com/docs/grafana/latest/http_api/snapshot/)
+
+        **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
+      tags:
+        - Grafana gateway
+      operationId: grafanaGateway
+      produces:
+        - application/json
+      parameters:
+
+
+
   # ::::: ACCOUNTS
   /v1/account-management/whoami:
     get:
@@ -916,6 +1004,29 @@ paths:
         default:
           description: successful operation
 
+  # ::::: Log Insights
+  /v1/insights/list:
+    get:
+      summary: Get the list of Insights
+      tags:
+        - Insights
+      description: >-
+        Get the list of Insights that match your search criteria.
+
+
+        Whenever a new Insight is detected, it receives an Insight ID and is tracked for as long as it recurs. The lookback period for Insights is 6 months.
+      operationId: getPublicInsights
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/PublicGetAccountInsightsRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PageResponsePublicAccountInsightResponse'
 
 
   # ::::: AUDIT TRAIL
@@ -959,14 +1070,14 @@ paths:
   /v1/log-shipping/cloudtrails:
     get:
       operationId: getAccountCloudTrails
-      summary: Retrieve all CloudTrail links
+      summary: Retrieve all connected CloudTrail resources
       description: >-
-        Returns a list of CloudTrail links attached to your Logz.io account
+        Returns a list of CloudTrail resources connected to your Logz.io account.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       responses:
         200:
           description: successful operation
@@ -979,14 +1090,17 @@ paths:
           source: 'curl -X GET "https://api.logz.io/v1/log-shipping/cloudtrails" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
     post:
       operationId: createCloudTrail
-      summary: Create a CloudTrail link
+      summary: Create a new CloudTrail connector
       description: >-
-        Creates a new link to your CloudTrail data in an AWS S3 bucket.
+        Establishes a new connection to a CloudTrail resource. As a result, logs from your CloudTrail resource will ship to the connected Logz.io account via an AWS S3 bucket.
+        
+        
+        CloudTrail logs will be parsed using the Logz.io custom CloudTrail parsing pipeline.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       parameters:
         - in: body
           name: body
@@ -1012,21 +1126,21 @@ paths:
   /v1/log-shipping/cloudtrails/{id}:
     get:
       operationId: getCloudTrail
-      summary: Retrieve a CloudTrail link by ID
+      summary: Retrieve CloudTrail connector by ID
       description: >-
-        Returns connection information on a single CloudTrail link.
+        Returns details for a CloudTrail connector, identified by its ID.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       parameters:
         - name: id
           in: path
           required: true
           type: integer
           format: int32
-          description: ID of the CloudTrail link
+          description: Logz.io ID of the CloudTrail connector
       responses:
         200:
           description: successful operation
@@ -1034,14 +1148,14 @@ paths:
             $ref: '#/definitions/CloudTrailResponse'
     put:
       operationId: updateCloudTrail
-      summary: Update a CloudTrail link
+      summary: Update a CloudTrail connector
       description: >-
-        Updates connection information for a CloudTrail link.
+        Updates details for a CloudTrail connector.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       parameters:
         - in: body
           name: body
@@ -1049,6 +1163,7 @@ paths:
           schema:
             $ref: '#/definitions/CloudTrailRequest'
         - name: id
+          description: Logz.io ID of the CloudTrail connector.
           in: path
           required: true
           type: integer
@@ -1060,16 +1175,17 @@ paths:
             $ref: '#/definitions/MessageBean'
     delete:
       operationId: deleteCloudTrail
-      summary: Delete a CloudTrail link
+      summary: Delete a CloudTrail connector
       description: >-
-        Deletes a Logz.io link to CloudTrail.
+        Deletes a CloudTrail connector. As a result, CloudTrail will stop shipping data to your Logz.io account.
 
 
         **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
-        - Manage CloudTrail links
+        - Connect to CloudTrail
       parameters:
         - name: id
+          description: Logz.io ID of the CloudTrail connector.
           in: path
           required: true
           type: integer
@@ -1079,6 +1195,166 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/MessageBean'
+
+  # ::::: S3 log shipping
+  /log-shipping/s3-buckets:
+    get:
+      summary: Retrieve all connected S3 buckets
+      description: >-
+        Returns a list of all S3 buckets connected to your Logz.io account.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
+      tags:
+        - Connect to S3 Buckets
+      operationId: getS3Buckets
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/S3BucketResponse'
+    post:
+      summary: Create a new S3 bucket connector
+      description: >-
+        Establishes a new connection of the Logz.io fetcher to an AWS S3 bucket. As a result, logs from your AWS resource will begin shipping to the connected Logz.io account via an AWS S3 bucket.
+        
+        
+        Logs will be parsed using the Logz.io custom parsing pipeline for the resource.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
+      tags:
+        - Connect to S3 Buckets
+      operationId: createBuckets
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/S3BucketRequest'
+      responses:
+        default:
+          description: successful operation
+  '/log-shipping/s3-buckets/{id}':
+    get:
+      summary: Retrieve an S3 bucket connector by ID
+      description: >-
+        Returns connection details for an S3 bucket connector by its ID.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
+      tags:
+        - Connect to S3 Buckets
+      operationId: getS3Bucket
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Logz.io ID of the S3 Bucket connector. You can run the relevant GET endpoints to retrieve the ID.
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: successful operation
+          schema:
+              $ref: '#/definitions/S3BucketResponse'
+    put:
+      summary: Update an S3 bucket connector
+      description: >-
+        Updates connection details for an S3 bucket connector.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
+      tags:
+        - Connect to S3 Buckets
+      operationId: updateBucket
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: Logz.io ID of the S3 Bucket connector. You can run the relevant GET endpoints to retrieve the ID.
+          required: true
+          type: integer
+          format: int32
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/S3BucketRequest'
+      responses:
+        default:
+          description: successful operation
+    delete:
+      summary: Delete an S3 connector
+      description: >-
+        Deletes an S3 bucket connector. As a result, the connected AWS resource will stop shipping logs to your Logz.io account.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
+      tags:
+        - Connect to S3 Buckets
+      operationId: deleteBucket
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Logz.io ID of the S3 bucket connector. You can run the relevant GET endpoints to retrieve the ID.
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: successful operation
+  /log-shipping/s3-buckets/aws-assume-role-details:
+    get:
+      summary: Get account information for IAM Role
+      description: >-
+        Returns the Logz.io parameters needed to create an AWS IAM Role in the AWS admin console.
+        
+        
+        The next steps after running this endpoint:
+
+        * Open your AWS admin console and create a new IAM Role. Once the role is created, you will obtain an ARN for it. Keep it handy for the next step.
+
+        * Create a new S3 bucket connector. Provide the ARN from the previous step in the request body.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
+      tags:
+        - Connect to S3 Buckets
+      operationId: getAWSAssumeRoleDetails
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AWSAssumeRoleDetails'
+          headers: {}
 
   # ::::: NOTIFICATION ENDPOINTS
   /v1/endpoints/slack:
@@ -1639,6 +1915,183 @@ paths:
             }"
 
 
+  # ::::: SHIPPING TOKENS
+  /v1/log-shipping/tokens:
+    post:
+      tags:
+        - Manage log shipping tokens
+      summary: Create a log shipping token
+      description: Creates a log shipping token for this account.
+      operationId: createNewLogShippingToken
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/log-shipping/tokens' \
+            --header 'X-API-TOKEN: <token>' \
+            --header 'Content-Type: application/json'
+            --data-raw '{ "name": "token-name", "enabled": "true" }'
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+      responses:
+        '201':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/{id}:
+    get:
+      tags:
+        - Manage log shipping tokens
+      summary: Retrieve a log shipping token by ID
+      description: Returns details for the specified shipping token.
+      operationId: getLogShippingTokenById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/{id}' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    put:
+      tags:
+        - Manage log shipping tokens
+      summary: Update a log shipping token
+      description: Enables/disables a log shipping token and/or renames it.
+      operationId: updateLogShippingToken
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X PUT 'https://api.logz.io/v1/log-shipping/tokens/{id}' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "name": "staging eu",
+              "enabled": true
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+    delete:
+      tags:
+        - Manage log shipping tokens
+      summary: Delete a log shipping token
+      description: >-
+        Deletes a log shipping token by its ID, while providing relevant information about the token's recent status and activity.
+        
+        
+        An account must have at least 1 enabled token. You won't be able to disable or delete the last token. 
+        
+        **Important**: Active tokens can be deleted using this call. Confirm that a token is no longer needed before deleting it.
+      operationId: deleteLogShippingToken
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: This token's ID.
+          example: 786351
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X DELETE 'https://api.logz.io/v1/log-shipping/tokens/786351' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensModel'
+  /v1/log-shipping/tokens/limits:
+    get:
+      tags:
+        - Manage log shipping tokens
+      summary: Get number of available tokens
+      description: >-
+        Returns the number of log shipping tokens currently in use and the number of available tokens that can be enabled.
+        Disabled tokens don't count against the token limit.
+      operationId: getLogShippingTokensLimits
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X GET 'https://api.logz.io/v1/log-shipping/tokens/limits' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ShippingTokensLimitsResponse'
+  /v1/log-shipping/tokens/search:
+    post:
+      tags:
+        - Manage log shipping tokens
+      summary: Retrieve log shipping tokens
+      description: Returns the relevant shipping tokens, filterd, sorted and paginated as per the request.   
+      operationId: searchLogShippingTokens
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ShippingTokensSearchRequest'
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/log-shipping/tokens/search' \
+            -H 'X-API-TOKEN: <token>' \
+            -H 'Content-Type: application/json' \
+            --data-raw '{
+              "filter": {
+                "enabled": true
+              },
+              "sort": [
+                {
+                  "field": "name",
+                  "descending": true
+                }
+              ],
+              "pagination": {
+                "pageNumber": 3,
+                "pageSize": 15
+              }
+            }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseShippingTokensModel'
+
   # ::::: SHARED TOKENS
   /v1/shared-tokens/filters:
     get:
@@ -2080,6 +2533,30 @@ paths:
             $ref: '#/definitions/SnapshotGetResponse'
 
   # ::::: USER MANAGEMENT
+  /v1/user-management/recursive:
+    get:
+      summary: Retrieve users in all associated accounts
+      description: >-
+        Returns a list of users in the main account and all associated sub accounts as an array of JSON objects per account.
+        
+        
+        If a user appears in multiple accounts, it will be listed separately under each account.
+        
+        
+        **Note:** Must be run with an API token belonging to the main account.
+      tags:
+        - Manage users
+      operationId: listAllAccountUsers
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X GET "https://api.logz.io/v1/user-management/recursive" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
   /v1/user-management:
     get:
       summary: Retrieve all users
@@ -2263,6 +2740,9 @@ paths:
 
 
         You have the option to filter by rule name, rule severity, and/or event timestamp, and sort the results by time and/or severity, but this is not required. If you send the query with an empty JSON body, it returns all of the events logged in your Logz.io Cloud SIEM, going as far back as your account's retention permits.
+
+
+        **Note:** Run this endpoint with an API token for your Logz.io Security account.
       tags:
         - Security events
       operationId: searchSecurityRulesEvents
@@ -2274,16 +2754,7 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/AlertsEventsSearchRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication API Token
-          required: false
-          type: string
-        #- name: X-AUTH-TOKEN
-        #  in: header
-        #  description: Authentication User Session
-        #  required: false
-        #  type: string
+
       x-code-samples:
         - lang: cURL
           source: >-
@@ -2325,9 +2796,12 @@ paths:
       summary: Fetch the logs that triggered a security event
       description: >-
         Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event.
-
-
+        
+        
         This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
+
+
+        **Note:** Run this endpoint with an API token for your Logz.io Security account.
       tags:
         - Security events
       operationId: searchSecurityRuleEventLogs
@@ -2360,6 +2834,130 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseMapStringObject'
           headers: {}
+
+  # ::::: DROP FILTERS
+  /v1/drop-filters/search:
+    post:
+      summary: Retrieve drop filters
+      description: Returns all drop filters configured for the account, both active and inactive.
+      tags:
+        - Drop filters
+      operationId: getAllForAccount
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+
+  /v1/drop-filters/{id}/activate:
+    post:
+      summary: Activate a drop filter
+      description: Activates a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: activate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters/{id}/deactivate:
+    post:
+      summary: Deactivate a drop filter
+      description: Deactivates a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: deactivate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters/{id}:
+    delete:
+      summary: Delete a drop filter
+      description: Deletes a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: delete
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters:
+    post:
+      summary: Fetch the logs that triggered a security event
+      description: >-
+        Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event.
+
+
+        This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
+      summary: Create drop filter
+      description: Creates and activates a new drop filter.
+      tags:
+        - Drop filters
+      operationId: create
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/DropFiltersCreateRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+
 
 
 definitions:
@@ -2486,7 +3084,7 @@ definitions:
       email:
         type: string
         pattern: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
-        description: Account administrator's email address
+        description: Email address of an existing admin user on the main account which will also become the admin of the account being created
         example: help@logz.io
       accountName:
         type: string
@@ -2588,7 +3186,7 @@ definitions:
         type: null
         nullable: true
         description: Email address of the user who created the account
-        example: null
+        example: my.email@company.com
       accountName:
         type: string
         description: Name of the account
@@ -3283,7 +3881,171 @@ definitions:
         example: 1587137557
         description: Absolute UNIX timestamp in seconds (not milliseconds).
 
-
+  # ::::: Log Insights
+  PublicGetAccountInsightsRequest:
+    type: object
+    required:
+    properties:
+      startDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the start date for the query time frame. By default, returns the past 15 minutes ("now - 15 minutes" translated into a UNIX timestamp).
+        example: 1592904389950
+      endDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the end date for the query time frame. By default, returns the current time ("now" translated into a UNIX timestamp).
+        example: 1592254800000
+      from:
+        type: integer
+        format: int32
+        description: Of the results found, the first result to return. Must be a non-negative integer.
+        default: 0
+        example: 0
+      size:
+        type: integer
+        format: int32
+        description: Number of results to return. Must be a positive integer between 1-100.
+        default: 10
+        maximum: 100
+        minimum: 1
+        example: 100
+      insightTypes:
+        type: array
+        items:
+          type: string
+          enum:
+            - PUBLIC_CI
+            - LOGCEPTION
+        description: Filters results by Insight type. `LOGCEPTION` filters for application insights. `PUBLIC_CI` filters for Cognitive Insights.
+        default: ["PUBLIC_CI", "LOGCEPTION"]
+        example: ["PUBLIC_CI", "LOGCEPTION"]
+      tagNames:
+        type: array
+        items:
+          type: string
+        description: Filters results by the tag values used to categorize Insights.
+        example:
+      logTypes:
+        type: array
+        items:
+          type: string
+        description: Filters results by [log type](/log-shipping/built-in-log-types.html).
+        example: ["log-engine", "spark"]
+      onlyNew:
+        type: boolean
+        description: Filters for Insights that first occurred in the selected time frame. In other words, excludes Insights that were first identified before or after the selected time range.
+        default: false
+        example: true
+      sortBy:
+        type: string
+        enum:
+          - FIRST_OCCURRENCE
+          - LAST_OCCURRENCE
+          - COUNT
+        description: Sorts Insights by the selected parameter.
+        default: COUNT
+        example: COUNT
+      asc:
+        type: boolean
+        description: If `false`, sorts Insights in descending order. The order depends on the selected `sortBy` paramater.
+        default: false
+        example: true
+      search:
+        type: string
+        description: Searches for an Insight by its title.
+        example: Exception
+#      timeZone:
+#        type: string
+#        description: Converts timestamps to the selected time zone.
+#        default: UTC=0
+#        example: America/Los_Angeles
+  PageResponsePublicAccountInsightResponse:
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 500
+        description: Number of results to return per page. Must be a positive integer between 0-500.
+      from:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 2147483647
+        description: UNIX timestamp in milliseconds.
+      total:
+        type: integer
+        format: int64
+        minimum: 0
+        maximum: 500
+        description: Total number of results found.
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/PublicAccountInsightResponse'
+  PublicAccountInsightResponse:
+    type: object
+    properties:
+      insightId:
+        type: string
+        description: An ID identifying the Insight in Logz.io. Can be used to track the Insight's occurrence in the environment over time.
+        example: "cf484f4c381c3e408a23accc5b487947d2f68791"
+      insightType:
+        type: string
+        enum:
+          - PUBLIC_CI
+          - LOGCEPTION
+        description: Identifies the type of Insight as either `LOGCEPTION` (application insights) or `PUBLIC_CI` (Cognitive Insights).
+        example: PUBLIC_CI
+      tagName:
+        type: string
+        description: Tags applied to the Insight help to categorize it.
+        example: ignite
+      description:
+        type: string
+        description: A helpful description of the issue identified by the Insight. The description is generated by Logz.io.
+        example: A match for the phrase - <'Could not find the language line'> was identified in the log message. As mentioned in the cited links, this may indicate that an issue has taken place that requires your attention.
+      links:
+        type: array
+        items:
+          type: string
+        description: Only applicable for `PUBLIC_CI` Insights. Provides reference links to recommended resources for further investigation of the issue.
+        example: https://github.com/benedmunds/CodeIgniter-Ion-Auth/issues/784 https://www.sitepoint.com/multi-language-support-in-codeigniter/ http://forum.codeigniter.com/thread-383.html https://community.invoiceplane.com/t/topic/3322 https://www.zonwhois.com/www/gwdcanada.com.html
+      additionalData:
+        type: object
+        description: Only applicable for `LOGCEPTION` Insights. Provides relevant excerpts from the stacktrace about the exception in question.
+        additionalProperties:
+          type: object
+      firstOccurrence:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the earliest appearance of the Insight. The lookback period is up to 6 months.
+        example: 1591181276000
+      lastOccurrence:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the most recent appearance of the Insight in the selected time frame.
+        example: 1591253121194
+      count:
+        type: integer
+        format: int64
+        description: The number of times the Insight occurred during the selected time frame.
+        example: 66
+      logTypes:
+        type: array
+        items:
+          type: string
+        description:
+        example: ["app-server", "user-analytics"]
+      kibanaLink:
+        type: string
+        description: Only applicable for `LOGCEPTION` Insights. Provides a drill-down link to fetch the raw logs that match the Insight in Kibana Discover.
+      insightTitle:
+        type: string
+        description: The title of the Insight.
+        example: "Could not find the language line create_user_validation_phone_label"
 
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:
@@ -3451,7 +4213,7 @@ definitions:
       id:
         type: integer
         format: int32
-        description: ID of the CloudTrail link
+        description: Logz.io ID of the CloudTrail connector. Use this ID to perform operations on the connector using Logz.io API endpoints.
         example: 15
       accessKey:
         type: string
@@ -3463,11 +4225,11 @@ definitions:
         example: cloudtrails bucket
       prefix:
         type: string
-        description: AWS S3 key prefix
+        description: Prefix of the AWS S3 bucket
         example: AWSLogs/7364988021587/myprefix
       active:
         type: boolean
-        description: If the CloudTrail link is active, `true`. If it is disabled, `false`.
+        description: If `true`, the CloudTrail connector is active and logs are being shipped to Logz.io. If `false`, the connector is disabled.
         example: true
   IdBean:
     type: object
@@ -3477,7 +4239,7 @@ definitions:
         format: int32
         readOnly: true
         minimum: 1
-        description: ??
+        description: Logz.io ID of the CloudTrail connector. Use this ID to perform operations on the connector using Logz.io API endpoints.
   CloudTrailRequest:
     type: object
     properties:
@@ -3495,17 +4257,159 @@ definitions:
         example: LogzioBucket
       prefix:
         type: string
-        description: AWS S3 key prefix
+        description: Prefix of the AWS S3 bucket
         example: AWSLogs/7364988021587/myprefix
       active:
         type: boolean
-        description: If the CloudTrail link is active, `true`. If it is disabled, `false`.
+        description: If `true`, the CloudTrail connector is active and logs are being shipped to Logz.io. If `false`, the connector is disabled.
   MessageBean:
     type: object
     properties:
       message:
         type: string
         readOnly: true
+
+  # ::::: S3 DEFINITIONS
+  S3BucketRequest:
+    type: object
+    required:
+    - bucket
+    - region
+    - logsType
+    properties:
+      accessKey:
+        type: string
+        description: AWS S3 bucket access key
+        example: ee07df5801500745419c6dff
+      secretKey:
+        type: string
+        description: AWS S3 bucket secret key
+        example: 506d891fe2163a511b450eddc3279539f6
+      arn:
+        type: string
+        description: Amazon Resource Name (ARN) to uniquely identify the S3 bucket. To generate a new ARN, create a new IAM Role in your AWS admin console.
+      bucket:
+        type: string
+        description: AWS S3 bucket name
+        example: AWS bucket
+      prefix:
+        type: string
+        description: Prefix of the AWS S3 bucket
+        example: AWSLogs/7364988021587/myprefix
+      active:
+        type: boolean
+        default: true
+        description: If `true`, the S3 bucket connector is active and logs are being shipped to Logz.io. If `false`, the connector is disabled.
+        example: true
+      addS3ObjectKeyAsLogField:
+        type: boolean
+        default: false
+        description: If `true`, enriches logs with a new field detailing the S3 object key.
+        example: true
+      region:
+        type: string
+        description: Specify one supported AWS region.
+        enum:
+          - US_EAST_1
+          - US_EAST_2
+          - US_WEST_1
+          - US_WEST_2
+          - EU_WEST_1
+          - EU_WEST_2
+          - EU_WEST_3
+          - EU_CENTRAL_1
+          - AP_NORTHEAST_1
+          - AP_NORTHEAST_2
+          - AP_SOUTHEAST_1
+          - AP_SOUTHEAST_2
+          - SA_EAST_1
+          - AP_SOUTH_1
+          - CA_CENTRAL_1
+      logsType:
+        type: string
+        enum:
+          - elb
+          - vpcflow
+          - S3Access
+          - cloudfront
+        description: Specify the log type you will be sending to Logz.io. As a result, Logz.io will apply the appropriate parsing pipeline. [Learn more about parsing options supported by Logz.io](/user-guide/log-shipping/built-in-log-types.html).
+        example: elb
+  S3BucketResponse:
+    type: object
+    required:
+    - bucket
+    - region
+    - logsType
+    properties:
+      accessKey:
+        type: string
+        description: AWS S3 bucket access key
+        example: ee07df5801500745419c6dff
+      secretKey:
+        type: string
+        description: AWS S3 bucket secret key
+        example: 506d891fe2163a511b450eddc3279539f6
+      arn:
+        type: string
+        description: Amazon Resource Name (ARN) to uniquely identify the S3 bucket. To generate a new ARN, create a new IAM Role in your AWS admin console.
+      bucket:
+        type: string
+        description: AWS S3 bucket name
+        example: AWS bucket
+      prefix:
+        type: string
+        description: Prefix of the AWS S3 bucket
+        example: AWSLogs/7364988021587/myprefix
+      active:
+        type: boolean
+        default: true
+        description: If `true`, the S3 bucket connector is active and logs are being fetched to Logz.io. If `false`, the connector is disabled.
+        example: true
+      addS3ObjectKeyAsLogField:
+        type: boolean
+        default: false
+        description: If `true`, enriches logs with a new field detailing the S3 object key.
+        example: true
+      region:
+        type: string
+        description: Specify one supported AWS region.
+        enum:
+          - US_EAST_1
+          - US_EAST_2
+          - US_WEST_1
+          - US_WEST_2
+          - EU_WEST_1
+          - EU_WEST_2
+          - EU_WEST_3
+          - EU_CENTRAL_1
+          - AP_NORTHEAST_1
+          - AP_NORTHEAST_2
+          - AP_SOUTHEAST_1
+          - AP_SOUTHEAST_2
+          - SA_EAST_1
+          - AP_SOUTH_1
+          - CA_CENTRAL_1
+      logsType:
+        type: string
+        enum:
+          - elb
+          - vpcflow
+          - S3Access
+          - cloudfront
+        description: Specifies the log type being sent to Logz.io. Determines the parsing pipeline used to parse and map the logs. [Learn more about parsing options supported by Logz.io](/user-guide/log-shipping/built-in-log-types.html).
+        example: elb
+  AWSAssumeRoleDetails:
+    type: object
+    properties:
+      logzioAWSAccountId:
+        type: string
+        description: Logz.io account ID. Provide this account ID when creating a new AWS IAM Role.
+        example:
+      assignedExternalId:
+        type: string
+        description: Logz.io external ID. Provide this external ID when creating a new AWS IAM Role.
+        example:
+
 
   # ::::: NOTIFICATION ENDPOINTS DEFINITIONS
   EndpointUpsertResponse:
@@ -4138,7 +5042,7 @@ definitions:
       accountID:
         type: integer
         format: int32
-        description: ID of the account attached to the user
+        description: Logz.io account ID.
         example: 55555
       roles:
         type: array
@@ -4188,6 +5092,55 @@ definitions:
           format: int32
         description: For user access, `2`. For admin access, `3`.
         example: [2]
+
+  # ::::: DROP FILTERS
+  DropFiltersCreateRequest:
+    type: object
+    properties:
+      logType:
+        type: string
+        nullable: true
+        description: Filters for the [log type](/log-shipping/built-in-log-types.html).
+        example: apache
+      fieldConditions:
+        type: array
+        items:
+          $ref: '#/definitions/FieldCondition'
+
+
+  FieldCondition:
+    type: object
+    properties:
+      fieldName:
+        type: string
+        description: Exact field name in your Kibana mapping for the selected `logType`.
+        example: response
+      value:
+        type: object
+        description: Exact field value. The filter looks for an exact value match of the entire string.
+        example: 200
+
+  LogsDropFiltersPipelineDefinition:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+        example: f54406c1-b4ad-5969-8542-f6a3e9df5c79
+      active:
+        type: boolean
+        description: If `true`, the drop filter is active and logs that match the filter are dropped before indexing. If `false`, the drop filter is disabled.
+        example: true
+      logType:
+        type: string
+        description: Filters for the [log type](/log-shipping/built-in-log-types.html).
+        example: apache
+      fieldConditions:
+        type: array
+        description: Filters for an exact match of a field:value pair.
+        items:
+          $ref: '#/definitions/FieldCondition'
+
 
   # ::::: Archive DEFINITIONS
   ArchiveSettings:
@@ -4300,3 +5253,117 @@ definitions:
       format: int32
     archiveSettings:
       $ref: '#/definitions/ArchiveSettings'
+
+  # ::::: SHIPPING TOKENS DEFINITIONS
+  ShippingTokensModel:
+    type: object
+    properties:
+      name:
+        type: string
+        description: This token's name.
+        example: apac prod
+      id:
+        type: integer
+        format: int32
+        description: This token's ID.
+        example: 786351
+      token:
+        type: string
+        description: The token itself.
+        example: 6bLXmMA6FLibc7ySSqNcCfvbhtqT0rPS
+      updatedAt:
+        type: integer
+        format: int64
+        description: Unix timestamp of when this token was last updated.
+        example: 414720000
+      updatedBy:
+        type: string
+        description: Email address of the last user to update this token.
+        example: shalom.the.mighty@gmail.com
+      createdAt:
+        type: integer
+        format: int64
+        description: Unix timestamp of when this token was created.
+        example: 389836800
+      createdBy:
+        type: string
+        description: Email address of the user who created this token.
+        example: you.got.this@gmail.com
+      enabled:
+        type: boolean
+        description: If this token is enabled, `true`. If it's disabled, `false`.
+  ShippingTokensRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Descriptive name for this token.
+          example: staging eu
+        enabled:
+          type: boolean
+          default: true
+          description: To enable this token, `true`. To disable, `false`.
+  ShippingTokensLimitsResponse:
+      type: object
+      properties:
+        maxAllowedTokens:
+          type: integer
+          format: int32
+          description: The number of log shipping tokens this account can have.
+          example: 50
+        numOfEnabledTokens:
+          type: integer
+          format: int32
+          description: The number of log shipping tokens currently enabled for this account.
+          example: 27
+  ShippingTokensSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/ShippingTokensFilterRequest'
+      sort:
+        type: array
+        description: Sorts the results before returning them.
+        items:
+          $ref: '#/definitions/ShippingTokensSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  ShippingTokensSortRequest:
+      type: object
+      properties:
+        field:
+          type: string
+          enum:
+            - CREATED_AT
+            - NAME
+          description: >-
+            To sort by creation date, use `"createdAt"`.
+            To sort by name, use `"name"`.
+          example: NAME
+        descending:
+          type: boolean
+          description: >-
+            For descending order, use `true`.
+            For ascending order, use `false`.
+
+  ShippingTokensFilterRequest:
+      type: object
+      description: Filters your search for token attributes.
+      properties:
+        enabled:
+          type: boolean
+          description: >-
+            Set to `true` to filter for enabled tokens.
+            Set to `false` to filter for disabled tokens.
+  PagedSearchResponseShippingTokensModel:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/ShippingTokensModel'
+      pagination:
+        $ref: '#/definitions/Pagination'

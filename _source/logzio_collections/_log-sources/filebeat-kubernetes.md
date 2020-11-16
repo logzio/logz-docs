@@ -12,7 +12,8 @@ shipping-tags:
 <div class="branching-container">
 
 <!-- tab:start -->
-This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your cluster and ship them to Logz.io.</br>
+This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your cluster and ship them to Logz.io.
+
 You have 3 ways to deploy this Daemonset:
 * Standard configuration - standard built-in configuration.
 * Autodiscover configuration - built-in configuration that uses Filebeat's autodiscover and hints system.

@@ -12,11 +12,14 @@ contributors:
 ---
 If you’re working with Kubernetes, use this yaml file as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value.
 
-Make sure you use the correct Jaeger version for the `jaeger-agent` image. 
 
-Look up your Distributed Tracing `ACCOUNT TOKEN` at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page. 
+_Before you begin:_
 
-Look up your `CUSTOM_LISTENER_URL` on the <a href="/user-guide/log-shipping/listener-ip-addresses.html" target ="_blank"> Listener IP addresses </a>page.
++ Make sure you use the correct Jaeger version for the `jaeger-agent` image. 
+
++ Look up your Distributed Tracing `ACCOUNT TOKEN` at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page. 
+
++ Look up your `CUSTOM_LISTENER_URL` on the <a href="/user-guide/accounts/account-region.html" target ="_blank"> Regions and Listener Hosts </a>page.
 
 
 ```yaml
@@ -60,11 +63,12 @@ items:
               path: "/"
               port: 14269
           env:
-          - name: ACCOUNT_TOKEN # obtained from Logz.io in Manage Accounts > Distributed Tracing
-            value: {{ .Values.monitoring_config.jaeger_token }}
+
+          - name: ACCOUNT_TOKEN 
+            value: # obtained from Logz.io in Manage Accounts > Distributed Tracing
 {{- if and .Values.environment (eq .Values.environment "staging") }}
-          - name: CUSTOM_LISTENER_URL # obtained from Logz.io Listener IP addresses table
-            value: https://{{ .Values.monitoring_config.listener }}:8071
+          - name: CUSTOM_LISTENER_URL 
+            value: # obtained from Logz.io Regions and Listener hosts table
 {{- end }}
 
 - apiVersion: v1

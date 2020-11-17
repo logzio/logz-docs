@@ -173,6 +173,8 @@ firstLevel:
       url: /user-guide/siem/security-correlated-queries/
   - title: Lookups
     url: /user-guide/lookups/
+  - title: Security reports
+    url: /user-guide/siem/reports/
   - title: Integrations
     url: /user-guide/cloud-siem/integrations/
     thirdLevel:

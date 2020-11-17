@@ -1,7 +1,6 @@
 ---
 layout: article
 title: Lookups
-description: Lookups are reference lists that you can use to filter Kibana results or to power your security rules. Using lookups, you can maintain lists of anything you want to filter by, such as users, IP addresses, regions, or domains.
 permalink: /user-guide/lookups/
 flags:
   logzio-plan: enterprise
@@ -16,14 +15,19 @@ contributors:
   - danielberman
 ---
 
-Lookups are customizable lists that allow you to easily filter by data sets.
-For example, you can create lookups of whitelisted or blacklisted usernames, IP addresses, regions, or domains.
+Lookups are custom lists that allow you to easily filter by large lists in Kibana.
+Instead of adding a long list of elements to your query, you can create lookup lists and filter by them with the operator `in lookups` or `not in lookups`.
 
-You can filter by lookups to create more powerful Kibana searches, dashboards, and security rules.
+For example, you can create lookups of whitelisted or blacklisted usernames, IP addresses, regions, or domains. 
+
+Since the lookup list is centrally managed, it can be easily updated and changed without requiring manually updating multiple dashboards, saved searches, security rules, etc.
 
 ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/siem-lookups.png)
 
-To reach this page, select [**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup) from the top menu of your Cloud SIEM account.
+To create a lookup list, select [**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup) from the top menu of your Cloud SIEM account.
+
+If you would like to create a lookup list with a large number of elements, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> so they can create it for you. A new lookups API is coming soon to allow you to create and update a large lookup list independently.
+{:.info-box.tip} 
 
 #### Create a lookup
 

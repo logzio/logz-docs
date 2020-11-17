@@ -1,30 +1,26 @@
 ---
-title: LightS
+title: Logz.io LightS for AWS
 open-source:
   - title: Light Synthetic Monitoring
 logo:
   logofile: logz-symbol.svg
   orientation: vertical
 data-source: LightS
-tags:
-  - aws
 contributors:
   - doron-bargo
 shipping-tags:
   - aws
---- 
+---
 
 
 LightS is a web monitoring solution to check availability and load performance of your web site.
 This solution will be deployed on your AWS account.
 
-
-
 #### Configuration
 
 <div class="tasklist">
 
-##### Create Task
+##### Create Stack
 
 
 To start just press the button and follow the instructions:
@@ -35,11 +31,11 @@ To start just press the button and follow the instructions:
 You'll be taken to AWS, where you'll configure the resources to be deployed.
 Keep the defaults and click Next on the following screen
 
-![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-create-stack.png)
+![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/lights-create-stack.png)
 
-###### Specify stack details
+##### Specify stack details
 
-![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-stack-details.png)
+Fill in the form with the relevant parameters.
 
 | Parameter | Description |
 |---|---|
@@ -50,15 +46,17 @@ Keep the defaults and click Next on the following screen
 | shippingProtocol | Protocol for shipping metrics and logs. Default is https and it better to leave it as is |
 | url | URL to monitor. For example : https://www.logz.io |
 
-and click Next
+After filing in the form, click **Next** to continue.
+
+![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/lights-params.png)
 
 ##### Configure stack
 
-On the following page fill Tags to easily identified your Lambda function and press Next
-![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-configure-stack.png)
+On the following page, specify **Tags** to help you easily identify your Lambda function. Click **Next** to proceed.
 
+![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/lights-stack-options.png)
 
-###### Confirm IAM Role permissions and create the stack
+##### Confirm IAM Role permissions and create the stack
 
 AWS will automatically show a notice requesting that you acknowledge that AWS CloudFormation might create IAM resources.
 

@@ -173,7 +173,7 @@ tags:
       Logz.io alerts use a Kibana search query to continuously scan your logs and alert you when a certain set of conditions is met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
 
 
-      When alerts trigger, they write event logs. Event logs of triggered alerts are always available and searchable in Kibana - just filter for logzio-alert:exists. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
+      When alerts trigger, they write event logs. Event logs of triggered alerts are always available and searchable in Kibana - just filter for `_exists_:logzio-alerts`. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -4949,7 +4949,7 @@ definitions:
           
           * If `NONE`, `fieldToAggregateOn` must be null, and `groupBy` field must not be empty (or null).
 
-          
+
           * If any other operator type (other than `NONE` or `COUNT`), `fieldToAggregateOn` must not be null.
         enum:
           - SUM
@@ -5211,7 +5211,7 @@ definitions:
         description: If `true`, the alert is enabled and active.
   AlertTrigger:
     type: object
-    description: Sets an additional triggering threshold and severity tab to label the event when the alert triggers.
+    description: Sets the triggering threshold and severity tab to label the event when the alert triggers.
     properties:
       operator:
         type: string

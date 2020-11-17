@@ -1,8 +1,8 @@
 ---
 title: Ship Kubernetes logs using a Filebeat DaemonSet
 logo:
-  logofile: kubernetes.svg
-  orientation: vertical
+  logofile: k8s-beats.svg
+  orientation: horizontal
 data-source: Filebeat DaemonSet for Kubernetes
 templates: ["no-template", "no-template"]
 shipping-tags:

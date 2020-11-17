@@ -1,8 +1,8 @@
 ---
 title: Ship Kubernetes logs using a Fluentd DaemonSet
 logo:
-  logofile: kubernetes.svg
-  orientation: vertical
+  logofile: k8s-fluentd.svg
+  orientation: horizontal
 data-source: Fluentd DaemonSet for Kubernetes
 templates: ["k8s-daemonset"]
 open-source:

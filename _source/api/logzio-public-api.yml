@@ -4937,11 +4937,20 @@ definitions:
   # ::::: Alert
   Aggregation:
     type: object
-    description: Specifies a trigger condition that is the threshold.
+    description: Specifies a trigger condition that acts as a threshold.
     properties:
       aggregationType:
         type: string
-        description: Selects the type of aggregation for the trigger condition.
+        description: >- 
+          Specifies the aggregation operator.
+
+
+          * If `COUNT`, `fieldToAggregateOn` must be null, and `groupBy` fields must not be empty.
+          
+          * If `NONE`, `fieldToAggregateOn` must be null, and `groupBy` field must not be empty (or null).
+
+          
+          * If any other operator type (other than `NONE` or `COUNT`), `fieldToAggregateOn` must not be null.
         enum:
           - SUM
           - MIN
@@ -4952,7 +4961,11 @@ definitions:
           - NONE
       fieldToAggregateOn:
         type: string
-        description: Selects the field on which to run the aggregation for the trigger condition.
+        description: >-
+          Selects the field on which to run the aggregation for the trigger condition.
+
+
+          * Cannot be a field already in use for `groupBy`.
   AlertV2Response:
     type: object
     properties:

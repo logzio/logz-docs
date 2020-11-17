@@ -1,5 +1,5 @@
 ---
-title: Ship Kubernetes logs
+title: Ship Kubernetes logs using a Fluentd DaemonSet
 logo:
   logofile: kubernetes.svg
   orientation: vertical

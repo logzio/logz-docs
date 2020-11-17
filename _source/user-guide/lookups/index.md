@@ -1,74 +1,71 @@
 ---
 layout: article
 title: Lookups
-description: Lookups are reference lists that you can use to filter Kibana results or to power your security rules. Using lookups, you can maintain lists of anything you want to filter by, such as users, IP addresses, regions, or domains.
 permalink: /user-guide/lookups/
 flags:
-  logzio-plan: pro
+  logzio-plan: enterprise
 tags:
   - security-analytics
   - lookups
   - kibana-filters
   - security-rules
 contributors:
+  - shalper
   - imnotashrimp
   - danielberman
 ---
 
-Lookups let you easily manage sets of data, which you can use in multiple Kibana searches or security rules.
-Lookups can hold whitelisted or blacklisted values like usernames, IP addresses, regions, or domains.
+Lookups are custom lists that allow you to easily filter by large lists in Kibana.
+Instead of adding a long list of elements to your query, you can create lookup lists and filter by them with the operator `in lookups` or `not in lookups`.
 
-For example, if you create a lookup that contains a list of company IP addresses, you can update the lookup as your IP addresses change over time.
-All searches and security rules that use this lookup will compare logs to the updated list—so you'll avoid the mistake-prone process of maually copying your data everywhere it's used.
+For example, you can create lookups of whitelisted or blacklisted usernames, IP addresses, regions, or domains. 
 
-![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lookups/lookups.png)
+Since the lookup list is centrally managed, it can be easily updated and changed without requiring manually updating multiple dashboards, saved searches, security rules, etc.
 
-You can find lookups by selecting
-[**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup)
-from the top menu of your Cloud SIEM account.
+![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/siem-lookups.png)
 
-#### Create or delete a lookup
+To create a lookup list, select [**Rules > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup) from the top menu of your Cloud SIEM account.
 
-* In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page,
-  click **New lookup** to create an untitled lookup.
-  Give your new lookup a **Name** and optional **Description**.
-  Your changes are automatically saved when you press Tab to advance to the next form field.
-* To delete a lookup,
-  click **Delete** for that lookup.
+If you would like to create a lookup list with a large number of elements, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> so they can create it for you. A new lookups API is coming soon to allow you to create and update a large lookup list independently.
+{:.info-box.tip} 
 
-#### Update a lookup
+#### Create a lookup
 
 * In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page,
-  click **Edit** for the lookup you want to update.
-* To add a new item,
-  type a **Value** and an optional **Note**, and then click **Add**.
-* Click **Edit** to change an item's value or note and then **Save** your changes,
-  or click **Cancel** to revert your changes.
-* Click **Delete** to delete an item from the lookup.
+  click **+ New lookup**. **Name** your lookup. You can also add a **Description**. 
+  
+  Click **+ Add record** to add a new element to the lookup. 
+    
+  ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup-blank.png)
 
-#### Use lookups in Kibana filters and security rules
+*  Type in a **Value**. For example, an IP address or domain. You can also add a reference **Note**. Click **Add** to confirm and save the new record.
 
-<div class="tasklist">
+  ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup.png)
 
-##### Add a Kibana filter with your lookup
+* Repeat the above step to continue adding the relevant records to your lookup.
 
-In the [Research](https://app.logz.io/#/dashboard/security/research) page,
-click **Add a filter** to show the filter dialog box.
+#### Update or delete a lookup
 
-<video autoplay controls loop width="500">
-  <source src="{{site.baseurl}}/videos/lookups/add-lookup-in-kibana.mp4" type="video/mp4" />
-</video>
+In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page:
 
-Choose a field to filter by.
+* To add, update, or remove items from the lookup, hover over the lookup, click **edit** <i class="li li-pencil"></i>, make your changes, and then click **Save**.
 
-Choose **in lookup** or **not in lookup** from the **Operators** list,
-and then choose the lookup you want to filter by.
+* To delete a lookup, hover over the item and click **delete** <i class="li li-trash"></i> to delete it. You'll be asked to confirm the deletion.
 
-##### _(Optional)_ Create a security rule
+#### Filter by lookups in Kibana
 
-Click **Create Alert** (to the right of the search bar)
-to make a new security rule with your filter.
-Your new security rule will contain the lookup you used in step 1.
+You can filter by lookups in Kibana dashboards, security rules, and searches.
 
-If you need help with creating a new security rule,
-see [Manage security rules]({{site.baseurl}}/user-guide/cloud-siem/manage-security-rules.html).
+For example, go to the [Research](https://app.logz.io/#/dashboard/security/research) page or open a Dashboard. Click **Add a filter** to show the filter dialog box.
+
+![Filter by lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-by-lookup.png)
+
+* **Field** - Select a field to filter by.
+* **Operator** - Select the operator **in lookups** or **not in lookups**.
+* **Value** - Select the lookup you want to filter by.
+
+#### Add a lookup filter to a security rule
+
+Security rules can filter by a lookup. [Learn more about managing security rules]({{site.baseurl}}/user-guide/cloud-siem/manage-security-rules.html).
+
+![Filter by lookup in Logz.io security rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-by-lookup-rules.png)

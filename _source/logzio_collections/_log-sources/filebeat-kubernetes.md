@@ -1,5 +1,5 @@
 ---
-title: Ship Kubernetes logs
+title: Ship Kubernetes logs using a Filebeat DaemonSet
 logo:
   logofile: kubernetes.svg
   orientation: vertical
@@ -48,13 +48,13 @@ kubectl create secret generic logzio-logs-secret \
 
 Run the relevant command for your type of deployment.
 
-###### Deploy the standard configuration 
+###### Deploy the standard configuration
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
-###### Deploy the autodiscover standard configuration 
+###### Deploy the autodiscover standard configuration
 
 Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running. See Elastic documentation to [learn more about Filebeat Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
 
@@ -66,19 +66,19 @@ Autodiscover allows you to adapt settings as changes happen. By defining configu
 
 If you want to apply your own custom configuration, download the standard-configmap.yaml and apply your changes. Make sure to keep the file structure unchanged.
 
-Run the following command to download the file: 
+Run the following command to download the file:
 
 ```shell
 wget https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
-Apply your custom configuration to the paramaters under `filebeat.yml` and only there. The filebeat.yml field contains a basic Filebeat configuration. You should not change the 'fields' and 'output' fields (indicated in the example below). See Elastic documentation to[learn more about configuring Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html).
+Apply your custom configuration to the paramaters under `filebeat.yml` and only there. The filebeat.yml field contains a basic Filebeat configuration. You should not change the 'fields' and 'output' fields (indicated in the example below). See Elastic documentation to [learn more about Filebeat configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html).
 
 ```
 filebeat.yml: |-
-  
+
   # ...
-  # Start editing your configuration here 
+  # Start editing your configuration here
   filebeat.inputs:
   - type: container
     paths:

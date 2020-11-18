@@ -72,7 +72,10 @@ Run the following command to download the file:
 wget https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
-Apply your custom configuration to the paramaters under `filebeat.yml` and only there. The filebeat.yml field contains a basic Filebeat configuration. You should not change the 'fields' and 'output' fields (indicated in the example below). See Elastic documentation to [learn more about Filebeat configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html).
+Apply your custom configuration to the paramaters under `filebeat.yml` and only there. The filebeat.yml field contains a basic Filebeat configuration. You should not change the 'output' field (indicated in the example below). See Elastic documentation to [learn more about Filebeat configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html).
+
+**Note**
+Make sure to keep ``token: ${LOGZIO_LOGS_SHIPPING_TOKEN}`` under ``fields``, as it determines the token used to verify your logz.io account.
 
 ```
 filebeat.yml: |-

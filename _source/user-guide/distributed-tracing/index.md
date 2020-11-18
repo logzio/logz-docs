@@ -10,6 +10,15 @@ tags:
 contributors:
   - yberlinger
 ---
+
+### Fast track shortcuts: Oh, the Traces You'll Go! 
+
+* [Get started](/user-guide/distributed-tracing/getting-started-tracing): Deploy components and set up instrumentation
+* [Search for traces](/user-guide/distributed-tracing/tracing-tour): Log in and get on the trace 
+* [View the trace timeline](/user-guide/distributed-tracing/trace-timeline): Dig into the details of each span
+* [Compare traces](/user-guide/distributed-tracing/compare-traces): See where traces differ from each other by comparing node blocks
+* [Correlate logs and traces](/user-guide/distributed-tracing/correlate-traces): Harness Kibana and Jaeger together for more powerful insights.
+
 ### Logz.io Distributed Tracing - Why go it alone?
 
 Logz.io gives you the ability to look under the hood at how your microservices are interacting with each other and lets you access rich information which your dev team can use to improve performance and investigate - and  troubleshoot - issues.
@@ -26,12 +35,6 @@ Maximize value with Logz.io's observability platform and use your favorite open 
 * Log management - to debug an individual issue or problem (diagnostics... how do I fix the problem?)
 * Distributed tracing - to identify when and where performance issues or errors are occurring within a specific transaction, and isolate the contributing causes of these issues
 
-### Quick links to get you started: Oh, the Traces You'll Go! 
 
-* [Get started](/user-guide/distributed-tracing/getting-started-tracing): Deploy components and set up instrumentation
-* [Search for traces](/user-guide/distributed-tracing/tracing-tour): Log in and get on the trace 
-* [View the trace timeline](/user-guide/distributed-tracing/trace-timeline): Dig into the details of each span
-* [Compare traces](/user-guide/distributed-tracing/compare-traces): See where traces differ from each other by comparing node blocks
-* [Correlate logs and traces](/user-guide/distributed-tracing/correlate-traces): Harness Kibana and Jaeger together for more powerful insights.
 
 

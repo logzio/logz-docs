@@ -19,9 +19,12 @@ Get set and get ready: This section describes what you have to do to get set up 
 <div class="tasklist">
 
 ##### Look up your Distributed Tracing Token and Region information in Logz.io
-You’ll find your Distributed Tracing account information in the Manage accounts page of your Operations workspace, at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts page**</a>.
+You’ll find your Distributed Tracing account information in the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts page**</a> of your Operations workspace, 
 
 ![Distributed Tracing token location](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-token1.png)
+
+when you click the account name at the bottom of the page.
+![Reveal Distributed Tracing Token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-acct-tokeninfo11.gif)
 
 Look up your accounts region code in the General Settings page, here:  <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> > Settings > General**.
 ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1.png)

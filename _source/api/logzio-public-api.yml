@@ -174,6 +174,15 @@ tags:
 
 
       When alerts trigger, they write event logs. Event logs of triggered alerts are always available and searchable in Kibana - just filter for `_exists_:logzio-alert`. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
+  - name: Security rules
+    description: >-
+      Security rules help you connect the dots between your data sources and events that could indicate a security threat or breach. 
+      
+      
+      Your Cloud SIEM account comes pre-configured with security rules for different attack types and security use cases. These built-in rules are protected, and there are limitations on the changes that can be made to them. Pre-configured rules can be updated by adding notification endpoints (like email or Slack), changing trigger thresholds and severities, and adding tags, as described in detail in the endpoint.
+
+      
+      You can also create new security rules to supplement the built-in rules.
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -204,6 +213,7 @@ x-tagGroups:
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
+      - Security rules
       - Security events
   - name: Account administration
     tags:
@@ -2730,7 +2740,97 @@ paths:
         200:
           description: successful operation
 
-  # ::::: SECURITY RULES
+
+  # ::::: CLOUD SIEM RULES
+  /v2/security/rules:
+    post:
+      tags:
+        - Security rules
+      summary: Create a security rule
+      description: Creates a new security rule and activates it.
+      operationId: createSecurityRule
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RuleV2Request'
+      responses:
+        '201':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RuleV2Response'
+  /v2/security/rules/{ruleId}:
+    get:
+      tags:
+        - Security rules
+      operationId: getSecurityRule
+      summary: Retrieve a security rule
+      description: Retrieves a security rule by its ID.
+      produces:
+        - application/json
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: 
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/SecurityRuleResponse'
+          headers: {}
+    put:
+      summary: Update a security rule
+      description: Updates a security rule by its ID.
+      tags:
+        - Security rules
+      operationId: updateSecurityRule
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RuleV2Request'
+        - name: ruleId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RuleV2Response'
+    delete:
+      summary: Delete a security rule
+      description: Deletes a security rule by its ID.
+      tags:
+        - Security rules
+      operationId: deleteSecurityRule
+      produces:
+        - application/json
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RuleV2Response'
+          headers: {}
+
+
+
 
   # ::::: SECURITY EVENTS
   /v2/security/rules/events/search:
@@ -4983,7 +5083,7 @@ definitions:
       createdAt:
         type: integer
         format: int64
-        description: Date and time in UTC when the alert was first created updated.
+        description: Date and time in UTC when the alert was first created.
         example: 2020-02-02T18:58:16.000Z
       createdBy:
         type: string
@@ -5155,7 +5255,7 @@ definitions:
           $ref: '#/definitions/ColumnConfig'
       shouldUseAllFields:
         type: boolean
-        description: If `true`, the notification ouput will include entire logs with all of their fields in the sample data.
+        description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
         default: true
   AlertV2Request:
     type: object
@@ -5308,3 +5408,396 @@ definitions:
         $ref: '#/definitions/TagsFilter'
       pagination:
         $ref: '#/definitions/Pagination'
+
+
+  # ::::: SIEM RULES - duplicates of rule definitions. do not exist in the swagger
+
+  RuleV2Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Logz.io rule ID.
+        example: 627816
+      updatedAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was last updated.
+        example: 2020-04-02T18:58:16.000Z
+      updatedBy:
+        type: string
+        description: Email of the user who last updated the rule.
+        example: tomer@logz.io
+      createdAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was first created.
+        example: 2020-02-02T18:58:16.000Z
+      createdBy:
+        type: string
+        description: Email of the user who first created the rule.
+        example: tomer@logz.io
+      enabled:
+        type: boolean
+        description: If `true`, the rule is currently active.
+        example: true
+      title:
+        type: string
+        description: Rule title.
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        example: [network, aws]
+      output:
+        $ref: '#/definitions/RuleOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+          
+          
+          The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The rule runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+      subComponents:
+        type: array
+        description: Determines when the rule should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubRule'
+      correlations:
+        $ref: '#/definitions/SubRuleCorrelation'
+  RuleOutput:
+    type: object
+    description: Automatically sends out notifications with sample results when the rule triggers.
+    properties:
+      recipients:
+        $ref: '#/definitions/RuleRecipients'
+      suppressNotificationsMinutes:
+        type: integer
+        format: int32
+        minimum: 5
+        maximum: 1440
+        description: Add a waiting period in minutes to space out notifications. (The rule will still trigger but will not send out notifications during the waiting period.)
+        example: 60
+      type:
+        type: string
+        description: Selects the output format for the rule notification. If the rule has no aggregations/group by fields, `JSON` offers the option to send full sample logs without selecting specific fields.
+        enum:
+          - JSON
+          - TABLE
+  RuleQuery:
+    type: object
+    description: Determines when the rule should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+    properties:
+      query:
+        type: string
+        description: >-
+          Provide a Kibana search query written in Lucene syntax. The search query together with the filters select for the relevant logs.
+          
+          
+          Cannot be null - send an asterisk wildcard `*` if not using a search query.
+        default: "*"
+        nullable: false
+        example: type:apache_access
+      filters:
+        $ref: '#/definitions/BoolFilter'
+      groupBy:
+        type: array
+        nullable: true
+        description: Specify 1-3 fields by which to group the results and count them. If you apply a group by operation, the rule returns a count of the results aggregated by unique values.
+        items:
+          type: string
+        maxItems: 3
+        minItems: 0
+      aggregation:
+        $ref: '#/definitions/Aggregation'
+      shouldQueryOnAllAccounts:
+        type: boolean
+        default: true
+        example: false
+        description: Only applicable when the rule is run from the main account. If `true`, the rule runs on the main account and all associated searchable sub accounts. If `false`, specify relevant account IDs for the rule to monitor using the `accountIdsToQueryOn` field.
+      accountIdsToQueryOn:
+        type: array
+        description: Specify Account IDs to select which accounts the rule should monitor. The rule will be checked only on these accounts.
+        items:
+          type: integer
+          format: int32
+          example: 2321
+
+  RuleRecipients:
+    type: object
+    description: Add email addresses and/or endpoint channels to automatically receive notifications with sample data when the rule triggers.
+    properties:
+      emails:
+        type: array
+        description: Array of email addresses to be notified when the rule triggers.
+        items:
+          type: string
+          example: tom.a@logz.io
+      notificationEndpointIds:
+        type: array
+        description: Array of IDs of pre-configured endpoint channels to notify when the rule triggers.
+        items:
+          type: integer
+          format: int32
+          example: 10101
+  SubRule:
+    type: object
+    properties:
+      queryDefinition:
+        $ref: '#/definitions/RuleQuery'
+      trigger:
+        $ref: '#/definitions/RuleTrigger'
+      output:
+        $ref: '#/definitions/SubRuleOutput'
+  SubRuleCorrelation:
+    type: object
+    description: >-
+      Only applicable when multiple sub-components are in use. Selects a logic for correlating the rule’s sub-components.
+
+
+      `AND` is currently the only supported operator. When `AND` is the `correlationOperator`, both sub-components must meet their triggering criteria for the rule to trigger.
+    properties:
+      correlationOperators:
+        type: array
+        items:
+          type: string
+          enum:
+            - AND
+
+      joins:
+        type: array
+        description: >-
+          Specifies which group by fields must have the same values to trigger the rule.
+
+
+          Joins the group by fields from the first and second sub-components. The key represents the index of the sub component in the array (See the example - the index of the first sub-component is 0, the second is 1).
+          
+          
+          The fields must be ordered pairs of the group by fields already in use in the `queryDefinition`.
+        items:
+          type: object
+          additionalProperties:
+          example: {0: "region", 1: "region"}
+  SubRuleOutput:
+    type: object
+    description: Selects the data output to be sent in the notification when the rule triggers. Not applicable, when grouping by fields or aggregating results, as the output is auto-selected.
+    properties:
+      columns:
+        type: array
+        items:
+          $ref: '#/definitions/ColumnConfig'
+      shouldUseAllFields:
+        type: boolean
+        description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
+        default: true
+  RuleV2Request:
+    type: object
+    required:
+    properties:
+      title:
+        type: string
+        description: Rule title
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        maxItems: 10
+        minItems: 0
+        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        example: network
+      output:
+        $ref: '#/definitions/RuleOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+          
+          
+          The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The rule runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+        example: 20
+      subComponents:
+        type: array
+        description: Sets the search criteria using a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubRule'
+      correlations:
+        $ref: '#/definitions/SubRuleCorrelation'
+      enabled:
+        type: boolean
+        description: If `true`, the alert is enabled and active.
+  RuleTrigger:
+    type: object
+    description: Sets the triggering threshold and severity tab to label the event when the rule triggers.
+    properties:
+      operator:
+        type: string
+        enum:
+          - LESS_THAN
+          - GREATER_THAN
+          - LESS_THAN_OR_EQUALS
+          - GREATER_THAN_OR_EQUALS
+          - EQUALS
+          - NOT_EQUALS
+        example: GREATER_THAN_OR_EQUALS
+        description: Specifies the operator for evaluating the results.
+      severityThresholdTiers:
+        type: object
+        description: >-
+          Sets a severity label per trigger threshold as a key:value pair.
+          
+          
+          If using more than one sub-component, only 1 severityThresholdTiers is allowed. Otherwise, 1 per `enum` are allowed (for a total of 5 thresholds of increasing severities).
+
+
+          Increasing severity must adhere to the logic of the operator.
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        additionalProperties:
+        default:
+          MEDIUM: 10.0
+        example:
+          MEDIUM: 10.0
+          HIGH: 100.0
+          SEVERE: 300.0
+
+  RuleColumnConfig:
+    type: object
+    description: Customize the rule output to be sent out in notifications when the rule triggers.
+    properties:
+      fieldName:
+        type: string
+        description: Specify the fields to be included in the notification.
+      regex:
+        type: string
+        description: Trims the data using regex filters. [Learn more](https://docs.logz.io/user-guide/alerts/regex-filters.html)
+      sort:
+        type: string
+        description: Specify a single field to sort by. The field cannot be an analyzed field (a field that supports free text search or searching by part of a message, such as the 'message' field).
+        enum:
+          - DESC
+          - ASC
+
+  SecurityRuleResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Logz.io security rule ID.
+        example: 627816
+      updatedAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was last updated.
+        example: 2020-04-02T18:58:16.000Z
+      updatedBy:
+        type: string
+        description: Email of the user who last updated the rule.
+        example: tomer@logz.io
+      createdAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was first created updated.
+        example: 2020-02-02T18:58:16.000Z
+      createdBy:
+        type: string
+        description: Email of the user who first created the rule.
+        example: tomer@logz.io
+      enabled:
+        type: boolean
+        description: If `true`, the rule is currently active.
+        exampe: true
+      title:
+        type: string
+        description: Rule title.
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        example: [network, aws]
+      output:
+        $ref: '#/definitions/RuleOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+          
+          
+          The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The rule runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+      subComponents:
+        type: array
+        description: Determines when the rule should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubRule'
+      correlations:
+        $ref: '#/definitions/SubRuleCorrelation'
+      protected:
+        type: boolean
+        description: >-
+          If `true`, the rule is pre-defined by Logz.io. Protected parameters cannot be edited. The only parameters that can be edited are
+        
+        
+          * `shouldQueryOnAllAccounts`
+
+          * `accountIdsToQueryOn`
+          
+          * `severityThresholdTiers`
+          
+          * `tags`
+          
+          * `description`
+          
+          * `enabled`
+          
+          * `output` (in `subComponents`)
+          
+          * `searchTimeFrameMinutes`

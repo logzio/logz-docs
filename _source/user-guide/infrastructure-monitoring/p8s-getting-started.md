@@ -10,8 +10,7 @@ tags:
 contributors:
   - yberlinger
 ---
-_draft_
-## Why go it alone? 
+## Why go it alone? _draft_
 Manage your metrics with Logz.io Infrastructure Monitoring, powered by Prometheus and Grafana.  
 
 With our open-source platform, you get enterprise-level user management with role-based access control (RBAC) for Prometheus as a managed service, and you have the option to correlate your metrics with logs and traces, using Logz.io Log Management and Distributed Tracing capabilities. 

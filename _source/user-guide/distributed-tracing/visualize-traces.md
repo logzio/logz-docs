@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Visualize traces in Kibana
-permalink: /user-guide/distributed-tracing/correlate-traces
+permalink: /user-guide/distributed-tracing/visualize-traces
 flags:
   logzio-plan: pro enterprise
 tags:

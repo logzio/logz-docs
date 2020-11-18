@@ -132,7 +132,7 @@ items:
             protocol: UDP
           - containerPort: 6832
             protocol: UDP
-          - containerPort: 5778
+          - containerPort: 5778 
             protocol: TCP
         hostNetwork: true
         dnsPolicy: ClusterFirstWithHostNet

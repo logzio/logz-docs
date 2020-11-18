@@ -11,7 +11,7 @@ contributors:
   - yberlinger
 ---
 
-### Fast track shortcuts: Oh, the Traces You'll Go! 
+### Fast track shortcuts: Oh, the Traces You'll Go!
 
 * [Get started](/user-guide/distributed-tracing/getting-started-tracing): Deploy components and set up instrumentation
 * [Search for traces](/user-guide/distributed-tracing/tracing-tour): Log in and get on the trace 

@@ -67,7 +67,7 @@ When deciding the best approach for your environment, consider the following fac
 ### *To deploy a Jaeger agent in a Docker environment*
 
 ```bash
-docker run \  ## make sure to expose only the ports you use in your deployment scenario!
+docker run \  ## make sure to expose only the ports you use in your deployment scenario! 
   --rm \
  -p6831:6831/udp \
  -p6832:6832/udp \

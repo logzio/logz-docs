@@ -23,7 +23,7 @@ You’ll find your Distributed Tracing account information in the <a href="https
 
 ![Distributed Tracing token location](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-token1.png)
 
-...when you click the account name at the bottom of the section.
+...when you click the account name at the bottom of the section. 
 ![Reveal Distributed Tracing Token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-acct-tokeninfo11.gif)
 
 Look up your accounts region code in the General Settings page, here:  <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> > Settings > General**.

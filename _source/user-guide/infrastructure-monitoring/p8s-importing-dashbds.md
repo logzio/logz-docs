@@ -12,7 +12,7 @@ contributors:
 ---
 
 You can import your existing dashboards to Logz.io either manually or via a bulk process. 
-Notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.
+
 
 ### Importing individual dashboards
 

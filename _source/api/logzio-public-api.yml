@@ -195,7 +195,7 @@ tags:
       
 
       Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
-
+  - name: Security rules
 x-tagGroups:
   - name: Log monitoring
     tags:
@@ -205,6 +205,7 @@ x-tagGroups:
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
+      - Security rules
       - Security events
   - name: Account administration
     tags:
@@ -2732,6 +2733,93 @@ paths:
           description: successful operation
 
   # ::::: SECURITY RULES
+  /v2/security/rules:
+    post:
+      tags:
+        - Security rules
+      summary: Creates a security rule
+      description: Creates a new security rule and activates it.
+      operationId: createSecurityRule
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RuleV2Request'
+      responses:
+        '201':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RuleV2Response'
+  /v2/security/rules/{ruleId}:
+    get:
+      tags:
+        - Security rules
+      operationId: getSecurityRule
+      summary: Retrieves a security rule
+      description: Retrieves a security rule by its ID.
+      produces:
+        - application/json
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: 
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/SecurityRuleResponse'
+          headers: {}
+    put:
+      summary: Updates a security rule
+      description: Updates a security rule by its ID.
+      tags:
+        - Security rules
+      operationId: updateSecurityRule
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertV2Request'
+        - name: ruleId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+    delete:
+      summary: Deletes a security rule
+      description: Deletes a security rule by its ID.
+      tags:
+        - Security rules
+      operationId: deleteSecurityRule
+      produces:
+        - application/json
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+          headers: {}
+
   /v2/security/rules/events/search:
     post:
       summary: Fetch security events
@@ -3445,6 +3533,166 @@ definitions:
         format: int64
         example: 1587137557
         description: Absolute UNIX timestamp in seconds (not milliseconds).
+
+  # ::::: CLOUD SIEM RULES
+  SecurityRuleResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      updatedAt:
+        type: integer
+        format: int64
+      updatedBy:
+        type: string
+      createdAt:
+        type: integer
+        format: int64
+      createdBy:
+        type: string
+      enabled:
+        type: boolean
+      title:
+        type: string
+      description:
+        type: string
+      tags:
+        type: array
+        items:
+          type: string
+      output:
+        $ref: '#/definitions/AlertOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        format: int32
+      subComponents:
+        type: array
+        items:
+          $ref: '#/definitions/SubAlert'
+      correlations:
+        $ref: '#/definitions/SubAlertCorrelation'
+      protected:
+        type: boolean
+  RuleV2Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Logz.io security rule ID.
+        example: 627816
+      updatedAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was last updated.
+        example: 2020-04-02T18:58:16.000Z
+      updatedBy:
+        type: string
+        description: Email of the user who last updated the rule.
+        example: tomer@logz.io
+      createdAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was first created updated.
+        example: 2020-02-02T18:58:16.000Z
+      createdBy:
+        type: string
+        description: Email of the user who first created the rule.
+        example: tomer@logz.io
+      enabled:
+        type: boolean
+        description: If `true`, the rule is currently active.
+        exampe: true
+      title:
+        type: string
+        description: Rule title.
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        example: [network, aws]
+      output:
+        $ref: '#/definitions/AlertOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+          
+          
+          The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The rule runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+      subComponents:
+        type: array
+        description: Determines when the rule should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubAlert'
+      correlations:
+        $ref: '#/definitions/SubAlertCorrelation'
+  RuleV2Request:
+    type: object
+    required:
+    properties:
+      title:
+        type: string
+        description: Rule title
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        maxItems: 10
+        minItems: 0
+        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        example: network
+      output:
+        $ref: '#/definitions/AlertOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+          
+          
+          The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The rule runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+        example: 20
+      subComponents:
+        type: array
+        description: Sets the search criteria using a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubAlert'
+      correlations:
+        $ref: '#/definitions/SubAlertCorrelation'
+      enabled:
+        type: boolean
+        description: If `true`, the alert is enabled and active.
+
 
   # ::::: Log Insights
   PublicGetAccountInsightsRequest:
@@ -5266,7 +5514,7 @@ definitions:
         description: Trims the data using regex filters. [Learn more](https://docs.logz.io/user-guide/alerts/regex-filters.html)
       sort:
         type: string
-        description: Sorts the data by the returned field values.
+        description: Specify a single field to sort by. The field cannot be an analyzed field (a field that supports free text search or searching by part of a message, such as the 'message' field).
         enum:
           - DESC
           - ASC

@@ -168,6 +168,12 @@ tags:
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
+  - name: Alerts
+    description: >-
+      Logz.io alerts use a Kibana search query to continuously scan your logs and alert you when a certain set of conditions is met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
+
+
+      When alerts trigger, they write event logs. Event logs of triggered alerts are always available and searchable in Kibana - just filter for `_exists_:logzio-alert`. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -189,11 +195,11 @@ tags:
       
 
       Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
-
 x-tagGroups:
   - name: Log monitoring
     tags:
       - Search logs
+      - Alerts
       - Insights
       - Logz.io snapshots
   - name: Cloud SIEM
@@ -884,6 +890,118 @@ paths:
       responses:
         default:
           description: successful operation
+
+  # ::::: Alerts V2
+  /v2/alerts:
+    get:
+      operationId: getAllAlerts
+      summary: Retrieve all alerts
+      description: Returns the complete list of all alerts configured for the account.
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AlertV2Response'
+          headers: {}
+    post:
+      summary: Create an alert
+      description: Configures and activates a new alert.
+      tags:
+        - Alerts
+      operationId: createAlert
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertV2Request'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+
+  /v2/alerts/{alertId}:
+    get:
+      summary: Retrieve an alert
+      description: Returns alert details by alert ID.
+      tags:
+        - Alerts
+      operationId: getAlert
+      produces:
+        - application/json
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: Unique identifier of the alert in Logz.io.
+          example: 563412
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+          headers: {}
+    put:
+      summary: Update an alert
+      description: Applies changes to an alert, identified by its ID.
+      tags:
+        - Alerts
+      operationId: updateAlert
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertV2Request'
+        - name: alertId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: Unique identifier of the alert in Logz.io.
+          example: 563412
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+    delete:
+      operationId: deleteAlert
+      summary: Delete an alert
+      description: Deletes an alert identified by its ID.
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: Unique identifier of the alert in Logz.io.
+          example: 563412
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+          headers: {}
+
 
   # ::::: Log Insights
   /v1/insights/list:
@@ -2613,6 +2731,8 @@ paths:
           description: successful operation
 
   # ::::: SECURITY RULES
+
+  # ::::: SECURITY EVENTS
   /v2/security/rules/events/search:
     post:
       summary: Fetch security events
@@ -3327,6 +3447,7 @@ definitions:
         example: 1587137557
         description: Absolute UNIX timestamp in seconds (not milliseconds).
 
+
   # ::::: Log Insights
   PublicGetAccountInsightsRequest:
     type: object
@@ -3401,11 +3522,6 @@ definitions:
         type: string
         description: Searches for an Insight by its title.
         example: Exception
-#      timeZone:
-#        type: string
-#        description: Converts timestamps to the selected time zone.
-#        default: UTC=0
-#        example: America/Los_Angeles
   PageResponsePublicAccountInsightResponse:
     type: object
     properties:
@@ -4811,5 +4927,384 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ShippingTokensModel'
+      pagination:
+        $ref: '#/definitions/Pagination'
+
+
+  # ::::: Alert
+  Aggregation:
+    type: object
+    description: Specifies a trigger condition that acts as a threshold.
+    properties:
+      aggregationType:
+        type: string
+        description: >- 
+          Specifies the aggregation operator.
+
+
+          * If `COUNT`, `fieldToAggregateOn` must be null, and `groupBy` fields must not be empty.
+          
+          * If `NONE`, `fieldToAggregateOn` must be null, and `groupBy` field must not be empty (or null).
+
+
+          * If any other operator type (other than `NONE` or `COUNT`), `fieldToAggregateOn` must not be null.
+        enum:
+          - SUM
+          - MIN
+          - MAX
+          - AVG
+          - COUNT
+          - UNIQUE_COUNT
+          - NONE
+      fieldToAggregateOn:
+        type: string
+        description: >-
+          Selects the field on which to run the aggregation for the trigger condition.
+
+
+          * Cannot be a field already in use for `groupBy`.
+  AlertV2Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Logz.io alert ID.
+        example: 627816
+      updatedAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the alert was last updated.
+        example: 2020-04-02T18:58:16.000Z
+      updatedBy:
+        type: string
+        description: Email of the user who last updated the alert.
+        example: tomer@logz.io
+      createdAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the alert was first created updated.
+        example: 2020-02-02T18:58:16.000Z
+      createdBy:
+        type: string
+        description: Email of the user who first created the alert.
+        example: tomer@logz.io
+      enabled:
+        type: boolean
+        description: If `true`, the alert is currently active.
+        exampe: true
+      title:
+        type: string
+        description: Alert title.
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
+        example: [network, aws]
+      output:
+        $ref: '#/definitions/AlertOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+          
+          
+          The recommended minimum and maximum values are not validated, but needed to guarantee the alert's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+      subComponents:
+        type: array
+        description: Determines when the alert should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubAlert'
+      correlations:
+        $ref: '#/definitions/SubAlertCorrelation'
+  AlertOutput:
+    type: object
+    description: Automatically sends out notifications with sample results when the alert triggers.
+    properties:
+      recipients:
+        $ref: '#/definitions/AlertRecipients'
+      suppressNotificationsMinutes:
+        type: integer
+        format: int32
+        minimum: 5
+        maximum: 1440
+        description: Add a waiting period in minutes to space out notifications. (The alert will still trigger but will not send out notifications during the waiting period.)
+        example: 60
+      type:
+        type: string
+        description: Selects the output format for the alert notification. If the alert has no aggregations/group by fields, `JSON` offers the option to send full sample logs without selecting specific fields.
+        enum:
+          - JSON
+          - TABLE
+  AlertQuery:
+    type: object
+    description: Determines when the alert should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+    properties:
+      query:
+        type: string
+        description: >-
+          Provide a Kibana search query written in Lucene syntax. The search query together with the filters select for the relevant logs.
+          
+          
+          Cannot be null - send an asterisk wildcard `*` if not using a search query.
+        default: "*"
+        nullable: false
+        example: type:apache_access
+      filters:
+        $ref: '#/definitions/BoolFilter'
+      groupBy:
+        type: array
+        nullable: true
+        description: Specify 1-3 fields by which to group the results and count them. If you apply a group by operation, the alert returns a count of the results aggregated by unique values.
+        items:
+          type: string
+        maxItems: 3
+        minItems: 0
+      aggregation:
+        $ref: '#/definitions/Aggregation'
+      shouldQueryOnAllAccounts:
+        type: boolean
+        default: true
+        example: false
+        description: Only applicable when the alert is run from the main account. If `true`, the alert runs on the main account and all associated searchable sub accounts. If `false`, specify relevant account IDs for the alert to monitor using the `accountIdsToQueryOn` field.
+      accountIdsToQueryOn:
+        type: array
+        description: Specify Account IDs to select which accounts the alert should monitor. The alert will be checked only on these accounts.
+        items:
+          type: integer
+          format: int32
+          example: 2321
+
+  AlertRecipients:
+    type: object
+    description: Add email addresses and/or endpoint channels to automatically receive notifications with sample data when the alert triggers.
+    properties:
+      emails:
+        type: array
+        description: Array of email addresses to be notified when the alert triggers.
+        items:
+          type: string
+          example: tom.a@logz.io
+      notificationEndpointIds:
+        type: array
+        description: Array of IDs of pre-configured endpoint channels to notify when the alert triggers.
+        items:
+          type: integer
+          format: int32
+          example: 10101
+  SubAlert:
+    type: object
+    properties:
+      queryDefinition:
+        $ref: '#/definitions/AlertQuery'
+      trigger:
+        $ref: '#/definitions/AlertTrigger'
+      output:
+        $ref: '#/definitions/SubAlertOutput'
+  SubAlertCorrelation:
+    type: object
+    description: >-
+      Only applicable when multiple sub-components are in use. Selects a logic for correlating the alert’s sub-components.
+
+
+      `AND` is currently the only supported operator. When `AND` is the `correlationOperator`, both sub-components must meet their triggering criteria for the alert to trigger.
+    properties:
+      correlationOperators:
+        type: array
+        items:
+          type: string
+          enum:
+            - AND
+
+      joins:
+        type: array
+        description: >-
+          Specifies which group by fields must have the same values to trigger the alert.
+
+
+          Joins the group by fields from the first and second sub-components. The key represents the index of the sub component in the array (See the example - the index of the first sub-component is 0, the second is 1).
+          
+          
+          The fields must be ordered pairs of the group by fields already in use in the `queryDefinition`.
+        items:
+          type: object
+          additionalProperties:
+          example: {0: "region", 1: "region"}
+  SubAlertOutput:
+    type: object
+    description: Selects the data output to be sent in the notification when the alert triggers. Not applicable, when grouping by fields or aggregating results, as the output is auto-selected.
+    properties:
+      columns:
+        type: array
+        items:
+          $ref: '#/definitions/ColumnConfig'
+      shouldUseAllFields:
+        type: boolean
+        description: If `true`, the notification ouput will include entire logs with all of their fields in the sample data.
+        default: true
+  AlertV2Request:
+    type: object
+    required:
+    properties:
+      title:
+        type: string
+        description: Alert title
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        maxItems: 10
+        minItems: 0
+        description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
+        example: network
+      output:
+        $ref: '#/definitions/AlertOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+          
+          
+          The recommended minimum and maximum values are not validated, but needed to guarantee the alert's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+        example: 20
+      subComponents:
+        type: array
+        description: Sets the search criteria using a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubAlert'
+      correlations:
+        $ref: '#/definitions/SubAlertCorrelation'
+      enabled:
+        type: boolean
+        description: If `true`, the alert is enabled and active.
+  AlertTrigger:
+    type: object
+    description: Sets the triggering threshold and severity tab to label the event when the alert triggers.
+    properties:
+      operator:
+        type: string
+        enum:
+          - LESS_THAN
+          - GREATER_THAN
+          - LESS_THAN_OR_EQUALS
+          - GREATER_THAN_OR_EQUALS
+          - EQUALS
+          - NOT_EQUALS
+        example: GREATER_THAN_OR_EQUALS
+        description: Specifies the operator for evaluating the results.
+      severityThresholdTiers:
+        type: object
+        description: >-
+          Sets a severity label per trigger threshold as a key:value pair.
+          
+          
+          If using more than one sub-component, only 1 severityThresholdTiers is allowed. Otherwise, 1 per `enum` are allowed (for a total of 5 thresholds of increasing severities).
+
+
+          Increasing severity must adhere to the logic of the operator.
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        additionalProperties:
+        default:
+          MEDIUM: 10.0
+        example:
+          MEDIUM: 10.0
+          HIGH: 100.0
+          SEVERE: 300.0
+
+  BoolFilter:
+    type: object
+    description: Apply `must` and `must_not` filters to the monitoring alert. Filters are more efficient compared to a query, so it's recommended to opt for a filter over a query, where possible. See [Elasticsearch Bool-Query](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html) for more detail.
+    properties:
+      bool:
+        $ref: '#/definitions/FilterLists'
+  ColumnConfig:
+    type: object
+    description: Customize the alert output to be sent out in notifications when the alert triggers.
+    properties:
+      fieldName:
+        type: string
+        description: Specify the fields to be included in the notification.
+      regex:
+        type: string
+        description: Trims the data using regex filters. [Learn more](https://docs.logz.io/user-guide/alerts/regex-filters.html)
+      sort:
+        type: string
+        description: Specify a single field to sort by. The field cannot be an analyzed field (a field that supports free text search or searching by part of a message, such as the 'message' field).
+        enum:
+          - DESC
+          - ASC
+  FilterLists:
+    type: object
+    description: Runs Elasticsearch [Bool Query](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html) filters on the data (before the search query is applied). The most efficient way to grab the logs you are looking for.
+    properties:
+      must:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: object
+              
+      must_not:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: object
+  PagedSearchResponseString:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          type: string
+      pagination:
+        $ref: '#/definitions/Pagination'
+  TagsFilter:
+    type: object
+    properties:
+      searchTerm:
+        type: string
+  TagsSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/TagsFilter'
       pagination:
         $ref: '#/definitions/Pagination'

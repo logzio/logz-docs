@@ -17,17 +17,19 @@ Hover over a span in the graph to see its details.
 
 ![trace graph key](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_graph-key.png)
 
-- Click **?** to view the graph legend.
-  Total time shows the duration of parent and child spans and presents the span time as a percentage of total trace duration
-  Selftime shows the duration for the parent span and presents the parent span selftime as a percentage of span total time
+- Click **?** to view the graph legend. Each box includes the following information: 
+  - Total time shows the duration of parent and child spans and presents the span time as a percentage of total trace duration
+  - Selftime shows the duration for the parent span and presents the parent span selftime as a percentage of span total time
+  - Count/Error shows the total call count vs. the total error count
+
 - Click the options to see the trace graph colored by:
     - Service - default view
-    - Total time - total duration of a span, including the time spent waiting on child spans
-    - Self time - Trace duration for the parent span, not including the time spent waiting on child spans
+    - Total time - Total duration of the span, including the time spent waiting on child spans
+    - Self time - Trace duration of the span, not including the time spent waiting on child spans
 
 Comparing the time and selftime for a span may provide insights into latency issues for child spans.
 
-The default for Trace Graph mode is Service view, which displays the services in the trace. ![service graph - service](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_graph1.png)
+The default for Trace Graph mode is the Service view, which displays the services in the trace. ![service graph - service](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_graph1.png)
 
 You can: 
 

@@ -16,10 +16,9 @@ If you’re working with Kubernetes, use this yaml file as a reference to deploy
 _Before you begin:_
 
 + Make sure you use the correct Jaeger version for the `jaeger-agent` image. 
-
-+ Look up your Distributed Tracing `ACCOUNT TOKEN` at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page. 
-
-+ Look up your `CUSTOM_LISTENER_URL` on the <a href="/user-guide/accounts/account-region.html" target ="_blank"> Regions and Listener Hosts </a>page.
++ Look up your Distributed Tracing `ACCOUNT TOKEN` in the Distributed Tracing section of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page. 
++ Look up your `CUSTOM_LISTENER_URL` on the <a href="/user-guide/accounts/account-region.html" target ="_blank"> Regions and Listener Hosts </a>page. <br>
+    _<a href="/user-guide/distributed-tracing/getting-started-tracing/#look-up-your-distributed-tracing-token-and-region-information-in-logzio"  target ="_blank">How do I find my token and listener host URL, again?    A reminder. </a>_
 
 
 ```yaml
@@ -65,10 +64,10 @@ items:
           env:
 
           - name: ACCOUNT_TOKEN 
-            value: # obtained from Logz.io in Manage Accounts > Distributed Tracing
+            value: # obtained from Logz.io in Manage accounts > Distributed Tracing
 {{- if and .Values.environment (eq .Values.environment "staging") }}
           - name: CUSTOM_LISTENER_URL 
-            value: # obtained from Logz.io Regions and Listener hosts table
+            value: # obtained from Logz.io Regions and Listener hosts table for your region
 {{- end }}
 
 - apiVersion: v1

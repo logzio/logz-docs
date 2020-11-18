@@ -1,65 +1,66 @@
 ---
 layout: article
-title: Remote write for Prometheus
-permalink: /user-guide/metrics/p8s-remote-write.html
+title: Configuring remote write for Prometheus
+permalink: /user-guide/infrastructure-monitoring/p8s-remote-write.html
 flags:
   logzio-plan: community
+  Beta: yes
 tags:
   - metrics integrations
 contributors:
   - yberlinger
 ---
-This topic is for Prometheus users migrating their solution to Logz.io Infrastructure Monitoring powered by Grafana.
 
-You can send your Prometheus metrics to your Logz.io Infrastructure Monitoring account.
-To do this, you’ll need to send your application metrics to Logz.io in JSON format and stick to the formatting guidelines.
+To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
 
-Our log scraping software service takes all your log file data, scrapes it and stores it in an archive. The log data may include messaging, calendaring, and other data types. 
+If you have multiple Prometheus server instances, you'll have to add Logz.io as an endpoint for each instance. 
 
-Before you begin, make sure you have the following details for your Logz.io Metrics account: Listener address (URL) and Logz.io metrics account token.
+By default, all metrics in your Prometheus server(s) will be sent to Logz.io. To drop or send specific metrics, add Prometheus labeling before enabling the remote write, or as part of the remote write configuration. You can read more about Prometheus relabeling tricks <a href ="https://medium.com/quiq-blog/prometheus-relabeling-tricks-6ae62c56cbda" target="_blank">here. <i class="fas fa-external-link-alt"></i> </a> 
 
-Notes: 
+* TBD: Set parallelism level for sending data - how many connections to open to the remote write listener. While the default is 1000, but we recommend configuring much fewer connections. 
 
-* You can import your existing dashboards to Logz.io, either manually or in a bulk process.
-* Notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.
+* TBD: This is set in the configuration file. Parameter for # of connections (more data --o--> more channels)
+  Sending data - best practice in configuring connection channels: 
 
+* TBD: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. 
 
-### Configuring Prometheus metrics remote write to Logz.io
+You can read more about Prometheus Remote Write Tuning <a href ="https://prometheus.io/docs/practices/remote_write/" target="_blank">here. <i class="fas fa-external-link-alt"></i> </a> 
+
+Once your metrics are flowing, export your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
+
+### Configuring Remote Write to Logz.io
 
 Within Prometheus:
 
-1. Define Logz.io as a new endpoint in Prometheus, using remote write.
-2. Provide the Logz.io metrics account listener address (URL) and token.
-
-You can read more about Prometheus Remote Write Tuning [here.](https://prometheus.io/docs/practices/remote_write/) <i class="fas fa-external-link-alt"></i>
+1. Define Logz.io as a new endpoint, using remote write.
 
 
-Your incoming time series data is saved with matching retention and aggregation, according to the existing solution and your account plan:
+```bash
+remote_write:
+  - url: http://54.80.84.252:8050/
+    bearer_token: tlcFvDpHdATDZtvwvMFilCacyvLFriZQ
+    remote_timeout: 30s
+    queue_config:
+      batch_send_deadline: 5s  #default = 5s
+      max_shards: 10  #default = 1000
+      min_shards: 1
+      max_samples_per_send: 500 #default = 100
+      capacity: 10000  #default = 500
+```
 
-  - 3 days - raw data
-  - 7 days - 1-minute downsampling
-  - 30 days - 10-minute downsampling
-  - 18 months- 60-minute downsampling
+|Parameter | Description
+|url| Logz.io Listener address for your region
+|bearer_token| Logz.io metrics account token
 
+2. Provide the Logz.io metrics account token and listener address (URL).
 
-### Importing dashboards from Grafana
-You can do this manually, or use a script to import all the dashboards in a folder to Logz.io
+  - To find the default token in the <a href ="https://app.logz.io/#/dashboard/settings/general" target="_blank">General Settings</a> page, click **<i class="li li-gear"></i> > Settings > General** in the top menu.
 
-After your Prometheus metrics begin to arrive to Logz.io:  
+![General settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1.png)
 
-1. To mport dashboards from your local Grafana 
-    1. Export the relevant Prometheus dashboards from your Grafana as JSON files.
-    2. Log into Logz.io 
+<!-- <video autoplay loop>
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/p8sgo-to-acct_settings2.mp4" type="video/mp4"/>
+</video>  -->
 
-    3. Log in to Logz.io and navigate to the **Metrics** tab.
+  - To find the correct listener URL for your region, look in the <a href ="/user-guide/log-shipping/listener-ip-addresses.html" target="_blank">_Listener IP Addresses_</a> topic. 
 
-    4. In the left navigation pane, click  "**+**", select the **Import** option, and import dashboards.
-  ![Import dashboards from your Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8simport-option1.png)
-
-    5. To import your saved Prometheus dashboards: Click **Upload json file** and select the JSON files you saved in step 1. 
-        For more information see [Upload JSON logs]({{site.baseurl}}/user-guide/shipping/log-sources/json-uploads.html). 
-
-2. To import dashboards from Grafana.com    
-    Enter the relevant dashboard URL or ID in the **Import via grafana.com** field and click **Load**.  ![Import dashboards from your Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8simport-dashbd.png)
-
-### Bulk import of dashboards with a script 

@@ -15,7 +15,7 @@ Log alerts can ensure that you're notified of critical events. Configuring the r
 
 Logz.io alerts use a Kibana search query to continuously scan your logs and alert you when a certain set of conditions is met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
 
-Event logs of triggered alerts are always available and searchable in Kibana. In Kibana Discover, just filter for `_exists_:logzio-alerts`. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
+Event logs of triggered alerts are always available and searchable in Kibana. In Kibana Discover, just filter for `_exists_:logzio-alert`. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
 
 To reach this page,
 select [**Alerts & Events > Alert definitions**](https://app.logz.io/#/dashboard/triggers/alert-definitions)

@@ -73,7 +73,7 @@ docker run \  ## make sure to expose only the ports you use in your deployment s
  -p6832:6832/udp \
  -p5778:5778/tcp \
  -p5775:5775/udp \
- jaegertracing/jaeger-agent:1.20  ## Use the relevant agent version
+ jaegertracing/jaeger-agent:1.20  ## Use the relevant agent version 
   ```
 
 Refer to the <a href="https://www.jaegertracing.io/docs/latest/deployment/#agent" target="_blank"> Jaeger documentation <i class="fas fa-external-link-alt"></i> </a> for the agent version.

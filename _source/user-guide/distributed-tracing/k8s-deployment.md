@@ -123,7 +123,7 @@ items:
       spec:
         containers:
         - name: jaeger-agent
-          image: jaegertracing/jaeger-agent:1.18.0   # Relace "1.18.0" with the latest Jaeger version
+          image: jaegertracing/jaeger-agent:1.18.0   # Replace "1.18.0" with the latest Jaeger agent version
           args: ["--reporter.grpc.host-port=jaeger-logzio-collector:14250"]
           ports:
           - containerPort: 5775

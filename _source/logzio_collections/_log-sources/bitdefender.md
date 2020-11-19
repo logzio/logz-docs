@@ -50,7 +50,7 @@ echo -n "API_Key:" | base64
 ```
 Sample response (shortened for simplicity): `AeFgjU5N0Eg4rRMwFGG=AeFgjU5N0Eg4rRMwFGG=`
 
-Copy the encoded API Kay. Keep it handy for the next step. It is needed to replace the placeholder `<<ENCODED_API_BASE_64>>` below.
+Copy the encoded API Kay. Keep it handy for the next step. It is needed to replace the placeholder `<<ENCODED_API_KEY_BASE_64>>` below.
 
 ##### Configure event push settings
 
@@ -61,19 +61,19 @@ Edit the placeholders before running the command:
 ```
 curl -k -X POST
 <<ACCESS_URL>>/v1.0/jsonrpc/push
--H 'authorization: Basic <<ENCODED_API_BASE_64>>'
+-H 'authorization: Basic <<ENCODED_API_KEY_BASE_64>>'
 -H 'cache-control: no-cache'
 -H 'content-type: application/json'
--d '{"params": {"status": 1,"serviceType": "cef","serviceSettings": {"url": "<<LISTENER-HOST>>","requireValidSslCertificate": false,"authorization": "Basic <<BASED_64_API>>"},"subscribeToEventTypes": {"adcloud":true,"antiexploit":true,"aph":true,"av":true,"avc":true,"dp":true,"endpoint-moved-in":true,"endpoint-moved-out":true,"exchange-malware":true,"exchange-user-credentials":true,"fw":true,"hd":true,"hwid-change":true,"install":true,"modules":true,"network-monitor":true,"network-sandboxing":true,"new-incident":true,"registration":true,"supa-update-status":true,"sva":true,"sva-load":true,"task-status":true,"troubleshooting-activity":true,"uc":true,"uninstall":true}},"jsonrpc": "2.0","method": "setPushEventSettings","id": "1"}'
+-d '{"params": {"status": 1,"serviceType": "cef","serviceSettings": {"url": "https://<<LISTENER-HOST>>:8071?token=<<SHIPPING-TOKEN>>&type=bitdefender_grzone","requireValidSslCertificate": false,"authorization": "Basic <<ENCODED_API_KEY_BASE_64>>"},"subscribeToEventTypes": {"adcloud":true,"antiexploit":true,"aph":true,"av":true,"avc":true,"dp":true,"endpoint-moved-in":true,"endpoint-moved-out":true,"exchange-malware":true,"exchange-user-credentials":true,"fw":true,"hd":true,"hwid-change":true,"install":true,"modules":true,"network-monitor":true,"network-sandboxing":true,"new-incident":true,"registration":true,"supa-update-status":true,"sva":true,"sva-load":true,"task-status":true,"troubleshooting-activity":true,"uc":true,"uninstall":true}},"jsonrpc": "2.0","method": "setPushEventSettings","id": "1"}'
 ```
 
 ###### Placeholders to replace
 
 * `<<ACCESS_URL>>` - Replace with the Access URL copied in a previous step.
-* `<<ENCODED_API_BASE_64>>`- Replace with the encoded key returned in the previous step.
+* `<<ENCODED_API_KEY_BASE_64>>`- Replace with the encoded key returned in the previous step.
+(Do  NOT delete the term `basic`. It belongs there.)
 * {% include log-shipping/replace-vars.html listener=true %}
-* Note, for `authorization: Basic <<ENCODED_API_BASE_64>>`, do NOT delete the term `basic`. It belongs there.
-
+* {% include log-shipping/replace-vars.html token=true %}
 
 ###### Expected returned value
 

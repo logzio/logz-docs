@@ -9,32 +9,12 @@ tags:
 contributors:
   - yberlinger
 ---
-Make the Jaeger-Kibana connection: Harness the power of Kibana and Jaeger for more context and insights with Logz.io Distributed Tracing when you correlate logs with traces.
 
-What can I do with my trace and span data in Kibana?
+## What can I do with my trace and span data in Kibana?
 
-## Visualizing traces in Kibana
-
-Kibana is great for creating meaningful visualizations from log data, so why not use Kibana to visualize traces too? 
+Make the Jaeger-Kibana connection: Harness the power of Kibana and Jaeger for more context and insights with Logz.io Distributed Tracing when you correlate traces with logs in Kibana.
 
 We’ve put together examples of visualizations over distributed tracing telemetry that we think you’ll find helpful. 
-
-  
-  
-### Just a taste: Status code histogram
-
-A status code histogram can help you recognize when many bad requests between services occurred.
-
-To create these visualizations:
-
-1. In Kibana, from the **Visualization** menu, select **_Create new visualization_**.
-
-    ![Creating a new visualization](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/kibana_histogram.png)
-
-2. Select the *Line* visualization type. 
-    The X-axis represents the timestamp of the span and the Y-axis shows the number of occurrences of each status code for the account.
-
-    ![Line visualization](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/kibana_line_vis.png)
 
 ## Telemetry correlation
 

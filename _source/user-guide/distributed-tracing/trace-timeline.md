@@ -15,7 +15,7 @@ Start here and dig in:
 
 In the timeline, each horizontal bar is a span with a unique ID. The services are color-coded to help you identify and track the services involved. The duration of each span is indicated and the relative duration is represented by the length of the span’s horizontal bar. A red error icon in the Services & Operations tree indicates that the span was tagged as an error. 
 
-* View the spans included in the space, color coded by service, nested by operation.
+* View the spans included in the space, color-coded by service, nested by operation.
 * Expand and collapse the spans within the trace.
 * Click a span to view its details, including tags and process information.
 

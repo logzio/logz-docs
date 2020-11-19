@@ -46,12 +46,4 @@ You'll see a paginated list of all alerts configured for your account.
 
 * You can click the **Menu button <i class="li li-ellipsis-v"></i>** to edit, duplicate, or delete an alert.
 
-### View the latest events when the alert tiggered
-
-* You can view the logs written by the alert over the last 3 days. Each log represents a discrete incident when the alert triggered.
-
-  Click the **Menu button <i class="li li-ellipsis-v"></i>** and select **View last events**.
-
-  You'll be taken to the Kibana Discover view, filtered by the alert ID over the last 36 hours. Each log document represents an event, when the alert's query and triggering conditions were met.
-
-  You can click the **Investigate** button to drill down on the raw logs that caused the alert to trigger.
+_source/_includes/rules-alerts/view-latest-triggered-alerts.md

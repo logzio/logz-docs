@@ -3,7 +3,7 @@ layout: article
 title: Visualize traces in Kibana
 permalink: /user-guide/distributed-tracing/visualize-traces
 flags:
-  logzio-plan: pro enterprise
+  logzio-plan: pro
 tags:
   - distributed tracing
 contributors:
@@ -27,4 +27,3 @@ To create these visualizations:
     The X-axis represents the timestamp of the span and the Y-axis shows the number of occurrences of each status code for the account.
 
     ![Line visualization](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/kibana_line_vis.png)
-

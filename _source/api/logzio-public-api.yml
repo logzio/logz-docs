@@ -958,8 +958,8 @@ paths:
           headers: {}
   /archive/restore/{id}:
     get:
-      summary: Retrieve a restore request by its ID
-      description: Returns a specific restore request
+      summary: Get an updated status on a restore process
+      description: Returns details of a specific restore process by its ID.
       tags:
         - Restore request
       operationId: getRestoreRequestByIdApi
@@ -969,6 +969,7 @@ paths:
           required: true
           type: integer
           format: int32
+          description: ID of the restore process
       responses:
         '200':
           description: successful operation
@@ -976,8 +977,8 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
     delete:
-      summary: Delete a restore request
-      description: Cancels a request to restore data from archive
+      summary: Delete a restore process
+      description: Aborts a restore process before its completion.
       tags:
         - Restore request
       operationId: abortRestoreRequestApi
@@ -987,6 +988,7 @@ paths:
           required: true
           type: integer
           format: int32
+          description: ID of the restore process.
       responses:
         '200':
           description: successful operation

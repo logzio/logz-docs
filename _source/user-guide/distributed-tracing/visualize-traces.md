@@ -10,12 +10,10 @@ contributors:
   - yberlinger
 ---
 
-## Visualizing traces in Kibana
-
 Kibana is great for creating meaningful visualizations from log data, so why not use Kibana to visualize traces too? 
   
   
-### Just a taste: Status code histogram
+## Just a taste: Status code histogram
 
 A status code histogram can help you recognize when many bad requests between services occurred.
 

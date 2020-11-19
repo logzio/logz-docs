@@ -3,21 +3,21 @@ layout: article
 title: Kubernetes deployment reference
 permalink: /user-guide/distributed-tracing/k8s-deployment
 flags:
-  logzio-plan: pro enterprise
-  beta: true 
+  logzio-plan: pro
+  beta: true
 tags:
   - distributed tracing
 contributors:
-  - yberlinger   
+  - yberlinger
 ---
 If you’re working with Kubernetes, use this yaml file as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value.
 
 
 _Before you begin:_
 
-+ Make sure you use the correct Jaeger version for the `jaeger-agent` image. 
++ Make sure you use the correct Jaeger version for the `jaeger-agent` image.
 
-+ Look up your Distributed Tracing `ACCOUNT TOKEN` at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page. 
++ Look up your Distributed Tracing `ACCOUNT TOKEN` at the bottom of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page.
 
 + Look up your `CUSTOM_LISTENER_URL` on the <a href="/user-guide/accounts/account-region.html" target ="_blank"> Regions and Listener Hosts </a>page.
 
@@ -47,7 +47,7 @@ items:
           app.kubernetes.io/component: collector
       spec:
         containers:
-        - image: logzio/jaeger-logzio-collector:latest  
+        - image: logzio/jaeger-logzio-collector:latest
           name: jaeger-logzio-collector
           ports:
           - containerPort: 14267
@@ -64,10 +64,10 @@ items:
               port: 14269
           env:
 
-          - name: ACCOUNT_TOKEN 
+          - name: ACCOUNT_TOKEN
             value: # obtained from Logz.io in Manage Accounts > Distributed Tracing
 {{- if and .Values.environment (eq .Values.environment "staging") }}
-          - name: CUSTOM_LISTENER_URL 
+          - name: CUSTOM_LISTENER_URL
             value: # obtained from Logz.io Regions and Listener hosts table
 {{- end }}
 
@@ -136,4 +136,4 @@ items:
             protocol: TCP
         hostNetwork: true
         dnsPolicy: ClusterFirstWithHostNet
-``` 
+```

@@ -3,7 +3,7 @@ layout: article
 title: Getting started with Logz.io Distributed Tracing
 permalink: /user-guide/distributed-tracing/getting-started-tracing
 flags:
-  logzio-plan: pro enterprise
+  logzio-plan: pro
   beta: true
 tags:
   - distributed tracing
@@ -13,13 +13,13 @@ contributors:
 Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in Logz.io.
 
 
-#### Next steps: 
-{:.no_toc}  
+#### Next steps:
+{:.no_toc}
 
 <div class="tasklist">
 
 ##### Look up your Distributed Tracing Token and Region information in Logz.io
-You’ll find your Distributed Tracing account information in the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts page**</a> of your Operations workspace, 
+You’ll find your Distributed Tracing account information in the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts page**</a> of your Operations workspace,
 
 ![Distributed Tracing token location](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-token1.png)
 

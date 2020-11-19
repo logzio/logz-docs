@@ -160,6 +160,15 @@ tags:
       
       
       Archiving is not affected by drop filters. Logs dropped by drop filters will still be archived, if archiving is configured for the account. With archiving configured, you can readily use drop filters to reduce logging bulk and restore the logs in the event that they become relevant.
+  - name: Restore request
+    description: >-
+      You can restore data from your active archiving account, whether an AWS S3 bucket or Azure Blob Storage. Restoring data gives you the option to query logs after they have expired from your time-based account.
+      
+
+      You can use the following endpoints to initiate a new restore process, retrieve, set up, test, and update an account's archive settings.
+      
+
+      Note: Logs that are dropped by drop filters are still archived and can be restored. You can temporarily disable drop filters to restore the data.
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.
@@ -5917,13 +5926,13 @@ definitions:
       id:
         type: integer
         format: int32
-        description: Logz.io account ID ???
-        example: 
+        description: ID of the restore operation in Logz.io
+        example: 42
       accountId:
         type: integer
         format: int32
-        description: ?
-        example: 
+        description: ID of the restored account in Logz.io
+        example: 564321
       accountName:
         type: string
         description: Name of the restored account
@@ -5932,7 +5941,7 @@ definitions:
         type: number
         format: float
         nullable: true
-        description: Returns actual volume of data that was restored.
+        description: Returns actual volume of data that was restored. If the restore operation is still in progress, this will be continuously updated.
         example: 99
       status:
         type: string
@@ -5959,12 +5968,12 @@ definitions:
           
           - DELETED - The restored account was deleted by a user.
           
-          - EXPIRED - Restored accounts automatically expire after 3 days.
+          - EXPIRED - Restored accounts automatically expire after a number of  days, as indicated by `expiresAt`.
         example: ACTIVE
       startTime:
         type: integer
         format: int64
-        description: ?
+        description: UNIX timestamp in milliseconds specifying the start date for the restore to restore.
         example: 
       endTime:
         type: integer
@@ -5974,26 +5983,26 @@ definitions:
       createdAt:
         type: integer
         format: int64
-        description: ?
+        description: Timestamp when the restore process was created. Only one account can be restored at a time.
         example: 
-      startedAt:
-        type: integer
-        format: int64
-        description: ?
-        example: 
-        nullable: true
-      finishedAt:
-        type: integer
-        format: int64
-        description: 
-        example: 
-        nullable: true
       expiresAt:
         type: integer
         format: int64
         nullable: true
         description: Timestamp of when the account is due to expire.
         example: 
+      startedAt:
+        type: integer
+        format: int64
+        description: Timestamp when the restore process initiated.
+        example: 
+        nullable: true
+      finishedAt:
+        type: integer
+        format: int64
+        description: Timestamp when the restore process completed.
+        example: 
+        nullable: true
   RestoreApiRequest:
     type: object
     properties:

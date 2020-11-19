@@ -66,7 +66,7 @@ firstLevel:
       url: /user-guide/kibana/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
- 
+
     # ===== METRICS INFRASTRUCTURE MONITORING =====
 - title: Infrastructure Monitoring
   icon: fas fa-chart-pie
@@ -105,7 +105,7 @@ firstLevel:
 
     # ===== DISTRIBUTED TRACING =====
 - title: Distributed Tracing
-  icon: fas fa-align-left    
+  icon: fas fa-align-left
 
   secondLevel:
   - title: Why Distributed Tracing?
@@ -121,10 +121,10 @@ firstLevel:
     - title: Kubernetes deployment reference
       url: /user-guide/distributed-tracing/k8s-deployment
     - title: Setting up instrumentation and ingesting traces
-      url: /user-guide/distributed-tracing/tracing-instrumentation 
+      url: /user-guide/distributed-tracing/tracing-instrumentation
   - title: The Grand Distributed Tracing Tour
     url: /user-guide/distributed-tracing/tracing-tour/
-    thirdLevel: 
+    thirdLevel:
     - title: Trace Timeline
       url: /user-guide/distributed-tracing/trace-timeline/
     - title: Trace Graph
@@ -132,15 +132,15 @@ firstLevel:
     - title: Trace Statistics
       url: /user-guide/distributed-tracing/trace-statistics/
     - title: Trace JSON
-      url: /user-guide/distributed-tracing/trace-json/ 
+      url: /user-guide/distributed-tracing/trace-json/
     - title: Compare traces
-      url: /user-guide/distributed-tracing/compare-traces   
+      url: /user-guide/distributed-tracing/compare-traces
     - title: Topology diagrams
-      url: /user-guide/distributed-tracing/topology-system_architecture    
+      url: /user-guide/distributed-tracing/topology-system_architecture
   - title: Correlate logs and traces
     url:  /user-guide/distributed-tracing/correlate-traces/
 
-      
+
   # ===== CLOUD SIEM =====
 - title: Cloud SIEM
   icon: fas fa-shield-alt
@@ -283,9 +283,9 @@ firstLevel:
     url: /user-guide/integrations/endpoints.html
     thirdLevel:
       - title: Custom endpoints
-        url: /user-guide/integrations/custom-endpoints.html   
+        url: /user-guide/integrations/custom-endpoints.html
       - title: Opsgenie notifications for resolved metrics alerts
-        url: /user-guide/integrations/resolved-metrics-alerts.html         
+        url: /user-guide/integrations/resolved-metrics-alerts.html
   - title: Terraform Logz.io Provider
     url: /integrations/terraform/
   - title: Alice, your Slack chatbot

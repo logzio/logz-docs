@@ -23,7 +23,7 @@ The OpenTelemetry Collector pipeline has the following main components:
 * Processors 
 * Exporters
 
-OpenTelemetry also includes extentions for additional functionality such as diagnostics and health checks, as well as a dedicated collector for contributed components, such as the Logz.io exporter.
+OpenTelemetry also includes extentions for additional functionality such as diagnostics and health checks, as well as a dedicated collector for components contributed by the community, such as the Logz.io exporter.
 
 #### Deploy OpenTelemetry Collector with Logz.io Exporter
 

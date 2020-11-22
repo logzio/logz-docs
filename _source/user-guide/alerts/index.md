@@ -45,5 +45,3 @@ You'll see a paginated list of all alerts configured for your account.
 ### Edit, duplicate, or delete an alert
 
 * You can click the **Menu button <i class="li li-ellipsis-v"></i>** to edit, duplicate, or delete an alert.
-
-_source/_includes/rules-alerts/view-latest-triggered-alerts.md

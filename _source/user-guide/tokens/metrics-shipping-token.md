@@ -15,7 +15,7 @@ When you're setting up data shipping to your Metrics account, you'll need to inc
 
 Here's how to get it.
 
-From your main account, go to the [Manage accounts page.](https://app.logz.io/#/dashboard/settings/manage-accounts). It can be reached by selecting **<i class="li li-gear"></i> > Settings > Manage accounts**.
+From your main account, go to the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts). It can be reached by selecting **<i class="li li-gear"></i> > Settings > Manage accounts**.
 
 Scroll down to the Metrics account section,
 and click the account you want to ship to.

@@ -28,5 +28,4 @@ from the top menu.
 
   This is the same link that appears in the alert notification.
 
-
-{% include _source/_includes/rules-alerts/view-latest-triggered-alerts.md %} 
+{% include /rules-alerts/view-latest-triggered-alerts.md %}

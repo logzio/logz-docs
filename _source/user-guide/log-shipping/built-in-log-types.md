@@ -50,6 +50,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Jenkins               | `jenkins`                                  |
 | Juniper                  | `juniper`                             |
 | Kafka                 | `kafka_server`                             |
+| Kubernetes                 | `k8s`                             |
 | Mcafee EPO            | `mcafee_epo`                                      |
 | Microsoft IIS         | `iis`                                      |
 | MongoDB               | `mongodb`                                  |

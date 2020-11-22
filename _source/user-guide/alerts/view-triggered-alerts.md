@@ -27,3 +27,5 @@ from the top menu.
   You'll be taken to Kibana Discover, with the logs filtered to return the exact logs that caused the alert to trigger. Using Kibana, you can explore your logs and get a better idea of the conditions that led to the triggered alert.
 
   This is the same link that appears in the alert notification.
+
+{% include /rules-alerts/view-latest-triggered-alerts.md %}

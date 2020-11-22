@@ -18,6 +18,10 @@ Get set and get ready: This section describes what you have to do to get set up 
 
 <div class="tasklist">
 
+##### Set up instrumentation
+Determine the best instrumentation strategy for your system: Manual or automatic instrumentation.
+<a href="/user-guide/distributed-tracing/tracing-instrumentation.html" target ="_blank"> Read more about setting up instrumentation.</a>
+
 ##### Look up your Distributed Tracing Token and Region information in Logz.io
 You’ll find your Distributed Tracing account information in the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts page**</a> of your Operations workspace, 
 
@@ -40,9 +44,6 @@ Decide on your tracing source, make deployment decisions, and decide whether or 
 
 If you’re deploying distributed tracing on Kubernetes, we recommend the following blog post: <a href="https://logz.io/blog/jaeger-kubernetes-best-practices/" target ="_blank">A Guide to Deploying Jaeger on Kubernetes in Production. </a>
 
-##### Set up instrumentation
-Determine the best instrumentation strategy for your system: Manual or automatic instrumentation.
-<a href="/user-guide/distributed-tracing/tracing-instrumentation.html" target ="_blank"> Read more about setting up instrumentation.</a>
 
 
 

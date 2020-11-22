@@ -9,6 +9,7 @@ tags:
 contributors:
   - shalper
   - imnotashrimp
+  - yberlinger
 ---
 
 Configure Logz.io to send notifications to your preferred endpoints.
@@ -72,6 +73,8 @@ Note that currently only Opsgenie accounts hosted by the US data center are supp
 {:.info-box.important}
 
 ![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint.png)
+
+See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/resolved-metrics-alerts.html) for related information.
 
 ## Typical use case
 

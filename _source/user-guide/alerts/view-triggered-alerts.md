@@ -1,6 +1,6 @@
 ---
 layout: article
-title: View triggered alerts
+title: Review triggered alerts
 permalink: /user-guide/alerts/view-triggered-alerts.html
 flags:
   logzio-plan: community
@@ -11,8 +11,10 @@ contributors:
   - imnotashrimp
 ---
 
-The **Triggered alerts** page offers a handy list of alerts that were recently triggered.
-It can help to verify and troubleshoot an alert. 
+The **Triggered alerts** page offers an updated list of notifications of recently triggered alerts, as long as they were not suppressed.
+
+You can think of it as a live dashboard summary of all the triggered alert notifications sent.
+So that even if you're not on the recipients list, you can still know which events occurred.
 
 ![Triggered alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/triggered-log-alerts.png)
 
@@ -23,3 +25,7 @@ from the top menu.
 * To view the raw logs for a particular event, click the button **View in Kibana**.
 
   You'll be taken to Kibana Discover, with the logs filtered to return the exact logs that caused the alert to trigger. Using Kibana, you can explore your logs and get a better idea of the conditions that led to the triggered alert.
+
+  This is the same link that appears in the alert notification.
+
+{% include /rules-alerts/view-latest-triggered-alerts.md %}

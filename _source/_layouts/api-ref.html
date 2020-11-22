@@ -6,7 +6,8 @@ layout: none
 
   {% include templates/head.html %}
   <body>
-    <iframe class="header-frame" src="{{ site.baseurl }}/api/iframe-header.html" scrolling="no"></iframe>
+    {% include templates/header.html %}
+<!--     <iframe class="header-frame" src="{{ site.baseurl }}/api/iframe-header.html" scrolling="no"></iframe> -->
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Nunito:400,400i,700" rel="stylesheet">
 
     <div id="redoc-container"></div>
@@ -55,8 +56,8 @@ layout: none
         hideLoading: true
       }, document.getElementById('redoc-container'))
     </script>
-
-    <iframe class="footer" src="{{ site.baseurl }}/api/iframe-footer.html" scrolling="no"></iframe>
+{% include templates/footer.html %}
+<!--    <iframe class="footer" src="{{ site.baseurl }}/api/iframe-footer.html" scrolling="no"></iframe> --> 
   </body>
 
 </html>

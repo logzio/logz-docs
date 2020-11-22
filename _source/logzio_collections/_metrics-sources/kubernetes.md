@@ -48,7 +48,7 @@ bash <(curl -s https://raw.githubusercontent.com/logzio/logzio-helm/master/quick
 |---|---|
 | logzio-metrics-shipping-token <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
 | Logz.io region <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| Kubelet communication protocol <span class="default-param">`http`</span> | `http` or `https`. If your Kubernetes setup is EKS, you'll need to use `https`. |
+| Kubelet communication protocol <span class="default-param">`http`</span> | `http` or `https`. If your Kubernetes setup is EKS or AKS, you'll need to use `https`. |
 | Target namespace <span class="default-param">`kube-system`</span> | Select a namespace to serve as the origin for Logz.io’s Metricbeat Deamonset deployment. The deployment monitors the **entire** cluster, regardless of which namespace is selected as the origin. It’s a good idea to avoid a namespace that already has Metricbeat installed. |
 | Cluster name <span class="default-param">Detected by the script</span> | The name of the Kubernetes cluster you're deploying in. |
 {:.paramlist}
@@ -154,7 +154,7 @@ kubectl --namespace=kube-system create secret generic cluster-details \
 
 Deploy one of these configurations.
 
-If your Kubernetes setup is EKS,
+If your Kubernetes setup is EKS or AKS,
 you'll need to use the HTTPS deployment.
 {:.info-box.note}
 

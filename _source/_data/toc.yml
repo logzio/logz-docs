@@ -118,12 +118,12 @@ firstLevel:
   - title: Getting started
     url: /user-guide/distributed-tracing/getting-started-tracing/
     thirdLevel:
+    - title: Setting up instrumentation and ingesting traces
+      url: /user-guide/distributed-tracing/tracing-instrumentation       
     - title: Deploying components in your system
       url: /user-guide/distributed-tracing/deploying-components
     - title: Kubernetes deployment reference
       url: /user-guide/distributed-tracing/k8s-deployment
-    - title: Setting up instrumentation and ingesting traces
-      url: /user-guide/distributed-tracing/tracing-instrumentation 
   - title: The Grand Distributed Tracing Tour
     url: /user-guide/distributed-tracing/tracing-tour/
     thirdLevel: 

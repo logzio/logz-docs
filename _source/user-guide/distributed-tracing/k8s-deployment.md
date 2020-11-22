@@ -25,7 +25,7 @@ _Before you begin:_
 apiVersion: apps/v1
 kind: List
 items:
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: Deployment
   metadata:
     name: jaeger-logzio-collector
@@ -70,7 +70,7 @@ items:
             value: # obtained from Logz.io Regions and Listener hosts table for your region
 {{- end }}
 
-- apiVersion: v1
+- apiVersion: apps/v1
   kind: Service
   metadata:
     name: jaeger-logzio-collector
@@ -103,7 +103,7 @@ items:
     type: ClusterIP
 
 
-- apiVersion: extensions/v1beta1
+- apiVersion: apps/v1
   kind: DaemonSet
   metadata:
     name: jaeger-agent
@@ -112,19 +112,24 @@ items:
       app.kubernetes.io/name: jaeger
       app.kubernetes.io/component: agent
     namespace: monitoring
-  spec:
-    template:
-      metadata:
-        labels:
-          app: jaeger
-          app.kubernetes.io/name: jaeger
-          app.kubernetes.io/component: agent
-      spec:
-        containers:
-        - name: jaeger-agent
-          image: jaegertracing/jaeger-agent:1.18.0   # Relace "1.18.0" with the latest Jaeger version
-          args: ["--reporter.grpc.host-port=jaeger-logzio-collector:14250"]
-          ports:
+spec:
+  selector:
+    matchLabels:
+      app: jaeger
+      app.kubernetes.io/name: jaeger
+      app.kubernetes.io/component: agent
+  template:
+    metadata:
+      labels:
+        app: jaeger
+        app.kubernetes.io/name: jaeger
+        app.kubernetes.io/component: agent
+    spec:
+      containers:
+      - name: jaeger-agent
+        image: jaegertracing/jaeger-agent:1.9.0   # Relace "1.9.0" with the latest Jaeger version
+          args: ["--reporter.tchannel.host-port=jaeger-logzio-collector:14267"]
+        ports:
           - containerPort: 5775
             protocol: UDP
           - containerPort: 6831

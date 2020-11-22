@@ -1,8 +1,8 @@
 ---
 title: Ship k8s logs with Helm via Filebeat
 logo:
-  logofile: helm-icon-color.png
-  orientation: vertical
+  logofile: k8s-helm.svg
+  orientation: horizontal
 data-source: Kubernetes over Helm
 templates: ["k8s-daemonset"]
 open-source:

@@ -11,9 +11,7 @@ tags:
 contributors:
   - yberlinger
 ---
-_draft_
-
-You can import your existing dashboards to Logz.io either manually or via a bulk process. 
+You can import your existing dashboards to Logz.io via a manual process. The option to import your dashboords via a bulk process will be available in the future!
 
 For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations](/user-guide/infrastructure-monitoring/annotations/)for more information. 
 
@@ -30,7 +28,7 @@ To import individual dashboards:
     For more information see [Upload JSON logs]({{site.baseurl}}/user-guide/shipping/log-sources/json-uploads.html). 
   - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them. 
 
-### Bulk dashboard import via script 
+### Bulk dashboard import via script ~~ (_in development!_)
 
 Bulk import is supported for Grafana version 6 and above.
 
@@ -38,8 +36,8 @@ Bulk import is supported for Grafana version 6 and above.
 
 * Custom selection of dashboards is not possible with bulk import. All your dashboard folders are imported to a single folder within Logz.io.
 
-* _TBD_: Script that runs against your Grafana endpoint to collect all dashboards. Import pending.
-Script name, name of grafana endpoint, API token. Needs to be tested w/listener & public endpoint...
+<!--- * _TBD_: Script that runs against your Grafana endpoint to collect all dashboards. Import pending.
+Script name, name of grafana endpoint, API token. Needs to be tested w/listener & public endpoint... --->
 
 You'll need to include the following Grafana and Logz.io parameters when prompted in the CLI: 
 

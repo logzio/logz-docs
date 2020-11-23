@@ -11,8 +11,6 @@ tags:
 contributors:
   - yberlinger
 ---
-_draft_
-
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
 
 ### Planning ahead
@@ -21,12 +19,12 @@ If you have multiple Prometheus server instances, you'll have to add Logz.io as 
 
 By default, all metrics in your Prometheus server(s) will be sent to Logz.io. To drop or send specific metrics, add Prometheus labeling before enabling the remote write, or as part of the remote write configuration. You can read more about Prometheus relabeling tricks <a href ="https://medium.com/quiq-blog/prometheus-relabeling-tricks-6ae62c56cbda" target="_blank">here. <i class="fas fa-external-link-alt"></i> </a> 
 
-* _TBD_: Set parallelism level for sending data - how many connections to open to the remote write listener. While the default is 1000, but we recommend configuring much fewer connections. 
+* _in dev_: Set parallelism level for sending data - how many connections to open to the remote write listener. While the default is 1000, but we recommend configuring much fewer connections. 
 
-* _TBD_: This is set in the configuration file. Parameter for # of connections (more data --o--> more channels)
+* _in dev_: This is set in the configuration file. Parameter for # of connections (more data --o--> more channels)
   Sending data - best practice in configuring connection channels: 
 
-* _TBD_: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. 
+* _in dev_: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. 
 
 You can read more about Prometheus Remote Write Tuning <a href ="https://prometheus.io/docs/practices/remote_write/" target="_blank">here. <i class="fas fa-external-link-alt"></i> </a> 
 
@@ -34,13 +32,10 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
 
 ### Configuring Remote Write to Logz.io
 
-
-
-1. Withing Logz.io, look up the Logz.io Metrics Account token and Listener address for your region (URL).
+1. Within Logz.io, look up the Logz.io Metrics Account token and Listener address for your region (URL).
 
     - You’ll find your Metrics account information in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace, when you click the relevant Metrics account to display its details.
     ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
-
 
     - Look up the correct Listener URL for your region in the <a href ="user-guide/accounts/account-region.html#available-regions" target="_blank">_Regions and Listener Hosts_</a> table. 
   

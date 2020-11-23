@@ -28,10 +28,16 @@ firstLevel:
     thirdLevel:
     - title: Configure an alert
       url: /user-guide/alerts/configure-an-alert.html
-    - title: Adding alerts
+    - title: Correlated alerts
+      url: /user-guide/alerts/correlated-alert/
+    - title: Shortcuts
       url: /user-guide/alerts/new-alert.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
+    - title: Regex filters
+      url: /user-guide/alerts/regex-filters.html
+    - title: Wait between notifications
+      url: /user-guide/alerts/suppress-notifications/
 
   - title: Reports
     url: /user-guide/reports/
@@ -101,6 +107,45 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/grafana-explore/
 
 
+    # ===== DISTRIBUTED TRACING =====
+- title: Distributed Tracing
+  icon: fas fa-align-left    
+
+  secondLevel:
+  - title: Why Distributed Tracing?
+    url: /user-guide/distributed-tracing/
+    thirdLevel:
+      - title: What is Distributed Tracing?
+        url: /user-guide/distributed-tracing/what-is-tracing
+  - title: Getting started
+    url: /user-guide/distributed-tracing/getting-started-tracing/
+    thirdLevel:
+    - title: Setting up instrumentation and ingesting traces
+      url: /user-guide/distributed-tracing/tracing-instrumentation       
+    - title: Deploying components in your system
+      url: /user-guide/distributed-tracing/deploying-components
+    - title: Kubernetes deployment reference
+      url: /user-guide/distributed-tracing/k8s-deployment
+  - title: The Grand Distributed Tracing Tour
+    url: /user-guide/distributed-tracing/tracing-tour/
+    thirdLevel: 
+    - title: Trace Timeline
+      url: /user-guide/distributed-tracing/trace-timeline/
+    - title: Trace Graph
+      url: /user-guide/distributed-tracing/trace-graph/
+    - title: Trace Statistics
+      url: /user-guide/distributed-tracing/trace-statistics/
+    - title: Trace JSON
+      url: /user-guide/distributed-tracing/trace-json/ 
+    - title: Compare traces
+      url: /user-guide/distributed-tracing/compare-traces   
+    - title: Topology diagrams
+      url: /user-guide/distributed-tracing/topology-system_architecture    
+  - title: Correlate logs and traces
+    url:  /user-guide/distributed-tracing/correlate-traces/
+  - title: Visualize traces in Kibana
+    url: /user-guide/distributed-tracing/visualize-traces/  
+
 
   # ===== CLOUD SIEM =====
 - title: Cloud SIEM
@@ -127,10 +172,15 @@ firstLevel:
       url: /user-guide/cloud-siem/threat-intelligence.html
     - title: Add a private feed
       url: /user-guide/cloud-siem/private-feeds.html
-  - title: Manage security rules
+  - title: Configure a security rule
     url: /user-guide/cloud-siem/manage-security-rules.html
+    thirdLevel:
+    - title: Correlated rules
+      url: /user-guide/siem/security-correlated-queries/
   - title: Lookups
     url: /user-guide/lookups/
+  - title: Security reports
+    url: /user-guide/siem/reports/
   - title: Integrations
     url: /user-guide/cloud-siem/integrations/
     thirdLevel:
@@ -189,11 +239,13 @@ firstLevel:
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:
-    - title: Manage log shipping tokens
+    - title: Log shipping tokens
       url: /user-guide/tokens/log-shipping-tokens/
-    - title: Manage shared tokens
+    - title: Metrics shipping token
+      url: /user-guide/accounts/finding-your-metrics-account-token/
+    - title: Shared tokens
       url: /user-guide/tokens/shared-tokens.html
-    - title: Manage API tokens
+    - title: API tokens
       url: /user-guide/tokens/api-tokens.html
 
   - title: Archive & restore
@@ -205,6 +257,8 @@ firstLevel:
         url: /user-guide/archive-and-restore/restore-archived-logs.html
       - title: Setting S3 permissions in AWS
         url: /user-guide/archive-and-restore/set-s3-permissions.html
+      - title: Setting permissions in Microsoft Azure
+        url: /user-guide/archive-and-restore/azure-blob-permissions/
 
 
   # ===== SHIPPING AND PARSING =====

@@ -94,7 +94,7 @@ provider "logzio" {
 resource "logzio_endpoint" "my_endpoint" {
   title = "my_endpoint"
   description = "my slack endpoint"
-  endpoint_type = "slack"
+  endpoint_type = "Slack"
   slack {
     url = "${var.slack_url}"
   }

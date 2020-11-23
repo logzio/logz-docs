@@ -1,17 +1,17 @@
 ---
-title: Logz.io LightS for AWS
-open-source:
-  - title: Light Synthetic Monitoring
-logo:
-  logofile: logz-symbol.svg
-  orientation: vertical
-data-source: LightS
+layout: article
+title: LightS - Light Synthetic Monitoring for AWS
+permalink: /integrations/lights/
+flags:
+  logzio-plan: community
+tags:
+  - integrations
+  - aws
 contributors:
   - doron-bargo
-shipping-tags:
-  - aws
+  - mirii1994
+  - shalper
 ---
-
 
 LightS is a web monitoring solution to check availability and load performance of your web site.
 This solution will be deployed on your AWS account.
@@ -48,7 +48,7 @@ Fill in the form with the relevant parameters.
 
 After filing in the form, click **Next** to continue.
 
-![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/lights-params.png)
+![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/-nov23.png)
 
 ##### Configure stack
 

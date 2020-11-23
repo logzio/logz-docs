@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Remote write for Prometheus
+title: Remote write for Prometheus 
 permalink: /user-guide/metrics/p8s-remote-write.html
 flags:
   logzio-plan: community

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Configuring remote write for Prometheus
+title: Configuring remote write for Prometheus 
 permalink: /user-guide/infrastructure-monitoring/p8s-remote-write.html
 flags:
   logzio-plan:  pro enterprise

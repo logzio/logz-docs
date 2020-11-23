@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Getting started with Prometheus
+title: Getting started with Prometheus 
 permalink: /user-guide/infrastructure-monitoring/p8s-getting-started.html
 flags:
   logzio-plan: pro enterprise

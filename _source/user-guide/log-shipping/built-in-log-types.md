@@ -52,6 +52,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Kafka                 | `kafka_server`                             |
 | Mcafee EPO            | `mcafee_epo`                                      |
 | Microsoft IIS         | `iis`                                      |
+| ModSecurity               | `modsecurity`                                  |
 | MongoDB               | `mongodb`                                  |
 | Monit                 | `monit`                                    |
 | MySQL                 | `mysql`                                    |

@@ -13,9 +13,12 @@ contributors:
   - shalper
 ---
 
+
 LightS is a web monitoring solution to check availability and load performance of your web site.
 This solution will be deployed on your AWS account.
-To learn which resources are deployed behind the scenes and to understand the architecture please go to our [repo](https://github.com/logzio/synthetic-monitoring/tree/master/aws)
+
+To learn more on which resources are deployed behind the scenes and to understand the architecture please go to our [repo](https://github.com/logzio/synthetic-monitoring/tree/master/aws)
+
 
 #### Configuration
 

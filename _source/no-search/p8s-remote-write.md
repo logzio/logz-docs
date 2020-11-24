@@ -33,26 +33,27 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
 
 1. Within Logz.io, look up the Logz.io Metrics Account token and Listener address for your region (URL).
 
-    - You’ll find your Metrics account information in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace, when you click the relevant Metrics account to display its details.
+    1. You’ll find your Metrics account information in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace, when you click the relevant Metrics account to display its details.
     ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
-    - Look up the correct Listener URL for your region in the <a href ="user-guide/accounts/account-region.html#available-regions" target="_blank">_Regions and Listener Hosts_</a> table. 
+    1. Look up the correct Listener URL for your region in the <a href ="{{site.baseurl}}/user-guide/accounts/account-region.html#available-regions" target="_blank">_Regions and Listener Hosts_</a> table. 
   
 2. Within Prometheus, add a new remote_write URL for Logz.io to your Prometheus yaml file. 
-    A logical location to add this information is under the `global_config` section, at the same indentation level as the `global` section.  <a href ="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write" target="_blank">Prometheus configuration file remote write demo <i class="fas fa-external-link-alt"></i>   </a>
+    Add this information at the same indentation level as the `global` section.  <a href ="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write" target="_blank">Prometheus configuration file remote write demo <i class="fas fa-external-link-alt"></i>   </a>
 
     ```yaml
-    global_config
-      remote_write:
-        - url: <the Logz.io Listener URL for your region>
-          bearer_token: <your Logz.io Metrics account token> 
-          remote_timeout: 30s
-          queue_config:
-            batch_send_deadline: 5s  #default = 5s
-            max_shards: 10  #default = 1000
-            min_shards: 1
-            max_samples_per_send: 500 #default = 100
-            capacity: 10000  #default = 500
+    global
+    
+    remote_write:
+      - url: <the Logz.io Listener URL for your region>
+        bearer_token: <your Logz.io Metrics account token> 
+        remote_timeout: 30s
+        queue_config:
+          batch_send_deadline: 5s  #default = 5s
+          max_shards: 10  #default = 1000
+          min_shards: 1
+          max_samples_per_send: 500 #default = 100
+          capacity: 10000  #default = 500
     ```
 
     |Parameter | Description

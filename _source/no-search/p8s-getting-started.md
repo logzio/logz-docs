@@ -3,8 +3,8 @@ layout: article
 title: Getting started with Prometheus 
 permalink: /user-guide/infrastructure-monitoring/p8s-getting-started.html
 flags:
-  logzio-plan: pro enterprise
-  Beta: yes
+  logzio-plan: 
+  beta: true
 tags:
   - metrics integrations
 contributors:

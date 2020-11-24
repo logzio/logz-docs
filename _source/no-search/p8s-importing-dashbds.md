@@ -3,9 +3,8 @@ layout: article
 title: Importing dashboards from Grafana  
 permalink: /user-guide/infrastructure-monitoring/p8s-importing-dashbds.html
 flags:
-  logzio-plan:  pro enterprise
-  Beta: yes
-  Beta: yes
+  logzio-plan:  
+  beta: true
 tags:
   - metrics integrations
 contributors:

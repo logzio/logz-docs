@@ -12,16 +12,16 @@ contributors:
   - shalper
 ---
 
-Log Patterns runs advanced clustering algorithms to group logs with similar message fields by their frequency of occurrence. Log patterns can help you to quickly single out unique or unusual events from the mass of recurring and repetitive events or identify errors that are more frequent so you know where to focus your efforts.
+Logz.io Patterns Engine runs advanced clustering algorithms to automatically group logs with similar message fields by their frequency of occurrence.
 
-As your logs come into Kibana, you'll see how they fit into patterns,
-in near real time. Log patterns will help you surface logs you might have otherwise missed, and uninteresting logs that can be filtered out.
+Log patterns can help you quickly get a grasp of the logs you are facing. Patterns can help single out unique or unusual events from a mass of repetitive events and to identify errors that are more frequent so you know where to focus your efforts.
+
+As you’re troubleshooting in Kibana Discover, you can easily see the number of Patterns identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
+
+![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-patterns/patterns-in-discover-count.png)
 
 
-![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns2.png)
-
-To open Log Patterns, click the **Patterns** tab in Kibana Discover.
-
+To review your log results clustered into Patterns, switch to the **Patterns** tab in Kibana Discover and filter the Patterns that interest you in and out of the results. 
 ## Understanding Log Patterns
 
 Log Patterns is an alternative view to the log document table. It shows the same logs organized in a different way.

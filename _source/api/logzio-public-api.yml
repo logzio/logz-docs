@@ -160,15 +160,6 @@ tags:
 
 
       Archiving is not affected by drop filters. Logs dropped by drop filters will still be archived, if archiving is configured for the account. With archiving configured, you can readily use drop filters to reduce logging bulk and restore the logs in the event that they become relevant.
-  - name: Restore operation
-    description: >-
-      You can restore data from your active archiving account, whether an AWS S3 bucket or Azure Blob Storage. Restoring data gives you the option to query logs after they have expired from your time-based account.
-
-
-      You can use the following endpoints to initiate a new restore process, retrieve, set up, test, and update an account's archive settings.
-
-
-      Note: Logs that are dropped by drop filters are still archived and can be restored. You can temporarily disable drop filters to restore the data.
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.
@@ -214,6 +205,16 @@ tags:
 
 
       Note: Logs are archived before they are indexed and analyzed by Logz.io. If you are using drop filters, note that the logs will still be archived.
+  - name: Restore logs
+    description: >-
+      You can restore data from your active archiving account, whether an AWS S3 bucket or Azure Blob Storage. Restoring data gives you the option to query logs after they have expired from your time-based account.
+
+
+      You can use the following endpoints to initiate a new restore process, retrieve, set up, test, and update an account's archive settings.
+
+
+      Note: Logs that are dropped by drop filters are still archived and can be restored. You can temporarily disable drop filters to restore the data.
+
 x-tagGroups:
   - name: Log Monitoring
     tags:
@@ -238,7 +239,7 @@ x-tagGroups:
       - Manage log shipping tokens
       - Drop filters
       - Archive logs
-      - Restore operation
+      - Restore logs
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -919,7 +920,7 @@ paths:
       summary: Retrieve all restore operations
       description: Returns a complete history of all restore operations initiated for the account.
       tags:
-          - Restore operation
+          - Restore logs
       operationId: getRestoreRequestsForAccountApi
       consumes:
           - application/json
@@ -938,7 +939,7 @@ paths:
       summary: Initiate restore operation
       description: Initiates a new operation to restore data from a specific time frame. (As a result, also triggers the creation of a temporary restored account in Logz.io to hold the restored data until its automatic expiration.)
       tags:
-        - Restore operation
+        - Restore logs
       operationId: createRestore
       consumes:
         - application/json
@@ -961,7 +962,7 @@ paths:
       summary: Get an update on a restore operation
       description: Returns the status of a specific restore operation by its ID.
       tags:
-        - Restore operation
+        - Restore logs
       operationId: getRestoreRequestByIdApi
       parameters:
         - name: id
@@ -980,7 +981,7 @@ paths:
       summary: Delete a restore operation
       description: Aborts a restore process before its completion.
       tags:
-        - Restore operation
+        - Restore logs
       operationId: abortRestoreRequestApi
       parameters:
         - name: id

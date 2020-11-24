@@ -160,7 +160,7 @@ tags:
 
 
       Archiving is not affected by drop filters. Logs dropped by drop filters will still be archived, if archiving is configured for the account. With archiving configured, you can readily use drop filters to reduce logging bulk and restore the logs in the event that they become relevant.
-  - name: Restore request
+  - name: Restore operation
     description: >-
       You can restore data from your active archiving account, whether an AWS S3 bucket or Azure Blob Storage. Restoring data gives you the option to query logs after they have expired from your time-based account.
 
@@ -238,7 +238,7 @@ x-tagGroups:
       - Manage log shipping tokens
       - Drop filters
       - Archive logs
-      - Restore request
+      - Restore operation
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -916,10 +916,10 @@ paths:
   # ::::: Restore
   /archive/restore:
     get:
-      summary: Retrieve restore requests
-      description: Returns restore requests for an account
+      summary: Retrieve all restore operations
+      description: Returns a complete history of all restore operations initiated for the account.
       tags:
-          - Restore request
+          - Restore operation
       operationId: getRestoreRequestsForAccountApi
       consumes:
           - application/json
@@ -935,10 +935,10 @@ paths:
               $ref: '#/definitions/RestoreApiResponse'
           headers: {}
     post:
-      summary: Create restore request
-      description: Creates a request to restore data
+      summary: Initiate restore operation
+      description: Initiates a new operation to restore data from a specific time frame. (As a result, also triggers the creation of a temporary restored account in Logz.io to hold the restored data until its automatic expiration.)
       tags:
-        - Restore request
+        - Restore operation
       operationId: createRestore
       consumes:
         - application/json
@@ -958,10 +958,10 @@ paths:
           headers: {}
   /archive/restore/{id}:
     get:
-      summary: Get an updated status on a restore process
-      description: Returns details of a specific restore process by its ID.
+      summary: Get an update on a restore operation
+      description: Returns the status of a specific restore operation by its ID.
       tags:
-        - Restore request
+        - Restore operation
       operationId: getRestoreRequestByIdApi
       parameters:
         - name: id
@@ -977,10 +977,10 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
     delete:
-      summary: Delete a restore process
+      summary: Delete a restore operation
       description: Aborts a restore process before its completion.
       tags:
-        - Restore request
+        - Restore operation
       operationId: abortRestoreRequestApi
       parameters:
         - name: id

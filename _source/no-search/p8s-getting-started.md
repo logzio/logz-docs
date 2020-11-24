@@ -28,7 +28,7 @@ For the beta program, your incoming raw data has a 30-day retention period.
 
 Once your metrics are flowing, import your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
 
-For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations](/user-guide/infrastructure-monitoring/annotations/)for more information.
+For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations](/user-guide/infrastructure-monitoring/annotations/) for more information.
 
 ### Steps to get started
 1. [Locate your Metrics account token, Listener URL, and Region.](/user-guide/accounts/finding-your-metrics-account-token/)

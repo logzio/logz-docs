@@ -19,6 +19,12 @@ You can also add a condition so an alert holds off for a certain time before it 
 
 If you're running multiple servers for load balancing purposes, you'll be happy to know that Logz.io Metrics won't send duplicte alerts. A deduplication mechanism protects against that.
 
+###### On this page
+{:.no_toc}
+
+1. toc list
+{:toc}
+
 ### Resolved alerts
 
 For better alerts management and to help you focus only on active alerts, when a tracked metric returns to its accepted values (below the current alert threshold), you'll get notified automatically that the triggered alert was resolved. 
@@ -35,11 +41,19 @@ When you receive an alert with the same alert ID, if the alert has the Acknowled
 
 The Acknowledge status is available for the PagerDuty notification endpoint.
 
-###### On this page
-{:.no_toc}
+### Grafana tags for alert Severity levels
 
-1. toc list
-{:toc}
+Use Grafana tags as a Severity field for your alerts when integrating Grafana with PagerDuty as an alert notification endpoint.
+
+Follow the link for more information on <a href="https://grafana.com/docs/grafana/latest/alerting/notifications/#pagerduty" target="_blank"> the syntax for setting up Grafana tags for PagerDuty.  <i class="fas fa-external-link-alt"></i> </a>
+
+<!-- OpsGenie integration is coming too: Use tags as Priority fields for alerts when integrating Grafana with OpsGenie aas an alert notification endpoint. 
+
+Follow the link for more information on <a href="https://grafana.com/docs/grafana/latest/alerting/notifications/" target="_blank"> the syntax for setting up Grafana tags for OpsGenie <i class="fas fa-external-link-alt"></i> </a> -->
+
+
+### Adding Alerts
+Navigate to the Logz.io Infrastructure Monitoring **Metrics** tab.
 
 #### To add an alert
 {:.no_toc}

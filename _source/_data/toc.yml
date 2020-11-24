@@ -70,6 +70,7 @@ firstLevel:
     url: /user-guide/live-tail/
 
     # ===== METRICS INFRASTRUCTURE MONITORING =====
+    # the Prometheus remote write topic & dashboard import topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory
 - title: Infrastructure Monitoring
   icon: fas fa-chart-pie
 
@@ -104,6 +105,7 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
+
 
     # ===== DISTRIBUTED TRACING =====
 - title: Distributed Tracing
@@ -144,7 +146,7 @@ firstLevel:
   - title: Visualize traces in Kibana
     url: /user-guide/distributed-tracing/visualize-traces/  
 
-      
+
   # ===== CLOUD SIEM =====
 - title: Cloud SIEM
   icon: fas fa-shield-alt

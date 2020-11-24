@@ -50,7 +50,7 @@ Use the samples in the code blocks below as a starting point, and replace them w
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-  See the [log4net documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the log4net configuration file.
+  See the [log4net documentation](https://github.com/apache/logging-log4net) for more information on the log4net configuration file.
   {:.info-box.read}
 
 _Option 1: In a configuration file_

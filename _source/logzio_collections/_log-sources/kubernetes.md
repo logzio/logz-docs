@@ -1,9 +1,9 @@
 ---
-title: Ship Kubernetes logs
+title: Ship Kubernetes logs using a Fluentd DaemonSet
 logo:
-  logofile: kubernetes.svg
-  orientation: vertical
-data-source: Kubernetes
+  logofile: k8s-fluentd.svg
+  orientation: horizontal
+data-source: Fluentd DaemonSet for Kubernetes
 templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-k8s
@@ -16,9 +16,8 @@ shipping-tags:
   - container
 ---
 
-For Kubernetes, a DaemonSet ensures that some or all nodes run a copy of a pod.
 This implementation uses a Fluentd DaemonSet to collect Kubernetes logs.
-Fluentd is flexible enough and has the proper plugins to distribute logs to different third parties such as Logz.io.
+A Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod. Fluentd is an Open Source data collector that is used to forward logs to Logz.io.
 
 The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
 
@@ -35,6 +34,8 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 
 For most environments, we recommend using the default configuration.
 However, you can deploy a custom configuration if your environment needs it. {%- endcomment -%}
+
+#### Deploy Fluentd as a DaemonSet on Kubernetes
 
 <div class="tasklist">
 

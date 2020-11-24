@@ -32,14 +32,13 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
 ### Configuring Remote Write to Logz.io
 
 1. Within Logz.io, look up the Logz.io Metrics Account token and Listener address for your region (URL).
-
-    1. You’ll find your Metrics account information in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace, when you click the relevant Metrics account to display its details.
-    ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
+    1. You’ll find your Metrics account information in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace, when you click the relevant **Metrics account plan**, to display its details.
+      ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
     1. Look up the correct Listener URL for your region in the <a href ="{{site.baseurl}}/user-guide/accounts/account-region.html#available-regions" target="_blank">_Regions and Listener Hosts_</a> table. 
+
   
-2. Within Prometheus, add a new remote_write URL for Logz.io to your Prometheus yaml file. 
-    Add this information at the same indentation level as the `global` section.  <a href ="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write" target="_blank">Prometheus configuration file remote write demo <i class="fas fa-external-link-alt"></i>   </a>
+2. Within Prometheus, add a new remote_write URL for Logz.io to your Prometheus yaml file at the same indentation level as the `global` section.  For more details, see the  <a href ="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write" target="_blank">Prometheus configuration file remote write reference.  <i class="fas fa-external-link-alt"></i>   </a>
 
     ```yaml
     global

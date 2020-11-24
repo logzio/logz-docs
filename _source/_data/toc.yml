@@ -68,7 +68,7 @@ firstLevel:
       url: /user-guide/kibana/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
- 
+
     # ===== METRICS INFRASTRUCTURE MONITORING =====
 - title: Infrastructure Monitoring
   icon: fas fa-chart-pie
@@ -289,11 +289,13 @@ firstLevel:
     url: /user-guide/integrations/endpoints.html
     thirdLevel:
       - title: Custom endpoints
-        url: /user-guide/integrations/custom-endpoints.html   
+        url: /user-guide/integrations/custom-endpoints.html
       - title: Opsgenie notifications for resolved metrics alerts
-        url: /user-guide/integrations/resolved-metrics-alerts.html         
+        url: /user-guide/integrations/resolved-metrics-alerts.html
   - title: Terraform Logz.io Provider
     url: /integrations/terraform/
+  - title: LightS - Light Synthetic Monitoring for AWS
+    url: /integrations/lights/
   - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html
   - title: Grafana data source plugin

@@ -4,6 +4,9 @@ title: LightS - Light Synthetic Monitoring for AWS
 permalink: /integrations/lights/
 flags:
   logzio-plan: community
+open-source:
+  - title: logzio-synthetic-monitoring
+    github-repo: synthetic-monitoring/tree/master/aws
 tags:
   - integrations
   - aws
@@ -14,11 +17,12 @@ contributors:
 ---
 
 
-LightS is a web monitoring solution to check availability and load performance of your web site.
+LightS is a web monitoring solution to check availability and load performance of your website.
 
-**This solution will be deployed on your AWS account.**
+To learn more about which resources are deployed behind the scenes and to understand the architecture, please refer to our [GitHub repo](https://github.com/logzio/synthetic-monitoring/tree/master/aws).
 
-To learn more on which resources are deployed behind the scenes and to understand the architecture please go to our [repo](https://github.com/logzio/synthetic-monitoring/tree/master/aws)
+This solution will be deployed directly on your AWS account.
+{:.info-box.note}
 
 
 #### Configuration
@@ -27,14 +31,13 @@ To learn more on which resources are deployed behind the scenes and to understan
 
 ##### Create Stack
 
-
-To start just press the button and follow the instructions:
+👇 To begin, click this button to start the automated deployment.
 
 [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=logzio-sm-light&templateURL=https://sm-template.s3.amazonaws.com/auto-deployment.yaml)
 {:.override.btn-img}
 
 You'll be taken to AWS, where you'll configure the resources to be deployed.
-Keep the defaults and click Next on the following screen
+Keep the defaults and click **Next** on the following screen.
 
 ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/lights-create-stack.png)
 

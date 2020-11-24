@@ -21,7 +21,7 @@ If you're already using Prometheus to pull metrics from your services, you can l
 You can continue using Prometheus Alert Manager: You'll simply store the metrics on your own servers based on your alerts needs, so your Alert Managers can access the data.
 
 ## One small step
-All it takes to ship your metrics data to Logz.io is to use Remote Write on each Prometheus server, with Logz.io configured as the endpoint.  Remote Write aggregates the data from multiple Prometheus servers and writes metrics to your local Prometheus instance: By adding a few lines of code, Remote Write also ensures that your metrics are written to Logz.io. 
+All it takes to ship your metrics data to Logz.io is to use Remote Write on each Prometheus server, with Logz.io configured as the endpoint: By adding a few lines of code, Remote Write ensures that your metrics are written to Logz.io. 
 
 Your data is formatted as JSON documents by the Logz.io listener. 
 For the beta program, your incoming raw data has a 30-day retention period. 

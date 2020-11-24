@@ -15,7 +15,7 @@ Kibana Discover is where you search and query your logs to figure out what happe
 
 You can use the Discover page to filter logs, search for specific events, and create alerts based on your search queries.
 
-![Kibana Discover Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana-discover-intro.png)
+![Kibana Discover Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/kibana-discover-intro-annotated.png)
 
 #### Searching your logs
 
@@ -44,19 +44,22 @@ You can type a search query in Lucene syntax or KQL. It is an alternative to fil
 
 ##### Time frame and date picker
 
-You can select the time range for your search in any number of ways, using either relative or absolute time selection options. The default is 15 minutes, but you can select almost any imaginable time range, including the last hour, today so far, yesterday, day before yesterday, and many more.
+The default time frame in Kibana Discover is always the last 15 minutes.
 
+You can select the time frame in any number of ways, including relative times such as the last hour, today so far, or the day before yesterday, or use absolute times by calendar dates and timestamps.
 ##### Results
 
-The logs returned by your search are your results. Depending on the time frame you've selected, the results can be set to continuously auto-refresh and can be quite dynamic.
+The logs returned by your search are your results - aka "hits". Depending on the time frame you've selected, the results can be set to continuously auto-refresh and can be quite dynamic.
 
 * **Histogram** -  The Histogram shows the distribution of logs over time. It is often easier to see when logs were sent when graphed directly on the timeline. You can also select a time range directly from the histogram using a drag-and-drop motion or by clicking a data bar.
 
-* **Document table** - The table displays select fields for your results. By default, only the message field is selected and the logs are arranged in reverse chronological order. You can toggle additional fields in and out of the table and rearrange the display as suits your needs.
+* **Logs** - The log document table displays a preview of your top results, arranged with the most recent results at the top. The default fields are **time** and **message**, but you can toggle the fields that interest you in and out. 
 
-  If you click on a log, it opens so you can view its entire contents mapped into field:value pairs. You can also switch to the raw JSON document view.
+  To expand a log, click it and review the complete log mapped into field:value pairs. You can also switch to the raw JSON.
 
-* **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also help to surface issues and errors that might otherwise go unnoticed. [Learn more about Log Patterns.]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
+* **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also help to surface issues and errors that might otherwise go unnoticed. [Learn more]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
+
+* **Exceptions** - Logz.io Insights Engine scans your logs for application errors and warnings to help you identify issues that require your attention. [Learn more]({{site.baseurl}}/user-guide/insights/exceptions/) 
 
 ##### Take action following your results
 

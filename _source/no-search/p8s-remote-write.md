@@ -44,7 +44,7 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
     ```yaml
     global_config
       remote_write:
-        - url: <the Logz.io Listener URL for your region>
+        - url: http://<the Logz.io Listener URL for your region>:8052
           bearer_token: <your Logz.io Metrics account token> 
           remote_timeout: 30s
           queue_config:
@@ -58,3 +58,6 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
     |Parameter | Description
     |url| Logz.io Listener address for your region
     |bearer_token| Logz.io Metrics account token
+   
+3. To check that the remote_write configuration is working properly, run a query for `metric prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
+

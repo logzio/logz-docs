@@ -82,38 +82,6 @@ This method of deployment gives you greater control over the configuration.
 
 <div class="tasklist">
 
-##### Add your Logz.io credentials
-
-Save your Logz.io shipping credentials as a Kubernetes secret.
-
-* {% include metric-shipping/replace-metrics-token.html %}
-
-* Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
-
-```shell
-kubectl --namespace=kube-system create secret generic logzio-metrics-secret \
-  --from-literal=logzio-metrics-shipping-token=<<SHIPPING-TOKEN>> \
-  --from-literal=logzio-metrics-listener-host=<<LISTENER-HOST>>
-```
-
-##### Store your cluster details
-
-Run the command below to save your cluster details as a Kubernetes secret. The command has placeholders that you'll need to replace with your own cluster information.
-
-```shell
-kubectl --namespace=kube-system create secret generic cluster-details \
---from-literal=kube-state-metrics-namespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
---from-literal=kube-state-metrics-port=<<KUBE-STATE-METRICS-PORT>> \
---from-literal=cluster-name=<<CLUSTER-NAME>>
-```
-
-Replace the following placeholders in the command before running it:
-
-* `<<KUBE-STATE-METRICS-NAMESPACE>>`
-* `<<KUBE-STATE-METRICS-PORT>>`
-* `<<CLUSTER-NAME>>`
-
-
 ##### Add the logzio-k8s-metrics repo to your helm repo list
 
 ```shell
@@ -129,20 +97,44 @@ You have three options for deployment:
 * [Custom configuration](#custom-config)
 
 
-
 ###### Deploy with standard configuration {#standard-config}
 
+Run the command below after replacing the following placeholders:
+
+* Replace `<<METRICS-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+* Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+* Replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command to save your cluster details as a Kubernetes secret.
+
+
 ```shell
-helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
+helm install --namespace=kube-system \
+--set=secrets.MetricsToken=<<METRICS-TOKEN>> \
+--set=secrets.ListenerHost=<<LISTENER-HOST>> \
+--set=secrets.ClusterName=<<CLUSTER-NAME>> \
+--set=secrets.KubeStatNamespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
+--set=secrets.KubeStatPort=<<KUBE-STATE-METRICS-PORT>> \
+logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 ```
 
 ###### Deploy with Autodiscover configuration: {#autodiscover-config}
 
-This Daemonset's default autodiscover configuration is [hints based](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover-hints.html):
+This Daemonset's default autodiscover configuration is [hints based](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover-hints.html).
+
+Run the command below after replacing the following placeholders:
+
+* Replace `<<METRICS-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+* Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+* Replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command to save your cluster details as a Kubernetes secret.
+
 
 ```shell
 helm install --namespace=kube-system \
 --set configType='autodiscover' \
+--set=secrets.MetricsToken=<<METRICS-TOKEN>> \
+--set=secrets.ListenerHost=<<LISTENER-HOST>> \
+--set=secrets.ClusterName=<<CLUSTER-NAME>> \
+--set=secrets.KubeStatNamespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
+--set=secrets.KubeStatPort=<<KUBE-STATE-METRICS-PORT>> \
 logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 ```
 
@@ -150,8 +142,19 @@ For more information about Autodiscover, see [Kubernetes configuration](https://
 
 ###### Deploy with custom configuration: {#custom-config}
 
+Run the command below after replacing the following placeholders:
+
+* Replace `<<METRICS-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+* Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+* Replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command to save your cluster details as a Kubernetes secret.
+
 ```shell
 helm install --namespace=kube-system \
+--set=secrets.MetricsToken=<<METRICS-TOKEN>> \
+--set=secrets.ListenerHost=<<LISTENER-HOST>> \
+--set=secrets.ClusterName=<<CLUSTER-NAME>> \
+--set=secrets.KubeStatNamespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
+--set=secrets.KubeStatPort=<<KUBE-STATE-METRICS-PORT>> \
 --set configType='auto-custom' \
 --set-file metricbeatConfig.autoCustomConfig=/path/to/your/config.yaml \
 logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
@@ -254,6 +257,11 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 | `deployment.resources` | Sets the resources for your Metricbeat deployment. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `deployment.secretMounts` | Mounts a secret as a file in the deployment. You can use it to mount certificates and other secrets. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `namespace` | Chart's namespace | `kube-system` |
+| `secrets.MetricsToken`| Secret with your [Logz.io Metrics token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/). | `""` |
+| `secrets.ListenerHost`| Secret with your [Logz.io listener host](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). | `""` |
+| `secrets.ClusterName`| Secret with your cluster name. | `""` |
+| `secrets.KubeStatNamespace`| Secret with your Kube-Stat-Metrics namespace. | `""` |
+| `secrets.KubeStatPort`| Secret with your Kube-Stat-Metrics port. | `""` |
 
 
 </div>

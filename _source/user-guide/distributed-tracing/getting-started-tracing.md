@@ -32,7 +32,7 @@ You must have admin permissions for the Logz.io Distributed Tracing account to v
       ...when you click the relevant tracing account name at the bottom of the section.
     ![Reveal Distributed Tracing Token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-acct-tokeninfo11.gif)
 
-+ You can find the Listener host URL for your region in the <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> <br> If you need to clarify your region code, you can look it up in the General Settings page, here:  <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> > Settings > General**.
++ You can find the Listener host URL for your region in the <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> <br> If you need to clarify your region code, you can look it up in the General settings page, here:  <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> > Settings > General**.
     ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1.png)
 
 ##### Deploy tracing components

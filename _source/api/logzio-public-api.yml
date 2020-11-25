@@ -73,14 +73,14 @@ securityDefinitions:
   X-API-TOKEN:
     description: >-
       You can manage your API tokens from the [Logz.io API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
-      
-      
+
+
       API tokens are account-specific. You will need to be logged into the relevant Log Management or SIEM account to view the API tokens associated with it.
 
 
       To manage your API tokens, log into the relevant account in your Logz.io platform, click the gear in the top-right menu, and select [**Tools > Manage tokens > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
 
-      
+
       It's important to keep your tokens secure. API tokens carry privileges to make changes to users and accounts, so if you believe an API token has been compromised, delete it, and replace it with a new token in your integrations.
     type: apiKey
     in: header
@@ -90,6 +90,7 @@ security:
 
 tags:
   - name: Grafana gateway
+    description: Grafana API Gateway to supported endpoints.
   - name: Who am I
   - name: Manage sub accounts
     description: >-
@@ -97,8 +98,8 @@ tags:
 
 
       We are in the process of rolling out [flexible volume plan configuration](/user-guide/accounts/flexible-volume.html). A new beta feature.
-      
-      
+
+
       * If your account has the option to switch to flexible volume, please refer to the updated [documentation](/beta-api-flexible-storage/) for the beta API.
 
 
@@ -112,8 +113,8 @@ tags:
   - name: Insights
     description: >-
       Logz.io monitors your logs for Insights to help you preempt issues and alert you of potential problems.
-      
-      
+
+
       There are two types of Insights:
 
       * LOGCEPTION - Application errors and exceptions identified in the stack trace.
@@ -128,8 +129,8 @@ tags:
   - name: Connect to S3 Buckets
     description: >-
       Establish a connection for the Logz.io fetcher to fetch logs to the Logz.io observability platform via an S3 bucket. Supports ELB, S3 Access, CloudFront, VPC Flow logs.
-      
-      
+
+
       If you're looking to fetch CloudTrail logs, use the designated endpoints.
 
 
@@ -154,10 +155,10 @@ tags:
     description: >-
       Drop filters provide a solution for filtering out logs before they are indexed in your account to help lower costs and reduce account volume.
 
-      
+
       Drop filters evaluate logs for exact field:value matches. Any log results that match active drop filters will not be indexed. This means they will not appear in your Kibana account, will not be searchable, trigger alerts, or appear in dashboards.
-      
-      
+
+
       Archiving is not affected by drop filters. Logs dropped by drop filters will still be archived, if archiving is configured for the account. With archiving configured, you can readily use drop filters to reduce logging bulk and restore the logs in the event that they become relevant.
   - name: Manage shared tokens
     description: >-
@@ -176,18 +177,18 @@ tags:
       When alerts trigger, they write event logs. Event logs of triggered alerts are always available and searchable in Kibana - just filter for `_exists_:logzio-alert`. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
   - name: Security rules
     description: >-
-      Security rules help you connect the dots between your data sources and events that could indicate a security threat or breach. 
-      
-      
+      Security rules help you connect the dots between your data sources and events that could indicate a security threat or breach.
+
+
       Your Cloud SIEM account comes pre-configured with security rules for different attack types and security use cases. These built-in rules are protected, and there are limitations on the changes that can be made to them. Pre-configured rules can be updated by adding notification endpoints (like email or Slack), changing trigger thresholds and severities, and adding tags, as described in detail in the endpoint.
 
-      
+
       You can also create new security rules to supplement the built-in rules.
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
-      
-      
+
+
       Your Logz.io Cloud SIEM is pre-loaded with hundreds of security rules created and maintained by Logz.io's security analysts. The list continues to be expanded and updated on a regular basis. You can also add your own security rules.
 
 
@@ -198,14 +199,24 @@ tags:
   - name: Archive logs
     description: >-
       You can archive logs to an AWS S3 bucket or Azure Blob Storage. Archiving gives you the option to restore logs and query them after they have expired from your time-based account.
-      
+
 
       You can use the following endpoints to retrieve, set up, test, and update an account's archive settings.
-      
 
-      Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
+
+      Note: Logs are archived before they are indexed and analyzed by Logz.io. If you are using drop filters, note that dropped logs will still be archived.
+  - name: Restore logs
+    description: >-
+      You can restore data from your active archiving account, whether an AWS S3 bucket or Azure Blob Storage. Restoring data gives you the option to query logs after they have expired from your time-based account.
+
+
+      You can use the following endpoints to initiate a new restore process, retrieve, set up, test, and update an account's archive settings.
+
+
+      Note: Logs that are dropped by drop filters are still archived and can be restored. You can temporarily disable drop filters to restore the data.
+
 x-tagGroups:
-  - name: Log monitoring
+  - name: Log Monitoring
     tags:
       - Search logs
       - Alerts
@@ -226,8 +237,9 @@ x-tagGroups:
   - name: Manage data shipping
     tags:
       - Manage log shipping tokens
-      - Archive logs
       - Drop filters
+      - Archive logs
+      - Restore logs
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -247,8 +259,8 @@ paths:
       summary: Grafana API Capabilities
       description: >-
         Prepend your Logz.io API Gateway to the relevant Grafana API endpoint.
-     
-     
+
+
         Supported endpoints:
           * [Alerting](https://grafana.com/docs/grafana/latest/http_api/alerting/)
           * [Annotations](https://grafana.com/docs/grafana/latest/http_api/annotations/)
@@ -585,9 +597,9 @@ paths:
                 type: object
                 description: >-
                   The object `includes` specifies an array of strings specifying an array of fields to return.
-                  
+
                   * If you omit `_source` from the request, all fields are returned.
-                  
+
                   * If you pass `'_source': false`, it will exclude the `_source` field from the results.
                 properties:
                   includes:
@@ -695,27 +707,27 @@ paths:
       tags:
         - Search logs
       description: >-
-        This endpoint can take 2 types of call requests. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id` 
+        This endpoint can take 2 types of call requests. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id`
         (The variation in the field name is intentional) to fetch the next batches of paginated results.
         This endpoint always returns results as a stringified JSON.
-        
+
 
         How it works:
-        
-        
+
+
         First, send a request to establish the `scrollID`. This initial request contains the query object and additional parameters, similar to the `v1/search` endpoint, with the exception that `dayOffset` and `accountIds` are not supported. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
-        
-        
-        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results. 
+
+
+        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results.
         You'll know you've reached the last page of results, once the call keeps returning the last page of results repeatedly. Keep sending the same scroll ID as many times as needed to retrieve all of the available results.
         The results are paginated, and the request advances through them, one at a time, by default. So that every time you send the request with the same `scroll_id`, the next batch of results is returned.
-       
+
 
         **Note**:
 
 
         * Send the field `scroll_id` in requests (snake_case).
-        
+
         * Receive the field `scrollID` in your responses (camelCase).
       operationId: scroll
       parameters:
@@ -844,19 +856,19 @@ paths:
           headers: {}
     put:
       summary: Update archive settings
-      description: >- 
+      description: >-
         Updates the archiving settings for a time-based log account. (The API token identifies the account.)
-        
-        
+
+
         You can use this endpoint to:
-        
+
         * Switch archive settings between AWS and Azure Blob Storage or vice versa.
 
         * Update credentials.
-        
+
         * Switch your AWS authentication method between credential keys and IAM roles.
-        
-        
+
+
         Note that only one archive can be active per account.
       tags:
         - Archive logs
@@ -900,6 +912,92 @@ paths:
       responses:
         default:
           description: successful operation
+
+
+  # ::::: Restore
+  /archive/restore:
+    get:
+      summary: Retrieve all restore operations
+      description: Returns a complete history of all restore operations initiated for the account.
+      tags:
+          - Restore logs
+      operationId: getRestoreRequestsForAccountApi
+      consumes:
+          - application/json
+      produces:
+          - application/json
+      parameters: []
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+    post:
+      summary: Initiate restore operation
+      description: Initiates a new operation to restore data from a specific time frame. (As a result, also triggers the creation of a temporary restored account in Logz.io to hold the restored data until its automatic expiration.)
+      tags:
+        - Restore logs
+      operationId: createRestore
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RestoreApiRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+  /archive/restore/{id}:
+    get:
+      summary: Get an update on a restore operation
+      description: Returns the status of a specific restore operation by its ID.
+      tags:
+        - Restore logs
+      operationId: getRestoreRequestByIdApi
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the restore process
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+    delete:
+      summary: Delete a restore operation
+      description: Aborts a restore process before its completion.
+      tags:
+        - Restore logs
+      operationId: abortRestoreRequestApi
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the restore process.
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+
+
 
   # ::::: Alerts V2
   /v2/alerts:
@@ -1102,8 +1200,8 @@ paths:
       summary: Create a new CloudTrail connector
       description: >-
         Establishes a new connection to a CloudTrail resource. As a result, logs from your CloudTrail resource will ship to the connected Logz.io account via an AWS S3 bucket.
-        
-        
+
+
         CloudTrail logs will be parsed using the Logz.io custom CloudTrail parsing pipeline.
 
 
@@ -1233,8 +1331,8 @@ paths:
       summary: Create a new S3 bucket connector
       description: >-
         Establishes a new connection of the Logz.io fetcher to an AWS S3 bucket. As a result, logs from your AWS resource will begin shipping to the connected Logz.io account via an AWS S3 bucket.
-        
-        
+
+
         Logs will be parsed using the Logz.io custom parsing pipeline for the resource.
 
 
@@ -1340,8 +1438,8 @@ paths:
       summary: Get account information for IAM Role
       description: >-
         Returns the Logz.io parameters needed to create an AWS IAM Role in the AWS admin console.
-        
-        
+
+
         The next steps after running this endpoint:
 
         * Open your AWS admin console and create a new IAM Role. Once the role is created, you will obtain an ARN for it. Keep it handy for the next step.
@@ -2016,10 +2114,10 @@ paths:
       summary: Delete a log shipping token
       description: >-
         Deletes a log shipping token by its ID, while providing relevant information about the token's recent status and activity.
-        
-        
-        An account must have at least 1 enabled token. You won't be able to disable or delete the last token. 
-        
+
+
+        An account must have at least 1 enabled token. You won't be able to disable or delete the last token.
+
         **Important**: Active tokens can be deleted using this call. Confirm that a token is no longer needed before deleting it.
       operationId: deleteLogShippingToken
       parameters:
@@ -2066,7 +2164,7 @@ paths:
       tags:
         - Manage log shipping tokens
       summary: Retrieve log shipping tokens
-      description: Returns the relevant shipping tokens, filterd, sorted and paginated as per the request.   
+      description: Returns the relevant shipping tokens, filterd, sorted and paginated as per the request.
       operationId: searchLogShippingTokens
       parameters:
         - in: body
@@ -2547,11 +2645,11 @@ paths:
       summary: Retrieve users in all associated accounts
       description: >-
         Returns a list of users in the main account and all associated sub accounts as an array of JSON objects per account.
-        
-        
+
+
         If a user appears in multiple accounts, it will be listed separately under each account.
-        
-        
+
+
         **Note:** Must be run with an API token belonging to the main account.
       tags:
         - Manage users
@@ -2777,7 +2875,7 @@ paths:
           required: true
           type: integer
           format: int32
-          description: 
+          description:
       responses:
         '200':
           description: successful operation
@@ -2839,7 +2937,7 @@ paths:
       description: >-
         Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.
 
-        
+
         You have the option to filter by rule name, rule severity, and/or event timestamp, and sort the results by time and/or severity, but this is not required. If you send the query with an empty JSON body, it returns all of the events logged in your Logz.io Cloud SIEM, going as far back as your account's retention permits.
 
 
@@ -2897,8 +2995,8 @@ paths:
       summary: Fetch the logs that triggered a security event
       description: >-
         Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event.
-        
-        
+
+
         This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
 
 
@@ -3386,8 +3484,8 @@ definitions:
         type: array
         description: >-
          Array of logs returned in answer to the query. The logs are returned in their entirety and parsed.
-         
-         
+
+
          If the logs are no longer retained in the database, the request will return empty. You can check your account's log retention policy in your [log monitoring account](https://app.logz.io/#/dashboard/settings/usage-and-billing).
         items:
           type: object
@@ -4340,13 +4438,13 @@ definitions:
         type: object
         description: >-
           Add a search query to receive the `scrollID` in the result.
-          
-          
+
+
           The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
 
 
           You can only add the `query` parameters if you are not passing the `scroll_id` in the request.
-          
+
           #### Limitations
 
           * The query can only run on 2 consecutive indexes. By default, the query runs on data sent today and yesterday. You can also add a filter on `timestamp` to search a smaller time frame.
@@ -4381,12 +4479,12 @@ definitions:
         type: object
         description: >-
           The object `includes` specifies an array of strings specifying an array of fields to return.
-          
+
           * If you omit `_source` from the request, all fields are returned.
 
           * If you pass `'_source': false`, it will exclude the `_source` field from the results.
         properties:
-          includes: 
+          includes:
             type: array of strings
             description: Array of fields to return
             example: message
@@ -4845,7 +4943,7 @@ definitions:
         $ref: '#/definitions/ArchiveSettings'
   BlobSettings:
     type: object
-    description: Applicable settings when the `storageType` is `Blob`.
+    description: Applicable settings when the `storageType` is `Blob`. For detailed instructions about setting up a storage container in Azure and locating the required parameters, [click here](/user-guide/archive-and-restore/azure-blob-permissions/).
     required:
     - tenantId
     - clientId
@@ -4855,22 +4953,23 @@ definitions:
     properties:
       tenantId:
         type: string
-        description: Azure Blob Tenant
+        description: Azure Directory (tenant) ID. The Tenant ID of the AD app. Go to Azure Active Directory > App registrations and select the app to see it.
       clientId:
         type: string
-        description: Azure client ID
+        description: Azure application (client) ID. The Client ID of the AD app, found under the App Overview page. Go to Azure Active Directory > App registrations and select the app to see it.
       clientSecret:
         type: string
-        description: Azure client secret
+        description: Azure client secret. Password of the Client secret, found in the app's Certificates & secrets page. Go to Azure Active Directory > App registrations and select the app. Then select Certificates & secrets to see it.
       accountName:
         type: string
-        description: Azure account name
+        description: Azure Storage account name. Name of the storage account that holds the container where the logs will be archived.
       containerName:
         type: string
-        description: The container name.
+        description: Name of the container in the Storage account. This is where the logs will be archived.
       path:
         type: string
-        description: The path is optional.
+        nullable: true
+        description: Optional virtual sub-folder specifiying a path within the container. Logs will be archived under the path “{container-name}/{virtual sub-folder}”. Avoid leading and trailing slashes (/). For example, the prefix “region1” is good, but “/region1/” is not.
   S3IamCredentials:
     type: object
     properties:
@@ -4890,19 +4989,23 @@ definitions:
         type: string
   S3StorageSettings:
     type: object
-    required: 
+    required:
     - credentialsType
     - path
     description: Applicable settings when the `storageType` is `S3`.
     properties:
       credentialsType:
-        description: Specifies which credentials will be used for authentication, either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.
+        description: Specifies which credentials will be used for authentication. The options are either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.
         type: string
         enum:
           - IAM
           - KEYS
       path:
         type: string
+        description: >-
+          Specify a path to the **root** of the S3 bucket. (Currently, archiving to a sub-bucket is supported, but not restoring from one.)
+
+          **Unique buckets** - It is important to archive each account/sub-account to a separate S3 bucket.
       s3SecretCredentials:
         $ref: '#/definitions/S3SecretCredentials'
       s3IamCredentials:
@@ -5038,12 +5141,12 @@ definitions:
     properties:
       aggregationType:
         type: string
-        description: >- 
+        description: >-
           Specifies the aggregation operator.
 
 
           * If `COUNT`, `fieldToAggregateOn` must be null, and `groupBy` fields must not be empty.
-          
+
           * If `NONE`, `fieldToAggregateOn` must be null, and `groupBy` field must not be empty (or null).
 
 
@@ -5116,8 +5219,8 @@ definitions:
         format: int32
         description: >-
           The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
-          
-          
+
+
           The recommended minimum and maximum values are not validated, but needed to guarantee the alert's accuracy.
 
 
@@ -5159,8 +5262,8 @@ definitions:
         type: string
         description: >-
           Provide a Kibana search query written in Lucene syntax. The search query together with the filters select for the relevant logs.
-          
-          
+
+
           Cannot be null - send an asterisk wildcard `*` if not using a search query.
         default: "*"
         nullable: false
@@ -5238,8 +5341,8 @@ definitions:
 
 
           Joins the group by fields from the first and second sub-components. The key represents the index of the sub component in the array (See the example - the index of the first sub-component is 0, the second is 1).
-          
-          
+
+
           The fields must be ordered pairs of the group by fields already in use in the `queryDefinition`.
         items:
           type: object
@@ -5286,8 +5389,8 @@ definitions:
         format: int32
         description: >-
           The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
-          
-          
+
+
           The recommended minimum and maximum values are not validated, but needed to guarantee the alert's accuracy.
 
 
@@ -5325,8 +5428,8 @@ definitions:
         type: object
         description: >-
           Sets a severity label per trigger threshold as a key:value pair.
-          
-          
+
+
           If using more than one sub-component, only 1 severityThresholdTiers is allowed. Otherwise, 1 per `enum` are allowed (for a total of 5 thresholds of increasing severities).
 
 
@@ -5377,7 +5480,7 @@ definitions:
           type: object
           additionalProperties:
             type: object
-              
+
       must_not:
         type: array
         items:
@@ -5465,8 +5568,8 @@ definitions:
         format: int32
         description: >-
           The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
-          
-          
+
+
           The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
 
 
@@ -5508,8 +5611,8 @@ definitions:
         type: string
         description: >-
           Provide a Kibana search query written in Lucene syntax. The search query together with the filters select for the relevant logs.
-          
-          
+
+
           Cannot be null - send an asterisk wildcard `*` if not using a search query.
         default: "*"
         nullable: false
@@ -5587,8 +5690,8 @@ definitions:
 
 
           Joins the group by fields from the first and second sub-components. The key represents the index of the sub component in the array (See the example - the index of the first sub-component is 0, the second is 1).
-          
-          
+
+
           The fields must be ordered pairs of the group by fields already in use in the `queryDefinition`.
         items:
           type: object
@@ -5635,8 +5738,8 @@ definitions:
         format: int32
         description: >-
           The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
-          
-          
+
+
           The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
 
 
@@ -5674,8 +5777,8 @@ definitions:
         type: object
         description: >-
           Sets a severity label per trigger threshold as a key:value pair.
-          
-          
+
+
           If using more than one sub-component, only 1 severityThresholdTiers is allowed. Otherwise, 1 per `enum` are allowed (for a total of 5 thresholds of increasing severities).
 
 
@@ -5764,8 +5867,8 @@ definitions:
         format: int32
         description: >-
           The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
-          
-          
+
+
           The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
 
 
@@ -5784,20 +5887,169 @@ definitions:
         type: boolean
         description: >-
           If `true`, the rule is pre-defined by Logz.io. Protected parameters cannot be edited. The only parameters that can be edited are
-        
-        
+
+
           * `shouldQueryOnAllAccounts`
 
           * `accountIdsToQueryOn`
-          
+
           * `severityThresholdTiers`
-          
+
           * `tags`
-          
+
           * `description`
-          
+
           * `enabled`
-          
+
           * `output` (in `subComponents`)
-          
+
           * `searchTimeFrameMinutes`
+
+
+  # ::::: RESTORE FROM ARCHIVE DEFINITIONS
+  RestoreAccountConfiguration:
+    type: object
+    properties:
+      accountId:
+        type: integer
+        format: int32
+        description: ID of the restored account in Logz.io
+      maxActiveRestoreAccounts:
+        type: integer
+        format: int32
+      maxInProgressRestoresPerAccount:
+        type: integer
+        format: int32
+      maxRestoreDurationInHours:
+        type: integer
+        format: int32
+      accountExpirationTimeInDays:
+        type: integer
+        format: int32
+      maxVolumeInGB:
+        type: number
+        format: float
+  RestoreApiResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID of the restore operation in Logz.io
+        example: 42
+      accountId:
+        type: integer
+        format: int32
+        description: ID of the restored account in Logz.io
+        example: 564321
+      accountName:
+        type: string
+        description: Name of the restored account
+        example: My account name
+      restoredVolumeGb:
+        type: number
+        format: float
+        nullable: true
+        description: Volume of data restored so far. If the restore operation is still in progress, this will be continuously updated.
+        example: 99
+      status:
+        type: string
+        enum:
+          - IN_PROGRESS
+          - ACTIVE
+          - LIMIT_EXCEEDED
+          - ABORTED
+          - FAILED
+          - DELETED
+          - EXPIRED
+        description: >-
+          Returns the current status of the restored account.
+
+          - IN_PROGRESS - Data is being restored and is not yet available for querying or searching in Kibana.
+
+          - ACTIVE - The restored account is active and available for searching and querying in Kibana. Be sure to search the data in its original timestamp.
+
+          - LIMIT_EXCEEDED - The data exceeded 100 GB and caused the restore action to fail.
+
+          - ABORTED - A user aborted the restore operation before it completed. Only one account can be restored at a time.
+
+          - FAILED - The restored account failed to restore the data.
+
+          - DELETED - The restored account was deleted by a user.
+
+          - EXPIRED - Restored accounts automatically expire after a number of  days, as indicated by `expiresAt`.
+        example: ACTIVE
+      startTime:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the earilest logs to be restored.
+        example: 1589947200.000000000
+      endTime:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the latest logs to be restored.
+        example: 1589954400.000000000
+      createdAt:
+        type: integer
+        format: int64
+        description: Timestamp when the restore process was created and entered the queue. (Since only one account can be restored at a time, the process may not initiate immediately.)
+        example: 1591902426.000000000
+      startedAt:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds when the restore process initiated.
+        nullable: true
+        example: 1591902428.000000000
+      finishedAt:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds when the restore process completed.
+        nullable: true
+        example: 1591902461.000000000
+      expiresAt:
+        type: integer
+        format: int64
+        nullable: true
+        description: UNIX timestamp in milliseconds specifying when the account is due to expire. Restored accounts expire automatically after a number of days, as specified in the account's terms.
+        example: 1592334461.000000000
+  RestoreApiRequest:
+    type: object
+    properties:
+      accountName:
+        type: string
+        description: Name of the restored account
+        example: My account name
+      startTime:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the earilest logs to be restored.
+        example: 1589947200.000000000
+      endTime:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the latest logs to be restored.
+        example: 1589954400.000000000
+
+  RestoreRequest:
+    type: object
+    properties:
+      accountName:
+        type: string
+        description: ?
+        example:
+      archiveSettingsId:
+        type: integer
+        format: int32
+        description: ?
+        example:
+      startTime:
+        type: integer
+        format: int64
+        description: ?
+        example:
+      endTime:
+        type: integer
+        format: int64
+        description: ?
+        example:
+

@@ -43,6 +43,7 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
 2. Within Prometheus, add a new remote_write URL for Logz.io to your Prometheus yaml file at the same indentation level as the `global` section.  For more details, see the  <a href ="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write" target="_blank">Prometheus configuration file remote write reference.  <i class="fas fa-external-link-alt"></i>   </a>
 
     ```yaml
+
     global
     
     remote_write:
@@ -60,3 +61,6 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
     |Parameter | Description
     |url| Logz.io Listener address for your region
     |bearer_token| Logz.io Metrics account token
+   
+3. To check that the remote_write configuration is working properly, run a query for `metric prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
+

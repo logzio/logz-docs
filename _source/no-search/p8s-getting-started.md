@@ -31,11 +31,11 @@ Once your metrics are flowing, import your existing Prometheus and Grafana dashb
 For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations](/user-guide/infrastructure-monitoring/annotations/) for more information.
 
 ### Steps to get started
-1. [Locate your Metrics account token ](/user-guide/accounts/finding-your-metrics-account-token/)and [Listener host](/user-guide/accounts/account-region.html#available-regions). 
-2. [Configure Remote Write.](/user-guide/infrastructure-monitoring/p8s-remote-write#configuring-remote-write-to-logzio)
-3. [Import dashboards.](/user-guide/infrastructure-monitoring/p8s-importing-dashbds)
-4. [Configure notification endpoints.](/user-guide/integrations/endpoints.html)
-5. [Recreate your dashboard annotations.](/user-guide/infrastructure-monitoring/annotations/)
+1. [Configure Remote Write.](/user-guide/infrastructure-monitoring/p8s-remote-write#configuring-remote-write-to-logzio) <br>
+    For this step, you'll need to [locate your Metrics account token ](/user-guide/accounts/finding-your-metrics-account-token/)and [Listener host](/user-guide/accounts/account-region.html#available-regions) information. 
+1. [Import dashboards.](/user-guide/infrastructure-monitoring/p8s-importing-dashbds)
+1. [Configure notification endpoints.](/user-guide/integrations/endpoints.html)
+1. [Recreate your dashboard annotations.](/user-guide/infrastructure-monitoring/annotations/)
 
 <!-- 
 1. Highlight the value: 

@@ -20,8 +20,8 @@ By default, all metrics in your Prometheus server(s) will be sent to Logz.io. To
 
 * _in dev_: Set parallelism level for sending data - how many connections to open to the remote write listener. While the default is 1000, but we recommend configuring much fewer connections. 
 
-* _in dev_: This is set in the configuration file. Parameter for # of connections (more data --o--> more channels)
-  Sending data - best practice in configuring connection channels: 
+* _in dev_: This is set in the configuration file. Parameter for # of connections (if you're sending more data you'll need to open more channels)
+  We're in the process of refining best practices for configuring connection channels when sending data
 
 * _in dev_: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. 
 
@@ -33,9 +33,11 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
 
 1. Within Logz.io, look up the Logz.io Metrics Account token and Listener address for your region (URL).
     1. You’ll find your Metrics account information in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace, when you click the relevant **Metrics account plan**, to display its details.
-      ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
     1. Look up the correct Listener URL for your region in the <a href ="{{site.baseurl}}/user-guide/accounts/account-region.html#available-regions" target="_blank">_Regions and Listener Hosts_</a> table. 
+
+    Here's how to find your Metrics account token information: 
+      ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
   
 2. Within Prometheus, add a new remote_write URL for Logz.io to your Prometheus yaml file at the same indentation level as the `global` section.  For more details, see the  <a href ="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write" target="_blank">Prometheus configuration file remote write reference.  <i class="fas fa-external-link-alt"></i>   </a>

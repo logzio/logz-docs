@@ -204,7 +204,7 @@ tags:
       You can use the following endpoints to retrieve, set up, test, and update an account's archive settings.
 
 
-      Note: Logs are archived before they are indexed and analyzed by Logz.io. If you are using drop filters, note that the logs will still be archived.
+      Note: Logs are archived before they are indexed and analyzed by Logz.io. If you are using drop filters, note that dropped logs will still be archived.
   - name: Restore logs
     description: >-
       You can restore data from your active archiving account, whether an AWS S3 bucket or Azure Blob Storage. Restoring data gives you the option to query logs after they have expired from your time-based account.
@@ -4943,7 +4943,7 @@ definitions:
         $ref: '#/definitions/ArchiveSettings'
   BlobSettings:
     type: object
-    description: Applicable parameters for archiving to or restoring from an Azure Blob storage container. (The `storageType` must be `Blob`).
+    description: Applicable settings when the `storageType` is `Blob`. For detailed instructions about setting up a storage container in Azure and locating the required parameters, [click here](/user-guide/archive-and-restore/azure-blob-permissions/).
     required:
     - tenantId
     - clientId
@@ -4995,7 +4995,7 @@ definitions:
     description: Applicable settings when the `storageType` is `S3`.
     properties:
       credentialsType:
-        description: Specifies which credentials will be used for authentication, either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.
+        description: Specifies which credentials will be used for authentication. The options are either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.
         type: string
         enum:
           - IAM

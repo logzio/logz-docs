@@ -59,5 +59,5 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
     |url| Logz.io Listener address for your region
     |bearer_token| Logz.io Metrics account token
    
-3. To check if the remote_write configuration is working properly queary for metric prometheus_remote_storage_succeeded_sample_total and check if the number is bigger than zero for the url
+3. To check that the remote_write configuration is working properly, run a query for `metric prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
 

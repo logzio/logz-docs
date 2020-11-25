@@ -5002,6 +5002,10 @@ definitions:
           - KEYS
       path:
         type: string
+        description: >-
+          Specify a path to the **root** of the S3 bucket. (Currently, archiving to a sub-bucket is supported, but not restoring from one.)
+
+          **Unique buckets** - It is important to archive each account/sub-account to a separate S3 bucket.
       s3SecretCredentials:
         $ref: '#/definitions/S3SecretCredentials'
       s3IamCredentials:

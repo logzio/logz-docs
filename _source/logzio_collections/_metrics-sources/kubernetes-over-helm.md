@@ -243,8 +243,8 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 | `deployment.resources` | Sets the resources for your Metricbeat deployment. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `deployment.secretMounts` | Mounts a secret as a file in the deployment. You can use it to mount certificates and other secrets. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `namespace` | Chart's namespace | `kube-system` |
-| `secrets.MetricsToken`| Secret with your [logz.io Metrics token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/). | `""` |
-| `secrets.ListenerHost`| Secret with your [logz.io listener host](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). | `""` |
+| `secrets.MetricsToken`| Secret with your [Logz.io Metrics token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/). | `""` |
+| `secrets.ListenerHost`| Secret with your [Logz.io listener host](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). | `""` |
 | `secrets.ClusterName`| Secret with your cluster name. | `""` |
 | `secrets.KubeStatNamespace`| Secret with your Kube-Stat-Metrics namespace. | `""` |
 | `secrets.KubeStatPort`| Secret with your Kube-Stat-Metrics port. | `""` |

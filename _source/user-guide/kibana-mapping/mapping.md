@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Refresh Mapping
+title: Data mapping
 permalink: /user-guide/kibana/mapping/
 flags:
   logzio-plan: community
@@ -10,28 +10,23 @@ contributors:
   - shalper
 ---
 
-Kibana maps each field by value type so it knows how to display it according to its capabilities. For example:
+Kibana mappings are important whenever you want to perform any sort of action on a field, such as visualize it, aggregate by it, or use it in an alert.
+
+Kibana maps each field by value type so it knows how to display it according to its capabilities.
+
+For example:
 
 * If it’s a string, Kibana won’t allow you to run any mathematical queries on the field.
 * If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization or a `group by` rule.
 
-Kibana mappings are important whenever you want to perform any sort of action on a field, such as visualize it, aggregate by it, or use it in an alert.
 
+### How to identify when a field is not mapped in Kibana
 
-### Refresh Kibana mapping
+If you are trying to filter by a field but the field doesn't appear in the dropdown list, this is a good indication that the field is not mapped in Kibana. 
 
-If you find that many of the fields you are interested in exploring aren't mapped, you can always refresh your Kibana mapping.
-
-To refresh your mapping,
-select [<i class="li li-gear"></i> > General > Refresh mapping](https://app.logz.io/#/dashboard/settings/general)
-from the top menu.
-
-
-### Mapped vs. unmapped fields
-
-Kibana's capabilities are most powerful for mapped fields. 
-Fields that aren't indexed, are fully searchable and can be queried. 
-But they will not appear in filters and don't support 1-click visualizations. 
+Kibana's capabilities are most powerful for mapped fields.
+Fields that aren't mapped in Kibana can be searched and queried. 
+But they will not appear in filters and do not support 1-click visualizations.
 
 | Action | Mapped field | Unmapped field |
 |---|---|
@@ -40,6 +35,16 @@ But they will not appear in filters and don't support 1-click visualizations.
 | Can be visualized | <i class="fas fa-check"></i> | <i class="fas fa-times"></i> |
 | Searchable | <i class="fas fa-check"></i> | <i class="fas fa-check"></i> |
 
+
+### Refresh Kibana mapping
+
+If you find that many of the fields you are interested in exploring aren't mapped, you can refresh your Kibana mapping.
+
+To refresh your mapping,
+select [<i class="li li-gear"></i> > General > Refresh mapping](https://app.logz.io/#/dashboard/settings/general)
+from the top menu.
+
+If you are only interested in adding a handful of fields to the default Kibana mapping, you can click the  (Learn more)[/user-guide/kibana/mapping/field-not-indexed/]
 
 
 ### Kibana mapping explained
@@ -55,7 +60,7 @@ Let's say you have 10k fields in your database index, but are actively using 300
 Kibana will always make sure that all of your required fields are mapped by default. So even if you have more than 1000 required fields, Kibana will cover them all and ensure that _all_ of them are mapped every time.
 
 
-### Kibana Mapping vs. Elasticsearch mapping
+### Kibana vs. Elasticsearch mapping
 
 Your log fields are determined by the parsing schema for your data. Depending on the complexity of your log data and the parsing it undergoes, your data set may include thousands of fields. Logz.io ensures that _all_ of your log fields are mapped in the database _at all times_.
 

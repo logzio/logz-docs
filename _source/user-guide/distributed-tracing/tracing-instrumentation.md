@@ -15,6 +15,9 @@ There’s a growing trend to do this for every type of library, software system,
 
 Logz.io’s distributed tracing solution is designed to support a variety of popular open source instrumentation libraries, including OpenTracing, Jaeger, OpenTelemetry, and Zipkin.    
   <!--AI when these are integrated:OpenCensus -->
+
+But instrumentation doesn't *have* to be a huge all-or-nothing effort. It's not mandatory to immediately instrument ALL the code in your environment to start benefitting from Distributed Tracing: You can ramp up your instrumentation gradually, by implementing on a service-by-service basis.  
+
 If you hit a wall, we’ll do our best to provide support to help you solve your instrumentation issues. 
 
 ## Instrumentation options: Automatic or Manual

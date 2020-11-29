@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Wildcards
-permalink: /user-guide/kibana/wildcards/
+permalink: /kibana/wildcards/
 flags:
   logzio-plan: community
 tags:
@@ -10,53 +10,45 @@ contributors:
   - shalper
 ---
 
-Wildcards can be useful when you need to run a search on an indefinite term.
+Wildcards can be useful when you need to run a search on an indefinite term or a partial string.
 
-But you'll need to keep in mind that wildcard searches are very heavy and memory intensive.
+In Lucene query syntax:
 
 * Use **<i class="fas fa-question"></i>** to replace a single character
-
-  For example, run
 * Use **<i class="fas fa-asterisk"></i>** to replace any number of characters (even 0)
-
-
-
-
-
-Lucene query syntax
-
-No leading wildcards, *MEM ,
-Contact our support to index
-Different Tokenization
-Contact support to allow leading wildcards
-Send the data
-Hostname *prod* but if it’s
-
-
 
 ### Limitations
 
+It's crucial to keep in mind that wildcard searches are extremely resource heavy, memory intensive, and slow to run.
 
-Leading wildcards are forbidden
-you can change your field to be analyzed
-otherwise, you can contact support
+For your protection, **leading wildcards are disabled**. This means your searches cannot begin with a wildcard.
 
+#### Workarounds and alternatives
 
-### Workarounds and alternatives
+<div class="tasklist">
 
-1. If you are looking for a field, regardless of the value it contains as long as it is not null, search for `_exists_:field_title`.
+##### Change the field mapping to an **analyzed field**
 
-For example, search for `_exists_:error_code` to return logs with any error code.
+If you want to search by partial field contents, you have the option to change a field's mapping to **analyzed text**.
 
-1. If you need to search for part of the field contents, you can change its [mapping](/user-guide/kibana/mapping/) to be an analyzed field.
+Analyzed text fields tokenize longer strings to support fulltext search on individual terms. For example, a sentence can be tokenized into words, or a complex naming structure can be tokenized into stand-alone naming components. 
 
-Analyzed fields tokenize longer strings. Tokenization is the process of breaking a text into terms based on pre-defined characters, such as a space, a period, and underscore, etc.
+The tokenizing processor can use different pre-defined characters to cut up the string into shorter terms. These characters may be spaces, periods, slashes, underscores, etc. 
 
+By mapping a field as an analyzed text field, you should be able to substitute your need to search with leading wildcards with trailing wildcards.
 
- which is in a defined set.   a field  tokenize  down you can change your field to be analyzed
+For example, if your hosts have long, complex naming conventions, you can map the field twice, once as analyzed text, in addition to its default mapping. As an analyzed field, you will be able to search by parts of the host names or filter by partial host names.
 
-ou can use the exists query. any value where the field title has any non-null value:
+To explicitly change a field mapping,
+select [<i class="li li-gear"></i> > Tools > Field mapping](https://app.logz.io/#/dashboard/tools/field-mapping)
+from the top menu. Search for the field name, hover over it, and change its mapping to **analyzed**.
 
+![Explicit field mapping in Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/kibana-field-mapping.png)
 
+##### Contact support to request a custom configuration
 
-[Field mapping](https://app.logz.io/#/dashboard/tools/field-mapping) page.
+Leading wildcards can be enabled for specific fields upon request.
+
+If the above solutions do not satisfy your needs, please <a href="mailto:help@logz.io?subject=Requesting querying assistance &body= Hi! Please be in touch regarding leading wildcard support for specific fields. Thanks!">contact support</a> to request a customized solution.
+
+</div>

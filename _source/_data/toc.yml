@@ -23,6 +23,8 @@ firstLevel:
     thirdLevel:
     - title: Field not indexed
       url: /user-guide/kibana/mapping/field-not-indexed/
+    - title: Wildcards
+      url: /kibana/wildcards/
   - title: Exceptions
     url: /user-guide/insights/exceptions/
   - title: Patterns

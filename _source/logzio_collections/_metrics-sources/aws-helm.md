@@ -15,8 +15,6 @@ shipping-tags:
   - aws
 ---
 
-# Docker-collector-metrics
-
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.
 With this Helm Chart, you can deploy to your k8s cluster docker-collector-metrics and send your AWS metrics to Logz.io.
 For further information on docker-collector-metrics, see the project's [repo](https://github.com/logzio/docker-collector-metrics).

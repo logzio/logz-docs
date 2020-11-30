@@ -1,7 +1,7 @@
 ---
-title: Ship AWS metrics over Helm
+title: Ship AWS metrics over Helm via k8s
 logo:
-  logofile: aws-mq.svg
+  logofile: k8s-helm.svg
   orientation: vertical
 data-source: AWS over Helm
 templates: ["docker-metricbeat"]
@@ -13,27 +13,29 @@ contributors:
   - shalper
 shipping-tags:
   - aws
+  - container
 ---
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.
 With this Helm Chart, you can deploy to your k8s cluster docker-collector-metrics and send your AWS metrics to Logz.io.
 For further information on docker-collector-metrics, see the project's [repo](https://github.com/logzio/docker-collector-metrics).
 
+#### Deploying a Helm chart for AWS resources
 
-### Prerequisites:
+**Before you begin, you'll need**: 
+
 * [Helm CLI](https://helm.sh/docs/intro/install/) installed
 * Allow outgoing traffic to destination port 5015
 * IAM user with the permissions to fetch the right metrics
 
-### Deployment:
-
-#### 1. Add logzio-k8s-logs repo to your helm repo list
+<div class="tasklist">
+##### Add logzio-k8s-logs repo to your helm repo list
 
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm/docker-collector-metrics
 ```
 
-#### 2. Deploy
+##### Deploy
 
 ```shell
 helm install -n kube-system \
@@ -47,11 +49,11 @@ helm install -n kube-system \
 docker-collector-metrics logzio-helm/docker-collector-metrics .
 ```
 
-Replace the params in the command above with the following values:
+Replace the parameters in the command above with the following values:
 
 | Parameter | Description |
 |---|---|
-| `<<SHIPPING-TOKEN>>` | [Token](https://app.logz.io/#/dashboard/settings/general) of the logzio account you want to ship to. |
+| `<<SHIPPING-TOKEN>>` | [Metric shipping token](https://app.logz.io/#/dashboard/settings/general) of the logzio account you want to ship to. |
 | `<<LOGZIO-REGION>>` | Two-letter region code. This determines your listener URL (where you're shipping the metrics to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | `<<AWS-REGION>>`| Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
 | `<<AWS-NAMESPACES>>` | Comma-separated list of namespaces of the metrics you want to collect. <br> You can find a complete list of namespaces at [_AWS Services That Publish CloudWatch Metrics_](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). <br> **Please note** that your namespace list is inside the `"{namespaces}"` format, as it appears in the above command. |
@@ -62,11 +64,12 @@ Replace the params in the command above with the following values:
 
 For further variables and settings, see the configuration table below.
 
-#### 3. Check Logz.io for your metrics
+##### Check Logz.io for your metrics
+
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
-
-### Configuration
+</div>
+### Configuration options
 
 | Parameter | Description | Default |
 |---|---|---|
@@ -80,7 +83,7 @@ Give your metrics some time to get from your system to ours, and then open [Logz
 | `apiVersions.secret` | API version of `secrets.yaml`. | `v1` |
 | `apiGroups.clusterRoleBinding` | API groups of `clusterrolebinding.yaml` | `rbac.authorization.k8s.io` |
 | `namespace` | Chart's namespace. | `default` |
-| `managedServiceAccount` | Specifies whether the serviceAccount should be managed by this helm Chart. Set this to false to manage your own service account and related roles. | `true` |
+| `managedServiceAccount` | Specifies whether the serviceAccount should be managed by this Helm Chart. Set this to false to manage your own service account and related roles. | `true` |
 | `clusterRoleRules` | Configurable [cluster role rules](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) that Metricbeat uses to access Kubernetes resources. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/docker-collector-metrics/values.yaml) |
 | `serviceAccount.create` | Specifies whether a service account should be created. | `true` |
 | `serviceAccount.name` | Name of the service account. | `docker-collector-metrics` |

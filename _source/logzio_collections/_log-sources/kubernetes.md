@@ -128,6 +128,7 @@ The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of 
 | flush_interval <span class="default-param">`5s`</span> | Interval, in seconds, to wait before invoking the next buffer flush. |
 | max_retry_wait <span class="default-param">`30s`</span> | Maximum interval, in seconds, to wait between retries. |
 | num_threads <span class="default-param">`2`</span> | Number of threads to flush the buffer. |
+| INCLUDE_NAMESPACE | <span class="default-param">`""`(All namespaces)</span> | Use if you wish to send logs from specific k8s namespaces, space delimited. Should be in the following format: <br> `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. |
 {:.paramlist}
 
 ##### Deploy the DaemonSet

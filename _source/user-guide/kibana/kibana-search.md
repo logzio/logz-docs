@@ -10,11 +10,11 @@ contributors:
 ---
 
 Search is one of Kibana's best-known strengths. It is fast and powerful,
-but it is also an art and it takes practice. 
+but it is also an art and takes practice.
 
 Here are a few basic fundamentals of Kibana search to help you get started.
 
-##### Syntax conventions
+## Syntax conventions
 
 Kibana search is based on 2 languages:
 

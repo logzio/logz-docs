@@ -19,6 +19,8 @@ we created Docker Metrics Collector.
 Docker Metrics Collector is a container
 that runs Metricbeat with the modules you enable at runtime.
 
+{% include /metric-shipping/docker-metricbeat-version.md %}
+
 #### Configuration
 
 If you're not already running Docker Metrics Collector,

@@ -18,6 +18,7 @@ contributors:
 Logz.io Log Management provides you with a hosted, open source solution for observability, based on the ELK stack.
 
 Your Log Management plan is covered by the Logz.io Terms of Use, unless you have a Master Services Agreement (MSA) with Logz.io. 
+
 ### Standard plans
 
 The conditions for the different account plans are summarized <a href ="/user-guide/billing/billing-log-plan-summaries" target="_blank">here </a>. Self-service is currently available for Trial, Community, and Pro plans.  

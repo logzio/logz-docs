@@ -14,21 +14,19 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 
 ### Plan ahead
 
-If you have multiple Prometheus server instances, you'll have to add Logz.io as an endpoint for each instance. 
+* **Multiple server environments**: If you have multiple Prometheus server instances, you'll have to add Logz.io as an endpoint for each instance. 
 
-By default, all metrics in your Prometheus server(s) will be sent to Logz.io. To drop or send specific metrics, add Prometheus labeling before enabling the remote write, or as part of the remote write configuration. You can read more about Prometheus <a href ="https://medium.com/quiq-blog/prometheus-relabeling-tricks-6ae62c56cbda" target="_blank">relabeling tricks here <i class="fas fa-external-link-alt"></i>. </a> 
-
-* **Reduce tagging**
+* **Reduce tagging**: By default, all the metrics from your Prometheus server(s) are sent to Logz.io. To drop or send specific metrics, add Prometheus labeling _before_ enabling the remote write, or as part of the remote write configuration.  Learn more about Prometheus <a href ="https://medium.com/quiq-blog/prometheus-relabeling-tricks-6ae62c56cbda" target="_blank">relabeling tricks here <i class="fas fa-external-link-alt"></i>. </a>
 
 
-* _in dev_: Set the parallelism level for sending data in the configuration file. 
-    This parameter determines the number of connections to open to the remote write listener.  The default parallelism level is 1000. We recommend configuring much fewer connections. Of course, if you're sending more data you'll need to open more channels. 
+* **Paralleism levels**: Set the parallelism level for sending data in the configuration file. 
+    This parameter determines the number of connections to open to the remote write listener.  The default parallelism level is 1000. We recommend configuring much fewer connections. Of course, if you're sending more data you'll need to open more channels. _(currently in development)_
     
     We're currently refining our best practice recommendations for configuring connection channels when sending data.
 
-* _in dev_: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. 
+* **Metrics metadata dashboards**: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. _(currently in development)_
 
-You can read more about Prometheus  <a href ="https://prometheus.io/docs/practices/remote_write/" target="_blank">remote write tuning here <i class="fas fa-external-link-alt"></i>. </a> 
+Learn more about Prometheus  <a href ="https://prometheus.io/docs/practices/remote_write/" target="_blank">remote write tuning here <i class="fas fa-external-link-alt"></i>. </a> 
 
 Once your metrics are flowing, export your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
 

@@ -215,6 +215,8 @@ firstLevel:
     url: /user-guide/accounts/manage-account-usage.html
 
     thirdLevel:
+    - title: Smart Tier log retention
+      url: /user-guide/accounts/smart-tier/
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/
 

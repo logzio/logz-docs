@@ -16,10 +16,10 @@ contributors:
 
 This topic clarifies how you're billed for your different Logz.io products.
 We'll cover general billing information and delve into specific information by product for: 
-* Log management
-* Infrastructure monitoring
-* Distributed tracing
-* Cloud SIEM (Security Incident and Event Management)
+* [Log management](/user-guide/billing/billing-logs)
+* [Infrastructure monitoring](/user-guide/billing/billing-metrics)
+* [Distributed tracing](/user-guide/billing/billing-tracing)
+* [Cloud SIEM (Security Incident and Event Management)](/user-guide/billing/billing-siem)
 
 
 ---
@@ -73,7 +73,6 @@ When you ship both logs and metrics for Log Management and Infrastructure Monito
 
 You can control access of your users to these additional products, services and features through the Logz.io Platform configuration. 
 
- 
 
 ## Account usage details
 <present where the account admin goes to  view usage information

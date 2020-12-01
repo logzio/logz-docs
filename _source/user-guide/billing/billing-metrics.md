@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Standard pricing - Infrastructure monitoring accounts 
+title: Billing for Infrastructure Monitoring accounts 
 permalink: /user-guide/billing/billing-metrics
 flags:
   admin: true

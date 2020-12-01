@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Standard pricing - Cloud SIEM accounts 
+title: Billing for Cloud SIEM accounts 
 permalink: /user-guide/billing/billing-siem
 flags:
   admin: true

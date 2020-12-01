@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Standard pricing - Distributed tracing accounts 
+title: Billing for Distributed Tracing accounts 
 permalink: /user-guide/billing/billing-tracing
 flags:
   admin: true

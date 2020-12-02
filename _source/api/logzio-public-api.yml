@@ -485,7 +485,7 @@ paths:
         
         
         **Maximum results** This call returnes up to 10,000 results per query for aggrgated results, or 1,000 results for non-aggregated results. 
-        
+
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
       tags:
@@ -1059,7 +1059,7 @@ paths:
           headers: {}
     put:
       summary: Update an alert
-      description: Applies changes to an alert, identified by its ID.
+      description: Applies changes to an alert, identified by its ID. Can be used to enable or disable the alert.
       tags:
         - Alerts
       operationId: updateAlert
@@ -2880,7 +2880,7 @@ paths:
           headers: {}
     put:
       summary: Update a security rule
-      description: Updates a security rule by its ID.
+      description: Applies changes to a rule, identified by its ID. Can also be used to enable or disable a rule.
       tags:
         - Security rules
       operationId: updateSecurityRule

@@ -24,13 +24,6 @@ info:
     This API is documented using the **OpenAPI 2.0** specification.
     <!-- You can browse the API documentation on this page, or you can download the specification file. -->
 
-
-    ### Updates and improvements
-
-    We update this document regularly to reflect changes and improvements to the Logz.io API.
-    If you'd like to suggest corrections or improvements to this document, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
-
-
     # Account region and API URL
 
     To find your account region, sign in to Logz.io and look at the URL in the address bar.
@@ -52,12 +45,6 @@ info:
 
     API call and response rates are limited.
     To find out your rate limits or request changes to your plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success Team</a>.
-
-
-    # Notes on alerting
-
-    Please note that alerting is not yet covered in this document.
-    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
 
 
   title: Logz.io API
@@ -590,7 +577,7 @@ paths:
                 description: >-
                   #### Limitations
 
-                  * Can't sort or aggregate on `message`
+                  * Can't sort or aggregate on analyzed fields, such as the `message` field
                 items:
                   type: object
               _source:
@@ -636,7 +623,7 @@ paths:
 
                   * Can't nest 2 or more bucket aggregations of these types: `date_histogram`, `geohash_grid`, `histogram`, `ip_ranges`, `significant_terms`, `terms`
 
-                  * Can't sort or aggregate on the `message` field
+                  * Can't sort or aggregate on analyzed fields, such as the `message` field
 
                   * Aggregation type `significant_terms` can't be used
 
@@ -719,8 +706,14 @@ paths:
 
 
         Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results.
-        You'll know you've reached the last page of results, once the call keeps returning the last page of results repeatedly. Keep sending the same scroll ID as many times as needed to retrieve all of the available results.
-        The results are paginated, and the request advances through them, one at a time, by default. So that every time you send the request with the same `scroll_id`, the next batch of results is returned.
+        
+        
+        Every time you send the request with the same `scroll_id`, the next batch of results is returned.
+        Keep sending the same scroll ID as many times as needed to retrieve all of the available results.
+        The results are paginated, and every request returns the next page, one at a time.
+
+
+        When the call returns an empty array, you'll know you've reached the end of your results.
 
 
         **Note**:
@@ -4449,9 +4442,7 @@ definitions:
 
           * The query can only run on 2 consecutive indexes. By default, the query runs on data sent today and yesterday. You can also add a filter on `timestamp` to search a smaller time frame.
 
-          * When using `query_string`, `allow_leading_wildcard` must be set to `false`
-
-          * `wildcard` can't start with `*` or `?`
+          * When using `query_string`, `allow_leading_wildcard` must be set to `false` to disable leading wildcards. In other words, the query can't start with `*` or `?`
 
           * Can't use `fuzzy_max_expansions`,  `max_expansions`, or `max_determinized_states`
       size:
@@ -4474,7 +4465,7 @@ definitions:
         description: >-
           #### Limitations
 
-          * Can't sort on `message`
+          * Can't sort on analyzed fields, such as the `message` field
       _source:
         type: object
         description: >-

@@ -14,17 +14,21 @@ contributors:
   - yberlinger
 ---
 
+
 This topic clarifies how you're billed for your different Logz.io products.
 We'll cover general billing information and delve into specific information by product for: 
-* [Log management](/user-guide/billing/billing-logs)
-* [Infrastructure monitoring](/user-guide/billing/billing-metrics)
-* [Distributed tracing](/user-guide/billing/billing-tracing)
-* [Cloud SIEM (Security Incident and Event Management)](/user-guide/billing/billing-siem)
+
++ [Log management](/user-guide/billing/billing-logs)
++ [Infrastructure monitoring](/user-guide/billing/billing-metrics)
++ [Distributed tracing](/user-guide/billing/billing-tracing)
++ [Cloud SIEM (Security Incident and Event Management)](/user-guide/billing/billing-siem)
 
 
 ---
+
 ## General information for Logz.io product plans
-Learn more about what is displayed in the Usage and billing section of your account here.
+
+Learn more about what you can see in the Usage and Billing pages of your account {here}.
 
 ### Subscription Period
 Logz.io subscriptions are available for 1-, 12-, and 24-month periods, with pricing determined by the amount of data shipped daily.
@@ -60,9 +64,7 @@ Should this be included?
 
 The Fees are exclusive of all taxes, duties and assessments, including without limitation all sales, property, import duty, withholding, VAT, excise, ad valorem, use taxes and other taxes based on the Services provided herein, and/or the licenses granted in connection therewith, under this Agreement (collectively, the "Taxes"). The Fees are not subject to offset or reduction due to any Taxes and bank fees (if any) incurred by Customer or otherwise due to or as a result of this Agreement. 
 
- 
-
-You are responsible for all Taxes and bank fees related to the payment for their plan(s).
+You are responsible for all taxes and bank fees related to the payment for their plan(s).
 
 ## Additional purchases: Give me more observability
 Beyond your initial plan, you can always purchase additional products and services. The usage charges and related fees are available at https://logz.io/pricing/ (“Pricing Page”).

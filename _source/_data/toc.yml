@@ -128,7 +128,7 @@ firstLevel:
       url: /user-guide/distributed-tracing/deploying-components
     - title: Kubernetes deployment reference
       url: /user-guide/distributed-tracing/k8s-deployment
-    - title: Sending demo traces with the HOT ROD application
+    - title: Sending demo traces with the HotROD application
       url: /user-guide/distributed-tracing/trace-hotrod-demo
   - title: The Grand Distributed Tracing Tour
     url: /user-guide/distributed-tracing/tracing-tour/

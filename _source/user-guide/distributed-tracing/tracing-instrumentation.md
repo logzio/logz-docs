@@ -18,6 +18,7 @@ Logz.io’s distributed tracing solution is designed to support a variety of pop
 
 But instrumentation doesn't *have* to be a huge all-or-nothing effort. It's not mandatory to immediately instrument ALL the code in your environment to start benefitting from Distributed Tracing: You can ramp up your instrumentation gradually, by implementing on a service-by-service basis.  
 
+
 If you hit a wall, we’ll do our best to provide support to help you solve your instrumentation issues. 
 
 ## Instrumentation options: Automatic or Manual
@@ -40,6 +41,8 @@ While both instrumentations may cause performance overhead, the pros and cons of
 |-----------------+------------+-----------------+----------------|
 |   |Less flexibility compared to manual instrumentation          |Can include business metrics within the trace, such as events or messages you want to use for monitoring or business observability                 |                |
 |-----------------+------------+-----------------+----------------|
+
+Check out this related blog post for additional insights:  <a href="https://logz.io/blog/jaeger-instrumentation-introduction/#intro" target="_blank"> Jaeger Essentials: Introduction to Jaeger Instrumentation <i class="fas fa-external-link-alt"></i></a>. 
 
 ## Instrumentation recommendations and resources
 We recommend that you first instrument the frameworks that are supported out-of-the-box, before proceeding with manual instrumentation to fine-tune the data. This will make instrumentation much easier and minimize the code you must write.

@@ -18,7 +18,7 @@ Hot R.O.D. (Rides on Demand) is a demo application that consists of several micr
 
 The _Hot R.O.D (Rides on Demand)_ application generates a web page with four customer buttons to order a car to the customer's business to pick up passengers or merchandise for delivery to a desired location. 
 
-When clicked, a request is sent to the backend (which generates a trace), and the app responds with the car license number and estimated time of arrival (ETA). 
+Clicking a button sends a request to the backend (which generates a trace) and the app responds with the car license number and estimated time of arrival (ETA). 
 
 <!-- ![Hot R.O.D. interface image](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-hotrod.png) -->
 
@@ -51,7 +51,7 @@ This topic explains how to set up the Logz.io sample application to send demo tr
 + The Jaeger agent
 + The Logz.io Jaeger collector
 
-The <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  Logz.io **tracing-demo** project repository <i class="fas fa-external-link-alt"></i> </a> includes modified configuration paramaters to create the the HotROD web app to send data to a Logz.io Jaeger collector which you configure to work with your Distributed Tracing account.  
+The <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  Logz.io **tracing-demo** project repository <i class="fas fa-external-link-alt"></i> </a> includes modified configuration paramaters to create the the HotROD web app. The app sends data to a Logz.io Jaeger collector that you configure to work with your Distributed Tracing account.  
 
 <a href ="https://github.com/logzio/tracing-demo/blob/main/README.md" target="_blank"> **README** for the tracing demo project </a>
 
@@ -68,26 +68,25 @@ We've streamlined the process: Use the .env file to add your Logz.io credentials
 Updating the **.env** file in the <a href ="https://github.com/logzio/tracing-demo"  target="_blank"> Logz.io tracing demo repo <i> class="fas fa-external-link-alt"></i>  </a> with your tracing account token and region code 
 adds your `jaeger-logzio-collector` definition parameters to the yaml file, in the `environment` section.
 
-
-
-
 _To update parameters, in the .env file:_ 
 
-1. Within a git CLI, run `git clone https://github.com/logzio/tracing-demo.git` and then `cd tracing-demo`.
-1. Run `open .env` and update the parameters.
+1. Within a git CLI, run:  `git clone https://github.com/logzio/tracing-demo.git` and then <br>run: `cd tracing-demo`.
+1. Run: `open .env` and update the parameters.
 1. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. 
-    You'll find your Distributed Tracing account information in the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage accounts** page</a> of your Operations workspace, 
+<br>    You'll find your Distributed Tracing account information in the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage accounts** page</a> of your Operations workspace, 
 
     ![Distributed Tracing token location](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-token1.png)
 
     ...when you click the relevant tracing account name at the bottom of the section.
         ![Reveal Distributed Tracing Token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-acct-tokeninfo11.gif)
 
-1. Enter the correct 2-letter code for your region in the second line. `REGION_CODE=Enter your region code here`
+1. Enter the correct 2-letter code for your region in the second line: `REGION_CODE=Enter your region code here`<br>
     Look up the 2-letter code for your region in the <a href="/user-guide/accounts/account-regionhtml#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> 
    
     If you need to clarify your region code, you can can also look it up in the General settings page, here: <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> >Settings > General**.
-    ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracinggeneral-settings1.png)
+
+    ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1.png)
+
 
 1. Save and close the updated .env file.     
 

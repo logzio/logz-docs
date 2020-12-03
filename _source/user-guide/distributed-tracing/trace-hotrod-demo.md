@@ -27,7 +27,7 @@ Clicking a button sends a request to the backend, which generates a trace. The a
 
 A web client ID is displayed in the upper left corner:  This random session ID is assigned by the Javascript UI. A new session ID is created each time the page is reloaded.  
 
-In this example, the web client id: 1465. All the ride requests generated in the session include this ID in a unique request ID. For each button click, you'll see the following information: 
+In this example, the web client ID is 1465. All the ride requests generated in the session include this ID in a unique request ID. For each button click, you'll see the following information: 
 
 + Car license number
 + Driver ETA
@@ -60,7 +60,7 @@ To run the demo configuration and deploy the components, you must have the follo
 + <a href ="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank"> Git  <i class="fas fa-external-link-alt"></i>  </a>  
 + <a href ="https://docs.docker.com/get-docker/" target="_blank"> Docker  <i class="fas fa-external-link-alt"></i> </a>  
 
-### Update the **.env** file from the Logz.io tracing-demo repository.
+### Update the **.env** file from the Logz.io tracing-demo repository
 
 We've streamlined the process: Use the **.env** file to add your Logz.io credentials to the demo config. 
 

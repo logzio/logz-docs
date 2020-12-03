@@ -29,7 +29,7 @@ Logz.io captures end-to-end distributed transactions from your applications and 
 The Logz.io integration builds on the Jaeger Collector base image and uses the gRPC plugin framework, to enable communication between the collector and Logz.io.
 
 Configure the Logz.io extension with shell variables or environment variables. The required ports are described 
-<a href ="https://www.jaegertracing.io/docs/latest/deployment/#collectors)" target="_blank">here.<i class="fas fa-external-link-alt"></i></a> You'll need to change to the version page for your deployment. 
+<a href ="https://www.jaegertracing.io/docs/latest/deployment/#collectors)" target="_blank">here <i class="fas fa-external-link-alt"></i>.</a> You'll need to change to the version page for your deployment. 
 
 ```bash
 docker run -e ACCOUNT_TOKEN=<<SHIPPING-TOKEN>> \
@@ -44,7 +44,7 @@ logzio/jaeger-logzio-collector:latest
 ```
 
 The complete list of collector parameters is presented below. In addition to these parameters, you can also use 
- <a href ="https://www.jaegertracing.io/docs/latest/cli/#jaeger-collector-grpc-plugin" target="_blank">Jaeger's collector parameters.  <i class="fas fa-external-link-alt"></i> </a>  You'll need to change to the version page for your deployment. 
+ <a href ="https://www.jaegertracing.io/docs/latest/cli/#jaeger-collector-grpc-plugin" target="_blank">Jaeger's collector parameters <i class="fas fa-external-link-alt"></i> </a> . You'll need to change to the version page for your deployment. 
 
  Collector Parameter | Description
  ------------ | -------------

@@ -18,13 +18,13 @@ firstLevel:
   - title: Kibana Discover
     url: /user-guide/kibana/
     thirdLevel:
+    - title: Wildcards
+      url: /kibana/wildcards/
   - title: Field Mapping
     url: /user-guide/kibana/mapping/
     thirdLevel:
     - title: Field not indexed
       url: /user-guide/kibana/mapping/field-not-indexed/
-    - title: Wildcards
-      url: /kibana/wildcards/
   - title: Exceptions
     url: /user-guide/insights/exceptions/
   - title: Patterns
@@ -115,7 +115,7 @@ firstLevel:
 
     # ===== DISTRIBUTED TRACING =====
 - title: Distributed Tracing
-  icon: fas fa-align-left    
+  icon: fas fa-align-left
 
   secondLevel:
   - title: Why Distributed Tracing?
@@ -127,14 +127,14 @@ firstLevel:
     url: /user-guide/distributed-tracing/getting-started-tracing/
     thirdLevel:
     - title: Setting up instrumentation and ingesting traces
-      url: /user-guide/distributed-tracing/tracing-instrumentation       
+      url: /user-guide/distributed-tracing/tracing-instrumentation
     - title: Deploying components in your system
       url: /user-guide/distributed-tracing/deploying-components
     - title: Kubernetes deployment reference
       url: /user-guide/distributed-tracing/k8s-deployment
   - title: The Grand Distributed Tracing Tour
     url: /user-guide/distributed-tracing/tracing-tour/
-    thirdLevel: 
+    thirdLevel:
     - title: Trace Timeline
       url: /user-guide/distributed-tracing/trace-timeline/
     - title: Trace Graph
@@ -142,15 +142,15 @@ firstLevel:
     - title: Trace Statistics
       url: /user-guide/distributed-tracing/trace-statistics/
     - title: Trace JSON
-      url: /user-guide/distributed-tracing/trace-json/ 
+      url: /user-guide/distributed-tracing/trace-json/
     - title: Compare traces
-      url: /user-guide/distributed-tracing/compare-traces   
+      url: /user-guide/distributed-tracing/compare-traces
     - title: Topology diagrams
-      url: /user-guide/distributed-tracing/topology-system_architecture    
+      url: /user-guide/distributed-tracing/topology-system_architecture
   - title: Correlate logs and traces
     url:  /user-guide/distributed-tracing/correlate-traces/
   - title: Visualize traces in Kibana
-    url: /user-guide/distributed-tracing/visualize-traces/  
+    url: /user-guide/distributed-tracing/visualize-traces/
 
 
   # ===== CLOUD SIEM =====

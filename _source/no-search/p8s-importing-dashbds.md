@@ -10,8 +10,18 @@ tags:
 contributors:
   - yberlinger
 ---
-You can import your existing dashboards to Logz.io via a manual process. The option to import your dashboords via a bulk process will be available in the future!
+You can import your existing dashboards to Logz.io via a manual process or through a bulk process via a python script
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Manual upload](#manual)
+* [Bulk upload](#bulk)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="manual">
+  
 For the dashboard import to work smoothly, you'll need to change the name of the data source in your JSON file to the name of your Logz.io Metrics account. <br>
 Your Metrics account information is located in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace. ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
@@ -30,7 +40,14 @@ To import individual dashboards:
     For more information see [Upload JSON logs]({{site.baseurl}}/user-guide/shipping/log-sources/json-uploads.html). 
   - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them. 
 
-### Bulk dashboard import via script ~~ (_in development!_)
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="bulk">
+### Bulk dashboard import via script 
+ 
+For easy migration we created a python [script](https://github.com/logzio/grafana-dashboard-migration-tool) to bulk upload your dashboards to our platform.
 
 Bulk import is supported for Grafana version 6 and above.
 
@@ -38,12 +55,32 @@ Bulk import is supported for Grafana version 6 and above.
 
 * Custom selection of dashboards is not possible with bulk import. All your dashboard folders are imported to a single folder within Logz.io.
 
-<!--- * _TBD_: Script that runs against your Grafana endpoint to collect all dashboards. Import pending.
-Script name, name of grafana endpoint, API token. Needs to be tested w/listener & public endpoint... --->
+### Instructions:
 
-You'll need to include the following Grafana and Logz.io parameters when prompted in the CLI: 
+* Clone the repo:
+``` bash
+git clone https://github.com/logzio/grafana-dashboard-migration-tool.git
+```
+* Switch directory to the repo:
+```bash
+cd grafana-dashboard-migration-tool
+```
+* Set your enviroment varaiables in `configuration.py`
+* Run the script with your configuration:
+```bash
+python main.py 
+```
 
-* Name of the new folder for your dashboards
-* Listener URL 
-* Logz.io metrics token
-* Logz.io API token
+### Configuration:
+
+| Enviroment variable | Description |
+|---|---|
+| GRAFANA_HOST | Your grafana host without protocol specification (e.g. localhost:3000). |
+| GRAFANA_TOKEN | Your grafana editor/admin API key, find or create one under Configuration -> API keys. |
+| LOGZIO_API_TOKEN | Your Logz.io account API token, find it under settings -> tools -> manage tokens -> API tokens. |
+| REGION_CODE | Your Logz.io region code. For example if your region is US, then your region code is `us`. You can find your region code [here]( https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) for further information. |
+
+
+</div>
+<!-- tab:end -->
+</div>

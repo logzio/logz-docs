@@ -57,17 +57,19 @@ Bulk import is supported for Grafana version 6 and above.
 
 ### Instructions:
 
+From your Terminal run the following commands
+
 * Clone the repo:
-``` bash
+``` 
 git clone https://github.com/logzio/grafana-dashboard-migration-tool.git
 ```
 * Switch directory to the repo:
-```bash
+```
 cd grafana-dashboard-migration-tool
 ```
 * Set your enviroment varaiables in `configuration.py`
 * Run the script with your configuration:
-```bash
+```
 python main.py 
 ```
 

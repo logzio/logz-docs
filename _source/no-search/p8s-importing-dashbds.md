@@ -10,7 +10,7 @@ tags:
 contributors:
   - yberlinger
 ---
-You can import your existing dashboards to Logz.io via a manual process or through a bulk process via a python script
+You can import your existing dashboards to Logz.io via a manual process or via a bulk process, using a python script.
 
 <!-- tabContainer:start -->
 <div class="branching-container">
@@ -45,9 +45,10 @@ To import individual dashboards:
 
 <!-- tab:start -->
 <div id="bulk">
-### Bulk dashboard import via script 
+  
+### Importing multiple dashboards via script 
  
-For easy migration we created a python [script](https://github.com/logzio/grafana-dashboard-migration-tool) to bulk upload your dashboards to our platform.
+To enable easy migration, we created a python [script](https://github.com/logzio/grafana-dashboard-migration-tool) to bulk upload your Grafana dashboards to our platform.
 
 Bulk import is supported for Grafana version 6 and above.
 
@@ -55,31 +56,32 @@ Bulk import is supported for Grafana version 6 and above.
 
 * Custom selection of dashboards is not possible with bulk import. All your dashboard folders are imported to a single folder within Logz.io.
 
-### Instructions:
+####  Bulk import procedure
 
-From your Terminal run the following commands
+From your Terminal, perform the following steps: 
 
-* Clone the repo:
+1. Clone the repo:
 ``` 
 git clone https://github.com/logzio/grafana-dashboard-migration-tool.git
 ```
-* Switch directory to the repo:
+2. Switch directory to the repo:
 ```
 cd grafana-dashboard-migration-tool
 ```
-* Set your enviroment varaiables in `configuration.py`
-* Run the script with your configuration:
+3.  Set your enviroment varaiables in `configuration.py`.
+
+4.  Run the script with your configuration:
 ```
 python main.py 
 ```
 
-### Configuration:
+#### Bulk migration onfiguration parameters
 
-| Enviroment variable | Description |
+| Environment variable | Description |
 |---|---|
 | GRAFANA_HOST | Your grafana host without protocol specification (e.g. localhost:3000). |
 | GRAFANA_TOKEN | Your grafana editor/admin API key, find or create one under Configuration -> API keys. |
-| LOGZIO_API_TOKEN | Your Logz.io account API token, find it under settings -> tools -> manage tokens -> API tokens. |
+| LOGZIO_API_TOKEN | Your Logz.io account API token. You can find the API token under ***Settings > Tools > Manage tokens > API tokens.** |
 | REGION_CODE | Your Logz.io region code. For example if your region is US, then your region code is `us`. You can find your region code [here]( https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) for further information. |
 
 

@@ -104,9 +104,9 @@ For a complete list of options, see the parameters below the code block.👇
 docker run --name docker-collector-metrics \
 --env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
 --env LOGZIO_MODULES="aws" \
---env AWS_ACCESS_KEY="<<ACCESS-KEY>>" \
---env AWS_SECRET_KEY="<<SECRET-KEY>>" \
---env AWS_REGION="<<AWS-REGION>>" \
+--env AWS_ACCESS_KEY_ID="<<ACCESS-KEY>>" \
+--env AWS_SECRET_ACCESS_KEY="<<SECRET-KEY>>" \
+--env AWS_DEFAULT_REGION="<<AWS-REGION>>" \
 --env AWS_NAMESPACES="<<NAMESPACES>>" \
 logzio/docker-collector-metrics
 ```
@@ -129,10 +129,15 @@ logzio/docker-collector-metrics
 
 | Parameter | Description |
 |---|---|
-| AWS_ACCESS_KEY <span class="required-param"></span> | Your IAM user's access key ID. |
-| AWS_SECRET_KEY <span class="required-param"></span> | Your IAM user's secret key. |
-| AWS_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
+| AWS_ACCESS_KEY_ID <span class="required-param"></span> | Your IAM user's access key ID. |
+| AWS_SECRET_ACCESS_KEY <span class="required-param"></span> | Your IAM user's secret key. |
+| AWS_DEFAULT_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
 | AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For AmazonMQ, this is `AWS/AmazonMQ`. For the complete list of all valid namespaces, see this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). |
+| AWS_SESSION_TOKEN | Your IAM user's session token. |
+| AWS_ROLE_ARN | Your IAM role to assume. |
+| AWS_DEFAULT_REGION (Required) | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
+| AWS_CREDENTIAL_PROFILE_NAME | Your profile name in shared credentials file. |
+| AWS_SHARED_CREDENTIAL_FILE | Your directory of the shared credentials file, in your docker instance. <br> **Note:** If you're using this parameter, you'll have to mount your credentials folder, meaning you'll need to add to your `docker run` command the line: <br> `-v /path/to/your/aws/credentials/folder:<<path/to/shared/credential/file/in/docker>>:ro`. <br> You'll also need to have an ARN role set either on your credential file or with the parameter `AWS_ROLE_ARN`. |
 {:.paramlist}
 
 {% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/AmazonMQ" %}

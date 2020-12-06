@@ -22,7 +22,7 @@ You can import your existing dashboards to Logz.io via a manual process or via a
 <!-- tab:start -->
 <div id="manual">
   
-For the dashboard import to work smoothly, you'll need to change the name of the data source in your JSON file to the name of your Logz.io Metrics account. <br>
+For the dashboard import to work smoothly, you'll need to change the name of the data source in your JSON file to the name of your Logz.io Metrics account. 
 Your Metrics account information is located in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace. ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
 For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations ](/user-guide/infrastructure-monitoring/annotations/)for more information. 
@@ -56,7 +56,7 @@ Bulk import is supported for Grafana version 6 and above.
 
 * Custom selection of dashboards is not possible with bulk import. All your dashboard folders are imported to a single folder within Logz.io.
 
-####  Bulk import procedure
+####  Bulk dashboard import procedure
 
 From your Terminal, perform the following steps: 
 
@@ -75,14 +75,14 @@ cd grafana-dashboard-migration-tool
 python main.py 
 ```
 
-#### Bulk migration onfiguration parameters
+#### Bulk dashboard migration configuration parameters
 
 | Environment variable | Description |
 |---|---|
-| GRAFANA_HOST | Your grafana host without protocol specification (e.g. localhost:3000). |
-| GRAFANA_TOKEN | Your grafana editor/admin API key, find or create one under Configuration -> API keys. |
-| LOGZIO_API_TOKEN | Your Logz.io account API token. You can find the API token under ***Settings > Tools > Manage tokens > API tokens.** |
-| REGION_CODE | Your Logz.io region code. For example if your region is US, then your region code is `us`. You can find your region code [here]( https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) for further information. |
+| GRAFANA_HOST | Your Grafana host without protocol specification (for example, localhost:3000) |
+| GRAFANA_TOKEN | Your Grafana editor/admin API key: Find or create one under **Configuration > API keys** |
+| LOGZIO_API_TOKEN | Your Logz.io account API token: You can find the API token under **Settings > Tools > Manage tokens > API tokens.** |
+| REGION_CODE | Your Logz.io region code: You can look up your region code [here]( https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) <br> For example if your region is US, then your region code is `us`|
 
 
 </div>

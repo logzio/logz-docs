@@ -31,6 +31,7 @@ Learn more about Prometheus  <a href ="https://prometheus.io/docs/practices/remo
 Once your metrics are flowing, export your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
 
 #### Configuring Remote Write to Logz.io
+
 {:.no_toc}  
 
 <div class="tasklist">
@@ -44,11 +45,20 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
 ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
 ##### Add a remote_write url
-Add a new remote_write URL for Logz.io to your Prometheus yaml file at the same indentation level as the `global` section, configured to use port 8052.  For more details, see the  <a href ="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write" target="_blank">Prometheus configuration file remote write reference  <i class="fas fa-external-link-alt"></i>.  </a>
+Add the following parameters to your Prometheus yaml file:
+
+| Environment variable | Description |
+|---|---|
+| external_labels | Parameter to tag the metrics from this specific Prometheus server. Do not change the label `p8s_logzio_name`: This variable is required to identify from which Prometheus environment the metrics are arriving to Logz.io  |
+| remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
+|url| Logz.io Listener url for for your region, configured to use port 8053. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)|
+|bearer_token| Logz.io Metrics account token|
+
 
 ```yaml
-    global
-    
+    global:
+      external_labels:
+        [ p8s_logzio_name: <labelvalue> ... ]
     remote_write:
       - url: http://<the Logz.io Listener URL for your region>:8052
         bearer_token: <your Logz.io Metrics account token> 
@@ -62,9 +72,6 @@ Add a new remote_write URL for Logz.io to your Prometheus yaml file at the same 
 
 ```
 
-|Parameter | Description
-|url| Logz.io Listener address for your region
-|bearer_token| Logz.io Metrics account token
    
 ##### Verify the remote_write configuration
 To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 

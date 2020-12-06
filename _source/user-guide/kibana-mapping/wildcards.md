@@ -17,19 +17,20 @@ In Lucene query syntax:
 * Use **<i class="fas fa-question"></i>** to replace a single character
 * Use **<i class="fas fa-asterisk"></i>** to replace any number of characters (even 0)
 
-### Limitations
+### Leading wildcards are disabled
 
-It's crucial to keep in mind that wildcard searches are extremely resource heavy, memory intensive, and slow to run.
+Wildcard searches are extremely resource heavy, memory intensive, and slow to run. For your protection, **leading wildcards are disabled**. This means your searches cannot begin with a wildcard.
 
-For your protection, **leading wildcards are disabled**. This means your searches cannot begin with a wildcard.
-
-#### Workarounds and alternatives
+### Workarounds and alternatives
 
 <div class="tasklist">
 
 ##### Change the field mapping to an **analyzed field**
 
 If you want to search by partial field contents, you have the option to change a field's mapping to **analyzed text**.
+
+Analyzed fields support filtering for a value that contains a certain string. For example, if you are looking for a host instead of searching with a wildcard for `host:*
+
 
 Analyzed text fields tokenize longer strings to support fulltext search on individual terms. For example, a sentence can be tokenized into words, or a complex naming structure can be tokenized into stand-alone naming components. 
 

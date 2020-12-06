@@ -80,3 +80,8 @@ python main.py
 | GRAFANA_TOKEN | Your grafana editor/admin API key, find or create one under Configuration -> API keys. |
 | LOGZIO_API_TOKEN | Your Logz.io account API token, find it under settings -> tools -> manage tokens -> API tokens. |
 | REGION_CODE | Your Logz.io region code. For example if your region is US, then your region code is `us`. You can find your region code here: https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls for further information. |
+
+
+</div>
+<!-- tab:end -->
+</div>

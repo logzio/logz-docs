@@ -44,11 +44,17 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
 ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
 ##### Add a remote_write url
-Add a new remote_write URL for Logz.io to your Prometheus yaml file at the same indentation level as the `global` section, configured to use port 8052.  For more details, see the  <a href ="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write" target="_blank">Prometheus configuration file remote write reference  <i class="fas fa-external-link-alt"></i>.  </a>
+In your Prometheus yaml file please add the following parameters:
+
+| Enviroment variable | Description |
+|---|---|
+| external_labels | a parameter to tag the metrics from this specific Prometheus server. Please dont change the p8s_logzio_name labeling name as we count on it |
+| remote_write | remote write parameter to set the output to Logzio Listener url. You need to put it in the same indentation level as the `global` section, configured to use port 8052. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)
 
 ```yaml
-    global
-    
+    global:
+      external_labels:
+        [ p8s_logzio_name: <labelvalue> ... ]
     remote_write:
       - url: http://<the Logz.io Listener URL for your region>:8052
         bearer_token: <your Logz.io Metrics account token> 

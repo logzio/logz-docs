@@ -140,6 +140,8 @@ logzio/docker-collector-metrics
 | AWS_SHARED_CREDENTIAL_FILE | Your directory of the shared credentials file, in your docker instance. <br> **Note:** If you're using this parameter, you'll have to mount your credentials folder, meaning you'll need to add to your `docker run` command the line: <br> `-v /path/to/your/aws/credentials/folder:<<path/to/shared/credential/file/in/docker>>:ro`. <br> You'll also need to have an ARN role set either on your credential file or with the parameter `AWS_ROLE_ARN`. |
 {:.paramlist}
 
+**Note:** About how to use aws credentials, you can refer [AWS Credentials Configration](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-aws.html#aws-credentials-config).
+
 {% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/AmazonMQ" %}
 
 </div>

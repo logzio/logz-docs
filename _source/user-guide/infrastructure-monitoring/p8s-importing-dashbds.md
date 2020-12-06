@@ -74,6 +74,7 @@ python main.py
 ```
 
 ### Configuration:
+
 | Enviroment variable | Description |
 |---|---|
 | GRAFANA_HOST | Your grafana host without protocol specification (e.g. localhost:3000). |

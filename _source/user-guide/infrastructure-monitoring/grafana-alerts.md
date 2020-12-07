@@ -95,6 +95,13 @@ Next, set your alert conditions.
 
 ![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/alert-condition.png)
 
+**Grafana tags for alert Severity levels**
+
+Use Grafana tags as a Severity field for your alerts when integrating Grafana with PagerDuty as an alert notification endpoint.
+Follow the link for more information on <a href="https://grafana.com/docs/grafana/latest/alertinnotifications/#pagerduty" target="_blank"> the syntax for setting up Grafana tags for PagerDuty.  <i class="fas fa-external-link-alt"></i> </a>
+
+<!-- OpsGenie integration is coming too: Use tags as Priority fields for alerts when integrating Grafana withOpsGenie aas an alert notification endpoint.     Follow the link for more information on <a href="https:/grafana.com/docs/grafana/latest/alerting/notifications/" target="_blank"> the syntax for setting up Grafanatags for OpsGenie <i class="fas fa-external-link-alt"></i> </a> -->   
+
 ##### Add notifications
 
 If you want to send notifications or emails when the alert is triggered,
@@ -125,14 +132,7 @@ your Metrics dashboard will show the orange marker on the graph, indicating that
     When you receive an alert with the same alert ID, if the alert has the Acknowledge status, your notification endpoint will not repeat the notification.
 
     The Acknowledge status is available for the PagerDuty notification endpoint.
-
-+ _**Grafana tags for alert Severity levels**_ 
-
-    Use Grafana tags as a Severity field for your alerts when integrating Grafana with PagerDuty as an alert notification endpoint.
-
-    Follow the link for more information on <a href="https://grafana.com/docs/grafana/latest/alerting/notifications/#pagerduty" target="_blank"> the syntax for setting up Grafana tags for PagerDuty.  <i class="fas fa-external-link-alt"></i> </a>
-
- <!-- OpsGenie integration is coming too: Use tags as Priority fields for alerts when integrating Grafana withOpsGenie aas an alert notification endpoint.     Follow the link for more information on <a href="https:/grafana.com/docs/grafana/latest/alerting/notifications/" target="_blank"> the syntax for setting up Grafanatags for OpsGenie <i class="fas fa-external-link-alt"></i> </a> -->   
+ 
 
 
 ##### Save it!

@@ -127,20 +127,32 @@ logzio/docker-collector-metrics
 
 ###### Parameters for the AWS module
 
+If you are using a credentials' file, skip to the relevant [section](#credentials). Otherwise, you can use access keys.
+
+
 | Parameter | Description |
 |---|---|
 | AWS_ACCESS_KEY_ID <span class="required-param"></span> | Your IAM user's access key ID. |
 | AWS_SECRET_ACCESS_KEY <span class="required-param"></span> | Your IAM user's secret key. |
 | AWS_DEFAULT_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
 | AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For AmazonMQ, this is `AWS/AmazonMQ`. For the complete list of all valid namespaces, see this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). |
-| AWS_SESSION_TOKEN | Your IAM user's session token. |
-| AWS_ROLE_ARN | Your IAM role to assume. |
-| AWS_DEFAULT_REGION (Required) | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
-| AWS_CREDENTIAL_PROFILE_NAME | Your profile name in shared credentials file. |
-| AWS_SHARED_CREDENTIAL_FILE | Your directory of the shared credentials file, in your docker instance. <br> **Note:** If you're using this parameter, you'll have to mount your credentials folder, meaning you'll need to add to your `docker run` command the line: <br> `-v /path/to/your/aws/credentials/folder:<<path/to/shared/credential/file/in/docker>>:ro`. <br> You'll also need to have an ARN role set either on your credential file or with the parameter `AWS_ROLE_ARN`. |
 {:.paramlist}
 
-**Note:** About how to use aws credentials, you can refer [AWS Credentials Configration](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-aws.html#aws-credentials-config).
+###### Parameters for the AWS module when using a credentials file {#credentials}
+
+You can use a credential file instead of explicitly naming your access key ID and secret access key. You'll also need to set an ARN role either on your credential file or explicitly using the parameter `AWS_ROLE_ARN`.
+
+[Learn more about configration options for AWS Credentials](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-aws.html#aws-credentials-config).
+
+| Parameter | Description |
+|---|---|
+| AWS_DEFAULT_REGION <span class="required-param"></span> | Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
+| AWS_NAMESPACES <span class="required-param"></span> | Comma-separated list of namespaces of the metrics you want to collect. <br> For AmazonMQ, this is `AWS/AmazonMQ`. For the complete list of all valid namespaces, see this [resource](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). |
+| AWS_CREDENTIAL_PROFILE_NAME <span class="required-param"></span> | Your profile name in shared credentials file. |
+| AWS_SHARED_CREDENTIAL_FILE <span class="required-param"></span> | Your directory of the shared credentials file, in your docker instance. <br> **Note:** If you're using this parameter, you'll have to mount your credentials folder. To mount your credentials folder, add the following line to your `docker run` command: <br> `-v /path/to/your/aws/credentials/folder:<<path/to/shared/credential/file/in/docker>>:ro`. |
+| AWS_SESSION_TOKEN | Your IAM user's session token. |
+| AWS_ROLE_ARN | Your IAM role to assume. Add this parameter only if your credential file doesn't include an ARN role. |
+{:.paramlist}
 
 {% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/AmazonMQ" %}
 

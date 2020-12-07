@@ -57,11 +57,11 @@ Bulk import is supported for Grafana version 6 and above.
 
 * Custom selection of dashboards is not possible with bulk import. All your dashboard folders are imported to a single folder within Logz.io.
 
-* Grfana dashboards with schema version 14 or lower that containes "rows" objects will not be uploaded, you will receive a warning log. Please consider to update your dashboards schema version to the latest.
+* Grafana dashboards with schema version 14 or lower that include "row" objects are not uploaded: You will receive a warning in the logs. We recommend that you update your dashboard schema to the latest version.
 
-* The`p8s_logzio_name` variable will not added to panels queries that doesn't contines filtering, you will receive a warning log.
+* The`p8s_logzio_name` variable is not added to panel queries that don't include filtering: You will receive a warning in the logs.
 
-* Some panel types are not supported by Logz.io platform. If your dahboard containes unsupported panel type you will receive a warning log, and you may have some issues while rendering the panel in logz.io.
+* Some panel types are not supported by Logz.io platform. If your dashboard includes an unsupported panel type, you will receive a warning in the logs. You may experience some issues while the panel renders in Logz.io.
 
 ####  Bulk dashboard import procedure
 

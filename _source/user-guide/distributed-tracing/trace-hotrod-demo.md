@@ -49,7 +49,7 @@ This topic explains how to set up the Logz.io sample application to send demo tr
 + The Jaeger agent
 + The Logz.io Jaeger collector
 
-The <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  Logz.io **tracing-demo** project repository <i class="fas fa-external-link-alt"></i> </a> includes modified configuration paramaters to create the the HotROD web app. The app sends data to a Logz.io Jaeger collector that you configure to work with your Distributed Tracing account.  Click to open the <a href ="https://github.com/logzio/tracing-demo/blob/main/README.md" target="_blank"> **README** for the tracing demo project </a>
+The <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  Logz.io **tracing-demo** project repository <i class="fas fa-external-link-alt"></i> </a> includes modified configuration paramaters to create the HotROD web app. The app sends data to a Logz.io Jaeger collector that you configure to work with your Distributed Tracing account.  Click to open the <a href ="https://github.com/logzio/tracing-demo/blob/main/README.md" target="_blank"> **README** for the tracing demo project </a>
 
 <!--The configuration repository <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  is here <i class="fas fa-external-link-alt"></i> </a>. -->
 

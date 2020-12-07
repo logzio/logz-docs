@@ -127,7 +127,7 @@ logzio/docker-collector-metrics
 
 ###### Parameters for the AWS module
 
-If you are using a credentials' file, skip to the relevant [section](#credentials). Otherwise, you can use access keys.
+Use these parameters if you prefer to explicitly name your access key ID and secret access key. If you are using a credentials file, skip to the relevant [section](#credentials).
 
 
 | Parameter | Description |

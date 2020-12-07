@@ -9,6 +9,7 @@ tags:
   - metrics integrations
 contributors:
   - yberlinger
+  - yotamloe
 ---
 You can import your existing dashboards to Logz.io via a manual process or via a bulk process, using a python script.
 
@@ -56,6 +57,12 @@ Bulk import is supported for Grafana version 6 and above.
 
 * Custom selection of dashboards is not possible with bulk import. All your dashboard folders are imported to a single folder within Logz.io.
 
+* Grafana dashboards with schema version 14 or lower that include "row" objects are not uploaded: You will receive a warning in the logs. We recommend that you update your dashboard schema to the latest version.
+
+* The`p8s_logzio_name` variable is not added to panel queries that don't include filtering: You will receive a warning in the logs.
+
+* Some panel types are not supported by Logz.io platform. If your dashboard includes an unsupported panel type, you will receive a warning in the logs. You may experience some issues while the panel renders in Logz.io.
+
 ####  Bulk dashboard import procedure
 
 From your Terminal, perform the following steps: 
@@ -68,11 +75,12 @@ git clone https://github.com/logzio/grafana-dashboard-migration-tool.git
 ```
 cd grafana-dashboard-migration-tool
 ```
-3.  Set your enviroment varaiables in `configuration.py`.
-
-4.  Run the script with your configuration:
+3.  Run the script, you will be asked to configure your enviroment variables:
 ```
-python main.py 
+python main.py # If python 3 is your default version
+```
+```
+python3 main.py # If python 2 is your default version
 ```
 
 #### Bulk dashboard migration configuration parameters

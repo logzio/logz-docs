@@ -58,7 +58,7 @@ Add the following parameters to your Prometheus yaml file:
 ```yaml
     global:
       external_labels:
-        [ p8s_logzio_name: <labelvalue> ... ]
+        p8s_logzio_name: <labelvalue>
     remote_write:
       - url: http://<the Logz.io Listener URL for your region>:8052
         bearer_token: <your Logz.io Metrics account token> 

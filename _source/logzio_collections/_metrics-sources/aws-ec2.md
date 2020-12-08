@@ -34,9 +34,8 @@ that runs Metricbeat with the modules you enable at runtime.
 
 {% include /metric-shipping/docker-metricbeat-version.md %}
 
-#### Prerequisites 
-This Integration is leveraging AWS Cloudwatch to collect the metrics.
-Please [install](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) CloudWatch agent on your EC2 servers to enable the collection of metrics by CloudWatch
+
+{% include metric-shipping/ec2-cloudwatch.md %}
 
 #### Configuration
 
@@ -166,10 +165,7 @@ You have the option to ship CloudWatch metrics directly over Metricbeat, without
 
 **Recommended version**: Metricbeat version 7.5.x
 
-#### Prerequisites 
-This Integration is leveraging AWS Cloudwatch to collect the metrics.
-Please [install](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) CloudWatch agent on your EC2 servers to enable the collection of metrics by CloudWatch
-
+{% include metric-shipping/ec2-cloudwatch.md %}
 #### Configuration
 
 <div class="tasklist">

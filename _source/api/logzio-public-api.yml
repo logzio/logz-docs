@@ -3157,8 +3157,8 @@ paths:
   # ::::: SIEM LOOKUPS
   /lookup-lists/{lookupListId}/elements/search:
     post:
-      summary: Get all lookup elements
-      description: Creates and activates a new drop filter.
+      summary: Search lookup elements
+      description: Searches elements in the lookup list
       tags:
         - Lookups
       operationId: searchLookupListElements
@@ -3187,6 +3187,8 @@ paths:
           headers: {}
   /lookup-lists/search:
     post:
+      summary: Search lookup lists
+      description: Searches all lookup lists
       tags:
         - Lookups
       operationId: searchLookupLists
@@ -3198,11 +3200,6 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/LookupListsSearchRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -3211,6 +3208,8 @@ paths:
           headers: {}
   /lookup-lists/{id}:
     get:
+      summary: Get lookup
+      description: Retrieves all lookup lists
       tags:
         - Lookups
       operationId: getLookupList
@@ -3221,11 +3220,6 @@ paths:
           in: path
           required: true
           type: string
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -3233,6 +3227,8 @@ paths:
             $ref: '#/definitions/LookupList'
           headers: {}
     put:
+      summary: Update lookup
+      description: Updates lookup lists
       tags:
         - Lookups
       operationId: updateLookupList
@@ -3248,11 +3244,6 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/LookupList'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -3260,6 +3251,8 @@ paths:
             $ref: '#/definitions/LookupList'
           headers: {}
     delete:
+      summary: Delete lookup list
+      description: Deletes a lookup list identified by its ID
       tags:
         - Lookups
       operationId: deleteLookupList
@@ -3270,11 +3263,6 @@ paths:
           in: path
           required: true
           type: string
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -3283,6 +3271,8 @@ paths:
           headers: {}
   /lookup-lists/{lookupListId}/elements/{id}:
     get:
+      summary: Get value
+      description: Retrieves a specific lookup value by its ID
       tags:
         - Lookups
       operationId: getLookupListElement
@@ -3298,11 +3288,6 @@ paths:
           required: true
           type: integer
           format: int32
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -3310,6 +3295,8 @@ paths:
             $ref: '#/definitions/LookupListElement'
           headers: {}
     put:
+      summary: Update value
+      description: Updates a specific lookup value by its ID
       tags:
         - Lookups
       operationId: updateLookupListElement
@@ -3330,11 +3317,6 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/LookupListElement'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation
@@ -3342,6 +3324,8 @@ paths:
             $ref: '#/definitions/LookupListElement'
           headers: {}
     delete:
+      summary: Delete value
+      description: Deletes a specific lookup value by its ID
       tags:
         - Lookups
       operationId: deleteLookupListElement
@@ -3357,11 +3341,6 @@ paths:
           required: true
           type: integer
           format: int32
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
       responses:
         '200':
           description: successful operation

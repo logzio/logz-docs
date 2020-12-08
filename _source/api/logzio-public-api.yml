@@ -201,6 +201,7 @@ tags:
 
 
       Note: Logs that are dropped by drop filters are still archived and can be restored. You can temporarily disable drop filters to restore the data.
+  - name: Lookups
 
 x-tagGroups:
   - name: Log Monitoring
@@ -213,6 +214,7 @@ x-tagGroups:
     tags:
       - Security rules
       - Security events
+      - Lookups
   - name: Account administration
     tags:
       - Manage users
@@ -3147,9 +3149,337 @@ paths:
             $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
           headers: {}
 
-
-
+  # ::::: SIEM LOOKUPS
+  /lookup-lists/{lookupListId}/elements/search:
+    post:
+      tags:
+        - Lookups
+      operationId: searchLookupListElements
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/LookupListElementsSearchRequest'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseLookupListElement'
+          headers: {}
+  /lookup-lists/search:
+    post:
+      tags:
+        - Lookups
+      operationId: searchLookupLists
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/LookupListsSearchRequest'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseLookupList'
+          headers: {}
+  /lookup-lists/{id}:
+    get:
+      tags:
+        - Lookups
+      operationId: getLookupList
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupList'
+          headers: {}
+    put:
+      tags:
+        - Lookups
+      operationId: updateLookupList
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/LookupList'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupList'
+          headers: {}
+    delete:
+      tags:
+        - Lookups
+      operationId: deleteLookupList
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupList'
+          headers: {}
+  /lookup-lists/{lookupListId}/elements/{id}:
+    get:
+      tags:
+        - Lookups
+      operationId: getLookupListElement
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElement'
+          headers: {}
+    put:
+      tags:
+        - Lookups
+      operationId: updateLookupListElement
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/LookupListElement'
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElement'
+          headers: {}
+    delete:
+      tags:
+        - Lookups
+      operationId: deleteLookupListElement
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: X-API-TOKEN
+          in: header
+          description: Authentication Api Token
+          required: false
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElement'
+          headers: {}
+  
+  
 definitions:
+  # ::::: SIEM LOOKUPS
+  PagedSearchResponseLookupListElement:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/LookupList'
+      pagination:
+        $ref: '#/definitions/Pagination'
+
+  LookupListElement:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      value:
+        type: string
+        minLength: 1
+        maxLength: 80
+      comment:
+        type: string
+  LookupListElementCreateRequest:
+    type: object
+    properties:
+      value:
+        type: string
+        minLength: 1
+        maxLength: 80
+      comment:
+        type: string
+        minLength: 0
+        maxLength: 200
+  LookupList:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+        minLength: 1
+        maxLength: 40
+      description:
+        type: string
+        minLength: 0
+        maxLength: 400
+  LookupListCreateRequest:
+    type: object
+    properties:
+      name:
+        type: string
+        minLength: 0
+        maxLength: 40
+      description:
+        type: string
+        minLength: 0
+        maxLength: 400
+  PagedSearchResponseLookupList:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/LookupList'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  LookupListsFilter:
+    type: object
+    properties:
+      searchTerm:
+        type: string
+      byIds:
+        type: array
+        items:
+          type: string
+  LookupListsSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/LookupListsFilter'
+      pagination:
+        $ref: '#/definitions/Pagination'  
+
+  LookupListElementsFilter:
+    type: object
+    properties:
+      searchTerm:
+        type: string
+      byIds:
+        type: array
+        items:
+          type: integer
+          format: int32
+      byValues:
+        type: array
+        items:
+          type: string
+
+  LookupListElementsSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/LookupListElementsFilter'
+      pagination:
+        $ref: '#/definitions/Pagination'
+
+
+
+  
   # ::::: ACCOUNTS DEFINITIONS
   WhoAmI:
     type: object

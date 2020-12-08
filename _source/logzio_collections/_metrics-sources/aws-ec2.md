@@ -166,6 +166,7 @@ You have the option to ship CloudWatch metrics directly over Metricbeat, without
 **Recommended version**: Metricbeat version 7.5.x
 
 {% include metric-shipping/ec2-cloudwatch.md %}
+
 #### Configuration
 
 <div class="tasklist">

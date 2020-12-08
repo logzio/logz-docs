@@ -202,6 +202,11 @@ tags:
 
       Note: Logs that are dropped by drop filters are still archived and can be restored. You can temporarily disable drop filters to restore the data.
   - name: Lookups
+    description: >-
+      Lookups are custom lists that allow you to easily filter by large lists in Kibana.
+
+      
+      Instead of adding a long list of elements to your query, you can create lookup lists and filter by them using the operators `in lookups`/`not in lookups`. [Learn more](/user-guide/lookups/)
 
 x-tagGroups:
   - name: Log Monitoring
@@ -3152,6 +3157,8 @@ paths:
   # ::::: SIEM LOOKUPS
   /lookup-lists/{lookupListId}/elements/search:
     post:
+      summary: Get all lookup elements
+      description: Creates and activates a new drop filter.
       tags:
         - Lookups
       operationId: searchLookupListElements
@@ -3374,20 +3381,21 @@ definitions:
       results:
         type: array
         items:
-          $ref: '#/definitions/LookupList'
+          $ref: '#/definitions/LookupListElement'
       pagination:
         $ref: '#/definitions/Pagination'
-
   LookupListElement:
     type: object
     properties:
       id:
         type: integer
         format: int32
+        description: ID of the element in the Lookup list
       value:
         type: string
         minLength: 1
         maxLength: 80
+        description: 
       comment:
         type: string
   LookupListElementCreateRequest:

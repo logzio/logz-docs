@@ -45,7 +45,7 @@ You can use [this config file](https://github.com/open-telemetry/opentelemetry-c
 |---|---|
 | ACCOUNT_TOKEN <span class="required-param"></span> | The Logz.io token for your Distributed Tracing account. Required when using as a collector to ship traces to Logz.io.  |
 | REGION <span class="default-param">_Blank (US East)_</span> |  Your two-letter Logz.io account region code. Defaults to US, required only if your Logz.io region is different than US. You can find your region code in the [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions) table. |
-| CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional paramater overrides the region parameter.|
+| CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter.|
 {:.paramlist}
 
 

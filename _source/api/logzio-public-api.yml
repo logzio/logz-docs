@@ -3180,7 +3180,7 @@ paths:
   /lookup-lists/search:
     post:
       summary: Get all/Search lookup lists
-      description: Searches lookup lists. Can also be run without a filter to return the full list of existing lookups.
+      description: Searches for lookup lists by name or ID. Can also be run without a filter to return the full list of existing lookups. Returns a paginated list of results.
       tags:
         - Lookups
       operationId: searchLookupLists
@@ -3212,7 +3212,7 @@ paths:
           in: path
           required: true
           type: string
-          description: ID of the lookup list
+          description: ID of the lookup list.
       responses:
         '200':
           description: successful operation
@@ -3232,6 +3232,7 @@ paths:
           in: path
           required: true
           type: string
+          description: ID of the lookup list.
         - in: body
           name: body
           required: true
@@ -3245,7 +3246,7 @@ paths:
           headers: {}
     delete:
       summary: Delete lookup list
-      description: Deletes a lookup list. Note that this action can break rules, dashboards, and reports if they are dependent on the lookup list.
+      description: Deletes a lookup list. Note that this action can affect rules, dashboards, and reports if they are dependent on the lookup list.
       tags:
         - Lookups
       operationId: deleteLookupList
@@ -3256,6 +3257,7 @@ paths:
           in: path
           required: true
           type: string
+          description: ID of the lookup list.
       responses:
         '200':
           description: successful operation
@@ -3293,7 +3295,7 @@ paths:
   /lookup-lists/{lookupListId}/elements/search:
     post:
       summary: Get all/Search lookup elements
-      description: Searches elements in a specified lookup list. Can also be run without a filter to return the full list of elements for the lookup.
+      description: Searches elements in a specified lookup list. Can also be run without a filter to return the full list of elements. Returns a paginated list of results.
       tags:
         - Lookups
       operationId: searchLookupListElements
@@ -3349,7 +3351,7 @@ paths:
           headers: {}
     put:
       summary: Update element
-      description: Change a specific lookup value, identified by its ID.
+      description: Changes the value and/or comment of a specific element, identified by its ID.
       tags:
         - Lookups
       operationId: updateLookupListElement
@@ -3462,6 +3464,7 @@ definitions:
         example: ABC Server
   LookupList:
     type: object
+    summary: General indentifiers for the lookup - its ID, name, and description.
     properties:
       id:
         type: string
@@ -3470,7 +3473,7 @@ definitions:
         type: string
         minLength: 1
         maxLength: 40
-        description: Name of the lookup list. When filtering by a lookup list, you'll select it by this name.
+        description: Name of the lookup list.
       description:
         type: string
         minLength: 0
@@ -3505,6 +3508,7 @@ definitions:
         $ref: '#/definitions/Pagination'
   LookupListsFilter:
     type: object
+    description: Filter by names that contain a term, by lookup ID, or by both. If both properties are sent, they must both be satsified (`AND` logic).
     properties:
       searchTerm:
         type: string
@@ -3512,34 +3516,36 @@ definitions:
         example: servers
       byIds:
         type: array
+        description: List of lookup IDs.
         items:
           type: string
-          description: List of IDs of lookup lists.
   LookupListsSearchRequest:
     type: object
     properties:
       filter:
         $ref: '#/definitions/LookupListsFilter'
       pagination:
-        $ref: '#/definitions/Pagination'  
+        $ref: '#/definitions/Pagination'
 
   LookupListElementsFilter:
     type: object
+    description: Filter for elements by value, element ID, or by comments that contain a search term. If multiple properties are sent, they must all be satisfied (`AND` logic).
     properties:
       searchTerm:
         type: string
         description: Filters for values or comments that contain the search term.
-        example: 
+        example: server
       byIds:
         type: array
+        description: Filters by element IDs.
         items:
           type: integer
           format: int32
       byValues:
         type: array
+        description: Filters by exact value. (Looks for elements that match any one of the values in the array.)
         items:
           type: string
-          description: Filters for all elements that contain one of the values in the array.
   LookupListElementsSearchRequest:
     type: object
     properties:
@@ -3854,7 +3860,8 @@ definitions:
         example: 833203f9-de71-5a12-9083-9055a6d925bb
   Pagination:
     type: object
-    description: Default pagination is 1 page, 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
+    default: 25
+    description: Default pagination is a page of 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
     properties:
       pageNumber:
         type: integer

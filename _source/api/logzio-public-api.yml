@@ -203,10 +203,13 @@ tags:
       Note: Logs that are dropped by drop filters are still archived and can be restored. You can temporarily disable drop filters to restore the data.
   - name: Lookups
     description: >-
-      Lookups are custom lists that allow you to easily filter by large lists in Kibana.
+      Lookups are custom lists of values that allow you to easily filter by large lists in Kibana.
 
       
-      Instead of adding a long list of elements to your query, you can create lookup lists and filter by them using the operators `in lookups`/`not in lookups`. [Learn more](/user-guide/lookups/)
+      Instead of adding a long list of elements to your query, you can create lookup lists and filter by them using the operators `in lookups`/`not in lookups`.
+      
+      
+      For this purpose, all of the values in a lookup list should be mapped to the same field in Kibana. [Learn more in the user guide](/user-guide/lookups/)
 
 x-tagGroups:
   - name: Log Monitoring

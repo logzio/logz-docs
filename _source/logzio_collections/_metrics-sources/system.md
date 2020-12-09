@@ -38,7 +38,7 @@ shipping-tags:
 
 ##### Add Logz.io configuration
 
-Replace the General configuration with Logz.io settings.
+Replace the General configuration in `metricbeat.yml` with Logz.io settings.
 
 {% include metric-shipping/replace-metrics-token.html %}
 
@@ -103,12 +103,12 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 
 Download the
 [Logz.io public certificate]({% include log-shipping/certificate-path.md %})
-to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`
+to `C:\ProgramData\Metricbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
 ##### Add Logz.io configuration
 
-Replace the General configuration with Logz.io settings.
+Replace the General configuration in `metricbeat.yml` with Logz.io settings.
 
 {% include metric-shipping/replace-metrics-token.html %}
 

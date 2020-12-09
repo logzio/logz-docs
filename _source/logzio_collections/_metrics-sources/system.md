@@ -19,8 +19,8 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Using Metricbeat <span class="sm ital">(recommended) - Linux/MacOS</span>](#metricbeat-config-unix)
-* [Using Metricbeat <span class="sm ital">(recommended) - Windows</span>](#metricbeat-config-win)
+* [Using Metricbeat <span class="sm ital">(recommended)</span> - Linux/MacOS](#metricbeat-config-unix)
+* [Using Metricbeat <span class="sm ital">(recommended)</span> - Windows](#metricbeat-config-win)
 * [Using Docker](#docker-config)
 {:.branching-tabs}
 

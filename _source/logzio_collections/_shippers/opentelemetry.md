@@ -53,7 +53,7 @@ You can use <a href ="https://github.com/open-telemetry/opentelemetry-collector-
 
 ##### Deploy the OpenTelemetry collector and mount the config file you saved.
 
-```
+```yaml
 docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 -p 9411:9411 \
     -v config.yaml:/etc/otel-collector-config.yaml:ro \
     --name otelcontribcol otel/opentelemetry-collector-contrib:0.5.0 \
@@ -66,7 +66,7 @@ For a complete working example, you can run <a href ="https://raw.githubusercont
   1. Download the file.
   2. Edit the Account Token and the other necessary parameters.
   3. Run `docker-compose up`. 
-  4. Head to http://0.0.0.0:8080/ to trigger the event that will generate and send traces to your logz.io account.
+  4. Head to [http://0.0.0.0:8080/](http://0.0.0.0:8080/) to trigger the event that will generate and send traces to your logz.io account.
 
 ##### Check Jaeger for your traces.
 

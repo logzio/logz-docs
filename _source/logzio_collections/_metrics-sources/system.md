@@ -103,7 +103,7 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 
 Download the
 [Logz.io public certificate]({% include log-shipping/certificate-path.md %})
-to `C:\ProgramData\Metricbeat\COMODORSADomainValidationSecureServerCA.crt`
+to `C:\ProgramData\metricbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
 ##### Add Logz.io configuration
@@ -131,7 +131,7 @@ Remove all other outputs.
 # ===== Outputs =====
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
-    ssl.certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
+    ssl.certificate_authorities: ['C:\ProgramData\metricbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
 ##### _(If needed)_ Enable the system module

@@ -19,14 +19,15 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Using Metricbeat <span class="sm ital">(recommended)</span>](#metricbeat-config)
+* [Using Metricbeat <span class="sm ital">(recommended)</span> - Linux/MacOS](#metricbeat-config-unix)
+* [Using Metricbeat <span class="sm ital">(recommended)</span> - Windows](#metricbeat-config-win)
 * [Using Docker](#docker-config)
 {:.branching-tabs}
 
 <!-- tab:start -->
-<div id="metricbeat-config">
+<div id="metricbeat-config-unix">
 
-#### Metricbeat setup
+#### Metricbeat setup - Linux/MacOS
 
 **Before you begin, you'll need**:
 [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/7.1/metricbeat-installation.html) or higher
@@ -37,7 +38,7 @@ shipping-tags:
 
 ##### Add Logz.io configuration
 
-Replace the General configuration with Logz.io settings.
+Replace the General configuration in `metricbeat.yml` with Logz.io settings.
 
 {% include metric-shipping/replace-metrics-token.html %}
 
@@ -78,6 +79,79 @@ If you installed Metricbeat from a package manager, this directory is under `/et
 ##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
+
+##### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="metricbeat-config-win">
+
+#### Metricbeat setup - Windows
+
+**Before you begin, you'll need**:
+[Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/7.1/metricbeat-installation.html#win) or higher
+
+<div class="tasklist">
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+
+Download the
+[Logz.io public certificate]({% include log-shipping/certificate-path.md %})
+to `C:\ProgramData\Metricbeat\COMODORSADomainValidationSecureServerCA.crt`
+on your machine.
+
+##### Add Logz.io configuration
+
+Replace the General configuration in `metricbeat.yml` with Logz.io settings.
+
+{% include metric-shipping/replace-metrics-token.html %}
+
+```yaml
+# ===== General =====
+fields:
+  logzio_codec: json
+  token: <<SHIPPING-TOKEN>>
+fields_under_root: true
+```
+
+##### Set Logz.io as the output
+
+If Logz.io is not an output, add it now.
+Remove all other outputs.
+
+{% include log-shipping/replace-vars.html listener=true %}
+
+```yaml
+# ===== Outputs =====
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+    ssl.certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
+```
+
+##### _(If needed)_ Enable the system module
+
+The system module is enabled by default.
+If you've disabled it for any reason, open powershell re-enable it now.
+
+```powershell
+PS > .\metricbeat.exe modules enable system
+```
+
+You can change the metrics collected by Metricbeat by modifying `modules.d\system.yml` in the metricbeat installation folder.
+
+##### Start Metricbeat
+
+Start or restart Metricbeat for the changes to take effect.
+
+```powershell
+PS C:\Program Files\metricbeat> Start-Service metricbeat
+```
 
 ##### Check Logz.io for your metrics
 

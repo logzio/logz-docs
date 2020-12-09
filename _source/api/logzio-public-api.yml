@@ -3216,6 +3216,7 @@ paths:
           required: true
           type: string
           description: ID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
       responses:
         '200':
           description: successful operation
@@ -3236,6 +3237,7 @@ paths:
           required: true
           type: string
           description: ID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - in: body
           name: body
           required: true
@@ -3261,6 +3263,7 @@ paths:
           required: true
           type: string
           description: ID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
       responses:
         '200':
           description: successful operation
@@ -3271,7 +3274,7 @@ paths:
   /lookup-lists/{lookupListId}/elements:
     post:
       summary: Add element to a lookup list
-      description: Adds a new element to an existing lookup list. An element is a field value and comment.
+      description: Adds a new element to an existing lookup list. An element is a field value and comment (helpful description that does not affect the lookup functionally).
       tags:
         - Lookups
       operationId: createLookupListElement
@@ -3283,7 +3286,7 @@ paths:
           required: true
           type: string
           description: ID of the lookup list.
-          example: 12
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - in: body
           name: body
           required: true
@@ -3310,7 +3313,7 @@ paths:
           required: true
           type: string
           description: ID of the lookup list.
-          example: 12
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - in: body
           name: body
           required: false
@@ -3338,7 +3341,7 @@ paths:
           required: true
           type: string
           description: ID of the lookup list.
-          example: 12
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: id
           in: path
           required: true
@@ -3366,7 +3369,7 @@ paths:
           required: true
           type: string
           description: ID of the lookup list.
-          example: 12
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: id
           in: path
           required: true
@@ -3399,7 +3402,7 @@ paths:
           required: true
           type: string
           description: ID of the lookup list.
-          example: 12
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: id
           in: path
           required: true
@@ -3426,7 +3429,7 @@ definitions:
       total:
         type: integer
         format: int32
-        description: Total number of elements contained in the lookup list.
+        description: Total number of search results. The results are relvent elements contained in the lookup list.
       results:
         type: array
         items:
@@ -3449,6 +3452,7 @@ definitions:
       comment:
         type: string
         description: Optional. A place to add a note or additional details about the value. For example, if the value is an IP address, the comment can identify the server.
+        maxLength: 200
         example: ABC Server
   LookupListElementCreateRequest:
     type: object
@@ -3472,6 +3476,7 @@ definitions:
       id:
         type: string
         description: ID of the lookup list.
+        example: 7c985e09-3db6-5dc6-ae33-58403493e13f
       name:
         type: string
         minLength: 1
@@ -3502,7 +3507,7 @@ definitions:
       total:
         type: integer
         format: int32
-        description: Total number of elements contained in the lookup list.
+        description: Total number of search results.
       results:
         type: array
         items:

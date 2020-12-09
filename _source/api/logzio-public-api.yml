@@ -3155,40 +3155,32 @@ paths:
           headers: {}
 
   # ::::: SIEM LOOKUPS
-  /lookup-lists/{lookupListId}/elements/search:
+  /lookup-lists:
     post:
-      summary: Search lookup elements
-      description: Searches elements in the lookup list
+      summary: Create lookup list
+      description: Creates a new lookup list. After you create the list, you can run the endpoint to add elements to the list.
       tags:
         - Lookups
-      operationId: searchLookupListElements
+      operationId: createLookupList
       produces:
         - application/json
       parameters:
-        - name: lookupListId
-          in: path
-          required: true
-          type: string
         - in: body
           name: body
           required: false
           schema:
-            $ref: '#/definitions/LookupListElementsSearchRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication Api Token
-          required: false
-          type: string
+            $ref: '#/definitions/LookupListCreateRequest'
       responses:
         '200':
           description: successful operation
           schema:
-            $ref: '#/definitions/PagedSearchResponseLookupListElement'
+            $ref: '#/definitions/LookupList'
           headers: {}
+
   /lookup-lists/search:
     post:
-      summary: Search lookup lists
-      description: Searches all lookup lists
+      summary: Get all/Search lookup lists
+      description: Searches lookup lists. Can also be run without a filter to return the full list of existing lookups.
       tags:
         - Lookups
       operationId: searchLookupLists
@@ -3208,8 +3200,8 @@ paths:
           headers: {}
   /lookup-lists/{id}:
     get:
-      summary: Get lookup
-      description: Retrieves all lookup lists
+      summary: Get lookup by ID
+      description: Retrieves the general details for an existing lookup list.
       tags:
         - Lookups
       operationId: getLookupList
@@ -3220,6 +3212,7 @@ paths:
           in: path
           required: true
           type: string
+          description: ID of the lookup list
       responses:
         '200':
           description: successful operation
@@ -3227,8 +3220,8 @@ paths:
             $ref: '#/definitions/LookupList'
           headers: {}
     put:
-      summary: Update lookup
-      description: Updates lookup lists
+      summary: Update lookup list
+      description: Update the name and/or description of an exisiting lookup list.
       tags:
         - Lookups
       operationId: updateLookupList
@@ -3252,7 +3245,7 @@ paths:
           headers: {}
     delete:
       summary: Delete lookup list
-      description: Deletes a lookup list identified by its ID
+      description: Deletes a lookup list. Note that this action can break rules, dashboards, and reports if they are dependent on the lookup list.
       tags:
         - Lookups
       operationId: deleteLookupList
@@ -3269,10 +3262,66 @@ paths:
           schema:
             $ref: '#/definitions/LookupList'
           headers: {}
+
+  /lookup-lists/{lookupListId}/elements:
+    post:
+      summary: Add element to a lookup list
+      description: Adds a new element to an existing lookup list. An element is a field value and comment.
+      tags:
+        - Lookups
+      operationId: createLookupListElement
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+          description: ID of the lookup list.
+          example: 12
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/LookupListElementCreateRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElement'
+          headers: {}
+  /lookup-lists/{lookupListId}/elements/search:
+    post:
+      summary: Get all/Search lookup elements
+      description: Searches elements in a specified lookup list. Can also be run without a filter to return the full list of elements for the lookup.
+      tags:
+        - Lookups
+      operationId: searchLookupListElements
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+          description: ID of the lookup list.
+          example: 12
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/LookupListElementsSearchRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseLookupListElement'
+          headers: {}
+
   /lookup-lists/{lookupListId}/elements/{id}:
     get:
-      summary: Get value
-      description: Retrieves a specific lookup value by its ID
+      summary: Get element
+      description: Retrieves a specific lookup element by its ID.
       tags:
         - Lookups
       operationId: getLookupListElement
@@ -3283,11 +3332,15 @@ paths:
           in: path
           required: true
           type: string
+          description: ID of the lookup list.
+          example: 12
         - name: id
           in: path
           required: true
           type: integer
           format: int32
+          description: ID of a specific value element contained in the lookup list.
+          example: 20
       responses:
         '200':
           description: successful operation
@@ -3295,8 +3348,8 @@ paths:
             $ref: '#/definitions/LookupListElement'
           headers: {}
     put:
-      summary: Update value
-      description: Updates a specific lookup value by its ID
+      summary: Update element
+      description: Change a specific lookup value, identified by its ID.
       tags:
         - Lookups
       operationId: updateLookupListElement
@@ -3307,11 +3360,15 @@ paths:
           in: path
           required: true
           type: string
+          description: ID of the lookup list.
+          example: 12
         - name: id
           in: path
           required: true
           type: integer
           format: int32
+          description: ID of a specific value element contained in the lookup list.
+          example: 20
         - in: body
           name: body
           required: true
@@ -3324,8 +3381,8 @@ paths:
             $ref: '#/definitions/LookupListElement'
           headers: {}
     delete:
-      summary: Delete value
-      description: Deletes a specific lookup value by its ID
+      summary: Delete element
+      description: Deletes a specific lookup element, identified by its ID.
       tags:
         - Lookups
       operationId: deleteLookupListElement
@@ -3336,19 +3393,26 @@ paths:
           in: path
           required: true
           type: string
+          description: ID of the lookup list.
+          example: 12
         - name: id
           in: path
           required: true
           type: integer
           format: int32
+          description: ID of a specific value element contained in the lookup list.
+          example: 20
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/LookupListElement'
           headers: {}
+
   
   
+  
+
 definitions:
   # ::::: SIEM LOOKUPS
   PagedSearchResponseLookupListElement:
@@ -3357,6 +3421,7 @@ definitions:
       total:
         type: integer
         format: int32
+        description: Total number of elements contained in the lookup list.
       results:
         type: array
         items:
@@ -3369,14 +3434,17 @@ definitions:
       id:
         type: integer
         format: int32
-        description: ID of the element in the Lookup list
+        description: ID of the element in the Lookup list.
       value:
         type: string
         minLength: 1
         maxLength: 80
-        description: 
+        description: A single field value. You should ensure that the lookup list contains a list of values all mapped to the same field.
+        example: 54.53.1.1
       comment:
         type: string
+        description: Optional. A place to add a note or additional details about the value. For example, if the value is an IP address, the comment can identify the server.
+        example: ABC Server
   LookupListElementCreateRequest:
     type: object
     properties:
@@ -3384,23 +3452,30 @@ definitions:
         type: string
         minLength: 1
         maxLength: 80
+        description: A single field value.
+        example: 54.53.1.1
       comment:
         type: string
         minLength: 0
         maxLength: 200
+        description: Optional. A place to add a note or additional details about the value. For example, if the value is an IP address, the comment can identify the server.
+        example: ABC Server
   LookupList:
     type: object
     properties:
       id:
         type: string
+        description: ID of the lookup list.
       name:
         type: string
         minLength: 1
         maxLength: 40
+        description: Name of the lookup list. When filtering by a lookup list, you'll select it by this name.
       description:
         type: string
         minLength: 0
         maxLength: 400
+        description: Description of the lookup list.
   LookupListCreateRequest:
     type: object
     properties:
@@ -3408,16 +3483,20 @@ definitions:
         type: string
         minLength: 0
         maxLength: 40
+        description: Name of the lookup list. If null, the list will be named `Untitled` followed by the running number.
+        default: Untitled##
       description:
         type: string
         minLength: 0
         maxLength: 400
+        description: A place to add a free text description of the lookup list's purpose, uses and dependencies.
   PagedSearchResponseLookupList:
     type: object
     properties:
       total:
         type: integer
         format: int32
+        description: Total number of elements contained in the lookup list.
       results:
         type: array
         items:
@@ -3429,10 +3508,13 @@ definitions:
     properties:
       searchTerm:
         type: string
+        description: Filters for lookup names that contains the search term.
+        example: servers
       byIds:
         type: array
         items:
           type: string
+          description: List of IDs of lookup lists.
   LookupListsSearchRequest:
     type: object
     properties:
@@ -3446,6 +3528,8 @@ definitions:
     properties:
       searchTerm:
         type: string
+        description: Filters for values or comments that contain the search term.
+        example: 
       byIds:
         type: array
         items:
@@ -3455,7 +3539,7 @@ definitions:
         type: array
         items:
           type: string
-
+          description: Filters for all elements that contain one of the values in the array.
   LookupListElementsSearchRequest:
     type: object
     properties:

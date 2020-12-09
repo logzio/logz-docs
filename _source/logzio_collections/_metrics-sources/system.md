@@ -99,6 +99,8 @@ Give your metrics some time to get from your system to ours, and then open [Logz
 
 <div class="tasklist">
 
+##### Add Logz.io configuration
+
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 Download the

@@ -98,7 +98,7 @@ _To run the demo:_
 2. To open the application, navigate to the main HotROD service at [http://127.0.0.1:18080](http://127.0.0.1:18080).
 3. To send traces, click the buttons.
     You can view the logs in the foreground in the terminal. 
-4. To stop the demo, run: `contrl+c`.
+4. To stop the demo, run: `ctrl+c`.
 5. To remove the docker container, run: `docker-compose down`.
 
 ### Command summary

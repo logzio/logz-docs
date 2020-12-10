@@ -16,29 +16,30 @@ shipping-tags:
   -  azure
 ---
 
-Logz.io provides an automated deployment process to simplify the process of shipping logs from Azure Blob Storage.
-This integration forwards logs from your Azure Blob Storage
-to your Logz.io account.
+Deploy this integration to forward logs from your Azure Blob Storage
+to your Logz.io account using an automated deployment process.
 
-![Integration-architecture](https://github.com/logzio/logzio-azure-blob/blob/master/images/logzio-blob-Diagram.png)
+
+![Integration-architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/logzio-blob-diagram.png)
 
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-#### Deployment options:
-
-* [Use your existing blob storage account](#existing-blob-config)
+* [Connect to existing blob storage account](#existing-blob-config)
 * [Create a new blob storage account](#new-blob-config)
 {:.branching-tabs}
 
-These deployments will create the following services:
+#### Which services are deployed 
+
+The following services are created when you deploy this integration:
+
 * Serveless Function App
 * Application Insights
 * App Service Plan
 * Event Hubs Namspace
 * Event Grid System Topic
 * Function's logs Storage Account
-* Blob Storage Account (will be created only if you choose the option of a new blob storage)
+* _Optional_ Blob Storage Account. (Only created if you select the option to deploy a new blob storage.)
 
 <!-- tab:start -->
 <div id="new-blob-config">
@@ -61,16 +62,14 @@ Make sure to use the settings shown below.
 	
 | Parameter | Description |
 |---|---|
-| Resource group* | Click Create new. Give a meaningful Name, such as "logziobBlobStorageIntegration", and then click OK. |
-| Location* | Select the same region as the Azure services that will stream data to this Blob Storage. |
-| Logzio host* | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
-| Log shipping token* | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
-| Format (Default: text) | Select one of the supported parsing formats: text/json/csv |
-| Buffersize (Default: 100) | The maximum number of messages the logger will accumulate before sending them all as a bulk  |
-| Timeout (Default: 180,000 = 3 minutes) | The read/write/connection timeout in *milliseconds*.  |
+| Resource group <span class="required-param"></span> | Click Create new. Give a meaningful Name, such as "logziobBlobStorageIntegration", and then click OK. |
+| Location <span class="required-param"></span> | Select the same region as the Azure services that will stream data to this Blob Storage. |
+| Logzio host <span class="required-param"></span>  | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
+| Log shipping token <span class="required-param"></span>  | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
+| Format <span class="default-param">`text`</span> | Select one of the supported parsing formats: text/json/csv |
+| Buffersize <span class="default-param">`100`</span>  | The maximum number of messages the logger will accumulate before sending them all as a bulk  |
+| Timeout <span class="default-param">`180,000 = 3 minutes`</span> | The read/write/connection timeout in *milliseconds*.  |
 {:.paramlist}
-
-*Required fields  
 
 At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  
 Deployment can take a few minutes.

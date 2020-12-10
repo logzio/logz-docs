@@ -35,7 +35,7 @@ Which view is better, depends on your goal:
 
 ### Metrics View
 
-The metrics view options offer a playground you can use to explore your data. It's a graph panel where you can experiment with queries. If you've edited a Grafana dashboard before, the interface will be familiar.
+The metrics view options offer a playground you can use to explore your data. They show a graph panel where you can experiment with queries. If you've edited a Grafana dashboard before, the interface will be familiar.
 
 The Metrics view options are great for learning what Metrics data is in your system. Here are a few examples of what it offers:
 

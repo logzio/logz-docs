@@ -3215,7 +3215,7 @@ paths:
           in: path
           required: true
           type: string
-          description: ID of the lookup list.
+          description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
       responses:
         '200':
@@ -3236,7 +3236,7 @@ paths:
           in: path
           required: true
           type: string
-          description: ID of the lookup list.
+          description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - in: body
           name: body
@@ -3262,7 +3262,7 @@ paths:
           in: path
           required: true
           type: string
-          description: ID of the lookup list.
+          description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
       responses:
         '200':
@@ -3285,7 +3285,7 @@ paths:
           in: path
           required: true
           type: string
-          description: ID of the lookup list.
+          description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - in: body
           name: body
@@ -3312,7 +3312,7 @@ paths:
           in: path
           required: true
           type: string
-          description: ID of the lookup list.
+          description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - in: body
           name: body
@@ -3340,7 +3340,7 @@ paths:
           in: path
           required: true
           type: string
-          description: ID of the lookup list.
+          description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: id
           in: path
@@ -3368,7 +3368,7 @@ paths:
           in: path
           required: true
           type: string
-          description: ID of the lookup list.
+          description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: id
           in: path
@@ -3401,7 +3401,7 @@ paths:
           in: path
           required: true
           type: string
-          description: ID of the lookup list.
+          description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: id
           in: path
@@ -3475,7 +3475,7 @@ definitions:
     properties:
       id:
         type: string
-        description: ID of the lookup list.
+        description: GUID of the lookup list.
         example: 7c985e09-3db6-5dc6-ae33-58403493e13f
       name:
         type: string

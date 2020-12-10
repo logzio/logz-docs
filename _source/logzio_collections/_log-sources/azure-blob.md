@@ -20,13 +20,25 @@ Logz.io provides an automated deployment process to simplify the process of ship
 This integration forwards logs from your Azure Blob Storage
 to your Logz.io account.
 
+![Integration-architecture](https://github.com/logzio/logzio-azure-blob/blob/master/images/logzio-blob-Diagram.png)
 
 <!-- tabContainer:start -->
 <div class="branching-container">
 
+#### Deployment options:
+
 * [Use your existing blob storage account](#existing-blob-config)
 * [Create a new blob storage account](#new-blob-config)
 {:.branching-tabs}
+
+These deployments will create the following services:
+* Serveless Function App
+* Application Insights
+* App Service Plan
+* Event Hubs Namspace
+* Event Grid System Topic
+* Function's logs Storage Account
+* Blob Storage Account (will be created only if you choose the option of a new blob storage)
 
 <!-- tab:start -->
 <div id="new-blob-config">
@@ -46,32 +58,31 @@ You'll be taken to Azure,
 where you'll configure the resources to be deployed.
 Make sure to use the settings shown below.
 
-###### In the BASICS section
-
+	
 | Parameter | Description |
 |---|---|
-| Resource group | Click **Create new**. Give a meaningful **Name**, such as "logziobBlobStorageIntegration", and then click **OK**. |
-| Location | Select the same region as the Azure services that will stream data to this Blob Storage. |
+| Resource group* | Click Create new. Give a meaningful Name, such as "logziobBlobStorageIntegration", and then click OK. |
+| Location* | Select the same region as the Azure services that will stream data to this Blob Storage. |
+| Logzio host* | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
+| Log shipping token* | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
+| Format (Default: text) | Select one of the supported parsing formats: text/json/csv |
+| Buffersize (Default: 100) | The maximum number of messages the logger will accumulate before sending them all as a bulk  |
+| Timeout (Default: 180,000 = 3 minutes) | The read/write/connection timeout in *milliseconds*.  |
 {:.paramlist}
 
-###### In the SETTINGS section
+*Required fields  
 
-| Parameter | Description |
-|---|---|
-| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to. |
-| Format (Default: text) | Select one of the supported parsing formats: json/csv/text  |
-{:.paramlist}
-
-At the bottom of the page, agree to the terms and conditions.
-Then click **Purchase** to deploy. Deployment can take a few minutes.
+At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  
+Deployment can take a few minutes.
 
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). 
-Any logs sent from this point on should appear under the type `blobStorage`.
+Please note that only logs sent from this point on would be sent and appear under the type `blobStorage`.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+For information about working with your parameters after deployment press [here](#parameters-after-deploy).
 
 </div>
 
@@ -102,84 +113,45 @@ You'll be taken to Azure,
 where you'll configure the resources to be deployed.
 Make sure to use the settings shown below.
 
-###### In the BASICS section
-
 | Parameter | Description |
 |---|---|
-| Resource group | Select your existing resource group, and then click **OK**. |
-| Location | Select the same region as the Azure services that will stream data to this Blob Storage. |
+| Resource group* | Select your existing resource group, and then click **OK**. |
+| Region* | Select the same region as the Azure services that will stream data to this Blob Storage. |
+| Logzio host* | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
+| Log shipping token* | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
+| Format (Default: text) | Select one of the supported parsing formats: text/json/csv.  |
+| Blob Storage Account Name* | Insert the name of the storage account that contains the logs.  |
+| Buffersize (Default: 100) | The maximum number of messages the logger will accumulate before sending them all as a bulk.  |
+| Timeout (Default: 180,000 = 3 minutes) | The read/write/connection timeout in *milliseconds*.  |
 {:.paramlist}
 
-###### In the SETTINGS section
+*Required fields  
 
-| Parameter | Description |
-|---|---|
-| Logs listener host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here]({{site.baseurl}}/user-guide/accounts/account-region.html).  |
-| Logs account token | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
-| Format (Default: text) | Select one of the supported parsing formats: json/csv/text  |
-{:.paramlist}
-
-At the bottom of the page, agree to the terms and conditions. 
-Then click **Purchase** to deploy. Deployment can take a few minutes.
-
-##### Set blob container permissions
-
-In the
-[_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-page, select the relevant StorageV2 account.
-
-Click the **Containers** card to open it.
-
-  * If you already have blob containers, you'll need to change their access level. This is done one by one, for every blob container.
-      
-      In the top menu, select **Change access level > Public access level > Blob**.
-
-  * If you don't yet have a blob container, build one now.
-    
-       Click **+ Container** in the toolbar. Give your container a meaningful **Name**, and select **Blob** from the **Public access level** list. Press **OK** to create your container.
-
-##### Build an event subscription
-
-Open your storage account. In the left menu, select **Events**. Click **+ Event Subscription** in the toolbar and fill in the details as described next.
-
-###### In "EVENT SUBSCRIPTION DETAILS"
-
-| Parameter | Description |
-|---|---|
-| Name | Give a meaningful name. |
-| Event Schema | Select **Event Grid Schema** |
-{:.paramlist}
-
-###### In "EVENT TYPES"
-
-Give the event subscription a meaningful **Name**.
-
-| Parameter | Description |
-|---|---|
-| Filter to Event Types | Select **Blob Created** only, and clear the remaining check boxes. |
-{:.paramlist}
-
-###### In "ENDPOINT DETAILS"
-
-| Parameter | Description |
-|---|---|
-| Endpoint Type | Select **Event Hubs**. |
-| Endpoint | Click **Select an endpoint**, then select your resource group. |
-{:.paramlist}
-
-Click **Create** to continue.
+At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  
+Deployment can take a few minutes.
 
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). 
-Any logs sent from this point on should appear under the type `blobStorage`.
-
+Please note that only logs sent from this point on would be sent and appear under the type `blobStorage`.
+  
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
 
 </div>
 <!-- tab:end -->
+
+<div id="parameters-after-deploy">
+  
+### Working with your parameters after deployment
+If you wish to change parameters values after the deployment, go to your function app page, then on the left menu press the 'Configuration' tab.
+You'll have the option to edit the following values:
+* Shipper's configurations such as LogzioHost, LogzioToken, Buffersize, Timeout.
+* FUNCTIONS_WORKER_PROCESS_COUNT - maximum of 10, for more information press [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count).  
+* ParseEmptyField - Parse logs with invalid empty fields. **Please note using this option may slow the shipper's perfomance.**
+
+![Function's configuration](https://github.com/logzio/logzio-azure-blob/blob/master/images/configuration-settings.png)
 
 </div>
 <!-- tabContainer:end -->

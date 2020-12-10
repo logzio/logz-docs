@@ -31,7 +31,7 @@ Grafana’s Explore mode has a number of views, including various Metrics option
 Which view is better, depends on your goal:
 
 * The Logs view is ideal for exploring the structure of your metrics' documents as preparation for configuring new dashboards. It is unique to Grafana Explore.
-* The Metrics view is useful for getting general information about what's going on in your metrics account.
+* The Metrics view options are useful for getting general information about what's going on in your metrics account.
 
 ### Metrics View
 

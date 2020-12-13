@@ -51,14 +51,16 @@ Add the following parameters to your Prometheus yaml file:
 |---|---|
 | external_labels | Parameter to tag the metrics from this specific Prometheus server. Do not change the label `p8s_logzio_name`: This variable is required to identify from which Prometheus environment the metrics are arriving to Logz.io  |
 | remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
+
 |url| Logz.io Listener url for for your region, configured to use port **8052** for http traffic and port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)|
+
 |bearer_token| Logz.io Metrics account token|
 
 
 ```yaml
     global:
       external_labels:
-        [ p8s_logzio_name: <labelvalue> ... ]
+        p8s_logzio_name: <labelvalue>
     remote_write:
       - url: https://<the Logz.io Listener URL for your region>:8053
         bearer_token: <your Logz.io Metrics account token> 

@@ -18,7 +18,7 @@ Shared tokens give you the option to share Kibana dashboards and visualizations 
 
 Note that also non-admin users of your account will be able to use the account's shared tokens.
 
-## Best-practice security recommendations
+## Best-practice recommendations
 
 A shared token has access to all of its account logs. When using a shared token, it is better not to rely on the Kibana filters applied to the dashboard or visualizations being shared. Instead, it is best to limit access at the token level using token filters.
 

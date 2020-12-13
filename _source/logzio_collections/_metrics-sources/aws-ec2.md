@@ -34,6 +34,9 @@ that runs Metricbeat with the modules you enable at runtime.
 
 {% include /metric-shipping/docker-metricbeat-version.md %}
 
+
+{% include metric-shipping/ec2-cloudwatch.md %}
+
 #### Configuration
 
 If you're not already running Docker Metrics Collector,
@@ -161,6 +164,8 @@ For additional instructions, see more about [installing the CloudWatch agent](ht
 You have the option to ship CloudWatch metrics directly over Metricbeat, without a Docker container.
 
 **Recommended version**: Metricbeat version 7.5.x
+
+{% include metric-shipping/ec2-cloudwatch.md %}
 
 #### Configuration
 

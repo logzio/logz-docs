@@ -29,7 +29,7 @@ Either way, the following services are created when you deploy this integration:
 * Event Hub Namespace
 * Event Grid System Topic
 * Storage Account for the Function's logs
-* _Optional_ Blob Storage Account. (Only created if you select the option to deploy a new account.)
+* If you select the option to deploy a new account, a new Blob Storage Account is created as well.
 
 ![Integration-architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/logzio-blob-diagram.png)
 

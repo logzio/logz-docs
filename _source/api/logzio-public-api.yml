@@ -3634,7 +3634,7 @@ definitions:
         type: integer
         format: int64
         example: 1587134557
-        description: Absolute UNIX timestamp in seconds (not milliseconds). Your security account's retention policy determines the ealiest events you'll be able to retrieve.
+        description: Absolute UNIX timestamp in seconds (not milliseconds). Your security account's retention policy determines the earliest events you'll be able to retrieve.
       toDate:
         type: integer
         format: int64

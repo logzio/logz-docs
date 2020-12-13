@@ -49,7 +49,7 @@ This topic explains how to set up the Logz.io sample application to send demo tr
 + The Jaeger agent
 + The Logz.io Jaeger collector
 
-The <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  Logz.io **tracing-demo** project repository <i class="fas fa-external-link-alt"></i> </a> includes modified configuration paramaters to create the the HotROD web app. The app sends data to a Logz.io Jaeger collector that you configure to work with your Distributed Tracing account.  Click to open the <a href ="https://github.com/logzio/tracing-demo/blob/main/README.md" target="_blank"> **README** for the tracing demo project </a>
+The <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  Logz.io **tracing-demo** project repository <i class="fas fa-external-link-alt"></i> </a> includes modified configuration paramaters to create the HotROD web app. The app sends data to a Logz.io Jaeger collector that you configure to work with your Distributed Tracing account.  Click to open the <a href ="https://github.com/logzio/tracing-demo/blob/main/README.md" target="_blank"> **README** for the tracing demo project </a>
 
 <!--The configuration repository <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  is here <i class="fas fa-external-link-alt"></i> </a>. -->
 
@@ -98,7 +98,7 @@ _To run the demo:_
 2. To open the application, navigate to the main HotROD service at [http://127.0.0.1:18080](http://127.0.0.1:18080).
 3. To send traces, click the buttons.
     You can view the logs in the foreground in the terminal. 
-4. To stop the demo, run: `contrl+c`.
+4. To stop the demo, run: `ctrl+c`.
 5. To remove the docker container, run: `docker-compose down`.
 
 ### Command summary

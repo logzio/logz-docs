@@ -23,13 +23,13 @@ to your Logz.io account using an automated deployment process.
 You have the option to either connect to an existing Blob storage account or create a new one.
 Either way, the following services are created when you deploy this integration:
 
-* Serveless Function App
+* Serverless Function App
 * Application Insights
 * App Service Plan
-* Event Hub Namspace
+* Event Hub Namespace
 * Event Grid System Topic
 * Storage Account for the Function's logs
-* _Optional_ Blob Storage Account. (Only created if you select the option to deploy a new blob storage.)
+* _Optional_ Blob Storage Account. (Only created if you select the option to deploy a new account.)
 
 ![Integration-architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/logzio-blob-diagram.png)
 

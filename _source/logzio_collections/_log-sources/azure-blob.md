@@ -16,8 +16,8 @@ shipping-tags:
   -  azure
 ---
 
-Deploy this integration to forward logs from your Azure Blob Storage
-to your Logz.io account using an automated deployment process. 
+Deploy this integration to forward logs from your Azure Blob Storage account
+to Logz.io using an automated deployment process.
 
 ## Architecture overview
 You have the option to either connect to an existing Blob storage account or create a new one.

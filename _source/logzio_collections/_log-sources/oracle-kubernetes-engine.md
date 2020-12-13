@@ -5,9 +5,6 @@ logo:
   orientation: vertical
 data-source: Oracle Kubernetes Engine
 templates: ["k8s-daemonset"]
-open-source:
-  - title: logzio-k8s
-    github-repo: logzio-k8s
 contributors:
   - mirii1994
 shipping-tags:

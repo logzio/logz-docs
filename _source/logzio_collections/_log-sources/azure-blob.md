@@ -16,12 +16,12 @@ shipping-tags:
   -  azure
 ---
 
-Deploy this integration to forward logs from your Azure Blob Storage
-to your Logz.io account using an automated deployment process. 
+Deploy this integration to forward logs from your Azure Blob Storage account
+to Logz.io using an automated deployment process. You have the option to either connect to an existing Blob storage account or create a new one. You can also [update the parameters for an existing integration](#update-params).
 
 ## Architecture overview
-You have the option to either connect to an existing Blob storage account or create a new one.
-Either way, the following services are created when you deploy this integration:
+
+The following services are created when you deploy this integration:
 
 * Serverless Function App
 * Application Insights
@@ -29,7 +29,7 @@ Either way, the following services are created when you deploy this integration:
 * Event Hub Namespace
 * Event Grid System Topic
 * Storage Account for the Function's logs
-* _Optional_ Blob Storage Account. (Only created if you select the option to deploy a new account.)
+* If you select the option to deploy a new account, a new Blob Storage Account is created as well.
 
 ![Integration-architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/logzio-blob-diagram.png)
 
@@ -39,7 +39,6 @@ Either way, the following services are created when you deploy this integration:
 
 * [Connect to existing blob storage account](#existing-blob-config)
 * [Create a new blob storage account](#new-blob-config)
-* [Update](#parameters-after-deploy)
 {:.branching-tabs}
 
 
@@ -79,11 +78,11 @@ Deployment can take a few minutes.
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for logs of `type` is `blobStorage` to see the incoming logs.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for logs of `type` `blobStorage` to see the incoming logs.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-For information about working with your parameters after deployment press [here](#parameters-after-deploy).
+
 
 </div>
 </div>
@@ -96,8 +95,8 @@ For information about working with your parameters after deployment press [here]
 
 **Before you begin, you'll need**:
 
-A Blob storage account of the type **StorageV2 (general purpose v2)**. 
-  
+A Blob storage account of the type **StorageV2 (general purpose v2)**.
+
 If your existing blob storage account is of any other kind, it will NOT work. Instead, follow the process to set up a new blob storage account.
 
 Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) to make sure that they are compatible. They should be of the type **StorageV2 (general purpose v2)**.
@@ -130,14 +129,11 @@ where you'll configure the resources to be deployed.
 | Timeout <span class="default-param">`180,000 = 3 minutes`</span> | The read/write/connection timeout in *milliseconds*.  |
 {:.paramlist}
 
-At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  
-
-Deployment can take a few minutes.
-Only logs sent from this point on will be searchable in Logz.io.
+At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. Only logs sent from this point on will be searchable in Logz.io.
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for logs of `type` is `blobStorage` to see the incoming logs. 
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for logs of `type` `blobStorage` to see the incoming logs.
   
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
@@ -146,9 +142,9 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 </div>
 <!-- tab:end -->
 
-<div id="parameters-after-deploy">
-  
-### Updating parameters after deployment
+
+<div>
+#### Updating parameters after deployment {#update-params}
 
 Some parameters can be updated post-deployment. These include:
 
@@ -159,6 +155,6 @@ Some parameters can be updated post-deployment. These include:
 To update your parameters post-deployment, open the **Function App** page in your Azure portal. On the left menu, select the **Configuration** tab and edit the relevant values.
 
 ![Function's configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/configuration-settings.png)
-</div>
+
 </div>
 <!-- tabContainer:end -->

@@ -1,3 +1,20 @@
+---
+title: Ship Oracle Kubernetes Engine logs
+logo:
+  logofile: Oracle-OKE.svg
+  orientation: vertical
+data-source: Oracle Kubernetes Engine
+templates: ["k8s-daemonset"]
+open-source:
+  - title: logzio-k8s
+    github-repo: logzio-k8s
+contributors:
+  - mirii1994
+shipping-tags:
+  - oracle
+  - container
+---
+
 Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud.
 This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your OKE cluster and ship them to Logz.io.
 

@@ -8,6 +8,7 @@ tags:
   - reports
 contributors:
   - imnotashrimp
+  - shalper
 ---
 
 Logz.io Reports allows you to automatically generate reports
@@ -49,15 +50,21 @@ Your time range can be anything from 1 minute to 30 days.
 
 Use the **Cron schedule** to set the frequency of your reports.
 
-Logz.io uses quartz cron.
-If you need help generating a cron expression, see
-[Cron Expression Generator](https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples/).
+Logz.io uses quartz cron. See
+[Cron Expression Generator](https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples/) to easily generate a cron expression.
 
-##### Choose the recipients
+##### Select your recipients
 
 Use **Who to send it to** to choose the report's email and Slack recipients.
 
-If you choose **Include a link to the live dashboard in the message**,
-report recipients will have a quick link to the dashboard for the report's time range.
+##### Other options
+
+* You can enable the option to **Include a link to the live dashboard in the message**. 
+
+  If enabled, the report will include a direct link to the dashboard in Logz.io. Your recipients will need to log in to Logz.io to see it.
+
+* You can enable the option to include your account's **Custom logo** in the report.
+
+  When the report is sent over email, the custom logo will be included in the email body and PDF header. Admins can upload and update a custom logo from the [General Settings](https://app.logz.io/#/dashboard/settings/general) page.
 
 </div>

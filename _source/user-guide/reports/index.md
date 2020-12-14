@@ -11,16 +11,16 @@ contributors:
   - shalper
 ---
 
-Logz.io Reports allows you to automatically generate reports
+Logz.io reports allow you to automatically generate reports
 using your Kibana dashboards.
-You can send reports on a regular schedule to Slack or email recipients.
+You can send reports on a regular schedule to Slack and email recipients.
 
-To navigate to the Reports page:
+To open a report scheduling form:
 
-* In your Operations account,
-  select **Alerts & Events > Reports** in the top menu.
-* In your Cloud SIEM account,
-  click **Reports** in the top menu.
+* Open a dashboard in Kibana, and click **Create report** from the top menu.
+* Select **Alerts & Events > Reports** in the top menu, and click **+ New report**.
+
+![Logz.io report scheduling form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/report-form.png)
 
 #### Configuring a report
 
@@ -39,6 +39,7 @@ for why recipients are receiving the report.
 In the form, under **Which dashboard to send**, select a dashboard from the list.
 
 Next, select the time range for the dashboard. Under **For this time range**, select the time frame in minutes/hours/days. Your time range can be anything from 1 minute to 30 days.
+
 ##### Set the schedule
 
 Use the **Cron scheduler** to set the schedule for your reports to be sent automatically. 

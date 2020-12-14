@@ -13,17 +13,28 @@ contributors:
   - shalper
 ---
 
-Logz.io provides out-of-the-box dashboards for all [security integrations](/user-guide/cloud-siem/integrations). The dashboards are named after the security products and services.
+Cloud SIEM offers pre-configured monitoring dashboards for all official [security integrations on this list](/user-guide/cloud-siem/integrations). Keep a lookout for new dashboards and new integrations, we ship them monthly.
 
-Your Cloud SIEM offers pre-configured monitoring dashboards for all official integrations. Keep a lookout for new dashboards and new integrations, we ship them monthly.
 ## Dashboards
 
 To see the list of available dashboards, select **Research > Dashboards** from the top menu.
 
-
-
-You can search dashboards by name or description. Dashboards provided by Logz.io are labeled and locked to protect against editing.
+You can search dashboards by name or description or sort them by their date of creation or last update.
 
 ![Logz.io Security Dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/security-dashboards.png)
 
-You can always create your own visualizations and dashboards to add to Logz.io's pre-built dashboards.
+Note that dashboards provided by Logz.io are labeled and locked to editing. You can duplicate them to make them your own.
+You can always create your own dashboards to add to Logz.io's pre-built dashboards.
+
+## Reports
+
+Logz.io reports allow you to automatically generate reports
+using your dashboards.
+You can send reports on a regular schedule to Slack and email recipients.
+
+To open a report scheduling form:
+
+* Open a dashboard, and click **Create report** from the top menu.
+* Select **Reports** in the top menu, and click **+ New report**.
+
+For further information on the scheduling form, see [Reports in Kibana](/user-guide/reports/).

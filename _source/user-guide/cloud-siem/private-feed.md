@@ -22,15 +22,16 @@ Configuring Logz.io to fetch a private feed is very much like configuring a cust
 
 <div class="tasklist">
 
-##### Prerequisites
+##### Prerequisites {#prepare-private-feed}
 
-Before you begin, you'll need to maintain a private feed of malicious or suspected IPs and host it where it can be fetched by Logz.io.
+Before you begin, you'll need to maintain a private feed of malicious or suspected IOCs and host it where it can be fetched by Logz.io.
 
 Other requirements:
 
-* The feed must be limited to 10K entities or fewer. (No more than 10,000 IPs).
-* Every IP must appear on a new line. Don't use separators or add explanations or comments.
-  Here's an example:
+* The feed must be limited to 10K entities or fewer. (No more than 10,000 IOC entities.)
+* Every IOC must appear on a new line. Don't use separators or add explanations or comments.
+
+  Here's an example for a feed of malicious IPs:
 
   ```
   1.1.1.1
@@ -46,7 +47,7 @@ Fill in the form to configure the connection.
 
 **About the feed**
 
-1. **IOC type** - IPs are auto-selected. Currently only IPs are supported. In the future, the option to add private feeds for malicious URLs and Domains will be added.
+1. **IOC type** - Select one type. Supported types include IPs, DNSs (domain), URLs, md5/sha1/sha256 hash-based signatures, user-agent HTTP headers, and custom indicators of your choice.
 2. **Confidence** - Select a reliability score for your feed.
 3. **Description** - Give some context for your feed. It's a good idea to add contact info for the person who owns the feed.
 

@@ -10,7 +10,7 @@ contributors:
   - shalper
 ---
 
-Cloud SIEM cross references incoming logs against lists of known Indicators of Compromise (IOCs) to automatically detect threats. IOCs are sourced from recommended Threat Intelligence feeds that crowdsource and scrape the internet for malicious and suspected IPs, DNSs, and URLs.
+Cloud SIEM cross references incoming logs against lists of known Indicators of Compromise (IOCs) to automatically detect threats. IOCs are sourced from recommended Threat Intelligence feeds that crowdsource and scrape the internet for malicious and suspected IPs, domains, URLs, and md5/sha1/sha256 hash signatures.
 
 When an IOC is detected, the original log is [enriched with the relevant details](/user-guide/cloud-siem/malicious-IPs.html#log-enrichment).
 
@@ -29,9 +29,9 @@ There is also an option to add a private feed of malicious IPs. See [Adding a pr
 
 #### Research an IOC
 
-If you are in need of researching a specific IP, URL, or domain, you can check if it is found in any of your feeds.
+If you are in need of researching a specific IOC, you can check if it is found in any of your feeds. Search for the specific IOC to see in which feeds it is mentioned.
 
-You can click the source link to research the indicator and look up additional details.
+You can click the source link to research the IOC and look up additional details.
 
 ![Look up an IOC](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/look-up-ioc.png)
 

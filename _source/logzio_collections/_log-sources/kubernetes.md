@@ -16,24 +16,25 @@ shipping-tags:
   - container
 ---
 
-This implementation uses a Fluentd DaemonSet to collect Kubernetes logs.
-A Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod. Fluentd is an Open Source data collector that is used to forward logs to Logz.io.
+Fluentd is an Open Source data collector that can be used to forward logs to Logz.io.
+
+This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
 
 The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
 
-{%- comment -%} <div class="branching-container">
+<div class="branching-container">
 
 * [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
 * [Custom configuration](#custom-config)
-{:.branching-tabs} {%- endcomment -%}
+{:.branching-tabs}
 
 <!-- tab:start -->
 <div id="default-config">
 
-{%- comment -%} ## Deploy logzio-k8s with default configuration
+## Deploy logzio-k8s with default configuration
 
 For most environments, we recommend using the default configuration.
-However, you can deploy a custom configuration if your environment needs it. {%- endcomment -%}
+However, you can deploy a custom configuration if your environment needs it. 
 
 #### Deploy Fluentd as a DaemonSet on Kubernetes
 
@@ -81,8 +82,7 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 </div>
 <!-- tab:end -->
 
-
-{%- comment -%} <!-- tab:start -->
+<!-- tab:start -->
 <div id="custom-config">
 
 ## Deploy logzio-k8s with custom configuration
@@ -159,8 +159,8 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 <!-- tab:end -->
 
 </div>
-<!-- tabContainer:end --> {%- endcomment -%}
+<!-- tabContainer:end -->
 
-<h3>Disabling systemd input</h3>
+### Disabling systemd input {#disable-input}
 
 To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.

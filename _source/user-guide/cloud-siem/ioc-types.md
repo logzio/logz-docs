@@ -34,6 +34,8 @@ Custom IOCs are generally useful for creating a list of usernames or email addre
   3.3.3.3
   ```
 * If you want to use a feed that is formatted differently, <a class="intercom-launch" href="mailto:help@logz.io">contact our Support team</a> and they will be happy to assist.
+
+
 ### Validated format by IOC type
 
 | IOC type | Format |

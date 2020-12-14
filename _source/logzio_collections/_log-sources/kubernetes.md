@@ -34,7 +34,7 @@ The logzio-k8s image comes pre-configured for Fluentd to gather all logs from th
 ## Deploy logzio-k8s with default configuration
 
 For most environments, we recommend using the default configuration.
-However, you can deploy a custom configuration if your environment needs it. 
+However, you can deploy a custom configuration if your environment needs it.
 
 #### Deploy Fluentd as a DaemonSet on Kubernetes
 

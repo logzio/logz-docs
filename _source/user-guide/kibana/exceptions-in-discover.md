@@ -12,11 +12,14 @@ contributors:
 ---
 Logz.io Insights Engine automatically surfaces exceptions and highlights them in your log results.
 
-As you're troubleshooting in Kibana Discover, you can easily see the number of exceptions identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
+As you're troubleshooting in Kibana Discover, you can easily see the number of exceptions identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search. 
 
 To review exceptions affecting your environments, switch to the **Exceptions** tab and expand the documents that interest you.
 
 ![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-in-discover-count.png)
+
+If you're curious about the engine behind Logz.io Exceptions, we've got [a great blog](https://logz.io/blog/exceptions-application-insights/) about it.
+{:.info-box.read}
 
 ### Exception count
 To help you stay focused, the list is capped and will always show the top 10 exceptions.

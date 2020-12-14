@@ -17,15 +17,15 @@ You can enrich threat detection with your own private feed of IOCs. This page ex
 
 Supported IOC types include: IPs, md5/sha1/sha256 hash signatures, domains, URLs, user-agent headers, and other custom indicators.
 
-Custom IOCs may be other indicators such as a list of usernames or email addresses. The key thing to keep in mind is that they will all need to have a similar format so that they can be automatically parsed by the system.
+Custom IOCs are generally useful for creating a list of usernames or email addresses. The key thing to keep in mind is that they will all need to have a similar format so that they can be automatically parsed by the system.
 
 ### General requirements
 
 * Maintain IOC-specific feeds. Each list can contain a single type and must meet the validation requirements for the type, as explained below.
-* The feed must be limited to 10K entities or fewer. (No more than 10,000 IOC entities.)
-* Every IOC must appear on a new line. Don't use separators or add explanations or comments.
+* The feed should not exceed 10K entities. (Keep your list to 10,000 IOC entities or fewer.)
+* Format the list so that every IOC appears on a new line. Avoid using separators or adding explanations or comments.
 
-  Here's an example for a feed of malicious IPs:
+  Here's an example for what a feed of malicious IPs should look like:
 
   ```
   1.1.1.1
@@ -36,7 +36,7 @@ Custom IOCs may be other indicators such as a list of usernames or email address
 ### Validated format by IOC type
 
 | IOC type | Format |
-| IP | x.x.x.x |
+| IP | valid IP address |
 | DNS | any format (string) |
 | URL  | valid URL |
 | MD5 | 32 characters |

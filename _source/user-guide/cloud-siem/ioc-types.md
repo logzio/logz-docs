@@ -11,13 +11,29 @@ contributors:
   - shalper
 ---
 
-You can enrich threat detection with your own private feed of IOCs.
+You can enrich threat detection with your own private feed of IOCs. This page explains the requirements to help you prepare the feed so it can be pulled by Logz.io.
+
+### Supported types
 
 Supported IOC types include: IPs, md5/sha1/sha256 hash signatures, domains, URLs, user-agent headers, and other custom indicators.
 
-To connect , you will need to maintain a private feed of malicious or suspected IOCs and host it where it can be fetched by Logz.io.
+Custom IOCs may be other indicators such as a list of usernames or email addresses. The key thing to keep in mind is that they will all need to have a similar format so that they can be automatically parsed by the system.
 
-### Required formats by IOC type
+### General requirements
+
+* Maintain IOC-specific feeds. Each list can contain a single type and must meet the validation requirements for the type, as explained below.
+* The feed must be limited to 10K entities or fewer. (No more than 10,000 IOC entities.)
+* Every IOC must appear on a new line. Don't use separators or add explanations or comments.
+
+  Here's an example for a feed of malicious IPs:
+
+  ```
+  1.1.1.1
+  2.2.2.2
+  3.3.3.3
+  ```
+
+### Validated format by IOC type
 
 | IOC type | Format |
 | IP | x.x.x.x |
@@ -28,9 +44,3 @@ To connect , you will need to maintain a private feed of malicious or suspected 
 | SHA256 | 64 characters |
 | USER-AGENT | any format (string)  |
 | CUSTOM | any format (string)  |
-
-### About hashes and custom IOCs
-
-MD5, SHA1, SHA256 hash signatures are useful for identifying attacks over email and phishing. Hashes that appear in logs can flag malicious files including images, documents, compressed files (rar & zip), and text files.
-
-Custom IOCs may be other indicators such as a list of usernames or email addresses. The key thing to keep in mind is that they will all need to have a similar format so that they can be automatically parsed by the system.

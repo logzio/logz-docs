@@ -12,6 +12,8 @@ contributors:
 
 Cloud SIEM cross references incoming logs against lists of known Indicators of Compromise (IOCs) to automatically detect threats. IOCs are sourced from recommended Threat Intelligence feeds that crowdsource and scrape the internet for malicious and suspected IPs, domains, URLs, and md5/sha1/sha256 hash signatures.
 
+MD5, SHA1, SHA256 hash signatures are useful for identifying attacks over email and phishing. Hashes that appear in logs can flag malicious files including images, documents, compressed files (rar & zip), and text files.
+
 When an IOC is detected, the original log is [enriched with the relevant details](/user-guide/cloud-siem/malicious-IPs.html#log-enrichment).
 
 

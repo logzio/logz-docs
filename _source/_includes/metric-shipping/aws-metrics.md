@@ -17,8 +17,7 @@
 
 Use these parameters if you prefer to explicitly name your access key ID and secret access key. If you are using a credentials file, skip to the relevant [section](#credentials).
 
-These AWS module parameters are the preferred default.  We recommend that you only use a  credentials file and the associated AWS module parameters if there is a specific use case for doing so. 
-
+These AWS module parameters are the preferred default.  We recommend that you only use a credentials file and the associated AWS module parameters if there is a specific use case for doing so. 
 
 | Parameter | Description |
 |---|---|

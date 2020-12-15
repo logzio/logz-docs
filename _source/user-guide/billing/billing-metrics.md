@@ -14,7 +14,8 @@ contributors:
   - yberlinger
 ---
 # DRAFT Content
-### *Give us the trees, we’ll show you the view from the mountain*
+### *Give us the trees, we’ll show you the view from the mountain* 
+
 For infrastructure monitoring, while your individual data points are interesting, often what you really want and need are data-driven insights into the trends within your environment. 
 
 Unlike other providers, you won’t be charged different rates for basic infrastructure metrics and application metrics - you get it all, and we’ll work with you to ensure that you’re sending us the metrics that really matter for detecting and analyzing trends, benchmarking, and troubleshooting your environment.
@@ -55,7 +56,7 @@ Cost per host, per month (according to Sales page - include link)
   + Custom application metrics: Logz.io consultation services will work with you to integrate your specialized metrics into Logz.io
 
 ## Metrics account suspension
-
+<!-- Belongs in Accounts & Usage topic: Billing connection? -->
 Spikes happen. 
 
 Behind the scenes, we run checks at regular intervals throughout the day to ensure that your account metrics are flowing smoothly, without any sudden spikes that may take you over your account plan capacity. 

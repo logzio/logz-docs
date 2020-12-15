@@ -12,6 +12,7 @@ contributors:
   - idohalevi
   - imnotashrimp
   - yyyogev
+  - mirii1994
 shipping-tags:
   - container
 ---
@@ -129,6 +130,15 @@ The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of 
 | max_retry_wait <span class="default-param">`30s`</span> | Maximum interval, in seconds, to wait between retries. |
 | num_threads <span class="default-param">`2`</span> | Number of threads to flush the buffer. |
 | INCLUDE_NAMESPACE | <span class="default-param">`""`(All namespaces)</span> | Sends logs from all namespaces by default. To send logs from specific k8s namespaces, specify them in the following format, space delimited: <br> `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. |
+| KUBERNETES_VERIFY_SSL | <span class="default-param"> `true`</span> | Enable to validate SSL certificates. |
+| FLUENT_FILTER_KUBERNETES_URL | <span class="default-param"> `null` </span>  | URL to the API server. This parameter isn't part of the default Daemonset. You can set it to retrieve additional Kubernetes metadata for logs from the  Kubernetes API server.  |
+
+###### Good to know
+
+If `FLUENT_FILTER_KUBERNETES_URL` is not specified, the environment variables `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT` will be used, as long as both of them are  present. Typically, they are present when running Fluentd in a pod.
+
+Note that `FLUENT_FILTER_KUBERNETES_URL` does not appear in the default environment variable list in the Daemonset.
+If you wish to use this variable, you'll have to add it manually to the Daemonset's environment variables.
 {:.paramlist}
 
 ##### Deploy the DaemonSet

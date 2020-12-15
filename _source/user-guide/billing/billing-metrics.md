@@ -14,6 +14,8 @@ contributors:
   - yberlinger
 ---
 # DRAFT Content
+
+
 ### *Give us the trees, we’ll show you the view from the mountain* 
 
 For infrastructure monitoring, while your individual data points are interesting, often what you really want and need are data-driven insights into the trends within your environment. 

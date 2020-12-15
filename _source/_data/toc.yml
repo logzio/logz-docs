@@ -165,7 +165,9 @@ firstLevel:
   - title: Investigate security events
     url: /user-guide/cloud-siem/security-events.html
     thirdLevel:
-    - title: Research & Dashboards
+    - title: Dashboards & Reports
+      url: /user-guide/cloud-siem/dashboards/
+    - title: Research
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
     - title: Drilldown links
       url: /user-guide/cloud-siem/drilldown-links/
@@ -247,6 +249,8 @@ firstLevel:
       url: /user-guide/tokens/log-shipping-tokens/
     - title: Metrics shipping token
       url: /user-guide/accounts/finding-your-metrics-account-token/
+    - title: Distributed Tracing shipping token
+      url: /user-guide/accounts/finding-your-tracing-account-token/
     - title: Shared tokens
       url: /user-guide/tokens/shared-tokens.html
     - title: API tokens

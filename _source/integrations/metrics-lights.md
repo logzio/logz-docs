@@ -1,6 +1,6 @@
 ---
 layout: article
-title: LightS - Light Synthetic Monitoring for AWS
+title: LightS - Light Synthetic Monitoring powered by AWS Lambda
 permalink: /integrations/lights/
 flags:
   logzio-plan: community

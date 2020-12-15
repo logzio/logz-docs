@@ -248,6 +248,7 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 | `daemonset.resources` | Sets the resources for your Metricbeat deployment. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `daemonset.secretMounts` | Mounts a secret as a file inside the DaemonSet. You can use it to mount certificates and other secrets. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `daemonset.sslVerificationMode` | Sets the SSL verification mode for Metricbeat. | `"none"` |
+| `daemonset.tolerations` | Set [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) for all DaemonSet pods. | `{}` |
 | `deployment.extraVolumeMounts` | Templatable string of additional volumeMounts to be passed to the deployment. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `deployment.extraVolumes` | Templatable string of additional `volumes` to be passed to the deployment. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |
 | `deployment.metricbeatConfig.default` | Default configuration for Deployment's Metricbeat modules. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/metricbeat/values.yaml). |

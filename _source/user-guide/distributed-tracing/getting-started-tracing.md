@@ -23,14 +23,7 @@ Determine the best instrumentation strategy for your system: Manual or automatic
 <a href="/user-guide/distributed-tracing/tracing-instrumentation.html" target ="_blank"> Read more about setting up instrumentation.</a>
 
 ##### Look up your Distributed Tracing Token and Region information in Logz.io
-You must have admin permissions for the Logz.io Distributed Tracing account to view the **Manage accounts** page. If you're not an admin user for the account, consult with an account admin to get the Distributed Tracing token information. 
-
-+  You’ll find your Distributed Tracing account information in the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage accounts** page</a> of your Operations workspace, 
-
-    ![Distributed Tracing token location](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-token1.png)
-
-      ...when you click the relevant tracing account name at the bottom of the section.
-    ![Reveal Distributed Tracing Token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-acct-tokeninfo11.gif)
++  {% include tracing-shipping/tracing-token.md %}
 
 + You can find the Listener host URL for your region in the <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> <br> If you need to clarify your region code, you can look it up in the General settings page, here:  <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> > Settings > General**.
     ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1.png)

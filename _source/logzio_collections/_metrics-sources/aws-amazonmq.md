@@ -95,7 +95,6 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-metrics.md namespace ="AmazonMQ" %}
 
-
 {% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/AmazonMQ" %}
 
 </div>

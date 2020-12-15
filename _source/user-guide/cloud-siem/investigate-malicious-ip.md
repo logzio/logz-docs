@@ -27,7 +27,7 @@ Once you are ready to investigate a particular IP, click the IP drilldown link. 
 
 Cloud SIEM scans logs for malicious IOCs sourced from threat intelligence feeds. The process involves enrichment of the original logs with additional fields.
 
-Below is the list of enrichment fields for .
+Below is the list of enrichment fields for IPs.
 
 ![Attacker IP list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/malicious-ip-logs.png)
 

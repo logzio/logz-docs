@@ -12,7 +12,7 @@ contributors:
 ---
 
 You can enrich threat detection with your own private feed of IOCs.
-This page explains the requirements to help you prepare the feed so it can be pulled by Logz.io.
+This page explains the requirements to help you prepare the feed so it can be pulled by Logz.io. For help configuring the sync, see [Add a private feed](/user-guide/cloud-siem/private-feeds.html).
 
 ### Supported types
 

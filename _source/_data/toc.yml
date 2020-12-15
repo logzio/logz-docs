@@ -171,11 +171,13 @@ firstLevel:
       url: /user-guide/cloud-siem/drilldown-links/
   - title: Threat Intelligence feeds
     url: /user-guide/cloud-siem/threat-intelligence.html
-  - title: Investigate malicious IPs
-    url: /user-guide/cloud-siem/malicious-IPs.html
     thirdLevel:
     - title: Add a private feed
       url: /user-guide/cloud-siem/private-feeds.html
+    - title: IOC types
+      url: /user-guide/siem/ioc-types/
+  - title: Investigate malicious IPs
+    url: /user-guide/cloud-siem/malicious-IPs.html
   - title: Configure a security rule
     url: /user-guide/cloud-siem/manage-security-rules.html
     thirdLevel:

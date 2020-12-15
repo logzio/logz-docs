@@ -174,7 +174,7 @@ firstLevel:
     thirdLevel:
     - title: Add a private feed
       url: /user-guide/cloud-siem/private-feeds.html
-    - title: IOC types
+    - title: Preparing a private feed
       url: /user-guide/siem/ioc-types/
   - title: Investigate malicious IPs
     url: /user-guide/cloud-siem/malicious-IPs.html

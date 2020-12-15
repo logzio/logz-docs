@@ -12,14 +12,19 @@ contributors:
 
 Cloud SIEM cross references incoming logs against lists of known Indicators of Compromise (IOCs) to automatically detect threats. IOCs are sourced from recommended Threat Intelligence feeds that crowdsource and scrape the internet for malicious and suspected IPs, domains, URLs, and md5/sha1/sha256 hash signatures.
 
-MD5, SHA1, SHA256 hash signatures are useful for identifying attacks over email and phishing. Hashes that appear in logs can flag malicious files including images, documents, compressed files (rar & zip), and text files.
-
 When an IOC is detected, the original log is [enriched with the relevant details](/user-guide/cloud-siem/malicious-IPs.html#log-enrichment).
+## IOC types
+
+Cloud SIEM includes feeds for malicious and suspicious IPs, md5/sha1/sha256 hash signatures, domains, URLs, and user-agent headers. There is also an option to add your own Private Feed for the above types or another, custom type.
+
+Custom IOCs are generally useful for creating a list of usernames or email addresses.
+
+MD5, SHA1, SHA256 hash signatures are useful for identifying phishing and other email attacks. Hashes that appear in logs can flag malicious files including images, documents, compressed files (rar & zip), and text files.
 
 
-#### Review feeds
+#### TI feeds
 
-To open the list of feeds, go to **Threats > Threat Intelligence Feeds** from the top menu.
+To view the list of feeds in your Cloud SIEM, go to **Threats > Threat Intelligence Feeds** from the top menu.
 
 ![TI feeds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/add-private-feed.png)
 

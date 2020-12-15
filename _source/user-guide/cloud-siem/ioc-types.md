@@ -1,6 +1,6 @@
 ---
 layout: article
-title: IOC types
+title: Preparing a Private feed
 permalink: /user-guide/siem/ioc-types/
 flags:
   logzio-plan: enterprise
@@ -14,16 +14,18 @@ contributors:
 You can enrich threat detection with your own private feed of IOCs.
 This page explains the requirements to help you prepare the feed so it can be pulled by Logz.io. For help configuring the sync, see [Add a private feed](/user-guide/cloud-siem/private-feeds.html).
 
-### Supported types
+### Supported IOC types
 
 Supported IOC types include: IPs, md5/sha1/sha256 hash signatures, domains, URLs, user-agent headers, and other custom indicators.
 
 Custom IOCs are generally useful for creating a list of usernames or email addresses. Keep in mind that each feed needs to contain entities of the same type and stick to a single format so that they can be automatically parsed by the system.
 
-### General requirements
+### General guidelines
 
 * Maintain IOC-specific feeds. Each list can contain a single type and must meet the validation requirements for the type, as explained below.
+
 * The feed should not exceed 10K entities. (Keep your list to 10,000 IOC entities or fewer.)
+
 * The default format requires that every IOC appears on a new line. This means you should avoid using separators or adding explanations or comments.
 
   Here's an example for what a feed of malicious IPs should look like:
@@ -40,10 +42,10 @@ Custom IOCs are generally useful for creating a list of usernames or email addre
 
 | IOC type | Format |
 | IP | valid IP address |
-| DNS | any format (string) |
+| DNS | valid domain name (string) |
 | URL  | valid URL |
 | MD5 | 32 characters |
 | SHA1 | 40 characters |
 | SHA256 | 64 characters |
-| USER-AGENT | any format (string)  |
-| CUSTOM | any format (string)  |
+| USER-AGENT | max size 2 KB (string)  |
+| CUSTOM | max size 64 characters (string)  |

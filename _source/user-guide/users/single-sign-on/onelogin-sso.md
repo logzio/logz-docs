@@ -26,7 +26,7 @@ Write that you want to set up OneLogin SAML SSO for Logz.io.
 Include these items in the message:
 
 * Your Logz.io [account ID]({{site.baseurl}}/user-guide/accounts/finding-your-account-id.html)
-* Your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
+* The last six characters of your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
 The Support team will respond with the connection information you'll need to give in OneLogin.
 

@@ -18,7 +18,7 @@ firstLevel:
   - title: Kibana Discover
     url: /user-guide/kibana/
     thirdLevel:
-    - title: Wildcards
+    - title: Search wildcards
       url: /kibana/wildcards/
   - title: Field Mapping
     url: /user-guide/kibana/mapping/

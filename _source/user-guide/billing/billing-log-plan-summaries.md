@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Log management plan summaries
+title: Log Management plan summaries
 permalink: /user-guide/billing/billing-log-plan-summaries
 flags:
   admin: true

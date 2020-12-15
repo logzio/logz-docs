@@ -96,6 +96,29 @@ At any time during your subscription period, you may upgrade your current plan b
 {Example place holder}
 
 ### Downgrading
-Your plan charges are based on a commitment period of one year. 
+Your plan charges are based on a commitment period of at least one year. 
 
 At the end of your subscription period, you may downgrade your current plan by decreasing your Daily Data Capacity and/or Retention Period. You'll be invoiced according to the price per month for the new subscription period.  
+
+## Log Management Billing FAQs
+Q: How do you calculate the price for Logz.io Log Management?
+A: The two major factors that determine the price for Logz.io Log Management are:
++  The amount of log data Logz.io indexes in your account per day (per GB).
++ How long Logz.io retains the indexed data (usually ranges between 3-90 days).
+
+Q: Is there a self-service option to start and/or upgrade my Logz.io account?
+A: Yes! Sign up for a free trial on our website to create your account. At any time, you can upgrade your account by hitting the cog wheel in the top right corner of the app, hovering over settings, and then going down to **Usage and Billing**. 
+
+This will bring you to a page showing the amount of log data you’re currently indexing per day. You’ll also see the option to upgrade your account so you can index more logs for longer periods. All you need is your credit card.
+
+Q: How do I know how much data I’m using in my account?
+A: Hit the cog wheel in the top right corner of the app, hover over settings, and then go down to **Usage and Billing**. This will bring you to a page that shows the average amount of data you’ve indexed per day during your log retention period (For example: You’ve used an average of 10 indexed GBs of log data per day, over the last 14 days).
+
+Q: Are archived logs held against my Logz.io costs?
+A: No. You only pay for what you index. In fact, you can save costs by archiving your log data in an S3 Bucket or Azure Blob to store logs for cheap, while maintaining access to them if you need to index and analyze them later.
+
+Q: Will I be charged for dropping data before it's indexed?
+A: No. Not all logs are very interesting - use Logz.io’s Drop Filters to filter out unneeded logs before they are indexed and held against your Logz.io price. We won’t charge you for using the feature.
+
+Q: Does Customer Support cost extra?
+A: No! Our beloved 24/7 Customer Support team (seriously, our customers love them) will help you get started and be successful with Logz.io at no extra cost - regardless of your plan.

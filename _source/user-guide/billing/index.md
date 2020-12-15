@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Standard pricing - General information 
+title: Understanding billing
 permalink: /user-guide/billing/
 flags:
   admin: true

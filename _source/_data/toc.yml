@@ -249,6 +249,20 @@ firstLevel:
       url: /user-guide/tokens/shared-tokens.html
     - title: API tokens
       url: /user-guide/tokens/api-tokens.html
+  
+  - title: Understanding billing
+    url: /user-guide/billing
+    thirdLevel:
+    - title: Billing for Log Management accounts
+      url: /user-guide/billing/billing-logs    
+    - title: Log Management plan summaries
+      url: /user-guide/billing/billing-log-plan-summaries 
+    - title: Billing for Infrastructure Monitoring accounts  
+      url: /user-guide/billing/billing-metrics
+    - title: Billing for Distributed Tracing accounts 
+      url: /user-guide/billing/billing-tracing        
+    - title: Billing for Cloud SIEM accounts
+      url: /user-guide/billing/billing-siem
 
   - title: Archive & restore
     url: /user-guide/archive-and-restore/

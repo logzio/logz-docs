@@ -131,7 +131,7 @@ The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of 
 | num_threads <span class="default-param">`2`</span> | Number of threads to flush the buffer. |
 | INCLUDE_NAMESPACE | <span class="default-param">`""`(All namespaces)</span> | Sends logs from all namespaces by default. To send logs from specific k8s namespaces, specify them in the following format, space delimited: <br> `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. |
 | KUBERNETES_VERIFY_SSL | <span class="default-param"> `true`</span> | Enable to validate SSL certificates. |
-| FLUENT_FILTER_KUBERNETES_URL | <span class="default-param"> `null` </span>  | URL to the API server. This parameter isn't part of the default Daemonset. Set it to retrieve further Kubernetes metadata for logs from the  Kubernetes API server.  |
+| FLUENT_FILTER_KUBERNETES_URL | <span class="default-param"> `null` </span>  | URL to the API server. This parameter isn't part of the default Daemonset. You can set it to retrieve additional Kubernetes metadata for logs from the  Kubernetes API server.  |
 
 ###### Good to know
 

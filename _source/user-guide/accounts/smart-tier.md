@@ -39,8 +39,8 @@ Replicas ensure no data is lost to the same standard as the Real-Time Tier. The 
 
 Since data replicas are only queried when a primary data center is temporarily down, the effects are likely to be minimal. Most of the time, replicas are a fail-safe precautionary measure that you as a user do not interact with.
 
-## Minimal latency impact
+## No latency impact
 
-Logz.io Smart Tier does not operate on traditional hot-warm-cold architectures, which exhibit increased latency corresponding to colder tiers.
+Logz.io Smart Tier does not operate on traditional hot-warm-cold architectures.
 
-Smart Tier storage is a warm data tier, that reduces costs while keeping Kibana query performance at the normal Hot tier speed.
+Smart Tier storage is a warm data tier, that reduces costs while keeping Kibana query performance at the normal Hot tier speed. The Smart Tier does not increase query latency and will not slow your workflow.

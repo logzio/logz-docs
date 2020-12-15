@@ -22,14 +22,16 @@ Logz.io Smart Tier is a cost-effective data storage solution. Unlike the Hot-War
 
 * **Real-Time Tier** - Most recent data is stored and replicated in Hot instances to guarantee top real-time performance.
 * **Smart Tier** - Less recent data is stored in Hot instances for the same real-time querying performance as the **Real-Time Tier**. Data is replicated in Warm storage.
-* **Historical Tier** - Enable archiving to an AWS S3 bucket or an Azure storage container for your historical data. [Learn more](/user-guide/archive-and-restore/)
+* **Historical Tier** - Historical data that is outside of your plan's retention policy can be archived for long term storage and recovered on-demand. [Learn more](/user-guide/archive-and-restore/)
 
-
-### Smart Tier offers 97% availability guarantee
+### Guaranteed availability
 
 As a user, there is no difference between the experience of querying the Real-Time Tier and Smart Tier 97% of the time.
 
-The only time the difference between the Smart Tier and Real-Time Tier might be noticable, is when a specific Smart Tier data segment is being queryied at the same time that it is being recovered following a failure. Statistically, this is sufficiently rare enough to make the trade-off between availability and cost competitive.
+The only time the difference might be noticeable,
+is when you try to query a specific Smart Tier data segment at the same time that it is being recovered from a replica.
+This coincidence is statistically rare enough for the trade-off between
+availability and cost to be competitive.
 
 ## Data integrity
 
@@ -39,7 +41,7 @@ Replicas ensure no data is lost to the same standard as the Real-Time Tier. The 
 
 Since data replicas are only queried when a primary data center is temporarily down, the effects are likely to be minimal. Most of the time, replicas are a fail-safe precautionary measure that you as a user do not interact with.
 
-## No latency impact
+## Smart Tier does _not_ increase latency
 
 Logz.io Smart Tier does not operate on traditional hot-warm-cold architectures.
 

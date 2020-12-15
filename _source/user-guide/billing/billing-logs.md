@@ -14,6 +14,7 @@ contributors:
   - yberlinger
 ---
 
+# DRAFT Content
 ## Pricing and billing for Log Management
 Logz.io Log Management provides you with a hosted, open source solution for observability, based on the ELK stack.
 

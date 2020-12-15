@@ -14,3 +14,34 @@ contributors:
   - yberlinger
 ---
 
+# DRAFT Content
+## Concepts 
+
++ Monthly charge is per sum of spans (in 1 million span increments)
++ Base price per annum: 12 x monthly charge, where: 
++ Monthly charge =[number of Hosts x USD rate per Host] + [number of additional 1M spans x USD rate per 1M spans]
++ Number of hosts (at 1M spans each) + additional 1M spans = calculated total
++ Quantity discounts do not apply for Tracing products
+### Common terms in Distributed Tracing
+
+|---+---|
+|Term| Definition|
+|-----------------|-----------|
+|DPM| Data points per minute|
+|Host| |
+
+### FAQs
+Hosts and...
+
+What happens if you are using: 
+
++ VM
++ Kubernetes
+
+### Calculations and Charges
+Plans: 
+
++ Yearly plan
++ Monthly plan= charged at +20%
++ Enterprise plan = charged at +15%
++ Product bundling discounts

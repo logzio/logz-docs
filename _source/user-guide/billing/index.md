@@ -13,7 +13,7 @@ tags:
 contributors:
   - yberlinger
 ---
-
+# DRAFT Content
 
 This topic clarifies how you're billed for your different Logz.io products.
 We'll cover general billing information and delve into specific information by product for: 

@@ -255,7 +255,7 @@ firstLevel:
     thirdLevel:
     - title: Billing for Log Management accounts
       url: /user-guide/billing/billing-logs    
-    - title: Log Management plan summaries
+    - title: Reference - Log Management plan summaries
       url: /user-guide/billing/billing-log-plan-summaries 
     - title: Billing for Infrastructure Monitoring accounts  
       url: /user-guide/billing/billing-metrics

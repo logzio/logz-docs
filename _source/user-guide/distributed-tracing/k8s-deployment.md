@@ -15,9 +15,9 @@ If you’re working with Kubernetes, you can use the yaml file below as a refere
 
 _Before you begin:_
 
-+ Make sure you use the correct Jaeger version for the `jaeger-agent` image. Logz.io has tested this yaml file for version 1.18. It is possible that the reference may not work for other versions.
-+ Look up your Distributed Tracing `ACCOUNT TOKEN` in the Distributed Tracing section of the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage Accounts**</a> page.
-    ![Reveal Distributed Tracing Token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-acct-tokeninfo11.gif)
++ Make sure you use the correct Jaeger version for the `jaeger-agent` image. Logz.io has tested this yaml file for version 1.18. It is possible that the reference may not work for other versions. 
++ Look up your Distributed Tracing `ACCOUNT TOKEN`: {% include tracing-shipping/tracing-token.md %}
+
 + Look up the 2-letter code in the **Region code** column of <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a>  For US east, the region code is **us**.  <a href="https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/   #look-up-your-distributed-tracing-token-and-region-information-in-logzio" target ="_blank"> *Remind me where I can find my token and region in the **settings** pages for my account, again?* </a>
 
 ### Kubernetes yaml example

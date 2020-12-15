@@ -249,6 +249,8 @@ firstLevel:
       url: /user-guide/tokens/log-shipping-tokens/
     - title: Metrics shipping token
       url: /user-guide/accounts/finding-your-metrics-account-token/
+    - title: Distributed Tracing shipping token
+      url: /user-guide/accounts/finding-your-tracing-account-token/
     - title: Shared tokens
       url: /user-guide/tokens/shared-tokens.html
     - title: API tokens

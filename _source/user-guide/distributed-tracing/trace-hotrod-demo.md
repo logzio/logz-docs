@@ -71,20 +71,13 @@ _To update your parameters, in the **.env** file:_
 
 1. Use a terminal to grab the repo code using the git command:  `git clone https://github.com/logzio/tracing-demo.git` and change directories: `cd tracing-demo`.
 1. Open the **.env** file and update the parameters with your preferred text editor.
-1. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. 
-<br>    You'll find your Distributed Tracing account information in the <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage accounts** page</a> of your Operations workspace, 
-
-    ![Distributed Tracing token location](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-token1.png)
-
-    ...when you click the relevant tracing account name at the bottom of the section.
-        ![Reveal Distributed Tracing Token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-acct-tokeninfo11.gif)
-
+1. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. {% include tracing-shipping/tracing-token.md %}
 1. Enter the correct 2-letter code for your region in the second line: `REGION_CODE=Enter your region code here`<br>
     Look up the 2-letter code for your region in the <a href="/user-guide/accounts/account-regionhtml#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> 
    
-    You can find your the region code for your account in the General settings page, here: <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> >Settings > General**.
+   You can find your the region code for your account in the General settings page, here: <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> >Settings > General**.
 
-    ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1.png)
+   ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1.png)
 
 
 1. Save and close the updated **.env** file.     

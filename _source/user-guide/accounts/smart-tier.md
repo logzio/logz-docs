@@ -45,4 +45,4 @@ Since data replicas are only queried when a primary data center is temporarily d
 
 Logz.io Smart Tier does not operate on traditional hot-warm-cold architectures.
 
-Smart Tier storage is a warm data tier, that reduces costs while keeping Kibana query performance at the normal Hot tier speed. The Smart Tier does not increase query latency and will not slow your workflow.
+Smart Tier storage is a warm data tier that reduces costs while keeping Kibana query performance at the normal Hot tier speed. The Smart Tier does not increase query latency and will not slow your workflow.

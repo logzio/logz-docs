@@ -58,7 +58,7 @@ Fill in the form with the relevant parameters.
 
 After filing in the form, click **Next** to continue.
 
-![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/lights-params-nov23.png)
+![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/lights-params-12182020.png)
 
 ##### Configure stack
 

@@ -12,7 +12,7 @@ shipping-tags:
 
 **Before you begin, you'll need**:
 
-* Sophos installed
+* Sophos Intercept X Endpoint installed
 * Access to the [Sophos Central Cloud console](https://central.sophos.com/)
 * [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * Terminal access to the instance running Filebeat. It is recommended to run the Sophos API script from the same instance running your Filebeat.
@@ -25,7 +25,7 @@ shipping-tags:
 
 Follow the official instructions provided by Sophos for [collecting Sophos Central Cloud logs from all machines](https://support.sophos.com/support/s/article/KB-000036372?language=en_US).
 
-The procedure involves using the Sophos API.
+The procedure involves using the Sophos API. Make sure that the `config.ini` used in the Sophos siem.py script is under `format = json` (this is the default setting).
 
 {% include log-shipping/certificate.md server="to your Filebeat server" %}
 
@@ -95,7 +95,7 @@ Start or restart Filebeat for the changes to take effect.
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search or filter for Sophos logs, under `type:sophos-ep`.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

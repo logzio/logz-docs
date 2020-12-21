@@ -13,7 +13,7 @@ contributors:
 
 You can enrich threat detection with your own private feeds of IOCs.
 
-This page explains the requirements to help you prepare your feeds so they can be pulled by Logz.io. For help configuring the sync, see [Adding a private feed](/user-guide/cloud-siem/private-feeds.html).
+This page provides guidelines to help you prepare your private feeds of IOCs so they can be pulled by Logz.io. For help configuring the sync, see [Adding a private feed](/user-guide/cloud-siem/private-feeds.html).
 
 ## Supported IOC types
 
@@ -24,7 +24,7 @@ Supported IOC types include:
 * Domains
 * URLs
 * User-Agent headers
-* Custom indicators (Generally, used to create a list of usernames or email addresses.)
+* Custom indicators (Custom indicators can be used to create lists of usernames, email addresses, or any other indicators, according to your own use case.)
 
 
 ### General guidelines
@@ -37,19 +37,21 @@ Supported IOC types include:
 
   Your feed can contain as many as 10K entities.
 
-* **Default or custom format**
+* **Format**
   
-  The default format requires that every IOC appear on a new line, with no delimiters,  separators, or additional notes or comments.
+  A feed of IOCs can have a variety of formats.
+  
+  For the default format, every IOC appears on a new line, without delimiters, separators, or additional notes or comments.
 
-  Here's an example for what a feed of malicious IPs might look like:
+  Here's an example for what a feed of malicious IPs might look like when using the default format:
 
   ```
   1.1.1.1
   2.2.2.2
   3.3.3.3
   ```
-  
-  If you would like to add a private feed of another format, please <a class="intercom-launch" href="mailto:help@logz.io">contact our Support team</a> and they will be happy to assist.
+
+  If your feed has another format, please <a class="intercom-launch" href="mailto:help@logz.io">contact our Support team</a> and they will be happy to assist.
 
 
 ### Validated format by IOC type

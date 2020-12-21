@@ -142,7 +142,7 @@ import logging.config
 # If you're using a serverless function, uncomment.
 # from logzio.flusher import LogzioFlusher
 
-# Say I have saved my dictionary configuration in a variable named 'LOGGING' - see 'Dict Config' sample section
+# Say I have saved my configuration as a dictionary in a variable named 'LOGGING' - see 'Dict Config' sample section
 logging.config.dictConfig(LOGGING)
 logger = logging.getLogger('superAwesomeLogzioLogger')
 

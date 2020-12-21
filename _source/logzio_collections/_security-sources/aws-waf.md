@@ -8,7 +8,6 @@ templates: ["no-template"]
 contributors:
   - shalper
 shipping-tags:
-  - security
   - aws
 ---
 

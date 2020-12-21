@@ -20,6 +20,8 @@ tabs:
     templated: true
   - collection: tracing-sources
     templated: true
+  - collection: security-sources
+    templated: true
   - collection: shippers
   - collection: community-shippers
     top-content: >-

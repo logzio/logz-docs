@@ -62,6 +62,10 @@ collections:
     output: true
     permalink: /shipping/tracing-sources/:slug.html
     name: Tracing
+  security-sources:
+    output: true
+    permalink: /shipping/security-sources/:slug.html
+    name: Security
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html
@@ -69,7 +73,7 @@ collections:
   shippers:
     output: true
     permalink: /shipping/shippers/:slug.html
-    name: Shippers
+    name: Agents
 
   ## ALL OTHER COLLECTIONS ##
   contributors:

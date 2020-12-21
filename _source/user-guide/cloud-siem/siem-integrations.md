@@ -16,8 +16,6 @@ contributors:
 
 Logz.io provides security rules and dashboards for the following security products:
 
-{% for doc in site.log-sources %}
-{%- if doc.shipping-tags contains 'security' %}
+{% for doc in site.security-sources %}
 * [{{doc.data-source}}]({{doc.url}})
-{%- endif -%}
 {%- endfor -%}

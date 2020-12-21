@@ -58,6 +58,10 @@ collections:
     output: true
     permalink: /shipping/metrics-sources/:slug.html
     name: Metrics
+  tracing-sources:
+    output: true
+    permalink: /shipping/tracing-sources/:slug.html
+    name: Tracing
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html

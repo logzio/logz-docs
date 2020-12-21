@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Add a private feed
+title: Adding a private feed
 permalink: /user-guide/cloud-siem/private-feeds.html
 flags:
   logzio-plan: enterprise
@@ -11,20 +11,18 @@ contributors:
   - shalper
 ---
 
-You can enrich threat detection with your own private feeds. To do so, you'll need to maintain IOC-specific feeds and make them accessible by HTTP/HTTPS to Logz.io.
+You can enrich threat detection with your own private feeds. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
 
 ![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)
 
 
 #### Configure Logz.io to pull your private feed
 
-Configuring Logz.io to fetch a private feed is very much like configuring a custom notification endpoint.
+**Before you begin** {#prepare-private-feed}
+
+You'll need to maintain a list of IOCs and host it where it can be fetched by Logz.io. See more details [here](/user-guide/siem/ioc-types/).
 
 <div class="tasklist">
-
-##### Prerequisites {#prepare-private-feed}
-
-Before you begin, you'll need to maintain a private feed of IOCs and host it where it can be fetched by Logz.io. See more details about [supported IOC types and their formatting requirements](/user-guide/siem/ioc-types/).
 
 ##### Configure the connection
 

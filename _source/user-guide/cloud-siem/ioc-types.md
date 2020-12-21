@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Preparing a Private feed
+title: Preparing a feed
 permalink: /user-guide/siem/ioc-types/
 flags:
   logzio-plan: enterprise
@@ -11,31 +11,45 @@ contributors:
   - shalper
 ---
 
-You can enrich threat detection with your own private feed of IOCs.
-This page explains the requirements to help you prepare the feed so it can be pulled by Logz.io. For help configuring the sync, see [Add a private feed](/user-guide/cloud-siem/private-feeds.html).
+You can enrich threat detection with your own private feeds of IOCs.
 
-### Supported IOC types
+This page explains the requirements to help you prepare your feeds so they can be pulled by Logz.io. For help configuring the sync, see [Adding a private feed](/user-guide/cloud-siem/private-feeds.html).
 
-Supported IOC types include: IPs, md5/sha1/sha256 hash signatures, domains, URLs, user-agent headers, and other custom indicators.
+## Supported IOC types
 
-Custom IOCs are generally useful for creating a list of usernames or email addresses. Keep in mind that each feed needs to contain entities of the same type and stick to a single format so that they can be automatically parsed by the system.
+Supported IOC types include:
+
+* IPs
+* Md5/sha1/sha256 hash signatures
+* Domains
+* URLs
+* User-Agent headers
+* Custom indicators (Generally, used to create a list of usernames or email addresses.)
+
 
 ### General guidelines
 
-* Maintain IOC-specific feeds. Each list can contain a single type and must meet the validation requirements for the type, as explained below.
+* **IOC-specific**
 
-* The feed should not exceed 10K entities. (Keep your list to 10,000 IOC entities or fewer.)
+  Each feed should be a list of IOCs of a similar type. This is important to meet the validation requirements, as explained below.
 
-* The default format requires that every IOC appears on a new line. This means you should avoid using separators or adding explanations or comments.
+* **Max number of entities**
 
-  Here's an example for what a feed of malicious IPs should look like:
+  Your feed can contain as many as 10K entities.
+
+* **Default or custom format**
+  
+  The default format requires that every IOC appear on a new line, with no delimiters,  separators, or additional notes or comments.
+
+  Here's an example for what a feed of malicious IPs might look like:
 
   ```
   1.1.1.1
   2.2.2.2
   3.3.3.3
   ```
-* If you want to use a feed that is formatted differently, <a class="intercom-launch" href="mailto:help@logz.io">contact our Support team</a> and they will be happy to assist.
+  
+  If you would like to add a private feed of another format, please <a class="intercom-launch" href="mailto:help@logz.io">contact our Support team</a> and they will be happy to assist.
 
 
 ### Validated format by IOC type

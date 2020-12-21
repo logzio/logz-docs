@@ -8,7 +8,7 @@ contributors:
   - shalper
 shipping-tags:
   - server-app
-  - security
+    
 ---
 
 #### Configuration

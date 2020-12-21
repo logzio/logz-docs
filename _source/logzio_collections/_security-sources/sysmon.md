@@ -8,7 +8,7 @@ templates: ["beats-logs"]
 contributors:
   - shalper
 shipping-tags:
-  - security
+    
 ---
 
 Sysmon (System Monitor) is a Windows system service that monitors and logs system activity of the Windows event log. It tracks process creations, network connections, and changes to file creation time.

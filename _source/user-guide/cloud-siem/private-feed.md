@@ -13,8 +13,6 @@ contributors:
 
 You can enrich threat detection with your own private feeds. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
 
-![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)
-
 
 #### Configure Logz.io to pull your private feed
 
@@ -24,11 +22,15 @@ You'll need to maintain a list of IOCs and host it where it can be fetched by Lo
 
 <div class="tasklist">
 
-##### Configure the connection
+##### Add a new feed
 
 Go to **Threats > Threat Intelligence Feeds** from the top menu, and select the option **+ Add private feed**.
 
+##### Configure the connection
+
 Fill in the form to configure the connection.
+
+![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)
 
 **About the feed**
 

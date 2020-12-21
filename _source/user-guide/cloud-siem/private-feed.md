@@ -18,7 +18,7 @@ You can enrich threat detection with your own private feeds. To do so, you'll ne
 
 #### Configure Logz.io to pull your private feed
 
-**Before you begin** {#prepare-private-feed}
+**Before you begin**
 
 You'll need to maintain a list of IOCs and host it where it can be fetched by Logz.io. See more details [here](/user-guide/siem/ioc-types/).
 

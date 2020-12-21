@@ -5,6 +5,9 @@ permalink: /user-guide/distributed-tracing/opentelemetry
 flags:
   logzio-plan: pro enterprise
   beta: true
+open-source:
+  - title: Logz.io-OpenTelemetry trace exporter
+    github-repo: https://github.com/open-telemetry/opentelemetry-collector-contrib  
 tags:
   - distributed tracing
 contributors:

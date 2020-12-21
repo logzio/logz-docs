@@ -7,15 +7,15 @@ data-source: Sophos
 contributors:
   - shalper
 shipping-tags:
-    
+
 ---
 
 **Before you begin, you'll need**:
 
 * Sophos installed
-* Access to the Sophos Central Cloud console
+* Access to the [Sophos Central Cloud console](https://central.sophos.com/)
 * [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
-* Terminal access to the instance running Filebeat. It is recommended to run the Sophos API script from the same instance running your Filebeat. 
+* Terminal access to the instance running Filebeat. It is recommended to run the Sophos API script from the same instance running your Filebeat.
 
 
 
@@ -36,38 +36,41 @@ Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your pref
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:
 
 ```yaml
-#...
+#... Filebeat
 filebeat.inputs:
-
 - type: log
   paths:
-    - <<FILE_PATH.TXT>>
+    - <<FILE_PATH>>
   fields:
-    logzio_codec: json
     token: <<SHIPPING-TOKEN>>
-    type: sophos_endpoint
   fields_under_root: true
+  json.keys_under_root: true
   encoding: utf-8
   ignore_older: 3h
 
 #For version 7 and higher
 filebeat.registry.path: /var/lib/filebeat
-
 #The following processors are to ensure compatibility with version 7
 processors:
 - rename:
     fields:
-     - from: "agent"
-       to: "beat_agent"
+     - from: "type"
+       to: "event_type"
     ignore_missing: true
+- add_fields:
+    target: ''
+    fields:
+      type: "sophos-ep"
 - rename:
     fields:
      - from: "log.file.path"
        to: "source"
     ignore_missing: true
-    
+- drop_event:
+    when:
+      regexp:
+        message: "^\\s*$"
 #... Output
-
 output:
   logstash:
     hosts: ["<<LISTENER-HOST>>"]
@@ -79,7 +82,7 @@ output:
 
 {% include log-shipping/replace-vars.html token=true %}
 
-Change `<<FILE_PATH.TXT>>` to the output text file retrieved from the Sophos siem.py script.
+Change `<<FILE_PATH>>` to the output TXT file retrieved from the Sophos siem.py script.
 
 
 One last validation - make sure Logz.io is the only output and appears only once.

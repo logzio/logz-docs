@@ -18,6 +18,8 @@ tabs:
     templated: true
   - collection: metrics-sources
     templated: true
+  - collection: tracing-sources
+    templated: true
   - collection: shippers
   - collection: community-shippers
     top-content: >-

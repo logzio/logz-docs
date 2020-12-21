@@ -8,7 +8,7 @@ templates: ["beats-logs"]
 contributors:
   - imnotashrimp
 shipping-tags:
-  - security
+   
 ---
 
 As its name suggests, auditd is a service that audits activities in a Linux environment.

@@ -11,7 +11,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - aws
-  - security
+   
 ---
 
 {% include log-shipping/s3-bucket.html service="CloudTrail" %}

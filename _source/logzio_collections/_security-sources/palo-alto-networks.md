@@ -9,7 +9,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - server-app
-  - security
+   
 ---
 
 #### Guided configuration

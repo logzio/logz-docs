@@ -8,7 +8,7 @@ templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:
-  - security
+   
 ---
 
 Falco is a [CNCF-approved](https://www.cncf.io/blog/2020/01/08/toc-votes-to-move-falco-into-cncf-incubator/) container security and Kubernetes threat detection engine that logs illegal container activity at runtime.

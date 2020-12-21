@@ -10,7 +10,7 @@ contributors:
   - dorisnaaman
 shipping-tags:
   - server-app
-  - security
+   
 ---
 
 #### Configuration

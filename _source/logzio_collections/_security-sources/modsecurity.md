@@ -8,7 +8,7 @@ contributors:
   - dorisnaaman
   - shalper
 shipping-tags:
-  - security
+   
 ---
 
 #### Configure Filebeat 

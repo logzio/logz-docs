@@ -14,7 +14,7 @@ contributors:
   - ronish31
 shipping-tags:
   - aws
-  - security
+   
 ---
 
 <!-- tabContainer:start -->

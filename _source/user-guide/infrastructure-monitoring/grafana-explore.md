@@ -49,8 +49,7 @@ The Metrics view options are great for learning what Metrics data is in your sys
 | Metricsets | `metricset.name` |
 | Which hosts are shipping metrics | `host.name` |
 
-
-![Grafana explore: Logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana_explore_logs.gif)
+![Grafana explore: Metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana_explore_metrics2.gif)
 
 ### Logs View
 
@@ -63,7 +62,8 @@ It can be useful when you want to build or edit a dashboard, or when you want to
 
 If you want the system to return all the metrics logs in your account, simply leave the query empty. Once you have a better idea of what you are looking for, query for the log type you are after. The key is to use Lucene syntax.
 
-When you're ready to dive into specifics, click on one of the results to open the document view. The document view will show you which metrics and dimensions are being sent in the same document, and includes the metadata for those metrics. (For example, typical metadata for the metrics could include the sending host, metricset, cluster, etc. ).
+When you're ready to dive into specifics, click one of the results to open the document view. The document view shows you which metrics and dimensions are being sent in the same document, and includes the metadata for those metrics. (For example, typical metadata for the metrics could include the sending host, metricset, cluster, and so on).
+![Grafana explore: Logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana_explore_logs.gif)
 
 You can click the <i class="fas fa-signal"></i> icon for a top-N analysis of the most common values for the field.
 
@@ -77,4 +77,7 @@ You can split your Explore mode screen to work faster and make quick comparisons
 To split the screen, click the **<i class="fas fa-columns"></i> Split** button.
 If you want to sync both views so they both cover the same time range, click the **<i class="fas fa-link"></i>** button to link the views.
 
-![Sync Grafana Explore views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/sync-explore-views.png)
+![Sync Grafana Explore views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-split-sync.gif) 
+
+<!--![Sync Grafana Explore views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/sync-explore-views.png) shows toggle -->
+

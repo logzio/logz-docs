@@ -58,10 +58,10 @@ collections:
     output: true
     permalink: /shipping/metrics-sources/:slug.html
     name: Metrics
-  tracing-sources:
-    output: true
-    permalink: /shipping/tracing-sources/:slug.html
-    name: Tracing
+#  tracing-sources:
+#    output: true
+#    permalink: /shipping/tracing-sources/:slug.html
+#    name: Tracing
   security-sources:
     output: true
     permalink: /shipping/security-sources/:slug.html

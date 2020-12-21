@@ -34,7 +34,7 @@ The list of feeds includes the feed name and description, IOC type, the calendar
 
 Logz.io syncs each feed once daily to look for updates. The last sync date is shown.
 
-To add your own private feed, see [Adding a private feed](/user-guide/cloud-siem/private-feeds.html). To prepare the 
+* To add your own private feed, see [Preparing your feed](/user-guide/siem/ioc-types/) for guidelines on compiling your lists of IOCs, and [Adding a private feed](/user-guide/cloud-siem/private-feeds.html) for instructions on setting up the sync.
 
 #### Research sources for an IOC
 

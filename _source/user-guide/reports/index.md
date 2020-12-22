@@ -51,11 +51,11 @@ You can use an online tool such as the
 
 Use **Who to send it to** to choose the report's email and Slack recipients.
 
-##### Other options
+##### Custom logo & sharing link
 
 ![Logz.io report scheduling form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/report-form.png)
 
-You will find a other options at the bottom of the form.
+You will find more options at the bottom of the form:
 
 Custom logo
 : You can enable the option to include your account's **Custom logo** in the report.

@@ -21,7 +21,7 @@ In Lucene query syntax:
 
 Wildcard searches are extremely resource heavy, memory intensive, and slow to run.
 
-For your protection, **leading wildcards are disabled**. This means your searches cannot begin with a wildcard.
+For your protection, **leading wildcards are disabled**. This means your searches cannot begin with a wildcard. For example, you can run a free text search for `string` but not for `*string`. Similarly, you can run a search with a `field:value` such as `key: something` but not `key: *string`.
 
 ### Workarounds and alternatives
 
@@ -50,8 +50,6 @@ from the top menu. Search for the field name, hover over it, and select the **an
 ![Explicit field mapping in Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/kibana-field-mapping.png)
 
 ##### Contact support to request a custom configuration
-
-Leading wildcards can be enabled for specific fields upon request.
 
 If the above solutions do not satisfy your needs, please <a href="mailto:help@logz.io?subject=Requesting querying assistance &body= Hi! Please be in touch regarding leading wildcard support for specific fields. Thanks!">contact support</a> to request a customized solution.
 

@@ -11,7 +11,7 @@ contributors:
   - shalper
 ---
 
-You can enrich threat detection with your own private feeds. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
+You can enrich log threat detection by adding your own private feeds to those provided by Logz.io. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
 
 
 #### Configure Logz.io to pull your private feed

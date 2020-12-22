@@ -17,7 +17,7 @@ Cloud SIEM cross references incoming logs against lists of known Indicators of C
 Your Cloud SIEM pulls lists of IOCs, aka Threat Intelligence feeds, from industry recommended sources that crowdsource and scrape the internet for malicious and suspicious indicators, including:
 
 * IPs
-* Md5/sha1/sha256 hash signatures
+* md5/sha1/sha256 hash signatures
 * Domains
 * URLs
 * User-Agent headers

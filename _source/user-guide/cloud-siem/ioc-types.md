@@ -11,7 +11,7 @@ contributors:
   - shalper
 ---
 
-You can enrich threat detection with your own private feeds of IOCs.
+You can enrich log threat detection by adding your own private feeds to those provided by Logz.io.
 
 This page provides guidelines to help you prepare your private feeds of IOCs so they can be pulled by Logz.io. For help configuring the sync, see [Adding a private feed](/user-guide/cloud-siem/private-feeds.html).
 
@@ -20,7 +20,7 @@ This page provides guidelines to help you prepare your private feeds of IOCs so 
 Supported IOC types include:
 
 * IPs
-* Md5/sha1/sha256 hash signatures
+* md5/sha1/sha256 hash signatures
 * Domains
 * URLs
 * User-Agent headers

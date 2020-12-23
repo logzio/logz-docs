@@ -33,9 +33,12 @@ Summary
 Threats
 : The Threats dashboard shows you potential threats by correlating your logs with lists of known threats using publicly available threat feeds.
 
-Research & Dashboards
-: Use Kibana Discover to drill down into your logs, or select dashboards to review.
+Kibana & Dashboards
+: Use Kibana to drill down into your logs, or select dashboards to review.
   Cloud SIEM helps you quickly investigate specific events and threats.
+
+Send your data
+: A quick guide to walk you through the first steps for getting your logs into the system.
 
 Reports
 : Schedule reports to be sent out on a regular basis.

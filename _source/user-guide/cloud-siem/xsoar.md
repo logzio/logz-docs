@@ -3,7 +3,7 @@ layout: article
 title: Integrate with Cortex xSOAR
 permalink: /user-guide/cloud-siem/xsoar-integration/
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - security-analytics
   - security-rules

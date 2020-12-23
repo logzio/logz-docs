@@ -3,7 +3,7 @@ layout: article
 title: Preparing a feed
 permalink: /user-guide/siem/ioc-types/
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - security-analytics
   - security-rules

@@ -3,7 +3,7 @@ layout: article
 title: Dashboards & Reports
 permalink: /user-guide/cloud-siem/dashboards/
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - security-analytics
   - security-summary

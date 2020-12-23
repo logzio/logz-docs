@@ -3,7 +3,7 @@ layout: article
 title: Adding a private feed
 permalink: /user-guide/cloud-siem/private-feeds.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - security-analytics
   - security-rules

@@ -3,7 +3,7 @@ layout: article
 title: Threat Intelligence feeds
 permalink: /user-guide/cloud-siem/threat-intelligence.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - security-analytics
 contributors:

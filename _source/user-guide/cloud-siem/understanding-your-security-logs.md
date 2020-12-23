@@ -3,7 +3,7 @@ layout: article
 title: Research in Kibana
 permalink: /user-guide/cloud-siem/understanding-your-security-logs.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - security-research
 contributors:

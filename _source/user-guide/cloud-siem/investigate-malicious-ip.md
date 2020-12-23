@@ -3,7 +3,7 @@ layout: article
 title: Investigate malicious IPs
 permalink: /user-guide/cloud-siem/malicious-IPs.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - logz.io-security
   - siem

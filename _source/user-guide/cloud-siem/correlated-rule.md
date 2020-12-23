@@ -3,7 +3,7 @@ layout: article
 title: Correlated rules
 permalink: /user-guide/siem/security-correlated-queries/
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - alerts
   - rules

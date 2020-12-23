@@ -53,8 +53,11 @@ Fill in the form with the relevant parameters.
 | regions | A comma separated list of AWS regions for deployment, (example: us-east-1,ap-south-1). |
 | shippingProtocol | Protocol for shipping metrics and logs. Default is https and it better to leave it as is |
 | url | A comma-delimited list of the URLs you want to monitor. For example : https://www.logz.io,https://example.com |
-| memory | `Default: 512 (MB)`. The memory size you want to assign to the lambda function that runs LightS. <br> Note that the more URLs you choose to monitor, the more memory you'll need. <br> 512 MB is the minimum size we recommend. |
+| memory | `Default: 512 (MB)`. The memory size you want to assign to the Lambda function running LightS. 512 MB is the minimum memory recommended for a single URL. The more URLs you choose to monitor, the more memory you'll need.  |
 
+These default settings are just a starting point.
+Check your Lambda usage regularly, and adjust these values if you need to.
+{:.info-box.note}
 
 After filing in the form, click **Next** to continue.
 

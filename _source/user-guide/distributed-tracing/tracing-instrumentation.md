@@ -42,7 +42,6 @@ While both instrumentations may cause performance overhead, the pros and cons of
 |   |Less flexibility compared to manual instrumentation          |Can include business metrics within the trace, such as events or messages you want to use for monitoring or business observability                 |                |
 |-----------------+------------+-----------------+----------------|
 
-Check out this related blog post for additional insights:  <a href="https://logz.io/blog/jaeger-instrumentation-introduction/#intro" target="_blank"> Jaeger Essentials: Introduction to Jaeger Instrumentation <i class="fas fa-external-link-alt"></i></a>. 
 
 ## Instrumentation recommendations and resources
 We recommend that you first instrument the frameworks that are supported out-of-the-box, before proceeding with manual instrumentation to fine-tune the data. This will make instrumentation much easier and minimize the code you must write.
@@ -72,3 +71,10 @@ The following open infrastructure projects include built-in auto instrumentation
 * <a href ="https://docs.traefik.io/observability/tracing/jaeger/" target="_blank">Traefik <i class="fas fa-external-link-alt"></i></a> 
 * <a href ="https://vertx-ci.github.io/vertx-4-preview/docs/vertx-opentracing/java/" target="_blank">VertX <i class="fas fa-external-link-alt"></i></a>
 * <a href ="https://docs.konghq.com/hub/kong-inc/zipkin/" target="_blank">Kong <i class="fas fa-external-link-alt"></i></a>
+
+### Expand your Instrumentation horizons: Logz.io blogs for inspiration and insights
+We have some blog posts that you might be interested in: 
+
+* <a href="https://logz.io/blog/jaeger-tracing-nodejs/" target="_blank"> Instrumenting Node.js for Tracing in Jaeger <i class="fas fa-external-link-alt"></i></a>
+* <a href="https://logz.io/blog/go-instrumentation-distributed-tracing-jaeger/"> Beginner’s Guide to Jaeger + OpenTracing Instrumentation for Go <i class="fas fa-external-link-alt"></i></a>
+* <a href="https://logz.io/blog/jaeger-instrumentation-introduction/#intro" target="_blank"> Jaeger Essentials: Introduction to Jaeger Instrumentation <i class="fas fa-external-link-alt"></i></a>

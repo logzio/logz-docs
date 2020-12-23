@@ -165,7 +165,7 @@ firstLevel:
   - title: Investigate security events
     url: /user-guide/cloud-siem/security-events.html
     thirdLevel:
-    - title: Research
+    - title: Research in Kibana
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
     - title: Drilldown links
       url: /user-guide/cloud-siem/drilldown-links/

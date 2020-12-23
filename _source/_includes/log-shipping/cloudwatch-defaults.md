@@ -1,7 +1,8 @@
 ###### Default settings
 
 By default, we do not send logs of type START, END, REPORT.
-If you prefer to send all log types, replace the function `_parse_cloudwatch_log` to:
+
+If you prefer to send all log types, replace the method `_parse_cloudwatch_log` in the Lambda function with the following:
 
 ```py
 def _parse_cloudwatch_log(log, additional_data):

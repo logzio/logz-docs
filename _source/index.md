@@ -11,7 +11,7 @@ cards:
     # icon: blocks.svg
 
   - title: Send your data
-    description: All the different ways you can feed the ELK machine
+    description: All the different ways to send your data to Logz.io
     url: /shipping/
     li-class: li-plane
 

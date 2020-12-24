@@ -29,23 +29,29 @@ kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
 Step 2.
 Deploy Jaeger agents and a collector - either OpenTelemetry's collector (recommended) or Jaeger's collector:
 
-### OpenTelemetry collector + Jaeger agent
+### OpenTelemetry collector + Jaeger agents
+* Save the yaml below to a file and name it `config.yaml`
+* Edit the 2-letter region code if necessary (line 86)
+* Deploy the yaml:
+```shell script
+kubectl apply -f config.yaml
+```
 
 ```yaml
 apiVersion:  apps/v1
 kind: Deployment
 metadata:
-  name: jaeger-logzio-collector
+  name: otel-collector-logzio
   labels:
-    app: jaeger
-    app.kubernetes.io/name: jaeger
+    app: otel-logzio
+    app.kubernetes.io/name: otel-logzio
     app.kubernetes.io/component: collector
-  namespace: kube-system
+  namespace: monitoring
 spec:
   selector:
     matchLabels:
-      app: jaeger
-      app.kubernetes.io/name: jaeger
+      app: otel-logzio
+      app.kubernetes.io/name: otel-logzio
       app.kubernetes.io/component: collector
   replicas: 1
   strategy:
@@ -53,62 +59,91 @@ spec:
   template:
     metadata:
       labels:
-        app: jaeger
-        app.kubernetes.io/name: jaeger
+        app: otel-logzio
+        app.kubernetes.io/name: otel-logzio
         app.kubernetes.io/component: collector
     spec:
       containers:
-      - image: logzio/jaeger-logzio-collector:latest
-        name: jaeger-logzio-collector
+      - image: otel/opentelemetry-collector-contrib:0.17.0
+        name: otel-collector-logzio
         ports:
-        - containerPort: 14268
+          # - "1888:1888"   # pprof extension
+          # - "8888:8888"   # Prometheus metrics exposed by the collector
+          # - "8889:8889"   # Prometheus exporter metrics
+          # - "13133:13133" # health_check extension
+          # - "9411"   # Zipkin receiver
+          # - "55680:55679" # zpages extension
+        - containerPort: 1888   # pprof extension
           protocol: TCP
-        - containerPort: 9411
+        - containerPort: 9411  # Zipkin receiver
           protocol: TCP
-        - containerPort: 14250
+        - containerPort: 8888  # Prometheus metrics exposed by the collector
           protocol: TCP
-        readinessProbe:
-          httpGet:
-            path: "/"
-            port: 14269
+        - containerPort: 13133  # health_check extension
+          protocol: TCP
+        - containerPort: 14250 #jaeger receiver
+          protocol: TCP
         env:
-        - name: ACCOUNT_TOKEN
-          value: <<ACCOUNT_TOKEN>> # Replace with the Tracing account token from Logz.io in Manage accounts > Distributed Tracing
-        - name: REGION
-          value: <<REGION>> # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page
+          - name: LOGZIO_TRACES_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: logzio-traces-shipping-token
+                name: logzio-monitoring-secret
+        volumeMounts:
+        - name: otel-collector-config
+          mountPath: "/etc/otel/"
+          readOnly: true
+          # subPath: config.yml
+      volumes:
+      - name: otel-collector-config
+        configMap:
+          defaultMode: 0600
+          name: otel-collector-config
+
 ---
 apiVersion: v1
-kind: Service
+kind: ConfigMap
 metadata:
-  name: jaeger-logzio-collector
-  labels:
-    app: jaeger
-    app.kubernetes.io/name: jaeger
-    app.kubernetes.io/component: collector
-  namespace: kube-system
-spec:
-  ports:
-  - name: jaeger-health-check
-    port: 14269
-    protocol: TCP
-    targetPort: 14269
-  - name: jaeger-collector-http
-    port: 14268
-    protocol: TCP
-    targetPort: 14268
-  - name: jaeger-collector-zipkin
-    port: 9411
-    protocol: TCP
-    targetPort: 9411
-  - name: jaeger-collector-grpc
-    port: 14250
-    protocol: TCP
-    targetPort: 14250
-  selector:
-    app: jaeger
-    app.kubernetes.io/name: jaeger
-    app.kubernetes.io/component: collector
-  type: ClusterIP
+ name: otel-collector-config
+ namespace: monitoring
+ labels:
+   app: otel-logzio
+   component: otel-collector-conf
+data:
+ config.yaml: |
+  receivers:
+    opencensus:
+    zipkin:
+      endpoint: :9411
+    jaeger:
+      protocols:
+        thrift_http:
+        grpc:
+
+  exporters:
+    logzio:
+      account_token: "${LOGZIO_TRACES_TOKEN}"
+      region: us
+    logging:
+
+  processors:
+    batch:
+    queued_retry:
+
+  extensions:
+    pprof:
+      endpoint: :1777
+    zpages:
+      endpoint: :55679
+    health_check:
+
+  service:
+    extensions: [health_check, pprof]
+    pipelines:
+      traces:
+        receivers: [opencensus, jaeger, zipkin]
+        processors: [batch, queued_retry]
+        exporters: [logzio]
 ---
 apiVersion: apps/v1
 kind: DaemonSet
@@ -118,7 +153,7 @@ metadata:
     app: jaeger
     app.kubernetes.io/name: jaeger
     app.kubernetes.io/component: agent
-  namespace: kube-system
+  namespace: monitoring
 spec:
   selector:
     matchLabels:
@@ -135,7 +170,7 @@ spec:
       containers:
       - name: jaeger-agent
         image: jaegertracing/jaeger-agent:1.18.0   # This specific version has been tested by Logz.io. If you opt for a later version, the Logz.io recommendation is to test before you deploy.
-        args: ["--reporter.grpc.host-port=jaeger-logzio-collector:14250"]
+        args: ["--reporter.grpc.host-port=otel-collector-logzio:14250", "--log-level=debug"]
         ports:
           - containerPort: 5775
             protocol: UDP
@@ -147,5 +182,4 @@ spec:
             protocol: TCP
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
-
 ```

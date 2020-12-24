@@ -110,6 +110,6 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="MySQL" %}
+{% include metric-shipping/open-dashboard.md title="MySQL" %}
 
 </div>

@@ -95,7 +95,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-metrics.md namespace ="DynamoDB" %}
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/DynamoDB" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/DynamoDB" %}
 
 </div>
 </div>
@@ -211,7 +211,7 @@ If the file has other outputs, remove them.
 Start or restart Metricbeat for the changes to take effect.
 
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/DynamoDB" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/DynamoDB" %}
 
 </div>
 <!-- tab:end -->

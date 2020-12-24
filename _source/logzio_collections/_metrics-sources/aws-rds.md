@@ -82,7 +82,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-metrics.md namespace ="RDS" %}
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/RDS" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/RDS" %}
 
 
 </div>

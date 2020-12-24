@@ -96,7 +96,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-metrics.md namespace ="NetworkELB" %}
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/NetworkELB" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/NetworkELB" %}
 
 </div>
 </div>
@@ -212,7 +212,7 @@ If the file has other outputs, remove them.
 Start or restart Metricbeat for the changes to take effect.
 
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Network ELB" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/Network ELB" %}
 
 </div>
 <!-- tab:end -->

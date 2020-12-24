@@ -100,6 +100,6 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Envoy" %}
+{% include metric-shipping/open-dashboard.md title="Envoy" %}
 
 </div>

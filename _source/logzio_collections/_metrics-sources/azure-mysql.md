@@ -135,7 +135,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure MySQL database monitor" %}
+{% include metric-shipping/open-dashboard.md title="Azure MySQL database monitor" %}
 {:.paramlist}
 
 </div>

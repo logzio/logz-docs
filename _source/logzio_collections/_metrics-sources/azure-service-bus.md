@@ -144,7 +144,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure Service Bus monitor" %}
+{% include metric-shipping/open-dashboard.md title="Azure Service Bus monitor" %}
 
 
 </div>

@@ -222,7 +222,6 @@ spec:
       - image: logzio/jaeger-logzio-collector:latest
         name: jaeger-collector-logzio
         imagePullPolicy: IfNotPresent
-        args: ["--log-level=debug"]
         ports:
         - containerPort: 14268
           protocol: TCP

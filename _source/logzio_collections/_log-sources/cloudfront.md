@@ -37,12 +37,9 @@ For help with this, see [Configuring and Using CloudFront Access Logs](https://d
 
 ##### Add the S3 bucket information
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
-
 <!-- logzio-inject:s3-config -->
 
-Log into your Logz.io account, and go to the [CloudFront log shipping page](https://app.logz.io/#/dashboard/data-sources/CloudFront) and use the provided **Configuration Wizard**.
-
+To use the S3 fetcher, log into your Logz.io account, and go to the [CloudFront log shipping page](https://app.logz.io/#/dashboard/data-sources/CloudFront). Add your S3 bucket information directly via the **Configuration Wizard** on the page.
 
 Logz.io fetches logs that are generated after configuring an S3 bucket.
 Logz.io cannot fetch past logs retroactively.

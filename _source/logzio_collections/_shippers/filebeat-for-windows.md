@@ -44,7 +44,7 @@ Make your configuration file using the Filebeat configuration wizard.
 
 <!-- logzio-inject:filebeat-wizard -->
 
-{% include log-shipping/in-app-configuration.html toolId="filebeat-wizard" %}
+Log into your Logz.io account, and go to the [Filebeat log shipping page](https://app.logz.io/#/dashboard/data-sources/Filebeat) to use the **Filebeat Configuration Wizard**.
 
 ##### Move the configuration file to the Filebeat folder
 

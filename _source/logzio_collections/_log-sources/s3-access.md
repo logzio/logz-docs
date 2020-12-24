@@ -31,11 +31,13 @@ S3 access logs are not enabled S3 by default, so you'll need to set this up.
 
 For help with this, see [Amazon S3 Server Access Logging](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html) from AWS.
 
-##### Add the S3 bucket information
+##### Add your S3 bucket information
 
 <!-- logzio-inject:s3-config -->
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+
+{% include log-shipping/add-s3-bucket.md shipper="[S3 access log shipping page](https://app.logz.io/#/dashboard/data-sources/S3-Access)" %}
+
 
 ##### Check Logz.io for your logs
 

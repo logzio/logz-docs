@@ -37,15 +37,13 @@ For help with setting this up, see these docs from AWS:
 * For Classic Load Balancer,
   see [Enable Access Logs for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html).
 
-##### Add the S3 bucket information
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+##### Add your S3 bucket information
 
 <!-- logzio-inject:s3-config -->
 
-  Logz.io fetches logs that are generated after configuring an S3 bucket.
-  Logz.io cannot fetch past logs retroactively.
-  {:.info-box.important}
+{% include log-shipping/add-s3-bucket.md shipper="[Elastic Load Balancing log shipping page](https://app.logz.io/#/dashboard/data-sources/ELB)" %}
+
 
 ##### Check Logz.io for your logs
 

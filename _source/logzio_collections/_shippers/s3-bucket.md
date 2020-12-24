@@ -1,9 +1,9 @@
 ---
-title: Configure the Amazon S3 fetcher
+title: Configure an Amazon S3 Bucket
 logo:
   logofile: aws-s3.svg
   orientation: vertical
-data-source: S3 fetcher
+data-source: S3 Bucket
 shipping-tags:
   - log-shipper
   - aws
@@ -13,7 +13,7 @@ contributors:
 ---
 
 Some AWS services can be configured to ship their logs to an S3 bucket,
-where Logz.io can fetch those logs.
+where Logz.io can fetch those logs directly.
 
 ## Best practices
 
@@ -30,7 +30,7 @@ Please keep these notes in mind when configuring logging.
 
 ## Setup
 
-You can add your buckets in Logz.io by providing your S3 credentials and configuration.
+You can add your buckets directly from Logz.io by providing your S3 credentials and configuration.
 
 #### Configure Logz.io to fetch logs from an S3 bucket
 
@@ -39,11 +39,16 @@ You can add your buckets in Logz.io by providing your S3 credentials and configu
 
 <div class="tasklist">
 
-##### Add the S3 bucket information
+
+
+
+##### Add your S3 bucket information
 
 <!-- logzio-inject:s3-config -->
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+
+{% include log-shipping/add-s3-bucket.md shipper="[S3 bucket log shipping page](https://app.logz.io/#/dashboard/data-sources/S3-Bucket)" %}
+
 
 ##### Check Logz.io for your logs
 

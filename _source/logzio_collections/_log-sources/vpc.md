@@ -30,11 +30,14 @@ VPC Flow logs are not stored in S3 by default, so you'll need to set up AWS to s
 
 For help with this, see [Publishing Flow Logs to Amazon S3](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html) from AWS.
 
-##### Add the S3 bucket information
+##### Add your S3 bucket information
 
 <!-- logzio-inject:s3-config -->
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+
+{% include log-shipping/add-s3-bucket.md shipper="[VPC log shipping page](https://app.logz.io/#/dashboard/data-sources/vpc)" %}
+
+
 
 ##### Check Logz.io for your logs
 

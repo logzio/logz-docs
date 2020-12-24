@@ -130,7 +130,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{% include metric-shipping/azure-params.html %}
+{% include metric-shipping/azure-params.md %}
 
 ##### Start Metricbeat
 

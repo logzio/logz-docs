@@ -21,13 +21,13 @@ _Before you begin:_
 + Look up the 2-letter code in the **Region code** column of <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a>  For US east, the region code is **us**.  <a href="https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/   #look-up-your-distributed-tracing-token-and-region-information-in-logzio" target ="_blank"> *Remind me where I can find my token and region in the **settings** pages for my account, again?* </a>
 
 Step 1.
-Create a secret for you traces shipping token:
+Create a secret for your Distributed Tracing shipping token:
 ```shell script
 kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
   --from-literal=logzio-traces-shipping-token=<<ACCOUNT-TOKEN>> 
 ```
 Step 2.
-Deploy Jaeger agents and a collector - either OpenTelemetry's collector (recommended) or Jaeger's collector:
+Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recommended) or the Jaeger collector:
 
 ### OpenTelemetry collector + Jaeger agents
 * Save the yaml below to a file and name it `config.yaml`

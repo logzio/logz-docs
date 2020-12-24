@@ -62,12 +62,12 @@ Follow through the system's prompts and provide the requested parameters.
 
 | Prompt | Answer |
 |---|---|
-| Logz.io metrics shipping token <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
+| Logz.io metrics shipping token <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.md %} |
 | Logz.io region (Default: `Blank (US East)`) | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you’re shipping the logs to) and API URL. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | Cluster name (Default: `detected by the script`) | Name of the Kubernetes cluster in which you are deploying. |
 | Standard or autodiscover deployment (Default: `standard`) | To deploy with [configuration templates](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover.html) answer 'autodiscover'. |
 
-{% include metric-shipping/open-dashboard.html title="Kubernetes" %}
+{% include metric-shipping/open-dashboard.md title="Kubernetes" %}
 
 
 </div>
@@ -187,7 +187,7 @@ metricbeat.yml: |-
         certificate_authorities: ['/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt']
 ```
 
-{% include metric-shipping/open-dashboard.html title="Kubernetes" %}
+{% include metric-shipping/open-dashboard.md title="Kubernetes" %}
 
 </div>
 </div>

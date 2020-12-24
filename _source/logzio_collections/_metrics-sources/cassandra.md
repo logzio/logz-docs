@@ -100,7 +100,7 @@ fields:
 fields_under_root: true
 ```
 
-{% include metric-shipping/replace-metrics-token.html %}
+{% include metric-shipping/replace-metrics-token.md %}
 
 ##### Set Logz.io as the output
 
@@ -158,7 +158,7 @@ For a full list of available Metricbeat configuration options for the Prometheus
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include metric-shipping/replace-metrics-token.html %}
+* {% include metric-shipping/replace-metrics-token.md %}
 * {% include log-shipping/replace-vars.html listener=true %}
 * Edit the `hosts` field for prometheus JMX metrics. Specify a comma-separated list of your Cassandra server adresses, (for example: `hosts: ["cassandra1:7070","cassandra2:7070"]`).
 * Replace `<<CLUSTER-TAG>>` with a custom string value to help you identify your Cassandra cluster. This can be helpful if you're running a multi-cluster Cassandra environment.
@@ -167,4 +167,4 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Cassandra" %}
+{% include metric-shipping/open-dashboard.md title="Cassandra" %}

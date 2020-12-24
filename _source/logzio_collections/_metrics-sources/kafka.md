@@ -93,7 +93,7 @@ fields:
 fields_under_root: true
 ```
 
-{% include metric-shipping/replace-metrics-token.html %}
+{% include metric-shipping/replace-metrics-token.md %}
 
 
 ##### Set Logz.io as the output
@@ -167,6 +167,6 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Kafka overview" %}
+{% include metric-shipping/open-dashboard.md title="Kafka overview" %}
 
 </div>

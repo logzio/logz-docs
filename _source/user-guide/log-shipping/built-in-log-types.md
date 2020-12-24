@@ -69,6 +69,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Palo Alto Networks    | `paloalto`                                  |
 | Performance-tab       | `performance-tab`                                  |
 | Sonicwall                | `sonicwall`                                  |
+| Sophos Intercept X       | `sophos-ep`                                  |
 | Stormshield                | `stormshield`                              |
 | Sysmon                | `wineventlog`                              |
 | VPC Flow           | `vpcflow`                             |

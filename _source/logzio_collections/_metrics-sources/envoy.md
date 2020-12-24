@@ -56,7 +56,7 @@ fields:
   token: <<SHIPPING-TOKEN>>
 fields_under_root: true
 ```
-{% include metric-shipping/replace-metrics-token.html %}
+{% include metric-shipping/replace-metrics-token.md %}
 
 ##### Set Logz.io as the output
 
@@ -100,6 +100,6 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Envoy" %}
+{% include metric-shipping/open-dashboard.md title="Envoy" %}
 
 </div>

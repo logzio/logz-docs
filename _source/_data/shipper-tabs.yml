@@ -18,6 +18,10 @@ tabs:
     templated: true
   - collection: metrics-sources
     templated: true
+#  - collection: tracing-sources
+#    templated: true
+  - collection: security-sources
+    templated: true
   - collection: shippers
   - collection: community-shippers
     top-content: >-
@@ -60,8 +64,8 @@ tags:
     name: Security
   - slug: database
     name: Databases
-  - slug: traces
-    name: Tracing
+#  - slug: traces
+#    name: Tracing
   - slug: networking
     name: Networking
 

@@ -40,7 +40,7 @@ shipping-tags:
 
 Replace the General configuration in `metricbeat.yml` with Logz.io settings.
 
-{% include metric-shipping/replace-metrics-token.html %}
+{% include metric-shipping/replace-metrics-token.md %}
 
 ```yaml
 # ===== General =====
@@ -110,7 +110,7 @@ on your machine.
 
 Replace the General configuration in `metricbeat.yml` with Logz.io settings.
 
-{% include metric-shipping/replace-metrics-token.html %}
+{% include metric-shipping/replace-metrics-token.md %}
 
 ```yaml
 # ===== General =====
@@ -222,7 +222,7 @@ logzio/docker-collector-metrics
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
+| LOGZIO_TOKEN <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.md %} |
 | LOGZIO_MODULES <span class="required-param"></span> | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/modules`. |
 | LOGZIO_REGION <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
@@ -232,7 +232,7 @@ logzio/docker-collector-metrics
 | HOSTNAME <span class="default-param">``</span> | Insert your host name if you want it to appear in the metrics' `host.name`. If null, host.name will show the container's ID. |
 {:.paramlist}
 
-{% include metric-shipping/open-dashboard.html title="System Metrics" %}
+{% include metric-shipping/open-dashboard.md title="System Metrics" %}
 
 </div>
 

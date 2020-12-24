@@ -96,7 +96,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-metrics.md namespace ="Route53" %}
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Route53" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/Route53" %}
 
 </div>
 </div>
@@ -212,7 +212,7 @@ If the file has other outputs, remove them.
 Start or restart Metricbeat for the changes to take effect.
 
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Route53" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/Route53" %}
 
 </div>
 <!-- tab:end -->

@@ -111,7 +111,7 @@ firstLevel:
 
     # ===== DISTRIBUTED TRACING =====
 - title: Distributed Tracing
-  icon: fas fa-align-left    
+  icon: fas fa-align-left
 
   secondLevel:
   - title: Why Distributed Tracing?
@@ -123,7 +123,7 @@ firstLevel:
     url: /user-guide/distributed-tracing/getting-started-tracing/
     thirdLevel:
     - title: Setting up instrumentation and ingesting traces
-      url: /user-guide/distributed-tracing/tracing-instrumentation       
+      url: /user-guide/distributed-tracing/tracing-instrumentation
     - title: Deploying components in your system
       url: /user-guide/distributed-tracing/deploying-components
     - title: Kubernetes deployment reference
@@ -132,7 +132,7 @@ firstLevel:
       url: /user-guide/distributed-tracing/trace-hotrod-demo
   - title: The Grand Distributed Tracing Tour
     url: /user-guide/distributed-tracing/tracing-tour/
-    thirdLevel: 
+    thirdLevel:
     - title: Trace Timeline
       url: /user-guide/distributed-tracing/trace-timeline/
     - title: Trace Graph
@@ -140,15 +140,15 @@ firstLevel:
     - title: Trace Statistics
       url: /user-guide/distributed-tracing/trace-statistics/
     - title: Trace JSON
-      url: /user-guide/distributed-tracing/trace-json/ 
+      url: /user-guide/distributed-tracing/trace-json/
     - title: Compare traces
-      url: /user-guide/distributed-tracing/compare-traces   
+      url: /user-guide/distributed-tracing/compare-traces
     - title: Topology diagrams
-      url: /user-guide/distributed-tracing/topology-system_architecture    
+      url: /user-guide/distributed-tracing/topology-system_architecture
   - title: Correlate logs and traces
     url:  /user-guide/distributed-tracing/correlate-traces/
   - title: Visualize traces in Kibana
-    url: /user-guide/distributed-tracing/visualize-traces/  
+    url: /user-guide/distributed-tracing/visualize-traces/
 
 
   # ===== CLOUD SIEM =====
@@ -165,28 +165,28 @@ firstLevel:
   - title: Investigate security events
     url: /user-guide/cloud-siem/security-events.html
     thirdLevel:
-    - title: Dashboards & Reports
-      url: /user-guide/cloud-siem/dashboards/
-    - title: Research
+    - title: Research in Kibana
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
     - title: Drilldown links
       url: /user-guide/cloud-siem/drilldown-links/
-  - title: Investigate malicious IPs
-    url: /user-guide/cloud-siem/malicious-IPs.html
+  - title: Threat Intelligence feeds
+    url: /user-guide/cloud-siem/threat-intelligence.html
     thirdLevel:
-    - title: Threat Intelligence
-      url: /user-guide/cloud-siem/threat-intelligence.html
     - title: Add a private feed
       url: /user-guide/cloud-siem/private-feeds.html
+    - title: Preparing a feed
+      url: /user-guide/siem/ioc-types/
+  - title: Investigate malicious IPs
+    url: /user-guide/cloud-siem/malicious-IPs.html
   - title: Configure a security rule
     url: /user-guide/cloud-siem/manage-security-rules.html
     thirdLevel:
     - title: Correlated rules
       url: /user-guide/siem/security-correlated-queries/
+  - title: Dashboards & Reports
+    url: /user-guide/cloud-siem/dashboards/
   - title: Lookups
     url: /user-guide/lookups/
-  - title: Security reports
-    url: /user-guide/siem/reports/
   - title: Integrations
     url: /user-guide/cloud-siem/integrations/
     thirdLevel:

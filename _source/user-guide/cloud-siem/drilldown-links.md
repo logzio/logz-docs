@@ -3,7 +3,7 @@ layout: article
 title: Add drilldown links
 permalink: /user-guide/cloud-siem/drilldown-links/
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - logz.io-security
   - siem

@@ -112,7 +112,7 @@ To enable this option, you’ll need to install and configure a CloudWatch agent
 For additional instructions, see more about [installing the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.html) and [configuring it](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html).
 
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/EC2" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/EC2" %}
 
 </div>
 </div>
@@ -216,7 +216,7 @@ output.logstash:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include metric-shipping/replace-metrics-token.html %} 
+* {% include metric-shipping/replace-metrics-token.md %} 
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
@@ -246,7 +246,7 @@ For additional instructions, see more about [installing the CloudWatch agent](ht
 Start or restart Metricbeat for the changes to take effect.
 
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/EC2" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/EC2" %}
 
 </div>
 <!-- tab:end -->

@@ -3,7 +3,7 @@ layout: article
 title: Authorization headers
 permalink: /user-guide/encoding-authorization-header.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - threats
 contributors:

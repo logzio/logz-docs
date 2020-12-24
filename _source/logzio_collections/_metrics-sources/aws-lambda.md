@@ -86,7 +86,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-metrics.md namespace ="Lambda" %}
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/Lambda" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/Lambda" %}
 
 
 </div>

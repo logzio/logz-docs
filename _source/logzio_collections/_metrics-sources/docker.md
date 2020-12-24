@@ -100,7 +100,7 @@ logzio/docker-collector-metrics
 | DOCKER_KEY | Filepath to Docker key for connecting to Docker over TLS. |
 {:.paramlist}
 
-{% include metric-shipping/open-dashboard.html title="Docker overview" %}
+{% include metric-shipping/open-dashboard.md title="Docker overview" %}
 
 
 </div>

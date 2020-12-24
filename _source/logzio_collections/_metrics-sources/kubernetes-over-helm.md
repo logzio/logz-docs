@@ -67,7 +67,7 @@ Follow through the system's prompts and provide the requested parameters.
 | Cluster name (Default: `detected by the script`) | Name of the Kubernetes cluster in which you are deploying. |
 | Standard or autodiscover deployment (Default: `standard`) | To deploy with [configuration templates](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover.html) answer 'autodiscover'. |
 
-{% include metric-shipping/open-dashboard.html title="Kubernetes" %}
+{% include metric-shipping/open-dashboard.md title="Kubernetes" %}
 
 
 </div>
@@ -187,7 +187,7 @@ metricbeat.yml: |-
         certificate_authorities: ['/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt']
 ```
 
-{% include metric-shipping/open-dashboard.html title="Kubernetes" %}
+{% include metric-shipping/open-dashboard.md title="Kubernetes" %}
 
 </div>
 </div>

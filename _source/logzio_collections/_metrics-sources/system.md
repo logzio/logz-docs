@@ -232,7 +232,7 @@ logzio/docker-collector-metrics
 | HOSTNAME <span class="default-param">``</span> | Insert your host name if you want it to appear in the metrics' `host.name`. If null, host.name will show the container's ID. |
 {:.paramlist}
 
-{% include metric-shipping/open-dashboard.html title="System Metrics" %}
+{% include metric-shipping/open-dashboard.md title="System Metrics" %}
 
 </div>
 

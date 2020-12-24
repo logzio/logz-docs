@@ -94,6 +94,6 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-metrics.md namespace ="S3" %}
 
-{% include metric-shipping/open-dashboard.html title="Cloudwatch AWS/S3" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/S3" %}
 
 </div>

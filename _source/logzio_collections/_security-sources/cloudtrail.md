@@ -14,7 +14,7 @@ shipping-tags:
    
 ---
 
-{% include log-shipping/s3-bucket.html service="CloudTrail" %}
+{% include log-shipping/s3-bucket.md service="CloudTrail" %}
 
 #### Configuration
 

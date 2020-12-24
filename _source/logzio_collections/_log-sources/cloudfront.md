@@ -16,7 +16,7 @@ shipping-tags:
 When you set Logz.io to fetch CloudFront logs, Logz.io will periodically read logs from the configured S3 bucket.
 CloudFront logs are useful for auditing/security monitoring and business intelligence.
 
-{% include log-shipping/s3-bucket.html service="CloudFront" %}
+{% include log-shipping/s3-bucket.md service="CloudFront" %}
 
 #### Configuration
 

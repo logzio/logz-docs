@@ -183,3 +183,136 @@ spec:
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
 ```
+
+### Jaeger collector and agents
+* Save the yaml below to a file and name it `config.yaml`
+* Edit the 2-letter region code if necessary (line 86)
+* Deploy the yaml:
+```shell script
+kubectl apply -f config.yaml
+```
+
+```yaml
+apiVersion:  apps/v1
+kind: Deployment
+metadata:
+  name: jaeger-collector-logzio
+  labels:
+    app: jaeger-logzio
+    app.kubernetes.io/name: jaeger-logzio
+    app.kubernetes.io/component: collector
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: jaeger-logzio
+      app.kubernetes.io/name: jaeger-logzio
+      app.kubernetes.io/component: collector
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jaeger-logzio
+        app.kubernetes.io/name: jaeger-logzio
+        app.kubernetes.io/component: collector
+    spec:
+      containers:
+      - image: logzio/jaeger-logzio-collector:latest
+        name: jaeger-collector-logzio
+        imagePullPolicy: IfNotPresent
+        args: ["--log-level=debug"]
+        ports:
+        - containerPort: 14268
+          protocol: TCP
+        - containerPort: 9411
+          protocol: TCP
+        - containerPort: 14250
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: "/"
+            port: 14269
+        env:
+        - name: ACCOUNT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: logzio-traces-shipping-token
+              name: logzio-monitoring-secret
+        - name: REGION
+          value: us # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page
+#        - name: GRPC_STORAGE_PLUGIN_LOG_LEVEL  # Uncomment these lines to enable debug logs in the collector
+#          value: debug
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jaeger-collector-logzio
+  labels:
+    app: jaeger-logzio
+    app.kubernetes.io/name: jaeger-logzio
+    app.kubernetes.io/component: collector
+  namespace: monitoring
+spec:
+  ports:
+  - name: jaeger-health-check
+    port: 14269
+    protocol: TCP
+    targetPort: 14269
+  - name: jaeger-collector-http
+    port: 14268
+    protocol: TCP
+    targetPort: 14268
+  - name: jaeger-collector-zipkin
+    port: 9411
+    protocol: TCP
+    targetPort: 9411
+  - name: jaeger-collector-grpc
+    port: 14250
+    protocol: TCP
+    targetPort: 14250
+  selector:
+    app: jaeger-logzio
+    app.kubernetes.io/name: jaeger-logzio
+    app.kubernetes.io/component: collector
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: jaeger-agent
+  labels:
+    app: jaeger
+    app.kubernetes.io/name: jaeger
+    app.kubernetes.io/component: agent
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: jaeger
+      app.kubernetes.io/name: jaeger
+      app.kubernetes.io/component: agent
+  template:
+    metadata:
+      labels:
+        app: jaeger
+        app.kubernetes.io/name: jaeger
+        app.kubernetes.io/component: agent
+    spec:
+      containers:
+      - name: jaeger-agent
+        image: jaegertracing/jaeger-agent:1.18.0   # This specific version has been tested by Logz.io. If you opt for a later version, the Logz.io recommendation is to test before you deploy.
+        args: ["--reporter.grpc.host-port=jaeger-collector-logzio:14250", "--log-level=debug"]
+        ports:
+          - containerPort: 5775
+            protocol: UDP
+          - containerPort: 6831
+            protocol: UDP
+          - containerPort: 6832
+            protocol: UDP
+          - containerPort: 5778
+            protocol: TCP
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+```

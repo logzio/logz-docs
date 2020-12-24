@@ -1,9 +1,9 @@
 ---
-title: Configure the Amazon S3 fetcher
+title: Configure an Amazon S3 Bucket
 logo:
   logofile: aws-s3.svg
   orientation: vertical
-data-source: S3 fetcher
+data-source: S3 Bucket
 shipping-tags:
   - log-shipper
   - aws
@@ -13,7 +13,7 @@ contributors:
 ---
 
 Some AWS services can be configured to ship their logs to an S3 bucket,
-where Logz.io can fetch those logs.
+where Logz.io can fetch those logs directly.
 
 ## Best practices
 
@@ -30,7 +30,7 @@ Please keep these notes in mind when configuring logging.
 
 ## Setup
 
-You can add your buckets in Logz.io by providing your S3 credentials and configuration.
+You can add your buckets directly from Logz.io by providing your S3 credentials and configuration.
 
 #### Configure Logz.io to fetch logs from an S3 bucket
 
@@ -39,11 +39,23 @@ You can add your buckets in Logz.io by providing your S3 credentials and configu
 
 <div class="tasklist">
 
-##### Add the S3 bucket information
+##### Add your S3 bucket information
 
 <!-- logzio-inject:s3-config -->
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+To use the S3 fetcher, log into your Logz.io account, and go to the [VPC log shipping page](https://app.logz.io/#/dashboard/data-sources/vpc).
+
+1. Click **+ Add a bucket**
+2. Select your preferred method of authentication - an IAM role or access keys.
+
+The configuration wizard will open.
+
+3. Select the hosting region from the dropdown list.
+4. Provide the **S3 bucket name**
+5. _Optional_ You have the option to add a prefix.
+6. **Save** your information.
+
+![S3 bucket configuration wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-configuration-wizard.png)
 
 ##### Check Logz.io for your logs
 

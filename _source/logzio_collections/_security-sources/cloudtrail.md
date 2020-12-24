@@ -9,9 +9,9 @@ templates: ["s3-fetcher"]
 contributors:
   - idohalevi
   - imnotashrimp
+  - shalper
 shipping-tags:
   - aws
-   
 ---
 
 {% include log-shipping/s3-bucket.md service="CloudTrail" %}
@@ -34,26 +34,47 @@ Logz.io fetches your CloudTrail logs from an S3 bucket.
 
 For help with setting up a new trail, see [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) from AWS.
 
-##### Add the S3 bucket information
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+##### Add your S3 bucket information
 
 <!-- logzio-inject:s3-config -->
 
+To use the S3 fetcher, log into your Logz.io account, and go to the [CloudTrail log shipping page](https://app.logz.io/#/dashboard/data-sources/cloudtrail).
+
+1. Click **+ Add a bucket**
+2. Select your preferred method of authentication - an IAM role or access keys.
+
+The configuration wizard will open.
+
+3. Provide the **S3 bucket name**
+4. Provide your **Prefix**. That is your CloudTrail path. See further details below.
+5. There is no **Region** selection box because it is not needed. 
+
+  Logz.io will pull data from all regions in AWS for the specified bucket and account.
+6. **Save** your information.
+
+![S3 bucket configuration wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-configuration-wizard-no-region.png)
+
 When creating a bucket, you'll only need to fill in 2 parameters which you can get from your CloudTrail AWS path. The AWS path structure for CloudTrail looks like this:
 
+```
 {BUCKET_NAME}/{PREFIX_IF_EXISTS}/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/
+```
 
 * {BUCKET_NAME} is your **S3 bucket name**.
 
-* {PREFIX} is your CloudTrail path.
+* {PREFIX} is your CloudTrail path. You may or may not have a prefix.
+   If you don't have a prefix, put down:
 
-  If you don't have a prefix, put down `/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/`.
-  <br>
-  If you have a prefix, put down `{PREFIX}/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/`.
+  ```
+  /cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/
+  ```
 
-* {Region} is not needed. Logz.io will pull data from all regions in AWS for the specified bucket and account.
+  If you do have a prefix, put down:
 
+  ```
+  {PREFIX}/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/
+  ```
 
 Logz.io fetches logs that are generated after configuring an S3 bucket.
 Logz.io cannot fetch past logs retroactively.

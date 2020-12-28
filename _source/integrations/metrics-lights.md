@@ -55,8 +55,8 @@ Fill in the form with the relevant parameters.
 | url | A comma-delimited list of the URLs you want to monitor. For example : https://www.logz.io,https://example.com |
 | memory | `Default: 512 (MB)`. The memory size you want to assign to the Lambda function running LightS. 512 MB is the minimum memory recommended for a single URL. The more URLs you choose to monitor, the more memory you'll need.  |
 
-These default settings are just a starting point.
-Check your Lambda usage regularly, and adjust these values if you need to.
+
+Check your Lambda usage regularly, and adjust the memory value if you need to.
 {:.info-box.note}
 
 After filing in the form, click **Next** to continue.

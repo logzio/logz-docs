@@ -49,9 +49,9 @@ Fill in the form with the relevant parameters.
 |---|---|
 | logzioLogsToken | Token for shipping logs to your Logz.io account. |
 | logzioMetricsToken | Token for shipping metrics to your Logz.io account. |
-| logzioURL | Logz.io listener URL. See https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls for further information. |
+| logzioURL | Logz.io listener URL. [Learn more](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) |
 | regions | A comma separated list of AWS regions for deployment, (example: us-east-1,ap-south-1). |
-| shippingProtocol | Protocol for shipping metrics and logs. Default is https and it better to leave it as is |
+| shippingProtocol `Default: https` | Protocol for shipping metrics and logs. |
 | url | A comma-delimited list of the URLs you want to monitor. For example : https://www.logz.io,https://example.com |
 | memory | `Default: 512 (MB)`. The memory size you want to assign to the Lambda function running LightS. 512 MB is the minimum memory recommended for a single URL. The more URLs you choose to monitor, the more memory you'll need.  |
 
@@ -63,9 +63,9 @@ After filing in the form, click **Next** to continue.
 
 ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/lights-params-12182020.png)
 
-##### Configure stack
+##### Add tags to your stack (Optional)
 
-On the following page, specify **Tags** to help you easily identify your Lambda function. Click **Next** to proceed.
+You can specify **Tags** to help you easily identify your Lambda function. Click **Next** when ready to proceed.
 
 ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/lights-stack-options.png)
 

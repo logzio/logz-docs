@@ -5,7 +5,6 @@ permalink: /user-guide/accounts/flexible-volume.html
 flags:
   admin: true
   logzio-plan: pro
-  beta: true
 tags:
   - accounts
   - main-account
@@ -14,14 +13,13 @@ contributors:
   - shalper
 ---
 
-{% include page-info/early-access.md type="Beta" %}
-
 Flexible volume gives you more control over how you allocate space between your accounts.
 
 With flexible volume, accounts can share indexing capacity and use it as needed. Instead of reserving capacity in advance, you can rely on shared volume to cover your indexing needs across accounts. When properly configured, shared volume can help to optimize distribution and minimize the risk of running out of space.
 
 
-![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shared-volume.png)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/piVcrL90Ij4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 Flexible volume is a global setting that applies to your time-based logging accounts. To reach it, go to [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts). This page is only available when logged in to the main account as an admin user.
 
@@ -73,7 +71,9 @@ If you prefer to rely on utilization logs as an accurate measure, consider stick
 
 Go to [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) to manage your plan. This page is only available when logged in to the main account as an admin user.
 
-To enable flexible volume, toggle the button **Use flexible volume** to turn it on.
+Toggle the button **Use flexible volume** to enable it.
+
+![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shared-volume.png)
 
 ##### Configure account capacity
 
@@ -85,14 +85,14 @@ Configure the account's daily capacity:
 
   For the main account, there is a 1 GB minimum. Otherwise, for sub accounts, it can be 0 as well.
 
-* **Cap this account's volume** - This is optional.
+* **Cap this account's volume** (Optional)
 
     * If you leave this option unchecked, the account has unlimited access to shared volume.
 
       Once the account exhausts its daily volume, it can continue to receive and index data as long as shared volume is available.
 
-   * If you enable this option, another field will appear:  **Volume cap**.
+   * If enabled, provide the **Volume cap**, in GB.
 
-      This is the maximum volume that the account can index per calendar day. It cannot be greater than the sum of the account's reserved volume and available shared volume.
+      This is the maximum volume that the account can index per calendar day. The **Volume cap** will need to be equal or less than the sum of the account's reserved volume and available shared volume.
 
 ![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/configure-flexible-volume.png)

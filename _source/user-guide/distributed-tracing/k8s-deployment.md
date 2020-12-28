@@ -9,6 +9,7 @@ tags:
   - distributed tracing
 contributors:
   - yberlinger   
+  - yyyogev
 ---
 If you’re working with Kubernetes, you can use the yaml file below as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value. This example may not work for all files: Some environments may require you to modify the yaml file.
 
@@ -22,6 +23,7 @@ _Before you begin:_
 
 Step 1.
 Create a secret for your Distributed Tracing shipping token:
+
 ```shell script
 kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
   --from-literal=logzio-traces-shipping-token=<<ACCOUNT-TOKEN>> 
@@ -33,6 +35,7 @@ Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recom
 * Save the yaml below to a file and name it `config.yaml`
 * Edit the 2-letter region code if necessary (line 86)
 * Deploy the yaml:
+
 ```shell script
 kubectl apply -f config.yaml
 ```
@@ -186,7 +189,8 @@ spec:
 
 ### Jaeger collector and agents
 * Save the yaml below to a file and name it `config.yaml`
-* Edit the 2-letter region code if necessary (line 86)
+* Edit the 2-letter region code if necessary (line 44)
+
 * Deploy the yaml:
 ```shell script
 kubectl apply -f config.yaml

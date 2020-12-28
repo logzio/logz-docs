@@ -14,13 +14,14 @@ contributors:
   - shalper
 ---
 
-The Terraform Logz.io provider offers a great way to build integrations using Logz.io APIs.
+The Terraform Logz.io Provider offers a great way to build integrations using Logz.io APIs. The official Logz.io Provider docs can be found [here](https://registry.terraform.io/providers/logzio/logzio/latest/docs).
 
 Terraform is an infrastructure orchestrator written in Hashicorp Language (HCL). It is a popular Infrastructure-as-Code (IaC) tool that does away with manual configuration processes. You can take advantage of the Terraform Logz.io provider to really streamline the process of integrating observability into your dev workflows.
 
-This guide assumes working knowledge of HashiCorp Terraform. If you're new to Terraform, we've got a great [introduction](https://logz.io/blog/terraform-vs-ansible-vs-puppet/) if you're in for one. We also recommend the official [Terraform guides and tutorials](https://www.terraform.io/guides/index.html).
 
-For additional examples, other than those provided here, see our [GitHub project](https://github.com/logzio/logzio_terraform_provider/tree/master/examples).
+* This guide assumes working knowledge of HashiCorp Terraform. If you're new to Terraform, here's a great [blog introduction](https://logz.io/blog/terraform-vs-ansible-vs-puppet/)
+* For additional examples, other than those provided here, see our [GitHub project](https://github.com/logzio/logzio_terraform_provider/tree/master/examples).
+* The official <a href ="https://registry.terraform.io/providers/logzio/logzio/latest/docs" target="_blank">Terraform Provider documentation for Logz.io <i class="fas fa-external-link-alt"></i></a>
 
 ### Capabilities
 

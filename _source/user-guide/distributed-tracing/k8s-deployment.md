@@ -24,7 +24,7 @@ _Before you begin:_
 Step 1.
 Create a secret for your Distributed Tracing shipping token:
 
-```shell script
+```
 kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
   --from-literal=logzio-traces-shipping-token=<<ACCOUNT-TOKEN>> 
 ```
@@ -36,7 +36,7 @@ Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recom
 * Edit the 2-letter region code if necessary (line 86)
 * Deploy the yaml:
 
-```shell script
+```
 kubectl apply -f config.yaml
 ```
 
@@ -192,7 +192,8 @@ spec:
 * Edit the 2-letter region code if necessary (line 44)
 
 * Deploy the yaml:
-```shell script
+
+```
 kubectl apply -f config.yaml
 ```
 

@@ -33,7 +33,7 @@ Learn more about what you can see in the Usage and Billing pages of your account
 ### Subscription Period
 Logz.io subscriptions are available for 1-, 12-, and 24-month periods, with pricing determined by the amount of data shipped daily.
 
-The subscription period begins on the Start Date and ends on the End Date. is it always a year?
+The subscription period begins on the Start Date and ends on the End Date. <!--is it always a year? -->
 
 Yearly subscription is cost per month + taxes, billed annually
 

@@ -16,11 +16,12 @@ contributors:
 
 # DRAFT Content
 ## Pricing and billing for Log Management
+
 Logz.io Log Management provides you with a hosted, open source solution for observability, based on the ELK stack.
 
-Your Log Management plan is covered by the Logz.io Terms of Use, unless you have a Master Services Agreement (MSA) with Logz.io. 
+Your Log Management plan is covered by the Logz.io _Terms of Use_, unless you have a Master Services Agreement (MSA) with Logz.io. 
 
-### Standard plans
+### Standard self-service plans
 
 The conditions for the different account plans are summarized <a href ="/user-guide/billing/billing-log-plan-summaries" target="_blank">here </a>. Self-service is currently available for Trial, Community, and Pro plans.  
 
@@ -35,6 +36,8 @@ Product charges are determined according to the following parameters:
 |-----------------|-----------|
 |Daily Data Capacity|How many GB you want to send us per day|
 |Retention Period|How many days you want us to store your data |
+
+
 
 Want to learn more about account usage? See <a href ="/user-guide/accounts/manage-account-usage" target="_blank"> Manage account usage </a> in our docs. 
 
@@ -102,17 +105,17 @@ Your plan charges are based on a commitment period of at least one year.
 At the end of your subscription period, you may downgrade your current plan by decreasing your Daily Data Capacity and/or Retention Period. You'll be invoiced according to the price per month for the new subscription period.  
 
 ## Log Management Billing FAQs
-Q: How do you calculate the price for Logz.io Log Management?
+Q: How do you calculate the price for Logz.io Log Management? <br>
 A: The two major factors that determine the price for Logz.io Log Management are:
 +  The amount of log data Logz.io indexes in your account per day (per GB).
 + How long Logz.io retains the indexed data (usually ranges between 3-90 days).
 
-Q: Is there a self-service option to start and/or upgrade my Logz.io account?
+Q: Is there a self-service option to start and/or upgrade my Logz.io account? <br>
 A: Yes! Sign up for a free trial on our website to create your account. At any time, you can upgrade your account by hitting the cog wheel in the top right corner of the app, hovering over settings, and then going down to **Usage and Billing**. 
 
-This will bring you to a page showing the amount of log data you’re currently indexing per day. You’ll also see the option to upgrade your account so you can index more logs for longer periods. All you need is your credit card.
+This will bring you to a page showing the amount of log data you’re currently indexing per day. <!--When it's a free trial it is not necessarily about indexing more logs.....if they do not upgrade to PRO they will be able to eventually log only 1GB with 1 day retention that is available on the FREE plan --> You’ll also see the option to upgrade your account so you can index more logs for longer periods. All you need is your credit card.
 
-Q: How do I know how much data I’m using in my account?
+Q: How do I know how much data I’m using in my account?  <br>
 A: Hit the cog wheel in the top right corner of the app, hover over settings, and then go down to **Usage and Billing**. This will bring you to a page that shows the average amount of data you’ve indexed per day during your log retention period (For example: You’ve used an average of 10 indexed GBs of log data per day, over the last 14 days).
 
 Q: Are archived logs held against my Logz.io costs?

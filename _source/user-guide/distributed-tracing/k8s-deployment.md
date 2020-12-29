@@ -51,9 +51,9 @@ Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recom
 <div id="opentelemetry-collector">
 
 
-* Save the yaml below to a file and name it `config.yaml`
-* Edit the 2-letter region code if necessary (line 86)
-* Deploy the yaml:
+1. Save the yaml below to a file and name it `config.yaml`.
+2. Edit the 2-letter region code if necessary (line 86).
+3. Deploy the yaml:
 
 ```
 kubectl apply -f config.yaml

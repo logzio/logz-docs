@@ -13,22 +13,28 @@ contributors:
 ---
 If you’re working with Kubernetes, you can use the yaml file below as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value. This example may not work for all files: Some environments may require you to modify the yaml file.
 
+#### _Before you begin:_
 
-_Before you begin:_
+{:.no_toc}  
 
-+ Make sure you use the correct Jaeger version for the `jaeger-agent` image. Logz.io has tested this yaml file for version 1.18. It is possible that the reference may not work for other versions. 
-+ Look up your Distributed Tracing `ACCOUNT TOKEN`: {% include tracing-shipping/tracing-token.md %}
+<div class="tasklist">
 
-+ Look up the 2-letter code in the **Region code** column of <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a>  For US east, the region code is **us**.  <a href="https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/   #look-up-your-distributed-tracing-token-and-region-information-in-logzio" target ="_blank"> *Remind me where I can find my token and region in the **settings** pages for my account, again?* </a>
+##### Determine the Jaeger version for the agent.
+Make sure you use the correct Jaeger version for the `jaeger-agent` image. Logz.io has tested this yaml file for version 1.18. It is possible that the reference may not work for other versions. 
 
-Step 1.
-Create a secret for your Distributed Tracing shipping token:
+##### Get your tracing account token.
+Look up your Distributed Tracing `ACCOUNT TOKEN`: {% include tracing-shipping/tracing-token.md %}
+
+##### Get your region code
+Look up the 2-letter code in the **Region code** column of <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a>  For US east, the region code is **us**.  <a href="https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/   #look-up-your-distributed-tracing-token-and-region-information-in-logzio" target ="_blank"> *Remind me where I can find my token and region in the **settings** pages for my account, again?* </a>
+
+##### Create a secret for your Distributed Tracing shipping token:
 
 ```
 kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
   --from-literal=logzio-traces-shipping-token=<<ACCOUNT-TOKEN>> 
 ```
-Step 2.
+##### Deploy agent and collector
 Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recommended) or the Jaeger collector:
 
 ### OpenTelemetry collector + Jaeger agents

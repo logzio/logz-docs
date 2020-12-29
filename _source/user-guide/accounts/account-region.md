@@ -25,7 +25,7 @@ All services related to your account are hosted in the same region. This means y
 
 ## How to look up your account region
 
-You can find your account's region by selecting [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) from the top menu.
+You can find your account's region by selecting [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) from the top menu. Your two-letter region code is at the start of the region designation. 
 
 Another option is to sign in to your Logz.io account and look at the URL in the address bar.
 

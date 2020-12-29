@@ -38,7 +38,19 @@ kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
 ##### Deploy agent and collector
 Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recommended) or the Jaeger collector:
 
-### OpenTelemetry collector + Jaeger agents
+
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [OpenTelemetry collector + Jaeger agents](#opentelemetry-collector)
+* [Jaeger collector and agents](#jaeger-collector)
+{:.branching-tabs}
+
+
+<!-- tab:start -->
+<div id="opentelemetry-collector">
+
+
 * Save the yaml below to a file and name it `config.yaml`
 * Edit the 2-letter region code if necessary (line 86)
 * Deploy the yaml:
@@ -227,7 +239,12 @@ spec:
   type: ClusterIP
 ```
 
-### Jaeger collector and agents
+
+</div>
+<!-- tab:end -->
+<!-- tab:start -->
+<div id="jaeger-collector">
+
 * Save the yaml below to a file and name it `config.yaml`
 * Edit the 2-letter region code if necessary (line 44)
 
@@ -360,3 +377,5 @@ spec:
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
 ```
+</div>
+<!-- tab:end -->

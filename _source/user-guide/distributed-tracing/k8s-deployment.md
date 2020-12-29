@@ -245,10 +245,9 @@ spec:
 <!-- tab:start -->
 <div id="jaeger-collector">
 
-* Save the yaml below to a file and name it `config.yaml`
-* Edit the 2-letter region code if necessary (line 44)
-
-* Deploy the yaml:
+1. Save the yaml below to a file and name it `config.yaml`.
+2. Edit the 2-letter region code if necessary (line 44).
+3. Deploy the yaml:
 
 ```
 kubectl apply -f config.yaml

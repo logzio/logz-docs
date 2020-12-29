@@ -14,7 +14,7 @@ shipping-tags:
 
 * Sophos Intercept X Endpoint installed
 * Access to the [Sophos Central Cloud console](https://central.sophos.com/)
-* [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* {% include log-shipping/filebeat7.md %}
 * Terminal access to the instance running Filebeat. It is recommended to run the Sophos API script from the same instance running your Filebeat.
 
 

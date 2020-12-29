@@ -16,9 +16,9 @@ shipping-tags:
 **Before you begin, you'll need**:
 
 * Apache2 Web Server and Terminal access to the instance running it
-* [ModSecurity module installed](https://github.com/SpiderLabs/ModSecurity) 
-* [OWASP ModSecurity Core Rule Set (CRS) imported](https://github.com/SpiderLabs/owasp-modsecurity-crs)
-* [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* ModSecurity module installed [GitHub repo](https://github.com/SpiderLabs/ModSecurity) 
+* OWASP ModSecurity Core Rule Set (CRS) imported [GitHub repo](https://github.com/SpiderLabs/owasp-modsecurity-crs)
+* {% include log-shipping/filebeat7.md %}
 
 <div class="tasklist">
 

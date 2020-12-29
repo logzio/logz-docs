@@ -20,7 +20,7 @@ You can review the Trend Micro resources in your security account, including pre
 **Before you begin, you'll need**:
 
 * Credentials for [Trend Micro Cloud One](https://cloudone.trendmicro.com/)
-* [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* {% include log-shipping/filebeat7.md %}
 * Root access
 
 <div class="tasklist">

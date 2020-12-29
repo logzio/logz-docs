@@ -1,0 +1,1 @@
+Filebeat 7 installed ([blog tutorial](https://logz.io/blog/filebeat-tutorial/))

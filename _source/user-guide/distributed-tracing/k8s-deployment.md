@@ -34,6 +34,7 @@ Look up the 2-letter code in the **Region code** column of <a href="/user-guide/
 kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
   --from-literal=logzio-traces-shipping-token=<<ACCOUNT-TOKEN>> 
 ```
+
 ##### Deploy agent and collector
 Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recommended) or the Jaeger collector:
 

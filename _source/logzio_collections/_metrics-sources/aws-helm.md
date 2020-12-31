@@ -55,10 +55,10 @@ Replace the parameters in the command above with the following values:
 
 | Parameter | Description |
 |---|---|
-| `<<SHIPPING-TOKEN>>` | [Token](https://app.logz.io/#/dashboard/settings/manage-accounts)of the Logzio Metrics account you want to ship to. How to find your [Metrics shipping token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) |
+| `<<SHIPPING-TOKEN>>` | [Token](https://app.logz.io/#/dashboard/settings/manage-accounts) of the Logzio Metrics account you want to ship to. <br> You can find your [Metrics shipping token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) in the Metrics account plan section of the **Manage Accounts** page.|
 | `<<LOGZIO-REGION>>` | Two-letter region code. This determines your listener URL (where you're shipping the metrics to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | `<<AWS-REGION>>`| Your region's slug. You can find this in the AWS region menu (in the top menu, to the right). |
-| `<<AWS-NAMESPACES>>` | Comma-separated list of namespaces of the metrics you want to collect. <br> You can find a complete list of namespaces at [_AWS Services That Publish CloudWatch Metrics_](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). <br> **Note** that your namespace list is inside the `"{namespaces}"` format, as it appears in the above command |
+| `<<AWS-NAMESPACES>>` | Comma-separated list of namespaces of the metrics you want to collect. <br> You can find a complete list of namespaces at [_AWS Services That Publish CloudWatch Metrics_](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). <br> **Note** that your namespace list is inside the `"{namespaces}"` format, as it appears in the above command. |
 | `<<AWS-ACCESS-KEY>>` | Access key ID for your IAM user |
 | `<<AWS-SECRET-KEY>>` | Secret key for your IAM user|
 | `<<LOGZIO-TYPE>>` | (Optional) This field is needed only if you're shipping metrics to Kibana and you want to override the default value (`docker-collector-metrics`). <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |

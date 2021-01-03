@@ -15,8 +15,8 @@ shipping-tags:
 **Before you begin, you'll need**:
 
 * Stormshield syslog server configured to send logs in legacy format over port tcp/6514
-* [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
-* root access
+* {% include log-shipping/filebeat7.md %}
+* Root access
 
 <div class="tasklist">
 

@@ -250,6 +250,28 @@ x-tagGroups:
     description: Grafana API Gateway to supported endpoints.
 
 paths:
+
+  # ::::: GRAFANA
+  /v1/latencies/search:
+    post:
+      tags:
+        - Account Latency
+      summary: Measure account latency
+      description: Run a test to measure account latency
+      operationId: searchAccountLatency
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/SearchLatencySummaryRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseAccountLatencySummary'
+
+
   # ::::: GRAFANA
   /v1/grafana/api/{GRAFANA_API_URL}:
     get:
@@ -3422,6 +3444,17 @@ paths:
   
 
 definitions:
+  # ::::: SIEM LOOKUPS
+  SearchLatencySummaryRequest {
+    filter : {
+        accountIds : [ Int, Int ...]
+    },
+    pagination : {
+        pageNumber : Int,
+        pageSize : Int
+    }
+}
+  
   # ::::: SIEM LOOKUPS
   PagedSearchResponseLookupListElement:
     type: object

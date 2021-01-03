@@ -19,7 +19,7 @@ contributors:
 
 Logz.io Log Management provides you with a hosted, open source solution for observability, based on the ELK stack.
 
-Your Log Management plan is covered by the Logz.io _Terms of Use_, unless you have a Master Services Agreement (MSA) with Logz.io. 
+
 
 ### Standard self-service plans
 
@@ -103,6 +103,9 @@ At any time during your subscription period, you may upgrade your current plan b
 Your plan charges are based on a commitment period of at least one year. 
 
 At the end of your subscription period, you may downgrade your current plan by decreasing your Daily Data Capacity and/or Retention Period. You'll be invoiced according to the price per month for the new subscription period.  
+
+###### Note
+Your Log Management plan is covered by the Logz.io _Terms of Use_, unless you have a Master Services Agreement (MSA) with Logz.io. 
 
 ## Log Management Billing FAQs
 Q: How do you calculate the price for Logz.io Log Management? <br>

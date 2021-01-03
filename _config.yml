@@ -76,13 +76,13 @@ collections:
     permalink: /shipping/community-shippers/:slug.html
     name: Community shippers
     id: :slug
-    in-shipping-manifest: true
+    in-shipping-manifest: false
   shippers:
     output: true
     permalink: /shipping/shippers/:slug.html
     name: Agents
     id: :slug
-    in-shipping-manifest: true
+    in-shipping-manifest: false
 
   ## ALL OTHER COLLECTIONS ##
   contributors:

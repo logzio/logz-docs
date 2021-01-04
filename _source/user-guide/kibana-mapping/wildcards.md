@@ -19,9 +19,11 @@ In Lucene query syntax:
 
 ## Leading wildcards are disabled
 
-Wildcard searches are extremely resource heavy, memory intensive, and slow to run.
+Wildcard searches can be very resource heavy and slow to run.
 
-For your protection, **leading wildcards are disabled**. This means your searches cannot begin with a wildcard. For example, you can run a free text search for `string` but not for `*string`. Similarly, you can run a search with a `field:value` such as `key: something` but not `key: *string`.
+**Leading wildcards are disabled** to prevent potential issues. In other words, your searches cannot begin with a wildcard.
+
+For example, you can run a free text search for `string` but not for `*string`. Similarly, you can run a search for a `field:value` pair, such as `key:string` but not `key:*string`.
 
 ### Workarounds and alternatives
 
@@ -37,7 +39,7 @@ For example, say you are looking for a particular host, instead of searching wit
 
 ###### Analyzed text fields tokenize strings
 
-Analyzed text fields tokenize longer strings to support fulltext search on individual terms. 
+Analyzed text fields tokenize longer strings to support full-text search on individual terms.
 
 Tokenization can mean indexing the words in a sentence, or breaking up a complex naming structure into stand-alone naming components to support more robust filtering options.
 
@@ -51,6 +53,6 @@ from the top menu. Search for the field name, hover over it, and select the **an
 
 ##### Contact support to request a custom configuration
 
-If the above solutions do not satisfy your needs, please <a href="mailto:help@logz.io?subject=Requesting querying assistance &body= Hi! Please be in touch regarding leading wildcard support for specific fields. Thanks!">contact support</a> to request a customized solution.
+If the above solutions do not satisfy your needs, please [contact support](mailto:help@logz.io?subject=Requesting%20alternatives%20to%20wildcard%20searches&body=Hi!%20Please%20be%20in%20touch%20regarding%20search%20methods%20that%20don't%20require%20leading%20wildcards.%20Thanks!) to request a customized solution.
 
 </div>

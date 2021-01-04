@@ -85,6 +85,9 @@ The returned value should look like this:
 
 ##### Contact support to request custom parsing assistance
 
-The logs will require customized parsing so they can be effectively mapped in Kibana. <a href="mailto:help@logz.io?subject=Requesting parsing assistance for bitdefender security logs &body= Hi! Please be in touch with further instructions regarding parsing for Bitdefender security logs. Thanks!">Email Logz.io Support</a> to request custom parsing assistance.
+The logs will require customized parsing so they can be effectively mapped in Kibana.
+
+[Email our support](mailto:help@logz.io?subject=Requesting%20parsing%20assistance%20for%20Bitdefender%20security%20logs&body=Hi!%20Please%20be%20in%20touch%20with%20further%20instructions%for%20parsing%20Bitdefender%20security%20logs.%20Thanks!) to request custom parsing assistance.
+
 
 </div>

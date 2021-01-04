@@ -211,11 +211,11 @@ firstLevel:
 
   - title: Regions
     url: /user-guide/accounts/account-region.html
-  - title: Account usage
+  - title: Data management
     url: /user-guide/accounts/manage-account-usage.html
 
     thirdLevel:
-    - title: Smart Tier log retention
+    - title: Smart Tier
       url: /user-guide/accounts/smart-tier/
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/

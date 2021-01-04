@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Log Retention - Smart Tiering
+title: Smart Tier - Data Management
 permalink: /user-guide/accounts/smart-tier/
 flags:
   admin: true
@@ -14,22 +14,22 @@ contributors:
 
 Retention is a major factor influencing the cost of your Log Management plan. If you are looking for ways to extend log retention and maximize cost savings, Logz.io Smart Tier may be a good solution for your needs.
 
-Logz.io Smart Tier is a cost-effective data storage solution. Unlike the Hot-Warm storage architecture, Smart Tier offers cost reduction _without_ increasing query latency or increasing retrieval times. Instead, Smart Tier reduces storage costs by approximately 25% by using cheaper storage solutions for data replication.
+Logz.io Smart Tier is a cost-effective data storage solution. Unlike Hot-Warm storage architectures, Smart Tier offers cost reduction _without_ increasing query latency or increasing retrieval times. Instead, Smart Tier reduces costs by using cheaper storage solutions for data replication. [Learn more in our blog 🔗 ](https://logz.io/blog/smart-tiering/)
 
 {% include page-info/early-access.md type="Beta" %}
 
 ### Logz.io Data Tiering
 
-* **Real-Time Tier** - Most recent data is stored and replicated in Hot instances to guarantee top real-time performance.
-* **Smart Tier** - Less recent data is stored in Hot instances for the same real-time querying performance as the **Real-Time Tier**. Data is replicated in Warm storage.
-* **Historical Tier** - Historical data that is outside of your plan's retention policy can be archived for long term storage and recovered on-demand. [Learn more](/user-guide/archive-and-restore/)
+* **Real-Time Tier** - Your most recent data is stored and replicated in Hot instances to guarantee top real-time performance. The data is always available with top replication fail-safe guaranteed.
+* **Smart Tier** - Less recent data offers the same real-time querying performance as the Real-Time Tier. Data availability is guaranteed at a 97% SLA.
+* **Historical Tier** - Data that ages out of your plan's retention policy can be archived for long term storage and recovered on-demand. [Learn more](/user-guide/archive-and-restore/)
 
-### Guaranteed availability
+### 97% availability - guaranteed
 
-As a user, there is no difference between the experience of querying the Real-Time Tier and Smart Tier 97% of the time.
+As a user, most of the time, there is no difference between the experience of querying the Real-Time Tier and Smart Tier data.
 
-The only time the difference might be noticeable,
-is when you try to query a specific Smart Tier data segment at the same time that it is being recovered from a replica.
+The only time the difference might become noticeable,
+is on the rare occasion when you try to query a specific Smart Tier data segment at the same time that it is being recovered from a replica.
 This coincidence is statistically rare enough for the trade-off between
 availability and cost to be competitive.
 
@@ -43,6 +43,7 @@ Since data replicas are only queried when a primary data center is temporarily d
 
 ## Smart Tier does _not_ increase latency
 
-Logz.io Smart Tier does not operate on traditional hot-warm-cold architectures.
+Smart Tier does not increase query latency and will not slow your workflow.
+Unlike other hot-warm architectures, Logz.io Smart Tier cuts costs by maintaining **replicas** on warm storage.
 
-Smart Tier storage is a warm data tier that reduces costs while keeping Kibana query performance at the normal Hot tier speed. The Smart Tier does not increase query latency and will not slow your workflow.
+Kibana search and query performance will be the same as you are used to from the top, Hot Tier experience.

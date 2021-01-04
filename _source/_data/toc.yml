@@ -18,10 +18,13 @@ firstLevel:
   - title: Kibana Discover
     url: /user-guide/kibana/
     thirdLevel:
-      - title: Field Mapping
-        url: /user-guide/kibana/mapping/
-      - title: Field not indexed
-        url: /user-guide/kibana/mapping/field-not-indexed/
+    - title: Search wildcards
+      url: /kibana/wildcards/
+  - title: Field Mapping
+    url: /user-guide/kibana/mapping/
+    thirdLevel:
+    - title: Field not indexed
+      url: /user-guide/kibana/mapping/field-not-indexed/
   - title: Exceptions
     url: /user-guide/insights/exceptions/
   - title: Patterns
@@ -70,6 +73,7 @@ firstLevel:
       url: /user-guide/kibana/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
+
 
     # ===== METRICS INFRASTRUCTURE MONITORING =====
     # the Prometheus remote write topic & dashboard import topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory

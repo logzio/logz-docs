@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Search wildcards
+title: Wildcard searches
 permalink: /kibana/wildcards/
 flags:
   logzio-plan: community
@@ -12,10 +12,10 @@ contributors:
 
 Wildcards can be useful when you need to run a search on an indefinite term or a partial string.
 
-In Lucene query syntax:
+When using the Lucene query syntax in Kibana:
 
-* Use **<i class="fas fa-question"></i>** to replace a single character
-* Use **<i class="fas fa-asterisk"></i>** to replace any number of characters (even 0)
+* Use a question mark **<i class="fas fa-question"></i>** to replace a single character. It's like a Joker in a card game.
+* Use an asterisk **<i class="fas fa-asterisk"></i>** to replace an indefinite number of characters (even 0).
 
 ## Leading wildcards are disabled
 

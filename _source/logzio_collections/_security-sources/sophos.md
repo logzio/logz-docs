@@ -101,6 +101,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ##### Contact support to request custom parsing assistance
 
-The logs will require customized parsing so they can be effectively mapped in Kibana. <a href="mailto:help@logz.io?subject=Requesting parsing assistance for Sophos security logs &body= Hi! Please be in touch with further instructions regarding parsing for Sophos security logs. Thanks!">Email Logz.io Support</a> to request custom parsing assistance.
+The logs will require customized parsing so they can be effectively mapped in Kibana.
+
+[Email our support](mailto:help@logz.io?subject=Requesting%20parsing%20assistance%20for%20Sophos%20security%20logs&body=Hi!%20Please%20be%20in%20touch%20with%20further%20instructions%20for%20parsing%20Sophos%20security%20logs.%20Thanks!) to request custom parsing assistance.
+
 
 </div>

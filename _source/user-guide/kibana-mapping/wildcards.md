@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Search wildcards
+title: Wildcard searches
 permalink: /kibana/wildcards/
 flags:
   logzio-plan: community

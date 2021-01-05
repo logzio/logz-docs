@@ -14,8 +14,8 @@ Wildcards can be useful when you need to run a search on an indefinite term or a
 
 In Lucene query syntax:
 
-* Use **<i class="fas fa-question"></i>** to replace a single character
-* Use **<i class="fas fa-asterisk"></i>** to replace any number of characters (even 0)
+* Use a question mark **<i class="fas fa-question"></i>** to replace a single character. It's like a Joker in a card game.
+* Use **<i class="fas fa-asterisk"></i>** to replace an indefinite number of characters (even 0).
 
 ## Leading wildcards are disabled
 

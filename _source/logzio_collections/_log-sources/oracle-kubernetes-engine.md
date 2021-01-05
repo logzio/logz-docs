@@ -63,6 +63,7 @@ Autodiscover allows you to adapt settings as changes happen. By defining configu
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat-oke.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-autodiscovery-configuration.yaml
+```
 
 ###### Deploy a custom configuration
 

@@ -15,6 +15,8 @@ contributors:
   - imnotashrimp
   - amirkalron
   - idohalevi
+  - ronish31
+  - shalper
 shipping-tags:
   - azure
 ---
@@ -132,11 +134,11 @@ If everything went according to plan, you should see logs (with the type `eventH
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-### Backing up your logs!
+##### Backing up your logs!
 
 This deployment will also back up your data in case of connection or shipping errors. In that case the logs that weren't shipped to Logz.io will be uploaded to the blob storage 'logziologsbackupstorage' under the container 'logziologsbackupcontainer'.
 
-### Working with your parameters after deployment
+##### Working with your parameters after deployment
 
 If you wish to change parameters values after the deployment, go to your function app page, then on the left menu press the 'Configuration' tab.
 You'll have the option to edit the following values:
@@ -145,6 +147,7 @@ You'll have the option to edit the following values:
 * ParseEmptyFields - (Default: False) If you encounter invalid logs of Azure's services that contains empty fields and will not parse in Kibana, you can use this option by changing it's values to 'true'. **Please note using this option may slow the shipper's perfomance.**
 
 ![Function's configuration](img/configuration-settings.png)
+
 </div>
 
 </div>

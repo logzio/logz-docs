@@ -17,14 +17,9 @@ Here are just a few examples for security rules written specifically for Juniper
 
 You can review the Juniper SRX resources in your Logz.io Cloud SIEM account, under the pre-configured [Juniper SRX security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=juniper) and search for the provided Juniper SRX [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
-###### On this page
-{:.no_toc}
-
-1. toc list
-{:toc}
 
 #### Step by step
-{:.no_toc}
+
 
 **Before you begin, you'll need**:
 

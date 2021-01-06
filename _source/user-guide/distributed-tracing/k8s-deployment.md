@@ -242,7 +242,7 @@ spec:
 <div id="jaeger-collector">
 
 1. Save the yaml below to a file and name it `config.yaml`.
-2. Edit the 2-letter region code if needed. The region appears in the `apiVersion: apps/v1 spec: > template: > spec: > containers: > env: ` specification in the yaml code below.
+2. Edit the 2-letter region code if needed. The region appears in the  jaeger-collector-logzio deployment under `spec: > template: > spec: > containers: > env: ` specification in the yaml code below.
 3. Deploy the yaml:
 
 ```

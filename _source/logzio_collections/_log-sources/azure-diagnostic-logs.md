@@ -20,9 +20,7 @@ shipping-tags:
 ---
 
 To simplify shipping your Azure activity logs, we provide an automated deployment process.
-At the end of this process, you'll have configured an event hub namespace, an event hub, and 2 storage blobs.
-
-The resources set up by the automated deployment can collect data for a single Azure region and ship that data to Logz.io.
+At the end of this process, your Azure function will forward logs from an Azure Event Hub to your Logz.io account.
 
 ## More information
 
@@ -34,19 +32,20 @@ What am I setting up in my Azure account?
 
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
 
-Each automated deployment sets up these resources in your Azure environment:
-
-* 1 namespace
-* 1 Azure function
-* 1 event hub
-* 2 blobs (1 to store logs from the Azure functions, 1 for failover storage)
+The automated deployment will create the following services:
+* Serveless Function App
+* Event Hubs Namspace
+* Function's logs Storage Account
+* Back up Storage Account for failed shipping
+* App Service Plan
+* Application Insights
 
 ### Naming convention
 
 Each deployed resource has a Logz.io-defined name and ends with a string unique to that deployment.
 
 For example:
-We name the namespace `LogzioNS`—so if your namespace is `LogzioNS6nvkqdcci10p`, the rest of the deployed resources will end with `6nvkqdcci10p`.
+We name the namespace `LogzioLNS`—so if your namespace is `LogzioLNS6nvkqdcci10p`, the rest of the deployed resources will end with `6nvkqdcci10p`.
 
 </details>
 
@@ -84,43 +83,19 @@ Make sure to use the settings shown below.
 
 ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/customized-template.png)
 
-###### In the BASICS section
-
+Make sure to use these settings:
 | Parameter | Description |
 |---|---|
-| Resource group | Click **Create new**. Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**. |
-| Location | Choose the same region as the Azure services that will stream data to this Event Hub. |
-{:.paramlist}
+| Resource group* | Create a new resource group or select your existing one, and then click **OK**. |
+| Region* | Select the same region as the Azure services that will stream data to this event hub. |
+| Shipping token* | Add the [logs shipping token](https://app.logz.io/#/dashboard/settings/general) for the Logz.io account you want to ship to.  |
+| Logs listener host* (Default: `listener.logz.io`)| Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
+| buffersize (Default: 100) | The maximum number of messages the logger will accumulate before sending them all as a bulk  |
 
-###### In the SETTINGS section
+*Required fields.  
 
-| Parameter | Description |
-|---|---|
-| Logs listener host | Use the listener host for your logs account region. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
-{:.paramlist}
-
-At the bottom of the page, select **I agree to the terms and conditions stated above**, and then click **Purchase** to deploy.
-
+At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  
 Deployment can take a few minutes.
-
-##### _(Optional)_ Add failsafes for shipping timeouts
-
-You can configure Azure to back up your logs to Azure Blob Storage.
-So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
-
-To do this, expand your function app's left menu, and then click **Integrate**.
-
-![New Blob output](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/azure-blob-storage-outputblob.png)
-
-In the top of the triggers panel, click **Azure Blob Storage (outputBlob)**.
-The _Azure Blob Storage output_ settings are displayed.
-
-Leave **Blob parameter name** blank.
-Enter the **Path** for the Azure blob you're sending dropped logs to, and then click **Save**.
-
-For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
-{:.info-box.read}
 
 ##### Stream data to the new event hub
 
@@ -140,9 +115,9 @@ Select **Stream to an event hub**, and then click **Configure** to open the _Sel
 
 Choose your event hub:
 
-* **Event hub namespace**: Choose the namespace that starts with **LogzioNS** (LogzioNS6nvkqdcci10p, for example)
-* **Event hub name**: Choose **insights-operational-logs**
-* **Event hub policy name**: Choose **LogzioSharedAccessKey**
+* **Event hub namespace**: Choose the namespace that starts with **LogzioLNS** (LogzioLNS6nvkqdcci10p, for example)
+* **Event hub name**: Choose **logzioeventhub**
+* **Event hub policy name**: Choose **LogzioLSharedAccessKey**
 * Click **OK** to return to Diagnostics settings.
 
 Click **OK** to return to the _Diagnostics settings_ panel.
@@ -153,8 +128,23 @@ The selected data will now stream to the event hub.
 ##### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, and then open Kibana.
-If everything went according to plan, you should see logs (with the type `eventhub`) in Kibana.
+If everything went according to plan, you should see logs (with the type `eventHub`) in Kibana.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+### Backing up your logs!
+
+This deployment will also back up your data in case of connection or shipping errors. In that case the logs that weren't shipped to Logz.io will be uploaded to the blob storage 'logziologsbackupstorage' under the container 'logziologsbackupcontainer'.
+
+### Working with your parameters after deployment
+
+If you wish to change parameters values after the deployment, go to your function app page, then on the left menu press the 'Configuration' tab.
+You'll have the option to edit the following values:
+* Shipper's configurations such as LogzioHost, LogzioToken, Buffersize.
+* FUNCTIONS_WORKER_PROCESS_COUNT - maximum of 10, for more information press [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count).
+* ParseEmptyFields - (Default: False) If you encounter invalid logs of Azure's services that contains empty fields and will not parse in Kibana, you can use this option by changing it's values to 'true'. **Please note using this option may slow the shipper's perfomance.**
+
+![Function's configuration](img/configuration-settings.png)
+</div>
 
 </div>

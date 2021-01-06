@@ -40,7 +40,9 @@ permalink: /data/shipping-manifest.json
                 {%- endcapture %}
                 "openSource": {{ openSourceString }},
               {% endif -%}
-              "logo": "{{ https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/
+              "logo": "{{
+                | split: "." | last
+                | append: "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/"
                 | append: d.logo.logofile }}",
               "filepath": "{{ site.source
                 | split: "." | last

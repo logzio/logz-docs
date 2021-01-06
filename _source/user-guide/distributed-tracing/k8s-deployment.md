@@ -26,9 +26,11 @@ Make sure you use the correct Jaeger version for the `jaeger-agent` image. Logz.
 Look up your Distributed Tracing `ACCOUNT TOKEN`: {% include tracing-shipping/tracing-token.md %}
 
 ##### Get your region code
-Look up the 2-letter code in the **Region code** column of <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a>  For US east, the region code is **us**.  <a href="/user-guide/distributed-tracing/getting-started-tracing/   #look-up-your-distributed-tracing-token-and-region-information-in-logzio" target ="_blank"> *Remind me where I can find my token and region in the **settings** pages for my account, again?* </a>
+Look up the 2-letter code in the **Region code** column of <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a>  For US east, the region code is **us**.  <a href="/user-guide/distributed-tracing/getting-started-tracing/   #look-up-your-distributed-tracing-token-and-region-information-in-logzio" target ="_blank"> *Reminder: How to find the Distributed Tracing token and account region in the **settings** pages for your account.* </a>
 
 ##### Create a secret for your Distributed Tracing shipping token:
+
+We recommend that you _not_ hard code tokens in your yaml. <br> To add another layer of security with a token secret, copy the Tracing token value you obtained in step 2 above to the `<<ACCOUNT-TOKEN>>` placeholder in the following command: 
 
 ```
 kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
@@ -52,7 +54,7 @@ Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recom
 
 
 1. Save the yaml below to a file and name it `config.yaml`.
-2. Edit the 2-letter region code if necessary (line 86).
+2. Edit the 2-letter region code, if needed. The region appears in the `apiVersion: v1 > data: > config.yaml > exporters: ` specification in the yaml code below).
 3. Deploy the yaml:
 
 ```
@@ -89,11 +91,7 @@ spec:
       - image: otel/opentelemetry-collector-contrib:0.17.0
         name: otel-collector-logzio
         ports:
-          # - "1888:1888"   # pprof extension
-          # - "8888:8888"   # Prometheus metrics exposed by the collector
           # - "8889:8889"   # Prometheus exporter metrics
-          # - "13133:13133" # health_check extension
-          # - "9411"   # Zipkin receiver
           # - "55680:55679" # zpages extension
         - containerPort: 1888   # pprof extension
           protocol: TCP
@@ -109,7 +107,7 @@ spec:
           - name: LOGZIO_TRACES_TOKEN
             valueFrom:
               secretKeyRef:
-                key: logzio-traces-shipping-token
+                key: logzio-traces-shipping-token # This is the secret you created in step 4 above. 
                 name: logzio-monitoring-secret
         volumeMounts:
         - name: otel-collector-config
@@ -145,7 +143,7 @@ data:
   exporters:
     logzio:
       account_token: "${LOGZIO_TRACES_TOKEN}"
-      region: us
+      region: us    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
     logging:
 
   processors:
@@ -246,7 +244,7 @@ spec:
 <div id="jaeger-collector">
 
 1. Save the yaml below to a file and name it `config.yaml`.
-2. Edit the 2-letter region code if necessary (line 44).
+2. Edit the 2-letter region code if needed. The region appears in the `apiVersion: apps/v1 spec: > template: > spec: > containers: > env: ` specification in the yaml code below.
 3. Deploy the yaml:
 
 ```
@@ -301,7 +299,7 @@ spec:
               key: logzio-traces-shipping-token
               name: logzio-monitoring-secret
         - name: REGION
-          value: us # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page
+          value: us # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
 #        - name: GRPC_STORAGE_PLUGIN_LOG_LEVEL  # Uncomment these lines to enable debug logs in the collector
 #          value: debug
 ---

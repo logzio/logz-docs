@@ -4,13 +4,14 @@ logo:
   logofile: opentelemetry-icon-color.png
   orientation: vertical
 data-source: OpenTelemetry
-description: How to deploy an OpenTelemetry Collector for traces to logz.io
+description: How to deploy an OpenTelemetry Collector for traces to Logz.io
 open-source:
   - title: Logz.io-OpenTelemetry trace exporter
     github-repo: https://github.com/open-telemetry/opentelemetry-collector-contrib
 contributors:
   - yyyogev
   - yberlinger
+  - doron-bargo
 shipping-tags:
   - traces
 ---
@@ -19,11 +20,12 @@ Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces
 
 The OpenTelemetry Collector pipeline has the following main components: 
 
-* Receivers
-* Processors 
-* Exporters
+* Receivers are used to gather data from your environment (pull-based) or receive it from external sources (push-based). Your system must have at least one receiver configured. Receivers are typically HTTP/gRPC endpoints or daemon-like processes. 
 
-OpenTelemetry also includes extentions for additional functionality such as diagnostics and health checks, as well as a dedicated collector for components contributed by the community, such as the Logz.io exporter.
+* Processors are used at various stages of your pipeline to pre-process data before exporting it.  Processors may be used to modify attributes or sample the data. This component is used to ensure that your data successfully makes it through a pipeline.  <!-- how do you control what processors do? -->
+* Exporters are used to send data to your designated tracing (or metrics, or logging) backends/destinations. Your system must have at least one exporter configured to move data from collector to backend.
+
+OpenTelemetry also includes extensions for additional functionality, such as diagnostics and health checks, as well as a dedicated collector for components contributed by the community, such as the Logz.io exporter.
 
 #### Deploy OpenTelemetry Collector with Logz.io Exporter
 
@@ -43,9 +45,9 @@ You can use <a href ="https://github.com/open-telemetry/opentelemetry-collector-
 
 | Parameter | Description |
 |---|---|
-| ACCOUNT_TOKEN <span class="required-param"></span> | The Logz.io token for your Distributed Tracing account. Required when using as a collector to ship traces to Logz.io.  |
+| ACCOUNT_TOKEN <span class="required-param"></span> | The Logz.io token for your Distributed Tracing account. Required when using as a collector to ship traces to Logz.io. Replace `<ACCOUNT_TOKEN>` with the token of the Distributed Tracing account you want to send data to <br><a href ="/user-guide/accounts/finding-your-tracing-account-token" target="_blank">How do I look up my Distributed Tracing account token?</a> |
 | REGION <span class="default-param">_Blank (US East)_</span> |  Your two-letter Logz.io account region code. Defaults to US, required only if your Logz.io region is different than US. You can find your region code in the <a href = "https://docs.logz.io/user-guide/accounts/account-region.html#available-regions" target = "_blank">  Available regions <i class="fas fa-external-link-alt"></i></a> table. |
-| CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter.|
+| CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter. <br> You can find your Listener Address in the <a href = "https://docs.logz.io/user-guide/accounts/account-region.html#available-regions" target = "_blank">  Available regions <i class="fas fa-external-link-alt"></i></a> table.|
 {:.paramlist}
 
 

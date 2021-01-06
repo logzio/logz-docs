@@ -66,7 +66,7 @@ docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 
 For a complete working example, you can run <a href ="https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml" target = "_blank"> this docker compose file <i class="fas fa-external-link-alt"></i>.</a>
 
   1. Download the docker compose file.
-  2. Edit the Account Token and the other necessary parameters.
+  2. Edit the Account Token and the other necessary parameters, according to the parameter list in step 2, above.
   3. Run `docker-compose up`. 
   4. Head to [http://0.0.0.0:8080/](http://0.0.0.0:8080/) to trigger the event that will generate and send traces to your logz.io account.
 

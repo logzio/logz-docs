@@ -54,7 +54,7 @@ Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recom
 
 
 1. Save the yaml below to a file and name it `config.yaml`.
-2. Edit the 2-letter region code, if needed. The region appears in the `apiVersion: v1 > data: > config.yaml > exporters: ` specification in the yaml code below).
+2. Edit the 2-letter region code, if needed. The region appears in the otel-collector-config ConfigMap under `config.yaml > exporters > logzio: ` specification in the yaml code below).
 3. Deploy the yaml:
 
 ```

@@ -102,7 +102,7 @@ Start or restart Filebeat for the changes to take effect.
 Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your Syslog server.
 
 1. Select your site.
-2. In the left side menu, click the **Settings** slider icon **<i class="fas fa-sliders-h"></i>**.
+2. In the left side menu, click the slider icon **[⊶]** to open the **Settings menu**.
 3. Open the **INTEGRATIONS** tab, and fill in the details:
     1. Under **Types**, select **SYSLOG**.
     2. Toggle the button to **enable SYSLOG**.

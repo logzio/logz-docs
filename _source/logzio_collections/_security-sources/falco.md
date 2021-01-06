@@ -13,23 +13,18 @@ shipping-tags:
 
 Falco is a [CNCF-approved](https://www.cncf.io/blog/2020/01/08/toc-votes-to-move-falco-into-cncf-incubator/) container security and Kubernetes threat detection engine that logs illegal container activity at runtime.
 
-We've got a great [blog post](https://logz.io/blog/k8s-security-with-falco-and-cloud-siem/) about how shipping your Falco logs to Logz.io Cloud SIEM can help you monitor your Kubernetes workloads for potentially malicious behavior, such as attempts to remove logging data from a container, to run recon tools inside a container, or add potentially malicious repositories to a container.
+Shipping your Falco logs to your Cloud SIEM can help you monitor your Kubernetes workloads for potentially malicious behavior. This can help you catch attempts to remove logging data from a container, to run recon tools inside a container, or add potentially malicious repositories to a container. [Learn more in our blog 🔗](https://logz.io/blog/k8s-security-with-falco-and-cloud-siem/)
 
-You can review the Falco resources in your Logz.io Cloud SIEM account, under the pre-configured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and search for the provided Falco [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
-###### On this page
-{:.no_toc}
+Once your Falco logs are coming into your account, you can review the pre-configured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) in your Cloud SIEM account.
 
-1. toc list
-{:toc}
-
-#### Step by step
-{:.no_toc}
+#### Configuration
 
 **Before you begin, you'll need**:
 
 * Falco installed on the host
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)* Root access
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* Root access
 
 <div class="tasklist">
 
@@ -42,6 +37,7 @@ if you need help finding the file.
 $nano /etc/falco/falco_rules.yaml
 ```
 
+
 In the configuration file,
 find the line that begins `- macro: network_tool_procs`.
 Copy the following directly below it:
@@ -51,6 +47,8 @@ Copy the following directly below it:
   append: true
   items: [fierce, dnsenum, amass, dnsrecon, sublist3r, theharvester, recon-ng, netdiscover, amap, enum4linux, onesixtyone]
 ```
+
+###### Rule: Netcat Remote Code Execution in Container
 
 In the configuration file, find the line that begins `- rule: Netcat Remote Code Execution in Container`.
 Replace the entire contents of the rule with the following:
@@ -70,6 +68,9 @@ Replace the entire contents of the rule with the following:
   priority: WARNING
   tags: [network, process, mitre_execution]
 ```
+
+
+###### Rule: Delete or rename shell history
 
 In the configuration file, find the line that begins `- rule: Delete or rename shell history`.
 Replace the entire contents of the rule with the following:
@@ -103,6 +104,9 @@ Replace the entire contents of the rule with the following:
   tags: [process, mitre_defense_evation]
 ```
 
+###### Rule: Delete Bash History
+
+
 In the configuration file, find the line that begins `- rule: Delete Bash History`.
 Replace the entire contents of the rule with the following:
 
@@ -124,6 +128,9 @@ Replace the entire contents of the rule with the following:
 - list: user_known_chmod_applications
   items: [hyperkube, kubelet]
 ```
+
+###### Rule: Clear Log Activities
+
 
 In the configuration file, find the line that begins `- rule: Clear Log Activities`.
 Replace the entire contents of the rule with the following:
@@ -151,6 +158,7 @@ Open Falco’s configuration file with your preferred text editor. The default l
 ```
 $nano /etc/falco/falco.yaml
 ```
+
 In the configuration file, set the output format to JSON.
 Find the line `json_output: true`.
 
@@ -177,7 +185,7 @@ file_output:
 ```
 Save and exit the falco.yaml file.
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %} to your Filebeat server
 
 ##### Configure Filebeat
 

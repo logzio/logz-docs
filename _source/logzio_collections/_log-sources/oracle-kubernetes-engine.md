@@ -8,7 +8,6 @@ templates: ["k8s-daemonset"]
 contributors:
   - mirii1994
 shipping-tags:
-  - oracle
   - container
 ---
 

@@ -91,8 +91,6 @@ spec:
       - image: otel/opentelemetry-collector-contrib:0.17.0
         name: otel-collector-logzio
         ports:
-          # - "8889:8889"   # Prometheus exporter metrics
-          # - "55680:55679" # zpages extension
         - containerPort: 1888   # pprof extension
           protocol: TCP
         - containerPort: 9411  # Zipkin receiver

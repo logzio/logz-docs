@@ -72,12 +72,9 @@ You can skip this step if you have already set up an automated deployment in thi
 You'll be taken to Azure, where you'll configure the resources to be deployed.
 Make sure to use the settings shown below.
 
-![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/customized-template.png)
-{:.override.btn-img}
 
 ###### Recommended settings
 
-Make sure to use these settings:
 
 
 | Parameter | Description |
@@ -107,7 +104,8 @@ Choose a resource from the list of resources, and select **Turn on diagnostics s
 * Select **Stream to an event hub**. Next, select **Configure** to open the _Select event hub_ panel.
 
 
-![Stream data to the new event hub](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/configuration-settings-azure-diagnostic-logs.png)
+![Stream data to the new event hub](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/diagnostic-settings.png)
+
 
 
 Select your event hub:
@@ -155,7 +153,10 @@ You'll have the option to edit the following values:
 * FUNCTIONS_WORKER_PROCESS_COUNT - maximum of 10. [Learn more in Azure Docs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count).
 * ParseEmptyFields (Default: `false`) - This option is a patch to handle a known bug. Consider changing this parameter to `true`, if you encounter invalid logs sent by Azure services that contain empty fields. Logs with empty fields will appear unparsed in Kibana. **Please note that this option may slow the shipper's perfomance and should be enabled only as required.**
 
-![Adjust your Azure Function's configuration settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/diagnostic-settings.png)
+
+![Adjust your Azure Function's configuration settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/configuration-settings-azure-diagnostic-logs.png)
+
+
 
 
 </div>

@@ -24,7 +24,10 @@ shipping-tags:
 Ship your Azure activity logs using an automated deployment process.
 At the end of this process, your Azure function will forward logs from an Azure Event Hub to your Logz.io account.
 
-###### What you'll be setting up in your Azure account
+
+![Overview of Azure Diagnostic Logz.io integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/azure-diagnostic-logs-overview.png)
+
+###### Overview of the services you'll be setting up in your Azure account
 
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
 
@@ -37,12 +40,6 @@ The automated deployment will create the following services:
 * App Service Plan
 * Application Insights
 
-###### Naming conventions
-
-Each deployed resource has a Logz.io-defined name and ends with a string unique to that deployment.
-
-For example: We name the namespace `LogzioLNS`—so if your namespace is `LogzioLNS6nvkqdcci10p`, the rest of the deployed resources will end with `6nvkqdcci10p`.
-
 
 ###### You'll need an event hub in the same region as your services
 
@@ -53,11 +50,11 @@ You'll need at least 1 automated deployment for each region where you want to co
 This is because Azure requires an event hub in the same region as your services. The good news is you can stream data from multiple services to the same event hub, just as long as they are in the same region.
 
 
-##### Backing up your logs
+###### Backing up your logs
 
 This deployment will automatically back up your data in case of connection or shipping errors.
 
-If this happens, the logs that weren't shipped to Logz.io will be uploaded to the blob storage 'logziologsbackupstorage' under the container 'logziologsbackupcontainer'.
+If this happens, the logs that weren't shipped to Logz.io will be uploaded to the blob storage `logziologsbackupstorage` under the container `logziologsbackupcontainer`.
 
 
 #### Configuration
@@ -77,6 +74,9 @@ You can skip this step if you have already set up an automated deployment in thi
 You'll be taken to Azure, where you'll configure the resources to be deployed.
 
 ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/customized-template.png)
+{:.override.btn-img}
+
+###### Recommended settings
 
 Make sure to use these settings:
 
@@ -85,7 +85,7 @@ Make sure to use these settings:
 |---|---|
 | Resource group (**Required**) | Create a new resource group or select an existing one, and click **OK**. |
 | Region (**Required**) | Select the same region as the Azure services that will stream data to this event hub. |
-| Shipping token (**Required**) | Add the [logs shipping token](https://app.logz.io/#/dashboard/settings/general) for the Logz.io account you want to ship to.  |
+| Shipping token (**Required**) | Add the [Log shipping token](https://app.logz.io/#/dashboard/settings/general) for the Logz.io account you want to ship to.  |
 | Logs listener host (Default: `listener.logz.io`)| Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
 | buffersize (Default: `100`) | The maximum number of messages the logger will accumulate before sending them in bulk.  |
 
@@ -105,6 +105,10 @@ Choose a resource from the list of resources, and select **Turn on diagnostics s
 
 * Give your diagnostic settings a **Name**.
 * Select **Stream to an event hub**. Next, select **Configure** to open the _Select event hub_ panel.
+
+
+![Stream data to the new event hub](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/configuration-settings-azure-diagnostic-logs.png)
+
 
 Select your event hub:
 
@@ -138,7 +142,7 @@ You'll have the option to edit the following values:
 * FUNCTIONS_WORKER_PROCESS_COUNT - maximum of 10. [Learn more in Azure Docs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count).
 * ParseEmptyFields (Default: `false`) - This option is a patch to handle a known bug. Consider changing this parameter to `true`, if you encounter invalid logs sent by Azure services that contain empty fields. Logs with empty fields will appear unparsed in Kibana. **Please note that this option may slow the shipper's perfomance and should be enabled only as required.**
 
-![Function's configuration](img/configuration-settings.png)
+![Adjust your Azure Function's configuration settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/diagnostic-settings.png)
 
 </div>
 

@@ -125,7 +125,7 @@ The selected data will now begin streaming to the event hub.
 Metrics rollups are a method of downsampling, or compressing the metrics over time. [Learn more](docs.logz.io/user-guide/infrastructure-monitoring/data-rollups.html)
 
 Configuring the rollups for your custom metrics is included in your package and we’re happy to offer it!
-Please [email our support](mailto:help@logz.io?subject=Requesting%20a%20custom%20rollups%20config%20for@Azure%20Diagnostic%20metrics&body=Hi!%20Please%20be%20in%20touch%20with%20further%20instructions.%20Thanks!) to request custom parsing assistance.
+Please [email our support](mailto:help@logz.io?subject=Requesting%20a%20custom%20rollups%20config%20for%20Azure%20Diagnostic%20metrics&body=Hi!%20Please%20be%20in%20touch%20with%20further%20instructions.%20Thanks!) to request assistance.
 
 Include the following details in your message:
 

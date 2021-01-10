@@ -63,11 +63,11 @@ where you'll configure the resources to be deployed.
 
 | Parameter | Description |
 |---|---|
-| Resource group <span class="required-param"></span> | Click Create new. Give a meaningful Name, such as "logziobBlobStorageIntegration", and then click OK. |
-| Location <span class="required-param"></span> | Select the same region as the Azure services that will stream data to this Blob Storage. |
-| Logzio host <span class="required-param"></span>  | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
-| Log shipping token <span class="required-param"></span>  | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
-| Format <span class="required-param"></span> | Select one of the supported parsing formats: text/json/csv |
+| Resource group (Required) | Click Create new. Give a meaningful Name, such as "logziobBlobStorageIntegration", and then click OK. |
+| Location (Required) | Select the same region as the Azure services that will stream data to this Blob Storage. |
+| Logzio host (Required)  | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
+| Log shipping token (Required)  | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
+| Format (Required) | Select one of the supported parsing formats: text/json/csv |
 | Buffersize <span class="default-param">`100`</span>  | The maximum number of messages the logger will accumulate before sending them all as a bulk  |
 | Timeout <span class="default-param">`180,000 = 3 minutes`</span> | The read/write/connection timeout in *milliseconds*.  |
 {:.paramlist}
@@ -119,12 +119,12 @@ where you'll configure the resources to be deployed.
 
 | Parameter | Description |
 |---|---|
-| Resource group <span class="required-param"></span> | Select your existing resource group. |
-| Location <span class="required-param"></span> | Select the same region as the Azure services that will stream data to this Blob Storage. |
-| Logzio host <span class="required-param"></span>  | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
-| Log shipping token <span class="required-param"></span>  | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
-| Format <span class="required-param"></span> | Select one of the supported parsing formats: text/json/csv |
-| Blob Storage Account Name <span class="required-param"></span> | Insert the name of the storage account that contains the logs.  |
+| Resource group (Required) | Select your existing resource group. |
+| Location (Required) | Select the same region as the Azure services that will stream data to this Blob Storage. |
+| Logzio host (Required)  | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
+| Log shipping token (Required)  | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
+| Format (Required) | Select one of the supported parsing formats: text/json/csv |
+| Blob Storage Account Name (Required) | Insert the name of the storage account that contains the logs.  |
 | Buffersize <span class="default-param">`100`</span>  | The maximum number of messages the logger will accumulate before sending them all as a bulk  |
 | Timeout <span class="default-param">`180,000 = 3 minutes`</span> | The read/write/connection timeout in *milliseconds*.  |
 {:.paramlist}

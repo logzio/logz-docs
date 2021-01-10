@@ -219,7 +219,7 @@ logzio/mysql-logs
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
 | LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/replace-vars.html listener=true %} |
 | MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span> | Path to the MySQL error log. |
 | MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span> | Path to the MySQL slow query log. |

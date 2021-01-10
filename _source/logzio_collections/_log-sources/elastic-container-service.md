@@ -57,8 +57,8 @@ logzio/docker-collector-logs
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} |
-| LOGZIO_URL <span class="required-param"></span> | Your Logz.io listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} |
+| LOGZIO_URL (Required) | Your Logz.io listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
 | ignoreOlder <span class="default-param">`3h`</span> |  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). |
 {:.paramlist}
 

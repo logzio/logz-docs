@@ -71,7 +71,7 @@ var logger = require('logzio-nodejs').createLogger({
 
 | Parameter | Description |
 |---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
+| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
 | protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
 | host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
 | port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
@@ -184,7 +184,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | Parameter | Description |
 |---|---|
 | LogzioWinstonTransport | This variable determines what will be passed to the logzio nodejs logger itself. If you want to configure the nodejs logger, add any parameters you want to send to winston when initializing the transport. |
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
+| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
 | protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
 | host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
 | port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |

@@ -42,7 +42,7 @@ Follow the official G Suite [tutorial](https://support.google.com/gsuitemigrate/
 
 #### Filebeat monitoring setup
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Configure Filebeat
 

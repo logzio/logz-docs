@@ -58,7 +58,7 @@ If you restart the management server, you'll need to run `cp_log_export` again
 to restart the exporter.
 {:.info-box.note}
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add UDP traffic as an input
 

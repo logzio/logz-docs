@@ -27,7 +27,7 @@ Follow the official instructions provided by Sophos for [collecting Sophos Centr
 
 The procedure involves using the Sophos API. Make sure that the `config.ini` used in the Sophos siem.py script is under `format = json` (this is the default setting).
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Configure Filebeat
 

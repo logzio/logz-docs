@@ -42,7 +42,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 -out /etc/filebeat/certificates/McafeeEpo.crt
 ```
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add TCP traffic as an input
 

@@ -40,7 +40,7 @@ Configuration tl;dr
 
 <div class="tasklist">
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add Jenkins as an input
 

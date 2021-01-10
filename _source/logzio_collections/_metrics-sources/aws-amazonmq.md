@@ -148,7 +148,7 @@ and the slug for Canada (Central) is "ca-central-1".
 Paste your region slug in your text editor.
 You'll need this for your Metricbeat configuration later.
 
-{% include log-shipping/certificate.md server="to your Metricbeat server" %}
+{% include metric-shipping/certificate.md %}
 
 ##### _(Optional)_ Disable the system module
 

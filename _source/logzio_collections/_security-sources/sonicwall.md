@@ -35,7 +35,7 @@ Make sure you meet this configuration:
 SonicWall firewall sends logs over UDP by default. See [SonicWall docs](https://www.sonicwall.com/support/technical-documentation/?language=English) for more information
 on configuring your SonicWall firewall.
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Configure Filebeat
 

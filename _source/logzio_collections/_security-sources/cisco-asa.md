@@ -35,7 +35,7 @@ Make sure you meet this configuration:
 See [Cisco docs](https://www.cisco.com/c/en/us/support/security/index.html) for more information
 on configuring your Cisco ASA firewall.
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add TCP traffic as an input
 

@@ -46,7 +46,7 @@ set port 514
 end
 ```
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add UDP traffic as an input
 

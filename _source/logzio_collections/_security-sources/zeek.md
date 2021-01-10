@@ -39,7 +39,7 @@ Set the value to `T` (true):
 const use_json = T &redef;
 ```
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add Zeek as an input
 

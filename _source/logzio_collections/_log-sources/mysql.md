@@ -28,28 +28,15 @@ shipping-tags:
 
 ## MySQL + Filebeat setup
 
-<details>
 
-<summary>
-Configuration tl;dr
-</summary>
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
-| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Default log locations | General query log: `/var/log/mysql/mysql.log` <br> Slow query log: `/var/log/mysql/mysql-slow.log` <br> Error log: `/var/log/mysql/error.log` |
-| Log type _(for preconfigured parsing)_ | General query log: `mysql` <br> Slow query log: `mysql_slow_query` <br> Error log: `mysql_error` |
-{:.paramlist
-}
-</details>
-
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
-[MySQL](https://dev.mysql.com/downloads/)
+
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
+[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html). ([Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml))
+* [MySQL](https://dev.mysql.com/downloads/)
+* Port 5015 open
 
 <div class="tasklist">
 
@@ -66,15 +53,16 @@ long_query_time = 1
 log-queries-not-using-indexes = 1
 ```
 
-Restart MySQL.
+Restart MySQL:
 
 ```shell
 sudo /etc/init.d/mysql restart
 ```
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
 
-##### Add MySQL as an input
+{% include log-shipping/certificate.md %}
+
+##### Add MySQL as an input in your Filebeat configuration
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to the filebeat.inputs section.
 
@@ -158,6 +146,16 @@ If you're running Filebeat 6, paste this code block.
 # ... For Filebeat 6 only ...
 registry_file: /var/lib/filebeat/registry
 ```
+
+###### Preconfigured log types
+
+| Parameter | Log Type | Default log location |
+|---|---|---|
+| General query log | `mysql` | `/var/log/mysql/mysql.log` |
+| Slow query log | `mysql_slow_query` | `/var/log/mysql/mysql-slow.log` |
+| Error log | `mysql_error` | `/var/log/mysql/error.log` |
+
+The log type is used to apply the appropriate Logz.io preconfigured parsing pipeline so that your logs will be automatically parsed.
 
 ##### Set Logz.io as the output
 

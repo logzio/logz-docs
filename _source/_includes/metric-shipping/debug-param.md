@@ -1,0 +1,1 @@
+| DEBUG (false by default) | Set to `true` if you want Metricbeat to run in debug mode. **Note:** Debug mode tends to generate a lot of debugging output, so you should probably enable it temporarily only when an error occurs while running the docker-collector in production.  |

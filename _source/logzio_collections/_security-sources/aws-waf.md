@@ -15,14 +15,8 @@ If you're using AWS WAF as a web application firewall, you can ship its alerts t
 
 You can review the AWS WAF resources in your Logz.io Cloud SIEM account, under the pre-configured [security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=waf) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
-###### On this page
-{:.no_toc}
 
-1. toc list
-{:toc}
-
-#### Step by step
-{:.no_toc}
+#### Configuration
 
 
 <div class="tasklist">

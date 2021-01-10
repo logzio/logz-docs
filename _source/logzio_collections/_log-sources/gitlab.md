@@ -12,23 +12,6 @@ shipping-tags:
   - ci-cd
 ---
 
-## Setup
-
-<details>
-
-<summary>
-Configuration tl;dr
-</summary>
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
-| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-|  |
-{:.paramlist}
-
-</details>
-
 #### Configuration
 
 **Before you begin, you'll need**:

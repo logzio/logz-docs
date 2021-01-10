@@ -28,7 +28,7 @@ Logz.io captures end-to-end distributed transactions from your applications and 
 
 We recommend that you use the OpenTelemetry collector to gather trace transaction data from your system. 
 
-See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Ship traces with OpenTelemetry </a>_ for the procedure to configure and deploy the OpenTelemetry collector.
+See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Installing the OpenTelemetry Collector for Distributed Tracing</a>_ for the procedure to configure and deploy the OpenTelemetry collector.
 
 ### Logz.io Jaeger Collector
 As a secondary option, you may consider using the Jaeger Collector if you experience issues with the OpenTelemetry Collector. 

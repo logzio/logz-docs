@@ -29,24 +29,14 @@ shipping-tags:
 ## MySQL + Filebeat setup
 
 
-
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) 
-| Listener | . For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-|  |
-| 
-{:.paramlist
-}
-</details>
-
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
-[MySQL](https://dev.mysql.com/downloads/), Port 5015 open.
+
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
+[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html). ([Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml))
+* [MySQL](https://dev.mysql.com/downloads/)
+* Port 5015 open
 
 <div class="tasklist">
 

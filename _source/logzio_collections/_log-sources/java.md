@@ -87,7 +87,7 @@ For a complete list of options, see the configuration parameters below the code 
 
 | Parameter | Description |
 |---|---|
-| logzioToken <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
+| logzioToken (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
 | logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
 | logzioType <span class="default-param">`java`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | addHostname <span class="default-param">`false`</span> | Boolean. Indicates whether to add `hostname` field to logs. This field holds the machine's host name. <br> Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. |
@@ -257,7 +257,7 @@ For a complete list of options, see the configuration parameters below the code 
 
 | Parameter | Description |
 |---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. <br> For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
+| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. <br> For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
 | logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
 | logzioType <span class="default-param">`java`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | addHostname <span class="default-param">`false`</span> | Indicates whether to add `hostname` field to logs. This field holds the machine's host name. <br> Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. |

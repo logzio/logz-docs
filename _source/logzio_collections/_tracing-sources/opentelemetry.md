@@ -50,7 +50,7 @@ You can use <a href ="https://github.com/open-telemetry/opentelemetry-collector-
 
 | Parameter | Description |
 |---|---|
-| ACCOUNT_TOKEN <span class="required-param"></span> | The Logz.io token for your Distributed Tracing account. Required when you use the collector to ship traces to Logz.io. <br>Replace `<ACCOUNT_TOKEN>` with the token of the Distributed Tracing account you want to send data to <br><a href ="/user-guide/accounts/finding-your-tracing-account-token" target="_blank">How do I look up my Distributed Tracing account token?</a> |
+| ACCOUNT_TOKEN (Required) | The Logz.io token for your Distributed Tracing account. Required when you use the collector to ship traces to Logz.io. <br>Replace `<ACCOUNT_TOKEN>` with the token of the Distributed Tracing account you want to send data to <br><a href ="/user-guide/accounts/finding-your-tracing-account-token" target="_blank">How do I look up my Distributed Tracing account token?</a> |
 | REGION <span class="default-param">_Blank (US East)_</span> |  Your two-letter Logz.io account region code. Defaults to US, required only if your Logz.io region is different than US. You can find your region code in the <a href = "https://docs.logz.io/user-guide/accounts/account-region.html#available-regions" target = "_blank">  Available regions <i class="fas fa-external-link-alt"></i></a> table. |
 | CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter. <br> You can find your Listener Address in the <a href = "https://docs.logz.io/user-guide/accounts/account-region.html#available-regions" target = "_blank">  Available regions <i class="fas fa-external-link-alt"></i></a> table.|
 {:.paramlist}

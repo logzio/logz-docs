@@ -81,8 +81,8 @@ tenants_credentials:
 
 | Parameter | Description |
 |---|---|
-| OKTA_API_KEY <span class="required-param"></span> | The Okta API key copied in step 1. |
-| OKTA_DOMAIN <span class="required-param"></span> | The Okta domain copied in step 1. It is found under the **Issuer URI column** in your Okta developer console. <br> Supports these [Okta domains](https://developer.okta.com/docs/guides/find-your-domain/findorg/): <br> example.oktapreview.com, example.okta.com, example.okta-emea.com |
+| OKTA_API_KEY (Required) | The Okta API key copied in step 1. |
+| OKTA_DOMAIN (Required) | The Okta domain copied in step 1. It is found under the **Issuer URI column** in your Okta developer console. <br> Supports these [Okta domains](https://developer.okta.com/docs/guides/find-your-domain/findorg/): <br> example.oktapreview.com, example.okta.com, example.okta-emea.com |
 
 
 YAML files are sensitive to spaces and tabs. It's a good idea to run your code through a YAML validator to make sure that its structure is correct.
@@ -122,8 +122,8 @@ For more information about mounting files from root directory click [here](https
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} |
-| LOGZIO_LISTENER_HOST <span class="required-param"></span> | {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_TOKEN (Required) | {% include log-shipping/replace-vars.html token=true %} |
+| LOGZIO_LISTENER_HOST (Required) | {% include log-shipping/replace-vars.html listener=true %} |
 
 
 ##### Check Logz.io for your logs

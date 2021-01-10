@@ -1,5 +1,5 @@
 ---
-title: Ship traces with OpenTelemetry
+title: Installing the OpenTelemetry Collector for Distributed Tracing
 logo:
   logofile: opentelemetry-icon-color.png
   orientation: vertical
@@ -15,8 +15,13 @@ contributors:
 shipping-tags:
   - traces
 ---
+## Overview
 
 Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces to Logz.io from different APM (Application Performance Management/Monitoring) agents, such as Jaeger, Zipkin, and so on.
+
+This topic explains how to install the OpenTelemetry Collector. For an overview of the process to send traces to Logz.io, see <a href="/user-guide/distributed-tracing/getting-started-tracing" target ="_blank"> Getting started with Logz.io Distributed Tracing</a>. 
+
+### OpenTelemetry components
 
 The OpenTelemetry Collector pipeline has the following main components: 
 
@@ -25,7 +30,7 @@ The OpenTelemetry Collector pipeline has the following main components:
 * Processors are used at various stages of your pipeline to pre-process data before exporting it.  Processors may be used to modify attributes or sample the data. This component is used to ensure that your data successfully makes it through a pipeline.  <!-- how do you control what processors do? -->
 * Exporters are used to send data to your designated tracing (or metrics, or logging) backends/destinations. Your system must have at least one exporter configured to move data from collector to backend.
 
-OpenTelemetry also includes extensions for additional functionality, such as diagnostics and health checks, as well as a dedicated collector for components contributed by the community, such as the Logz.io exporter.
+OpenTelemetry also includes extensions for additional functionality, such as diagnostics and health checks for components contributed by the community, such as the Logz.io exporter, as well as a dedicated collector.
 
 #### Deploy OpenTelemetry Collector with Logz.io Exporter
 
@@ -66,14 +71,13 @@ docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 
 For a complete working example, you can run <a href ="https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml" target = "_blank"> this docker compose file <i class="fas fa-external-link-alt"></i>.</a>
 
   1. Download the docker compose file.
-  2. Edit the Account Token and the other necessary parameters.
+  2. Edit the Account Token and the other necessary parameters, according to the the parameter list in step 2, above.
   3. Run `docker-compose up`. 
-  4. Head to [http://0.0.0.0:8080/](http://0.0.0.0:8080/) to trigger the event that will generate and send traces to your logz.io account.
+  4. Head to [http://0.0.0.0:8080/](http://0.0.0.0:8080/) to trigger the event that will generate and send traces to your Logz.io account.
 
-##### Check Jaeger for your traces.
+##### Check the Distributed Tracing tab for your traces.
 
-Give your traces some time to get from your system to ours,
-and then open your Jaeger UI.
+Give your traces some time to get from your system to ours, then check the Distributed Tracing tab in Logz.io to see the traces in the Jaeger UI.
 
 To learn more about tracing instrumentation, see <a href ="/user-guide/distributed-tracing/tracing-instrumentation#instrumentation-recommendations-and-resources" target = "_blank"> Instrumentation recommendations and resources <i class="fas fa-external-link-alt"></i>.</a>
 

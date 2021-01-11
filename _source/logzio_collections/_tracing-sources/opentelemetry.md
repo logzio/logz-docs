@@ -37,10 +37,10 @@ OpenTelemetry also includes extensions for additional functionality, such as dia
 
 <div class="tasklist">
 
-##### Pull the latest opentelemetry-collector-contrib image:
+##### Pull the opentelemetry-collector-contrib image:
 
 ```
-docker pull otel/opentelemetry-collector-contrib:latest
+docker pull otel/opentelemetry-collector-contrib:0.17.0
 ```
 
 ##### Create a config file to mount to the container. 
@@ -72,7 +72,7 @@ docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 
 ```
 
 ##### Run a working example.
-For a complete working example, you can run [this docker compose file.](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml)
+For a complete working example, you can run [this docker compose file](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml) for the [Logz.io Hotrod demo application](/user-guide/distributed-tracing/trace-hotrod-demo).
 
   1. Download the docker compose file.
 

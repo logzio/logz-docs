@@ -19,9 +19,12 @@ shipping-tags:
 
 Logz.io's trace exporter for Jaeger allows you to ship distributed traces to Logz.io from different APM (Application Performance Management/Monitoring) agents, including Zipkin.
 
-This topic explains how to install the Logz.io Jaeger Collector. <br> For an overview of the process to send traces to Logz.io, see <a href="/user-guide/distributed-tracing/getting-started-tracing" target ="_blank"> Getting started with Logz.io Distributed Tracing</a>. 
+This topic explains how to install the Logz.io Jaeger Collector. 
 
-We recommend that you use the OpenTelemetry collector to gather trace transaction data from your system. <br> See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Ship traces with OpenTelemetry </a>_ for the procedure to configure and deploy the OpenTelemetry collector. You may consider using the Jaeger Collector as a secondary option, if you experience issues with the OpenTelemetry Collector. 
+For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](/user-guide/distributed-tracing/getting-started-tracing"). 
+
+We recommend that you use the OpenTelemetry collector to gather trace transaction data from your system. 
+See [_Ship traces with OpenTelemetry_](/shipping/tracing-sources/opentelemetry) for the procedure to configure and deploy the OpenTelemetry collector. You may consider using the Jaeger Collector as a secondary option, if you experience issues with the OpenTelemetry Collector. 
 
 #### Deploy Jaeger Collector with Logz.io Exporter
 

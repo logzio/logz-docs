@@ -10,29 +10,12 @@ contributors:
 shipping-tags:
   - os
 ---
-
-## Setup
-
-<details>
-
-<summary>
-Configuration tl;dr
-</summary>
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-rsyslog-config.conf) |
-| Listener | Port 5000. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Default log location | `/var/log/` |
-| Log type _\(for preconfigured parsing\)_ | `syslog` |
-{:.paramlist}
-
-</details>
-
-#### Guided configuration
+#### Configuration
 
 **Before you begin, you'll need**:
-root access
+
+* Root access
+* Port 5000 open
 
 <div class="tasklist">
 
@@ -48,9 +31,15 @@ curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslo
   && sudo rsyslog/install.sh -t linux -a "<<SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>"
 ```
 
+
+The above assumes the following defaults:
+
+* Log location - `/var/log/`
+* Log type - `syslog`
+
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana). You can search for `type:syslog` to filter for your logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

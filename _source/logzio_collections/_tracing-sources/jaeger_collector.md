@@ -23,11 +23,9 @@ This topic explains how to install the Logz.io Jaeger Collector. <br> For an ove
 
 We recommend that you use the OpenTelemetry collector to gather trace transaction data from your system. <br> See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Ship traces with OpenTelemetry </a>_ for the procedure to configure and deploy the OpenTelemetry collector. You may consider using the Jaeger Collector as a secondary option, if you experience issues with the OpenTelemetry Collector. 
 
-### Logz.io Jaeger Collector
+#### Deploy Jaeger Collector with Logz.io Exporter
 
 The Logz.io integration builds on the Jaeger Collector base image and uses the gRPC plugin framework to enable communication between the Collector and Logz.io.
-
-#### Deploy OpenTelemetry Collector with Logz.io Exporter
 
 <div class="tasklist">
 

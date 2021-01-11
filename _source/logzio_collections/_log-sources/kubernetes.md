@@ -118,38 +118,38 @@ The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of 
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| output_include_time <span class="default-param">`true`</span> | To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. |
-| buffer_type <span class="default-param">`file`</span> | Specifies which plugin to use as the backend. |
-| buffer_path <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span> | Path of the buffer. |
-| buffer_queue_full_action <span class="default-param">`block`</span> | Controls the behavior when the queue becomes full. |
-| buffer_chunk_limit <span class="default-param">`2M`</span> | Maximum size of a chunk allowed. |
-| buffer_queue_limit <span class="default-param">`6`</span> | Maximum length of the output queue. |
-| flush_interval <span class="default-param">`5s`</span> | Interval, in seconds, to wait before invoking the next buffer flush. |
-| max_retry_wait <span class="default-param">`30s`</span> | Maximum interval, in seconds, to wait between retries. |
-| num_threads <span class="default-param">`2`</span> | Number of threads to flush the buffer. |
-| INCLUDE_NAMESPACE | <span class="default-param">`""`(All namespaces)</span> | Sends logs from all namespaces by default. To send logs from specific k8s namespaces, specify them in the following format, space delimited:    `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. |
-| KUBERNETES_VERIFY_SSL | <span class="default-param"> `true`</span> | Enable to validate SSL certificates. |
-| FLUENT_FILTER_KUBERNETES_URL | <span class="default-param"> `null` </span>  | URL to the API server. This parameter isn't part of the default Daemonset. You can set it to retrieve additional Kubernetes metadata for logs from the  Kubernetes API server.  |
+| Parameter | Description | Default |
+|---|---|---|
+| output_include_time | To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. | `true` |
+| buffer_type | Specifies which plugin to use as the backend | `file` |
+| buffer_path | Path of the buffer | `/var/log/Fluentd-buffers/stackdriver.buffer` |
+| buffer_queue_full_action  | Controls the behavior when the queue becomes full | `block` |
+| buffer_chunk_limit | Maximum size of a chunk allowed. | `2M` |
+| buffer_queue_limit | Maximum length of the output queue. | `6` |
+| flush_interval | Interval, in seconds, to wait before invoking the next buffer flush. | `5s` |
+| max_retry_wait | Maximum interval, in seconds, to wait between retries. | `30s` |
+| num_threads | Number of threads to flush the buffer. | `2` |
+| INCLUDE_NAMESPACE | Sends logs from all namespaces by default. To send logs from specific k8s namespaces, specify them in the following format, space delimited: `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. | `""`(All namespaces) |
+| KUBERNETES_VERIFY_SSL | Enable to validate SSL certificates. | `true` |
+| FLUENT_FILTER_KUBERNETES_URL | URL to the API server. This parameter isn't part of the default Daemonset. You can set it to retrieve additional Kubernetes metadata for logs from the  Kubernetes API server.  | `null` |
 
 ###### Good to know
 
-If `FLUENT_FILTER_KUBERNETES_URL` is not specified, the environment variables `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT` will be used, as long as both of them are  present. Typically, they are present when running Fluentd in a pod.
+* If `FLUENT_FILTER_KUBERNETES_URL` is not specified, the environment variables `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT` will be used, as long as both of them are  present. Typically, they are present when running Fluentd in a pod.
 
-Note that `FLUENT_FILTER_KUBERNETES_URL` does not appear in the default environment variable list in the Daemonset.
+* Note that `FLUENT_FILTER_KUBERNETES_URL` does not appear in the default environment variable list in the Daemonset.
 If you wish to use this variable, you'll have to add it manually to the Daemonset's environment variables.
-{:.paramlist}
+
 
 ##### Deploy the DaemonSet
 
-For the RBAC DaemonSet:
+###### For the RBAC DaemonSet:
 
 ```shell
 kubectl apply -f /path/to/logzio-daemonset-rbac.yaml
 ```
 
-For the non-RBAC DaemonSet:
+###### For the non-RBAC DaemonSet:
 
 ```shell
 kubectl apply -f /path/to/logzio-daemonset.yaml

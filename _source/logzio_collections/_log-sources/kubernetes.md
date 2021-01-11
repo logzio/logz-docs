@@ -58,13 +58,13 @@ kubectl create secret generic logzio-logs-secret \
 
 ##### Deploy the DaemonSet
 
-For an RBAC cluster:
+###### For an RBAC cluster:
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml
 ```
 
-Or for a non-RBAC cluster:
+###### For a non-RBAC cluster:
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml

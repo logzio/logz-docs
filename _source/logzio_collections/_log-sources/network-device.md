@@ -26,7 +26,7 @@ root access
 Configure your network device to send logs to your Filebeat server, TCP port 9000.
 See your device's documentation if you're not sure how to do this.
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add TCP traffic as an input
 

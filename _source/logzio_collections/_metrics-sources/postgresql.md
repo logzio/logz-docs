@@ -21,7 +21,7 @@ You can ship PostgreSQL metrics using Metricbeat.
 
 <div class="tasklist">
 
-{% include log-shipping/certificate.md server="to your Metricbeat server" %}
+{% include metric-shipping/certificate.md %}
 
 ##### Add Logz.io to your Metricbeat configuration
 

@@ -54,7 +54,7 @@ Restart Wazuh.
 sudo systemctl restart wazuh-manager
 ```
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add Wazuh as an input
 

@@ -20,7 +20,7 @@ shipping-tags:
 
 <div class="tasklist">
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Configure Filebeat
 

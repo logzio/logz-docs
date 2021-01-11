@@ -39,7 +39,7 @@ root access
 
 <div class="tasklist">
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add Puppet as an input
 

@@ -49,7 +49,7 @@ http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
 
 | Parameter | Description |
 |---|---|
-| token (Required) | {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| token (Required) | {% include log-shipping/replace-vars.html token=true %}   |
 | type <span class="default-param">`http-bulk`</span> | The log type you'll use with this upload. This is shown in your logs under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
 {:.paramlist}
 
@@ -159,7 +159,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 
 Using the certificate you just downloaded,
 send the logs to TCP port 5052 at
-<!-- logzio-inject:listener-url -->
+  
 {% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
 
 ###### Code sample: NXLog

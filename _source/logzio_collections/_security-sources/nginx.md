@@ -23,10 +23,10 @@ Configuration tl;dr
 
 | Item | Description |
 |---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml)    [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | Default log locations | `/var/log/nginx/access.log` or `/var/log/nginx/error.log` |
-| Log type _(for preconfigured parsing)_ | Access log: `nginx`, `nginx_access`, or `nginx-access` <br> Error log: `nginx-error` |
+| Log type _(for preconfigured parsing)_ | Access log: `nginx`, `nginx_access`, or `nginx-access`    Error log: `nginx-error` |
 {:.paramlist}
 
 </details>

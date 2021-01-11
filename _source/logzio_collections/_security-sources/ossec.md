@@ -22,9 +22,9 @@ Configuration tl;dr
 
 | Item | Description |
 |---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
+| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml)    [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
 | Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Default log locations | JSON _(recommended)_: `/var/ossec/logs/alerts/alerts.json` <br> Plain text: `/var/ossec/logs/alerts/alerts.log` |
+| Default log locations | JSON _(recommended)_: `/var/ossec/logs/alerts/alerts.json`    Plain text: `/var/ossec/logs/alerts/alerts.log` |
 {:.paramlist}
 
 </details>

@@ -71,7 +71,7 @@ var logger = require('logzio-nodejs').createLogger({
 
 | Parameter | Description |
 |---|---|
-| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
+| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).    {% include log-shipping/replace-vars.html token=true %} |
 | protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
 | host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
 | port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
@@ -82,7 +82,7 @@ var logger = require('logzio-nodejs').createLogger({
 | debug <span class="default-param">`false`</span> | To print debug messsages to the console, `true`. Otherwise, `false`. |
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. |
 | timeout | Read/write/connection timeout, in milliseconds. |
-| addTimestampWithNanoSecs <span class="default-param">`false`</span> | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. <br> If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. |
+| addTimestampWithNanoSecs <span class="default-param">`false`</span> | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`.    If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. |
 {:.paramlist}
 
 ###### Code sample
@@ -184,7 +184,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | Parameter | Description |
 |---|---|
 | LogzioWinstonTransport | This variable determines what will be passed to the logzio nodejs logger itself. If you want to configure the nodejs logger, add any parameters you want to send to winston when initializing the transport. |
-| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
+| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).    {% include log-shipping/replace-vars.html token=true %} |
 | protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
 | host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
 | port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
@@ -195,7 +195,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | debug <span class="default-param">`false`</span> | To print debug messsages to the console, `true`. Otherwise, `false`. |
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. |
 | timeout | Read/write/connection timeout, in milliseconds. |
-| addTimestampWithNanoSecs <span class="default-param">`false`</span> | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. <br> If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. |
+| addTimestampWithNanoSecs <span class="default-param">`false`</span> | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`.    If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. |
 {:.paramlist}
 
 ##### Additional configuration options

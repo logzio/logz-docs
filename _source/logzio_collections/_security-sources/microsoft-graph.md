@@ -102,11 +102,11 @@ logLevel: INFO
 | Parameter | Description |
 |---|---|
 | senderParams.accountToken (Required) | {% include log-shipping/replace-vars.html token=true %} |
-| senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span> | Listener URL. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span> | Listener URL.    {% include log-shipping/replace-vars.html listener=true %} |
 | senderParams.fromDisk <span class="default-param">`true`</span> | If `true`, logs are stored on disk until they're shipped (see [If from-disk=true](#if-fromdisk-true)). If `false`, logs persist in memory until they're shipped (see [If from-disk=false](#if-fromdisk-false)). |
 | senderParams.senderDrainIntervals <span class="default-param">`30`</span> | How often the sender should drain the queue, in seconds. |
-| azureADClient.tenantId (Required) | Azure Active Directory tenant ID. <br> You can find this in the _Overview_ section of the app you registered in step 1. |
-| azureADClient.clientId (Required) | Application client ID. <br> You can find this in the _Overview_ section of the app you registered in step 1. |
+| azureADClient.tenantId (Required) | Azure Active Directory tenant ID.    You can find this in the _Overview_ section of the app you registered in step 1. |
+| azureADClient.clientId (Required) | Application client ID.    You can find this in the _Overview_ section of the app you registered in step 1. |
 | azureADClient.clientSecret (Required) | The Application Client Secret you created in step 2. |
 | azureADClient.pullIntervalSeconds <span class="default-param">`300`</span> | Time interval, in seconds, to pull the logs with the Graph API. |
 | logLevel <span class="default-param">`INFO`</span> | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. |

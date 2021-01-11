@@ -116,16 +116,16 @@ Open the file in your text editor and customize the integration environment vari
 
 | Parameter | Description |
 |---|---|
-| output_include_time | **Default**: `true` <br>  To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. |
-| LOGZIO_BUFFER_TYPE | **Default**: `file` <br>  Specifies which plugin to use as the backend. |
-| LOGZIO_BUFFER_PATH | **Default**: `/var/log/Fluentd-buffers/stackdriver.buffer` <br>  Path of the buffer. |
-| LOGZIO_OVERFLOW_ACTION | **Default**: `block` <br>  Controls the behavior when the queue becomes full. |
-| LOGZIO_CHUNK_LIMIT_SIZE | **Default**: `2M` <br>  Maximum size of a chunk allowed |
-| LOGZIO_QUEUE_LIMIT_LENGTH | **Default**: `6` <br>  Maximum length of the output queue. |
-| LOGZIO_FLUSH_INTERVAL | **Default**: `5s` <br>  Interval, in seconds, to wait before invoking the next buffer flush. |
-| LOGZIO_RETRY_MAX_INTERVAL | **Default**: `30s` <br>  Maximum interval, in seconds, to wait between retries. |
-| LOGZIO_FLUSH_THREAD_COUNT | **Default**: `2` <br>  Number of threads to flush the buffer. |
-| LOGZIO_LOG_LEVEL | **Default**: `info` <br> The log level for this container. |
+| output_include_time | **Default**: `true`     To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. |
+| LOGZIO_BUFFER_TYPE | **Default**: `file`     Specifies which plugin to use as the backend. |
+| LOGZIO_BUFFER_PATH | **Default**: `/var/log/Fluentd-buffers/stackdriver.buffer`     Path of the buffer. |
+| LOGZIO_OVERFLOW_ACTION | **Default**: `block`     Controls the behavior when the queue becomes full. |
+| LOGZIO_CHUNK_LIMIT_SIZE | **Default**: `2M`     Maximum size of a chunk allowed |
+| LOGZIO_QUEUE_LIMIT_LENGTH | **Default**: `6`     Maximum length of the output queue. |
+| LOGZIO_FLUSH_INTERVAL | **Default**: `5s`     Interval, in seconds, to wait before invoking the next buffer flush. |
+| LOGZIO_RETRY_MAX_INTERVAL | **Default**: `30s`     Maximum interval, in seconds, to wait between retries. |
+| LOGZIO_FLUSH_THREAD_COUNT | **Default**: `2`     Number of threads to flush the buffer. |
+| LOGZIO_LOG_LEVEL | **Default**: `info`    The log level for this container. |
 
 ##### Deploy the DaemonSet
 

@@ -96,7 +96,7 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 
 | Parameter | Description |
 |---|---|
-| TOKEN (Required) | {% include log-shipping/replace-vars.html token='noReplace' %} <!-- logzio-inject:account-token --> |
+| TOKEN (Required) | {% include log-shipping/replace-vars.html token='noReplace' %}   |
 | URL (Required) | Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > {% include log-shipping/replace-vars.html listener=true %} <!-- logzio-inject:listener-url --> |
 | TYPE <span class="default-param">`"guardduty"`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
 | FORMAT <span class="default-param">`"text"`</span> | `"json"` or `"text"`. If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
@@ -207,7 +207,7 @@ aws cloudformation deploy \
 
 | Parameter | Description |
 |---|---|
-| LogzioTOKEN (Required) | {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LogzioTOKEN (Required) | {% include log-shipping/replace-vars.html token=true %}   |
 | KinesisStream (Required) | The name of the Kinesis stream where this function will listen for updates. |
 | LogzioURL <span class="default-param">`https://listener.logz.io:8071`</span> | Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > {% include log-shipping/replace-vars.html listener='noReplace' %} <!-- logzio-inject:listener-url --> |
 | LogzioTYPE <span class="default-param">`guardduty`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |

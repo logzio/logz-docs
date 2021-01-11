@@ -94,7 +94,7 @@ In the Environment variables section, set your Logz.io account token, URL, and l
 | Parameter | Description |
 |---|---|
 | TOKEN (Required) | {% include log-shipping/replace-vars.html token='noReplace' %}   |
-| URL (Required) | {% include log-shipping/replace-vars.html listener='noReplace' %} <!-- logzio-inject:listener-url --> |
+| URL (Required) | {% include log-shipping/replace-vars.html listener='noReplace' %}    |
 | REPORT_NAME | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **Report name** column for your report. |
 | REPORT_PATH | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), click <i class="fas fa-caret-right"></i> (next to the report name), and copy the **Report path**. |
 | S3_BUCKET_NAME | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **S3 Bucket** column for your report. |

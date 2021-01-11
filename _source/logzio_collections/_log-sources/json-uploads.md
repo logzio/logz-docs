@@ -159,7 +159,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/Tr
 
 Using the certificate you just downloaded,
 send the logs to TCP port 5052 at
-<!-- logzio-inject:listener-url -->
+  
 {% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
 
 ###### Code sample: NXLog

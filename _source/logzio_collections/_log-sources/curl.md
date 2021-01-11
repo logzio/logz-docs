@@ -9,6 +9,8 @@ shipping-tags:
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/File-UploadcURL
 contributors:
   - imnotashrimp
+shipping-tags:
+  - agents
 ---
 
 cURL is a command line utility for transferring data.

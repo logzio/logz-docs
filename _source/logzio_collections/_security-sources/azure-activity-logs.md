@@ -15,22 +15,18 @@ contributors:
   - imnotashrimp
   - amirkalron
   - idohalevi
+  - shalper
 shipping-tags:
   - azure
 ---
 
-To simplify shipping your Azure activity logs, we provide an automated deployment process.
+Ship your Azure activity logs using an automated deployment process.
 At the end of this process, you'll have configured an event hub namespace, an event hub, and 2 storage blobs.
 
-The resources set up by the automated deployment can collect data for a single Azure region and ship that data to Logz.io.
+The resources set up by the automated deployment can collect data for a single Azure region.
 
-## More information
 
-<details>
-
-<summary>
-What am I setting up in my Azure account?
-</summary>
+###### Overview of the services you'll be setting up in your Azure account
 
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
 
@@ -41,30 +37,13 @@ Each automated deployment sets up these resources in your Azure environment:
 * 1 event hub
 * 2 blobs (1 to store logs from the Azure functions, 1 for failover storage)
 
-### Naming convention
+###### Determining how many automated deployments to deploy
 
-Each deployed resource has a Logz.io-defined name and ends with a string unique to that deployment.
+You'll need an event hub in the same region as your services.
 
-For example:
-We name the namespace `LogzioNS`—so if your namespace is `LogzioNS6nvkqdcci10p`, the rest of the deployed resources will end with `6nvkqdcci10p`.
+How many automated deployments you will need, depends on the number of regions involved.
 
-</details>
-
-<details>
-
-<summary>
-How many automated deployments should I... deploy?
-</summary>
-
-Azure requires an event hub in the same region as your services.
-Also worth noting is that you can stream data from multiple services to one event hub (as long as it's in the same region).
-
-So what does this mean for you?
-It means that you'll need to do at least one automated deployment for each region where you want to collect logs or metrics.
-
-</details>
-
-## Setup
+You'll need at least 1 automated deployment for each region where you want to collect logs.This is because Azure requires an event hub in the same region as your services. The good news is you can stream data from multiple services to the same event hub, just as long as they are in the same region.
 
 #### Configuration
 

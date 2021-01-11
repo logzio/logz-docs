@@ -1,4 +1,4 @@
-##### Download the Logz.io public certificate to your Filebeat server
+##### Download the Logz.io public certificate to your Metricbeat server
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 

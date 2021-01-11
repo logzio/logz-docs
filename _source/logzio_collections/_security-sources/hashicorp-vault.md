@@ -35,7 +35,7 @@ For more information on logging and enabling audit devices,
 see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from HashiCorp.
 
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Create your configuration file for Vault
 

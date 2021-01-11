@@ -92,7 +92,7 @@ Paramlists are two-column `.paramlist` tables.
 
 | Parameter | Description |
 |---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. <br> For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
+| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. <br> For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
 | logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
 {:.paramlist}
 ```
@@ -103,7 +103,7 @@ Paramlists are two-column `.paramlist` tables.
 
 | Parameter | Description |
 |---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. <br> For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
+| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} <br> Begin with `$` to use an environment variable or system property with the specified name. <br> For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
 | logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
 {:.paramlist}
 

@@ -40,7 +40,7 @@ Configure your Juniper firewall to send logs to your Filebeat server. Make sure 
 
 See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA) for more information on configuring your Juniper SRX firewall.
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Configure Filebeat
 

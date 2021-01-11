@@ -55,7 +55,7 @@ Restart OSSEC.
 sudo /var/ossec/bin/ossec-control restart
 ```
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add OSSEC as an input
 

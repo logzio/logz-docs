@@ -90,7 +90,7 @@ In the upper right corner of the page, click **Commit**.
 Select **Commit All Changes**,
 and click the **Commit** button to save.
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add TCP traffic as an input
 

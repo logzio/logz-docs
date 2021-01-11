@@ -35,7 +35,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 -out /etc/filebeat/certificates/ESET.crt
 ```
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Configure Filebeat
 

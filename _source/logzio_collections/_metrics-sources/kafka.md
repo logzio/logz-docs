@@ -77,7 +77,7 @@ curl https://localhost:9308/metrics
 
 ### Metricbeat monitoring setup
 
-{% include log-shipping/certificate.md server="to your Metricbeat server" %}
+{% include metric-shipping/certificate.md %}
 
 ##### Add Logz.io to your Metricbeat configuration
 

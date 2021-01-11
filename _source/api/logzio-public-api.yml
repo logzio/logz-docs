@@ -4107,7 +4107,7 @@ definitions:
         type: array
         items:
           type: string
-        description: Filters results by [log type](/log-shipping/built-in-log-types.html).
+        description: Filters results by [log type](/user-guide/log-shipping/built-in-log-types.html).
         example: ["log-engine", "spark"]
       onlyNew:
         type: boolean

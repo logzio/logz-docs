@@ -8,6 +8,8 @@ shipping-tags:
   - log-shipper
 contributors:
   - imnotashrimp
+shipping-tags:
+  - agents
 ---
 
 Logstash is a server app that ingests and parses log data.

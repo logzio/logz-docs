@@ -22,7 +22,6 @@ tabs:
     templated: true
   - collection: security-sources
     templated: true
-  - collection: shippers
   - collection: community-shippers
     top-content: >-
       <p class="info-box important no-title">
@@ -68,6 +67,8 @@ tags:
     name: Tracing
   - slug: networking
     name: Networking
+  - slug: agents
+    name: Agents
 
 
 # templates is an array of rough procedures that are used by multiple shipping

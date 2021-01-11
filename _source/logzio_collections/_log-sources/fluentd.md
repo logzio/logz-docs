@@ -8,6 +8,8 @@ shipping-tags:
   - log-shipper
 contributors:
   - imnotashrimp
+shipping-tags:
+  - agents
 ---
 
 #### Configure Fluentd

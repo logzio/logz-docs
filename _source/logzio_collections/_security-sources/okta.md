@@ -82,7 +82,7 @@ tenants_credentials:
 | Parameter | Description |
 |---|---|
 | OKTA_API_KEY (Required) | The Okta API key copied in step 1. |
-| OKTA_DOMAIN (Required) | The Okta domain copied in step 1. It is found under the **Issuer URI column** in your Okta developer console. <br> Supports these [Okta domains](https://developer.okta.com/docs/guides/find-your-domain/findorg/): <br> example.oktapreview.com, example.okta.com, example.okta-emea.com |
+| OKTA_DOMAIN (Required) | The Okta domain copied in step 1. It is found under the **Issuer URI column** in your Okta developer console.    Supports these [Okta domains](https://developer.okta.com/docs/guides/find-your-domain/findorg/):    example.oktapreview.com, example.okta.com, example.okta-emea.com |
 
 
 YAML files are sensitive to spaces and tabs. It's a good idea to run your code through a YAML validator to make sure that its structure is correct.

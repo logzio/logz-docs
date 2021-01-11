@@ -98,7 +98,7 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 |---|---|
 | TOKEN (Required) | {% include log-shipping/replace-vars.html token='noReplace' %}   |
 | URL (Required) | Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > {% include log-shipping/replace-vars.html listener=true %}    |
-| TYPE <span class="default-param">`"guardduty"`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
+| TYPE <span class="default-param">`"guardduty"`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. |
 | FORMAT <span class="default-param">`"text"`</span> | `"json"` or `"text"`. If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
 | COMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
 {:.paramlist}
@@ -210,7 +210,7 @@ aws cloudformation deploy \
 | LogzioTOKEN (Required) | {% include log-shipping/replace-vars.html token=true %}   |
 | KinesisStream (Required) | The name of the Kinesis stream where this function will listen for updates. |
 | LogzioURL <span class="default-param">`https://listener.logz.io:8071`</span> | Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > {% include log-shipping/replace-vars.html listener='noReplace' %}    |
-| LogzioTYPE <span class="default-param">`guardduty`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
+| LogzioTYPE <span class="default-param">`guardduty`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. |
 | LogzioFORMAT <span class="default-param">`"text"`</span> | `"json"` or `"text"`. If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
 | LogzioCOMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
 | KinesisStreamBatchSize <span class="default-param">`100`</span> | The largest number of records to read from your stream at one time. |

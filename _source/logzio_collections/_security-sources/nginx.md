@@ -8,35 +8,17 @@ templates: [beats-logs]
 contributors:
   - amosd92
   - imnotashrimp
+  - shalper
 shipping-tags:
   - server-app
-    
 ---
-
-## Setup
-
-<details>
-
-<summary>
-Configuration tl;dr
-</summary>
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
-| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Default log locations | `/var/log/nginx/access.log` or `/var/log/nginx/error.log` |
-| Log type _(for preconfigured parsing)_ | Access log: `nginx`, `nginx_access`, or `nginx-access` <br> Error log: `nginx-error` |
-{:.paramlist}
-
-</details>
-
-#### Configuration
+#### Filebeat configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
-root access
+
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
+* Root access
+* Port 5015 open
 
 <div class="tasklist">
 
@@ -108,6 +90,16 @@ If you're running Filebeat 6, paste this code block.
 registry_file: /var/lib/filebeat/registry
 ```
 
+The above assumes the following defaults for Access logs:
+
+* Log location - `/var/log/nginx/access.log`
+* Log type - `nginx`, `nginx_access`, or `nginx-access`
+
+Defaults for Error logs:
+
+* Log location - `/var/log/nginx/error.log`
+* Log type - `nginx-error`
+
 ##### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
@@ -130,6 +122,10 @@ Start or restart Filebeat for the changes to take effect.
 ##### Check Logz.io for your logs
 
 Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+You can search for `type:nginx OR nginx_access OR nginx-access OR nginx-error` to filter for your logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
+
+
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

@@ -25,11 +25,11 @@ This topic explains how to install the OpenTelemetry Collector.  For an overview
 
 The OpenTelemetry Collector pipeline has the following main components: 
 
-* Receivers are used to gather data from your environment (pull-based) or receive it from external sources (push-based). Your system must have at least one receiver configured. Receivers are typically HTTP/gRPC endpoints or daemon-like processes. 
++ Receivers are used to gather data from your environment (pull-based) or receive it from external sources (push-based). Your system must have at least one receiver configured. Receivers are typically HTTP/gRPC endpoints or daemon-like processes. 
 
-* Processors are used at various stages of your pipeline to pre-process data before exporting it.  Processors may be used to modify attributes or sample the data. This component is used to ensure that your data successfully makes it through a pipeline.  
++ Processors are used at various stages of your pipeline to pre-process data before exporting it.  Processors may be used to modify attributes or sample the data. This component is used to ensure that your data successfully makes it through a pipeline.  
 
-* Exporters are used to send data to your designated tracing (or metrics, or logging) backends/destinations. Your system must have at least one exporter configured to move data from collector to backend.
++ Exporters are used to send data to your designated tracing (or metrics, or logging) backends/destinations. Your system must have at least one exporter configured to move data from collector to backend.
 
 OpenTelemetry also includes extensions for additional functionality, such as diagnostics and health checks for components contributed by the community, such as the Logz.io exporter, as well as a dedicated collector.
 

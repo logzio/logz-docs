@@ -19,7 +19,7 @@ shipping-tags:
 
 Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces to Logz.io from different APM (Application Performance Management/Monitoring) agents, such as Jaeger, Zipkin, and so on.
 
-This topic explains how to install the OpenTelemetry Collector. For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](/user-guide/distributed-tracing/getting-started-tracing). 
+This topic explains how to install the OpenTelemetry Collector.  For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](/user-guide/distributed-tracing/getting-started-tracing). 
 
 ### OpenTelemetry components
 

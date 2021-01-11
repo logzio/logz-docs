@@ -32,11 +32,10 @@ The Logz.io integration builds on the Jaeger Collector base image and uses the g
 
 <div class="tasklist">
 
-##### Deploy Logz.io Jaeger Collector
+##### Configure the Logz.io extension
+Configure the Logz.io extension with shell variables or environment variables. 
 
-###### Configure the Logz.io extension
-Configure the Logz.io extension with shell variables or environment variables. <br> The required ports are described 
-<a href ="https://www.jaegertracing.io/docs/latest/deployment/#collectors)" target="_blank">here <i class="fas fa-external-link-alt"></i>.</a> 
+The required ports are described [here. ](https://www.jaegertracing.io/docs/latest/deployment/#collectors) 
 You'll need to change to the version page for your deployment. 
 
 ```bash
@@ -51,12 +50,12 @@ docker run -e ACCOUNT_TOKEN=<<SHIPPING-TOKEN>>  # see parameter list below\
 logzio/jaeger-logzio-collector:latest
 ```
 
-The complete list of Collector parameters is presented below. 
+###### Parameters
+
+The complete list of Logz.io collector parameters is presented below. 
 
 In addition to these parameters, you can also use [Jaeger's collector parameters](https://www.jaegertracing.io/docs/latest/cli/#jaeger-collector-grpc-plugin). 
 You'll need to change to the version page for your deployment. 
-
-###### Parameters
 
  Collector Parameter | Description
  ------------ | -------------

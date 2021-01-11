@@ -211,14 +211,12 @@ If you’re on a Mac or Linux machine, you can install the package using Visual 
 ##### Configure the appender
 
 You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs.
+Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [NLog documentation 🔗](https://github.com/NLog/NLog/wiki/Configuration-file) to learn more about configuration options.
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-  See the [NLog documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the NLog configuration file.
-  {:.info-box.read}
 
-_Option 1: In a configuration file_
+###### Option 1: In a configuration file
 
 ```xml
 <nlog>
@@ -248,7 +246,8 @@ _Option 1: In a configuration file_
 </nlog>
 ```
 
-_Option 2: In the code_
+###### Option 2: In the code
+
 
 ```csharp
 var config = new LoggingConfiguration();
@@ -318,9 +317,9 @@ namespace LogzioNLogSampleApplication
 }
 ```
 
-### Context properties
+### Include context properties
 
-You can configure the target to include your own custom values when forwarding to Logz.io. For example:
+You can configure the target to include your own custom values when forwarding logs to Logz.io. For example:
 
 ```xml
 <nlog>

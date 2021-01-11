@@ -46,14 +46,11 @@ If you're on a Mac or Linux machine, you can install the package using Visual St
 ##### Configure the appender
 
 You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs.
+Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [log4net documentation 🔗](https://github.com/apache/logging-log4net) to learn more about configuration options.
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-  See the [log4net documentation](https://github.com/apache/logging-log4net) for more information on the log4net configuration file.
-  {:.info-box.read}
-
-_Option 1: In a configuration file_
+###### Option 1: In a configuration file
 
 ```xml
 <log4net>
@@ -79,7 +76,8 @@ _Option 1: In a configuration file_
 </log4net>
 ```
 
-_Option 2: In the code_
+
+###### Option 2: In the code
 
 ```csharp
 var hierarchy = (Hierarchy)LogManager.GetRepository();
@@ -102,18 +100,19 @@ hierarchy.Configured = true;
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
-| listenerUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
-| type <span class="default-param">`log4net`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| bufferSize <span class="default-param">`100`</span> | Maximum number of messages the logger will accumulate before sending them all as a bulk. |
-| bufferTimeout <span class="default-param">`00:00:05`</span> | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. |
-| retriesMaxAttempts <span class="default-param">`3`</span> | Maximum number of attempts to connect to Logz.io. |
-| retriesInterval <span class="default-param">`00:00:02`</span> | Time to wait between retries, as _hh:mm:ss.fff_. |
-| gzip <span class="default-param">`false`</span>| To compress the data before shipping, `true`. Otherwise, `false`. |
-| debug <span class="default-param">`false`</span> | To print debug messsages to the console and trace log, `true`. Otherwise, `false`. |
-{:.paramlist}
+| Parameter | Description | Default/Required |
+|---|---|---|
+| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/replace-vars.html token=true %} | Required |
+| listenerUrl  | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} | `https://listener.logz.io:8071` |
+| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
+| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
+| retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
+| retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
+| gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
+
+
 
 ###### Code sample
 
@@ -272,19 +271,21 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
 LogManager.Configuration = config;
 ```
 
+
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
-| listenerUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
-| logzioType <span class="default-param">`nlog`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| bufferSize <span class="default-param">`100`</span> | Maximum number of messages the logger will accumulate before sending them all as a bulk. |
-| bufferTimeout <span class="default-param">`00:00:05`</span> | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. |
-| retriesMaxAttempts <span class="default-param">`3`</span> | Maximum number of attempts to connect to Logz.io. |
-| retriesInterval <span class="default-param">`00:00:02`</span> | Time to wait between retries, as _hh:mm:ss.fff_. |
-| debug <span class="default-param">`false`</span> | To print debug messsages to the console and trace log, `true`. Otherwise, `false`. |
-{:.paramlist}
+
+| Parameter | Description | Default/Required |
+|---|---|---|
+| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/replace-vars.html token=true %} | Required |
+| listenerUrl  | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} | `https://listener.logz.io:8071` |
+| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
+| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
+| retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
+| retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
+
 
 ###### Code sample
 

@@ -162,6 +162,9 @@ tags:
 
 
       When alerts trigger, they write event logs. Event logs of triggered alerts are always available and searchable in Kibana - just filter for `_exists_:logzio-alert`. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
+
+
+      For the depracated alerting version, please see our [public GitHub project](https://github.com/logzio/public-api/tree/master/alerts).
   - name: Security rules
     description: >-
       Security rules help you connect the dots between your data sources and events that could indicate a security threat or breach.

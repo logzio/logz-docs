@@ -12,29 +12,12 @@ shipping-tags:
     
 ---
 
-## Setup
-
-<details>
-
-<summary>
-Configuration tl;dr
-</summary>
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml)    [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
-| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Default log locations | JSON _(recommended)_: `/var/ossec/logs/alerts/alerts.json`    Plain text: `/var/ossec/logs/alerts/alerts.log` |
-{:.paramlist}
-
-</details>
-
 #### Configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
-root access
+
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
+* Root access
 
 <div class="tasklist">
 
@@ -130,6 +113,10 @@ Start or restart Filebeat for the changes to take effect.
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+
+You can search for `type:wazuh` to filter for your logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
+
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

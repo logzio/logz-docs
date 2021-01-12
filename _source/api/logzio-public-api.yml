@@ -104,6 +104,9 @@ tags:
 
 
       You have the option to set up an alert so you can get notified of the details when new or recurring insights are spotted in your system.
+
+
+      **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
   - name: Retrieve audit trail
   - name: Connect to CloudTrail
     description: Establish a connection to ship logs to the Logz.io observability platform via an S3 bucket. Supports CloudTrail logs.
@@ -1113,7 +1116,7 @@ paths:
 
   # ::::: Log Insights
   /v1/insights/list:
-    get:
+    post:
       summary: Get the list of Insights
       tags:
         - Insights
@@ -1122,6 +1125,9 @@ paths:
 
 
         Whenever a new Insight is detected, it receives an Insight ID and is tracked for as long as it recurs. The lookback period for Insights is 6 months.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       operationId: getPublicInsights
       parameters:
         - in: body

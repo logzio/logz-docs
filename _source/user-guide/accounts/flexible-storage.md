@@ -5,7 +5,6 @@ permalink: /user-guide/accounts/flexible-volume.html
 flags:
   admin: true
   logzio-plan: pro
-  beta: true
 tags:
   - accounts
   - main-account
@@ -13,8 +12,6 @@ tags:
 contributors:
   - shalper
 ---
-
-{% include page-info/early-access.md type="Beta" %}
 
 Flexible volume gives you more control over how you allocate space between your accounts.
 

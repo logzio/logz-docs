@@ -84,13 +84,7 @@ tags:
       Use these API endpoints to create, update, retrieve, or delete sub accounts.
 
 
-      We are in the process of rolling out [flexible volume plan configuration](/user-guide/accounts/flexible-volume.html). A new beta feature.
-
-
-      * If your account has the option to switch to flexible volume, please refer to the updated [documentation](/beta-api-flexible-storage/) for the beta API.
-
-
-      * For additional information about what's changed in the API, [click here](/user-guide/accounts/flexible-volume-announcement/).
+      If you have enabled [flexible volume](/user-guide/accounts/flexible-volume.html) in your account, please see the corresponding [API for flexible volume plan configuration](/beta-api-flexible-storage/). To learn more about what's changed in the API, [click here](/user-guide/accounts/flexible-volume-announcement/).
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.

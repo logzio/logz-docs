@@ -35,10 +35,10 @@ cards:
     url: /user-guide/alerts/
     li-class: li-bell
 
-  - title: Live Tail
-    description: See your incoming logs in real time
-    url: /user-guide/live-tail/
-    li-class: li-signal
+  - title: Your accounts
+    description: Manage your accounts & optimize costs
+    url: /user-guide/accounts/
+    li-class: li-gear
 
 half-cards:
   - title: Free trial

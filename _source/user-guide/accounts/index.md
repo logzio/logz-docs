@@ -25,7 +25,7 @@ You can find the [Manage accounts](https://app.logz.io/#/dashboard/settings/mana
 
 * **Access control** (Pro and Enterprise plans)
 
-    You can control access to different sets of data by shipping your logs to different sub accounts, each with its own set of users. You can also use account default permissions to determine who can access and read the data.
+    You can control access to different sets of data by shipping your logs to different sub accounts, each with its own set of users. You can also use account default permissions to determine who can access and read the data. [Manage sub accounts](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html)
 
 * **Flexible volume**
 

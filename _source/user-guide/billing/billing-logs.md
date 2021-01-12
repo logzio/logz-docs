@@ -15,7 +15,8 @@ contributors:
 ---
 
 # DRAFT Content
-## Pricing and billing for Log Management
+
+## Pricing and billing considerations for Log Management accounts
 
 Logz.io Log Management provides you with a hosted, open source solution for observability, based on the ELK stack.
 
@@ -45,6 +46,8 @@ Want to learn more about account usage? See <a href ="/user-guide/accounts/manag
 Your bill is calculated each month, based on the terms of your active plan, the daily indexed volume of the data you send to Logz.io - after it has been processed for observability - and the additional charges that may be incurred if your data usage exceeds your plan. 
 
 At the end of each day, the data you sent to Logz.io is indexed, enriched, tagged, and compressed. You can typically see the data usage for a given day within 3 hours after the end of that day.  <!--provide location Usage information page -->
+
+Your daily plan capacity is not cumulative. If your data is under capacity for the day, the unused volume does not roll over to the next day. 
 
 If your account is nearing its daily quota, Logz.io sends an email alert to account administrators. 
 
@@ -108,24 +111,29 @@ At the end of your subscription period, you may downgrade your current plan by d
 Your Log Management plan is covered by the Logz.io _Terms of Use_, unless you have a Master Services Agreement (MSA) with Logz.io. 
 
 ## Log Management Billing FAQs
-Q: How do you calculate the price for Logz.io Log Management? <br>
-A: The two major factors that determine the price for Logz.io Log Management are:
-+  The amount of log data Logz.io indexes in your account per day (per GB).
+Q: How do you calculate the price for Logz.io Log Management Pro and Enterprise plans? <br>
+A: The two major factors that determine the price for Logz.io Log Management plans are:
++ The amount of log data Logz.io indexes in your account per day (per GB).
 + How long Logz.io retains the indexed data (usually ranges between 3-90 days).
++ If you decide not to upgrade after the end of a trial, you'll continue with the Community plan, which only includes 1 GB of indexed data and 1 day of retention.
 
 Q: Is there a self-service option to start and/or upgrade my Logz.io account? <br>
 A: Yes! Sign up for a free trial on our website to create your account. At any time, you can upgrade your account by hitting the cog wheel in the top right corner of the app, hovering over settings, and then going down to **Usage and Billing**. 
 
 This will bring you to a page showing the amount of log data you’re currently indexing per day. <!--When it's a free trial it is not necessarily about indexing more logs.....if they do not upgrade to PRO they will be able to eventually log only 1GB with 1 day retention that is available on the FREE plan --> You’ll also see the option to upgrade your account so you can index more logs for longer periods. All you need is your credit card.
 
-Q: How do I know how much data I’m using in my account?  <br>
-A: Hit the cog wheel in the top right corner of the app, hover over settings, and then go down to **Usage and Billing**. This will bring you to a page that shows the average amount of data you’ve indexed per day during your log retention period (For example: You’ve used an average of 10 indexed GBs of log data per day, over the last 14 days).
+Q: Where can I see the data usage for my account?<br>
+A: In the **Settings > Plan & billing > Usage & Info** tab for your account. <br>
+To get there, click the cog wheel in the top right corner of the app, hover over settings, and then go down to **Plan & billing**. <br>
+
+  This will bring you to a page that shows the volume of data your Security account has analyzed over the last 30 days of your log retention period. 
+  <br> Example: You’ve used an average of 10 indexed GBs of log data per day, over the last 14 days. <br>Note that you'll be billed according to your account plan, and we'll notify you if you go over plan capacity. 
 
 Q: Are archived logs held against my Logz.io costs?
 A: No. You only pay for what you index. In fact, you can save costs by archiving your log data in an S3 Bucket or Azure Blob to store logs for cheap, while maintaining access to them if you need to index and analyze them later.
 
 Q: Will I be charged for dropping data before it's indexed?
-A: No. Not all logs are very interesting - use Logz.io’s Drop Filters to filter out unneeded logs before they are indexed and held against your Logz.io price. We won’t charge you for using the feature.
+A: No. Not all logs are very interesting - use Logz.io’s [Drop Filters](/user-guide/accounts/drop-filters/) to filter out unneeded logs before they are indexed and held against your Logz.io price. We won’t charge you for using the feature.
 
 Q: Does Customer Support cost extra?
-A: No! Our beloved 24/7 Customer Support team (seriously, our customers love them) will help you get started and be successful with Logz.io at no extra cost - regardless of your plan.
+A: No! Our dedicated 24/7 Customer Support team will help you get started and be successful with Logz.io at no extra cost - regardless of your plan.

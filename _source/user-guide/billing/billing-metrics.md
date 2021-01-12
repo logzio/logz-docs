@@ -30,13 +30,15 @@ Unlike other providers, you won’t be charged different rates for basic infrast
 
 The  data you see in the Usage and billing > Usage & Info tab reflects the usage details, as collected up to midnight of the previous day. The page does not present up-to-the moment information.
 
-### Common terms in Distributed Tracing
+### Common terms in Infrastructure Monitoring
 
 |---+---|
 |Term| Definition|
 |-----------------|-----------|
 |DPM| Data points per minute|
-|Host| |
+|UM | Unique Metrics << _C L A R I F Y the connection betwen DPM & UM?_ >> |
+|Host| We define a host as an entity that sends 350 UM per month  |
+
 ### Host-based license
 
 Cost per host, per month (according to Sales page - include link)
@@ -47,7 +49,7 @@ Cost per host, per month (according to Sales page - include link)
 ### Conditions - what you get for your license, for each host:
 
 + Up to 10 containers per host
-+ data shipping frequency >10s
++ Data shipping frequency >10s
 + Raw data retention: 3 days
 + Data aggregation over time per unique metric: Min, Max, Avg
 + Aggregation frequency: 1 minute, 10 minutes, 1 hour, daily, weekly, monthly
@@ -58,7 +60,8 @@ Cost per host, per month (according to Sales page - include link)
   + Custom application metrics: Logz.io consultation services will work with you to integrate your specialized metrics into Logz.io
 
 ## Metrics account suspension
-<!-- Belongs in Accounts & Usage topic: Billing connection? -->
+  + _comment --> _this topic belongs in Accounts & Usage topic: But is there a billing    connection?_ <--
+
 Spikes happen. 
 
 Behind the scenes, we run checks at regular intervals throughout the day to ensure that your account metrics are flowing smoothly, without any sudden spikes that may take you over your account plan capacity. 

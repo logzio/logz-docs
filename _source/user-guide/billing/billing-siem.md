@@ -14,11 +14,13 @@ contributors:
   - yberlinger
 ---
 
-# DRAFT Content
+# _DRAFT Content_
+
+## Pricing and billing considerations for Cloud SIEM accounts
 
 Logz.io Cloud SIEM works with your logs to boost your security observability with enriched and aggregated security log and alerts data, excellent prebuilt security content, and more than 10 of the most useful external Threat Intelligence feeds.
 
-We take you to the next level with a Dedicated Customer Success Engineer and a dedicated Security Analyst for your Enterprise level Cloud SIEM account.  
+We take your Security to the next level with a Dedicated Customer Success Engineer and a dedicated Security Analyst for your Pro or Enterprise Cloud SIEM account.  
 
 Your Security Analyst will help you manage your onboarding process, and be on tap to help you create custom dashboards and ship additional security products.
 
@@ -36,20 +38,25 @@ For Cloud SIEM, you’ll be charged a flat rate per indexed GB. The greater the 
 
 ## Cloud SIEM Billing FAQs
 
-Q: Is there a self-service option to upgrade my Logz.io account? <br>
-A: Yes! If you already have a Cloud SIEM account, you can upgrade your account on our own. From your Log Management account, go to the cog wheel in the top right corner of the app, hover over settings, and then go down to ‘Usage and Billing’. 
+Q: Is there a self-service option to upgrade my Logz.io account plan? <br>
+A: Yes! If you already have a Cloud SIEM account, you can upgrade your plan on your own. From your Log Management account, go to the cog wheel in the top right corner of the app, hover over settings, and then go down to ‘Usage and Billing’. 
 
 This will bring you to a page showing the amount of log data you’re currently indexing per day. You’ll also see the option to upgrade your account so you can index more logs for longer periods. All you need is your credit card.
 
-Q: How do I know how much data is being used in my account?<br>
-A: Hit the cog wheel in the top right corner of the app, hover over settings, and then go down to **Usage and Billing**’**. This will bring you to a page that shows the average amount of data you’ve indexed per day during your log retention period (For example: You’ve used an average of 10 indexed GBs of log data per day, over the last 14 days). Note that you'll be billed according to your account plan, and we'll notify you if you go over plan capacity. 
+Q: Where can I see the data usage for my account?<br>
+A: In the **Settings > Plan & billing > Usage & Info** tab for your account. <br>
+To get there, click the cog wheel in the top right corner of the app, hover over settings, and then go down to **Plan & billing**. <br>
+
+  This will bring you to a page that shows the volume of data your Security account has analyzed over the last 30 days of your log retention period. 
+  <br> Example: You’ve used an average of 10 indexed GBs of log data per day, over the last 14 days. <br>Note that you'll be billed according to your account plan, and we'll notify you if you go over plan capacity. 
 
 Q: Are archived logs held against my Logz.io costs? <br>
-A: No. You only pay for what you index. In fact, you can save costs by archiving your log data in an S3 Bucket or Azure Blob to store logs for cheap, while maintaining access to them if you need to index and analyze them later. Note that restoring archived logs won't trigger Security rules: The logs still include our threat enrichment, but the actual threat rules will not longer be triggered.
+A: No. You only pay for what you index. In fact, you can save costs by archiving your log data in an S3 Bucket or Azure Blob to store logs for cheap, while maintaining access to them if you need to index and analyze them later. <br>
+Note that restoring archived logs won't trigger Security rules: The logs will still include our threat enrichment, but the actual threat rules will not be triggered.
 
 Q: Will I be charged for dropping data before it's indexed?<br>
-A: For now, no. Not all logs are very interesting - use Logz.io’s Drop Filters to filter out unneeded logs before they are indexed and held against your Logz.io price. We won’t charge you for using the feature.  <!-- This will be changed in the future, we will charge for dropping data-->
+A: For now, no. Not all logs are very interesting - use Logz.io’s [Drop Filters](/user-guide/accounts/drop-filters/) to filter out unneeded logs before they are indexed and held against your Logz.io price. We won’t charge you for using the feature.  <!-- This will be changed in the future, we will charge for dropping data-->
 
 Q: Does Customer Support cost extra? <br>
-A: No! Our heroic 24/7 Customer Support team will help you get started and be successful with Logz.io at no extra cost - regardless of your plan.
+A: No! Our dedicated 24/7 Customer Support team will help you get started and be successful with Logz.io at no extra cost - regardless of your plan.
 

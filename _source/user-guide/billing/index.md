@@ -28,7 +28,9 @@ We'll cover general billing information and delve into specific information by p
 
 ## General information for Logz.io product plans
 
-Learn more about what you can see in the Usage and Billing pages of your account {here}.
+Learn more about what you can see in the Usage and Billing pages of your account {link here}.
+
+Usage is measured according to UPC time.
 
 ### Subscription Period
 Logz.io subscriptions are available for 1-, 12-, and 24-month periods, with pricing determined by the amount of data shipped daily.

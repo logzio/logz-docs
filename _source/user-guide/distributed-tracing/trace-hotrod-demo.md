@@ -73,7 +73,7 @@ _To update your parameters, in the **.env** file:_
 1. Open the **.env** file and update the parameters with your preferred text editor.
 1. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. {% include tracing-shipping/tracing-token.md %}
 1. Enter the correct 2-letter code for your region in the second line: `REGION_CODE=Enter your region code here`<br>
-    Look up the 2-letter code for your region in the <a href="/user-guide/accounts/account-regionhtml#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> 
+    Look up the 2-letter code for your region in the <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> 
    
    You can find your the region code for your account in the General settings page, here: <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> >Settings > General**.
 

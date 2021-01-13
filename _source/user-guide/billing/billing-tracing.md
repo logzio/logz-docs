@@ -45,3 +45,11 @@ Plans:
 + Monthly plan= charged at +20%
 + Enterprise plan = charged at +15%
 + Product bundling discounts
+
+<!--
+Q:  default plan for a trial tracing account? 
+and are those levels kept once it converts to free?
+
+A: 10m monthly spans for 10 days retention.
+We have no free plan for tracing 
+-->

@@ -22,39 +22,33 @@ using FireLens.
 
 ##### Build the task execution role
 
-* [Create a new role](https://console.aws.amazon.com/iam/home#/roles$new?step=type)
+[Create a new role](https://console.aws.amazon.com/iam/home#/roles$new?step=type)
 in the IAM console.
 
-* Make sure **AWS service** is selected at the top of the page.
-* In the _Choose a use case_ section,
-click **Elastic Container Service**,
-and then scroll to the bottom of the page and click **Elastic Container Service Task**.
-
-* Click **Next: Permissions** to continue.
+* Select **AWS service**. It should already be selected by default.
+* Under **Choose a use case**:
+  * Select **Elastic Container Service**
+  * Select **Elastic Container Service Task** (scroll to the bottom of the page to see it.)
+  * Click **Next: Permissions** to continue.
 * Select **AmazonECSTaskExecutionRolePolicy**.
+  * Click **Next: Tags** and then **Next: Review**
+* Set **Role name** to `logzioEcsTaskExecutionRole`, then click **Create role** to save.
 
-* Click **Next: Tags** and then **Next: Review**
+Your new role should now be created.
 
-* Set **Role name** to `logzioEcsTaskExecutionRole`,
-and click **Create role** to save.
-
-* Click the newly created role to go to its _Summary_ page.
+* Click the newly created role to go to its **Summary** page.
 * Copy the **Role ARN** (at the top of the page) and save it for later. You will need it for the deployment JSON.
 
 ##### Create a Fluent Bit task definition
 
-* In the ECS console
-[_Task Definitions_](https://eu-central-1.console.aws.amazon.com/ecs/home?region=eu-central-1#/taskDefinitions)
-page, click **Create new Task Definition**.
+In the ECS console, open the [_Task Definitions_](https://eu-central-1.console.aws.amazon.com/ecs/home?region=eu-central-1#/taskDefinitions)
+page.
 
-* Choose **Fargate**,
-and click **Next step** to continue.
-
-* Scroll to the bottom of the page to the _Volumes_ section. Select
+* Select **Create new Task Definition**.
+* Choose **Fargate**, and click **Next step** to continue.
+* Scroll to the bottom of the page to the **Volumes** section, and select
 **Configure via JSON**.
-
-* Replace the default JSON
-with this code block: 
+* Replace the default JSON with this code block:
 
 ```json
 {
@@ -113,7 +107,7 @@ When you're done, click **Save**,
 and then click **Create**.
 
 
-###### Parameters in "logzio-log-router"
+###### Parameters in **logzio-log-router**
 
 | Parameter | Description |
 |---|---|
@@ -122,7 +116,7 @@ and then click **Create**.
 {:.paramlist}
 
 
-###### Parameters in "app"
+###### Parameters in **app**
 
 | Parameter | Description |
 |---|---|
@@ -132,12 +126,14 @@ and then click **Create**.
 {:.paramlist}
 
 
+
 ###### Remaining parameters
 
 | Parameter | Description |
 |---|---|
 | executionRoleArn | Replace `<<AWS-ACCOUNT-ID>>` with your [AWS account Id](https://console.aws.amazon.com/billing/home?#/account). |
 {:.paramlist}
+
 
 
 ##### Run the task on your cluster

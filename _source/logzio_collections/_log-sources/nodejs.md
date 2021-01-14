@@ -265,6 +265,8 @@ For a complete list of your options, see the configuration parameters below.👇
 <!-- tab:end -->
 
 
+<!-- tab:start -->
+
 <div id="winston-typescript">
 
 ## winston-logzio setup with Typescript
@@ -350,4 +352,7 @@ tsc --project tsconfig.json
 ```
 </div>
 </div>
+<!-- tab:end -->
+
+
 <!-- tabContainer:end -->

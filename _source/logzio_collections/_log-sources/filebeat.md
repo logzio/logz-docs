@@ -21,19 +21,6 @@ This page is a general reference for Filebeat.
 If you need instructions for a specific log source (such as nginx, MySQL, or Wazuh),
 see [Log shipping sources]({{site.baseurl}}/shipping/).
 
-<details>
-
-<summary>
-Configuration tl;dr
-</summary>
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml)    [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
-| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-{:.paramlist}
-
-</details>
 
 #### Configure Filebeat on macOS or Linux
 
@@ -48,15 +35,34 @@ Configuration tl;dr
 
 ##### Make your configuration file
 
-Make your configuration file using the Filebeat configuration wizard.
+{% include _source/_includes/log-shipping/filebeat-wizard.html %}
+
 
 <!-- logzio-inject:filebeat-wizard -->
 
-Log into your Logz.io account, and go to the [Filebeat log shipping page](https://app.logz.io/#/dashboard/data-sources/Filebeat) to use the **Filebeat Configuration Wizard**.
+
+
+For each of the log types you plan to send to Logz.io, fill in the following:
+
+* Select your operating system - **Linux** or **Windows**.
+* Input the full path to the logs.
+* Select a log **Type**. This determines the parsing pipeline used to automatically parse and analyze the logs. [List of types available for parsing by default](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html). Contact support if your log type is not on the list to request custom parsing assistance.
+* Select the log format - **plaintext** or **Json**.
+* Enable the **multiline** option if your log messages span
+multiple lines. You’ll need to give a regex that
+identifies the beginning line of each log. (_Optional_)
+* Click **+ Add a field** to add another log type.
+
+The wizard makes it simple to add multiple log types. Simply click **+ Add a log type** to add another log type and fill in the above parameters for each.
+
+
+* We've prepared a [sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) as a reference to help guide you.
+If you edit the file manually, it's a good idea to run it through a YAML validator. ([yamllint.com](http://www.yamllint.com/) is a great choice) to rule out indentation errors, clean up extra characters, and check if your yml file is valid.
 
 ##### Move the configuration file to the Filebeat folder
 
-Move the configuration file to `/etc/filebeat/filebeat.yml`.
+Once you're happy with your file, click **Make the config file** to download it.
+Next, move your configuration file to `/etc/filebeat/filebeat.yml`.
 
 ##### Start Filebeat
 

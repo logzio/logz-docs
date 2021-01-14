@@ -13,8 +13,7 @@ shipping-tags:
   - container
 ---
 
-This integration will send your AWS Fargate to Logz.io
-using FireLens.
+This integration will start a new container of your image to send your AWS Fargate logs to Logz.io using FireLens. The integration will automatically create the replica.
 
 #### Configuration
 

@@ -81,28 +81,28 @@ To collect CloudWatch metrics, you'll deploy a docker compose file that uses con
 
 ##### Download the `docker-compose.yml` file.
 
-    ```yaml
-    curl https://raw.githubusercontent.com/logzio/logzio-aws-metrics/main/docker-compose.yml    -o docker-compose.yml
+```
+curl https://raw.githubusercontent.com/logzio/logzio-aws-metrics/main/docker-compose.yml    -o docker-compose.yml
 
-    ```
+```
 
 ##### Define the environment variables
 
-   ```
-   LOGZIO_MODULES="aws" \
-   AWS_ACCESS_KEY_ID=<<AWS_ACCESS_KEY_ID>> \
-   AWS_SECRET_ACCESS_KEY=<<AWS_SECRET_ACCESS_KEY>> \
-   AWS_DEFAULT_REGION=<<AWS_DEFAULT_REGION>> \
-   LOGZIO_REGION= <<LOGZIO_REGION>> \
-   LOGZIO_TOKEN=<<LOGZIO_TOKEN>> \
-   AWS_NAMESPACES=<<AWS_NAMESPACES>> \
-   SCRAPE_INTERVAL=<<SCRAPE_INTERVAL>> \
-   P8S_LOGZIO_NAME=<<P8S_LOGZIO_NAME>> \
-   docker-compose up
-   ```
+```
+LOGZIO_MODULES="aws" \
+AWS_ACCESS_KEY_ID=<<AWS_ACCESS_KEY_ID>> \
+AWS_SECRET_ACCESS_KEY=<<AWS_SECRET_ACCESS_KEY>> \
+AWS_DEFAULT_REGION=<<AWS_DEFAULT_REGION>> \
+LOGZIO_REGION= <<LOGZIO_REGION>> \
+LOGZIO_TOKEN=<<LOGZIO_TOKEN>> \
+AWS_NAMESPACES=<<AWS_NAMESPACES>> \
+SCRAPE_INTERVAL=<<SCRAPE_INTERVAL>> \
+P8S_LOGZIO_NAME=<<P8S_LOGZIO_NAME>> \
+docker-compose up
+```
 
 
-###### Set environment variables for `logzio/config-builder` container
+###### Set environment variables for the `logzio/config-builder` container
 
 | Environment variable | Description |
 |---|---|
@@ -116,7 +116,7 @@ To collect CloudWatch metrics, you'll deploy a docker compose file that uses con
 | CUSTOM_CONFIG_PATH | Path to your Cloudwatch exporter configuration file. For more information refer to the [documentation](https://github.com/prometheus/cloudwatch_exporter#configuration).  **Note:** Set the `period_seconds` parameter according to your `SCRAPE_INTERVAL`|
 | CUSTOM_LISTENER | Set a custom URL to ship metrics to (for example, http://localhost:9200). This overrides the `LOGZIO_REGION` Environment variable. |
 
-###### Set environment variables for `prom/cloudwatch-exporter` container
+###### Set environment variables for the `prom/cloudwatch-exporter` container
 
 | Environment variable | Description |
 |---|---|

@@ -13,9 +13,8 @@ shipping-tags:
 
 You can ship G Suite logs to Logz.io using Filebeat and Google Reports API.
 
-**Before you begin, you'll need**:
 
-* [Filebeat 7.9](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html) or higher installed
+**Before you begin, you'll need**: [Filebeat 7.9](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html) or higher installed
 
 
 <div class="tasklist">
@@ -50,10 +49,10 @@ Open the Filebeat configuration file (the default path `/etc/filebeat/filebeat.y
 Copy and paste the code block below, overwriting the previous contents.
 
 ```yaml
-############################# Filebeat #####################################
+### Filebeat
 
 
-############################# General #####################################
+### General
 fields:
   logzio_codec: json
   token: <<SHIPPING-TOKEN>>
@@ -62,7 +61,7 @@ fields_under_root: true
 encoding: utf-8
 ignore_older: 3h
 
-############################# Modules #####################################
+### Modules
 filebeat.modules:
 - module: gsuite
   saml:
@@ -90,12 +89,12 @@ filebeat.modules:
     var.jwt_file: "<<PATH_TO_CERDNTIALS_FILE>>"
     var.delegated_account: "<<DELEGATED_ACCOUNT_EMAIL>>"
 
-############################# Input #####################################
+### Input
 
-############################# Registry #####################################
+### Registry
 filebeat.registry.path: /var/lib/filebeat
 
-############################# Processors #####################################
+### Processors
 # The following processors are to ensure compatibility with version 7
 processors:
 - if:
@@ -116,7 +115,7 @@ processors:
       to: "source"
     ignore_missing: true
 
-############################# Output #####################################
+### Output 
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
@@ -125,13 +124,13 @@ output.logstash:
 
 For a full list of available Filebeat configuration options for the G Suite module, please see Filebeat's [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/_configure_the_module.html).
 
-##### Replace the placeholders in the Filebeat configuration
+
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/replace-vars.html token=true %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/replace-vars.html listener=true %}
 
 * Replace `<<PATH_TO_CREDENTIALS_FILE>>` with the path to the credentials file (for example `./credentials_file.json` if the credentials file is in the same path as `filebeat.yml`).
 

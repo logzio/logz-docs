@@ -24,7 +24,7 @@ permalink: /data/shipping-manifest.json
           {%- for d in thisCollection.docs %}
             {
               "title": "{{d.title}}",
-              "id": "{{d.id}}",
+              "id": "{{d.id| split: "/" | last}}",
               "dataSource": "{{d.data-source}}",
               {%- if d.open-source -%}
                 {%- capture openSourceString -%}

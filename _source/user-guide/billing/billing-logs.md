@@ -38,14 +38,14 @@ Product charges are determined according to the following parameters:
 |Daily Data Capacity|How many GB you want to send us per day|
 |Retention Period|How many days you want us to store your data |
 
-
+ 
 
 Want to learn more about account usage? See <a href ="/user-guide/accounts/manage-account-usage" target="_blank"> Manage account usage </a> in our docs. 
 
 ## Pricing calculations for Log Management 
-Your bill is calculated each month, based on the terms of your active plan, the daily indexed volume of the data you send to Logz.io - after it has been processed for observability - and the additional charges that may be incurred if your data usage exceeds your plan. 
+Your bill is calculated each month, based on the daily volume capacity for your active plan, the daily indexed volume of the data you send to Logz.io - after it has been processed for observability - and the additional charges that may be incurred if your data usage exceeds your plan. 
 
-At the end of each day, the data you sent to Logz.io is indexed, enriched, tagged, and compressed. You can typically see the data usage for a given day within 3 hours after the end of that day.  <!--provide location Usage information page -->
+At the end of each day, the data you sent to Logz.io is indexed, enriched, tagged, and compressed. You can typically see the data usage for a given day within 3 hours after the end of that day. Note that the daily indexing and billing is based on the UTC timezone.   <!--provide location Usage information page -->
 
 Your daily plan capacity is not cumulative. If your data is under capacity for the day, the unused volume does not roll over to the next day. 
 
@@ -53,7 +53,11 @@ If your account is nearing its daily quota, Logz.io sends an email alert to acco
 
 For those days when your system is overloaded, the data runs thick, and your data usage goes over the daily quota for your plan, we’ve got you covered with On Demand usage. 
 
+### Options that may affect your plan
 
+Smart retention: If your plan includes smart retention, your invoice will reflect that option.
+
+Drop filters: Currently, data that is ingested and then dropped with a drop filter is billed at a lower rate.
 ### An example
 <i class="fas fa-info-circle"></i>  
 

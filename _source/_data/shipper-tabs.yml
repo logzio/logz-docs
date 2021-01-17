@@ -69,8 +69,7 @@ tags:
     name: Networking
   - slug: agents
     name: Agents
-  - slug: prometheus
-    name: Prometheus
+  
 
 
 # templates is an array of rough procedures that are used by multiple shipping

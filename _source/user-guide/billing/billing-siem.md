@@ -22,6 +22,8 @@ Logz.io Cloud SIEM works with your logs to boost your security observability wit
 
 We take your Security to the next level with a Dedicated Customer Success Engineer and a dedicated Security Analyst for your Pro or Enterprise Cloud SIEM account.  
 
+<!--Reply from Bat-el: CSE is allocated for customers paying more than 5K (at the moment, and this will change as well). No matter what product the customer purchased. -->
+
 Your Security Analyst will help you manage your onboarding process, and be on tap to help you create custom dashboards and ship additional security products.
 
 +  If you’re a new customer who wants a complete Cloud SIEM solution, the pricing is presented on the <a href = "https://logz.io/pricing/" target="_blank"> Pricing page</a>, when you click  **Cloud SIEM**.

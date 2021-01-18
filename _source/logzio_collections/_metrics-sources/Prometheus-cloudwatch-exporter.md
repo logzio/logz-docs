@@ -24,7 +24,7 @@ We simplify the data export and collection for your metrics: You tell us the des
 
 ### Schema
 
-Within the applications included in the Docker composefile : 
+Within the applications included in the Docker compose file : 
 
 1. Python writes your environment data to configuration files shared with both the CloudWatch exporter and the OpenTelemetry collector containers. 
     

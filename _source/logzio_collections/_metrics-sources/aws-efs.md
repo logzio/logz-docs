@@ -192,11 +192,9 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Replace the placeholders in your Metricbeat configuration
+{% include general-shipping/replace-placeholders.md %}
 
-Still in the same configuration file, replace the placeholders to match your specifics.
-
-* {% include log-shipping/replace-vars.html token=true %}
+{% include metric-shipping/replace-metrics-token-bullet.md %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

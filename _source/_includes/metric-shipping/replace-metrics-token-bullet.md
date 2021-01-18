@@ -1,0 +1,1 @@
+* Replace `<<METRICS-SHIPPING-TOKEN>>` with a token for the Metrics account you want to ship to. [How to look up your Metrics token.]({{site.baseurl}}/user-guide/accounts/finding-your-metrics-account-token/)

@@ -36,7 +36,7 @@ fields:
   token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
-{% include metric-shipping/replace-metrics-token.md %}
+{% include metric-shipping/replace-metrics-token.html %}
 
 ##### Set Logz.io as the output
 
@@ -96,7 +96,7 @@ For a full list of available Metricbeat configuration options for the MySQL modu
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include metric-shipping/replace-metrics-token.md %}
+* {% include metric-shipping/replace-metrics-token.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

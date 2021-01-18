@@ -214,7 +214,7 @@ output.logstash:
 
 {% include general-shipping/replace-placeholders.md %}
 
-* {% include metric-shipping/replace-metrics-token.md %} 
+* {% include metric-shipping/replace-metrics-token.html %} 
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

@@ -38,7 +38,7 @@ fields:
 fields_under_root: true
 ```
 
-{% include metric-shipping/replace-metrics-token.md %}
+{% include metric-shipping/replace-metrics-token.html %}
 
 ##### Set Logz.io as the output
 
@@ -102,7 +102,7 @@ For the full Metricbeat configuration options for the PostgreSQL module, please 
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include metric-shipping/replace-metrics-token.md %}
+* {% include metric-shipping/replace-metrics-token.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

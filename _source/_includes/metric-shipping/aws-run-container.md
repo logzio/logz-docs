@@ -9,7 +9,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run --name docker-collector-metrics \
---env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_TOKEN="<<METRICS-SHIPPING-TOKEN>>" \
 --env LOGZIO_MODULES="aws" \
 --env AWS_ACCESS_KEY_ID="<<ACCESS-KEY>>" \
 --env AWS_SECRET_ACCESS_KEY="<<SECRET-KEY>>" \

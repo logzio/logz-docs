@@ -203,7 +203,7 @@ output.logstash:
 
 {% include general-shipping/replace-placeholders.md %}
 
-{% include metric-shipping/replace-metrics-token-bullet.md %}
+{% include metric-shipping/replace-metrics-token-bullet.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

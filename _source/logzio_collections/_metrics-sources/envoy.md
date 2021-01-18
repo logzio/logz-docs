@@ -56,7 +56,7 @@ fields:
   token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
-{% include metric-shipping/replace-metrics-token.md %}
+{% include metric-shipping/replace-metrics-token.html %}
 
 ##### Set Logz.io as the output
 

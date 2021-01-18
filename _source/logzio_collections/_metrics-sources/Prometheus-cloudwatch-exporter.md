@@ -19,7 +19,7 @@ shipping-tags:
 
 This project allows you to collect Prometheus format metrics from Amazon CloudWatch with the CloudWatch exporter, and ship them to Logz.io using the OpenTelemetry collector.
 
-We simplify the data export and collection for your metrics: You tell us the desired namespaces and regions you want to send your data from and we fetch the most relevant metrics to display on the Logz.io pre-built Infrastructure Monitoring dashboards.
+We simplify the data export and collection for your metrics: You tell us the desired namespaces and regions you want to send your data from and we fetch the most relevant metrics to display in the Logz.io pre-built Infrastructure Monitoring dashboards.
 
 
 ### Schema
@@ -29,7 +29,7 @@ Within the applications included in the Docker composefile :
 1. Python writes your environment data to configuration files shared with both the CloudWatch exporter and the OpenTelemetry collector containers. 
     
     The configuration files specify: 
-    
+
     * Which platforms the data is collected from
     * Which data is collected
     * Which data is exposed

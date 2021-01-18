@@ -55,7 +55,7 @@ Copy and paste the code block below, overwriting the previous contents.
 ### General
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
   type: gsuite
 fields_under_root: true
 encoding: utf-8
@@ -128,7 +128,7 @@ For a full list of available Filebeat configuration options for the G Suite modu
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/replace-vars.html listener=true %}
 

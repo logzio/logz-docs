@@ -31,7 +31,7 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add GitLab to t
 GitLab has an advanced logging framework that ships a variety of different system logs.
 We recommend reading [Log system](https://docs.gitlab.com/ee/administration/logs.html) from GitLab and modifying the Filebeat sample configuration according to your needs.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...
@@ -44,7 +44,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-production-json
   fields_under_root: true
   encoding: utf-8
@@ -58,7 +58,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-production
   fields_under_root: true
   encoding: utf-8
@@ -72,7 +72,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-api-json
   fields_under_root: true
   encoding: utf-8
@@ -86,7 +86,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-application
   fields_under_root: true
   encoding: utf-8

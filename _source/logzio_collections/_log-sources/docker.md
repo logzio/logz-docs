@@ -58,7 +58,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run --name docker-collector-logs \
---env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
 -v /var/run/docker.sock:/var/run/docker.sock:ro \
 -v /var/lib/docker/containers:/var/lib/docker/containers \
 logzio/docker-collector-logs
@@ -68,7 +68,7 @@ logzio/docker-collector-logs
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %}   |
+| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
 | LOGZIO_REGION | Default: US region.<br> Logz.io region code to ship the logs to. This region code changes depending on the region your account is hosted in. For example, accounts in the EU region have region code `eu`.<br /> For more information, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) on the Logz.io Docs. |
 | LOGZIO_TYPE <span class="default-param">Docker image name</span> | The log type you'll use with this Docker. This is shown in your logs under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
 | LOGZIO_CODEC <span class="default-param">`plain`</span> | Set to `json` if shipping JSON logs. Otherwise, set to `plain`. |
@@ -139,7 +139,7 @@ For a complete list of options, see the configuration parameters below the code 
   "log-driver": "logzio/logzio-logging-plugin",
   "log-opts": {
     "logzio-url": "<<LISTENER-HOST>>",
-    "logzio-token": "<<SHIPPING-TOKEN>>",
+    "logzio-token": "<<LOG-SHIPPING-TOKEN>>",
     "logzio-dir-path": "/path/to/logs/"
   }
 }
@@ -149,7 +149,7 @@ For a complete list of options, see the configuration parameters below the code 
 
 | Parameter | Description |
 |---|---|
-| logzio-token (Required) | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %}   |
+| logzio-token (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
 | logzio-url (Required) | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
 | logzio-dir-path (Required) | Unsent logs are saved to this location on the disk. |
 | logzio-source | Event source. |
@@ -186,7 +186,7 @@ You can configure the plugin separately for each container when using the `docke
 {% raw %}
 ```shell
 docker run --log-driver=logzio/logzio-logging-plugin \
---log-opt logzio-token=<<SHIPPING-TOKEN>> \
+--log-opt logzio-token=<<LOG-SHIPPING-TOKEN>> \
 --log-opt logzio-url=https://<<LISTENER-HOST>>:8071 \
 --log-opt logzio-dir-path=./docker_logs \
 --log-opt logzio-tag="{{Name}}/{{FullID}}" \
@@ -198,7 +198,7 @@ docker run --log-driver=logzio/logzio-logging-plugin \
 ```
 {% endraw %}
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/replace-vars.html listener=true %}
 

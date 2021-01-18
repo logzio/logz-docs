@@ -28,7 +28,7 @@ shipping-tags:
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 Replace <<JENKINS-HOME>> with home location of your Jenkins installation
 
 ```yaml
@@ -43,7 +43,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: jenkins
   fields_under_root: true
   encoding: utf-8

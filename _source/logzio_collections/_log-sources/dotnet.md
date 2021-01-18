@@ -57,7 +57,7 @@ For a complete list of options, see the configuration parameters below the code 
   <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
 
     <!-- Replace these parameters with your configuration -->
-    <token><<SHIPPING-TOKEN>></token>
+    <token><<LOG-SHIPPING-TOKEN>></token>
     <type>log4net</type>
     <listenerUrl><<LISTENER-HOST>>:8071</listenerUrl>
     <bufferSize>100</bufferSize>
@@ -84,7 +84,7 @@ var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 
 // Replace these parameters with your configuration
-logzioAppender.AddToken("<<SHIPPING-TOKEN>>");
+logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddType("log4net");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>:8071");
 logzioAppender.AddBufferSize("100");
@@ -102,7 +102,7 @@ hierarchy.Configured = true;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/replace-vars.html token=true %} | Required |
+| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/log-shipping-token.html %} | Required |
 | listenerUrl  | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
@@ -227,7 +227,7 @@ For a complete list of options, see the configuration parameters below the code 
 
     <!-- Replace these parameters with your configuration -->
     <target name="logzio" type="Logzio"
-      token="<<SHIPPING-TOKEN>>"
+      token="<<LOG-SHIPPING-TOKEN>>"
       logzioType="nlog"
       listenerUrl="<<LISTENER-HOST>>:8071"
       bufferSize="100"
@@ -255,7 +255,7 @@ var config = new LoggingConfiguration();
 // Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
   Name = "Logzio",
-  Token = "<<SHIPPING-TOKEN>>",
+  Token = "<<LOG-SHIPPING-TOKEN>>",
   LogzioType = "nlog",
   ListenerUrl = "<<LISTENER-HOST>>:8071",
   BufferSize = 100,
@@ -276,7 +276,7 @@ LogManager.Configuration = config;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/replace-vars.html token=true %} | Required |
+| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/log-shipping-token.html %} | Required |
 | listenerUrl  | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
@@ -325,7 +325,7 @@ You can configure the target to include your own custom values when forwarding l
 <nlog>
   <variable name="site" value="New Zealand" />
   <variable name="rings" value="one" />
-  <target name="logzio" type="Logzio" token="<<SHIPPING-TOKEN>>">
+  <target name="logzio" type="Logzio" token="<<LOG-SHIPPING-TOKEN>>">
     <contextproperty name="site" layout="${site}" />
     <contextproperty name="rings" layout="${rings}" />
   </target>

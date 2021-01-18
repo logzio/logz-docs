@@ -42,7 +42,7 @@ filebeat.inputs:
   paths:
     - <<FILE_PATH>>
   fields:
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
   fields_under_root: true
   json.keys_under_root: true
   encoding: utf-8
@@ -80,7 +80,7 @@ output:
 
 {% include log-shipping/replace-vars.html listener=true %}
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 Change `<<FILE_PATH>>` to the output TXT file retrieved from the Sophos siem.py script.
 

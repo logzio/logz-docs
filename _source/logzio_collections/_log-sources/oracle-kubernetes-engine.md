@@ -34,13 +34,13 @@ Save your Logz.io shipping credentials as a Kubernetes secret.
 
 Customize the command to your specifics:
 
-* {% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token-bullet.html %}
 * {% include log-shipping/replace-vars.html listener=true %}
 * Replace `<<CLUSTER-NAME>>` with your cluster's name.
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
-  --from-literal=logzio-logs-shipping-token='<<SHIPPING-TOKEN>>' \
+  --from-literal=logzio-logs-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
   --from-literal=logzio-logs-listener='<<LISTENER-HOST>>' \
   --from-literal=cluster-name='<<CLUSTER-NAME>>' \
   -n kube-system

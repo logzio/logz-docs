@@ -66,7 +66,7 @@ sudo /etc/init.d/mysql restart
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...
@@ -80,7 +80,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: mysql
   fields_under_root: true
   encoding: utf-8
@@ -95,7 +95,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: mysql_slow_query
   fields_under_root: true
   encoding: utf-8
@@ -114,7 +114,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: mysql_error
   fields_under_root: true
   encoding: utf-8
@@ -208,7 +208,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run -d --name logzio-mysql-logs \
--e LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+-e LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
 -e LOGZIO_LISTENER_HOST="<<LISTENER-HOST>>" \
 -v /var/log/logzio:/var/log/logzio \
 -v /var/log/mysql:/var/log/mysql \
@@ -219,7 +219,7 @@ logzio/mysql-logs
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %}   |
+| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
 | LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/replace-vars.html listener=true %} |
 | MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span> | Path to the MySQL error log. |
 | MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span> | Path to the MySQL slow query log. |

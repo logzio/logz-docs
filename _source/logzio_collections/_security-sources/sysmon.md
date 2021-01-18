@@ -45,7 +45,7 @@ winlogbeat.event_logs:
     ignore_older: 72h
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
   type: wineventlog
 fields_under_root: true
 processors:
@@ -75,7 +75,7 @@ output.logstash:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token-bullet.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

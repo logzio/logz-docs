@@ -73,7 +73,7 @@ Copy and paste the following yml configuration to the auditbeat.yml file:
 fields:
   type: auditd
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
 fields_under_root: true
 processors:
 - rename:
@@ -154,7 +154,7 @@ output.logstash:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token-bullet.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

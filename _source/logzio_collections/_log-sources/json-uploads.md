@@ -34,13 +34,13 @@ or TLS/SSL streams over TCP.
 For HTTPS shipping _(recommended)_, use this URL configuration:
 
 ```
-https://<<LISTENER-HOST>>:8071/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
+https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=MY-TYPE
 ```
 
 Otherwise, for HTTP shipping, use this configuration:
 
 ```
-http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
+http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=MY-TYPE
 ```
 
 {% include log-shipping/replace-vars.html listener=true %}
@@ -49,7 +49,7 @@ http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
 
 | Parameter | Description |
 |---|---|
-| token (Required) | {% include log-shipping/replace-vars.html token=true %}   |
+| token (Required) | {% include log-shipping/log-shipping-token.html %}   |
 | type <span class="default-param">`http-bulk`</span> | The log type you'll use with this upload. This is shown in your logs under the `type` field in Kibana.    Logz.io applies parsing based on `type`. |
 {:.paramlist}
 
@@ -146,7 +146,7 @@ Keep to these practices when shipping JSON logs over TCP:
 * Each log must be a single-line JSON object
 * Each log line must be 500,000 bytes or less
 * Include your account token as a top-level property: \\
-  `{ ... "token": "<<SHIPPING-TOKEN>>" , ... }`
+  `{ ... "token": "<<LOG-SHIPPING-TOKEN>>" , ... }`
   {% include log-shipping/replace-vars.html token=true prepend="  " %}
 
 ### Sending the logs

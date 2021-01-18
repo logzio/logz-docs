@@ -202,7 +202,7 @@ filebeat.inputs:
   -  <<filepath-to-falco-events.txt>>
   fields:
     logzio_codec: json
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: falco
   fields_under_root: true
   encoding: utf-8
@@ -234,7 +234,7 @@ output.logstash:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token-bullet.html %}
 
 * Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step.
 

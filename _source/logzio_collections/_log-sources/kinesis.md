@@ -144,7 +144,7 @@ aws cloudformation deploy \
 --template-file $(pwd)/kinesis-template.output.yaml \
 --stack-name logzio-kinesis-logs-lambda-stack \
 --parameter-overrides \
-  LogzioTOKEN='<<SHIPPING-TOKEN>>' \
+  LogzioTOKEN='<<LOG-SHIPPING-TOKEN>>' \
   KinesisStream='<<KINESIS-STREAM-NAME>>' \
 --capabilities "CAPABILITY_IAM"
 ```
@@ -153,7 +153,7 @@ aws cloudformation deploy \
 
 | Parameter | Description |
 |---|---|
-| LogzioTOKEN (Required) | {% include log-shipping/replace-vars.html token=true %}   |
+| LogzioTOKEN (Required) | {% include log-shipping/log-shipping-token.html %}   |
 | KinesisStream (Required) | The name of the Kinesis stream where this function will listen for updates. |
 | LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | LogzioURL (Deprecated) | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. |

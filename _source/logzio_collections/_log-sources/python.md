@@ -54,7 +54,7 @@ class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
 # Parameters must be set in order. Replace these parameters with your configuration.
-args=('<<SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, '<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
+args=('<<LOG-SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, '<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
 
 [formatters]
 keys=logzioFormat
@@ -92,7 +92,7 @@ LOGGING = {
             'class': 'logzio.handler.LogzioHandler',
             'level': 'INFO',
             'formatter': 'logzioFormat',
-            'token': '<<SHIPPING-TOKEN>>',
+            'token': '<<LOG-SHIPPING-TOKEN>>',
             'logs_drain_timeout': 5,
             'url': 'https://<<LISTENER-HOST>>:8071'
         }
@@ -109,7 +109,7 @@ LOGGING = {
 
 ###### Replace the placeholders
 
-* {% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token-bullet.html %}
 * {% include log-shipping/replace-vars.html listener=true %} 
 
 
@@ -122,7 +122,7 @@ you need to set every argument that comes before it.
 
 | Parameter | Description |
 |---|---|
-| account-token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).    {% include log-shipping/replace-vars.html token=true %} |
+| account-token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).    {% include log-shipping/log-shipping-token.html %} |
 | log-type <span class="default-param">`python`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | timeout <span class="default-param">`3`</span> | Time to wait between log draining attempts, in seconds. |
 | listener-url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/replace-vars.html listener=true %} |

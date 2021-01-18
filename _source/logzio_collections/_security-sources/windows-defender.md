@@ -74,7 +74,7 @@ clear the contents and start with a fresh file.
 
 Paste this code block.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 winlogbeat.event_logs:
@@ -87,7 +87,7 @@ winlogbeat.event_logs:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
   type: wineventlog
 fields_under_root: true
 ```

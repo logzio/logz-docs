@@ -57,7 +57,7 @@ filebeat.inputs:
   ssl.verification_mode: none
   fields:
     logzio_codec: json
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: trendmicro_deep
   fields_under_root: true
 filebeat.registry.path: /var/lib/filebeat
@@ -74,7 +74,7 @@ processors:
        to: "source"
     ignore_missing: true
 ```
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ##### Set Logz.io as the output
 

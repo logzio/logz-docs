@@ -32,6 +32,11 @@ The Logz.io integration builds on the Jaeger Collector base image and uses the g
 
 <div class="tasklist">
 
+##### Create a Docker network
+```bash
+docker network create net-logzio
+```
+
 ##### Configure the Logz.io extension
 Configure the Logz.io extension with shell variables or environment variables. 
 

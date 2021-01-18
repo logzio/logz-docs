@@ -172,7 +172,7 @@ If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Fun
 
 If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
 
-* {% include log-shipping/log-shipping-token.html %}
+{% include log-shipping/log-shipping-token-bullet.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
@@ -335,7 +335,7 @@ logger.close()
 
 If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
 
-* {% include log-shipping/log-shipping-token.html %}
+{% include log-shipping/log-shipping-token-bullet.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

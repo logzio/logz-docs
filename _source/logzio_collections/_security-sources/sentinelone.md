@@ -84,7 +84,7 @@ output:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/log-shipping-token.html %}
+{% include log-shipping/log-shipping-token-bullet.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

@@ -41,7 +41,7 @@ If your environment requires a custom configuration, follow the steps for deploy
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
 
 Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
 For more information on finding your account's region,
@@ -49,7 +49,7 @@ see [Account region](https://docs.logz.io/user-guide/accounts/account-region.htm
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
---from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+--from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
 --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
 -n kube-system
 ```
@@ -91,7 +91,7 @@ This is done using a ConfigMap that overwrites the default DaemonSet.
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. 
+Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. 
 
 
 Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
@@ -100,7 +100,7 @@ see [Account region](https://docs.logz.io/user-guide/accounts/account-region.htm
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
---from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+--from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
 --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
 -n kube-system
 ```

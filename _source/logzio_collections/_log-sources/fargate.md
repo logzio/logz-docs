@@ -80,7 +80,7 @@ page.
         "options": {
           "Name": "Http",
           "Host": "<<LISTENER-HOST>>",
-          "URI": "/?token=<<SHIPPING-TOKEN>>&type=fargate",
+          "URI": "/?token=<<LOG-SHIPPING-TOKEN>>&type=fargate",
           "Port": "8071",
           "tls": "on",
           "tls.verify": "off",

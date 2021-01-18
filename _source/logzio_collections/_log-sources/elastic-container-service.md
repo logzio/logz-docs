@@ -46,7 +46,7 @@ For a complete list of options, see the parameters below the code block. 👇
 
 ```shell
 docker run -d --name=docker-collector-logs \
---env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
 --env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v /var/lib/docker/containers:/var/lib/docker/containers \

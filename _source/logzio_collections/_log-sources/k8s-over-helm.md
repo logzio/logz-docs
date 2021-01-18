@@ -55,7 +55,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/filebeat
 
 ##### Deploy
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
 
 Replace `<<LISTENER-REGION>>` with your region’s code (for example, `eu`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
@@ -63,7 +63,7 @@ Replace `<<CLUSTER-NAME>>` with your cluster's name.
 
 ```shell
 helm install --namespace=kube-system \
---set secrets.logzioShippingToken='<<SHIPPING-TOKEN>>' \
+--set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
 --set secrets.logzioRegion='<<LISTENER-REGION>>' \
 --set secrets.clusterName='<<CLUSTER-NAME>>' \
 logzio-k8s-logs logzio-helm/logzio-k8s-logs
@@ -95,7 +95,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/filebeat
 
 In the following commands, make the following changes:
 
-* Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+* Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
 
 * Replace `<<LISTENER-REGION>>` with your region’s code (for example, `eu`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
@@ -106,7 +106,7 @@ This Daemonset's default autodiscover configuration is [hints based](https://www
 ```shell
 helm install --namespace=kube-system \
 --set configType='autodiscover' \
---set secrets.logzioShippingToken='<<SHIPPING-TOKEN>>' \
+--set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
 --set secrets.logzioRegion='<<LISTENER-REGION>>' \
 --set secrets.clusterName='<<CLUSTER-NAME>>' \
 logzio-k8s-logs logzio-helm/logzio-k8s-logs
@@ -117,7 +117,7 @@ If you have a custom configuration, deploy with:
 ```shell
 helm install --namespace=kube-system \
 --set configType='auto-custom' \
---set secrets.logzioShippingToken='<<SHIPPING-TOKEN>>' \
+--set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
 --set secrets.logzioRegion='<<LISTENER-REGION>>' \
 --set secrets.clusterName='<<CLUSTER-NAME>>' \
 --set-file filebeatConfig.autoCustomConfig=/path/to/your/config.yaml \

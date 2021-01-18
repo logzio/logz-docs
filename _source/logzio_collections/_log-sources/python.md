@@ -54,7 +54,7 @@ class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
 # Parameters must be set in order. Replace these parameters with your configuration.
-args=('<<SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, '<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
+args=('<<LOG-SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, '<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
 
 [formatters]
 keys=logzioFormat
@@ -92,7 +92,7 @@ LOGGING = {
             'class': 'logzio.handler.LogzioHandler',
             'level': 'INFO',
             'formatter': 'logzioFormat',
-            'token': '<<SHIPPING-TOKEN>>',
+            'token': '<<LOG-SHIPPING-TOKEN>>',
             'logs_drain_timeout': 5,
             'url': 'https://<<LISTENER-HOST>>:8071'
         }

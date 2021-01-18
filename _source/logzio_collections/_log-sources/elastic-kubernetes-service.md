@@ -51,7 +51,7 @@ Save your Logz.io shipping credentials as a Kubernetes secret.
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
-  --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+  --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
   -n kube-system
 ```
@@ -95,7 +95,7 @@ Save your Logz.io shipping credentials as a Kubernetes secret.
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
-  --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+  --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
   -n kube-system
 ```

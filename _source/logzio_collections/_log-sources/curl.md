@@ -44,7 +44,7 @@ You can upload JSON or plain text files.
 {% include log-shipping/replace-vars.html listener=true %}
 
 ```shell
-curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<SHIPPING-TOKEN>>/<LOG-TYPE>
+curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<LOG-TYPE>
 ```
 
 ##### Check Logz.io for your logs
@@ -73,7 +73,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 {% include log-shipping/replace-vars.html listener=true %}
 
 ```shell
-cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
+cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
 ```
 
 ##### Check Logz.io for your logs

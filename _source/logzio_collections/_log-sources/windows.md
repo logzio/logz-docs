@@ -55,7 +55,7 @@ winlogbeat.event_logs:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
   type: wineventlog
 fields_under_root: true
 ```
@@ -168,7 +168,7 @@ Add an `Input` block to append your account token to log records.
 
     Exec if $raw_event =~ /^#/ drop();
     Exec convert_fields("AUTO", "utf-8");
-    Exec    $raw_event = '[<<SHIPPING-TOKEN>>][type=wineventlog]' + $raw_event;
+    Exec    $raw_event = '[<<LOG-SHIPPING-TOKEN>>][type=wineventlog]' + $raw_event;
 </Input>
 ```
 

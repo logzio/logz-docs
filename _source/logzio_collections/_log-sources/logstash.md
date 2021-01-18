@@ -56,7 +56,7 @@ filter {
   # ...
   # ...
   mutate {
-    add_field => { "token" => "<<SHIPPING-TOKEN>>" }
+    add_field => { "token" => "<<LOG-SHIPPING-TOKEN>>" }
   }
 }
 
@@ -108,7 +108,7 @@ filter {
   # ...
   # ...
   mutate {
-    add_field => { "token" => "<<SHIPPING-TOKEN>>" }
+    add_field => { "token" => "<<LOG-SHIPPING-TOKEN>>" }
   }
 }
 

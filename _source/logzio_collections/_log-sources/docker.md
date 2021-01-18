@@ -58,7 +58,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run --name docker-collector-logs \
---env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
 -v /var/run/docker.sock:/var/run/docker.sock:ro \
 -v /var/lib/docker/containers:/var/lib/docker/containers \
 logzio/docker-collector-logs
@@ -139,7 +139,7 @@ For a complete list of options, see the configuration parameters below the code 
   "log-driver": "logzio/logzio-logging-plugin",
   "log-opts": {
     "logzio-url": "<<LISTENER-HOST>>",
-    "logzio-token": "<<SHIPPING-TOKEN>>",
+    "logzio-token": "<<LOG-SHIPPING-TOKEN>>",
     "logzio-dir-path": "/path/to/logs/"
   }
 }
@@ -186,7 +186,7 @@ You can configure the plugin separately for each container when using the `docke
 {% raw %}
 ```shell
 docker run --log-driver=logzio/logzio-logging-plugin \
---log-opt logzio-token=<<SHIPPING-TOKEN>> \
+--log-opt logzio-token=<<LOG-SHIPPING-TOKEN>> \
 --log-opt logzio-url=https://<<LISTENER-HOST>>:8071 \
 --log-opt logzio-dir-path=./docker_logs \
 --log-opt logzio-tag="{{Name}}/{{FullID}}" \

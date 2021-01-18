@@ -166,7 +166,7 @@ aws cloudformation deploy \
 --template-file $(pwd)/cloudformation-template.output.yaml \
 --stack-name logzio-cloudwatch-logs-lambda-stack \
 --parameter-overrides \
-  LogzioTOKEN='<<SHIPPING-TOKEN>>' \
+  LogzioTOKEN='<<LOG-SHIPPING-TOKEN>>' \
 --capabilities "CAPABILITY_IAM"
 ```
 

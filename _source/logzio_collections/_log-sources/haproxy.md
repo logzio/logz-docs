@@ -81,7 +81,7 @@ $PrivDropToGroup syslog
 $WorkDirectory /var/spool/rsyslog
 
 # the logz.io syslog template,
-$template HAProxyLogzioFormat,"[<<SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
+$template HAProxyLogzioFormat,"[<<LOG-SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
 
 # Send messages to Logz over TCP using the template.
 *.* @@<<LISTENER-HOST>>:5000;HAProxyLogzioFormat

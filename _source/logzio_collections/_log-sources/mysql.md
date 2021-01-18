@@ -80,7 +80,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: mysql
   fields_under_root: true
   encoding: utf-8
@@ -95,7 +95,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: mysql_slow_query
   fields_under_root: true
   encoding: utf-8
@@ -114,7 +114,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: mysql_error
   fields_under_root: true
   encoding: utf-8
@@ -208,7 +208,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run -d --name logzio-mysql-logs \
--e LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+-e LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
 -e LOGZIO_LISTENER_HOST="<<LISTENER-HOST>>" \
 -v /var/log/logzio:/var/log/logzio \
 -v /var/log/mysql:/var/log/mysql \

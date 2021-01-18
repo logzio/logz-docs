@@ -30,7 +30,7 @@ For a complete list of options, see the parameters below the code block.👇
 ```shell
 docker run -d \
   --net="host" \
-  -e LOGZ_TOKEN="<<SHIPPING-TOKEN>>" \
+  -e LOGZ_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
   -e LISTENER="<<LISTENER-HOST>>:5000" \
   -e USER_TAG="workers" \
   -e HOSTNAME=`hostname` \

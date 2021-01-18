@@ -52,7 +52,7 @@ import (
 func main() {
   // Replace these parameters with your configuration
   l, err := logzio.New(
-    "<<SHIPPING-TOKEN>>",
+    "<<LOG-SHIPPING-TOKEN>>",
     logzio.SetDebug(os.Stderr),
     logzio.SetUrl("<<LISTENER-HOST>>:8071"),
     logzio.SetDrainDuration(time.Second * 5),

@@ -144,7 +144,7 @@ aws cloudformation deploy \
 --template-file $(pwd)/kinesis-template.output.yaml \
 --stack-name logzio-kinesis-logs-lambda-stack \
 --parameter-overrides \
-  LogzioTOKEN='<<SHIPPING-TOKEN>>' \
+  LogzioTOKEN='<<LOG-SHIPPING-TOKEN>>' \
   KinesisStream='<<KINESIS-STREAM-NAME>>' \
 --capabilities "CAPABILITY_IAM"
 ```

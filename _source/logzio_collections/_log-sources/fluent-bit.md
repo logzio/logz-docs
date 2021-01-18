@@ -68,7 +68,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 [OUTPUT]
     Name  logzio
     Match *
-    logzio_token <<SHIPPING-TOKEN>>
+    logzio_token <<LOG-SHIPPING-TOKEN>>
     logzio_url   https://<<LISTENER-HOST>>:8071
 ```
 
@@ -129,7 +129,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 [OUTPUT]
     Name  logzio
     Match *
-    logzio_token <<SHIPPING-TOKEN>>
+    logzio_token <<LOG-SHIPPING-TOKEN>>
     logzio_url   https://<<LISTENER-HOST>>:8071
 ```
 

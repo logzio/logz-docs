@@ -59,7 +59,7 @@ For a complete list of options, see the configuration parameters below the code 
 ```js
 // Replace these parameters with your configuration
 var logger = require('logzio-nodejs').createLogger({
-  token: '<<SHIPPING-TOKEN>>',
+  token: '<<LOG-SHIPPING-TOKEN>>',
   protocol: 'https',
   host: '<<LISTENER-HOST>>',
   port: '8071',
@@ -153,7 +153,7 @@ const LogzioWinstonTransport = require('winston-logzio');
 const logzioWinstonTransport = new LogzioWinstonTransport({
   level: 'info',
   name: 'winston_logzio',
-  token: '<<SHIPPING-TOKEN>>',
+  token: '<<LOG-SHIPPING-TOKEN>>',
   host: '<<LISTENER-HOST>>',
 });
 
@@ -247,7 +247,7 @@ For a complete list of your options, see the configuration parameters below.👇
 
   // Replace these parameters with your configuration
   var loggerOptions = {
-      token: '<<SHIPPING-TOKEN>>',
+      token: '<<LOG-SHIPPING-TOKEN>>',
       protocol: 'https',
       host: '<<LISTENER-HOST>>',
       port: '8071',
@@ -315,7 +315,7 @@ import LogzioWinstonTransport from 'winston-logzio';
 const logzioWinstonTransport = new LogzioWinstonTransport({
   level: 'info',
   name: 'winston_logzio',
-  token: '<<SHIPPING-TOKEN>>',
+  token: '<<LOG-SHIPPING-TOKEN>>',
   host: '<<LISTENER-HOST>>',
 });
 const logger = winston.createLogger({

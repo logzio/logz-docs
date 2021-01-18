@@ -207,7 +207,7 @@ aws cloudformation deploy \
 
 | Parameter | Description |
 |---|---|
-| LogzioTOKEN (Required) | {% include log-shipping/replace-vars.html token=true %}   |
+| LogzioTOKEN (Required) | {% include log-shipping/log-shipping-token.html %}   |
 | KinesisStream (Required) | The name of the Kinesis stream where this function will listen for updates. |
 | LogzioURL <span class="default-param">`https://listener.logz.io:8071`</span> | Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > {% include log-shipping/replace-vars.html listener='noReplace' %}    |
 | LogzioTYPE <span class="default-param">`guardduty`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. |

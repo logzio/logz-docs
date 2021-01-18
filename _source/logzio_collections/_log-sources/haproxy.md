@@ -58,7 +58,7 @@ listen INPUT_NAME_TCP
 
 Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/replace-vars.html listener=true %}
 

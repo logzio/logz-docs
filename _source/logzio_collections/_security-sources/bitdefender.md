@@ -73,7 +73,7 @@ curl -k -X POST
 * `<<ENCODED_API_KEY_BASE_64>>`- Replace with the encoded key returned in the previous step.
 (Do  NOT delete the term `basic`. It belongs there.)
 * {% include log-shipping/replace-vars.html listener=true %}
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/log-shipping-token.html %}
 
 ###### Expected returned value
 

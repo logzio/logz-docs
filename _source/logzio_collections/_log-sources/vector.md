@@ -65,7 +65,7 @@ at [http sink](https://docs.vector.dev/usage/configuration/sinks/http) from Vect
 
 | Parameter | Description |
 |---|---|
-| uri (Required) | Your Logz.io region's listener URL account token, and log type. <br> {% include log-shipping/replace-vars.html listener=true %} <br> {% include log-shipping/replace-vars.html token=true %} |
+| uri (Required) | Your Logz.io region's listener URL account token, and log type. <br> {% include log-shipping/replace-vars.html listener=true %} <br> {% include log-shipping/log-shipping-token.html %} |
 {:.paramlist}
 
 ##### Run Vector

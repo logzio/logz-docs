@@ -101,7 +101,7 @@ logLevel: INFO
 
 | Parameter | Description |
 |---|---|
-| senderParams.accountToken (Required) | {% include log-shipping/replace-vars.html token=true %} |
+| senderParams.accountToken (Required) | {% include log-shipping/log-shipping-token.html %} |
 | senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span> | Listener URL.    {% include log-shipping/replace-vars.html listener=true %} |
 | senderParams.fromDisk <span class="default-param">`true`</span> | If `true`, logs are stored on disk until they're shipped (see [If from-disk=true](#if-fromdisk-true)). If `false`, logs persist in memory until they're shipped (see [If from-disk=false](#if-fromdisk-false)). |
 | senderParams.senderDrainIntervals <span class="default-param">`30`</span> | How often the sender should drain the queue, in seconds. |

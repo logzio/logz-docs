@@ -35,7 +35,7 @@ clear the contents and start with a fresh file.
 
 Paste this code block.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...

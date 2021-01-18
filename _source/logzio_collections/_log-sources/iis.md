@@ -24,7 +24,7 @@ shipping-tags:
 
 Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/replace-vars.html listener=true %}
 

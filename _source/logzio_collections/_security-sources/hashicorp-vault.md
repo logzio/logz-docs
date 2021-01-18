@@ -47,7 +47,7 @@ This allows Filebeat to rename some fields
 to keep Vault logs compatible with Logz.io.
 {:.info-box.important}
 
-{% include log-shipping/replace-vars.html token=true %} \\
+{% include log-shipping/log-shipping-token.html %} \\
 {% include log-shipping/replace-vars.html listener=true %}
 
 ```yaml

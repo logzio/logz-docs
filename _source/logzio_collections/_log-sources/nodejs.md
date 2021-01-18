@@ -71,7 +71,7 @@ var logger = require('logzio-nodejs').createLogger({
 
 | Parameter | Description |
 |---|---|
-| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).    {% include log-shipping/replace-vars.html token=true %} |
+| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).    {% include log-shipping/log-shipping-token.html %} |
 | protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
 | host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
 | port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
@@ -172,7 +172,7 @@ If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Fun
 
 If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/log-shipping-token.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 
@@ -184,7 +184,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | Parameter | Description |
 |---|---|
 | LogzioWinstonTransport | This variable determines what will be passed to the logzio nodejs logger itself. If you want to configure the nodejs logger, add any parameters you want to send to winston when initializing the transport. |
-| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).    {% include log-shipping/replace-vars.html token=true %} |
+| token (Required) | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general).    {% include log-shipping/log-shipping-token.html %} |
 | protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
 | host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
 | port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
@@ -335,7 +335,7 @@ logger.close()
 
 If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/log-shipping-token.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

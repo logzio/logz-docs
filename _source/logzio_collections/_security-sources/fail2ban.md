@@ -27,7 +27,7 @@ root access
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Fail2ban to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...

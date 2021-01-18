@@ -121,7 +121,7 @@ and then click **Create**.
 |---|---|
 | image | Replace `<<YOUR-APP-IMAGE>>` with the name of the image you want to ship logs from. |
 | logConfiguration.options.Host | Replace `<<LISTENER-HOST>>` with with the [listener URL]({{site.baseurl}}/user-guide/accounts/account-region.html) of the account you want to ship to. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| logConfiguration.options.URI | {% include log-shipping/replace-vars.html token=true %} |
+| logConfiguration.options.URI | {% include log-shipping/log-shipping-token.html %} |
 {:.paramlist}
 
 

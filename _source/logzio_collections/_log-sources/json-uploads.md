@@ -49,7 +49,7 @@ http://<<LISTENER-HOST>>:8070/?token=<<SHIPPING-TOKEN>>&type=MY-TYPE
 
 | Parameter | Description |
 |---|---|
-| token (Required) | {% include log-shipping/replace-vars.html token=true %}   |
+| token (Required) | {% include log-shipping/log-shipping-token.html %}   |
 | type <span class="default-param">`http-bulk`</span> | The log type you'll use with this upload. This is shown in your logs under the `type` field in Kibana.    Logz.io applies parsing based on `type`. |
 {:.paramlist}
 

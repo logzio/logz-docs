@@ -45,7 +45,7 @@ sudo /var/ossec/bin/ossec-control restart
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add OSSEC to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...

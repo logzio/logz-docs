@@ -21,7 +21,7 @@ shipping-tags:
 
 ##### Run the rsyslog configuration script
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/replace-vars.html listener=true %}
 

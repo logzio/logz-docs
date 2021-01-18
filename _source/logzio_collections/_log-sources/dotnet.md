@@ -102,7 +102,7 @@ hierarchy.Configured = true;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/replace-vars.html token=true %} | Required |
+| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/log-shipping-token.html %} | Required |
 | listenerUrl  | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
@@ -276,7 +276,7 @@ LogManager.Configuration = config;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/replace-vars.html token=true %} | Required |
+| token | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). {% include log-shipping/log-shipping-token.html %} | Required |
 | listenerUrl  | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |

@@ -66,7 +66,7 @@ sudo /etc/init.d/mysql restart
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...
@@ -219,7 +219,7 @@ logzio/mysql-logs
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %}   |
+| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
 | LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/replace-vars.html listener=true %} |
 | MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span> | Path to the MySQL error log. |
 | MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span> | Path to the MySQL slow query log. |

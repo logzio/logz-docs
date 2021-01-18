@@ -39,7 +39,7 @@ You can upload JSON or plain text files.
 
 ##### Upload the file
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/replace-vars.html listener=true %}
 
@@ -68,7 +68,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ##### Upload the file
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/replace-vars.html listener=true %}
 

@@ -35,7 +35,7 @@ The default log locations for:
 * RHEL, CentOS, Fedora - `/var/log/httpd/access_log`
 
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...

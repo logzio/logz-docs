@@ -174,7 +174,7 @@ aws cloudformation deploy \
 
 | Parameter | Description |
 |---|---|
-| LogzioTOKEN (Required) | {% include log-shipping/replace-vars.html token=true %}   |
+| LogzioTOKEN (Required) | {% include log-shipping/log-shipping-token.html %}   |
 | LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | LogzioURL (Deprecated) | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. |
 | LogzioTYPE (Default: `logzio_cloudwatch_logs`) | The log type you'll use with this Lambda. This can be a [built-in log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), or a custom log type. You should create a new Lambda for each log type you use. |

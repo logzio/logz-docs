@@ -28,7 +28,7 @@ shipping-tags:
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yml
 ### Filebeat ###
@@ -76,7 +76,7 @@ output:
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-* {% include log-shipping/replace-vars.html token=true %}
+* {% include log-shipping/log-shipping-token.html %}
 
 * {% include log-shipping/replace-vars.html listener=true %}
 

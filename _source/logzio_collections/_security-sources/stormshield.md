@@ -59,7 +59,7 @@ processors:
       to: "source"
     ignore_missing: true
 ```
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ##### Set Logz.io as the output
 

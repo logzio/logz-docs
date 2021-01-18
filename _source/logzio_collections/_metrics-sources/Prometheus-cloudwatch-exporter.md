@@ -22,7 +22,7 @@ This project allows you to collect Prometheus format metrics from Amazon CloudWa
 We simplify the data export and collection for your metrics: You tell us the desired namespaces and regions you want to send your data from and we fetch the most relevant metrics to display in the Logz.io pre-built Infrastructure Monitoring dashboards.
 
 
-### Schema
+### Overview
 
 Within the applications included in the Docker compose file : 
 

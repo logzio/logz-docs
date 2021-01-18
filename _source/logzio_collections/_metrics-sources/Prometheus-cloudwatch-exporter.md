@@ -6,22 +6,41 @@ logo:
 data-source: Amazon CloudWatch for Prometheus metrics
 templates: ["docker-metricbeat"]
 open-source:
-  - title: 
-    github-repo: 
+  - title: CloudWatch metrics for Prometheus
+    github-repo: logz-aws-metrics
 contributors:
   - yotamloe
   - yberlinger
 shipping-tags:
-  - aws
+  - prometheus
 ---
 
-# logzio-aws-metrics
-
-**IMPORTANT ⚠️ :** This project is intended for specific private beta customers.
+{% include page-info/early-access.md type="beta" %}
 
 This project allows you to collect Prometheus format metrics from Amazon CloudWatch with the CloudWatch exporter, and ship them to Logz.io using the OpenTelemetry collector.
 
+We simplify the data export and collection for your metrics: You tell us the desired namespaces and regions you want to send your data from and we fetch the most relevant metrics to display on the Logz.io pre-built Infrastructure Monitoring dashboards.
+
+
 ### Schema
+
+Within the applications included in the Docker composefile : 
+
+1. Python writes your environment data to configuration files shared with both the CloudWatch exporter and the OpenTelemetry collector containers. 
+    
+    The configuration files specify: 
+    
+    * Which platforms the data is collected from
+    * Which data is collected
+    * Which data is exposed
+    * To which endpoints the data is sent
+
+1. The CloudWatch exporter and OpenTelemetry collector containers use the configuration files to export and move the metrics data to Logz.io as follows:
+
+    a. Via API, the CloudWatch exporter fetches the requested metrics data collected by CloudWatch from the AWS services in your platform and exposes these metrics to the designated endpoint.
+
+    b. The OpenTelemetry collector receives the data via a metrics pipeline and sends it to Logz.io for ingestion. 
+
 ![Prometheus-CloudFront-OpenTelemetry schema](https://dytvr9ot2sszz.cloudfront.net/logz-docs/metrics-prometheus/cloudwatch-docker-otel.png)
 
 ### **Note:** 

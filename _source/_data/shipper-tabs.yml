@@ -69,6 +69,8 @@ tags:
     name: Networking
   - slug: agents
     name: Agents
+  - slug: prometheus
+    name: Prometheus
   
 
 

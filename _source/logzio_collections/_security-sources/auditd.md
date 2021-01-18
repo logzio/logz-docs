@@ -73,7 +73,7 @@ Copy and paste the following yml configuration to the auditbeat.yml file:
 fields:
   type: auditd
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
 fields_under_root: true
 processors:
 - rename:

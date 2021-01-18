@@ -50,7 +50,7 @@ filebeat.inputs:
     - <<FILEPATH-TO-OPENVAS-REPORTS>>/*.csv
   fields:
     logzio_codec: plain
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: openvas
   fields_under_root: true
   encoding: utf-8

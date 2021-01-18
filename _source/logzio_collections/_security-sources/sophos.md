@@ -42,7 +42,7 @@ filebeat.inputs:
   paths:
     - <<FILE_PATH>>
   fields:
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
   fields_under_root: true
   json.keys_under_root: true
   encoding: utf-8

@@ -45,7 +45,7 @@ winlogbeat.event_logs:
     ignore_older: 72h
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
   type: wineventlog
 fields_under_root: true
 processors:

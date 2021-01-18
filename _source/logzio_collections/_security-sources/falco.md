@@ -202,7 +202,7 @@ filebeat.inputs:
   -  <<filepath-to-falco-events.txt>>
   fields:
     logzio_codec: json
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: falco
   fields_under_root: true
   encoding: utf-8

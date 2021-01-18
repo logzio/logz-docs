@@ -47,7 +47,7 @@ See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=K
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
 
-This code block adds Juniper SRX as an input sent over UDP traffic. It contains the placeholder `<<SHIPPING-TOKEN>>` which you'll need to replace in the next step.
+This code block adds Juniper SRX as an input sent over UDP traffic. It contains the placeholder `<<LOG-SHIPPING-TOKEN>>` which you'll need to replace in the next step.
 
 ```yaml
 # ...
@@ -61,7 +61,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: juniper
   fields_under_root: true
   encoding: utf-8

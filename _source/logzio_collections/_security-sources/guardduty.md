@@ -198,7 +198,7 @@ aws cloudformation deploy \
 --template-file $(pwd)/cloudformation-template.output.yaml \
 --stack-name logzio-guardduty-logs-lambda-stack \
 --parameter-overrides \
-  LogzioTOKEN='<<SHIPPING-TOKEN>>' \
+  LogzioTOKEN='<<LOG-SHIPPING-TOKEN>>' \
   KinesisStream='<<KINESIS-STREAM-NAME>>' \
 --capabilities "CAPABILITY_IAM"
 ```

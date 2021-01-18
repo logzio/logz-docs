@@ -107,7 +107,7 @@ Replace the placeholders in the code sample below before running it. Then run:
 docker run \
 --restart always \
 --name Okta \
---env LOGZIO_TOKEN=<<SHIPPING-TOKEN>> \
+--env LOGZIO_TOKEN=<<LOG-SHIPPING-TOKEN>> \
 --env LOGZIO_LISTENER_HOST=<<LISTENER-HOST>> \
 -v /etc/logzio-okta/tenants-credentials.yml:/usr/share/logstash/tenants-credentials.yml \
 -t logzio/logzio-okta

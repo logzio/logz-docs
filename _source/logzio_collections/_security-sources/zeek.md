@@ -70,7 +70,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: zeek
   fields_under_root: true
   encoding: utf-8
@@ -83,7 +83,7 @@ filebeat.inputs:
     logzio_codec: json
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: zeek_alert
   fields_under_root: true
   encoding: utf-8

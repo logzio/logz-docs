@@ -39,7 +39,7 @@ filebeat.inputs:
     - /var/log/apache2/error.log
   fields:
     logzio_codec: json
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: modsecurity
   fields_under_root: true
   encoding: utf-8

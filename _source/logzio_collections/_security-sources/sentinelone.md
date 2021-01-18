@@ -55,7 +55,7 @@ filebeat.inputs:
   ssl.verification_mode: none
   fields:
     logzio_codec: json
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: sentinel_one
   fields_under_root: true
 filebeat.registry.path: /var/lib/filebeat

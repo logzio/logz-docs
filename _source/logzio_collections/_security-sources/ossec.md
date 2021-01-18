@@ -60,7 +60,7 @@ filebeat.inputs:
 
     # Your Logz.io account token. You can find your token at
     #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    token: <<LOG-SHIPPING-TOKEN>>
     type: ossec
   fields_under_root: true
   encoding: utf-8

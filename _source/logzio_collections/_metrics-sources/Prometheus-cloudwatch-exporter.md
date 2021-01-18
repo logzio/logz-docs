@@ -24,7 +24,7 @@ We simplify the data export and collection for your metrics: You tell us the des
 
 ### Overview
 
-Within the applications included in the Docker compose file : 
+Within the applications included in the Docker compose file: 
 
 1. The logzio/config-builder writes your environment data to configuration files shared with both the CloudWatch exporter and the OpenTelemetry collector containers. 
     

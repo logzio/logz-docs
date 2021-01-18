@@ -42,8 +42,8 @@ filebeat.inputs:
   fields:
     logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
     token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-production-json
   fields_under_root: true
@@ -56,8 +56,8 @@ filebeat.inputs:
   fields:
     logzio_codec: plain
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
     token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-production
   fields_under_root: true
@@ -70,8 +70,8 @@ filebeat.inputs:
   fields:
     logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
     token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-api-json
   fields_under_root: true
@@ -84,8 +84,8 @@ filebeat.inputs:
   fields:
     logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
     token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-application
   fields_under_root: true

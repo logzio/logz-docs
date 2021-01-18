@@ -100,7 +100,7 @@ Save your Logz.io shipping credentials as a Kubernetes secret.
 
 ```shell
 kubectl --namespace=kube-system create secret generic logzio-metrics-secret \
-  --from-literal=logzio-metrics-shipping-token=<<SHIPPING-TOKEN>> \
+  --from-literal=logzio-metrics-shipping-token=<<METRICS-SHIPPING-TOKEN>> \
   --from-literal=logzio-metrics-listener-host=<<LISTENER-HOST>>
 ```
 

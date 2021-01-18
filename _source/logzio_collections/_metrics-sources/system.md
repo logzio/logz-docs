@@ -46,7 +46,7 @@ Replace the General configuration in `metricbeat.yml` with Logz.io settings.
 # ===== General =====
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
 
@@ -116,7 +116,7 @@ Replace the General configuration in `metricbeat.yml` with Logz.io settings.
 # ===== General =====
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
 
@@ -208,7 +208,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run --name docker-collector-metrics \
---env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_TOKEN="<<METRICS-SHIPPING-TOKEN>>" \
 --env LOGZIO_MODULES="system" \
 --volume="/var/run/docker.sock:/var/run/docker.sock:ro" \
 --volume="/sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro" \

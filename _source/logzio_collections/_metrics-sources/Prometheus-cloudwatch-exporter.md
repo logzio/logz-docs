@@ -26,11 +26,10 @@ We simplify the data export and collection for your metrics: You tell us the des
 
 Within the applications included in the Docker compose file : 
 
-1. Python writes your environment data to configuration files shared with both the CloudWatch exporter and the OpenTelemetry collector containers. 
+1. The logzio/config-builder writes your environment data to configuration files shared with both the CloudWatch exporter and the OpenTelemetry collector containers. 
     
     The configuration files specify: 
 
-    * Which platforms the data is collected from
     * Which data is collected
     * Which data is exposed
     * To which endpoints the data is sent

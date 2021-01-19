@@ -16,15 +16,21 @@ contributors:
 
 # _DRAFT Content_
 
-## Pricing and billing considerations for Cloud SIEM accounts
+## Introduction
 
 Logz.io Cloud SIEM works with your logs to boost your security observability with enriched and aggregated security log and alerts data, excellent prebuilt security content, and more than 10 of the most useful external Threat Intelligence feeds.
 
-We take your Security to the next level with a Dedicated Customer Success Engineer and a dedicated Security Analyst for your Pro or Enterprise Cloud SIEM account.  
-
-<!--Reply from Bat-el: CSE is allocated for customers paying more than 5K (at the moment, and this will change as well). No matter what product the customer purchased. -->
+We take your Security to the next level with dedicated Customer Success Engineers and a dedicated Security Analyst for your Pro or Enterprise Cloud SIEM account.  
 
 Your Security Analyst will help you manage your onboarding process, and be on tap to help you create custom dashboards and ship additional security products.
+
+## Pricing and billing considerations for Cloud SIEM accounts
+
+Cloud SIEM is inseparable from Log Management: You must have an active Log Management account plan to use Cloud SIEM.
+
+The volume capacity for Cloud SIEM plans starts at 2 Gb of indexed data. The price per GB of indexed data includes Logz.io Log Management, and is indicated on the pricing page.  <!--link -->  
+
+Available Cloud SIEM plan retention: 3, 7, 14, 21, 30, 45 days
 
 +  If you’re a new customer who wants a complete Cloud SIEM solution, the pricing is presented on the <a href = "https://logz.io/pricing/" target="_blank"> Pricing page</a>, when you click  **Cloud SIEM**.
   
@@ -37,6 +43,8 @@ Because Cloud SIEM uses the logs from your Log Management plan, the maximum stor
 For example, if you want to buy 50GB of SIEM, your Log Management plan storage should be at least 50GB.
 
 For Cloud SIEM, you’ll be charged a flat rate per indexed GB. The greater the volume of logs you send us, the less you pay per indexed GB.
+
+_AI/Question: Clarify how SIEM works for main and subaccounts - How much of Log Management capacity is eligible for Security product?_
 
 ## Cloud SIEM Billing FAQs
 

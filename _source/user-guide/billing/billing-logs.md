@@ -66,9 +66,9 @@ Drop filters: Currently, data that is ingested and then dropped with a drop filt
 <!-- place in a box - find syntax -->
 Your plan is _________  GB/Day x  _____________days of retention.
 
-On Sunday, you ship ________ GB between the hours of 00:00 and 23:59. 
+On Sunday, you ship ________ GB between the hours of 00:00 and 23:59 UTC. 
 
-3 hours later (3AM Monday morning), after indexing and compressing, your Usage tab displays ___________GB.
+3 hours later (3AM Monday morning, UTC), after indexing and compressing, your Usage tab displays ___________GB.
 
 Charge for the day: USD_______.
 

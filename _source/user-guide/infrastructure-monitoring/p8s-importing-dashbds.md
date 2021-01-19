@@ -11,7 +11,7 @@ contributors:
   - yberlinger
   - yotamloe
 ---
-You can import your existing dashboards to Logz.io via a manual process or via a bulk process, using a python script.
+You can import your existing dashboards to Logz.io via a manual process or via a bulk process, using a Python script.
 
 <!-- tabContainer:start -->
 <div class="branching-container">

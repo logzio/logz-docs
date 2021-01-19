@@ -111,6 +111,14 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
+  - title: Getting started with Prometheus 
+    url: /user-guide/infrastructure-monitoring/p8s-getting-started.html
+    thirdLevel:
+    - title: Configuring remote write for Prometheus 
+      url: /user-guide/infrastructure-monitoring/p8s-remote-write.html    
+    - title: Importing dashboards from Grafana 
+      url: /user-guide/infrastructure-monitoring/p8s-importing-dashbds.html
+
 
 
     # ===== DISTRIBUTED TRACING =====

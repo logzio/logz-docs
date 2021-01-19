@@ -33,9 +33,7 @@ Once your metrics are flowing, import your existing Prometheus and Grafana dashb
 
 For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations](/user-guide/infrastructure-monitoring/annotations/) for more information.
 
-~~here?~~
-
-{% include page-info/early-access.md type="beta" %} 
+ 
 
 ### Steps to get started
 1. <a href ="/user-guide/infrastructure-monitoring/p8s-remote-write#configuring-remote-write-to-logzio)"  target="_blank">Configure Remote Write. 

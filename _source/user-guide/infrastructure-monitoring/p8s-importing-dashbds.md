@@ -59,19 +59,22 @@ In the left navigation pane, click <i class="fas fa-plus"></i> and select **Impo
   
 ### Importing multiple dashboards via script 
  
-To enable easy migration, we created a python [script](https://github.com/logzio/grafana-dashboard-migration-tool) to bulk upload your Grafana dashboards to our platform.
+To enable easy migration, we created a Python [script](https://github.com/logzio/grafana-dashboard-migration-tool) to bulk upload your Grafana dashboards to our platform.
 
-Bulk import is supported for Grafana version 6 and above.
+{:.info-box.note.notes}
 
-* Dashboards that include annotations, notification endpoints, and other external resources are imported without these resources during bulk import. 
++ Bulk import is supported for Grafana version 6 and above.
 
-* Custom selection of dashboards is not possible with bulk import. All your dashboard folders are imported to a single folder within Logz.io.
+  + Dashboards that include annotations, notification endpoints, and other  external resources are imported without these resources during bulk  import. 
 
-* Grafana dashboards with schema version 14 or lower that include "row" objects are not uploaded: You will receive a warning in the logs. We recommend that you update your dashboard schema to the latest version.
+  + Custom selection of dashboards is not possible with bulk import. All  your dashboard folders are imported to a single folder within Logz.io.
 
-* The`p8s_logzio_name` variable is not added to panel queries that don't include filtering: You will receive a warning in the logs.
+  * Grafana dashboards with schema version 14 or lower that include "row"  objects are not uploaded: You will receive a warning in the logs. We  recommend that you update your dashboard schema to the latest version.
 
-* Some panel types are not supported by Logz.io platform. If your dashboard includes an unsupported panel type, you will receive a warning in the logs. You may experience some issues while the panel renders in Logz.io.
+  * The`p8s_logzio_name` variable is not added to panel queries that don't  include filtering: You will receive a warning in the logs.
+
+  * Some panel types are not supported by the Logz.io platform. If your  dashboard includes an unsupported panel type, you will receive a warning  in the logs. You may experience some issues while the panel renders in  Logz.io.
+
 
 ####  Bulk dashboard import procedure
 

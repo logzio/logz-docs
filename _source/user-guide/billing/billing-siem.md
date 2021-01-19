@@ -24,19 +24,9 @@ We take your Security to the next level with dedicated Customer Success Engineer
 
 Your Security Analyst will help you manage your onboarding process, and be on tap to help you create custom dashboards and ship additional security products.
 
-## Pricing and billing considerations for Cloud SIEM accounts
+## Log Management and Cloud SIEM accounts
 
-Cloud SIEM is inseparable from Log Management: You must have an active Log Management account plan to use Cloud SIEM.
-
-The volume capacity for Cloud SIEM plans starts at 2 Gb of indexed data. The price per GB of indexed data includes Logz.io Log Management, and is indicated on the pricing page.  <!--link -->  
-
-Available Cloud SIEM plan retention: 3, 7, 14, 21, 30, 45 days
-
-+  If you’re a new customer who wants a complete Cloud SIEM solution, the pricing is presented on the <a href = "https://logz.io/pricing/" target="_blank"> Pricing page</a>, when you click  **Cloud SIEM**.
-  
-  ![Logz.io plan selection](https://dytvr9ot2sszz.cloudfront.net/logz-docs/billing-charges/product-selection.png)
-
-+ If you’re an existing Pro or Enterprise account customer who wants Cloud SIEM, you must have a Log Management plan in place. 
+Cloud SIEM is inseparable from Log Management: You must have an active Log Management account plan to use Cloud SIEM. 
 
 Because Cloud SIEM uses the logs from your Log Management plan, the maximum storage available for your Cloud SIEM plan is the capacity you purchased for your Log Management plan.
 
@@ -44,7 +34,21 @@ For example, if you want to buy 50GB of SIEM, your Log Management plan storage s
 
 For Cloud SIEM, you’ll be charged a flat rate per indexed GB. The greater the volume of logs you send us, the less you pay per indexed GB.
 
-_AI/Question: Clarify how SIEM works for main and subaccounts - How much of Log Management capacity is eligible for Security product?_
+_~AI/Question: Clarify how SIEM works for main and subaccounts - How much of Log Management capacity is eligible for Security product?~_
+
+The volume capacity for Cloud SIEM plans starts at 2 Gb of indexed data. The price per GB of indexed data includes Logz.io Log Management, and is indicated on the pricing page. <!--replace link placeholder --> _~~placeholder link~~_
+
+Retention for Cloud SIEM plans is available for 3, 7, 14, 21, 30, and 45 days.
+
+### Getting started with a Cloud SIEM plan
+
++  If you’re a new customer who wants a complete Cloud SIEM solution, the pricing is presented on the <a href = "https://logz.io/pricing/" target="_blank"> Pricing page</a>, when you click  **Cloud SIEM**.
+  
+  ![Logz.io plan selection](https://dytvr9ot2sszz.cloudfront.net/logz-docs/billing-charges/product-selection.png)
+
++ If you’re an existing Pro or Enterprise account customer who wants Cloud SIEM, you must have a Log Management plan in place. 
+
+
 
 ## Cloud SIEM Billing FAQs
 

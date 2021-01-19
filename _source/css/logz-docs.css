@@ -152,7 +152,7 @@ main.page-content img, main.page-content video, .post-content iframe {
   display: block;
   max-width: 90%;
   margin: 1.5rem auto;
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border-very-light);
   border-radius: 2px;
 }
 

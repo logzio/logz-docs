@@ -94,11 +94,11 @@ Still in the same configuration file, copy and paste the code block below with t
 # ===== General =====
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
 
-{% include metric-shipping/replace-metrics-token.md %}
+{% include metric-shipping/replace-metrics-token.html %}
 
 ##### Set Logz.io as the output
 
@@ -148,7 +148,7 @@ The final metricbeat.yml file should look like this:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ignore_older: 3hr
 type: metrics

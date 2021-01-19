@@ -120,7 +120,7 @@ metricbeat.modules:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ignore_older: 3hr
 type: metrics
@@ -138,7 +138,7 @@ output.logstash:
 | tenant_id | Azure tenant ID. Replace `<<TENANT-ID>>` with `tenantId` from step 2. |
 | subscription_id | Azure subscription ID. Replace `<<SUBSCRIPTION-ID>>` with `id` from step 2. |
 | resources _and_ namespace | Replace `<<RESOURCE-TYPE>>` with the Azure services you want to monitor. You can find these values in the _Resource type_ column in [_Metrics and Dimensions Supported_](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric-near-real-time#metrics-and-dimensions-supported) from Microsoft. |
-| fields.token | {% include metric-shipping/replace-metrics-token.md %} |
+| fields.token | {% include metric-shipping/replace-metrics-token.html %} |
 | output.logstash.hosts | {% include log-shipping/replace-vars.html listener=true %} |
 
 ##### Start Metricbeat

@@ -67,7 +67,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run --name docker-collector-metrics \
---env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_TOKEN="<<METRICS-SHIPPING-TOKEN>>" \
 --env LOGZIO_MODULES="docker" \
 -v /var/run/docker.sock:/var/run/docker.sock:ro \
 logzio/docker-collector-metrics
@@ -77,7 +77,7 @@ logzio/docker-collector-metrics
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN (Required) | {% include metric-shipping/replace-metrics-token.md %} |
+| LOGZIO_TOKEN (Required) | {% include metric-shipping/replace-metrics-token.html %} |
 | LOGZIO_MODULES (Required) | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/modules`. |
 | LOGZIO_REGION <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls) table. |
 | LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value.    In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |

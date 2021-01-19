@@ -73,14 +73,14 @@ This code block shows a sample command to run jmx2logzio with runtime configurat
 For a complete list of options, see the configuration parameters below the code block.👇
 
 ```shell
-java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<SHIPPING-TOKEN>>,SERVICE_NAME=myService /path/to/your/app
+java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<METRICS-SHIPPING-TOKEN>>,SERVICE_NAME=myService /path/to/your/app
 ```
 
 ###### Parameters
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN (Required) | {% include metric-shipping/replace-metrics-token.md %} |
+| LOGZIO_TOKEN (Required) | {% include metric-shipping/replace-metrics-token.html %} |
 | SERVICE_NAME (Required) | A name you define for the service. This is included in the reported metrics. |
 | LISTENER_URL <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
 | SERVICE_HOST <span class="default-param">Host machine name</span> | Hostname to be included in the reported metrics. |
@@ -169,7 +169,7 @@ For help, see our [example configuration file](https://raw.githubusercontent.com
 | service.poller.metrics-polling-interval-in-seconds <span class="default-param">`30`</span> | Metrics polling interval, in seconds. |
 | extra-dimensions | A dictionary of key-values that will be added to the dimensions of the collected metrics. |
 | logzio-java-sender.url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| logzio-java-sender.token (Required) | {% include metric-shipping/replace-metrics-token.md %} |
+| logzio-java-sender.token (Required) | {% include metric-shipping/replace-metrics-token.html %} |
 | logzio-java-sender.from-disk <span class="default-param">`true`</span> | If `true`, metrics are stored on disk until they're shipped (see [If from-disk=true](#jolokia-if-fromdisk-true)). If `false`, metrics persist in memory until they're shipped (see [If from-disk=false](#jolokia-if-fromdisk-false)). |
 {:.paramlist}
 

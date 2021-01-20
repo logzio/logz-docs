@@ -61,7 +61,7 @@ collections:
     name: Metrics
     id: :slug
     in-shipping-manifest: true
-  p8s-aas-sources:
+  p8s-sources:
     output: true
     permalink: /shipping/p8s-sources/:slug.html
     name: Prometheus as a service

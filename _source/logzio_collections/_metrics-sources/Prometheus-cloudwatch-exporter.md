@@ -26,7 +26,7 @@ We simplify the data export and collection for your metrics: You tell us the des
 
 Within the applications included in the Docker compose file: 
 
-1. The logzio/config-builder writes your environment data to configuration files shared with both the CloudWatch exporter and the OpenTelemetry collector containers. 
+1. The logzio/cloudwatch-config-builder writes your environment data to configuration files shared with both the CloudWatch exporter and the OpenTelemetry collector containers. 
     
     The configuration files specify: 
 
@@ -90,7 +90,7 @@ To collect CloudWatch metrics, you'll deploy a docker compose file that uses con
 
 * [otel/opentelemetry-collector](https://hub.docker.com/r/otel/opentelemetry-collector)
 * [prom/cloudwatch-exporter](https://hub.docker.com/r/prom/cloudwatch-exporter)
-* [logzio/config-builder]()
+* [logzio/cloudwatch-config-builder](https://hub.docker.com/r/logzio/cloudwatch-config-builder)
 
 <div class="tasklist">
 
@@ -115,7 +115,7 @@ docker-compose up
 ```
 
 
-###### Set environment variables for the `logzio/config-builder` container
+###### Set environment variables for the `logzio/cloudwatch-config-builder` container
 
 | Environment variable | Description |
 |---|---|

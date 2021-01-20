@@ -47,3 +47,118 @@
   to = "/shipping/log-sources/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/active-directory-winserver.html"
+  to = "/shipping/security-sources/active-directory-winserver.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/alcide.html"
+  to = "/shipping/security-sources/alcide.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/auditd.html"
+  to = "/shipping/security-sources/auditd.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/aws-waf.html"
+  to = "/shipping/security-sources/aws-waf.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/azure-activity-logs.html"
+  to = "/shipping/security-sources/azure-activity-logs.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/bitdefender.html"
+  to = "/shipping/security-sources/bitdefender.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/check-point.html"
+  to = "/shipping/security-sources/check-point.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/cisco-asa.html"
+  to = "/shipping/security-sources/cisco-asa.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/cisco-meraki.html"
+  to = "/shipping/security-sources/cisco-meraki.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/cloudtrail.html"
+  to = "/shipping/security-sources/cloudtrail.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/eset.html"
+  to = "/shipping/security-sources/eset.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/fail2ban.html"
+  to = "/shipping/security-sources/fail2ban.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/falco.html"
+  to = "/shipping/security-sources/falco.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/fortigate.html"
+  to = "/shipping/security-sources/fortigate.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/gsuite.html"
+  to = "/shipping/security-sources/gsuite.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/guardduty.html"
+  to = "/shipping/security-sources/guardduty.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/hashicorp-vault.html"
+  to = "/shipping/security-sources/hashicorp-vault.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/juniper-srx.html"
+  to = "/shipping/security-sources/juniper-srx.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/mcafee-epolicy-orchestrator.html"
+  to = "/shipping/security-sources/mcafee-epolicy-orchestrator.html"
+  status = 301
+  force = true
+

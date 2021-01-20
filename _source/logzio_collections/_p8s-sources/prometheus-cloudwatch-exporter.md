@@ -4,15 +4,15 @@ logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
 data-source: Amazon CloudWatch for Prometheus metrics
-templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus
     github-repo: logz-aws-metrics
+templates: ["docker"]
 contributors:
   - yotamloe
   - yberlinger
 shipping-tags:
-  - prometheus
+  - aws
 ---
 
 {% include page-info/early-access.md type="beta" %}

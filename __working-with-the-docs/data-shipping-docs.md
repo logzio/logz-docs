@@ -6,6 +6,9 @@ We organize shippers using Jekyll collections. At the time of this writing, thos
 - **metrics-sources**: Any data source that generates metrics. Stored at `_source/logzio_collections/_metrics-sources/`.
 - **shippers**: Anything that's not a data source, but a way to get logs or metrics to us. Stored at `_source/logzio_collections/_shippers/`.
 - **community-shippers**: Anything that's a third party project that ships to Logz.io, but we don't own, maintain, or test it. Stored at `_source/logzio_collections/_community-shippers/`.
+- **tracing-sources**: Any data source that generates traces and spans. Stored at `_source/logzio_collections/_tracing-sources`
+- **security-sources**: Any data source that generates Cloud SIEM content. Stored at `_source/logzio_collections/_security-sources`
+- **p8s-sources**: Any data source that generates Prometheus As A Service (PAAS) metrics. Stored at `_source/logzio_collections/_p8s-sources/`.
 
 Shipper collections & templating are handled through these files:
 

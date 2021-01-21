@@ -62,13 +62,13 @@ When you deploy a Jaeger agent in a Docker environment, make sure you include th
 In the agent configuration below, the Docker network name is `net-logzio` and the collector name is `logzio-collector`:
 
 ```yaml
-docker run \ --rm --name=jaeger-agent --network=net-logzio \ ## make sure to expose only the ports you use in your deployment scenario!
+docker run \ --rm --name=jaeger-agent --network=net-logzio \ ## Make sure to expose only the ports you use in your deployment scenario!
  -p6831:6831/udp \
  -p6832:6832/udp \
  -p5778:5778/tcp \
  -p5775:5775/udp \
  jaegertracing/jaeger-agent:1.18.0  ## Use the relevant Jaeger version for the agent. Logz.io has tested this file for version 1.18. It is possible that the reference may not work for other versions.
---reporter.grpc.host-port=logzio-collector:14250  ##This line specifies which collector the agent communicates with. 
+--reporter.grpc.host-port=logzio-collector:14250  ## This line specifies which collector the agent communicates with. 
 ```
 
 While youu can always refer to the <a href="https://www.jaegertracing.io/docs/latest/deployment/#agent" target="_blank"> Jaeger documentation <i class="fas fa-external-link-alt"></i> </a> for the latest agent version, we recommend you use version 1.18.

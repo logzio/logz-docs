@@ -49,8 +49,8 @@ You'll need to change to the version page for your deployment.
 
 ```yaml
 docker run -e ACCOUNT_TOKEN=<<SHIPPING-TOKEN>>  # see parameter list below\
- --network=net-logzio \  # This is the name of the network you created in step 1 above.
- --name=jaeger-logzio-collector \ # This line specifies the name of the collector: In this example, "jaeger-logzio-collector"
+ --network=net-logzio \  ## This is the name of the network you created in step 1 above.
+ --name=jaeger-logzio-collector \ ## This line specifies the name of the collector: In this example, "jaeger-logzio-collector"
  -p 14268:14268 \
  -p 9411:9411 \
  -p 14267:14267 \

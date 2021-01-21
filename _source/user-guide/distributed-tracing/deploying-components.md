@@ -33,6 +33,7 @@ When you configure the components, make sure that you:
 ## Collector options
 
 You can use either the OpenTelemetry Collector or the Logz.io Jaeger Collector.
+
 ### OpenTelemetry Collector
 Logz.io captures end-to-end distributed transactions from your applications and infrastructure with trace spans sent directly to Logz.io via the OpenTelemetry collector which you install inside your environment.
 

@@ -162,3 +162,98 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/shipping/log-sources/microsoft-graph.html"
+  to = "/shipping/security-sources/microsoft-graph.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/modsecurity.html"
+  to = "/shipping/security-sources/modsecurity.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/nginx.html"
+  to = "/shipping/security-sources/nginx.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/okta.html"
+  to = "/shipping/security-sources/okta.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/openvas.html"
+  to = "/shipping/security-sources/openvas.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/ossec.html"
+  to = "/shipping/security-sources/ossec.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/palo-alto-networks.html"
+  to = "/shipping/security-sources/palo-alto-networks.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/sentinelone.html"
+  to = "/shipping/security-sources/sentinelone.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/sonicwall.html"
+  to = "/shipping/security-sources/sonicwall.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/sophos.html"
+  to = "/shipping/security-sources/sophos.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/stormshield.html"
+  to = "/shipping/security-sources/stormshield.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/sysmon.html"
+  to = "/shipping/security-sources/sysmon.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/trendmicro.html"
+  to = "/shipping/security-sources/trendmicro.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/wazuh.html"
+  to = "/shipping/security-sources/wazuh.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/windows-defender.html"
+  to = "/shipping/security-sources/windows-defender.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/zeek.html"
+  to = "/shipping/security-sources/zeek.html"
+  status = 301
+  force = true

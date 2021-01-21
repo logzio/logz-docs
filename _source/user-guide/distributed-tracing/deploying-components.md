@@ -48,8 +48,6 @@ As a secondary option, you may consider using the Jaeger Collector if you experi
 
 You can deploy an agent as a sidecar container or as a Host Daemon. Although deploying an agent is not absolutely required for the instrumentation libraries which support sending spans directly to the collector, an agent can help with load balancing and enriching spans with additional tags that are not available at the collector level. 
 
-Make sure you include both the relevant Docker network and the collector name in the agent configuration.
-
 When deciding the best approach for your environment, consider the following factors: 
 
 1.  **Do you need to lower the number of open connections?** 

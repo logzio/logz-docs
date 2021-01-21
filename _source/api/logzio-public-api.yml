@@ -5273,7 +5273,7 @@ definitions:
       logType:
         type: string
         nullable: true
-        description: Filters for the [log type](/log-shipping/built-in-log-types.html).
+        description: Filters for the [log type](/user-guide/log-shipping/built-in-log-types.html).
         example: apache
       fieldConditions:
         type: array
@@ -5306,7 +5306,7 @@ definitions:
         example: true
       logType:
         type: string
-        description: Filters for the [log type](/log-shipping/built-in-log-types.html).
+        description: Filters for the [log type](/user-guide/log-shipping/built-in-log-types.html).
         example: apache
       fieldConditions:
         type: array

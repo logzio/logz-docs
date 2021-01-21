@@ -57,9 +57,9 @@ When deciding the best approach for your environment, consider the following fac
 
 ### *To deploy a Jaeger agent in a Docker environment*
 
-When you deploy a Jaeger agent in a Docker environment, make sure you include the Docker network name and your collector name in the configuration.
+When you deploy a Jaeger agent in a Docker environment, make sure you include the Docker network name and the relevant collector name in the configuration.
 
-In the agent configuration below, the Docker network name is `net-logzio` and the collector name is `jaeger-logzio-collector`:
+In the agent configuration below, the Docker network name is `net-logzio` and the collector name is `logzio-collector`:
 
 ```yaml
 docker run \ --rm --name=jaeger-agent --network=net-logzio \ ## make sure to expose only the ports you use in your deployment scenario!
@@ -68,10 +68,12 @@ docker run \ --rm --name=jaeger-agent --network=net-logzio \ ## make sure to exp
  -p5778:5778/tcp \
  -p5775:5775/udp \
  jaegertracing/jaeger-agent:1.18.0  ## Use the relevant Jaeger version for the agent. Logz.io has tested this file for version 1.18. It is possible that the reference may not work for other versions.
---reporter.grpc.host-port=jaeger-logzio-collector:14250
+--reporter.grpc.host-port=logzio-collector:14250  ##This line specifies which collector the agent communicates with. 
 ```
 
-Refer to the <a href="https://www.jaegertracing.io/docs/latest/deployment/#agent" target="_blank"> Jaeger documentation <i class="fas fa-external-link-alt"></i> </a> for the agent version.
+Logz.io has tested this Docker deployment file for version 1.18 of the Jaeger agent. It is possible that the reference may not work for other versions.
+
+Refer to the <a href="https://www.jaegertracing.io/docs/latest/deployment/#agent" target="_blank"> Jaeger documentation <i class="fas fa-external-link-alt"></i> </a> for the latest agent version.
 
 ### *Kubernetes deployment reference*
 

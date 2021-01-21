@@ -33,9 +33,13 @@ The Logz.io integration builds on the Jaeger Collector base image and uses the g
 <div class="tasklist">
 
 ##### Create a Docker network
-```bash
+Run the following command to create a Docker network: 
+
+```yaml
 docker network create net-logzio
 ```
+
+To enable communication between the collector and the agent, include the name of the network you create in this step (for example, `net-logzio`) in the config file for each component. 
 
 ##### Configure the Logz.io extension
 Configure the Logz.io extension with shell variables or environment variables. 
@@ -43,10 +47,10 @@ Configure the Logz.io extension with shell variables or environment variables.
 The required ports are described [here. ](https://www.jaegertracing.io/docs/latest/deployment/#collectors) 
 You'll need to change to the version page for your deployment. 
 
-```bash
+```yaml
 docker run -e ACCOUNT_TOKEN=<<SHIPPING-TOKEN>>  # see parameter list below\
- --network=net-logzio \
- --name=jaeger-logzio-collector \
+ --network=net-logzio \  # This is the name of the network you created in step 1 above.
+ --name=jaeger-logzio-collector \ # This is the name of the collector
  -p 14268:14268 \
  -p 9411:9411 \
  -p 14267:14267 \
@@ -67,4 +71,4 @@ You'll need to change to the version page for your deployment.
   ACCOUNT_TOKEN (Required) | The account token is required when you use the collector to send traces to Logz.io. Replace `<SHIPPING-TOKEN>` with the token of the Distributed Tracing account you want to send data to. [_How do I look up my Distributed Tracing account token?_](/user-guide/accounts/finding-your-tracing-account-token)|
 REGION | Two-letter region code that determines the suggested listener URL (where you will be sending trace data to).   Find your region code in the Regions and URLs table. This parameter is left blank for US East (Northern Virginia).  [_How do I look up the Listener host URL for my region?_](/user-guide/accounts/account-region.html#available-regions)|
 GRPC_STORAGE_PLUGIN_LOG_LEVEL| The lowest log level to send.  Default: **warn**.  From lowest to highest, log levels are: **trace, debug, info, warn, error**.  Controls logging only for the Jaeger Logz.io Collector.  Does not affect Jaeger components.|
-COLLECTOR_ZIPKIN_HTTP_PORT | If you’re using a Zipkin implementation to create traces, set this optional environment variable to the HTTP port for the Zipkin collector service
+COLLECTOR_ZIPKIN_HTTP_PORT | If you’re using a Zipkin implementation to create traces, set this optional environment variable to the HTTP port for the Zipkin collector service.|

@@ -23,6 +23,16 @@ We support the Jaeger, Zipkin, OpenTracing, and OpenTelemetry instrumentation li
 ## Component overview
 Because Logz.io embraces open source, we opted for Jaeger. Except for the collector integration, everything you need to deploy is created and maintained by the open source community, which means that the Logz.io support team can focus more effectively on the issues that the community can’t resolve. 
 
+To enable communication between the collector and agent, you'll need to create a Docker network that will be shared by these compontents. 
+
+When you configure the components, make sure that you:
+
++ Specify the same network name in the code for both the collector and the agent.
++ Specify the relevant collector name when you configure your agent.  
+
+## Collector options
+
+You can use either the OpenTelemetry Collector or the Logz.io Jaeger Collector.
 ### OpenTelemetry Collector
 Logz.io captures end-to-end distributed transactions from your applications and infrastructure with trace spans sent directly to Logz.io via the OpenTelemetry collector which you install inside your environment.
 
@@ -30,13 +40,14 @@ We recommend that you use the OpenTelemetry collector to gather trace transactio
 
 See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Installing the OpenTelemetry Collector for Distributed Tracing</a>_ for the procedure to configure and deploy the OpenTelemetry collector.
 
-
 ### Logz.io Jaeger Collector
-As a secondary option, you may consider using the Jaeger Collector if you experience issues with the OpenTelemetry Collector. See _<a href ="/shipping/tracing-sources/jaeger_collector" target="_blank">Installing the Logz.io Jaeger Collector for Distributed Tracing </a>_ for the procedure to configure and deploy the Logz.io Jaeger collector.
+As a secondary option, you may consider using the Jaeger Collector if you experience issues with the OpenTelemetry Collector. See _<a href ="/shipping/tracing-sources/jaeger-collector" target="_blank">Installing the Logz.io Jaeger Collector for Distributed Tracing</a>_ for the procedure to configure and deploy the Logz.io Jaeger collector.
 
-### Agent
+## Agent
 
 You can deploy an agent as a sidecar container or as a Host Daemon. Although deploying an agent is not absolutely required for the instrumentation libraries which support sending spans directly to the collector, an agent can help with load balancing and enriching spans with additional tags that are not available at the collector level. 
+
+Make sure you include both the relevant Docker network and the collector name in the agent configuration.
 
 When deciding the best approach for your environment, consider the following factors: 
 
@@ -47,15 +58,19 @@ When deciding the best approach for your environment, consider the following fac
 
 ### *To deploy a Jaeger agent in a Docker environment*
 
-```bash
-docker run \  ## make sure to expose only the ports you use in your deployment scenario!
-  --rm \
+When you deploy a Jaeger agent in a Docker environment, make sure you include the Docker network name and your collector name in the configuration.
+
+In the agent configuration below, the Docker network name is `net-logzio` and the collector name is `jaeger-logzio-collector`:
+
+```yaml
+docker run \ --rm --name=jaeger-agent --network=net-logzio \ ## make sure to expose only the ports you use in your deployment scenario!
  -p6831:6831/udp \
  -p6832:6832/udp \
  -p5778:5778/tcp \
  -p5775:5775/udp \
- jaegertracing/jaeger-agent:1.20  ## Use the relevant agent version
-  ```
+ jaegertracing/jaeger-agent:1.18.0  ## Use the relevant Jaeger version for the agent. Logz.io has tested this file for version 1.18. It is possible that the reference may not work for other versions.
+--reporter.grpc.host-port=jaeger-logzio-collector:14250
+```
 
 Refer to the <a href="https://www.jaegertracing.io/docs/latest/deployment/#agent" target="_blank"> Jaeger documentation <i class="fas fa-external-link-alt"></i> </a> for the agent version.
 

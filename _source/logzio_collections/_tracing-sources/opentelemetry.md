@@ -35,9 +35,18 @@ OpenTelemetry also includes extensions for additional functionality, such as dia
 
 <div class="tasklist">
 
+##### Create a Docker network
+Run the following command to create a Docker network: 
+
+```yaml
+docker network create net-logzio
+```
+
+To enable communication between the collector and the agent, include the name of the network you create in this step (for example, `net-logzio`) in the config file for each component. 
+
 ##### Pull the opentelemetry-collector-contrib image:
 
-```
+```yaml
 docker pull otel/opentelemetry-collector-contrib:0.17.0
 ```
 
@@ -65,7 +74,7 @@ You can use [this config file](https://github.com/open-telemetry/opentelemetry-c
 ```yaml
 docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 -p 9411:9411 \
     -v config.yaml:/etc/otel-collector-config.yaml:ro \
-    --name otelcontribcol otel/opentelemetry-collector-contrib:0.5.0 \
+    --name otelcontribcol otel/opentelemetry-collector-contrib:0.5.0 \  ## This line specifies the name of the collector: In this example, "otelcontribcol"
         --config /etc/otel-collector-config.yaml
 ```
 
@@ -74,7 +83,7 @@ For a complete working example, you can run [this docker compose file](https://r
 
   1. Download the docker compose file.
 
-  2. Edit the Account Token and the other necessary parameters, according to the parameters listed in step 2, above.
+  2. Edit the Account Token and the other necessary parameters, according to the parameters listed in step 3, above.
   3. Run `docker-compose up`. 
   4. Head to [http://0.0.0.0:8080/](http://0.0.0.0:8080/) to trigger the event that will generate and send traces to your Logz.io account.
 

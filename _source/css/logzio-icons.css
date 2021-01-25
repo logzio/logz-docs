@@ -2,13 +2,13 @@
 layout: none
 ---
 
-/* #@font-face {
+@font-face {
   font-family: "Logzio Icons";
-  src: url("//d1azc1qln24ryf.cloudfront.net/131260/logzio-font/style-cf.css?kmbgn2");
-} */
+  src: url(../fonts/logzio-icon-font.ttf);
+}
 
 i.li {
-  font-family: "logzio-icon";
+  font-family: "Logzio Icons";
   font-style: normal;
   font-size: .85rem;
 }
@@ -21,4 +21,4 @@ i.{{char.class}}::before {
 }
 {% endfor -%}
 
-@import url("//d1azc1qln24ryf.cloudfront.net/131260/logzio-font/style-cf.css?kmbgn2")
+/* @import url("//d1azc1qln24ryf.cloudfront.net/131260/logzio-font/style-cf.css?kmbgn2") */

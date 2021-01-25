@@ -68,7 +68,7 @@ and the slug for Canada (Central) is "ca-central-1".
 Paste your region slug in your text editor.
 You'll need this for your Metricbeat configuration later.
 
-##### _(Optional)_ Enable S3 request metrics
+##### (_Optional_) Enable S3 request metrics
 
 The Metricbeat configuration
 you'll set up later
@@ -94,6 +94,5 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-metrics.md namespace ="S3" %}
 
-{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/S3" %}
 
 </div>

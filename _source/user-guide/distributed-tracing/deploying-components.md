@@ -69,6 +69,7 @@ docker run \ --rm --name=jaeger-agent --network=net-logzio \ ## Make sure to exp
  -p5775:5775/udp \
  jaegertracing/jaeger-agent:1.18.0  ## Use the relevant Jaeger version for the agent. Logz.io has tested this file for version 1.18. It is possible that the reference may not work for other versions.
 --reporter.grpc.host-port=logzio-collector:14250  ## This line specifies which collector the agent communicates with. In the collector configuration, <<collector-name>> is taken from the --name param used to run the collector. In this example, the <<collector-name>> is "logzio-collector".
+
 ```
 
 While you can always refer to the <a href="https://www.jaegertracing.io/docs/latest/deployment/#agent" target="_blank"> Jaeger documentation <i class="fas fa-external-link-alt"></i> </a> for the latest agent version, we recommend you use version 1.18.

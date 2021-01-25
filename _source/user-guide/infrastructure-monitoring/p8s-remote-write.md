@@ -10,6 +10,9 @@ tags:
 contributors:
   - yberlinger
 ---
+
+{% include page-info/early-access.md type="beta" %}
+
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
 
 ### Plan ahead

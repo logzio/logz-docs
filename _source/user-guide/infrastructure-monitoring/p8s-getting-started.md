@@ -10,6 +10,9 @@ tags:
 contributors:
   - yberlinger
 ---
+
+{% include page-info/early-access.md type="beta" %} 
+
 ## Why go it alone? 
 Manage your metrics with Logz.io Infrastructure Monitoring, powered by Prometheus and Grafana.  
 
@@ -29,6 +32,8 @@ For the beta program, your incoming raw data has a 30-day retention period.
 Once your metrics are flowing, import your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
 
 For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations](/user-guide/infrastructure-monitoring/annotations/) for more information.
+
+ 
 
 ### Steps to get started
 1. <a href ="/user-guide/infrastructure-monitoring/p8s-remote-write#configuring-remote-write-to-logzio)"  target="_blank">Configure Remote Write. 

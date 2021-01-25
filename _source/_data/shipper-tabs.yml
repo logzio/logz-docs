@@ -18,6 +18,8 @@ tabs:
     templated: true
   - collection: metrics-sources
     templated: true
+  - collection: p8s-sources
+    templated: true
   - collection: tracing-sources
     templated: true
   - collection: security-sources
@@ -69,6 +71,9 @@ tags:
     name: Networking
   - slug: agents
     name: Agents
+  - slug: p8s
+    name: Prometheus as a service
+  
 
 
 # templates is an array of rough procedures that are used by multiple shipping

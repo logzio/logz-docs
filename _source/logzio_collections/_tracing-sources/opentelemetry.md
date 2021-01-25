@@ -74,7 +74,7 @@ You can use [this config file](https://github.com/open-telemetry/opentelemetry-c
 ```yaml
 docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 -p 9411:9411 \
     -v config.yaml:/etc/otel-collector-config.yaml:ro \
-    --name otelcontribcol otel/opentelemetry-collector-contrib:0.5.0 \  ## This line specifies the name of the collector: In this example, "otelcontribcol"
+    --name logzio-collector otel/opentelemetry-collector-contrib:0.5.0 \  ## In the collector configuration, the --name attribute specifies the <<collector name>> used to run the collector. In this example, the <<collector-name>> is "logzio-collector"
         --config /etc/otel-collector-config.yaml
 ```
 

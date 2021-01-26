@@ -94,7 +94,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-run-container.md %}
 
-{% include metric-shipping/aws-metrics.md namespace ="Redshift" %}
+{% include metric-shipping/aws-metrics.md namespace="Redshift" %}
 
 {% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/Redshift" %}
 

@@ -97,7 +97,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-run-container.md %}
 
-{% include metric-shipping/aws-metrics.md namespace ="EC2" %}
+{% include metric-shipping/aws-metrics.md namespace="EC2" %}
 
 ##### Monitor advanced EC2 metrics (_Optional_)
 

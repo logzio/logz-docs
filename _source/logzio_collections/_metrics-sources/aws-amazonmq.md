@@ -18,8 +18,8 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Docker container & Metricbeat](#AmazonMQ-docker)
-* [Self-hosted Metricbeat](#AmazonMQ-vanilla)
+* [Ship over Docker container](#AmazonMQ-docker)
+* [Ship over self-hosted Metricbeat](#AmazonMQ-vanilla)
 {:.branching-tabs}
 
 

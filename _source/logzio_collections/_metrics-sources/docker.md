@@ -88,15 +88,6 @@ logzio/docker-collector-metrics
 | CLOUD_METADATA <span class="default-param">`"false"`</span> | Set to `true` to enrich events with instance metadata from the machine’s hosting provider. |
 {:.paramlist}
 
-###### Parameters for the Docker module
-
-| Parameter | Description |
-|---|---|
-| DOCKER_PERIOD <span class="default-param">`10s`</span> | Sampling rate of metrics. The Docker API takes up to 2 seconds to respond, so we recommend setting this to `3s` or longer. |
-| DOCKER_CERTIFICATE_AUTHORITY | Filepath to certificate authority for connecting to Docker over TLS. |
-| DOCKER_CERTIFICATE | Filepath to CA certificate for connecting to Docker over TLS. |
-| DOCKER_KEY | Filepath to Docker key for connecting to Docker over TLS. |
-{:.paramlist}
 
 {% include metric-shipping/open-dashboard.md title="Docker overview" %}
 

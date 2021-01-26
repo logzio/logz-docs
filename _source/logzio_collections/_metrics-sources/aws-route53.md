@@ -94,7 +94,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-run-container.md %}
 
-{% include metric-shipping/aws-metrics.md namespace ="Route53" %}
+{% include metric-shipping/aws-metrics.md namespace="Route53" %}
 
 {% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/Route53" %}
 

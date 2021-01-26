@@ -92,7 +92,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-run-container.md %}
 
-{% include metric-shipping/aws-metrics.md namespace ="S3" %}
+{% include metric-shipping/aws-metrics.md namespace="S3" %}
 
 
 </div>

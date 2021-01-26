@@ -19,6 +19,7 @@ shipping-tags:
 <div class="branching-container">
 
 * [Ship AmazonMQ metrics over Docker container](#AmazonMQ-docker)
+* [Ship AmazonMQ metrics over Docker container](#AmazonMQ-docker)
 * [Ship over self-hosted Metricbeat](#AmazonMQ-vanilla)
 {:.branching-tabs}
 
@@ -93,7 +94,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-run-container.md %}
 
-{% include metric-shipping/aws-metrics.md namespace ="AmazonMQ" %}
+{% include metric-shipping/aws-metrics.md namespace="AmazonMQ" %}
 
 {% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/AmazonMQ" %}
 

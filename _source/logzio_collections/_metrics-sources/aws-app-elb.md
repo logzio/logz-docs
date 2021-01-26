@@ -92,7 +92,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-run-container.md %}
 
-{% include metric-shipping/aws-metrics.md namespace ="Application ELB" %}
+{% include metric-shipping/aws-metrics.md namespace="Application ELB" %}
 
 
 {% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/Application ELB" %}

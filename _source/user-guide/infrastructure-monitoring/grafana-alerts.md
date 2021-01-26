@@ -98,7 +98,7 @@ Next, set your alert conditions.
 **Grafana tags for alert Severity levels**
 
 Use Grafana tags as a Severity field for your alerts when integrating Grafana with PagerDuty as an alert notification endpoint.
-Follow the link for more information on <a href="https://grafana.com/docs/grafana/latest/alertinnotifications/#pagerduty" target="_blank"> the syntax for setting up Grafana tags for PagerDuty.  <i class="fas fa-external-link-alt"></i> </a>
+Follow the link for more information on <a href="https://grafana.com/docs/grafana/latest/alerting/notifications/#pagerduty" target="_blank"> the syntax for setting up Grafana tags for PagerDuty.  <i class="fas fa-external-link-alt"></i> </a>
 
 <!-- OpsGenie integration is coming too: Use tags as Priority fields for alerts when integrating Grafana withOpsGenie aas an alert notification endpoint.     Follow the link for more information on <a href="https:/grafana.com/docs/grafana/latest/alerting/notifications/" target="_blank"> the syntax for setting up Grafanatags for OpsGenie <i class="fas fa-external-link-alt"></i> </a> -->   
 

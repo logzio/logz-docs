@@ -15,8 +15,7 @@ shipping-tags:
 #### Guided configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
+[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
 root access
 
 <div class="tasklist">
@@ -26,13 +25,13 @@ root access
 Configure your network device to send logs to your Filebeat server, TCP port 9000.
 See your device's documentation if you're not sure how to do this.
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add TCP traffic as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...
@@ -44,9 +43,9 @@ filebeat.inputs:
   fields:
     logzio_codec: plain
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    # You can manage your tokens at
+    # https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
     type: network-device
   fields_under_root: true
   encoding: utf-8

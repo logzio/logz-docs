@@ -24,6 +24,7 @@ permalink: /data/shipping-manifest.json
           {%- for d in thisCollection.docs %}
             {
               "title": "{{d.title}}",
+              "id": "{{d.id| split: "/" | last}}",
               "dataSource": "{{d.data-source}}",
               {%- if d.open-source -%}
                 {%- capture openSourceString -%}
@@ -39,11 +40,10 @@ permalink: /data/shipping-manifest.json
                 {%- endcapture %}
                 "openSource": {{ openSourceString }},
               {% endif -%}
-              "logo": "{{ site.source
+              "logo": "{{
                 | split: "." | last
-                | append: "/images/shipper-logos/"
-                | append: d.logo.logofile
-                | prepend: githubUrl }}",
+                | append: "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/"
+                | append: d.logo.logofile }}",
               "filepath": "{{ site.source
                 | split: "." | last
                 | append: "/"

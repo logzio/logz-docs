@@ -73,21 +73,21 @@ This code block shows a sample command to run jmx2logzio with runtime configurat
 For a complete list of options, see the configuration parameters below the code block.👇
 
 ```shell
-java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<SHIPPING-TOKEN>>,SERVICE_NAME=myService /path/to/your/app
+java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<METRICS-SHIPPING-TOKEN>>,SERVICE_NAME=myService /path/to/your/app
 ```
 
 ###### Parameters
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
-| SERVICE_NAME <span class="required-param"></span> | A name you define for the service. This is included in the reported metrics. |
+| LOGZIO_TOKEN (Required) | {% include metric-shipping/replace-metrics-token.html %} |
+| SERVICE_NAME (Required) | A name you define for the service. This is included in the reported metrics. |
 | LISTENER_URL <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
 | SERVICE_HOST <span class="default-param">Host machine name</span> | Hostname to be included in the reported metrics. |
 | POLLING_INTERVAL_IN_SEC <span class="default-param">`30`</span> | Metrics polling interval, in seconds. |
 | WHITE_LIST_REGEX <span class="default-param">`.*` (match everything)</span> | Only metrics matching this regex will be sent. |
 | BLACK_LIST_REGEX <span class="default-param">`$a` (match nothing)</span> | Metrics matching this regex will not be sent. |
-| EXTRA_DIMENSIONS | A list of key-values separated by `:` that will be added to the dimensions of the collected metrics. <br> Example: `EXTRA_DIMENSIONS={origin=local:env=java}` |
+| EXTRA_DIMENSIONS | A list of key-values separated by `:` that will be added to the dimensions of the collected metrics.    Example: `EXTRA_DIMENSIONS={origin=local:env=java}` |
 | FROM_DISK <span class="default-param">`true`</span> | If `true`, metrics are stored on disk until they're shipped (see [If FROM_DISK=true](#agent-if-fromdisk-true)). If `false`, metrics persist in memory until they're shipped (see [If FROM_DISK=false](#agent-if-fromdisk-false)). |
 {:.paramlist}
 
@@ -95,7 +95,7 @@ java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<SHIPPING-TOKEN>>,SERVI
 
 | Parameter | Description |
 |---|---|
-| FILE_SYSTEM_SPACE_LIMIT <span class="default-param">`98`</span> | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new metrics are dropped until used space drops below the threshold. <br> Set to `-1` to ignore threshold. |
+| FILE_SYSTEM_SPACE_LIMIT <span class="default-param">`98`</span> | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new metrics are dropped until used space drops below the threshold.    Set to `-1` to ignore threshold. |
 | DISK_SPACE_CHECKS_INTERVAL <span class="default-param">`1000`</span> | Time interval, in milliseconds, to check for disk space. |
 | CLEAN_SENT_METRICS_INTERVAL <span class="default-param">`30`</span> | Time interval, in seconds, to clean sent metrics from the disk. |
 {:.paramlist}
@@ -161,15 +161,15 @@ For help, see our [example configuration file](https://raw.githubusercontent.com
 
 | Parameter | Description |
 |---|---|
-| service.name <span class="required-param"></span> | A name you define for the service. This is included in the reported metrics. |
+| service.name (Required) | A name you define for the service. This is included in the reported metrics. |
 | service.host <span class="default-param">Host machine name _(if not defined in application.conf)_</span> | Hostname to be included in the reported metrics. |
 | service.poller.white-list-regex <span class="default-param">`.*` _(match everything)_</span> | Only metrics matching this regex will be sent. |
 | service.poller.black-list-regex <span class="default-param">`$a` _(match nothing)_</span> | Metrics matching this regex will not be sent. |
 | service.poller.jolokia.jolokiaFullUrl | URL of the remote Jolokia agent you're forwarding metrics to. |
 | service.poller.metrics-polling-interval-in-seconds <span class="default-param">`30`</span> | Metrics polling interval, in seconds. |
 | extra-dimensions | A dictionary of key-values that will be added to the dimensions of the collected metrics. |
-| logzio-java-sender.url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| logzio-java-sender.token <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
+| logzio-java-sender.url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| logzio-java-sender.token (Required) | {% include metric-shipping/replace-metrics-token.html %} |
 | logzio-java-sender.from-disk <span class="default-param">`true`</span> | If `true`, metrics are stored on disk until they're shipped (see [If from-disk=true](#jolokia-if-fromdisk-true)). If `false`, metrics persist in memory until they're shipped (see [If from-disk=false](#jolokia-if-fromdisk-false)). |
 {:.paramlist}
 

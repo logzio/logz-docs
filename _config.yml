@@ -23,7 +23,6 @@ edit_enabled: true
 facebook_url: https://www.facebook.com/logz.io
 twitter_url: https://twitter.com/logzio
 youtube_url: https://www.youtube.com/channel/UC9Rc1hpWHUju8O2rYHAUVXA
-google_plus_url: https://plus.google.com/+LogzIo/
 linkedin_url: https://www.linkedin.com/company/4831888
 
 # GitHub repository paths - Leave beginning slashes, unless field is empty.
@@ -54,19 +53,44 @@ collections:
     output: true
     permalink: /shipping/log-sources/:slug.html
     name: Logs
+    id: :slug
     in-shipping-manifest: true
   metrics-sources:
     output: true
     permalink: /shipping/metrics-sources/:slug.html
     name: Metrics
+    id: :slug
+    in-shipping-manifest: true
+  p8s-sources:
+    output: true
+    permalink: /shipping/p8s-sources/:slug.html
+    name: Prometheus as a service
+    id: :slug
+    in-shipping-manifest: true  
+  security-sources:
+    output: true
+    permalink: /shipping/security-sources/:slug.html
+    name: Security
+    id: :slug
+    in-shipping-manifest: true
+  tracing-sources:
+    output: true
+    permalink: /shipping/tracing-sources/:slug.html
+    name: Tracing
+    id: :slug
+    in-shipping-manifest: true
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html
     name: Community shippers
+    id: :slug
+    in-shipping-manifest: false
   shippers:
     output: true
     permalink: /shipping/shippers/:slug.html
-    name: Shippers
+    name: Agents
+    id: :slug
+    in-shipping-manifest: false
 
   ## ALL OTHER COLLECTIONS ##
   contributors:

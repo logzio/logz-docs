@@ -24,7 +24,7 @@ shipping-tags:
 
 Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/replace-vars.html listener=true %}
 
@@ -49,7 +49,7 @@ LogFile %ROOT%\\data\\nxlog.log
     SavePos TRUE
     Exec if $raw_event =~ /^#/ drop();
     Exec convert_fields("AUTO", "utf-8");
-    Exec $raw_event = '[<<SHIPPING-TOKEN>>][type=iis]' + $raw_event;
+    Exec $raw_event = '[<<LOG-SHIPPING-TOKEN>>][type=iis]' + $raw_event;
 </Input>
 <Output out>
     Module  om_tcp

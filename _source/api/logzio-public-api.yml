@@ -24,13 +24,6 @@ info:
     This API is documented using the **OpenAPI 2.0** specification.
     <!-- You can browse the API documentation on this page, or you can download the specification file. -->
 
-
-    ### Updates and improvements
-
-    We update this document regularly to reflect changes and improvements to the Logz.io API.
-    If you'd like to suggest corrections or improvements to this document, please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a> or submit a ticket in the [docs GitHub repository](https://github.com/logzio/logz-docs/issues).
-
-
     # Account region and API URL
 
     To find your account region, sign in to Logz.io and look at the URL in the address bar.
@@ -54,15 +47,6 @@ info:
     To find out your rate limits or request changes to your plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success Team</a>.
 
 
-    # Notes on alerting
-
-    Please note that alerting is not yet covered in this document.
-    For current documentation on alerting, see our [public-api](https://github.com/logzio/public-api/tree/master/alerts) repository on GitHub.
-
-
-    
-
-
   title: Logz.io API
   termsOfService: 'https://logz.io/about-us/terms-of-use/'
   contact:
@@ -75,13 +59,16 @@ info:
 securityDefinitions:
   X-API-TOKEN:
     description: >-
-      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
-      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+      You can manage your API tokens from the [Logz.io API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
 
 
-      API tokens carry privileges to make changes to users and accounts,
-      so it's important to keep your tokens secure. If you believe an API token has been compromised,
-      delete the compromised token, and replace it with a new token in your integrations.
+      API tokens are account-specific. You will need to be logged into the relevant Log Management or SIEM account to view the API tokens associated with it.
+
+
+      To manage your API tokens, log into the relevant account in your Logz.io platform, click the gear in the top-right menu, and select [**Tools > Manage tokens > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+
+
+      It's important to keep your tokens secure. API tokens carry privileges to make changes to users and accounts, so if you believe an API token has been compromised, delete it, and replace it with a new token in your integrations.
     type: apiKey
     in: header
     name: X-API-TOKEN
@@ -90,19 +77,14 @@ security:
 
 tags:
   - name: Grafana gateway
+    description: Grafana API Gateway to supported endpoints.
   - name: Who am I
   - name: Manage sub accounts
     description: >-
       Use these API endpoints to create, update, retrieve, or delete sub accounts.
 
 
-      We are in the process of rolling out [flexible volume plan configuration](/user-guide/accounts/flexible-volume.html). A new beta feature.
-      
-      
-      * If your account has the option to switch to flexible volume, please refer to the updated [documentation](/beta-api-flexible-storage/) for the beta API.
-
-
-      * For additional information about what's changed in the API, [click here](/user-guide/accounts/flexible-volume-announcement/).
+      If you have enabled [flexible volume](/user-guide/accounts/flexible-volume.html) in your account, please see the corresponding [API for flexible volume plan configuration](/beta-api-flexible-storage/). To learn more about what's changed in the API, [click here](/user-guide/accounts/flexible-volume-announcement/).
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.
@@ -112,8 +94,8 @@ tags:
   - name: Insights
     description: >-
       Logz.io monitors your logs for Insights to help you preempt issues and alert you of potential problems.
-      
-      
+
+
       There are two types of Insights:
 
       * LOGCEPTION - Application errors and exceptions identified in the stack trace.
@@ -122,14 +104,17 @@ tags:
 
 
       You have the option to set up an alert so you can get notified of the details when new or recurring insights are spotted in your system.
+
+
+      **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
   - name: Retrieve audit trail
   - name: Connect to CloudTrail
     description: Establish a connection to ship logs to the Logz.io observability platform via an S3 bucket. Supports CloudTrail logs.
   - name: Connect to S3 Buckets
     description: >-
       Establish a connection for the Logz.io fetcher to fetch logs to the Logz.io observability platform via an S3 bucket. Supports ELB, S3 Access, CloudFront, VPC Flow logs.
-      
-      
+
+
       If you're looking to fetch CloudTrail logs, use the designated endpoints.
 
 
@@ -144,13 +129,21 @@ tags:
 
 
       Use these API endpoints to create, update, or delete notification endpoints. If you configure a custom endpoint,
-      you can configure the notificaton message body.
+      you can configure the notification message body.
       Otherwise, you can use any of the available preconfigured endpoints.
   - name: Import or export Kibana objects
   - name: Manage log shipping tokens
     description: >-
       Use these API endpoints to create, update, retrieve, or delete log shipping tokens.
+  - name: Drop filters
+    description: >-
+      Drop filters provide a solution for filtering out logs before they are indexed in your account to help lower costs and reduce account volume.
 
+
+      Drop filters evaluate logs for exact field:value matches. Any log results that match active drop filters will not be indexed. This means they will not appear in your Kibana account, will not be searchable, trigger alerts, or appear in dashboards.
+
+
+      Archiving is not affected by drop filters. Logs dropped by drop filters will still be archived, if archiving is configured for the account. With archiving configured, you can readily use drop filters to reduce logging bulk and restore the logs in the event that they become relevant.
   - name: Manage shared tokens
     description: >-
       You can share Kibana visualization and dashboard snapshots using shared tokens.
@@ -160,11 +153,29 @@ tags:
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Logz.io snapshots
   - name: Manage users
+  - name: Alerts
+    description: >-
+      Logz.io alerts use a Kibana search query to continuously scan your logs and alert you when a certain set of conditions is met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
+
+
+      When alerts trigger, they write event logs. Event logs of triggered alerts are always available and searchable in Kibana - just filter for `_exists_:logzio-alert`. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
+
+
+      For the deprecated alerting version, please see our [public GitHub project](https://github.com/logzio/public-api/tree/master/alerts).
+  - name: Security rules
+    description: >-
+      Security rules help you connect the dots between your data sources and events that could indicate a security threat or breach.
+
+
+      Your Cloud SIEM account comes pre-configured with security rules for different attack types and security use cases. These built-in rules are protected, and there are limitations on the changes that can be made to them. Pre-configured rules can be updated by adding notification endpoints (like email or Slack), changing trigger thresholds and severities, and adding tags, as described in detail in the endpoint.
+
+
+      You can also create new security rules to supplement the built-in rules.
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
-      
-      
+
+
       Your Logz.io Cloud SIEM is pre-loaded with hundreds of security rules created and maintained by Logz.io's security analysts. The list continues to be expanded and updated on a regular basis. You can also add your own security rules.
 
 
@@ -175,32 +186,57 @@ tags:
   - name: Archive logs
     description: >-
       You can archive logs to an AWS S3 bucket or Azure Blob Storage. Archiving gives you the option to restore logs and query them after they have expired from your time-based account.
-      
+
 
       You can use the following endpoints to retrieve, set up, test, and update an account's archive settings.
-      
 
-      Note: Logs are archived before they are indexed and analyzed by Logz.io. Logs that are dropped by Logz.io's Drop filters will still be archived and available to be restored.
+
+      Note: Logs are archived before they are indexed and analyzed by Logz.io. If you are using drop filters, note that dropped logs will still be archived.
+  - name: Restore logs
+    description: >-
+      You can restore data from your active archiving account, whether an AWS S3 bucket or Azure Blob Storage. Restoring data gives you the option to query logs after they have expired from your time-based account.
+
+
+      You can use the following endpoints to initiate a new restore process, retrieve, set up, test, and update an account's archive settings.
+
+
+      Note: Logs that are dropped by drop filters are still archived and can be restored. You can temporarily disable drop filters to restore the data.
+  - name: Lookups
+    description: >-
+      Lookups are custom lists of values that allow you to easily filter by large lists in Kibana.
+
+      
+      Instead of adding a long list of elements to your query, you can create lookup lists and filter by them using the operators `in lookups`/`not in lookups`.
+      
+      
+      For this purpose, all of the values in a lookup list should be mapped to the same field in Kibana. [Learn more in the user guide](/user-guide/lookups/)
 
 x-tagGroups:
-  - name: Log monitoring
+  - name: Log Monitoring
     tags:
       - Search logs
+      - Alerts
       - Insights
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
+      - Security rules
       - Security events
+      - Lookups
   - name: Account administration
     tags:
       - Manage users
       - Who am I
       - Manage sub accounts
-      - Manage log shipping tokens
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
+  - name: Manage data shipping
+    tags:
+      - Manage log shipping tokens
+      - Drop filters
       - Archive logs
+      - Restore logs
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -220,8 +256,8 @@ paths:
       summary: Grafana API Capabilities
       description: >-
         Prepend your Logz.io API Gateway to the relevant Grafana API endpoint.
-     
-     
+
+
         Supported endpoints:
           * [Alerting](https://grafana.com/docs/grafana/latest/http_api/alerting/)
           * [Annotations](https://grafana.com/docs/grafana/latest/http_api/annotations/)
@@ -230,7 +266,7 @@ paths:
           * [Folder/dashboard search](https://grafana.com/docs/grafana/latest/http_api/folder_dashboard_search/)
           * [Snapshot](https://grafana.com/docs/grafana/latest/http_api/snapshot/)
 
-    
+        **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
       tags:
         - Grafana gateway
       operationId: grafanaGateway
@@ -455,7 +491,10 @@ paths:
       operationId: search
       summary: Search logs
       description: >-
-        Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) query language and returnes up to 10,000 results per query.
+        Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) query language. 
+        
+        
+        **Maximum results:** This call returns up to 10,000 results per query for aggregated results, or 1,000 results for non-aggregated results. 
 
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
@@ -551,16 +590,16 @@ paths:
                 description: >-
                   #### Limitations
 
-                  * Can't sort or aggregate on `message`
+                  * Can't sort or aggregate on analyzed fields, such as the `message` field
                 items:
                   type: object
               _source:
                 type: object
                 description: >-
                   The object `includes` specifies an array of strings specifying an array of fields to return.
-                  
+
                   * If you omit `_source` from the request, all fields are returned.
-                  
+
                   * If you pass `'_source': false`, it will exclude the `_source` field from the results.
                 properties:
                   includes:
@@ -597,7 +636,7 @@ paths:
 
                   * Can't nest 2 or more bucket aggregations of these types: `date_histogram`, `geohash_grid`, `histogram`, `ip_ranges`, `significant_terms`, `terms`
 
-                  * Can't sort or aggregate on the `message` field
+                  * Can't sort or aggregate on analyzed fields, such as the `message` field
 
                   * Aggregation type `significant_terms` can't be used
 
@@ -668,27 +707,33 @@ paths:
       tags:
         - Search logs
       description: >-
-        This endpoint can take 2 types of call requests. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id` 
+        This endpoint can take 2 types of call requests. The first type runs a search query that returns a `scrollID` and the first batch of paginated results. The second request type passes only the `scroll_id`
         (The variation in the field name is intentional) to fetch the next batches of paginated results.
         This endpoint always returns results as a stringified JSON.
-        
+
 
         How it works:
-        
-        
+
+
         First, send a request to establish the `scrollID`. This initial request contains the query object and additional parameters, similar to the `v1/search` endpoint, with the exception that `dayOffset` and `accountIds` are not supported. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
+
+
+        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results.
         
         
-        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results. 
-        You'll know you've reached the last page of results, once the call keeps returning the last page of results repeatedly. Keep sending the same scroll ID as many times as needed to retrieve all of the available results.
-        The results are paginated, and the request advances through them, one at a time, by default. So that every time you send the request with the same `scroll_id`, the next batch of results is returned.
-       
+        Every time you send the request with the same `scroll_id`, the next batch of results is returned.
+        Keep sending the same scroll ID as many times as needed to retrieve all of the available results.
+        The results are paginated, and every request returns the next page, one at a time.
+
+
+        When the call returns an empty array, you'll know you've reached the end of your results.
+
 
         **Note**:
 
 
         * Send the field `scroll_id` in requests (snake_case).
-        
+
         * Receive the field `scrollID` in your responses (camelCase).
       operationId: scroll
       parameters:
@@ -817,19 +862,19 @@ paths:
           headers: {}
     put:
       summary: Update archive settings
-      description: >- 
+      description: >-
         Updates the archiving settings for a time-based log account. (The API token identifies the account.)
-        
-        
+
+
         You can use this endpoint to:
-        
+
         * Switch archive settings between AWS and Azure Blob Storage or vice versa.
 
         * Update credentials.
-        
+
         * Switch your AWS authentication method between credential keys and IAM roles.
-        
-        
+
+
         Note that only one archive can be active per account.
       tags:
         - Archive logs
@@ -874,9 +919,207 @@ paths:
         default:
           description: successful operation
 
+
+  # ::::: Restore
+  /archive/restore:
+    get:
+      summary: Retrieve all restore operations
+      description: Returns a complete history of all restore operations initiated for the account.
+      tags:
+          - Restore logs
+      operationId: getRestoreRequestsForAccountApi
+      consumes:
+          - application/json
+      produces:
+          - application/json
+      parameters: []
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+    post:
+      summary: Initiate restore operation
+      description: Initiates a new operation to restore data from a specific time frame. (As a result, also triggers the creation of a temporary restored account in Logz.io to hold the restored data until its automatic expiration.)
+      tags:
+        - Restore logs
+      operationId: createRestore
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RestoreApiRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+  /archive/restore/{id}:
+    get:
+      summary: Get an update on a restore operation
+      description: Returns the status of a specific restore operation by its ID.
+      tags:
+        - Restore logs
+      operationId: getRestoreRequestByIdApi
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the restore process
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+    delete:
+      summary: Delete a restore operation
+      description: Aborts a restore process before its completion.
+      tags:
+        - Restore logs
+      operationId: abortRestoreRequestApi
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the restore process.
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RestoreApiResponse'
+          headers: {}
+
+
+
+  # ::::: Alerts V2
+  /v2/alerts:
+    get:
+      operationId: getAllAlerts
+      summary: Retrieve all alerts
+      description: Returns the complete list of all alerts configured for the account.
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AlertV2Response'
+          headers: {}
+    post:
+      summary: Create an alert
+      description: Configures and activates a new alert.
+      tags:
+        - Alerts
+      operationId: createAlert
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertV2Request'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+
+  /v2/alerts/{alertId}:
+    get:
+      summary: Retrieve an alert
+      description: Returns alert details by alert ID.
+      tags:
+        - Alerts
+      operationId: getAlert
+      produces:
+        - application/json
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: Unique identifier of the alert in Logz.io.
+          example: 563412
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+          headers: {}
+    put:
+      summary: Update an alert
+      description: Applies changes to an alert, identified by its ID. Can be used to enable or disable the alert.
+      tags:
+        - Alerts
+      operationId: updateAlert
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertV2Request'
+        - name: alertId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: Unique identifier of the alert in Logz.io.
+          example: 563412
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+    delete:
+      operationId: deleteAlert
+      summary: Delete an alert
+      description: Deletes an alert identified by its ID.
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: Unique identifier of the alert in Logz.io.
+          example: 563412
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/AlertV2Response'
+          headers: {}
+
+
   # ::::: Log Insights
   /v1/insights/list:
-    get:
+    post:
       summary: Get the list of Insights
       tags:
         - Insights
@@ -885,6 +1128,9 @@ paths:
 
 
         Whenever a new Insight is detected, it receives an Insight ID and is tracked for as long as it recurs. The lookback period for Insights is 6 months.
+
+
+        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       operationId: getPublicInsights
       parameters:
         - in: body
@@ -963,8 +1209,8 @@ paths:
       summary: Create a new CloudTrail connector
       description: >-
         Establishes a new connection to a CloudTrail resource. As a result, logs from your CloudTrail resource will ship to the connected Logz.io account via an AWS S3 bucket.
-        
-        
+
+
         CloudTrail logs will be parsed using the Logz.io custom CloudTrail parsing pipeline.
 
 
@@ -1094,8 +1340,8 @@ paths:
       summary: Create a new S3 bucket connector
       description: >-
         Establishes a new connection of the Logz.io fetcher to an AWS S3 bucket. As a result, logs from your AWS resource will begin shipping to the connected Logz.io account via an AWS S3 bucket.
-        
-        
+
+
         Logs will be parsed using the Logz.io custom parsing pipeline for the resource.
 
 
@@ -1201,8 +1447,8 @@ paths:
       summary: Get account information for IAM Role
       description: >-
         Returns the Logz.io parameters needed to create an AWS IAM Role in the AWS admin console.
-        
-        
+
+
         The next steps after running this endpoint:
 
         * Open your AWS admin console and create a new IAM Role. Once the role is created, you will obtain an ARN for it. Keep it handy for the next step.
@@ -1877,10 +2123,10 @@ paths:
       summary: Delete a log shipping token
       description: >-
         Deletes a log shipping token by its ID, while providing relevant information about the token's recent status and activity.
-        
-        
-        An account must have at least 1 enabled token. You won't be able to disable or delete the last token. 
-        
+
+
+        An account must have at least 1 enabled token. You won't be able to disable or delete the last token.
+
         **Important**: Active tokens can be deleted using this call. Confirm that a token is no longer needed before deleting it.
       operationId: deleteLogShippingToken
       parameters:
@@ -1927,7 +2173,7 @@ paths:
       tags:
         - Manage log shipping tokens
       summary: Retrieve log shipping tokens
-      description: Returns the relevant shipping tokens, filterd, sorted and paginated as per the request.   
+      description: Returns the relevant shipping tokens, filtered, sorted and paginated as per the request.
       operationId: searchLogShippingTokens
       parameters:
         - in: body
@@ -1961,8 +2207,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/PagedSearchResponseShippingTokensModel'
-
-
 
   # ::::: SHARED TOKENS
   /v1/shared-tokens/filters:
@@ -2350,7 +2594,7 @@ paths:
       tags:
         - Logz.io snapshots
       summary: Create a snapshot
-      description: Creates a new Kibana shapshot and shares with recipients through email or notification endpoint
+      description: Creates a new Kibana snapshot and shares with recipients through email or notification endpoint
       operationId: createSnapshot
       parameters:
         - in: body
@@ -2410,11 +2654,11 @@ paths:
       summary: Retrieve users in all associated accounts
       description: >-
         Returns a list of users in the main account and all associated sub accounts as an array of JSON objects per account.
-        
-        
+
+
         If a user appears in multiple accounts, it will be listed separately under each account.
-        
-        
+
+
         **Note:** Must be run with an API token belonging to the main account.
       tags:
         - Manage users
@@ -2603,15 +2847,110 @@ paths:
         200:
           description: successful operation
 
-  # ::::: SECURITY RULES
+
+  # ::::: CLOUD SIEM RULES
+  /v2/security/rules:
+    post:
+      tags:
+        - Security rules
+      summary: Create a security rule
+      description: Creates a new security rule and activates it.
+      operationId: createSecurityRule
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RuleV2Request'
+      responses:
+        '201':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RuleV2Response'
+  /v2/security/rules/{ruleId}:
+    get:
+      tags:
+        - Security rules
+      operationId: getSecurityRule
+      summary: Retrieve a security rule
+      description: Retrieves a security rule by its ID.
+      produces:
+        - application/json
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description:
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/SecurityRuleResponse'
+          headers: {}
+    put:
+      summary: Update a security rule
+      description: Applies changes to a rule, identified by its ID. Can also be used to enable or disable a rule.
+      tags:
+        - Security rules
+      operationId: updateSecurityRule
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/RuleV2Request'
+        - name: ruleId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RuleV2Response'
+    delete:
+      summary: Delete a security rule
+      description: Deletes a security rule by its ID.
+      tags:
+        - Security rules
+      operationId: deleteSecurityRule
+      produces:
+        - application/json
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/RuleV2Response'
+          headers: {}
+
+
+
+
+  # ::::: SECURITY EVENTS
   /v2/security/rules/events/search:
     post:
       summary: Fetch security events
       description: >-
         Runs a search query in your Logz.io Cloud SIEM account to fetch the security events that match the query parameters.
 
-        
+
         You have the option to filter by rule name, rule severity, and/or event timestamp, and sort the results by time and/or severity, but this is not required. If you send the query with an empty JSON body, it returns all of the events logged in your Logz.io Cloud SIEM, going as far back as your account's retention permits.
+
+
+        **Note:** Run this endpoint with an API token for your Logz.io Security account.
       tags:
         - Security events
       operationId: searchSecurityRulesEvents
@@ -2623,16 +2962,7 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/AlertsEventsSearchRequest'
-        - name: X-API-TOKEN
-          in: header
-          description: Authentication API Token
-          required: false
-          type: string
-        #- name: X-AUTH-TOKEN
-        #  in: header
-        #  description: Authentication User Session
-        #  required: false
-        #  type: string
+
       x-code-samples:
         - lang: cURL
           source: >-
@@ -2674,9 +3004,12 @@ paths:
       summary: Fetch the logs that triggered a security event
       description: >-
         Runs a search query in your Logz.io Log Monitoring account to fetch the logs that triggered the security rule and caused it to log a security event.
-        
-        
+
+
         This query returns an array of parsed logs linked to a single event - it isn't a bulk action. Run this query to investigate an event and increase observability into details omitted from the security event log.
+
+
+        **Note:** Run this endpoint with an API token for your Logz.io Security account.
       tags:
         - Security events
       operationId: searchSecurityRuleEventLogs
@@ -2710,8 +3043,531 @@ paths:
             $ref: '#/definitions/PagedSearchResponseMapStringObject'
           headers: {}
 
+  # ::::: DROP FILTERS
+  /v1/drop-filters/search:
+    post:
+      summary: Retrieve drop filters
+      description: Returns all drop filters configured for the account, both active and inactive.
+      tags:
+        - Drop filters
+      operationId: getAllForAccount
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+
+  /v1/drop-filters/{id}/activate:
+    post:
+      summary: Activate a drop filter
+      description: Activates a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: activate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters/{id}/deactivate:
+    post:
+      summary: Deactivate a drop filter
+      description: Deactivates a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: deactivate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters/{id}:
+    delete:
+      summary: Delete a drop filter
+      description: Deletes a drop filter identified by its ID.
+      tags:
+        - Drop filters
+      operationId: delete
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+          example: d0d000ce-e63b-595b-a8f9-25032776cd28
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+  /v1/drop-filters:
+    post:
+      summary: Create drop filter
+      description: Creates and activates a new drop filter.
+      tags:
+        - Drop filters
+      operationId: create
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/DropFiltersCreateRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LogsDropFiltersPipelineDefinition'
+          headers: {}
+
+  # ::::: SIEM LOOKUPS
+  /lookup-lists:
+    post:
+      summary: Create lookup list
+      description: Creates a new lookup list. After you create the list, you can run the endpoint to add elements to the list.
+      tags:
+        - Lookups
+      operationId: createLookupList
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/LookupListCreateRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupList'
+          headers: {}
+
+  /lookup-lists/search:
+    post:
+      summary: Get all/Search lookup lists
+      description: Searches for lookup lists by name or ID. Can also be run without a filter to return the full list of existing lookups. Returns a paginated list of results.
+      tags:
+        - Lookups
+      operationId: searchLookupLists
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/LookupListsSearchRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseLookupList'
+          headers: {}
+  /lookup-lists/{id}:
+    get:
+      summary: Get lookup by ID
+      description: Retrieves the general details for an existing lookup list.
+      tags:
+        - Lookups
+      operationId: getLookupList
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupList'
+          headers: {}
+    put:
+      summary: Update lookup list
+      description: Update the name and/or description of an exisiting lookup list.
+      tags:
+        - Lookups
+      operationId: updateLookupList
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/LookupList'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupList'
+          headers: {}
+    delete:
+      summary: Delete lookup list
+      description: Deletes a lookup list. Note that this action can affect rules, dashboards, and reports if they are dependent on the lookup list.
+      tags:
+        - Lookups
+      operationId: deleteLookupList
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupList'
+          headers: {}
+
+  /lookup-lists/{lookupListId}/elements:
+    post:
+      summary: Add element to a lookup list
+      description: Adds a new element to an existing lookup list. An element is a field value and comment (helpful description that does not affect the lookup functionally).
+      tags:
+        - Lookups
+      operationId: createLookupListElement
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/LookupListElementCreateRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElement'
+          headers: {}
+  /lookup-lists/{lookupListId}/elements/search:
+    post:
+      summary: Get all/Search lookup elements
+      description: Searches elements in a specified lookup list. Can also be run without a filter to return the full list of elements. Returns a paginated list of results.
+      tags:
+        - Lookups
+      operationId: searchLookupListElements
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/LookupListElementsSearchRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseLookupListElement'
+          headers: {}
+
+  /lookup-lists/{lookupListId}/elements/{id}:
+    get:
+      summary: Get element
+      description: Retrieves a specific lookup element by its ID.
+      tags:
+        - Lookups
+      operationId: getLookupListElement
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of a specific value element contained in the lookup list.
+          example: 20
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElement'
+          headers: {}
+    put:
+      summary: Update element
+      description: Changes the value and/or comment of a specific element, identified by its ID.
+      tags:
+        - Lookups
+      operationId: updateLookupListElement
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of a specific value element contained in the lookup list.
+          example: 20
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/LookupListElement'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElement'
+          headers: {}
+    delete:
+      summary: Delete element
+      description: Deletes a specific lookup element, identified by its ID.
+      tags:
+        - Lookups
+      operationId: deleteLookupListElement
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of a specific value element contained in the lookup list.
+          example: 20
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElement'
+          headers: {}
+
+  
+  
+  
 
 definitions:
+  # ::::: SIEM LOOKUPS
+  PagedSearchResponseLookupListElement:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+        description: Total number of search results. The results are relvent elements contained in the lookup list.
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/LookupListElement'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  LookupListElement:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID of the element in the Lookup list.
+      value:
+        type: string
+        minLength: 1
+        maxLength: 80
+        description: A single field value. You should ensure that the lookup list contains a list of values all mapped to the same field.
+        example: 54.53.1.1
+      comment:
+        type: string
+        description: Optional. A place to add a note or additional details about the value. For example, if the value is an IP address, the comment can identify the server.
+        maxLength: 200
+        example: ABC Server
+  LookupListElementCreateRequest:
+    type: object
+    properties:
+      value:
+        type: string
+        minLength: 1
+        maxLength: 80
+        description: A single field value.
+        example: 54.53.1.1
+      comment:
+        type: string
+        minLength: 0
+        maxLength: 200
+        description: Optional. A place to add a note or additional details about the value. For example, if the value is an IP address, the comment can identify the server.
+        example: ABC Server
+  LookupList:
+    type: object
+    summary: General indentifiers for the lookup - its ID, name, and description.
+    properties:
+      id:
+        type: string
+        description: GUID of the lookup list.
+        example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+      name:
+        type: string
+        minLength: 1
+        maxLength: 40
+        description: Name of the lookup list.
+      description:
+        type: string
+        minLength: 0
+        maxLength: 400
+        description: Description of the lookup list.
+  LookupListCreateRequest:
+    type: object
+    properties:
+      name:
+        type: string
+        minLength: 0
+        maxLength: 40
+        description: Name of the lookup list. If null, the list will be named `Untitled` followed by the running number.
+        default: Untitled##
+      description:
+        type: string
+        minLength: 0
+        maxLength: 400
+        description: A place to add a free text description of the lookup list's purpose, uses and dependencies.
+  PagedSearchResponseLookupList:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+        description: Total number of search results.
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/LookupList'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  LookupListsFilter:
+    type: object
+    description: Filter by names that contain a term, by lookup ID, or by both. If both properties are sent, they must both be satsified (`AND` logic).
+    properties:
+      searchTerm:
+        type: string
+        description: Filters for lookup names that contains the search term.
+        example: servers
+      byIds:
+        type: array
+        description: List of lookup IDs.
+        items:
+          type: string
+  LookupListsSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/LookupListsFilter'
+      pagination:
+        $ref: '#/definitions/Pagination'
+
+  LookupListElementsFilter:
+    type: object
+    description: Filter for elements by value, element ID, or by comments that contain a search term. If multiple properties are sent, they must all be satisfied (`AND` logic).
+    properties:
+      searchTerm:
+        type: string
+        description: Filters for values or comments that contain the search term.
+        example: server
+      byIds:
+        type: array
+        description: Filters by element IDs.
+        items:
+          type: integer
+          format: int32
+      byValues:
+        type: array
+        description: Filters by exact value. (Looks for elements that match any one of the values in the array.)
+        items:
+          type: string
+  LookupListElementsSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/LookupListElementsFilter'
+      pagination:
+        $ref: '#/definitions/Pagination'
+
+
+
+  
   # ::::: ACCOUNTS DEFINITIONS
   WhoAmI:
     type: object
@@ -3015,7 +3871,8 @@ definitions:
         example: 833203f9-de71-5a12-9083-9055a6d925bb
   Pagination:
     type: object
-    description: Default pagination is 1 page, 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
+    default: 25
+    description: Default pagination is a page of 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
     properties:
       pageNumber:
         type: integer
@@ -3042,8 +3899,8 @@ definitions:
         type: array
         description: >-
          Array of logs returned in answer to the query. The logs are returned in their entirety and parsed.
-         
-         
+
+
          If the logs are no longer retained in the database, the request will return empty. You can check your account's log retention policy in your [log monitoring account](https://app.logz.io/#/dashboard/settings/usage-and-billing).
         items:
           type: object
@@ -3196,12 +4053,13 @@ definitions:
         type: integer
         format: int64
         example: 1587134557
-        description: Absolute UNIX timestamp in seconds (not milliseconds). Your security account's retention policy determines the ealiest events you'll be able to retrieve.
+        description: Absolute UNIX timestamp in seconds (not milliseconds). Your security account's retention policy determines the earliest events you'll be able to retrieve.
       toDate:
         type: integer
         format: int64
         example: 1587137557
         description: Absolute UNIX timestamp in seconds (not milliseconds).
+
 
   # ::::: Log Insights
   PublicGetAccountInsightsRequest:
@@ -3252,7 +4110,7 @@ definitions:
         type: array
         items:
           type: string
-        description: Filters results by [log type](/log-shipping/built-in-log-types.html).
+        description: Filters results by [log type](/user-guide/log-shipping/built-in-log-types.html).
         example: ["log-engine", "spark"]
       onlyNew:
         type: boolean
@@ -3265,7 +4123,7 @@ definitions:
           - FIRST_OCCURRENCE
           - LAST_OCCURRENCE
           - COUNT
-        description: Sorts Insights by the selected parameter.
+        description: Sorts Insights by the selected parameters.
         default: COUNT
         example: COUNT
       asc:
@@ -3277,11 +4135,6 @@ definitions:
         type: string
         description: Searches for an Insight by its title.
         example: Exception
-#      timeZone:
-#        type: string
-#        description: Converts timestamps to the selected time zone.
-#        default: UTC=0
-#        example: America/Los_Angeles
   PageResponsePublicAccountInsightResponse:
     type: object
     properties:
@@ -4000,20 +4853,18 @@ definitions:
         type: object
         description: >-
           Add a search query to receive the `scrollID` in the result.
-          
-          
+
+
           The query can take any of the parameters described in the [Elasticsearch Search API DSL documentation](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) with the exceptions stated below.
 
 
           You can only add the `query` parameters if you are not passing the `scroll_id` in the request.
-          
+
           #### Limitations
 
           * The query can only run on 2 consecutive indexes. By default, the query runs on data sent today and yesterday. You can also add a filter on `timestamp` to search a smaller time frame.
 
-          * When using `query_string`, `allow_leading_wildcard` must be set to `false`
-
-          * `wildcard` can't start with `*` or `?`
+          * When using `query_string`, `allow_leading_wildcard` must be set to `false` to disable leading wildcards. In other words, the query can't start with `*` or `?`
 
           * Can't use `fuzzy_max_expansions`,  `max_expansions`, or `max_determinized_states`
       size:
@@ -4036,17 +4887,17 @@ definitions:
         description: >-
           #### Limitations
 
-          * Can't sort on `message`
+          * Can't sort on analyzed fields, such as the `message` field
       _source:
         type: object
         description: >-
           The object `includes` specifies an array of strings specifying an array of fields to return.
-          
+
           * If you omit `_source` from the request, all fields are returned.
 
           * If you pass `'_source': false`, it will exclude the `_source` field from the results.
         properties:
-          includes: 
+          includes:
             type: array of strings
             description: Array of fields to return
             example: message
@@ -4415,6 +5266,55 @@ definitions:
         description: For user access, `2`. For admin access, `3`.
         example: [2]
 
+  # ::::: DROP FILTERS
+  DropFiltersCreateRequest:
+    type: object
+    properties:
+      logType:
+        type: string
+        nullable: true
+        description: Filters for the [log type](/user-guide/log-shipping/built-in-log-types.html).
+        example: apache
+      fieldConditions:
+        type: array
+        items:
+          $ref: '#/definitions/FieldCondition'
+
+
+  FieldCondition:
+    type: object
+    properties:
+      fieldName:
+        type: string
+        description: Exact field name in your Kibana mapping for the selected `logType`.
+        example: response
+      value:
+        type: object
+        description: Exact field value. The filter looks for an exact value match of the entire string.
+        example: 200
+
+  LogsDropFiltersPipelineDefinition:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Drop filter ID in the Logz.io database. You can run the `/v1/drop-filters/search` endpoint to retrieve the IDs of all the drop filters in the account.
+        example: f54406c1-b4ad-5969-8542-f6a3e9df5c79
+      active:
+        type: boolean
+        description: If `true`, the drop filter is active and logs that match the filter are dropped before indexing. If `false`, the drop filter is disabled.
+        example: true
+      logType:
+        type: string
+        description: Filters for the [log type](/user-guide/log-shipping/built-in-log-types.html).
+        example: apache
+      fieldConditions:
+        type: array
+        description: Filters for an exact match of a field:value pair.
+        items:
+          $ref: '#/definitions/FieldCondition'
+
+
   # ::::: Archive DEFINITIONS
   ArchiveSettings:
     type: object
@@ -4456,7 +5356,7 @@ definitions:
         $ref: '#/definitions/ArchiveSettings'
   BlobSettings:
     type: object
-    description: Applicable settings when the `storageType` is `Blob`.
+    description: Applicable settings when the `storageType` is `Blob`. For detailed instructions about setting up a storage container in Azure and locating the required parameters, [click here](/user-guide/archive-and-restore/azure-blob-permissions/).
     required:
     - tenantId
     - clientId
@@ -4466,22 +5366,23 @@ definitions:
     properties:
       tenantId:
         type: string
-        description: Azure Blob Tenant
+        description: Azure Directory (tenant) ID. The Tenant ID of the AD app. Go to Azure Active Directory > App registrations and select the app to see it.
       clientId:
         type: string
-        description: Azure client ID
+        description: Azure application (client) ID. The Client ID of the AD app, found under the App Overview page. Go to Azure Active Directory > App registrations and select the app to see it.
       clientSecret:
         type: string
-        description: Azure client secret
+        description: Azure client secret. Password of the Client secret, found in the app's Certificates & secrets page. Go to Azure Active Directory > App registrations and select the app. Then select Certificates & secrets to see it.
       accountName:
         type: string
-        description: Azure account name
+        description: Azure Storage account name. Name of the storage account that holds the container where the logs will be archived.
       containerName:
         type: string
-        description: The container name.
+        description: Name of the container in the Storage account. This is where the logs will be archived.
       path:
         type: string
-        description: The path is optional.
+        nullable: true
+        description: Optional virtual sub-folder specifiying a path within the container. Logs will be archived under the path “{container-name}/{virtual sub-folder}”. Avoid leading and trailing slashes (/). For example, the prefix “region1” is good, but “/region1/” is not.
   S3IamCredentials:
     type: object
     properties:
@@ -4501,19 +5402,23 @@ definitions:
         type: string
   S3StorageSettings:
     type: object
-    required: 
+    required:
     - credentialsType
     - path
     description: Applicable settings when the `storageType` is `S3`.
     properties:
       credentialsType:
-        description: Specifies which credentials will be used for authentication, either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.
+        description: Specifies which credentials will be used for authentication. The options are either `KEYS` with `s3SecretCredentials`, or `IAM` with `s3IamCredentials`.
         type: string
         enum:
           - IAM
           - KEYS
       path:
         type: string
+        description: >-
+          Specify a path to the **root** of the S3 bucket. (Currently, archiving to a sub-bucket is supported, but not restoring from one.)
+
+          **Unique buckets** - It is important to archive each account/sub-account to a separate S3 bucket.
       s3SecretCredentials:
         $ref: '#/definitions/S3SecretCredentials'
       s3IamCredentials:
@@ -4640,3 +5545,923 @@ definitions:
           $ref: '#/definitions/ShippingTokensModel'
       pagination:
         $ref: '#/definitions/Pagination'
+
+
+  # ::::: Alert
+  Aggregation:
+    type: object
+    description: Specifies a trigger condition that acts as a threshold.
+    properties:
+      aggregationType:
+        type: string
+        description: >-
+          Specifies the aggregation operator.
+
+
+          * If `COUNT`, `fieldToAggregateOn` must be null, and `groupBy` fields must not be empty.
+
+          * If `NONE`, `fieldToAggregateOn` must be null, and `groupBy` field must not be empty (or null).
+
+
+          * If any other operator type (other than `NONE` or `COUNT`), `fieldToAggregateOn` must not be null.
+        enum:
+          - SUM
+          - MIN
+          - MAX
+          - AVG
+          - COUNT
+          - UNIQUE_COUNT
+          - NONE
+      fieldToAggregateOn:
+        type: string
+        description: >-
+          Selects the field on which to run the aggregation for the trigger condition.
+
+
+          * Cannot be a field already in use for `groupBy`.
+  AlertV2Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Logz.io alert ID.
+        example: 627816
+      updatedAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the alert was last updated.
+        example: 2020-04-02T18:58:16.000Z
+      updatedBy:
+        type: string
+        description: Email of the user who last updated the alert.
+        example: tomer@logz.io
+      createdAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the alert was first created.
+        example: 2020-02-02T18:58:16.000Z
+      createdBy:
+        type: string
+        description: Email of the user who first created the alert.
+        example: tomer@logz.io
+      enabled:
+        type: boolean
+        description: If `true`, the alert is currently active.
+        exampe: true
+      title:
+        type: string
+        description: Alert title.
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
+        example: [network, aws]
+      output:
+        $ref: '#/definitions/AlertOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+
+
+          The recommended minimum and maximum values are not validated, but needed to guarantee the alert's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+      subComponents:
+        type: array
+        description: Determines when the alert should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubAlert'
+      correlations:
+        $ref: '#/definitions/SubAlertCorrelation'
+  AlertOutput:
+    type: object
+    description: Automatically sends out notifications with sample results when the alert triggers.
+    properties:
+      recipients:
+        $ref: '#/definitions/AlertRecipients'
+      suppressNotificationsMinutes:
+        type: integer
+        format: int32
+        minimum: 5
+        maximum: 1440
+        description: Add a waiting period in minutes to space out notifications. (The alert will still trigger but will not send out notifications during the waiting period.)
+        example: 60
+      type:
+        type: string
+        description: Selects the output format for the alert notification. If the alert has no aggregations/group by fields, `JSON` offers the option to send full sample logs without selecting specific fields.
+        enum:
+          - JSON
+          - TABLE
+  AlertQuery:
+    type: object
+    description: Determines when the alert should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+    properties:
+      query:
+        type: string
+        description: >-
+          Provide a Kibana search query written in Lucene syntax. The search query together with the filters select for the relevant logs.
+
+
+          Cannot be null - send an asterisk wildcard `*` if not using a search query.
+        default: "*"
+        nullable: false
+        example: type:apache_access
+      filters:
+        $ref: '#/definitions/BoolFilter'
+      groupBy:
+        type: array
+        nullable: true
+        description: Specify 1-3 fields by which to group the results and count them. If you apply a group by operation, the alert returns a count of the results aggregated by unique values.
+        items:
+          type: string
+        maxItems: 3
+        minItems: 0
+      aggregation:
+        $ref: '#/definitions/Aggregation'
+      shouldQueryOnAllAccounts:
+        type: boolean
+        default: true
+        example: false
+        description: Only applicable when the alert is run from the main account. If `true`, the alert runs on the main account and all associated searchable sub accounts. If `false`, specify relevant account IDs for the alert to monitor using the `accountIdsToQueryOn` field.
+      accountIdsToQueryOn:
+        type: array
+        description: Specify Account IDs to select which accounts the alert should monitor. The alert will be checked only on these accounts.
+        items:
+          type: integer
+          format: int32
+          example: 2321
+
+  AlertRecipients:
+    type: object
+    description: Add email addresses and/or endpoint channels to automatically receive notifications with sample data when the alert triggers.
+    properties:
+      emails:
+        type: array
+        description: Array of email addresses to be notified when the alert triggers.
+        items:
+          type: string
+          example: tom.a@logz.io
+      notificationEndpointIds:
+        type: array
+        description: Array of IDs of pre-configured endpoint channels to notify when the alert triggers.
+        items:
+          type: integer
+          format: int32
+          example: 10101
+  SubAlert:
+    type: object
+    properties:
+      queryDefinition:
+        $ref: '#/definitions/AlertQuery'
+      trigger:
+        $ref: '#/definitions/AlertTrigger'
+      output:
+        $ref: '#/definitions/SubAlertOutput'
+  SubAlertCorrelation:
+    type: object
+    description: >-
+      Only applicable when multiple sub-components are in use. Selects a logic for correlating the alert’s sub-components.
+
+
+      `AND` is currently the only supported operator. When `AND` is the `correlationOperator`, both sub-components must meet their triggering criteria for the alert to trigger.
+    properties:
+      correlationOperators:
+        type: array
+        items:
+          type: string
+          enum:
+            - AND
+
+      joins:
+        type: array
+        description: >-
+          Specifies which group by fields must have the same values to trigger the alert.
+
+
+          Joins the group by fields from the first and second sub-components. The key represents the index of the sub component in the array (See the example - the index of the first sub-component is 0, the second is 1).
+
+
+          The fields must be ordered pairs of the group by fields already in use in the `queryDefinition`.
+        items:
+          type: object
+          additionalProperties:
+          example: {0: "region", 1: "region"}
+  SubAlertOutput:
+    type: object
+    description: Selects the data output to be sent in the notification when the alert triggers. Not applicable, when grouping by fields or aggregating results, as the output is auto-selected.
+    properties:
+      columns:
+        type: array
+        items:
+          $ref: '#/definitions/ColumnConfig'
+      shouldUseAllFields:
+        type: boolean
+        description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
+        default: true
+  AlertV2Request:
+    type: object
+    required:
+    properties:
+      title:
+        type: string
+        description: Alert title
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        maxItems: 10
+        minItems: 0
+        description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
+        example: network
+      output:
+        $ref: '#/definitions/AlertOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+
+
+          The recommended minimum and maximum values are not validated, but needed to guarantee the alert's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+        example: 20
+      subComponents:
+        type: array
+        description: Sets the search criteria using a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubAlert'
+      correlations:
+        $ref: '#/definitions/SubAlertCorrelation'
+      enabled:
+        type: boolean
+        description: If `true`, the alert is enabled and active.
+  AlertTrigger:
+    type: object
+    description: Sets the triggering threshold and severity tab to label the event when the alert triggers.
+    properties:
+      operator:
+        type: string
+        enum:
+          - LESS_THAN
+          - GREATER_THAN
+          - LESS_THAN_OR_EQUALS
+          - GREATER_THAN_OR_EQUALS
+          - EQUALS
+          - NOT_EQUALS
+        example: GREATER_THAN_OR_EQUALS
+        description: Specifies the operator for evaluating the results.
+      severityThresholdTiers:
+        type: object
+        description: >-
+          Sets a severity label per trigger threshold as a key:value pair.
+
+
+          If using more than one sub-component, only 1 severityThresholdTiers is allowed. Otherwise, 1 per `enum` are allowed (for a total of 5 thresholds of increasing severities).
+
+
+          Increasing severity must adhere to the logic of the operator.
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        additionalProperties:
+        default:
+          MEDIUM: 10.0
+        example:
+          MEDIUM: 10.0
+          HIGH: 100.0
+          SEVERE: 300.0
+
+  BoolFilter:
+    type: object
+    description: Apply `must` and `must_not` filters to the monitoring alert. Filters are more efficient compared to a query, so it's recommended to opt for a filter over a query, where possible. See [Elasticsearch Bool-Query](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html) for more detail.
+    properties:
+      bool:
+        $ref: '#/definitions/FilterLists'
+  ColumnConfig:
+    type: object
+    description: Customize the alert output to be sent out in notifications when the alert triggers.
+    properties:
+      fieldName:
+        type: string
+        description: Specify the fields to be included in the notification.
+      regex:
+        type: string
+        description: Trims the data using regex filters. [Learn more](https://docs.logz.io/user-guide/alerts/regex-filters.html)
+      sort:
+        type: string
+        description: Specify a single field to sort by. The field cannot be an analyzed field (a field that supports free text search or searching by part of a message, such as the 'message' field).
+        enum:
+          - DESC
+          - ASC
+  FilterLists:
+    type: object
+    description: Runs Elasticsearch [Bool Query](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-bool-query.html) filters on the data (before the search query is applied). The most efficient way to grab the logs you are looking for.
+    properties:
+      must:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: object
+
+      must_not:
+        type: array
+        items:
+          type: object
+          additionalProperties:
+            type: object
+  PagedSearchResponseString:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      results:
+        type: array
+        items:
+          type: string
+      pagination:
+        $ref: '#/definitions/Pagination'
+  TagsFilter:
+    type: object
+    properties:
+      searchTerm:
+        type: string
+  TagsSearchRequest:
+    type: object
+    properties:
+      filter:
+        $ref: '#/definitions/TagsFilter'
+      pagination:
+        $ref: '#/definitions/Pagination'
+
+
+  # ::::: SIEM RULES - duplicates of rule definitions. do not exist in the swagger
+
+  RuleV2Response:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Logz.io rule ID.
+        example: 627816
+      updatedAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was last updated.
+        example: 2020-04-02T18:58:16.000Z
+      updatedBy:
+        type: string
+        description: Email of the user who last updated the rule.
+        example: tomer@logz.io
+      createdAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was first created.
+        example: 2020-02-02T18:58:16.000Z
+      createdBy:
+        type: string
+        description: Email of the user who first created the rule.
+        example: tomer@logz.io
+      enabled:
+        type: boolean
+        description: If `true`, the rule is currently active.
+        example: true
+      title:
+        type: string
+        description: Rule title.
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        example: [network, aws]
+      output:
+        $ref: '#/definitions/RuleOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+
+
+          The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The rule runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+      subComponents:
+        type: array
+        description: Determines when the rule should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubRule'
+      correlations:
+        $ref: '#/definitions/SubRuleCorrelation'
+  RuleOutput:
+    type: object
+    description: Automatically sends out notifications with sample results when the rule triggers.
+    properties:
+      recipients:
+        $ref: '#/definitions/RuleRecipients'
+      suppressNotificationsMinutes:
+        type: integer
+        format: int32
+        minimum: 5
+        maximum: 1440
+        description: Add a waiting period in minutes to space out notifications. (The rule will still trigger but will not send out notifications during the waiting period.)
+        example: 60
+      type:
+        type: string
+        description: Selects the output format for the rule notification. If the rule has no aggregations/group by fields, `JSON` offers the option to send full sample logs without selecting specific fields.
+        enum:
+          - JSON
+          - TABLE
+  RuleQuery:
+    type: object
+    description: Determines when the rule should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+    properties:
+      query:
+        type: string
+        description: >-
+          Provide a Kibana search query written in Lucene syntax. The search query together with the filters select for the relevant logs.
+
+
+          Cannot be null - send an asterisk wildcard `*` if not using a search query.
+        default: "*"
+        nullable: false
+        example: type:apache_access
+      filters:
+        $ref: '#/definitions/BoolFilter'
+      groupBy:
+        type: array
+        nullable: true
+        description: Specify 1-3 fields by which to group the results and count them. If you apply a group by operation, the rule returns a count of the results aggregated by unique values.
+        items:
+          type: string
+        maxItems: 3
+        minItems: 0
+      aggregation:
+        $ref: '#/definitions/Aggregation'
+      shouldQueryOnAllAccounts:
+        type: boolean
+        default: true
+        example: false
+        description: Only applicable when the rule is run from the main account. If `true`, the rule runs on the main account and all associated searchable sub accounts. If `false`, specify relevant account IDs for the rule to monitor using the `accountIdsToQueryOn` field.
+      accountIdsToQueryOn:
+        type: array
+        description: Specify Account IDs to select which accounts the rule should monitor. The rule will be checked only on these accounts.
+        items:
+          type: integer
+          format: int32
+          example: 2321
+
+  RuleRecipients:
+    type: object
+    description: Add email addresses and/or endpoint channels to automatically receive notifications with sample data when the rule triggers.
+    properties:
+      emails:
+        type: array
+        description: Array of email addresses to be notified when the rule triggers.
+        items:
+          type: string
+          example: tom.a@logz.io
+      notificationEndpointIds:
+        type: array
+        description: Array of IDs of pre-configured endpoint channels to notify when the rule triggers.
+        items:
+          type: integer
+          format: int32
+          example: 10101
+  SubRule:
+    type: object
+    properties:
+      queryDefinition:
+        $ref: '#/definitions/RuleQuery'
+      trigger:
+        $ref: '#/definitions/RuleTrigger'
+      output:
+        $ref: '#/definitions/SubRuleOutput'
+  SubRuleCorrelation:
+    type: object
+    description: >-
+      Only applicable when multiple sub-components are in use. Selects a logic for correlating the rule’s sub-components.
+
+
+      `AND` is currently the only supported operator. When `AND` is the `correlationOperator`, both sub-components must meet their triggering criteria for the rule to trigger.
+    properties:
+      correlationOperators:
+        type: array
+        items:
+          type: string
+          enum:
+            - AND
+
+      joins:
+        type: array
+        description: >-
+          Specifies which group by fields must have the same values to trigger the rule.
+
+
+          Joins the group by fields from the first and second sub-components. The key represents the index of the sub component in the array (See the example - the index of the first sub-component is 0, the second is 1).
+
+
+          The fields must be ordered pairs of the group by fields already in use in the `queryDefinition`.
+        items:
+          type: object
+          additionalProperties:
+          example: {0: "region", 1: "region"}
+  SubRuleOutput:
+    type: object
+    description: Selects the data output to be sent in the notification when the rule triggers. Not applicable, when grouping by fields or aggregating results, as the output is auto-selected.
+    properties:
+      columns:
+        type: array
+        items:
+          $ref: '#/definitions/ColumnConfig'
+      shouldUseAllFields:
+        type: boolean
+        description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
+        default: true
+  RuleV2Request:
+    type: object
+    required:
+    properties:
+      title:
+        type: string
+        description: Rule title
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        maxItems: 10
+        minItems: 0
+        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        example: network
+      output:
+        $ref: '#/definitions/RuleOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+
+
+          The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The rule runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+        example: 20
+      subComponents:
+        type: array
+        description: Sets the search criteria using a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubRule'
+      correlations:
+        $ref: '#/definitions/SubRuleCorrelation'
+      enabled:
+        type: boolean
+        description: If `true`, the alert is enabled and active.
+  RuleTrigger:
+    type: object
+    description: Sets the triggering threshold and severity tab to label the event when the rule triggers.
+    properties:
+      operator:
+        type: string
+        enum:
+          - LESS_THAN
+          - GREATER_THAN
+          - LESS_THAN_OR_EQUALS
+          - GREATER_THAN_OR_EQUALS
+          - EQUALS
+          - NOT_EQUALS
+        example: GREATER_THAN_OR_EQUALS
+        description: Specifies the operator for evaluating the results.
+      severityThresholdTiers:
+        type: object
+        description: >-
+          Sets a severity label per trigger threshold as a key:value pair.
+
+
+          If using more than one sub-component, only 1 severityThresholdTiers is allowed. Otherwise, 1 per `enum` are allowed (for a total of 5 thresholds of increasing severities).
+
+
+          Increasing severity must adhere to the logic of the operator.
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        additionalProperties:
+        default:
+          MEDIUM: 10.0
+        example:
+          MEDIUM: 10.0
+          HIGH: 100.0
+          SEVERE: 300.0
+
+  RuleColumnConfig:
+    type: object
+    description: Customize the rule output to be sent out in notifications when the rule triggers.
+    properties:
+      fieldName:
+        type: string
+        description: Specify the fields to be included in the notification.
+      regex:
+        type: string
+        description: Trims the data using regex filters. [Learn more](https://docs.logz.io/user-guide/alerts/regex-filters.html)
+      sort:
+        type: string
+        description: Specify a single field to sort by. The field cannot be an analyzed field (a field that supports free text search or searching by part of a message, such as the 'message' field).
+        enum:
+          - DESC
+          - ASC
+
+  SecurityRuleResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Logz.io security rule ID.
+        example: 627816
+      updatedAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was last updated.
+        example: 2020-04-02T18:58:16.000Z
+      updatedBy:
+        type: string
+        description: Email of the user who last updated the rule.
+        example: tomer@logz.io
+      createdAt:
+        type: integer
+        format: int64
+        description: Date and time in UTC when the rule was first created updated.
+        example: 2020-02-02T18:58:16.000Z
+      createdBy:
+        type: string
+        description: Email of the user who first created the rule.
+        example: tomer@logz.io
+      enabled:
+        type: boolean
+        description: If `true`, the rule is currently active.
+        exampe: true
+      title:
+        type: string
+        description: Rule title.
+        example: Excessive WARN levels in PROD
+      description:
+        type: string
+        description: A description of the event, its significance, and suggested next steps or instructions for the team.
+        example: Steps to remediate...
+      tags:
+        type: array
+        items:
+          type: string
+        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        example: [network, aws]
+      output:
+        $ref: '#/definitions/RuleOutput'
+      searchTimeFrameMinutes:
+        type: integer
+        minimum: 5
+        maximum: 1440
+        format: int32
+        description: >-
+          The time frame for evaluating the log data is a sliding window, with 1 minute granularity.
+
+
+          The recommended minimum and maximum values are not validated, but needed to guarantee the rule's accuracy.
+
+
+          The minimum recommended time frame is 5 minutes, as anything shorter will be less reliable and unnecessarily resource-heavy.
+
+
+          The maximum recommended time frame is 1440 minutes (24 hours). The rule runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+      subComponents:
+        type: array
+        description: Determines when the rule should trigger using any combination of a search query, filters, group by aggregations, accounts to search, and trigger conditions.
+        items:
+          $ref: '#/definitions/SubRule'
+      correlations:
+        $ref: '#/definitions/SubRuleCorrelation'
+      protected:
+        type: boolean
+        description: >-
+          If `true`, the rule is pre-defined by Logz.io. Protected parameters cannot be edited. The only parameters that can be edited are
+
+
+          * `shouldQueryOnAllAccounts`
+
+          * `accountIdsToQueryOn`
+
+          * `severityThresholdTiers`
+
+          * `tags`
+
+          * `description`
+
+          * `enabled`
+
+          * `output` (in `subComponents`)
+
+          * `searchTimeFrameMinutes`
+
+
+  # ::::: RESTORE FROM ARCHIVE DEFINITIONS
+  RestoreAccountConfiguration:
+    type: object
+    properties:
+      accountId:
+        type: integer
+        format: int32
+        description: ID of the restored account in Logz.io
+      maxActiveRestoreAccounts:
+        type: integer
+        format: int32
+      maxInProgressRestoresPerAccount:
+        type: integer
+        format: int32
+      maxRestoreDurationInHours:
+        type: integer
+        format: int32
+      accountExpirationTimeInDays:
+        type: integer
+        format: int32
+      maxVolumeInGB:
+        type: number
+        format: float
+  RestoreApiResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID of the restore operation in Logz.io
+        example: 42
+      accountId:
+        type: integer
+        format: int32
+        description: ID of the restored account in Logz.io
+        example: 564321
+      accountName:
+        type: string
+        description: Name of the restored account
+        example: My account name
+      restoredVolumeGb:
+        type: number
+        format: float
+        nullable: true
+        description: Volume of data restored so far. If the restore operation is still in progress, this will be continuously updated.
+        example: 99
+      status:
+        type: string
+        enum:
+          - IN_PROGRESS
+          - ACTIVE
+          - LIMIT_EXCEEDED
+          - ABORTED
+          - FAILED
+          - DELETED
+          - EXPIRED
+        description: >-
+          Returns the current status of the restored account.
+
+          - IN_PROGRESS - Data is being restored and is not yet available for querying or searching in Kibana.
+
+          - ACTIVE - The restored account is active and available for searching and querying in Kibana. Be sure to search the data in its original timestamp.
+
+          - LIMIT_EXCEEDED - The data exceeded 100 GB and caused the restore action to fail.
+
+          - ABORTED - A user aborted the restore operation before it completed. Only one account can be restored at a time.
+
+          - FAILED - The restored account failed to restore the data.
+
+          - DELETED - The restored account was deleted by a user.
+
+          - EXPIRED - Restored accounts automatically expire after a number of  days, as indicated by `expiresAt`.
+        example: ACTIVE
+      startTime:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the earliest logs to be restored.
+        example: 1589947200.000000000
+      endTime:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the latest logs to be restored.
+        example: 1589954400.000000000
+      createdAt:
+        type: integer
+        format: int64
+        description: Timestamp when the restore process was created and entered the queue. (Since only one account can be restored at a time, the process may not initiate immediately.)
+        example: 1591902426.000000000
+      startedAt:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds when the restore process initiated.
+        nullable: true
+        example: 1591902428.000000000
+      finishedAt:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds when the restore process completed.
+        nullable: true
+        example: 1591902461.000000000
+      expiresAt:
+        type: integer
+        format: int64
+        nullable: true
+        description: UNIX timestamp in milliseconds specifying when the account is due to expire. Restored accounts expire automatically after a number of days, as specified in the account's terms.
+        example: 1592334461.000000000
+  RestoreApiRequest:
+    type: object
+    properties:
+      accountName:
+        type: string
+        description: Name of the restored account
+        example: My account name
+      startTime:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the earliest logs to be restored.
+        example: 1589947200.000000000
+      endTime:
+        type: integer
+        format: int64
+        description: UNIX timestamp in milliseconds specifying the latest logs to be restored.
+        example: 1589954400.000000000
+
+  RestoreRequest:
+    type: object
+    properties:
+      accountName:
+        type: string
+        description: ?
+        example:
+      archiveSettingsId:
+        type: integer
+        format: int32
+        description: ?
+        example:
+      startTime:
+        type: integer
+        format: int64
+        description: ?
+        example:
+      endTime:
+        type: integer
+        format: int64
+        description: ?
+        example:

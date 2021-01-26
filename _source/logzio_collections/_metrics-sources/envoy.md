@@ -53,7 +53,7 @@ Still in the same configuration file, copy and paste the code block below to set
 # ===== General =====
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
 {% include metric-shipping/replace-metrics-token.html %}
@@ -87,7 +87,7 @@ metricbeat.modules:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ignore_older: 3hr
 type: metrics
@@ -100,6 +100,6 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Envoy" %}
+{% include metric-shipping/open-dashboard.md title="Envoy" %}
 
 </div>

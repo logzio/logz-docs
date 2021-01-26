@@ -22,11 +22,7 @@ shipping-tags:
 AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
 
 Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout.
-Make sure you understand these limits. \\
-\\
-If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. \\
-\\
-For more information, see [AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html) from AWS.
+Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 {:.info-box.important}
 
 <div class="tasklist">
@@ -93,8 +89,8 @@ In the Environment variables section, set your Logz.io account token, URL, and l
 
 | Parameter | Description |
 |---|---|
-| TOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} <!-- logzio-inject:account-token --> |
-| URL <span class="required-param"></span> | {% include log-shipping/replace-vars.html listener='noReplace' %} <!-- logzio-inject:listener-url --> |
+| TOKEN (Required) | {% include log-shipping/replace-vars.html token='noReplace' %}   |
+| URL (Required) | {% include log-shipping/replace-vars.html listener='noReplace' %}    |
 | REPORT_NAME | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **Report name** column for your report. |
 | REPORT_PATH | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), click <i class="fas fa-caret-right"></i> (next to the report name), and copy the **Report path**. |
 | S3_BUCKET_NAME | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **S3 Bucket** column for your report. |

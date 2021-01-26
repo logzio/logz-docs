@@ -18,20 +18,32 @@ firstLevel:
   - title: Kibana Discover
     url: /user-guide/kibana/
     thirdLevel:
-      - title: Field Mapping
-        url: /user-guide/kibana/mapping/
-      - title: Field not indexed
-        url: /user-guide/kibana/mapping/field-not-indexed/
-
+    - title: Wildcard searches
+      url: /kibana/wildcards/
+  - title: Field Mapping
+    url: /user-guide/kibana/mapping/
+    thirdLevel:
+    - title: Field not indexed
+      url: /user-guide/kibana/mapping/field-not-indexed/
+  - title: Exceptions
+    url: /user-guide/insights/exceptions/
+  - title: Patterns
+    url: /user-guide/kibana/log-patterns.html
   - title: Alerts
     url: /user-guide/alerts/
     thirdLevel:
     - title: Configure an alert
       url: /user-guide/alerts/configure-an-alert.html
-    - title: Adding alerts
+    - title: Correlated alerts
+      url: /user-guide/alerts/correlated-alert/
+    - title: Shortcuts
       url: /user-guide/alerts/new-alert.html
     - title: View triggered alerts
       url: /user-guide/alerts/view-triggered-alerts.html
+    - title: Regex filters
+      url: /user-guide/alerts/regex-filters.html
+    - title: Wait between notifications
+      url: /user-guide/alerts/suppress-notifications/
 
   - title: Reports
     url: /user-guide/reports/
@@ -41,9 +53,8 @@ firstLevel:
     thirdLevel:
     - title: Configure optimizers
       url: /user-guide/optimizers/configure-optimizers.html
-  - title: Log patterns
-    url: /user-guide/kibana/log-patterns.html
-  
+
+
   - title: Insights
     url: /user-guide/insights/
     thirdLevel:
@@ -63,6 +74,9 @@ firstLevel:
   - title: Live Tail
     url: /user-guide/live-tail/
 
+
+    # ===== METRICS INFRASTRUCTURE MONITORING =====
+    # the Prometheus remote write topic & dashboard import topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory
 - title: Infrastructure Monitoring
   icon: fas fa-chart-pie
 
@@ -97,7 +111,59 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
+  - title: Getting started with Prometheus 
+    url: /user-guide/infrastructure-monitoring/p8s-getting-started.html
+    thirdLevel:
+    - title: Configuring remote write for Prometheus 
+      url: /user-guide/infrastructure-monitoring/p8s-remote-write.html    
+    - title: Importing dashboards from Grafana 
+      url: /user-guide/infrastructure-monitoring/p8s-importing-dashbds.html
 
+
+
+    # ===== DISTRIBUTED TRACING =====
+- title: Distributed Tracing
+  icon: fas fa-align-left
+
+  secondLevel:
+  - title: Why Distributed Tracing?
+    url: /user-guide/distributed-tracing/
+    thirdLevel:
+      - title: What is Distributed Tracing?
+        url: /user-guide/distributed-tracing/what-is-tracing
+  - title: Getting started
+    url: /user-guide/distributed-tracing/getting-started-tracing/
+    thirdLevel:
+    - title: Setting up instrumentation and ingesting traces
+      url: /user-guide/distributed-tracing/tracing-instrumentation
+    - title: Deploying components in your system
+      url: /user-guide/distributed-tracing/deploying-components
+    - title: Kubernetes deployment reference
+      url: /user-guide/distributed-tracing/k8s-deployment
+    - title: Sending demo traces with the HotROD application
+      url: /user-guide/distributed-tracing/trace-hotrod-demo
+  - title: The Grand Distributed Tracing Tour
+    url: /user-guide/distributed-tracing/tracing-tour/
+    thirdLevel:
+    - title: Trace Timeline
+      url: /user-guide/distributed-tracing/trace-timeline/
+    - title: Trace Graph
+      url: /user-guide/distributed-tracing/trace-graph/
+    - title: Trace Statistics
+      url: /user-guide/distributed-tracing/trace-statistics/
+    - title: Trace JSON
+      url: /user-guide/distributed-tracing/trace-json/
+    - title: Compare traces
+      url: /user-guide/distributed-tracing/compare-traces
+    - title: Topology diagrams
+      url: /user-guide/distributed-tracing/topology-system_architecture
+  - title: Correlate logs and traces
+    url:  /user-guide/distributed-tracing/correlate-traces/
+  - title: Visualize traces in Kibana
+    url: /user-guide/distributed-tracing/visualize-traces/
+
+
+  # ===== CLOUD SIEM =====
 - title: Cloud SIEM
   icon: fas fa-shield-alt
 
@@ -111,19 +177,26 @@ firstLevel:
   - title: Investigate security events
     url: /user-guide/cloud-siem/security-events.html
     thirdLevel:
-    - title: Research & Dashboards
+    - title: Research in Kibana
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
     - title: Drilldown links
       url: /user-guide/cloud-siem/drilldown-links/
-  - title: Investigate malicious IPs
-    url: /user-guide/cloud-siem/malicious-IPs.html
+  - title: Threat Intelligence feeds
+    url: /user-guide/cloud-siem/threat-intelligence.html
     thirdLevel:
-    - title: Threat Intelligence
-      url: /user-guide/cloud-siem/threat-intelligence.html
     - title: Add a private feed
       url: /user-guide/cloud-siem/private-feeds.html
-  - title: Manage security rules
+    - title: Preparing a feed
+      url: /user-guide/siem/ioc-types/
+  - title: Investigate malicious IPs
+    url: /user-guide/cloud-siem/malicious-IPs.html
+  - title: Configure a security rule
     url: /user-guide/cloud-siem/manage-security-rules.html
+    thirdLevel:
+    - title: Correlated rules
+      url: /user-guide/siem/security-correlated-queries/
+  - title: Dashboards & Reports
+    url: /user-guide/cloud-siem/dashboards/
   - title: Lookups
     url: /user-guide/lookups/
   - title: Integrations
@@ -132,7 +205,7 @@ firstLevel:
     - title: Integrate with Cortex xSOAR
       url: /user-guide/cloud-siem/xsoar-integration/
 
-
+  # ===== ADMIN =====
 - title: Admin
   icon: li-gear
   secondLevel:
@@ -158,10 +231,12 @@ firstLevel:
 
   - title: Regions
     url: /user-guide/accounts/account-region.html
-  - title: Account usage
+  - title: Data management
     url: /user-guide/accounts/manage-account-usage.html
 
     thirdLevel:
+    - title: Smart Tier
+      url: /user-guide/accounts/smart-tier/
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/
 
@@ -184,11 +259,15 @@ firstLevel:
   - title: Tokens
     url: /user-guide/tokens/
     thirdLevel:
-    - title: Manage log shipping tokens
+    - title: Log shipping tokens
       url: /user-guide/tokens/log-shipping-tokens/
-    - title: Manage shared tokens
+    - title: Metrics shipping token
+      url: /user-guide/accounts/finding-your-metrics-account-token/
+    - title: Distributed Tracing shipping token
+      url: /user-guide/accounts/finding-your-tracing-account-token/
+    - title: Shared tokens
       url: /user-guide/tokens/shared-tokens.html
-    - title: Manage API tokens
+    - title: API tokens
       url: /user-guide/tokens/api-tokens.html
 
   - title: Archive & restore
@@ -200,6 +279,8 @@ firstLevel:
         url: /user-guide/archive-and-restore/restore-archived-logs.html
       - title: Setting S3 permissions in AWS
         url: /user-guide/archive-and-restore/set-s3-permissions.html
+      - title: Setting permissions in Microsoft Azure
+        url: /user-guide/archive-and-restore/azure-blob-permissions/
 
 
   # ===== SHIPPING AND PARSING =====
@@ -233,14 +314,18 @@ firstLevel:
     thirdLevel:
       - title: Custom endpoints
         url: /user-guide/integrations/custom-endpoints.html
+      - title: Opsgenie notifications for resolved metrics alerts
+        url: /user-guide/integrations/resolved-metrics-alerts.html
   - title: Terraform Logz.io Provider
     url: /integrations/terraform/
+  - title: LightS - Light Synthetic Monitoring for AWS
+    url: /integrations/lights/
   - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html
   - title: Grafana data source plugin
     url: /integrations/grafana-data-source-plugin.html
 
-
+    # ===== API Reference =====
   - title: API reference
     url: /api/
   - title: API cookbook
@@ -253,7 +338,7 @@ firstLevel:
     - title: Backing up Kibana objects to GitHub
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
 
-# ===== MORE =====
+  # ===== MORE =====
 - title: ""
   secondLevel:
   - title: Blog

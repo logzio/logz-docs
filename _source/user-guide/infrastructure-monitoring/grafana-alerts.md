@@ -19,25 +19,15 @@ You can also add a condition so an alert holds off for a certain time before it 
 
 If you're running multiple servers for load balancing purposes, you'll be happy to know that Logz.io Metrics won't send duplicte alerts. A deduplication mechanism protects against that.
 
-### Resolved alerts
-
-For better alerts management and to help you focus only on active alerts, when a tracked metric returns to its accepted values (below the current alert threshold), you'll get notified automatically that the triggered alert was resolved. 
-
-Resolved alert notifications are available for Slack, PagerDuty, and email notification endpoints.
-
-### Acknowledged alerts
-
-To help you reduce the noise associated with receiving notifications for multiple instances of the same alert, you can use the Acknowledge status to assign the alert to a team member or to yourself, as well as manage alerts that are already under investigation (as determined by the ACK policy you manage in your notification software).
-
-When you receive an alert with the same alert ID, if the alert has the Acknowledge status, your notification endpoint will not repeat the notification.
-
-The Acknowledge status is available for the PagerDuty notification endpoint.
-
 ###### On this page
 {:.no_toc}
 
 1. toc list
 {:toc}
+
+
+### Adding Alerts
+Navigate to the Logz.io Infrastructure Monitoring **Metrics** tab.
 
 #### To add an alert
 {:.no_toc}
@@ -105,6 +95,13 @@ Next, set your alert conditions.
 
 ![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/alert-condition.png)
 
+**Grafana tags for alert Severity levels**
+
+Use Grafana tags as a Severity field for your alerts when integrating Grafana with PagerDuty as an alert notification endpoint.
+Follow the link for more information on <a href="https://grafana.com/docs/grafana/latest/alertinnotifications/#pagerduty" target="_blank"> the syntax for setting up Grafana tags for PagerDuty.  <i class="fas fa-external-link-alt"></i> </a>
+
+<!-- OpsGenie integration is coming too: Use tags as Priority fields for alerts when integrating Grafana withOpsGenie aas an alert notification endpoint.     Follow the link for more information on <a href="https:/grafana.com/docs/grafana/latest/alerting/notifications/" target="_blank"> the syntax for setting up Grafanatags for OpsGenie <i class="fas fa-external-link-alt"></i> </a> -->   
+
 ##### Add notifications
 
 If you want to send notifications or emails when the alert is triggered,
@@ -117,6 +114,26 @@ To limit how often recipients are notified - you'll need to scroll up to the **E
 When notifications are suppressed,
 your Metrics dashboard will show the orange marker on the graph, indicating that an alert is triggered, but not yet reached its notification threshold.
 {:.info-box.note}
+
+**Additional alert notifications**
+
++ _**Resolved alerts**_
+
+    For better alerts management and to help you focus only on active alerts, when a tracked metric returns to its    accepted values (below the current alert threshold), you'll get notified automatically that the triggered alert   was resolved. 
+
+    Resolved alert notifications are available for Slack, PagerDuty, Opsgenie, and email notification endpoints.
+
+    See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/    resolved-metrics-alerts.html) for more information.
+
++ _**Acknowledged alerts**_
+
+    To help you reduce the noise associated with receiving notifications for multiple instances of the same alert, you can use the Acknowledge status to assign the alert to a team member or to yourself, as well as manage alerts that are already under investigation (as determined by the ACK policy you manage in your notification software).
+
+    When you receive an alert with the same alert ID, if the alert has the Acknowledge status, your notification endpoint will not repeat the notification.
+
+    The Acknowledge status is available for the PagerDuty notification endpoint.
+ 
+
 
 ##### Save it!
 

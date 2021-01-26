@@ -30,7 +30,7 @@ For a complete list of options, see the parameters below the code block.👇
 ```shell
 docker run -d \
   --net="host" \
-  -e LOGZ_TOKEN="<<SHIPPING-TOKEN>>" \
+  -e LOGZ_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
   -e LISTENER="<<LISTENER-HOST>>:5000" \
   -e USER_TAG="workers" \
   -e HOSTNAME=`hostname` \
@@ -43,7 +43,7 @@ docker run -d \
 
 | Parameter | Description |
 |---|---|
-| LOGZ_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
+| LOGZ_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
 | LISTENER <span class="default-param">`listener.logz.io:5000`</span> | Your account's listener host and port. {% include log-shipping/replace-vars.html listener=true %} |
 | USER_TAG | Assigned to the `user_tag` field of each log entry. You can use this field to group various hosts into meaningful visualisations. One recommended use case for this variable is to denote the host role. |
 | HOSTNAME | Name of the host this container is monitoring. Assigned to the `syslog5424_host` field of each log entry. |

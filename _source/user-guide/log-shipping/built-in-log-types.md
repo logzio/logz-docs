@@ -24,6 +24,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 
 | Description           | Type                                       |
 |-----------------------|--------------------------------------------|
+| Alcide kAudit         | `alcide-kaudit` |
 | Apache access         | `apache`, `apache_access`, `apache-access` |
 | Auditd                | `auditd`                                   |
 | AWS CloudFront        | `cloudfront`                               |
@@ -49,8 +50,10 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Jenkins               | `jenkins`                                  |
 | Juniper                  | `juniper`                             |
 | Kafka                 | `kafka_server`                             |
+| Kubernetes                 | `k8s`                             |
 | Mcafee EPO            | `mcafee_epo`                                      |
 | Microsoft IIS         | `iis`                                      |
+| ModSecurity               | `modsecurity`                                  |
 | MongoDB               | `mongodb`                                  |
 | Monit                 | `monit`                                    |
 | MySQL                 | `mysql`                                    |
@@ -66,6 +69,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Palo Alto Networks    | `paloalto`                                  |
 | Performance-tab       | `performance-tab`                                  |
 | Sonicwall                | `sonicwall`                                  |
+| Sophos Intercept X       | `sophos-ep`                                  |
 | Stormshield                | `stormshield`                              |
 | Sysmon                | `wineventlog`                              |
 | VPC Flow           | `vpcflow`                             |

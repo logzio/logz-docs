@@ -77,7 +77,7 @@ curl https://localhost:9308/metrics
 
 ### Metricbeat monitoring setup
 
-{% include log-shipping/certificate.md server="to your Metricbeat server" %}
+{% include metric-shipping/certificate.md %}
 
 ##### Add Logz.io to your Metricbeat configuration
 
@@ -89,7 +89,7 @@ Copy and paste the code block below, overwriting the previous contents, to repla
 # ===== General =====
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
 
@@ -144,7 +144,7 @@ processors:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ignore_older: 3hr
 type: metrics
@@ -167,6 +167,6 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Kafka overview" %}
+{% include metric-shipping/open-dashboard.md title="Kafka overview" %}
 
 </div>

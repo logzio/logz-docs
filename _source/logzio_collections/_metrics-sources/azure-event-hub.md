@@ -80,7 +80,7 @@ You'll need this information later on, so paste it in your text editor.
 "password": "85a75902-e75a-5b55-9142-bbb317e0eb5a",
 ```
 
-{% include log-shipping/certificate.md server="to your Metricbeat server" %}
+{% include metric-shipping/certificate.md %}
 
 ##### (_Optional_) Disable the system module
 
@@ -121,7 +121,7 @@ metricbeat.modules:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ignore_older: 3hr
 type: metrics
@@ -130,7 +130,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{% include metric-shipping/azure-params.html %}
+{% include metric-shipping/azure-params.md %}
 
 {:.paramlist}
 
@@ -138,7 +138,7 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Azure Event hubs monitor" %}
+{% include metric-shipping/open-dashboard.md title="Azure Event hubs monitor" %}
 
 
 </div>

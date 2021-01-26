@@ -46,21 +46,18 @@ If you're on a Mac or Linux machine, you can install the package using Visual St
 ##### Configure the appender
 
 You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs.
+Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [log4net documentation 🔗](https://github.com/apache/logging-log4net) to learn more about configuration options.
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-  See the [log4net documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the log4net configuration file.
-  {:.info-box.read}
-
-_Option 1: In a configuration file_
+###### Option 1: In a configuration file
 
 ```xml
 <log4net>
   <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
 
     <!-- Replace these parameters with your configuration -->
-    <token><<SHIPPING-TOKEN>></token>
+    <token><<LOG-SHIPPING-TOKEN>></token>
     <type>log4net</type>
     <listenerUrl><<LISTENER-HOST>>:8071</listenerUrl>
     <bufferSize>100</bufferSize>
@@ -79,14 +76,15 @@ _Option 1: In a configuration file_
 </log4net>
 ```
 
-_Option 2: In the code_
+
+###### Option 2: In the code
 
 ```csharp
 var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 
 // Replace these parameters with your configuration
-logzioAppender.AddToken("<<SHIPPING-TOKEN>>");
+logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddType("log4net");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>:8071");
 logzioAppender.AddBufferSize("100");
@@ -102,18 +100,19 @@ hierarchy.Configured = true;
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
-| listenerUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
-| type <span class="default-param">`log4net`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| bufferSize <span class="default-param">`100`</span> | Maximum number of messages the logger will accumulate before sending them all as a bulk. |
-| bufferTimeout <span class="default-param">`00:00:05`</span> | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. |
-| retriesMaxAttempts <span class="default-param">`3`</span> | Maximum number of attempts to connect to Logz.io. |
-| retriesInterval <span class="default-param">`00:00:02`</span> | Time to wait between retries, as _hh:mm:ss.fff_. |
-| gzip <span class="default-param">`false`</span>| To compress the data before shipping, `true`. Otherwise, `false`. |
-| debug <span class="default-param">`false`</span> | To print debug messsages to the console and trace log, `true`. Otherwise, `false`. |
-{:.paramlist}
+| Parameter | Description | Default/Required |
+|---|---|---|
+| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} | Required |
+| listenerUrl  | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} | `https://listener.logz.io:8071` |
+| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
+| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
+| retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
+| retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
+| gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
+
+
 
 ###### Code sample
 
@@ -212,14 +211,12 @@ If you’re on a Mac or Linux machine, you can install the package using Visual 
 ##### Configure the appender
 
 You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs.
+Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [NLog documentation 🔗](https://github.com/NLog/NLog/wiki/Configuration-file) to learn more about configuration options.
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-  See the [NLog documentation](https://github.com/NLog/NLog/wiki/Configuration-file) for more information on the NLog configuration file.
-  {:.info-box.read}
 
-_Option 1: In a configuration file_
+###### Option 1: In a configuration file
 
 ```xml
 <nlog>
@@ -230,7 +227,7 @@ _Option 1: In a configuration file_
 
     <!-- Replace these parameters with your configuration -->
     <target name="logzio" type="Logzio"
-      token="<<SHIPPING-TOKEN>>"
+      token="<<LOG-SHIPPING-TOKEN>>"
       logzioType="nlog"
       listenerUrl="<<LISTENER-HOST>>:8071"
       bufferSize="100"
@@ -249,7 +246,8 @@ _Option 1: In a configuration file_
 </nlog>
 ```
 
-_Option 2: In the code_
+###### Option 2: In the code
+
 
 ```csharp
 var config = new LoggingConfiguration();
@@ -257,7 +255,7 @@ var config = new LoggingConfiguration();
 // Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
   Name = "Logzio",
-  Token = "<<SHIPPING-TOKEN>>",
+  Token = "<<LOG-SHIPPING-TOKEN>>",
   LogzioType = "nlog",
   ListenerUrl = "<<LISTENER-HOST>>:8071",
   BufferSize = 100,
@@ -272,19 +270,21 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
 LogManager.Configuration = config;
 ```
 
+
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
-| listenerUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
-| logzioType <span class="default-param">`nlog`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| bufferSize <span class="default-param">`100`</span> | Maximum number of messages the logger will accumulate before sending them all as a bulk. |
-| bufferTimeout <span class="default-param">`00:00:05`</span> | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. |
-| retriesMaxAttempts <span class="default-param">`3`</span> | Maximum number of attempts to connect to Logz.io. |
-| retriesInterval <span class="default-param">`00:00:02`</span> | Time to wait between retries, as _hh:mm:ss.fff_. |
-| debug <span class="default-param">`false`</span> | To print debug messsages to the console and trace log, `true`. Otherwise, `false`. |
-{:.paramlist}
+
+| Parameter | Description | Default/Required |
+|---|---|---|
+| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} | Required |
+| listenerUrl  | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} | `https://listener.logz.io:8071` |
+| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
+| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
+| retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
+| retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
+
 
 ###### Code sample
 
@@ -317,15 +317,15 @@ namespace LogzioNLogSampleApplication
 }
 ```
 
-### Context properties
+### Include context properties
 
-You can configure the target to include your own custom values when forwarding to Logz.io. For example:
+You can configure the target to include your own custom values when forwarding logs to Logz.io. For example:
 
 ```xml
 <nlog>
   <variable name="site" value="New Zealand" />
   <variable name="rings" value="one" />
-  <target name="logzio" type="Logzio" token="<<SHIPPING-TOKEN>>">
+  <target name="logzio" type="Logzio" token="<<LOG-SHIPPING-TOKEN>>">
     <contextproperty name="site" layout="${site}" />
     <contextproperty name="rings" layout="${rings}" />
   </target>

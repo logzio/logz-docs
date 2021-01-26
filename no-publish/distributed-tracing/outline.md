@@ -103,6 +103,6 @@ Tell me MORE!
 
 | Parameter | Description |
 |---|---|
-| param1 <span class="required-param"></span> | Include this span if parameter is required. Required params are always at the top of the list, with rare exception. |
+| param1 (Required) | Include this span if parameter is required. Required params are always at the top of the list, with rare exception. |
 | param2 <span class="default-param">`"default value"`</span> | If there's a default, include it here. <br> If you need a line break, hard code it. |
 {:.paramlist}

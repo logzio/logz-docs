@@ -139,8 +139,6 @@ spec:
           value: json
         - name: LOGZIO_TYPE
           value: filebeat
-        - name: FIELDS_UNDER_ROOT
-          value: "true"
         securityContext:
           runAsUser: 0
         resources:

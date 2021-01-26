@@ -41,7 +41,7 @@ If your environment requires a custom configuration, follow the steps for deploy
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
 
 Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
 For more information on finding your account's region,
@@ -49,7 +49,7 @@ see [Account region](https://docs.logz.io/user-guide/accounts/account-region.htm
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
---from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+--from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
 --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
 -n kube-system
 ```
@@ -91,7 +91,7 @@ This is done using a ConfigMap that overwrites the default DaemonSet.
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. 
+Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. 
 
 
 Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
@@ -100,7 +100,7 @@ see [Account region](https://docs.logz.io/user-guide/accounts/account-region.htm
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
---from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+--from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
 --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
 -n kube-system
 ```
@@ -112,20 +112,22 @@ Download Logz.io's [Containerd Daemonset](https://raw.githubusercontent.com/logz
 
 Open the file in your text editor and customize the integration environment variables. The available parameters and their defaults are shown below.
 
-**Parameters**
+###### Parameters
 
-| Parameter | Description |
-|---|---|
-| output_include_time | **Default**: `true` <br>  To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. |
-| LOGZIO_BUFFER_TYPE | **Default**: `file` <br>  Specifies which plugin to use as the backend. |
-| LOGZIO_BUFFER_PATH | **Default**: `/var/log/Fluentd-buffers/stackdriver.buffer` <br>  Path of the buffer. |
-| LOGZIO_OVERFLOW_ACTION | **Default**: `block` <br>  Controls the behavior when the queue becomes full. |
-| LOGZIO_CHUNK_LIMIT_SIZE | **Default**: `2M` <br>  Maximum size of a chunk allowed |
-| LOGZIO_QUEUE_LIMIT_LENGTH | **Default**: `6` <br>  Maximum length of the output queue. |
-| LOGZIO_FLUSH_INTERVAL | **Default**: `5s` <br>  Interval, in seconds, to wait before invoking the next buffer flush. |
-| LOGZIO_RETRY_MAX_INTERVAL | **Default**: `30s` <br>  Maximum interval, in seconds, to wait between retries. |
-| LOGZIO_FLUSH_THREAD_COUNT | **Default**: `2` <br>  Number of threads to flush the buffer. |
-| LOGZIO_LOG_LEVEL | **Default**: `info` <br> The log level for this container. |
+| Parameter | Description | Default |
+|---|---|---|
+| output_include_time | To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. | `true` |
+| LOGZIO_BUFFER_TYPE | Specifies which plugin to use as the backend. | `file` |
+| LOGZIO_BUFFER_PATH | Path of the buffer. | `/var/log/Fluentd-buffers/stackdriver.buffer` |
+| LOGZIO_OVERFLOW_ACTION | Controls the behavior when the queue becomes full. | `block` |
+| LOGZIO_CHUNK_LIMIT_SIZE | Maximum size of a chunk allowed | `2M` |
+| LOGZIO_QUEUE_LIMIT_LENGTH | Maximum length of the output queue. | `6` |
+| LOGZIO_FLUSH_INTERVAL | Interval, in seconds, to wait before invoking the next buffer flush. | `5s` |
+| LOGZIO_RETRY_MAX_INTERVAL | Maximum interval, in seconds, to wait between retries. | `30s` |
+| LOGZIO_FLUSH_THREAD_COUNT | Number of threads to flush the buffer. | `2` |
+| LOGZIO_LOG_LEVEL | The log level for this container. | `info` |
+
+
 
 ##### Deploy the DaemonSet
 
@@ -148,7 +150,7 @@ see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/
 
 To suppress Fluentd system messages, set the environment variable `FLUENTD_SYSTEMD_CONF` to `disable` in your Kubernetes environment.
 
-### Disable Prometheus input plugins
+### Disabling Prometheus input plugins
 
 By default, the latest images launch `prometheus` plugins to monitor Fluentd.
 If you'd like to disable the Prometheus input plugin, set the environment variable `FLUENTD_PROMETHEUS_CONF` to `disable` in your Kubernetes configuration.

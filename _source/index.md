@@ -11,18 +11,18 @@ cards:
     # icon: blocks.svg
 
   - title: Send your data
-    description: All the different ways you can feed the ELK machine
+    description: All the different ways to send your data to Logz.io
     url: /shipping/
     li-class: li-plane
 
   - title: Kibana
-    description: Stay on top of your logs with rich visualizations and dashboards
+    description: Stay on top of your logs with rich visualizations
     url: /user-guide/kibana/
     li-class: li-bar-graph
 
-  - title: Insights
-    description: Use AI-powered Insights to find patterns and potential issues in your logs
-    url: /user-guide/insights/
+  - title: Exceptions
+    description: Logz.io AI helps you identify exceptions in your logs
+    url: /user-guide/insights/exceptions/
     li-class: li-eye
 
   - title: API
@@ -31,14 +31,14 @@ cards:
     li-class: li-code
 
   - title: Alerting
-    description: Set up alerts for critical events or flag notable events for review
+    description: Set up alerts to get notified of critical events in your logs
     url: /user-guide/alerts/
     li-class: li-bell
 
-  - title: Live Tail
-    description: See your incoming logs in real time
-    url: /user-guide/live-tail/
-    li-class: li-signal
+  - title: Your accounts
+    description: Manage your accounts & optimize costs
+    url: /user-guide/accounts/
+    li-class: li-gear
 
 half-cards:
   - title: Free trial

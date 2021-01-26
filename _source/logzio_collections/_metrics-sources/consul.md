@@ -94,7 +94,7 @@ Still in the same configuration file, copy and paste the code block below with t
 # ===== General =====
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
 
@@ -148,7 +148,7 @@ The final metricbeat.yml file should look like this:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ignore_older: 3hr
 type: metrics
@@ -162,6 +162,6 @@ output.logstash:
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="Consul" %}
+{% include metric-shipping/open-dashboard.md title="Consul" %}
 
 </div>

@@ -34,7 +34,7 @@ Copy and paste the code block below, overwriting the previous contents, to repla
 # ===== General =====
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
 {% include metric-shipping/replace-metrics-token.html %}
@@ -70,7 +70,7 @@ processors:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ignore_older: 3hr
 type: metrics
@@ -98,6 +98,6 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 Start or restart Metricbeat for the changes to take effect.
 
-{% include metric-shipping/open-dashboard.html title="MongoDB" %}
+{% include metric-shipping/open-dashboard.md title="MongoDB" %}
 
 </div>

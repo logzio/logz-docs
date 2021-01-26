@@ -12,35 +12,17 @@ shipping-tags:
   - ci-cd
 ---
 
-## Setup
-
-<details>
-
-<summary>
-Configuration tl;dr
-</summary>
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
-| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Default log locations | If installed from Omnibus packages: `/var/log/gitlab/...` <br> If installed from source: `/home/git/gitlab/log/...` <br> _See [Log system](https://docs.gitlab.com/ee/administration/logs.html) from GitLab for more information._ |
-| Log type | Production, JSON: `gitlab-production-json` <br> Production, plain text: `gitlab-production` <br> API: `gitlab-api-json` <br> Application: `gitlab-application` |
-{:.paramlist}
-
-</details>
-
 #### Configuration
 
 **Before you begin, you'll need**:
 
 * [GitLab](https://about.gitlab.com/installation/) locally installed
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
+* Port 5015 open
 
 <div class="tasklist">
 
-{% include log-shipping/certificate.md server="to your Filebeat server" %}
+{% include log-shipping/certificate.md %}
 
 ##### Add GitLab as an input
 
@@ -49,7 +31,7 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add GitLab to t
 GitLab has an advanced logging framework that ships a variety of different system logs.
 We recommend reading [Log system](https://docs.gitlab.com/ee/administration/logs.html) from GitLab and modifying the Filebeat sample configuration according to your needs.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...
@@ -60,9 +42,9 @@ filebeat.inputs:
   fields:
     logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-production-json
   fields_under_root: true
   encoding: utf-8
@@ -74,9 +56,9 @@ filebeat.inputs:
   fields:
     logzio_codec: plain
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-production
   fields_under_root: true
   encoding: utf-8
@@ -88,9 +70,9 @@ filebeat.inputs:
   fields:
     logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-api-json
   fields_under_root: true
   encoding: utf-8
@@ -102,9 +84,9 @@ filebeat.inputs:
   fields:
     logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
     type: gitlab-application
   fields_under_root: true
   encoding: utf-8
@@ -136,6 +118,22 @@ If you're running Filebeat 6, paste this code block.
 # ... For Filebeat 6 only ...
 registry_file: /var/lib/filebeat/registry
 ```
+
+###### Preconfigured log types
+
+* Production logs in JSON format: `gitlab-production-json`
+* Production logs in plain text: `gitlab-production`
+* API logs: `gitlab-api-json`
+* Application logs: `gitlab-application`
+
+The log type is used to apply the appropriate Logz.io preconfigured parsing pipeline so that your logs will be automatically parsed.
+
+The default path to the logs differs, depending on how you've installed GitLab:
+
+* If installed from Omnibus packages, the default path is: `/var/log/gitlab/...`
+* If installed from source: `/home/git/gitlab/log/...`
+
+Refer to GitLab Docs to learn more about the [Log system](https://docs.gitlab.com/ee/administration/logs.html).
 
 ##### Set Logz.io as the output
 

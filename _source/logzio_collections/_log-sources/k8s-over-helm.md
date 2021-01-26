@@ -1,8 +1,8 @@
 ---
 title: Ship k8s logs with Helm via Filebeat
 logo:
-  logofile: kubernetes.svg
-  orientation: vertical
+  logofile: k8s-helm.svg
+  orientation: horizontal
 data-source: Kubernetes over Helm
 templates: ["k8s-daemonset"]
 open-source:
@@ -28,6 +28,10 @@ For further information about Filebeat's autodiscover please see [Elastic's docu
 * [Helm CLI](https://helm.sh/docs/intro/install/) installed
 * Allow outgoing traffic to destination port 5015
 
+Helm 2 will reach [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-released/#:~:text=6%20months%20after%20Helm%203's,Helm%202%20will%20formally%20end). This document follows the command syntax recommended for Helm 3, but the Chart will work with both Helm 2 and Helm 3.
+{:.info-box.note}
+
+
 <div class="branching-container">
 * [Standard configuration](#standard-config)
 * [Autodiscover](#custom-config)
@@ -51,7 +55,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/filebeat
 
 ##### Deploy
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
 
 Replace `<<LISTENER-REGION>>` with your region’s code (for example, `eu`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
@@ -59,7 +63,7 @@ Replace `<<CLUSTER-NAME>>` with your cluster's name.
 
 ```shell
 helm install --namespace=kube-system \
---set secrets.logzioShippingToken='<<SHIPPING-TOKEN>>' \
+--set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
 --set secrets.logzioRegion='<<LISTENER-REGION>>' \
 --set secrets.clusterName='<<CLUSTER-NAME>>' \
 logzio-k8s-logs logzio-helm/logzio-k8s-logs
@@ -91,7 +95,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/filebeat
 
 In the following commands, make the following changes:
 
-* Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+* Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
 
 * Replace `<<LISTENER-REGION>>` with your region’s code (for example, `eu`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
@@ -102,7 +106,7 @@ This Daemonset's default autodiscover configuration is [hints based](https://www
 ```shell
 helm install --namespace=kube-system \
 --set configType='autodiscover' \
---set secrets.logzioShippingToken='<<SHIPPING-TOKEN>>' \
+--set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
 --set secrets.logzioRegion='<<LISTENER-REGION>>' \
 --set secrets.clusterName='<<CLUSTER-NAME>>' \
 logzio-k8s-logs logzio-helm/logzio-k8s-logs
@@ -113,7 +117,7 @@ If you have a custom configuration, deploy with:
 ```shell
 helm install --namespace=kube-system \
 --set configType='auto-custom' \
---set secrets.logzioShippingToken='<<SHIPPING-TOKEN>>' \
+--set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
 --set secrets.logzioRegion='<<LISTENER-REGION>>' \
 --set secrets.clusterName='<<CLUSTER-NAME>>' \
 --set-file filebeatConfig.autoCustomConfig=/path/to/your/config.yaml \
@@ -189,6 +193,7 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 | `daemonset.resources` | Sets the resources for Filebeat Daemonset. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
 | `daemonset.volumes` | Templatable string of additional `volumes` to be passed to the DaemonSet. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
 | `daemonset.volumeMounts` | Templatable string of additional `volumeMounts` to be passed to the DaemonSet. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
+| `daemonset.tolerations` | Set [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) for all DaemonSet pods. | `{}` |
 | `secrets.logzioShippingToken`| Secret with your logzio shipping token. | `""` |
 | `secrets.logzioRegion`| Secret with your [logzio region](https://docs.logz.io/user-guide/accounts/account-region.html). Defaults to US East. | `" "` |
 | `secrets.clusterName`| Secret with your cluster name. | `""` |

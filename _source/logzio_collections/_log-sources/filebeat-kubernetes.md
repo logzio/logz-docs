@@ -1,68 +1,129 @@
 ---
-title: Ship Kubernetes logs
+title: Ship Kubernetes logs using a Filebeat DaemonSet
 logo:
-  logofile: kubernetes.svg
-  orientation: vertical
-data-source: Kubernetes
+  logofile: k8s-beats.svg
+  orientation: horizontal
+data-source: Filebeat DaemonSet for Kubernetes
 templates: ["no-template", "no-template"]
 shipping-tags:
   - container
 ---
-<!-- tabContainer:start -->
-<div class="branching-container">
 
-<!-- tab:start -->
-<div id="standard-config">
+This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your cluster and ship them to Logz.io.
+
+You have 3 options for deploying this Daemonset:
+
+* Standard configuration
+* Autodiscover configuration - the standard configuration which also uses Filebeat's autodiscover and hints system
+* Custom configuration - upload a Logz.io Daemonset with your own configuration
+
+
+#### Deploy Filebeat as a DaemonSet on Kubernetes
+
+<div class="tasklist">
 
 **Before you begin, you'll need**:
 
 * Destination port 5015 open on your firewall for outgoing traffic
 
-#### Deploy
+##### Store your Logz.io credentials
 
+Save your Logz.io shipping credentials as a Kubernetes secret.
 
-#### 1. Store your Logz.io credentials
+Customize the command to your specifics:
 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
-
-Replace `<<LISTENER-HOST>>` associated to your region (for example, `listener.logz.io` is associated to `US East` region  ). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
-
-Replace `<<CLUSTER-NAME>>` with your cluster's name. If you manage Kubernetes in AWS or Azure,
-you can find it in your admin console. Otherwise, you can run this command: `kubectl cluster-info`
+{% include log-shipping/log-shipping-token-bullet.html %}
+* {% include log-shipping/replace-vars.html listener=true %}
+* Replace `<<CLUSTER-NAME>>` with your cluster's name. If you manage Kubernetes in AWS or Azure, you can find it in your admin console. Alternatively, you can run the following to obtain your cluster name: `kubectl cluster-info`
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
-  --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+  --from-literal=logzio-logs-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
   --from-literal=logzio-logs-listener='<<LISTENER-HOST>>' \
   --from-literal=cluster-name='<<CLUSTER-NAME>>' \
   -n kube-system
 ```
 
-#### 2. deploy
+##### Deploy
 
-##### For standard configuration deployment:
+Run the relevant command for your type of deployment.
+
+###### Deploy the standard configuration
+
 ```shell
- kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
+kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
-##### For autodiscover configuration deployment:
+###### Deploy the autodiscover standard configuration
+
+Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running. See Elastic documentation to [learn more about Filebeat Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
+
 ```shell
  kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-autodiscovery-configuration.yaml
 ```
 
-##### If you want to apply  your one custom configuration:
-Download standard-configmap.yaml and apply your changes there, make sure that you will have the same structure of the file.
-  
+###### Deploy a custom configuration
+
+If you want to apply your own custom configuration, download the standard-configmap.yaml and apply your changes. Make sure to keep the file structure unchanged.
+
+Run the following command to download the file:
+
 ```shell
-kubectl apply -f /Users/fadikhatib/logzio/integration-team/logz-docs/_source/logzio_collections/_log-sources/standard-filebeat-daemonset.yaml -f <<Your-custom-configuration-file.yaml>>
+wget https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
-#### 3. Check Logz.io for your logs
-Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
+Apply your custom configuration to the paramaters under `filebeat.yml` and only there. The filebeat.yml field contains a basic Filebeat configuration. You should not change the 'output' field (indicated in the example below). See Elastic documentation to [learn more about Filebeat configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html).
 
+**Note**
+Make sure to keep ``token: ${LOGZIO_LOGS_SHIPPING_TOKEN}`` under ``fields``, as it determines the token used to verify your logz.io account.
+
+```
+filebeat.yml: |-
+
+  # ...
+  # Start editing your configuration here
+  filebeat.inputs:
+  - type: container
+    paths:
+      - /var/log/containers/*.log
+    processors:
+      - add_kubernetes_metadata:
+          host: ${NODE_NAME}
+          matchers:
+          - logs_path:
+              logs_path: "/var/log/containers/"
+
+  processors:
+    - add_cloud_metadata: ~
+  # ...
+  # Do not edit anything beyond this point. (Do not change 'fields' and 'output'.)
+
+  fields:
+    logzio_codec: ${LOGZIO_CODEC}
+    token: ${LOGZIO_LOGS_SHIPPING_TOKEN}
+    cluster: ${CLUSTER_NAME}
+    type: ${LOGZIO_TYPE}
+  fields_under_root: true
+  ignore_older: ${IGNORE_OLDER}
+  output:
+    logstash:
+      hosts: ["${LOGZIO_LOGS_LISTENER_HOST}:5015"]
+      ssl:
+        certificate_authorities: ['/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt']
+```
+
+Run the following to deploy your custom Filebeat configuration:
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f <<Your-custom-configuration-file.yaml>>
+```
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours,
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs,
+see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
-<!-- tab:end -->
-
-</div>
-<!-- tabContainer:end -->

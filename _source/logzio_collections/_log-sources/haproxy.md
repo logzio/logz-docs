@@ -58,7 +58,7 @@ listen INPUT_NAME_TCP
 
 Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/replace-vars.html listener=true %}
 
@@ -81,7 +81,7 @@ $PrivDropToGroup syslog
 $WorkDirectory /var/spool/rsyslog
 
 # the logz.io syslog template,
-$template HAProxyLogzioFormat,"[<<SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
+$template HAProxyLogzioFormat,"[<<LOG-SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
 
 # Send messages to Logz over TCP using the template.
 *.* @@<<LISTENER-HOST>>:5000;HAProxyLogzioFormat

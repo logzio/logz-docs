@@ -4,7 +4,7 @@ title: Tokens
 permalink: /user-guide/tokens/
 flags:
   admin: true
-  logzio-plan: pro
+  logzio-plan: community
 tags:
   - tokens
   - api-tokens
@@ -24,18 +24,18 @@ You will need to be an account admin to create, delete, or access your tokens.
 The type of token you use depends on what you're trying to do.
 Read on to see your options.
 
-### Send logs to your account
+### Send data to your account
 
-The short answer: **Log shipping token**
+The short answer: **Log shipping token** or **Metrics shipping token**
 
-The Log shipping token tells Logz.io which account to send your data to.
-Every account has its own set of tokens.
-
-To manage your log shipping tokens, select an account. Then select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) in the top menu and select the **Log shipping tokens** tab.
+The shipping token tells Logz.io which account to send your data to.
+Every account has its own tokens.
 
 You can click any **Token** to copy it with one-click.
 
-* For more information on [managing log shipping tokens]({{site.baseurl}}/user-guide/tokens/log-shipping-tokens/)
+* Learn more about managing your [Log shipping tokens]({{site.baseurl}}/user-guide/tokens/log-shipping-tokens/)
+* Learn more about your [Metrics shipping token]({{site.baseurl}}/user-guide/accounts/finding-your-metrics-account-token/)
+
 
 ### Share dashboards and more
 
@@ -64,7 +64,7 @@ To manage your API tokens, select [**<i class="li li-gear"></i> > Tools > Manage
 
 ## About token permissions
 
-Token permissions are scoped to the account they're created in.
+Tokens are account-specific. This means their permissions are scoped to the account they are created in.
 If you change your account permissions, tokens respect the updated permissions.
 
 For example, if you create an API token in your main account, it can be used to search the data indexed in the main account and any of the sub accounts by default.

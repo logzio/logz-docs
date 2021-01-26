@@ -19,14 +19,15 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Using Metricbeat <span class="sm ital">(recommended)</span>](#metricbeat-config)
+* [Using Metricbeat <span class="sm ital">(recommended)</span> - Linux/MacOS](#metricbeat-config-unix)
+* [Using Metricbeat <span class="sm ital">(recommended)</span> - Windows](#metricbeat-config-win)
 * [Using Docker](#docker-config)
 {:.branching-tabs}
 
 <!-- tab:start -->
-<div id="metricbeat-config">
+<div id="metricbeat-config-unix">
 
-#### Metricbeat setup
+#### Metricbeat setup - Linux/MacOS
 
 **Before you begin, you'll need**:
 [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/7.1/metricbeat-installation.html) or higher
@@ -37,7 +38,7 @@ shipping-tags:
 
 ##### Add Logz.io configuration
 
-Replace the General configuration with Logz.io settings.
+Replace the General configuration in `metricbeat.yml` with Logz.io settings.
 
 {% include metric-shipping/replace-metrics-token.html %}
 
@@ -45,7 +46,7 @@ Replace the General configuration with Logz.io settings.
 # ===== General =====
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<METRICS-SHIPPING-TOKEN>>
 fields_under_root: true
 ```
 
@@ -78,6 +79,79 @@ If you installed Metricbeat from a package manager, this directory is under `/et
 ##### Start Metricbeat
 
 Start or restart Metricbeat for the changes to take effect.
+
+##### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="metricbeat-config-win">
+
+#### Metricbeat setup - Windows
+
+**Before you begin, you'll need**:
+[Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/7.1/metricbeat-installation.html#win) or higher
+
+<div class="tasklist">
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+
+Download the
+[Logz.io public certificate]({% include log-shipping/certificate-path.md %})
+to `C:\ProgramData\metricbeat\COMODORSADomainValidationSecureServerCA.crt`
+on your machine.
+
+##### Add Logz.io configuration
+
+Replace the General configuration in `metricbeat.yml` with Logz.io settings.
+
+{% include metric-shipping/replace-metrics-token.html %}
+
+```yaml
+# ===== General =====
+fields:
+  logzio_codec: json
+  token: <<METRICS-SHIPPING-TOKEN>>
+fields_under_root: true
+```
+
+##### Set Logz.io as the output
+
+If Logz.io is not an output, add it now.
+Remove all other outputs.
+
+{% include log-shipping/replace-vars.html listener=true %}
+
+```yaml
+# ===== Outputs =====
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+    ssl.certificate_authorities: ['C:\ProgramData\metricbeat\COMODORSADomainValidationSecureServerCA.crt']
+```
+
+##### _(If needed)_ Enable the system module
+
+The system module is enabled by default.
+If you've disabled it for any reason, open powershell re-enable it now.
+
+```powershell
+PS > .\metricbeat.exe modules enable system
+```
+
+You can change the metrics collected by Metricbeat by modifying `modules.d\system.yml` in the metricbeat installation folder.
+
+##### Start Metricbeat
+
+Start or restart Metricbeat for the changes to take effect.
+
+```powershell
+PS C:\Program Files\metricbeat> Start-Service metricbeat
+```
 
 ##### Check Logz.io for your metrics
 
@@ -134,7 +208,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker run --name docker-collector-metrics \
---env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_TOKEN="<<METRICS-SHIPPING-TOKEN>>" \
 --env LOGZIO_MODULES="system" \
 --volume="/var/run/docker.sock:/var/run/docker.sock:ro" \
 --volume="/sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro" \
@@ -148,17 +222,17 @@ logzio/docker-collector-metrics
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | {% include metric-shipping/replace-metrics-token.html %} |
-| LOGZIO_MODULES <span class="required-param"></span> | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/modules`. |
-| LOGZIO_REGION <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value. <br> In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
+| LOGZIO_TOKEN (Required) | {% include metric-shipping/replace-metrics-token.html %} |
+| LOGZIO_MODULES (Required) | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/modules`. |
+| LOGZIO_REGION <span class="default-param">_Blank (US East)_</span> | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs]({{site.baseurl}}/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| LOGZIO_TYPE <span class="default-param">`docker-collector-metrics`</span> | This field is needed only if you're shipping metrics to Kibana and you want to override the default value.    In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |
 | LOGZIO_LOG_LEVEL <span class="default-param">`"INFO"`</span> | The log level the module startup scripts will generate. |
-| LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`). <br> To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
-{% include metric-shipping/debug-param.html %}
+| LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`).    To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |
+{% include metric-shipping/debug-param.md %}
 | HOSTNAME <span class="default-param">``</span> | Insert your host name if you want it to appear in the metrics' `host.name`. If null, host.name will show the container's ID. |
 {:.paramlist}
 
-{% include metric-shipping/open-dashboard.html title="System Metrics" %}
+{% include metric-shipping/open-dashboard.md title="System Metrics" %}
 
 </div>
 

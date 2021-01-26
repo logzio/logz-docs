@@ -52,7 +52,7 @@ import (
 func main() {
   // Replace these parameters with your configuration
   l, err := logzio.New(
-    "<<SHIPPING-TOKEN>>",
+    "<<LOG-SHIPPING-TOKEN>>",
     logzio.SetDebug(os.Stderr),
     logzio.SetUrl("<<LISTENER-HOST>>:8071"),
     logzio.SetDrainDuration(time.Second * 5),
@@ -74,8 +74,8 @@ func main() {
 
 | Parameter | Description |
 |---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
-| SetUrl <span class="required-param"></span> <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| token (Required) | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} |
+| SetUrl (Required) <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/replace-vars.html listener=true %} |
 | SetDebug <span class="default-param">`false`</span> | Debug flag. |
 | SetDrainDuration <span class="default-param">`5 * time.Second`</span> | Time to wait between log draining attempts. |
 | SetTempDirectory | Filepath where the logs are buffered. |

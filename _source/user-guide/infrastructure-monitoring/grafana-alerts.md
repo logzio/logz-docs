@@ -123,7 +123,7 @@ your Metrics dashboard will show the orange marker on the graph, indicating that
 
     Resolved alert notifications are available for Slack, PagerDuty, Opsgenie, and email notification endpoints.
 
-    See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/    resolved-metrics-alerts.html) for more information.
+    See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/resolved-metrics-alerts.html) for more information.
 
 + _**Acknowledged alerts**_
 

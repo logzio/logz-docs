@@ -15,7 +15,8 @@ shipping-tags:
 <div class="branching-container">
 
 * [Rsyslog over TLS](#rsyslog-tls)
-* [Rsyslog](#rsyslog)
+* [Automatic configuration](#rsyslog-auto)
+* [Manual configuration](#rsyslog-manual)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -101,8 +102,8 @@ if $programname == 'TYPE' then ~
 
 Replace the following in the above code sample to match your specifics:
 
-* <<PATH_TO_FILE>>: Path to your file or directory.
-* <<TYPE>>: {% include log-shipping/type.md %}
+* `<<PATH_TO_FILE>>`: Path to your file or directory.
+* `<<TYPE>>`: {% include log-shipping/type.md %}
 {% include log-shipping/log-shipping-token-bullet.html %}
 * {% include log-shipping/replace-vars.html listener=true %}
 
@@ -117,14 +118,14 @@ sudo service rsyslog restart
 
 Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana). 
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see our [rsyslog troubleshooting guide](https://support.logz.io/hc/en-us/articles/209486069-Troubleshooting-Rsyslog-Failed-to-install).
 
 </div>
 </div>
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="rsyslog">
+<div id="rsyslog-auto">
 
 ###### Shipping log files or directories using rsyslog
 
@@ -148,28 +149,45 @@ You can configure rsyslog to monitor a log file. It can monitor a single log fil
 
 ##### Configure your rsyslog daemon
 
+###### If your are monitoring plain-text logs
+
 Run the following in order to configure your rsyslog daemon to monitor a log file or directory.
 
 ```
-curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "PATH_TO_FILE" -tag "TYPE" 
+curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "<<PATH_TO_FILE>>" -tag "<<TYPE>>" 
 ```
 
+
+###### If your are monitoring JSON logs
 
 Run the following to configure your rsyslog daemon to monitor JSON log files.  Each log will need to be a single JSON line that ends with a new line.
 
 
 ```
-curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "PATH_TO_FILE" -tag "TYPE" -c json
+curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "<<PATH_TO_FILE>>" -tag "<<TYPE>>" -c json
 ```
 
 Replace the following in the above code sample to match your specifics:
 
-* <<PATH_TO_FILE>>: Path to your file or directory.
-* <<TYPE>>: {% include log-shipping/type.md %}
+* `<<PATH_TO_FILE>>`: Path to your file or directory.
+* `<<TYPE>>`: {% include log-shipping/type.md %}
 {% include log-shipping/log-shipping-token-bullet.html %}
 * {% include log-shipping/replace-vars.html listener=true %}
 
-# Manual Configuration
+
+
+
+</div>
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="rsyslog-manual">
+
+#### Manual Configuration
+
+<div class="tasklist">
 
 ##### Configure rsyslog file spooling
 
@@ -201,7 +219,7 @@ $PrivDropToGroup adm
 $WorkDirectory /var/spool/rsyslog
 
 # File access file:
-$InputFileName PATH_TO_FILE
+$InputFileName <<PATH_TO_FILE>>
 $InputFileTag TYPE:
 $InputFileStateFile stat-TYPE
 $InputFileSeverity info
@@ -225,7 +243,7 @@ sudo service rsyslog restart
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana). 
+Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs, see our [rsyslog troubleshooting guide](https://support.logz.io/hc/en-us/articles/209486069-Troubleshooting-Rsyslog-Failed-to-install).
 

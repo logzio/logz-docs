@@ -185,6 +185,22 @@ Replace the following in the above code sample to match your specifics:
 <!-- tab:start -->
 <div id="rsyslog-manual">
 
+###### Shipping log files or directories using rsyslog
+
+Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
+
+You can configure rsyslog to monitor a log file. It can monitor a single log file or directory, and ship them over to Logz.io. In case of directory all first level files will be monitored.
+
+
+#### Configuration
+
+**Before you begin, you'll need**:
+
+* Sudo access
+* Rsyslog version 5.8.0 and above
+* Outgoing TCP traffic to destination port 5000 allowed
+* A common linux distribution
+
 #### Manual Configuration
 
 <div class="tasklist">
@@ -230,6 +246,14 @@ $template logzFormatFileTagName,"[<<LOG-SHIPPING-TOKEN>>] <%pri%>%protocol-versi
 if $programname == 'TYPE' then @@<<LISTENER-HOST>>:5000;logzFormatFileTagName
 if $programname == 'TYPE' then ~
 ```
+
+
+Replace the following in the above code sample to match your specifics:
+
+* `<<PATH_TO_FILE>>`: Path to your file or directory.
+* `<<TYPE>>`: {% include log-shipping/type.md %}
+{% include log-shipping/log-shipping-token-bullet.html %}
+* {% include log-shipping/replace-vars.html listener=true %}
 
 
 ##### Restart rsyslog

@@ -32,20 +32,20 @@ Capture GitHub events to:
 For HTTPS shipping _(recommended)_, use this URL configuration:
 
 ```
-https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=MY-TYPE
+https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=github
 ```
 
 Otherwise, for HTTP shipping, use this configuration:
 
 ```
-http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=MY-TYPE
+http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=github
 ```
 
 {% include log-shipping/replace-vars.html listener=true %}
 
 * Content Type: choose "application/json"
 
-###### Choose events to send
+##### Choose events to send
 
 You will have 3 options:
 
@@ -57,7 +57,7 @@ You will have 3 options:
 
 Choose the option that suite you well and press Save webhook
 
-##### Find your Github events in Logzio
+##### Find your Github events in Logz.io
 
 To search for your Github events enter "type:github" in the search pannel on kibana
 

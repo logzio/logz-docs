@@ -1,16 +1,21 @@
 ---
 title: Ship Prometheus metrics with the telegraf collector.
-
+Collector
+logo:
+  logofile: aws-cloudwatch.svg
+  orientation: vertical
+data-source: telegraf collector
 contributors:
   - fadi-khatib
-
+shipping-tags:
+  - aws
 ---
 
 {% include page-info/early-access.md type="beta" %}
 
 This project will help you configure telegraf so you can ship Prometheus format metrics (collected with telegraf) to Logz.io.
 
-### Telegraf: 
+### Telegraf:
 * Telegraf is a plugin-driven server agent for collecting & reporting metrics.
 * We will add outputs.http plug in to telegraf configuration file, so metrics will be Shipped to logz.io.
   

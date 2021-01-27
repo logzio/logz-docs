@@ -1,5 +1,5 @@
 ---
-title: Ship Linux logs
+title: Ship log files or directories using rsyslog
 logo:
   logofile: linux.svg
   orientation: vertical

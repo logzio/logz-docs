@@ -21,9 +21,11 @@ shipping-tags:
 **Before you begin, you'll need**:
 AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
 
+<!-- info-box-start:info -->
 Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout.
 Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 {:.info-box.important}
+<!-- info-box-end -->
 
 <div class="tasklist">
 
@@ -103,9 +105,11 @@ In Basic settings, we recommend starting with these settings:
 * **Memory**: 1024 MB
 * **Timeout**: 5 min 0 sec
 
+<!-- info-box-start:info -->
 These default settings are just a starting point.
 Check your Lambda usage regularly, and adjust these values if you need to.
 {:.info-box.note}
+<!-- info-box-end -->
 
 ##### Set the CloudWatch Logs event trigger
 
@@ -117,8 +121,10 @@ Type a **Rule name** (required) and **Rule description** (optional).
 
 Under **Rule type**, select **Schedule expression**, and then type `rate(10 hours)` in the **Schedule expression** box.
 
+<!-- info-box-start:info -->
 We recommend starting with 10 hours, but you can adjust this time as needed.
 {:.info-box.note}
+<!-- info-box-end -->
 
 Click **Add**, and then click **Save** at the top of the page.
 

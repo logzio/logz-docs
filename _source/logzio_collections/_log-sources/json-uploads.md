@@ -43,7 +43,7 @@ Otherwise, for HTTP shipping, use this configuration:
 http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=MY-TYPE
 ```
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ###### Query parameters
 

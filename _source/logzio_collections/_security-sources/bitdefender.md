@@ -72,7 +72,7 @@ curl -k -X POST
 * `<<ACCESS_URL>>` - Replace with the Access URL copied in a previous step.
 * `<<ENCODED_API_KEY_BASE_64>>`- Replace with the encoded key returned in the previous step.
 (Do  NOT delete the term `basic`. It belongs there.)
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/listener-var.html %} 
 {% include log-shipping/log-shipping-token-bullet.html %}
 
 ###### Expected returned value

@@ -86,7 +86,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 {% include log-shipping/log-shipping-token-bullet.html %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/listener-var.html %} 
 
 * Replace the host port with your syslog port details. The above example has `host: "0.0.0.0:6514"` but you should change it to your specifics.
 

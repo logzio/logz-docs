@@ -26,7 +26,7 @@ Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```conf
 define ROOT C:\\Program Files (x86)\\nxlog

@@ -90,7 +90,7 @@ If Logz.io isn't the output, set it now.
 
 Winlogbeat can have one output only, so remove any other `output` entries.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 output.logstash:
@@ -176,7 +176,7 @@ Add an `Input` block to append your account token to log records.
 
 Add the Logz.io listener in the `Output` block.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```conf
 <Output out>

@@ -28,7 +28,7 @@ heroku drains:add "https://<<LISTENER-HOST>>:8081?token=<<LOG-SHIPPING-TOKEN>>" 
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 Replace `<<HEROKU-APP-NAME>>` with the name of the app in Heroku.
 

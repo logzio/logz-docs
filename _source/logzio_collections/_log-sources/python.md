@@ -110,7 +110,7 @@ LOGGING = {
 ###### Replace the placeholders
 
 {% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/replace-vars.html listener=true %} 
+* {% include log-shipping/listener-var.html %}  
 
 
 ##### Parameters
@@ -125,7 +125,7 @@ you need to set every argument that comes before it.
 | account-token (Required) | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} |
 | log-type <span class="default-param">`python`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | timeout <span class="default-param">`3`</span> | Time to wait between log draining attempts, in seconds. |
-| listener-url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/replace-vars.html listener=true %} |
+| listener-url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/listener-var.html %}  |
 | debug-flag <span class="default-param">`False`</span> | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. |
 | backup-logs <span class="default-param">`True`</span>| If set to False, disables the local backup of logs in case of failure. |
 | network-timeout <span class="default-param">`10`</span> | Timeout in seconds, int or float, for sending the logs to Logz.io. |

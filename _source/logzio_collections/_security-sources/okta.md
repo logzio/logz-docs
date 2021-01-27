@@ -123,7 +123,7 @@ For more information about mounting files from root directory click [here](https
 | Parameter | Description |
 |---|---|
 | LOGZIO_TOKEN (Required) | {% include log-shipping/log-shipping-token.html %} |
-| LOGZIO_LISTENER_HOST (Required) | {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_LISTENER_HOST (Required) | {% include log-shipping/listener-var.html %}  |
 
 
 ##### Check Logz.io for your logs

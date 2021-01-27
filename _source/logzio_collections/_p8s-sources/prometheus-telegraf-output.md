@@ -6,13 +6,14 @@ logo:
 data-source: Telegraf Collector for Prometheus metrics
 open-source:
   - title: Telegraf Collector for Prometheus metrics
-    github-repo: logz-aws-metrics
+    github-repo: logz-telegraf-metrics
 templates: ["docker"]
 contributors:
   - fadi-khatib
   - yberlinger
 shipping-tags:  # add tag attribute definition to .yaml for shipping
   - telegraf
+
 ---
 
 
@@ -20,7 +21,7 @@ shipping-tags:  # add tag attribute definition to .yaml for shipping
 
 This project allows you to collect Prometheus-format metrics with Telegraf, and ship them to Logz.io via Telegraf.
 
-### Telegraf: 
+### Telegraf:
 * Telegraf is a plugin-driven server agent for collecting & reporting metrics.
 * We will add outputs.http plug in to telegraf configuration file, so metrics will be Shipped to logz.io.
   

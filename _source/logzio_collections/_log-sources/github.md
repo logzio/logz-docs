@@ -23,15 +23,27 @@ Capture GitHub events to:
 
 <div class="tasklist">
 
-##### Open the webhook settings
+##### Set the webhook settings
 
-1. On your project page go to Setting -> Webhook
+* On your project page go to Setting -> Webhook
 
-2. On the payload url add your customer properties in the following format- 
+* Payload url: Insert your listener URL and token in the following format
 
-https://<<Listener>>:8071?token=<<Log Token>>&type=github
-  
-{% include log-shipping/log-shipping-token.html %}
+For HTTPS shipping _(recommended)_, use this URL configuration:
+
+```
+https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=MY-TYPE
+```
+
+Otherwise, for HTTP shipping, use this configuration:
+
+```
+http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=MY-TYPE
+```
+
+{% include log-shipping/replace-vars.html listener=true %}
+
+* Content Type: choose "application/json"
 
 ###### Choose events to send
 
@@ -43,8 +55,9 @@ You will have 3 options:
 
 * Let me select individual events.
 
-Choose the option that suite you well and save
+Choose the option that suite you well and press Save webhook
 
 ##### Find your Github events in Logzio
-To search for your Github event enter "type: github" in the search pannel on kibana
+
+To search for your Github events enter "type:github" in the search pannel on kibana
 

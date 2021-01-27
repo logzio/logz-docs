@@ -1,5 +1,5 @@
 ---
-title: Ship log files or directories using rsyslog
+title: Shipping with Rsyslog
 logo:
   logofile: linux.svg
   orientation: vertical
@@ -23,7 +23,7 @@ shipping-tags:
 <div id="rsyslog-tls">
 
 
-###### Shipping log files or directories using rsyslog
+###### Shipping with Rsyslog
 
 Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
 
@@ -127,7 +127,7 @@ If you still don't see your logs, see our [rsyslog troubleshooting guide](https:
 <!-- tab:start -->
 <div id="rsyslog-auto">
 
-###### Shipping log files or directories using rsyslog
+###### Shipping with Rsyslog
 
 Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
 
@@ -184,7 +184,7 @@ Replace the following in the above code sample to match your specifics:
 <!-- tab:start -->
 <div id="rsyslog-manual">
 
-###### Shipping log files or directories using rsyslog
+###### Shipping with Rsyslog
 
 Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
 

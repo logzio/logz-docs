@@ -134,7 +134,7 @@ Most Unix systems these days come with pre-installed rsyslog, which is a great l
 You can configure rsyslog to monitor a log file. It can monitor a single log file or directory, and ship them over to Logz.io. In case of directory all first level files will be monitored.
 
 
-#### Configuration
+#### Automatic configuration
 
 **Before you begin, you'll need**:
 
@@ -143,7 +143,6 @@ You can configure rsyslog to monitor a log file. It can monitor a single log fil
 * Outgoing TCP traffic to destination port 5000 allowed
 * A common linux distribution
 
-#### Automatic configuration
 
 <div class="tasklist">
 
@@ -192,7 +191,7 @@ Most Unix systems these days come with pre-installed rsyslog, which is a great l
 You can configure rsyslog to monitor a log file. It can monitor a single log file or directory, and ship them over to Logz.io. In case of directory all first level files will be monitored.
 
 
-#### Configuration
+#### Manual configuration
 
 **Before you begin, you'll need**:
 

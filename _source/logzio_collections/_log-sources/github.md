@@ -24,15 +24,23 @@ Capture GitHub events to:
 <div class="tasklist">
 
 ##### Open the webhook settings
+
 1. On your project page go to Setting -> Webhook
-2. On the payload url add your customer properties in the following format
+
+2. On the payload url add your customer properties in the following format- 
+
 https://<<Listener>>:8071?token=<<Log Token>>&type=github
+  
 {% include log-shipping/log-shipping-token.html %}
 
 ###### Choose events to send
+
 You will have 3 options:
+
 * Just the push event.
+
 * Send me everything.
+
 * Let me select individual events.
 
 Choose the option that suite you well and save

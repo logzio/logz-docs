@@ -201,7 +201,6 @@ You can configure rsyslog to monitor a log file. It can monitor a single log fil
 * Outgoing TCP traffic to destination port 5000 allowed
 * A common linux distribution
 
-#### Manual Configuration
 
 <div class="tasklist">
 

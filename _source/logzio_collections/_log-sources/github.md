@@ -1,13 +1,13 @@
 ---
 title: Ship Github events
 logo:
-  logofile: #get logo
+  logofile: jenkins.png
   orientation: vertical
-data-source: 
-templates: ["docker"]
+data-source: Github
+templates: ["no-template"]
 contributors:
   - doron-bargo
-   - shalper
+  - shalper
 shipping-tags:
   - ci-cd
 ---

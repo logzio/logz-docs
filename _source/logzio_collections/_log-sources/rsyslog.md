@@ -171,18 +171,18 @@ Replace the following in the above code sample to match your specifics:
 
 # Manual Configuration
 
-## [[Step 1]] Configure rsyslog file spooling
+##### Configure rsyslog file spooling
 
 To ship a log to logz.io, SSH to your Linux server, copy the below code snippet to your terminal window and execute it. The code verifies the working directory exists. In an Ubuntu server, it will set the proper permissions.
 
 ```
-sudo mkdir -v /var/spool/rsyslog 
+sudo mkdir -v /var/spool/rsyslog
 if [ "$(lsb_release -ds | grep Ubuntu)" != "" ]; then
     sudo chown -R syslog:adm /var/spool/rsyslog
 fi
 ```
 
-## [[Step 2]] Create a new configuration file for Logz.io
+##### Create a new configuration file for Logz.io
 
 ```
 sudo vim /etc/rsyslog.d/21-logzio-sample.conf

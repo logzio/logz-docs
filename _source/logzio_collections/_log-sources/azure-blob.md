@@ -22,6 +22,7 @@ shipping-tags:
 * [Overview](#overview)
 * [Connect to existing blob storage account](#existing-blob-config)
 * [Create a new blob storage account](#new-blob-config)
+* [Update settings](#update)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -51,7 +52,7 @@ The following services are created when you deploy this integration:
 <div id="new-blob-config">
 
 Deploy this integration to forward logs from your Azure Blob Storage account
-to Logz.io using an automated deployment process. You have the option to either connect to an existing Blob storage account or create a new one. You can also [update the parameters for an existing integration](#update-params).
+to Logz.io using an automated deployment process. You have the option to either connect to an existing Blob storage account or create a new one. You can also update the parameters for an existing integration.
 #### Set up a new blob storage account
 
 <div class="tasklist">
@@ -99,7 +100,7 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <div id="existing-blob-config">
 
 Deploy this integration to forward logs from your Azure Blob Storage account
-to Logz.io using an automated deployment process. You have the option to either connect to an existing Blob storage account or create a new one. You can also [update the parameters for an existing integration](#update-params).
+to Logz.io using an automated deployment process. You have the option to either connect to an existing Blob storage account or create a new one. You can also update the parameters for an existing integration.
 
 #### Use your existing blob storage account
 
@@ -157,8 +158,13 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <!-- tab:end -->
 
 
-<div>
-#### Updating parameters after deployment {#update-params}
+
+
+
+<!-- tab:start -->
+<div id="overview">
+
+#### Updating parameters after deployment 
 
 Some parameters can be updated post-deployment. These include:
 
@@ -170,5 +176,10 @@ To update your parameters post-deployment, open the **Function App** page in you
 
 ![Function's configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/configuration-settings.png)
 
+
 </div>
+
+</div>
+<!-- tab:end -->
+
 <!-- tabContainer:end -->

@@ -16,8 +16,16 @@ shipping-tags:
   -  azure
 ---
 
-Deploy this integration to forward logs from your Azure Blob Storage account
-to Logz.io using an automated deployment process. You have the option to either connect to an existing Blob storage account or create a new one. You can also [update the parameters for an existing integration](#update-params).
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Connect to existing blob storage account](#existing-blob-config)
+* [Create a new blob storage account](#new-blob-config)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
 
 ## Architecture overview
 
@@ -34,17 +42,16 @@ The following services are created when you deploy this integration:
 ![Integration-architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/logzio-blob-diagram.png)
 
 
-<!-- tabContainer:start -->
-<div class="branching-container">
-
-* [Connect to existing blob storage account](#existing-blob-config)
-* [Create a new blob storage account](#new-blob-config)
-{:.branching-tabs}
+</div>
+</div>
+<!-- tab:end -->
 
 
 <!-- tab:start -->
 <div id="new-blob-config">
 
+Deploy this integration to forward logs from your Azure Blob Storage account
+to Logz.io using an automated deployment process. You have the option to either connect to an existing Blob storage account or create a new one. You can also [update the parameters for an existing integration](#update-params).
 #### Set up a new blob storage account
 
 <div class="tasklist">
@@ -90,6 +97,9 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 
 <!-- tab:start -->
 <div id="existing-blob-config">
+
+Deploy this integration to forward logs from your Azure Blob Storage account
+to Logz.io using an automated deployment process. You have the option to either connect to an existing Blob storage account or create a new one. You can also [update the parameters for an existing integration](#update-params).
 
 #### Use your existing blob storage account
 

@@ -30,6 +30,8 @@ shipping-tags:
 
 Deploy this integration to forward logs from your Azure Blob Storage account
 to Logz.io using an automated deployment process. This integration offers the option to connect to an existing Blob storage account or create a new one, and it can be updated post-deployment.
+
+
 ## Architecture overview
 
 The following services are created when you deploy this integration:
@@ -166,9 +168,11 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 
 #### Updating parameters after deployment
 
-To update your parameters post-deployment, open the **Function App** page in your Azure portal. On the left menu, select the **Configuration** tab and edit the relevant values.
+To update your parameters post-deployment:
 
-![Function's configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/configuration-settings.png)
+1. Open the **Function App** page in your Azure portal. 
+2. On the left menu, select the **Configuration** tab. 
+3. Make your edits and save your changes.
 
 
 Here are the parameters that can be updated post-deployment:
@@ -181,6 +185,8 @@ Here are the parameters that can be updated post-deployment:
 * **FUNCTIONS_WORKER_PROCESS_COUNT** - maximum of 10. [See Microsoft documentation for more details](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count).
 * **ParseEmptyField** - Enable/disable the option to parse logs with invalid empty fields. If you encounter an issue with services shipping unnamed fields that break the parsing pipeline, enable this flag. **Note that this option may slow the shipper's performance.**
 
+
+![Function's configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/configuration-settings.png)
 
 
 </div>

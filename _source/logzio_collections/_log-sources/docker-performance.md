@@ -44,7 +44,7 @@ docker run -d \
 | Parameter | Description |
 |---|---|
 | LOGZ_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
-| LISTENER <span class="default-param">`listener.logz.io:5000`</span> | Your account's listener host and port. {% include log-shipping/replace-vars.html listener=true %} |
+| LISTENER <span class="default-param">`listener.logz.io:5000`</span> | Your account's listener host and port. {% include log-shipping/listener-var.html %}  |
 | USER_TAG | Assigned to the `user_tag` field of each log entry. You can use this field to group various hosts into meaningful visualisations. One recommended use case for this variable is to denote the host role. |
 | HOSTNAME | Name of the host this container is monitoring. Assigned to the `syslog5424_host` field of each log entry. |
 | INSTANCE | The IP address that will be assigned to the `instance` field of each entry. |

@@ -38,8 +38,8 @@ info:
 securityDefinitions:
   X-API-TOKEN:
     description: >-
-      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
-      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/api) page.
+      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api).
 
 
       API tokens carry privileges to make changes to users and accounts,

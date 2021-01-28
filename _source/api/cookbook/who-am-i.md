@@ -76,7 +76,7 @@ Check the response body for an error message.
 ###### If you see `{"code":403,"message":"Insufficient privileges"}`
 
 You might be using an invalid API token.
-Copy a valid [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from Logz.io and try again.
+Copy a valid [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/api) from Logz.io and try again.
 
 ###### If you see `Account region xx differs from current server region yy`
 

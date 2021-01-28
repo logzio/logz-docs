@@ -49,7 +49,7 @@ Make sure the `mutate` block is the last item in the `filters` block.
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```conf
 filter {
@@ -101,7 +101,7 @@ Add these code blocks to the end of your existing Logstash configuration file.
 Make sure the `mutate` block is the last item in the `filters` block.
 
 {% include log-shipping/log-shipping-token.html %} \\
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```conf
 filter {

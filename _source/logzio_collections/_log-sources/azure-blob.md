@@ -93,17 +93,21 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 
 #### Use your existing blob storage account
 
-**Before you begin, you'll need**:
+**Before you begin, you'll need**: a blob storage account of the type **StorageV2 (general purpose v2)**.
 
-A Blob storage account of the type **StorageV2 (general purpose v2)**.
 
+<!-- info-box-start:info -->
 If your existing blob storage account is of any other kind, it will NOT work. Instead, follow the process to set up a new blob storage account.
-
-Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) to make sure that they are compatible. They should be of the type **StorageV2 (general purpose v2)**.
 {:.info-box.important}
+<!-- info-box-end -->
 
 
 <div class="tasklist">
+
+##### Check your storage account for compatibility
+
+Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) to make sure that they are compatible with this integration. They should be of the type **StorageV2 (general purpose v2)**.
+
 
 ##### Launch an automated deployment
 

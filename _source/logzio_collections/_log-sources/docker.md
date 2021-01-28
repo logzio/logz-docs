@@ -150,7 +150,7 @@ For a complete list of options, see the configuration parameters below the code 
 | Parameter | Description |
 |---|---|
 | logzio-token (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
-| logzio-url (Required) | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio-url (Required) | Listener URL and port. <br> {% include log-shipping/listener-var.html %}  |
 | logzio-dir-path (Required) | Unsent logs are saved to this location on the disk. |
 | logzio-source | Event source. |
 | logzio-format <span class="default-param">`text`</span> | Log message format, either `json` or `text`. |
@@ -200,7 +200,7 @@ docker run --log-driver=logzio/logzio-logging-plugin \
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 For a complete list of options, see the configuration parameters in step 2.☝️
 

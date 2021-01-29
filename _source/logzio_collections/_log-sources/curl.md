@@ -13,15 +13,6 @@ shipping-tags:
   - agents
 ---
 
-cURL is a command line utility for transferring data.
-Generally, we recommend using Filebeat for shipping logs to Logz.io.
-
-Even so, cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
-You can upload JSON or plain text files.
-
-  File uploads must be smaller than 10 MB.
-  {:.info-box.important}
-
 <div class="branching-container">
 
 * [JSON](#json-config)
@@ -29,6 +20,17 @@ You can upload JSON or plain text files.
 {:.branching-tabs}
 
 <div id="plain-text-config">
+
+cURL is a command line utility for transferring data.
+Generally, we recommend using Filebeat for shipping logs to Logz.io.
+
+Even so, cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
+You can upload JSON or plain text files.
+
+<!-- info-box-start:info -->
+File uploads must be smaller than 10 MB.
+{:.info-box.important}
+<!-- info-box-end -->
 
 #### Upload a plain text log file
 
@@ -58,6 +60,18 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 </div>
 
 <div id="json-config">
+
+cURL is a command line utility for transferring data.
+Generally, we recommend using Filebeat for shipping logs to Logz.io.
+
+Even so, cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
+You can upload JSON or plain text files.
+
+<!-- info-box-start:info -->
+File uploads must be smaller than 10 MB.
+{:.info-box.important}
+<!-- info-box-end -->
+
 
 #### Upload a JSON log file
 

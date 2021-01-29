@@ -66,8 +66,10 @@ For example:
 {"message": "Hello again", "counter": 2}
 ```
 
-  Escape newlines inside a JSON string with `\n`.
-  {:.info-box.note}
+<!-- info-box-start:info -->
+Escape newlines inside a JSON string with `\n`.
+{:.info-box.note}
+<!-- info-box-end -->
 
 If you include a `type` field in the log,
 it overrides `type` in the request header.
@@ -164,10 +166,10 @@ send the logs to TCP port 5052 at
 
 ###### Code sample: NXLog
 
-  To configure NXLog for log shipping, see
-  [Ship Windows logs]({{site.baseurl}}/shipping/log-sources/windows.html)
-  (the _NXLog_ tab).
-  {:.info-box.read}
+<!-- info-box-start:info -->
+To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html).
+{:.info-box.read}
+<!-- info-box-end -->
 
 ```conf
 User nxlog

@@ -28,8 +28,10 @@ For further information about Filebeat's autodiscover please see [Elastic's docu
 * [Helm CLI](https://helm.sh/docs/intro/install/) installed
 * Allow outgoing traffic to destination port 5015
 
-Helm 2 will reach [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-released/#:~:text=6%20months%20after%20Helm%203's,Helm%202%20will%20formally%20end). This document follows the command syntax recommended for Helm 3, but the Chart will work with both Helm 2 and Helm 3.
+<!-- info-box-start:info -->
+Helm 2 reached [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-released/#:~:text=6%20months%20after%20Helm%203's,Helm%202%20will%20formally%20end). This document follows the command syntax recommended for Helm 3, but the Chart will work with both Helm 2 and Helm 3.
 {:.info-box.note}
+<!-- info-box-end -->
 
 
 <div class="branching-container">

@@ -115,10 +115,10 @@ LOGGING = {
 
 ##### Parameters
 
-The order of the arguments is important. Arguments _must_ be configured in the order shown here.
-For example, to set debug-flag to `True`,
-you need to set every argument that comes before it.
+<!-- info-box-start:info -->
+Order matters. The arguments _must_ be configured in the order shown here. For example, to set debug-flag to `true`, you need to set every argument that comes before it.
 {:.info-box.important}
+<!-- info-box-end -->
 
 | Parameter | Description |
 |---|---|

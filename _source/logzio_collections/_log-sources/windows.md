@@ -147,11 +147,10 @@ LogFile %ROOT%\\data\\nxlog.log
 </Extension>
 ```
 
-For information on parsing multiline logs,
-see
-[_Parsing Multi-Line Messages_](https://nxlog.co/documentation/nxlog-user-guide/parsing-multiline.html#parsing-multiline)
-from NXLog.
+<!-- info-box-start:info -->
+For information on parsing multi-line messages, see [this](https://nxlog.co/documentation/nxlog-user-guide/parsing-multiline.html#parsing-multiline) from NXLog.
 {:.info-box.read}
+<!-- info-box-end -->
 
 ##### Add Windows as an input
 

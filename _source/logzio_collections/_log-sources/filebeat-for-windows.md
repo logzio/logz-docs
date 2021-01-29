@@ -40,13 +40,19 @@ Download the
 to `C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
-##### Make your configuration file
 
-Make your configuration file using the Filebeat configuration wizard.
+##### Configure Filebeat using the dedicated Logz.io configuration wizard
 
-<!-- logzio-inject:filebeat-wizard -->
+{% include log-shipping/filebeat-wizard.html %}
 
-Log into your Logz.io account, and go to the [Filebeat log shipping page](https://app.logz.io/#/dashboard/data-sources/Filebeat) to use the **Filebeat Configuration Wizard**.
+
+<!-- logzio-inject:filebeat-wizard:os-windows -->
+
+
+{% include log-shipping/filebeat-wizard.md %}
+
+
+{% include log-shipping/validate-yaml.md %}
 
 ##### Move the configuration file to the Filebeat folder
 

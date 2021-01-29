@@ -37,7 +37,7 @@ For help with this, see [Configuring and Using CloudFront Access Logs](https://d
 
 ##### Add your S3 bucket information
 
-<!-- logzio-inject:s3-config -->
+<!-- logzio-inject:aws:cloudfront -->
 
 {% include log-shipping/add-s3-bucket.md shipper="[CloudFront log shipping page](https://app.logz.io/#/dashboard/data-sources/CloudFront)" %}
 

@@ -32,7 +32,7 @@ For help with this, see [Publishing Flow Logs to Amazon S3](https://docs.aws.ama
 
 ##### Add your S3 bucket information
 
-<!-- logzio-inject:s3-config -->
+<!-- logzio-inject:aws:vpc-flow -->
 
 
 {% include log-shipping/add-s3-bucket.md shipper="[VPC log shipping page](https://app.logz.io/#/dashboard/data-sources/vpc)" %}

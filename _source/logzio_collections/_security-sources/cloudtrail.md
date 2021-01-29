@@ -37,7 +37,7 @@ For help with setting up a new trail, see [Overview for Creating a Trail](https:
 
 ##### Add your S3 bucket information
 
-<!-- logzio-inject:s3-config -->
+<!-- logzio-inject:aws:cloudtrail -->
 
 To use the S3 fetcher, log into your Logz.io account, and go to the [CloudTrail log shipping page](https://app.logz.io/#/dashboard/data-sources/cloudtrail).
 

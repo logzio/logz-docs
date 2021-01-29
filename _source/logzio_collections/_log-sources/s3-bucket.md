@@ -44,7 +44,7 @@ You can add your buckets directly from Logz.io by providing your S3 credentials 
 
 ##### Add your S3 bucket information
 
-<!-- logzio-inject:s3-config -->
+<!-- logzio-inject:aws:s3-buckets -->
 
 
 {% include log-shipping/add-s3-bucket.md shipper="[S3 bucket log shipping page](https://app.logz.io/#/dashboard/data-sources/S3-Bucket)" %}

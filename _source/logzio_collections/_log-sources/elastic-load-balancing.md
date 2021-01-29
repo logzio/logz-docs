@@ -40,7 +40,8 @@ For help with setting this up, see these docs from AWS:
 
 ##### Add your S3 bucket information
 
-<!-- logzio-inject:s3-config -->
+	
+<!-- logzio-inject:aws:elb -->
 
 {% include log-shipping/add-s3-bucket.md shipper="[Elastic Load Balancing log shipping page](https://app.logz.io/#/dashboard/data-sources/ELB)" %}
 

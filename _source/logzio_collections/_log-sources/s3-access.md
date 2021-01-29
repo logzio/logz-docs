@@ -33,7 +33,7 @@ For help with this, see [Amazon S3 Server Access Logging](https://docs.aws.amazo
 
 ##### Add your S3 bucket information
 
-<!-- logzio-inject:s3-config -->
+<!-- logzio-inject:aws:s3-access -->
 
 
 {% include log-shipping/add-s3-bucket.md shipper="[S3 access log shipping page](https://app.logz.io/#/dashboard/data-sources/S3-Access)" %}

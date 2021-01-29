@@ -38,7 +38,7 @@ see [Log shipping sources]({{site.baseurl}}/shipping/).
 {% include log-shipping/filebeat-wizard.html %}
 
 
-<!-- logzio-inject:filebeat-wizard -->
+<!-- logzio-inject:filebeat-wizard:os-linux -->
 
 
 

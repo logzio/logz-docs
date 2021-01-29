@@ -44,7 +44,7 @@ on your machine.
 
 Make your configuration file using the Filebeat configuration wizard.
 
-<!-- logzio-inject:filebeat-wizard -->
+<!-- logzio-inject:filebeat-wizard:os-windows -->
 
 Log into your Logz.io account, and go to the [Filebeat log shipping page](https://app.logz.io/#/dashboard/data-sources/Filebeat) to use the **Filebeat Configuration Wizard**.
 

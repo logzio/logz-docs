@@ -1,4 +1,3 @@
-To use the S3 fetcher, log into your Logz.io account, and go to the {{include.shipper}}.
 
 1. Click **+ Add a bucket**
 2. Select your preferred method of authentication - an IAM role or access keys.
@@ -12,6 +11,8 @@ The configuration wizard will open.
 
 ![S3 bucket configuration wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-configuration-wizard.png)
 
+<!-- info-box-start:info -->
 Logz.io fetches logs that are generated after configuring an S3 bucket.
-Logz.io cannot fetch past logs retroactively.
+Logz.io cannot fetch old logs retroactively.
 {:.info-box.important}
+<!-- info-box-end -->

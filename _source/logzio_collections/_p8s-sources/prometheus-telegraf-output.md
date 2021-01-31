@@ -31,22 +31,26 @@ To send your Prometheus-format metrics to Logz.io, you add the **outputs.http** 
 
 <div class="tasklist">
 
-##### Download and install the following file**:
-[Telegraf 1.17](https://docs.influxdata.com/telegraf/v1.17/introduction/getting-started/) or higher
+##### Download and install the Telegraf file**:
+
+The download page for the Telegraf time-series data collector is available [here] (https://portal.influxdata.com/downloads/).
+
+Follow the instructions available on the [Get started with Telegraf](https://docs.influxdata.com/telegraf/latest/introduction/getting-started/) page for Telegraf v1.17 or higher. 
 
 
+##### Create a Telegraf config file
 
-#### Create a Telegraf config file
+--> @fadi-khatib - we need to add this information
 
-@fadi-khatib - we need to add this information
+##### Add the outputs.http plug-in
 
-#### Add the outputs.http plug-in
-After you create a config file for telegraf, configure the output plug-in, which enables your data to be sent to Logz.io in Prometheus-format.
+After you create a config file for Telegraf, configure the output plug-in to enable your data to be sent to Logz.io in Prometheus-format.
 
-* add the following code to the configuration file:
+Add the following code to the configuration file:
 
-{% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/replace-vars.html listener=true %}
++ {% include log-shipping/log-shipping-token-bullet.html %}
+
++ {% include log-shipping/replace-vars.html listener=true %}
 
 ```
 [[outputs.http]]

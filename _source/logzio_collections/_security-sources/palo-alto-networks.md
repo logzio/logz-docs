@@ -15,14 +15,10 @@ shipping-tags:
 #### Guided configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
-root access
 
-For more information, see
-[Configure Syslog Monitoring](https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring)
-from Palo Alto Networks.
-{:.info-box.read}
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
+* Root access
+
 
 <div class="tasklist">
 
@@ -49,6 +45,9 @@ Give your new server these settings:
 * **Facility**: Leave as "LOG_USER"
 
 Click **OK** to save the profile.
+
+For more information, see [Configure Syslog Monitoring](https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring)
+from Palo Alto Networks.
 
 ##### Configure syslog forwarding
 

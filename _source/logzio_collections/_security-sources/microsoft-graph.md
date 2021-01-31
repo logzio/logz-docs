@@ -54,8 +54,10 @@ Click **Add**.
 Copy the value of the generated secret to your text editor.
 You'll need this later.
 
+<!-- info-box-start:info -->
 You won't be able to retrieve the secret's value after you leave this page.
 {:.info-box.note}
+<!-- info-box-end -->
 
 ##### Set the app's permissions
 
@@ -73,9 +75,10 @@ Click **Add permissions**.
 
 Click **Grant admin consent for Default Directory**, and then click **Yes** to confirm.
 
-Only Azure administrators can grant consent for Default Directory.
-If the _Grant admin consent_ button is disabled, ask your Azure admin to update the setting for you.
+<!-- info-box-start:info -->
+Only Azure administrators can grant consent for Default Directory. If the _Grant admin consent_ button is disabled, ask your Azure admin to update the setting for you.
 {:.info-box.note}
+<!-- info-box-end -->
 
 ##### Create a configuration file
 

@@ -33,9 +33,10 @@ see [Installation](https://docs.vector.dev/setup/installation) from Vector.
 Add this code block to your Vector configuration file.
 We recommend the configuaration shown in the code block.
 
-Find the complete configuration docs
-at [http sink](https://docs.vector.dev/usage/configuration/sinks/http) from Vector.
+<!-- info-box-start:info -->
+Find the complete configuration docs at [http sink](https://docs.vector.dev/usage/configuration/sinks/http) from Vector.
 {:.info-box.read}
+<!-- info-box-end -->
 
 ```toml
 [sinks.logzio]

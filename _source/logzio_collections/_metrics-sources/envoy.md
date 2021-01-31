@@ -15,8 +15,10 @@ Envoy is a cloud-native high-performance proxy and a recognized [CNCF project](h
 
 You can send Envoy metrics to Logz.io using Metricbeat.
 
-Please note that the following configuration needs to be performed on all relevant Envoy client nodes. 
+<!-- info-box-start:info -->
+Please note that the following configuration needs to be performed on all relevant Envoy client nodes.
 {:.info-box.important}
+<!-- info-box-end -->
 
 #### Metricbeat setup
 

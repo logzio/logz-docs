@@ -81,8 +81,10 @@ logzio/docker-collector-logs
 | renameFields | Rename fields with every message sent, formatted as `"oldName,newName;oldName2,newName2"`. To use an environment variable, format as `"oldName,newName;oldName2,$ENV_VAR_NAME"`. When using an environment variable, it should be the only value in the field. If the environment variable can't be resolved, the field will be omitted. |
 {:.paramlist}
 
+<!-- info-box-start:info -->
 By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
 {:.info-box.note}
+<!-- info-box-end -->
 
 ##### Check Logz.io for your logs
 

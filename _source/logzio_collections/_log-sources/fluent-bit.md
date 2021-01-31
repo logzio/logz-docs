@@ -55,12 +55,10 @@ wget -o /fluent-bit/plugins/out_logzio.so \
 In your Fluent Bit configuration file (`fluent-bit.conf` by default),
 add Logz.io as an output.
 
-Logz.io-Out Plugin for Fluent Bit
-supports one output stream to Logz.io.
-We plan to add support for multiple streams in the future. \\
-In the meantime,
-we recommend running a new instance for each output stream you need.
+<!-- info-box-start:info -->
+Logz.io-Out Plugin for Fluent Bit supports one output stream to Logz.io. We recommend running a new instance for each output stream you need.
 {:.info-box.note}
+<!-- info-box-end -->
 
 For a list of options, see the configuration parameters below the code block. 👇
 
@@ -112,12 +110,10 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 To run in a container,
 create a configuration file named `fluent-bit.conf`.
 
-Logz.io-Out Plugin for Fluent Bit
-supports one output stream to Logz.io.
-We plan to add support for multiple streams in the future. \\
-In the meantime,
-we recommend running a new instance for each output stream you need.
+<!-- info-box-start:info -->
+Logz.io-Out Plugin for Fluent Bit supports one output stream to Logz.io. We recommend running a new instance for each output stream you need.
 {:.info-box.note}
+<!-- info-box-end -->
 
 For a list of options, see the configuration parameters below the code block. 👇
 

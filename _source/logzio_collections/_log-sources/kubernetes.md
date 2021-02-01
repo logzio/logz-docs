@@ -9,26 +9,57 @@ open-source:
   - title: logzio-k8s
     github-repo: logzio-k8s
 contributors:
+  - mirii1994
   - idohalevi
   - imnotashrimp
   - yyyogev
-  - mirii1994
+  - shalper
 shipping-tags:
   - container
 ---
 
-Fluentd is an Open Source data collector that can be used to forward logs to Logz.io.
 
-This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
-
-The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
 
 <div class="branching-container">
 
-* [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
+* [Overview](#overview)
+* [Default configuration](#default-config)
 * [Custom configuration](#custom-config)
+* [Disabling systemd input](#disable)
 {:.branching-tabs}
 
+<!-- tab:start -->
+<div id="overview">
+
+Fluentd is an open source data collector. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
+
+The image used in this integration comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs. If you prefer to customize your Fluentd configuration, you can edit it before it's deployed.
+
+The latest version pulls the image from `logzio/logzio-fluentd`. Previous versions pulled the image from `logzio/logzio-k8s`.
+{:.info-box.note}
+
+###### K8S version compatibility
+
+This integration supports most versions of K8S.
+
+* **K8S 1.19.3+** - If you're running on K8S 1.19.3+ or later, use the Daemonset that supports a containerd at runtime. It can be customized from `logzio-daemonset-containerd.yaml`.
+
+* If you're running on K8S 1.17 or earlier, you may need to manually change the API version for some components. The API version of `ClusterRole` and `ClusterRoleBinding` in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml` is `v1`, since `v1beta1` was deprecated as of k8s 1.17.
+
+To make the change in your DaemonSet, look for `apiVersion: rbac.authorization.k8s.io/v1beta1`
+apiVersion: rbac.authorization.k8s.io/v1
+
+
+Customize the Fluentd configuration with the parameters shown below.
+
+The default 
+This integration assumes you're running
+
+* The API version of `ClusterRole` and `ClusterRoleBinding` in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml` is `v1`, since `v1beta1` was deprecated as of k8s 1.17. If you're running on an earlier k8s version, you may need to manually change the API version for those components.
+
+
+</div>
+<!-- tab:end -->
 <!-- tab:start -->
 <div id="default-config">
 
@@ -40,6 +71,17 @@ However, you can deploy a custom configuration if your environment needs it.
 #### Deploy Fluentd as a DaemonSet on Kubernetes
 
 <div class="tasklist">
+
+
+##### Create a monitoring namespace
+
+Your Daemonset will be deployed under the namespace `monitoring`.
+
+
+```shell
+kubectl create namespace monitoring
+```
+
 
 ##### Store your Logz.io credentials
 
@@ -53,7 +95,7 @@ Save your Logz.io shipping credentials as a Kubernetes secret.
 kubectl create secret generic logzio-logs-secret \
   --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
-  -n kube-system
+  -n monitoring
 ```
 
 ##### Deploy the DaemonSet
@@ -61,13 +103,19 @@ kubectl create secret generic logzio-logs-secret \
 ###### For an RBAC cluster:
 
 ```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml
+kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
 ```
 
 ###### For a non-RBAC cluster:
 
 ```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml
+kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
+```
+
+###### For container runtime Containerd:
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
 ```
 
 ##### Check Logz.io for your logs
@@ -88,8 +136,8 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 
 ## Deploy logzio-k8s with custom configuration
 
-You can customize the configuration of the Fluentd container.
-This is done using a ConfigMap that overwrites the default DaemonSet.
+You can customize the configuration of your Fluentd container by editing either your DaemonSet or your Configmap.
+
 
 <div class="tasklist">
 
@@ -97,7 +145,6 @@ This is done using a ConfigMap that overwrites the default DaemonSet.
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
@@ -106,32 +153,19 @@ kubectl create secret generic logzio-logs-secret \
   -n kube-system
 ```
 
+{% include log-shipping/log-shipping-token.html %}
+
+{% include log-shipping/listener-var.html %}
+
+
 ##### Configure Fluentd
 
-Download either
-the [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml)
-or the [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml)
-and open the file in your text editor.
+There are 3 DaemonSet options: [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml), [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml), [Containerd](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml). Download the relevant DaemonSet and open it in your text editor to edit it.
 
-Customize the Fluentd configuration with the parameters shown below.
-The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of the file.
+If you wish to make advanced changes in your Fluentd configuration, you can download and edit the [configmap yaml file](https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml).
 
-###### Parameters
 
-| Parameter | Description | Default |
-|---|---|---|
-| output_include_time | To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. | `true` |
-| buffer_type | Specifies which plugin to use as the backend | `file` |
-| buffer_path | Path of the buffer | `/var/log/Fluentd-buffers/stackdriver.buffer` |
-| buffer_queue_full_action  | Controls the behavior when the queue becomes full | `block` |
-| buffer_chunk_limit | Maximum size of a chunk allowed. | `2M` |
-| buffer_queue_limit | Maximum length of the output queue. | `6` |
-| flush_interval | Interval, in seconds, to wait before invoking the next buffer flush. | `5s` |
-| max_retry_wait | Maximum interval, in seconds, to wait between retries. | `30s` |
-| num_threads | Number of threads to flush the buffer. | `2` |
-| INCLUDE_NAMESPACE | Sends logs from all namespaces by default. To send logs from specific k8s namespaces, specify them in the following format, space delimited: `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. | `""`(All namespaces) |
-| KUBERNETES_VERIFY_SSL | Enable to validate SSL certificates. | `true` |
-| FLUENT_FILTER_KUBERNETES_URL | URL to the API server. This parameter isn't part of the default Daemonset. You can set it to retrieve additional Kubernetes metadata for logs from the  Kubernetes API server.  | `null` |
+{% include k8s-fluentd.md %}
 
 ###### Good to know
 
@@ -146,14 +180,22 @@ If you wish to use this variable, you'll have to add it manually to the Daemonse
 ###### For the RBAC DaemonSet:
 
 ```shell
-kubectl apply -f /path/to/logzio-daemonset-rbac.yaml
+kubectl apply -f /path/to/logzio-daemonset-rbac.yaml -f /path/to/configmap.yaml
 ```
 
 ###### For the non-RBAC DaemonSet:
 
 ```shell
-kubectl apply -f /path/to/logzio-daemonset.yaml
+kubectl apply -f /path/to/logzio-daemonset.yaml -f /path/to/configmap.yaml
 ```
+
+###### For container runtime Containerd:
+
+```shell
+kubectl apply -f /path/to/logzio-daemonset-containerd.yaml -f /path/to/configmap.yaml
+```
+
+
 
 ##### Check Logz.io for your logs
 
@@ -168,9 +210,18 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 </div>
 <!-- tab:end -->
 
+
+<!-- tab:start -->
+<div id="disable">
+
+### Disabling systemd input
+
+To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+
+</div>
+<!-- tab:end -->
+
 </div>
 <!-- tabContainer:end -->
 
-### Disabling systemd input {#disable-input}
 
-To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.

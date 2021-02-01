@@ -11,6 +11,34 @@ contributors:
 ---
 Change your configuration within Opsgenie to receive notifications for resolved Logz.io metrics alerts.
 
+### What we send to Opsgenie in Logz.io
+
+
+<!--
+```json
+{
+"alert_title": "httpcode200test alert",
+"alert_description": "http code is 200",
+"alert_severity": "MEDIUM",
+"alert_alias": "...",
+"alert_event_type": "create",
+"alert_details": {
+	"Account": "Account Name" ,
+	"alert_event_samples": "Sample 1 event out of 1"
+},  
+"alert_view_link": "https://app.logz.io/#/dashboard/grafana/<dashboard "  
+```
+
+<!--`alert_dashboard_link` which is shown as View Link in OpsGenie -->
+
+|Field|Description|
+|alert_alias | Keeps track of Logz.io alerts, so we can close resolved alerts <br> (_Logz.io internal use_) |
+|alert_event_type  |Notifies Opsgenie to open or close an alert <br> (_Logz.io internal use_) |
+|alert_details | Specifies account name and alert samples|
+|alert_view_link |  Specifies the link to the dashboard where the alert was triggered <br>(internally,  specified as `alert_dashboard_link`)|
+
+### Define or modify a Logz.io integration in Opsgenie
+
 To define a new integration or modify an existing Logz.io integration in Opsgenie:
 
 1.  In Opsgenie, navigate to the **Teams** tab.

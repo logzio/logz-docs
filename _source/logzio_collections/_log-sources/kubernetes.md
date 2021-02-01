@@ -46,7 +46,7 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
 
 Your Kubernetes version may affect your options, as follows:
 
-* **K8S 1.19.3+** - If you're running on K8S 1.19.3+ or later, be sure to use the DaemonSet that supports a containerd at runtime (but not the RBAC and NON-RBAC DaemonSets). It can be customized from `logzio-daemonset-containerd.yaml`.
+* **K8S 1.19.3+** - If you're running on K8S 1.19.3+ or later, be sure to use the DaemonSet that supports a containerd at runtime. It can be downloaded and customized from[`logzio-daemonset-containerd.yaml`](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml).
 
 * **K8S 1.16 or earlier** - If you're running K8S 1.16 or earlier, you may need to manually change the API version in your DaemonSet to `apiVersion: rbac.authorization.k8s.io/v1beta1`.
 

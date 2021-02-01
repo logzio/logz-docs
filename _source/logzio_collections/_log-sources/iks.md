@@ -40,6 +40,14 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
 {:.info-box.note}
 <!-- info-box-end -->
 
+###### K8S version compatibility
+
+* **K8S 1.16 or earlier** - If you're running K8S 1.16 or earlier, you may need to manually change the API version in your DaemonSet to `apiVersion: rbac.authorization.k8s.io/v1beta1`.
+
+  The API versions of `ClusterRole` and `ClusterRoleBinding` are found in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml`.
+  
+  If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
+
 
 </div>
 

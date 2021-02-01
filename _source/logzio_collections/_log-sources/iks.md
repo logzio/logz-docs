@@ -15,6 +15,19 @@ shipping-tags:
   - container
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
+* [Custom configuration](#custom-config)
+* [Disabling inputs](#disable)
+{:.branching-tabs}
+
+
+<!-- tab:start -->
+<div id="overview">
+
 Fluentd is an open source data collector and a great option because of its flexibility. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
 
 
@@ -25,13 +38,13 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
 {:.info-box.note}
 
 
+</div>
 
-<div class="branching-container">
+<!-- tab:end -->
 
-* [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
-* [Custom configuration](#custom-config)
-{:.branching-tabs}
 
+
+<!-- tab:start -->
 <div id="default-config">
 
 For most environments, deploying logzio-k8s with the default configuration is recommended.
@@ -161,6 +174,12 @@ If you still don't see your logs,
 see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="disable">
+
 ### Disabling systemd input
 
 To suppress Fluentd system messages, set the environment variable `FLUENTD_SYSTEMD_CONF` to `disable` in your Kubernetes environment.
@@ -171,5 +190,7 @@ By default, the latest images launch `prometheus` plugins to monitor Fluentd.
 If you'd like to disable the Prometheus input plugin, set the environment variable `FLUENTD_PROMETHEUS_CONF` to `disable` in your Kubernetes configuration.
 
 </div>
-</div>
 <!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

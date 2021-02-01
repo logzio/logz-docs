@@ -19,7 +19,7 @@ shipping-tags:
 ---
 
 
-
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [Overview](#overview)
@@ -41,7 +41,7 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
 
 ###### K8S version compatibility
 
-This integration supports most versions of K8S.
+Your Kubernetes version may affect your options, as follows:
 
 * **K8S 1.19.3+** - If you're running on K8S 1.19.3+ or later, be sure to use the DaemonSet that supports a containerd at runtime (but not the RBAC and NON-RBAC DaemonSets). It can be customized from `logzio-daemonset-containerd.yaml`.
 

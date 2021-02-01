@@ -14,7 +14,7 @@ The following environment variables can be edited directly from the DaemonSet wi
 | flush_interval | Interval, in seconds, to wait before invoking the next buffer flush. | `5s` |
 | max_retry_wait | Maximum interval, in seconds, to wait between retries. | `30s` |
 | num_threads | Number of threads to flush the buffer. | `2` |
-| INCLUDE_NAMESPACE | Sends logs from all namespaces by default. To send logs from specific k8s namespaces, specify them in the following format, space delimited: `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. | `""`(All namespaces) |
+| INCLUDE_NAMESPACE | Sends logs from all namespaces by default. To send logs from specific k8s namespaces, specify them in the following format, space delimited: `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. | `""` |
 | KUBERNETES_VERIFY_SSL | Enable to validate SSL certificates. | `true` |
 | FLUENT_FILTER_KUBERNETES_URL | URL to the API server. This parameter isn't part of the default Daemonset. You can set it to retrieve additional Kubernetes metadata for logs from the  Kubernetes API server.  | `null` |
 | AUDIT_LOG_FORMAT |  The format of your audit logs. If your audit logs are in json format, set to `audit-json`.  | `audit` |

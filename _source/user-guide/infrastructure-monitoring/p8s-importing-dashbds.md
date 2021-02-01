@@ -14,47 +14,16 @@ contributors:
 
 {% include page-info/early-access.md type="beta" %}
 
-You can import your existing dashboards to Logz.io via a manual process or via a bulk process, using a Python script.
+You can import your existing dashboards to Logz.io via a bulk process (using a Python script) or via a manual process.
 
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Manual upload](#manual)
 * [Bulk upload](#bulk)
+* [Manual upload](#manual)
 {:.branching-tabs}
 
-<!-- tab:start -->
-<div id="manual">
-  
-For the dashboard import to work smoothly, you'll need to change the name of the data source in your JSON file to the name of your Logz.io Metrics account. 
-Your Metrics account information is located in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace. ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
-
-For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations ](/user-guide/infrastructure-monitoring/annotations/)for more information. 
-
-#### Importing individual dashboards
-
-<div class="tasklist">
-
-To import individual dashboards: 
-
-##### Navigate to the Metrics tab.
-
-Log into Logz.io and navigate to the **Metrics** tab.
-
-##### Select the Import option.
-In the left navigation pane, click <i class="fas fa-plus"></i> and select **Import**.
-![Import dashboards to Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8simport-dashboards.png)
-
-  - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload json file** and select the files to upload. 
-    
-    For related information see [Upload JSON logs]({{site.baseurl}}/shipping/log-sources/json-uploads). 
-  - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them. 
-</div>
-
-</div>
-<!-- tab:end -->
-
-<!-- tab:start -->
+<!--tab start bulk-->
 <div id="bulk">
   
 ### Importing multiple dashboards via script 
@@ -121,5 +90,38 @@ python3 main.py # If python 2 is your default version
 </div>
 
 </div>
+<!--tab end bulk -->
+
+<!-- tab:start -->
+<div id="manual">
+  
+For the dashboard import to work smoothly, you'll need to change the name of the data source in your JSON file to the name of your Logz.io Metrics account. 
+Your Metrics account information is located in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace. ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
+
+For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations ](/user-guide/infrastructure-monitoring/annotations/)for more information. 
+
+#### Importing individual dashboards
+
+<div class="tasklist">
+
+To import individual dashboards: 
+
+##### Navigate to the Metrics tab.
+
+Log into Logz.io and navigate to the **Metrics** tab.
+
+##### Select the Import option.
+In the left navigation pane, click <i class="fas fa-plus"></i> and select **Import**.
+![Import dashboards to Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8simport-dashboards.png)
+
+  - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload json file** and select the files to upload. 
+    
+    For related information see [Upload JSON logs]({{site.baseurl}}/shipping/log-sources/json-uploads). 
+  - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them. 
+</div>
+
+</div>
 <!-- tab:end -->
+
+
 </div>

@@ -24,7 +24,7 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [docker-collector-logs <span class="sm ital">(recommended)</span>](#docker-collector-logs-config)
+* [docker-collector-logs](#docker-collector-logs-config)
 * [logzio-logging-plugin](#logzio-logging-plugin-config)
 {:.branching-tabs}
 
@@ -66,8 +66,8 @@ logzio/docker-collector-logs
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
+| Parameter | Description | Default |
+|---|---|---|
 | LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
 | LOGZIO_REGION | Default: US region.<br> Logz.io region code to ship the logs to. This region code changes depending on the region your account is hosted in. For example, accounts in the EU region have region code `eu`.<br /> For more information, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) on the Logz.io Docs. |
 | LOGZIO_TYPE <span class="default-param">Docker image name</span> | The log type you'll use with this Docker. This is shown in your logs under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |

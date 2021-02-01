@@ -13,12 +13,14 @@ shipping-tags:
   - agents
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [JSON](#json-config)
 * [Plain text](#plain-text-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="plain-text-config">
 
 cURL is a command line utility for transferring data.
@@ -58,7 +60,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 </div>
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="json-config">
 
 cURL is a command line utility for transferring data.
@@ -99,5 +103,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 </div>
 
 </div>
+<!-- tab:end -->
+
 
 </div>
+<!-- tabContainer:end -->

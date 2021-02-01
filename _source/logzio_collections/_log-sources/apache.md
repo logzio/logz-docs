@@ -3,7 +3,7 @@ title: Ship Apache logs
 logo:
   logofile: apache.svg
   orientation: vertical
-data-source: Apache HTTPS Server 2
+data-source: Apache HTTPS Server
 templates: [beats-logs]
 contributors:
   - amosd92

@@ -36,8 +36,11 @@ Fluentd is an open source data collector and a great option because of its flexi
 
 The image used in this integration comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs. If you prefer to customize your Fluentd configuration, you can edit it before it's deployed.
 
+
+<!-- info-box-start:info -->
 The latest version pulls the image from `logzio/logzio-fluentd`. Previous versions pulled the image from `logzio/logzio-k8s`.
 {:.info-box.note}
+<!-- info-box-end -->
 
 ###### K8S version compatibility
 
@@ -45,11 +48,11 @@ Your Kubernetes version may affect your options, as follows:
 
 * **K8S 1.19.3+** - If you're running on K8S 1.19.3+ or later, be sure to use the DaemonSet that supports a containerd at runtime (but not the RBAC and NON-RBAC DaemonSets). It can be customized from `logzio-daemonset-containerd.yaml`.
 
-* **K8S 1.16 or earlier** - If you're running K8S 1.16 or earlier, you will need to manually change the API version in your DaemonSet to `apiVersion: rbac.authorization.k8s.io/v1beta1`.
+* **K8S 1.16 or earlier** - If you're running K8S 1.16 or earlier, you may need to manually change the API version in your DaemonSet to `apiVersion: rbac.authorization.k8s.io/v1beta1`.
 
   The API versions of `ClusterRole` and `ClusterRoleBinding` are found in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml`.
   
-  If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1beta1` by default. No change is needed.
+  If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
 
 
 
@@ -137,6 +140,16 @@ You can customize the configuration of your Fluentd container by editing either 
 
 <div class="tasklist">
 
+
+##### Create a monitoring namespace
+
+Your DaemonSet will be deployed under the namespace `monitoring`.
+
+
+```shell
+kubectl create namespace monitoring
+```
+
 ##### Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
@@ -146,7 +159,7 @@ Save your Logz.io shipping credentials as a Kubernetes secret.
 kubectl create secret generic logzio-logs-secret \
   --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
-  -n kube-system
+  -n monitoring
 ```
 
 {% include log-shipping/log-shipping-token.html %}

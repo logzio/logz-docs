@@ -19,7 +19,7 @@ shipping-tags:
 <div class="branching-container">
 
 * [Overview](#overview)
-* [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
+* [Default configuration](#default-config)
 * [Custom configuration](#custom-config)
 * [Disabling inputs](#disable)
 {:.branching-tabs}
@@ -34,8 +34,11 @@ Fluentd is an open source data collector and a great option because of its flexi
 The image used in this integration comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs. If you prefer to customize your Fluentd configuration, you can edit it before it's deployed.
 
 
+
+<!-- info-box-start:info -->
 The latest version pulls the image from `logzio/logzio-fluentd`. Previous versions pulled the image from `logzio/logzio-k8s`.
 {:.info-box.note}
+<!-- info-box-end -->
 
 
 </div>
@@ -159,10 +162,10 @@ If you wish to make advanced changes in your Fluentd configuration, you can down
 Run:
 
 ```shell
-kubectl apply -f <<path>>/logzio-daemonset-containerd.yaml -f <<path>>/configmap.yaml
+kubectl apply -f path/logzio-daemonset-containerd.yaml -f path/configmap.yaml
 ```
 
-Replace `<<path>>` with the paths to your `logzio-daemonset-containerd.yaml` and `configmap.yaml` files.
+Replace `path` with the actual paths to your `logzio-daemonset-containerd.yaml` and `configmap.yaml` files.
 
 
 #####  Check Logz.io for your logs
@@ -173,7 +176,7 @@ and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 If you still don't see your logs,
 see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-
+</div>
 </div>
 <!-- tab:end -->
 

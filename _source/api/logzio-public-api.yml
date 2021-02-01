@@ -2940,8 +2940,8 @@ paths:
       tags: 
         - Security rules
       operationId: Search security rules
-      summary: Filter your security rules
-      description: Retrieves all security rules matching the filters.
+      summary: Retrieve your security rules
+      description: Retrieve a filtered or unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
       produces:
         - application/json
       parameters: 
@@ -2963,7 +2963,7 @@ paths:
         - Security rules
       operationId: enableSecurityRule
       summary: Enable a rule
-      description: Enables or disables a security rule by its ID.
+      description: Enables a security rule by its ID.
       produces:
         - application/json
       parameters:
@@ -4155,7 +4155,7 @@ definitions:
     properties:
       sortByField:
         type: string
-        description: Sort by date and/or severity. Order determines secondary sorting.
+        description: Sort by a single parameter.
         enum:
           - SEVERITY
           - NAME
@@ -4172,26 +4172,31 @@ definitions:
     properties:
       search:
         type: string
-        description: Searches for an Insight by its title.
-        example: Exception
+        description: Searches by rule titles that contain the string.
       severity:
-        type: list of strings
+        type: array
+        items:
+          type: string
         enum:
           - INFO
           - LOW
           - MEDIUM
           - HIGH
           - SEVERE
-        description: List of of rule severities, as specified by the security rule's definition
-        example: SEVERE
+        description: List of rule severities, as specified by the security rule's definition
+        example: 
+          SEVERE
+          HIGH
       updatedBy:
-        type: list of strings
-        description: Email addresses of the last users to update the rules.
-        example: shalom.the.mighty@gmail.com
+        type: array
+        items:
+          type: string
+        description: Email addresses of the last users to update the rules
       createdBy:
-        type: list of strings
+        type: array
+        items:
+          type: string
         description: Email addresses of the user who created the rules.
-        example: you.got.this@gmail.com
       enabledState:
         type: list of booleans
         description: true for enabled rules, false for disabled rules.
@@ -4199,14 +4204,12 @@ definitions:
         type: array
         items:
           type: string
-        description: List of email addresses on the recipients list to receive notifications when the rules trigger. 
+        description: List of email addresses on the recipients list to receive notifications when the rules trigger.
       tags:
         type: array
-        description: Tags are labels used to organize security rules.
-        example: threat
         items:
           type: object
-          example: { network_threat, recon}
+        description: Tags are labels used to organize security rules
 
 
 

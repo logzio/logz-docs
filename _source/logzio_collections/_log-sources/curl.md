@@ -45,10 +45,12 @@ File uploads must be smaller than 10 MB.
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/listener-var.html %} 
+{% include log-shipping/listener-var.html %}
+
+Replace `<<LOG-TYPE>>` with the appropriate type. 
 
 ```shell
-curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<LOG-TYPE>
+curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<<LOG-TYPE>>
 ```
 
 ##### Check Logz.io for your logs

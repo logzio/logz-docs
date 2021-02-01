@@ -11,18 +11,29 @@ shipping-tags:
   - from-your-code
 ---
 
+
+
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Bulk uploads over HTTP/HTTPS](#http-config)
+* [TLS/SSL streams over TCP](#tcp-config)
+* [Code sample](#sample)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
 If you want to ship logs from your code but don't have a library in place,
 you can send them directly to the Logz.io listener.
 
 The listeners accept bulk uploads over an HTTP/HTTPS connection
 or TLS/SSL streams over TCP.
 
-<!-- tabContainer:start -->
-<div class="branching-container">
+</div>
+<!-- tab:end -->
 
-* [Bulk uploads over HTTP/HTTPS](#http-config)
-* [TLS/SSL streams over TCP](#tcp-config)
-{:.branching-tabs}
 
 <!-- tab:start -->
 <div id="http-config">
@@ -47,11 +58,11 @@ http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=MY-TYPE
 
 ###### Query parameters
 
-| Parameter | Description |
-|---|---|
-| token (Required) | {% include log-shipping/log-shipping-token.html %}   |
-| type <span class="default-param">`http-bulk`</span> | The log type you'll use with this upload. This is shown in your logs under the `type` field in Kibana.    Logz.io applies parsing based on `type`. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| token | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   | Required |
+| type | {% include log-shipping/type.md %} | `http-bulk` |
+
 
 ### The request body
 
@@ -139,32 +150,51 @@ The request body size is larger than 10 MB.
 <!-- tab:start -->
 <div id="tcp-config">
 
-## TLS/SSL streams over TCP
 
-### JSON log structure
+###### JSON log structure
 
 Keep to these practices when shipping JSON logs over TCP:
 
 * Each log must be a single-line JSON object
 * Each log line must be 500,000 bytes or less
-* Include your account token as a top-level property: \\
-  `{ ... "token": "<<LOG-SHIPPING-TOKEN>>" , ... }`
-  {% include log-shipping/replace-vars.html token=true prepend="  " %}
+* Include your account token as a top-level property: `{ ... "token": "<<LOG-SHIPPING-TOKEN>>" , ... }`
 
-### Sending the logs
+#### Send TLS/SSL streams over TCP
 
-To send JSON logs over TCP, download the Logz.io public certificate to a local folder.
+<div class="tasklist">
+
+{% include log-shipping/certificate.md %}
+
+
+##### Send the logs
+
+Using the certificate you just downloaded,
+send the logs to TCP port 5052.
 
 ```shell
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/TrustExternalCARoot_and_USERTrustRSAAAACA.crt
 ```
 
-Using the certificate you just downloaded,
-send the logs to TCP port 5052 at
   
-{% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
+{% include log-shipping/log-shipping-token.html %}
 
-###### Code sample: NXLog
+{% include log-shipping/listener-var.html %}
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="sample">
+
+#### Code sample: NXLog
 
 <!-- info-box-start:info -->
 To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html).

@@ -31,7 +31,8 @@ shipping-tags:
 <!-- tab:start -->
 <div id="overview">
 
-Fluentd is an open source data collector. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
+Fluentd is an open source data collector and a great option because of its flexibility. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
+
 
 The image used in this integration comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs. If you prefer to customize your Fluentd configuration, you can edit it before it's deployed.
 
@@ -42,20 +43,14 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
 
 This integration supports most versions of K8S.
 
-* **K8S 1.19.3+** - If you're running on K8S 1.19.3+ or later, use the Daemonset that supports a containerd at runtime. It can be customized from `logzio-daemonset-containerd.yaml`.
+* **K8S 1.19.3+** - If you're running on K8S 1.19.3+ or later, be sure to use the DaemonSet that supports a containerd at runtime (but not the RBAC and NON-RBAC DaemonSets). It can be customized from `logzio-daemonset-containerd.yaml`.
 
-* If you're running on K8S 1.17 or earlier, you may need to manually change the API version for some components. The API version of `ClusterRole` and `ClusterRoleBinding` in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml` is `v1`, since `v1beta1` was deprecated as of k8s 1.17.
+* **K8S 1.16 or earlier** - If you're running K8S 1.16 or earlier, you will need to manually change the API version in your DaemonSet to `apiVersion: rbac.authorization.k8s.io/v1beta1`.
 
-To make the change in your DaemonSet, look for `apiVersion: rbac.authorization.k8s.io/v1beta1`
-apiVersion: rbac.authorization.k8s.io/v1
+  The API versions of `ClusterRole` and `ClusterRoleBinding` are found in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml`.
+  
+  If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1beta1` by default. No change is needed.
 
-
-Customize the Fluentd configuration with the parameters shown below.
-
-The default 
-This integration assumes you're running
-
-* The API version of `ClusterRole` and `ClusterRoleBinding` in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml` is `v1`, since `v1beta1` was deprecated as of k8s 1.17. If you're running on an earlier k8s version, you may need to manually change the API version for those components.
 
 
 </div>
@@ -68,6 +63,7 @@ This integration assumes you're running
 For most environments, we recommend using the default configuration.
 However, you can deploy a custom configuration if your environment needs it.
 
+
 #### Deploy Fluentd as a DaemonSet on Kubernetes
 
 <div class="tasklist">
@@ -75,7 +71,7 @@ However, you can deploy a custom configuration if your environment needs it.
 
 ##### Create a monitoring namespace
 
-Your Daemonset will be deployed under the namespace `monitoring`.
+Your DaemonSet will be deployed under the namespace `monitoring`.
 
 
 ```shell
@@ -171,8 +167,8 @@ If you wish to make advanced changes in your Fluentd configuration, you can down
 
 * If `FLUENT_FILTER_KUBERNETES_URL` is not specified, the environment variables `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT` will be used, as long as both of them are  present. Typically, they are present when running Fluentd in a pod.
 
-* Note that `FLUENT_FILTER_KUBERNETES_URL` does not appear in the default environment variable list in the Daemonset.
-If you wish to use this variable, you'll have to add it manually to the Daemonset's environment variables.
+* Note that `FLUENT_FILTER_KUBERNETES_URL` does not appear in the default environment variable list in the DaemonSet.
+If you wish to use this variable, you'll have to add it manually to the DaemonSet's environment variables.
 
 
 ##### Deploy the DaemonSet

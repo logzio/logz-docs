@@ -15,11 +15,16 @@ shipping-tags:
   - container
 ---
 
-The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
+Fluentd is an open source data collector and a great option because of its flexibility. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
 
-A DaemonSet ensures that some or all Kubernetes nodes run a copy of a pod.
-This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io.
-Fluentd is a great option because it is flexible enough and has the right plugins to distribute logs to Logz.io and other third-party apps.
+
+The image used in this integration comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs. If you prefer to customize your Fluentd configuration, you can edit it before it's deployed.
+
+
+The latest version pulls the image from `logzio/logzio-fluentd`. Previous versions pulled the image from `logzio/logzio-k8s`.
+{:.info-box.note}
+
+
 
 <div class="branching-container">
 
@@ -39,7 +44,7 @@ If your environment requires a custom configuration, follow the steps for deploy
 
 ##### Create a monitoring namespace
 
-Your Daemonset will be deployed under the namespace `monitoring`.
+Your DaemonSet will be deployed under the namespace `monitoring`.
 
 
 ```shell
@@ -101,7 +106,7 @@ You can customize the configuration of your Fluentd container by editing either 
 
 ##### Create a monitoring namespace
 
-Your Daemonset will be deployed under the namespace `monitoring`.
+Your DaemonSet will be deployed under the namespace `monitoring`.
 
 
 ```shell
@@ -128,7 +133,7 @@ kubectl create secret generic logzio-logs-secret \
 
 ##### Configure Fluentd
 
-Download Logz.io's [Containerd Daemonset](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml) and open it in your text editor to edit it.
+Download Logz.io's [Containerd DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml) and open it in your text editor to edit it.
 
 If you wish to make advanced changes in your Fluentd configuration, you can download and edit the [configmap yaml file](https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml).
 

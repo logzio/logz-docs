@@ -46,9 +46,9 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
 ##### Get your Logz.io Infrastructure Monitoring account information
 Within Logz.io, look up the Listener host for your region (URL) and the Logz.io Metrics Account token.
 
-+ You'll find the correct Region and Listener URL for your region in the <a href ="{{site.baseurl}}/user-guide/accounts/account-region.html#available-regions" target="_blank">_Regions and Listener Hosts_</a> table. 
++ You'll find the correct Region and Listener URL for your region in the [_Regions and Listener Hosts_]({{site.baseurl}}/user-guide/accounts/account-region.html#available-regions) table. 
 
-+ Look up your Metrics account information in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace. Click the relevant **Metrics account plan** to display its details, including your <a href ="/user-guide/accounts/finding-your-metrics-account-token/" target="_blank">Metrics account token. </a> 
++ Look up your Metrics account information in the [Manage Accounts **gear icon > Settings > Manage accounts)**](https://app.logz.io/#/dashboard/settings/manage-accounts) page of your Operations workspace. Click the relevant **Metrics account plan** to display its details, including your [Metrics account token.]({{site.baseurl}}//user-guide/accounts/finding-your-metrics-account-token/)
 ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
 ##### Add a remote_write url
@@ -78,8 +78,14 @@ Add the following parameters to your Prometheus yaml file:
           capacity: 10000  #default = 500
 
 ```
-
    
 ##### Verify the remote_write configuration
-To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
 
+
++ To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
+
++ **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
+1. Click the **Explore icon <i class="far fa-compass"></i>** in the left menu to open Grafana’s Explore. 
+
+1. Examine the Metrics drop down next to the **Explore** heading in the upper left of the pane. 
+  An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 

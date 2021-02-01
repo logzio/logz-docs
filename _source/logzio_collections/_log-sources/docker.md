@@ -4,7 +4,6 @@ logo:
   logofile: docker.svg
   orientation: horizontal
 data-source: Docker container
-templates: ["docker", "no-template"]
 open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs
@@ -149,19 +148,19 @@ For a complete list of options, see the configuration parameters below the code 
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| logzio-token (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
-| logzio-url (Required) | Listener URL and port. {% include log-shipping/listener-var.html %}  |
-| logzio-dir-path (Required) | Unsent logs are saved to this location on the disk. |
-| logzio-source | Event source. |
-| logzio-format <span class="default-param">`text`</span> | Log message format, either `json` or `text`. |
-| logzio-tag {% raw %} <span class="default-param">`{{.ID}}` (Container ID)</span> {% endraw %} | Log tag. For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. |
-| labels | Comma-separated list of labels to include in the log message. |
-| env | Comma-separated list of environment variables to include in the log message. |
-| env-regex | A regular expression to match logging-related environment variables. Used for advanced log tag options. If there is collision between the `label` and `env` keys, `env` wins. Both options add additional fields to the attributes of a logging message. |
-| logzio-attributes | JSON-formatted metadata to include in the log message. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| logzio-token | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   | Required |
+| logzio-url | Listener URL and port. {% include log-shipping/listener-var.html %}  | Required |
+| logzio-dir-path | Unsent logs are saved to this location on the disk. | Required |
+| logzio-source | Event source. | -- |
+| logzio-format | Log message format, either `json` or `text`. | `text` |
+| logzio-tag | Log tag for the Container ID. For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. | `{{.ID}}` |
+| labels | Comma-separated list of labels to include in the log message. | -- |
+| env | Comma-separated list of environment variables to include in the log message. | -- |
+| env-regex | A regular expression to match logging-related environment variables. Used for advanced log tag options. If there is collision between the `label` and `env` keys, `env` wins. Both options add additional fields to the attributes of a logging message. | -- |
+| logzio-attributes | JSON-formatted metadata to include in the log message. | -- |
+
 
 ##### _(Optional)_ Set environment variables
 
@@ -170,14 +169,14 @@ Each of these variables has a default value, so you can skip this step if you're
 
 ###### Environment variables
 
-| Parameter | Description |
-|---|---|
-| LOGZIO_DRIVER_LOGS_DRAIN_TIMEOUT <span class="default-param">`5s`</span> | Time to wait between sending attempts. |
-| LOGZIO_DRIVER_DISK_THRESHOLD <span class="default-param">`70`</span> | Threshold, as % of disk usage, over which plugin will start dropping logs. |
-| LOGZIO_DRIVER_CHANNEL_SIZE <span class="default-param">`10000`</span> | The number of pending messages that can be in the channel before adding them to the disk queue. |
-| LOGZIO_MAX_MSG_BUFFER_SIZE <span class="default-param">`1048576` (1 MB)</span> | Appends logs that are segmented by Docker with 16kb limit. Specifies the biggest message, in bytes, that the system can reassemble. `1048576` (1 MB) maximum. |
-| LOGZIO_MAX_PARTIAL_BUFFER_DURATION <span class="default-param">`500ms`</span> | How long the buffer keeps the partial logs before flushing them. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| LOGZIO_DRIVER_LOGS_DRAIN_TIMEOUT | Time to wait between sending attempts. | `5s` |
+| LOGZIO_DRIVER_DISK_THRESHOLD | Threshold, as % of disk usage, over which plugin will start dropping logs. | `70` |
+| LOGZIO_DRIVER_CHANNEL_SIZE | The number of pending messages that can be in the channel before adding them to the disk queue. | `10000` |
+| LOGZIO_MAX_MSG_BUFFER_SIZE | Appends logs that are segmented by Docker with 16kb limit. Specifies the biggest message, in bytes, that the system can reassemble. `1048576` (1 MB) maximum. | `1048576` (1 MB) |
+| LOGZIO_MAX_PARTIAL_BUFFER_DURATION | How long the buffer keeps the partial logs before flushing them. | `500ms` |
+
 
 ##### _(Optional)_ Override global settings for an individual container
 
@@ -185,7 +184,7 @@ You can configure the plugin separately for each container when using the `docke
 
 ###### Code sample
 
-{% raw %}
+
 ```shell
 docker run --log-driver=logzio/logzio-logging-plugin \
 --log-opt logzio-token=<<LOG-SHIPPING-TOKEN>> \
@@ -198,13 +197,13 @@ docker run --log-driver=logzio/logzio-logging-plugin \
 --label region=us-east-1 \
 <<DOCKER-IMAGE-NAME>>
 ```
-{% endraw %}
+
 
 {% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/listener-var.html %} 
 
-For a complete list of options, see the configuration parameters in step 2.☝️
+For a complete list of options, see the configuration parameters above. 👆
 
 ##### Check Logz.io for your logs
 

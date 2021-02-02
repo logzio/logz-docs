@@ -14,8 +14,11 @@ shipping-tags:
 contributors:
   - yberlinger
 ---
+<!-- info-box-start:note -->
+This feature is in beta. Please contact the Support team or your account manager to request early access.
+{:.info-box.note}
+<!-- info-box-end -->
 
-{% include page-info/early-access.md type="beta" %}
 
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
 
@@ -52,14 +55,6 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
 ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
 ##### Add a remote_write url
-Add the following parameters to your Prometheus yaml file:
-
-| Environment variable | Description |
-|---|---|
-| external_labels | Parameter to tag the metrics from this specific Prometheus server. Do not change the label `p8s_logzio_name`: This variable is required to identify from which Prometheus environment the metrics are arriving to Logz.io  |
-| remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
-|url| Logz.io Listener url for for your region, configured to use port **8052** for http traffic or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)|
-|bearer_token| Logz.io Metrics account token|
 
 
 ```yaml
@@ -78,14 +73,28 @@ Add the following parameters to your Prometheus yaml file:
           capacity: 10000  #default = 500
 
 ```
-   
+
+###### Parameters   
+Add the following parameters to your Prometheus yaml file:
+
+| Environment variable | Description |
+|---|---|
+| external_labels | Parameter to tag the metrics from this specific Prometheus server. Do not change the label `p8s_logzio_name`: This variable is required to identify from which Prometheus environment the metrics are arriving to Logz.io  |
+| remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
+|url (Required)| Logz.io Listener url and port for your region, configured to use port **8052** for http traffic or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)|
+|bearer-token (Required)| Your Logz.io Metrics account token|
+
+
+
+| bearer-token (Required) | Your Logz.io Metrics account token. {% include metric-shipping/replace-metrics-token.html %}   |
+| url (Required) | Listener URL and port. {% include log-shipping/listener-var.html %}  |   
 ##### Verify the remote_write configuration
 
 
-+ To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
++ **Run a query**: To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
 
 + **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
 1. Click the **Explore icon <i class="far fa-compass"></i>** in the left menu to open Grafana’s Explore. 
 
-1. Examine the Metrics drop down next to the **Explore** heading in the upper left of the pane. 
+1. Examine the **Metrics** drop down next to the **Explore** heading in the upper left of the pane. 
   An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 

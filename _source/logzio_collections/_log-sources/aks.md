@@ -9,23 +9,6 @@ open-source:
     github-repo: logzio-k8s
 contributors:
   - mirii1994
-  - shalper
-shipping-tags:
-  - container
----
-
----
-title: Ship Kubernetes logs using a Fluentd DaemonSet
-logo:
-  logofile: k8s-fluentd.svg
-  orientation: horizontal
-data-source: Fluentd DaemonSet for Kubernetes
-templates: ["k8s-daemonset"]
-open-source:
-  - title: logzio-k8s
-    github-repo: logzio-k8s
-contributors:
-  - mirii1994
   - idohalevi
   - imnotashrimp
   - yyyogev

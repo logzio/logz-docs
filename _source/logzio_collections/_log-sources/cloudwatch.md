@@ -72,16 +72,18 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 
 ###### Environment variables
 
-| Parameter | Description |
-|---|---|
-| TOKEN (Required) | {% include log-shipping/replace-vars.html token='noReplace' %}   |
-| REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| URL (Deprecated) | Use REGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`). For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).    |
-| TYPE <span class="default-param">`logzio_cloudwatch_lambda`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. |
-| FORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
-| COMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
-| ENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| TOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
+| REGION | Logz.io 2-letter region code. {% include log-shipping/listener-var.html %} | Required |
+| URL (Deprecated) | Use REGION instead. | -- |
+| TYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `logzio_cloudwatch_lambda` |
+| FORMAT | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
+| COMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| ENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. | -- |
+
+
+
 
 ##### Configure the function's basic settings
 
@@ -96,7 +98,9 @@ Check your Lambda usage regularly, and adjust these values if you need to.
 {:.info-box.note}
 <!-- info-box-end -->
 
+
 {% include log-shipping/cloudwatch-defaults.md %}
+
 
 ##### Set the CloudWatch Logs event trigger
 
@@ -172,20 +176,23 @@ aws cloudformation deploy \
 --capabilities "CAPABILITY_IAM"
 ```
 
+
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| LogzioTOKEN (Required) | {% include log-shipping/log-shipping-token.html %}   |
-| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| LogzioURL (Deprecated) | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. |
-| LogzioTYPE (Default: `logzio_cloudwatch_logs`) | The log type you'll use with this Lambda. This can be a [built-in log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), or a custom log type. You should create a new Lambda for each log type you use. |
-| LogzioFORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
-| LogzioCOMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
-| LogzioENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| LogzioTOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required |
+| LogzioREGION | Logz.io 2-letter region code. {% include log-shipping/listener-var.html %} | Required |
+| LogzioURL (Deprecated) | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. | -- |
+| LogzioTYPE | The log type you'll use with this Lambda. This can be a [built-in log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), or a custom log type. You should create a new Lambda for each log type you use. | `logzio_cloudwatch_logs` |
+| LogzioFORMAT | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
+| LogzioCOMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| LogzioENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. | -- |
+
+
 
 {% include log-shipping/cloudwatch-defaults.md %}
+
 
 ##### Set the CloudWatch Logs event trigger
 

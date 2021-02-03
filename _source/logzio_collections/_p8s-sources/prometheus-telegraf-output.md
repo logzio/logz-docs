@@ -62,7 +62,9 @@ For the list of options, see the parameters below the code block.👇
 
 {% include /metric-shipping/replace-metrics-token-bullet.html %}
 
-{% include metric-shipping/open-dashboard.md title="System Metrics" %}
+##### Check Logz.io for your metrics
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).
+
 
 </div>
 

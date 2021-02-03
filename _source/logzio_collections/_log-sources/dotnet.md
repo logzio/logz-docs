@@ -86,7 +86,7 @@ var logzioAppender = new LogzioAppender();
 // Replace these parameters with your configuration
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddType("log4net");
-logzioAppender.AddListenerUrl("<<LISTENER-HOST>>:8071");
+logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
 logzioAppender.AddBufferSize("100");
 logzioAppender.AddBufferTimeout("00:00:05");
 logzioAppender.AddRetriesMaxAttempts("3");

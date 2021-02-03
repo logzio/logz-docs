@@ -19,7 +19,6 @@ shipping-tags:
 * [Overview](#overview)
 * [Bulk uploads over HTTP/HTTPS](#http-config)
 * [TLS/SSL streams over TCP](#tcp-config)
-* [Code sample](#sample)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -186,15 +185,8 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-</div>
-</div>
-<!-- tab:end -->
 
-
-<!-- tab:start -->
-<div id="sample">
-
-#### Code sample: NXLog
+###### Code sample: NXLog
 
 <!-- info-box-start:info -->
 To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html).
@@ -217,7 +209,7 @@ LogLevel INFO
 </Input>
 <Output out>
     Module  om_ssl
-    CAFile /etc/nxlog/certs/TrustExternalCARoot_and_USERTrustRSAAAACA.crt
+    CAFile /etc/nxlog/certs/COMODORSADomainValidationSecureServerCA.crt
     AllowUntrusted FALSE
     Host    listener.logz.io
     Exec    $OutputModule="om_ssl"; to_json();
@@ -228,8 +220,11 @@ LogLevel INFO
 </Route>
 ```
 
+
+</div>
 </div>
 <!-- tab:end -->
+
 
 </div>
 <!-- tabContainer:end -->

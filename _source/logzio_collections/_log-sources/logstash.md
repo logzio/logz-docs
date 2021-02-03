@@ -17,8 +17,8 @@ shipping-tags:
 <div class="branching-container">
 
 * [Overview](#overview)
-* [Shipping over SSL <span class="sm ital">(recommended)</span>](#ssl-config)
-* [Shipping over TCP](#tcp-config)
+* [Encrypted shipping](#encrypted)
+* [Unencrypted shipping](#unencrypted)
 {:.branching-tabs}
 
 
@@ -34,13 +34,11 @@ For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/sh
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="ssl-config">
+<div id="encrypted">
 
-#### Ship with Logstash over SSL
+#### Shipping with Logstash over TCP - Encrypted
 
-**Before you begin, you'll need**:
-JDK,
-[Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
+**Before you begin, you'll need**: JDK, [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
 <div class="tasklist">
 
@@ -56,7 +54,7 @@ Make sure the `mutate` block is the last item in the `filters` block.
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/listener-var.html %} 
+{% include log-shipping/listener-var.html %}
 
 ```conf
 filter {
@@ -93,13 +91,11 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="tcp-config">
+<div id="unencrypted">
 
-#### Ship with Logstash over TCP
+#### Ship with Logstash over TCP - Unencrypted
 
-**Before you begin, you'll need**:
-JDK,
-[Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
+**Before you begin, you'll need**: JDK, [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
 <div class="tasklist">
 
@@ -109,8 +105,9 @@ Add these code blocks to the end of your existing Logstash configuration file.
 
 Make sure the `mutate` block is the last item in the `filters` block.
 
-{% include log-shipping/log-shipping-token.html %} \\
-{% include log-shipping/listener-var.html %} 
+{% include log-shipping/log-shipping-token.html %}
+
+{% include log-shipping/listener-var.html %}
 
 ```conf
 filter {
@@ -139,6 +136,7 @@ Start or restart Logstash for the changes to take effect.
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
 
 </div>
 </div>

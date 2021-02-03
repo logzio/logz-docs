@@ -7,7 +7,7 @@ data-source: Amazon Athena
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus
-    github-repo: logz-aws-metrics
+    github-repo: logzio-aws-metrics
 contributors:
   - yotamloe
   - imnotashrimp

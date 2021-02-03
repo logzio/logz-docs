@@ -94,6 +94,7 @@ Add the following parameters to your Prometheus yaml file:
 + **Run a query**: To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
 
 + **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
+
 1. Click the **Explore icon <i class="far fa-compass"></i>** in the left menu to open Grafana’s Explore. 
 
 1. Examine the **Metrics** drop down next to the **Explore** heading in the upper left of the pane. 

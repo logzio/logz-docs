@@ -96,7 +96,7 @@ Check your Lambda usage regularly, and adjust these values if you need to.
 {:.info-box.note}
 <!-- info-box-end -->
 
-{% include log-shipping/cloudwatch-defaults.md%}
+{% include log-shipping/cloudwatch-defaults.md %}
 
 ##### Set the CloudWatch Logs event trigger
 
@@ -185,7 +185,7 @@ aws cloudformation deploy \
 | LogzioENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. |
 {:.paramlist}
 
-{% include log-shipping/cloudwatch-defaults.md%}
+{% include log-shipping/cloudwatch-defaults.md %}
 
 ##### Set the CloudWatch Logs event trigger
 

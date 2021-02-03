@@ -77,26 +77,25 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
 ```
 
 ###### Parameters   
+
 Add the following parameters to your Prometheus yaml file:
 
 | Environment variable | Description |
 |---|---|
 | external_labels | Parameter to tag the metrics from this specific Prometheus server. Do not change the label `p8s_logzio_name`: This variable is required to identify from which Prometheus environment the metrics are arriving to Logz.io  |
 | remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
-|url (Required)| Logz.io Listener url and port for your region, configured to use port **8052** for http traffic or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)|
-|bearer-token (Required)| Your Logz.io Metrics account token|
-
-
-
+|url (Required)| Logz.io Listener URL and port for your region, configured to use port **8052** for http traffic or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write). {% include log-shipping/listener-var.html %}  |
 | bearer-token (Required) | Your Logz.io Metrics account token. {% include metric-shipping/replace-metrics-token.html %}   |
-| url (Required) | Listener URL and port. {% include log-shipping/listener-var.html %}  |   
+   
+
 ##### Verify the remote_write configuration
 
 
 + **Run a query**: To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
 
 + **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
-1. Click the **Explore icon <i class="far fa-compass"></i>** in the left menu to open Grafana’s Explore. 
 
-1. Examine the **Metrics** drop down next to the **Explore** heading in the upper left of the pane. 
+  1. Click the **Explore icon <i class="far fa-compass"></i>** in the left menu to open Grafana’s Explore. 
+
+  1. Examine the **Metrics** drop down next to the **Explore** heading in the upper left of the pane. 
   An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 

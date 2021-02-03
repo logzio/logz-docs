@@ -43,7 +43,15 @@ For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/sh
 <div class="tasklist">
 
 
-{% include log-shipping/certificate.md %}
+##### Download the Logz.io public certificate to your Logstash server
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+
+
+```shell
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
+```
+
 
 
 ##### Add Logz.io to your configuration file
@@ -69,7 +77,7 @@ output {
   lumberjack {
     hosts => ["<<LISTENER-HOST>>"]
     port => 5006
-    ssl_certificate => "/usr/share/logstash/keys/TrustExternalCARoot.crt"
+    ssl_certificate => "/usr/share/logstash/keys/COMODORSADomainValidationSecureServerCA.crt"
     codec => "json_lines"
   }
 }

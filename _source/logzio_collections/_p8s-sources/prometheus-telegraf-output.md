@@ -1,9 +1,9 @@
 ---
-title: Ship Prometheus metrics with the Telegraf collector
+title: Ship Prometheus metrics with the Telegraf agent
 logo:
   logofile: mascot-telegraf.png #telegraf-tiger.png  #telegraf-logo-preview.svg
   orientation: vertical
-data-source: Telegraf Collector for Prometheus metrics
+data-source: Telegraf for Prometheus metrics
 open-source:
   - title: Telegraf Collector for Prometheus metrics
     github-repo: logz-telegraf-metrics
@@ -12,14 +12,14 @@ contributors:
   - fadi-khatib
   - yberlinger
 shipping-tags:  # add tag attribute definition to .yaml for shipping
-  - telegraf
+  - p8s
 
 ---
 
 
 {% include page-info/early-access.md type="beta" %}
 
-This project allows you to collect Prometheus-format metrics with Telegraf, and ship them to Logz.io, also via Telegraf.
+This project lets you to configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
 
 ## Overview
 
@@ -31,28 +31,21 @@ To send your Prometheus-format metrics to Logz.io, you add the **outputs.http** 
 
 <div class="tasklist">
 
-##### Download and install the Telegraf file**:
+##### Set up Telegraf v1.17 or higher:
 
-The download page for the Telegraf time-series data collector is available [here] (https://portal.influxdata.com/downloads/).
+Follow the instructions on [Get started with Telegraf](https://docs.influxdata.com/telegraf/latest/introduction/getting-started/) to: 
 
-Follow the instructions available on the [Get started with Telegraf](https://docs.influxdata.com/telegraf/latest/introduction/getting-started/) page for Telegraf v1.17 or higher. 
-
-
-##### Create a Telegraf config file
-
---> @fadi-khatib - we need to add this information
+1. Download and install Telegraf in the terminal. 
+2. Create and configure the 'telegraf.conf' file.
+3. Start the Telegraf service.
 
 ##### Add the outputs.http plug-in
 
-After you create a config file for Telegraf, configure the output plug-in to enable your data to be sent to Logz.io in Prometheus-format.
+After you create a config file for Telegraf, configure the output plug-in to enable your data to be sent to Logz.io in Prometheus-format and add the following code to the configuration file:
 
-Add the following code to the configuration file:
+For the list of options, see the parameters below the code block.👇
 
-+ {% include log-shipping/log-shipping-token-bullet.html %}
-
-+ {% include log-shipping/replace-vars.html listener=true %}
-
-```
+``` yaml
 [[outputs.http]]
   url = "http://<ListenerUrl>:8050"
   data_format = "prometheusremotewrite"
@@ -62,6 +55,10 @@ Add the following code to the configuration file:
      X-Prometheus-Remote-Write-Version = "0.1.0"
      Authorization = "Bearer <<METRICS-SHIPPING-TOKEN>>"
 ``` 
+###### Parameters 
++ {% include /metric-shipping/replace-metrics-token-bullet.html %}
+
++ {% include log-shipping/replace-vars.html listener=true %}
 
 {% include metric-shipping/open-dashboard.md title="System Metrics" %}
 

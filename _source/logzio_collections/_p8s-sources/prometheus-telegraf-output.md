@@ -11,7 +11,7 @@ templates: ["docker"]
 contributors:
   - fadi-khatib
   - yberlinger
-shipping-tags:  # add tag attribute definition to .yaml for shipping
+shipping-tags:  
   - p8s
 
 ---

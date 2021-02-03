@@ -120,16 +120,17 @@ Order matters. The arguments _must_ be configured in the order shown here. For e
 {:.info-box.important}
 <!-- info-box-end -->
 
-| Parameter | Description |
-|---|---|
-| account-token (Required) | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} |
-| log-type <span class="default-param">`python`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| timeout <span class="default-param">`3`</span> | Time to wait between log draining attempts, in seconds. |
-| listener-url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/listener-var.html %}  |
-| debug-flag <span class="default-param">`False`</span> | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. |
-| backup-logs <span class="default-param">`True`</span>| If set to False, disables the local backup of logs in case of failure. |
-| network-timeout <span class="default-param">`10`</span> | Timeout in seconds, int or float, for sending the logs to Logz.io. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| account-token | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} | Required |
+| log-type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `python` |
+| timeout | Time to wait between log draining attempts, in seconds. | `3` |
+| listener-url | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| debug-flag | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. | `false` |
+| backup-logs | If set to False, disables the local backup of logs in case of failure. | `true` |
+| network-timeout | Timeout in seconds, int or float, for sending the logs to Logz.io. | `10` |
+
+
 
 #### Serverless platforms
 

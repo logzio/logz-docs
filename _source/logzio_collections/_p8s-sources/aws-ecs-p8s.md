@@ -1,9 +1,9 @@
 ---
-title: Ship Amazon MQ metrics
+title: Ship ECS metrics
 logo:
-  logofile: aws-mq.svg
+  logofile: amazon-ecs.svg
   orientation: vertical
-data-source: Amazon MQ
+data-source: Amazon ECS
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus
@@ -39,7 +39,7 @@ shipping-tags:
 
 {% include /p8s-shipping/cloudwatch-otel-beforeyb.md %}
 
-{% include /p8s-shipping/collect-aws-var-metrics.md namespace="AmazonMQ" %}
+{% include /p8s-shipping/collect-aws-var-metrics.md namespace="ECS" %}
 
 
 </div>

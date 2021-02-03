@@ -1,9 +1,9 @@
 ---
-title: Ship Amazon MQ metrics
+title: Ship Application ELB metrics
 logo:
-  logofile: aws-mq.svg
+  logofile: aws-app-elb.svg
   orientation: vertical
-data-source: Amazon MQ
+data-source: Amazon App ELB
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus
@@ -39,7 +39,7 @@ shipping-tags:
 
 {% include /p8s-shipping/cloudwatch-otel-beforeyb.md %}
 
-{% include /p8s-shipping/collect-aws-var-metrics.md namespace="AmazonMQ" %}
+{% include /p8s-shipping/collect-aws-var-metrics.md namespace="Application ELB" %}
 
 
 </div>

@@ -1,9 +1,9 @@
 ---
-title: Ship Amazon MQ metrics
+title: Ship Lambda metrics
 logo:
-  logofile: aws-mq.svg
+  logofile: AWS-Lambda.svg
   orientation: vertical
-data-source: Amazon MQ
+data-source: Amazon Lambda
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus
@@ -39,7 +39,7 @@ shipping-tags:
 
 {% include /p8s-shipping/cloudwatch-otel-beforeyb.md %}
 
-{% include /p8s-shipping/collect-aws-var-metrics.md namespace="AmazonMQ" %}
+{% include /p8s-shipping/collect-aws-var-metrics.md namespace="Lambda" %}
 
 
 </div>

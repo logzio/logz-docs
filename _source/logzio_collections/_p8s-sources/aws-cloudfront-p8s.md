@@ -1,9 +1,9 @@
 ---
-title: Ship Amazon MQ metrics
+title: Ship CloudFront metrics
 logo:
-  logofile: aws-mq.svg
+  logofile: aws-cloudfront.svg
   orientation: vertical
-data-source: Amazon MQ
+data-source: Amazon CloudFront
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus
@@ -39,7 +39,7 @@ shipping-tags:
 
 {% include /p8s-shipping/cloudwatch-otel-beforeyb.md %}
 
-{% include /p8s-shipping/collect-aws-var-metrics.md namespace="AmazonMQ" %}
+{% include /p8s-shipping/collect-aws-var-metrics.md namespace="CloudFront" %}
 
 
 </div>

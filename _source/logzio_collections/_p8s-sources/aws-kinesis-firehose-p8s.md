@@ -1,9 +1,9 @@
 ---
-title: Ship Amazon MQ metrics
+title: Ship Kinesis Data Firehose metrics
 logo:
-  logofile: aws-mq.svg
+  logofile: Amazon-Kinesis-Data-Firehose.svg
   orientation: vertical
-data-source: Amazon MQ
+data-source: Amazon Kinesis Data Firehose
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus
@@ -39,7 +39,7 @@ shipping-tags:
 
 {% include /p8s-shipping/cloudwatch-otel-beforeyb.md %}
 
-{% include /p8s-shipping/collect-aws-var-metrics.md namespace="AmazonMQ" %}
+{% include /p8s-shipping/collect-aws-var-metrics.md namespace="Kinesis Firehose" %}
 
 
 </div>

@@ -30,8 +30,8 @@ You can import your existing dashboards to Logz.io via a bulk process (using a P
  
 To enable easy migration, we created a Python [script](https://github.com/logzio/grafana-dashboard-migration-tool) to bulk upload your Grafana dashboards to our platform.
 
-###### Notes
 
+###### Notes
 - Bulk import is supported for Grafana version 6 and above.
 - Dashboards that include annotations, notification endpoints, and other  external resources imported without these resources during bulk  import. 
 - Custom selection of dashboards is not possible with bulk import. All  your dashboard folders imported to a single folder within Logz.io.

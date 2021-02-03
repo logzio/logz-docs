@@ -59,7 +59,7 @@ For a complete list of options, see the configuration parameters below the code 
     <!-- Replace these parameters with your configuration -->
     <token><<LOG-SHIPPING-TOKEN>></token>
     <type>log4net</type>
-    <listenerUrl><<LISTENER-HOST>>:8071</listenerUrl>
+    <listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
     <bufferSize>100</bufferSize>
     <bufferTimeout>00:00:05</bufferTimeout>
     <retriesMaxAttempts>3</retriesMaxAttempts>
@@ -86,7 +86,7 @@ var logzioAppender = new LogzioAppender();
 // Replace these parameters with your configuration
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddType("log4net");
-logzioAppender.AddListenerUrl("<<LISTENER-HOST>>:8071");
+logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
 logzioAppender.AddBufferSize("100");
 logzioAppender.AddBufferTimeout("00:00:05");
 logzioAppender.AddRetriesMaxAttempts("3");
@@ -229,7 +229,7 @@ For a complete list of options, see the configuration parameters below the code 
     <target name="logzio" type="Logzio"
       token="<<LOG-SHIPPING-TOKEN>>"
       logzioType="nlog"
-      listenerUrl="<<LISTENER-HOST>>:8071"
+      listenerUrl="https://<<LISTENER-HOST>>:8071"
       bufferSize="100"
       bufferTimeout="00:00:05"
       retriesMaxAttempts="3"
@@ -257,7 +257,7 @@ var logzioTarget = new LogzioTarget {
   Name = "Logzio",
   Token = "<<LOG-SHIPPING-TOKEN>>",
   LogzioType = "nlog",
-  ListenerUrl = "<<LISTENER-HOST>>:8071",
+  ListenerUrl = "https://<<LISTENER-HOST>>:8071",
   BufferSize = 100,
   BufferTimeout = TimeSpan.Parse("00:00:05"),
   RetriesMaxAttempts = 3,

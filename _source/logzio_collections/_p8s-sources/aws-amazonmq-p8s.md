@@ -6,8 +6,8 @@ logo:
 data-source: Amazon MQ
 templates: ["docker-metricbeat"]
 open-source:
-  - title: Docker Metrics Collector
-    github-repo: docker-collector-metrics
+  - title: CloudWatch metrics for Prometheus
+    github-repo: logz-aws-metrics
 contributors:
   - yotamloe
   - imnotashrimp

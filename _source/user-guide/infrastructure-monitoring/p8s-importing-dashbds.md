@@ -30,19 +30,14 @@ You can import your existing dashboards to Logz.io via a bulk process (using a P
  
 To enable easy migration, we created a Python [script](https://github.com/logzio/grafana-dashboard-migration-tool) to bulk upload your Grafana dashboards to our platform.
 
-{:.info-box.note.notes}
+###### Notes
 
-+ Bulk import is supported for Grafana version 6 and above.
-
-  + Dashboards that include annotations, notification endpoints, and other  external resources are imported without these resources during bulk  import. 
-
-  + Custom selection of dashboards is not possible with bulk import. All  your dashboard folders are imported to a single folder within Logz.io.
-
-  * Grafana dashboards with schema version 14 or lower that include "row"  objects are not uploaded: You will receive a warning in the logs. We  recommend that you update your dashboard schema to the latest version.
-
-  * The`p8s_logzio_name` variable is not added to panel queries that don't  include filtering: You will receive a warning in the logs.
-
-  * Some panel types are not supported by the Logz.io platform. If your  dashboard includes an unsupported panel type, you will receive a warning  in the logs. You may experience some issues while the panel renders in  Logz.io.
+- Bulk import is supported for Grafana version 6 and above.
+- Dashboards that include annotations, notification endpoints, and other  external resources imported without these resources during bulk  import. 
+- Custom selection of dashboards is not possible with bulk import. All  your dashboard folders imported to a single folder within Logz.io.
+- Grafana dashboards with schema version 14 or lower that include "row"  objects are not aded: You will receive a warning in the logs. We  recommend that you update your dashboard ma to the latest version.
+- The`p8s_logzio_name` variable is not added to panel queries that don't  include filtering: will receive a warning in the logs.
+- Some panel types are not supported by the Logz.io platform. If your  dashboard includes an pported panel type, you will receive a warning  in the logs. You may experience some issues le the panel renders in  Logz.io.   
 
 
 ####  Bulk dashboard import procedure

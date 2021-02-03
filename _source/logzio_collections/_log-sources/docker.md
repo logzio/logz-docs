@@ -4,7 +4,6 @@ logo:
   logofile: docker.svg
   orientation: horizontal
 data-source: Docker container
-templates: ["docker", "no-template"]
 open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs
@@ -24,7 +23,7 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [docker-collector-logs <span class="sm ital">(recommended)</span>](#docker-collector-logs-config)
+* [docker-collector-logs](#docker-collector-logs-config)
 * [logzio-logging-plugin](#logzio-logging-plugin-config)
 {:.branching-tabs}
 
@@ -66,20 +65,20 @@ logzio/docker-collector-logs
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
-| LOGZIO_REGION | Default: US region.<br> Logz.io region code to ship the logs to. This region code changes depending on the region your account is hosted in. For example, accounts in the EU region have region code `eu`.<br /> For more information, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) on the Logz.io Docs. |
-| LOGZIO_TYPE <span class="default-param">Docker image name</span> | The log type you'll use with this Docker. This is shown in your logs under the `type` field in Kibana. <br> Logz.io applies parsing based on `type`. |
-| LOGZIO_CODEC <span class="default-param">`plain`</span> | Set to `json` if shipping JSON logs. Otherwise, set to `plain`. |
-| ignoreOlder <span class="default-param">`3h`</span>|  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). |
-| additionalFields | Include additional fields with every message sent, formatted as `"fieldName1=fieldValue1;fieldName2=fieldValue2"`. <br> To use an environment variable, format as `"fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME"`. In that case, the environment variable should be the only value in the field. If the environment variable can't be resolved, the field is omitted. |
-| matchContainerName | Comma-separated list of containers you want to collect the logs from. If a container's name partially matches a name on the list, that container's logs are shipped. Otherwise, its logs are ignored. <br> **Note**: Can't be used with skipContainerName |
-| skipContainerName | Comma-separated list of containers you want to ignore. If a container's name partially matches a name on the list, that container's logs are ignored. Otherwise, its logs are shipped. <br> **Note**: Can't be used with matchContainerName |
-| includeLines | Comma-separated list of regular expressions to match the lines that you want to include. <br> **Note**: Regular expressions in this list should not contain commas. |
-| excludeLines | Comma-separated list of regular expressions to match the lines that you want to exclude. <br> **Note**: Regular expressions in this list should not contain commas. |
-| renameFields | Rename fields with every message sent, formatted as `"oldName,newName;oldName2,newName2"`. To use an environment variable, format as `"oldName,newName;oldName2,$ENV_VAR_NAME"`. When using an environment variable, it should be the only value in the field. If the environment variable can't be resolved, the field will be omitted. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| LOGZIO_TOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   | Required |
+| LOGZIO_REGION | Logz.io region code to ship the logs to. This region code changes depending on the region your account is hosted in. For example, accounts in the EU region have region code `eu`. For more information, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) on the Logz.io Docs. | (US region) |
+| LOGZIO_TYPE | The log type you'll use with this Docker. {% include log-shipping/type.md %} | Docker image name |
+| LOGZIO_CODEC | Set to `json` if shipping JSON logs. Otherwise, set to `plain` for plain text format. | `plain` |
+| ignoreOlder |  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). | `3h` |
+| additionalFields | Include additional fields with every message sent, formatted as `"fieldName1=fieldValue1;fieldName2=fieldValue2"`. To use an environment variable, format as `"fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME"`. In that case, the environment variable should be the only value in the field. If the environment variable can't be resolved, the field is omitted. | -- |
+| matchContainerName | Comma-separated list of containers you want to collect the logs from. If a container's name partially matches a name on the list, that container's logs are shipped. Otherwise, its logs are ignored. **Note: Can't be used with skipContainerName** | -- |
+| skipContainerName | Comma-separated list of containers you want to ignore. If a container's name partially matches a name on the list, that container's logs are ignored. Otherwise, its logs are shipped. **Note: Can't be used with matchContainerName** | -- |
+| includeLines | Comma-separated list of regular expressions to match the lines that you want to include. **Note**: Regular expressions in this list should not contain commas. | -- |
+| excludeLines | Comma-separated list of regular expressions to match the lines that you want to exclude. **Note**: Regular expressions in this list should not contain commas. | -- |
+| renameFields | Rename fields with every message sent, formatted as `"oldName,newName;oldName2,newName2"`. To use an environment variable, format as `"oldName,newName;oldName2,$ENV_VAR_NAME"`. When using an environment variable, it should be the only value in the field. If the environment variable can't be resolved, the field will be omitted. | -- |
+
 
 <!-- info-box-start:info -->
 By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
@@ -149,19 +148,19 @@ For a complete list of options, see the configuration parameters below the code 
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| logzio-token (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
-| logzio-url (Required) | Listener URL and port. <br> {% include log-shipping/listener-var.html %}  |
-| logzio-dir-path (Required) | Unsent logs are saved to this location on the disk. |
-| logzio-source | Event source. |
-| logzio-format <span class="default-param">`text`</span> | Log message format, either `json` or `text`. |
-| logzio-tag {% raw %} <span class="default-param">`{{.ID}}` (Container ID)</span> {% endraw %} | Log tag. For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. |
-| labels | Comma-separated list of labels to include in the log message. |
-| env | Comma-separated list of environment variables to include in the log message. |
-| env-regex | A regular expression to match logging-related environment variables. Used for advanced log tag options. If there is collision between the `label` and `env` keys, `env` wins. Both options add additional fields to the attributes of a logging message. |
-| logzio-attributes | JSON-formatted metadata to include in the log message. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| logzio-token | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   | Required |
+| logzio-url | Listener URL and port. {% include log-shipping/listener-var.html %}  | Required |
+| logzio-dir-path | Unsent logs are saved to this location on the disk. | Required |
+| logzio-source | Event source. | -- |
+| logzio-format | Log message format, either `json` or `text`. | `text` |
+| logzio-tag | Log tag for the Container ID. For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. | `{{.ID}}` |
+| labels | Comma-separated list of labels to include in the log message. | -- |
+| env | Comma-separated list of environment variables to include in the log message. | -- |
+| env-regex | A regular expression to match logging-related environment variables. Used for advanced log tag options. If there is collision between the `label` and `env` keys, `env` wins. Both options add additional fields to the attributes of a logging message. | -- |
+| logzio-attributes | JSON-formatted metadata to include in the log message. | -- |
+
 
 ##### _(Optional)_ Set environment variables
 
@@ -170,14 +169,14 @@ Each of these variables has a default value, so you can skip this step if you're
 
 ###### Environment variables
 
-| Parameter | Description |
-|---|---|
-| LOGZIO_DRIVER_LOGS_DRAIN_TIMEOUT <span class="default-param">`5s`</span> | Time to wait between sending attempts. |
-| LOGZIO_DRIVER_DISK_THRESHOLD <span class="default-param">`70`</span> | Threshold, as % of disk usage, over which plugin will start dropping logs. |
-| LOGZIO_DRIVER_CHANNEL_SIZE <span class="default-param">`10000`</span> | The number of pending messages that can be in the channel before adding them to the disk queue. |
-| LOGZIO_MAX_MSG_BUFFER_SIZE <span class="default-param">`1048576` (1 MB)</span> | Appends logs that are segmented by Docker with 16kb limit. Specifies the biggest message, in bytes, that the system can reassemble. `1048576` (1 MB) maximum. |
-| LOGZIO_MAX_PARTIAL_BUFFER_DURATION <span class="default-param">`500ms`</span> | How long the buffer keeps the partial logs before flushing them. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| LOGZIO_DRIVER_LOGS_DRAIN_TIMEOUT | Time to wait between sending attempts. | `5s` |
+| LOGZIO_DRIVER_DISK_THRESHOLD | Threshold, as % of disk usage, over which plugin will start dropping logs. | `70` |
+| LOGZIO_DRIVER_CHANNEL_SIZE | The number of pending messages that can be in the channel before adding them to the disk queue. | `10000` |
+| LOGZIO_MAX_MSG_BUFFER_SIZE | Appends logs that are segmented by Docker with 16kb limit. Specifies the biggest message, in bytes, that the system can reassemble. `1048576` (1 MB) maximum. | `1048576` (1 MB) |
+| LOGZIO_MAX_PARTIAL_BUFFER_DURATION | How long the buffer keeps the partial logs before flushing them. | `500ms` |
+
 
 ##### _(Optional)_ Override global settings for an individual container
 
@@ -185,7 +184,7 @@ You can configure the plugin separately for each container when using the `docke
 
 ###### Code sample
 
-{% raw %}
+
 ```shell
 docker run --log-driver=logzio/logzio-logging-plugin \
 --log-opt logzio-token=<<LOG-SHIPPING-TOKEN>> \
@@ -198,13 +197,13 @@ docker run --log-driver=logzio/logzio-logging-plugin \
 --label region=us-east-1 \
 <<DOCKER-IMAGE-NAME>>
 ```
-{% endraw %}
+
 
 {% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/listener-var.html %} 
 
-For a complete list of options, see the configuration parameters in step 2.☝️
+For a complete list of options, see the configuration parameters above. 👆
 
 ##### Check Logz.io for your logs
 

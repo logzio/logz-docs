@@ -13,12 +13,14 @@ shipping-tags:
   - agents
 ---
 
+<!-- tabContainer:start -->
 <div class="branching-container">
 
 * [JSON](#json-config)
 * [Plain text](#plain-text-config)
 {:.branching-tabs}
 
+<!-- tab:start -->
 <div id="plain-text-config">
 
 cURL is a command line utility for transferring data.
@@ -43,10 +45,12 @@ File uploads must be smaller than 10 MB.
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/listener-var.html %} 
+{% include log-shipping/listener-var.html %}
+
+Replace `<<LOG-TYPE>>` with the appropriate type. {% include log-shipping/type.md %}
 
 ```shell
-curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<LOG-TYPE>
+curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<<LOG-TYPE>>
 ```
 
 ##### Check Logz.io for your logs
@@ -58,7 +62,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 </div>
 
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="json-config">
 
 cURL is a command line utility for transferring data.
@@ -84,7 +90,9 @@ File uploads must be smaller than 10 MB.
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/listener-var.html %} 
+{% include log-shipping/listener-var.html %}
+
+Replace `<<LOG-TYPE>>` with the appropriate type. {% include log-shipping/type.md %}
 
 ```shell
 cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
@@ -99,5 +107,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 </div>
 
 </div>
+<!-- tab:end -->
+
 
 </div>
+<!-- tabContainer:end -->

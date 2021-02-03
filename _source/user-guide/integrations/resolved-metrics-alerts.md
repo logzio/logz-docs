@@ -11,8 +11,8 @@ contributors:
 ---
 Change your configuration within Opsgenie to receive notifications for resolved Logz.io metrics alerts.
 
-### What we send to Opsgenie in Logz.io
-The following fields are sent to Opsgenie when an alert is triggered: 
+### Logz.io fields shared with Opsgenie
+The following fields are sent to Opsgenie when an Opsgenie alert is triggered: 
 
 
 |Field|Description|

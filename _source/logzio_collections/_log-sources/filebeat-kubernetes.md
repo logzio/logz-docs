@@ -7,6 +7,9 @@ data-source: Filebeat DaemonSet for Kubernetes
 templates: ["no-template", "no-template"]
 shipping-tags:
   - container
+contributors:
+  - fadi-khatib  
+  - shalper
 ---
 
 This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your cluster and ship them to Logz.io.

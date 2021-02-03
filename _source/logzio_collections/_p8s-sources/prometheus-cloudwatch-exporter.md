@@ -6,7 +6,7 @@ logo:
 data-source: Amazon CloudWatch for Prometheus metrics
 open-source:
   - title: CloudWatch metrics for Prometheus
-    github-repo: logz-aws-metrics
+    github-repo: logzio-aws-metrics
 templates: ["docker"]
 contributors:
   - yotamloe

@@ -45,6 +45,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Fail2ban              | `fail2ban`                                 |
 | Falco                 | `falco`                                    |
 | Fortigate             | `fortigate`                               |
+| GitHub                  | `github`                                     |
 | GPFS                  | `gpfs`                                     |
 | HAProxy Load Balancer              | `haproxy`                                  |
 | Jenkins               | `jenkins`                                  |

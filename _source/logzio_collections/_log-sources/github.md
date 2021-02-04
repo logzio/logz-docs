@@ -1,9 +1,9 @@
 ---
-title: Ship Github events
+title: Ship GitHub events to Logz.io
 logo:
-  logofile: jenkins.png
+  logofile: Octocat.png
   orientation: vertical
-data-source: Github
+data-source: GitHub
 templates: ["no-template"]
 contributors:
   - doron-bargo
@@ -12,52 +12,64 @@ shipping-tags:
   - ci-cd
 ---
 
-#### Ship Github Events to Logz.io
+
 Capture GitHub events to:
 
-* Track issues and PRs openned by your customers
+* Track issues and PRs opened by your customers
 * Track new features from code changes
 * Identify when new code changes lead to system alerts or build failures
 
+#### Ship Github Events to Logz.io
 
+**Before you begin, you'll need**: Admin permissions to the GitHub project
 
 <div class="tasklist">
 
-##### Set the webhook settings
+##### Add a webhook to your GitHub project
 
-* On your project page go to Setting -> Webhook
+Open your GitHub project. On your project page, go to **Setting** > **Webhooks** and select **Add webhook**.
 
-* Payload url: Insert your listener URL and token in the following format
+![How to add a GitHub webhook](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/github-webhooks.png)
 
-For HTTPS shipping _(recommended)_, use this URL configuration:
+##### Add your payload url
+
+
+For the **Payload url**, use either of the following formats. You can send your data encrypted via HTTPS, or unencrypted, via HTTP:
+
+###### For HTTPS shipping
 
 ```
 https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=github
 ```
 
-Otherwise, for HTTP shipping, use this configuration:
+###### For HTTP shipping
 
 ```
 http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=github
 ```
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include /log-shipping/log-shipping-token.html %}
 
-* Content Type: choose "application/json"
+{% include log-shipping/listener-var.html %}
 
-##### Choose events to send
+##### Configure your webhook
 
-You will have 3 options:
+Complete filling in the form:
 
-* Just the push event.
+2. **Content Type**: Select **application/json**.
+3. **Secret**: Leave it blank. Your Logz.io account token is used to securely route your logs to your account.
+4. **SSL verification**: We recommend enabling SSL verification.
+5. Select your event triggers. The options available are:
+    * **Just the push event**
+    * **Send me everything**
+    * **Let me select individual events**. A checklist will appear for you to make your selections.
+6. **Active**. Make sure this checkbox is enabled.
+7. Click **Add webhook** to save your webhook.
 
-* Send me everything.
+##### Check Logz.io for your logs
 
-* Let me select individual events.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). Search for `type:github` in Kibana Discover to filter for your GitHub events. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
-Choose the option that suite you well and press Save webhook
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-##### Find your Github events in Logz.io
-
-To search for your Github events enter "type:github" in the search pannel on kibana
-
+</div>

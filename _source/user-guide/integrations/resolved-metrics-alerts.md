@@ -55,8 +55,15 @@ The following fields are sent to Opsgenie when an Opsgenie alert is triggered:
 |alert_event_type  | Notifies Opsgenie to open or close an alert  |
 |alert_details | Specifies account name and alert samples|
 |alert_view_link |  Specifies the link to the dashboard where the alert was triggered|
-|alert_title| Alert title, set to "httpcode200test alert" for a resolved alert|
-|alert_description| Alert message, set to "http code is 200" for a resolved alert|
-|alert_severity| Alert severity, set to "MEDIUM" for a resolved alert|
+|alert_title| Alert title|
+|alert_description| Alert message|
+|alert_severity| Alert severity|
 
 
+###### Field value examples
+
+```
+"alert_title": "httpcode200test alert",
+"alert_description": "http code is 200",
+"alert_severity": "MEDIUM"
+``

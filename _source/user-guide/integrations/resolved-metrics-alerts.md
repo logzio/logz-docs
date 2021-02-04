@@ -51,7 +51,12 @@ The following fields are sent to Opsgenie when an Opsgenie alert is triggered:
 
 |Field|Description|
 |---|---|
-|alert_alias | Keeps track of Logz.io alerts, so we can close resolved alerts <br> (_Logz.io internal use_) |
-|alert_event_type  |Notifies Opsgenie to open or close an alert <br> (_Logz.io internal use_) |
+|alert_alias | Uunique identifier for a Logz.io alert to close resolved alerts |
+|alert_event_type  |Notifies Opsgenie to open or close an alert  |
 |alert_details | Specifies account name and alert samples|
-|alert_view_link |  Specifies the link to the dashboard where the alert was triggered <br>(internally,  specified as `alert_dashboard_link`)|
+|alert_view_link |  Specifies the link to the dashboard where the alert was triggered|
+|alert_title|Set to "httpcode200test alert"|
+|alert_description|Set to "http code is 200"|
+|alert_severity|Set to "MEDIUM"|
+
+

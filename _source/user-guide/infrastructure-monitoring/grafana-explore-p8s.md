@@ -13,21 +13,28 @@ contributors:
   - yberlinger
 ---
 
-Grafana Explore is where you can explore the data available in your Metrics account.
+Grafana Explore is where you can explore the data available in your Prometheus metrics account.
 It's a bit like Kibana Discover, in that it is optimized for quickly searching the data in preparation for creating dashboards.
 
 Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, Grafana’s Explore mode is the best way to do it.
 It's also great if you're a long-time user and want to examine the structure of your metrics documents in order to create a new monitoring dashboard.
 
-To go to Grafana’s Explore, click on the **Explore icon <i class="far fa-compass"></i>** in the left menu.
+To go to Grafana’s Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
-## Metrics view vs. Logs view
+<!-- @DanielT ~~ the next sections are obsolete, I assume.  
+
+Exposing the metrics in your system - discovering the associated metadata (tags, dimensions, or fields) sent by the services in your environment
+
+-->
+## Metrics view vs. Logs view  
+
+<!-- obsolete topic-->
 
 Grafana’s Explore mode has a number of views, including various Metrics options and a Logs view.
 
-![Grafana Explore view options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafanalogs-select1.png)
+![Grafana Explore view options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafanalogs-select1.png)  <!-- need to change the image-->
 
-![Grafana Explore with Metrics and Logs views shown side-by-side](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore732.png)
+![Grafana Explore with Metrics and Logs views shown side-by-side](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore732.png) <!-- need to change the image-->
 
 Which view is better, depends on your goal:
 
@@ -36,14 +43,19 @@ Which view is better, depends on your goal:
 
 ### Metrics View
 
+<!-- obsolete topic-->
 The metrics view options offer a playground you can use to explore your data. They show a graph panel where you can experiment with queries. If you've edited a Grafana dashboard before, the interface will be familiar.
 
 The Metrics view options are great for learning what Metrics data is in your system. Here are a few examples of what it offers:
-<!-- What changes are needed for P8s: get rid of Metricbeat refs -->
+<!-- What changes are needed for P8s? 
+- get rid of Metricbeat refs
+- provide useful examples for grouping Prometheus data.  
+- Which concepts are relevant for Prometheus? -->
+
 * To check which Metricbeat modules you currently have, use a `group by` rule for the field `event.module`.
 * To look up your metricsets, use a `group by` rule for the field `metricset.name`.
 * To see which hosts are shipping metrics to your account, use a `group by` rule for the field `host.name`.
-
+<!-- replace the examples in this table with concepts that work for P8s data -->
 | What are you looking for | Group by field |
 |---|---|
 | Metricbeat modules | `event.module` |
@@ -54,6 +66,7 @@ The Metrics view options are great for learning what Metrics data is in your sys
 
 ### Logs View
 
+<!-- obsolete topic-->
 Grafana's Explore mode is the equivalent of Kibana Discover, only for metrics.
 
 ![Grafana Explore in Logs view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore-logs-revamp.png)
@@ -72,8 +85,8 @@ You can click the <i class="fas fa-signal"></i> icon for a top-N analysis of the
 
 
 ### Split and Sync
-
-You can split your Explore mode screen to work faster and make quick comparisons. You can split the screen to work with two views side-by-side, whether Metrics-Metrics, Logs-Logs, or Logs-Metrics.
+<!-- still relevant-->
+You can split your Explore mode screen to work faster and make quick comparisons. You can split the screen to work with two views side-by-side, whether Metrics-Metrics, Logs-Logs, or Logs-Metrics.  <!-- what sort of things would you display in the 2 panels, for example?  -->
 
 To split the screen, click the **<i class="fas fa-columns"></i> Split** button.
 If you want to sync both views so they both cover the same time range, click the **<i class="fas fa-link"></i>** button to link the views.

@@ -104,13 +104,13 @@ Check your Lambda usage regularly, and adjust these values if you need to.
 
 ##### Set the CloudWatch Logs event trigger
 
-Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
+1. Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
 
-Below the Designer, you'll see the Configure triggers panel. Choose the **Log group** that the Lambda function will watch.
+2. Below the Designer, you'll see the Configure triggers panel. Choose the **Log group** that the Lambda function will watch.
 
-Type a **Filter name** (required) and **Filter pattern** (optional).
+3. Type a **Filter name** (required) and **Filter pattern** (optional).
 
-Click **Add**, and then click **Save** at the top of the page.
+4. Click **Add**, then **Save** at the top of the page.
 
 ##### Check Logz.io for your logs
 
@@ -196,13 +196,13 @@ aws cloudformation deploy \
 
 ##### Set the CloudWatch Logs event trigger
 
-Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
+1. Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
 
-Below the Designer, you'll see the Configure triggers panel. Choose the **Log group** that the Lambda function will watch.
+2. Below the Designer, you'll see the Configure triggers panel. Choose the **Log group** that the Lambda function will watch.
 
-Type a **Filter name** (required) and **Filter pattern** (optional).
+3. Type a **Filter name** (required) and **Filter pattern** (optional).
 
-Click **Add**, and then click **Save** at the top of the page.
+4. Click **Add**, then **Save** at the top of the page.
 
 ##### Check Logz.io for your logs
 

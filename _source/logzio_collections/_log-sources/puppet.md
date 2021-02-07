@@ -29,9 +29,11 @@ shipping-tags:
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Puppet to the filebeat.inputs section.
 
-  We recommend configuring Puppet to output JSON logs.
-  See [Advanced Logging Configuration](https://puppet.com/docs/puppetserver/5.1/config_logging_advanced.html) from Puppet for more information.
-  {:.info-box.tip}
+
+<!-- info-box-start:info -->
+We recommend configuring Puppet to output JSON logs. See [Advanced Logging Configuration](https://puppet.com/docs/puppetserver/5.1/config_logging_advanced.html) from Puppet for more information.
+{:.info-box.tip}
+<!-- info-box-end -->
 
 {% include log-shipping/log-shipping-token.html %}
 
@@ -126,7 +128,7 @@ Puppet produces lots of different logs. [Learn more from Puppet Labs Docs 🔗](
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 # ...

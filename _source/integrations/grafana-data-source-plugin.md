@@ -48,7 +48,7 @@ For more information on finding your account's region,
 see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
 
 In **Logz.io API Key**,
-paste an [API token](https://app.logz.io/#/dashboard/settings/api-tokens)
+paste an [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/api)
 from the account you want to use.
 
 Leave the _Elasticsearch details_ section as it is.

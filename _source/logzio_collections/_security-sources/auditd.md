@@ -156,7 +156,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 {% include log-shipping/log-shipping-token-bullet.html %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/listener-var.html %} 
 
 
 ##### Start Auditbeat

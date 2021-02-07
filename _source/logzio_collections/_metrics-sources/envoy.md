@@ -15,8 +15,10 @@ Envoy is a cloud-native high-performance proxy and a recognized [CNCF project](h
 
 You can send Envoy metrics to Logz.io using Metricbeat.
 
-Please note that the following configuration needs to be performed on all relevant Envoy client nodes. 
+<!-- info-box-start:info -->
+Please note that the following configuration needs to be performed on all relevant Envoy client nodes.
 {:.info-box.important}
+<!-- info-box-end -->
 
 #### Metricbeat setup
 
@@ -68,7 +70,7 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.

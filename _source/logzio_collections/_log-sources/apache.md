@@ -3,7 +3,7 @@ title: Ship Apache logs
 logo:
   logofile: apache.svg
   orientation: vertical
-data-source: Apache HTTPS Server 2
+data-source: Apache HTTPS Server
 templates: [beats-logs]
 contributors:
   - amosd92
@@ -108,7 +108,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 # ...

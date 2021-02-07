@@ -26,10 +26,11 @@ shipping-tags:
 
 Configure your Check Point Log Exporter to send logs to your Filebeat server.
 
-For complete details on configuring Log Exporter, see
-[_Log Exporter - Check Point Log Export_](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323)
-from Check Point.
+<!-- info-box-start:info -->
+For complete details on configuring Log Exporter, see [Check Point Log Export](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323) from Check Point.
 {:.info-box.read}
+<!-- info-box-end -->
+
 
 ###### Option 1: Export logs for all domains
 
@@ -54,9 +55,11 @@ format syslog \
 --apply-now
 ```
 
+<!-- info-box-start:info -->
 If you restart the management server, you'll need to run `cp_log_export` again
 to restart the exporter.
 {:.info-box.note}
+<!-- info-box-end -->
 
 {% include log-shipping/certificate.md %}
 
@@ -116,7 +119,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 # ...

@@ -16,8 +16,21 @@ shipping-tags:
   -  azure
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Connect to existing blob storage account](#existing-blob-config)
+* [Create a new blob storage account](#new-blob-config)
+* [Update settings](#update)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
 Deploy this integration to forward logs from your Azure Blob Storage account
-to Logz.io using an automated deployment process. You have the option to either connect to an existing Blob storage account or create a new one. You can also [update the parameters for an existing integration](#update-params).
+to Logz.io using an automated deployment process. This integration offers the option to connect to an existing Blob storage account or create a new one, and it can be updated post-deployment.
+
 
 ## Architecture overview
 
@@ -34,16 +47,15 @@ The following services are created when you deploy this integration:
 ![Integration-architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/logzio-blob-diagram.png)
 
 
-<!-- tabContainer:start -->
-<div class="branching-container">
 
-* [Connect to existing blob storage account](#existing-blob-config)
-* [Create a new blob storage account](#new-blob-config)
-{:.branching-tabs}
+</div>
+<!-- tab:end -->
 
 
 <!-- tab:start -->
 <div id="new-blob-config">
+
+
 
 #### Set up a new blob storage account
 
@@ -61,16 +73,15 @@ where you'll configure the resources to be deployed.
 
 ##### Fill in the form
 
-| Parameter | Description |
-|---|---|
-| Resource group (Required) | Click Create new. Give a meaningful Name, such as "logziobBlobStorageIntegration", and then click OK. |
-| Location (Required) | Select the same region as the Azure services that will stream data to this Blob Storage. |
-| Logzio host (Required)  | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
-| Log shipping token (Required)  | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
-| Format (Required) | Select one of the supported parsing formats: text/json/csv |
-| Buffersize <span class="default-param">`100`</span>  | The maximum number of messages the logger will accumulate before sending them all as a bulk  |
-| Timeout <span class="default-param">`180,000 = 3 minutes`</span> | The read/write/connection timeout in *milliseconds*.  |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| Resource group | Click Create new. Give a meaningful Name, such as "logziobBlobStorageIntegration", and then click OK. | Required |
+| Location | Select the same region as the Azure services that will stream data to this Blob Storage. |  Required |
+| Logzio host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |  Required |
+| Log shipping token  | {% include log-shipping/log-shipping-token.md %} | Required |
+| Format | Select one of the supported parsing formats: text/json/csv | Required |
+| Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |
+| Timeout | The read/write/connection timeout in *milliseconds*.  | `180,000 = 3 minutes` | 
 
 At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  
 Deployment can take a few minutes.
@@ -91,19 +102,25 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <!-- tab:start -->
 <div id="existing-blob-config">
 
+
+
 #### Use your existing blob storage account
 
-**Before you begin, you'll need**:
+**Before you begin, you'll need**: a blob storage account of the type **StorageV2 (general purpose v2)**.
 
-A Blob storage account of the type **StorageV2 (general purpose v2)**.
 
+<!-- info-box-start:info -->
 If your existing blob storage account is of any other kind, it will NOT work. Instead, follow the process to set up a new blob storage account.
-
-Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) to make sure that they are compatible. They should be of the type **StorageV2 (general purpose v2)**.
 {:.info-box.important}
+<!-- info-box-end -->
 
 
 <div class="tasklist">
+
+##### Check your storage account for compatibility
+
+Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) to make sure that they are compatible with this integration. They should be of the type **StorageV2 (general purpose v2)**.
+
 
 ##### Launch an automated deployment
 
@@ -117,17 +134,17 @@ where you'll configure the resources to be deployed.
 
 ##### Fill in the form
 
-| Parameter | Description |
-|---|---|
-| Resource group (Required) | Select your existing resource group. |
-| Location (Required) | Select the same region as the Azure services that will stream data to this Blob Storage. |
-| Logzio host (Required)  | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
-| Log shipping token (Required)  | Add the [log shipping token](https://app.logz.io/#/dashboard/settings/general) for the relevant Logz.io account. This is the account you want to ship to.  |
-| Format (Required) | Select one of the supported parsing formats: text/json/csv |
-| Blob Storage Account Name (Required) | Insert the name of the storage account that contains the logs.  |
-| Buffersize <span class="default-param">`100`</span>  | The maximum number of messages the logger will accumulate before sending them all as a bulk  |
-| Timeout <span class="default-param">`180,000 = 3 minutes`</span> | The read/write/connection timeout in *milliseconds*.  |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| Resource group | Select your existing resource group. | Required |
+| Location | Select the same region as the Azure services that will stream data to this Blob Storage.  |  Required |
+| Logzio host | {% include log-shipping/listener-var.md %} |  Required |
+| Log shipping token  | {% include log-shipping/log-shipping-token.md %} | Required |
+| Format | Select one of the supported parsing formats: text/json/csv | Required |
+| Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |
+| Timeout | The read/write/connection timeout in *milliseconds*.  | `180,000 = 3 minutes` | 
+
+
 
 At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. Only logs sent from this point on will be searchable in Logz.io.
 
@@ -143,18 +160,37 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <!-- tab:end -->
 
 
-<div>
-#### Updating parameters after deployment {#update-params}
 
-Some parameters can be updated post-deployment. These include:
 
-* Shipper-related configurations: **LogzioHost**, **LogzioToken**, **Buffersize**, **Timeout**.
+
+<!-- tab:start -->
+<div id="update">
+
+#### Updating parameters after deployment
+
+To update your parameters post-deployment:
+
+1. Open the **Function App** page in your Azure portal. 
+2. On the left menu, select the **Configuration** tab. 
+3. Make your edits and save your changes.
+
+
+Here are the parameters that can be updated post-deployment:
+
+* Shipper-related configurations:
+  * **LogzioHost**
+  * **LogzioToken**
+  * **Buffersize**
+  * **Timeout**
 * **FUNCTIONS_WORKER_PROCESS_COUNT** - maximum of 10. [See Microsoft documentation for more details](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count).
-* **ParseEmptyField** - Enable/disable the option to parse logs with invalid empty fields. This option exists to overcome a rare bug whereby the services ship unnamed fields that break the parsing pipeline. **Please consider enabling this option only if you encounter unparsed logs due to unnamed fields. Note that it may slow the shipper's performance.**
+* **ParseEmptyField** - Enable/disable the option to parse logs with invalid empty fields. If you encounter an issue with services shipping unnamed fields that break the parsing pipeline, enable this flag. **Note that this option may slow the shipper's performance.**
 
-To update your parameters post-deployment, open the **Function App** page in your Azure portal. On the left menu, select the **Configuration** tab and edit the relevant values.
 
 ![Function's configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/configuration-settings.png)
+
+
+</div>
+<!-- tab:end -->
 
 </div>
 <!-- tabContainer:end -->

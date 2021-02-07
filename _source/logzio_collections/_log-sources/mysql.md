@@ -162,7 +162,7 @@ The log type is used to apply the appropriate Logz.io preconfigured parsing pipe
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 # ...
@@ -220,7 +220,7 @@ logzio/mysql-logs
 | Parameter | Description |
 |---|---|
 | LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
-| LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/listener-var.html %}  |
 | MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span> | Path to the MySQL error log. |
 | MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span> | Path to the MySQL slow query log. |
 | MYSQL_LOG_FILE <span class="default-param">`/var/log/mysql/mysql.log`</span> | Path to the MySQL general log. |

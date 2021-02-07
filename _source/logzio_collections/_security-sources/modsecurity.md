@@ -78,7 +78,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 {% include log-shipping/log-shipping-token-bullet.html %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/listener-var.html %} 
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.

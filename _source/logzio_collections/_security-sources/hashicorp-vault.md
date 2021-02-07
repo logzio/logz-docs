@@ -26,9 +26,10 @@ shipping-tags:
 Configure Vault to enable raw log output to the default location.
 After making the change, start or restart Vault for the changes to take effect.
 
-
-Disabling log hashing means that Vault will send logs in clear text. This is required at this time, because Vault supports decryption for only a limited number of fields that don’t match the fields required by Logz.io Cloud SIEM. When this limition is resolved, the requirement to send raw logs will be lifted.
+<!-- info-box-start:info -->
+Disabling log hashing means that Vault will send logs in clear text. This is required at this time, because Vault supports decryption for only a limited number of fields that don’t match the fields required by Logz.io Cloud SIEM. When this limitation is resolved, the requirement to send raw logs will be lifted.
 {:.info-box.important}
+<!-- info-box-end -->
 
 
 For more information on logging and enabling audit devices,
@@ -41,14 +42,15 @@ see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from H
 
 The Filebeat configuration file is at `/etc/filebeat/filebeat.yml` by default.
 
-To avoid conflicts with fields from other log sources,
-you'll need to run a dedicated Filebeat instance for Vault logs.
-This allows Filebeat to rename some fields
+<!-- info-box-start:info -->
+To avoid conflicts with fields from other log sources, you'll need to run a dedicated Filebeat instance for Vault logs. This allows Filebeat to rename some fields
 to keep Vault logs compatible with Logz.io.
 {:.info-box.important}
+<!-- info-box-end -->
 
-{% include log-shipping/log-shipping-token.html %} \\
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/log-shipping-token.html %}
+
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 # ...

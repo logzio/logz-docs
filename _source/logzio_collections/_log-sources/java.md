@@ -61,8 +61,6 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
-  See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
-  {:.info-box.read}
 
 ```xml
 <Appenders>
@@ -83,23 +81,28 @@ For a complete list of options, see the configuration parameters below the code 
 </Loggers>
 ```
 
+<!-- info-box-start:info -->
+See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
+{:.info-box.read}
+<!-- info-box-end -->
+
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| logzioToken (Required) | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping).  {% include log-shipping/log-shipping-token.html %}    Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
-| logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/replace-vars.html listener=true %} |
-| logzioType <span class="default-param">`java`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| addHostname <span class="default-param">`false`</span> | Boolean. Indicates whether to add `hostname` field to logs. This field holds the machine's host name.    Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. |
-| additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`.    Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. |
-| bufferDir <span class="default-param">`System.getProperty("java.io.tmpdir")`</span> | Filepath where the appender stores the buffer. |
-| compressRequests <span class="default-param">`false`</span> | Boolean. Set to `true` if you're sending gzip-compressed logs. Set to `false` if sending uncompressed logs. |
-| connectTimeoutMs <span class="default-param">`10 * 1000`</span> | Connection timeout during log shipment, in milliseconds. |
-| debug <span class="default-param">`false`</span> | Set to `true` to print debug messages to stdout. |
-| drainTimeoutSec <span class="default-param">`5`</span> | How often the appender drains the buffer, in seconds. |
-| fileSystemFullPercentThreshold <span class="default-param">`98`</span> | Identifies a maximum file system usage, in percent. Set to `-1` to disable.    If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs. Buffering resumes if used space drops below the threshold. |
-| socketTimeoutMs <span class="default-param">`10 * 1000`</span> | Socket timeout during log shipment, in milliseconds. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| logzioToken | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping).  {% include log-shipping/log-shipping-token.html %} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
+| logzioUrl | Listener URL and port. {% include log-shipping/listener-var.html %} | `https://listener.logz.io:8071` |
+| logzioType | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `java` |
+| addHostname | Boolean. Indicates whether to add `hostname` field to logs. This field holds the machine's host name.    Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. | False |
+| additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. | -- |
+| bufferDir | Filepath where the appender stores the buffer. | `System.getProperty("java.io.tmpdir")` |
+| compressRequests | Boolean. Set to `true` if you're sending gzip-compressed logs. Set to `false` if sending uncompressed logs. | False |
+| connectTimeoutMs | Connection timeout during log shipment, in milliseconds. | `10 * 1000` |
+| debug | Set to `true` to print debug messages to stdout. | false |
+| drainTimeoutSec | How often the appender drains the buffer, in seconds. | `5` |
+| fileSystemFullPercentThreshold | Identifies a maximum file system usage, in percent. Set to `-1` to disable. If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs. Buffering resumes if used space drops below the threshold. | `98` |
+| socketTimeoutMs | Socket timeout during log shipment, in milliseconds. | `10 * 1000` |
+
 
 ###### Code sample
 
@@ -227,8 +230,10 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
-  See the [Logback documentation](https://logback.qos.ch/manual/configuration.html) for more information on the Logback configuration file.
-  {:.info-box.read}
+<!-- info-box-start:info -->
+See the [Logback documentation](https://logback.qos.ch/manual/configuration.html) for more information on the Logback configuration file.
+{:.info-box.read}
+<!-- info-box-end -->
 
 ```xml
 <configuration>
@@ -258,7 +263,7 @@ For a complete list of options, see the configuration parameters below the code 
 | Parameter | Description |
 |---|---|
 | token (Required) | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %}    Begin with `$` to use an environment variable or system property with the specified name.    For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. |
-| logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/replace-vars.html listener=true %} |
+| logzioUrl <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/listener-var.html %}  |
 | logzioType <span class="default-param">`java`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | addHostname <span class="default-param">`false`</span> | Indicates whether to add `hostname` field to logs. This field holds the machine's host name.    Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. |
 | additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`.    Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. |

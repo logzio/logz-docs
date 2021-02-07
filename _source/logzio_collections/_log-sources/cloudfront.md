@@ -35,11 +35,13 @@ CloudFront access logs are not enabled by default, so you'll need to set this up
 
 For help with this, see [Configuring and Using CloudFront Access Logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) from AWS.
 
-##### Add your S3 bucket information
+##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-<!-- logzio-inject:s3-config -->
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/data-sources/CloudFront) and add a new S3 bucket.
 
-{% include log-shipping/add-s3-bucket.md shipper="[CloudFront log shipping page](https://app.logz.io/#/dashboard/data-sources/CloudFront)" %}
+<!-- logzio-inject:aws:cloudfront -->
+
+{% include log-shipping/add-s3-bucket.md %}
 
 ##### Check Logz.io for your logs
 

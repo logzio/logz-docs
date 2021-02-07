@@ -21,7 +21,6 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 
 * **Reduce tagging**: By default, all the metrics from your Prometheus server(s) are sent to Logz.io. To drop or send specific metrics, add Prometheus labeling _before_ enabling the remote write, or as part of the remote write configuration.  Learn more about Prometheus <a href ="https://medium.com/quiq-blog/prometheus-relabeling-tricks-6ae62c56cbda" target="_blank">relabeling tricks here <i class="fas fa-external-link-alt"></i>. </a>
 
-
 * **Paralleism levels**: Set the parallelism level for sending data in the configuration file. 
     This parameter determines the number of connections to open to the remote write listener.  The default parallelism level is 1000. We recommend configuring much fewer connections. Of course, if you're sending more data you'll need to open more channels. _(currently in development)_
     
@@ -78,5 +77,12 @@ Add the following parameters to your Prometheus yaml file:
 
    
 ##### Verify the remote_write configuration
-To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
 
+
++ **Run a query**: To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
+
++ **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
+1. Click the **Explore icon <i class="far fa-compass"></i>** in the left menu to open Grafana’s Explore. 
+
+1. Examine the **Metrics** drop down next to the **Explore** heading in the upper left of the pane. 
+  An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 

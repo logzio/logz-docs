@@ -22,8 +22,7 @@ shipping-tags:
 AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
 
 <!-- info-box-start:info -->
-Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout.
-Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout. Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 {:.info-box.important}
 <!-- info-box-end -->
 
@@ -91,11 +90,11 @@ In the Environment variables section, set your Logz.io account token, URL, and l
 
 | Parameter | Description |
 |---|---|
-| TOKEN (Required) | {% include log-shipping/replace-vars.html token='noReplace' %}   |
-| URL (Required) | {% include log-shipping/replace-vars.html listener='noReplace' %}    |
+| TOKEN (Required) |  Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} |
+| URL (Required) | {% include log-shipping/region-code.md %} |
 | REPORT_NAME | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **Report name** column for your report. |
-| REPORT_PATH | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), click <i class="fas fa-caret-right"></i> (next to the report name), and copy the **Report path**. |
-| S3_BUCKET_NAME | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **S3 Bucket** column for your report. |
+| REPORT_PATH | Copy this from [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports). Click ▶️ (next to the report name) to copy the **Report path**. |
+| S3_BUCKET_NAME | Copy this in [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports) from the **S3 Bucket** column of your report. |
 {:.paramlist}
 
 ##### Configure the function's basic settings
@@ -106,8 +105,7 @@ In Basic settings, we recommend starting with these settings:
 * **Timeout**: 5 min 0 sec
 
 <!-- info-box-start:info -->
-These default settings are just a starting point.
-Check your Lambda usage regularly, and adjust these values if you need to.
+These default settings are just a starting point. Check your Lambda usage regularly, and adjust these values if you need to.
 {:.info-box.note}
 <!-- info-box-end -->
 

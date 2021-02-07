@@ -198,7 +198,7 @@ output.logstash:
 
 {% include metric-shipping/replace-metrics-token-bullet.html %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/listener-var.html %} 
 
 
 One last validation - make sure Logz.io is the only output and appears only once.

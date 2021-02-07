@@ -21,6 +21,11 @@ You have 3 options for deploying this Daemonset:
 * Custom configuration - upload a Logz.io Daemonset with your own configuration
 
 
+
+{% include /log-shipping/multiline-logs-filebeat.md %}
+
+
+
 #### Deploy Filebeat as a DaemonSet on Kubernetes
 
 <div class="tasklist">

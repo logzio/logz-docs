@@ -33,15 +33,18 @@ You can use a Helm chart to ship k8s logs to Logz.io via Filebeat.
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.
 Logzio-k8s-logs allows you to ship logs from your Kubernetes cluster to Logz.io.
-You can either deploy this Daemonset with the standard Filebeat configuration or with Filebeat autodiscover.
+You can either deploy this Daemonset with the standard Filebeat configuration or with Filebeat Autodiscover.
 
-For further information about Filebeat's autodiscover please see [Elastic's documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
+Learn more about [Filebeat Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html) from Elastic.
 
 
 <!-- info-box-start:info -->
 Helm 2 reached [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-released/#:~:text=6%20months%20after%20Helm%203's,Helm%202%20will%20formally%20end). This document follows the command syntax recommended for Helm 3, but the Chart will work with both Helm 2 and Helm 3.
 {:.info-box.note}
 <!-- info-box-end -->
+
+
+{% include /log-shipping/multiline-logs-filebeat.md %}
 
 #### Standard configuration
 
@@ -88,6 +91,10 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 #### Autodiscover configuration
 
 Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running.
+
+
+{% include /log-shipping/multiline-logs-filebeat.md %}
+
 
 <div class="tasklist">
 

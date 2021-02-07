@@ -54,6 +54,7 @@ Your Kubernetes version may affect your options, as follows:
   
   If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
 
+{% include /log-shipping/multiline-logs-fluentd.md %}
 
 
 </div>

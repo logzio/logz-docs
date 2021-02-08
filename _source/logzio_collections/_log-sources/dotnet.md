@@ -112,7 +112,7 @@ hierarchy.Configured = true;
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
-| proxyAddress | Proxy address to ship you logs through | `None` |
+| proxyAddress | Proxy address to route you logs through | `None` |
 
 
 
@@ -286,7 +286,7 @@ LogManager.Configuration = config;
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
-| proxyAddress | Proxy address to ship you logs through | `None` |
+| proxyAddress | Proxy address to route you logs through | `None` |
 
 
 ###### Code sample

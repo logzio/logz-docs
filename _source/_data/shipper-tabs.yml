@@ -77,6 +77,14 @@ tags:
     name: Endpoint security
   - slug: firewalls
     name: Firewalls
+  - slug: k8s
+    name: K8S
+  - slug: identity
+    name: Identity provider
+  - slug: linux
+    name: Linux security
+  - slug: windows
+    name: Windows security
   - slug: ids
     name: IDS
   - slug: web-firewalls

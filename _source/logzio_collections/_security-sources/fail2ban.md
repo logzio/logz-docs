@@ -8,7 +8,7 @@ templates: [beats-logs]
 contributors:
   - imnotashrimp
 shipping-tags:
-   
+  - linux
 ---
 
 #### Guided configuration

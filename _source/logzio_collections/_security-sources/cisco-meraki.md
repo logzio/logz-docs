@@ -9,8 +9,8 @@ contributors:
   - shalper
   - dorisnaaman
 shipping-tags:
-  - server-app
-   
+  - firewalls
+  - endpoint-security
 ---
 
 #### Configuration

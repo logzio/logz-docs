@@ -10,7 +10,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - server-app
-   
+  - firewalls
 ---
 
 #### Configuration

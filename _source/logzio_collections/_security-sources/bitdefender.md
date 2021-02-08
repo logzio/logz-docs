@@ -9,7 +9,7 @@ contributors:
   - shalper
   - dorisnaaman
 shipping-tags:
-
+  - endpoint-security
 ---
 
 #### Step by step

@@ -7,8 +7,7 @@ data-source: SonicWall
 contributors:
   - shalper
 shipping-tags:
-  - server-app
-    
+  - firewalls
 ---
 
 #### Configuration

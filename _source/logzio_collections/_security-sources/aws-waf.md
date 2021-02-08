@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - aws
+  - web-firewalls
 ---
 
 If you're using AWS WAF as a web application firewall, you can ship its alerts to your Logz.io Cloud SIEM.

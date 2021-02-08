@@ -71,8 +71,16 @@ tags:
     name: Networking
   - slug: agents
     name: Agents
+  - slug: vulnerability-scanners
+    name: Vulnerability scanners
+  - slug: endpoint-security
+    name: Endpoint security
   - slug: firewalls
     name: Firewalls
+  - slug: ids
+    name: IDS
+  - slug: web-firewalls
+    name: Web application firewalls
   - slug: p8s
     name: Prometheus as a service
   

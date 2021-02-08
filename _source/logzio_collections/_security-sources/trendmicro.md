@@ -9,7 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - server-app
-    
+  - endpoint-security
 ---
 
 Trend Micro [Cloud One - Workload Security](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/cloud-one-workload-security.html) (formerly Deep Security Software) is a hybrid cloud runtime security solution.

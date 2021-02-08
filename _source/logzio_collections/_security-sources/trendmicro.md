@@ -8,7 +8,6 @@ contributors:
   - dorisnaaman
   - shalper
 shipping-tags:
-  - server-app
   - endpoint-security
 ---
 

@@ -8,7 +8,6 @@ templates: ["beats-logs"]
 contributors:
   - imnotashrimp
 shipping-tags:
-  - server-app
   - windows
 ---
 

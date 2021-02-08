@@ -8,7 +8,6 @@ templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:
-  - server-app
   - endpoint-security
 ---
 

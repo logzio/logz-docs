@@ -8,7 +8,6 @@ templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp
 shipping-tags:
-  - server-app
   - firewalls
 ---
 

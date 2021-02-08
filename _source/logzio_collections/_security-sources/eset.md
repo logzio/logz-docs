@@ -9,7 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - server-app
-   
+  - endpoint-security
 ---
 
 **Before you begin, you'll need**:

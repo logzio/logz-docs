@@ -9,7 +9,7 @@ contributors:
   - imnotashrimp
   - dorisnaaman
 shipping-tags:
-    
+  - endpoint-security
 ---
 
 #### Configure Winlogbeat

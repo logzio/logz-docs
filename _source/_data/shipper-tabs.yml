@@ -71,6 +71,8 @@ tags:
     name: Networking
   - slug: agents
     name: Agents
+  - slug: firewalls
+    name: Firewalls
   - slug: p8s
     name: Prometheus as a service
   

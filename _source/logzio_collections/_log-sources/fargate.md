@@ -120,7 +120,7 @@ and then click **Create**.
 | Parameter | Description |
 |---|---|
 | image | Replace `<<YOUR-APP-IMAGE>>` with the name of the image you want to ship logs from. |
-| logConfiguration.options.Host | The listener URL for your Logz.io account. {% include log-shipping/listener-var.html %} |
+| logConfiguration.options.Host | {% include log-shipping/listener-var.md %} {% include log-shipping/listener-var.html %} |
 | logConfiguration.options.URI | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} |
 {:.paramlist}
 

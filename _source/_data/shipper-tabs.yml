@@ -80,7 +80,7 @@ tags:
   - slug: k8s
     name: K8S
   - slug: identity
-    name: Identity provider
+    name: Identity providers
   - slug: linux
     name: Linux security
   - slug: windows

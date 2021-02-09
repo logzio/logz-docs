@@ -1,3 +1,30 @@
+---
+title: Sending traces from C# application
+logo:
+  logofile: jaeger.svg
+  orientation: vertical
+data-source: dotnet
+description: How to send traces from C# application
+open-source:
+  - title: 
+    github-repo: jaeger-logzio
+contributors:
+  - yyyogev
+  - yberlinger
+shipping-tags:
+  - from-your-code
+  - traces
+---
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Auto instrumentation](#tab1)
+* [From your code](#tab2)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="tab1">
+
 # OpenTracing Instrumentation for C#
 
 This article describes how to automatically extract Traces from your C# based app with OpenTracing instrumentation.
@@ -71,3 +98,18 @@ Then, add the following env variables to your app containers:
  - name: JAEGER_AGENT_PORT
    value: "6831"
 ```
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="tab2">
+
+Under work...
+
+</div>
+<!-- tab:end -->
+
+
+</div>
+<!-- tabContainer:end -->

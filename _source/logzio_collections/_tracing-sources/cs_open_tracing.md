@@ -47,6 +47,8 @@ Add the following packages to your solution:
 Add to you `Stratup.cs` file the following code snippet:
 Replace `<<JAEGER_AGENT_HOST>>` with the host address of your Jaeger agent, use `localhost` if it's on the same machine. 
 For K8S deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration.JaegerAgentHost)` and make sure your app deployment contain the env variables below.
+
+
 ```csharp
 public void ConfigureServices(IServiceCollection services)
         {
@@ -89,6 +91,7 @@ public void ConfigureServices(IServiceCollection services)
 ### K8S Reference
 If you are deploying your app on k8s, make sure to [deploy Jaeger/OpenTelemetry collector and agents]().
 Then, add the following env variables to your app containers:
+
  ```yaml
  env:
  - name: JAEGER_AGENT_HOST
@@ -98,6 +101,7 @@ Then, add the following env variables to your app containers:
  - name: JAEGER_AGENT_PORT
    value: "6831"
 ```
+
 </div>
 <!-- tab:end -->
 

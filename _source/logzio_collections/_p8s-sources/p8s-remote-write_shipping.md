@@ -60,8 +60,8 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
       external_labels:
         p8s_logzio_name: <labelvalue>
     remote_write:
-      - url: https://<the Logz.io Listener URL for your region>:8053
-        bearer_token: <your Logz.io Metrics account token> 
+      - url: https://<<LISTENER-HOST>>:8053
+        bearer_token: <<METRICS-SHIPPING-TOKEN>> 
         remote_timeout: 30s
         queue_config:
           batch_send_deadline: 5s  #default = 5s

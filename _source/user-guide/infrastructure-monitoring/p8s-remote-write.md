@@ -84,6 +84,6 @@ Add the following parameters to your Prometheus yaml file:
 + **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
   1. Open **Explore <i class="far fa-compass"></i>** in the left menu bar. 
 
-  1. Examine the **Metrics** dropdown list next to the **Explore** heading in the upper left of the pane. <br>
+  1. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane. <br>
     An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 
     ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8smetrics_arriving.png)

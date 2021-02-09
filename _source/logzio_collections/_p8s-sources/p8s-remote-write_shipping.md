@@ -41,7 +41,6 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
 
 #### Configuring Remote Write to Logz.io
 
-{:.no_toc}  
 
 <div class="tasklist">
 
@@ -92,7 +91,7 @@ Add the following parameters to your Prometheus yaml file:
 
 + **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
 
-  1. To open Grafana's Explore, click **Explore** (compass icon) in the left menu bar. 
+  1. Click **Explore** (compass icon) in the left menu bar to open Grafana's Explore. 
 
   1. Examine the **Metrics** drop down below the **Explore** heading in the upper left of the pane. 
   An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 

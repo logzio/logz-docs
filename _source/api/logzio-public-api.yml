@@ -1184,6 +1184,22 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/PageResponsePublicAccountInsightResponse'
+  /v2/markers/create-markers:
+    post:
+      tags:
+        - Insights
+      operationId: createMarkers
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/CreateMarkersRequest'
+      responses:
+        default:
+          description: successful operation
 
 
   # ::::: AUDIT TRAIL
@@ -4420,6 +4436,34 @@ definitions:
         type: string
         description: The title of the Insight.
         example: "Could not find the language line create_user_validation_phone_label"
+
+  CreateMarkersRequest:
+    type: object
+    properties:
+      markers:
+        type: array
+        items:
+          $ref: '#/definitions/MarkerDataPoint'
+  MarkerDataPoint:
+    type: object
+    properties:
+      description:
+        type: string
+      title:
+        type: string
+      tag:
+        type: string
+        enum:
+          - DEPLOYMENT
+          - OTHER
+      timestamp:
+        type: integer
+        format: int64
+      metadata:
+        type: object
+        additionalProperties:
+          type: string
+
 
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:

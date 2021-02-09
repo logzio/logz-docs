@@ -25,7 +25,7 @@ shipping-tags:
 <!-- tab:start -->
 <div id="tab1">
 
-# OpenTracing Instrumentation for C#
+# OpenTracing Instrumentation for C\#
 
 This article describes how to automatically extract Traces from your C# based app with OpenTracing instrumentation.
 
@@ -35,13 +35,17 @@ OpenTracing is an API standard of instrumentation for distributed tracing.
 Jaeger is one implementation of that standard and our most recommended practice for C#. It has a set of libraries and tools to provide open source implementation 
 for distributed tracing.
 
-## OpenTracing for C#
+## OpenTracing for C\#
 
 ### Requirements
 Add the following packages to your solution:
+
 * OpenTracing.Contrib.NetCore
+
 * OpenTracing
+
 * Jaeger
+
 
 ### Implementation
 Add to you `Stratup.cs` file the following code snippet:
@@ -89,6 +93,7 @@ public void ConfigureServices(IServiceCollection services)
         }
 ```
 ### K8S Reference
+
 If you are deploying your app on k8s, make sure to [deploy Jaeger/OpenTelemetry collector and agents]().
 Then, add the following env variables to your app containers:
 

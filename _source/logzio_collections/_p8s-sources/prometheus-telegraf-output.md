@@ -58,9 +58,8 @@ For the list of options, see the parameters below the code block.👇
 
 ###### Parameters 
 
-+ {% include log-shipping/replace-vars.html listener=true %}
+{% include general-shipping/replace-placeholders-metrics.html %}
 
-{% include /metric-shipping/replace-metrics-token-bullet.html %}
 
 ##### Check Logz.io for your metrics
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).

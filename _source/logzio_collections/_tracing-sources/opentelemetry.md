@@ -58,11 +58,11 @@ You can use [this config file](https://github.com/open-telemetry/opentelemetry-c
 
 ###### Parameters
 
-| Parameter | Description |
+| Parameter | Description | Required/Default|
 |---|---|
-| ACCOUNT_TOKEN (Required) | The Logz.io token for your Distributed Tracing account. Required when you use the collector to ship traces to Logz.io.  Replace `<ACCOUNT_TOKEN>` with the token of the Distributed Tracing account you want to send data to. [How do I look up my Distributed Tracing account token?](/user-guide/accounts/finding-your-tracing-account-token)  |
-| REGION DEFAULT: _Blank (US East)_ |  Your two-letter Logz.io account region code. Defaults to **US**, required only if your Logz.io region is different than US. You can find your region code in the [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions) table. |
-| CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter.  You can find your Listener Address in the [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions) table.|
+| ACCOUNT_TOKEN | The Logz.io token for the Distributed Tracing account you want to send your data to: `<<TRACING-SHIPPING-TOKEN>>` . Required when you use the collector to ship traces to Logz.io.  [How do I look up my Distributed Tracing account token?]({{site.baseurl}}/user-guide/accounts/finding-your-tracing-account-token)  | Required|
+| REGION |  Your two-letter Logz.io account region code. Defaults to **US**, required only if your Logz.io region is different than US. You can find your region code in the [Available regions]({{site.baseurl}}/user-guide/accounts/account-region.html#available-regions) table. | DEFAULT: _Blank (US East)_|
+| CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter.  You can find your Listener Address in the [Available regions]({{site.baseurl}}/user-guide/accounts/account-region.html#available-regions) table.| |
 
 {:.paramlist}
 

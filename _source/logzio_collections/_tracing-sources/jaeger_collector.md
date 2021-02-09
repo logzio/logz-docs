@@ -3,7 +3,7 @@ title: Installing the Logz.io Jaeger Collector for Distributed Tracing
 logo:
   logofile: jaeger.svg
   orientation: vertical
-data-source: Jaeger
+data-source: Jaeger Collector
 description: How to deploy a Logz.io Jaeger Collector
 open-source:
   - title: jaeger-logzio
@@ -48,7 +48,7 @@ The required ports are described [here. ](https://www.jaegertracing.io/docs/late
 You'll need to change to the version page for your deployment. 
 
 ```yaml
-docker run -e ACCOUNT_TOKEN=<<SHIPPING-TOKEN>>  # see parameter list below\
+docker run -e ACCOUNT_TOKEN=<<TRACING-SHIPPING-TOKEN>>  # see parameter list below\
  --network=net-logzio \  ## This is the name of the network you created in step 1 above.
  --name=logzio-collector \ ## In the collector configuration, the --name attribute specifies the <<collector name>> used to run the collector. In this example, the <<collector-name>> is "logzio-collector". 
  -p 14268:14268 \
@@ -66,9 +66,9 @@ The complete list of Logz.io collector parameters is presented below.
 In addition to these parameters, you can also use [Jaeger's collector parameters](https://www.jaegertracing.io/docs/latest/cli/#jaeger-collector-grpc-plugin). 
 You'll need to change to the version page for your deployment. 
 
- Collector Parameter | Description
+ Collector Parameter | Description|Required/Default|
  ------------ | -------------
-  ACCOUNT_TOKEN (Required) | The account token is required when you use the collector to send traces to Logz.io. Replace `<SHIPPING-TOKEN>` with the token of the Distributed Tracing account you want to send data to. [_How do I look up my Distributed Tracing account token?_](/user-guide/accounts/finding-your-tracing-account-token)|
-REGION | Two-letter region code that determines the suggested listener URL (where you will be sending trace data to).   Find your region code in the Regions and URLs table. This parameter is left blank for US East (Northern Virginia).  [_How do I look up the Listener host URL for my region?_](/user-guide/accounts/account-region.html#available-regions)|
-GRPC_STORAGE_PLUGIN_LOG_LEVEL| The lowest log level to send.  Default: **warn**.  From lowest to highest, log levels are: **trace, debug, info, warn, error**.  Controls logging only for the Jaeger Logz.io Collector.  Does not affect Jaeger components.|
-COLLECTOR_ZIPKIN_HTTP_PORT | If you’re using a Zipkin implementation to create traces, set this optional environment variable to the HTTP port for the Zipkin collector service.|
+  ACCOUNT_TOKEN | The account token is required when you use the collector to send traces to Logz.io. Replace `<<TRACING-SHIPPING-TOKEN>>` with the token of the Distributed Tracing account you want to send data to. [_How do I look up my Distributed Tracing account token?_](/user-guide/accounts/finding-your-tracing-account-token)| Required |
+REGION | Two-letter region code that determines the suggested listener URL (where you will be sending trace data to).   Find your region code in the Regions and URLs table. This parameter is left blank for US East (Northern Virginia).  [_How do I look up the Listener host URL for my region?_](/user-guide/accounts/account-region.html#available-regions)|   |
+GRPC_STORAGE_PLUGIN_LOG_LEVEL| The lowest log level to send.  Default: **warn**.  From lowest to highest, log levels are: **trace, debug, info, warn, error**.  Controls logging only for the Jaeger Logz.io Collector.  Does not affect Jaeger components.| |
+COLLECTOR_ZIPKIN_HTTP_PORT | If you’re using a Zipkin implementation to create traces, set this optional environment variable to the HTTP port for the Zipkin collector service.| |

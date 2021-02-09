@@ -19,7 +19,7 @@ Add the following packages to your solution:
 ### Implementation
 Add to you `Stratup.cs` file the following code snippet:
 Replace `<<JAEGER_AGENT_HOST>>` with the host address of your Jaeger agent, use `localhost` if it's on the same machine. 
-For K8S deployment, use `Jaeger.Configuration.JaegerAgentHost` and make sure your app deployment contain the env variables below.
+For K8S deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration.JaegerAgentHost)` and make sure your app deployment contain the env variables below.
 ```csharp
 public void ConfigureServices(IServiceCollection services)
         {
@@ -29,12 +29,12 @@ public void ConfigureServices(IServiceCollection services)
             services.AddSingleton<ITracer>(serviceProvider =>
             {
                 string serviceName = serviceProvider.GetRequiredService<IWebHostEnvironment>().ApplicationName;
-
+                string hostName = <<JAEGER_AGENT_HOST>>;
                 var tracer =
                     new Tracer.Builder(serviceName)
                         .WithSampler(new ConstSampler(true))
                         .WithReporter(new RemoteReporter.Builder().WithSender(
-                            new UdpSender(<<JAEGER_AGENT_HOST>>, 6831, 0)).Build())
+                            new UdpSender(hostName, 6831, 0)).Build())
                         .Build();
                     GlobalTracer.Register(tracer);
 

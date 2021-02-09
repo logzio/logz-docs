@@ -1,7 +1,7 @@
 ---
 title: Sending traces from C# application
 logo:
-  logofile: jaeger.svg
+  logofile: dotnet.svg
   orientation: vertical
 data-source: dotnet
 description: How to send traces from C# application

@@ -63,7 +63,7 @@ The following fields are sent to Opsgenie when an Opsgenie alert is triggered:
 ###### Field value examples
 
 ```
-"alert_title": "httpcode200test alert",
-"alert_description": "http code is 200",
+"alert_title": "httpcode200test alert"
+"alert_description": "http code is 200"
 "alert_severity": "MEDIUM"
 ```

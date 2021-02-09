@@ -84,16 +84,14 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Replace the placeholders in the Filebeat configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
+{% include /general-shipping/replace-placeholders.html %}
 
-{% include log-shipping/log-shipping-token-bullet.html %}
-
-* {% include log-shipping/listener-var.html %} 
-
+<!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
+{:.info-box.info}
+<!-- info-box-end -->
 
 ##### Start Filebeat
 

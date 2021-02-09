@@ -185,12 +185,12 @@ file_output:
 ```
 Save and exit the falco.yaml file.
 
-{% include log-shipping/certificate.md %} to your Filebeat server
+{% include log-shipping/certificate.md %}
+
 
 ##### Configure Filebeat
 
-Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
-Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
+Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
 
 This code block adds Falco as an input and sets Logz.io as the output.
 
@@ -230,18 +230,19 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Replace the placeholders in the Filebeat configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
-
-{% include log-shipping/log-shipping-token-bullet.html %}
+{% include /general-shipping/replace-placeholders.html %}
 
 * Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step.
 
-* {% include log-shipping/listener-var.html %} 
 
+
+<!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
+{:.info-box.info}
+<!-- info-box-end -->
+
 
 ##### Start Filebeat
 

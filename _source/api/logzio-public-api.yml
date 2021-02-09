@@ -1126,10 +1126,12 @@ paths:
         - application/json
       parameters:
         - name: id
+          description: Backend alert ID
           in: path
           required: true
           type: integer
           format: int32
+          example: 654312
       responses:
         default:
           description: successful operation
@@ -1144,10 +1146,12 @@ paths:
         - application/json
       parameters:
         - name: id
+          description: Backend alert ID
           in: path
           required: true
           type: integer
           format: int32
+          example: 654321
       responses:
         default:
           description: successful operation
@@ -2977,7 +2981,7 @@ paths:
       tags: 
         - Security rules
       operationId: searchAccountSecurityRules
-      summary: Retrieve your security rules
+      summary: Retrieve security rules
       description: Retrieve a filtered or unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
       produces:
         - application/json
@@ -3005,15 +3009,17 @@ paths:
         - application/json
       parameters:
         - name: id
+          description: Backend rule ID
           in: path
           required: true
           type: integer
           format: int32
+          example: 305572
       responses:
         default:
           description: successful operation
 
-  /v2/security/rules/{id}/disable: 
+  /v2/security/rules/{id}/disable:
     post: 
       tags: 
         - Security rules
@@ -3024,10 +3030,12 @@ paths:
         - application/json
       parameters:
         - name: id
+          description: Backend rule ID
           in: path
           required: true
           type: integer
           format: int32
+          example: 305976
       responses:
         default:
           description: successful operation

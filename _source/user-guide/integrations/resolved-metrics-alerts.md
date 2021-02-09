@@ -63,7 +63,14 @@ The following fields are sent to Opsgenie when an Opsgenie alert is triggered:
 ###### Field value examples
 
 ```
-"alert_title": "httpcode200test alert"
-"alert_description": "http code is 200"
-"alert_severity": "MEDIUM"
+"alert_title": "httpcode200test alert",
+"alert_description": "http code is 200",
+"alert_severity": "MEDIUM",
+"alert_alias": "12345...",
+"alert_event_type": "create",
+"alert_details": {
+	"Account": "Account Name" ,
+	"alert_event_samples": "Sample 1 event out of 1"
+},  
+"alert_view_link": "https://app.logz.io/#/dashboard/grafana/d/..."
 ```

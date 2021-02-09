@@ -4,9 +4,9 @@ logo:
   logofile: jaeger.svg
   orientation: vertical
 data-source: Jaeger
-description: How to deploy a Logz.io Jaeger Collector 
+description: How to deploy a Logz.io Jaeger Collector
 open-source:
-  - title: 
+  - title: jaeger-logzio
     github-repo: jaeger-logzio
 contributors:
   - yyyogev

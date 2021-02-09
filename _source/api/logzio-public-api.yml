@@ -1046,7 +1046,7 @@ paths:
 
   /v2/alerts/{alertId}:
     get:
-      summary: Retrieve an alert
+      summary: Retrieve alert by ID
       description: Returns alert details by alert ID.
       tags:
         - Alerts
@@ -1115,6 +1115,43 @@ paths:
           schema:
             $ref: '#/definitions/AlertV2Response'
           headers: {}
+  /v2/alerts/{id}/enable:
+    post:
+      summary: Enable alert by ID
+      description: Enables an alert by its alert ID. This is reversible. The alert can be disabled again at any time.
+      operationId: enableAlert
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: successful operation
+  /v2/alerts/{id}/disable:
+    post:
+      operationId: disableAlert
+      summary: Disable alert by ID
+      description: Disables an alert by its alert ID. This is reversible. The alert can be enabled again at any time.
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: successful operation
+
 
 
   # ::::: Log Insights
@@ -4132,12 +4169,7 @@ definitions:
           $ref: '#/definitions/SecurityRuleResponse'
       pagination:
         $ref: '#/definitions/Pagination'
-#      results:
-#        type: array
-#        items:
-#          $ref: '#/definitions/TriggeredAlert'
-#      pagination:
-#        $ref: '#/definitions/Pagination'
+
 
   AlertsSearchRequest:
     type: object

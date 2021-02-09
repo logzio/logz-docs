@@ -17,11 +17,7 @@ shipping-tags:
   - p8s
 ---
 
-<!-- info-box-start:info -->
-This feature is in beta. Please contact the Support team or your account manager to request early access.
-{:.info-box.note}
-<!-- info-box-end -->
-
+This feature is in beta. Please [email our support](mailto:help@logz.io?subject=Requesting%20early%20access%20for%20p8s.%20Thanks) or your Logz.io account manager to request early access. 
 
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
 

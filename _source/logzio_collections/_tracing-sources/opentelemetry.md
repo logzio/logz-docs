@@ -79,7 +79,7 @@ docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 
 ```
 
 ##### Run a working example.
-For a complete working example, you can run [this docker compose file](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml) for the [Logz.io Hotrod demo application](/user-guide/distributed-tracing/trace-hotrod-demo).
+For a complete working example, you can run [this docker compose file](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml) for the [Logz.io Hotrod demo application]({{site.baseurl}}/user-guide/distributed-tracing/trace-hotrod-demo).
 
   1. Download the docker compose file.
 
@@ -91,5 +91,5 @@ For a complete working example, you can run [this docker compose file](https://r
 
 Give your traces some time to get from your system to ours, then check the Distributed Tracing tab in Logz.io to see the traces in the Jaeger UI.
 
-To learn more about tracing instrumentation, see [Instrumentation recommendations and resources.](/user-guide/distributed-tracing/tracing-instrumentation#instrumentation-recommendations-and-resources)
+To learn more about tracing instrumentation, see [Instrumentation recommendations and resources.]({{site.baseurl}}/user-guide/distributed-tracing/tracing-instrumentation#instrumentation-recommendations-and-resources)
 

@@ -87,13 +87,8 @@ output.logstash:
 
 For a full list of available Metricbeat configuration options for the etcd module, including explanations about TLS connections, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-etcd.html).
 
-##### Replace the placeholders in the configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
-
-* {% include metric-shipping/replace-metrics-token.html %}
-
-* {% include log-shipping/listener-var.html %} 
+{% include /general-shipping/replace-placeholders-metrics.html %}
 
 * `localhost:2379` is the default address for etcd, change it if you're runnning etcd from a different address.
 

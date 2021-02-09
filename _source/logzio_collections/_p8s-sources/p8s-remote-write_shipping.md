@@ -16,11 +16,8 @@ contributors:
 shipping-tags:  
   - p8s
 ---
-<!-- info-box-start:note -->
-This feature is in beta. Please contact the Support team or your account manager to request early access.
-{:.info-box.note}
-<!-- info-box-end -->
 
+This feature is in beta. Please [email our support](mailto:help@logz.io?subject=Requesting%20early%20access%20for%20p8s.%20Thanks) or your Logz.io account manager to request early access. 
 
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
 
@@ -56,7 +53,7 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
 + Look up your Metrics account information in the [Manage Accounts **gear icon > Settings > Manage accounts)**](https://app.logz.io/#/dashboard/settings/manage-accounts) page of your Operations workspace. Click the relevant **Metrics account plan** to display its details, including your [Metrics account token.]({{site.baseurl}}//user-guide/accounts/finding-your-metrics-account-token/)
 ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
-##### Add a remote_write url
+##### Add a remote_write url to the Prometheus yaml file
 
 
 ```yaml

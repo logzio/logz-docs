@@ -94,7 +94,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 ### K8S Reference
 
-If you are deploying your app on k8s, make sure to [deploy Jaeger/OpenTelemetry collector and agents]().
+If you are deploying your app on k8s, make sure to [deploy Jaeger/OpenTelemetry collector and agents](https://docs.logz.io/user-guide/distributed-tracing/k8s-deployment).
 Then, add the following env variables to your app containers:
 
  ```yaml

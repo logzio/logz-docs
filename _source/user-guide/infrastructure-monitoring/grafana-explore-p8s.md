@@ -21,68 +21,28 @@ It's also great if you're a long-time user and want to examine the structure of 
 
 To go to Grafana’s Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
-<!-- @DanielT ~~ the next sections are obsolete, I assume.  
-
-Exposing the metrics in your system - discovering the associated metadata (tags, dimensions, or fields) sent by the services in your environment
+<!-- Exposing the metrics in your system - discovering the associated metadata (tags, dimensions, or fields) sent by the services in your environment
 
 -->
-## Metrics view vs. Logs view  
+## Exploring your metrics
 
-<!-- obsolete topic-->
+To determine which metrics exist in your metrics account and then discover the associated metadata (tags, dimensions, or fields) sent by the services in your environment, use the Metrics list or an autocomplete query.
 
-Grafana’s Explore mode has a number of views, including various Metrics options and a Logs view.
+- Metrics “Tree”: Use the metrics dropdown to the left of the query bar to get a full picture of all of the metrics sent to your account. 
+The metrics are grouped by name. 
+For example, Kubernetes metrics start with the word <kube>. 
 
-![Grafana Explore view options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafanalogs-select1.png)  <!-- need to change the image-->
+- Query autocomplete: Use the query autocomplete option to explore the available metrics name suggestions 
+For example, if you’re monitoring Kubernetes and looking for a specific pod metric, start typing the word <pod> and see what results come up., then click the desired metric name.
 
-![Grafana Explore with Metrics and Logs views shown side-by-side](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore732.png) <!-- need to change the image-->
+TIP: Be aware that not all metrics from a specific service start with the same word. For instance, the metrics in the <container> are also Kubernetes metrics. It is best to get a general sense of the service metrics’ naming and structure in its documentation.
 
-Which view is better, depends on your goal:
+## Metrics labels
 
-* The Logs view is ideal for exploring the structure of your metrics' documents as preparation for configuring new dashboards. It is unique to Grafana Explore.
-* The Metrics view options are useful for getting general information about what's going on in your metrics account.
+Each metric has its metadata - one or more labels that are attached to it and shed light on the metric. These labels are either being attached and sent automatically with the metric, or can also be attached manually by the sender - depends on the monitored service or application. These labels are useful for creating meaningful visualizations and for gaining insights about the monitored data.  
 
-### Metrics View
-
-<!-- obsolete topic-->
-The metrics view options offer a playground you can use to explore your data. They show a graph panel where you can experiment with queries. If you've edited a Grafana dashboard before, the interface will be familiar.
-
-The Metrics view options are great for learning what Metrics data is in your system. Here are a few examples of what it offers:
-<!-- What changes are needed for P8s? 
-- get rid of Metricbeat refs
-- provide useful examples for grouping Prometheus data.  
-- Which concepts are relevant for Prometheus? -->
-
-* To check which Metricbeat modules you currently have, use a `group by` rule for the field `event.module`.
-* To look up your metricsets, use a `group by` rule for the field `metricset.name`.
-* To see which hosts are shipping metrics to your account, use a `group by` rule for the field `host.name`.
-<!-- replace the examples in this table with concepts that work for P8s data -->
-| What are you looking for | Group by field |
-|---|---|
-| Metricbeat modules | `event.module` |
-| Metricsets | `metricset.name` |
-| Which hosts are shipping metrics | `host.name` |
-
-![Grafana explore: Metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana_explore_metrics2.gif)
-
-### Logs View
-
-<!-- obsolete topic-->
-Grafana's Explore mode is the equivalent of Kibana Discover, only for metrics.
-
-![Grafana Explore in Logs view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore-logs-revamp.png)
-
-The Logs view gives you visibility into your metrics account at the log level.
-It can be useful when you want to build or edit a dashboard, or when you want to see how specific metrics logs are structured.
-
-If you want the system to return all the metrics logs in your account, simply leave the query empty. Once you have a better idea of what you are looking for, query for the log type you are after. The key is to use Lucene syntax.
-
-When you're ready to dive into specifics, click one of the results to open the document view. The document view shows you which metrics and dimensions are being sent in the same document, and includes the metadata for those metrics. (For example, typical metadata for the metrics could include the sending host, metricset, cluster, and so on).
-![Grafana explore: Logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana_explore_logs.gif)
-
-You can click the <i class="fas fa-signal"></i> icon for a top-N analysis of the most common values for the field.
-
-![Top-N analysis in Grafana Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore-top-n-distribution.png)
-
+When choosing a metric to focus on, you can see each metric’s labels (and label values) attached to it below the graph visualization. 
+For example, the metric <kube_deployment_status_replicas_available> has the labels <deployment> and <namespace> 
 
 ### Split and Sync
 <!-- still relevant-->

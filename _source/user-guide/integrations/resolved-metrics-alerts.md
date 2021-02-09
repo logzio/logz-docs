@@ -51,7 +51,7 @@ The following fields are sent to Opsgenie when an Opsgenie alert is triggered:
 
 |Field|Description|
 |---|---|
-|alert_alias | Unique identifier for a Logz.io alert to close resolved alerts |
+|alert_alias | Unique identifier for a Logz.io alert. Used to close resolved alerts |
 |alert_event_type  | Notifies Opsgenie to open or close an alert  |
 |alert_details | Specifies account name and alert samples|
 |alert_view_link |  Specifies the link to the dashboard where the alert was triggered|

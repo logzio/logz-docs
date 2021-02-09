@@ -12,8 +12,6 @@ shipping-tags:
   - endpoint-security
 ---
 
-#### Step by step
-{:.no_toc}
 
 **Before you begin, you'll need**:
 
@@ -67,13 +65,13 @@ curl -k -X POST
 -d '{"params": {"status": 1,"serviceType": "cef","serviceSettings": {"url": "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=bitdefender_grzone","requireValidSslCertificate": false,"authorization": "Basic <<ENCODED_API_KEY_BASE_64>>"},"subscribeToEventTypes": {"adcloud":true,"antiexploit":true,"aph":true,"av":true,"avc":true,"dp":true,"endpoint-moved-in":true,"endpoint-moved-out":true,"exchange-malware":true,"exchange-user-credentials":true,"fw":true,"hd":true,"hwid-change":true,"install":true,"modules":true,"network-monitor":true,"network-sandboxing":true,"new-incident":true,"registration":true,"supa-update-status":true,"sva":true,"sva-load":true,"task-status":true,"troubleshooting-activity":true,"uc":true,"uninstall":true}},"jsonrpc": "2.0","method": "setPushEventSettings","id": "1"}'
 ```
 
-###### Placeholders to replace
 
-* `<<ACCESS_URL>>` - Replace with the Access URL copied in a previous step.
-* `<<ENCODED_API_KEY_BASE_64>>`- Replace with the encoded key returned in the previous step.
-(Do  NOT delete the term `basic`. It belongs there.)
-* {% include log-shipping/listener-var.html %} 
-{% include log-shipping/log-shipping-token-bullet.html %}
+{% include /general-shipping/replace-placeholders.html %}
+
+
+* `<<ACCESS_URL>>`: Replace with the Access URL copied in a previous step.
+* `<<ENCODED_API_KEY_BASE_64>>`: Replace with the encoded key returned in the previous step. (Do NOT delete the term `basic`. It belongs there.)
+
 
 ###### Expected returned value
 

@@ -150,13 +150,9 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Replace the placeholders in the configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
+{% include /general-shipping/replace-placeholders.html %}
 
-{% include log-shipping/log-shipping-token-bullet.html %}
-
-* {% include log-shipping/listener-var.html %} 
 
 
 ##### Start Auditbeat

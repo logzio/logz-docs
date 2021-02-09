@@ -1,6 +1,6 @@
 # OpenTracing Instrumentation for C#
 
-This article will describe how to automatically extract Traces from your C# based app with OpenTracing instrumentation.
+This article describes how to automatically extract Traces from your C# based app with OpenTracing instrumentation.
 
 ## OpenTracing and Jaeger
 

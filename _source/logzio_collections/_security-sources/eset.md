@@ -90,7 +90,7 @@ output.logstash:
 <!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
-{:.info-box.info}
+{:.info-box.note}
 <!-- info-box-end -->
 
 ##### Start Filebeat

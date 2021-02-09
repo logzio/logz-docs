@@ -2939,7 +2939,7 @@ paths:
     post: 
       tags: 
         - Security rules
-      operationId: Search security rules
+      operationId: searchAccountSecurityRules
       summary: Retrieve your security rules
       description: Retrieve a filtered or unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
       produces:
@@ -2967,13 +2967,13 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: ruleId
+        - name: id
           in: path
           required: true
           type: integer
           format: int32
       responses:
-        '200':
+        default:
           description: successful operation
 
   /v2/security/rules/{id}/disable: 
@@ -2986,13 +2986,13 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: ruleId
+        - name: id
           in: path
           required: true
           type: integer
           format: int32
       responses:
-        '200':
+        default:
           description: successful operation
 
 
@@ -4129,9 +4129,15 @@ definitions:
       results:
         type: array
         items:
-          $ref: '#/definitions/TriggeredAlert'
+          $ref: '#/definitions/SecurityRuleResponse'
       pagination:
         $ref: '#/definitions/Pagination'
+#      results:
+#        type: array
+#        items:
+#          $ref: '#/definitions/TriggeredAlert'
+#      pagination:
+#        $ref: '#/definitions/Pagination'
 
   AlertsSearchRequest:
     type: object

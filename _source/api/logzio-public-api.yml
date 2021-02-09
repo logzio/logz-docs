@@ -1046,7 +1046,7 @@ paths:
 
   /v2/alerts/{alertId}:
     get:
-      summary: Retrieve an alert
+      summary: Retrieve alert by ID
       description: Returns alert details by alert ID.
       tags:
         - Alerts
@@ -1115,6 +1115,47 @@ paths:
           schema:
             $ref: '#/definitions/AlertV2Response'
           headers: {}
+  /v2/alerts/{id}/enable:
+    post:
+      summary: Enable alert by ID
+      description: Enables an alert by its alert ID. This is reversible. The alert can be disabled again at any time.
+      operationId: enableAlert
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Backend alert ID
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 654312
+      responses:
+        default:
+          description: successful operation
+  /v2/alerts/{id}/disable:
+    post:
+      operationId: disableAlert
+      summary: Disable alert by ID
+      description: Disables an alert by its alert ID. This is reversible. The alert can be enabled again at any time.
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Backend alert ID
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 654321
+      responses:
+        default:
+          description: successful operation
+
 
 
   # ::::: Log Insights
@@ -2935,7 +2976,69 @@ paths:
           schema:
             $ref: '#/definitions/RuleV2Response'
           headers: {}
+  /v2/security/rules/search: 
+    post: 
+      tags: 
+        - Security rules
+      operationId: searchAccountSecurityRules
+      summary: Retrieve security rules
+      description: Retrieve a filtered or unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      produces:
+        - application/json
+      parameters: 
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertsSearchRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseSecurityRuleResponse'
 
+
+  /v2/security/rules/{id}/enable: 
+    post: 
+      tags: 
+        - Security rules
+      operationId: enableSecurityRule
+      summary: Enable a rule
+      description: Enables a security rule by its ID.
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Backend rule ID
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 305572
+      responses:
+        default:
+          description: successful operation
+
+  /v2/security/rules/{id}/disable:
+    post: 
+      tags: 
+        - Security rules
+      operationId: disableSecurityRule
+      summary: Disable a rule
+      description: Disables a security rule by its ID.
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Backend rule ID
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 305976
+      responses:
+        default:
+          description: successful operation
 
 
 
@@ -4059,6 +4162,102 @@ definitions:
         format: int64
         example: 1587137557
         description: Absolute UNIX timestamp in seconds (not milliseconds).
+
+  PagedSearchResponseSecurityRuleResponse:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+        description: The total number of rules returned by the query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
+        example: 500
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/SecurityRuleResponse'
+      pagination:
+        $ref: '#/definitions/Pagination'
+
+
+  AlertsSearchRequest:
+    type: object
+    properties:
+      filter:
+        description: Filter by rule name, severity, and more.
+        type: array
+        items:
+          $ref: '#/definitions/AlertsFilter'
+      sort:
+        description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
+        type: array
+        items:
+          $ref: '#/definitions/AlertsSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  AlertsSortRequest:
+    type: object
+    required:
+      - field
+    properties:
+      sortByField:
+        type: string
+        description: Sort by a single parameter.
+        enum:
+          - SEVERITY
+          - NAME
+          - CREATED_AT
+          - UPDATED_AT
+      descending:
+        type: boolean
+        default: true
+        description: If left blank, descending sorting will result. If `false` results in ascending sorting.
+
+
+  AlertsFilter:
+    type: object
+    properties:
+      search:
+        type: string
+        description: Searches by rule titles that contain the string.
+      severity:
+        type: array
+        items:
+          type: string
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        description: List of rule severities, as specified by the security rule's definition
+        example: 
+          SEVERE
+          HIGH
+      updatedBy:
+        type: array
+        items:
+          type: string
+        description: Email addresses of the last users to update the rules
+      createdBy:
+        type: array
+        items:
+          type: string
+        description: Email addresses of the user who created the rules.
+      enabledState:
+        type: list of booleans
+        description: true for enabled rules, false for disabled rules.
+      emailNotifications:
+        type: array
+        items:
+          type: string
+        description: List of email addresses on the recipients list to receive notifications when the rules trigger.
+      tags:
+        type: array
+        items:
+          type: object
+        description: Tags are labels used to organize security rules
+
+
 
 
   # ::::: Log Insights

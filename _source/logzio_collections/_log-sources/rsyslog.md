@@ -100,12 +100,11 @@ if $programname == 'TYPE' then @@<<LISTENER-HOST>>:5001;logzFormatFileTagName
 if $programname == 'TYPE' then ~
 ```
 
-Replace the following in the above code sample to match your specifics:
+{% include /general-shipping/replace-placeholders.html %}
 
-* `<<PATH_TO_FILE>>`: Path to your file or directory.
-* `<<TYPE>>`: {% include log-shipping/type.md %}
-{% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/replace-vars.html listener=true %}
+* Replace `<<PATH_TO_FILE>>` with the path to your file or directory.
+* Replace `<<TYPE>>`. {% include log-shipping/type.md %}
+
 
 
 ##### Restart rsyslog

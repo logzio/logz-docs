@@ -46,13 +46,9 @@ Not all metrics from a specific service start with the same word. <br>For exampl
 
 ## Metrics metadata labels
 
-Each metric includes metadata - one or more labels that are associated with the metric and which provide additional information about it. 
+Each metric includes metadata - one or more labels that are associated with the metric and which provide additional information about it. These labels are either automatically attached and sent with the metric, or can also be attached manually by the sender: It depends on the monitored service or application. 
 
-These labels are either automatically attached and sent with the metric, or can also be attached manually by the sender: It depends on the monitored service or application. 
-
-Metrics metadata labels are useful for creating meaningful visualizations and for gaining insights about the monitored data.  
-
-When choosing a metric to focus on, you can see each metric’s labels (and label values) attached to it below the graph visualization. 
+Metrics metadata labels are useful for creating meaningful visualizations and for gaining insights about the monitored data. When choosing a metric to focus on, you can see each metric’s labels (and label values) attached to it below the graph visualization. 
 
 In the image below, the metric **kube_deployment_status_replicas_available** includes the labels _deployment_ and _namespace_ 
 

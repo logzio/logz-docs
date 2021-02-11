@@ -4,7 +4,8 @@ title: Explore your Prometheus metrics
 permalink: /user-guide/infrastructure-monitoring/grafana-explore-p8s/
 flags:
   #admin: true
-  logzio-plan: community
+  logzio-plan: pro
+  beta: true
 tags:
   - Grafana
 contributors:
@@ -18,7 +19,7 @@ Grafana Explore is where you can research the data available in your Prometheus 
 It's a bit like Kibana Discover, in that it is optimized for quickly searching the data in preparation for creating dashboards.
 
 Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, Grafana’s Explore mode is the best way to do it.
-It's also great if you're a long-time user and want to examine the structure of your metrics documents to create a new monitoring dashboard.
+It's also great if you're a long-time user and want to examine the structure of your metrics  to create a new monitoring dashboard.
 
 To go to Grafana’s Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
@@ -41,10 +42,10 @@ The metrics are grouped by name.
   ![P8s query autocomplete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-querylist.png)
 
 
-Not all metrics from a specific service start with the same word. <br>For example, the metrics grouped by the term *container* are also Kubernetes metrics. <br><br>It is best to get a general sense of a service's metrics naming and structure from the metrics documents themselves, using Grafana Explore.
+Not all metrics from a specific service start with the same word. <br>For example, the metrics grouped by the term *container* are also Kubernetes metrics. <br><br>It is best to get a general sense of a service's metrics naming and structure from the metrics themselves, using Grafana Explore.
 {:.info-box.note}
 
-## Metrics metadata labels
+## Prometheus metrics metadata labels
 
 Each metric includes metadata - one or more labels that are associated with the metric and which provide additional information about it. These labels are either automatically attached and sent with the metric, or can also be attached manually by the sender: It depends on the monitored service or application. 
 
@@ -54,9 +55,11 @@ In the image below, the metric **kube_deployment_status_replicas_available** inc
 
 ![P8s metric metadata labels](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-metadata-labels1.png)
 
-### Split and Sync
+### Split and sync Explore screens
 
 You can split your Explore mode screen to work faster and make quick comparisons. You can split the screen to work with two views side-by-side, whether Metrics-Metrics, Logs-Logs, or Logs-Metrics.  <!-- what sort of things would you display in the 2 panels, for example?  -->
+
+Splitting the screen is especially effective for checking how queries behave in different time ranges and even for different data sources (in the Logz.io world, a data source = a different metrics account).
 
 To split the screen, click the **<i class="fas fa-columns"></i> Split** button.
 If you want to sync both views so they both cover the same time range, click the **<i class="fas fa-link"></i>** button to link the views.

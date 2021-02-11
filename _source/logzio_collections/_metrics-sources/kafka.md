@@ -155,8 +155,9 @@ output.logstash:
 
 For a full list of available Metricbeat configuration options for the Prometheus module, including explanations about TLS connections, see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-prometheus.html).
 
+##### Replace the placeholders in the configuration
 
-{% include /general-shipping/replace-placeholders-metrics.html %}
+Still in the same configuration file, replace the placeholders to match your specifics.
 
 * Edit the `hosts` field for prometheus JMX metrics. Specify a comma separated list of addresses for your Kafka servers. (For example: `hosts: ["Kafka1:7071","Kafka2:7071"]` )
 

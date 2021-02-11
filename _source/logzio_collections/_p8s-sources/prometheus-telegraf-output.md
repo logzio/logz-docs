@@ -16,7 +16,8 @@ shipping-tags:
 
 ---
 
-This feature is in beta. Please [email our support](mailto:help@logz.io?subject=Requesting%20early%20access%20for%20p8s.%20Thanks) or your Logz.io account manager to request early access. 
+
+{% include page-info/early-access.md type="beta" %}
 
 This project lets you to configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
 
@@ -57,8 +58,9 @@ For the list of options, see the parameters below the code block.👇
 
 ###### Parameters 
 
-{% include general-shipping/replace-placeholders-metrics.html %}
++ {% include log-shipping/replace-vars.html listener=true %}
 
+{% include /metric-shipping/replace-metrics-token-bullet.html %}
 
 ##### Check Logz.io for your metrics
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).

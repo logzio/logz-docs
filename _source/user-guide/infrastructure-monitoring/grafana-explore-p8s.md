@@ -19,7 +19,7 @@ Grafana Explore is where you can research the data available in your Prometheus 
 It's a bit like Kibana Discover, in that it is optimized for quickly searching the data in preparation for creating dashboards.
 
 Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, Grafana’s Explore mode is the best way to do it.
-It's also great if you're a long-time user and want to examine the structure of your metrics  to create a new monitoring dashboard.
+It's also great if you're a long-time user and want to examine the structure of your metrics to create a new monitoring dashboard.
 
 To go to Grafana’s Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
@@ -29,7 +29,7 @@ To go to Grafana’s Explore, click the **Explore icon <i class="far fa-compass"
 
 To determine which metrics exist in your metrics account and then discover the associated metadata (tags, dimensions, or fields) sent by the services in your environment, use the Metrics list or an autocomplete query.
 
-- **Metrics "tree":** Use the metrics dropdown to the left of the query bar to get a full picture of all of the metrics sent to your account. 
+- **Metrics list:** Use the metrics dropdown to the left of the query bar to get a full picture of all of the metrics sent to your account. 
 The metrics are grouped by name. 
 
   In the image below, the Kubernetes metrics start with the term *kube*. 

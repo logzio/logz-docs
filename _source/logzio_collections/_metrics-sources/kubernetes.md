@@ -155,9 +155,12 @@ kubectl --namespace=kube-system create secret generic cluster-details \
 
 Deploy one of these configurations.
 
+<!-- info-box-start:info -->
 If your Kubernetes setup is EKS or AKS,
 you'll need to use the HTTPS deployment.
 {:.info-box.note}
+<!-- info-box-end -->
+
 
 ###### For HTTP communication with kubelet
 

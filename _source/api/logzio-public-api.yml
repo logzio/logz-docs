@@ -1189,6 +1189,8 @@ paths:
       tags:
         - Insights
       operationId: createMarkers
+      summary: Add deployment markers to Exception graphs
+      description: Send logs with details of service deployments to annotate graphs of Exceptions. [Learn more](https://docs.logz.io/user-guide/insights/exceptions/)
       produces:
         - application/json
       parameters:
@@ -4447,22 +4449,31 @@ definitions:
   MarkerDataPoint:
     type: object
     properties:
-      description:
-        type: string
       title:
         type: string
+        description: TName Adds a title to 
       tag:
         type: string
+        description: 
         enum:
           - DEPLOYMENT
           - OTHER
       timestamp:
         type: integer
         format: int64
+      description:
+        type: string
+        description: 
+        example: 
       metadata:
         type: object
         additionalProperties:
           type: string
+          description: >-
+            Provides additional metadata with details of the deployment. 
+            
+            
+            (Future functionality: Metadata will be used to filter deployments by several dimensions. For example, to filter deployments by service and region to focus on deployments performed on a specific service and a specific region.
 
 
   # ::::: AUDIT TRAIL DEFINITIONS

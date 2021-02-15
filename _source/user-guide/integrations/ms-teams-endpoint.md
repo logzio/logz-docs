@@ -7,7 +7,6 @@ tags:
   - endpoints
   - integrations
 contributors:
-  - ralongit
   - shalper
 ---
 

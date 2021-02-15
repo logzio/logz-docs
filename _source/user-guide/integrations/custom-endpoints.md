@@ -72,7 +72,7 @@ Here's an example of a JSON payload for an alert that includes a verification to
 2. Specify the URL, method, and headers.
 3. For POST/PUT methods, you can add a payload with a message.
 
-Some endpoints require a particular attribute/payload. For example, [Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#office-365-connector-card).
+Some endpoints require a particular attribute/payload. For example, [Microsoft Teams](/user-guide/integrations/ms-teams.html#add-your-payload).
 {:.info-box.important}
 
 

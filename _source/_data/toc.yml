@@ -316,7 +316,7 @@ firstLevel:
         url: /user-guide/integrations/custom-endpoints.html
       - title: Opsgenie notifications for resolved metrics alerts
         url: /user-guide/integrations/resolved-metrics-alerts.html
-      - title: Configure an endpoint for MS Teams
+      - title: Microsoft Teams endpoint
         url: /user-guide/integrations/ms-teams.html
   - title: Terraform Logz.io Provider
     url: /integrations/terraform/

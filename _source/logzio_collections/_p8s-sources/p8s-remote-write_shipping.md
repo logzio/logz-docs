@@ -87,7 +87,11 @@ Add the following parameters to your Prometheus yaml file:
 ##### Verify the remote_write configuration
 
 
-+ **Run a query**: To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
++ **Run a query**: If you are scraping Prometheus metrics, you can check that the remote_write configuration is working properly by doing one of the following and verifying that the result is greater than zero (n > 0) for the url:
+
+  * Run a query on your local Prometheus interface for the metric `prometheus_remote_storage_samples_total`.
+
+  * Check for the metric in the `/metrics` endpoint on your Prometheus server. 
 
 + **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
 

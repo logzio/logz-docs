@@ -15,33 +15,21 @@ contributors:
 shipping-tags:
   - container
 ---
-Helm is a tool for managing packages of pre-configured Kubernetes resources, known as Charts.
 
-You can ship metrics from your Kubernetes cluster using Logzio-k8s-metrics.
-
-This Daemonset can be deployed using a standard configuration or [Metricbeat autodiscover](https://www.elastic.co/guide/en/beats/metricbeat/7.9/configuration-autodiscover.html), for even more powerful automation.
-
-
-**Before you begin, you'll need**:
-
-* [Helm CLI](https://helm.sh/docs/intro/install/) installed
-* [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics) installed
-* [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher for Autodiscover support. This integration defaults to Metricbeat 7.9.1.
-* To allow outgoing traffic to destination port 5015
-* Kubelet read-only-port 10255 enabled. Kubelet read-only-port 10255 is enabled by default on some cluster versions. If it isn’t enabled, follow Kubernetes’s instructions for enabling 10255 as a read-only-port in Kubelet’s config file
-
-Helm 2 will reach [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-released/#:~:text=6%20months%20after%20Helm%203's,Helm%202%20will%20formally%20end). This document follows the command syntax recommended for Helm 3, but the Chart will work with both Helm 2 and Helm 3.
-{:.info-box.note}
-
-
+<!-- tabContainer:start -->
 <div class="branching-container">
-* [Automated deployment _recommended_](#automated-config)
+
+* [Automated deployment (recommended)](#automated-config)
 * [Manual deployment](#manual-config)
 * [Parameters](#configurations)
 * [Uninstall](#uninstall)
 {:.branching-tabs}
 
+<!-- tab:start -->
+
 <div id="automated-config">
+
+{% include metric-shipping/k8s-over-helm-overview.md %}
 
 #### Automated deployment
 
@@ -60,21 +48,26 @@ bash <(curl -s https://raw.githubusercontent.com/logzio/logzio-helm/master/quick
 
 Follow through the system's prompts and provide the requested parameters.
 
-| Prompt | Answer |
-|---|---|
-| Logz.io metrics shipping token (Required) | {% include metric-shipping/replace-metrics-token.html %} |
-| Logz.io region (Default: `Blank (US East)`) | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you’re shipping the logs to) and API URL. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| Cluster name (Default: `detected by the script`) | Name of the Kubernetes cluster in which you are deploying. |
-| Standard or autodiscover deployment (Default: `standard`) | To deploy with [configuration templates](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover.html) answer 'autodiscover'. |
+| Prompt | Answer |Required/Default|
+|---|---|---|
+| Logz.io metrics shipping token | {% include metric-shipping/replace-metrics-token.html %} | Required |
+| Logz.io region | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you’re shipping the logs to) and API URL. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |DEFAULT: `Blank (US East)` |
+| Cluster name | Name of the Kubernetes cluster in which you are deploying. |DEFAULT: `detected by the script` |
+| Standard or autodiscover deployment  | To deploy with [configuration templates](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover.html) answer 'autodiscover'. |DEFAULT: `standard`|
 
 {% include metric-shipping/open-dashboard.md title="Kubernetes" %}
 
-
 </div>
+</div>
+
 <!-- tab:end -->
-</div>
 
+
+<!-- tab:start -->
 <div id="manual-config">
+
+{% include metric-shipping/k8s-over-helm-overview.md %}
+
 
 #### Manual deployment
 
@@ -90,18 +83,18 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/metricbeat
 
 ##### Deploy
 
-You have three options for deployment:
+You have three options for deployment: <!--there's a mini toc here that links to tagged content below -->
 
 * [Standard configuration](#standard-config)
 * [Autodiscover configuration](#autodiscover-config)
 * [Custom configuration](#custom-config)
 
-
 ###### Deploy with standard configuration {#standard-config}
+
 
 Run the command below after replacing the following placeholders:
 
-* Replace `<<METRICS-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+* Replace `<<METRICS-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the metrics account you want to ship to.
 * Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 * Replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command to save your cluster details as a Kubernetes secret.
 
@@ -190,8 +183,15 @@ metricbeat.yml: |-
 {% include metric-shipping/open-dashboard.md title="Kubernetes" %}
 
 </div>
+
 </div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
 <div id="configurations">
+
+
 
 ### To override values in a chart
 
@@ -210,6 +210,7 @@ To override configurations such as `metricbeatConfig.autoCustomConfig`, `deploym
 helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-metrics \
   --set-file deployment.metricbeatConfig.custom=/path/to/your/config.yaml
 ```
+
 
 #### Configuration options
 
@@ -267,7 +268,14 @@ helm install --namespace=kube-system logzio-k8s-metrics logzio-helm/logzio-k8s-m
 
 </div>
 
+
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+
 <div id="uninstall">
+
 
 #### To uninstall the chart
 
@@ -278,6 +286,9 @@ For example, to uninstall the `logzio-k8s-metrics` deployment, run:
 helm uninstall --namespace=kube-system logzio-k8s-metrics
 ```
 
+</div>
+
+<!-- tab:end -->
 
 </div>
-</div>
+<!-- tabContainer:end -->

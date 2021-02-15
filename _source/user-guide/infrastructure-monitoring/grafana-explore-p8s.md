@@ -14,12 +14,11 @@ contributors:
   - yberlinger
 ---
 
-Grafana Explore is where you can research the data available in your Prometheus account and discover the metadata (tags, dimensions, or fields) associated with each metric from the services in your environment.
+Grafana Explore is where you can research the data available in your Prometheus metrics account and discover the metadata (tags, dimensions, or fields) associated with each metric from the services in your environment.
 
 It's a bit like Kibana Discover, in that it is optimized for quickly searching the data in preparation for creating dashboards.
 
-Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, Grafana’s Explore mode is the best way to do it.
-It's also great if you're a long-time user and want to examine the structure of your metrics to create a new monitoring dashboard.
+Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, Grafana’s Explore mode is the best way to do it. It's also great if you're a long-time user and want to examine the structure of your metrics to create a new monitoring dashboard.
 
 To go to Grafana’s Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
@@ -32,17 +31,28 @@ To determine which metrics exist in your metrics account and then discover the a
 - **Metrics list:** Use the metrics dropdown to the left of the query bar to get a full picture of all of the metrics sent to your account. 
 The metrics are grouped by name. 
 
-  In the image below, the Kubernetes metrics start with the term *kube*. 
+  In the image below, the Kubernetes metrics start with the term `kube`. 
 
-  ![P8s metrics tree list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-metrics-list.png)
+  <!-- ![P8s metrics tree list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-metrics-list.png) -->
+
+   <video autoplay loop>
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore11-metricslist.mp4" type="video/mp4" />
+  </video>
+
 
 - **Query autocomplete:** Use the query autocomplete option to explore the available metrics name suggestions. 
-  For example, if you’re monitoring Kubernetes and looking for a specific pod metric, start typing the term *pod* to see which results come up, then click the desired metric name.
+  For example, if you’re monitoring Kubernetes and looking for a specific pod metric, start typing the term `pod` to see which results come up, then click the desired metric name.
 
-  ![P8s query autocomplete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-querylist.png)
+  <!-- ![P8s query autocomplete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-querylist.png)  -->
+
+  <video autoplay loop>
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-explore-query.mp4" type="video/mp4" />
+  </video>
+
+  
 
 
-Not all metrics from a specific service start with the same word. <br>For example, the metrics grouped by the term *container* are also Kubernetes metrics. <br><br>It is best to get a general sense of a service's metrics naming and structure from the metrics themselves, using Grafana Explore.
+Not all metrics from a specific service start with the same word. <br>For example, the metrics grouped by the term `container` are also Kubernetes metrics. 
 {:.info-box.note}
 
 ## Prometheus metrics metadata labels
@@ -51,7 +61,7 @@ Each metric includes metadata - one or more labels that are associated with the 
 
 Metrics metadata labels are useful for creating meaningful visualizations and for gaining insights about the monitored data. When choosing a metric to focus on, you can see each metric’s labels (and label values) attached to it below the graph visualization. 
 
-In the image below, the metric **kube_deployment_status_replicas_available** includes the labels _deployment_ and _namespace_ 
+In the image below, the metric `kube_deployment_status_replicas_available` includes the labels `deployment` and `namespace` .
 
 ![P8s metric metadata labels](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-metadata-labels1.png)
 

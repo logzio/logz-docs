@@ -56,15 +56,9 @@ The config file must include the required components for the OpenTelemetry Colle
 You can use [this config file](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/master/exporter/logzioexporter/example/config.yaml) as a starting point, with the Logz.io exporter parameters, below.
 
 
-###### Parameters
-
-| Parameter | Description | Required/Default|
-|---|---|
-| ACCOUNT_TOKEN | The Logz.io token for the Distributed Tracing account you want to send your data to: `<<TRACING-SHIPPING-TOKEN>>` . Required when you use the collector to ship traces to Logz.io.  [How do I look up my Distributed Tracing account token?]({{site.baseurl}}/user-guide/accounts/finding-your-tracing-account-token)  | Required|
-| REGION |  Your two-letter Logz.io account region code. Defaults to **US**, required only if your Logz.io region is different than US. You can find your region code in the [Available regions]({{site.baseurl}}/user-guide/accounts/account-region.html#available-regions) table. | DEFAULT: _Blank (US East)_|
+{% include tracing-shipping/tracing-parameters.md %}
 | CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter.  You can find your Listener Address in the [Available regions]({{site.baseurl}}/user-guide/accounts/account-region.html#available-regions) table.| |
 
-{:.paramlist}
 
 
 ##### Save the file as `config.yaml`.

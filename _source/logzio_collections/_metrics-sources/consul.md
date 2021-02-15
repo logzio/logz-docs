@@ -49,7 +49,7 @@ Now the metrics for this Consul server will be exposed locally in Prometheus for
 http://127.0.0.1:8500/v1/agent/metrics?format=prometheus
 ```
 
-{% include log-shipping/certificate.md server="to your Metricbeat server" clarification="You'll need to run this command on the server that hosts Metricbeat:" %}
+{% include metric-shipping/certificate.md %}
 
 ##### Set metricbeat modules on Consul servers
 

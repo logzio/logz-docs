@@ -74,5 +74,9 @@ Splitting the screen is especially effective for checking how queries behave in 
 To split the screen, click the **<i class="fas fa-columns"></i> Split** button.
 If you want to sync both views so they both cover the same time range, click the **<i class="fas fa-link"></i>** button to link the views.
 
-![Sync P8s Explore views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-splitsync1.png)
+<!-- ![Sync P8s Explore views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-splitsync1.png) -->
 
+
+<video autoplay loop>
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore-split-sync.mp4" type="video/mp4" />
+  </video>

@@ -25,7 +25,7 @@ shipping-tags:
 * [Overview](#overview)
 * [Default configuration](#default-config)
 * [Custom configuration](#custom-config)
-* [Disabling systemd input](#disable)
+* [Multiline logs](#multiline)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -206,7 +206,6 @@ kubectl apply -f /path/to/logzio-daemonset-containerd.yaml -f /path/to/configmap
 ```
 
 
-
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
@@ -217,16 +216,57 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 
 </div>
 
+
+### Disabling systemd input
+
+To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+
+
+
+
 </div>
 <!-- tab:end -->
 
 
 <!-- tab:start -->
-<div id="disable">
+<div id="multiline">
 
-### Disabling systemd input
 
-To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+### `fluent-plugin-concat`
+
+If your original logs span multiple lines, you may find that they are arrive broken up in your Logz.io account. You can use a Fluentd filter plugin to concatenate multiline logs and avoid having them separated into multiple log documents.
+
+For a full list of the plugin configurations, see the [GitHub project for `fluent-plugin-concat`](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
+
+
+###### Example
+
+The following is an example of a muliline log sent from a deployment on a k8s cluster:
+
+```shell
+2021-02-08 09:37:51,031 - errorLogger - ERROR - Traceback (most recent call last):
+File "./code.py", line 25, in my_func
+1/0
+ZeroDivisionError: division by zero
+```
+
+Fluentd's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) will cause a new split.
+
+To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs.
+
+For the above example, we would use the following regex expressions to demarcate the beginning and ending of the multiline log. The following code woulbe be added to `kubernetes.conf` or `kubernetes-containerd.conf`:
+
+
+```shell
+<filter **>
+  @type concat
+  key message # The key for part of multiline log
+  multiline_start_regexp /^[0-9]{4}-[0-9]{2}-[0-9]{2}/ # This regex expression identifies line starts.
+  multiline_end_regexp /^\s*\w*Error:/ # This regex expression identifies the end of your multiline log.
+  flush_interval 5 # The number of seconds after which the last received event log will be flushed.
+</filter>
+```
+
 
 </div>
 <!-- tab:end -->

@@ -231,17 +231,17 @@ To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment 
 <!-- tab:start -->
 <div id="multiline">
 
+### How to concatenate multiline logs
 
-### `fluent-plugin-concat`
 
-If your original logs span multiple lines, you may find that they are arrive broken up in your Logz.io account. You can use a Fluentd filter plugin to concatenate multiline logs and avoid having them separated into multiple log documents.
+If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs. You can use a Fluentd filter plugin to concatenate multiline logs and avoid having them separated into multiple log documents.
 
-For a full list of the plugin configurations, see the [GitHub project for `fluent-plugin-concat`](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
+For a full list of configuration options for `fluent-plugin-concat`, see the [GitHub project documentation](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
 
 
 ###### Example
 
-The following is an example of a muliline log sent from a deployment on a k8s cluster:
+The following is an example of a multiline log sent from a deployment on a k8s cluster:
 
 ```shell
 2021-02-08 09:37:51,031 - errorLogger - ERROR - Traceback (most recent call last):
@@ -250,11 +250,11 @@ File "./code.py", line 25, in my_func
 ZeroDivisionError: division by zero
 ```
 
-Fluentd's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) will cause a new split.
+Fluentd's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) causes a split.
 
-To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs.
+To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs. The additional configuration is added to `kubernetes.conf` or `kubernetes-containerd.conf`.
 
-For the above example, we would use the following regex expressions to demarcate the beginning and ending of the multiline log. The following code woulbe be added to `kubernetes.conf` or `kubernetes-containerd.conf`:
+For the above example, we would use the following regex expressions to demarcate the start and end of a multiline log:
 
 
 ```shell

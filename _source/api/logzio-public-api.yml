@@ -4454,29 +4454,32 @@ definitions:
     properties:
       title:
         type: string
-        description: Specify a marker title, for example, a service name.
-        required: true
+        description: Specify a marker title, for example, a service name. The title appears in the Deployments list in your Exceptions tab.
+        example: ServiceA
       tag:
         type: string
-        description: 
+        description: Specify `DEPLOYMENT` for the Deployment marker to appear in the Deployments list in your Exceptions tab.
         default: OTHER
+        example: DEPLOYMENT
         enum:
           - DEPLOYMENT
           - OTHER
       timestamp:
         type: integer
         format: int64
+        description: Date of the deployment event, as Unix epoch milliseconds
+        example: 1613311091679
       description:
         type: string
         description: Add a description to provide additional detail.
-        example: 
+        example: Description with additional context
         required: true
       metadata:
         type: object
         additionalProperties:
           type: string
           description: >-
-            Provides additional metadata with details of the deployment. 
+            Provides additional metadata with details of the deployment.
             
             
             (Future functionality: Metadata will be used to filter deployments by several dimensions. For example, to filter deployments by service and region to focus on deployments performed on a specific service and a specific region.

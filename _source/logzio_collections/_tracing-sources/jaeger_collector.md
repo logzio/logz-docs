@@ -21,10 +21,10 @@ Logz.io's trace exporter for Jaeger allows you to ship distributed traces to Log
 
 This topic explains how to install the Logz.io Jaeger Collector. 
 
-For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](/user-guide/distributed-tracing/getting-started-tracing). 
+For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/). 
 
 We recommend that you use the OpenTelemetry collector to gather trace transaction data from your system. 
-See [_Ship traces with OpenTelemetry_](/shipping/tracing-sources/opentelemetry) for the procedure to configure and deploy the OpenTelemetry collector. You may consider using the Jaeger Collector as a secondary option, if you experience issues with the OpenTelemetry Collector. 
+See [_Ship traces with OpenTelemetry_](https://docs.logz.io/shipping/tracing-sources/opentelemetry) for the procedure to configure and deploy the OpenTelemetry collector. You may consider using the Jaeger Collector as a secondary option, if you experience issues with the OpenTelemetry Collector. 
 
 #### Deploy Jaeger Collector with Logz.io Exporter
 

@@ -14,7 +14,7 @@ shipping-tags:
 contributors:
   - yberlinger
 shipping-tags:  
-  - p8s
+  - prometheus
 ---
 
 This feature is in beta. Please [email our support](mailto:help@logz.io?subject=Requesting%20early%20access%20for%20p8s.%20Thanks) or your Logz.io account manager to request early access. 

@@ -28,19 +28,13 @@ Logz.io log alerts can only be sent on **ports 80 & 443**. If you try setting an
 
 If you need to, whitelist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted:
 
-
-* us-east-1:
-  * 54.86.133.203
-  *	3.223.132.12
-* eu-central-1:
-  * 52.59.86.203
-  * 52.59.12.246
-* eu-west-2:
-  * 18.132.31.199
-* ca-central-1:
-  * 35.182.168.208
-* ap-southeast-2:
-  * 3.105.7.135
+| Region slug | Whitelisted IP  |
+|---|---|
+| us-east-1 | 3.223.132.12 |
+| eu-central-1 | 52.59.86.203 |
+| ca-central-1 | 35.182.168.208 |
+| eu-west-2 | 18.132.31.199 |
+| ap-southeast-2 | 3.105.7.135 |
 
 
 ##### Create a verification token (_Best practice but optional_)

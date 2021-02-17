@@ -1190,7 +1190,7 @@ paths:
         - Insights
       operationId: createMarkers
       summary: Add deployment markers to Exception graphs
-      description: Send logs with details of service deployments to annotate graphs of Exceptions. [Learn more](https://docs.logz.io/user-guide/insights/exceptions/)
+      description: Send logs with details of service deployments to annotate Exception graphs in Kibana Discover. [Learn more](/user-guide/insights/exceptions/deployments.html)
       produces:
         - application/json
       parameters:
@@ -4451,10 +4451,12 @@ definitions:
     properties:
       title:
         type: string
-        description: Adds a title to 
+        description: Specify a marker title, for example, a service name.
+        required: true
       tag:
         type: string
         description: 
+        default: OTHER
         enum:
           - DEPLOYMENT
           - OTHER
@@ -4463,8 +4465,9 @@ definitions:
         format: int64
       description:
         type: string
-        description: 
+        description: Add a description to provide additional detail.
         example: 
+        required: true
       metadata:
         type: object
         additionalProperties:

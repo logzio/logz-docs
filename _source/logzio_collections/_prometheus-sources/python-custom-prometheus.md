@@ -1,3 +1,22 @@
+---
+title: Send custom metrics from your Python application
+logo:
+  logofile: prometheusio-icon.svg
+  orientation: vertical
+data-source: Python remote write for Prometheus
+flags:
+  logzio-plan:  
+  beta: true
+templates: ["docker"]
+contributors:
+  - yberlinger
+shipping-tags:
+contributors:
+  - yberlinger
+shipping-tags:  
+  - prometheus
+---
+
 # Send custom metrics from your Python application
 This page contains instructions on how you can send custom metrics to logz.io from your python application. This exapmles are using [opentelemtry python SDK](https://github.com/open-telemetry/opentelemetry-python-contrib) and [opentelemtry remote write exporter](https://pypi.org/project/opentelemetry-exporter-prometheus-remote-write/), which are in alpha/preview
 

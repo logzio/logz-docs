@@ -12,7 +12,6 @@ tags:
   - markers
 contributors:
   - shalper
-
 ---
 
 {% include page-info/early-access.md type="Beta" %}
@@ -22,7 +21,7 @@ contributors:
 
 #### Adding Deployment markers to Exception graphs
 
-You can send deployment logs by API to automatically correlate exceptions with service deployments directly in your Logz.io Exceptions graphs.
+You can send deployment logs by API to automatically correlate exceptions with service deployments directly in your Logz.io Exception graphs.
 
 <div class="tasklist">
 

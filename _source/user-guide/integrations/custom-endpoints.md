@@ -48,16 +48,18 @@ It is best to restrict external access only to this specific endpoint.
 
 Here's an example of a JSON payload for an alert that includes a verification token:
 
+{% raw %}
+
 ```json
 {
 "token": "<SomeSecurityToken>",
-"alert_title": "<alert_title>",
-"alert_description": "<alert_description>",
-"alert_severity": "<alert_severity>",
-"alert_event_samples": "<alert_samples>"
+"alert_title": "{{alert_title}}",
+"alert_description": "{{alert_description}}",
+"alert_severity": "{{alert_severity}}",
+"alert_event_samples": "{{alert_samples}}"
 }
 ```
-
+{% endraw %}
 
 
 ##### Add the endpoint

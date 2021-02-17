@@ -69,12 +69,29 @@ Add the following parameters to your Prometheus yaml file:
         queue_config:
           batch_send_deadline: 5s  #default = 5s
           max_shards: 10  #default = 1000
-          min_shards: 1
           max_samples_per_send: 500 #default = 100
           capacity: 10000  #default = 500
-
 ```
+For [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) helm chart users:
 
+Edit your chart `values.yaml` file in the following sections:
+1. remote write:
+```yaml
+remoteWrite:
+    - url: https://<the Logz.io Listener URL for your region>:8053
+      bearerToken: <your Logz.io Metrics account token>
+      remoteTimeout: 30s
+      queueConfig:
+        batchSendDeadline: 5s  #default = 5s
+        maxShards: 10  #default = 1000
+        maxSamplesPerSend: 500 #default = 100
+        capacity: 10000  #default = 500
+```
+2. externalLabels:
+```yaml
+externalLabels:
+    - p8s_logzio_name: <labelvalue>
+```
    
 ##### Verify the remote_write configuration
 

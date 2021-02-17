@@ -49,7 +49,7 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
@@ -82,13 +82,7 @@ output.logstash:
 For a full list of available Metricbeat configuration options for the MongoDB module, including explanations about SSL options, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-mongodb.html).
 
 
-##### Replace the placeholders in the configuration
-
-Still in the same configuration file, replace the placeholders to match your specifics.
-
-* {% include metric-shipping/replace-metrics-token.html %}
-
-* {% include log-shipping/replace-vars.html listener=true %}
+{% include /general-shipping/replace-placeholders-metrics.html %}
 
 * The hosts must be passed as MongoDB URLs in the format: `[mongodb://][user:pass@]host[:port]`
 

@@ -1,1 +1,1 @@
-Still in the same configuration file, replace the placeholders to match your specifics.
+Replace the placeholders in the code block (indicated by the double angle brackets `<< >>`) to match your specifics.

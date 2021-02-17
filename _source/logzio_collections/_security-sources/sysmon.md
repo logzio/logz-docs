@@ -8,7 +8,7 @@ templates: ["beats-logs"]
 contributors:
   - shalper
 shipping-tags:
-    
+  - windows
 ---
 
 Sysmon (System Monitor) is a Windows system service that monitors and logs system activity of the Windows event log. It tracks process creations, network connections, and changes to file creation time.
@@ -71,16 +71,16 @@ output.logstash:
 ```
 
 
-##### Replace the placeholders in the configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
+{% include /general-shipping/replace-placeholders.html %}
 
-{% include log-shipping/log-shipping-token-bullet.html %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
-
+<!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 ##### Restart Winlogbeat
 

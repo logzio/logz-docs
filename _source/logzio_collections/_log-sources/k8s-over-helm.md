@@ -15,6 +15,20 @@ shipping-tags:
   - container
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Standard configuration](#standard-config)
+* [Autodiscover](#custom-config)
+* [Configurations & Defaults](#configurations)
+* [Uninstall](#uninstall)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="standard-config">
+
+###### Overview
+
 You can use a Helm chart to ship k8s logs to Logz.io via Filebeat.
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.
@@ -23,27 +37,18 @@ You can either deploy this Daemonset with the standard Filebeat configuration or
 
 For further information about Filebeat's autodiscover please see [Elastic's documentation](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
 
-**Before you begin, you'll need**:
 
-* [Helm CLI](https://helm.sh/docs/intro/install/) installed
-* Allow outgoing traffic to destination port 5015
-
-Helm 2 will reach [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-released/#:~:text=6%20months%20after%20Helm%203's,Helm%202%20will%20formally%20end). This document follows the command syntax recommended for Helm 3, but the Chart will work with both Helm 2 and Helm 3.
+<!-- info-box-start:info -->
+Helm 2 reached [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-released/#:~:text=6%20months%20after%20Helm%203's,Helm%202%20will%20formally%20end). This document follows the command syntax recommended for Helm 3, but the Chart will work with both Helm 2 and Helm 3.
 {:.info-box.note}
-
-
-<div class="branching-container">
-* [Standard configuration](#standard-config)
-* [Autodiscover](#custom-config)
-* [Configurations & Defaults](#configurations)
-* [Uninstall](#uninstall)
-{:.branching-tabs}
-
-
-<div id="standard-config">
+<!-- info-box-end -->
 
 #### Standard configuration
 
+**Before you begin, you'll need**:
+
+* [Helm CLI](https://helm.sh/docs/intro/install/) installed
+* Outgoing traffic to destination port 5015 allowed
 
 <div class="tasklist">
 
@@ -74,9 +79,10 @@ logzio-k8s-logs logzio-helm/logzio-k8s-logs
 Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
 </div>
-<!-- tab:end -->
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="custom-config">
 
 #### Autodiscover configuration
@@ -153,9 +159,10 @@ filebeat.yml: |-
 Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
 </div>
-<!-- tab:end -->
 </div>
+<!-- tab:end -->
 
+<!-- tab:start -->
 <div id="configurations">
 
 #### Configurations
@@ -212,7 +219,7 @@ helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs
 
 
 
-
+<!-- tab:start -->
 <div id="uninstall">
 
 #### Uninstalling the Chart
@@ -224,3 +231,6 @@ To uninstall the `logzio-k8s-logs` deployment:
 helm uninstall --namespace=kube-system logzio-k8s-logs
 ```
 </div>
+
+<!-- tab:end -->
+<!-- tabContainer:end -->

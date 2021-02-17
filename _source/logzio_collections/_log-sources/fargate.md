@@ -106,7 +106,7 @@ When you're done, click **Save**,
 and then click **Create**.
 
 
-###### Parameters in **logzio-log-router**
+###### Parameters in logzio-log-router
 
 | Parameter | Description |
 |---|---|
@@ -115,13 +115,13 @@ and then click **Create**.
 {:.paramlist}
 
 
-###### Parameters in **app**
+###### Parameters in app
 
 | Parameter | Description |
 |---|---|
 | image | Replace `<<YOUR-APP-IMAGE>>` with the name of the image you want to ship logs from. |
-| logConfiguration.options.Host | Replace `<<LISTENER-HOST>>` with with the [listener URL]({{site.baseurl}}/user-guide/accounts/account-region.html) of the account you want to ship to. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| logConfiguration.options.URI | {% include log-shipping/log-shipping-token.html %} |
+| logConfiguration.options.Host | {% include log-shipping/listener-var.md %} {% include log-shipping/listener-var.html %} |
+| logConfiguration.options.URI | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} |
 {:.paramlist}
 
 
@@ -156,6 +156,7 @@ under the `/aws/ecs/logzio-fargate-logs` log group.
 Give your logs some time to get from your system to ours,
 and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-You'll be able to find these logs by searching for `type:fargate`.
+{% include /log-shipping/search-log-type.md type="fargate" %}
+
 
 </div>

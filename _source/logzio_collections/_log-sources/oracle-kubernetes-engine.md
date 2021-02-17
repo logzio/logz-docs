@@ -35,7 +35,7 @@ Save your Logz.io shipping credentials as a Kubernetes secret.
 Customize the command to your specifics:
 
 {% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/replace-vars.html listener=true %}
+* {% include log-shipping/listener-var.html %} 
 * Replace `<<CLUSTER-NAME>>` with your cluster's name.
 
 ```shell

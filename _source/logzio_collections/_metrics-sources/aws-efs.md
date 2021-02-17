@@ -192,11 +192,7 @@ output.logstash:
   ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{% include general-shipping/replace-placeholders.md %}
-
-{% include metric-shipping/replace-metrics-token-bullet.html %}
-
-* {% include log-shipping/replace-vars.html listener=true %}
+{% include /general-shipping/replace-placeholders-metrics.html %}
 
 
 One last validation - make sure Logz.io is the only output and appears only once.

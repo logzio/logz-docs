@@ -13,7 +13,7 @@ contributors:
   - ronish31
   - shalper
 shipping-tags:
-   
+  - identity
 ---
 
 To ship Okta logs,
@@ -22,8 +22,10 @@ to collect the logs and forward them to Logz.io using Logstash.
 
 You can send logs from multiple Okta tenants and any Okta domain.
 
+<!-- info-box-start:info -->
 If you want to ship from multiple Okta tenants over the same docker, you'll need to use the latest configuration using a tenants-credentials.yml file. Otherwise, you can continue using the previous configuration without a tenants-credentials.yml.
 {:.info-box.note}
+<!-- info-box-end -->
 
 #### Configuration
 
@@ -85,8 +87,11 @@ tenants_credentials:
 | OKTA_DOMAIN (Required) | The Okta domain copied in step 1. It is found under the **Issuer URI column** in your Okta developer console.    Supports these [Okta domains](https://developer.okta.com/docs/guides/find-your-domain/findorg/):    example.oktapreview.com, example.okta.com, example.okta-emea.com |
 
 
-YAML files are sensitive to spaces and tabs. It's a good idea to run your code through a YAML validator to make sure that its structure is correct.
+<!-- info-box-start:info -->
+YAML files are sensitive to spaces and tabs. It's a good idea to run your code through a YAML validator to make sure that its structure is correct. It's a good idea to run it through a YAML validator to rule out indentation errors, clean up extra characters, and check that it is valid. ([Yamllint.com](http://www.yamllint.com/) is a great choice.)
 {:.info-box.tip}
+<!-- info-box-end -->
+
 
 Save the file in your working directory. That's the same one you're running the docker from.
 
@@ -123,7 +128,7 @@ For more information about mounting files from root directory click [here](https
 | Parameter | Description |
 |---|---|
 | LOGZIO_TOKEN (Required) | {% include log-shipping/log-shipping-token.html %} |
-| LOGZIO_LISTENER_HOST (Required) | {% include log-shipping/replace-vars.html listener=true %} |
+| LOGZIO_LISTENER_HOST (Required) | {% include log-shipping/listener-var.html %}  |
 
 
 ##### Check Logz.io for your logs

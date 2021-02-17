@@ -7,7 +7,7 @@ data-source: Alcide kAudit
 contributors:
   - shalper
 shipping-tags:
-  - server-app
+  - k8s
 ---
 
 Alcide kAudit is a security service for monitoring Kubernetes audit logs, and easily

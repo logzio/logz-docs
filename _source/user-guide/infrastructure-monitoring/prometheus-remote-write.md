@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Configuring remote write for Prometheus 
-permalink: /user-guide/infrastructure-monitoring/p8s-remote-write.html
+permalink: /user-guide/infrastructure-monitoring/prometheus-remote-write.html
 flags:
   logzio-plan:  
   beta: true
@@ -20,7 +20,6 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 * **Multiple server environments**: If you have multiple Prometheus server instances, you'll have to add Logz.io as an endpoint for each instance. 
 
 * **Reduce tagging**: By default, all the metrics from your Prometheus server(s) are sent to Logz.io. To drop or send specific metrics, add Prometheus labeling _before_ enabling the remote write, or as part of the remote write configuration.  Learn more about Prometheus <a href ="https://medium.com/quiq-blog/prometheus-relabeling-tricks-6ae62c56cbda" target="_blank">relabeling tricks here <i class="fas fa-external-link-alt"></i>. </a>
-
 
 * **Paralleism levels**: Set the parallelism level for sending data in the configuration file. 
     This parameter determines the number of connections to open to the remote write listener.  The default parallelism level is 1000. We recommend configuring much fewer connections. Of course, if you're sending more data you'll need to open more channels. _(currently in development)_
@@ -52,7 +51,7 @@ Add the following parameters to your Prometheus yaml file:
 
 | Environment variable | Description |
 |---|---|
-| external_labels | Parameter to tag the metrics from this specific Prometheus server. Do not change the label `p8s_logzio_name`: This variable is required to identify from which Prometheus environment the metrics are arriving to Logz.io  |
+{% include p8s-shipping/p8s_logzio_name.md %}
 | remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
 |url| Logz.io Listener url for for your region, configured to use port **8052** for http traffic or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)|
 
@@ -78,5 +77,17 @@ Add the following parameters to your Prometheus yaml file:
 
    
 ##### Verify the remote_write configuration
-To check that the remote_write configuration is working properly, run a query on your local Prometheus for the metric `prometheus_remote_storage_succeeded_sample_total` and verify that the result is greater than zero (n > 0) for the url. 
 
+
++ **Run a query**: If you are scraping Prometheus metrics, you can check that the remote_write configuration is working properly by doing one of the following and verifying that the result is greater than zero (n > 0) for the url:
+
+  * Run a query on your local Prometheus interface for the metric `prometheus_remote_storage_samples_total`.
+
+  * Check for the metric in the `/metrics` endpoint on your Prometheus server. 
+
++ **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
+  1. Open **Explore <i class="far fa-compass"></i>** in the left menu bar. 
+
+  1. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane. <br>
+    An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 
+    ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8smetrics_arriving.png)

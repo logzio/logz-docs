@@ -114,7 +114,7 @@ output.logstash:
 
 ```
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 One last validation - make sure [Logz.io](http://logz.io/) is the only output and appears only once. If the file has other outputs, remove them.
 
@@ -154,12 +154,8 @@ output.logstash:
 
 For a full list of available Metricbeat configuration options for the Prometheus module, including explanations about TLS connections, please see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-prometheus.html).
 
-##### Replace the placeholders in the configuration
+{% include /general-shipping/replace-placeholders-metrics.html %}
 
-Still in the same configuration file, replace the placeholders to match your specifics.
-
-* {% include metric-shipping/replace-metrics-token.html %}
-* {% include log-shipping/replace-vars.html listener=true %}
 * Edit the `hosts` field for prometheus JMX metrics. Specify a comma-separated list of your Cassandra server adresses, (for example: `hosts: ["cassandra1:7070","cassandra2:7070"]`).
 * Replace `<<CLUSTER-TAG>>` with a custom string value to help you identify your Cassandra cluster. This can be helpful if you're running a multi-cluster Cassandra environment.
 

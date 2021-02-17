@@ -6,7 +6,7 @@ logo:
 data-source: Amazon CloudWatch for Prometheus metrics
 open-source:
   - title: CloudWatch metrics for Prometheus
-    github-repo: logz-aws-metrics
+    github-repo: logzio-aws-metrics
 templates: ["docker"]
 contributors:
   - yotamloe
@@ -17,7 +17,7 @@ shipping-tags:
 
 {% include page-info/early-access.md type="beta" %}
 
-This project allows you to collect Prometheus format metrics from Amazon CloudWatch with the CloudWatch exporter, and ship them to Logz.io using the OpenTelemetry collector.
+This project allows you to collect Prometheus-format metrics from Amazon CloudWatch with the CloudWatch exporter, and ship them to Logz.io using the OpenTelemetry collector.
 
 We simplify the data export and collection for your metrics: You tell us the desired namespaces and regions you want to send your data from and we fetch the most relevant metrics to display in the Logz.io pre-built Infrastructure Monitoring dashboards.
 

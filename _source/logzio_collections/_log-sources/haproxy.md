@@ -60,7 +60,7 @@ Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```conf
 $ModLoad imuxsock # provides support for local system logging

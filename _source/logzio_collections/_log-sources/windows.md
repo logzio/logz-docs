@@ -14,7 +14,7 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Winlogbeat <span class="sm ital">(recommended)</span>](#winlogbeat-config)
+* [Winlogbeat (_recommended_)](#winlogbeat-config)
 * [NXLog](#nxlog-config)
 {:.branching-tabs}
 
@@ -90,7 +90,7 @@ If Logz.io isn't the output, set it now.
 
 Winlogbeat can have one output only, so remove any other `output` entries.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 output.logstash:
@@ -147,11 +147,10 @@ LogFile %ROOT%\\data\\nxlog.log
 </Extension>
 ```
 
-For information on parsing multiline logs,
-see
-[_Parsing Multi-Line Messages_](https://nxlog.co/documentation/nxlog-user-guide/parsing-multiline.html#parsing-multiline)
-from NXLog.
+<!-- info-box-start:info -->
+For information on parsing multi-line messages, see [this](https://nxlog.co/documentation/nxlog-user-guide/parsing-multiline.html#parsing-multiline) from NXLog.
 {:.info-box.read}
+<!-- info-box-end -->
 
 ##### Add Windows as an input
 
@@ -176,7 +175,7 @@ Add an `Input` block to append your account token to log records.
 
 Add the Logz.io listener in the `Output` block.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```conf
 <Output out>

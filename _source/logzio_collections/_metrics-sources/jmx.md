@@ -82,7 +82,7 @@ java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<METRICS-SHIPPING-TOKEN
 |---|---|
 | LOGZIO_TOKEN (Required) | {% include metric-shipping/replace-metrics-token.html %} |
 | SERVICE_NAME (Required) | A name you define for the service. This is included in the reported metrics. |
-| LISTENER_URL <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
+| LISTENER_URL <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. {% include log-shipping/listener-var.html %}  |
 | SERVICE_HOST <span class="default-param">Host machine name</span> | Hostname to be included in the reported metrics. |
 | POLLING_INTERVAL_IN_SEC <span class="default-param">`30`</span> | Metrics polling interval, in seconds. |
 | WHITE_LIST_REGEX <span class="default-param">`.*` (match everything)</span> | Only metrics matching this regex will be sent. |

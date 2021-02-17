@@ -8,7 +8,7 @@ templates: ["beats-logs"]
 contributors:
   - imnotashrimp
 shipping-tags:
-   
+  - linux
 ---
 
 As its name suggests, auditd is a service that audits activities in a Linux environment.
@@ -150,13 +150,9 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Replace the placeholders in the configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
+{% include /general-shipping/replace-placeholders.html %}
 
-{% include log-shipping/log-shipping-token-bullet.html %}
-
-* {% include log-shipping/replace-vars.html listener=true %}
 
 
 ##### Start Auditbeat

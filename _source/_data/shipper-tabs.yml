@@ -18,7 +18,7 @@ tabs:
     templated: true
   - collection: metrics-sources
     templated: true
-  - collection: p8s-sources
+  - collection: prometheus-sources
     templated: true
   - collection: tracing-sources
     templated: true
@@ -89,7 +89,7 @@ tags:
     name: IDS
   - slug: web-firewalls
     name: Web application firewalls
-  - slug: p8s
+  - slug: prometheus
     name: Prometheus as a service
   
 

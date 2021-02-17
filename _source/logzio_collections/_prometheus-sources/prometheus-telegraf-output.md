@@ -12,7 +12,7 @@ contributors:
   - fadi-khatib
   - yberlinger
 shipping-tags:  
-  - p8s
+  - prometheus
 
 ---
 

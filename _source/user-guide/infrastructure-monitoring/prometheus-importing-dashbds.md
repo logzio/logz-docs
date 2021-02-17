@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Importing dashboards from Grafana  
-permalink: /user-guide/infrastructure-monitoring/p8s-importing-dashbds.html
+permalink: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
 flags:
   logzio-plan:  
   beta: true

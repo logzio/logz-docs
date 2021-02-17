@@ -1,10 +1,10 @@
 ---
-title: Sending traces from C# application
+title: Sending traces from your C# application
 logo:
   logofile: dotnet.svg
   orientation: vertical
-data-source: dotnet
-description: How to send traces from C# application
+data-source: .NET code #dotnet
+description: How to send traces from your C# application
 open-source:
   - title: 
     github-repo: jaeger-logzio
@@ -27,7 +27,7 @@ shipping-tags:
 
 # OpenTracing Instrumentation for C\#
 
-This article describes how to automatically extract Traces from your C# based app with OpenTracing instrumentation.
+This article describes how to automatically extract traces from your C#-based app with OpenTracing instrumentation.
 
 ## OpenTracing and Jaeger
 
@@ -41,17 +41,17 @@ for distributed tracing.
 Add the following packages to your solution:
 
 * OpenTracing.Contrib.NetCore
-
 * OpenTracing
-
 * Jaeger
 
 
 ### Implementation
-Add to you `Stratup.cs` file the following code snippet:
-Replace `<<JAEGER_AGENT_HOST>>` with the host address of your Jaeger agent, use `localhost` if it's on the same machine. 
-For K8S deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration.JaegerAgentHost)` and make sure your app deployment contain the env variables below.
 
+1. Add the C\# code snippet below to your `Stratup.cs` file.
+2. Replace `<<JAEGER_AGENT_HOST>>` with the host address of your Jaeger agent. Use `localhost` if your agent is located on the same machine. 
+3. For a Kubernetes deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration.JaegerAgentHost)` and make sure that your app deployment contain the env variables specified in the code snippet.
+
+###### C\# code snippet
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -92,10 +92,12 @@ public void ConfigureServices(IServiceCollection services)
 
         }
 ```
-### K8S Reference
 
-If you are deploying your app on k8s, make sure to [deploy Jaeger/OpenTelemetry collector and agents](https://docs.logz.io/user-guide/distributed-tracing/k8s-deployment).
-Then, add the following env variables to your app containers:
+### Kubernetes Reference
+
+1. If you are deploying your app on Kubernetes, [deploy Jaeger/OpenTelemetry collector and agents](https://docs.logz.io/user-guide/distributed-tracing/k8s-deployment).
+
+1. Add the following env variables to your app containers:
 
  ```yaml
  env:
@@ -114,7 +116,7 @@ Then, add the following env variables to your app containers:
 <!-- tab:start -->
 <div id="tab2">
 
-Under work...
+Under work...WIP
 
 </div>
 <!-- tab:end -->

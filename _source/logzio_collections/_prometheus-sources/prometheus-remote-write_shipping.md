@@ -14,7 +14,7 @@ shipping-tags:
 contributors:
   - yberlinger
 shipping-tags:  
-  - p8s
+  - prometheus
 ---
 
 This feature is in beta. Please [email our support](mailto:help@logz.io?subject=Requesting%20early%20access%20for%20p8s.%20Thanks) or your Logz.io account manager to request early access. 
@@ -78,11 +78,12 @@ Add the following parameters to your Prometheus yaml file:
 
 | Environment variable | Description |
 |---|---|
-| external_labels | Parameter to tag the metrics from this specific Prometheus server. Do not change the label `p8s_logzio_name`: This variable is required to identify from which Prometheus environment the metrics are arriving to Logz.io  |
+{% include p8s-shipping/p8s_logzio_name.md %}
 | remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
 |url (Required)| Logz.io Listener URL and port for your region, configured to use port **8052** for http traffic or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write). {% include log-shipping/listener-var.html %}  |
 | bearer-token (Required) | Your Logz.io Metrics account token. {% include metric-shipping/replace-metrics-token.html %}   |
    
+
 
 ##### Verify the remote_write configuration
 

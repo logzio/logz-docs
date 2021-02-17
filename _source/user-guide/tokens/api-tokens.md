@@ -10,6 +10,7 @@ tags:
   - api-tokens
 contributors:
   - imnotashrimp
+  - yberlinger
 ---
 
 If you're an Enterprise or Pro plan subscriber,
@@ -17,12 +18,18 @@ your account includes API access. You can reference the [API guide](/api/) and [
 
 API tokens are unique to each account. The only exception is a subset of account configuration operations that must be run with the API token of the main account.
 
+{% include general-shipping/manage-tokens-nav.md %}
+
+Click the **API tokens** tab. 
+
+The token for each account is listed in the table along with the date it was created.
+
+<!-- 
 
 ![Manage API tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/tokens/api-tokens.png)
 
-To get to this page,
 select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab.
-
+-->
 Community plans do not currently include API tokens. See the official [pricing page](https://logz.io/pricing/) for details.
 {:.info-box.note}
 

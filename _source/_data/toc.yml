@@ -119,7 +119,7 @@ firstLevel:
     - title: Importing dashboards from Grafana 
       url: /user-guide/infrastructure-monitoring/p8s-importing-dashbds.html
     - title: Explore Prometheus metrics in Grafana 
-      url: /user-guide/infrastructure-monitoring/grafana-explore-p8s 
+      url: /user-guide/infrastructure-monitoring/grafana-explore-prometheus 
 
 
     # ===== DISTRIBUTED TRACING =====

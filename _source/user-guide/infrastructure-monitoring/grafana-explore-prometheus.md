@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Explore your Prometheus metrics
-permalink: /user-guide/infrastructure-monitoring/grafana-explore-p8s/
+permalink: /user-guide/infrastructure-monitoring/grafana-explore-prometheus/
 flags:
   #admin: true
   logzio-plan: pro

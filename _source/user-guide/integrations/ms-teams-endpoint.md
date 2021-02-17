@@ -44,27 +44,33 @@ Microsoft Teams requires that you send either the `text` or `summary` properties
 
 ###### Example payload
 
-To use this example in your own endpoint, copy the payload and add double-brackets to all of the parameters. See the image above for examples.
+To use this example in your own endpoint, copy the payload. Note that double-brackets indicate parameters that will be auto-populated by Logz.io.
+
+{% raw %}
 
 ```
 {
-	"@context": "https://schema.org/extensions",
-	"@type": "MessageCard",
-	"themeColor": "0072C6",
-	"title": "{alert_severity}: {alert_title}",
-	"summary": "{alert_description}",
-	"text": "{alert_samples}",
-	"potentialAction": [{
-		"@type": "OpenUri",
-		"name": "View in Kibana",
-		"targets": [{
-			"os": "default",
-			"uri": "{alert_app_url}#/view-triggered-alert?from={alert_timeframe_start_epoch_millis}&to={alert_timeframe_end_epoch_millis}&definitionId={alert_definition_id}&switchToAccountId={account_id}"
-		}]
-	}]
+    "@context": "https://schema.org/extensions",
+    "@type": "MessageCard",
+    "themeColor": "0072C6",
+    "title": "{{alert_severity}}: {{alert_title}}",
+    "summary": "{{alert_description}}",
+    "text": "{{alert_samples}}",
+    "potentialAction": [
+        {
+            "@type": "OpenUri",
+            "name": "View in Kibana",
+            "targets": [
+                {
+                    "os": "default",
+                    "uri": "{{alert_app_url}}#/view-triggered-alert?from={{alert_timeframe_start_epoch_millis}}&to={{alert_timeframe_end_epoch_millis}}&definitionId={{alert_definition_id}}&switchToAccountId={{account_id}}"
+                }
+            ]
+        }
+    ]
 }
 ```
-
+{% endraw %}
 
 
 ##### Test the endpoint (_Optional_)

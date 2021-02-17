@@ -8,8 +8,7 @@ templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:
-  - server-app
-    
+  - firewalls
 ---
 
 **Before you begin, you'll need**:

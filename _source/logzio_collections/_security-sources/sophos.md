@@ -7,7 +7,7 @@ data-source: Sophos
 contributors:
   - shalper
 shipping-tags:
-
+  - endpoint-security
 ---
 
 **Before you begin, you'll need**:

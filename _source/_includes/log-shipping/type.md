@@ -1,1 +1,1 @@
-This is the log type you are sending. This type determined the parsing pipeline Logz.io will apply to your data. This can be any of the [built in log types]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or another log type of your choice.
+Declare your log type. Logz.io applies default parsing pipelines to the following list of [built-in log types]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html). If you declare another type, contact support for assistance with custom parsing.

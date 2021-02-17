@@ -10,63 +10,81 @@ contributors:
   - shalper
 ---
 
-Configure a custom endpoint to send Logz.io notifications to your preferred apps,
+Integrate with your favorite tools using a custom webhook. Configuring a custom endpoint will allow you to send Logz.io notifications to your preferred apps,
 even if they aren't on the list of preconfigured options.
 
 Custom endpoints offer the advantage
 of allowing you to customize the message body too.
 
-#### To add a custom endpoint
+#### Adding a custom endpoint
 
 <div class="tasklist">
 
-##### Add the endpoint
+##### Allow firewall access
 
-To add a new custom endpoint, click **Add endpoint**.
-Specify the URL, method, and headers.
-For POST/PUT methods, you can configure the message body, if relevant.
+Set up your systems to receive notifications from Logz.io.
 
-###### Ports & security considerations
+Logz.io log alerts can only be sent on **ports 80 & 443**. If you try setting another port in your endpoint, the alert will NOT be sent.
 
-Alerts can only be sent on ports 80 & 443.
-If you accidently set a custom port for an alert endpoint, the alert will not be sent.
+If you need to, whitelist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted:
 
-It is best to avoid opening a port in your firewall to allow access for Logz.io custom endpoints.
-This is because the Logz.io IP range is used by all customers and should be treated with caution.
-{:.info-box.important}
+| Region slug | Whitelisted IP  |
+|---|---|
+| us-east-1 | 3.223.132.12 |
+| eu-central-1 | 52.59.86.203 |
+| ca-central-1 | 35.182.168.208 |
+| eu-west-2 | 18.132.31.199 |
+| ap-southeast-2 | 3.105.7.135 |
 
-If you decide to open a port on your firewall for a Logz.io custom endpoint, follow these best practices:
 
-* Make sure to add a verification token in the JSON payload of the custom endpoint
- and verify that the token exists on the receiving end.
-* Allow external access only to this specific endpoint.
+##### Create a verification token (_Best practice but optional_)
+
+The Logz.io IP range is used by all customers and should be used together with a verification token.
+
+If you decide to open a port on your firewall for a Logz.io custom endpoint, we strongly advise that you add a verification token in the JSON payload of the custom endpoint and verify that the token exists on the receiving end.
+
+
+It is best to restrict external access only to this specific endpoint.
 
 Here's an example of a JSON payload for an alert that includes a verification token:
+
+{% raw %}
 
 ```json
 {
 "token": "<SomeSecurityToken>",
-"alert_title": "<alert_title>",
-"alert_description": "<alert_description>",
-"alert_severity": "<alert_severity>",
-"alert_event_samples": "<alert_samples>"
+"alert_title": "{{alert_title}}",
+"alert_description": "{{alert_description}}",
+"alert_severity": "{{alert_severity}}",
+"alert_event_samples": "{{alert_samples}}"
 }
 ```
+{% endraw %}
 
 
-##### Test the endpoint
+##### Add the endpoint
+
+1. To add a new custom endpoint, click **Add endpoint**.
+2. Specify the URL, method, and headers.
+3. For POST/PUT methods, you can add a payload with a message.
+
+Some endpoints require a particular attribute/payload. For example, [Microsoft Teams](/user-guide/integrations/ms-teams.html#add-your-payload).
+{:.info-box.important}
+
+
+![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST.png)
+
+
+##### Test the endpoint (_Optional_)
 
 Click **Run the test** to test your endpoint.
 Logz.io shows if the message was successfully sent.
 
-Check that the endpoint received the message.
-
-This is not required, but highly recommended.
+Check that the message arrived at the target endpoint.
 
 ##### Save the endpoint
 
-Click **Save** to save your endpoint.
+**Save** your endpoint.
 
-![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST.png)
 
 </div>

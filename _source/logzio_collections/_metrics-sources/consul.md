@@ -49,7 +49,7 @@ Now the metrics for this Consul server will be exposed locally in Prometheus for
 http://127.0.0.1:8500/v1/agent/metrics?format=prometheus
 ```
 
-{% include log-shipping/certificate.md server="to your Metricbeat server" clarification="You'll need to run this command on the server that hosts Metricbeat:" %}
+{% include metric-shipping/certificate.md %}
 
 ##### Set metricbeat modules on Consul servers
 
@@ -110,7 +110,7 @@ output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.

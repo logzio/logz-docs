@@ -80,7 +80,7 @@ You'll need this information later on, so paste it in your text editor.
 "password": "e6ab6d24-4907-5d11-a132-a171ef55355d",
 ```
 
-{% include log-shipping/certificate.md server="to your Metricbeat server" clarification="You'll need to run this command on the server that hosts Metricbeat:" %}
+{% include metric-shipping/certificate.md %}
 
 ##### _(Optional)_ Disable the system module
 
@@ -139,7 +139,7 @@ output.logstash:
 | subscription_id | Azure subscription ID. Replace `<<SUBSCRIPTION-ID>>` with `id` from step 2. |
 | resources _and_ namespace | Replace `<<RESOURCE-TYPE>>` with the Azure services you want to monitor. You can find these values in the _Resource type_ column in [_Metrics and Dimensions Supported_](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric-near-real-time#metrics-and-dimensions-supported) from Microsoft. |
 | fields.token | {% include metric-shipping/replace-metrics-token.html %} |
-| output.logstash.hosts | {% include log-shipping/replace-vars.html listener=true %} |
+| output.logstash.hosts | {% include log-shipping/listener-var.html %}  |
 
 ##### Start Metricbeat
 

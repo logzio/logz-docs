@@ -9,7 +9,7 @@ contributors:
   - imnotashrimp
   - dorisnaaman
 shipping-tags:
-    
+  - endpoint-security
 ---
 
 #### Configure Winlogbeat
@@ -121,7 +121,7 @@ If Logz.io isn't the output, set it now.
 
 Winlogbeat can have one output only, so remove any other `output` entries.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 output.logstash:

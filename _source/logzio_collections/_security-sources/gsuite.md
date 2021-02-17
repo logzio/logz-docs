@@ -8,7 +8,7 @@ templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:
-   
+  - gcp
 ---
 
 You can ship G Suite logs to Logz.io using Filebeat and Google Reports API.
@@ -130,7 +130,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 {% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 * Replace `<<PATH_TO_CREDENTIALS_FILE>>` with the path to the credentials file (for example `./credentials_file.json` if the credentials file is in the same path as `filebeat.yml`).
 

@@ -44,7 +44,7 @@ Keep your API token handy—you'll need to paste it in Slack later.
 
 ###### For Enterprise accounts
 
-Create an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) in Logz.io.
+Create an [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in Logz.io.
 We recommend creating a token for use only with Alice.
 
 ###### For Pro accounts

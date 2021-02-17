@@ -81,7 +81,7 @@ You'll need this information later on, so paste it in your text editor.
 "password": "85a75902-e75a-5b55-9142-bbb317e0eb5a",
 ```
 
-{% include log-shipping/certificate.md server="to your Metricbeat server" clarification="You'll need to run this command on the server that hosts Metricbeat:" %}
+{% include metric-shipping/certificate.md %}
 
 ##### (_Optional_) Disable the system module
 

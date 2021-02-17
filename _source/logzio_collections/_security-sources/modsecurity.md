@@ -8,7 +8,7 @@ contributors:
   - dorisnaaman
   - shalper
 shipping-tags:
-   
+  - web-firewalls
 ---
 
 #### Configure Filebeat 
@@ -28,7 +28,7 @@ shipping-tags:
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
 
-{% include log-shipping/log-shipping-token.html %}
+
 
 ```yml
 ### Filebeat ###
@@ -72,16 +72,15 @@ output:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Replace the placeholders in your Filebeat configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
+{% include /general-shipping/replace-placeholders.html %}
 
-{% include log-shipping/log-shipping-token-bullet.html %}
 
-* {% include log-shipping/replace-vars.html listener=true %}
-
+<!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
+{:.info-box.note}
+<!-- info-box-end -->
 
 
 ##### Start Filebeat

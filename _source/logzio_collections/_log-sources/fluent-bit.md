@@ -55,12 +55,10 @@ wget -o /fluent-bit/plugins/out_logzio.so \
 In your Fluent Bit configuration file (`fluent-bit.conf` by default),
 add Logz.io as an output.
 
-Logz.io-Out Plugin for Fluent Bit
-supports one output stream to Logz.io.
-We plan to add support for multiple streams in the future. \\
-In the meantime,
-we recommend running a new instance for each output stream you need.
+<!-- info-box-start:info -->
+Logz.io-Out Plugin for Fluent Bit supports one output stream to Logz.io. We recommend running a new instance for each output stream you need.
 {:.info-box.note}
+<!-- info-box-end -->
 
 For a list of options, see the configuration parameters below the code block. ðŸ‘‡
 
@@ -77,7 +75,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 | Parameter | Description |
 |---|---|
 | logzio_token (Required) | {% include log-shipping/log-shipping-token.html %} |
-| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/listener-var.html %}  |
 | logzio_type <span class="default-param">`logzio-fluent-bit`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | logzio_debug <span class="default-param">`false`</span> | Set to `true` to print debug messages to stdout. |
 {:.paramlist}
@@ -112,12 +110,10 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 To run in a container,
 create a configuration file named `fluent-bit.conf`.
 
-Logz.io-Out Plugin for Fluent Bit
-supports one output stream to Logz.io.
-We plan to add support for multiple streams in the future. \\
-In the meantime,
-we recommend running a new instance for each output stream you need.
+<!-- info-box-start:info -->
+Logz.io-Out Plugin for Fluent Bit supports one output stream to Logz.io. We recommend running a new instance for each output stream you need.
 {:.info-box.note}
+<!-- info-box-end -->
 
 For a list of options, see the configuration parameters below the code block. ðŸ‘‡
 
@@ -138,7 +134,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 | Parameter | Description |
 |---|---|
 | logzio_token (Required) | {% include log-shipping/log-shipping-token.html %} |
-| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
+| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/listener-var.html %}  |
 | logzio_type <span class="default-param">`logzio-fluent-bit`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
 | logzio_debug <span class="default-param">`false`</span> | Set to `true` to print debug messages to stdout. |
 {:.paramlist}

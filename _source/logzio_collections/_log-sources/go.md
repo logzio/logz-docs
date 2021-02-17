@@ -75,7 +75,7 @@ func main() {
 | Parameter | Description |
 |---|---|
 | token (Required) | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} |
-| SetUrl (Required) <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/replace-vars.html listener=true %} |
+| SetUrl (Required) <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/listener-var.html %}  |
 | SetDebug <span class="default-param">`false`</span> | Debug flag. |
 | SetDrainDuration <span class="default-param">`5 * time.Second`</span> | Time to wait between log draining attempts. |
 | SetTempDirectory | Filepath where the logs are buffered. |

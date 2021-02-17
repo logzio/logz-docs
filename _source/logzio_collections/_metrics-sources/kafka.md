@@ -108,7 +108,7 @@ output.logstash:
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
@@ -155,9 +155,8 @@ output.logstash:
 
 For a full list of available Metricbeat configuration options for the Prometheus module, including explanations about TLS connections, see [Metricbeat's documentation](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-module-prometheus.html).
 
-##### Replace the placeholders in the configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
+{% include /general-shipping/replace-placeholders-metrics.html %}
 
 * Edit the `hosts` field for prometheus JMX metrics. Specify a comma separated list of addresses for your Kafka servers. (For example: `hosts: ["Kafka1:7071","Kafka2:7071"]` )
 

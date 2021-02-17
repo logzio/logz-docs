@@ -69,21 +69,21 @@ var logger = require('logzio-nodejs').createLogger({
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| token (Required) | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} |
-| protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
-| host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
-| port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
-| type <span class="default-param">`nodejs`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| sendIntervalMs <span class="default-param">`2000` (2 seconds)</span> | Time to wait between retry attempts, in milliseconds. |
-| bufferSize <span class="default-param">`100`</span> | Maximum number of messages the logger will accumulate before sending them all as a bulk. |
-| numberOfRetries <span class="default-param">`3`</span> | Maximum number of retry attempts. |
-| debug <span class="default-param">`false`</span> | To print debug messsages to the console, `true`. Otherwise, `false`. |
-| callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. |
-| timeout | Read/write/connection timeout, in milliseconds. |
-| addTimestampWithNanoSecs <span class="default-param">`false`</span> | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`.    If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} | Required |
+| protocol | `http` or `https`. The value here affects the default of the `port` parameter. | `http` |
+| host  |  {% include log-shipping/listener-var.md %} {% include log-shipping/listener-var.html %} | `listener.logz.io` |
+| port | Destination port. The default port depends on the `protocol` parameter: `8070` (for HTTP) or `8071` (for HTTPS) | `8070` / `8071` |
+| type | {% include /log-shipping/type.md %} | `nodejs` |
+| sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
+| bufferSize  | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| numberOfRetries | Maximum number of retry attempts. | `3` |
+| debug | To print debug messsages to the console, `true`. Otherwise, `false`. | `false` |
+| callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
+| timeout | Read/write/connection timeout, in milliseconds. | -- |
+| addTimestampWithNanoSecs | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. | `false` |
+
 
 ###### Code sample
 
@@ -168,35 +168,31 @@ logger.log('warn', 'Just a test message');
 
 If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `logger.close()` at the end of the run.
 
-##### Replace the placeholders in the sample configuration
+{% include /general-shipping/replace-placeholders.html %}
 
-If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
-
-{% include log-shipping/log-shipping-token-bullet.html %}
-
-* {% include log-shipping/replace-vars.html listener=true %}
 
 
 ##### Parameters
 
 For a complete list of your options, see the configuration parameters below.👇
 
-| Parameter | Description |
-|---|---|
-| LogzioWinstonTransport | This variable determines what will be passed to the logzio nodejs logger itself. If you want to configure the nodejs logger, add any parameters you want to send to winston when initializing the transport. |
-| token (Required) | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} |
-| protocol <span class="default-param">`http`</span> | `http` or `https`. The value here affects the default of the `port` parameter. |
-| host <span class="default-param">`listener.logz.io`</span> | Listener host. {% include log-shipping/replace-vars.html listener=true %} |
-| port <span class="default-param">`8070` (for HTTP) or `8071` (for HTTPS)</span> | Destination port. Default port depends on the `protocol` parameter. |
-| type <span class="default-param">`nodejs`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io to determine parsing. Can't contain spaces. |
-| sendIntervalMs <span class="default-param">`2000` (2 seconds)</span> | Time to wait between retry attempts, in milliseconds. |
-| bufferSize <span class="default-param">`100`</span> | Maximum number of messages the logger will accumulate before sending them all as a bulk. |
-| numberOfRetries <span class="default-param">`3`</span> | Maximum number of retry attempts. |
-| debug <span class="default-param">`false`</span> | To print debug messsages to the console, `true`. Otherwise, `false`. |
-| callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. |
-| timeout | Read/write/connection timeout, in milliseconds. |
-| addTimestampWithNanoSecs <span class="default-param">`false`</span> | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`.    If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. |
-{:.paramlist}
+
+
+| Parameter | Description | Required/Default |
+|---|---|---|
+| LogzioWinstonTransport | This variable determines what will be passed to the logzio nodejs logger itself. If you want to configure the nodejs logger, add any parameters you want to send to winston when initializing the transport. | -- |
+| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} | Required |
+| protocol | `http` or `https`. The value here affects the default of the `port` parameter. | `http` |
+| host  |  {% include log-shipping/listener-var.md %} {% include log-shipping/listener-var.html %} | `listener.logz.io` |
+| port | Destination port. The default port depends on the `protocol` parameter: `8070` (for HTTP) or `8071` (for HTTPS) | `8070` / `8071` |
+| type | {% include /log-shipping/type.md %} | `nodejs` |
+| sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
+| bufferSize  | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| numberOfRetries | Maximum number of retry attempts. | `3` |
+| debug | To print debug messsages to the console, `true`. Otherwise, `false`. | `false` |
+| callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
+| timeout | Read/write/connection timeout, in milliseconds. | -- |
+| addTimestampWithNanoSecs | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. | `false` |
 
 ##### Additional configuration options
 
@@ -331,13 +327,7 @@ If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Fun
 logger.close()
 ```
 
-##### Replace the placeholders in the sample configuration
-
-If you're using the sample configuration code block, you'll need to replace the placeholders to match your specifics.
-
-{% include log-shipping/log-shipping-token-bullet.html %}
-
-* {% include log-shipping/replace-vars.html listener=true %}
+{% include /general-shipping/replace-placeholders.html %}
 
 ### Troubleshooting
 

@@ -9,8 +9,7 @@ contributors:
   - shalper
   - imnotashrimp
 shipping-tags:
-  - server-app
-   
+  - firewalls
 ---
 
 #### Configuration
@@ -93,7 +92,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 (Remove all other outputs - there should only be 1 output in the configuration file.) 
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 # ...

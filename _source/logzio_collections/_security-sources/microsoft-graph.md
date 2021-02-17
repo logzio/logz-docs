@@ -11,9 +11,9 @@ open-source:
 contributors:
   - yyyogev
   - imnotashrimp
+  - shalper
 shipping-tags:
   - azure
-   
 ---
 
 You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.
@@ -54,8 +54,10 @@ Click **Add**.
 Copy the value of the generated secret to your text editor.
 You'll need this later.
 
+<!-- info-box-start:info -->
 You won't be able to retrieve the secret's value after you leave this page.
 {:.info-box.note}
+<!-- info-box-end -->
 
 ##### Set the app's permissions
 
@@ -73,9 +75,10 @@ Click **Add permissions**.
 
 Click **Grant admin consent for Default Directory**, and then click **Yes** to confirm.
 
-Only Azure administrators can grant consent for Default Directory.
-If the _Grant admin consent_ button is disabled, ask your Azure admin to update the setting for you.
+<!-- info-box-start:info -->
+Only Azure administrators can grant consent for Default Directory. If the _Grant admin consent_ button is disabled, ask your Azure admin to update the setting for you.
 {:.info-box.note}
+<!-- info-box-end -->
 
 ##### Create a configuration file
 
@@ -99,35 +102,33 @@ logLevel: INFO
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| senderParams.accountToken (Required) | {% include log-shipping/log-shipping-token.html %} |
-| senderParams.listenerUrl <span class="default-param">`listener.logz.io`</span> | Listener URL.    {% include log-shipping/replace-vars.html listener=true %} |
-| senderParams.fromDisk <span class="default-param">`true`</span> | If `true`, logs are stored on disk until they're shipped (see [If from-disk=true](#if-fromdisk-true)). If `false`, logs persist in memory until they're shipped (see [If from-disk=false](#if-fromdisk-false)). |
-| senderParams.senderDrainIntervals <span class="default-param">`30`</span> | How often the sender should drain the queue, in seconds. |
-| azureADClient.tenantId (Required) | Azure Active Directory tenant ID.    You can find this in the _Overview_ section of the app you registered in step 1. |
-| azureADClient.clientId (Required) | Application client ID.    You can find this in the _Overview_ section of the app you registered in step 1. |
-| azureADClient.clientSecret (Required) | The Application Client Secret you created in step 2. |
-| azureADClient.pullIntervalSeconds <span class="default-param">`300`</span> | Time interval, in seconds, to pull the logs with the Graph API. |
-| logLevel <span class="default-param">`INFO`</span> | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| senderParams.accountToken | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} | Required |
+| senderParams.listenerUrl  | Listener URL.    {% include log-shipping/listener-var.html %}  | `listener.logz.io` |
+| senderParams.fromDisk  | If `true`, logs are stored on disk until they're shipped. (See **If from-disk=true** below). If `false`, logs persist in memory until they're shipped. (See **If from-disk=false** below. | `true` |
+| senderParams.senderDrainIntervals | How often the sender should drain the queue, in seconds. | `30` |
+| azureADClient.tenantId  | Azure Active Directory tenant ID. You can find this in the _Overview_ section of the app you registered in step 1. | Required |
+| azureADClient.clientId  | Application client ID.    You can find this in the _Overview_ section of the app you registered in step 1. | Required |
+| azureADClient.clientSecret | The Application Client Secret you created in step 2. | Required |
+| azureADClient.pullIntervalSeconds | Time interval, in seconds, to pull the logs with the Graph API. | `300` |
+| logLevel | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. | `INFO` |
 
-###### If fromDisk=true {#if-fromdisk-true}
 
-| Parameter | Description |
-|---|---|
-senderParams.fileSystemFullPercentThreshold <span class="default-param">`98`</span> | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new logs are dropped until used space drops below the threshold. Set to `-1` to ignore threshold. |
-| senderParams.gcPersistedQueueFilesIntervalSeconds <span class="default-param">`30`</span> | Time interval, in seconds, to clean sent logs from the disk. |
-| senderParams.diskSpaceCheckInterval <span class="default-param">`1000`</span> | Time interval, in milliseconds, to check for disk space.|
-{:.paramlist}
+###### If fromDisk=true
 
-###### If fromDisk=false {#if-fromdisk-false}
+| Parameter | Description | Required/Default |
+|---|---|---|
+senderParams.fileSystemFullPercentThreshold  | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new logs are dropped until used space drops below the threshold. Set to `-1` to ignore threshold. | `98` |
+| senderParams.gcPersistedQueueFilesIntervalSeconds | Time interval, in seconds, to clean sent logs from the disk. | `30` |
+| senderParams.diskSpaceCheckInterval | Time interval, in milliseconds, to check for disk space.| `1000` |
 
-| Parameter | Description |
-|---|---|
-| senderParams.inMemoryQueueCapacityInBytes <span class="default-param">`1024 * 1024 * 100`</span> | The amount of memory, in bytes, Logzio-MSGraph can use for the memory queue. Set to `-1` for unlimited bytes. |
-| senderParams.logsCountLimit <span class="default-param">`-1`</span> | The number of logs in the memory queue before dropping new logs. Set to `-1` to configure the sender to not limit the queue by logs count. |
-{:.paramlist}
+###### If fromDisk=false 
+
+| Parameter | Description | Required/Default |
+|---|---|---|
+| senderParams.inMemoryQueueCapacityInBytes  | The amount of memory, in bytes, Logzio-MSGraph can use for the memory queue. Set to `-1` for unlimited bytes. | `1024 * 1024 * 100` |
+| senderParams.logsCountLimit | The number of logs in the memory queue before dropping new logs. Set to `-1` to configure the sender to not limit the queue by logs count. | `-1` |
 
 ##### Download and run Logzio-MSGraph
 

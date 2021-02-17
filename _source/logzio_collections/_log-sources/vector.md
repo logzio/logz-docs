@@ -33,9 +33,10 @@ see [Installation](https://docs.vector.dev/setup/installation) from Vector.
 Add this code block to your Vector configuration file.
 We recommend the configuaration shown in the code block.
 
-Find the complete configuration docs
-at [http sink](https://docs.vector.dev/usage/configuration/sinks/http) from Vector.
+<!-- info-box-start:info -->
+Find the complete configuration docs at [http sink](https://docs.vector.dev/usage/configuration/sinks/http) from Vector.
 {:.info-box.read}
+<!-- info-box-end -->
 
 ```toml
 [sinks.logzio]
@@ -65,7 +66,7 @@ at [http sink](https://docs.vector.dev/usage/configuration/sinks/http) from Vect
 
 | Parameter | Description |
 |---|---|
-| uri (Required) | Your Logz.io region's listener URL account token, and log type. <br> {% include log-shipping/replace-vars.html listener=true %} <br> {% include log-shipping/log-shipping-token.html %} |
+| uri (Required) | Your Logz.io region's listener URL account token, and log type. <br> {% include log-shipping/listener-var.html %}  <br> {% include log-shipping/log-shipping-token.html %} |
 {:.paramlist}
 
 ##### Run Vector

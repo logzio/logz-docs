@@ -123,10 +123,15 @@ definitions:
         type: object
         additionalProperties:
           type: string
-          description: >-
-            Provides additional metadata with details of the deployment.
+        example:
+          version: version 5
+          deployer: iron man
+        description: >-
+          Provides additional metadata with details of the deployment.
+          
+          
+          (Future functionality: Metadata will be used to filter deploymentsby several dimensions. For example, to filter deployments byservice and region to focus on deployments performed on a specificservice and a specific region.
+
             
-            
-            (Future functionality: Metadata will be used to filter deployments by several dimensions. For example, to filter deployments by service and region to focus on deployments performed on a specific service and a specific region.
 
 

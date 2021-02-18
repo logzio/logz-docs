@@ -262,8 +262,6 @@ For the above example, we could use the following regex expressions to demarcate
   @type concat
   key message # The key for part of multiline log
   multiline_start_regexp /^[0-9]{4}-[0-9]{2}-[0-9]{2}/ # This regex expression identifies line starts.
-  multiline_end_regexp /^\s*\w*Error:/ # This regex expression identifies the end of your multiline log.
-  flush_interval 5 # The number of seconds after which the last received event log will be flushed.
 </filter>
 ```
 

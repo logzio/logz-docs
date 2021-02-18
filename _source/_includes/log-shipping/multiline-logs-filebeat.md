@@ -1,21 +1,36 @@
-## Multiline logs
+###### Filebeat splits multiline logs by default
+
+If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs.
+
+###### Configuring Filebeat to concatenate multiline logs
+
+Filebeat offers configuration options that can be used to concatenate multiline logs.
+The configuration is managed differently, depending on your deployment method:
+
+* **Standard configuration**: If you are using a standard configuration (but not autodiscover), use an explicit configuration. [Configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/multiline-examples.html#multiline-examples) from Filebeat's official documentation.
+* **Autodiscover configuration**: If you are using autodiscover hints & annotations, add an annotation to your deployment. [Configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover-hints.html) from Filebeat's official documentation.
 
 
-If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs. You have the option to use either an explicit configuration or an annotation to configure Filebeat to concatenate multiline logs and avoid having them separated into multiple log documents.
+### Example
 
-You will need to provide a regex expression that can identify the first log in a multiline log. Filebeat will concatenate the log lines that follow until it identifies the next log that matches the regex expression. In other words, there is no explicit regex expression to demarcate the _end_ of a multiline log.
+The following is an example of a multiline log sent from a deployment on a k8s cluster:
 
-This behavior is managed differently depending on your deployment method:
+```shell
+2021-02-08 09:37:51,031 - errorLogger - ERROR - Traceback (most recent call last):
+File "./code.py", line 25, in my_func
+1/0
+ZeroDivisionError: division by zero
+```
 
-* If you are using autodiscover hints & annotations, add an annotation to your deployment.
-* If you are not using autodiscover, use an explicit configuration.
+Filebeat's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) causes a split.
 
+You can overcome this behavior by configuring Filebeat to meet your needs.
 
+### Example for using an explicit configuration to concatenate multiline logs
 
-### Using an explicit configuration to concatenate multiline logs
+To add an explicit configuration to your Filebeat, edit your `filebeat.yml` file in a text editor and make the appropriate changes under the `filebeat.input` section.
 
-Open your `filebeat.yml` configuration file in a text editor. Under `filebeat.input`, add a multiline configuration to identify the first line in a multiline log. Filebeat will concatenate all subsequent lines until the `multiline.pattern` identifies the next match. For example:
-
+For the above example, we could use the following regex expression to demarcate the start of our example log. This configuration example is set to identify the first log in a multiline log and concatenate the log lines that follow until it identifies the next log that matches the regex expression. In other words, there is no explicit regex expression to demarcate the _end_ of a multiline log.
 
 
 ```shell
@@ -35,7 +50,10 @@ filebeat.inputs:
   multiline.match: after
 ```
 
-### Using hints & annotations to concatenate multiline logs
+ See Filebeat's official documentation for additional [configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/multiline-examples.html#multiline-examples).
+
+
+### Example for using hints & annotations to concatenate multiline logs
 
 If you're using Filebeat autodiscover hints, you can use annotations to identify multiline logs and concatenate them.
 
@@ -65,7 +83,8 @@ filebeat.autodiscover:
 
 Whenever you plan to deploy a component to your cluster and want the hints system to detect the multiline logs, you'll need to add multiline annotations.
 
-For example, you can add the following annotations to your deployment:
+
+For the above log example, you can add the following annotations to your deployment:
 
 ```shell
 annotations:
@@ -75,7 +94,9 @@ annotations:
   co.elastic.logs/multiline.match: 'after'
 ```
 
+The above configuration ensures that Filebeat will look for log lines that match the regex under `multiline.pattern` and concatenate all subsequent lines, until it reaches the next regex match. 
 
-The above configuration ensures that Filebeat will look for log lines that match the regex under `multiline.pattern` and concatenate all subsequent lines, until it reaches the next regex match.
+
+See Filebeat's official documentation for additional [configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover-hints.html).
 
 </div>

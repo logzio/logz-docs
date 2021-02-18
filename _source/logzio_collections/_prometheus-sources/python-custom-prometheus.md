@@ -3,7 +3,7 @@ title: Send custom metrics from your Python application
 logo:
   logofile: prometheusio-icon.svg
   orientation: vertical
-data-source: Python remote write for Prometheus
+data-source: Python custom metrics
 flags:
   logzio-plan:  
   beta: true

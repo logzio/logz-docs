@@ -75,6 +75,7 @@ Add the following parameters to your Prometheus yaml file:
 For [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) helm chart users:
 
 Edit your chart `values.yaml` file in the following sections:
+
 1. remote write:
 ```yaml
 remoteWrite:
@@ -87,7 +88,9 @@ remoteWrite:
         maxSamplesPerSend: 500 #default = 100
         capacity: 10000  #default = 500
 ```
+
 2. externalLabels:
+
 ```yaml
 externalLabels:
     - p8s_logzio_name: <labelvalue>

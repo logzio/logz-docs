@@ -8,8 +8,12 @@ Filebeat offers configuration options that can be used to concatenate multiline 
 The configuration is managed differently, depending on your deployment method:
 
 * **Standard configuration**: If you are using a standard configuration (but not autodiscover), use an explicit configuration. [Configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/multiline-examples.html#multiline-examples) from Filebeat's official documentation.
+  
+  When using an explicit configuration, you will need to create a single regex expression that covers all of your pods. It also means that Filebeat will need to be reconfigured more often, with the introduction of every new use case.
+
 * **Autodiscover configuration**: If you are using autodiscover hints & annotations, add an annotation to your deployment. [Configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover-hints.html) from Filebeat's official documentation.
 
+  Hints and annotations support the option to manage regex expressions separately for each component. This greatly simplifies the process, making it possible to add a dedicated regex expression to each pod, without needing to change anything on Filebeat itself.
 
 ### Example
 

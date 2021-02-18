@@ -17,11 +17,11 @@ shipping-tags:
   - prometheus
 ---
 
-# Send custom metrics from your Python application
+
 This page contains instructions on how you can send custom metrics to logz.io from your python application. This exapmles are using [opentelemtry python SDK](https://github.com/open-telemetry/opentelemetry-python-contrib) and [opentelemtry remote write exporter](https://pypi.org/project/opentelemetry-exporter-prometheus-remote-write/), which are in alpha/preview
 
 ## Quick start
-1. Install the snappy c-library:
+##### Install the snappy c-library:
 
     DEB: `sudo apt-get install libsnappy-dev`
 
@@ -31,11 +31,12 @@ This page contains instructions on how you can send custom metrics to logz.io fr
 
     Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
 
-2. Install the exporter and opentelemtry sdk:
+##### Install the exporter and opentelemtry sdk:
 
     `pip install opentelemetry-exporter-prometheus-remote-write`
 
-3. Add instruments to your application:
+##### Add instruments to your application:
+
 ```python
 from opentelemetry import metrics
 from opentelemetry.exporter.prometheus_remote_write import (

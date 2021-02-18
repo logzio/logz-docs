@@ -231,13 +231,13 @@ To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment 
 <!-- tab:start -->
 <div id="multiline">
 
-### How to concatenate multiline logs
+###### Fluentd splits multiline logs by default
 
+If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs.
 
-If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs. You can use a Fluentd filter plugin to concatenate multiline logs and avoid having them separated into multiple log documents.
+###### Configurable plug-in to concatenate multiline logs
 
-For a full list of configuration options for `fluent-plugin-concat`, see the [GitHub project documentation](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
-
+The Logz.io Docker image comes with a pre-built Fluentd filter plug-in that can be used to concatenate multiline logs. The plug-in is named `fluent-plugin-concat` and you can view the full list of configuration options in the [GitHub project](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
 
 ###### Example
 
@@ -254,7 +254,7 @@ Fluentd's default configuration will split the above log into 4 logs, 1 for each
 
 To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs. The additional configuration is added to `kubernetes.conf` or `kubernetes-containerd.conf`.
 
-For the above example, we would use the following regex expressions to demarcate the start and end of a multiline log:
+For the above example, we could use the following regex expressions to demarcate the start and end of our example log:
 
 
 ```shell

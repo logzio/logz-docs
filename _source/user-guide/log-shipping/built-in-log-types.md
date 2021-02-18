@@ -44,6 +44,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Elasticsearch         | `elasticsearch`                            |
 | Fail2ban              | `fail2ban`                                 |
 | Falco                 | `falco`                                    |
+| Fargate                 | `fargate`                                |
 | Fortigate             | `fortigate`                               |
 | GitHub                  | `github`                                     |
 | GPFS                  | `gpfs`                                     |

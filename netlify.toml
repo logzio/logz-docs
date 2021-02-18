@@ -257,3 +257,22 @@
   to = "/shipping/security-sources/zeek.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/shipping/p8s-sources/*"
+  to = "/shipping/prometheus-sources/:splat"
+  status = 301
+  force = true
+ 
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/p8s-*"
+  to = "/user-guide/infrastructure-monitoring/prometheus-:splat"
+  status = 301
+  force = true  
+
+[[redirects]]
+  from = "/shipping/p8s-sources/*"
+  to = "/shipping/prometheus-sources/:splat"
+  status = 301
+  force = true
+

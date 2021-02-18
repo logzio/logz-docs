@@ -8,7 +8,7 @@ templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:
-   
+  - firewalls
 ---
 
 Juniper SRX is a networking firewall solution and services gateway. If you ship your Juniper firewall logs to your Logz.io Cloud SIEM, you can centralize your security ops and receive alerts about security events logged by Juniper SRX.
@@ -47,7 +47,7 @@ See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=K
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
 
-This code block adds Juniper SRX as an input sent over UDP traffic. It contains the placeholder `<<LOG-SHIPPING-TOKEN>>` which you'll need to replace in the next step.
+This code block adds Juniper SRX as an input sent over UDP traffic.
 
 ```yaml
 # ...
@@ -82,7 +82,7 @@ processors:
     ignore_missing: true
 ```
 
-Copy and paste the following code block directly below. It sets Logz.io as the output. It contains the placeholder `<<LISTENER-HOST>>` which you'll need to replace in the next step.
+Copy and paste the following code block directly below. It sets Logz.io as the output.
 
 ```yaml
 # ...
@@ -92,16 +92,17 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Replace the placeholders in the Filebeat configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
 
-{% include log-shipping/log-shipping-token-bullet.html %}
+{% include /general-shipping/replace-placeholders.html %}
 
-* {% include log-shipping/listener-var.html %} 
 
+<!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 ##### Start Filebeat
 

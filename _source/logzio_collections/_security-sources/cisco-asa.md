@@ -9,8 +9,7 @@ contributors:
   - shalper
   - imnotashrimp
 shipping-tags:
-  - server-app
-   
+  - firewalls
 ---
 
 #### Configuration

@@ -8,7 +8,7 @@ templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:
-   
+  - vulnerability-scanners
 ---
 
 [OpenVAS](https://www.openvas.org/about.html) (Open Vulnerability Assessment System) is an open source vulnerability scanner. The following instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.
@@ -88,18 +88,19 @@ output:
 ```
 
 
-##### Replace the placeholders in the Filebeat configuration
 
-Still in the same configuration file, replace the placeholders to match your specifics.
+{% include /general-shipping/replace-placeholders.html %}
 
 * Replace the filepath placeholder `<<FILEPATH-TO-OPENVAS-REPORTS>>` with the file path to the folder where you’ll be keeping your OpenVAS reports. For example, `/home/kali/Downloads/Filebeat_read/*.csv` will look for any file with a csv extension under that path.
 
-{% include log-shipping/log-shipping-token-bullet.html %}
 
-* {% include log-shipping/listener-var.html %} 
 
+<!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 ##### Start Filebeat
 

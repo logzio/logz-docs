@@ -20,8 +20,8 @@ curl https://raw.githubusercontent.com/logzio/logzio-aws-metrics/main/docker-com
 AWS_ACCESS_KEY_ID=<<AWS_ACCESS_KEY_ID>> \
 AWS_SECRET_ACCESS_KEY=<<AWS_SECRET_ACCESS_KEY>> \
 AWS_DEFAULT_REGION=<<AWS_DEFAULT_REGION>> \
-LOGZIO_REGION= <<LOGZIO_REGION>> \
-LOGZIO_TOKEN=<<LOGZIO_TOKEN>> \
+LOGZIO_REGION=<<LOGZIO_REGION>> \
+LOGZIO_TOKEN=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
 AWS_NAMESPACES=<<AWS_NAMESPACES>> \
 SCRAPE_INTERVAL=<<SCRAPE_INTERVAL>> \
 P8S_LOGZIO_NAME=<<P8S_LOGZIO_NAME>> \
@@ -35,7 +35,7 @@ docker-compose up
 |---|---|
 | AWS_DEFAULT_REGION (Required) | Your region's slug. You can find this in the AWS Console region menu (in the top menu, to the right).  **Note:** This is the region that you will collect metrics from. |
 | LOGZIO_REGION (Required)| Your Logz.io region code. For example if your region is US, then your region code is `us`. You can find your region code here: https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls. |
-| LOGZIO_TOKEN (Required)| Token for shipping metrics to your Logz.io account. Find it under Settings > Manage accounts. [_How do I look up my Metrics account token?_](/user-guide/accounts/finding-your-metrics-account-token/) |
+| LOGZIO_TOKEN (Required)| Token for shipping Prometheus metrics to your Logz.io account. Find it under Settings > Manage accounts. [_How do I look up my Metrics account token?_](/user-guide/accounts/finding-your-metrics-account-token/) |
 | SCRAPE_INTERVAL (Required)| The time interval (in seconds) during which the Cloudwatch exporter retrieves metrics from Cloudwatch, and the Opentelemtry collector scrapes and sends the metrics to Logz.io. Default = 300.   **Note:** This value must be a multiple of 60.|
 | AWS_NAMESPACES (Required) | Comma-separated list of namespaces of the metrics you want to collect.  For `{{include.namespace}}`, this is `AWS/{{include.namespace}}`. You can find a complete list of namespaces at [_AWS Services That Publish CloudWatch Metrics_](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html).   **Note:** This Environment variable is required unless you define the `CUSTOM_CONFIG_PATH` Environment variable |
 | P8S_LOGZIO_NAME | The value of the `p8s_logzio_name` external label. This variable identifies which Prometheus environment the metrics arriving at Logz.io came from. Default = `logzio-cloudwatch-metrics`.  |

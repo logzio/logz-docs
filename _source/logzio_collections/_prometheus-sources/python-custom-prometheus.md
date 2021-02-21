@@ -81,7 +81,6 @@ labels = {
 # provide the first data point
 counter.add(25, labels)
 ```
-See full [example](link2github)
 
 ### [UpDownCounter](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#updowncounter)
 ```python
@@ -99,7 +98,6 @@ labels = {
 # provide the first data point
 requests_active.add(-2, labels)
 ```
-See full [example](link2github)
 
 ### [ValueRecorder](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#valuerecorder)
 ```python
@@ -117,7 +115,6 @@ labels = {
 # provide the first data point
 requests_size.record(85, labels)
 ```
-See full [example](link2github)
 
 ### [SumObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#sumobserver)
 ```python
@@ -139,7 +136,6 @@ meter.register_sumobserver(
     value_type=float,
 )
 ```
-See full [example](link2github)
 
 ### [UpDownSumObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#updownsumobserver)
 ```python
@@ -160,7 +156,6 @@ meter.register_updownsumobserver(
     value_type=float,
 )
 ```
-See full [example](link2github)
 
 ### [ValueObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#valueobserver)
 ```python
@@ -178,4 +173,3 @@ meter.register_valueobserver(
     value_type=float,
 )
 ```
-See full [example](link2github)

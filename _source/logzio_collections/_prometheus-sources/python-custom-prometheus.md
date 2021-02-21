@@ -18,7 +18,7 @@ shipping-tags:
 ---
 
 
-This page contains instructions on how you can send custom metrics to logz.io from your python application. This exapmles are using [opentelemtry python SDK](https://github.com/open-telemetry/opentelemetry-python-contrib) and [opentelemtry remote write exporter](https://pypi.org/project/opentelemetry-exporter-prometheus-remote-write/), which are in alpha/preview
+This page contains instructions on how to send custom metrics to Logz.io from your Python application. This example uses the [OpenTelemetry Python SDK](https://github.com/open-telemetry/opentelemetry-python-contrib) and the [OpenTelemetry remote write exporter](https://pypi.org/project/opentelemetry-exporter-prometheus-remote-write/), which are both in alpha/preview.
 
 #### Quick start
 ##### Install the snappy c-library:
@@ -74,9 +74,9 @@ counter.add(25, labels)
 ```
 
 ## Types of metric instruments
-See opentelemtry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md) for referance
+Refer to the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md) for more details. 
 
-| Name | Behavieour | Default aggregation |
+| Name | Behavior | Default aggregation |
 | ---- | ---------- | ------------------- |
 | Counter           | Metric value can only go up or be reset to 0, calculated per `counter.add(value,labels)` request. | Sum |
 | UpDownCounter     | Metric value can arbitrarily increment or decrement, calculated per `updowncounter.add(value,labels)` request. | Sum |
@@ -87,7 +87,7 @@ See opentelemtry [documentation](https://github.com/open-telemetry/opentelemetry
 
 ### [Counter](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#counter)
 ```python
-# crate a counter instrument
+# create a counter instrument
 counter = meter.create_counter(
     name="MyCounter",
     description="Description of MyCounter",

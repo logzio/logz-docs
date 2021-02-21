@@ -7,7 +7,7 @@ data-source: OpenTelemetry
 description: How to deploy an OpenTelemetry Collector for traces to Logz.io
 open-source:
   - title: Logz.io-OpenTelemetry trace exporter
-    github-repo: https://github.com/open-telemetry/opentelemetry-collector-contrib
+    github-repo: opentelemetry-collector-contrib
 contributors:
   - yyyogev
   - yberlinger
@@ -19,7 +19,7 @@ shipping-tags:
 
 Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces to Logz.io from different APM (Application Performance Management/Monitoring) agents, such as Jaeger, Zipkin, and so on.
 
-This topic explains how to install the OpenTelemetry Collector.  For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](/user-guide/distributed-tracing/getting-started-tracing). 
+This topic explains how to install the OpenTelemetry Collector.  For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing). 
 
 ### OpenTelemetry components
 
@@ -57,7 +57,7 @@ You can use [this config file](https://github.com/open-telemetry/opentelemetry-c
 
 
 {% include tracing-shipping/tracing-parameters.md %}
-| CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter.  You can find your Listener Address in the [Available regions]({{site.baseurl}}/user-guide/accounts/account-region.html#available-regions) table.| |
+| CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter.  You can find your Listener Address in the [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions) table.| |
 
 
 
@@ -73,7 +73,7 @@ docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 
 ```
 
 ##### Run a working example.
-For a complete working example, you can run [this docker compose file](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml) for the [Logz.io Hotrod demo application]({{site.baseurl}}/user-guide/distributed-tracing/trace-hotrod-demo).
+For a complete working example, you can run [this docker compose file](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml) for the [Logz.io Hotrod demo application](https://docs.logz.io/user-guide/distributed-tracing/trace-hotrod-demo).
 
   1. Download the docker compose file.
 
@@ -85,5 +85,5 @@ For a complete working example, you can run [this docker compose file](https://r
 
 Give your traces some time to get from your system to ours, then check the Distributed Tracing tab in Logz.io to see the traces in the Jaeger UI.
 
-To learn more about tracing instrumentation, see [Instrumentation recommendations and resources.]({{site.baseurl}}/user-guide/distributed-tracing/tracing-instrumentation#instrumentation-recommendations-and-resources)
+To learn more about tracing instrumentation, see [Instrumentation recommendations and resources.](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation#instrumentation-recommendations-and-resources)
 

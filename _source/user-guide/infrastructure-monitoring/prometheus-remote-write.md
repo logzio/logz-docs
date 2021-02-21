@@ -9,6 +9,7 @@ tags:
   - metrics integrations
 contributors:
   - yberlinger
+  - yotamloe
 ---
 
 {% include page-info/early-access.md type="beta" %}
@@ -72,15 +73,15 @@ Add the following parameters to your Prometheus yaml file:
           max_samples_per_send: 500 #default = 100
           capacity: 10000  #default = 500
 ```
-For [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) helm chart users:
+For [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) Helm chart users:
 
 Edit your chart `values.yaml` file in the following sections:
 
 1. remote write:
 ```yaml
 remoteWrite:
-    - url: https://<the Logz.io Listener URL for your region>:8053
-      bearerToken: <your Logz.io Metrics account token>
+    - url: https://<<LISTENER-HOST>>:8053  The Logz.io Listener URL for your region, configured with port 8053
+      bearerToken:<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> Your Logz.io Prometheus metrics account token
       remoteTimeout: 30s
       queueConfig:
         batchSendDeadline: 5s  #default = 5s

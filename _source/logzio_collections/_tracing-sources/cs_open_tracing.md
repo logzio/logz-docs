@@ -50,7 +50,7 @@ You can either instrument Jaeger to collect traces from you app automatically or
 <!-- tab:start -->
 <div id="tab1">
 
-Add to you `Stratup.cs` file the following code snippet:
+Add to your `Stratup.cs` file the following code snippet:
 Replace `<<JAEGER_AGENT_HOST>>` with the host address of your Jaeger agent, use `localhost` if it's on the same machine. 
 For K8S deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration.JaegerAgentHost)` and make sure your app deployment contain the env variables below.
 

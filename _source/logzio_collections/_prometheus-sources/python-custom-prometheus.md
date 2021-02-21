@@ -15,10 +15,12 @@ shipping-tags:
   - prometheus
 ---
 
+{% include page-info/early-access.md type="beta" %} 
 
 This page contains instructions on how to send custom metrics to Logz.io from your Python application. This example uses the [OpenTelemetry Python SDK](https://github.com/open-telemetry/opentelemetry-python-contrib) and the [OpenTelemetry remote write exporter](https://pypi.org/project/opentelemetry-exporter-prometheus-remote-write/), which are both in alpha/preview.
 
 #### Quick start
+
 ##### Install the snappy c-library:
 
     DEB: `sudo apt-get install libsnappy-dev`
@@ -57,7 +59,7 @@ metrics.set_meter_provider(MeterProvider())
 meter = metrics.get_meter(__name__)
 metrics.get_meter_provider().start_pipeline(meter, exporter, push_interval)
 
-# crate a counter instrument and provide the first data point
+# create a counter instrument and provide the first data point
 counter = meter.create_counter(
     name="MyCounter",
     description="Description of MyCounter",

@@ -9,8 +9,8 @@ contributors:
   - shalper
   - dorisnaaman
 shipping-tags:
-  - server-app
-   
+  - firewalls
+  - endpoint-security
 ---
 
 #### Configuration
@@ -82,21 +82,21 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Replace the placeholders in your Filebeat configuration
+{% include /general-shipping/replace-placeholders.html %}
 
-Still in the same configuration file, replace the placeholders to match your specifics.
 
-{% include log-shipping/log-shipping-token-bullet.html %}
-
-* {% include log-shipping/listener-var.html %} 
-
+<!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
+{:.info-box.note}
+<!-- info-box-end -->
 
 
 ##### Start Filebeat
 
+
 Start or restart Filebeat for the changes to take effect.
+
 
 ##### Check Logz.io for your logs
 

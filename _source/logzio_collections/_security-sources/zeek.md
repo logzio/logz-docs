@@ -8,7 +8,7 @@ templates: [beats-logs]
 contributors:
   - imnotashrimp
 shipping-tags:
-    
+  - ids
 ---
 
 #### Guided configuration

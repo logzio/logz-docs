@@ -8,9 +8,21 @@ templates: ["no-template", "no-template"]
 shipping-tags:
   - container
 contributors:
-  - fadi-khatib  
+  - fadi-khatib
   - shalper
 ---
+
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Configurations](#config)
+* [Multiline logs](#multiline)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
 
 This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your cluster and ship them to Logz.io.
 
@@ -20,14 +32,20 @@ You have 3 options for deploying this Daemonset:
 * Autodiscover configuration - the standard configuration which also uses Filebeat's autodiscover and hints system
 * Custom configuration - upload a Logz.io Daemonset with your own configuration
 
+If you are sending multiline logs, see the relevant tab for further details.
+
+</div>
+<!-- tab:end -->
+<!-- tab:start -->
+<div id="config">
 
 #### Deploy Filebeat as a DaemonSet on Kubernetes
 
+
+**Before you begin, you'll need**: Destination port 5015 open on your firewall for outgoing traffic
+
+
 <div class="tasklist">
-
-**Before you begin, you'll need**:
-
-* Destination port 5015 open on your firewall for outgoing traffic
 
 ##### Store your Logz.io credentials
 
@@ -36,7 +54,7 @@ Save your Logz.io shipping credentials as a Kubernetes secret.
 Customize the command to your specifics:
 
 {% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/listener-var.html %} 
+* {% include log-shipping/listener-var.html %}
 * Replace `<<CLUSTER-NAME>>` with your cluster's name. If you manage Kubernetes in AWS or Azure, you can find it in your admin console. Alternatively, you can run the following to obtain your cluster name: `kubectl cluster-info`
 
 ```shell
@@ -51,13 +69,13 @@ kubectl create secret generic logzio-logs-secret \
 
 Run the relevant command for your type of deployment.
 
-###### Deploy the standard configuration
+###### Standard configuration
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
-###### Deploy the autodiscover standard configuration
+###### Autodiscover standard configuration
 
 Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running. See Elastic documentation to [learn more about Filebeat Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html).
 
@@ -65,7 +83,7 @@ Autodiscover allows you to adapt settings as changes happen. By defining configu
  kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-autodiscovery-configuration.yaml
 ```
 
-###### Deploy a custom configuration
+###### Custom configuration
 
 If you want to apply your own custom configuration, download the standard-configmap.yaml and apply your changes. Make sure to keep the file structure unchanged.
 
@@ -130,3 +148,17 @@ If you still don't see your logs,
 see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="multiline">
+
+{% include /log-shipping/multiline-logs-filebeat.md %}
+
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

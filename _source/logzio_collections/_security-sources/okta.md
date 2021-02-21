@@ -13,7 +13,7 @@ contributors:
   - ronish31
   - shalper
 shipping-tags:
-   
+  - identity
 ---
 
 To ship Okta logs,

@@ -79,12 +79,30 @@ tags:
   - name: Grafana gateway
     description: Grafana API Gateway to supported endpoints.
   - name: Who am I
-  - name: Manage sub accounts
+  - name: Manage time-based log accounts
     description: >-
-      Use these API endpoints to create, update, retrieve, or delete sub accounts.
+      Use these API requests to manage time-based log accounts:
+      
+      * Create, update, or delete a sub account.
+
+      * Allocate daily capacity to the main account and/or sub accounts.
+      
+      * Retrieve account activity stats and/or account configuration details.
 
 
-      If you have enabled [flexible volume](/user-guide/accounts/flexible-volume.html) in your account, please see the corresponding [API for flexible volume plan configuration](/beta-api-flexible-storage/). To learn more about what's changed in the API, [click here](/user-guide/accounts/flexible-volume-announcement/).
+      ### Flexible storage & shared volume
+        
+      Flexible storage and shared volume allow accounts to share indexing capacity.
+      
+      
+      To enable shared volume, go to the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts) in the Logz.io app and toggle the button **Use flexible volume** to turn it on.
+      
+      
+      To determine whether flexible storage is enabled, run a `Get` request to retrieve account details.
+      
+      * If `isFlexible` is true, flexible storage is enabled and every account has reserved capacity set by the parameter `reservedDailyGB`.
+      
+      * If false, flexible storage is disabled and the parameter `reservedDailyGB` is null.
   - name: Search logs
     description: >-
       Use the Elasticsearch Search API DSL query language to search your Logz.io data.
@@ -227,7 +245,7 @@ x-tagGroups:
     tags:
       - Manage users
       - Who am I
-      - Manage sub accounts
+      - Manage time-based log accounts
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
@@ -275,7 +293,6 @@ paths:
       parameters:
 
 
-
   # ::::: ACCOUNTS
   /v1/account-management/whoami:
     get:
@@ -301,10 +318,17 @@ paths:
             $ref: '#/definitions/WhoAmI'
   /v1/account-management/time-based-accounts:
     get:
-      summary: Retrieve all sub accounts
-      description: Returns a list of sub accounts as an array of JSON objects. Must be run with an API token from the main account.
+      summary: Retrieve settings for all accounts
+      description: >-
+        
+        Returns account settings for the main account and all of its associated sub accounts.
+        
+
+        * The list of accounts is returned as an array of JSON objects.
+        
+        * Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage time-based log accounts
       operationId: getAll
       responses:
         200:
@@ -318,9 +342,10 @@ paths:
         source: 'curl --request GET --url "https://api.logz.io/v1/account-management/time-based-accounts" --header "X-API-TOKEN: <token>"'
     post:
       summary: Create a sub account
-      description: Creates a new time-based sub account. Must be run with an API token from the main account.
+      description: >-
+        Creates a new logging sub account. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage time-based log accounts
       operationId: createTimeBasedAccount
       parameters:
         - in: body
@@ -344,6 +369,8 @@ paths:
             "email": "help@logz.io",
             "accountName": "AWS Lambda svr 3",
             "maxDailyGB": 5,
+            "reservedDailyGB": 3,
+            "isFlexible": true,
             "retentionDays": 5,
             "searchable": true,
             "accessible": false,
@@ -357,52 +384,14 @@ paths:
               "utilizationEnabled": true
             }
             }'
-  /v1/account-management/time-based-accounts/detailed:
-    get:
-      summary: Retrieve detailed information on all sub accounts
-      description: Retrieves all time-based sub accounts, returned as an array of objects. Each sub account is its own object. Must be run with an API token from the main account.
-      tags:
-        - Manage sub accounts
-      operationId: getAllDetailedTimeBasedAccount
-      responses:
-        200:
-          description: successful operation
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/DetailedTimeBasedAccount'
-      x-code-samples:
-      - lang: cURL
-        source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
-  /v1/account-management/time-based-accounts/detailed/{id}:
-    get:
-      summary: Retrieve detailed account information by ID
-      description: Using account ID, returns detailed account information. Must be run with an API token from the main account.
-      tags:
-        - Manage sub accounts
-      operationId: getDetailedTimeBasedAccount
-      parameters:
-        - name: id
-          in: path
-          required: true
-          type: integer
-          format: int32
-          description: ID of the account to retrieve
-          x-example: 99999
-      responses:
-        200:
-          description: successful operation
-          schema:
-            $ref: '#/definitions/DetailedTimeBasedAccount'
-      x-code-samples:
-      - lang: cURL
-        source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
+
+
   /v1/account-management/time-based-accounts/{id}:
     get:
-      summary: Retrieve sub account by ID
-      description: Returns account information and configuration as a JSON object. Must be run with an API token from the main account.
+      summary: Retrieve account settings by ID
+      description: Returns account configuration settings as a JSON object. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage time-based log accounts
       operationId: get
       parameters:
         - name: id
@@ -421,10 +410,17 @@ paths:
       - lang: cURL
         source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
     put:
-      summary: Update a sub account
-      description: Updates a sub account. Must be run with an API token from the main account.
+      summary: Update an account
+      description: >-
+        Updates the account settings of a main account or sub account, with some exceptions, noted below:
+
+
+        * For the main account, the parameter `retentionDays` cannot be updated. It is determined by the plan you purchased.
+
+        * For the main account, if `isFlexible=false`, the parameters `maxDailyGB` and `reservedDailyGB` cannot be updated using this endpoint.
+
       tags:
-        - Manage sub accounts
+        - Manage time-based log accounts
       operationId: updateTimeBasedAccount
       parameters:
         - name: id
@@ -452,6 +448,7 @@ paths:
           -d "{
             \"accountName\": \"AWS Lambda svr 3\",
             \"maxDailyGB\": 5,
+            "reservedDailyGB\": 3,
             \"retentionDays\": 5,
             \"searchable\": true,
             \"accessible\": false,
@@ -466,9 +463,9 @@ paths:
           }"
     delete:
       summary: Delete a sub account
-      description: Using an account ID, deletes a sub account. Must be run with an API token from the main account.
+      description: Deletes a sub account by its account ID. Must be run with an API token from the main account.
       tags:
-        - Manage sub accounts
+        - Manage time-based log accounts
       operationId: deleteTimeBasedAccount
       parameters:
         - name: id
@@ -476,7 +473,7 @@ paths:
           required: true
           type: integer
           format: int32
-          description: ID of the account to delete
+          description: ID of the account to be deleted.
           x-example: 99999
       responses:
         204:
@@ -484,6 +481,53 @@ paths:
       x-code-samples:
         - lang: cURL
           source: 'curl -X DELETE "https://api.logz.io/v1/account-management/time-based-accounts/88888" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
+  /v1/account-management/time-based-accounts/detailed:
+    get:
+      summary: Retrieve detailed information for all accounts
+      description: >-
+        Returns detailed account information for the main account and all of its associated sub accounts. Information includes usage and sharing permissions for Kibana objects.
+
+        * The list of accounts is returned as an array of JSON objects. Each sub account is its own object.
+        
+        * Must be run with an API token from the main account.
+      tags:
+        - Manage time-based log accounts
+      operationId: getAllDetailedTimeBasedAccount
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DetailedTimeBasedAccount'
+      x-code-samples:
+      - lang: cURL
+        source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
+  /v1/account-management/time-based-accounts/detailed/{id}:
+    get:
+      summary: Retrieve detailed account information by account ID
+      description: Returns detailed account information. Must be run with an API token from the main account.
+      tags:
+        - Manage time-based log accounts
+      operationId: getDetailedTimeBasedAccount
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the account to retrieve
+          x-example: 99999
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/DetailedTimeBasedAccount'
+      x-code-samples:
+      - lang: cURL
+        source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
+
+
 
   # ::::: SEARCH, SCROLL
   /v1/search:
@@ -1046,7 +1090,7 @@ paths:
 
   /v2/alerts/{alertId}:
     get:
-      summary: Retrieve an alert
+      summary: Retrieve alert by ID
       description: Returns alert details by alert ID.
       tags:
         - Alerts
@@ -1115,6 +1159,47 @@ paths:
           schema:
             $ref: '#/definitions/AlertV2Response'
           headers: {}
+  /v2/alerts/{id}/enable:
+    post:
+      summary: Enable alert by ID
+      description: Enables an alert by its alert ID. This is reversible. The alert can be disabled again at any time.
+      operationId: enableAlert
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Alert ID
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 654312
+      responses:
+        default:
+          description: successful operation
+  /v2/alerts/{id}/disable:
+    post:
+      operationId: disableAlert
+      summary: Disable alert by ID
+      description: Disables an alert by its alert ID. This is reversible. The alert can be enabled again at any time.
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Alert ID
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 654321
+      responses:
+        default:
+          description: successful operation
+
 
 
   # ::::: Log Insights
@@ -1143,7 +1228,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/PageResponsePublicAccountInsightResponse'
-
 
   # ::::: AUDIT TRAIL
   /v1/audit-trail/event-types:
@@ -2935,7 +3019,69 @@ paths:
           schema:
             $ref: '#/definitions/RuleV2Response'
           headers: {}
+  /v2/security/rules/search: 
+    post: 
+      tags: 
+        - Security rules
+      operationId: searchAccountSecurityRules
+      summary: Retrieve security rules
+      description: Retrieve a filtered or unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      produces:
+        - application/json
+      parameters: 
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertsSearchRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseSecurityRuleResponse'
 
+
+  /v2/security/rules/{id}/enable: 
+    post: 
+      tags: 
+        - Security rules
+      operationId: enableSecurityRule
+      summary: Enable a rule
+      description: Enables a security rule by its ID.
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Rule ID
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 305572
+      responses:
+        default:
+          description: successful operation
+
+  /v2/security/rules/{id}/disable:
+    post: 
+      tags: 
+        - Security rules
+      operationId: disableSecurityRule
+      summary: Disable a rule
+      description: Disables a security rule by its ID.
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          description: Rule ID
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 305976
+      responses:
+        default:
+          description: successful operation
 
 
 
@@ -3602,14 +3748,48 @@ definitions:
       active:
         type: boolean
       esIndexPrefix:
+        description: Prefix of the Elasticsearch Index used to index the data.
         type: string
+      isFlexible:
+        type: boolean
+        default: false
+        description: >-
+          Indicates whether the plan has **shared volume** enabled.
+          
+          
+          If `true`, the volume of data that the account can index per calendar day is determined by 2 parameters: `reservedDailyGB` (Required) and  `maxDailyGB` (Optional, can be null).
+
+          
+          If `false`, the volume of data that the account can index per calendar day is determined only by `maxDailyGB`. The parameter `reservedDailyGB` does not apply.
+        example: true
+      reservedDailyGB:
+        type: number
+        format: float
+        description: >-
+          * If `isFlexible=false`, this field does not apply.
+   
+         
+          * If `isFlexible=true`, this determines the daily volume in GB reserved for the account. This capacity is guaranteed and cannot be used by any other accounts.
+        example: 3
       maxDailyGB:
         type: number
         format: float
+        description: >-
+          The maximum volume of data that an account can index per calendar day.
+
+
+          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
+
+
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
+          
+          
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
+        example: 5
       retentionDays:
         type: integer
         format: int32
-        description: Data retention time, in days
+        description: How long log data is stored and searchable in Kibana, in days.
   DailyUsagesList:
     type: object
     properties:
@@ -3627,15 +3807,35 @@ definitions:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
+      reservedDailyGB:
+        type: number
+        format: float
+        default: null
+        description: >-
+          * If `isFlexible=false`, this field does not apply. Leave it null.
+   
+         
+          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
+        example: 3
       maxDailyGB:
         type: number
         format: float
-        description: Maximum daily usage, in GB
+        description: >-
+          The maximum volume of data that an account can index per calendar day.
+
+
+          * If `isFlexible=false` this parameter can only be used to update a sub account, but not a main account. It determines the only capacity reserved for use by the account. It cannot be null.
+
+
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
+          
+          
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
         example: 5
       retentionDays:
         type: integer
         format: int32
-        description: Data retention time, in days
+        description: This is how long log data is stored and searchable in Kibana, in days.
         minimum: 1
         example: 5
       searchable:
@@ -3648,7 +3848,7 @@ definitions:
           type: integer
           format: int32
           example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data
+        description: IDs of accounts that can access this account's data.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
@@ -3686,26 +3886,45 @@ definitions:
       - email
       - sharingObjectsAccounts
       - retentionDays
-      - maxDailyGB
     properties:
       email:
         type: string
         pattern: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
-        description: Email address of an existing admin user on the main account which will also become the admin of the account being created
+        description: Account administrator's email address
         example: help@logz.io
       accountName:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
+      reservedDailyGB:
+        type: number
+        format: float
+        default: null
+        description: >-
+          * If `isFlexible=false`, don't send this field or send it null.
+   
+         
+          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
+        example: 3
       maxDailyGB:
         type: number
         format: float
-        description: Maximum daily usage, in GB. If set to `0` and you ship logs, the account will be suspended until the index rotates at midnight UTC.
+        description: >-
+          The maximum volume of data that an account can index per calendar day.
+
+
+          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
+
+
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
+          
+          
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
         example: 5
       retentionDays:
         type: integer
         format: int32
-        description: Data retention time, in days
+        description: How long log data is stored and searchable in Kibana, in days.
         minimum: 1
         example: 5
       searchable:
@@ -3793,20 +4012,55 @@ definitions:
         type: null
         nullable: true
         description: Email address of the user who created the account
-        example: my.email@company.com
+        example: null
       accountName:
         type: string
         description: Name of the account
         example: 404 errors
+      accountToken:
+        type: string
+        description: Account log shipping token (unique to every account)
+        example: f483abe93b
+      isFlexible:
+        type: boolean
+        default: false
+        description: >-
+          Indicates whether the plan has **shared volume** enabled.
+          
+          
+          If `true`, the volume of data that the account can index per calendar day is determined by 2 parameters: `reservedDailyGB` (Required) and  `maxDailyGB` (Optional, can be null).
+
+          
+          If `false`, the volume of data that the account can index per calendar day is determined only by `maxDailyGB`. The parameter `reservedDailyGB` does not apply and should be null.
+        example: true
+      reservedDailyGB:
+        type: number
+        format: float
+        default: null
+        description: >-
+          * If `isFlexible=false`, this field does not apply and will be null.
+
+          * If `isFlexible=true`, this determines the daily volume in GBs that is reserved for the account.
+        example: 3
       maxDailyGB:
         type: number
         format: float
-        description: Maximum daily usage, in GB
-        example: 100
+        description: >-
+          The maximum volume of data that an account can index per calendar day.
+
+
+          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
+
+
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available. 
+          
+          
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
+        example: 5
       retentionDays:
         type: integer
         format: int32
-        description: Data retention time, in days
+        description: How long log data is retained in the Elasticsearch Index and searchable in Kibana, in days.
         example: 5
       searchable:
         $ref: "#/definitions/Searchable"
@@ -3818,7 +4072,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/SharingAccount'
-        description: Accounts that can access this account's data
+        description: Accounts that have permissions to access this account's Kibana objects.
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
   TimeBasedAccountCreationResponse:
@@ -3848,6 +4102,8 @@ definitions:
     description: If document size is attached to logs, `true`. Otherwise, `false`.
     default: false
     example: true
+
+
 
   # ::::: CLOUD SIEM DEFINITIONS
   AlertEventLogsSearchRequest:
@@ -4060,6 +4316,102 @@ definitions:
         example: 1587137557
         description: Absolute UNIX timestamp in seconds (not milliseconds).
 
+  PagedSearchResponseSecurityRuleResponse:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+        description: The total number of rules returned by the query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
+        example: 500
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/SecurityRuleResponse'
+      pagination:
+        $ref: '#/definitions/Pagination'
+
+
+  AlertsSearchRequest:
+    type: object
+    properties:
+      filter:
+        description: Filter by rule name, severity, and more.
+        type: array
+        items:
+          $ref: '#/definitions/AlertsFilter'
+      sort:
+        description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
+        type: array
+        items:
+          $ref: '#/definitions/AlertsSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+  AlertsSortRequest:
+    type: object
+    required:
+      - field
+    properties:
+      sortByField:
+        type: string
+        description: Sort by a single parameter.
+        enum:
+          - SEVERITY
+          - NAME
+          - CREATED_AT
+          - UPDATED_AT
+      descending:
+        type: boolean
+        default: true
+        description: If left blank, descending sorting will result. If `false` results in ascending sorting.
+
+
+  AlertsFilter:
+    type: object
+    properties:
+      search:
+        type: string
+        description: Searches by rule titles that contain the string.
+      severity:
+        type: array
+        items:
+          type: string
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        description: List of rule severities, as specified by the security rule's definition
+        example: 
+          SEVERE
+          HIGH
+      updatedBy:
+        type: array
+        items:
+          type: string
+        description: Email addresses of the last users to update the rules
+      createdBy:
+        type: array
+        items:
+          type: string
+        description: Email addresses of the user who created the rules.
+      enabledState:
+        type: list of booleans
+        description: true for enabled rules, false for disabled rules.
+      emailNotifications:
+        type: array
+        items:
+          type: string
+        description: List of email addresses on the recipients list to receive notifications when the rules trigger.
+      tags:
+        type: array
+        items:
+          type: object
+        description: Tags are labels used to organize security rules
+
+
+
 
   # ::::: Log Insights
   PublicGetAccountInsightsRequest:
@@ -4221,6 +4573,7 @@ definitions:
         type: string
         description: The title of the Insight.
         example: "Could not find the language line create_user_validation_phone_label"
+
 
   # ::::: AUDIT TRAIL DEFINITIONS
   AuditTrailEventTypesResponse:

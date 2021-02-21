@@ -64,7 +64,7 @@ output.logstash:
     ssl.certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### _(If needed)_ Enable the system module
+##### _(If needed)_  Enable the system module
 
 The system module is enabled by default.
 If you've disabled it for any reason, re-enable it now.

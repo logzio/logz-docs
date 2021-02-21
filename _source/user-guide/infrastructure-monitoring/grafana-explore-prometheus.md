@@ -39,7 +39,6 @@ The metrics are grouped by name.
     <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore11-metricslist.mp4" type="video/mp4" />
   </video>
 
-
 - **Query autocomplete:** Use the query autocomplete option to explore the available metrics name suggestions. 
   For example, if you’re monitoring Kubernetes and looking for a specific pod metric, start typing the term `pod` to see which results come up, then click the desired metric name.
 
@@ -48,9 +47,6 @@ The metrics are grouped by name.
   <video autoplay loop>
     <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-explore-query.mp4" type="video/mp4" />
   </video>
-
-  
-
 
 Not all metrics from a specific service start with the same word. <br>For example, the metrics grouped by the term `container` are also Kubernetes metrics. 
 {:.info-box.note}
@@ -76,7 +72,7 @@ If you want to sync both views so they both cover the same time range, click the
 
 <!-- ![Sync P8s Explore views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-splitsync1.png) -->
 
-
 <video autoplay loop>
     <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore-split-sync.mp4" type="video/mp4" />
   </video>
+

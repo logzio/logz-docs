@@ -112,14 +112,15 @@ firstLevel:
     - title: Explore mode
       url: /user-guide/infrastructure-monitoring/grafana-explore/
   - title: Getting started with Prometheus 
-    url: /user-guide/infrastructure-monitoring/p8s-getting-started.html
+    url: /user-guide/infrastructure-monitoring/prometheus-getting-started.html
     thirdLevel:
     - title: Configuring remote write for Prometheus 
-      url: /user-guide/infrastructure-monitoring/p8s-remote-write.html    
+      url: /user-guide/infrastructure-monitoring/prometheus-remote-write.html    
     - title: Importing dashboards from Grafana 
-      url: /user-guide/infrastructure-monitoring/p8s-importing-dashbds.html
+      url: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
     - title: Explore Prometheus metrics in Grafana 
       url: /user-guide/infrastructure-monitoring/grafana-explore-prometheus 
+
 
 
     # ===== DISTRIBUTED TRACING =====
@@ -317,6 +318,8 @@ firstLevel:
         url: /user-guide/integrations/custom-endpoints.html
       - title: Opsgenie notifications for resolved metrics alerts
         url: /user-guide/integrations/resolved-metrics-alerts.html
+      - title: Microsoft Teams endpoint
+        url: /user-guide/integrations/ms-teams.html
   - title: Terraform Logz.io Provider
     url: /integrations/terraform/
   - title: LightS - Light Synthetic Monitoring for AWS

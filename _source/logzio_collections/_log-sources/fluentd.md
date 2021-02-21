@@ -58,12 +58,12 @@ See the configuration parameters below the code block.👇
 
 | Parameter | Description |
 |---|---|
-| endpoint_url | Your Logz.io region's listener URL, account token, and log type. <br> {% include log-shipping/listener-var.html %}  <br> {% include log-shipping/log-shipping-token.html %} |
+| endpoint_url | A url composed of your Logz.io region's listener URL, account token, and log type. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %} |
 | output_include_time | To add a timestamp to your logs when they're processed, `true` (recommended). Otherwise, `false`. |
 | output_include_tags | To add the `fluentd` tag to logs, `true`. Otherwise, `false`. If `true`, use in combination with `output_tags_fieldname`. |
-| output_tags_fieldname <span class="default-param">`fluentd_tag`</span> | If `output_include_tags` is `true`, sets output tag's field name. |
+| output_tags_fieldname | If `output_include_tags` is `true`, sets output tag's field name. The default is `fluentd_tag` |
 | http_idle_timeout | Time, in seconds, that the HTTP connection will stay open without traffic before timing out. |
-{:.paramlist}
+
 
 ##### Run Fluentd
 

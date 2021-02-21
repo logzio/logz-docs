@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Getting started with Prometheus 
-permalink: /user-guide/infrastructure-monitoring/p8s-getting-started.html
+permalink: /user-guide/infrastructure-monitoring/prometheus-getting-started.html
 flags:
   logzio-plan: 
   beta: true
@@ -36,8 +36,8 @@ For the record, notification endpoints and dashboard annotations are not importe
  
 
 ### Steps to get started
-1. <a href ="/user-guide/infrastructure-monitoring/p8s-remote-write#configuring-remote-write-to-logzio)"  target="_blank">Configure Remote Write. 
-1. [Import dashboards.](/user-guide/infrastructure-monitoring/p8s-importing-dashbds)
+1. <a href ="/user-guide/infrastructure-monitoring/prometheus-remote-write#configuring-remote-write-to-logzio)"  target="_blank">Configure Remote Write. 
+1. [Import dashboards.](/user-guide/infrastructure-monitoring/prometheus-importing-dashbds)
 1. [Configure notification endpoints.](/user-guide/integrations/endpoints.html)
 1. [Recreate your dashboard annotations.](/user-guide/infrastructure-monitoring/annotations/)
 

@@ -8,7 +8,7 @@ templates: ["network-device-filebeat"]
 contributors:
   - shalper
 shipping-tags:
-   
+  - gcp
 ---
 
 You can ship G Suite logs to Logz.io using Filebeat and Google Reports API.

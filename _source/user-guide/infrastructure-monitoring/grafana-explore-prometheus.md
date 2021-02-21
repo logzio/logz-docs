@@ -4,7 +4,8 @@ title: Explore your Prometheus metrics
 permalink: /user-guide/infrastructure-monitoring/grafana-explore-prometheus/
 flags:
   #admin: true
-  logzio-plan: community
+  logzio-plan: pro
+  beta: true
 tags:
   - Grafana
 contributors:
@@ -13,72 +14,65 @@ contributors:
   - yberlinger
 ---
 
-Grafana Explore is where you can explore the data available in your Metrics account.
+Grafana Explore is where you can research the data available in your Prometheus metrics account and discover the metadata (tags, dimensions, or fields) associated with each metric from the services in your environment.
+
 It's a bit like Kibana Discover, in that it is optimized for quickly searching the data in preparation for creating dashboards.
 
-Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, Grafana’s Explore mode is the best way to do it.
-It's also great if you're a long-time user and want to examine the structure of your metrics documents in order to create a new monitoring dashboard.
+Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, Grafana’s Explore mode is the best way to do it. It's also great if you're a long-time user and want to examine the structure of your metrics to create a new monitoring dashboard.
 
-To go to Grafana’s Explore, click on the **Explore icon <i class="far fa-compass"></i>** in the left menu.
+To go to Grafana’s Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
-## Metrics view vs. Logs view
+<!-- Exposing the metrics in your system - discovering the associated metadata (tags, dimensions, or fields) sent by the services in your environment -->
 
-Grafana’s Explore mode has a number of views, including various Metrics options and a Logs view.
+## Exploring your metrics
 
-![Grafana Explore view options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafanalogs-select1.png)
+To determine which metrics exist in your metrics account and then discover the associated metadata (tags, dimensions, or fields) sent by the services in your environment, use the Metrics list or an autocomplete query.
 
-![Grafana Explore with Metrics and Logs views shown side-by-side](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore732.png)
+- **Metrics list:** Use the metrics dropdown to the left of the query bar to get a full picture of all of the metrics sent to your account. 
+The metrics are grouped by name. 
 
-Which view is better, depends on your goal:
+  In the image below, the Kubernetes metrics start with the term `kube`. 
 
-* The Logs view is ideal for exploring the structure of your metrics' documents as preparation for configuring new dashboards. It is unique to Grafana Explore.
-* The Metrics view options are useful for getting general information about what's going on in your metrics account.
+  <!-- ![P8s metrics tree list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-metrics-list.png) -->
 
-### Metrics View
+   <video autoplay loop>
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore11-metricslist.mp4" type="video/mp4" />
+  </video>
 
-The metrics view options offer a playground you can use to explore your data. They show a graph panel where you can experiment with queries. If you've edited a Grafana dashboard before, the interface will be familiar.
+- **Query autocomplete:** Use the query autocomplete option to explore the available metrics name suggestions. 
+  For example, if you’re monitoring Kubernetes and looking for a specific pod metric, start typing the term `pod` to see which results come up, then click the desired metric name.
 
-The Metrics view options are great for learning what Metrics data is in your system. Here are a few examples of what it offers:
-<!-- What changes are needed for P8s: get rid of Metricbeat refs -->
-* To check which Metricbeat modules you currently have, use a `group by` rule for the field `event.module`.
-* To look up your metricsets, use a `group by` rule for the field `metricset.name`.
-* To see which hosts are shipping metrics to your account, use a `group by` rule for the field `host.name`.
+  <!-- ![P8s query autocomplete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-querylist.png)  -->
 
-| What are you looking for | Group by field |
-|---|---|
-| Metricbeat modules | `event.module` |
-| Metricsets | `metricset.name` |
-| Which hosts are shipping metrics | `host.name` |
+  <video autoplay loop>
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-explore-query.mp4" type="video/mp4" />
+  </video>
 
-![Grafana explore: Metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana_explore_metrics2.gif)
+Not all metrics from a specific service start with the same word. <br>For example, the metrics grouped by the term `container` are also Kubernetes metrics. 
+{:.info-box.note}
 
-### Logs View
+## Prometheus metrics metadata labels
 
-Grafana's Explore mode is the equivalent of Kibana Discover, only for metrics.
+Each metric includes metadata - one or more labels that are associated with the metric and which provide additional information about it. These labels are either automatically attached and sent with the metric, or can also be attached manually by the sender: It depends on the monitored service or application. 
 
-![Grafana Explore in Logs view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore-logs-revamp.png)
+Metrics metadata labels are useful for creating meaningful visualizations and for gaining insights about the monitored data. When choosing a metric to focus on, you can see each metric’s labels (and label values) attached to it below the graph visualization. 
 
-The Logs view gives you visibility into your metrics account at the log level.
-It can be useful when you want to build or edit a dashboard, or when you want to see how specific metrics logs are structured.
+In the image below, the metric `kube_deployment_status_replicas_available` includes the labels `deployment` and `namespace` .
 
-If you want the system to return all the metrics logs in your account, simply leave the query empty. Once you have a better idea of what you are looking for, query for the log type you are after. The key is to use Lucene syntax.
+![P8s metric metadata labels](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-metadata-labels1.png)
 
-When you're ready to dive into specifics, click one of the results to open the document view. The document view shows you which metrics and dimensions are being sent in the same document, and includes the metadata for those metrics. (For example, typical metadata for the metrics could include the sending host, metricset, cluster, and so on).
-![Grafana explore: Logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana_explore_logs.gif)
+### Split and sync Explore screens
 
-You can click the <i class="fas fa-signal"></i> icon for a top-N analysis of the most common values for the field.
+You can split your Explore mode screen to work faster and make quick comparisons. You can split the screen to work with two views side-by-side, whether Metrics-Metrics, Logs-Logs, or Logs-Metrics.  <!-- what sort of things would you display in the 2 panels, for example?  -->
 
-![Top-N analysis in Grafana Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore-top-n-distribution.png)
-
-
-### Split and Sync
-
-You can split your Explore mode screen to work faster and make quick comparisons. You can split the screen to work with two views side-by-side, whether Metrics-Metrics, Logs-Logs, or Logs-Metrics.
+Splitting the screen is especially effective for checking how queries behave in different time ranges and even for different data sources (in the Logz.io world, a data source = a different metrics or logs account or subaccount).
 
 To split the screen, click the **<i class="fas fa-columns"></i> Split** button.
 If you want to sync both views so they both cover the same time range, click the **<i class="fas fa-link"></i>** button to link the views.
 
-![Sync Grafana Explore views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-split-sync.gif) 
+<!-- ![Sync P8s Explore views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-splitsync1.png) -->
 
-<!--![Sync Grafana Explore views](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/sync-explore-views.png) shows toggle -->
+<video autoplay loop>
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore-split-sync.mp4" type="video/mp4" />
+  </video>
 

@@ -118,6 +118,8 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/prometheus-remote-write.html    
     - title: Importing dashboards from Grafana 
       url: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
+    - title: Explore Prometheus metrics in Grafana 
+      url: /user-guide/infrastructure-monitoring/grafana-explore-prometheus 
 
 
 

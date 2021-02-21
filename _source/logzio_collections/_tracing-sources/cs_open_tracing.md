@@ -113,7 +113,7 @@ For K8S deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration
 
 ```csharp
 string appName = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
-string hostName = "localhost";
+string hostName = <<JAEGER_AGENT_HOST>>;
 var tracer =
         new Tracer.Builder(appName)
             .WithSampler(new ConstSampler(true))

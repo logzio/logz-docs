@@ -16,7 +16,7 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Automated deployment (*recommended*)](#automated-config)
+* [Automated deployment - recommended](#automated-config)
 * [Manual deployment](#manual-config)
 {:.branching-tabs}
 

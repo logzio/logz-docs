@@ -15,8 +15,10 @@ shipping-tags:
   - prometheus
 
 ---
-
+<!-- info-box-start:info -->
 This feature is in beta. Please [email our support](mailto:help@logz.io?subject=Requesting%20early%20access%20for%20p8s.%20Thanks) or your Logz.io account manager to request early access. 
+{:.info-box.note}
+<!-- info-box-end -->
 
 This project lets you to configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
 

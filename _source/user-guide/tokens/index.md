@@ -13,6 +13,7 @@ tags:
 contributors:
   - imnotashrimp
   - shalper
+  - yberlinger
 ---
 
 Logz.io uses tokens to manage log shipping, permissions for dashboard sharing links, and API authorization.

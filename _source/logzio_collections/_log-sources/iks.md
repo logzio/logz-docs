@@ -48,6 +48,8 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
   
   If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
 
+{% include /log-shipping/multiline-logs-fluentd.md %}
+
 
 </div>
 

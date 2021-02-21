@@ -104,6 +104,7 @@ public void ConfigureServices(IServiceCollection services)
 <div id="tab2">
 
 First, create a tracer. If you already have a tracer in your app that forward traces to an agent. use this:
+
 ```csharp
 var tracer = GlobalTracer.Instance;
 ```
@@ -163,3 +164,6 @@ Then, add the following env variables to your app containers:
  - name: JAEGER_AGENT_PORT
    value: "6831"
 ```
+
+### Examples
+To see an actual example, head to our [examples repo](https://github.com/logzio/Integrations_examples/tree/main/Tracing/cs_client_instrumentaion).

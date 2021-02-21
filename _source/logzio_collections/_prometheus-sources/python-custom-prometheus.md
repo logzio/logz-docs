@@ -1,7 +1,7 @@
 ---
 title: Send custom metrics from your Python application
 logo:
-  logofile: prometheusio-icon.svg
+  logofile: python.svg
   orientation: vertical
 data-source: Python custom metrics
 flags:

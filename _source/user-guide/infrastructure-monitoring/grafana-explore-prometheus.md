@@ -69,7 +69,7 @@ In the image below, the metric `kube_deployment_status_replicas_available` inclu
 
 You can split your Explore mode screen to work faster and make quick comparisons. You can split the screen to work with two views side-by-side, whether Metrics-Metrics, Logs-Logs, or Logs-Metrics.  <!-- what sort of things would you display in the 2 panels, for example?  -->
 
-Splitting the screen is especially effective for checking how queries behave in different time ranges and even for different data sources (in the Logz.io world, a data source = a different metrics account).
+Splitting the screen is especially effective for checking how queries behave in different time ranges and even for different data sources (in the Logz.io world, a data source = a different metrics or logs account or subaccount).
 
 To split the screen, click the **<i class="fas fa-columns"></i> Split** button.
 If you want to sync both views so they both cover the same time range, click the **<i class="fas fa-link"></i>** button to link the views.

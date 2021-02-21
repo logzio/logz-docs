@@ -49,12 +49,12 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
 ##### Add a remote_write url
 Add the following parameters to your Prometheus yaml file:
 
-| Environment variable | Description |
-|---|---|
-{% include p8s-shipping/p8s_logzio_name.md %}
-| remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
-|url| Logz.io Listener url for for your region, configured to use port **8052** for http traffic or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)|
-|bearer_token| Logz.io Metrics account token|
+| Environment variable | Description |Required/Default|
+|---|---|---|
+{% include p8s-shipping/p8s_logzio_name.md %}||
+| remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. ||
+|url|  The Logz.io Listener url for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
+|bearer_token|The Logz.io Prometheus Metrics account token.  | Required|
 
 
 ```yaml
@@ -62,8 +62,8 @@ Add the following parameters to your Prometheus yaml file:
       external_labels:
         p8s_logzio_name: <labelvalue>
     remote_write:
-      - url: https://<the Logz.io Listener URL for your region>:8053
-        bearer_token: <your Logz.io Metrics account token> 
+      - url: https://<<LISTENER-HOST>>:8053
+        bearer_token: <<PROMETHEUS-METRICS-SHIPPING-TOKEN>> 
         remote_timeout: 30s
         queue_config:
           batch_send_deadline: 5s  #default = 5s

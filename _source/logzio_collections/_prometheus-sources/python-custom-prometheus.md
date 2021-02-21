@@ -11,9 +11,6 @@ templates: ["docker"]
 contributors:
   - yotamloe
   - yberlinger
-shipping-tags:
-contributors:
-  - yberlinger
 shipping-tags:  
   - prometheus
 ---

@@ -9,7 +9,7 @@ permalink: /data/shipping-manifest.json
   {%- when "production" -%}
     {%- assign branch = "/master" -%}
   {%- else -%}
-    {%- assign branch = "/k8s-multiline-logs" -%}
+    {%- assign branch = "/aks-etc" -%}
 {%- endcase -%}
 {%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
 

@@ -9,6 +9,7 @@ flags:
   beta: true
 templates: ["docker"]
 contributors:
+  - yotamloe
   - yberlinger
 shipping-tags:
 contributors:

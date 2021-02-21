@@ -9,6 +9,7 @@ tags:
   - metrics integrations
 contributors:
   - yberlinger
+  - yotamloe
 ---
 
 {% include page-info/early-access.md type="beta" %}
@@ -54,7 +55,6 @@ Add the following parameters to your Prometheus yaml file:
 {% include p8s-shipping/p8s_logzio_name.md %}
 | remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
 |url| Logz.io Listener url for for your region, configured to use port **8052** for http traffic or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write)|
-
 |bearer_token| Logz.io Metrics account token|
 
 
@@ -72,14 +72,15 @@ Add the following parameters to your Prometheus yaml file:
           max_samples_per_send: 500 #default = 100
           capacity: 10000  #default = 500
 ```
-For [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) helm chart users:
+For [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) Helm chart users:
 
 Edit your chart `values.yaml` file in the following sections:
+
 1. remote write:
 ```yaml
 remoteWrite:
-    - url: https://<the Logz.io Listener URL for your region>:8053
-      bearerToken: <your Logz.io Metrics account token>
+    - url: https://<<LISTENER-HOST>>:8053  The Logz.io Listener URL for your region, configured with port 8053
+      bearerToken:<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> Your Logz.io Prometheus metrics account token
       remoteTimeout: 30s
       queueConfig:
         batchSendDeadline: 5s  #default = 5s
@@ -87,7 +88,9 @@ remoteWrite:
         maxSamplesPerSend: 500 #default = 100
         capacity: 10000  #default = 500
 ```
+
 2. externalLabels:
+
 ```yaml
 externalLabels:
     - p8s_logzio_name: <labelvalue>

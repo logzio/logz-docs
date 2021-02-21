@@ -21,7 +21,7 @@ Once your metrics are flowing, export your existing Prometheus and Grafana dashb
 
 #### Configuring Remote Write to Logz.io
 
-{:.no_toc}  
+
 
 <div class="tasklist">
 
@@ -34,13 +34,20 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
 ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
 ##### Add a remote_write url
+
+
+Configure your Prometheus yaml file or use a Helm chart: 
+
+###### Prometheus yaml
+
 Add the following parameters to your Prometheus yaml file:
 
 | Environment variable | Description |Required/Default|
 |---|---|---|
 {% include p8s-shipping/p8s_logzio_name.md %}||
 | remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. ||
-|url|  The Logz.io Listener url for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
+|url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
+
 |bearer_token|The Logz.io Prometheus Metrics account token.  | Required|
 
 
@@ -61,6 +68,33 @@ Add the following parameters to your Prometheus yaml file:
 
 ```
 
+###### Helm Chart
+
+For [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) Helm chart users:
+
+Edit your chart `values.yaml` file in the following sections:
+
++ remote write:
+
+```yaml
+remoteWrite:
+    - url: https://<<LISTENER-HOST>>:8053  # The Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. 
+      bearerToken:<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> # The Logz.io Prometheus metrics account token
+      remoteTimeout: 30s
+      queueConfig:
+        batchSendDeadline: 5s  #default = 5s
+        maxShards: 10  #default = 1000
+        maxSamplesPerSend: 500 #default = 100
+        capacity: 10000  #default = 500
+```
+
++ externalLabels:
+
+```yaml
+externalLabels:
+    - p8s_logzio_name: <labelvalue>
+```
+
    
 ##### Verify the remote_write configuration
 
@@ -73,7 +107,7 @@ Add the following parameters to your Prometheus yaml file:
 + **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
   1. Open **Explore <i class="far fa-compass"></i>** in the left menu bar. 
 
-  1. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane. <br>
+  2. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane. <br>
     An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 
     ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8smetrics_arriving.png)
 

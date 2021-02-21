@@ -9,9 +9,11 @@ tags:
   - metrics integrations
 contributors:
   - yberlinger
+  - yotamloe
 ---
 
-{% include p8s-shipping/remotewrite-syd-userguide.md %}
 
+
+{% include p8s-shipping/remotewrite-syd-userguide.md %}
 
 

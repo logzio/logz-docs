@@ -21,7 +21,7 @@ This page contains instructions on how to send custom metrics to Logz.io from yo
 
 #### Quick start
 
-##### Install the snappy c-library:
+##### Install the snappy c-library
 
     DEB: `sudo apt-get install libsnappy-dev`
 
@@ -31,11 +31,19 @@ This page contains instructions on how to send custom metrics to Logz.io from yo
 
     Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
 
-##### Install the exporter and opentelemtry sdk:
+##### Install the exporter and opentelemtry sdk
 
     `pip install opentelemetry-exporter-prometheus-remote-write`
 
-##### Add instruments to your application:
+##### Add instruments to your application
+
+Set the environment variables for the `exporter` section: 
+
+|Environment variable|Description|
+|---|---|
+|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. Replace `<<LISTENER-HOST>>` with the [host for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). |
+|Bearer| Replace `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the token for shipping Prometheus metrics to your Logz.io account. Find it under **Settings > Manage accounts**. [_How do I look up my Metrics account token?_](/user-guide/accounts/finding-your-metrics-account-token/)  |
+
 
 ```python
 from opentelemetry import metrics
@@ -44,11 +52,11 @@ from opentelemetry.exporter.prometheus_remote_write import (
 )
 from opentelemetry.sdk.metrics import MeterProvider
 
-# configure listener endpoint and metrics account token
+# configure the Logz.io listener endpoint and Prometheus metrics account token
 exporter = PrometheusRemoteWriteMetricsExporter(
-    endpoint="<<listener-address>>",
+    endpoint="<<LISTENER-HOST>>",
     headers={
-        "Authorization": "Bearer <<metrics-token>>",
+        "Authorization": "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>",
     }
 )
 # set push interval in seconds

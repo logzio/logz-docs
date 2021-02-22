@@ -55,7 +55,7 @@ To autoinstrument your C# application, add the code snippet below to your `Start
 Within the snippet:
 
   + Replace `<<JAEGER_AGENT_HOST>>` with the host address of your Jaeger agent: Use `localhost` if it's on the same machine. 
-  + For a Kubernetes deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration.  JaegerAgentHost)` and make sure your application deployment contains the environment variables below.
+  + For a Kubernetes deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration.  JaegerAgentHost)` and make sure your application deployment contains the environment variables as shown in the tab `Kubernetes reference`.
 
 
 ```csharp
@@ -118,7 +118,7 @@ public void ConfigureServices(IServiceCollection services)
 ###### Otherwise, use the code snippet below. 
 
   + Replace `<<JAEGER_AGENT_HOST>>` with the host address of your Jaeger agent: Use `localhost` if it's on the same machine. 
-  + For a Kubernetes deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration.JaegerAgentHost)` and make sure your application deployment contains the environment variables below.
+  + For a Kubernetes deployment, use `Environment.GetEnvironmentVariable(Jaeger.Configuration.JaegerAgentHost)` and make sure your application deployment contains the environment variables as shown in the tab `Kubernetes reference`.
 
   ```csharp
   string appName = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;

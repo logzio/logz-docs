@@ -13,11 +13,11 @@ contributors:
   - shalper
 ---
 
-You can migrate your Logz.io Log Management accounts to another hosting region.
+You can migrate your Logz.io Log Management accounts between hosting regions. We'll be frank - it can take a bit of effort, but with the right scripting and API implementation, can be done fairly quickly.
 
 ### Implications
 
-When the account is migrated to a new hosting region, it's important to note:
+Before you set out to migrate your account, you will want to take the following implications into consideration:
 
 * Pre-migration data can’t be transferred
 * Pre-migration data can't be restored from the archive

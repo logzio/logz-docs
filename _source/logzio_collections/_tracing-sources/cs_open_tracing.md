@@ -22,7 +22,7 @@ shipping-tags:
 * [Overview](#overview)
 * [Auto instrumentation](#autoinst)
 * [From your code](#manual)
-* [Kubernetes reference and examples](#k8sref)
+* [Kubernetes reference](#k8sref)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -43,6 +43,9 @@ Add the following packages to your solution:
 * OpenTracing.Contrib.NetCore
 * OpenTracing
 * Jaeger
+
+### Examples
+To see an actual example, head to our [examples repository](https://github.com/logzio/Integrations_examples/tree/main/Tracing/cs_client_instrumentaion).
 
 </div>
 <!-- tab:end -->
@@ -181,9 +184,6 @@ Then add the following environment variables to your application containers:
  - name: JAEGER_AGENT_PORT
    value: "6831"
 ```
-
-## Examples
-To see an actual example, head to our [examples repository](https://github.com/logzio/Integrations_examples/tree/main/Tracing/cs_client_instrumentaion).
 
 
 </div>

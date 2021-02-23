@@ -59,7 +59,7 @@ For the list of options, see the parameters below the code block.👇
 
 ###### Parameters 
 
-{% include general-shipping/replace-placeholders-prometheus.html %}
+{% include general-shipping/replace-placeholders-prometheus.md %}
 
 
 ##### Check Logz.io for your metrics

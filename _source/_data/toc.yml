@@ -233,6 +233,9 @@ firstLevel:
 
   - title: Regions
     url: /user-guide/accounts/account-region.html
+    thirdLevel:
+    - title: Migrating accounts between hosting regions
+      url: /user-guide/accounts/migration.html
   - title: Data management
     url: /user-guide/accounts/manage-account-usage.html
 

@@ -4,7 +4,6 @@ title: What is Distributed Tracing?
 permalink: /user-guide/distributed-tracing/what-is-tracing
 flags:
   logzio-plan: pro enterprise
-  beta: true
 tags:
   - distributed tracing
 contributors:

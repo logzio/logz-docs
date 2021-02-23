@@ -4,7 +4,6 @@ title: Getting started with Logz.io Distributed Tracing
 permalink: /user-guide/distributed-tracing/getting-started-tracing
 flags:
   logzio-plan: pro enterprise
-  beta: true
 tags:
   - distributed tracing
 contributors:

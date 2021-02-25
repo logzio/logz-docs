@@ -18,7 +18,7 @@ First, you'll need to configure your services
 to send their metrics to Azure Monitor.
 Next, you'll configure Metricbeat
 to collect metrics from Azure Event Hub
-and forward them to [Logz.io](http://logz.io/).
+and forward them to Logz.io.
 
 #### Metricbeat setup
 
@@ -91,7 +91,7 @@ Disable this module so you don't unintentionally send host metrics.
 sudo metricbeat modules disable system
 ```
 
-##### Add [Logz.io](http://logz.io/) configuration
+##### Add Logz.io configuration
 
 Now you'll set up the Metricbeat
 to collect metrics from Azure Event hub.

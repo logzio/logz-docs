@@ -31,6 +31,7 @@ shipping-tags:
 
 {% include metric-shipping/k8s-over-helm-overview.md %}
 
+</div>
 #### Automated deployment
 
 This is the simplest method for deployment but it doesn't offer advanced configuration options. The chart will be deployed according to the listed parameter defaults.

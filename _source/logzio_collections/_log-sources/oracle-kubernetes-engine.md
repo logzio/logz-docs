@@ -11,6 +11,18 @@ shipping-tags:
   - container
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Configuration options](#default-config)
+* [Multiline logs](#multiline)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
+
 Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud.
 
 This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your OKE cluster and ship them to Logz.io.
@@ -21,22 +33,25 @@ You have 3 options for deploying this Daemonset:
 * Autodiscover configuration - The standard configuration which also uses Filebeat's autodiscover and hints system. [Learn more about Autodiscover in our blog 🔗](https://logz.io/blog/what-is-autodiscover-filebeat/) and [webinar 🎥](https://logz.io/learn/webinar-collecting-and-shipping-kubernetes-logs-at-scale-with-filebeat-autodiscover/).
 * Custom configuration - Upload a Logz.io Daemonset with your own configuration.
 
+If you are sending multiline logs, see the relevant tab for further details.
+
+</div>
+<!-- tab:end -->
+<!-- tab:start -->
+<div id="default-config">
 
 #### Deploy Filebeat as a DaemonSet on Kubernetes
 
-<div class="tasklist">
 
 **Before you begin, you'll need**: destination port 5015 open on your firewall for outgoing traffic.
 
+
+<div class="tasklist">
+
 ##### Store your Logz.io credentials
 
-Save your Logz.io shipping credentials as a Kubernetes secret.
+Save your Logz.io shipping credentials as a Kubernetes secret. Customize the sample command below to your specifics before running it.
 
-Customize the command to your specifics:
-
-{% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/listener-var.html %} 
-* Replace `<<CLUSTER-NAME>>` with your cluster's name.
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
@@ -45,6 +60,10 @@ kubectl create secret generic logzio-logs-secret \
   --from-literal=cluster-name='<<CLUSTER-NAME>>' \
   -n kube-system
 ```
+
+{% include /general-shipping/replace-placeholders.html %}
+* Replace `<<CLUSTER-NAME>>` with your cluster's name.
+
 
 ##### Deploy
 
@@ -128,3 +147,16 @@ If you still don't see your logs,
 see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+</div>
+<!-- tab:end -->
+<!-- tab:start -->
+<div id="multiline">
+
+{% include /log-shipping/multiline-logs-filebeat.md %}
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

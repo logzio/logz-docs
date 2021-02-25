@@ -21,7 +21,7 @@ shipping-tags:
 * [Standard configuration](#standard-config)
 * [Autodiscover](#custom-config)
 * [Configurations & Defaults](#configurations)
-* [Uninstall](#uninstall)
+* [Multiline logs](#multiline)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -163,7 +163,21 @@ filebeat.yml: |-
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
+Give your logs some time to get from your system to ours,
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs,
+see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+
+#### Uninstalling the Chart
+
+The command removes all the k8s components associated with the chart and deletes the release.  
+To uninstall the `logzio-k8s-logs` deployment:
+
+```shell
+helm uninstall --namespace=kube-system logzio-k8s-logs
+```
 
 </div>
 </div>
@@ -172,7 +186,7 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 <!-- tab:start -->
 <div id="configurations">
 
-#### Configurations
+#### Configurations & defaults
 
 | Parameter | Description | Default |
 |---|---|---|
@@ -227,16 +241,10 @@ helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs
 
 
 <!-- tab:start -->
-<div id="uninstall">
+<div id="multiline">
 
-#### Uninstalling the Chart
+{% include /log-shipping/multiline-logs-filebeat.md %}
 
-The command removes all the k8s components associated with the chart and deletes the release.  
-To uninstall the `logzio-k8s-logs` deployment:
-
-```shell
-helm uninstall --namespace=kube-system logzio-k8s-logs
-```
 </div>
 
 <!-- tab:end -->

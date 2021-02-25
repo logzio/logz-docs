@@ -49,13 +49,8 @@ If you are sending multiline logs, see the relevant tab for further details.
 
 ##### Store your Logz.io credentials
 
-Save your Logz.io shipping credentials as a Kubernetes secret.
+Save your Logz.io shipping credentials as a Kubernetes secret. Customize the sample command below to your specifics before running it.
 
-Customize the command to your specifics:
-
-{% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/listener-var.html %}
-* Replace `<<CLUSTER-NAME>>` with your cluster's name. If you manage Kubernetes in AWS or Azure, you can find it in your admin console. Alternatively, you can run the following to obtain your cluster name: `kubectl cluster-info`
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
@@ -64,6 +59,10 @@ kubectl create secret generic logzio-logs-secret \
   --from-literal=cluster-name='<<CLUSTER-NAME>>' \
   -n kube-system
 ```
+
+{% include /general-shipping/replace-placeholders.html %}
+* Replace `<<CLUSTER-NAME>>` with your cluster's name. If you manage Kubernetes in AWS or Azure, you can find it in your admin console. Alternatively, you can run the following to obtain your cluster name: `kubectl cluster-info`
+
 
 ##### Deploy
 
@@ -95,8 +94,9 @@ wget https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-s
 
 Apply your custom configuration to the paramaters under `filebeat.yml` and only there. The filebeat.yml field contains a basic Filebeat configuration. You should not change the 'output' field (indicated in the example below). See Elastic documentation to [learn more about Filebeat configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html).
 
+
 **Note**
-Make sure to keep ``token: ${LOGZIO_LOGS_SHIPPING_TOKEN}`` under ``fields``, as it determines the token used to verify your logz.io account.
+Make sure to keep `token: ${LOGZIO_LOGS_SHIPPING_TOKEN}` under `fields`, as it determines the token used to verify your Logz.io account.
 
 ```
 filebeat.yml: |-

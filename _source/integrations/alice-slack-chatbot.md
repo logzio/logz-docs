@@ -17,6 +17,13 @@ contributors:
   - danielberman
 ---
 
+<!-- info-box-start:info -->
+From 24 February 2021, the Alice Slack chatbot is temporarily disabled. <br>
+Alice is getting a makeover to incorporate the recent changes to the Slack API and to provide you with better functionality. <br>
+The redesigned Alice will return shortly.
+{:.info-box.important}
+<!-- info-box-end -->
+
 If you use Slack for office communication and workflows,
 Alice will fit right in.
 

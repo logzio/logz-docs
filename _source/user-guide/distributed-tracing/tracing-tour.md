@@ -4,7 +4,6 @@ title: The Grand Distributed Tracing Tour
 permalink: /user-guide/distributed-tracing/tracing-tour
 flags:
   logzio-plan: pro enterprise
-  beta: true
 tags:
   - distributed tracing
 contributors:

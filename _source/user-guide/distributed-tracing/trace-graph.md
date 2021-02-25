@@ -4,7 +4,6 @@ title: What can I do in the Trace Graph?
 permalink: /user-guide/distributed-tracing/trace-graph
 flags:
   logzio-plan: pro enterprise
-  beta: true
 tags:
   - distributed tracing
 contributors:

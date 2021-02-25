@@ -104,7 +104,7 @@ fields_under_root: true
 
 ##### Set Logz.io as the output
 
-Still in the same configuration file, check if [Logz.io](http://logz.io/) is already an output. If not, add it now.
+Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
 
 ```
 # ===== Outputs =====
@@ -116,7 +116,7 @@ output.logstash:
 
 {% include log-shipping/listener-var.html %} 
 
-One last validation - make sure [Logz.io](http://logz.io/) is the only output and appears only once. If the file has other outputs, remove them.
+One last validation - make sure Logz.io is the only output and appears only once. If the file has other outputs, remove them.
 
 ##### Add the Cassandra configuration
 

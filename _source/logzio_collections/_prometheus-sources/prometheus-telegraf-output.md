@@ -15,12 +15,12 @@ shipping-tags:
   - prometheus
 
 ---
-<!-- info-box-start:info -->
-This feature is in beta. Please [email our support](mailto:help@logz.io?subject=Requesting%20early%20access%20for%20p8s.%20Thanks) or your Logz.io account manager to request early access. 
-{:.info-box.note}
-<!-- info-box-end -->
 
-This project lets you to configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
+
+{% include page-info/early-access.md type="beta" %}
+
+
+This project lets you configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
 
 ## Overview
 
@@ -54,12 +54,12 @@ For the list of options, see the parameters below the code block.👇
      Content-Type = "application/x-protobuf"
      Content-Encoding = "snappy"
      X-Prometheus-Remote-Write-Version = "0.1.0"
-     Authorization = "Bearer <<METRICS-SHIPPING-TOKEN>>"
+     Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
 ``` 
 
 ###### Parameters 
 
-{% include general-shipping/replace-placeholders-metrics.html %}
+{% include general-shipping/replace-placeholders-prometheus.md %}
 
 
 ##### Check Logz.io for your metrics

@@ -4,7 +4,6 @@ title: Distributed Tracing
 permalink: /user-guide/distributed-tracing/
 flags:
   logzio-plan: pro enterprise
-  beta: true
 tags:
   - distributed tracing
 contributors:

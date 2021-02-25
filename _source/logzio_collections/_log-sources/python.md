@@ -107,10 +107,7 @@ LOGGING = {
 }
 ```
 
-###### Replace the placeholders
-
-{% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/listener-var.html %}  
+{% include /general-shipping/replace-placeholders.html %}
 
 
 ##### Parameters

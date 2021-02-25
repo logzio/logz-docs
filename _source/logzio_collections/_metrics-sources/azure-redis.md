@@ -18,7 +18,7 @@ we recommend configuring your services
 to send their metrics to Azure Monitor.
 When you set up Metricbeat using the configuration on this page,
 Metricbeat will collect metrics from Azure Redis cache
-and forward them to [Logz.io](http://logz.io/).
+and forward them to Logz.io.
 
 #### Metricbeat setup
 
@@ -92,7 +92,7 @@ Disable this module so you don't unintentionally send host metrics.
 sudo metricbeat modules disable system
 ```
 
-##### Add [Logz.io](http://logz.io/) configuration
+##### Add Logz.io configuration
 
 Now you'll set up the Metricbeat
 to collect metrics from Azure Event hub.

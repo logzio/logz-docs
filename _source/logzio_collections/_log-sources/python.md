@@ -101,16 +101,13 @@ LOGGING = {
         '': {
             'level': 'DEBUG',
             'handlers': ['logzio'],
-            'propogate': True
+            'propagate': True
         }
     }
 }
 ```
 
-###### Replace the placeholders
-
-{% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/listener-var.html %}  
+{% include /general-shipping/replace-placeholders.html %}
 
 
 ##### Parameters
@@ -136,7 +133,17 @@ Order matters. The arguments _must_ be configured in the order shown here. For e
 
 If you're using a serverless function, you'll need to import and add the LogzioFlusher annotation before your sender function. To do this, in the code sample below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.
 
+
+<!-- info-box-start:info -->
+For the LogzioFlusher to work properly, you'll need to make sure that the Logz.io. handler is added to the root logger. See the configuration above for an example.
+{:.info-box.important}
+<!-- info-box-end -->
+
+
+
+
 #### Code Example
+
 ```python
 import logging
 import logging.config

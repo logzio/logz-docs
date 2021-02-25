@@ -14,7 +14,7 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Winlogbeat (_recommended_)](#winlogbeat-config)
+* [Winlogbeat](#winlogbeat-config)
 * [NXLog](#nxlog-config)
 {:.branching-tabs}
 

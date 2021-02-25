@@ -54,12 +54,12 @@ For the list of options, see the parameters below the code block.👇
      Content-Type = "application/x-protobuf"
      Content-Encoding = "snappy"
      X-Prometheus-Remote-Write-Version = "0.1.0"
-     Authorization = "Bearer <<METRICS-SHIPPING-TOKEN>>"
+     Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
 ``` 
 
 ###### Parameters 
 
-{% include general-shipping/replace-placeholders-metrics.html %}
+{% include general-shipping/replace-placeholders-prometheus.md %}
 
 
 ##### Check Logz.io for your metrics

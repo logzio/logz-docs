@@ -1,5 +1,5 @@
 ---
-title: Ship AKS logs
+title: Ship AKS logs using a Fluentd DaemonSet
 logo:
   logofile: aks.svg
   orientation: vertical
@@ -9,12 +9,13 @@ open-source:
     github-repo: logzio-k8s
 contributors:
   - mirii1994
-  - shalper 
   - idohalevi
-  - imnotashrimp
   - yyyogev
+  - imnotashrimp
+  - shalper
 shipping-tags:
   - container
+  -  azure
 ---
 
 
@@ -24,7 +25,7 @@ shipping-tags:
 * [Overview](#overview)
 * [Default configuration](#default-config)
 * [Custom configuration](#custom-config)
-* [Disabling systemd input](#disable)
+* [Multiline logs](#multiline)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -52,6 +53,7 @@ Your Kubernetes version may affect your options, as follows:
   The API versions of `ClusterRole` and `ClusterRoleBinding` are found in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml`.
   
   If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
+
 
 
 {% include /log-shipping/multiline-logs-fluentd.md %}
@@ -206,7 +208,6 @@ kubectl apply -f /path/to/logzio-daemonset-containerd.yaml -f /path/to/configmap
 ```
 
 
-
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
@@ -217,22 +218,60 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 
 </div>
 
+
+### Disabling systemd input
+
+To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+
+
+
+
 </div>
 <!-- tab:end -->
 
 
 <!-- tab:start -->
-<div id="disable">
+<div id="multiline">
 
-### Disabling systemd input
+###### Fluentd splits multiline logs by default
 
-To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs.
+
+###### Configurable plug-in to concatenate multiline logs
+
+The Logz.io Docker image comes with a pre-built Fluentd filter plug-in that can be used to concatenate multiline logs. The plug-in is named `fluent-plugin-concat` and you can view the full list of configuration options in the [GitHub project](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
+
+###### Example
+
+The following is an example of a multiline log sent from a deployment on a k8s cluster:
+
+```shell
+2021-02-08 09:37:51,031 - errorLogger - ERROR - Traceback (most recent call last):
+File "./code.py", line 25, in my_func
+1/0
+ZeroDivisionError: division by zero
+```
+
+Fluentd's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) causes a split.
+
+To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs. The additional configuration is added to `kubernetes.conf` or `kubernetes-containerd.conf`.
+
+For the above example, we could use the following regex expressions to demarcate the start and end of our example log:
+
+
+```shell
+<filter **>
+  @type concat
+  key message # The key for part of multiline log
+  multiline_start_regexp /^[0-9]{4}-[0-9]{2}-[0-9]{2}/ # This regex expression identifies line starts.
+</filter>
+```
+
 
 </div>
 <!-- tab:end -->
 
 </div>
 <!-- tabContainer:end -->
-
 
 

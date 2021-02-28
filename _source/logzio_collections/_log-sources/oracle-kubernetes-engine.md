@@ -32,8 +32,7 @@ You have 3 options for deploying this Daemonset:
 * Standard configuration
 * Autodiscover configuration - The standard configuration which also uses Filebeat's autodiscover and hints system. [Learn more about Autodiscover in our blog 🔗](https://logz.io/blog/what-is-autodiscover-filebeat/) and [webinar 🎥](https://logz.io/learn/webinar-collecting-and-shipping-kubernetes-logs-at-scale-with-filebeat-autodiscover/).
 * Custom configuration - Upload a Logz.io Daemonset with your own configuration.
-
-If you are sending multiline logs, see the relevant tab for further details.
+* If you are sending multiline logs, see the relevant tab for further details.
 
 </div>
 <!-- tab:end -->

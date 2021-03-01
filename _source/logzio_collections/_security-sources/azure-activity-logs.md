@@ -98,8 +98,11 @@ The _Azure Blob Storage output_ settings are displayed.
 Leave **Blob parameter name** blank.
 Enter the **Path** for the Azure blob you're sending dropped logs to, and then click **Save**.
 
+
+<!-- info-box-start:info -->
 For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
 {:.info-box.read}
+<!-- info-box-end -->
 
 ##### Stream data to the new event hubs
 

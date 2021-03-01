@@ -21,7 +21,6 @@ shipping-tags:
 * [Overview](#overview)
 * [Default configuration](#default-config)
 * [Custom configuration](#custom-config)
-* [Disabling inputs](#disable)
 * [Multiline logs](#multiline)
 {:.branching-tabs}
 
@@ -187,11 +186,6 @@ If you still don't see your logs,
 see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
-</div>
-<!-- tab:end -->
-
-<!-- tab:start -->
-<div id="disable">
 
 ### Disabling systemd input
 
@@ -202,13 +196,18 @@ To suppress Fluentd system messages, set the environment variable `FLUENTD_SYSTE
 By default, the latest images launch `prometheus` plugins to monitor Fluentd.
 If you'd like to disable the Prometheus input plugin, set the environment variable `FLUENTD_PROMETHEUS_CONF` to `disable` in your Kubernetes configuration.
 
+
+
 </div>
 <!-- tab:end -->
+
+
 
 <!-- tab:start -->
 <div id="multiline">
 
-{% include /log-shipping/multiline-logs-filebeat.md %}
+
+{% include /log-shipping/multiline-fluentd-plugin.md %}
 
 </div>
 <!-- tab:end -->

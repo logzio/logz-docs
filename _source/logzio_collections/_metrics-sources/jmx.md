@@ -15,6 +15,17 @@ shipping-tags:
   - platform-service
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [As a Java agent](#as-a-java-agent-config)
+* [With a Jolokia agent](#with-a-jolokia-agent-config)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
 jmx2logzio is a lightweight tool for polling JMX metrics and sending them to Logz.io.
 
 This doc shows you how to set up jmx2logzio.
@@ -28,13 +39,14 @@ You have two options here:
 Metrics are reported as
 `[SERVICE-NAME].[SERVICE-HOST].[METRIC-NAME]`.
 
-<div class="branching-container">
 
-* [As a Java agent](#as-a-java-agent-config)
-* [With a Jolokia agent](#with-a-jolokia-agent-config)
-{: .branching-tabs }
+</div>
+<!-- tab:end -->
 
+
+<!-- tab:start -->
 <div id="as-a-java-agent-config">
+
 
 ## Set up jmx2logzio as a Java agent
 
@@ -80,35 +92,32 @@ java -javaagent:./jmx2logzio-javaagent.jar=LOGZIO_TOKEN=<<METRICS-SHIPPING-TOKEN
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| LOGZIO_TOKEN (Required) | {% include metric-shipping/replace-metrics-token.html %} |
-| SERVICE_NAME (Required) | A name you define for the service. This is included in the reported metrics. |
-| LISTENER_URL <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. {% include log-shipping/listener-var.html %}  |
-| SERVICE_HOST <span class="default-param">Host machine name</span> | Hostname to be included in the reported metrics. |
-| POLLING_INTERVAL_IN_SEC <span class="default-param">`30`</span> | Metrics polling interval, in seconds. |
-| WHITE_LIST_REGEX <span class="default-param">`.*` (match everything)</span> | Only metrics matching this regex will be sent. |
-| BLACK_LIST_REGEX <span class="default-param">`$a` (match nothing)</span> | Metrics matching this regex will not be sent. |
-| EXTRA_DIMENSIONS | A list of key-values separated by `:` that will be added to the dimensions of the collected metrics.    Example: `EXTRA_DIMENSIONS={origin=local:env=java}` |
-| FROM_DISK <span class="default-param">`true`</span> | If `true`, metrics are stored on disk until they're shipped (see [If FROM_DISK=true](#agent-if-fromdisk-true)). If `false`, metrics persist in memory until they're shipped (see [If FROM_DISK=false](#agent-if-fromdisk-false)). |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| LOGZIO_TOKEN | Your Metrics account token. {% include metric-shipping/replace-metrics-token.html %} | Required |
+| SERVICE_NAME | A name you define for the service. This is included in the reported metrics. | Required |
+| LISTENER_URL | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| SERVICE_HOST  | Hostname to be included in the reported metrics. | Host machine name |
+| POLLING_INTERVAL_IN_SEC  | Metrics polling interval, in seconds. | `30` |
+| WHITE_LIST_REGEX | Only metrics matching this regex will be sent. | `.*` (match everything) |
+| BLACK_LIST_REGEX | Metrics matching this regex will not be sent. | `$a` (match nothing) |
+| EXTRA_DIMENSIONS | A list of key-values separated by `:` that will be added to the dimensions of the collected metrics.    Example: `EXTRA_DIMENSIONS={origin=local:env=java}` | N/A |
+| FROM_DISK | If `true`, metrics are stored on disk until they're shipped (see [If FROM_DISK=true](#agent-if-fromdisk-true)). If `false`, metrics persist in memory until they're shipped (see [If FROM_DISK=false](#agent-if-fromdisk-false)). | `true` |
 
-###### If FROM_DISK=true {#agent-if-fromdisk-true}
+###### If FROM_DISK=true
 
-| Parameter | Description |
-|---|---|
-| FILE_SYSTEM_SPACE_LIMIT <span class="default-param">`98`</span> | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new metrics are dropped until used space drops below the threshold.    Set to `-1` to ignore threshold. |
-| DISK_SPACE_CHECKS_INTERVAL <span class="default-param">`1000`</span> | Time interval, in milliseconds, to check for disk space. |
-| CLEAN_SENT_METRICS_INTERVAL <span class="default-param">`30`</span> | Time interval, in seconds, to clean sent metrics from the disk. |
-{:.paramlist}
+| Parameter | Description | Default |
+|---|---|---|
+| FILE_SYSTEM_SPACE_LIMIT  | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new metrics are dropped until used space drops below the threshold.    Set to `-1` to ignore threshold. | `98` |
+| DISK_SPACE_CHECKS_INTERVAL  | Time interval, in milliseconds, to check for disk space. | `1000` |
+| CLEAN_SENT_METRICS_INTERVAL  | Time interval, in seconds, to clean sent metrics from the disk. | `30` |
 
-###### If FROM_DISK=false {#agent-if-fromdisk-false}
+###### If FROM_DISK=false
 
-| Parameter | Description |
-|---|---|
-| IN_MEMORY_QUEUE_CAPACITY <span class="default-param">`1024 * 1024 * 100`</span> | The amount of memory, in bytes, jmx2logzio can use for the memory queue. Set to `-1` for unlimited bytes. |
-| LOGS_COUNT_LIMIT <span class="default-param">`-1`</span> | The number of logs in the memory queue before dropping new logs. Default value is `-1` (the sender will not limit the queue by logs count). |
-{:.paramlist}
+| Parameter | Description | Default |
+|---|---|---|
+| IN_MEMORY_QUEUE_CAPACITY | The amount of memory, in bytes, jmx2logzio can use for the memory queue. Set to `-1` for unlimited bytes. | `1024 * 1024 * 100` |
+| LOGS_COUNT_LIMIT | The number of logs in the memory queue before dropping new logs. Default value is `-1` (the sender will not limit the queue by logs count). | `-1` |
 
 ##### Check Logz.io for your metrics
 
@@ -117,7 +126,10 @@ Give your metrics some time to get from your system to ours, and then open [Logz
 </div>
 
 </div>
+<!-- tab:end -->
 
+
+<!-- tab:start -->
 <div id="with-a-jolokia-agent-config">
 
 ## Set up jmx2logzio with a Jolokia agent
@@ -143,6 +155,8 @@ For example:
 ```shell
 java -javaagent:/opt/jolokia/jolokia-jvm-1.6.0-agent.jar /path/to/your/app
 ```
+
+
 <!-- info-box-start:info -->
 You can specify a custom configuration for Jolokia agent at runtime.
 For more information, see [Jolokia as JVM Agent](https://jolokia.org/reference/html/agents.html#jvm-agent) from Jolokia.
@@ -162,36 +176,33 @@ For help, see our [example configuration file](https://raw.githubusercontent.com
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| service.name (Required) | A name you define for the service. This is included in the reported metrics. |
-| service.host <span class="default-param">Host machine name _(if not defined in application.conf)_</span> | Hostname to be included in the reported metrics. |
-| service.poller.white-list-regex <span class="default-param">`.*` _(match everything)_</span> | Only metrics matching this regex will be sent. |
-| service.poller.black-list-regex <span class="default-param">`$a` _(match nothing)_</span> | Metrics matching this regex will not be sent. |
-| service.poller.jolokia.jolokiaFullUrl | URL of the remote Jolokia agent you're forwarding metrics to. |
-| service.poller.metrics-polling-interval-in-seconds <span class="default-param">`30`</span> | Metrics polling interval, in seconds. |
-| extra-dimensions | A dictionary of key-values that will be added to the dimensions of the collected metrics. |
-| logzio-java-sender.url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| logzio-java-sender.token (Required) | {% include metric-shipping/replace-metrics-token.html %} |
-| logzio-java-sender.from-disk <span class="default-param">`true`</span> | If `true`, metrics are stored on disk until they're shipped (see [If from-disk=true](#jolokia-if-fromdisk-true)). If `false`, metrics persist in memory until they're shipped (see [If from-disk=false](#jolokia-if-fromdisk-false)). |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| service.name  | A name you define for the service. This is included in the reported metrics. | Required |
+| service.host | Hostname to be included in the reported metrics. | Host machine name (if not defined in application.conf) |
+| service.poller.white-list-regex | Only metrics matching this regex will be sent. | `.*` (match everything) |
+| service.poller.black-list-regex  | Metrics matching this regex will not be sent. | `$a` (match nothing) |
+| service.poller.jolokia.jolokiaFullUrl | URL of the remote Jolokia agent you're forwarding metrics to. | N/A |
+| service.poller.metrics-polling-interval-in-seconds | Metrics polling interval, in seconds. | `30` |
+| extra-dimensions | A dictionary of key-values that will be added to the dimensions of the collected metrics. | N/A |
+| logzio-java-sender.url | Listener URL and port.    For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). | `https://listener.logz.io:8071` |
+| logzio-java-sender.token | {% include metric-shipping/replace-metrics-token.html %} | Required |
+| logzio-java-sender.from-disk  | If `true`, metrics are stored on disk until they're shipped (see [If from-disk=true](#jolokia-if-fromdisk-true)). If `false`, metrics persist in memory until they're shipped (see [If from-disk=false](#jolokia-if-fromdisk-false)). | `true` |
 
-###### If from-disk=true {#jolokia-if-fromdisk-true}
+###### If from-disk=true
 
-| Parameter | Description |
-|---|---|
-| logzio-java-sender.file-system-full-percent-threshold <span class="default-param">`98`</span> | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new metrics are dropped until used space drops below the threshold. Set to `-1` to ignore threshold. |
-| logzio-java-sender.clean-sent-metrics-interval <span class="default-param">`30`</span> | Time interval, in seconds, to clean sent metrics from the disk. |
-| logzio-java-sender.disk-space-checks-interval <span class="default-param">`1000`</span> | Time interval, in milliseconds, to check for disk space. |
-{:.paramlist}
+| Parameter | Description | Default |
+|---|---|---|
+| logzio-java-sender.file-system-full-percent-threshold  | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new metrics are dropped until used space drops below the threshold. Set to `-1` to ignore threshold. | `98` |
+| logzio-java-sender.clean-sent-metrics-interval | Time interval, in seconds, to clean sent metrics from the disk. | `30` |
+| logzio-java-sender.disk-space-checks-interval  | Time interval, in milliseconds, to check for disk space. | `1000` |
 
-###### If from-disk=false {#jolokia-if-fromdisk-false}
+###### If from-disk=false
 
-| Parameter | Description |
-|---|---|
-| logzio-java-sender.in-memory-queue-capacity <span class="default-param">`1024 * 1024 * 100`</span> | The amount of memory, in bytes, jmx2logzio can use for the memory queue. Set to `-1` for unlimited bytes. |
-| logzio-java-sender.log-count-limit <span class="default-param">`-1`</span> | The number of logs in the memory queue before dropping new logs. Default value is -1 (the sender will not limit the queue by logs count). |
-{:.paramlist}
+| Parameter | Description | Default |
+|---|---|---|
+| logzio-java-sender.in-memory-queue-capacity | The amount of memory, in bytes, jmx2logzio can use for the memory queue. Set to `-1` for unlimited bytes. | `1024 * 1024 * 100` |
+| logzio-java-sender.log-count-limit | The number of logs in the memory queue before dropping new logs. Default value is -1 (the sender will not limit the queue by logs count). | `-1` |
 
 
 ##### Run jmx2logzio
@@ -220,5 +231,7 @@ Give your metrics some time to get from your system to ours, and then open [Logz
 </div>
 
 </div>
+<!-- tab:end -->
 
 </div>
+<!-- tabContainer:end -->

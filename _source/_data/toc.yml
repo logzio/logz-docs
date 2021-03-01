@@ -11,7 +11,7 @@ firstLevel:
 
   # ===== USER GUIDE =====
   # These docs are generally in the /user-guide folder
-- title: Logging
+- title: Log Management
   icon: li-bar-graph
 
   secondLevel:

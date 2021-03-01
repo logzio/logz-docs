@@ -55,7 +55,7 @@ http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
 
 {% include /general-shipping/replace-placeholders.html %}
 
-* {% include log-shipping/type.md %}. Otherwise, the default `type` is `http-bulk`.
+* {% include log-shipping/type.md %} Otherwise, the default `type` is `http-bulk`.
 
 
 ### The request body

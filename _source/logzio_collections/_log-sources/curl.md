@@ -51,7 +51,7 @@ curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPP
 
 {% include /general-shipping/replace-placeholders.html %}
 
-* {% include log-shipping/type.md %}. Otherwise, the default `type` is `http-bulk`.
+* {% include log-shipping/type.md %} Otherwise, the default `type` is `http-bulk`.
 
 ##### Check Logz.io for your logs
 
@@ -70,6 +70,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 cURL is a command line utility for transferring data. cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 
 You can upload JSON or plain text files.
+
+
 ###### Limitations
 
 * Max body size is 10 MB (10,485,760 bytes)
@@ -95,7 +97,7 @@ cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG
 
 {% include /general-shipping/replace-placeholders.html %}
 
-* {% include log-shipping/type.md %}. Otherwise, the default `type` is `http-bulk`.
+* {% include log-shipping/type.md %} Otherwise, the default `type` is `http-bulk`.
 
 ##### Check Logz.io for your logs
 

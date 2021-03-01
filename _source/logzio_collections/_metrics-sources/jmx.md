@@ -21,7 +21,7 @@ shipping-tags:
 * [Overview](#overview)
 * [As a Java agent](#as-a-java-agent-config)
 * [With a Jolokia agent](#with-a-jolokia-agent-config)
-{: .branching-tabs }
+{:.branching-tabs}
 
 <!-- tab:start -->
 <div id="overview">
@@ -53,9 +53,11 @@ Metrics are reported as
 In most cases, you can configure jmx2logzio to run as an agent.
 In this configuration, jmx2logzio sends metrics to Logz.io at user-defined intervals.
 
+<!-- info-box-start:info -->
 The agent uses SLF4J logging framework.
 To get logs from the agent, you'll need to supply an [SLF4J binder](https://www.slf4j.org/faq.html#requirements).
 {:.info-box.note}
+<!-- info-box-end -->
 
 #### Configuration
 
@@ -154,9 +156,11 @@ For example:
 java -javaagent:/opt/jolokia/jolokia-jvm-1.6.0-agent.jar /path/to/your/app
 ```
 
+<!-- info-box-start:info -->
 You can specify a custom configuration for Jolokia agent at runtime.
 For more information, see [Jolokia as JVM Agent](https://jolokia.org/reference/html/agents.html#jvm-agent) from Jolokia.
 {:.info-box.note}
+<!-- info-box-end -->
 
 ##### Download and configure jmx2logzio
 

@@ -204,6 +204,8 @@ firstLevel:
   - title: Integrations
     url: /user-guide/cloud-siem/integrations/
     thirdLevel:
+    - title: Integrate with Siemplify
+      url: /user-guide/cloud-siem/integration/siemplify/
     - title: Integrate with Cortex xSOAR
       url: /user-guide/cloud-siem/xsoar-integration/
 

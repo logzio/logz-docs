@@ -16,28 +16,23 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Overview](#overview)
 * [Bulk uploads over HTTP/HTTPS](#http-config)
 * [TLS/SSL streams over TCP](#tcp-config)
 {:.branching-tabs}
 
-<!-- tab:start -->
-<div id="overview">
 
-If you want to ship logs from your code but don't have a library in place,
-you can send them directly to the Logz.io listener as a minified JSON file.
-
-The listeners accept bulk uploads over an HTTP/HTTPS connection
-or TLS/SSL streams over TCP.
-
-</div>
-<!-- tab:end -->
 
 
 <!-- tab:start -->
 <div id="http-config">
 
 ## Bulk uploads over HTTP/HTTPS
+
+If you want to ship logs from your code but don't have a library in place,
+you can send them directly to the Logz.io listener as a minified JSON file.
+
+The listeners accept bulk uploads over an HTTP/HTTPS connection
+or TLS/SSL streams over TCP.
 
 ### The request path and header
 
@@ -125,8 +120,19 @@ The request body size is larger than 10 MB.
 <!-- tab:start -->
 <div id="tcp-config">
 
+## Bulk uploads over TCP
+
+
+
+If you want to ship logs from your code but don't have a library in place,
+you can send them directly to the Logz.io listener as a minified JSON file.
+
+The listeners accept bulk uploads over an HTTP/HTTPS connection
+or TLS/SSL streams over TCP.
+
 
 ###### JSON log structure
+
 
 Keep to these practices when shipping JSON logs over TCP:
 
@@ -158,13 +164,11 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
+</div>
 
-###### Code sample: NXLog
 
-<!-- info-box-start:info -->
-To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html).
-{:.info-box.read}
-<!-- info-box-end -->
+### Code sample: NXLog
+
 
 ```conf
 User nxlog
@@ -194,7 +198,14 @@ LogLevel INFO
 ```
 
 
-</div>
+
+<!-- info-box-start:info -->
+To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html).
+{:.info-box.read}
+<!-- info-box-end -->
+
+
+
 </div>
 <!-- tab:end -->
 

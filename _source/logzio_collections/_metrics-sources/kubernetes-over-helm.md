@@ -109,7 +109,7 @@ This Daemonset's default autodiscover configuration is [hints based](https://www
 ```shell
 helm install --namespace=kube-system \
 --set configType='autodiscover' \
---set=secrets.MetricsToken=<<METRICS-TOKEN>> \
+--set=secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
 --set=secrets.ListenerHost=<<LISTENER-HOST>> \
 --set=secrets.ClusterName=<<CLUSTER-NAME>> \
 --set=secrets.KubeStatNamespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
@@ -124,7 +124,7 @@ For more information about Autodiscover, see [Kubernetes configuration](https://
 
 ```shell
 helm install --namespace=kube-system \
---set=secrets.MetricsToken=<<METRICS-TOKEN>> \
+--set=secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
 --set=secrets.ListenerHost=<<LISTENER-HOST>> \
 --set=secrets.ClusterName=<<CLUSTER-NAME>> \
 --set=secrets.KubeStatNamespace=<<KUBE-STATE-METRICS-NAMESPACE>> \

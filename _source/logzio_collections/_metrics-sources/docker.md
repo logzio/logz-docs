@@ -77,15 +77,15 @@ logzio/docker-collector-metrics
 
 | Parameter | Description | Required/Default|
 |---|---|---|
-| LOGZIO_TOKEN | {% include metric-shipping/replace-metrics-token.md %} |Required|
-| LOGZIO_MODULES  | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/modules`. | 
-{%include general-shipping/region-parameter.md %}
-| LOGZIO_TYPE | This field is needed only if you're shipping metrics to Kibana and you want to override the default value.    In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. |DEFAULT: `docker-collector-metrics`|
-| LOGZIO_LOG_LEVEL | The log level the module startup scripts will generate. |DEFAULT: `"INFO"`|
-| LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`).    To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. |  |
-| DEBUG  | Set to `true` if you want Metricbeat to run in debug mode.<br/> **Note:** Debug mode tends to generate a lot of debugging output, so you should probably enable it temporarily only when an error occurs while running the docker-collector in production.  |DEFAULT: `"false"`|
-| HOSTNAME  | Insert your host name if you want it to appear in the metrics' `host.name`. If null, host.name will show the container's ID. |DEFAULT: `` |
-| CLOUD_METADATA | Set to `true` to enrich events with instance metadata from the machine’s hosting provider. |DEFAULT: `"false"`| 
+| LOGZIO_TOKEN | Your Logz.io Metrics account token. {% include /metric-shipping/replace-metrics-token.html %} |Required|
+| LOGZIO_MODULES  | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/modules`. | N/A |
+{% include general-shipping/region-parameter.md %}
+| LOGZIO_TYPE | This field is needed only if you're shipping metrics to Kibana and you want to override the default value.    In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. | `docker-collector-metrics`|
+| LOGZIO_LOG_LEVEL | The log level the module startup scripts will generate. | `"INFO"`|
+| LOGZIO_EXTRA_DIMENSIONS | Semicolon-separated list of dimensions to be included with your metrics (formatted as `dimensionName1=value1;dimensionName2=value2`).    To use an environment variable as a value, format as `dimensionName=$ENV_VAR_NAME`. Environment variables must be the only value in the field. If an environment variable can't be resolved, the field is omitted. | N/A |
+| DEBUG  | Set to `true` if you want Metricbeat to run in debug mode. **Note:** Debug mode tends to generate a lot of debugging output, so you should probably enable it temporarily only when an error occurs while running the docker-collector in production.  | `"false"`|
+| HOSTNAME  | Insert your host name if you want it to appear in the metrics' `host.name`. If null, host.name will show the container's ID. | `` |
+| CLOUD_METADATA | Set to `true` to enrich events with instance metadata from the machine’s hosting provider. | `"false"`|
 
 
 

@@ -14,6 +14,11 @@ contributors:
   - imnotashrimp
 ---
 
+<!-- info-box-start:info -->
+The **Grafana data source plugin** was deprecated on March 2021.
+{:.info-box.important}
+<!-- info-box-end -->
+
 Logz.io is an official Grafana data source plugin.
 The plugin allows you to view your Logz.io-stored metrics
 in a Grafana instance that you manage.

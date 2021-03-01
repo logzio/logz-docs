@@ -326,8 +326,6 @@ firstLevel:
     url: /integrations/lights/
   - title: Alice, your Slack chatbot
     url: /integrations/alice-slack-chatbot.html
-  - title: Grafana data source plugin
-    url: /integrations/grafana-data-source-plugin.html
 
     # ===== API Reference =====
   - title: API reference

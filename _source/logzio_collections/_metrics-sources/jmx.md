@@ -156,6 +156,7 @@ For example:
 java -javaagent:/opt/jolokia/jolokia-jvm-1.6.0-agent.jar /path/to/your/app
 ```
 
+
 <!-- info-box-start:info -->
 You can specify a custom configuration for Jolokia agent at runtime.
 For more information, see [Jolokia as JVM Agent](https://jolokia.org/reference/html/agents.html#jvm-agent) from Jolokia.

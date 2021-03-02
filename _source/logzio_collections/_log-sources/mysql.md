@@ -33,8 +33,7 @@ shipping-tags:
 
 **Before you begin, you'll need**:
 
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html). ([Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml))
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or Filebeat 6([Example of a configuration file](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml))
 * [MySQL](https://dev.mysql.com/downloads/)
 * Port 5015 open
 

@@ -2,10 +2,10 @@
 layout: article
 title: Migrating accounts between hosting regions
 permalink: /user-guide/accounts/migration.html
-description: Migrate your Logz.io accounts to another hosting region.
+description: Migrate your Logz.io accounts to another hosting region using the Logz.io API and export/import options.
 flags:
   admin: true
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - accounts
   - account-region
@@ -22,6 +22,7 @@ Before you set out to migrate your account, you will want to take the following 
 * Pre-migration data can’t be transferred
 * Pre-migration data can't be restored from the archive
 * The migration will reset your account's data shipping tokens. Consequently, you will need to update your data shipping configurations with the new token and listener host/region details.
+* Logz.io Metrics and Distributed Tracing are subject to availability. If applicable, check if they are available on your target region.
 
 
 

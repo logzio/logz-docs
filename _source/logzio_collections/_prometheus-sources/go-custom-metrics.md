@@ -1,12 +1,31 @@
-# Send custom metrics from your GO application
+---
+title: Ship Go logs
+logo:
+  logofile: go.svg
+  orientation: horizontal
+open-source:
+  - title: Logzio Golang API client
+    github-repo: logzio-go
+data-source: Go code
+templates: ["library"]
+contributors:
+  - imnotashrimp
+shipping-tags:
+  - from-your-code
+---
+
 This page contains instructions on how you can send custom metrics to logz.io from your GO application. This exapmles are using [opentelemtry GO SDK](https://github.com/open-telemetry/opentelemetry-go-contrib) and [opentelemtry cortex exporter](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/main/exporters/metric/cortex), which are in alpha/preview
 
-## Quick start
-1. Installation:
+#### Quick start
+
+**Before you begin, you'll need**:
+Go 1.x or higher
+
+##### Installation:
 
 `go get -u go.opentelemetry.io/contrib/exporters/metric/cortex`
 
-2. Add instruments to your application:
+##### Add instruments to your application:
 
 Set the variables in the following snippet: 
 
@@ -68,7 +87,7 @@ func handleErr(err error) {
 // }
 ```
 
-## Types of metric instruments
+###### Types of metric instruments
 See opentelemtry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md) for referance
 
 | Name | Behavieour | Default aggregation |
@@ -80,7 +99,7 @@ See opentelemtry [documentation](https://github.com/open-telemetry/opentelemetry
 | UpDownSumObserver | Metric value can arbitrarily increment or decrement, calculated per push interval.| Sum |
 | ValueObserver     | Metric values captured by the callback function, calculated per push interval.| LastValue  |
 
-### [Counter](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#counter)
+###### [Counter](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#counter)
 ```go
 // create counter instruments
 counter := metric.Must(meter).NewInt64Counter(
@@ -98,7 +117,7 @@ float_counter.Add(ctx, float64(8.3), label.String("key", "value"))
 <!-- See full [example](link2github) -->
 
 
-### [UpDownCounter](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#updowncounter)
+###### [UpDownCounter](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#updowncounter)
 ```go
 // create updowncounter instruments
 updowncounter := metric.Must(meter).NewInt64UpDownCounter(
@@ -116,7 +135,7 @@ float_updowncounter.Add(ctx, float64(8.3), label.String("key", "value"))
 <!-- See full [example](link2github) -->
 
 
-### [ValueRecorder](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#valuerecorder)
+###### [ValueRecorder](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#valuerecorder)
 ```go
 // create ValueRecorder instruments
 valuerecorder := metric.Must(meter).NewInt64ValueRecorder(
@@ -134,7 +153,7 @@ float_valuerecorder.Record(ctx, float64(8.3), label.String("key", "value"))
 <!-- See full [example](link2github) -->
 
 
-### [SumObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#sumobserver)
+###### [SumObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#sumobserver)
 ```go
 // Create callback for your SumObserver instrument
 observerCallback := func(_ context.Context, result metric.Int64ObserverResult) {
@@ -150,7 +169,7 @@ _ = metric.Must(meter).NewInt64SumObserver("sum_observer", observerCallback,
 <!-- See full [example](link2github) -->
 
 
-### [UpDownSumObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#updownsumobserver)
+###### [UpDownSumObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#updownsumobserver)
 ```go
 // Create callback for your UpDownSumObserver instrument
 observerCallback := func(_ context.Context, result metric.Int64ObserverResult) {
@@ -166,7 +185,7 @@ _ = metric.Must(meter).NewInt64UpDownSumObserver("updown_sum_observer", observer
 <!-- See full [example](link2github) -->
 
 
-### [ValueObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#valueobserver)
+###### [ValueObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#valueobserver)
 ```go
 // Create callback for your UpDownSumObserver instrument
 observerCallback := func(_ context.Context, result metric.Int64ObserverResult) {

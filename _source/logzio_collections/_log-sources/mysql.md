@@ -217,14 +217,15 @@ logzio/mysql-logs
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
-| LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/listener-var.html %}  |
-| MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span> | Path to the MySQL error log. |
-| MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span> | Path to the MySQL slow query log. |
-| MYSQL_LOG_FILE <span class="default-param">`/var/log/mysql/mysql.log`</span> | Path to the MySQL general log. |
-{:.paramlist}
+| Parameter | Description | Description | Required/Default |
+|---|---|---|
+| LOGZIO_TOKEN |{% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
+| LOGZIO_LISTENER_HOST | Listener URL and port.    {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| MYSQL_ERROR_LOG_FILE  | Path to the MySQL error log. | `/var/log/mysql/error.log` |
+| MYSQL_SLOW_LOG_FILE  | Path to the MySQL slow query log. | `/var/log/mysql/mysql-slow.log` |
+| MYSQL_LOG_FILE  | Path to the MySQL general log. | `/var/log/mysql/mysql.log` |
+
+
 
 ##### Check Logz.io for your logs
 

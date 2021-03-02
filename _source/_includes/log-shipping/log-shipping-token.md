@@ -1,1 +1,1 @@
-Add the [log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) for the relevant Logz.io account. This is the account you want to ship to.
+Your Logz.io log shipping token securely directs the data to your [Logz.io Log Management account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping).

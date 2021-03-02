@@ -72,16 +72,15 @@ func main() {
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| token (Required) | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} |
-| SetUrl (Required) <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port.    {% include log-shipping/listener-var.html %}  |
-| SetDebug <span class="default-param">`false`</span> | Debug flag. |
-| SetDrainDuration <span class="default-param">`5 * time.Second`</span> | Time to wait between log draining attempts. |
-| SetTempDirectory | Filepath where the logs are buffered. |
-| SetCheckDiskSpace <span class="default-param">`true`</span> | To enable `SetDrainDiskThreshold`, set to `true`. Otherwise, `false`. |
-| SetDrainDiskThreshold <span class="default-param">`70.0`</span> | Maximum file system usage, in percent. Used only if `SetCheckDiskSpace` is set to `true`. If the file system storage exceeds this threshold, buffering stops and new logs are dropped. Buffering resumes if used space drops below the threshold. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| token (Required) | {% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
+| SetUrl | Listener URL and port.    {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| SetDebug | Debug flag. | `false` |
+| SetDrainDuration  | Time to wait between log draining attempts. | `5 * time.Second` |
+| SetTempDirectory | Filepath where the logs are buffered. | N/A |
+| SetCheckDiskSpace  | To enable `SetDrainDiskThreshold`, set to `true`. Otherwise, `false`. | `true` |
+| SetDrainDiskThreshold  | Maximum file system usage, in percent. Used only if `SetCheckDiskSpace` is set to `true`. If the file system storage exceeds this threshold, buffering stops and new logs are dropped. Buffering resumes if used space drops below the threshold. | `70.0` |
 
 
 ###### Code sample

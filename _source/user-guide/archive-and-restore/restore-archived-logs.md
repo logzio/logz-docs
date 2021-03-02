@@ -22,6 +22,10 @@ that you can search from your main account.
 Restoring archived logs allows you to see your data in its original detail,
 so you can investigate events in Kibana that are older than your plan’s retention period.
 
+
+Capacity for restore accounts is given free of charge. Restore accounts not count against your daily log capacity.
+{:.info-box.tip}
+
 #### To restore and view archived logs
 
 **Before you begin, you'll need**:

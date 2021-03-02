@@ -5,9 +5,11 @@ logo:
   orientation: horizontal
 open-source:
   - title: Go custom metrics
-    github-repo: logzio-go
 data-source: Go code
-templates: ["library"]
+flags:
+  logzio-plan:  
+  beta: true
+templates: ["docker"]
 contributors:
   - yotamloe
   - yberlinger

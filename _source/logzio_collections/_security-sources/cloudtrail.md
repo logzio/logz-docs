@@ -77,9 +77,12 @@ When creating a bucket, you'll only need to fill in 2 parameters which you can g
   {PREFIX}/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/
   ```
 
+
+<!-- info-box-start:info -->
 Logz.io fetches logs that are generated after configuring an S3 bucket.
 Logz.io cannot fetch past logs retroactively.
 {:.info-box.important}
+<!-- info-box-end -->
 
 ##### Check Logz.io for your logs
 

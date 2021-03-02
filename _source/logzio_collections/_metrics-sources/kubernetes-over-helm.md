@@ -19,7 +19,7 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Automated deployment - recommended](#automated-config)
+* [Automated deployment](#automated-config)
 * [Manual deployment](#manual-config)
 * [Parameters](#configurations)
 * [Uninstall](#uninstall)
@@ -51,8 +51,8 @@ Follow through the system's prompts and provide the requested parameters.
 
 | Prompt | Answer |Required/Default|
 |---|---|---|
-| Logz.io metrics shipping token | {% include metric-shipping/replace-metrics-token.html %} | Required |
-| Logz.io region | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you’re shipping the logs to) and API URL. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |DEFAULT: `Blank (US East)` |
+| Logz.io metrics shipping token | Your Metrics account token. {% include metric-shipping/replace-metrics-token.html %} | Required |
+| Logz.io region | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you’re shipping the logs to) and API URL. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. | DEFAULT: `Blank (US East)` |
 | Cluster name | Name of the Kubernetes cluster in which you are deploying. |DEFAULT: `detected by the script` |
 | Standard or autodiscover deployment  | To deploy with [configuration templates](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover.html) answer 'autodiscover'. |DEFAULT: `standard`|
 
@@ -84,25 +84,17 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/metricbeat
 
 ##### Deploy
 
-You have three options for deployment: <!--there's a mini toc here that links to tagged content below -->
+You have three options for deployment: Standard configuration, Autodiscover configuration, Custom configuration.
 
-* [Standard configuration](#standard-config)
-* [Autodiscover configuration](#autodiscover-config)
-* [Custom configuration](#custom-config)
-
-###### Deploy with standard configuration {#standard-config}
-
-
-Run the command below after replacing the following placeholders:
-
-* Replace `<<METRICS-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the metrics account you want to ship to.
-* Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+{% include /general-shipping/replace-placeholders-metrics.html %}
 * Replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command to save your cluster details as a Kubernetes secret.
+
+###### Deploy with standard configuration
 
 
 ```shell
 helm install --namespace=kube-system \
---set=secrets.MetricsToken=<<METRICS-TOKEN>> \
+--set=secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
 --set=secrets.ListenerHost=<<LISTENER-HOST>> \
 --set=secrets.ClusterName=<<CLUSTER-NAME>> \
 --set=secrets.KubeStatNamespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
@@ -110,21 +102,15 @@ helm install --namespace=kube-system \
 logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 ```
 
-###### Deploy with Autodiscover configuration: {#autodiscover-config}
+###### Deploy with Autodiscover configuration
 
 This Daemonset's default autodiscover configuration is [hints based](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover-hints.html).
-
-Run the command below after replacing the following placeholders:
-
-* Replace `<<METRICS-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
-* Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
-* Replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command to save your cluster details as a Kubernetes secret.
 
 
 ```shell
 helm install --namespace=kube-system \
 --set configType='autodiscover' \
---set=secrets.MetricsToken=<<METRICS-TOKEN>> \
+--set=secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
 --set=secrets.ListenerHost=<<LISTENER-HOST>> \
 --set=secrets.ClusterName=<<CLUSTER-NAME>> \
 --set=secrets.KubeStatNamespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
@@ -134,17 +120,12 @@ logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 
 For more information about Autodiscover, see [Kubernetes configuration](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover.html#_kubernetes) and [autodiscover's appenders](https://www.elastic.co/guide/en/beats/metricbeat/current/configuration-autodiscover-advanced.html).
 
-###### Deploy with custom configuration: {#custom-config}
+###### Deploy with custom configuration
 
-Run the command below after replacing the following placeholders:
-
-* Replace `<<METRICS-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
-* Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `listener.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
-* Replace `<<KUBE-STATE-METRICS-NAMESPACE>>`, `<<KUBE-STATE-METRICS-PORT>>`, and `<<CLUSTER-NAME>>` in this command to save your cluster details as a Kubernetes secret.
 
 ```shell
 helm install --namespace=kube-system \
---set=secrets.MetricsToken=<<METRICS-TOKEN>> \
+--set=secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
 --set=secrets.ListenerHost=<<LISTENER-HOST>> \
 --set=secrets.ClusterName=<<CLUSTER-NAME>> \
 --set=secrets.KubeStatNamespace=<<KUBE-STATE-METRICS-NAMESPACE>> \
@@ -154,7 +135,7 @@ helm install --namespace=kube-system \
 logzio-k8s-metrics logzio-helm/logzio-k8s-metrics
 ```
 
-If you're using a custom config, please make sure that you're using a valid `.yaml` file in the following structure:
+If you're using a custom config, please make sure that you're using a valid `.yml` file with the following structure:
 
 ```
 metricbeat.yml: |-

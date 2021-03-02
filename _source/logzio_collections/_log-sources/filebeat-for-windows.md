@@ -17,16 +17,10 @@ shipping-tags:
 Filebeat is the easiest way to get logs from files in your system to Logz.io,
 and it's the tool we recommend for most situations.
 
-This page is a general reference for Filebeat.
-If you need instructions for a specific log source (such as nginx, MySQL, or Wazuh),
-see [Log shipping sources]({{site.baseurl}}/shipping/).
 
 #### Configure Filebeat on Windows
 
-**Before you begin, you'll need**:
-
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html) installed as a Windows service
+**Before you begin, you'll need**: [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html) installed as a Windows service
 
 
 <div class="tasklist">

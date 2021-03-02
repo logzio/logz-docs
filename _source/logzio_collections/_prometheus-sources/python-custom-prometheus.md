@@ -48,7 +48,6 @@ Replace the placeholders in the `exporter` section code (indicated by the double
 |Bearer | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
 
 
-
 ```python
 from opentelemetry import metrics
 from opentelemetry.exporter.prometheus_remote_write import (
@@ -86,7 +85,10 @@ counter.add(25, labels)
 ```
 
 ## Types of metric instruments
+
+
 Refer to the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md) for more details. 
+
 
 | Name | Behavior | Default aggregation |
 | ---- | ---------- | ------------------- |

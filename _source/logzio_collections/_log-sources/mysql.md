@@ -33,9 +33,7 @@ shipping-tags:
 
 **Before you begin, you'll need**:
 
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html). ([Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml))
-* [MySQL](https://dev.mysql.com/downloads/)
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html)
 * Port 5015 open
 
 <div class="tasklist">
@@ -217,14 +215,15 @@ logzio/mysql-logs
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| LOGZIO_TOKEN (Required) | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   |
-| LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | Logz.io listener host to ship the logs to. {% include log-shipping/listener-var.html %}  |
-| MYSQL_ERROR_LOG_FILE <span class="default-param">`/var/log/mysql/error.log`</span> | Path to the MySQL error log. |
-| MYSQL_SLOW_LOG_FILE <span class="default-param">`/var/log/mysql/mysql-slow.log`</span> | Path to the MySQL slow query log. |
-| MYSQL_LOG_FILE <span class="default-param">`/var/log/mysql/mysql.log`</span> | Path to the MySQL general log. |
-{:.paramlist}
+| Parameter | Description | Description | Required/Default |
+|---|---|---|
+| LOGZIO_TOKEN |{% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
+| LOGZIO_LISTENER_HOST | Listener URL and port.    {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| MYSQL_ERROR_LOG_FILE  | Path to the MySQL error log. | `/var/log/mysql/error.log` |
+| MYSQL_SLOW_LOG_FILE  | Path to the MySQL slow query log. | `/var/log/mysql/mysql-slow.log` |
+| MYSQL_LOG_FILE  | Path to the MySQL general log. | `/var/log/mysql/mysql.log` |
+
+
 
 ##### Check Logz.io for your logs
 

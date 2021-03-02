@@ -72,13 +72,13 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| logzio_token (Required) | {% include log-shipping/log-shipping-token.html %} |
-| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/listener-var.html %}  |
-| logzio_type <span class="default-param">`logzio-fluent-bit`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| logzio_debug <span class="default-param">`false`</span> | Set to `true` to print debug messages to stdout. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| logzio_token | {% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
+| logzio_url  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| logzio_type   | {% include log-shipping/type.md %} | `logzio-fluent-bit` |
+| logzio_debug    | Set to `true` to print debug messages to stdout. | `false` |
+
 
 ##### Run Fluent Bit with the Logz.io plugin
 
@@ -131,13 +131,14 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 
 ######  Parameters
 
-| Parameter | Description |
-|---|---|
-| logzio_token (Required) | {% include log-shipping/log-shipping-token.html %} |
-| logzio_url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/listener-var.html %}  |
-| logzio_type <span class="default-param">`logzio-fluent-bit`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| logzio_debug <span class="default-param">`false`</span> | Set to `true` to print debug messages to stdout. |
-{:.paramlist}
+| Parameter | Description |Required/Default |
+|---|---|---|
+| logzio_token | {% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
+| logzio_url  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| logzio_type   | {% include log-shipping/type.md %} | `logzio-fluent-bit` |
+| logzio_debug    | Set to `true` to print debug messages to stdout. | `false` |
+
+
 
 ##### Run the Docker image
 

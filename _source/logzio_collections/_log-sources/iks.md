@@ -91,11 +91,8 @@ kubectl create secret generic logzio-logs-secret \
 -n monitoring
 ```
 
-{% include /log-shipping/log-shipping-token.html %}
+{% include /general-shipping/replace-placeholders.html %}
 
-Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
-For more information on finding your account's region,
-see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 ##### Deploy the DaemonSet
 

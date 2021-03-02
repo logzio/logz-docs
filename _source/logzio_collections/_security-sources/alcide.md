@@ -37,15 +37,15 @@ First, log into your Alcide kAudit console.
 1. Select **Integrations** from the left menu.
 2. Select **Add New Integration** and select the **HTTPS API** integration from the dropdown menu.
 3. Fill in the new integration form:
-    1. **Name** - Provide a name for the new HTTPS API integration. For example: Logz.io.
-    2. **URL** - Paste the Logz.io webhook URL.
+    1. **Name**: Provide a name for the new HTTPS API integration. For example: Logz.io.
+    2. **URL**: Paste the Logz.io webhook URL.
 
         ```
         https://<<LISTENER-HOST>>:8071
         ```
 
-        Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`). For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
-    3. **Token** - Paste in the [Logz.io shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) of the account you want to ship to.
+        {% include log-shipping/listener-var.html %}
+    3. **Token**: Paste in the [Logz.io shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) of the account you want to ship to.
 
     4. **Alert type** - Select **Detections** from the dropdown list.
 

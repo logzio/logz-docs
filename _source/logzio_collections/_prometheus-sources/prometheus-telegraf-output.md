@@ -4,9 +4,6 @@ logo:
   logofile: mascot-telegraf.png #telegraf-tiger.png  #telegraf-logo-preview.svg
   orientation: vertical
 data-source: Telegraf for Prometheus metrics
-open-source:
-  - title: Telegraf Collector for Prometheus metrics
-    github-repo: logz-telegraf-metrics
 templates: ["docker"]
 contributors:
   - fadi-khatib

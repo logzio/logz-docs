@@ -225,6 +225,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-cloud-siem-account.html
     - title: Metrics accounts
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
+    - title: Tracing accounts
+      url: /user-guide/accounts/manage-the-distributed-tracing-account.html
   - title: PCI compliance
     url: /user-guide/accounts/pci-compliance.html
   - title: Granting access to Logz.io Support

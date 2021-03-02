@@ -21,7 +21,7 @@ shipping-tags:
 * [Overview](#overview)
 * [Default configuration](#default-config)
 * [Custom configuration](#custom-config)
-* [Disabling inputs](#disable)
+* [Multiline logs](#multiline)
 {:.branching-tabs}
 
 
@@ -83,11 +83,6 @@ kubectl create namespace monitoring
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
-
-Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
-For more information on finding your account's region,
-see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
@@ -96,7 +91,14 @@ kubectl create secret generic logzio-logs-secret \
 -n monitoring
 ```
 
+{% include /log-shipping/log-shipping-token.html %}
+
+Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`).
+For more information on finding your account's region,
+see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+
 ##### Deploy the DaemonSet
+
 Run:
 
 ```shell
@@ -152,10 +154,7 @@ kubectl create secret generic logzio-logs-secret \
 -n monitoring
 ```
 
-
-{% include log-shipping/log-shipping-token.html %}
-
-{% include log-shipping/listener-var.html %} 
+{% include /general-shipping/replace-placeholders.html %}
 
 ##### Configure Fluentd
 
@@ -187,11 +186,6 @@ If you still don't see your logs,
 see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
-</div>
-<!-- tab:end -->
-
-<!-- tab:start -->
-<div id="disable">
 
 ### Disabling systemd input
 
@@ -201,6 +195,19 @@ To suppress Fluentd system messages, set the environment variable `FLUENTD_SYSTE
 
 By default, the latest images launch `prometheus` plugins to monitor Fluentd.
 If you'd like to disable the Prometheus input plugin, set the environment variable `FLUENTD_PROMETHEUS_CONF` to `disable` in your Kubernetes configuration.
+
+
+
+</div>
+<!-- tab:end -->
+
+
+
+<!-- tab:start -->
+<div id="multiline">
+
+
+{% include /log-shipping/multiline-fluentd-plugin.md %}
 
 </div>
 <!-- tab:end -->

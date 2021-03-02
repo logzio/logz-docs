@@ -1,8 +1,6 @@
-###### Filebeat splits multiline logs by default
+### Configuring Filebeat to concatenate multiline logs
 
-If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs.
-
-###### Configuring Filebeat to concatenate multiline logs
+Filebeat splits multiline logs by default. If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs.
 
 Filebeat offers configuration options that can be used to concatenate multiline logs.
 The configuration is managed differently, depending on your deployment method:
@@ -15,7 +13,7 @@ The configuration is managed differently, depending on your deployment method:
 
   Hints and annotations support the option to manage regex expressions separately for each component. This greatly simplifies the process, making it possible to add a dedicated regex expression to each pod, without needing to change anything on Filebeat itself.
 
-### Example
+###### Example
 
 The following is an example of a multiline log sent from a deployment on a k8s cluster:
 
@@ -30,7 +28,7 @@ Filebeat's default configuration will split the above log into 4 logs, 1 for eac
 
 You can overcome this behavior by configuring Filebeat to meet your needs.
 
-### Example for using an explicit configuration to concatenate multiline logs
+### Example of an explicit configuration for concatenating multiline logs
 
 To add an explicit configuration to your Filebeat, edit your `filebeat.yml` file in a text editor and make the appropriate changes under the `filebeat.input` section.
 

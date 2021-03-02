@@ -1,18 +1,22 @@
 ---
-title: Ship Go logs
+title: Send custom metrics from your Go application
 logo:
   logofile: go.svg
   orientation: horizontal
 open-source:
-  - title: Logzio Golang API client
+  - title: Go custom metrics
     github-repo: logzio-go
 data-source: Go code
 templates: ["library"]
 contributors:
-  - imnotashrimp
-shipping-tags:
-  - from-your-code
+  - yotamloe
+  - yberlinger
+shipping-tags:  
+  - prometheus
 ---
+
+
+{% include page-info/early-access.md type="beta" %}
 
 This page contains instructions on how you can send custom metrics to logz.io from your GO application. This exapmles are using [opentelemtry GO SDK](https://github.com/open-telemetry/opentelemetry-go-contrib) and [opentelemtry cortex exporter](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/main/exporters/metric/cortex), which are in alpha/preview
 

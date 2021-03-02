@@ -14,8 +14,44 @@ contributors:
 When you're setting up data shipping to your Distributed Tracing account, you'll need to include your Distributed Tracing shipping token. The token routes your data to the right account in Logz.io. 
 
 Here's how to get the tracing token: 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Via the Manage Tokens page](#manage-token)
+* [Via the Manage accounts page](#manage-accounts)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="manage-token">
+
+### Via the Manage Tokens page
+
+{% include general-shipping/manage-tokens-nav.md %}
+
+Navigate to **Data shipping tokens** and click the **Tracing** option.
+
+The Listener URL and Region code for your account are displayed above the token table.
+
+The token for each account is listed in the table along with the date it was created. 
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="manage-accounts">
+### Via the Manage accounts page
 
 {% include tracing-shipping/tracing-token.md %}
+
+
+</div>
+<!-- tab:end -->
+
+
+</div>
+<!-- tabContainer:end -->
+
 
 <!--You must have admin permissions for the Logz.io Distributed Tracing account to view the **Manage accounts** page. If you're not an admin user for the account, consult with an account admin to get the Distributed Tracing token information. 
 

@@ -45,7 +45,7 @@ Replace the placeholders in the `exporter` section code (indicated by the double
 | Environment variable | Description |Required/Default|
 |---|---|---|
 |endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
-|Bearer | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [_How do I look up my Metrics account token?_](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
+|Bearer | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
 
 
 

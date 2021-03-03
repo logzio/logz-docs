@@ -215,7 +215,7 @@ logzio/mysql-logs
 
 ###### Parameters
 
-| Parameter | Description | Description | Required/Default |
+| Parameter | Description | Required/Default |
 |---|---|---|
 | LOGZIO_TOKEN |{% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
 | LOGZIO_LISTENER_HOST | Listener URL and port.    {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |

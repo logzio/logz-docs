@@ -259,6 +259,12 @@
   force = true
 
 [[redirects]]
+  from = "/shipping/log-sources/filebeat-for-windows.html"
+  to = "/shipping/log-sources/filebeat.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/shipping/p8s-sources/*"
   to = "/shipping/prometheus-sources/:splat"
   status = 301

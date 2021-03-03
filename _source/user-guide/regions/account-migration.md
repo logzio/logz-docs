@@ -46,6 +46,10 @@ The process can be performed by API or manually, as you prefer. You may also con
 
 Open a new Logz.io trial account in your region of choice. Contact your Logz.io Customer Success Manager or Account Manager to request a complimentary upgrade to match your existing account while you are in transition.
 
+
+If you have custom parsing, ask your Logz.io Customer Success Manager or Account Manager for assistance migrating your parsing pipelines.
+{:.info-box.note}
+
 ##### (Re-)Create your sub-accounts
 
 Retrieve all sub-accounts and re-create them in your new account. You can do so using the Logz.io API endpoints as follows:
@@ -65,11 +69,6 @@ The process can be performed by API or manually. Export & import guides:
 
 * [Export & import guide](https://docs.logz.io/user-guide/kibana/share-import-export)
 * [API guide](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
-
-##### Contact Support to request help migrating your custom parsing pipelines
-
-If you have custom parsing, contact Support to request assistance with your parsing pipelines before deleting the account. [Email Support](mailto:help@logz.io?subject=Requesting%20help%20migrating%20parsing%20pipelines&body=Hi!%20Please%20be%20in%20touch%20with%20further%20instructions%20for%20migrating%20parsing%20pipelines%20following%20our%20account%20migration.%20Thanks!)
-
 
 
 ##### (Re-)Create your archive settings

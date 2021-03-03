@@ -22,7 +22,7 @@ Before you set out to migrate your account, you will want to take the following 
 * Pre-migration data can’t be transferred
 * Pre-migration data can't be restored from the archive
 * The migration will reset your account's data shipping tokens. Consequently, you will need to update your data shipping configurations with the new token and listener host/region details.
-* Logz.io Metrics and Distributed Tracing are subject to availability. If applicable, check if they are available on your target region.
+* Logz.io Metrics and Distributed Tracing are subject to availability. If applicable, reach out to your Logz.io Customer Success Manager to verify that they are available on your target region.
 
 
 

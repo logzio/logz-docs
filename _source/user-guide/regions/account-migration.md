@@ -97,7 +97,7 @@ Retrieve all drop filters and re-create them in your new account. You can do so 
 If you prefer to perform the process manually, see the [drop filters guide](https://docs.logz.io/user-guide/accounts/drop-filters/).
 
 <!-- info-box-start:info -->
-If the filters were created from the backend, contact Support to copy your drop filters before deleting the pre-migration account.
+If the filters were created from the backend, contact your Customer Success Manager for help migrating your drop filters.
 {:.info-box.important}
 <!-- info-box-end -->
 
@@ -163,9 +163,9 @@ You can do so using the Logz.io API endpoints as follows:
 If you prefer to perform the process manually, see the [user management guide](https://docs.logz.io/user-guide/users/).
 
 
-##### Contact Support to enable SSO
+##### Email Support to enable SSO
 
-If you would like to enable Single-Sign On (SSO), contact Support for assistance. [Learn more](/user-guide/users/single-sign-on/)
+If you would like to enable your Single-Sign On (SSO) on the new account, [Email Support](mailto:help@logz.io?subject=Requesting%20help%20enabling%20SSO%20following%20an%20account%20migration) for assistance. [Learn more](/user-guide/users/single-sign-on/)
 
 
 

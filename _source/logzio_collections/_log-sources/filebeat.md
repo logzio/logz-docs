@@ -3,7 +3,7 @@ title: General guide to shipping logs with Filebeat
 logo:
   logofile: beats.svg
   orientation: vertical
-data-source: Filebeat for macOS/Linux/Windows
+data-source: Filebeat
 shipping-tags:
   - log-shipper
   - filebeat

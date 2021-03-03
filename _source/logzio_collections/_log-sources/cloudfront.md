@@ -37,9 +37,12 @@ For help with this, see [Configuring and Using CloudFront Access Logs](https://d
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/data-sources/CloudFront) and add a new S3 bucket.
 
 <!-- logzio-inject:aws:cloudfront -->
+
+
+{% include log-shipping/log-into-app-wizard.html service="cloudfront" %}
+
 
 {% include log-shipping/add-s3-bucket.md %}
 

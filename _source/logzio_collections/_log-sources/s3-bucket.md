@@ -10,6 +10,7 @@ shipping-tags:
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/S3-Bucket
 contributors:
   - imnotashrimp
+  - shalper
 ---
 
 Some AWS services can be configured to ship their logs to an S3 bucket,
@@ -20,13 +21,13 @@ where Logz.io can fetch those logs directly.
 The S3 API does not allow retrieval of object timestamps, so Logz.io must collect logs in alphabetical order.
 Please keep these notes in mind when configuring logging.
 
-* **Make the prefix as specific as possible** \\
-  The prefix is the part of your log path that remains constant across all logs.
-  This can include folder structure and the beginning of the filename.
+* **Make the prefix as specific as possible**
 
-* **The log path after the prefix must come in alphabetical order** \\
-  We recommend starting the object name (after the prefix) with the Unix epoch time.
-  The Unix epoch time is always increasing, ensuring we can always fetch your incoming logs.
+    The prefix is the part of your log path that remains constant across all logs. This can include folder structure and the beginning of the filename.
+
+* **The log path after the prefix must come in alphabetical order** 
+
+    We recommend starting the object name (after the prefix) with the Unix epoch time. The Unix epoch time is always increasing, ensuring we can always fetch your incoming logs.
 
 ## Setup
 
@@ -40,14 +41,12 @@ You can add your buckets directly from Logz.io by providing your S3 credentials 
 <div class="tasklist">
 
 
-
-
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
-
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/data-sources/S3-Bucket) and add a new S3 bucket.
 
 
 <!-- logzio-inject:aws:s3-buckets -->
+
+{% include log-shipping/log-into-app-wizard.html service="s3-bucket" %}
 
 
 {% include log-shipping/add-s3-bucket.md %}

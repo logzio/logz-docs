@@ -3,7 +3,7 @@ title: Ship MySQL logs
 logo:
   logofile: mysql.svg
   orientation: horizontal
-data-source: MySQL Logs
+data-source: MySQL logs
 templates: [beats-logs, "docker"]
 open-source:
   - title: mysql-logs

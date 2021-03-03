@@ -41,10 +41,13 @@ For help with setting this up, see these docs from AWS:
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/data-sources/ELB) and add a new S3 bucket.
 
 
 <!-- logzio-inject:aws:elb -->
+
+
+{% include log-shipping/log-into-app-wizard.html service="elastic-load-balancing" %}
+
 
 {% include log-shipping/add-s3-bucket.md %}
 

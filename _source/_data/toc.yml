@@ -229,13 +229,15 @@ firstLevel:
     url: /user-guide/accounts/pci-compliance.html
   - title: Granting access to Logz.io Support
     url: /user-guide/accounts/support-access.html
-    # - title: Usage and billing
 
-  - title: Regions
+
+  - title: Hosting regions
     url: /user-guide/accounts/account-region.html
-  - title: Data management
+    thirdLevel:
+    - title: Migrating accounts between hosting regions
+      url: /user-guide/accounts/migration.html
+  - title: Managing account usage
     url: /user-guide/accounts/manage-account-usage.html
-
     thirdLevel:
     - title: Smart Tier
       url: /user-guide/accounts/smart-tier/

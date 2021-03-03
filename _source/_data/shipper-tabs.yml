@@ -41,8 +41,6 @@ tabs:
 # If you want to change the way it's displayed in the docs, change the `name`.
 
 tags:
-  - slug: log-shipper
-    name: Log shippers
   - slug: os
     name: Operating systems
   - slug: server-app

@@ -2,10 +2,10 @@
 layout: article
 title: Migrating accounts between hosting regions
 permalink: /user-guide/accounts/migration.html
-description: Migrate your Logz.io accounts to another hosting region.
+description: Migrate your Logz.io accounts to another hosting region using the Logz.io API and export/import options.
 flags:
   admin: true
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - accounts
   - account-region
@@ -22,6 +22,7 @@ Before you set out to migrate your account, you will want to take the following 
 * Pre-migration data can’t be transferred
 * Pre-migration data can't be restored from the archive
 * The migration will reset your account's data shipping tokens. Consequently, you will need to update your data shipping configurations with the new token and listener host/region details.
+* Logz.io Metrics and Distributed Tracing are subject to availability. If applicable, reach out to your Logz.io Customer Success Manager to verify that they are available on your target region.
 
 
 
@@ -43,8 +44,11 @@ The process can be performed by API or manually, as you prefer. You may also con
 
 ##### Create a new account in the target region
 
-Open a new Logz.io trial account in your region of choice.
-[Upgrade your new account](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan) to suit your needs.
+Open a new Logz.io trial account in your region of choice. Contact your Logz.io Customer Success Manager or Account Manager to request a complimentary upgrade to match your existing account while you are in transition.
+
+
+If you have custom parsing, ask your Logz.io Customer Success Manager or Account Manager for assistance migrating your parsing pipelines.
+{:.info-box.note}
 
 ##### (Re-)Create your sub-accounts
 
@@ -65,12 +69,6 @@ The process can be performed by API or manually. Export & import guides:
 
 * [Export & import guide](https://docs.logz.io/user-guide/kibana/share-import-export)
 * [API guide](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
-
-##### Contact Support to request help migrating your custom parsing pipelines
-
-If you have custom parsing, contact Support to copy your parsing pipelines before deleting the account.
-
-[Email our support](mailto:help@logz.io?subject=Requesting%20help%20migrating%20parsing%20pipelines&body=Hi!%20Please%20be%20in%20touch%20with%20further%20instructions%20for%20migrating%20parsing%20pipelines%20following%20our%20account%20migration.%20Thanks!) to request help copying your parsing pipelines to your new accounts.
 
 
 ##### (Re-)Create your archive settings
@@ -99,7 +97,7 @@ Retrieve all drop filters and re-create them in your new account. You can do so 
 If you prefer to perform the process manually, see the [drop filters guide](https://docs.logz.io/user-guide/accounts/drop-filters/).
 
 <!-- info-box-start:info -->
-If the filters were created from the backend, contact Support to copy your drop filters before deleting the pre-migration account.
+If the filters were created from the backend, contact your Customer Success Manager for help migrating your drop filters.
 {:.info-box.important}
 <!-- info-box-end -->
 
@@ -165,9 +163,9 @@ You can do so using the Logz.io API endpoints as follows:
 If you prefer to perform the process manually, see the [user management guide](https://docs.logz.io/user-guide/users/).
 
 
-##### Contact Support to enable SSO
+##### Email Support to enable SSO
 
-If you would like to enable Single-Sign On (SSO), contact Support for assistance. [Learn more](/user-guide/users/single-sign-on/)
+If you would like to enable your Single-Sign On (SSO) on the new account, [Email Support](mailto:help@logz.io?subject=Requesting%20help%20enabling%20SSO%20following%20an%20account%20migration) for assistance. [Learn more](/user-guide/users/single-sign-on/)
 
 
 

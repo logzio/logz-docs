@@ -3,7 +3,7 @@ title: Ship MySQL metrics
 logo:
   logofile: mysql.svg
   orientation: horizontal
-data-source: MySQL
+data-source: MySQL Metrics
 contributors:
   - shalper
   - yotamloe

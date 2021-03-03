@@ -15,7 +15,7 @@ shipping-tags:
   - gcp
 ---
 
-Google Cloud Platform (GCP) Stackdriver collects logs and metrics from your cloud services.
+Google Cloud Platform (GCP) Stackdriver collects logs from your cloud services.
 You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.io.
 
 #### Configuration

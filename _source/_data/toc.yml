@@ -337,33 +337,38 @@ firstLevel:
   icon: li-code
   secondLevel:
   - title: Notification endpoints
-    url: /user-guide/integrations/endpoints.html
     thirdLevel:
+      - title: Notification endpoints
+        url: /user-guide/integrations/endpoints.html
       - title: Custom endpoints
         url: /user-guide/integrations/custom-endpoints.html
-      - title: Opsgenie notifications for resolved metrics alerts
-        url: /user-guide/integrations/resolved-metrics-alerts.html
       - title: Microsoft Teams endpoint
         url: /user-guide/integrations/ms-teams.html
-  - title: Terraform Logz.io Provider
-    url: /integrations/terraform/
-  - title: LightS - Light Synthetic Monitoring for AWS
-    url: /integrations/lights/
-  - title: Alice, your Slack chatbot
-    url: /integrations/alice-slack-chatbot.html
+      - title: Opsgenie notifications for resolved metrics alerts
+        url: /user-guide/integrations/resolved-metrics-alerts.html
+
 
     # ===== API Reference =====
-  - title: API reference
-    url: /api/
-  - title: API cookbook
-    url: /api/cookbook/
+  - title: Logz.io API
     thirdLevel:
+    - title: Logz.io API
+      url: /api/
+    - title: Terraform Logz.io Provider
+      url: /integrations/terraform/
+  - title: API cookbook
+    thirdLevel:
+    - title: API cookbook
+      url: /api/cookbook/
     - title: Who am I?
       url: /api/cookbook/who-am-i.html
     - title: Managing sub account capacity
       url: /api/cookbook/managing-sub-account-capacity.html
     - title: Backing up Kibana objects to GitHub
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
+
+  - title: LightS - Light Synthetic Monitoring for AWS
+    url: /integrations/lights/
+
 
   # ===== MORE =====
 - title: ""

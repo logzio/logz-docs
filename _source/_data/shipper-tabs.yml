@@ -16,9 +16,9 @@
 tabs:
   - collection: log-sources
     templated: true
-  - collection: metrics-sources
-    templated: true
   - collection: prometheus-sources
+    templated: true
+  - collection: metrics-sources
     templated: true
   - collection: tracing-sources
     templated: true

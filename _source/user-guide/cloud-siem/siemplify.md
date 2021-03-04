@@ -32,11 +32,48 @@ accounts or investigate specific events to retrieve the logs responsible for tri
 
 * Implement the Logz.io out-of-the-box **Threat Investigation Playbook** for guidance and best practices for conducting an investigation.
 
-#### To set up the integration in Siemplify
+#### Setting up the integration in Siemplify
 
-In Siemplify, click **Settings > Integrations** and search for Logz.io. Click the cogswheel to configure a new instance and open the integration panel.
+<div class="tasklist">
 
-Fill in the Logz.io integration panel. Instructions are provided directly in the panel and Siemplify help page.
+##### Add a Logz.io instance to your Siemplify workspace
+
+To set up an integration with Logz.io as a **Default Environment**, you can add Logz.io directly from the Siemplify Marketplace.
+
+In Siemplify, open the **Marketplace** and search for Logz.io. Select the cogswheel to configure a new instance.
+
+![Add Logz.io from the Siemplify Marketplace](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-marketplace.png)
+
+
+Alternatively, if you prefer to add Logz.io as a **Shared Instance**, select the **cogswheel <i class="fas fa-cog"></i> > Integrations** from the top right menu. Select **Shared Instance** from the left menu, then select the plus ➕ to add a new instance. Select the **Logz.io integration** and save.
+
+![Add Logz.io as a Shared Instance to your Siemplify workspace](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-shared-instance.png)
+
+##### Fill in the Logz.io integration panel
+
+Fill in the Logz.io integration panel:
+1. **Logz.io Security Token** - Enter the token for your selected Security account.
+2. **Logz.io Region** - Enter the 2-letter region code for your Logz.io account. [Look up your Logz.io account region code](https://docs.logz.io/user-guide/accounts/account-region.html).
+3. **Logz.io Operations Token** - Enter the token for your selected Log Management account.
+4. **Logz.io Custom Endpoint** - (Optional) Only relevant if you use a custom URL with the Logz.io API. Overrides logzio_region.
+
+
+![Add Logz.io from the Siemplify Marketplace](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-configure-instance.png)
+
+![Siemplify Logz.io connector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-connector.png)
+
+![Siemplify Logz.io integration panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-integrations-panel.png)
+
+
+
+![](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-configure-instance.png)
+
+
+![](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-playbook.png)
+
+
+
+
 
 
 

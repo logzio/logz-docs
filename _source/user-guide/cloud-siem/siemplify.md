@@ -52,40 +52,36 @@ Alternatively, if you prefer to add Logz.io as a **Shared Instance**, select the
 ##### Fill in the Logz.io integration panel
 
 Fill in the Logz.io integration panel:
+
 1. **Logz.io Security Token** - Enter the token for your selected Security account.
 2. **Logz.io Region** - Enter the 2-letter region code for your Logz.io account. [Look up your Logz.io account region code](https://docs.logz.io/user-guide/accounts/account-region.html).
 3. **Logz.io Operations Token** - Enter the token for your selected Log Management account.
-4. **Logz.io Custom Endpoint** - (Optional) Only relevant if you use a custom URL with the Logz.io API. Overrides logzio_region.
+4. **Logz.io Custom Endpoint** - (Optional) Only relevant if you use a custom URL with the Logz.io API.
+    * Enter the base url, without the direct path to the method
+    * Relevant if your Logz.io endpoint is _NOT_ in the standard format of `api(region_code).logz.io/`.
+    * Overrides `logzio_region`
+5. Test your connection and save it!
 
+![Logz.io integration panel for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-configure-instance.png)
 
-![Add Logz.io from the Siemplify Marketplace](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-configure-instance.png)
+##### Create the Logz.io connector
+
+Configure the Logz.io connector `LOGZ.IO fetch-security-events` to create cases in your Siemplify workspace from Logz.io security events.
+
+Logz.io writes a security event log whenever a security rule triggers in your Logz.io Cloud SIEM account. The event log contains details about the rule that was triggered and its conditions.
+
 
 ![Siemplify Logz.io connector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-connector.png)
 
-![Siemplify Logz.io integration panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-integrations-panel.png)
+Provide the The import command runs every minute to fetch new incidents based on the filtering configurations set in the integration panel.
+
+![Configure a Siemplify Logz.io connector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-integrations-panel.png)
+
+Enable the connector and save it to fetch security events from Logz.io as cases in Siemplify.
+
+##### Use Logz.io Actions and Playbooks
 
 
 
-![](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-configure-instance.png)
-
-
-![](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-playbook.png)
-
-
-
-
-
-
-
-* **Incident fetching**
-
-  A security event is logged by Logz.io whenever a security rule triggers in your Logz.io Cloud SIEM account. The event log contains details about the rule that was triggered and its conditions.
-
-  If enabled, the integration will fetch security events from Logz.io as incidents in Siemplify. The import command runs every minute to fetch new incidents based on the filtering configurations set in the integration panel.
-
-  The maximum number of incidents returned per query is configurable, but capped at 50. By default, the results are returned sorted by date ascending (earliest first).
-
-  Events from the last 3 minutes are excluded from incident fetching to allow for sufficient log processing time.
-  {:.info-box.important}
-
+![Sample playbook for threat hunting with Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-playbook.png)
 

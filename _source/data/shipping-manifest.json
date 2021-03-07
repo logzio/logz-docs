@@ -3,13 +3,13 @@ layout: json
 permalink: /data/shipping-manifest.json
 ---
 
-{%- assign collectionsToAdd = site.collections | where: "in-shipping-manifest", true -%}
+{%- assign collectionsToAdd = site.collections | where: "in-shipping-manifest", true | sort: "order" -%}
 
 {%- case jekyll.environment -%}
   {%- when "production" -%}
     {%- assign branch = "/master" -%}
   {%- else -%}
-    {%- assign branch = "/tabs-rename" -%}
+    {%- assign branch = "/manifest" -%}
 {%- endcase -%}
 {%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
 

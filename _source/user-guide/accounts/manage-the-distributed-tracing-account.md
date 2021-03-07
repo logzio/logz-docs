@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Manage the Infrastructure Monitoring account
+title: Manage the Distributed Tracing account
 permalink: /user-guide/accounts/manage-the-distributed-tracing-account.html
 flags:
   admin: true

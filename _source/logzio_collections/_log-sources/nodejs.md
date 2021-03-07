@@ -194,7 +194,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | addTimestampWithNanoSecs | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. | `false` |
-| extraFields | Json. Adds your own custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
+| extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
 
 
 ##### Additional configuration options

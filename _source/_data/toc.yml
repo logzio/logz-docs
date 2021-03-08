@@ -111,8 +111,6 @@ firstLevel:
   - title: Your Metrics data sources
     url: /user-guide/metrics/data-sources.html
     thirdLevel:
-    - title: Custom metrics
-      url: /user-guide/infrastructure-monitoring/custom-metrics
     - title: Rollups
       url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: Explore mode

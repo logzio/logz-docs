@@ -27,12 +27,7 @@ Here's how to get the tracing token:
 ### Via the Manage Tokens page
 
 {% include general-shipping/manage-tokens-nav.md %}
-
-Navigate to **Data shipping tokens** and click the **Tracing** option.
-
-The Listener URL and Region code for your account are displayed above the token table.
-
-The token for each account is listed in the table along with the date it was created. 
+{% include general-shipping/data-shipping-tokens_vars.md product="Tracing" %}
 
 </div>
 <!-- tab:end -->

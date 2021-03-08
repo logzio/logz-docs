@@ -52,8 +52,7 @@ These best-practice recommendations will help you keep your data secure when usi
 
 To manage your shared tokens: 
 {% include general-shipping/manage-tokens-nav.md %}
-
-Click the **Shared tokens** tab. 
+From your account, go to the <a href="https://app.logz.io/#/dashboard/settings/manage-tokens/shared" target ="_blank"> **Manage Tokens** > **Shared tokens** tab.</a> of your Operations workspace <br> It can be reached by selecting **<i class="li li-gear"></i> > Settings > Tools > Manage Tokens**.
 
 The token for each account is listed in the table along with the date it was created.
 

@@ -30,12 +30,9 @@ Here's how to get the metrics token:
 ### Via the Manage Tokens page
 
 {% include general-shipping/manage-tokens-nav.md %}
+{% include general-shipping/data-shipping-tokens_vars.md product="Metrics" %}
 
-Navigate to **Data shipping tokens** and click the **Metrics** option.
 
-The Listener URL and Region code for your account are displayed above the token table.
-
-The token for each account is listed in the table along with the date it was created. 
 
 </div>
 <!-- tab:end -->

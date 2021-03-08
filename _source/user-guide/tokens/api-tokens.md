@@ -20,7 +20,7 @@ API tokens are unique to each account. The only exception is a subset of account
 
 {% include general-shipping/manage-tokens-nav.md %}
 
-Click the **API tokens** tab. 
+From your account, go to the <a href="https://app.logz.io/#/dashboard/settings/manage-tokens/api" target ="_blank"> **Manage Tokens** > **API tokens** tab.</a> of your Operations workspace <br> It can be reached by selecting **<i class="li li-gear"></i> > Settings > Tools > Manage Tokens**. 
 
 The token for each account is listed in the table along with the date it was created.
 

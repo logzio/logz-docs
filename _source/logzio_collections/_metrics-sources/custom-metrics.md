@@ -125,18 +125,14 @@ Metrics are sent as minified JSON objects with one JSON object per line.
 
 (The examples above show beautified JSON because they are easier to explain. The metrics can't be sent that way.)
 
-You can use any of the following shippers to send your application metrics to Logz.io:
+You can use any of the following [log shippers](https://app.logz.io/#/dashboard/send-your-data?tag=from-your-code&collection=log-sources) to send your application metrics to Logz.io:
 
-
-{% for doc in site.log-sources %}
-{%- if doc.shipping-tags contains 'from-your-code' %}
-* [{{doc.data-source}}]({{doc.url}})
-{%- endif -%}
-{%- endfor -%}
-
-<br>
-
-
+* [.NET code](https://docs.logz.io/shipping/log-sources/dotnet.html)
+* [Go code](https://docs.logz.io/shipping/log-sources/go.html)
+* [Java code](https://docs.logz.io/shipping/log-sources/java.html)
+* [JSON uploads](https://docs.logz.io/shipping/log-sources/json-uploads.html)
+* [Node.js code](https://docs.logz.io/shipping/log-sources/nodejs.html)
+* [Python code](https://docs.logz.io/shipping/log-sources/python.html)
 
 
 ##### Contact support to request a custom rollups config

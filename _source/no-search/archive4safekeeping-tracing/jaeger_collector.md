@@ -16,6 +16,7 @@ shipping-tags:
   - traces
 ---
 ## Overview
+<!--Deprecated 8March2021: We recommend OpenTelemetry -->
 
 Logz.io's trace exporter for Jaeger allows you to ship distributed traces to Logz.io from different APM (Application Performance Management/Monitoring) agents, including Zipkin.
 

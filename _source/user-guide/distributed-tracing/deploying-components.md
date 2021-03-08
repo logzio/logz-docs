@@ -29,19 +29,13 @@ When you configure the components, make sure that you:
 + Specify the same network name in the code for both the collector and the agent.
 + Specify the relevant collector name when you configure your agent.  
 
-## Collector options
-
-You can use either the OpenTelemetry Collector or the Logz.io Jaeger Collector.
-
-### OpenTelemetry Collector
+## OpenTelemetry Collector
 Logz.io captures end-to-end distributed transactions from your applications and infrastructure with trace spans sent directly to Logz.io via the OpenTelemetry collector which you install inside your environment.
 
 We recommend that you use the OpenTelemetry collector to gather trace transaction data from your system. With the merging of the OpenTracing and OpenCensus projects, OpenTelemetry is the CNCF standard. We plan to add aggregated tracing metrics capabilities that will only be available via the OpenTelemetry collector.
 
 See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Installing the OpenTelemetry Collector for Distributed Tracing</a>_ for the procedure to configure and deploy the OpenTelemetry collector.
 
-### Logz.io Jaeger Collector
-As a secondary option, you may consider using the Jaeger Collector if you experience issues with the OpenTelemetry Collector. See _<a href ="/shipping/tracing-sources/jaeger-collector" target="_blank">Installing the Logz.io Jaeger Collector for Distributed Tracing</a>_ for the procedure to configure and deploy the Logz.io Jaeger collector.
 
 ## Agent
 

@@ -265,6 +265,12 @@
   force = true
 
 [[redirects]]
+  from = "/user-guide/infrastructure-monitoring/custom-metrics"
+  to = "/shipping/metrics-sources/custom-metrics.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/shipping/p8s-sources/*"
   to = "/shipping/prometheus-sources/:splat"
   status = 301

@@ -167,43 +167,6 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 </div>
 
 
-### Code sample: NXLog
-
-
-```conf
-User nxlog
-Group nxlog
-LogFile /var/log/nxlog/nxlog.log
-LogLevel INFO
-<Extension json>
-    Module      xm_json
-</Extension>
-<Input in>
-    Module  im_file
-    File    "/var/log/samples.log"
-    Exec    $token="<<LOG-SHIPPING-TOKEN>>"; $type="samples_log"; $message = $raw_event;
-    SavePos TRUE
-</Input>
-<Output out>
-    Module  om_ssl
-    CAFile /etc/nxlog/certs/COMODORSADomainValidationSecureServerCA.crt
-    AllowUntrusted FALSE
-    Host    <<LISTENER-HOST>>
-    Exec    $OutputModule="om_ssl"; to_json();
-    Port    5052
-</Output>
-<Route 1>
-    Path    in => out
-</Route>
-```
-
-
-
-<!-- info-box-start:info -->
-To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html).
-{:.info-box.read}
-<!-- info-box-end -->
-
 
 
 </div>

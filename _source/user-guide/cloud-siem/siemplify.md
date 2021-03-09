@@ -13,22 +13,18 @@ contributors:
   - shalper
 ---
 
-Integrate your Logz.io Cloud SIEM with [Siemplify](https://www.siemplify.co/) to automatically remediate security incidents identified by Logz.io and increase observability into incident details. 
+Integrate your Logz.io Cloud SIEM with [Siemplify](https://www.siemplify.co/) to automatically remediate incidents identified by Logz.io Cloud SIEM and increase observability into incident details.
 
-Siemplify is an industry-leading Security Orchestration, Automation & Response (SOAR) solution. The integration allows Siemplify users to implement playbooks to automatically remediate incidents identified by Logz.io Cloud SIEM.
+Siemplify is an industry-leading Security Orchestration, Automation & Response (SOAR) solution that gives SOC teams the ability to manage Security Operations from a single platform.
 
-In addition, users working in Siemplify can run Logz.io queries as Siemplify playbook actions to investigate events directly from the Siemplify interface. By integrating with Siemplify users can run Lucene queries on their Logz.io Cloud SIEM account to investigate open questions.
-
-accounts or investigate specific events to retrieve the logs responsible for triggering security rules.
-
-## Advantages of the integration
+## Advantages of the Logz.io <> Siemplify integration
 
 * Siemplify can automatically fetch Logz.io security events as new cases.
-  If you prefer to be selective about event fetching, filter Logz.io security events by rule severity and/or rule name.
+  If you prefer to be selective about event fetching, filter Logz.io security events by rule severity and/or rule name. Retroactive fetching is fully supported.
 
 * Siemplify playbooks can trigger automated responses to cases originating in security events identifed by Logz.io.
 
-* Get event details for a specific case. Any Siemplify playbook can use Logz.io actions to increase observability by querying logs for additional details.
+* Get event details for a specific case. Any Siemplify playbook can use Logz.io actions to increase observability by querying logs for additional details. Siemplify users will be able to run log queries on their Logz.io data within Siemplify playbook actions and investigate events directly from the Siemplify interface.
 
 * Implement the Logz.io out-of-the-box **Threat Investigation Playbook** for guidance and best practices for conducting an investigation.
 
@@ -64,23 +60,34 @@ Fill in the Logz.io integration panel:
 
 ![Logz.io integration panel for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-configure-instance.png)
 
+
 ##### Create the Logz.io connector
+
 
 Configure the Logz.io connector `LOGZ.IO fetch-security-events` to create cases in your Siemplify workspace from Logz.io security events.
 
-Logz.io writes a security event log whenever a security rule triggers in your Logz.io Cloud SIEM account. The event log contains details about the rule that was triggered and its conditions.
+Logz.io writes a security event log whenever a security rule triggers in your Logz.io Cloud SIEM account. The event log contains details about the rule that was triggered and the conditions it met.
 
 
 ![Siemplify Logz.io connector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-connector.png)
 
-Provide the The import command runs every minute to fetch new incidents based on the filtering configurations set in the integration panel.
+
+1. Configure the connector to open new Siemplify cases based on security events triggered in Logz.io Cloud SIEM. You can make use of the filtering options to be selective about the events.
+
+2. Enable the connector.
+
+3. Save the connector. Siemplify will now fetch security events from Logz.io and open new cases accordingly.
+
+    If you have configured retroactive fetching, there may be many cases created all at once, when you first enable the connector.
 
 ![Configure a Siemplify Logz.io connector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-integrations-panel.png)
 
-Enable the connector and save it to fetch security events from Logz.io as cases in Siemplify.
 
 ##### Use Logz.io Actions and Playbooks
 
+The Logz.io integration offers a sample indicator hunting playbook for Siemplify. The playbook can be used to investigate and hunt Indicators of Compromise (IOCs), such as file hashes, suspicious IP addresses, domains, and URLS.
+
+The playbook makes use of Logz.io actions that investigate events and output related information concerning the events, including involved users, IP addresses, host names, etc. that can be used to further research the indicators. Learn more about [investigating security events in Logz.io](/user-guide/cloud-siem/security-events.html) and by [API](/api/#operation/searchSecurityRuleEventLogs).
 
 
 ![Sample playbook for threat hunting with Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-playbook.png)

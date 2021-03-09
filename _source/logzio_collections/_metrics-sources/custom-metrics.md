@@ -137,7 +137,7 @@ You can use any of the following [log shippers](https://app.logz.io/#/dashboard/
 
 ##### Contact support to request a custom rollups config
 
-Your metrics will require customized compression configurations so they can be effectively retained for long-term storage. This is also known as [**data rollups**](/user-guide/infrastructure-monitoring/data-rollups.html), used to compress the data without losing the original max, min, and average values.
+Your metrics will require customized compression configurations so they can be effectively retained for long-term storage. This is also known as [**data rollups**](https://docs.logz.io/user-guide/infrastructure-monitoring/data-rollups.html), used to compress the data without losing the original max, min, and average values.
 
 [Email our support](mailto:help@logz.io?subject=Requesting%20a%20custom%20metrics%20rollup%20config) to kick off this process.
 

@@ -26,18 +26,18 @@ This page contains instructions on how to send custom metrics to Logz.io from yo
 
 ##### Install the snappy c-library
 
-    DEB: `sudo apt-get install libsnappy-dev`
+DEB: `sudo apt-get install libsnappy-dev`
 
-    RPM: `sudo yum install libsnappy-devel`
+RPM: `sudo yum install libsnappy-devel`
 
-    OSX/Brew: `brew install snappy`
+OSX/Brew: `brew install snappy`
 
-    Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
+Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
 
 ##### Install the exporter and opentelemtry sdk
-
-    `pip install opentelemetry-exporter-prometheus-remote-write`
-
+```
+pip install opentelemetry-exporter-prometheus-remote-write
+```
 ##### Add instruments to your application
 
 Replace the placeholders in the `exporter` section code (indicated by the double angle brackets `<< >>`) to match your specifics.

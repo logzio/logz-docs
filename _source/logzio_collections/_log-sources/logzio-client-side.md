@@ -1,9 +1,9 @@
 ---
-title: Ship Azure Blob logs
+title: Ship logs from your front-end to Logz.io.
 logo:
-  logofile: azure-blob.svg
+  logofile: 
   orientation: vertical
-data-source: Azure Blob logs
+data-source: Client Side Loggetr
 open-source:
   - title: logzio-client-side
     github-repo: logzio-client-side
@@ -11,7 +11,10 @@ contributors:
   - ronish31
   - shalper
 shipping-tags:
-  -  azure
+  -  clientside
+  -  logger
+  -  front-end logger
+  -  nodejs
 ---
 
 ## Logzio Client-side Logger

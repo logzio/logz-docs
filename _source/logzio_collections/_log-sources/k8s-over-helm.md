@@ -18,14 +18,15 @@ shipping-tags:
 <!-- tabContainer:start -->
 <div class="branching-container">
 
+* [Overview](#overview)
 * [Standard configuration](#standard-config)
 * [Autodiscover](#custom-config)
 * [Configurations & Defaults](#configurations)
-* [Uninstall](#uninstall)
+* [Multiline logs](#multiline)
 {:.branching-tabs}
 
 <!-- tab:start -->
-<div id="standard-config">
+<div id="overview">
 
 ###### Overview
 
@@ -33,18 +34,21 @@ You can use a Helm chart to ship k8s logs to Logz.io via Filebeat.
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.
 Logzio-k8s-logs allows you to ship logs from your Kubernetes cluster to Logz.io.
-You can either deploy this Daemonset with the standard Filebeat configuration or with Filebeat Autodiscover.
+You can either deploy this Daemonset with the standard Filebeat configuration or with Filebeat Autodiscover. (Learn more about [Filebeat Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html) from Elastic.)
 
-Learn more about [Filebeat Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html) from Elastic.
-
+Filebeat's basic configuration tends to split longer, multiline logs into multiple logs - 1 log per line. See the relevant tab for details and options for controlling this setting.
 
 <!-- info-box-start:info -->
 Helm 2 reached [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-released/#:~:text=6%20months%20after%20Helm%203's,Helm%202%20will%20formally%20end). This document follows the command syntax recommended for Helm 3, but the Chart will work with both Helm 2 and Helm 3.
 {:.info-box.note}
 <!-- info-box-end -->
 
+</div>
+<!-- tab:end -->
 
-{% include /log-shipping/multiline-logs-filebeat.md %}
+
+<!-- tab:start -->
+<div id="standard-config">
 
 #### Standard configuration
 
@@ -92,8 +96,6 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 
 Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running.
 
-
-{% include /log-shipping/multiline-logs-filebeat.md %}
 
 
 <div class="tasklist">
@@ -163,16 +165,42 @@ filebeat.yml: |-
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
+Give your logs some time to get from your system to ours,
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs,
+see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+#### Uninstalling the Chart
+
+The command removes all the k8s components associated with the chart and deletes the release.  
+To uninstall the `logzio-k8s-logs` deployment:
+
+```shell
+helm uninstall --namespace=kube-system logzio-k8s-logs
+```
+
+
 </div>
 <!-- tab:end -->
 
 <!-- tab:start -->
 <div id="configurations">
 
-#### Configurations
+### Changing a default
+
+If you wish to change the default values, specify each parameter using the `--set key=value` argument to `helm install`. For example,
+
+```shell
+helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs \
+  --set imageTag=7.7.0 \
+  --set terminationGracePeriodSeconds=30
+```
+
+
+#### Configurations & defaults
 
 | Parameter | Description | Default |
 |---|---|---|
@@ -213,31 +241,17 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 | `secrets.clusterName`| Secret with your cluster name. | `""` |
 
 
-If you wish to change the default values, specify each parameter using the `--set key=value` argument to `helm install`. For example,
-
-```shell
-helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs \
-  --set imageTag=7.7.0 \
-  --set terminationGracePeriodSeconds=30
-```
-
 </div>
 <!-- tab:end -->
 
 
 
 <!-- tab:start -->
-<div id="uninstall">
+<div id="multiline">
 
-#### Uninstalling the Chart
+{% include /log-shipping/multiline-logs-filebeat.md %}
 
-The command removes all the k8s components associated with the chart and deletes the release.  
-To uninstall the `logzio-k8s-logs` deployment:
-
-```shell
-helm uninstall --namespace=kube-system logzio-k8s-logs
-```
 </div>
-
 <!-- tab:end -->
+</div>
 <!-- tabContainer:end -->

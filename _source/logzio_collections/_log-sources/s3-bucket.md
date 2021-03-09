@@ -5,7 +5,6 @@ logo:
   orientation: vertical
 data-source: S3 Bucket
 shipping-tags:
-  - log-shipper
   - aws
 logzio-app-url: https://app.logz.io/#/dashboard/data-sources/S3-Bucket
 contributors:

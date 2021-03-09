@@ -45,8 +45,10 @@ Rename the file `sample-rules.conf.disabled` to `audit-rules.conf`. It will hold
 cp sample-rules.conf.disabled audit-rules.conf
 ```
 
+<!-- info-box-start:info -->
 You need root privileges to interact with the auditd rules file.
 {:.info-box.important}
+<!-- info-box-end -->
 
 ##### Add auditd as a source input and Logz.io as an output
 

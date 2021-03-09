@@ -215,6 +215,8 @@ firstLevel:
     thirdLevel:
     - title: Supported Security Integrations
       url: /user-guide/cloud-siem/integrations/
+    - title: Integrate with Siemplify
+      url: /user-guide/cloud-siem/integration/siemplify/
     - title: Integrate with Cortex xSOAR
       url: /user-guide/cloud-siem/xsoar-integration/
 

@@ -228,6 +228,8 @@ tags:
       
       
       For this purpose, all of the values in a lookup list should be mapped to the same field in Kibana. [Learn more in the user guide](/user-guide/lookups/)
+  - name: Account Latency
+
 
 x-tagGroups:
   - name: Log Monitoring
@@ -249,6 +251,7 @@ x-tagGroups:
       - Manage shared tokens
       - Manage notification endpoints
       - Import or export Kibana objects
+      - Account Latency
   - name: Manage data shipping
     tags:
       - Manage log shipping tokens
@@ -3567,10 +3570,128 @@ paths:
           headers: {}
 
   
-  
+# ;;;;;  LATENCIES
+  /latencies/summary/search:
+        post:
+            tags:
+                - Account Latency
+            summary: Public API - Search Account Latency
+            description: ''
+            operationId: searchAccountLatency
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - 
+                    in: body
+                    name: body
+                    required: false
+                    schema:
+                        $ref: '#/definitions/SearchLatencySummaryRequest'
+                - 
+                    name: X-API-TOKEN
+                    in: header
+                    description: Authentication Api Token
+                    required: false
+                    type: string
+                - 
+                    name: X-AUTH-TOKEN
+                    in: header
+                    description: Authentication User Session
+                    required: false
+                    type: string
+            responses:
+                '200':
+                    description: successful operation
+                    schema:
+                        $ref: '#/definitions/PagedSearchResponseAccountLatencySummary'
+  /latencies/summary:
+        get:
+            tags:
+                - Account Latency
+            summary: Public API - Get Account Latency
+            description: ''
+            operationId: getAccountLatency
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - 
+                    name: X-API-TOKEN
+                    in: header
+                    description: Authentication Api Token
+                    required: false
+                    type: string
+                - 
+                    name: X-AUTH-TOKEN
+                    in: header
+                    description: Authentication User Session
+                    required: false
+                    type: string
+            responses:
+                '200':
+                    description: successful operation
+                    schema:
+                        $ref: '#/definitions/AccountLatencySummary'
+      
   
 
 definitions:
+
+  # ::::: LATENCY DEFINITIONS
+  AccountLatencySummary:
+    type: object
+    properties:
+        accountId:
+            type: integer
+            format: int32
+        threshold:
+            type: integer
+            format: int64
+        min:
+            type: integer
+            format: int64
+        avg:
+            type: integer
+            format: int64
+        max:
+            type: integer
+            format: int64
+
+  PagedSearchResponseAccountLatencySummary:
+    type: object
+    properties:
+        total:
+            type: integer
+            format: int32
+        results:
+            type: array
+            items:
+                $ref: '#/definitions/AccountLatencySummary'
+        pagination:
+            $ref: '#/definitions/Pagination'
+
+  SearchLatencySummaryRequest:
+    type: object
+    properties:
+        filter:
+            $ref: '#/definitions/LatencySummaryFilterRequest'
+        pagination:
+            $ref: '#/definitions/Pagination'
+
+  LatencySummaryFilterRequest:
+    type: object
+    properties:
+        accountIds:
+            type: array
+            items:
+                type: integer
+                format: int32
+   
+
+
   # ::::: SIEM LOOKUPS
   PagedSearchResponseLookupListElement:
     type: object

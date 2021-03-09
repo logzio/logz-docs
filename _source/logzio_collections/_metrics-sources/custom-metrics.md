@@ -1,25 +1,17 @@
 ---
-layout: article
-title: Send custom metrics
-permalink: /user-guide/infrastructure-monitoring/custom-metrics
-flags:
-  #admin: true
-  logzio-plan: community
-tags:
-  - Grafana
+title: Upload custom metrics as JSON files
+logo:
+  logofile: json.svg
+  orientation: vertical
+data-source: JSON Custom Metrics
+templates: ["no-template"]
 contributors:
   - shalper
+shipping-tags:
+  - from-your-code
 ---
 
-You can send your application metrics to your Logz.io Infrastructure Monitoring account and create your own dashboards.
-
-To do this, you'll need to send your application metrics to Logz.io in JSON format and stick to the formatting guidelines.
-
-##### Overview
-{:.no_toc}
-
-1. toc list
-{:toc}
+You can send your application metrics to your Logz.io Infrastructure Monitoring account and create your own dashboards. To do this, you'll need to send your application metrics to Logz.io in JSON format and keep to the following formatting guidelines.
 
 
 <div class="tasklist">
@@ -58,7 +50,6 @@ The [rollup mechanism]({{site.baseurl}}/user-guide/infrastructure-monitoring/dat
 The best way to explain the guidelines is to look at a few examples. This tutorial will walk you through a typical example of how to best format a metric before sending it.
 
 ###### Before
-{:.no_toc}
 
 This example shows a rather inefficient way of sending metrics. There are several issues here:
 
@@ -80,7 +71,6 @@ This example shows a rather inefficient way of sending metrics. There are severa
 ```
 
 ###### After
-{:.no_toc}
 
 Rearrange the document to reduce the number of fields. If the metric's `name` and `value` are sent as a key-value pair and the `unit` is appended to the name, they are all collapsed into just one field named `refresh_page.duration.ms`. Here's the result:
 
@@ -135,26 +125,22 @@ Metrics are sent as minified JSON objects with one JSON object per line.
 
 (The examples above show beautified JSON because they are easier to explain. The metrics can't be sent that way.)
 
-You can use any of the following shippers to send your application metrics to Logz.io:
+You can use any of the following [log shippers](https://app.logz.io/#/dashboard/send-your-data?tag=from-your-code&collection=log-sources) to send your application metrics to Logz.io:
 
-
-{% for doc in site.log-sources %}
-{%- if doc.shipping-tags contains 'from-your-code' %}
-* [{{doc.data-source}}]({{doc.url}})
-{%- endif -%}
-{%- endfor -%}
-
-<br>
+* [.NET code](https://docs.logz.io/shipping/log-sources/dotnet.html)
+* [Go code](https://docs.logz.io/shipping/log-sources/go.html)
+* [Java code](https://docs.logz.io/shipping/log-sources/java.html)
+* [JSON uploads](https://docs.logz.io/shipping/log-sources/json-uploads.html)
+* [Node.js code](https://docs.logz.io/shipping/log-sources/nodejs.html)
+* [Python code](https://docs.logz.io/shipping/log-sources/python.html)
 
 
 ##### Contact support to request a custom rollups config
 
-Your Metrics account offers 18 month retention, by default.
-This is to allow you to establish your baseline and make comparisons over a substantial time frame.
+Your metrics will require customized compression configurations so they can be effectively retained for long-term storage. This is also known as [**data rollups**](https://docs.logz.io/user-guide/infrastructure-monitoring/data-rollups.html), used to compress the data without losing the original max, min, and average values.
 
-Data rollups are used to compress the data without losing the original extremes. The original max, min, and average values are kept so you can graph the data more accurately despite its compression. For more information and the list of default configs, see [Rollups](/user-guide/infrastructure-monitoring/data-rollups.html).
+[Email our support](mailto:help@logz.io?subject=Requesting%20a%20custom%20metrics%20rollup%20config) to kick off this process.
 
-To kick off this process, <a href="mailto:help@logz.io?subject=Requesting a custom metrics rollup config &body= Hi! I'd like to send custom metrics. Here's my info: 1. Logz.io Metrics account ID or token. 2. 5 sample JSONs 3. Dimensions associated with each Metricset.">email Support</a> to request a custom rollups config.
 
 Include the following details in your message:
 
@@ -233,14 +219,14 @@ This one takes all the wrong turns. After correcting it so the metric is a key-v
 Let's reiterate a few requirements and best-practice recommendations for logging application metrics.
 
 ###### Requirements
-{:.no_toc}
+
 
 * Minify the JSON to compress it and place each object on a separate line before shipping the data.
 
 * Use metric fields for numerical values & dimensions for text.
 
 ###### Best practices
-{:.no_toc}
+
 
 * State the unit in the metric's name.
 

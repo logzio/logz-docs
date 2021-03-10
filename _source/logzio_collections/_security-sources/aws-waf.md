@@ -47,6 +47,11 @@ You'll first need to make sure all your logs are being written to an S3 bucket.
 1. In your AWS WAF console, go to your web ACL screen. Select the web ACL you would like to send logs from.
 2. Set the web ACL to forward the logs to an S3 bucket.
 
+<!-- info-box-start:info -->
+See the [AWS Knowledge Center](https://aws.amazon.com/premiumsupport/knowledge-center/waf-configure-comprehensive-logging/) for further details.
+{:.info-box.tip}
+<!-- info-box-end -->
+
 ##### Configure Logz.io to read AWS WAF logs from an S3 Bucket
 
 In your Logz.io account, use the [Logz.io S3 Bucket wizard]((https://app.logz.io/#/dashboard/data-sources/S3-Bucket)) to configure Logz.io to read AWS WAF logs from the S3 Bucket.

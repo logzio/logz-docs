@@ -27,7 +27,7 @@ so you can investigate events in Kibana that are older than your plan’s retent
 * If the restore process exceeds the max, the process will fail.
 * The max data to restore is equivalent to your account's daily **reserved volume**, and no more than 100 GB.
 * Restore processes are capped at 100 GB. This maximum applies to accounts with a daily reserved volume greater than 100 GB.
-
+* Data can be restored from the **root of an S3 bucket**, but not a sub-bucket path.
 #### To restore and view archived logs
 
 **Before you begin, you'll need**:

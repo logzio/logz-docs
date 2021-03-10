@@ -75,6 +75,37 @@ Some endpoints require a particular attribute/payload. For example, [Microsoft T
 ![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST.png)
 
 
+###### Parameters
+
+Logz.io notifications use [Mustache templating](https://mustache.github.io/).
+You can add the following parameters to your notification payload.
+
+Test your payload. Some parameters may not be supported by the service receiving the alerts from Logz.io.
+{:.info-box.important}
+
+{% raw %}
+
+| Parameter | Description |
+|---|---|---|
+| {{alert_severity}} | Severity of the alert that triggered  |
+| {{alert_samples}} |   |
+| {{alert_severity_img}} | Colored icon indicating the alert severity  |
+| {{alert_title}} | Title of the alert that triggered  |
+| {{alert_app_url}} |   |
+| {{account_id}} | ID of the affected Logz.io account  |
+| {{account_name}} |  Name of the affected Logz.io account |
+| {{alert_description}} |  Description of the alert|
+| {{alert_timeframe_start}} | Start time for the triggered alert event.   |
+| {{alert_timeframe_end}} | End time for the triggered alert event  |
+| {{alert_event_image}} |   |
+| {{alert_event_samples}} |  Sample of raw logs that caused the alert to trigger. (Max. of 10) |
+| {{alert_event_html}} |   |
+| {{alert_timeframe_start_epoch_millis}} |  Start time for the triggered alert event in UNIX milliseconds |
+| {{alert_timeframe_end_epoch_millis}} |  End time for the triggered alert event in UNIX milliseconds |
+| {{alert_definition_id}} |   |
+
+
+
 ##### Test the endpoint (_Optional_)
 
 Click **Run the test** to test your endpoint.
@@ -88,3 +119,39 @@ Check that the message arrived at the target endpoint.
 
 
 </div>
+
+
+## List of available alert variables
+
+The following list is provided for convenience, to make it easy to copy & paste the parameters.
+
+
+
+```
+{{alert_samples}}
+{{alert_severity}}
+{{alert_severity_img}}
+{{alert_title}}
+{{alert_app_url}}
+{{account_id}}
+{{account_name}}
+{{alert_description}}
+{{alert_timeframe_start}}
+{{alert_timeframe_end}}
+{{alert_event_image}}
+{{alert_event_samples}}
+{{#alert_event_html}}
+{{alert_event_html}}
+{{alert_timeframe_start_epoch_millis}}
+{{alert_timeframe_end_epoch_millis}}
+{{alert_definition_id}}
+```
+
+
+To add a **View in Kibana** drilldown link:
+
+```
+"alert_view_link": "{{&alert_app_url}}#/view-triggered-alert?from={{&alert_timeframe_start_epoch_millis}}&to={{&alert_timeframe_end_epoch_millis}}&definitionId={{&alert_definition_id}}&switchToAccountId={{&account_id}}"
+```
+
+{% endraw %}

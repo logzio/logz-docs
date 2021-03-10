@@ -17,10 +17,16 @@ contributors:
 ![Restore a new account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/restored-accounts.png)
 
 When you restore archived logs,
-those logs are re-ingested into a temporary restored account
-that you can search from your main account.
+those logs are re-ingested into a temporary account. You can search restored accounts directly from your main account.
 Restoring archived logs allows you to see your data in its original detail,
 so you can investigate events in Kibana that are older than your plan’s retention period.
+
+
+### Known limitations
+
+* If the restore process exceeds the max, the process will fail.
+* The max data to restore is equivalent to your account's daily **reserved volume**, and no more than 100 GB.
+* Restore processes are capped at 100 GB. This maximum applies to accounts with a daily reserved volume greater than 100 GB.
 
 #### To restore and view archived logs
 
@@ -38,9 +44,13 @@ There are a few things you need to check before you begin the process.
 
     If you're planning to restore logs that could be dropped by your drop-filters, you'll need to first make the necessary changes to your drop-filters before restoring. Otherwise the logs will just be dropped right after they are restored, and before   they reach your Logz.io account.
 
-2. There's a **100 GB limit** on restoring from archive from the AWS side. If you exceed this limit, the restore will fail at the end of the process.
+2. The max data you can restore per restore process is equivalent to your account's daily **reserved volume**, and no more than 100 GB.
 
-    To avoid this outcome, we recommend calculating the volume of logs you are about to restore to make sure it is under the limit. You can make a rough calculation by looking at the daily volume of logs you ship against the number of hours you intend to restore.
+    There's also a **100 GB limit** on restore processes imposed by AWS. This maximum is relevant if you are attempting to restore data from an account with a daily reserved volume greater than 100 GB.
+  
+    If you exceed this limit, the restore will fail at the end of the process.
+
+    To avoid exceeding the max, we recommend calculating the volume of logs you are about to restore to make sure it is under the limit. You can make a rough calculation by looking at the daily volume of logs you ship against the number of hours you intend to restore.
 
     You can look up your account's volume analysis [here](https://app.logz.io/#/dashboard/settings/usage-and-billing).
 

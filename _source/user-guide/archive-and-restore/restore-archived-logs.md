@@ -46,9 +46,9 @@ There are a few things you need to check before you begin the process.
 
 2. The max data you can restore per restore process is equivalent to your account's daily **reserved volume**, and no more than 100 GB.
 
-    There's also a **100 GB limit** on restore processes imposed by AWS. This maximum is relevant if you are attempting to restore data from an account with a daily reserved volume greater than 100 GB.
+    The **100 GB limit** is imposed by AWS, and only applies if you are attempting to restore data from an account with a daily reserved volume greater than 100 GB. Otherwise, the lower threshold applies - as determined by your account's daily log volume.
   
-    If you exceed this limit, the restore will fail at the end of the process.
+    If you exceed this limit, the restore will fail at the **end** of the process.
 
     To avoid exceeding the max, we recommend calculating the volume of logs you are about to restore to make sure it is under the limit. You can make a rough calculation by looking at the daily volume of logs you ship against the number of hours you intend to restore.
 

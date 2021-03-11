@@ -96,7 +96,7 @@ The playbook makes use of Logz.io actions that investigate events and output rel
 </div>
 
 
-#### Setting up the integration in Siemplify
+#### Initializing the Logz.io playbook in Siemplify
 
 <div class="tasklist">
 
@@ -115,20 +115,55 @@ The playbook makes use of the following actions:
 * Case tag
 * Create entity relationship
 
+
 ##### Initialize the block parameters
 
-Initialize the playbook to one, specific indicator type: hash, URL, IP, or domain. The playbook is designed to work on a single branch, that is indicator-specific.
+The playbook offers 4 use-cases (aka _branches_), each specific to a single indicator type: hash, URL, IP, and domain indicators.
 
 
-input parameter.
+![Logz.io Indicator Hunting playbook for Siemplify should be initialized for a single indicator type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-initialize-block.png)
 
-Repeat the process for each indicator type, as relevant. The set of actions for each branch are indicator-specific, yet equivalent.
 
-{:.info-box.tip}
+Configure the input parameter that will initialize the playbook.
+
+| Action Name | Description |
+|---|---|
+| Hash_initialize_block: PB_Hash | Initializes hash input parameters |
+| URL_initialize_block: PB_Url | Initializes URL input parameters |
+| IP_initialize_block: PB_IP | Initializes IP input parameters |
+| Domain_initialize_block: PB_Domain | Initializes domain input parameters |
+
+![Initialize the input block for the Logz.io playbook for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-initialize-block2.png)
+
 
 ##### Initialize the json-adapter parameters
 
-The playbook 
+Whenever the initializing block is triggered, the `Logzio-search-logs` action will automatically run a search query in your Logz.io account for logs that match the output of the initializing block.
 
+The action returns an array of relevant logs that matched the query in JSON format. The results are designed to help SOC analysts investigate the context surrounding the indicator.
+
+The `Logzio-json-adapter` action translates Logz.io output into entities that conform to the Siemplify schema and can be reused by any Siemplify playbook and action.
+
+In the example below, the action searches for `sourceHostName` in all the logs and extracts the results to a Siemplify entity.
+
+
+You can provide more than 1 field, regardless of the log type.
+{:.info-box.note}
+
+
+![Initialize the Logz.io json adapter for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/hash-json-adapter.png)
+
+
+
+##### Initialize for other indicator type
+
+
+Repeat the process for each indicator type, as relevant. The set of actions for each branch are indicator-specific, yet equivalent.
+
+
+##### Investigate the indicator
+
+
+![Output example for the Logz.io incident hunting playbook for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/playbook-output-example.png)
 
 

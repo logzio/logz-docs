@@ -240,7 +240,7 @@ x-tagGroups:
     tags:
       - Security rules
       - Security events
-      - Lookups
+      - Lookup lists
   - name: Account administration
     tags:
       - Manage users
@@ -3312,7 +3312,7 @@ paths:
       summary: Create lookup list
       description: Creates a new lookup list. After you create the list, you can run the endpoint to add elements to the list.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: createLookupList
       produces:
         - application/json
@@ -3334,7 +3334,7 @@ paths:
       summary: Get all/Search lookup lists
       description: Searches for lookup lists by name or ID. Can also be run without a filter to return the full list of existing lookups. Returns a paginated list of results.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: searchLookupLists
       produces:
         - application/json
@@ -3355,7 +3355,7 @@ paths:
       summary: Get lookup by ID
       description: Retrieves the general details for an existing lookup list.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: getLookupList
       produces:
         - application/json
@@ -3376,7 +3376,7 @@ paths:
       summary: Update lookup list
       description: Update the name and/or description of an exisiting lookup list.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: updateLookupList
       produces:
         - application/json
@@ -3402,7 +3402,7 @@ paths:
       summary: Delete lookup list
       description: Deletes a lookup list. Note that this action can affect rules, dashboards, and reports if they are dependent on the lookup list.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: deleteLookupList
       produces:
         - application/json
@@ -3425,7 +3425,7 @@ paths:
       summary: Add element to a lookup list
       description: Adds a new element to an existing lookup list. An element is a field value and comment (helpful description that does not affect the lookup functionally).
       tags:
-        - Lookups
+        - Lookup lists
       operationId: createLookupListElement
       produces:
         - application/json
@@ -3452,7 +3452,7 @@ paths:
       summary: Get all/Search lookup elements
       description: Searches elements in a specified lookup list. Can also be run without a filter to return the full list of elements. Returns a paginated list of results.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: searchLookupListElements
       produces:
         - application/json
@@ -3480,7 +3480,7 @@ paths:
       summary: Get element
       description: Retrieves a specific lookup element by its ID.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: getLookupListElement
       produces:
         - application/json
@@ -3508,7 +3508,7 @@ paths:
       summary: Update element
       description: Changes the value and/or comment of a specific element, identified by its ID.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: updateLookupListElement
       produces:
         - application/json
@@ -3541,7 +3541,7 @@ paths:
       summary: Delete element
       description: Deletes a specific lookup element, identified by its ID.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: deleteLookupListElement
       produces:
         - application/json
@@ -3564,6 +3564,36 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/LookupListElement'
+          headers: {}
+
+  /lookup-lists/{lookupListId}/elements/bulk-add:
+    post:
+      tags:
+        - Lookup lists
+      operationId: addLookupListElements
+      summary: Add elements in bulk
+      description: Adds an array of elements to an existing Lookup list.
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LookupListElementCreateRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElementBulkResponse'
           headers: {}
 
   
@@ -3605,6 +3635,8 @@ definitions:
         example: ABC Server
   LookupListElementCreateRequest:
     type: object
+    required: 
+      - value
     properties:
       value:
         type: string
@@ -3711,6 +3743,27 @@ definitions:
       pagination:
         $ref: '#/definitions/Pagination'
 
+  LookupListElementBulkResponse:
+    type: object
+    properties:
+      status:
+        type: string
+        enum:
+          - SUCCESS
+          - PARTIAL_FAILED
+          - FAILED
+        description: Returns the status of the requests.
+        example: SUCCESS
+      numOfElements:
+        type: integer
+        format: int32
+        description: Returns the number of elements added to the lookup list.
+        example: 32
+      numUpdated:
+        type: integer
+        format: int32
+        description: Returns the number of elements updated in the lookup list.
+        example: 42
 
 
   

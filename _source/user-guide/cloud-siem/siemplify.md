@@ -9,6 +9,7 @@ tags:
   - security-rules
   - siemplify
   - third party integrations
+  - playbook
 contributors:
   - shalper
 ---
@@ -91,4 +92,43 @@ The playbook makes use of Logz.io actions that investigate events and output rel
 
 
 ![Sample playbook for threat hunting with Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-playbook.png)
+
+</div>
+
+
+#### Setting up the integration in Siemplify
+
+<div class="tasklist">
+
+##### Add the Logz.io Playbook
+
+In your Siemplify workspace, add the playbook **Logz.io Indicator Hunting**.
+
+The playbook makes use of the following actions:
+
+* logzio-search-logs
+* logzio Json-adapter
+* Trigger - custom value
+* Blocks
+* Previous action conditions
+* Instruction
+* Case tag
+* Create entity relationship
+
+##### Initialize the block parameters
+
+Initialize the playbook to one, specific indicator type: hash, URL, IP, or domain. The playbook is designed to work on a single branch, that is indicator-specific.
+
+
+input parameter.
+
+Repeat the process for each indicator type, as relevant. The set of actions for each branch are indicator-specific, yet equivalent.
+
+{:.info-box.tip}
+
+##### Initialize the json-adapter parameters
+
+The playbook 
+
+
 

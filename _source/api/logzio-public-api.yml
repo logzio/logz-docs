@@ -3752,7 +3752,7 @@ definitions:
           - SUCCESS
           - PARTIAL_FAILED
           - FAILED
-        description: Returns the status of the requests.
+        description: Returns the status of the request.
         example: SUCCESS
       numOfElements:
         type: integer
@@ -3762,7 +3762,7 @@ definitions:
       numUpdated:
         type: integer
         format: int32
-        description: Total number of elements in the array that were merged with duplicate values in the existing list. (In other words, the number of elements that existed in the Lookup list before the request, which were updated by the request.) 
+        description: Total number of elements in the array that were merged with duplicate values in the existing list. (In other words, the number of elements that already existed in the Lookup list and which were updated by the request.)
         example: 42
 
 

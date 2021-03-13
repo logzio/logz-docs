@@ -15,7 +15,7 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 
 * **Metrics metadata dashboards**: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. _(currently in development)_
 
-Learn more about Prometheus [remote write tuning here.](https://prometheus.io/docs/practices/remote_write/") 
+Learn more about Prometheus [remote write tuning here.](https://prometheus.io/docs/practices/remote_write/) 
 
 Once your metrics are flowing, export your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
 

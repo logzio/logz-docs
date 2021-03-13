@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Dashboard variables
-permalink: /user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html
+permalink: /user-guide/infrastructure-monitoring/configure-metrics-drilldown-links.html
 flags:
   logzio-plan: pro
 tags:
@@ -26,7 +26,7 @@ Grafana variables are indicated with a `$`.
 
 ##### Add a new dashboard and variable
 
-* In Grafana's left menu, click <i class="fas fa-plus"></i>.
+* In the Metrics left menu, click <i class="fas fa-plus"></i>.
 * Click <i class="fas fa-cog"></i> in the dashboard toolbar (upper right corner).
 * Select **Variables** > **Add variable**.
 

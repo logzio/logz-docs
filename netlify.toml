@@ -288,3 +288,15 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/grafana*"   
+  to = "/user-guide/infrastructure-monitoring/metrics:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/configure-grafana*"   
+  to = "/user-guide/infrastructure-monitoring/configure-metrics:splat"
+  status = 301
+  force = true
+

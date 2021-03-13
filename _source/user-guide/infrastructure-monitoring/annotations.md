@@ -61,7 +61,7 @@ These should be fields that contain the crucial information from the log. Their 
 
 Here's an example of a configuration and its resulting annotation.
 
-![Add log fields to your grafana annotation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/annotation-fields.png)
+![Add log fields to your annotation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/annotation-fields.png)
 
 
 ##### Save the annotation & dashboard

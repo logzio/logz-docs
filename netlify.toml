@@ -289,11 +289,10 @@
   force = true
 
 [[redirects]]
-  from = "/shipping/p8s-sources/aws-redshift-p8s*"
-  to = "/shipping/prometheus-sources/aws-redshift-prometheus:splat"
+  from = "/shipping/p8s-sources/aws-redshift-p8s.html*"
+  to = "/shipping/prometheus-sources/aws-redshift-prometheus.html"
   status = 301
   force = true
-
 
 [[redirects]]
   from = "/user-guide/infrastructure-monitoring/grafana*"   

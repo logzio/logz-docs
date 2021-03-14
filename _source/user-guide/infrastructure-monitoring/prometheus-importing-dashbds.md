@@ -35,7 +35,7 @@ Log into Logz.io and navigate to the **Metrics** tab.
 In the left navigation pane, click <i class="fas fa-plus"></i> and select **Import**.
 ![Import dashboards to Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/metrics-prometheus/import-dash-prometheus.png)
 
-  - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload json file** and select the files to upload. 
+  - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload JSON file** and select the files to upload. 
     
     For related information see [Upload JSON logs]({{site.baseurl}}/shipping/log-sources/json-uploads). 
   <!-- - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them. --> 

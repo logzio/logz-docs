@@ -39,7 +39,7 @@ In the left navigation pane, click <i class="fas fa-plus"></i> and select **Impo
     
     For related information see [Upload JSON logs]({{site.baseurl}}/shipping/log-sources/json-uploads). 
   <!-- - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them. --> 
-  <!-- As of 14 March, the ability to use the Import via grafana.com is not available in the product interface>
+  <!-- As of 14 March, the ability to use the Import via grafana.com is not available in the product interface-->
 </div>
 
 

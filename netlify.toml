@@ -289,7 +289,7 @@
   force = true
 
 [[redirects]]
-  from = "/shipping/p8s-sources/aws-redshift-p8s.html*"
+  from = "/shipping/p8s-sources/aws-redshift-p8s.html"
   to = "/shipping/prometheus-sources/aws-redshift-prometheus.html"
   status = 301
   force = true

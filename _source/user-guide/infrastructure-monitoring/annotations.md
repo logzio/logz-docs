@@ -48,7 +48,7 @@ You'll be using a Kibana search query to select the logs you want to mark on you
 Type in a _Kibana_ query in Lucene syntax.
 It's best if you double-check your query results in [Kibana Discover](/user-guide/kibana/) to make sure it is specific enough.
 
-You can use Grafana variables, on condition that the value of the variable actually appears in the target log. For example, the query `logtype:configuration AND pod.name:$pod` would work assuming the fields `logtype` and `pod.name` exist in the log.
+You can use Metrics interface variables, on condition that the value of the variable actually appears in the target log. For example, the query `logtype:configuration AND pod.name:$pod` would work assuming the fields `logtype` and `pod.name` exist in the log.
 
 ##### Enrich the annotation
 

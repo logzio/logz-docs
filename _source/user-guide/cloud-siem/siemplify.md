@@ -102,7 +102,7 @@ The playbook makes use of Logz.io actions that investigate events and output rel
 
 ##### Add the Logz.io Playbook
 
-In your Siemplify workspace, add the playbook **Logz.io Indicator Hunting**.
+In your Siemplify workspace, import the playbook **Logz.io Indicator Hunting**.
 
 The playbook makes use of the following actions:
 
@@ -118,7 +118,7 @@ The playbook makes use of the following actions:
 
 ##### Initialize the block parameters
 
-The playbook offers 4 use-cases (aka _branches_), each specific to a single indicator type: hash, URL, IP, and domain indicators.
+The playbook offers 4 use-cases (aka _branches_), each specific to a single indicator type: hash, URL, IP, and domain.
 
 
 ![Logz.io Indicator Hunting playbook for Siemplify should be initialized for a single indicator type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-initialize-block.png)
@@ -126,12 +126,12 @@ The playbook offers 4 use-cases (aka _branches_), each specific to a single indi
 
 Configure the input parameter that will initialize the playbook.
 
-| Action Name | Description |
-|---|---|
-| Hash_initialize_block: PB_Hash | Initializes hash input parameters |
-| URL_initialize_block: PB_Url | Initializes URL input parameters |
-| IP_initialize_block: PB_IP | Initializes IP input parameters |
-| Domain_initialize_block: PB_Domain | Initializes domain input parameters |
+| Action | Field | Description |
+|---|---|---|
+| Hash_initialize_block| PB_Hash | Initializes hash input parameters |
+| URL_initialize_block| PB_Url | Initializes URL input parameters |
+| IP_initialize_block| PB_IP | Initializes IP input parameters |
+| Domain_initialize_block| PB_Domain | Initializes domain input parameters |
 
 ![Initialize the input block for the Logz.io playbook for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-initialize-block2.png)
 

@@ -48,6 +48,10 @@ we recommend authenticating with an IAM role.
 * To set up an access key, see
   [_Give AWS access with access keys_]({{site.baseurl}}/user-guide/give-aws-access-with-access-keys/)
 
+
+Select a path to the **root of an S3 bucket**, to support data restore options. Data cannot be restored from a sub-bucket path.
+{:.info-box.important}
+
 ##### Test your connection and save
 
 Click **Test connection** to make sure your bucket name and credentials

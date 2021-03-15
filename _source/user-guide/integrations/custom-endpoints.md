@@ -75,6 +75,44 @@ Some endpoints require a particular attribute/payload. For example, [Microsoft T
 ![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST.png)
 
 
+##### Configure your payload to add data to your alert notifications
+
+You can enhance your alert notifications with data pulled from the triggered alert.
+
+For example, you can add a **View in Kibana** drilldown link to a notification using the following:
+
+```
+"alert_view_link": "{{&alert_app_url}}#/view-triggered-alert?from={{&alert_timeframe_start_epoch_millis}}&to={{&alert_timeframe_end_epoch_millis}}&definitionId={{&alert_definition_id}}&switchToAccountId={{&account_id}}"
+```
+
+Logz.io notifications use [Mustache templating](https://mustache.github.io/).
+All variables are HTML escaped by default. If you want to return **unescaped HTML**, add an **ampersand (&)**, for example `{{&alert_title}}`.
+
+{% raw %}
+
+| Parameter | Description |
+|---|---|---|
+| {{alert_title}} | Title of the alert that triggered  |
+| {{alert_description}} | Description of the alert|
+| {{alert_definition_id}} | Unique alert ID. |
+| {{alert_severity}} | Severity of the alert that triggered  |
+| {{account_id}} | ID of the affected Logz.io account  |
+| {{account_name}} |  Name of the affected Logz.io account |
+| {{alert_samples}} | Prints a sample of the raw logs that caused the alert to trigger. (JSON format, max. of 10 logs.) |
+| {{alert_event_html}} | Returns a URL to an HTML file with the output table, as defined in the alert. Only relevant if the alert is configured to output data in tables. |
+| {{alert_event_image}} | Returns a URL to an image file with the output table, as defined in the alert. Only relevant if the alert is configured to output data in tables. |
+| {{alert_timeframe_start}} | Start time for the triggered alert event.   |
+| {{alert_timeframe_end}} | End time for the triggered alert event  |
+| {{alert_severity_img}} | Colored icon indicating the alert severity  |
+| {{alert_timeframe_start_epoch_millis}} |  Start time for the triggered alert event in UNIX milliseconds |
+| {{alert_timeframe_end_epoch_millis}} |  End time for the triggered alert event in UNIX milliseconds |
+| {{alert_app_url}}| The domain to your Logz.io account, for example: `https://app.logz.io`. Is used to build links. |
+
+
+Test your payload. Some parameters may not be supported by the service receiving the alerts from Logz.io.
+{:.info-box.important}
+
+
 ##### Test the endpoint (_Optional_)
 
 Click **Run the test** to test your endpoint.
@@ -88,3 +126,30 @@ Check that the message arrived at the target endpoint.
 
 
 </div>
+
+
+## List of available alert variables
+
+The following list is provided for convenience, to make it easy to copy & paste the parameters.
+
+
+
+```
+{{alert_title}}
+{{alert_description}}
+{{alert_definition_id}}
+{{alert_severity}}
+{{account_name}}
+{{account_id}}
+{{alert_samples}}
+{{alert_event_html}}
+{{alert_event_image}} 
+{{alert_timeframe_start}}
+{{alert_timeframe_end}}
+{{alert_timeframe_start_epoch_millis}}
+{{alert_timeframe_end_epoch_millis}}
+{{alert_app_url}}
+```
+
+
+{% endraw %}

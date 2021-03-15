@@ -27,7 +27,7 @@ Siemplify is an industry-leading Security Orchestration, Automation & Response (
 
 * Get event details for a specific case. Any Siemplify playbook can use Logz.io actions to increase observability by querying logs for additional details. Siemplify users will be able to run log queries on their Logz.io data within Siemplify playbook actions and investigate events directly from the Siemplify interface.
 
-* Implement the Logz.io out-of-the-box **Threat Investigation Playbook** for guidance and best practices for conducting an investigation.
+* Implement the out-of-the-box **Logz.io Indicator Hunting Playbook** for guidance and best practices for conducting an investigation.
 
 #### Setting up the integration in Siemplify
 
@@ -154,16 +154,19 @@ You can provide more than 1 field, regardless of the log type.
 ![Initialize the Logz.io json adapter for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/hash-json-adapter.png)
 
 
-
-##### Initialize for other indicator type
-
-
-Repeat the process for each indicator type, as relevant. The set of actions for each branch are indicator-specific, yet equivalent.
-
-
 ##### Investigate the indicator
+
+In our example, the playbook ran an action to extract the field `sourceHostName` from all logs. As a result, the playbook identified another `hostname` affected by the same hash indicator. The red color indicates that the new station was previously missed.
 
 
 ![Output example for the Logz.io incident hunting playbook for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/playbook-output-example.png)
 
 
+##### Repeat for other indicator types
+
+
+The **Logz.io Indicator Hunting Playbook** can help you track several indicator types. You'll need to repeat the process to initialize the playbook for each indicator type, as relevant.
+
+
+The set of actions for each branch are indicator-specific, yet equivalent.
+{:.info-box.note}

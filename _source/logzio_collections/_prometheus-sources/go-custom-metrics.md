@@ -41,8 +41,8 @@ Set the variables in the following code snippet:
 
 |Environment variable|Description|
 |---|---|
-|Endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. Replace `<<LISTENER-HOST>>` with the [host for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). |
-|BearerToken| Replace `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the token for shipping Prometheus metrics to your Logz.io account. Find it under **Settings > Manage accounts**. [_How do I look up my Metrics account token?_](/user-guide/accounts/finding-your-metrics-account-token/)  |
+|Endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {% include /log-shipping/listener-var.html %} |
+|BearerToken| Your Logz.io Prometheus Metrics account token.  {% include /p8s-shipping/replace-prometheus-token.html %}  |
 |p8s_logzio_name| Label to add to all custom metrics |
 
 
@@ -65,10 +65,10 @@ import (
 func main() {
 	// Create a new Config struct.
 	config := cortex.Config{
-		Endpoint:      "<<listener>>",
+		Endpoint:      "<<LISTENER-HOST>>",
 		RemoteTimeout: 30 * time.Second,
 		PushInterval:  15 * time.Second,
-		BearerToken:   "<<metrics-token>>",
+		BearerToken:   "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>",
 	}
 	// Create and install the exporter. Additionally, set the push interval to 15 seconds
 	// and add a resource to the controller.
@@ -100,7 +100,7 @@ func handleErr(err error) {
 ###### Types of metric instruments
 For more information, see the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
 
-| Name | Behavieour | Default aggregation |
+| Name | Behavior | Default aggregation |
 | ---- | ---------- | ------------------- |
 | Counter           | Metric value can only go up or be reset to 0, calculated per `counter.Add(context,value,labels)` request. | Sum |
 | UpDownCounter     | Metric value can arbitrarily increment or decrement, calculated per `updowncounter.Add(context,value,labels)` request. | Sum |
@@ -209,5 +209,8 @@ _ = metric.Must(meter).NewInt64ValueObserver("valueobserver", observerCallback,
 )
 ```
 <!-- See full [example](link2github) -->
+
+##### Check Logz.io for your metrics
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).
 
 </div>

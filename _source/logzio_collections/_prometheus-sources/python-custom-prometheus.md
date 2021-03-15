@@ -45,8 +45,8 @@ Set the environment variables for the `exporter` section:
 
 |Environment variable|Description|
 |---|---|
-|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. Replace `<<LISTENER-HOST>>` with the [host for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). |
-|Bearer| Replace `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the token for shipping Prometheus metrics to your Logz.io account. Find it under **Settings > Manage accounts**. [_How do I look up my Metrics account token?_](/user-guide/accounts/finding-your-metrics-account-token/)  |
+|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {% include /log-shipping/listener-var.html %} |
+|Bearer| Your Logz.io Prometheus Metrics account token.  {% include /p8s-shipping/replace-prometheus-token.html %}  |
 
 
 ```python
@@ -205,4 +205,8 @@ meter.register_valueobserver(
     value_type=float,
 )
 ```
+
+##### Check Logz.io for your metrics
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).
+
 </div>

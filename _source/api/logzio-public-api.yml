@@ -6494,7 +6494,7 @@ definitions:
         type: array
         items:
           type: string
-        maxItems: 10
+        maxItems: 25
         minItems: 0
         description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
         example: network

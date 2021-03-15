@@ -9,6 +9,7 @@ tags:
   - security-rules
   - siemplify
   - third party integrations
+  - playbook
 contributors:
   - shalper
 ---
@@ -26,7 +27,7 @@ Siemplify is an industry-leading Security Orchestration, Automation & Response (
 
 * Get event details for a specific case. Any Siemplify playbook can use Logz.io actions to increase observability by querying logs for additional details. Siemplify users will be able to run log queries on their Logz.io data within Siemplify playbook actions and investigate events directly from the Siemplify interface.
 
-* Implement the Logz.io out-of-the-box **Threat Investigation Playbook** for guidance and best practices for conducting an investigation.
+* Implement the out-of-the-box **Logz.io Indicator Hunting Playbook** for guidance and best practices for conducting an investigation.
 
 #### Setting up the integration in Siemplify
 
@@ -92,3 +93,80 @@ The playbook makes use of Logz.io actions that investigate events and output rel
 
 ![Sample playbook for threat hunting with Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-playbook.png)
 
+</div>
+
+
+#### Initializing the Logz.io playbook in Siemplify
+
+<div class="tasklist">
+
+##### Add the Logz.io Playbook
+
+In your Siemplify workspace, import the playbook **Logz.io Indicator Hunting**.
+
+The playbook makes use of the following actions:
+
+* logzio-search-logs
+* logzio Json-adapter
+* Trigger - custom value
+* Blocks
+* Previous action conditions
+* Instruction
+* Case tag
+* Create entity relationship
+
+
+##### Initialize the block parameters
+
+The playbook offers 4 use-cases (aka _branches_), each specific to a single indicator type: hash, URL, IP, and domain.
+
+
+![Logz.io Indicator Hunting playbook for Siemplify should be initialized for a single indicator type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-initialize-block.png)
+
+
+Configure the input parameter that will initialize the playbook.
+
+| Action | Field | Description |
+|---|---|---|
+| Hash_initialize_block| PB_Hash | Initializes hash input parameters |
+| URL_initialize_block| PB_Url | Initializes URL input parameters |
+| IP_initialize_block| PB_IP | Initializes IP input parameters |
+| Domain_initialize_block| PB_Domain | Initializes domain input parameters |
+
+![Initialize the input block for the Logz.io playbook for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-initialize-block2.png)
+
+
+##### Initialize the json-adapter parameters
+
+Whenever the initializing block is triggered, the `Logzio-search-logs` action will automatically run a search query in your Logz.io account for logs that match the output of the initializing block.
+
+The action returns an array of relevant logs that matched the query in JSON format. The results are designed to help SOC analysts investigate the context surrounding the indicator.
+
+The `Logzio-json-adapter` action translates Logz.io output into entities that conform to the Siemplify schema and can be reused by any Siemplify playbook and action.
+
+In the example below, the action searches for `sourceHostName` in all the logs and extracts the results to a Siemplify entity.
+
+
+You can provide more than 1 field, regardless of the log type.
+{:.info-box.note}
+
+
+![Initialize the Logz.io json adapter for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/hash-json-adapter.png)
+
+
+##### Investigate the indicator
+
+In our example, the playbook ran an action to extract the field `sourceHostName` from all logs. As a result, the playbook identified another `hostname` affected by the same hash indicator. The red color indicates that the new station is involved and was discovered by the playbook.
+
+
+![Output example for the Logz.io incident hunting playbook for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/playbook-output-example.png)
+
+
+##### Repeat for other indicator types
+
+
+The **Logz.io Indicator Hunting Playbook** can help you track several indicator types. You'll need to repeat the process to initialize the playbook for each indicator type, as relevant.
+
+
+The set of actions for each branch are indicator-specific, yet equivalent.
+{:.info-box.note}

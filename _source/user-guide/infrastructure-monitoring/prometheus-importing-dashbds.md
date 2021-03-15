@@ -3,8 +3,7 @@ layout: article
 title: Importing metrics dashboards   
 permalink: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
 flags:
-  logzio-plan:  
-  beta: true
+  logzio-plan: pro 
 tags:
   - metrics integrations
 contributors:
@@ -12,7 +11,8 @@ contributors:
   - yotamloe
 ---
 
-{% include page-info/early-access.md type="beta" %}
+{% include /p8s-shipping/prometheus-rollout.md %}
+
 
 You can import your existing Grafana dashboards to Logz.io via a manual process.
  

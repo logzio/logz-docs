@@ -3,15 +3,13 @@ layout: article
 title: Getting started with Prometheus 
 permalink: /user-guide/infrastructure-monitoring/prometheus-getting-started.html
 flags:
-  logzio-plan: 
-  beta: true
+  logzio-plan: pro
 tags:
   - metrics integrations
 contributors:
   - yberlinger
 ---
-
-{% include page-info/early-access.md type="beta" %} 
+{% include /p8s-shipping/prometheus-rollout.md %}
 
 ## Why go it alone? 
 Manage your metrics with Logz.io Infrastructure Monitoring, powered by Prometheus.  

@@ -5,7 +5,7 @@ permalink: /user-guide/infrastructure-monitoring/metrics-explore-prometheus/
 flags:
   #admin: true
   logzio-plan: pro
-  beta: true
+  beta: 
 tags:
   - Metrics
 contributors:
@@ -13,6 +13,9 @@ contributors:
   - shalper
   - yberlinger
 ---
+
+{% include /p8s-shipping/prometheus-rollout.md %}
+
 
 Metrics Explore is where you can research the data available in your Prometheus metrics account and discover the metadata (tags, dimensions, or fields) associated with each metric from the services in your environment.
 

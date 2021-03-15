@@ -13,7 +13,7 @@ contributors:
 Logz.io Metrics will help you monitor the health of your systems and catch issues BEFORE your customers notice.
 Here's how Logz.io Metrics will get you there.
 
-Logz.io Metrics is a Grafana-based infrastructure monitoring platform that integrates seamlessly with the Kibana-based logging platform. Grafana is the leading open-source tool for visualizing numerical data at scale, with powerful graphing capabilities of trends, changes over time, derivatives, and inflection curves.
+Logz.io Metrics is a Prometheus-based infrastructure monitoring platform that integrates seamlessly with the Kibana-based logging platform. Prometheus is the leading open-source tool for visualizing numerical data at scale, with powerful graphing capabilities of trends, changes over time, derivatives, and inflection curves.
 
 
 ### Easily correlate metrics with logs

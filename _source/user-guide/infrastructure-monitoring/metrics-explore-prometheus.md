@@ -1,26 +1,26 @@
 ---
 layout: article
 title: Explore your Prometheus metrics
-permalink: /user-guide/infrastructure-monitoring/grafana-explore-prometheus/
+permalink: /user-guide/infrastructure-monitoring/metrics-explore-prometheus/
 flags:
   #admin: true
   logzio-plan: pro
   beta: true
 tags:
-  - Grafana
+  - Metrics
 contributors:
   - daniel-tk
   - shalper
   - yberlinger
 ---
 
-Grafana Explore is where you can research the data available in your Prometheus metrics account and discover the metadata (tags, dimensions, or fields) associated with each metric from the services in your environment.
+Metrics Explore is where you can research the data available in your Prometheus metrics account and discover the metadata (tags, dimensions, or fields) associated with each metric from the services in your environment.
 
 It's a bit like Kibana Discover, in that it is optimized for quickly searching the data in preparation for creating dashboards.
 
-Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, Grafana’s Explore mode is the best way to do it. It's also great if you're a long-time user and want to examine the structure of your metrics to create a new monitoring dashboard.
+Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, the Metrics Explore mode is the best way to do it. It's also great if you're a long-time user and want to examine the structure of your metrics to create a new monitoring dashboard.
 
-To go to Grafana’s Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
+To go to Metrics Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
 <!-- Exposing the metrics in your system - discovering the associated metadata (tags, dimensions, or fields) sent by the services in your environment -->
 

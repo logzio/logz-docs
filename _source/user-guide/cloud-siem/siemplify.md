@@ -96,6 +96,24 @@ The playbook makes use of Logz.io actions that investigate events and output rel
 </div>
 
 
+#### Logz.io Actions for Siemplify
+
+Logzio-search-logs
+
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| from_time |
+| to_time |
+| query | 
+| size |  
+
+
+
+
+
+
+
 #### Initializing the Logz.io playbook in Siemplify
 
 <div class="tasklist">

@@ -15,7 +15,7 @@ Integrate with ServiceNow to receive Logz.io notifications in your ServiceNow wo
 
 
 
-#### Adding your ServiceNow endpoint
+#### Adding a ServiceNow notification endpoint
 
 <div class="tasklist">
 

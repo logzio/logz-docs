@@ -1,11 +1,11 @@
 ---
-title: Send custom metrics from your Go application
+title: Send custom metrics from your GO application
 logo:
   logofile: go.svg
   orientation: horizontal
 open-source:
-  - title: Go custom metrics
-data-source: Go code
+  - title: GO custom metrics
+data-source: GO code
 flags:
   logzio-plan:  
   beta: true
@@ -20,20 +20,24 @@ shipping-tags:
 
 {% include page-info/early-access.md type="beta" %}
 
-This page contains instructions on how you can send custom metrics to logz.io from your GO application. This exapmles are using [opentelemtry GO SDK](https://github.com/open-telemetry/opentelemetry-go-contrib) and [opentelemtry cortex exporter](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/main/exporters/metric/cortex), which are in alpha/preview
+This topic includes instructions on how to send custom metrics to Logz.io from your GO application. 
+
+The included example uses the [OpenTelemetry GO SDK](https://github.com/open-telemetry/opentelemetry-go-contrib) and the [OpenTelemetry Cortex exporter](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/main/exporters/metric/cortex), which are both in alpha/preview.
 
 #### Quick start
 
 **Before you begin, you'll need**:
 Go 1.x or higher
 
-##### Installation:
+<div class="tasklist">
+
+##### Installation
 
 `go get -u go.opentelemetry.io/contrib/exporters/metric/cortex`
 
 ##### Add instruments to your application:
 
-Set the variables in the following snippet: 
+Set the variables in the following code snippet: 
 
 |Environment variable|Description|
 |---|---|
@@ -94,7 +98,7 @@ func handleErr(err error) {
 ```
 
 ###### Types of metric instruments
-See opentelemtry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md) for referance
+For more information, see the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
 
 | Name | Behavieour | Default aggregation |
 | ---- | ---------- | ------------------- |
@@ -205,3 +209,5 @@ _ = metric.Must(meter).NewInt64ValueObserver("valueobserver", observerCallback,
 )
 ```
 <!-- See full [example](link2github) -->
+
+</div>

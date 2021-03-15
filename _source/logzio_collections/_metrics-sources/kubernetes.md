@@ -46,7 +46,7 @@ bash <(curl -s https://raw.githubusercontent.com/logzio/logzio-helm/master/quick
 
 | Prompt | Description | Required/Default|
 |---|---|---|
-| logzio-metrics-shipping-token  | {% include metric-shipping/replace-metrics-token.html %} |Required|
+| logzio-metrics-shipping-token  | Your Metrics account token. {% include metric-shipping/replace-metrics-token.html %} |Required|
 | Logz.io region | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |DEFAULT: _Blank (US East)_ |
 | Kubelet communication protocol | `http` or `https`. If your Kubernetes setup is EKS or AKS, you'll need to use `https`. |DEFAULT: `http`|
 | Target namespace  | Select a namespace to serve as the origin for Logz.io’s Metricbeat Deamonset deployment. The deployment monitors the **entire** cluster, regardless of which namespace is selected as the origin. It’s a good idea to avoid a namespace that already has Metricbeat installed. |DEFAULT: `kube-system` |

@@ -14,7 +14,7 @@ contributors:
 {% include page-info/early-access.md type="beta" %} 
 
 ## Why go it alone? 
-Manage your metrics with Logz.io Infrastructure Monitoring, powered by Prometheus and Grafana.  
+Manage your metrics with Logz.io Infrastructure Monitoring, powered by Prometheus.  
 
 With our open-source platform, you get enterprise-level user management with role-based access control (RBAC) for Prometheus as a managed service, and you have the option to correlate your metrics with logs and traces, using Logz.io Log Management and Distributed Tracing capabilities. 
 
@@ -40,7 +40,7 @@ For the record, notification endpoints and dashboard annotations are not importe
 1. [Import dashboards.](/user-guide/infrastructure-monitoring/prometheus-importing-dashbds)
 1. [Configure notification endpoints.](/user-guide/integrations/endpoints.html)
 1. [Recreate your dashboard annotations.](/user-guide/infrastructure-monitoring/annotations/)
-1. [Explore your Prometheus metrics in Grafana](/user-guide/infrastructure-monitoring/grafana-explore-prometheus/)
+1. [Explore your Prometheus metrics](/user-guide/infrastructure-monitoring/grafana-explore-prometheus/)
 
 <!-- 
 1. Highlight the value: 

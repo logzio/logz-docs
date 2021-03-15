@@ -100,12 +100,9 @@ if $programname == 'TYPE' then @@<<LISTENER-HOST>>:5001;logzFormatFileTagName
 if $programname == 'TYPE' then ~
 ```
 
-Replace the following in the above code sample to match your specifics:
-
+{% include /general-shipping/replace-placeholders.html %}
 * `<<PATH_TO_FILE>>`: Path to your file or directory.
 * `<<TYPE>>`: {% include log-shipping/type.md %}
-{% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/replace-vars.html listener=true %}
 
 
 ##### Restart rsyslog
@@ -166,12 +163,9 @@ Run the following to configure your rsyslog daemon to monitor JSON log files.  E
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "<<PATH_TO_FILE>>" -tag "<<TYPE>>" -c json
 ```
 
-Replace the following in the above code sample to match your specifics:
-
+{% include /general-shipping/replace-placeholders.html %}
 * `<<PATH_TO_FILE>>`: Path to your file or directory.
 * `<<TYPE>>`: {% include log-shipping/type.md %}
-{% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/replace-vars.html listener=true %}
 
 
 
@@ -246,12 +240,9 @@ if $programname == 'TYPE' then ~
 ```
 
 
-Replace the following in the above code sample to match your specifics:
-
+{% include /general-shipping/replace-placeholders.html %}
 * `<<PATH_TO_FILE>>`: Path to your file or directory.
 * `<<TYPE>>`: {% include log-shipping/type.md %}
-{% include log-shipping/log-shipping-token-bullet.html %}
-* {% include log-shipping/replace-vars.html listener=true %}
 
 
 ##### Restart rsyslog

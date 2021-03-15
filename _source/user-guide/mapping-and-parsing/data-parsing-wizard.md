@@ -3,7 +3,6 @@ layout: article
 title: The data parsing wizard
 permalink: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 flags:
-  beta: true
   logzio-plan: community
 tags:
   - data-parsing
@@ -25,8 +24,6 @@ parsing can be an invaluable tool.
 
 You can analyze a set of sample logs in the data parsing wizard,
 simplifying the process.
-
-![Data parsing wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing-and-mapping--data-parsing-wizard.png)
 
 You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> > Tools > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the top menu.
 

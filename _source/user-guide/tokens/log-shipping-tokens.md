@@ -10,33 +10,36 @@ tags:
   - account-tokens
 contributors:
   - shalper
+  - yberlinger
 ---
 
 Log shipping tokens are used in shipper configurations to direct data to the relevant Logz.io account.
 
 Every account has its own set of tokens. Only account admins have permissions to access the account tokens, view them and manage them.
 
-To manage your log shipping tokens, select an account. Then select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping) in the top menu and select the **Log shipping tokens** tab.
+To manage your log shipping tokens, select an account. You can manage your tokens via the Manage Tokens page. 
+
+### Manage Tokens page
+
+{% include general-shipping/manage-tokens-nav.md %}
+{% include general-shipping/data-shipping-tokens_vars.md product="Logs" %}
 
 Community plans have a limit on the number of tokens that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
 {:.info-box.note}
 
-#### Managing log shipping tokens
+### Managing log shipping tokens
 
-You can have several tokens enabled simultaneously. The limit is clearly stated directly on the page and depends on your account level.
+You can have several tokens enabled simultaneously. The limit is indicated directly on the page and depends on your account level.
 
 * To create a token, click **+ New log shipping token**, type in a **name**, then click **Add**. The new token will be enabled by default.
-
 * To rename a token, hover over the token, click **edit** <i class="li li-pencil"></i> and type in a new name. Then click **Save**.
-
 * To delete a token, hover over it, and click **delete** <i class="li li-trash"></i> to delete it. A confirmation module will ask you to confirm the action.
-
 * To enable or disable a token, toggle the control. <br> Every account is required to have at least one enabled token at any given time.
 
-  If there is only one token, it can't be disabled or deleted.
+If there is only one token, it can't be disabled or deleted.
 
 
-#### Using log shipping tokens
+### Using log shipping tokens
 
 Log shipping tokens are used in the shipping configuration to send data to the relevant Logz.io account.
 

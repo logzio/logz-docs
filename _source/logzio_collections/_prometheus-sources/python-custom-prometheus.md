@@ -15,7 +15,10 @@ shipping-tags:
   - prometheus
 ---
 
-{% include page-info/early-access.md type="beta" %} 
+
+
+{% include page-info/early-access.md type="beta" %}
+
 
 This topic includes instructions on how to send custom metrics to Logz.io from your Python application. 
 
@@ -27,26 +30,28 @@ The included example uses the [OpenTelemetry Python SDK](https://github.com/open
 
 ##### Install the snappy c-library
 
-    DEB: `sudo apt-get install libsnappy-dev`
+DEB: `sudo apt-get install libsnappy-dev`
 
-    RPM: `sudo yum install libsnappy-devel`
+RPM: `sudo yum install libsnappy-devel`
 
-    OSX/Brew: `brew install snappy`
+OSX/Brew: `brew install snappy`
 
-    Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
+Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
 
 ##### Install the exporter and opentelemtry sdk
-
-    `pip install opentelemetry-exporter-prometheus-remote-write`
-
+```
+pip install opentelemetry-exporter-prometheus-remote-write
+```
 ##### Add instruments to your application
 
-Set the environment variables for the `exporter` section: 
+Replace the placeholders in the `exporter` section code (indicated by the double angle brackets `<< >>`) to match your specifics.
+
 
 |Environment variable|Description|
 |---|---|
 |endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {% include /log-shipping/listener-var.html %} |
 |Bearer| Your Logz.io Prometheus Metrics account token.  {% include /p8s-shipping/replace-prometheus-token.html %}  |
+
 
 
 ```python
@@ -86,7 +91,10 @@ counter.add(25, labels)
 ```
 
 ## Types of metric instruments
+
+
 Refer to the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md) for more details. 
+
 
 | Name | Behavior | Default aggregation |
 | ---- | ---------- | ------------------- |

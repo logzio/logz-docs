@@ -1,5 +1,5 @@
 ---
-title: Ship AKS logs
+title: Ship AKS logs using a Fluentd DaemonSet
 logo:
   logofile: aks.svg
   orientation: vertical
@@ -9,12 +9,13 @@ open-source:
     github-repo: logzio-k8s
 contributors:
   - mirii1994
-  - shalper 
   - idohalevi
-  - imnotashrimp
   - yyyogev
+  - imnotashrimp
+  - shalper
 shipping-tags:
   - container
+  -  azure
 ---
 
 
@@ -24,7 +25,7 @@ shipping-tags:
 * [Overview](#overview)
 * [Default configuration](#default-config)
 * [Custom configuration](#custom-config)
-* [Disabling systemd input](#disable)
+* [Multiline logs](#multiline)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -52,6 +53,7 @@ Your Kubernetes version may affect your options, as follows:
   The API versions of `ClusterRole` and `ClusterRoleBinding` are found in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml`.
   
   If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
+
 
 
 {% include /log-shipping/multiline-logs-fluentd.md %}
@@ -87,9 +89,6 @@ kubectl create namespace monitoring
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/log-shipping-token.html %}
-
-{% include log-shipping/listener-var.html %} 
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
@@ -97,6 +96,8 @@ kubectl create secret generic logzio-logs-secret \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
   -n monitoring
 ```
+
+{% include /general-shipping/replace-placeholders.html %}
 
 ##### Deploy the DaemonSet
 
@@ -163,9 +164,8 @@ kubectl create secret generic logzio-logs-secret \
   -n monitoring
 ```
 
-{% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/listener-var.html %}
+{% include /general-shipping/replace-placeholders.html %}
 
 
 ##### Configure Fluentd
@@ -206,7 +206,6 @@ kubectl apply -f /path/to/logzio-daemonset-containerd.yaml -f /path/to/configmap
 ```
 
 
-
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
@@ -217,22 +216,27 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 
 </div>
 
+
+### Disabling systemd input
+
+To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+
+
+
+
 </div>
 <!-- tab:end -->
 
 
 <!-- tab:start -->
-<div id="disable">
+<div id="multiline">
 
-### Disabling systemd input
-
-To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+{% include /log-shipping/multiline-fluentd-plugin.md %}
 
 </div>
 <!-- tab:end -->
 
 </div>
 <!-- tabContainer:end -->
-
 
 

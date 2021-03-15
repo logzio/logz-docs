@@ -15,7 +15,7 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 
 * **Metrics metadata dashboards**: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. _(currently in development)_
 
-Learn more about Prometheus [remote write tuning here.](https://prometheus.io/docs/practices/remote_write/") 
+Learn more about Prometheus [remote write tuning here.](https://prometheus.io/docs/practices/remote_write/) 
 
 Once your metrics are flowing, export your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
 
@@ -101,13 +101,13 @@ externalLabels:
 
   * Check for the metric in the `/metrics` endpoint on your Prometheus server. 
 
-+ **Check via Grafana Explore**: To verify that metrics are arriving to Logz,io: 
-  1. Open Grafana **Explore** via the left menu bar. 
++ **Check via Metrics Explore**: To verify that metrics are arriving to Logz,io: 
+  1. Open Metrics **Explore** via the compass icon in the left menu bar. 
 
   2. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane. <br>
     An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 
     ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8smetrics_arriving.png)
 
-##### Open Grafana Explore
+##### Open Metrics Explore
 
-Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics in Grafana.](https://docs.logz.io/user-guide/infrastructure-monitoring/grafana-explore-prometheus/)
+Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics.](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/)

@@ -101,7 +101,7 @@ For a full list of available Metricbeat configuration options for the Redis modu
 
 Start or restart Metricbeat for the changes to take effect.
 
-##### Check [Logz.io](http://logz.io/) for your metrics
+##### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/grafana/).
 

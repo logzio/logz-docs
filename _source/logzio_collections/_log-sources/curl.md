@@ -23,16 +23,16 @@ shipping-tags:
 <!-- tab:start -->
 <div id="plain-text-config">
 
-cURL is a command line utility for transferring data.
-Generally, we recommend using Filebeat for shipping logs to Logz.io.
+cURL is a command line utility for transferring data. cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 
-Even so, cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 You can upload JSON or plain text files.
 
-<!-- info-box-start:info -->
-File uploads must be smaller than 10 MB.
-{:.info-box.important}
-<!-- info-box-end -->
+
+###### Limitations
+
+* Max body size is 10 MB (10,485,760 bytes)
+* If you include a `type` field in the log, it overrides `type` in the request header
+
 
 #### Upload a plain text log file
 
@@ -43,15 +43,15 @@ File uploads must be smaller than 10 MB.
 
 ##### Upload the file
 
-{% include log-shipping/log-shipping-token.html %}
-
-{% include log-shipping/listener-var.html %}
-
-Replace `<<LOG-TYPE>>` with the appropriate type. {% include log-shipping/type.md %}
 
 ```shell
 curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<<LOG-TYPE>>
 ```
+
+
+{% include /general-shipping/replace-placeholders.html %}
+
+* {% include log-shipping/type.md %} Otherwise, the default `type` is `http-bulk`.
 
 ##### Check Logz.io for your logs
 
@@ -67,36 +67,37 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:start -->
 <div id="json-config">
 
-cURL is a command line utility for transferring data.
-Generally, we recommend using Filebeat for shipping logs to Logz.io.
+cURL is a command line utility for transferring data. cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 
-Even so, cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 You can upload JSON or plain text files.
 
-<!-- info-box-start:info -->
-File uploads must be smaller than 10 MB.
-{:.info-box.important}
-<!-- info-box-end -->
 
+###### Limitations
+
+* Max body size is 10 MB (10,485,760 bytes)
+* Each log line must be 500,000 bytes or less
+* If you include a `type` field in the log, it overrides `type` in the request header
 
 #### Upload a JSON log file
 
 **Before you begin, you'll need**:
 [cURL](https://curl.haxx.se/download.html)
 
+
 <div class="tasklist">
 
 ##### Upload the file
 
-{% include log-shipping/log-shipping-token.html %}
-
-{% include log-shipping/listener-var.html %}
-
-Replace `<<LOG-TYPE>>` with the appropriate type. {% include log-shipping/type.md %}
+If you want to ship logs from your code but don't have a library in place,
+you can send them directly to the Logz.io listener as a minified JSON file.
 
 ```shell
 cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
 ```
+
+{% include /general-shipping/replace-placeholders.html %}
+
+* {% include log-shipping/type.md %} Otherwise, the default `type` is `http-bulk`.
 
 ##### Check Logz.io for your logs
 

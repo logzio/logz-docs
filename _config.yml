@@ -55,30 +55,35 @@ collections:
     name: Logs
     id: :slug
     in-shipping-manifest: true
-  metrics-sources:
-    output: true
-    permalink: /shipping/metrics-sources/:slug.html
-    name: Metrics
-    id: :slug
-    in-shipping-manifest: true
+    order: 1
   prometheus-sources:
     output: true
     permalink: /shipping/prometheus-sources/:slug.html
-    name: Prometheus as a service
-    id: :slug
-    in-shipping-manifest: true  
-  security-sources:
-    output: true
-    permalink: /shipping/security-sources/:slug.html
-    name: Security
+    name: Metrics (Prometheus)
     id: :slug
     in-shipping-manifest: true
+    order: 2
+  metrics-sources:
+    output: true
+    permalink: /shipping/metrics-sources/:slug.html
+    name: Metrics (Metricbeat)
+    id: :slug
+    in-shipping-manifest: true
+    order: 3
   tracing-sources:
     output: true
     permalink: /shipping/tracing-sources/:slug.html
     name: Tracing
     id: :slug
     in-shipping-manifest: true
+    order: 4
+  security-sources:
+    output: true
+    permalink: /shipping/security-sources/:slug.html
+    name: Cloud SIEM
+    id: :slug
+    in-shipping-manifest: true
+    order: 5
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html

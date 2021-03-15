@@ -4,9 +4,6 @@ logo:
   logofile: mascot-telegraf.png #telegraf-tiger.png  #telegraf-logo-preview.svg
   orientation: vertical
 data-source: Telegraf for Prometheus metrics
-open-source:
-  - title: Telegraf Collector for Prometheus metrics
-    github-repo: logz-telegraf-metrics
 templates: ["docker"]
 contributors:
   - fadi-khatib
@@ -57,12 +54,14 @@ For the list of options, see the parameters below the code block.👇
      Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
 ``` 
 
-###### Parameters 
+###### Parameters
 
-{% include general-shipping/replace-placeholders-prometheus.html %}
+{% include general-shipping/replace-placeholders-prometheus.md %}
+{% include log-shipping/listener-var-bullet.html %}
 
 
 ##### Check Logz.io for your metrics
+
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).
 
 

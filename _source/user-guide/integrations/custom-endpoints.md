@@ -77,6 +77,8 @@ Some endpoints require a particular attribute/payload. For example, [Microsoft T
 
 ##### Configure your payload to add data to your alert notifications
 
+{% raw %}
+
 You can enhance your alert notifications with data pulled from the triggered alert.
 
 For example, you can add a **View in Kibana** drilldown link to a notification using the following:
@@ -88,7 +90,7 @@ For example, you can add a **View in Kibana** drilldown link to a notification u
 Logz.io notifications use [Mustache templating](https://mustache.github.io/).
 All variables are HTML escaped by default. If you want to return **unescaped HTML**, add an **ampersand (&)**, for example `{{&alert_title}}`.
 
-{% raw %}
+
 
 | Parameter | Description |
 |---|---|---|

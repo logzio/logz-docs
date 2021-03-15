@@ -3754,15 +3754,15 @@ definitions:
           - FAILED
         description: Returns the status of the request.
         example: SUCCESS
-      numOfElements:
+      numOfAddedElements:
         type: integer
         format: int32
-        description: Total number of elements in the array to be added to the Lookup list.
+        description: Total number of new elements added to the Lookup list.
         example: 32
-      numUpdated:
+      numOfMergedElements:
         type: integer
         format: int32
-        description: Total number of elements in the array that were merged with duplicate values in the existing list. (In other words, the number of elements that already existed in the Lookup list and which were updated by the request.)
+        description: Total number of elements merged with duplicate values in the existing list. (In other words, the number of existing elements that were updated by the request.)
         example: 42
 
 

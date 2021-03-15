@@ -3307,7 +3307,7 @@ paths:
           headers: {}
 
   # ::::: SIEM LOOKUPS
-  /lookup-lists:
+  /v1/lookup-lists:
     post:
       summary: Create lookup list
       description: Creates a new lookup list. After you create the list, you can run the endpoint to add elements to the list.
@@ -3329,7 +3329,7 @@ paths:
             $ref: '#/definitions/LookupList'
           headers: {}
 
-  /lookup-lists/search:
+  /v1/lookup-lists/search:
     post:
       summary: Get all/Search lookup lists
       description: Searches for lookup lists by name or ID. Can also be run without a filter to return the full list of existing lookups. Returns a paginated list of results.
@@ -3350,7 +3350,7 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseLookupList'
           headers: {}
-  /lookup-lists/{id}:
+  /v1/lookup-lists/{id}:
     get:
       summary: Get lookup by ID
       description: Retrieves the general details for an existing lookup list.
@@ -3420,7 +3420,7 @@ paths:
             $ref: '#/definitions/LookupList'
           headers: {}
 
-  /lookup-lists/{lookupListId}/elements:
+  /v1/lookup-lists/{lookupListId}/elements:
     post:
       summary: Add element to a lookup list
       description: Adds a new element to an existing lookup list. An element is a field value and comment (helpful description that does not affect the lookup functionally).
@@ -3447,7 +3447,7 @@ paths:
           schema:
             $ref: '#/definitions/LookupListElement'
           headers: {}
-  /lookup-lists/{lookupListId}/elements/search:
+  /v1/lookup-lists/{lookupListId}/elements/search:
     post:
       summary: Get all/Search lookup elements
       description: Searches elements in a specified lookup list. Can also be run without a filter to return the full list of elements. Returns a paginated list of results.
@@ -3475,7 +3475,7 @@ paths:
             $ref: '#/definitions/PagedSearchResponseLookupListElement'
           headers: {}
 
-  /lookup-lists/{lookupListId}/elements/{id}:
+  /v1/lookup-lists/{lookupListId}/elements/{id}:
     get:
       summary: Get element
       description: Retrieves a specific lookup element by its ID.
@@ -3566,7 +3566,7 @@ paths:
             $ref: '#/definitions/LookupListElement'
           headers: {}
 
-  /lookup-lists/{lookupListId}/elements/bulk-add:
+  /v1/lookup-lists/{lookupListId}/elements/bulk-add:
     post:
       tags:
         - Lookup lists

@@ -81,5 +81,3 @@ The double-brackets indicate variables that will be auto-populated by Logz.io wi
 ServiceNow endpoints do not support Logz.io resolved alerts.
 {:.info-box.important}
 
-
-</div>

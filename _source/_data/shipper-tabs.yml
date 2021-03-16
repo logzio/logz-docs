@@ -20,14 +20,17 @@ tabs:
     templated: true
     top-content: >-
       <p class="info-box important no-title">
-        <span class="bold">Prometheus Metrics are currently in roll-out. Supported regions include US East and EU Central.
-        Please contact your Logz.io Customer Success Manager to request early-access.
+        <span class="bold">Prometheus Metrics are currently in roll-out. Supported regions include US East and EU Central, and shortly, EU West.
+         <br> </br>
+        Contact your Logz.io Customer Success Manager to request early-access.
       </p>
   - collection: metrics-sources
     templated: true
     top-content: >-
       <p class="info-box important no-title">
-        <span class="bold">Please contact your Logz.io Customer Success Manager for assistance selecting the best Metrics options for your environments.
+        <span class="bold"> If you started using Logz.io metrics in March 2021 or later, select the relevant data shipping option from the <a href="https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=prometheus-sources"> Metrics (Prometheus) </a> tab.
+        <br> </br>
+        Contact your Logz.io Customer Success Manager for assistance with selecting the best Metrics data shipping options for your environments. 
       </p>
   - collection: tracing-sources
     templated: true

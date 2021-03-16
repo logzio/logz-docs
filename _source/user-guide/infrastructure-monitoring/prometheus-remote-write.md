@@ -3,8 +3,8 @@ layout: article
 title: Configuring remote write for Prometheus 
 permalink: /user-guide/infrastructure-monitoring/prometheus-remote-write.html
 flags:
-  logzio-plan:  
-  beta: true
+  logzio-plan: pro
+  beta: 
 tags:
   - metrics integrations
 contributors:
@@ -12,6 +12,7 @@ contributors:
   - yotamloe
 ---
 
+{% include /p8s-shipping/prometheus-rollout.md %}
 
 
 {% include p8s-shipping/remotewrite-syd-userguide.md %}

@@ -4,6 +4,9 @@ logo:
   logofile: mascot-telegraf.png #telegraf-tiger.png  #telegraf-logo-preview.svg
   orientation: vertical
 data-source: Telegraf for Prometheus metrics
+open-source:
+  - title: Telegraf Collector for Prometheus metrics
+    github-repo: logz-telegraf-metrics
 templates: ["docker"]
 contributors:
   - fadi-khatib
@@ -13,8 +16,6 @@ shipping-tags:
 
 ---
 
-
-{% include page-info/early-access.md type="beta" %}
 
 
 This project lets you configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
@@ -54,14 +55,12 @@ For the list of options, see the parameters below the code block.👇
      Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
 ``` 
 
-###### Parameters
+###### Parameters 
 
-{% include general-shipping/replace-placeholders-prometheus.md %}
-{% include log-shipping/listener-var-bullet.html %}
+{% include general-shipping/replace-placeholders-prometheus.html %}
 
 
 ##### Check Logz.io for your metrics
-
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).
 
 

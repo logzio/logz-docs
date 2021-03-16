@@ -1,4 +1,3 @@
-{% include page-info/early-access.md type="beta" %}
 
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
 
@@ -76,7 +75,7 @@ Edit your chart `values.yaml` file in the following sections:
 ```yaml
 remoteWrite:
     - url: https://<<LISTENER-HOST>>:8053  # The Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. 
-      bearerToken:<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> # The Logz.io Prometheus metrics account token
+      bearerToken: <<PROMETHEUS-METRICS-SHIPPING-TOKEN>> # The Logz.io Prometheus metrics account token
       remoteTimeout: 30s
       queueConfig:
         batchSendDeadline: 5s  #default = 5s

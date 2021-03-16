@@ -98,18 +98,130 @@ The playbook makes use of Logz.io actions that investigate events and output rel
 
 #### Logz.io Actions for Siemplify
 
-Logzio-search-logs
 
 
-| Parameter | Type | Default | Description |
+### Logzio-search-logs
+
+Searches the logs in your Logz.io Operations account using the [Logz.io log search API](https://docs.logz.io/api/#tag/Search-logs). Upon success, returns the logs that match the query as a paginated list in JSON format.
+
+```
+{
+	"results": [
+		{
+			#log
+		},
+		....
+		{
+			#log
+		}
+	]
+}
+```
+
+* **Script timeout**: 30 seconds
+* **Parameters extracted from the integration**:
+    * `logzio_operations_token`
+    * `logzio_region`
+    * `logzio_custom_endopoint`
+
+
+
+| Parameter | Type | Required/Default | Description |
 |---|---|---|---|
-| from_time |
-| to_time |
-| query | 
-| size |  
+| from_time | String | Required | Earliest time to search. Accepts any format supported by the [Date parser python library](https://dateparser.readthedocs.io/en/latest/). Examples include unix timestamps in milliseconds, relative time such as `yesterday` or `24 hours ago`, or the format  `%Y-%m-%dT%H:%M:%S.%f`. |
+| to_time | String | -- | Latest time to search. (Leave blank if relative time was used for the parameter `from_time`.) | 
+| query | String | `*` | A search query written in valid Lucene syntax. Cannot be null - send a wildcard (*) if not using a search query. [For more info and limitations](https://docs.logz.io/api#operation/search) |
+| size |  String | -- | Number of log results per query. Limited to 1000 logs. |
+
+### Logzio-get-logs-by-event-id
+
+Fetches the logs that triggered a security event using the [Logz.io Cloud SIEM API](https://docs.logz.io/api/#operation/searchSecurityRulesEvents). Upon success, returns the logs that match the query as a paginated list in JSON format.
+
+```
+{
+	"results": [
+		{
+			#log
+		},
+		....
+		{
+			#log
+		}
+	]
+}
+```
+
+* **Script timeout**: 30 seconds
+* **Parameters extracted from the integration**:
+    * `logzio_operations_token`
+    * `logzio_region`
+    * `logzio_custom_endopoint`
 
 
 
+| Parameter | Type | Required/Default | Description |
+|---|---|---|---|
+| alert_event_id | String | Required | Unique GUID of the security event in your Logz.io security account. This is the ID of the event you want to investigate.|
+| page_size | String | 25 | Controls the number of results per page. Valid inputs are 1 to 1000. Defaults to 25. |
+
+
+### Json-adapter
+
+Converts logs from your Logz.io accounts into a constant JSON format that is compatible with Siemplify’s playbooks. Receives fields to search, and a json to search them in.
+
+
+The json must be received in the following format: 
+
+```
+{
+    "results": [
+        { 
+            #log
+        },
+        .....
+    ]
+}
+
+```
+
+
+
+If the fields exist in the json, it returns them in the following format:
+
+```
+{
+    "results": [
+        { 
+            "entityType": "field_from_json",
+            "entityIdentifier": "value_from_json"
+        },
+        .....
+    ]
+}
+
+```
+
+
+* **Script timeout**: 30 seconds
+
+
+
+| Parameter | Type | Required/Default | Description |
+|---|---|---|---|
+| fields_to_search | String | Required | Comma separated list of fields to search within the JSON. |
+| raw_json | String | Required | Raw data in JSON format that is to be searched. |
+
+
+### Ping
+
+Pings Logz.io to test and validate connectivity to both your Logz.io security and operations accounts using the [Logz.io API](https://docs.logz.io/api/#tag/Who-am-I).
+
+* **Script timeout**: 20 seconds.
+* **Parameters extracted from the integration**:
+    * `logzio_security_token`
+    * `logzio_operations_token`
+    * `logzio_region`
+    * `logzio_custom_endopoint`
 
 
 

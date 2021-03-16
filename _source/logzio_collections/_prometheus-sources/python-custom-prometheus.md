@@ -15,11 +15,11 @@ shipping-tags:
   - prometheus
 ---
 
-
-
 This page contains instructions on how to send custom metrics to Logz.io from your Python application. This example uses the [OpenTelemetry Python SDK](https://github.com/open-telemetry/opentelemetry-python-contrib) and the [OpenTelemetry remote write exporter](https://pypi.org/project/opentelemetry-exporter-prometheus-remote-write/), which are both in alpha/preview.
 
 #### Quick start
+
+<div class="tasklist">
 
 ##### Install the snappy c-library
 
@@ -39,10 +39,12 @@ pip install opentelemetry-exporter-prometheus-remote-write
 
 Replace the placeholders in the `exporter` section code (indicated by the double angle brackets `<< >>`) to match your specifics.
 
-| Environment variable | Description |Required/Default|
-|---|---|---|
-|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
-|Bearer | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
+
+|Environment variable|Description|
+|---|---|
+|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {% include /log-shipping/listener-var.html %} |
+|Bearer| Your Logz.io Prometheus Metrics account token.  {% include /p8s-shipping/replace-prometheus-token.html %}  |
+
 
 
 ```python
@@ -204,3 +206,8 @@ meter.register_valueobserver(
     value_type=float,
 )
 ```
+
+##### Check Logz.io for your metrics
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).
+
+</div>

@@ -79,7 +79,7 @@ security:
 
 tags:
   - name: Grafana gateway
-    description: Grafana API Gateway to supported endpoints. In the context of this API, "*Grafana*" refers to the Logz.io fork of Grafana, thus this gateway provides support for the APIs of the Logz.io fork of Grafana and for some of the open source Grafana APIs.
+    description: Grafana API Gateway to supported endpoints. In the context of this API, "*Grafana*" refers to the Logz.io fork of Grafana, thus this gateway provides support for the APIs of the Logz.io fork of Grafana and for some of the open source Grafana APIs. Read more about the fork created by Logz.io [here.](https://logz.io/about-us/forked-statement/)
 
   - name: Who am I
   - name: Manage time-based log accounts

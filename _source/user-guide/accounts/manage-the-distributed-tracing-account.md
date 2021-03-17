@@ -58,11 +58,11 @@ they'll be able to access the data in this account.
 ###### Grant access to the data in a tracing account
 
   a. To display the account information for a specific tracing account, select the target account from the list of Distributed Tracing accounts. 
-  ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-manage-tracing-subaccts.png)
+  ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-manage-tracing-subaccts3.png)
 
 
   b. To enable access for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant accounts. 
-  ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-access-4tracingsubaccts.gif)
+  ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-access-4tracing-subaccts3.gif)
 
 
 ##### Save your changes

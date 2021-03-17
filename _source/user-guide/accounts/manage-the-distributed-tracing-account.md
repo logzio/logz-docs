@@ -36,26 +36,37 @@ in the middle of the page.
 If you want, change the **Account name** here.
 
 
+<!--Step 2:  temporarily redacted 17Mar2021
 ##### Create a new Tracing account
 
 `_<< comment: need to see how this works in app >>_`
 
+-->
 
-
+<!-- Step 3:  temporarily redacted 17 Mar2021
 ##### Allocate spans to each Distributed Tracing account
 
 Set how many spans are allocated to each account from the overall Distributed Tracing plan. 
 `_<< comment: need to see how this works in app >>_`
+-->
 
 ##### Set the read permissions
 
-Grant access to this account using **Accounts that can read**….
 If users are logged in to the accounts you add here,
 they'll be able to read the data in this account.
+
+###### Grant access to the data in a tracing account
+
+  a. To display the account information for a specific tracing account, select the target account from the list of Distributed Tracing accounts. 
+  ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-manage-tracing-subaccts.png)
+
+
+  b. To enable access for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant accounts. 
+  ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-access-4tracingsubaccts.gif)
 
 
 ##### Save your changes
 
-Click **Apply** to save your changes.
+Click **Save** to apply your changes.
 
 </div>

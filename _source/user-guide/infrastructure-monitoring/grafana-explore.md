@@ -51,6 +51,7 @@ The Metrics view options are great for learning what Metrics data is in your sys
 
 ![Grafana explore: Metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana_explore_metrics2.gif)
 
+
 ### Logs View
 
 Grafana's Explore mode is the equivalent of Kibana Discover, only for metrics.

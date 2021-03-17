@@ -18,7 +18,7 @@ You can manage your Distributed Tracing account
 from the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
 You'll need to be signed in to the main account in your Operations workspace.
 
-If you don't have a Distributed Tracing account yet, start a trial in the Distributed Tracing tab or configure a plan in [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)
+If you don't have a Distributed Tracing account yet, start a trial in the Distributed Tracing tab.
 <!-- reach out to your account manager or email [the Sales team](mailto:sales@logz.io).-->
 {:.info-box.note}
 
@@ -50,10 +50,10 @@ Set how many spans are allocated to each account from the overall Distributed Tr
 `_<< comment: need to see how this works in app >>_`
 -->
 
-##### Set the read permissions
+##### Set the access permissions for tracing data
 
 If users are logged in to the accounts you add here,
-they'll be able to read the data in this account.
+they'll be able to access the data in this account.
 
 ###### Grant access to the data in a tracing account
 

@@ -50,19 +50,23 @@ Set how many spans are allocated to each account from the overall Distributed Tr
 `_<< comment: need to see how this works in app >>_`
 -->
 
-##### Set the access permissions for tracing data
+##### Set the access permissions for tracing data sources
 
-If users are logged in to the accounts you add here,
-they'll be able to access the data in this account.
+Configure Distributed Tracing data sources that can be accessed or viewed by Logz.io main and sub accounts.
+
+When users are logged in to the accounts you add here,
+they'll be able to access or view the data in this account.
 
 ###### Grant access to the data in a tracing account
 
-  a. To display the account information for a specific tracing account, select the target account from the list of Distributed Tracing accounts. 
+  a. To display the account information for a specific tracing account, click your Distributed Tracing account. 
   ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-manage-tracing-subaccts3.png)
 
 
-  b. To enable access for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant accounts. 
+  b. To enable access to a Distribute Tracing data source for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant main and sub accounts. 
   ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-access-4tracing-subaccts3.gif)
+
+
 
 
 ##### Save your changes

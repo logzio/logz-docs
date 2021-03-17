@@ -14,6 +14,7 @@ contributors:
   - yberlinger
 ---
 
+
 You can manage your Distributed Tracing account
 from the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
 You'll need to be signed in to the main account in your Operations workspace.
@@ -50,12 +51,15 @@ Set how many spans are allocated to each account from the overall Distributed Tr
 `_<< comment: need to see how this works in app >>_`
 -->
 
-##### Grant access to tracing data sources
+##### Grant access to a tracing data source
 
-Configure which Logz.io main and sub accounts can access or view Distributed Tracing data sources.
+
+Your Distributed Tracing account can serve as a data source which can be accessed by main and sub accounts.
+
+To manage access to your tracing account, configure which Logz.io main and sub accounts can access or view Distributed Tracing data source.
 
 When users are logged in to the accounts you add here,
-they'll be able to access or view the data in this account.
+they'll be able to access or view the data in the data source.
 
 ###### Grant access to the data in a tracing account
 

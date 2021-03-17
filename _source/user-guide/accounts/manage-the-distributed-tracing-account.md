@@ -54,12 +54,12 @@ Set how many spans are allocated to each account from the overall Distributed Tr
 ##### Grant access to a tracing data source
 
 
-Your Distributed Tracing account can serve as a data source which can be accessed by main and sub accounts.
+Your Distributed Tracing account can serve as a data source that is accessed by main and sub accounts.
 
-To manage access to your tracing account, configure which Logz.io main and sub accounts can access or view Distributed Tracing data source.
+To manage access to your tracing account, configure which Logz.io main and sub accounts can access or view the Distributed Tracing data source.
 
 When users are logged in to the accounts you add here,
-they'll be able to access or view the data in the data source.
+they'll be able to access or view the the tracing data in the account.
 
 ###### Grant access to the data in a tracing account
 

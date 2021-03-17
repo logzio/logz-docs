@@ -17,8 +17,6 @@ shipping-tags:
 ---
 
 
-{% include page-info/early-access.md type="beta" %}
-
 
 This project lets you configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
 
@@ -59,7 +57,7 @@ For the list of options, see the parameters below the code block.👇
 
 ###### Parameters 
 
-{% include general-shipping/replace-placeholders-prometheus.md %}
+{% include general-shipping/replace-placeholders-prometheus.html %}
 
 
 ##### Check Logz.io for your metrics

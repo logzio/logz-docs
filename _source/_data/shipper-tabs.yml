@@ -16,10 +16,22 @@
 tabs:
   - collection: log-sources
     templated: true
-  - collection: metrics-sources
-    templated: true
   - collection: prometheus-sources
     templated: true
+    top-content: >-
+      <p class="info-box important no-title">
+        <span class="bold">Prometheus Metrics are currently in roll-out. Supported regions include US East and EU Central, and shortly, EU West.
+         <br> </br>
+        Contact your Logz.io Customer Success Manager to request early-access.
+      </p>
+  - collection: metrics-sources
+    templated: true
+    top-content: >-
+      <p class="info-box important no-title">
+        <span class="bold"> If you started using Logz.io metrics in March 2021 or later, select the relevant data shipping option from the <a href="https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=prometheus-sources"> Metrics (Prometheus) </a> tab.
+        <br> </br>
+        Contact your Logz.io Customer Success Manager for assistance with selecting the best Metrics data shipping options for your environments. 
+      </p>
   - collection: tracing-sources
     templated: true
   - collection: security-sources
@@ -41,8 +53,6 @@ tabs:
 # If you want to change the way it's displayed in the docs, change the `name`.
 
 tags:
-  - slug: log-shipper
-    name: Log shippers
   - slug: os
     name: Operating systems
   - slug: server-app

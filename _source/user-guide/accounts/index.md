@@ -32,6 +32,9 @@ You can find the [Manage accounts](https://app.logz.io/#/dashboard/settings/mana
     You can make the most of your plan's indexing capacity by switching to flexible volume. Flexible volume makes it easier to ensure that accounts don't max out their indexing capacity. [Explore flexible volume options](/user-guide/accounts/flexible-volume.html)
 
 
+{% include /account-info/flexible-account-50subs.md %}
+
+
 * **Long-term storage**
 
     Optimizers are great for analyzing long-term patterns and trends on aggregated data.

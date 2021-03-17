@@ -90,7 +90,7 @@ The **Description** will be included in any emails, Slack messages, and other no
 We recommend making your description helpful to recipients,
 like telling them how to fix the issues that led to the rule.
 
-The **Tags** are useful for filtering the _Rule definitions_ page.
+The **Tags** are useful for filtering for events. You can add up to 25 tags per rule.
 
 ###### Who to send it to
 

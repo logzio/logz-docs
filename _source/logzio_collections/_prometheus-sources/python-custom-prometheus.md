@@ -15,37 +15,36 @@ shipping-tags:
   - prometheus
 ---
 
-
-
-{% include page-info/early-access.md type="beta" %}
-
-
 This page contains instructions on how to send custom metrics to Logz.io from your Python application. This example uses the [OpenTelemetry Python SDK](https://github.com/open-telemetry/opentelemetry-python-contrib) and the [OpenTelemetry remote write exporter](https://pypi.org/project/opentelemetry-exporter-prometheus-remote-write/), which are both in alpha/preview.
 
 #### Quick start
 
+<div class="tasklist">
+
 ##### Install the snappy c-library
 
-    DEB: `sudo apt-get install libsnappy-dev`
+DEB: `sudo apt-get install libsnappy-dev`
 
-    RPM: `sudo yum install libsnappy-devel`
+RPM: `sudo yum install libsnappy-devel`
 
-    OSX/Brew: `brew install snappy`
+OSX/Brew: `brew install snappy`
 
-    Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
+Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
 
 ##### Install the exporter and opentelemtry sdk
-
-    `pip install opentelemetry-exporter-prometheus-remote-write`
-
+```
+pip install opentelemetry-exporter-prometheus-remote-write
+```
 ##### Add instruments to your application
 
-Set the environment variables for the `exporter` section: 
+Replace the placeholders in the `exporter` section code (indicated by the double angle brackets `<< >>`) to match your specifics.
+
 
 |Environment variable|Description|
 |---|---|
-|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. Replace `<<LISTENER-HOST>>` with the [host for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). |
-|Bearer| Replace `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the token for shipping Prometheus metrics to your Logz.io account. Find it under **Settings > Manage accounts**. [_How do I look up my Metrics account token?_](/user-guide/accounts/finding-your-metrics-account-token/)  |
+|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {% include /log-shipping/listener-var.html %} |
+|Bearer| Your Logz.io Prometheus Metrics account token.  {% include /p8s-shipping/replace-prometheus-token.html %}  |
+
 
 
 ```python
@@ -85,7 +84,10 @@ counter.add(25, labels)
 ```
 
 ## Types of metric instruments
+
+
 Refer to the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md) for more details. 
+
 
 | Name | Behavior | Default aggregation |
 | ---- | ---------- | ------------------- |
@@ -204,3 +206,8 @@ meter.register_valueobserver(
     value_type=float,
 )
 ```
+
+##### Check Logz.io for your metrics
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).
+
+</div>

@@ -11,6 +11,7 @@ tags:
   - sub-accounts
 contributors:
   - shalper
+  - yberlinger
 ---
 
 Flexible volume gives you more control over how you allocate space between your accounts.
@@ -22,6 +23,7 @@ With flexible volume, accounts can share indexing capacity and use it as needed.
 
 Flexible volume is a global setting that applies to your time-based logging accounts. To reach it, go to [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts). This page is only available when logged in to the main account as an admin user.
 
+{% include /account-info/flexible-account-50subs.md %}
 
 ## Volume settings
 

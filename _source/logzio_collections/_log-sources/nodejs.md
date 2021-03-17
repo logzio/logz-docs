@@ -72,17 +72,18 @@ var logger = require('logzio-nodejs').createLogger({
 | Parameter | Description | Required/Default |
 |---|---|---|
 | token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} | Required |
-| protocol | `http` or `https`. The value here affects the default of the `port` parameter. | `http` |
+| protocol | `http` or `https`. The value of this parameter affects the default of the `port` parameter. | `http` |
 | host  |  {% include log-shipping/listener-var.md %} {% include log-shipping/listener-var.html %} | `listener.logz.io` |
 | port | Destination port. The default port depends on the `protocol` parameter: `8070` (for HTTP) or `8071` (for HTTPS) | `8070` / `8071` |
 | type | {% include /log-shipping/type.md %} | `nodejs` |
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
-| bufferSize  | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| bufferSize  | Maximum number of messages the logger accumulates before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
-| debug | To print debug messsages to the console, `true`. Otherwise, `false`. | `false` |
+| debug | Set to `true` to print debug messsages to the console.  | `false` |
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
-| addTimestampWithNanoSecs | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. | `false` |
+| addTimestampWithNanoSecs | Boolean. Set to `true` to add the `@timestamp_nano` field, which include nanoseconds in the timestamp. If you're sending multiple logs per second, we recommend setting this parameter to `true` to preserve the log sequence. | `false` |
+| extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
 
 
 ###### Code sample
@@ -193,6 +194,8 @@ For a complete list of your options, see the configuration parameters below.👇
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | addTimestampWithNanoSecs | Boolean. Adds `@timestamp_nano` field, which is a timestamp that includes nanoseconds. To add this field, `true`. Otherwise, `false`. If you're sending multiple logs per second, we recommend setting to `true` to preserve the log sequence. | `false` |
+| extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
+
 
 ##### Additional configuration options
 

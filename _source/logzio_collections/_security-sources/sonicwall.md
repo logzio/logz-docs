@@ -74,7 +74,6 @@ processors:
     - from: "log.file.path"
       to: "source"
     ignore_missing: true
-  ignore_older: 3h
 ```
 
 Copy and paste the following code block directly below.

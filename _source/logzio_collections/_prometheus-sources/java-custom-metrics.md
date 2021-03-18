@@ -5,7 +5,8 @@ logo:
   orientation: horizontal
 open-source:
   - title: Java custom metrics
-  - github project: micrometer-registry-logzio
+    github-repo: micrometer-registry-logzio
+    maven: test
 data-source: Java code
 flags:
   logzio-plan:  
@@ -24,6 +25,7 @@ A [Micrometer metrics](https://micrometer.io/) registry for sending dimensional 
 This registry can be used by any application that uses micrometer for recording metrics.
 
 ## Usage:
+
 #### via maven:
 
 ```

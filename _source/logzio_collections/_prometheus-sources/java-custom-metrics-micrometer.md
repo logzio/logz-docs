@@ -1,4 +1,24 @@
-## Send Custom metrics from your JAVA application to Logz.io using Micrometer
+---
+title: Send custom metrics from you java code
+logo:
+  logofile: java.svg
+  orientation: horizontal
+open-source:
+  - title: Java custom metrics
+  - github project: micrometer-registry-logzio
+data-source: Java code
+flags:
+  logzio-plan:  
+  beta: false
+templates: ["docker"]
+contributors:
+  - yotamloe
+  - yberlinger
+shipping-tags:  
+  - prometheus
+---
+
+## Send custom metrics from your JAVA application to Logz.io using Micrometer
 A [Micrometer metrics](https://micrometer.io/) registry for sending dimensional metrics to Logz.io.
 
 This registry can be used by any application that uses micrometer for recording metrics.

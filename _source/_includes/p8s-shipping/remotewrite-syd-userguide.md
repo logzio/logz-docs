@@ -88,7 +88,7 @@ remoteWrite:
 
 ```yaml
 externalLabels:
-    - p8s_logzio_name: <labelvalue>
+  p8s_logzio_name: <labelvalue>
 ```
 
    

@@ -14,6 +14,7 @@ contributors:
   - yberlinger
 ---
 
+
 You can manage your Distributed Tracing account
 from the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
 You'll need to be signed in to the main account in your Operations workspace.
@@ -50,19 +51,26 @@ Set how many spans are allocated to each account from the overall Distributed Tr
 `_<< comment: need to see how this works in app >>_`
 -->
 
-##### Set the access permissions for tracing data
+##### Grant access to a tracing data source
 
-If users are logged in to the accounts you add here,
-they'll be able to access the data in this account.
+
+Your Distributed Tracing account can serve as a data source that is accessed by main and sub accounts.
+
+To manage access to your tracing account, configure which Logz.io main and sub accounts can access or view the Distributed Tracing data source.
+
+When users are logged in to the accounts you add here,
+they'll be able to access or view the the tracing data in their account, via the Tracing tab.
 
 ###### Grant access to the data in a tracing account
 
-  a. To display the account information for a specific tracing account, select the target account from the list of Distributed Tracing accounts. 
-  ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-manage-tracing-subaccts.png)
+  a. To display the account information for a specific tracing account, click your Distributed Tracing account. 
+  ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-manage-tracing-subaccts4.png)
 
 
-  b. To enable access for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant accounts. 
-  ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-access-4tracingsubaccts.gif)
+  b. To enable access to a Distributed Tracing data source for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant main and sub accounts. 
+  ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-access-4tracing-subaccts3.gif)
+
+
 
 
 ##### Save your changes

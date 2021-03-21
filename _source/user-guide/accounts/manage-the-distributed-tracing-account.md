@@ -59,7 +59,7 @@ Your Distributed Tracing account can serve as a data source that is accessed by 
 To manage access to your tracing account, configure which Logz.io main and sub accounts can access or view the Distributed Tracing data source.
 
 When users are logged in to the accounts you add here,
-they'll be able to access or view the the tracing data in their account.
+they'll be able to access or view the the tracing data in their account, via the Tracing tab.
 
 ###### Grant access to the data in a tracing account
 

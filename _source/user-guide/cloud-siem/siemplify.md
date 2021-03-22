@@ -4,6 +4,9 @@ title: Integrate with Siemplify
 permalink: /user-guide/cloud-siem/integration/siemplify/
 flags:
   logzio-plan: pro
+open-source:
+  - title: logzio-siemplify
+    github-repo: logzio-siemplify
 tags:
   - security-analytics
   - security-rules

@@ -82,9 +82,10 @@ Make sure to use the settings shown below.
 | Resource group (**Required**) | Create a new resource group or select an existing one, and click **OK**. |
 | Region (**Required**) | Select the same region as the Azure services that will stream data to this event hub. |
 | Shipping token (**Required**) | Add the [Metrics shipping token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) for the Logz.io account you want to ship to.  |
-| Logs listener host (Default: `listener.logz.io`)| Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
+| Listener host (Default: `listener.logz.io`)| Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
 | buffersize (Default: `100`) | The maximum number of messages the logger will accumulate before sending them in bulk.  |
 
+For all other parameters: To use your existing services, change the parameter to the relevant service name. Otherwise, the template will build the necessary services automatically.
 
 At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  
 Deployment can take a few minutes.

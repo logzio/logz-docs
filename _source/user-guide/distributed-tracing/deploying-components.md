@@ -19,6 +19,8 @@ We support the Jaeger, Zipkin, OpenTracing, and OpenTelemetry instrumentation li
 **Collector (required)** - The collector receives spans and runs them through a processing pipeline. It can receive spans from the agents or directly from the instrumentation, depending on the implementation. The collector is also responsible for batching spans and sending them to Logz.io. ![Distributed tracing architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_architecture.png)
 
 
+Logz.io recommends that you use the OpenTelemetry Collector. If you already have a local Jaeger in your environment, use the Logz.io Jaeger Collector to get a head start on sending tracing data to Logz.io
+
 ## Component overview
 Because Logz.io embraces open source, we opted for Jaeger. Except for the collector integration, everything you need to deploy is created and maintained by the open source community, which means that the Logz.io support team can focus more effectively on the issues that the community can’t resolve. 
 
@@ -36,6 +38,10 @@ We recommend that you use the OpenTelemetry collector to gather trace transactio
 
 See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Installing the OpenTelemetry Collector for Distributed Tracing</a>_ for the procedure to configure and deploy the OpenTelemetry collector.
 
+### Logz.io Jaeger Collector
+If you already have a local Jaeger in your environment, to get a head start on sending tracing data to Logz.io, you may want to consider using the Logz.io Jaeger Collector. 
+
+If you experience issues with the OpenTelemetry Collector, as a secondary option, you may also want to consider using the Logz.io Jaeger Collector. See _<a href ="/shipping/tracing-sources/jaeger-collector" target="_blank">Installing the Logz.io Jaeger Collector for Distributed Tracing</a>_ for the procedure to configure and deploy the Logz.io Jaeger collector.
 
 ## Agent
 

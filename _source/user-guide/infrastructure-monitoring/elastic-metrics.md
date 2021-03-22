@@ -13,8 +13,8 @@ contributors:
 
 Looking for Elastic-based Metrics information?
 
-+ [Getting Started](user-guide/infrastructure-monitoring/)
-+ [OOTB Dashboards](user-guide/metrics/integrations.html)
++ [Getting Started](/user-guide/infrastructure-monitoring/getting-started)
++ [OOTB Dashboards](/user-guide/infrastructure-monitoring/metrics-integrations.html)
 + [Managing your Logz.io Metrics data sources](/user-guide/metrics/data-sources.html)
 + [Data rollups](/user-guide/infrastructure-monitoring/data-rollups.html)
 + [Explore mode: Metrics view vs. Logs view](/user-guide/infrastructure-monitoring/metrics-explore/) 

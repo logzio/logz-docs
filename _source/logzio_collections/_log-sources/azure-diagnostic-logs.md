@@ -85,7 +85,7 @@ You'll be taken to Azure, where you'll configure the resources to be deployed.
 | Logs listener host (Default: `listener.logz.io`)| Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
 | buffersize (Default: `100`) | The maximum number of messages the logger will accumulate before sending them in bulk.  |
 
-For all other parameters; to use your existing services, change the parameter to the relevant service's name. Otherwise, the template will build the necessary services automatically.
+For all other parameters: To use your existing services, change the parameter to the relevant service name. Otherwise, the template will build the necessary services automatically.
 
 At the bottom of the form, select **Review + Create**. Next, click **Create** to deploy.
 Deployment can take a few minutes.

@@ -56,7 +56,7 @@ docker run -e ACCOUNT_TOKEN=<<TRACING-SHIPPING-TOKEN>>  # see parameter list bel
  -p 14267:14267 \
  -p 14269:14269 \
  -p 14250:14250 \
-logzio/logzio-collector:latest
+logzio/jaeger-logzio-collector:latest
 ```
 
 

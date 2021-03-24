@@ -13,6 +13,8 @@ contributors:
 
 This quick tour will help you get started with your new infrastructure monitoring workspace.
 
+{% include /metric-shipping/no-query-elastic-based.md %}
+
 ###### Overview
 {:.no_toc}
 

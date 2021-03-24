@@ -20,6 +20,8 @@ It's also great if you're a long-time user and want to examine the structure of 
 
 To go to Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
+{% include /metric-shipping/no-query-elastic-based.md %}
+
 ## Metrics view vs. Logs view
 
 Explore mode has a number of views, including various Metrics options and a Logs view.

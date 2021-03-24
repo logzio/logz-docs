@@ -49,7 +49,7 @@ You'll first need to make sure all your logs are being written to an S3 bucket.
 
 ##### Configure Logz.io to read AWS WAF logs from an S3 Bucket
 
-In your Logz.io account, use the [Logz.io S3 Bucket wizard]((https://app.logz.io/#/dashboard/data-sources/S3-Bucket)) to configure Logz.io to read AWS WAF logs from the S3 Bucket.
+In your Logz.io account, use the [Logz.io S3 Bucket wizard]((https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)) to configure Logz.io to read AWS WAF logs from the S3 Bucket.
 
 
 **Before you begin, you'll need**:

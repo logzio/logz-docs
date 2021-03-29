@@ -17,7 +17,7 @@ shipping-tags:
 ---
 ## Introduction
 
-Logz.io recommends that you use OpenTelemetry to gather trace transaction data from your system. Because of its versatility, OpenTelemetry has been widely adopted as the industry standard: OpenTelemetry can be equipped with many additional functionalities (one of which is aggregated trace data). Beyond that, OpenTelemetry is the best solution going forward and is now production-ready.
+Logz.io recommends that you use OpenTelemetry to gather trace transaction data from your system. Because of its versatility, OpenTelemetry has been widely adopted as the industry standard: OpenTelemetry can be equipped with many additional functionalities, one of which is collecting aggregated trace data. Beyond that, OpenTelemetry is set to be the best production-ready solution going forward.
 
 However, if you already have Jaeger deployed in your local environment, to quickly move from your local Jaeger installation to Logz.io,  the simplest solution is to replace the Jaeger collector with the Logz.io version of the Jaeger collector. The Logz.io collector makes sure that your tracing data and spans are sent to the Logz.io backend instead of to the local Jaeger installation. 
 

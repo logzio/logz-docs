@@ -1,13 +1,13 @@
 ---
-title: Send custom metrics from your Java code
+title: Send custom metrics from your Java code with Micrometer
 logo:
-  logofile: java.svg
+  logofile: micrometer.svg
   orientation: vertical
 open-source:
-  - title: Java custom metrics
+  - title: Micrometer custom metrics
     github-repo: micrometer-registry-logzio
     maven: test
-data-source: Java custom metrics
+data-source: Micrometer for custom metrics
 flags:
   logzio-plan:  
   beta: false

@@ -1,5 +1,5 @@
 ---
-title: Easy switching from your local Jaeger installation to Logz.io Distributed Tracing
+title: Making the easy switch from your local Jaeger installation to Logz.io Distributed Tracing
 logo:
   logofile: jaeger.svg
   orientation: vertical

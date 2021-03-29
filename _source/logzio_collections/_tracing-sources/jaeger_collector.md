@@ -1,10 +1,10 @@
 ---
-title: Installing the Logz.io Jaeger Collector for Distributed Tracing
+title: Easy switching from your local Jaeger installation to Logz.io Distributed Tracing
 logo:
   logofile: jaeger.svg
   orientation: vertical
 data-source: Jaeger Collector
-description: How to deploy a Logz.io Jaeger Collector
+description: Transitioning from local Jaeger installations to Logz.io Distributed Tracing
 open-source:
   - title: jaeger-logzio
     github-repo: jaeger-logzio
@@ -17,7 +17,9 @@ shipping-tags:
 ---
 ## Introduction
 
-While Logz.io recommends that you use the OpenTelemetry collector to gather trace transaction data from your system, if you already have Jaeger deployed in your local environment, Logz.io's trace exporter for Jaeger will let you quickly start sending your tracing data to Logz.io from different Application Performance Management/Monitoring (APM) agents, including Zipkin. 
+Logz.io recommends that you use the OpenTelemetry collector to gather trace transaction data from your system. Because of its versatility, OpenTelemetry has been widely adopted as the industry standard: OpenTelemetry can be equipped with many additional functionalities (one of which is aggregated trace data). Beyond that, OpenTelemetry is the best solution going forward and is now production-ready.
+
+However, if you already have Jaeger deployed in your local environment, Logz.io's trace exporter for Jaeger will let you quickly start sending your tracing data to Logz.io from different Application Performance Management/Monitoring (APM) agents, including Zipkin. 
 
 Over time, should you decide to change to the OpenTelemetry collector, please feel free to explore the topic [_Ship traces with OpenTelemetry_](https://docs.logz.io/shipping/tracing-sources/opentelemetry) for the procedure to configure and deploy the OpenTelemetry collector. You can always return to the Jaeger Collector as a secondary option if you experience issues with the OpenTelemetry Collector. 
 
@@ -56,7 +58,7 @@ docker run -e ACCOUNT_TOKEN=<<TRACING-SHIPPING-TOKEN>>  # see parameter list bel
  -p 14267:14267 \
  -p 14269:14269 \
  -p 14250:14250 \
-logzio/logzio-collector:latest
+logzio/jaeger-logzio-collector:latest
 ```
 
 

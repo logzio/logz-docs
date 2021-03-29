@@ -1,5 +1,5 @@
 ---
-title: Send custom metrics from you java code
+title: Send custom metrics from your Java code
 logo:
   logofile: java.svg
   orientation: horizontal
@@ -19,13 +19,13 @@ shipping-tags:
   - prometheus
 ---
 
-For sending custom metrics from you Java application you will need to use a [Micrometer metrics](https://micrometer.io/) registry for sending dimensional metrics to Logz.io.
+To send custom metrics from your Java application to Logz.io, you'll need to use a [Micrometer metrics](https://micrometer.io/) registry for dimensional metrics.
 
-This registry can be used by any application that uses micrometer for recording metrics.
+This registry can be used by any application that uses Micrometer for recording metrics.
 
 ## Usage:
 
-#### via maven:
+#### Via Maven:
 
 ```
 <dependency>
@@ -35,7 +35,7 @@ This registry can be used by any application that uses micrometer for recording 
 </dependency>
 ```
 
-#### Via gradle:
+#### Via Gradle:
 ```j
 implementation 'io.logz.micrometer:micrometer-registry-logzio:1.0'
 ```
@@ -52,7 +52,7 @@ Replace the placeholders in the code (indicated by the double angle brackets `<<
 
 | Environment variable | Description |Required/Default|
 |---|---|---|
-|listener-url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs| Required|
+|listener-url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Regions page](https://docs.logz.io/user-guide/accounts/account-region.html) | Required|
 |metrics-token | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
 |interval | The interval in seconds, to push metrics to Logz.io  | Required|
 

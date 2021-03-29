@@ -19,7 +19,7 @@ shipping-tags:
   - prometheus
 ---
 
-To send custom metrics from your Java application to Logz.io, you'll need to use a [Micrometer metrics](https://micrometer.io/) registry for dimensional metrics.
+To send custom metrics from your Java application to Logz.io, use a [Micrometer metrics](https://micrometer.io/) registry for your dimensional metrics.
 
 This registry can be used by any application that uses Micrometer for recording metrics.
 

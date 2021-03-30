@@ -134,7 +134,7 @@ The selected logs will now stream to the event hub.
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open Kibana.
-If everything went according to plan, you should see logs with the type `eventhub` in Kibana.
+If everything went according to plan, you should see logs with the type `eventHub` in Kibana.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

@@ -137,7 +137,7 @@ Include the following details in your message:
 
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, and then open your [Logz.io Metrics account](https://app.logz.io/#/dashboard/grafana?).
+Give your data some time to get from your system to ours, and then open your [Logz.io Metrics account](https://app.logz.io/#/dashboard/metrics?).
 
 
 

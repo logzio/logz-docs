@@ -78,8 +78,8 @@ security:
   - X-API-TOKEN: []
 
 tags:
-  - name: Grafana gateway
-    description: Grafana API Gateway to supported endpoints. In the context of this API, "*Grafana*" refers to the Logz.io fork of Grafana, thus this gateway provides support for the APIs of the Logz.io fork of Grafana and for some of the open source Grafana APIs. Read more about the fork created by Logz.io [here.](https://logz.io/about-us/forked-statement/)
+  - name: Metrics gateway
+    description: Metrics API Gateway to supported endpoints. In the context of this API, "*Grafana*" refers to the Logz.io fork of Grafana, thus this gateway provides support for the APIs of the Logz.io fork of Grafana and for some of the open source Grafana APIs. Read more about the fork created by Logz.io [here.](https://logz.io/about-us/forked-statement/)
 
   - name: Who am I
   - name: Manage time-based log accounts
@@ -265,18 +265,18 @@ x-tagGroups:
     tags:
       - Connect to CloudTrail
       - Connect to S3 Buckets
-  - name: Grafana API Gateway
+  - name: Metrics API Gateway
     tags:
-      - Grafana gateway
-    description: Grafana API Gateway to supported endpoints.
+      - Metrics gateway
+    description: Metrics API Gateway to supported endpoints.
 
 paths:
   # ::::: GRAFANA
   /v1/grafana/api/{GRAFANA_API_URL}:
     get:
-      summary: Grafana API Capabilities
+      summary: Metrics API Capabilities
       description: >-
-        Prepend your Logz.io API Gateway to the relevant Grafana API endpoint.
+        Prepend your Logz.io API Gateway to the relevant Metrics API endpoint.
 
 
         Supported endpoints:
@@ -289,8 +289,8 @@ paths:
 
         **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
       tags:
-        - Grafana gateway
-      operationId: grafanaGateway
+        - Metrics gateway
+      operationId: metricsGateway
       produces:
         - application/json
       parameters:

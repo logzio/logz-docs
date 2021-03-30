@@ -79,7 +79,7 @@ Check the box to acknowledge this option and click **Create stack**.
 
 ##### Open your Synthetic Monitoring dashboard in Logz.io
 
-Give your metrics some time to get from your system to ours, and then open [Logz.io Metrics](https://app.logz.io/#/dashboard/grafana/).
+Give your metrics some time to get from your system to ours, and then open [Logz.io Metrics](https://app.logz.io/#/dashboard/metrics/).
 
 Your metrics should appear in the preconfigured dashboard in your Metrics account. Use the Synthetic Monitoring Dashboard to monitor your website performance and availability via Logz.io.
 

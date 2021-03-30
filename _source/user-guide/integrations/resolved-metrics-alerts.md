@@ -72,5 +72,5 @@ The following fields are sent to Opsgenie when an Opsgenie alert is triggered:
 	"Account": "Account Name" ,
 	"alert_event_samples": "Sample 1 event out of 1"
 },  
-"alert_view_link": "https://app.logz.io/#/dashboard/grafana/d/..."
+"alert_view_link": "https://app.logz.io/#/dashboard/metrics/d/..."
 ```

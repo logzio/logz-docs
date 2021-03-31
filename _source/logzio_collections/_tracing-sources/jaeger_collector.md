@@ -20,7 +20,7 @@ Logz.io recommends that you use OpenTelemetry to gather trace transaction data f
 
 However, if you already have Jaeger deployed in your local environment, to quickly move from your local Jaeger installation to Logz.io,  the simplest solution is to replace the Jaeger collector with the Logz.io version of the Jaeger collector. The Logz.io collector makes sure that your tracing data and spans are sent to the Logz.io backend instead of to the local Jaeger installation. 
 
-Over time, should you decide to change to the OpenTelemetry collector, please feel free to explore the topic [_Ship traces with OpenTelemetry_](https://docs.logz.io/shipping/tracing-sources/opentelemetry) for the procedure to configure and deploy the OpenTelemetry collector. You can always return to the Jaeger collector as a secondary option if you experience issues with the OpenTelemetry collector. 
+Over time, should you decide to change to the OpenTelemetry collector, please feel free to explore the topic [_Installing the OpenTelemetry Collector for Distributed Tracing_](https://docs.logz.io/shipping/tracing-sources/opentelemetry) for the procedure to configure and deploy the OpenTelemetry collector. You can always return to the Jaeger collector as a secondary option if you experience issues with the OpenTelemetry collector. 
 
 This topic explains how to set up the Logz.io Jaeger collector. For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/). 
 

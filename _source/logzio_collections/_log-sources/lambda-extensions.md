@@ -136,9 +136,9 @@ Run the function. Note that it may take more than one run of the function for th
 
 #### Deleting the extension
 
-- To delete the **extension layer**, in your function page, go to the **layers** panel. Click on `edit`, then select the extension layer and click `save`.
-- To delete the **extension dependencies layer**, in your function page go to the **layers** panel Click on `edit`, then select the extension dependencies layer and click `save`.
-- To delete the extension's **environment variables**, in your function page select the `Configuration` tab. Choose `Environment variables`, click on `edit`, and then remove the variables that you added for the extension.
+- To delete the **extension layer**: In your function page, go to the **layers** panel. Click `edit`, select the extension layer, and click `save`.
+- To delete the **extension dependencies layer**: In your function page, go to the **layers** panel, click `edit`, then select the extension dependencies layer, and click `save`.
+- To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`,  then click `edit`, and remove the variables that you added for the extension.
 
 
 </div>

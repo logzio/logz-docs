@@ -3,8 +3,8 @@ title: Lambda extensions
 logo:
   logofile: AWS-Lambda.svg
   orientation: vertical
-data-source: Amazon Lambda
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/
+data-source: 
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/lambda-extensions
 templates: ["lambda-cloudwatch"]
 open-source:
   - title: AWS Lambda extensions
@@ -36,7 +36,7 @@ This repo is based on [AWS lambda extensions sample](https://github.com/aws-samp
 * Lambda function with supported runtime for extensions (`python 3.7`, `python 3.8`).
 * AWS Lambda limitations: A function can use up to five layers at a time. The total unzipped size of the function and all layers can't exceed the unzipped deployment package size limit of 250 MB.
 
-#### You have to ways to deploy the extension:
+#### You have two ways to deploy the extension:
 * [AWS CLI](#cli).
 * [AWS Management Console](#console).
 

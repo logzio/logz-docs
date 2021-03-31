@@ -3,18 +3,16 @@ layout: article
 title: Getting started with Prometheus 
 permalink: /user-guide/infrastructure-monitoring/prometheus-getting-started.html
 flags:
-  logzio-plan: 
-  beta: true
+  logzio-plan: pro
 tags:
   - metrics integrations
 contributors:
   - yberlinger
 ---
-
-{% include page-info/early-access.md type="beta" %} 
+{% include /p8s-shipping/prometheus-rollout.md %}
 
 ## Why go it alone? 
-Manage your metrics with Logz.io Infrastructure Monitoring, powered by Prometheus and Grafana.  
+Manage your metrics with Logz.io Infrastructure Monitoring, powered by Prometheus.  
 
 With our open-source platform, you get enterprise-level user management with role-based access control (RBAC) for Prometheus as a managed service, and you have the option to correlate your metrics with logs and traces, using Logz.io Log Management and Distributed Tracing capabilities. 
 
@@ -26,21 +24,27 @@ You can continue using Prometheus Alert Manager: You'll simply store the metrics
 ## One small step
 All it takes to ship your metrics data to Logz.io is to use Remote Write on each Prometheus server, with Logz.io configured as the endpoint: By adding a few lines of code, Remote Write ensures that your metrics are written to Logz.io. 
 
+
+<iframe width="560" height="315" src="https://play.vidyard.com/eyLtidmJn1Ad1e2UA1Pjxi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 Your data is formatted as JSON documents by the Logz.io listener. 
-For the beta program, your incoming raw data has a 30-day retention period. 
+For the trial program, your incoming raw data has a 30-day retention period. 
 
 Once your metrics are flowing, import your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
 
 For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations](/user-guide/infrastructure-monitoring/annotations/) for more information.
 
- 
 
 ### Steps to get started
 1. <a href ="/user-guide/infrastructure-monitoring/prometheus-remote-write#configuring-remote-write-to-logzio)"  target="_blank">Configure Remote Write. 
 1. [Import dashboards.](/user-guide/infrastructure-monitoring/prometheus-importing-dashbds)
 1. [Configure notification endpoints.](/user-guide/integrations/endpoints.html)
 1. [Recreate your dashboard annotations.](/user-guide/infrastructure-monitoring/annotations/)
-1. [Explore your Prometheus metrics in Grafana](/user-guide/infrastructure-monitoring/grafana-explore-prometheus/)
+1. [Explore your Prometheus metrics](/user-guide/infrastructure-monitoring/grafana-explore-prometheus/)
+
+
+
 
 <!-- 
 1. Highlight the value: 

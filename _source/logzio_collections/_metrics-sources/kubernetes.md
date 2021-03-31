@@ -57,7 +57,7 @@ bash <(curl -s https://raw.githubusercontent.com/logzio/logzio-helm/master/quick
 ##### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours,
-and then open [Logz.io](https://app.logz.io/#/dashboard/grafana/).
+and then open [Logz.io](https://app.logz.io/#/dashboard/metrics/).
 
 </div>
 
@@ -180,7 +180,7 @@ kubectl --namespace=kube-system create -f https://raw.githubusercontent.com/logz
 ##### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours,
-and then open [Logz.io](https://app.logz.io/#/dashboard/grafana/).
+and then open [Logz.io](https://app.logz.io/#/dashboard/metrics/).
 
 </div>
 

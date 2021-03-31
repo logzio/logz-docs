@@ -22,6 +22,8 @@ info:
     # Introduction
 
     This API is documented using the **OpenAPI 2.0** specification.
+
+
     <!-- You can browse the API documentation on this page, or you can download the specification file. -->
 
     # Account region and API URL
@@ -76,8 +78,9 @@ security:
   - X-API-TOKEN: []
 
 tags:
-  - name: Grafana gateway
-    description: Grafana API Gateway to supported endpoints.
+  - name: Metrics gateway
+    description: Metrics API Gateway to supported endpoints. In the context of this API, "*Grafana*" refers to the Logz.io fork of Grafana, thus this gateway provides support for the APIs of the Logz.io fork of Grafana and for some of the open source Grafana APIs. Read more about the fork created by Logz.io [here.](https://logz.io/about-us/forked-statement/)
+
   - name: Who am I
   - name: Manage time-based log accounts
     description: >-
@@ -240,7 +243,7 @@ x-tagGroups:
     tags:
       - Security rules
       - Security events
-      - Lookups
+      - Lookup lists
   - name: Account administration
     tags:
       - Manage users
@@ -262,18 +265,18 @@ x-tagGroups:
     tags:
       - Connect to CloudTrail
       - Connect to S3 Buckets
-  - name: Grafana API Gateway
+  - name: Metrics API Gateway
     tags:
-      - Grafana gateway
-    description: Grafana API Gateway to supported endpoints.
+      - Metrics gateway
+    description: Metrics API Gateway to supported endpoints.
 
 paths:
   # ::::: GRAFANA
   /v1/grafana/api/{GRAFANA_API_URL}:
     get:
-      summary: Grafana API Capabilities
+      summary: Metrics API Capabilities
       description: >-
-        Prepend your Logz.io API Gateway to the relevant Grafana API endpoint.
+        Prepend your Logz.io API Gateway to the relevant Metrics API endpoint.
 
 
         Supported endpoints:
@@ -286,8 +289,8 @@ paths:
 
         **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
       tags:
-        - Grafana gateway
-      operationId: grafanaGateway
+        - Metrics gateway
+      operationId: metricsGateway
       produces:
         - application/json
       parameters:
@@ -3307,12 +3310,12 @@ paths:
           headers: {}
 
   # ::::: SIEM LOOKUPS
-  /lookup-lists:
+  /v1/lookup-lists:
     post:
       summary: Create lookup list
       description: Creates a new lookup list. After you create the list, you can run the endpoint to add elements to the list.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: createLookupList
       produces:
         - application/json
@@ -3329,12 +3332,12 @@ paths:
             $ref: '#/definitions/LookupList'
           headers: {}
 
-  /lookup-lists/search:
+  /v1/lookup-lists/search:
     post:
       summary: Get all/Search lookup lists
       description: Searches for lookup lists by name or ID. Can also be run without a filter to return the full list of existing lookups. Returns a paginated list of results.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: searchLookupLists
       produces:
         - application/json
@@ -3350,12 +3353,12 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseLookupList'
           headers: {}
-  /lookup-lists/{id}:
+  /v1/lookup-lists/{id}:
     get:
       summary: Get lookup by ID
       description: Retrieves the general details for an existing lookup list.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: getLookupList
       produces:
         - application/json
@@ -3376,7 +3379,7 @@ paths:
       summary: Update lookup list
       description: Update the name and/or description of an exisiting lookup list.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: updateLookupList
       produces:
         - application/json
@@ -3402,7 +3405,7 @@ paths:
       summary: Delete lookup list
       description: Deletes a lookup list. Note that this action can affect rules, dashboards, and reports if they are dependent on the lookup list.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: deleteLookupList
       produces:
         - application/json
@@ -3420,12 +3423,12 @@ paths:
             $ref: '#/definitions/LookupList'
           headers: {}
 
-  /lookup-lists/{lookupListId}/elements:
+  /v1/lookup-lists/{lookupListId}/elements:
     post:
       summary: Add element to a lookup list
       description: Adds a new element to an existing lookup list. An element is a field value and comment (helpful description that does not affect the lookup functionally).
       tags:
-        - Lookups
+        - Lookup lists
       operationId: createLookupListElement
       produces:
         - application/json
@@ -3447,12 +3450,12 @@ paths:
           schema:
             $ref: '#/definitions/LookupListElement'
           headers: {}
-  /lookup-lists/{lookupListId}/elements/search:
+  /v1/lookup-lists/{lookupListId}/elements/search:
     post:
       summary: Get all/Search lookup elements
       description: Searches elements in a specified lookup list. Can also be run without a filter to return the full list of elements. Returns a paginated list of results.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: searchLookupListElements
       produces:
         - application/json
@@ -3475,12 +3478,12 @@ paths:
             $ref: '#/definitions/PagedSearchResponseLookupListElement'
           headers: {}
 
-  /lookup-lists/{lookupListId}/elements/{id}:
+  /v1/lookup-lists/{lookupListId}/elements/{id}:
     get:
       summary: Get element
       description: Retrieves a specific lookup element by its ID.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: getLookupListElement
       produces:
         - application/json
@@ -3508,7 +3511,7 @@ paths:
       summary: Update element
       description: Changes the value and/or comment of a specific element, identified by its ID.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: updateLookupListElement
       produces:
         - application/json
@@ -3541,7 +3544,7 @@ paths:
       summary: Delete element
       description: Deletes a specific lookup element, identified by its ID.
       tags:
-        - Lookups
+        - Lookup lists
       operationId: deleteLookupListElement
       produces:
         - application/json
@@ -3564,6 +3567,36 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/LookupListElement'
+          headers: {}
+
+  /v1/lookup-lists/{lookupListId}/elements/bulk-add:
+    post:
+      tags:
+        - Lookup lists
+      operationId: addLookupListElements
+      summary: Add elements in bulk
+      description: Adds an array of elements to an existing Lookup list.
+      produces:
+        - application/json
+      parameters:
+        - name: lookupListId
+          in: path
+          required: true
+          type: string
+          description: GUID of the lookup list.
+          example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LookupListElementCreateRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/LookupListElementBulkResponse'
           headers: {}
 
   
@@ -3605,6 +3638,8 @@ definitions:
         example: ABC Server
   LookupListElementCreateRequest:
     type: object
+    required: 
+      - value
     properties:
       value:
         type: string
@@ -3711,6 +3746,27 @@ definitions:
       pagination:
         $ref: '#/definitions/Pagination'
 
+  LookupListElementBulkResponse:
+    type: object
+    properties:
+      status:
+        type: string
+        enum:
+          - SUCCESS
+          - PARTIAL_FAILED
+          - FAILED
+        description: Returns the status of the request.
+        example: SUCCESS
+      numOfAddedElements:
+        type: integer
+        format: int32
+        description: Total number of new elements added to the Lookup list.
+        example: 32
+      numOfMergedElements:
+        type: integer
+        format: int32
+        description: Total number of elements merged with duplicate values in the existing list. (In other words, the number of existing elements that were updated by the request.)
+        example: 42
 
 
   
@@ -6491,7 +6547,7 @@ definitions:
         type: array
         items:
           type: string
-        maxItems: 10
+        maxItems: 25
         minItems: 0
         description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
         example: network

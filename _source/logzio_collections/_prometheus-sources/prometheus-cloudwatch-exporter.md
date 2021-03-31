@@ -15,7 +15,6 @@ shipping-tags:
   - aws
 ---
 
-{% include page-info/early-access.md type="beta" %}
 
 This project allows you to collect Prometheus-format metrics from Amazon CloudWatch with the CloudWatch exporter, and ship them to Logz.io using the OpenTelemetry collector.
 

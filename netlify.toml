@@ -265,20 +265,39 @@
   force = true
 
 [[redirects]]
+  from = "/user-guide/infrastructure-monitoring/custom-metrics"
+  to = "/shipping/metrics-sources/custom-metrics.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/shipping/p8s-sources/*"
   to = "/shipping/prometheus-sources/:splat"
   status = 301
   force = true
- 
+
+[[redirects]]
+  from = "/shipping/prometheus-sources/aws-redshift-p8s.html"
+  to = "/shipping/prometheus-sources/aws-redshift-prometheus.html"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/user-guide/infrastructure-monitoring/p8s-*"
   to = "/user-guide/infrastructure-monitoring/prometheus-:splat"
   status = 301
   force = true  
 
+
 [[redirects]]
-  from = "/shipping/p8s-sources/*"
-  to = "/shipping/prometheus-sources/:splat"
+  from = "/user-guide/infrastructure-monitoring/grafana*"   
+  to = "/user-guide/infrastructure-monitoring/metrics:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/configure-grafana*"   
+  to = "/user-guide/infrastructure-monitoring/configure-metrics:splat"
   status = 301
   force = true
 

@@ -67,7 +67,6 @@ The following open infrastructure projects include built-in auto instrumentation
 
 * <a href ="https://istio.io/latest/docs/tasks/observability/distributed-tracing/jaeger/" target="_blank">Istio <i class="fas fa-external-link-alt"></i></a> 
 * <a href ="https://www.envoyproxy.io/docs/envoy/latest/start/sandboxes/jaeger_tracing" target="_blank">Envoy <i class="fas fa-external-link-alt"></i></a> 
-* <a href ="https://grafana.com/docs/grafana/latest/administration/configuration/" target="_blank">Grafana <i class="fas fa-external-link-alt"></i></a> 
 * <a href ="https://docs.traefik.io/observability/tracing/jaeger/" target="_blank">Traefik <i class="fas fa-external-link-alt"></i></a> 
 * <a href ="https://vertx-ci.github.io/vertx-4-preview/docs/vertx-opentracing/java/" target="_blank">VertX <i class="fas fa-external-link-alt"></i></a>
 * <a href ="https://docs.konghq.com/hub/kong-inc/zipkin/" target="_blank">Kong <i class="fas fa-external-link-alt"></i></a>

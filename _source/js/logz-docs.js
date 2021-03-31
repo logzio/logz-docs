@@ -44,7 +44,7 @@ $(function() {
 $(function() {
   $('.branching-container').easytabs({
     animate: false,
-    updateHash: false
+    updateHash: true
   });
 });
 

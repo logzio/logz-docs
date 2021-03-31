@@ -3,7 +3,7 @@ title: Sending traces from C# applications via manual instrumentation
 logo:
   logofile: dotnet.svg
   orientation: vertical
-data-source: .NET C# manual instrumentation
+data-source: .NET C# manual instrumentation example
 description: How to manually instrument traces from a C# application
 open-source:
   - title: 
@@ -13,7 +13,8 @@ contributors:
   - yberlinger
 shipping-tags:
   - from-your-code
-  - traces
+  - instrumentation
+  - tracing 
 ---
 
 {% include tracing-shipping/csharp-open-tracing-overview.md instmethod="manually" %}

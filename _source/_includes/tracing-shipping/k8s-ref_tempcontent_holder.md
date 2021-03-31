@@ -12,5 +12,3 @@ Then add the following environment variables to your application containers:
  - name: JAEGER_AGENT_PORT
    value: "6831"
 ```
-
-<!--removed from the C# intrumentation topics for Tracing -->

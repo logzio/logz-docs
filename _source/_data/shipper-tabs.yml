@@ -77,6 +77,10 @@ tags:
     name: Databases
   - slug: traces
     name: Tracing
+  - slug: components
+    name: Tracing components   
+  - slug: instrumentation
+    name: Tracing instrumentation       
   - slug: networking
     name: Networking
   - slug: agents

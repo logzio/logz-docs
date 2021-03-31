@@ -3,7 +3,7 @@ title: Installing the OpenTelemetry Collector for Distributed Tracing
 logo:
   logofile: opentelemetry-icon-color.png
   orientation: vertical
-data-source: OpenTelemetry
+data-source: Using OpenTelemetry to send tracing data
 description: How to deploy an OpenTelemetry Collector for traces to Logz.io
 open-source:
   - title: Logz.io-OpenTelemetry trace exporter
@@ -13,7 +13,6 @@ contributors:
   - yberlinger
   - doron-bargo
 shipping-tags:
-  - traces
 ---
 ## Overview
 

@@ -31,7 +31,7 @@ When you configure the components, make sure that you:
 + Specify the same network name in the code for both the collector and the agent.
 + Specify the relevant collector name when you configure your agent.  
 
-## OpenTelemetry Collector
+### OpenTelemetry Collector
 Logz.io captures end-to-end distributed transactions from your applications and infrastructure with trace spans sent directly to Logz.io via the OpenTelemetry collector which you install inside your environment.
 
 We recommend that you use the OpenTelemetry collector to gather trace transaction data from your system. With the merging of the OpenTracing and OpenCensus projects, OpenTelemetry is the CNCF standard. We plan to add aggregated tracing metrics capabilities that will only be available via the OpenTelemetry collector.
@@ -41,9 +41,9 @@ See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Installi
 ### Logz.io Jaeger Collector
 If you already have a local Jaeger in your environment, to get a head start on sending tracing data to Logz.io, you may want to consider using the Logz.io Jaeger Collector. 
 
-If you experience issues with the OpenTelemetry Collector, as a secondary option, you may also want to consider using the Logz.io Jaeger Collector. See _<a href ="/shipping/tracing-sources/jaeger-collector" target="_blank">Installing the Logz.io Jaeger Collector for Distributed Tracing</a>_ for the procedure to configure and deploy the Logz.io Jaeger collector.
+If you experience issues with the OpenTelemetry Collector, as a secondary option, you may also want to consider using the Logz.io Jaeger Collector. See _<a href ="/shipping/tracing-sources/jaeger-collector" target="_blank">Making the easy switch from your local Jaeger installation to Logz.io Distributed Tracing</a>_ for the procedure to configure and deploy the Logz.io Jaeger collector.
 
-## Agent
+### Agent
 
 You can deploy an agent as a sidecar container or as a Host Daemon. Although deploying an agent is not absolutely required for the instrumentation libraries which support sending spans directly to the collector, an agent can help with load balancing and enriching spans with additional tags that are not available at the collector level. 
 
@@ -54,7 +54,7 @@ When deciding the best approach for your environment, consider the following fac
 2.  **Is there benefit in enriching the spans?** 
     The agent can enrich spans by adding tags that are not available at the collector level, such as region or pod name, which are often exposed at lower levels.
 
-### *To deploy a Jaeger agent in a Docker environment*
+#### To deploy a Jaeger agent in a Docker environment
 
 When you deploy a Jaeger agent in a Docker environment, make sure you include the Docker network name and the relevant collector name in the configuration.
 
@@ -75,6 +75,6 @@ While you can always refer to the <a href="https://www.jaegertracing.io/docs/lat
 
  Logz.io has tested the Docker deployment file for version 1.18 of the Jaeger agent. It is possible that the reference may not work for other versions.
 
-### *Kubernetes deployment reference*
+## Kubernetes deployment reference
 
 If you’re working with Kubernetes, use [this yaml file](/user-guide/distributed-tracing/k8s-deployment) as a reference to deploy the collector/agent, and use the output of `kubectl explain deployment` as your **apiVersion** value.

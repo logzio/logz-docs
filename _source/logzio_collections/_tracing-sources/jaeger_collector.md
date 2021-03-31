@@ -29,14 +29,15 @@ This topic explains how to set up the Logz.io Jaeger collector. For an overview 
 
 The Logz.io integration builds on the Jaeger collector base image and uses the gRPC plugin framework to enable communication between the collector and Logz.io.
 
-Wherever you have the Jaeger collector image specified in your Kubernetes configuration file or Docker script, all you need to do is replace it with the Logz.io image and include the relevant Logz.io parameters.
+Wherever you reference the Jaeger collector image in your Kubernetes configuration file or Docker script, all you need to do is replace it with the Logz.io image and include the relevant Logz.io parameters. 
+
+The Logz.io collector image is available via the Docker hub, [here.](https://hub.docker.com/r/logzio/jaeger-logzio-collector)
 
 <div class="tasklist">
 
-##### Replace the base image with the Logz.io image
-
+##### Update collector references to the Logz.io image in your configuration
 ###### Example
-If you were using Jaeger collector version 1.22, in your Kubernetes config file or your Docker script, wherever `jaegertracing/jaeger-collector:1.22` appears, you'd replace it with `logzio/jaeger-logzio-collector`.
+If you were using Jaeger collector version 1.22, in your Kubernetes config file or your Docker script, wherever `jaegertracing/jaeger-collector:1.22` appears, replace it with `logzio/jaeger-logzio-collector`.
 
 
 ##### Configure the Logz.io Jaeger Collector image with the required parameters

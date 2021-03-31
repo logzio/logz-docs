@@ -1,3 +1,22 @@
+---
+title: Lambda extensions
+logo:
+  logofile: AWS-Lambda.svg
+  orientation: vertical
+data-source: Amazon Lambda
+logzio-app-url: https://app.logz.io/#/dashboard/data-sources/
+templates: ["lambda-cloudwatch"]
+open-source:
+  - title: AWS Lambda extensions
+    github-repo: 
+contributors:
+  - mirii1994
+  - yberlinger
+shipping-tags:
+  - aws
+---
+
+
 <!-- tabContainer:start -->
 
 * [Deploy with CLI](#cli)
@@ -5,7 +24,7 @@
 * [Environment Variables & ARNs](#tables)
 {:.branching-tabs}
 
-# Logz.io Logs Lambda Extension
+# Logz.io Logs Lambda Extensions
 
 Extensions enable tools to integrate deeply into the Lambda execution environment to control and participate in Lambda’s lifecycle.
 To read more about Lambda Extensions, [click here](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-extensions-api.html).  

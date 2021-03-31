@@ -39,7 +39,7 @@ The Logz.io collector image is available via the Docker hub, [here.](https://hub
 
 ###### Example
 
-If you were using Jaeger collector version 1.22, in your Kubernetes config file or your Docker script, wherever `jaegertracing/jaeger-collector:1.22` appears, replace it with `logzio/jaeger-logzio-collector`.
+If you were using Jaeger collector version 1.22, in your Kubernetes config file or your Docker script, wherever `jaegertracing/jaeger-collector:1.22` appears, replace it with the latest version of the Logz.io collector:  `logzio/jaeger-logzio-collector:latest`.
 
 
 ##### Configure the Logz.io Jaeger Collector image with the required parameters

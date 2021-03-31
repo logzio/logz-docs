@@ -13,6 +13,7 @@ contributors:
   - yberlinger
   - doron-bargo
 shipping-tags:
+  - components
 ---
 ## Introduction
 

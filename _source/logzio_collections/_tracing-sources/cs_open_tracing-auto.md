@@ -13,7 +13,7 @@ contributors:
   - yberlinger
 shipping-tags:
   - from-your-code
-  - tracing
+  - instrumentation
 ---
 
 

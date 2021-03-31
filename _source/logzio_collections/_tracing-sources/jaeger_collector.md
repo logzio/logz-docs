@@ -28,9 +28,9 @@ This topic explains how to install the Logz.io Jaeger Collector.
 For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/). 
 
 
-#### Deploy Jaeger Collector with Logz.io Exporter
+#### Deploy the Jaeger Collector with the Logz.io Exporter
 
-The Logz.io integration builds on the Jaeger Collector base image and uses the gRPC plugin framework to enable communication between the Collector and Logz.io.
+The Logz.io integration builds on the Jaeger Collector base image and uses the gRPC plugin framework to enable communication between the collector and Logz.io.
 
 All you need to do is replace the base image with the Logz.io image and include the relevant Logz.io parameters.
 
@@ -43,7 +43,7 @@ Run the following command to download the [Logz.io Jaeger collector image](https
 docker pull logzio/jaeger-logzio-collector
 ```
 
-##### Configure the Logz.io image with the required parameters
+##### Configure the Logz.io Jaeger Collector image with the required parameters
 
 Update the Logz.io extension with the relevant shell or environment variables. 
 The required ports are described [here](https://www.jaegertracing.io/docs/latest/deployment/#collectors), and the complete list of Logz.io collector parameters is presented below. 

@@ -49,7 +49,7 @@ Update the Logz.io extension with the relevant shell or environment variables.
 The required ports are described [here](https://www.jaegertracing.io/docs/latest/deployment/#collectors), and the complete list of Logz.io collector parameters is presented below. 
 
 In addition to these parameters, you can also use [Jaeger's collector parameters](https://www.jaegertracing.io/docs/latest/cli/#jaeger-collector-grpc-plugin). 
-You'll need to change to the version page for your deployment. 
+You'll need to select the Jaeger version page for your deployment. 
 
 
 {% include tracing-shipping/tracing-parameters.md %}

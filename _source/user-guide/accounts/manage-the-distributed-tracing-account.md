@@ -36,21 +36,6 @@ in the middle of the page.
 
 If you want, change the **Account name** here.
 
-
-<!--Step 2:  temporarily redacted 17Mar2021
-##### Create a new Tracing account
-
-`_<< comment: need to see how this works in app >>_`
-
--->
-
-<!-- Step 3:  temporarily redacted 17 Mar2021
-##### Allocate spans to each Distributed Tracing account
-
-Set how many spans are allocated to each account from the overall Distributed Tracing plan. 
-`_<< comment: need to see how this works in app >>_`
--->
-
 ##### Grant access to a tracing data source
 
 
@@ -73,8 +58,26 @@ they'll be able to access or view the the tracing data in their account, via the
 
 
 
+
 ##### Save your changes
 
 Click **Save** to apply your changes.
 
 </div>
+
+
+### Create a new Tracing account
+
+When a new data source (account) is added in the Manage Accounts page, you can configure which sub-accounts can access it.
+
+
+### Allocate spans to each Distributed Tracing account
+
+Your main account’s Distributed Tracing plan (Number of spans per month) can be divided between several tracing accounts or data sources. 
+
+Each data source has its quota defined in **Spans per month**. 
+
+Set how many spans are allocated to each account from the overall Distributed Tracing plan. 
+
+
+

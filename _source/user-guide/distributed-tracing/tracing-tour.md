@@ -26,6 +26,14 @@ Your Distributed Tracing account complements your logging ELK stack. To reach it
 By default, your Distributed Tracing account is accessed from your main account. 
 ![tracing tour](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_tour1a.png)
 
+
+
+##### Select a data source for the Distributed Tracing interface 
+<!--Action Item  --->
+To display tracing data from a single data source in the Distributed Tracing tab, use the Source selector. 
+
+It is not possible to select multiple data sources for an aggregated view.
+
 ##### Search for traces. 
 You search for and view traces on the **Search** page. 
 Use the following fields to search for traces: 

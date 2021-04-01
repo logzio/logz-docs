@@ -130,7 +130,7 @@ Searches the logs in your Logz.io Operations account using the [Logz.io log sear
     * `logzio_region`
     * `logzio_custom_endopoint`
 
-If the timeframe for your search exceeds 48 hours, the search will apply to only the first 48 hours of that timeframe.
+If the timeframe for your search exceeds 48 hours, the search is only applied to the first 48 hours of that timeframe.
 {:.info-box.note}
 
 

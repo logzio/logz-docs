@@ -78,7 +78,7 @@ Logz.io writes a security event log whenever a security rule triggers in your Lo
 
 1. Configure the connector to open new Siemplify cases based on security events triggered in Logz.io Cloud SIEM. You can make use of the filtering options to be selective about the events.
 
-You should set the `Run Every` field to be **at least** 30 seconds.
+Set the `Run Every` field to **at least** 30 seconds.
 {:.info-box.note}
 
 2. Enable the connector.

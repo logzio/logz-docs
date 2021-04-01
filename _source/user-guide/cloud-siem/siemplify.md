@@ -78,6 +78,9 @@ Logz.io writes a security event log whenever a security rule triggers in your Lo
 
 1. Configure the connector to open new Siemplify cases based on security events triggered in Logz.io Cloud SIEM. You can make use of the filtering options to be selective about the events.
 
+Set the `Run Every` field to **at least** 30 seconds.
+{:.info-box.note}
+
 2. Enable the connector.
 
 3. Save the connector. Siemplify will now fetch security events from Logz.io and open new cases accordingly.
@@ -109,15 +112,15 @@ Searches the logs in your Logz.io Operations account using the [Logz.io log sear
 
 ```
 {
-	"results": [
-		{
-			#log
-		},
-		....
-		{
-			#log
-		}
-	]
+  "results": [
+    {
+      #log
+    },
+    ....
+    {
+      #log
+    }
+  ]
 }
 ```
 
@@ -126,6 +129,9 @@ Searches the logs in your Logz.io Operations account using the [Logz.io log sear
     * `logzio_operations_token`
     * `logzio_region`
     * `logzio_custom_endopoint`
+
+If the timeframe for your search exceeds 48 hours, the search is only applied to the first 48 hours of that timeframe.
+{:.info-box.note}
 
 
 
@@ -142,15 +148,15 @@ Fetches the logs that triggered a security event using the [Logz.io Cloud SIEM A
 
 ```
 {
-	"results": [
-		{
-			#log
-		},
-		....
-		{
-			#log
-		}
-	]
+  "results": [
+    {
+      #log
+    },
+    ....
+    {
+      #log
+    }
+  ]
 }
 ```
 

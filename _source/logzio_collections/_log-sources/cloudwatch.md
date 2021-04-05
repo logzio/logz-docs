@@ -75,7 +75,7 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 | Parameter | Description | Required/Default |
 |---|---|---|
 | TOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
-| REGION | Logz.io 2-letter region code. | Required |
+| REGION |  Your two-letter Logz.io account region code. Defaults to **US East**. Required only if your Logz.io region is different than US East. You can find your region code in the [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions) table. | Required. DEFAULT: blank _(US East)_|
 | URL (Deprecated) | Use REGION instead. | -- |
 | TYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `logzio_cloudwatch_lambda` |
 | FORMAT | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |

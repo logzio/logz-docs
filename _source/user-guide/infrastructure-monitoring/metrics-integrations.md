@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Out-of-the-Box Dashboards
-permalink: /user-guide/metrics/integrations.html
+permalink:/user-guide/infrastructure-monitoring/metrics-integrations.html
 flags:
   logzio-plan: community
 tags:

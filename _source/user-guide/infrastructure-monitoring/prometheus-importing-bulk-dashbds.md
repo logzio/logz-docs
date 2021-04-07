@@ -38,7 +38,7 @@ To enable easy migration, we created a Python [script](https://github.com/logzio
 - Some panel types are not supported by the Logz.io platform. If your  dashboard includes an pported panel type, you will receive a warning  in the logs. You may experience some issues le the panel renders in  Logz.io.   
 
 
--- ####  Bulk dashboard import procedure
+####  Bulk dashboard import procedure
 
 <div class="tasklist">
 

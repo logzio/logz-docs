@@ -98,6 +98,17 @@ This command overwrites the existing function configuration. If you already have
 #### Deleting the extension
 
 To delete the extension, its dependencies and environment variables, use the following command:
+```shell
+aws lambda update-function-configuration \
+    --function-name some-func \
+    --layers [] \
+    --environment "Variables={}"
+```
+
+<!-- info-box-start:info -->
+This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list.
+{:.info-box.note}
+<!-- info-box-end -->
 
 </div>
 <!-- tab:end -->

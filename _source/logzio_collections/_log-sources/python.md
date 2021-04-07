@@ -54,7 +54,7 @@ class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
 # Parameters must be set in order. Replace these parameters with your configuration.
-args=('<<LOG-SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, '<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
+args=('<<LOG-SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, 'https://<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
 
 [formatters]
 keys=logzioFormat
@@ -123,8 +123,8 @@ Order matters. The arguments _must_ be configured in the order shown here. For e
 | log-type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `python` |
 | timeout | Time to wait between log draining attempts, in seconds. | `3` |
 | listener-url | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
-| debug-flag | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. | `false` |
-| backup-logs | If set to False, disables the local backup of logs in case of failure. | `true` |
+| debug-flag | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. | `False` |
+| backup-logs | If set to False, disables the local backup of logs in case of failure. | `True` |
 | network-timeout | Timeout in seconds, int or float, for sending the logs to Logz.io. | `10` |
 
 

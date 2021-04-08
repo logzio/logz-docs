@@ -18,7 +18,7 @@ shipping-tags:
 ---
 
 
-{% include page-info/early-access.md type="beta" %}
+
 
 This topic includes instructions on how to send custom metrics to Logz.io from your GO application. 
 

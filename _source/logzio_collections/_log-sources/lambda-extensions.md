@@ -191,6 +191,9 @@ Run the function. Note that it may take more than one run of the function for th
 | US East (Ohio) | `us-east-2` |
 | US West (N. California) | `us-west-1` |
 | US West (Oregon) | `us-west-2` |
+| Europe (Frankfurt) | `eu-central-1` |
+| Europe (Ireland) | `eu-west-1` |
+| Europe (Stockholm) | `eu-north-1` |
 
 <!-- info-box-start:info -->
 If your AWS region is not in the list, please reach out to Logz.io's support or open an issue in the [project's Github repo](https://github.com/logzio/logzio-lambda-extensions).

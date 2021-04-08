@@ -3,8 +3,8 @@ layout: article
 title: Importing metrics dashboards   
 permalink: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
 flags:
-  logzio-plan:  
-  beta: true
+  logzio-plan: pro
+  beta: 
 tags:
   - metrics integrations
 contributors:

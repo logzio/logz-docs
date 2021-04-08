@@ -32,11 +32,11 @@ To enable easy migration, we created a Python [script](https://github.com/logzio
 
 ###### Notes
 - Bulk import is supported for Grafana version 6 and above. 
-- Dashboards that include annotations, notification endpoints, and other  external resources imported without these resources during bulk  import. 
-- Custom selection of dashboards is not possible with bulk import. All  your dashboard folders imported to a single folder within Logz.io.
-- Grafana dashboards with schema version 14 or lower that include "row"  objects are not aded: You will receive a warning in the logs. We  recommend that you update your dashboard ma to the latest version. 
-- The`p8s_logzio_name` variable is not added to panel queries that don't  include filtering: will receive a warning in the logs.
-- Some panel types are not supported by the Logz.io platform. If your  dashboard includes an pported panel type, you will receive a warning  in the logs. You may experience some issues le the panel renders in  Logz.io.   
+- Dashboards that include annotations, notification endpoints, and other external resources are imported without these resources during bulk import. 
+- Custom selection of dashboards is not possible with bulk import. All of your dashboard folders are imported to a single folder within Logz.io.
+- Grafana dashboards with schema version 14 or lower that include "row"  objects are not added: You will receive a warning in the logs. We  recommend that you update your dashboards to the latest version. 
+- The`p8s_logzio_name` variable is not added to panel queries that don't include filtering: You will receive a warning in the logs.
+- Some panel types are not supported by the Logz.io platform. If your dashboard includes an unsupported panel type, you will receive a warning  in the logs. You may experience some issues when the panel renders in Logz.io.   
 
 
 ####  Bulk dashboard import procedure
@@ -108,12 +108,16 @@ Log into Logz.io and navigate to the **Metrics** tab.
 
 ##### Select the Import option.
 In the left navigation pane, click <i class="fas fa-plus"></i> and select **Import**.
-![Import dashboards to Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8simport-dashboards.png)
+![Import dashboards to Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/metrics-prometheus/import-dash-prometheus.png)
 
-  - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload json file** and select the files to upload. 
+  - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload JSON file** and select the files to upload. 
     
     For related information see [Upload JSON logs]({{site.baseurl}}/shipping/log-sources/json-uploads). 
-  - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them. 
+
+ 
+  <!-- As of 14 March, the ability to use the Import via grafana.com is not available in the 
+  - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them. -->
+
 </div>
 
 </div>

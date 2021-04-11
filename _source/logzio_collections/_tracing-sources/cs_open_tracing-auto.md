@@ -12,8 +12,8 @@ contributors:
   - yyyogev
   - yberlinger
 shipping-tags:
-  - from-your-code
   - instrumentation
+  - tracing
 ---
 
 

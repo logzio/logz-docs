@@ -51,6 +51,7 @@ Alternatively, if you prefer to add Logz.io as a **Shared Instance**, select the
 
 
 <!--new step 2 added April 2021 -->
+
 ##### Configuring a Custom Trigger for the Siemplify playbook
 
 Each playbook starts with a custom trigger from an incoming alert. 

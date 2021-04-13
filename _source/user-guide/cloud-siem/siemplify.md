@@ -56,7 +56,7 @@ Alternatively, if you prefer to add Logz.io as a **Shared Instance**, select the
 
 Each playbook starts with a custom trigger from an incoming alert. 
 
-To associate your playbook with a specific Logz.io alert, you need to initialize this trigger by mapping the relevant Logz.io alert parameters.
+To associate your playbook with a specific Logz.io alert, you need to initialize this trigger by setting the relevant Logz.io alert parameters.
 
 **`<Alert Name> Equals <FIELD>`**
 

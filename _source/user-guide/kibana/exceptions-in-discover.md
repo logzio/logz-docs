@@ -3,7 +3,7 @@ layout: article
 title: Exceptions
 permalink: /user-guide/insights/exceptions/
 flags:
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - insights
 contributors:

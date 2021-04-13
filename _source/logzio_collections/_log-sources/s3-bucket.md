@@ -6,7 +6,7 @@ logo:
 data-source: S3 Bucket
 shipping-tags:
   - aws
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/S3-Bucket
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket
 contributors:
   - imnotashrimp
 ---
@@ -43,7 +43,7 @@ You can add your buckets directly from Logz.io by providing your S3 credentials 
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/data-sources/S3-Bucket) and add a new S3 bucket.
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket) and add a new S3 bucket.
 
 
 <!-- logzio-inject:aws:s3-buckets -->

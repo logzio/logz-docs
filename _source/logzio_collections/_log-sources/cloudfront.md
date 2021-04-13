@@ -5,7 +5,7 @@ logo:
   orientation: vertical
 data-source: CloudFront
 templates: ["s3-fetcher"]
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudFront
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudfront
 contributors:
   - idohalevi
   - imnotashrimp
@@ -37,7 +37,7 @@ For help with this, see [Configuring and Using CloudFront Access Logs](https://d
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/data-sources/CloudFront) and add a new S3 bucket.
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudfront) and add a new S3 bucket.
 
 <!-- logzio-inject:aws:cloudfront -->
 

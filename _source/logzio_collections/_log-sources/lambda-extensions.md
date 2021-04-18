@@ -59,6 +59,8 @@ You can deploy the extension via the AWS CLI or via the AWS Management Console.
 
 ##### Deploy the extension, dependencies and configuration
 
+If you haven't done it already [install]( and config AWS CLI
+
 Use the following command to add the layer to your function and configure the environment variables:
 
 ```shell
@@ -70,9 +72,9 @@ aws lambda update-function-configuration \
 
 **Note:** this command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, list them as well.
 
-| Placeholder       | Description  |  
-|----------------------| --- |
-| `<<FUNCTION-NAME>>`  | **Required**. Name of the Lambda Function you'd like to monitor. |
+| Placeholder | Description  |  
+|---|---|
+| `<<FUNCTION-NAME>>` | **Required**. Name of the Lambda Function you'd like to monitor. |
 | `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version. Check out the [Lambda extension versions table](#tables) for the ARN. You may need to add another layer that has the extensions dependencies. See the [extensions dependencies table](#tables) for the libraries that your extension requires. If your function doesn't already has those libraries under `/opt/python`, you'll need to add the dependencies as a layer, too. |
 | `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`. For a list of all the environment variables for the extension, see the [environment variables table](#tables).|
 

@@ -101,7 +101,7 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the 
 filebeat.inputs:
 - type: udp
   max_message_size: 10MiB
-  host: "0.0.0.0:514"
+  host: "0.0.0.0:6514"
 
   fields:
     logzio_codec: plain

@@ -34,7 +34,7 @@ The Support team will respond with the connection information you'll need to giv
 
 In the OneLogin top menu, browse to **Apps > Add Apps**.
 
-In the Find Applications page, search for "SAML Test Connector". Select **SAML Test Connector (IdP w/attr)** from the apps list.
+In the Find Applications page, search for "SAML Test Connector". Select **SAML Test Connector (Advanced)** from the apps list.
 
 On the Configuration page, set the **Display Name** to "Logz.io" and click **Save**.
 

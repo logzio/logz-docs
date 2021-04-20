@@ -52,15 +52,31 @@ Alternatively, if you prefer to add Logz.io as a **Shared Instance**, select the
 
 <!--new step 2 added April 2021 -->
 
-##### Configuring a Custom Trigger for the Siemplify playbook
+##### Configure a Custom Trigger for the Siemplify playbook
 
 Each playbook starts with a custom trigger from an incoming alert. 
 
-To associate your playbook with a specific Logz.io alert, you need to initialize this trigger by setting the relevant Logz.io alert parameters.
+To associate your playbook with a specific Logz.io alert, you need to initialize this trigger with the relevant Logz.io alert parameters and conditions in the first action panel of the playbook. <br>
+For incoming Logz.io alerts, the event trigger is **`[Event.event_name] Equals <title of a specific alert >`**
 
-**`<Alert Name> Equals <FIELD>`**
+
+![Custom Trigger panel1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/playbook_custom-trigger.png)
 
 
+1. In the playbook, click **Custom Trigger**.
+![Custom Trigger empty state](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify_custom-trigger-empty.png)
+
+2. Set the first placeholder to `[Event.event_name]` and select the `=` operator
+![Custom Trigger setting event](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify_custom-trigger-setplace1.png)
+
+
+4. Enter the specific Logz.io alert title that will trigger the playbook, and **Save** the trigger. 
+
+![Custom Trigger event name](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/custotrigger_eventname-equals.png)
+
+5. Your configured Custom Trigger is ready to trigger a playbook. 
+
+![Configured Custom Trigger ](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify_custom-trigger-for-alert.png)
 
 
 ##### Fill in the Logz.io integration panel

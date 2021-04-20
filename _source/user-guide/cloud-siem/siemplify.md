@@ -70,12 +70,10 @@ For incoming Logz.io alerts, the event trigger is **`[Event.event_name] Equals <
 ![Custom Trigger setting event](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify_custom-trigger-setplace1.png)
 
 
-4. Enter the specific Logz.io alert title that will trigger the playbook, and **Save** the trigger. 
-
+3. Enter the specific Logz.io alert title that will trigger the playbook, and **Save** the trigger. 
 ![Custom Trigger event name](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/custotrigger_eventname-equals.png)
 
-5. Your configured Custom Trigger is ready to trigger a playbook. 
-
+4. Your configured Custom Trigger is ready to activate a playbook. 
 ![Configured Custom Trigger ](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify_custom-trigger-for-alert.png)
 
 

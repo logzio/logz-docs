@@ -64,7 +64,7 @@ permalink: /data/shipping-manifest.json
     {%- endfor -%}
   ],
   "tagMap": [
-    {%- for tag in site.data.shipper-tabs.tags | order -%}
+    {%- for tag in site.data.shipper-tabs.tags | sort: order -%}
       {
         "tag": "{{tag.slug}}",
         "name": "{{tag.name}}"

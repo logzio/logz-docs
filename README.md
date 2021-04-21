@@ -67,7 +67,8 @@ If you haven't contributed to the Logz.io Docs before, follow these steps to get
 
 3. macOS: Xcode command line tools: `xcode-select --install`.
 
-4. macOS: [Homebrew](https://brew.sh/): `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+4. macOS: [Homebrew](https://brew.sh/): `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+`
 
 5. [RVM with Ruby](https://rvm.io/rvm/install): `curl -sSL https://get.rvm.io | bash -s stable --ruby`
 

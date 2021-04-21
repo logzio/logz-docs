@@ -6,7 +6,7 @@ logo:
 data-source: cURL file upload
 shipping-tags:
   - log-shipper
-logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/File-UploadcURL
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/curl
 contributors:
   - imnotashrimp
 shipping-tags:

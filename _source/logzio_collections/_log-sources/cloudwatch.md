@@ -5,7 +5,7 @@ logo:
   orientation: vertical
 data-source: CloudWatch
 templates: ["lambda-cloudwatch", "cloudformation"]
-logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/CloudWatch
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudWatch
 open-source:
   - title: CloudWatch Lambda Log Shipper
     github-repo: logzio_aws_serverless/tree/master/python3/cloudwatch

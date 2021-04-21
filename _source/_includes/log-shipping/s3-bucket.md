@@ -3,4 +3,4 @@ destination bucket to which {{include.service}} writes its logs.
 
 It is based on {{include.service}}'s naming convention and path structure.
 
-If you're looking to ship {{include.service}} logs from a different bucket, please use the [S3 Bucket shipping](https://app.logz.io/#/dashboard/send-your-data/log-sources/S3-Bucket) method instead.
+If you're looking to ship {{include.service}} logs from a different bucket, please use the [S3 Bucket shipping](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket) method instead.

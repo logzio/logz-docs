@@ -4,6 +4,7 @@ permalink: /data/shipping-manifest.json
 ---
 
 {%- assign collectionsToAdd = site.collections | where: "in-shipping-manifest", true | sort: "order" -%}
+{%- assign tagsToAdd = site.data.shipper-tabs.tags | sort: "order" -%}
 
 {%- case jekyll.environment -%}
   {%- when "production" -%}
@@ -64,7 +65,7 @@ permalink: /data/shipping-manifest.json
     {%- endfor -%}
   ],
   "tagMap": [
-    {%- for tag in site.data.shipper-tabs.tags | sort: order -%}
+    {%- for tag in tagsToAdd -%}
       {
         "tag": "{{tag.slug}}",
         "name": "{{tag.name}}"

@@ -53,6 +53,9 @@ tabs:
 # If you want to change the way it's displayed in the docs, change the `name`.
 
 tags:
+  - slug: popular
+    name: Popular
+    order: 1
   - slug: aws
     name: AWS
     order: 2
@@ -107,9 +110,6 @@ tags:
   - slug: platform-service
     name: Platforms & services
     order: 18
-  - slug: popular
-    name: Popular
-    order: 1
   - slug: prometheus
     name: Prometheus as a service
     order: 20

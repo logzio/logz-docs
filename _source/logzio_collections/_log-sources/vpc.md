@@ -5,7 +5,7 @@ logo:
   orientation: vertical
 data-source: VPC
 templates: ["s3-fetcher"]
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/VPC
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/VPC
 contributors:
   - idohalevi
   - imnotashrimp
@@ -32,7 +32,7 @@ For help with this, see [Publishing Flow Logs to Amazon S3](https://docs.aws.ama
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/data-sources/vpc) and add a new S3 bucket.
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/vpc) and add a new S3 bucket.
 
 
 <!-- logzio-inject:aws:vpc-flow -->

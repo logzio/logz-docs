@@ -9,7 +9,7 @@ shipping-tags:
   - filebeat
   - intro to filebeat
 description: Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.io has a dedicated configuration wizard to make it simple to configure Filebeat. If you already have Filebeat and you want to add new sources, check out our other shipping instructions to copy&paste just the relevant changes from our code examples.
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Filebeat
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/Filebeat
 contributors:
   - imnotashrimp
   - amosd92

@@ -55,7 +55,7 @@ tabs:
 tags:
   - slug: aws
     name: AWS
-    order: 1
+    order: 2
   - slug: agents
     name: Agents
     order: 2
@@ -109,7 +109,7 @@ tags:
     order: 18
   - slug: popular
     name: Popular
-    order: 19
+    order: 1
   - slug: prometheus
     name: Prometheus as a service
     order: 20

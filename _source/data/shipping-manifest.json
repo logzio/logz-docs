@@ -21,7 +21,7 @@ permalink: /data/shipping-manifest.json
         "collection": "{{thisCollection.label}}",
         "title": "{{thisCollection.name}}",
         "contents": [
-          {%- for d in thisCollection.docs %}
+          {%- for d in thisCollection.docs | sort:"order" -%}
             {
               "title": "{{d.title}}",
               "id": "{{d.id| split: "/" | last}}",

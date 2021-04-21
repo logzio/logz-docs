@@ -53,60 +53,87 @@ tabs:
 # If you want to change the way it's displayed in the docs, change the `name`.
 
 tags:
-  - slug: os
-    name: Operating systems
-  - slug: server-app
-    name: Server apps & devices
-  - slug: from-your-code
-    name: From your code
-  - slug: platform-service
-    name: Platforms & services
   - slug: aws
     name: AWS
-  - slug: azure
-    name: Azure
-  - slug: gcp
-    name: Google Cloud
-  - slug: container
-    name: Containers & pods
-  - slug: ci-cd
-    name: CI/CD
-  - slug: security
-    name: Security
-  - slug: database
-    name: Databases
-  - slug: traces
-    name: Tracing
-  - slug: components
-    name: Tracing components   
-  - slug: instrumentation
-    name: Tracing instrumentation       
-  - slug: networking
-    name: Networking
+    order: 1
   - slug: agents
     name: Agents
-  - slug: vulnerability-scanners
-    name: Vulnerability scanners
+    order: 2
+  - slug: azure
+    name: Azure
+    order: 3 
+  - slug: ci-cd
+    name: CI/CD
+    order: 4
+  - slug: components
+    name: Tracing components   
+    order: 5
+  - slug: container
+    name: Containers & pods
+    order: 6
+  - slug: database
+    name: Databases
+    order: 7
   - slug: endpoint-security
     name: Endpoint security
+    order: 8
   - slug: firewalls
     name: Firewalls
-  - slug: k8s
-    name: K8S
-  - slug: identity
-    name: Identity providers
-  - slug: linux
-    name: Linux security
-  - slug: windows
-    name: Windows security
+    order: 9
+  - slug: from-your-code
+    name: From your code
+    order: 10
+  - slug: gcp
+    name: Google Cloud
+    order: 11
   - slug: ids
     name: IDS
-  - slug: web-firewalls
-    name: Web application firewalls
+    order: 12
+  - slug: identity
+    name: Identity providers
+    order: 13
+  - slug: instrumentation
+    name: Tracing instrumentation      
+    order: 14
+  - slug: k8s
+    name: K8S
+    order: 15
+  - slug: linux
+    name: Linux security
+    order: 16
+  - slug: networking
+    name: Networking
+    order: 17
+  - slug: platform-service
+    name: Platforms & services
+    order: 18
+  - slug: popular
+    name: Popular
+    order: 19
   - slug: prometheus
     name: Prometheus as a service
-  - slug: popular
-    name: 🌟 Popular
+    order: 20
+  - slug: os
+    name: Operating systems
+    order: 21
+  - slug: security
+    name: Security
+    order: 22
+  - slug: server-app
+    name: Server apps & devices
+    order: 23 
+  - slug: traces
+    name: Tracing
+    order: 24
+  - slug: vulnerability-scanners
+    name: Vulnerability scanners
+    order: 25
+  - slug: web-firewalls
+    name: Web application firewalls
+    order: 26
+  - slug: windows
+    name: Windows security
+    order: 27
 
 
 

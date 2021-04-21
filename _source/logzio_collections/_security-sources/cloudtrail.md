@@ -39,7 +39,7 @@ For help with setting up a new trail, see [Overview for Creating a Trail](https:
 
 <!-- logzio-inject:aws:cloudtrail -->
 
-To use the S3 fetcher, log into your Logz.io account, and go to the [CloudTrail log shipping page](https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudtrail).
+To use the S3 fetcher, log into your Logz.io account, and go to the [CloudTrail log shipping page](https://app.logz.io/#/dashboard/send-your-data/security-sources/cloudtrail).
 
 1. Click **+ Add a bucket**
 2. Select your preferred method of authentication - an IAM role or access keys.

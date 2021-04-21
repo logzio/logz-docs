@@ -75,7 +75,7 @@ func main() {
 | Parameter | Description | Required/Default |
 |---|---|---|
 | token | {% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
-| SetUrl | Listener URL and port.    {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| SetUrl | Listener URL and port.    {% include log-shipping/listener-var.html %}  |Required (default:  `https://listener.logz.io:8071`) |
 | SetDebug | Debug flag. | `false` |
 | SetDrainDuration  | Time to wait between log draining attempts. | `5 * time.Second` |
 | SetTempDirectory | Filepath where the logs are buffered. | -- |

@@ -5,7 +5,7 @@ logo:
   orientation: vertical
 data-source: Elastic Load Balancing
 templates: ["s3-fetcher"]
-logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/ELB
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/elastic-load-balancing
 contributors:
   - idohalevi
   - imnotashrimp

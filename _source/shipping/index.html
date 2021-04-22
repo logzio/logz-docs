@@ -33,7 +33,7 @@ community-info: false
     {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
 
     {%- comment -%} Get the docs in this collection {%- endcomment -%}
-    {%- assign docs = thisCollection.docs | sort_natural: "data-source" -%}
+    {%- assign docs = thisCollection.docs | sort_natural: "order" -%}
 
     {%- comment -%}
       Get the tags used in this collection.

@@ -5,7 +5,7 @@ logo:
   orientation: vertical
 data-source: S3 access logs
 templates: ["s3-fetcher"]
-logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/S3Access
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-access
 contributors:
   - idohalevi
   - imnotashrimp

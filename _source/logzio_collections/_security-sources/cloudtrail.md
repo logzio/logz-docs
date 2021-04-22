@@ -4,7 +4,7 @@ logo:
   logofile: aws-cloudtrail.svg
   orientation: vertical
 data-source: CloudTrail
-logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/security-sources/CloudTrail
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/security-sources/cloudtrail
 templates: ["s3-fetcher"]
 contributors:
   - idohalevi

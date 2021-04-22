@@ -5,7 +5,7 @@ logo:
   orientation: vertical
 data-source: VPC
 templates: ["s3-fetcher"]
-logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/VPC
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/vpc
 contributors:
   - idohalevi
   - imnotashrimp

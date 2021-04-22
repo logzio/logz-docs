@@ -7,7 +7,7 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 data-source: Azure diagnostic metrics
-logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/Diagnostics-settings
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/diagnostics-settings
 tags:
   - azure
   - event-hubs

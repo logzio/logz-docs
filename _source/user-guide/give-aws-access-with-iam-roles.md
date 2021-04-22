@@ -123,7 +123,7 @@ your company might have.
 Before you migrate,
 you'll need to know where the existing IAM role is used in Logz.io.
 This is because you'll need to replace any
-[S3 fetcher](https://app.logz.io/#/dashboard/data-sources/S3-Bucket)
+[S3 fetcher](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)
 and
 [Archive & restore](https://app.logz.io/#/dashboard/tools/archive-and-restore)
 configurations that use the existing role.
@@ -162,7 +162,7 @@ make sure you know everywhere your existing IAM role is used in Logz.io.
 ##### Delete an S3 configuration from Logz.io
 
 Choose an
-[S3 fetcher](https://app.logz.io/#/dashboard/data-sources/S3-Bucket)
+[S3 fetcher](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)
 or
 [Archive & restore](https://app.logz.io/#/dashboard/tools/archive-and-restore)
 configuration to replace.
@@ -252,7 +252,7 @@ where you need to fetch or archive logs in an S3 bucket.
 ##### Delete an S3 configuration from Logz.io
 
 Choose an
-[S3 fetcher](https://app.logz.io/#/dashboard/data-sources/S3-Bucket)
+[S3 fetcher](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)
 or
 [Archive & restore](https://app.logz.io/#/dashboard/tools/archive-and-restore)
 configuration to replace.

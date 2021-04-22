@@ -9,7 +9,7 @@ open-source:
     github-repo: docker-collector-logs
   - title: Logz.io Docker Logging Plugin
     github-repo: docker-logging-plugin
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Docker-Logging
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/docker
 contributors:
   - mirii1994
   - shalper

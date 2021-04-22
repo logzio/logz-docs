@@ -59,9 +59,9 @@ You can deploy the extension via the AWS CLI or via the AWS Management Console.
 
 ##### Deploy the extension, dependencies and configuration
 
-If you haven't done it already [install](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) and [config](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) AWS CLI
+If you haven't done it already, [install](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) and [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) the AWS CLI.
 
-Add the layer to your function and configure the environment variables using the following 
+Add the layer to your function and configure the environment variables using the following command:
 
 ```shell
 aws lambda update-function-configuration \

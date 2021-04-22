@@ -166,6 +166,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 </div>
 
+<!-- 21 April 2021 Removing NXLog scode sample: needs rewrite -->
+
+<!--  temporary deprecation starts here --.
 
 ### Code sample: NXLog
 
@@ -197,7 +200,7 @@ LogLevel INFO
 </Route>
 ```
 
-
+.-- temporary deprecation of NXLog sample ends here 21 April 2021 -->
 
 <!-- info-box-start:info -->
 To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html).

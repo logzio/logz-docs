@@ -15,7 +15,7 @@ show-date: false
 *   Get all the tags in this tab
 *         {%- endcomment -%}
 {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
-{%- assign docs = thisCollection.docs | sort_natural: "data-source" -%}
+{%- assign docs = thisCollection.docs | sort_natural: "order" -%}
 
 <div id="{{tab.collection}}">
 

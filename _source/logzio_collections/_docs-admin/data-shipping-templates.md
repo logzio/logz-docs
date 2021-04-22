@@ -10,7 +10,7 @@ show-date: false
 {%- assign shippingCollections = "" | split: "" -%}
 {%- for tab in tabs -%}
   {%- assign thisCollection = site.collections |  where: "label", tab.collection | first -%}
-  {%- assign thisCollectionDocs = thisCollection.docs | sort_natural: "data-source" | sort: order -%}
+  {%- assign thisCollectionDocs = thisCollection.docs | sort_natural: "data-source" | sort: "order" -%}
   {%- assign shippingCollections = shippingCollections | concat: thisCollectionDocs -%}
 {%- endfor -%}
 

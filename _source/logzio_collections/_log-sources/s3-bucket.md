@@ -6,6 +6,7 @@ logo:
 data-source: S3 Bucket
 shipping-tags:
   - aws
+  - popular
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket
 contributors:
   - imnotashrimp

@@ -9,6 +9,7 @@ shipping-tags:
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket
 contributors:
   - imnotashrimp
+order: 20
 ---
 
 Some AWS services can be configured to ship their logs to an S3 bucket,

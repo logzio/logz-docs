@@ -3,13 +3,13 @@ title: Send Metricbeat metrics
 logo:
   logofile: metricbeat_logo.svg
   orientation: horizontal
-data-source: Your Metricbeat metrics
+data-source: Metricbeat integrations
 templates: ["docker-metricbeat"]
 contributors:
   - yberlinger
 shipping-tags:
   - metricbeat
-order: 75
+order: 50
 ---
 
 

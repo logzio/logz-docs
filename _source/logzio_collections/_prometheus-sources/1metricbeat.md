@@ -9,8 +9,7 @@ contributors:
   - yberlinger
 shipping-tags:
   - metricbeat
-  - popular
-order: 26
+order: 75
 ---
 
 

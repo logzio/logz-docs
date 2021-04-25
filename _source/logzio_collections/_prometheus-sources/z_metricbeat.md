@@ -13,5 +13,5 @@ order: 150
 ---
 
 
-#### If your metrics account was created before the Prometheus GA (mid-March 2021), click [here for the Metricbeat documentation.](https://docs.logz.io/shipping/#metrics-sources)     
+If your metrics account was created before the Prometheus GA (mid-March 2021), click [here for the Metricbeat documentation.](https://docs.logz.io/shipping/#metrics-sources)     
 

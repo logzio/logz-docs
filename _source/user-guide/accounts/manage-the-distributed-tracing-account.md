@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Manage the Distributed Tracing account
+title: Manage a Distributed Tracing account
 permalink: /user-guide/accounts/manage-the-distributed-tracing-account.html
 flags:
   admin: true
@@ -15,66 +15,121 @@ contributors:
 ---
 
 
-You can manage your Distributed Tracing account
-from the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
-You'll need to be signed in to the main account in your Operations workspace.
+You manage your Distributed Tracing accounts
+in the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
+You'll need to be signed in to the main account in your Operations workspace to view it.
+
+The Distributed Tracing Account plan panel is located in the middle of the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. 
+
+This is where you can view your Distributed Tracing Account plan and the specific details and options that can be updated for each account within the plan.
 
 If you don't have a Distributed Tracing account yet, start a trial in the Distributed Tracing tab.
 <!-- reach out to your account manager or email [the Sales team](mailto:sales@logz.io).-->
 {:.info-box.note}
 
-#### To manage your Distributed Tracing account
+###### What can I do on this page?
+{:.no_toc}
+
+1. toc list
+{:toc}
+
+{:.no_toc}
 
 <div class="tasklist">
 
-##### Select your Distributed Tracing account
+##### View the plan summary and account allocations
 
-You'll find your Distributed Tracing account
-in the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page
-of your Operations workspace,
-in the middle of the page.
+This is where you can see the monthly available spans and data retention time for your plan, with a breakdown of the allocations and usage percentages for each account for the current month. 
 
-If you want, change the **Account name** here.
+![Tracing account summary](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/seetracingaccounts1.png)
 
+##### View details and options for a specific account
 
-<!--Step 2:  temporarily redacted 17Mar2021
-##### Create a new Tracing account
+To see the detailed information and the configurable options for each account, click the account name in the table or pie chart. 
 
-`_<< comment: need to see how this works in app >>_`
+![View account details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/seeaccount-details.png)
 
--->
+You can view the following details...
 
-<!-- Step 3:  temporarily redacted 17 Mar2021
-##### Allocate spans to each Distributed Tracing account
+* Account name and creation date 
+* Account token
+* Summary and breakdown of the spans sent to the account over the last 7 days
 
-Set how many spans are allocated to each account from the overall Distributed Tracing plan. 
-`_<< comment: need to see how this works in app >>_`
--->
+...and change the following account options: 
 
-##### Grant access to a tracing data source
+* Tracing account name
+* Which Logz.io main account and sub accounts can access the data in any of the multiple tracing accounts (which are data sources)
+* Total spans allocated from the Distributed Tracing plan to this specific data source, which defines how many spans per calendar month can be ingested into this data source
+* Remaining portion of the overall Distributed Tracing plan that can still be allocated to additional tracing data sources (accounts) 
 
+##### Update the account name
 
-Your Distributed Tracing account can serve as a data source that is accessed by main and sub accounts.
+Enter a new **Tracing account name** and **Save** to update your changes, or **Cancel** to discard them.
 
-To manage access to your tracing account, configure which Logz.io main and sub accounts can access or view the Distributed Tracing data source.
+![Rename a tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/newtracingname.png)
 
-When users are logged in to the accounts you add here,
-they'll be able to access or view the the tracing data in their account, via the Tracing tab.
+##### Configure which accounts can access a tracing data source
 
-###### Grant access to the data in a tracing account
+Each Distributed Tracing account can function as a data source for other Logz.io accounts.
+To manage access to your tracing data, you create an access list of the Logz.io main account and sub accounts that can view the span data for each tracing account. You can see the list of all the sub accounts (and main account) in the top right of the application page, in the account selector.
 
-  a. To display the account information for a specific tracing account, click your Distributed Tracing account. 
+When users are logged in to an account in the access list,
+they can choose the tracing account as a data source in the Jaeger interface of the Tracing tab.
+![Pick a data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-data-source.gif)
+
+**To grant access to the data in a tracing account**
+
+  1. Click the account name to open its account details. 
   ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-manage-tracing-subaccts4.png)
 
 
-  b. To enable access to a Distributed Tracing data source for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant main and sub accounts. 
+  2. To enable access to a Distributed Tracing data source for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant accounts. 
   ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-access-4tracing-subaccts3.gif)
 
 
+##### Add a tracing account to your plan
+
+You can configure up to 5 tracing accounts for your Distributed Tracing plan. If you need the ability to add more tracing accounts, reach out to your account manager or [the Sales team](mailto:sales@logz.io)
+{:.info-box.note}
+
+**To create a new account**
+
+1. Click **Add Tracing account** in the upper left of the Distributed Tracing Account plan panel.
+2. Name the new account
+3. Set which accounts can use it as a data source in the Tracing tab. 
+4. Configure the **Total monthly spans** to allocate to the new account. 
+   If you don't have spans available to allocate to the new plan, you'll be prompted to reduce the allocation of another account.
+   ![Reduce existing span allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/reduce-allocation.png)
+
+   
+5. Click **Save** to apply your changes.
+
+![Adding a new tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-new-tracingacct.gif)
+
+##### Delete a tracing account from your plan
+ 
+1. In the account details, click the **Delete** icon next to the account name.
+  ![delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/delete-tracing1.png)   
+
+2. Confirm (or **Cancel**) the action. 
+  ![Confirm delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/confirm-delete-tracingacct2.png)
 
 
-##### Save your changes
+##### Change how many spans are allocated to each Distributed Tracing account within your plan
 
-Click **Save** to apply your changes.
+Juggle the allocated spans per month of your Distributed Tracing account plan between the different tracing accounts according to each account's current usage details. Each data source has its quota defined in the **Spans** column. 
+
+![overview of allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/spanscolumn.png)
+
+To change how many spans are allocated to a tracing account, pick the relevant account, increase or decrease the **Total monthly spans** and click **Save** to apply your changes.
+
+In the example below, **New Tracing Account 2**  is not using its allocated spans: It would be reasonable to reduce it's monthly allocation and increase the allocation for the **Tracing** account. 
+![juggle allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shiftspans-betweenaccts2.png)
+
 
 </div>
+
+
+
+
+

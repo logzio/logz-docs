@@ -59,7 +59,7 @@ collections:
   prometheus-sources:
     output: true
     permalink: /shipping/prometheus-sources/:slug.html
-    name: Metrics (Prometheus)
+    name: Metrics 
     id: :slug
     in-shipping-manifest: true
     order: 2
@@ -68,7 +68,7 @@ collections:
     permalink: /shipping/metrics-sources/:slug.html
     name: Metrics (Metricbeat)
     id: :slug
-    in-shipping-manifest: true
+    in-shipping-manifest: false
     order: 3
   tracing-sources:
     output: true

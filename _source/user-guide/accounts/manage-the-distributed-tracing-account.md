@@ -58,10 +58,9 @@ You can view the following details...
 ...and change the following account options: 
 
 * Tracing account name
-* Which Logz.io accounts can access the data in the account 
-* Total spans allocated to the account this month
-* Spans still available in your plan this month
-
+* Which Logz.io main account and sub accounts can access the data in any of the multiple tracing accounts (which are data sources)
+* Total spans allocated from the Distributed Tracing plan to this specific data source, which defines how many spans per calendar month can be ingested into this data source
+* Remaining portion of the overall Distributed Tracing plan that can still be allocated to additional tracing data sources (accounts) 
 
 ##### Update the account name
 
@@ -72,7 +71,7 @@ Enter a new **Tracing account name** and **Save** to update your changes, or **C
 ##### Configure which accounts can access a tracing data source
 
 Each Distributed Tracing account can function as a data source for other Logz.io accounts.
-To manage access to your tracing data, you create an access list of the Logz.io accounts that can view the span data for each tracing account.
+To manage access to your tracing data, you create an access list of the Logz.io main account and sub accounts that can view the span data for each tracing account. You can see the list of all the sub accounts (and main account) in the top right of the application page, in the account selector.
 
 When users are logged in to an account in the access list,
 they can choose the tracing account as a data source in the Jaeger interface of the Tracing tab.
@@ -90,14 +89,14 @@ they can choose the tracing account as a data source in the Jaeger interface of 
 
 ##### Add a tracing account to your plan
 
-You can configure up to 5 tracing accounts for your Distributed Tracing plan. If you need the ability to add more tracing account, reach out to your account manager or [the Sales team](mailto:sales@logz.io)
+You can configure up to 5 tracing accounts for your Distributed Tracing plan. If you need the ability to add more tracing accounts, reach out to your account manager or [the Sales team](mailto:sales@logz.io)
 {:.info-box.note}
 
 **To create a new account**
 
 1. Click **Add Tracing account** in the upper left of the Distributed Tracing Account plan panel.
 2. Name the new account
-3. Set which accounts can use it as a data source in the Tracing tab,. 
+3. Set which accounts can use it as a data source in the Tracing tab. 
 4. Configure the **Total monthly spans** to allocate to the new account. 
    If you don't have spans available to allocate to the new plan, you'll be prompted to reduce the allocation of another account.
    ![Reduce existing span allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/reduce-allocation.png)

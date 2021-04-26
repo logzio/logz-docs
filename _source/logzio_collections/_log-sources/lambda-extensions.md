@@ -115,6 +115,7 @@ This command overwrites the existing function configuration. If you already have
 <!-- info-box-end -->
 
 </div>
+
 </div>
 <!-- tab:end -->
 
@@ -163,8 +164,11 @@ Run the function. It may take more than one run of the function for the logs to 
 
 
 </div>
+
 </div>
 <!-- tab:end -->
+
+
 
 <!-- tab:start -->
 <div id="tables">
@@ -210,6 +214,7 @@ Run the function. It may take more than one run of the function for the logs to 
 If your AWS region is not in the list, please reach out to Logz.io's support or open an issue in the [project's Github repo](https://github.com/logzio/logzio-lambda-extensions).
 {:.info-box.note}
 <!-- info-box-end -->
+
 
 </div>
 <!-- tab:end -->

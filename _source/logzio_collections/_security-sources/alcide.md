@@ -8,6 +8,8 @@ contributors:
   - shalper
 shipping-tags:
   - k8s
+order: 1260
+
 ---
 
 Alcide kAudit is a security service for monitoring Kubernetes audit logs, and easily

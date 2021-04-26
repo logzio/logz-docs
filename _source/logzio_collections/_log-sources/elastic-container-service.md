@@ -17,6 +17,7 @@ contributors:
   - shalper
 shipping-tags:
   - aws
+order: 440
 ---
 
 This integration uses Filebeat in a Docker container to forward logs from Amazon Elastic Container Service (ECS) to Logz.io.

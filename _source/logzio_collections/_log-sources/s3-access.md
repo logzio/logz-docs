@@ -5,13 +5,14 @@ logo:
   orientation: vertical
 data-source: S3 access logs
 templates: ["s3-fetcher"]
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/S3Access
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-access
 contributors:
   - idohalevi
   - imnotashrimp
   - shalper
 shipping-tags:
   - aws
+order: 160
 ---
 
 #### Configuration
@@ -34,7 +35,7 @@ For help with this, see [Amazon S3 Server Access Logging](https://docs.aws.amazo
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/data-sources/S3-Access) and add a new S3 bucket.
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/S3-Access) and add a new S3 bucket.
 
 
 <!-- logzio-inject:aws:s3-access -->

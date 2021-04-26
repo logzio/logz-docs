@@ -14,6 +14,7 @@ contributors:
   - shalper
 shipping-tags:
   - azure
+order: 930
 ---
 
 You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.

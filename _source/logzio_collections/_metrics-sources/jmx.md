@@ -226,7 +226,7 @@ docker run -v $(pwd)/config.conf:/application.conf logzio/jmx2logzio
 
 ##### Check Logz.io for your metrics
 
-Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/grafana/).
+Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/metrics/).
 
 </div>
 

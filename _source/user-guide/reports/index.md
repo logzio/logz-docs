@@ -17,7 +17,7 @@ To schedule your report:
 
 * Open a dashboard, and click **Create report** from the top menu.
 
-  ![Create a report from a Dashboard](https://dytvr9ot2sszz.cloudfront.net/whats-new-announcements/1-click-report.png)
+  ![Create a report from a Dashboard](https://dytvr9ot2sszz.cloudfront.net/whats-new-announcements/1-click-report1.png)
 
 * Select **Alerts & Events > Reports** in the top menu, and click **+ New report**.
 

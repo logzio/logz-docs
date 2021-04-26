@@ -10,6 +10,8 @@ contributors:
   - schwin007
 shipping-tags:
   - endpoint-security
+order: 1290
+
 ---
 #### Filebeat configuration
 

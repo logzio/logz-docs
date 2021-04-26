@@ -9,6 +9,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - linux
+order: 560
 ---
 
 #### Guided configuration

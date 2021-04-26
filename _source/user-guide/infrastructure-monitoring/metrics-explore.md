@@ -20,6 +20,8 @@ It's also great if you're a long-time user and want to examine the structure of 
 
 To go to Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
+
+
 ## Metrics view vs. Logs view
 
 Explore mode has a number of views, including various Metrics options and a Logs view.
@@ -36,6 +38,8 @@ Which view is better, depends on your goal:
 ### Metrics View
 
 The Metrics view options offer a playground you can use to explore your data. They show a graph panel where you can experiment with queries. If you've edited a dashboard before, the interface will be familiar.
+
+{% include /metric-shipping/no-query-elastic-based.md %}
 
 The Metrics view options are great for learning what Metrics data is in your system. Here are a few examples of what it offers:
 

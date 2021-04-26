@@ -15,10 +15,11 @@ contributors:
   - yberlinger
 shipping-tags:  
   - prometheus
+order: 910
 ---
 
 
-{% include page-info/early-access.md type="beta" %}
+
 
 This topic includes instructions on how to send custom metrics to Logz.io from your GO application. 
 
@@ -211,6 +212,6 @@ _ = metric.Must(meter).NewInt64ValueObserver("valueobserver", observerCallback,
 <!-- See full [example](link2github) -->
 
 ##### Check Logz.io for your metrics
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/grafana/).
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 </div>

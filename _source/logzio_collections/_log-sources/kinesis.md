@@ -8,7 +8,7 @@ open-source:
     github-repo: logzio_aws_serverless/tree/master/python3/kinesis
 data-source: Kinesis
 templates: ["lambda-kinesis", "cloudformation"]
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kinesis
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/kinesis
 contributors:
   - idohalevi
   - imnotashrimp
@@ -16,6 +16,7 @@ contributors:
   - yyyogev
 shipping-tags:
   - aws
+order: 750
 ---
 
 <!-- tabContainer:start -->

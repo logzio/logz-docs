@@ -1,7 +1,7 @@
 ---
 title: Shipping with Logstash
 logo:
-  logofile: logstash.svg
+  logofile: logstash_temp.png
   orientation: vertical
 data-source: Logstash
 shipping-tags:
@@ -10,6 +10,8 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - agents
+  - popular
+order: 70
 ---
 
 

@@ -35,7 +35,7 @@ The first step is to export your existing dashboards, searches and visualization
 5. A JSON file with your exported objects will be saved to your default location.
 
 <video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-videos/export_kibana_objects.mp4" type="video/mp4" />
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-videos/export_kibana_objects1.mp4" type="video/mp4" />
 </video>
 
 The full export is highly recommended. That way you can be sure that you'll have everything, irrespective of any inter-dependencies. If you export a single object that happens to be dependant on another object, the export can fail.

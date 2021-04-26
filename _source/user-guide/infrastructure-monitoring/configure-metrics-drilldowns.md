@@ -20,7 +20,7 @@ The Metrics interface variables are indicated with a `$`.
 #### Add dashboard variables {#set-up-dashboard-variables}
 
 **Before you begin, you'll need**:
-[Metrics](https://app.logz.io/#/dashboard/grafana/) in your Logz.io metrics account.
+[Metrics](https://app.logz.io/#/dashboard/metrics/) in your Logz.io metrics account.
 
 <div class="tasklist">
 

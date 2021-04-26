@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - database
+order: 1000
 ---
 
 You can ship Redis metrics using Metricbeat.
@@ -103,6 +104,6 @@ Start or restart Metricbeat for the changes to take effect.
 
 ##### Check Logz.io for your metrics
 
-Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/grafana/).
+Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/metrics/).
 
 </div>

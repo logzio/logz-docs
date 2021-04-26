@@ -1,13 +1,13 @@
 ---
-title: Ship Kubernetes metrics over Helm with the OpenTelemetry Collector
+title: Send Kubernetes metrics with Helm and the OpenTelemetry Collector
 logo:
   logofile: k8s-helm.svg
   orientation: horizontal
-data-source: Kubernetes over Helm
+data-source: Kubernetes over Helm with OpenTelemetry
 open-source:
-  - title: 
-    github-repo: 
-templates: ["docker"]
+  - title: Kubernetes metrics with Helm and OpenTelemetry
+    github-repo: logzio-otel-k8s-metrics
+templates: ["k8s-daemonset"]
 contributors:
   - yotamloe
   - yberlinger
@@ -16,50 +16,52 @@ shipping-tags:
 ---
 
 
-# Logzio-otel-k8s-metrics
+##  Overview
+
+<!-- logzio-otel-k8s-metrics 
+This should be the repo url after we merge: https://github.com/logzio/logzio-helm/tree/master/charts/opentelmetry -->
+
+You can use a Helm chart to ship k8s logs to Logz.io via OpenTelemetry collector.
 
 The Helm tool is used to manage packages of pre-configured Kubernetes resources that use Charts.
-logzio-otel-k8s-metrics allows you to ship metrics from your Kubernetes cluster with the OpenTelemetry collector.
+logzio-otel-k8s-metrics allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
-**Note:** This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) helm chart, it is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics) and [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) charts, that will be installed by default. To disable the dependency during installation, set `kubeStateMetrics.enabled` and `nodeExporter` to `false`.
+<!-- info-box-start:info -->
+This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) helm chart, it is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics) and [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) charts, that will be installed by default. To disable the dependency during installation, set `kubeStateMetrics.enabled` and `nodeExporter` to `false`.
+{:.info-box.note}
+<!-- info-box-end -->
 
-### Prerequisites:
-* [Helm 3](https://helm.sh/docs/intro/install/) installed
+#### Standard configuration
 
+<div class="tasklist">
 
-### Deployment:
+##### Deploy
 
-#### 1. Add the logzio-otel-k8s-metrics repo to your Helm repo list
+###### Parameter configuration
 
-```shell
-helm repo add logzio-otel https://logzio.github.io/logzio-helm/opentelemtry/
-```
+Replace the Logz-io `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) of the metrics account to which you want to send your data.
 
-#### 2. Deploy
-
-
-#### Deploy with standard configuration:  
-
-Replace the Logz-io `<<METRICS-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the metrics account you want to ship to.
 
 Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `https://listener.logz.io:8053`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 
+###### Deployment code
+
 ```
 helm install  \
---set secrets.MetricsToken=<<METRICS-TOKEN>> \
+--set secrets.MetricsToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
 --set secrets.ListenerHost=<<LISTENER-HOST>> \
 --set secrets.p8s_logzio_name=<<ENV-TAG>> \
 logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics
 ```
 
-#### 3. Check Logz.io for your metrics
+##### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
 
 
-### Configuration
+####  Customizing default parameters
 
 You can use the following options to update your default parameter values: 
 
@@ -67,27 +69,35 @@ You can use the following options to update your default parameter values:
 
 * Edit the `values.yaml`
 
-* Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. For exapmle:
+* Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+
+###### Example:
 
 ```
 helm install logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics -f my_values.yaml 
 ```
-### Collected metrics
 
-The default set up uses the Prometheus receiver with the following scrape jobs:
+#### Customizing which metrics are collected  
+
+The default configuration uses the Prometheus receiver with the following scrape jobs:
+
 * Cadvisor: Scrapes container metrics
-* Kubernetes service endpoints: These job scrape metrics from the node exporters, Kube state metrics, from any other service for which the `prometheus.io/scrape: true` annotaion is set, and from services that expose Prometheus metrics at the `/metrics` endpoint.
+* Kubernetes service endpoints: These jobs scrape metrics from the node exporters, from Kube state metrics, from any other service for which the `prometheus.io/scrape: true` annotaion is set, and from services that expose Prometheus metrics at the `/metrics` endpoint.
+##### Customize the metrics collection
 
-You can customize your configuration by editing the `config` section in the `values.yaml` file.
+To customize your configuration, edit the `config` section in the `values.yaml` file.
 
-### Uninstalling the Chart
+#### Uninstalling the Chart
 
-The uninstall command is used to remove all the Kubernetes components associated with the chart and deletes the release.  
-To uninstall the `logzio-otel-k8s-metrics` deployment:
+The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
+
+##### To uninstall the `logzio-otel-k8s-metrics` deployment
+
+Use the following command:
 
 ```shell
 helm uninstall logzio-otel-k8s-metrics
 ```
+</div>
 
-
-## Change log
+### Change log

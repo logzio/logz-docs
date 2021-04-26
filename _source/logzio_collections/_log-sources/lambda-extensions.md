@@ -101,6 +101,7 @@ This command overwrites the existing function configuration. If you already have
 #### Deleting the extension
 
 To delete the extension, its dependencies and environment variables, use the following command:
+
 ```shell
 aws lambda update-function-configuration \
     --function-name some-func \

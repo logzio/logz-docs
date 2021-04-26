@@ -12,6 +12,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - from-your-code
+order: 660
 ---
 
 This shipper uses goleveldb and goqueue as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.
@@ -75,7 +76,7 @@ func main() {
 | Parameter | Description | Required/Default |
 |---|---|---|
 | token | {% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
-| SetUrl | Listener URL and port.    {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| SetUrl | Listener URL and port.    {% include log-shipping/listener-var.html %}  |Required (default:  `https://listener.logz.io:8071`) |
 | SetDebug | Debug flag. | `false` |
 | SetDrainDuration  | Time to wait between log draining attempts. | `5 * time.Second` |
 | SetTempDirectory | Filepath where the logs are buffered. | -- |

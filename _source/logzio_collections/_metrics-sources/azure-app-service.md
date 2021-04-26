@@ -9,7 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - azure
-
+order: 640
 ---
 
 To monitor your Azure service metrics,

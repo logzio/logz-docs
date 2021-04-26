@@ -9,6 +9,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - ids
+order: 670
 ---
 
 #### Guided configuration

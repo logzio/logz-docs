@@ -9,6 +9,7 @@ contributors:
   - yotamloe
 shipping-tags:
   - database
+order: 700
 ---
 
 You can ship PostgreSQL metrics using Metricbeat.

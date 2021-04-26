@@ -9,6 +9,8 @@ contributors:
   - shalper
 shipping-tags:
   - firewalls
+order: 1280
+
 ---
 
 **Before you begin, you'll need**:

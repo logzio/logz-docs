@@ -33,7 +33,7 @@ Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team f
 1. Once the trace ID is part of the log attributes, open the Kibana left menu, and select **Management**.
     ![Open Kibana management](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace1.png)
 2. To manage log index patterns, click **Index pattern** and go to your default index pattern settings.
-    ![Go to index pattern settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace2.png)
+    ![Go to index pattern settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace2a.png)
 3. Search for the trace ID field you want to correlate with your logs and select **Edit**. In this example, the field name is **traceID**.
     ![search for and edit the traceID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace3.png)
 4. Change the **Format** to **URL** and enable **Open in a new tab**.

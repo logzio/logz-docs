@@ -340,12 +340,17 @@ firstLevel:
     thirdLevel:
       - title: Notification endpoints
         url: /user-guide/integrations/endpoints.html
+      - title: ServiceNow endpoint
+        url: /user-guide/integrations/servicenow.html
+      - title: Opsgenie notifications for resolved metrics alerts
+        url: /user-guide/integrations/resolved-metrics-alerts.html
+
+  - title: Custom endpoints
+    thirdLevel:
       - title: Custom endpoints
         url: /user-guide/integrations/custom-endpoints.html
       - title: Microsoft Teams endpoint
         url: /user-guide/integrations/ms-teams.html
-      - title: Opsgenie notifications for resolved metrics alerts
-        url: /user-guide/integrations/resolved-metrics-alerts.html
 
 
     # ===== API Reference =====

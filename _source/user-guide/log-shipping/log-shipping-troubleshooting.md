@@ -107,7 +107,7 @@ in the [account settings](https://app.logz.io/#/dashboard/settings/general) page
 Compare your account token
 with the token you're sending to Logz.io with your logs.
 Review the instructions for your
-[log shipping method](https://app.logz.io/#/dashboard/data-sources/)
+[log shipping method](https://app.logz.io/#/dashboard/send-your-data/log-sources/)
 if you're not sure where to find the token you're sending with your logs.
 
 In most cases, the token is stored in a configuration file

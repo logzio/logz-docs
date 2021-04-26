@@ -45,7 +45,7 @@ Log shipping tokens are used in the shipping configuration to send data to the r
 
 To view your default token, go to [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general). You can click the token to copy it.
 
-The default token is auto-populated in the [configuration instructions](https://app.logz.io/#/dashboard/data-sources/) in the app. You can replace the token with another enabled token.
+The default token is auto-populated in the [configuration instructions](https://app.logz.io/#/dashboard/send-your-data/log-sources/) in the app. You can replace the token with another enabled token.
 
 If you prefer to view the configuration instructions outside the app, note that you will need to replace the the `<<SHIPPING-TOKEN>>` parameter with one of your enabled log shipping tokens. See more in the [log shipping guide]({{site.baseurl}}/shipping/).
 

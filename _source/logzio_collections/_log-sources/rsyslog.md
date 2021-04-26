@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - os
+order: 130
 ---
 
 <!-- tabContainer:start -->
@@ -89,7 +90,7 @@ $InputFileSeverity info
 $InputFilePersistStateInterval 20000
 $InputRunFileMonitor
 
-$DefaultNetstreamDriverCAFile /etc/ssl/certs/AddTrustExternalCARoot.crt
+$DefaultNetstreamDriverCAFile /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 $ActionSendStreamDriver gtls
 $ActionSendStreamDriverMode 1
 $ActionSendStreamDriverAuthMode x509/name

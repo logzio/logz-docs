@@ -35,7 +35,7 @@ at the bottom of the page.
 If you want, change the **Account name** here.
 
 You can leave the **Unique metrics** box at its default value.
-This box is reserved for future functionality.  '_<<comment: is this active yet? >>_'
+This box is reserved for future functionality.  <!-- comment: is this active yet? -->
 
 ##### Create a new Metrics account
 

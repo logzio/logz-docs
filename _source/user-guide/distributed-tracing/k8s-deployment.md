@@ -37,13 +37,16 @@ kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
 ```
 
 ##### Deploy agent and collector
-Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recommended) or the Jaeger collector:
+
+Deploy Jaeger agents and a collector. 
+
+Logz.io recommends that you use the OpenTelemetry collector. <br>If you already have a local Jaeger in your environment, use the Logz.io Jaeger collector to get a head start on sending your tracing data to Logz.io.
 
 
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [OpenTelemetry collector + Jaeger agents](#opentelemetry-collector)
+* [OpenTelemetry collector + Jaeger agents (recommended)](#opentelemetry-collector)
 * [Jaeger collector and agents](#jaeger-collector)
 {:.branching-tabs}
 
@@ -51,6 +54,8 @@ Deploy Jaeger agents and a collector - either the OpenTelemetry collector (recom
 <!-- tab:start -->
 <div id="opentelemetry-collector">
 
+
+###### OpenTelemetry collector (recommended) + Jaeger agents:
 
 1. Save the yaml below to a file and name it `config.yaml`.
 2. Edit the 2-letter region code, if needed. The region appears in the otel-collector-config ConfigMap under `config.yaml > exporters > logzio: ` specification in the yaml code below).
@@ -140,7 +145,7 @@ data:
   exporters:
     logzio:
       account_token: "${LOGZIO_TRACES_TOKEN}"
-      region: us    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
+      region: "us"    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
     logging:
 
   processors:

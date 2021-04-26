@@ -27,8 +27,9 @@ shipping-tags:
 {:.branching-tabs}
 
 
-<!-- tab1:start -->
+<!-- tab:start -->
 <div id="overview">
+
 
 Lambda extensions enable tools to integrate deeply into the Lambda execution environment to control and participate in Lambda’s lifecycle.
 To read more about Lambda Extensions, [click here](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-extensions-api.html).  
@@ -50,8 +51,9 @@ You can deploy the extension via the AWS CLI or via the AWS Management Console.
 <!--tab:end -->
 
 
-<!-- tab2:start -->
+<!-- tab:start -->
 <div id="cli">
+
 
 #### Deploying Logz.io logs extension via the AWS CLI
 
@@ -114,10 +116,12 @@ This command overwrites the existing function configuration. If you already have
 {:.info-box.note}
 <!-- info-box-end -->
 
+
 </div>
 <!-- tab:end -->
 
-<!-- tab3:start -->
+
+<!-- tab:start -->
 <div id="console">
 
 #### Deploying Logz.io log extensions via the AWS Management Console
@@ -163,7 +167,7 @@ Run the function. It may take more than one run of the function for the logs to 
 </div>
 <!-- tab:end -->
 
-<!-- tab4:start -->
+<!-- tab:start -->
 <div id="tables">
 
 ### Environment Variables

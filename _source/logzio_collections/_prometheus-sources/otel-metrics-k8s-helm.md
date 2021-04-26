@@ -21,7 +21,7 @@ shipping-tags:
 <!-- logzio-otel-k8s-metrics 
 This should be the repo url after we merge: https://github.com/logzio/logzio-helm/tree/master/charts/opentelmetry -->
 
-You can use a Helm chart to ship Kubernetes logs to Logz.io via OpenTelemetry collector.
+You can use a Helm chart to ship Kubernetes logs to Logz.io via the OpenTelemetry collector.
 
 The Helm tool is used to manage packages of pre-configured Kubernetes resources that use Charts.
 

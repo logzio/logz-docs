@@ -63,33 +63,33 @@ collections:
     id: :slug
     in-shipping-manifest: true
     order: 2
-  metrics-sources:
-    output: true
-    permalink: /shipping/metrics-sources/:slug.html
-    name: Metrics (Metricbeat)
-    id: :slug
-    in-shipping-manifest: false
-    order: 3
   tracing-sources:
     output: true
     permalink: /shipping/tracing-sources/:slug.html
     name: Tracing
     id: :slug
     in-shipping-manifest: true
-    order: 4
+    order: 3
   security-sources:
     output: true
     permalink: /shipping/security-sources/:slug.html
     name: Cloud SIEM
     id: :slug
     in-shipping-manifest: true
-    order: 5
+    order: 4
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html
     name: Community shippers
     id: :slug
     in-shipping-manifest: false
+  metrics-sources:
+    output: true
+    permalink: /shipping/metrics-sources/:slug.html
+    name: 
+    id: :slug
+    in-shipping-manifest: false
+    order: 
   shippers:
     output: true
     permalink: /shipping/shippers/:slug.html

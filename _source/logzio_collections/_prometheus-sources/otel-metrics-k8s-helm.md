@@ -21,10 +21,11 @@ shipping-tags:
 <!-- logzio-otel-k8s-metrics 
 This should be the repo url after we merge: https://github.com/logzio/logzio-helm/tree/master/charts/opentelmetry -->
 
-You can use a Helm chart to ship k8s logs to Logz.io via OpenTelemetry collector.
+You can use a Helm chart to ship Kubernetes logs to Logz.io via OpenTelemetry collector.
 
 The Helm tool is used to manage packages of pre-configured Kubernetes resources that use Charts.
-logzio-otel-k8s-metrics allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+
+**logzio-otel-k8s-metrics** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
 <!-- info-box-start:info -->
 This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) helm chart, it is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics) and [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) charts, that will be installed by default. To disable the dependency during installation, set `kubeStateMetrics.enabled` and `nodeExporter` to `false`.

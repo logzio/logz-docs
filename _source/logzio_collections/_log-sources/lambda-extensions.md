@@ -96,9 +96,7 @@ aws lambda update-function-configuration \
 This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list.
 {:.info-box.note}
 <!-- info-box-end -->
-
-
- </div>  
+  
 
 #### Deleting the extension
 
@@ -116,7 +114,7 @@ This command overwrites the existing function configuration. If you already have
 {:.info-box.note}
 <!-- info-box-end -->
 
-
+</div>
 </div>
 <!-- tab:end -->
 
@@ -155,7 +153,7 @@ Add the environment variables to the function, according to the environment vari
 
 Run the function. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
 
-</div>
+
 
 #### Deleting the extension
 
@@ -164,6 +162,7 @@ Run the function. It may take more than one run of the function for the logs to 
 - To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`,  click `edit`, and remove the variables that you added for the extension.
 
 
+</div>
 </div>
 <!-- tab:end -->
 

@@ -14,6 +14,7 @@ contributors:
 shipping-tags:
   - instrumentation
   - tracing 
+order: 980
 ---
 
 {% include tracing-shipping/csharp-open-tracing-overview.md instmethod="manually" %}

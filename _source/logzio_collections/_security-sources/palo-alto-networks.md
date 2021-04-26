@@ -9,6 +9,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - firewalls
+order: 820
 ---
 
 #### Guided configuration

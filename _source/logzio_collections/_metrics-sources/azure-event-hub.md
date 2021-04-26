@@ -10,7 +10,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - azure
-
+order: 770
 ---
 
 You can ship Azure Event Hub metrics using Metricbeat to monitor your Azure services.

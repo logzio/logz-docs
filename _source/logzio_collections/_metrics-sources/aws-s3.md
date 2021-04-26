@@ -12,6 +12,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - aws
+order: 220
 ---
 
 To simplify shipping metrics from one or many sources,

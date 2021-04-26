@@ -10,6 +10,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - agents
+order: 180
 ---
 
 #### Configure Fluentd

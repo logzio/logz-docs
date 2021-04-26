@@ -4,7 +4,7 @@ layout: json
 
 {%- include tags/capture-site-pages.html -%}
 
-{%- assign untaggedDataSources = shippingDataSources
+{%- assign untaggedDataSources = shippingDataSources·
   | where_exp: "page", "page.tags.size == 0" -%}
 {%- assign untaggedPages = htmlPages
   | where_exp: "page", "page.tags == nil"

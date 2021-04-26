@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - from-your-code
+order: 370
 ---
 
 You can send your application metrics to your Logz.io Infrastructure Monitoring account and create your own dashboards. To do this, you'll need to send your application metrics to Logz.io in JSON format and keep to the following formatting guidelines.

@@ -12,6 +12,7 @@ contributors:
   - shalper
 shipping-tags:
   - aws
+order: 160
 ---
 
 #### Configuration

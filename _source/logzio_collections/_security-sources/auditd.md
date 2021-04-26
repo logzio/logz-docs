@@ -9,6 +9,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - linux
+order: 380
 ---
 
 As its name suggests, auditd is a service that audits activities in a Linux environment.

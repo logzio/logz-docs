@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - vulnerability-scanners
+order: 1320
 ---
 
 [OpenVAS](https://www.openvas.org/about.html) (Open Vulnerability Assessment System) is an open source vulnerability scanner. The following instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.

@@ -9,6 +9,7 @@ contributors:
   - yotamloe
 shipping-tags:
   - database
+order: 280
 ---
 
 You can ship MySQL metrics using Metricbeat.

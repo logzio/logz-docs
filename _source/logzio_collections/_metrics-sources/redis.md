@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - database
+order: 1000
 ---
 
 You can ship Redis metrics using Metricbeat.

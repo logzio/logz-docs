@@ -9,6 +9,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - platform-service
+order: 530
 ---
 
 #### Set up a Heroku log drain

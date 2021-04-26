@@ -12,6 +12,7 @@ contributors:
   - shalper
 shipping-tags:
   - aws
+order: 210
 ---
 
 {% include log-shipping/s3-bucket.md service="CloudTrail" %}

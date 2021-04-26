@@ -17,6 +17,7 @@ contributors:
   - yberlinger
 shipping-tags:  
   - prometheus
+order: 720
 ---
 
 To send custom metrics from your Java application to Logz.io, use a [Micrometer metrics](https://micrometer.io/) registry for your dimensional metrics.

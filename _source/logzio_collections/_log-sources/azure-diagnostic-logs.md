@@ -19,6 +19,7 @@ contributors:
   - shalper
 shipping-tags:
   - azure
+order: 630
 ---
 
 Ship your Azure activity logs using an automated deployment process.

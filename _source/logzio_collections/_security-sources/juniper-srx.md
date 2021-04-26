@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - firewalls
+order: 1250
 ---
 
 Juniper SRX is a networking firewall solution and services gateway. If you ship your Juniper firewall logs to your Logz.io Cloud SIEM, you can centralize your security ops and receive alerts about security events logged by Juniper SRX.

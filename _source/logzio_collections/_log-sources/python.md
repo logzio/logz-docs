@@ -14,6 +14,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - from-your-code
+order: 170
 ---
 
 Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.

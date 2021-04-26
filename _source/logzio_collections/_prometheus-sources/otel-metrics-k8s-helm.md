@@ -37,6 +37,8 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 
 ##### Deploy
 
+Enter the relevant parameters for the placeholders and run the deployment code. 
+
 ###### Parameter configuration
 
 Replace the Logz-io `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) of the metrics account to which you want to send your data.
@@ -91,7 +93,7 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-##### To uninstall the `logzio-otel-k8s-metrics` deployment
+##### Uninstall the `logzio-otel-k8s-metrics` deployment
 
 Use the following command:
 

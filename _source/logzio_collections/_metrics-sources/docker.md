@@ -15,6 +15,7 @@ contributors:
   - shalper
 shipping-tags:
   - container
+order: 40
 ---
 
 To simplify shipping metrics from one or many sources,

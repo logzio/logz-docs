@@ -9,6 +9,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - server-app
+order: 960
 ---
 
 HAProxy is a network device, so it needs to transfer logs using the syslog protocol.

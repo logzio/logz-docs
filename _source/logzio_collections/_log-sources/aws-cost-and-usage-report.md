@@ -14,6 +14,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - aws
+order: 830
 ---
 
 #### Configuration

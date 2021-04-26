@@ -10,6 +10,7 @@ tags:
 contributors:
   - yberlinger
   - yotamloe
+order: 150
 ---
 
 {% include /p8s-shipping/prometheus-rollout.md %}

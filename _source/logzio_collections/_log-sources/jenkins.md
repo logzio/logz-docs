@@ -11,6 +11,7 @@ contributors:
   - shalper
 shipping-tags:
   - ci-cd
+order: 590
 ---
 #### Shipping Jenkins logs with Filebeat
 

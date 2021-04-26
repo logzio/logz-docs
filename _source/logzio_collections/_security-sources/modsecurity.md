@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - web-firewalls
+order: 1330
 ---
 
 #### Configure Filebeat 
@@ -22,7 +23,7 @@ shipping-tags:
 
 <div class="tasklist">
 
-{% include log-shipping/certificate.md %}
+ {% include log-shipping/certificate.md %}
 
 ##### Configure Filebeat
 

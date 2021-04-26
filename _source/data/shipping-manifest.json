@@ -10,7 +10,7 @@ permalink: /data/shipping-manifest.json
   {%- when "production" -%}
     {%- assign branch = "/master" -%}
   {%- else -%}
-    {%- assign branch = "/syd-metricbeat-deprecate" -%}
+    {%- assign branch = "/sort-shippers" -%}
 {%- endcase -%}
 {%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
 
@@ -18,11 +18,12 @@ permalink: /data/shipping-manifest.json
   "updatedAt": "{{ "now" | date: "%Y-%m-%d %H:%M" }}",
   "collections": [
     {% for thisCollection in collectionsToAdd -%}
-      {
-        "collection": "{{thisCollection.label}}",
-        "title": "{{thisCollection.name}}",
-        "contents": [
-          {%- for d in thisCollection.docs -%}
+    {% assign docsToAdd = thisCollection.docs | sort:"order" %}
+    {
+      "collection": "{{thisCollection.label}}",
+      "title": "{{thisCollection.name}}",
+      "contents": [
+        {%- for d in docsToAdd %}
             {
               "title": "{{d.title}}",
               "id": "{{d.id| split: "/" | last}}",

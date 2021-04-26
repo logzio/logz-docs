@@ -9,7 +9,7 @@ contributors:
   - yberlinger
 shipping-tags:
   - metricbeat
-order: 150
+order: 1500
 ---
 
 

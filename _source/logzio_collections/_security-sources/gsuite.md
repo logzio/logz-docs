@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - gcp
+order: 630
 ---
 
 You can ship G Suite logs to Logz.io using Filebeat and Google Reports API.

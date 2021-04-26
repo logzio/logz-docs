@@ -8,6 +8,8 @@ contributors:
   - shalper
 shipping-tags:
   - web-firewalls
+order: 1300
+
 ---
 
 Ship alerts from VMware Carbon Black to your Logz.io Cloud SIEM.

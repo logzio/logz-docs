@@ -12,6 +12,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - from-your-code
+order: 660
 ---
 
 This shipper uses goleveldb and goqueue as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.

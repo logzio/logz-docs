@@ -9,6 +9,7 @@ contributors:
   - shalper
 shipping-tags:
   - endpoint-security
+order: 730
 ---
 
 **Before you begin, you'll need**:

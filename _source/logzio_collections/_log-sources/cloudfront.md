@@ -11,6 +11,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - aws
+order: 270
 ---
 
 When you set Logz.io to fetch CloudFront logs, Logz.io will periodically read logs from the configured S3 bucket.

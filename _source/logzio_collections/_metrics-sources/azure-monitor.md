@@ -10,6 +10,7 @@ contributors:
   - yotamloe
 shipping-tags:
   - azure
+order: 860
 ---
 
 To monitor your Azure service metrics,

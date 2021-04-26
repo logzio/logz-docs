@@ -211,7 +211,8 @@ If your AWS region is not in the list, please reach out to Logz.io's support or 
 {:.info-box.note}
 <!-- info-box-end -->
 
-
+</div>
+<!-- tab:end -->
 
 </div>
 <!-- tabContainer:end -->

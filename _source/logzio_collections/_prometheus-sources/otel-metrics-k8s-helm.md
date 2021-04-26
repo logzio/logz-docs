@@ -28,7 +28,9 @@ The Helm tool is used to manage packages of pre-configured Kubernetes resources 
 **logzio-otel-k8s-metrics** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
 <!-- info-box-start:info -->
-This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) helm chart, it is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics) and [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) charts, that will be installed by default. To disable the dependency during installation, set `kubeStateMetrics.enabled` and `nodeExporter` to `false`.
+This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. 
+It is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics) and [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) charts, which are installed by default. 
+To disable the dependency during installation, set `kubeStateMetrics.enabled` and `nodeExporter` to `false`.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -38,9 +40,9 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 
 ##### Deploy
 
-Enter the relevant parameters for the placeholders and run the deployment code. 
+Enter the relevant parameters for the placeholders and run the code. 
 
-###### Parameter configuration
+###### Configure the parameters in the code
 
 Replace the Logz-io `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) of the metrics account to which you want to send your data.
 
@@ -49,7 +51,7 @@ Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `ht
 
 Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 
-###### Deployment code
+###### Run the Helm deployment code
 
 ```
 helm install  \
@@ -61,12 +63,12 @@ logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics
 
 ##### Check Logz.io for your metrics
 
-Give your metrics some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
+Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
 
-####  Customizing default parameters
+####  Customizing Helm chart parameters
 
-You can use the following options to update your default parameter values: 
+You can use the following options to update the Helm chart parameters: 
 
 * Specify parameters using the `--set key=value[,key=value]` argument to `helm install`
 
@@ -80,7 +82,7 @@ You can use the following options to update your default parameter values:
 helm install logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics -f my_values.yaml 
 ```
 
-#### Customizing which metrics are collected  
+#### Customizing the metrics collected by the Helm chart 
 
 The default configuration uses the Prometheus receiver with the following scrape jobs:
 

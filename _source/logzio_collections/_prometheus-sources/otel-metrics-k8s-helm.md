@@ -1,3 +1,20 @@
+---
+title: Ship Kubernetes metrics over Helm with the OpenTelemetry Collector
+logo:
+  logofile: k8s-helm.svg
+  orientation: horizontal
+data-source: Kubernetes over Helm
+open-source:
+  - title: 
+    github-repo: 
+templates: ["docker"]
+contributors:
+  - yotamloe
+  - yberlinger
+shipping-tags:
+  - container
+---
+
 
 # Logzio-otel-k8s-metrics
 

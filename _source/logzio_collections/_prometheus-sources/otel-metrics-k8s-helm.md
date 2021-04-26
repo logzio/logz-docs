@@ -38,9 +38,9 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled` an
 
 <div class="tasklist">
 
-##### Deploy
+##### Deploy the Helm chart
 
-Enter the relevant parameters for the placeholders and run the code. 
+To deploy the Helm chart, enter the relevant parameters for the placeholders and run the code. 
 
 ###### Configure the parameters in the code
 
@@ -65,8 +65,13 @@ logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics
 
 Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
+</div>
 
 ####  Customizing Helm chart parameters
+
+<div class="tasklist">
+
+##### Configure customization options
 
 You can use the following options to update the Helm chart parameters: 
 
@@ -82,27 +87,26 @@ You can use the following options to update the Helm chart parameters:
 helm install logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics -f my_values.yaml 
 ```
 
-#### Customizing the metrics collected by the Helm chart 
+##### Customize the metrics collected by the Helm chart 
 
 The default configuration uses the Prometheus receiver with the following scrape jobs:
 
 * Cadvisor: Scrapes container metrics
 * Kubernetes service endpoints: These jobs scrape metrics from the node exporters, from Kube state metrics, from any other service for which the `prometheus.io/scrape: true` annotaion is set, and from services that expose Prometheus metrics at the `/metrics` endpoint.
-##### Customize the metrics collection
 
 To customize your configuration, edit the `config` section in the `values.yaml` file.
+
+</div>
 
 #### Uninstalling the Chart
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-##### Uninstall the `logzio-otel-k8s-metrics` deployment
-
-Use the following command:
+To uninstall the `logzio-otel-k8s-metrics` deployment, use the following command:
 
 ```shell
 helm uninstall logzio-otel-k8s-metrics
 ```
-</div>
+
 
 ### Change log

@@ -63,13 +63,6 @@ collections:
     id: :slug
     in-shipping-manifest: true
     order: 2
-  metrics-sources:
-    output: true
-    permalink: /shipping/metrics-sources/:slug.html
-    name: 
-    id: :slug
-    in-shipping-manifest: false
-    order: 5
   tracing-sources:
     output: true
     permalink: /shipping/tracing-sources/:slug.html
@@ -90,6 +83,13 @@ collections:
     name: Community shippers
     id: :slug
     in-shipping-manifest: false
+  metrics-sources:
+    output: true
+    permalink: /shipping/metrics-sources/:slug.html
+    name: 
+    id: :slug
+    in-shipping-manifest: false
+    order: 
   shippers:
     output: true
     permalink: /shipping/shippers/:slug.html

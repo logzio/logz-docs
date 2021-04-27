@@ -138,7 +138,7 @@ You'll have to add the extension
 3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**Lambda extension versions** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}, and click the `Add` button.
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
-4. *Optional*. This step adds the python libraries the extension needs to run. Refer to the [**ARN for extension dependencies** table]{% include log-shipping/lambda-xtension-tablink.md %}: If your Lambda function already has those libraries under `/opt/python`, you can skip this step. If not, you'll need it for the extension to run.
+4. *Optional*. This step adds the python libraries the extension needs to run. Refer to the [**ARN for extension dependencies** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}: If your Lambda function already has those libraries under `/opt/python`, you can skip this step. If not, you'll need it for the extension to run.
 
     a. Repeat step 2 to add another layer.
   

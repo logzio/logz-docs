@@ -12,7 +12,7 @@ contributors:
   - yotamloe
   - yberlinger
 shipping-tags:
-  - container  #is this tag correct? 
+  - container  
 ---
 
 

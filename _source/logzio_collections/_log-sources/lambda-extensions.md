@@ -23,7 +23,7 @@ shipping-tags:
 * [Overview](#overview)
 * [Deploy with CLI](#cli)
 * [Deploy with Console](#console)
-* [Environment Variables & ARNs](#variabletables)
+* [Environment Variables & ARNs](#tables)
 {:.branching-tabs}
 
 
@@ -76,8 +76,8 @@ aws lambda update-function-configuration \
 | Placeholder | Description | Required/Default|
 |---|---|---|
 | `<<FUNCTION-NAME>>` |  Name of the Lambda Function you want to monitor. |Required|
-| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**Lambda extension versions** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables). You may need to add another layer that has the extensions dependencies.  For the libraries that your extension requires, see the [**Lambda extensions dependencies** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables). If your function doesn't already has those libraries under `/opt/python`, you'll need to add the dependencies as a layer, too. | |
-| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables)| |
+| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**Lambda extension versions** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}. You may need to add another layer that has the extensions dependencies.  For the libraries that your extension requires, see the [**Lambda extensions dependencies** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}. If your function doesn't already have those libraries under `/opt/python`, you'll need to add the dependencies as a layer, too. | |
+| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}.| |
 
 ##### Run the function
 
@@ -135,20 +135,20 @@ You'll have to add the extension
 2. In the page for the function, scroll down to the `Layers` section and choose `Add Layer`.
 ![Add layer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-2.jpg)
 
-3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**Lambda extension versions** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables), and click the `Add` button.
+3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**Lambda extension versions** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}, and click the `Add` button.
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
-4. *Optional*. This step adds the python libraries the extension needs to run. Refer to the [**ARN for extension dependencies** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables): If your Lambda function already has those libraries under `/opt/python`, you can skip this step. If not, you'll need it for the extension to run.
+4. *Optional*. This step adds the python libraries the extension needs to run. Refer to the [**ARN for extension dependencies** table]{% include log-shipping/lambda-xtension-tablink.md %}: If your Lambda function already has those libraries under `/opt/python`, you can skip this step. If not, you'll need it for the extension to run.
 
     a. Repeat step 2 to add another layer.
   
-    b. Select the `Specify an ARN` option, then select the ARN that's compatible with the extension version you chose from the [**Dependencies** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables), and paste it in the textbox. 
+    b. Select the `Specify an ARN` option, then select the ARN that's compatible with the extension version you chose from the [**Dependencies** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}, and paste it in the textbox. 
   
     c. Click `Add`.
 
 ##### Configure the extension parameters
 
-Add the environment variables to the function, according to the [**Environment variables** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables).
+Add the environment variables to the function, according to the [**Environment variables** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}.
 
 ##### Run the function
 
@@ -170,7 +170,7 @@ Run the function. It may take more than one run of the function for the logs to 
 
 
 <!-- tab:start -->
-<div id="variabletables">
+<div id="tables">
 
 ### Environment Variables
 
@@ -187,21 +187,11 @@ Run the function. It may take more than one run of the function for the logs to 
 
 ### Lambda extension versions
 
-- **Version:** 0.0.1
-- **Supported Runtimes:** python 3.7, python 3.8 
-- **AWS ARN:** `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogs:1`
-
-
 | Version | Supported Runtimes | AWS ARN |
 | --- | --- | --- |
 | 0.0.1 | python 3.7, python 3.8 | `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogs:1` |
 
 ### ARN for extension dependencies
-
-- **Compatible with extension versions:** 0.0.1 
-- **Imports:** `requests`
-- **AWS ARN:** `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogsLibs:1`
-
 
 |Compatible with extension versions | Imports | AWS ARN |
 | --- | --- | --- |

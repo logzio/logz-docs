@@ -5,25 +5,21 @@ logo:
   orientation: horizontal
 data-source: Kubernetes over Helm with OpenTelemetry
 open-source:
-  - title: Kubernetes metrics with Helm and OpenTelemetry
-    github-repo: logzio-otel-k8s-metrics
+  - title: logzio-helm-opentelemetry  #is this correct?
+    github-repo: logzio-otel-k8s-metrics  #is this correct? Should it be https://github.com/logzio/logzio-helm/tree/master/charts/opentelemetry
 templates: ["k8s-daemonset"]
 contributors:
   - yotamloe
   - yberlinger
 shipping-tags:
-  - container
+  - container  #is this tag correct? 
 ---
 
 
 ##  Overview
 
-<!-- logzio-otel-k8s-metrics 
-This should be the repo url after we merge: https://github.com/logzio/logzio-helm/tree/master/charts/opentelmetry -->
-
 You can use a Helm chart to ship Kubernetes logs to Logz.io via the OpenTelemetry collector.
-
-The Helm tool is used to manage packages of pre-configured Kubernetes resources that use Charts.
+The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
 **logzio-otel-k8s-metrics** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
@@ -108,5 +104,3 @@ To uninstall the `logzio-otel-k8s-metrics` deployment, use the following command
 helm uninstall logzio-otel-k8s-metrics
 ```
 
-
-### Change log

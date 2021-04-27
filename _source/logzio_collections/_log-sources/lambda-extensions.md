@@ -23,7 +23,7 @@ shipping-tags:
 * [Overview](#overview)
 * [Deploy with CLI](#cli)
 * [Deploy with Console](#console)
-* [Environment Variables & ARNs](#tables)
+* [Environment Variables & ARNs](#variabletables)
 {:.branching-tabs}
 
 
@@ -47,8 +47,7 @@ This repo is based on the [AWS lambda extensions sample](https://github.com/aws-
 You can deploy the extension via the AWS CLI or via the AWS Management Console.
 
 </div>
-
-<!--tab:end -->
+<!-- tab:end --> 
 
 
 <!-- tab:start -->
@@ -77,8 +76,8 @@ aws lambda update-function-configuration \
 | Placeholder | Description | Required/Default|
 |---|---|---|
 | `<<FUNCTION-NAME>>` |  Name of the Lambda Function you want to monitor. |Required|
-| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the **Lambda extension versions** table in the last tab of this topic. You may need to add another layer that has the extensions dependencies.  For the libraries that your extension requires, see the **Lambda extensions dependencies** table in the last tab. If your function doesn't already has those libraries under `/opt/python`, you'll need to add the dependencies as a layer, too. | |
-| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the **Lambda environment variables** table in the last tab.| |
+| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**Lambda extension versions** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables). You may need to add another layer that has the extensions dependencies.  For the libraries that your extension requires, see the [**Lambda extensions dependencies** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables). If your function doesn't already has those libraries under `/opt/python`, you'll need to add the dependencies as a layer, too. | |
+| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables)| |
 
 ##### Run the function
 
@@ -115,7 +114,6 @@ This command overwrites the existing function configuration. If you already have
 <!-- info-box-end -->
 
 </div>
-
 </div>
 <!-- tab:end -->
 
@@ -124,6 +122,8 @@ This command overwrites the existing function configuration. If you already have
 <div id="console">
 
 #### Deploying Logz.io log extensions via the AWS Management Console
+
+You'll have to add the extension
 
 <div class="tasklist">
 
@@ -135,32 +135,31 @@ This command overwrites the existing function configuration. If you already have
 2. In the page for the function, scroll down to the `Layers` section and choose `Add Layer`.
 ![Add layer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-2.jpg)
 
-3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from our **Lambda extension versions** table in the last tab, and click the `Add` button.
+3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**Lambda extension versions** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables), and click the `Add` button.
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
-4. *Optional*. This step adds the python libraries the extension needs to run. Check out the **ARN for extension dependencies** table in the last tab: If your Lambda function already has those libraries under `/opt/python`, you can skip this step. If not, you'll need it for the extension to run.
+4. *Optional*. This step adds the python libraries the extension needs to run. Refer to the [**ARN for extension dependencies** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables): If your Lambda function already has those libraries under `/opt/python`, you can skip this step. If not, you'll need it for the extension to run.
 
     a. Repeat step 2 to add another layer.
   
-    b. Select the `Specify an ARN` option, then select the ARN that's compatible with the extension version you chose from the dependencies table in the last tab of this topc, and paste it in the textbox. 
+    b. Select the `Specify an ARN` option, then select the ARN that's compatible with the extension version you chose from the [**Dependencies** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables), and paste it in the textbox. 
   
     c. Click `Add`.
 
 ##### Configure the extension parameters
 
-Add the environment variables to the function, according to the environment variables table in the last tab of this topic.
+Add the environment variables to the function, according to the [**Environment variables** table]({{site.baseurl}}/shipping/log-sources/lambda-extensions#variabletables).
 
 ##### Run the function
 
 Run the function. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
 
 
-
 #### Deleting the extension
 
 - To delete the **extension layer**: In your function page, go to the **layers** panel. Click `edit`, select the extension layer, and click `save`.
 - To delete the **extension dependencies layer**: In your function page, go to the **layers** panel, click `edit`, select the extension dependencies layer, and click `save`.
-- To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`,  click `edit`, and remove the variables that you added for the extension.
+- To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`, click `edit`, and remove the variables that you added for the extension.
 
 
 </div>
@@ -171,13 +170,13 @@ Run the function. It may take more than one run of the function for the logs to 
 
 
 <!-- tab:start -->
-<div id="tables">
+<div id="variabletables">
 
 ### Environment Variables
 
 | Name | Description |Required/Default|
 | --- | --- | --- |
-| `LOGZIO_LOGS_TOKEN` | Your Logz.io logs shipping [token](https://app.logz.io/#/dashboard/settings/general). | Required |
+| `LOGZIO_LOGS_TOKEN` | Your Logz.io log shipping [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). | Required |
 | `LOGZIO_REGION` |  Two-letter region code, or blank for US. This determines your listener URL. You can find your region code in the [Regions and URLs table](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls). | Default: (left blank for US)|
 | `LOGS_EXT_LOG_LEVEL` |  Log level of the extension. Can be set to one of the following: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`. |Default: `INFO` |
 | `ENABLE_EXTENSION_LOGS` |  Set to `true` if you wish the extension logs will be shipped to your Logz.io account. | Default: `false` |
@@ -188,11 +187,21 @@ Run the function. It may take more than one run of the function for the logs to 
 
 ### Lambda extension versions
 
+- **Version:** 0.0.1
+- **Supported Runtimes:** python 3.7, python 3.8 
+- **AWS ARN:** `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogs:1`
+
+
 | Version | Supported Runtimes | AWS ARN |
 | --- | --- | --- |
 | 0.0.1 | python 3.7, python 3.8 | `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogs:1` |
 
 ### ARN for extension dependencies
+
+- **Compatible with extension versions:** 0.0.1 
+- **Imports:** `requests`
+- **AWS ARN:** `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogsLibs:1`
+
 
 |Compatible with extension versions | Imports | AWS ARN |
 | --- | --- | --- |

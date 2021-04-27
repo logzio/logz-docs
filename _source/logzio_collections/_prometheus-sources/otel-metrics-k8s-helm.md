@@ -5,8 +5,8 @@ logo:
   orientation: horizontal
 data-source: Kubernetes over Helm with OpenTelemetry
 open-source:
-  - title: logzio-helm-opentelemetry  #is this correct?
-    github-repo: logzio-otel-k8s-metrics  #is this correct? Should it be https://github.com/logzio/logzio-helm/tree/master/charts/opentelemetry
+  - title: Logzio-otel-k8s-metrics
+    github-repo: https://github.com/logzio/logzio-helm/tree/master/charts/opentelemetry
 templates: ["k8s-daemonset"]
 contributors:
   - yotamloe

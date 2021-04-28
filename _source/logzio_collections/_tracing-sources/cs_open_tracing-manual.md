@@ -1,7 +1,7 @@
 ---
 title: Sending traces from C# applications via manual instrumentation
 logo:
-  logofile: dotnet.svg
+  logofile: csharp-dotnet.png
   orientation: vertical
 data-source: .NET C# manual instrumentation example
 description: How to manually instrument traces from a C# application

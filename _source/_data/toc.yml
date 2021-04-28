@@ -124,14 +124,18 @@ firstLevel:
   icon: fas fa-align-left
 
   secondLevel:
-  - title: Why Distributed Tracing?
-    url: /user-guide/distributed-tracing/
+  - title: Tracing overview
     thirdLevel:
-      - title: What is Distributed Tracing?
-        url: /user-guide/distributed-tracing/what-is-tracing
-  - title: Getting started
-    url: /user-guide/distributed-tracing/getting-started-tracing/
+    - title: Why Distributed Tracing?
+      url: /user-guide/distributed-tracing/
+    - title: What is Distributed Tracing?
+      url: /user-guide/distributed-tracing/what-is-tracing
+  - title: Setting up Distributed Tracing
     thirdLevel:
+    - title: Getting started
+      url: /user-guide/distributed-tracing/getting-started-tracing/
+    - title: Transitioning to Logz.io Distributed Tracing from a local Jaeger
+      url: /user-guide/distributed-tracing/local-jaeger_transition
     - title: Setting up instrumentation and ingesting traces
       url: /user-guide/distributed-tracing/tracing-instrumentation
     - title: Deploying components in your system
@@ -140,9 +144,10 @@ firstLevel:
       url: /user-guide/distributed-tracing/k8s-deployment
     - title: Sending demo traces with the HotROD application
       url: /user-guide/distributed-tracing/trace-hotrod-demo
-  - title: The Grand Distributed Tracing Tour
-    url: /user-guide/distributed-tracing/tracing-tour/
+  - title: Navigating in Distributed Tracing
     thirdLevel:
+    - title: The Grand Distributed Tracing Tour
+      url: /user-guide/distributed-tracing/tracing-tour/
     - title: Trace Timeline
       url: /user-guide/distributed-tracing/trace-timeline/
     - title: Trace Graph

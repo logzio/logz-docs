@@ -11,6 +11,8 @@ contributors:
 ---
 Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in Logz.io.
 
+If you already have Jaeger installed locally, learn how to go about [Making the easy switch from your local Jaeger installation to Logz.io Distributed Tracing](/user-guide/distributed-tracing/local-jaeger_transition).
+
 
 #### To set up Distributed Tracing: 
 {:.no_toc}  

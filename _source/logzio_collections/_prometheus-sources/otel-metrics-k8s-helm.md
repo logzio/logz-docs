@@ -18,8 +18,6 @@ shipping-tags:
 
 ##  Overview
 
-You can use a Helm chart to ship Kubernetes logs to Logz.io via the OpenTelemetry collector.
-The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
 **logzio-otel-k8s-metrics** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
@@ -33,6 +31,10 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled` an
 #### Standard configuration
 
 <div class="tasklist">
+  
+##### Add logzio-otel-k8s-metrics repo to your helm repo list
+
+`helm repo add logzio-helm https://logzio.github.io/logzio-helm/opentelmetry`
 
 ##### Deploy the Helm chart
 
@@ -56,10 +58,9 @@ helm install  \
 --set secrets.p8s_logzio_name=<<ENV-TAG>> \
 logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics
 ```
-
 ##### Check Logz.io for your metrics
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
-Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
 </div>
 

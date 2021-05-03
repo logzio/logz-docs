@@ -36,6 +36,7 @@ Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
 ```
 pip install opentelemetry-exporter-prometheus-remote-write
 ```
+
 ##### Add instruments to your application
 
 Replace the placeholders in the `exporter` section code (indicated by the double angle brackets `<< >>`) to match your specifics.

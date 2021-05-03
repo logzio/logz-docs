@@ -6,7 +6,7 @@ logo:
 data-source: Kubernetes over Helm with OpenTelemetry
 open-source:
   - title: Logzio-otel-k8s-metrics
-    github-repo: logzio-helm/tree/master/charts/opentelemetry
+    github-repo: logzio-helm/charts/opentelemetry
 templates: ["k8s-daemonset"]
 contributors:
   - yotamloe

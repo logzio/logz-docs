@@ -58,7 +58,9 @@ helm install  \
 --set secrets.p8s_logzio_name=<<ENV-TAG>> \
 logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics
 ```
+
 ##### Check Logz.io for your metrics
+
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 

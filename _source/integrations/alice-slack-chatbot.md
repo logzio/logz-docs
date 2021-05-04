@@ -19,7 +19,7 @@ contributors:
 ---
 
 <!-- info-box-start:info -->
-Alice has left the building. <br> 
+Alice doesn't live here anymore. <br> 
 The Alice Slack chatbot was disabled in February 2021 and will not return.
 {:.info-box.important}
 <!-- info-box-end -->

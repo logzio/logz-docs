@@ -23,8 +23,8 @@ shipping-tags:
 
 <!-- info-box-start:info -->
 This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. 
-It is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics) and [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) charts, which are installed by default. 
-To disable the dependency during installation, set `kubeStateMetrics.enabled` and `nodeExporter` to `false`.
+It is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics), [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) and [prometheus-pushgateway](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-pushgateway)charts, which are installed by default. 
+To disable the dependency during installation, set `kubeStateMetrics.enabled`, `nodeExporter.enabled` or `pushGateway.enabled` to `false`.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -32,10 +32,12 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled` an
 
 <div class="tasklist">
   
-##### Add logzio-otel-k8s-metrics repo to your helm repo list
+##### Add logzio-helm repo to your helm repo list
 
-`helm repo add logzio-helm https://logzio.github.io/logzio-helm/opentelmetry`
-
+```shell
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
+helm repo update
+```
 ##### Deploy the Helm chart
 
 To deploy the Helm chart, enter the relevant parameters for the placeholders and run the code. 
@@ -56,7 +58,7 @@ helm install  \
 --set secrets.MetricsToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
 --set secrets.ListenerHost=<<LISTENER-HOST>> \
 --set secrets.p8s_logzio_name=<<ENV-TAG>> \
-logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics
+logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics
 ```
 
 ##### Check Logz.io for your metrics
@@ -83,7 +85,7 @@ You can use the following options to update the Helm chart parameters:
 ###### Example:
 
 ```
-helm install logzio-otel-k8s-metrics logzio-otel/logzio-otel-k8s-metrics -f my_values.yaml 
+helm install logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics -f my_values.yaml 
 ```
 
 ##### Customize the metrics collected by the Helm chart 

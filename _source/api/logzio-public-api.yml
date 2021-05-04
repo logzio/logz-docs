@@ -3575,7 +3575,7 @@ paths:
         - Lookup lists
       operationId: addLookupListElements
       summary: Add elements in bulk
-      description: Adds an array of elements to an existing Lookup list.
+      description: Adds an array of elements to an existing Lookup list and sets the expiration date for the lookup.
       produces:
         - application/json
       parameters:

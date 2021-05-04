@@ -3426,7 +3426,7 @@ paths:
   /v1/lookup-lists/{lookupListId}/elements:
     post:
       summary: Add element to a lookup list
-      description: Adds a new element to an existing lookup list. An element is a field value and comment (helpful description that does not affect the lookup functionally).
+      description: Adds a new element to an existing lookup list and sets the expiration date and time for the lookup list. An element is a field value and comment (helpful description that does not affect the lookup functionally).
       tags:
         - Lookup lists
       operationId: createLookupListElement

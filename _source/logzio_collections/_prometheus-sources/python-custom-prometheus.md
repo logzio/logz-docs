@@ -58,7 +58,7 @@ from opentelemetry.sdk.metrics import MeterProvider
 
 # configure the Logz.io listener endpoint and Prometheus metrics account token
 exporter = PrometheusRemoteWriteMetricsExporter(
-    endpoint="<<LISTENER-HOST>>",
+    endpoint="<<LISTENER-HOST>>:8053",
     headers={
         "Authorization": "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>",
     }

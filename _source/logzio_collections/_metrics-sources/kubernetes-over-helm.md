@@ -80,7 +80,8 @@ This method of deployment gives you greater control over the configuration.
 ##### Add the logzio-k8s-metrics repo to your helm repo list
 
 ```shell
-helm repo add logzio-helm https://logzio.github.io/logzio-helm/metricbeat
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
+helm repo update
 ```
 
 ##### Deploy

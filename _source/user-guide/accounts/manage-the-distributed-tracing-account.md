@@ -27,7 +27,7 @@ If you don't have a Distributed Tracing account yet, start a trial in the Distri
 <!-- reach out to your account manager or email [the Sales team](mailto:sales@logz.io).-->
 {:.info-box.note}
 
-###### What can I do on this page?
+#### What can I do on the Manage accounts page?
 {:.no_toc}
 
 1. toc list

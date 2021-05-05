@@ -64,6 +64,8 @@ Helm 2 reached [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-
 
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
+helm repo update
+
 ```
 
 ##### Deploy
@@ -104,7 +106,8 @@ Autodiscover allows you to adapt settings as changes happen. By defining configu
 ##### Add logzio-k8s-logs repo to your helm repo list
 
 ```shell
-helm repo add logzio-helm https://logzio.github.io/logzio-helm/filebeat
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
+helm repo update
 ```
 
 ##### Deploy
@@ -215,7 +218,6 @@ helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs
 | `apiVersions.clusterRole` | ClusterRole API version. | `rbac.authorization.k8s.io/v1` |
 | `apiVersions.serviceAccount` | ServiceAccount API version. | `v1` |
 | `apiVersions.secret` | Secret API version. | `v1` |
-| `namespace` | Chart's namespace. | `kube-system` |
 | `managedServiceAccount` | Specifies whether the serviceAccount should be managed by this Helm Chart. Set this to `false` to manage your own service account and related roles. | `true` |
 | `clusterRoleRules` | Configurable [cluster role rules](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) that Filebeat uses to access Kubernetes resources. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |
 | `logzioCert` | Logzio public SSL certificate. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) |

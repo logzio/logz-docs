@@ -23,8 +23,10 @@ To manage your log shipping tokens, select an account. You can manage your token
 
 {% include general-shipping/manage-tokens-nav.md %}
 {% include general-shipping/data-shipping-tokens_vars.md product="Logs" %}
-
-Community plans have a limit on the number of tokens that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
+ 
+The number of log shipping tokens that can be enabled at the same time is limited: <br>
+**Community** plans may have up to 3 tokens enabled. <br>
+**Pro** and **Enterprise** plans may have up to 15 tokens enabled.
 {:.info-box.note}
 
 ### Managing log shipping tokens

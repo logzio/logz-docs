@@ -71,7 +71,7 @@ add_new-account.gif)
 
   The security account you're configuring will automatically be able to access the Kibana dashboards, visualizations, and saved searches from the source accounts you add to this list, but will *not* have access to the data in these accounts.  
   
-  This is helpful if you have multiple main accounts or accounts in multiple regions. 
+  This is helpful if you have multiple main accounts. 
   
   For example: 
 

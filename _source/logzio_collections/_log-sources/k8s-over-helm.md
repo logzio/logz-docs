@@ -63,7 +63,7 @@ Helm 2 reached [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-
 ##### Add logzio-k8s-logs repo to your helm repo list
 
 ```shell
-helm repo add logzio-helm https://logzio.github.io/logzio-helm/filebeat
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
 ```
 
 ##### Deploy

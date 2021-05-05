@@ -65,6 +65,7 @@ Helm 2 reached [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
+
 ```
 
 ##### Deploy

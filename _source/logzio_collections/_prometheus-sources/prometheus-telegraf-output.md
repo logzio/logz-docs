@@ -46,7 +46,7 @@ For the list of options, see the parameters below the code block.👇
 
 ``` yaml
 [[outputs.http]]
-  url = "http://<<LISTENER-HOST>>:8050"
+  url = "http://<<LISTENER-HOST>>:8053"
   data_format = "prometheusremotewrite"
   [outputs.http.headers]
      Content-Type = "application/x-protobuf"

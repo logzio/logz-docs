@@ -36,6 +36,7 @@ Windows: `pip install python_snappy-0.5-cp36-cp36m-win_amd64.whl`
 ```
 pip install opentelemetry-exporter-prometheus-remote-write
 ```
+
 ##### Add instruments to your application
 
 Replace the placeholders in the `exporter` section code (indicated by the double angle brackets `<< >>`) to match your specifics.
@@ -57,7 +58,7 @@ from opentelemetry.sdk.metrics import MeterProvider
 
 # configure the Logz.io listener endpoint and Prometheus metrics account token
 exporter = PrometheusRemoteWriteMetricsExporter(
-    endpoint="<<LISTENER-HOST>>",
+    endpoint="<<LISTENER-HOST>>:8053",
     headers={
         "Authorization": "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>",
     }

@@ -61,8 +61,8 @@ Fill in the form:
 
     Logs are not shipped directly to your Cloud SIEM accounts. Instead, you'll grant read-access to log accounts you want a security account to monitor.
 
-  You can add the same log account to multiple Security accounts. It will be monitored by each Security account independently.
-  {:.info-box.note}
+    You can add the same log account to multiple Security accounts. It will be monitored by each   Security account independently.
+    {:.info-box.note}
 
 3. **Automatically pull dashboards, visualizations, and saved searches from these Security accounts** - Select which security accounts you can automatically pull shared objects from. 
 

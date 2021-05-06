@@ -67,6 +67,7 @@ For a complete list of options, see the configuration parameters below the code 
     <retriesInterval>00:00:02</retriesInterval>
     <gzip>true</gzip>
     <debug>false</debug>
+    <!--<format>json</format>-->
 
   </appender>
 
@@ -94,6 +95,8 @@ logzioAppender.AddRetriesMaxAttempts("3");
 logzioAppender.AddRetriesInterval("00:00:02");
 logzioAppender.AddDebug(false);
 logzioAppender.AddGzip(true);
+// Uncomment next line to enable Json format 
+// logzioAppender.AddFormat("Json");
 // Uncomment next line to enable proxy routing:
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
 hierarchy.Root.AddAppender(logzioAppender);
@@ -112,7 +115,8 @@ hierarchy.Configured = true;
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
-| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` 
+| format | To send your logs as Json format add the logger's configuration field 'Format' to 'Json' (or uncomment). | `text` |
 | proxyAddress | Proxy address to route you logs through | `None` |
 
 
@@ -237,7 +241,9 @@ For a complete list of options, see the configuration parameters below the code 
       bufferTimeout="00:00:05"
       retriesMaxAttempts="3"
       retriesInterval="00:00:02"
-      debug="false">
+      debug="false"
+      <!--format="Json-->
+    >
 
       <contextproperty name="host" layout="${machinename}" />
       <contextproperty name="threadid" layout="${threadid}" />
@@ -266,6 +272,7 @@ var logzioTarget = new LogzioTarget {
   RetriesMaxAttempts = 3,
   RetriesInterval = TimeSpan.Parse("00:00:02"),
   Debug = false,
+  // Format = "Json",
   // ProxyAddress = "http://your.proxy.com:port"
 };
 
@@ -287,6 +294,7 @@ LogManager.Configuration = config;
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
+| format | To send your logs as Json format add the logger's configuration field 'Format' to 'Json' (or uncomment). | `text` |
 | proxyAddress | Proxy address to route you logs through | `None` |
 
 

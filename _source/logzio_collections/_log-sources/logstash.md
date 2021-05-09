@@ -1,5 +1,6 @@
 ---
-title: Shipping with Logstash
+title: Shipping with 
+short-description: We only recommend using Logstash when you already have an existing Logstash configuration. Simply edit the config file to forward your logs to Logz.io.
 logo:
   logofile: logstash_temp.png
   orientation: vertical

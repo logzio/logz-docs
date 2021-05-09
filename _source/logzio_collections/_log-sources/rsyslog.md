@@ -8,8 +8,7 @@ templates: ["no-template"]
 contributors:
   - shalper
 shipping-tags:
-  - os
-  vim 
+  - os 
 order: 130
 ---
 

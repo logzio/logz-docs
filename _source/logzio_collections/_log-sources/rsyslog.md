@@ -8,7 +8,7 @@ templates: ["no-template"]
 contributors:
   - shalper
 shipping-tags:
-  - os 
+  - os
 order: 130
 ---
 

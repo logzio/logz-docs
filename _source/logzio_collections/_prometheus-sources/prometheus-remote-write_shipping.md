@@ -15,7 +15,7 @@ contributors:
   - yberlinger
 shipping-tags:  
   - prometheus
-order: 1210
+order: 370
 ---
 
 {% include p8s-shipping/remotewrite-syd-userguide.md %}

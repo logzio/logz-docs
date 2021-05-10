@@ -3642,6 +3642,10 @@ definitions:
         description: Optional. A place to add a note or additional details about the value. For example, if the value is an IP address, the comment can identify the server.
         maxLength: 200
         example: ABC Server
+      expirationDate:
+        type: integer
+        format: int64
+        description: Optional. The expiration date and time of the lookup list as UNIX epoch milliseconds
   LookupListElementCreateRequest:
     type: object
     required: 

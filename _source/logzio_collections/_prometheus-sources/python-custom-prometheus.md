@@ -44,7 +44,7 @@ Replace the placeholders in the `exporter` section code (indicated by the double
 
 |Environment variable|Description|
 |---|---|
-|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {% include /log-shipping/listener-var.html %} |
+|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {% include /log-shipping/listener-var.html %} and add http/https protocol (https://listener.logz.io:8053) |
 |Bearer| Your Logz.io Prometheus Metrics account token.  {% include /p8s-shipping/replace-prometheus-token.html %}  |
 
 
@@ -80,7 +80,7 @@ counter = meter.create_counter(
 )
 # add labels
 labels = {
-    "dimension", "value"
+    "dimension": "value"
 }
 counter.add(25, labels)
 ```
@@ -111,7 +111,7 @@ counter = meter.create_counter(
 )
 # add labels
 labels = {
-    "dimension", "value"
+    "dimension": "value"
 }
 # provide the first data point
 counter.add(25, labels)
@@ -128,7 +128,7 @@ requests_active = meter.create_updowncounter(
 )
 # add labels
 labels = {
-    "dimension", "value"
+    "dimension": "value"
 }
 # provide the first data point
 requests_active.add(-2, labels)
@@ -145,7 +145,7 @@ requests_size = meter.create_valuerecorder(
 )
 # add labels
 labels = {
-    "dimension", "value"
+    "dimension": "value"
 }
 # provide the first data point
 requests_size.record(85, labels)
@@ -159,7 +159,7 @@ def get_ram_usage_callback(observer):
     ram_percent = psutil.virtual_memory().percent
     # add labels
     labels = {
-        "dimension", "value"
+        "dimension": "value"
     }
     observer.observe(ram_percent, labels)
 # create a sumobserver instrument
@@ -179,7 +179,7 @@ def get_ram_usage_callback(observer):
     ram_percent = psutil.virtual_memory().percent
     # add labels
     labels = {
-        "dimension", "value"
+        "dimension": "value"
     }
     observer.observe(ram_percent, labels)
 # create a updownsumobserver instrument

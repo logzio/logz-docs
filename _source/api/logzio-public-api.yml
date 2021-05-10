@@ -3579,12 +3579,6 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: accountId
-          in: query
-          required: false
-          type: integer
-          format: int32
-          description:  Logz.io account ID
         - name: defaultTTL
           in: query
           required: false
@@ -3599,7 +3593,7 @@ paths:
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - in: body
           name: body
-          required: false
+          required: true
           schema:
             type: array
             items:

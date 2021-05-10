@@ -67,8 +67,8 @@ For a complete list of options, see the configuration parameters below the code 
     <retriesInterval>00:00:02</retriesInterval>
     <gzip>true</gzip>
     <debug>false</debug>
-    <!--<format>json</format>-->
-
+    <!--<enableJson>true</enableJson>-->
+    
   </appender>
 
   <root>
@@ -95,10 +95,10 @@ logzioAppender.AddRetriesMaxAttempts("3");
 logzioAppender.AddRetriesInterval("00:00:02");
 logzioAppender.AddDebug(false);
 logzioAppender.AddGzip(true);
-// Uncomment next line to enable Json format 
-// logzioAppender.AddFormat("Json");
-// Uncomment next line to enable proxy routing:
+// <-- Uncomment and edit this line to enable proxy routing: --> 
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
+// <-- Uncomment this to enable sending logs in Json format -->  
+// logzioAppender.EnableJson(true);
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;
 ```
@@ -116,7 +116,7 @@ hierarchy.Configured = true;
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` 
-| format | To send your logs as Json format add the logger's configuration field 'Format' to 'Json' (or uncomment). | `text` |
+| EnableJson | To parse your logs as Json format add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route you logs through | `None` |
 
 
@@ -242,7 +242,7 @@ For a complete list of options, see the configuration parameters below the code 
       retriesMaxAttempts="3"
       retriesInterval="00:00:02"
       debug="false"
-      <!--format="Json-->
+      <!-- enableJson="true"-->
     >
 
       <contextproperty name="host" layout="${machinename}" />
@@ -272,7 +272,7 @@ var logzioTarget = new LogzioTarget {
   RetriesMaxAttempts = 3,
   RetriesInterval = TimeSpan.Parse("00:00:02"),
   Debug = false,
-  // Format = "Json",
+  // EnableJson = true,
   // ProxyAddress = "http://your.proxy.com:port"
 };
 
@@ -294,7 +294,7 @@ LogManager.Configuration = config;
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
-| format | To send your logs as Json format add the logger's configuration field 'Format' to 'Json' (or uncomment). | `text` |
+| EnableJson | To parse your logs as Json format add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route you logs through | `None` |
 
 
@@ -361,6 +361,16 @@ public class MyAppLogzioTarget : LogzioTarget
 ```
 
 Change your configuration to use your new target. For the example above, you'd use `MyAppLogzio`.
+
+### Json Layout
+
+When using 'JsonLayout' set the name of the attribute to **other than** 'message'. for example:
+
+```xml
+<layout type="JsonLayout" includeAllProperties="true">
+	<attribute name="msg"  layout="${message}" encode="false"/>
+</layout>
+```
 
 </div>
 

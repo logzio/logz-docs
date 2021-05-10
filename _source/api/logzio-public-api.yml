@@ -3433,12 +3433,6 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: accountID
-          in: query
-          required: false
-          type: integer
-          format: int32
-          description:  Logz.io account ID
         - name: lookupListId
           in: path
           required: true

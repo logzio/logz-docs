@@ -1,5 +1,6 @@
 ---
 title: Upload JSON logs
+short-description: If you want to ship logs from your code but don't have a library in place, you can send them directly to the Logz.io listener as a minified JSON file.
 logo:
   logofile: json.svg
   orientation: vertical

@@ -1,5 +1,6 @@
 ---
 title: Ship Docker logs
+short-description: Want to analyze logs from docker containers? This is the best option for you - it uses Filebeat to collect logs from other Docker containers and ship them to your Logz.io account.
 logo:
   logofile: docker.svg
   orientation: horizontal

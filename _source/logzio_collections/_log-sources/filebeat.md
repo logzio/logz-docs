@@ -1,5 +1,6 @@
 ---
 title: General guide to shipping logs with Filebeat
+short-description: Filebeat is usually the best and easiest way to ship logs to Logz.io. It's a lightweight open source agent that collects and ships your logs to Logz.io. 
 logo:
   logofile: beats.svg
   orientation: vertical

@@ -10,7 +10,7 @@ permalink: /data/shipping-manifest.json
   {%- when "production" -%}
     {%- assign branch = "/master" -%}
   {%- else -%}
-    {%- assign branch = "/add-popular" -%}
+    {%- assign branch = "/short-description" -%}
 {%- endcase -%}
 {%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
 
@@ -26,6 +26,7 @@ permalink: /data/shipping-manifest.json
         {%- for d in docsToAdd %}
             {
               "title": "{{d.title}}",
+              "shortDescription": "{{ | append: "" | append: d.short-description}}",
               "id": "{{d.id| split: "/" | last}}",
               "dataSource": "{{d.data-source}}",
               {%- if d.open-source -%}

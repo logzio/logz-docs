@@ -1,6 +1,6 @@
 ---
 title: Configure an Amazon S3 Bucket
-short-description: Logz.io can pull new logs straight from your S3 bucket every x seconds.
+short-description: Logz.io can pull new logs straight from your S3 bucket every few seconds.
 logo:
   logofile: aws-s3.svg
   orientation: vertical

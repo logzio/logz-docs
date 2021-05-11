@@ -3584,7 +3584,7 @@ paths:
           required: false
           type: integer
           format: int64
-          description: The expiration date and time of the lookup list as UNIX epoch milliseconds. When this parameter is left empty, the lookup list does not expire.
+          description: Optional. The expiration date and time of the lookup list as UNIX epoch milliseconds. When this parameter is left empty, the lookup list does not expire.
         - name: lookupListId
           in: path
           required: true
@@ -3645,7 +3645,7 @@ definitions:
       expirationDate:
         type: integer
         format: int64
-        description: Optional. The expiration date and time of the lookup list as UNIX epoch milliseconds
+        description: Optional. The expiration date and time of the lookup list as UNIX epoch milliseconds. When this parameter is left empty, the lookup list does not expire.
   LookupListElementCreateRequest:
     type: object
     required: 

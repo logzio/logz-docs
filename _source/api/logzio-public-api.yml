@@ -3666,7 +3666,7 @@ definitions:
       expirationDate:
         type: integer
         format: int64
-        description: Optional. The expiration date and time of the lookup list as UNIX epoch milliseconds
+        description: Optional. The expiration date and time of the lookup list as UNIX epoch milliseconds. When this parameter is left empty, the lookup list does not expire.
   LookupList:
     type: object
     summary: General indentifiers for the lookup - its ID, name, and description.

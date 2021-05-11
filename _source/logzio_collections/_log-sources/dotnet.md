@@ -241,9 +241,9 @@ For a complete list of options, see the configuration parameters below the code 
       bufferTimeout="00:00:05"
       retriesMaxAttempts="3"
       retriesInterval="00:00:02"
-      debug="false"
-      <!-- parseJsonMessage="true"-->
-    >
+      debug="false" 
+     >
+      <!-- parseJsonMessage="true" -->  <!-- include in previous section -->    
 
       <contextproperty name="host" layout="${machinename}" />
       <contextproperty name="threadid" layout="${threadid}" />

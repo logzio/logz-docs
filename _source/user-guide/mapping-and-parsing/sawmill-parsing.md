@@ -95,6 +95,9 @@ The Logz.io backend has a sequence of pipelines that run on your logs: Some of t
 {:.info-box.note}
 <!-- info-box-end -->
 
-##### Submit your pipeline
+##### Submit your pipeline for review
 
-When you 
+When you done editing the parsing rules, submit your pipeline to Logz.io.
+Add your email, along with a description that summarizes your rules and your attention. 
+
+The parsing rules you crate can only be applied to the Logz.io account which matches your API token, and are only valid for the log type you chose. 

@@ -44,5 +44,5 @@ access and edit your existing parsing rules, test and validate the rules to exam
 
 Prerequisites
 
-* To use the Sawmill parsing editor, you must be an Admin user for the relevant Logz.io account. Only admin users have access to the Logz.io API tokens.
+* To use the Sawmill parsing editor, to access the Logz.io API tokens, you must be an admin user for the relevant Logz.io account.
 * Obtain or create an API token to work with the Logz.io public API. We recommend that you create a dedicated API token for parsing tasks. Navigate to the Manage tokens page. <!-- add the relevant link or include snippet --->

@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Creating parsing rules for your logs with Sawmil Editor
+title: Creating parsing rules for your logs with Sawmill Editor
 permalink: /user-guide/mapping-and-parsing/sawmill-parsing.md
 flags:
   admin: true

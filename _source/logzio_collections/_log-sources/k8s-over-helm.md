@@ -246,7 +246,7 @@ helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs
 
 </div>
 
-Some values, like `daemonset.tolerations`, should be set like this:
+Some values, such as `daemonset.tolerations`, should be set as follows:
 
 ```shell
 --set daemonset.tolerations[0].key='value' \

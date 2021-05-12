@@ -2,8 +2,10 @@
 layout: article
 title: Creating parsing rules for your logs with Sawmil Editor
 permalink: /user-guide/mapping-and-parsing/sawmill-parsing.md
-beta: yes
-plan: community
+flags:
+  admin: true
+  beta: true
+  logzio-plan: community
 tags:
   - parsing
 contributors:

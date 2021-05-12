@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Create a parsing rule pipeline with Sawmill
+title: Customize your log parsing with Sawmill
 permalink: /user-guide/mapping-and-parsing/sawmill-parsing
 flags:
   admin: true
@@ -34,7 +34,7 @@ The Sawmill parsing editor tool works with the Logz.io public API and lets you:
 
 The **Sawmill Self Parsing editor** is available [here](https://sawmill-logz.herokuapp.com/).
 
-#### Configuring log parsing
+#### Create a parsing rule pipeline with Sawmill
 
 This process creates parsing rules (pipelines) for the specified log type. The log type is a field used to differentiate the source of each log. You need to select one of your existing log types for the parsing rules. When you submit a pipeline to be applied on the backend, only the logs of the selected log type are processed.
 

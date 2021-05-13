@@ -42,13 +42,13 @@ This process creates parsing rules (pipelines) for the specified log type. The l
 
 ##### Prerequisites
 
-To use the Sawmill parsing editor to access the Logz.io API tokens, you must be an admin user for the relevant Logz.io account.
+To use the Sawmill parsing editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
 
 1. To work with the Logz.io public API, obtain or create an API token in the [Manage tokens page](https://app.logz.io/#/dashboard/settings/manage-tokens/api). <br>We recommend that you create a dedicated API token for parsing tasks. 
    
-    ![Manage API Tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/manage-api-tokens1.png)
+    ![Manage API Tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/manage-api-tokens3.png)
 
-2. Look up the 2-letter code for your Logz.io account region. <br>You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table.
+2. Look up the 2-letter code for your Logz.io account region in [**Settings > General settings > Account settings > Region**](https://app.logz.io/#/dashboard/settings/general).  You can also find your region code in the [Regions and URLs table](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls).
 
 
 ##### Set up the Self Parsing editor
@@ -83,7 +83,7 @@ Use **Auto re-format** to clean up your indentations.
 
 
 ##### Test parsing rules
-The right pane is where you view and modify your log sample, and test how your rules are applied. 
+The right panel is where you view and modify your log sample, and test how your rules are applied. 
 <!-- screen image-->
    
 ##### Validate your pipeline

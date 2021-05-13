@@ -40,7 +40,7 @@ Your listener host and API host will always be in the same region as your accoun
 
 | Region | Cloud | Logz.io account host | Listener host | API host | Region code | Region slug |
 |---|---|---|
-|US East (Northern Virginia)|AWS|app.logz.io|listener.logz.io|api.logz.io| | us-east-1|	 
+|US East (Northern Virginia)|AWS|app.logz.io|listener.logz.io|api.logz.io|us | us-east-1|	 
 |Asia Pacific (Sydney)|AWS|app-au.logz.io|listener-au.logz.io|api-au.logz.io|au|ap-southeast-2|
 |Canada (Central)	|AWS|app-ca.logz.io|listener-ca.logz.io	|api-ca.logz.io|ca|ca-central-1|
 |Europe (Frankfurt)|AWS|app-eu.logz.io|listener-eu.logz.io|api-eu.logz.io|eu|eu-central-1|

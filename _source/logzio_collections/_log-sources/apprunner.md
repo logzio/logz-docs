@@ -1,7 +1,7 @@
 ---
 title: Ship AppRunner logs
 logo:
-  logofile: aws-apprunner.svg  #open AI
+  logofile: aws-fusion.svg  
   orientation: vertical
 data-source: AppRunner
 templates: ["lambda-apprunner", "cloudformation"]

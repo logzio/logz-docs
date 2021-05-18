@@ -1,7 +1,7 @@
 ---
 title: Ship Amazon AppRunner metrics
 logo:
-  logofile:   #open AI
+  logofile: aws-fusion.svg   
   orientation: vertical
 data-source: Amazon AppRunner
 templates: ["docker-metricbeat"]

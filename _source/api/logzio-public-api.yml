@@ -4704,7 +4704,7 @@ definitions:
       auditEventType:
         type: string
         description: Code for the event type
-        example: ADD_USER
+        example: Added user
       auditEventTypeTitle:
         type: string
         description: Description of the event type
@@ -4787,7 +4787,7 @@ definitions:
       auditEventType:
         type: string
         description: Code for the event type
-        example: ADD_USER
+        example: Added user
       fromDate:
         type: integer
         format: int64

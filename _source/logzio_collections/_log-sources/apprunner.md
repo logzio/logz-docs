@@ -196,9 +196,9 @@ aws cloudformation deploy \
 
 ##### Set the AppRunner Logs event trigger
 
-1. Find the **Add triggers** list (left side of the Designer panel). Choose **AppRunner Logs** from this list.
+1. Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
 
-2. Below the Designer, you'll see the Configure triggers panel. Choose the **Log group** that the Lambda function will watch.
+2. Below the Designer, you'll see the Configure triggers panel. In the **Log groups**, search for the AppRunner option and select it as the trigger for the Lambda function.
 
 3. Type a **Filter name** (required) and **Filter pattern** (optional).
 

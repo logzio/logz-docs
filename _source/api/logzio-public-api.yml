@@ -115,7 +115,7 @@ tags:
   
   - name: Deployments
     description: >-
-      Send deployment logs by API to automatically correlate exceptions with service deployments directly in your Logz.io Exceptions tab.
+      Send deployment logs by API to automatically correlate exceptions with service deployments directly in your Logz.io Exceptions tab. The API endpoints documented here are in Beta, and are subject to change.
 
   - name: Insights
     description: >-
@@ -242,7 +242,7 @@ x-tagGroups:
     tags:
       - Search logs
       - Alerts
-      - Deployment markers
+      - Deployments
       - Insights
       - Logz.io snapshots
   - name: Cloud SIEM
@@ -1214,7 +1214,7 @@ paths:
   /v2/markers/create-markers:
     post:
       tags:
-        - Deployment markers
+        - Deployments
       operationId: createMarkers
       summary: Add deployment markers to Exception graphs
       description: Send logs with details of service deployments to annotate Exception graphs in Kibana Discover. [Learn more about Deployment markers](/user-guide/insights/exceptions/deployments.html)
@@ -4528,7 +4528,7 @@ definitions:
         example: ServiceA
       tag:
         type: string
-        description: Specify `DEPLOYMENT` for the Deployment marker to appear in the Deployments list in your ceptions   tab.
+        description: Specify `DEPLOYMENT` for the Deployment marker to appear in the Deployments list in your Exceptions tab.
         default: OTHER
       example: DEPLOYMENT
       enum:

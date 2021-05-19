@@ -41,8 +41,8 @@ This box is reserved for future functionality.  <!-- comment: is this active yet
 
 ##### Allocate UM to each Metrics account
 
-Set how many sUMpans are allocated to each account from the overall Infrastructure Monitoring plan. 
-`_<< comment: need to see how this works in app >>_`
+Set how many unique metrics (UMs) are allocated to each account from the overall Infrastructure Monitoring plan. 
+
 
 ##### Set the read permissions
 

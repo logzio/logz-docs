@@ -3,7 +3,7 @@ title: Send Cloudflare firewall event logs
 short-description: Logz.io can pull new Cloudflare firewall event logs straight from your S3 bucket every few seconds.
 logo:
   logofile: cloudflare.svg 
-  orientation: vertical
+  orientation: horizontal
 data-source: Cloudflare
 shipping-tags:
   - firewalls

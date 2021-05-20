@@ -6,7 +6,7 @@ logo:
   orientation: vertical
 data-source: Cloudflare
 shipping-tags:
-  - cloudflare
+  - firewalls
   - popular
 contributors:
   - yberlinger

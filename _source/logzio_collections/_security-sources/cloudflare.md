@@ -15,6 +15,8 @@ order: 20
 
 The Cloudflare web application firewall (WAF) protects your internet property against malicious attacks that aim to exploit vulnerabilities such as SQL injection attacks, cross-site scripting, and cross-site forgery requests.
 
+For an overview of Cloudflare logs, and the related S3 and Logpush configuration procedures, click [here](https://developers.cloudflare.com/logs/).
+
 #### Setup
 
 <!-- procedure intro -->
@@ -33,13 +35,14 @@ Before you begin, ensure that you have:
 
 ##### Configure an S3 bucket for your Cloudflare logs
 
-
+To create an S3 bucket, see the [instructions from Amazon.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
 
 ##### Configure Logpush to send logs to the S3 bucket
 
-To configure Logpush to stream logs of Cloudflare's datasets to your cloud service in batches, follow the [Cloudflare procedure](https://developers.cloudflare.com/logs/logpush/aws-s3) to enable the Logpush service to access Amazon S3. 
+To configure Logpush to stream logs of Cloudflare's datasets to your cloud service in batches, follow the [Cloudflare procedure](https://developers.cloudflare.com/logs/get-started/enable-destinations/aws-s3/) to enable the Logpush service to access Amazon S3. <!--  deprecated link (https://developers.cloudflare.com/logs/logpush/aws-s3  -->
 
-For an overview of the Logpush service, [click here](https://developers.cloudflare.com/logs/logpush).
+For an overview of the Logpush service, [click here](https://developers.cloudflare.com/logs/about)
+<!-- deprecated link: (https://developers.cloudflare.com/logs/logpush).-->
 
 ##### Configure Logz.io to collect logs from the S3 bucket. 
 

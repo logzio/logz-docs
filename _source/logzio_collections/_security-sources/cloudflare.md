@@ -26,16 +26,14 @@ To send firewall event logs to Logz.io Cloud SIEM, you'll first configure a Logp
 
 Before you begin, ensure that you have: 
 
-+ Admin access to Cloudflare
-+ Admin access to your AWS environment
++ Admin access to Cloudflare.
++ Admin access to your AWS environment.
++ Configured an S3 bucket for your Cloudflare logs.
+  To create an S3 bucket, see the [instructions from Amazon.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
++ Logs of your HTTP requests or Spectrum events uploaded to Amazon S3.
 
 
 <div class="tasklist">
-
-
-##### Configure an S3 bucket for your Cloudflare logs
-
-To create an S3 bucket, see the [instructions from Amazon.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
 
 ##### Configure Logpush to send logs to the S3 bucket
 

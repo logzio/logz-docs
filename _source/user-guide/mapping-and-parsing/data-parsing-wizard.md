@@ -76,7 +76,7 @@ Type your grok pattern in the **Parse method** text box.
 To help make the best grok pattern for your logs,
 use the [Grok Debugger](https://grokdebug.herokuapp.com/).
 For reference,
-see [grok patterns](https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns)
+see [grok patterns](https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/ecs-v1/grok-patterns)
 from Elastic.
 {:.info-box.tip}
 

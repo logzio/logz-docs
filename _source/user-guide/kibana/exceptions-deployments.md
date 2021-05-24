@@ -14,8 +14,6 @@ contributors:
   - shalper
 ---
 
-{% include page-info/early-access.md type="Beta" %}
-
 
 ![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/deployments.png)
 

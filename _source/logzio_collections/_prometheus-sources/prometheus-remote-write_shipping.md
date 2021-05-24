@@ -6,7 +6,7 @@ logo:
 data-source: Remote write for Prometheus
 flags:
   logzio-plan:  
-  beta: true
+  beta: false
 templates: ["docker"]
 contributors:
   - yberlinger

@@ -14,7 +14,7 @@ contributors:
 
 Create your own parsing rule pipelines for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule pipelines will be applied to your Logz.io account to transform your logs. 
 
-## What is Sawmill?
+## What is Sawmill and what is the Logz.io Parsing editor?
 
 The [Sawmill open source library](https://github.com/logzio/sawmill) is used for JSON text transformations. 
 
@@ -23,16 +23,16 @@ A Sawmill pipeline is composed of a series of steps that are applied to a specif
 The collection of Sawmill processors can be found in the [Github wiki for the project.](https://github.com/logzio/sawmill/wiki)  
 
 
-### The Sawmill parsing editor
+### The Logz.io Parsing editor
 
-The Sawmill parsing editor tool works with the Logz.io public API and lets you: 
+The Logz.io Parsing editor tool works with the Logz.io public API and lets you: 
 
 1. Create, access, and edit custom parsing rules for a log type, using Sawmill processors.
 2. Build a parsing pipeline for your logs from the rules.
 2. Test and validate the pipeline to examine how it impacts your logs.
 3. Submit the pipeline to Logz.io so that it can be reviewed, validated, and then applied to your ingested logs.
 
-The **Sawmill Self Parsing editor** is available [here](https://sawmill-logz.herokuapp.com/).
+The **Logz.io Parsing editor** is available [here](https://sawmill.logz.io/).
 
 #### Create a parsing rule pipeline with Sawmill
 
@@ -42,23 +42,23 @@ This process creates parsing rules (pipelines) for the specified log type. The l
 
 ##### Prerequisites
 
-To use the Sawmill parsing editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
+To use the Parsing editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
 
 1. To work with the Logz.io public API, obtain or create an API token in the [Manage tokens page](https://app.logz.io/#/dashboard/settings/manage-tokens/api). <br>We recommend that you create a dedicated API token for parsing tasks. 
    
     ![Manage API Tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/manage-api-tokens3.png)
 
-2. Look up the 2-letter code for your Logz.io account region in [**Settings > General settings > Account settings > Region**](https://app.logz.io/#/dashboard/settings/general).  You can also find your region code in the [Regions and URLs table](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls).
+2. Select your region. You can look up your Logz.io account region in [**Settings > General settings > Account settings > Region**](https://app.logz.io/#/dashboard/settings/general).  You can also find your region in the [Regions and URLs table](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls).
 
 
-##### Set up the Self Parsing editor
+##### Set up the Parsing editor
 
-In the [Self Parsing editor]((https://sawmill-logz.herokuapp.com/)), click **Upload sample logs**.  
+In the [Parsing editor](https://sawmill-logz.herokuapp.com/), click **Editor setup**.  
 
-![Sample log process](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/start_upload.png)
+![Sample log process](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/editor_setup.png)
 The **Sample Logs** screen opens.
 
-![credentials and log info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/sample_logs.png)
+![credentials and log info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_cred.png)
 
 ##### Set up the sample log information
 
@@ -75,11 +75,11 @@ You create your Sawmill pipeline in the left panel of the editor screen, either 
 
 The editor supports autocomplete for existing Sawmill processors: Enter the start of a processor name, scroll through the options, and select the relevant option to load the full processor template.  
 
-![Processor autocomplete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/sawmill_autocomplete2.png)
+![Processor autocomplete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parse_autocomplete.png)
 
 Use **Auto re-format** to clean up your indentations. 
 
-![Processor autoreformat](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/auto_reformat-before.png) ![Processor autoreformatted](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/auto_reformat-after.png)
+![Processor autoreformat](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/reformat_parsing.png) 
 
 
 ##### Test parsing rules

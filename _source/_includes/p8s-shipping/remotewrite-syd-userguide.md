@@ -48,19 +48,19 @@ Add the following parameters to your Prometheus yaml file:
 
 
 ```yaml
-    global:
-      external_labels:
-        p8s_logzio_name: <labelvalue>
-    remote_write:
-      - url: https://<<LISTENER-HOST>>:8053
-        bearer_token: <<PROMETHEUS-METRICS-SHIPPING-TOKEN>> 
-        remote_timeout: 30s
-        queue_config:
-          batch_send_deadline: 5s  #default = 5s
-          max_shards: 10  #default = 1000
-          min_shards: 1
-          max_samples_per_send: 500 #default = 100
-          capacity: 10000  #default = 500
+global:
+  external_labels:
+    p8s_logzio_name: <labelvalue>
+remote_write:
+  - url: https://<<LISTENER-HOST>>:8053
+    bearer_token: <<PROMETHEUS-METRICS-SHIPPING-TOKEN>> 
+    remote_timeout: 30s
+    queue_config:
+      batch_send_deadline: 5s  #default = 5s
+      max_shards: 10  #default = 1000
+      min_shards: 1
+      max_samples_per_send: 500 #default = 100
+      capacity: 10000  #default = 500
 
 ```
 

@@ -31,6 +31,7 @@ Before you begin, ensure that you have:
 + Configured an S3 bucket for your Cloudflare logs.
   To create an S3 bucket, see the [instructions from Amazon.](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
 + Logs of your HTTP requests or Spectrum events uploaded to Amazon S3.
++ Turned on Logppush for the assets you want to monitor in [Cloudflare](https://developers.cloudflare.com/logs/get-started/logpush-dashboard), via **Analytics > Logs > Connect a service**, and selecting the asset
 
 
 <div class="tasklist">

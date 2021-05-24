@@ -15,6 +15,7 @@ contributors:
   - yberlinger
 shipping-tags:  
   - prometheus
+  - custom-metrics
 order: 910
 ---
 

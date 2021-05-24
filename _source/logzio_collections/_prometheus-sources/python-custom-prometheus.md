@@ -13,6 +13,7 @@ contributors:
   - yberlinger
 shipping-tags:  
   - prometheus
+  - custom-metrics
 order: 530
 ---
 
@@ -84,6 +85,7 @@ labels = {
 }
 counter.add(25, labels)
 ```
+
 
 ## Types of metric instruments
 

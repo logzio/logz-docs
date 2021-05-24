@@ -95,7 +95,7 @@ func handleErr(err error) {
 	if err != nil {
 		fmt.Println("Encountered error: ", err.Error())
 	}
-// }
+}
 ```
 
 ###### Types of metric instruments

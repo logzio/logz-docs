@@ -11,7 +11,6 @@ contributors:
   - shalper
 shipping-tags:
   - server-app
-  - popular
 order: 340
 ---
 #### Filebeat configuration

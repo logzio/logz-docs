@@ -8,8 +8,8 @@ The configuration wizard will open.
 5. _Optional_ You have the option to add a prefix.
 6. **Save** your information.
 
-![S3 bucket IAM authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-iam_role_authentication.png)
-![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-keyaccess_config.png)
+![S3 bucket IAM authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-iam_role_authentication1.png)
+![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-keyaccess_config1.png)
 
 <!-- info-box-start:info -->
 Logz.io fetches logs that are generated after configuring an S3 bucket.

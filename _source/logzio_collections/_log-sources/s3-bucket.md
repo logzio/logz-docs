@@ -54,6 +54,7 @@ Log into the app to use the dedicated Logz.io [configuration wizard](https://app
 
 {% include log-shipping/add-s3-bucket.md %}
 
+<!--updated image in include 25-5-2021 -->
 
 ##### Check Logz.io for your logs
 

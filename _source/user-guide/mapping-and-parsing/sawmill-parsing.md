@@ -15,7 +15,7 @@ contributors:
 Create your own parsing rule pipelines for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule pipelines will be applied to your Logz.io account to transform your logs. 
 
 <!-- info-box-start:info -->
-You must be an admin of the account to apply the parsing rules you create. 
+You must be an account admin to apply a parsing pipeline to the account.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -103,12 +103,12 @@ The right panel is where you view and modify your log sample, and test how your 
    
 ##### Submit your pipeline for review
 
-When you're done editing the parsing rules, add the email associated with your Logz.io account, along with information about the parsing mechanism you created, and click **Submit** to send your pipeline to Logz.io.
+When you're done editing the parsing rules, add the email for the admin user associated with your Logz.io account, along with information about the parsing mechanism you created, and click **Submit** to send your pipeline to Logz.io.
 
 
 
 
 <!-- info-box-start:info -->
-Reminder: The parsing rules you create can only be applied to the Logz.io account that matches your API token, and are only valid for the log type you chose. <br> You must be an admin of the account to apply the parsing rules you create. 
+The parsing rules you create can only be applied to the Logz.io account that matches your API token, and are only valid for the log type you chose. <br> <br> To apply the parsing rules you create, you must be an admin for the account. 
 {:.info-box.note}
 <!-- info-box-end -->

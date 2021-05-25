@@ -15,7 +15,7 @@ contributors:
 Create your own parsing rule pipelines for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule pipelines will be applied to your Logz.io account to transform your logs. 
 
 <!-- info-box-start:info -->
-You must be an account admin to apply a parsing pipeline to the account.
+You must be an account admin to apply a parsing pipeline to an account.
 {:.info-box.note}
 <!-- info-box-end -->
 

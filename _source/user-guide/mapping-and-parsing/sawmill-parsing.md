@@ -58,7 +58,7 @@ In the [Parsing editor](https://sawmill-logz.herokuapp.com/), click **Editor set
 ![Sample log process](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/editor_setup.png)
 The **Sample Logs** screen opens.
 
-![credentials and log info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_cred.png)
+![credentials and log info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_cred2.png)
 
 ##### Set up the sample log information
 
@@ -84,7 +84,7 @@ Use **Auto re-format** to clean up your indentations.
 
 ##### Test parsing rules
 The right panel is where you view and modify your log sample, and test how your rules are applied. 
-<!-- screen image-->
+![Testing parsing rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_logs.gif)
    
 ##### Validate your pipeline
 

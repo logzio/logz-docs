@@ -84,7 +84,7 @@ Use **Auto re-format** to clean up your indentations.
 
 ##### Test parsing rules
 The right panel is where you view and modify your log sample, and test how your rules are applied. 
-![Testing parsing rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_logs.gif)
+![Testing parsing rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_logs2.gif)
    
 ##### Validate your pipeline
 

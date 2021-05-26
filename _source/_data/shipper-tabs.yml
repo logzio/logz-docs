@@ -73,6 +73,9 @@ tags:
   - slug: container
     name: Containers & pods
     order: 6
+  - slug: custom-metrics
+    name: Custom metrics
+    order: 7
   - slug: database
     name: Databases
     order: 7

@@ -4,7 +4,6 @@ title: Configuring remote write for Prometheus
 permalink: /user-guide/infrastructure-monitoring/prometheus-remote-write.html
 flags:
   logzio-plan: pro
-  beta: 
 tags:
   - metrics integrations
 contributors:

@@ -40,6 +40,7 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled`, `
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
+
 ##### Deploy the Helm chart
 
 To deploy the Helm chart, enter the relevant parameters for the placeholders and run the code. 

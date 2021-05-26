@@ -1426,7 +1426,7 @@ paths:
             $ref: '#/definitions/MessageBean'
 
   # ::::: S3 log shipping
-  /log-shipping/s3-buckets:
+  /v1/log-shipping/s3-buckets:
     get:
       summary: Retrieve all connected S3 buckets
       description: >-
@@ -1475,7 +1475,7 @@ paths:
       responses:
         default:
           description: successful operation
-  '/log-shipping/s3-buckets/{id}':
+  '/v1/log-shipping/s3-buckets/{id}':
     get:
       summary: Retrieve an S3 bucket connector by ID
       description: >-
@@ -1555,7 +1555,7 @@ paths:
       responses:
         default:
           description: successful operation
-  /log-shipping/s3-buckets/aws-assume-role-details:
+  /v1/log-shipping/s3-buckets/aws-assume-role-details:
     get:
       summary: Get account information for IAM Role
       description: >-

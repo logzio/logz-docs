@@ -177,6 +177,9 @@ tags:
 
 
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
+  - name: Manage API tokens
+    description: >-
+      You can manage API tokens for main and sub accounts.
   - name: Logz.io snapshots
   - name: Manage users
   - name: Alerts
@@ -256,6 +259,7 @@ x-tagGroups:
       - Who am I
       - Manage time-based log accounts
       - Manage shared tokens
+      - Manage API tokens
       - Manage notification endpoints
       - Import or export Kibana objects
   - name: Manage data shipping
@@ -2700,6 +2704,50 @@ paths:
       x-code-samples:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/shared-tokens" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"Support shared token\", \"filters\":[339]}"'
+
+  # ::::: API TOKENS
+  /v1/api-tokens/sub-account:
+    post: 
+      operationId: createSubaccountAPIToken
+      summary: Create a subaccount API token
+      description: >-
+        Creates a new API token for a subaccount.
+
+      tags:
+        - Manage API tokens
+      parameters: 
+        - in: body
+          name: body
+          required: true  
+          schema:
+            $ref: '#/definitions/CreateSubaccountAPITokenRequest'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/SubaccountAPIToken'
+        400:
+          description: not found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: API token with id 7386 not found for account 160343
+                description: The API token or query filter could not be found
+        403:
+          description: forbidden
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Insufficient privileges
+                description: Insufficient privileges. Contact our Support team for access to this API feature.
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/subaccount-api-token" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"newAPITokenTest999\", \"accountId\":7386}"'
+
 
   # ::::: SNAPSHOTS
   /v1/snapshotter:
@@ -5503,6 +5551,41 @@ definitions:
           example: 339
         description: IDs of filters to attach to the token. To remove all filters, use an empty array `[]`.
 
+  # ::::: API TOKENS DEFINITIONS
+  SubaccountAPIToken:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID of the newly created API token for the subaccount
+        example: 7386
+      name:
+        type: string
+        description: The name of the newly created API token for the sub account
+        example: newTokenTest999
+      token:
+        type: string
+        description: The API token
+        example: c498fbc3-a3ac-4676-ad09-689854b5cbbd"
+      createdAt: 
+        type:
+        description: The time at which the new subaccount API token was created 
+        example: 1621858311.000000000
+  CreateSubaccountAPITokenRequest:
+    type: object
+    properties:
+      tokenName:
+        type: string
+        default: string
+        description: The name of the newly created API token for the sub account
+        example: newTokenTest999
+      accountId:
+        type: integer
+        format: int32
+        description: Logz.io subaccount ID.
+        example: 160343
+
   # ::::: SNAPSHOTS DEFINITIONS
   SnapshotCreateResponse:
     type: object
@@ -6046,7 +6129,7 @@ definitions:
         $ref: '#/definitions/Pagination'
 
 
-  # ::::: Alert
+  # ::::: Alert DEFINITIONS
   Aggregation:
     type: object
     description: Specifies a trigger condition that acts as a threshold.
@@ -6617,10 +6700,10 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ColumnConfig'
-      shouldUseAllFields:
-        type: boolean
-        description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
-        default: true
+      #shouldUseAllFields:
+      #  type: boolean
+      #  description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
+      # default: true
   RuleV2Request:
     type: object
     required:

@@ -2708,7 +2708,7 @@ paths:
   # ::::: API TOKENS
   /v1/api-tokens/sub-account:
     post: 
-      operationId: createSubaccountAPIToken
+      operationId: CreateApiTokenRequest
       summary: Create a subaccount API token
       description: >-
         Creates a new API token for a subaccount.
@@ -2720,14 +2720,14 @@ paths:
           name: body
           required: true  
           schema:
-            $ref: '#/definitions/CreateSubaccountAPITokenRequest'
+            $ref: '#/definitions/CreateApiTokenRequest'
       responses:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/SubaccountAPIToken'
+            $ref: '#/definitions/ApiTokenResponse'
         400:
-          description: not found
+          description: Bad Request
           schema:
             type: object
             properties:
@@ -2735,8 +2735,8 @@ paths:
                 type: string
                 example: API token with id 7386 not found for account 160343
                 description: The API token or query filter could not be found
-        403:
-          description: forbidden
+        401:
+          description: Insufficient privileges
           schema:
             type: object
             properties:
@@ -2744,9 +2744,18 @@ paths:
                 type: string
                 example: Insufficient privileges
                 description: Insufficient privileges. Contact our Support team for access to this API feature.
+        403:
+          description: Forbidden
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Forbidden
+                description: Forbidden. You don't own this account and cannot create an API token for it. Contact our Support team for access to this API feature.                        
       x-code-samples:
         - lang: cURL
-          source: 'curl -X POST "https://api.logz.io/v1/subaccount-api-token" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"newAPITokenTest999\", \"accountId\":7386}"'
+          source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"newAPITokenTest999\", \"accountId\":7386}"'
 
 
   # ::::: SNAPSHOTS
@@ -5552,7 +5561,7 @@ definitions:
         description: IDs of filters to attach to the token. To remove all filters, use an empty array `[]`.
 
   # ::::: API TOKENS DEFINITIONS
-  SubaccountAPIToken:
+  ApiTokenResponse:
     type: object
     properties:
       id:
@@ -5572,7 +5581,7 @@ definitions:
         type:
         description: The time at which the new subaccount API token was created 
         example: 1621858311.000000000
-  CreateSubaccountAPITokenRequest:
+  CreateApiTokenRequest:
     type: object
     properties:
       tokenName:

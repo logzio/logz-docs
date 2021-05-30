@@ -4,7 +4,7 @@
 
 
 
-###### Set environment variables for the `prom/cloudwatch-exporter` container
+###### Set environment variables for the  `prom/cloudwatch-exporter` container
 
 | Environment variable | Description |
 |---|---|

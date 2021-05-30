@@ -1,6 +1,6 @@
 | P8S_LOGZIO_NAME | The value of the `p8s_logzio_name` external label. This variable identifies which Prometheus environment the metrics arriving at Logz.io came from. |Default = `logzio-cloudwatch-metrics`.|
-| CUSTOM_CONFIG_PATH | Path to your Cloudwatch exporter configuration file. For more information refer to the [documentation](https://github.com/prometheus/cloudwatch_exporter#configuration).  **Note:** Set the `period_seconds` parameter according to your `SCRAPE_INTERVAL`| |
-| CUSTOM_LISTENER | Set a custom URL to ship metrics to (for example, http://localhost:9200). This overrides the `LOGZIO_REGION` Environment variable. | |
+| CUSTOM_CONFIG_PATH | Path to your Cloudwatch exporter configuration file. For more information refer to the [documentation](https://github.com/prometheus/cloudwatch_exporter#configuration).  **Note:** Set the `period_seconds` parameter according to your `SCRAPE_INTERVAL`|  |
+| CUSTOM_LISTENER | Set a custom URL to ship metrics to (for example, http://localhost:9200). This overrides the `LOGZIO_REGION` Environment variable. |  |
 
 
 

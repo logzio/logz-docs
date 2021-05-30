@@ -5,7 +5,7 @@ permalink: /user-guide/mapping-and-parsing/sawmill-parsing
 flags:
   admin: true
   beta: true
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - parsing
 contributors:
@@ -22,7 +22,7 @@ You must be an account admin to apply a parsing pipeline to an account.
 
 ## What is Sawmill and what is the Logz.io Parsing editor?
 
-The [Sawmill open source library](https://github.com/logzio/sawmill) is used for JSON text transformations. 
+The [Sawmill open source library](https://github.com/logzio/sawmill) is used for text transformations. 
 
 A Sawmill pipeline is composed of a series of steps that are applied to a specific log type. Each step is a Sawmill processor which performs an action, a transformation, or includes some logic to enrich your logs. You set the processor step order according to the transformations and changes you need to apply to meet your parsing requirements.
 
@@ -90,7 +90,7 @@ Use **Auto re-format** to clean up your indentations.
 
 ##### Validate your pipeline
 
-Once you're satisfied with tyour draft pipeline, click **Validate your pipeline** to execute your pipeline rules against the log sample you provided. 
+Once you're satisfied with your draft pipeline, click **Validate your pipeline** to execute your pipeline rules against the log sample you provided. 
 
 <!-- info-box-start:info -->
 The Logz.io backend has a sequence of pipelines that run on your logs: Some of the pipelines are system wide and may affect the final result you see. <br><br>  Once validation is complete, you'll  be able to see the results in the Parsed log tab of the right panel. Use the display in the right panel to verify that your results reflect the parsed logs you expect to see.

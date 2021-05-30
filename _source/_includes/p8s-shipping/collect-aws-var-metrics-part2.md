@@ -19,6 +19,6 @@ Run the command: `docker-compose up`.
 You can view the exporter and collector configurations in the browser:
 
 * CloudWatch exporter: [http://localhost:5001/config/cloudwatch](http://localhost:5001/config/cloudwatch)
-* Opentelemtry collector: [http://localhost:5001/config/otel](http://localhost:5001/config/otel)
+* OpenTelemtry collector: [http://localhost:5001/config/otel](http://localhost:5001/config/otel)
 
 </div>

@@ -7,6 +7,7 @@ flags:
 tags:
   - logz.io-security
   - siem
+  - drilldown
 contributors:
   - shalper
 ---

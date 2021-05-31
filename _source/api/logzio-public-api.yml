@@ -2733,8 +2733,8 @@ paths:
             properties:
               message:
                 type: string
-                example: API token with id 7386 not found for account 160343
-                description: The API token or query filter could not be found
+                example: Bad Request. API token with id 7386 not found for account 160343
+                description: Bad Request. The API token or query filter could not be found.
         401:
           description: Insufficient privileges
           schema:

@@ -14,6 +14,8 @@ contributors:
   - imnotashrimp
 ---
 
+<!--removed from docs 31 May 2021-->
+
 <!-- info-box-start:info -->
 The **Grafana data source plugin** was deprecated on March 2021.
 {:.info-box.important}

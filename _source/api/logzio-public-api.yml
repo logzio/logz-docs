@@ -2738,7 +2738,7 @@ paths:
               message:
                 type: string
                 example: Bad Request. There was an issue with the request syntax from the client. Received integer instead of expected string parameter
-                description: Bad Request. The request cannot be completed. 
+                description: Bad Request. The request cannot be completed. Errors may include malformed request syntax, invalid request message parameters, and so on. 
         401:
           description: Unauthorized
           schema:
@@ -2756,7 +2756,7 @@ paths:
               message:
                 type: string
                 example: Forbidden. Attempted to create a sub account API token with an illegal token. 
-                description: Forbidden. Attempted to create sub account API token with an invalid token. This operation requires a valid API token for the main or owner account.                         
+                description: Forbidden. Attempted to create an API token for a sub account with an invalid token. This operation requires a valid API token for the main or owner account.                         
       x-code-samples:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"newAPITokenTest999\", \"accountId\":7386}"'

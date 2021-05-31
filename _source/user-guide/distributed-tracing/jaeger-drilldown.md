@@ -18,11 +18,22 @@ contributors:
 
 ### Overview & purpose
 
+Drilldown links help you go straight to the related logs whenever you identify an issue in your traces and spans and see a need to investigate it further. They are a powerful observability tool that gives you context and visibility into the logs that coincided with the Tracing events.
 
 ### Accessing drilldowns from your main account
 
+The drilldown configuration is saved at the log account (Main account) level and is only accessible for the account in which you created it. 
+
+Drilldown correlation links are saved at  THE LOGGING ACCOUNT LEVEL
+
 
 ### Configuring Jaeger drilldowns
+
+#### User interface - understanding the fields in the drilldown configuration
+
+UI modal - **Start from --> Lead to**
+Phase 1: Jaeger interface - Note: This functionality will be expanded to all product UIs, across the Logz.io Observability Platform
+
 
 
 #### Add a drilldown link
@@ -34,7 +45,7 @@ contributors:
 #### Delete a drilldown
 
 
-### User interface - understanding the fields in the drilldown configuration
+
 
 
 ### Drilldown examples

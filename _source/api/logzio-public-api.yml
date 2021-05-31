@@ -2709,9 +2709,9 @@ paths:
   /v1/api-tokens/sub-account:
     post: 
       operationId: CreateApiTokenRequest
-      summary: Create a subaccount API token
+      summary: Create a sub account API token. Must be run with an API token from the main account.
       description: >-
-        Creates a new API token for a subaccount.
+        Creates a new API token for a sub account.
 
       tags:
         - Manage API tokens
@@ -5567,7 +5567,7 @@ definitions:
       id:
         type: integer
         format: int32
-        description: ID of the newly created API token for the subaccount
+        description: ID of the newly created API token for the sub account
         example: 7386
       name:
         type: string
@@ -5579,7 +5579,7 @@ definitions:
         example: c498fbc3-a3ac-4676-ad09-689854b5cbbd"
       createdAt: 
         type: Instant
-        description: The time at which the new subaccount API token was created 
+        description: The time at which the new sub account API token was created 
         example: 1621858311.000000000
   CreateApiTokenRequest:
     type: object
@@ -5592,7 +5592,7 @@ definitions:
       accountId:
         type: integer
         format: int32
-        description: Logz.io subaccount ID.
+        description: Logz.io sub account ID.
         example: 160343
 
   # ::::: SNAPSHOTS DEFINITIONS

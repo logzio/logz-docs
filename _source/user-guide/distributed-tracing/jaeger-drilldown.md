@@ -38,6 +38,29 @@ Phase 1: Jaeger interface - Note: This functionality will be expanded to all pro
 
 #### Add a drilldown link
 
+Notes: 
+* To test and preview your drilldown, create it in the user interface of the source product. 
+* Entities that have an existing drilldown are indicated by the "link out" icon.
+* Entities that you can use to create a drilldown are indicated by the "custom chain links" icon.  
+  <!--real names for this linky things TBD-->
+
+1. Within the trace, select the span you want to create a drilldown link from. 
+
+1. Click the entity to use for the drilldown. Only entities marked with a custom icon are eligible.
+   The New Drilldown screen opens.
+
+1. Give your drilldown a unique name and 
+
+1. Choose the “from”  (source product and entity) and the “to" (target product and entity). For example, from a Jaeger trace to a Kibana dashboard.
+
+1. Create optional mappings for the start and end field names in your drilldown. 
+   For example, if the fields in your source data appear as all lower case, and fields in the target  have been parsed to include capitals, you might need to map *`userid`* to *`UserID`*.
+
+1. Optional. Test your drilldown. 
+   This preview is only available when you create a drilldwon in the user interface of the source product, such as Kibana, Jaeger, or the Metrics interface.    
+1. Click **Save drilldown** to create the new link or **Cancel** to discard your work.
+   After you **Save the drilldown**, the starting entity is marked with a "custom chain link" icon.
+
 
 #### Edit a drilldown
 

@@ -2709,9 +2709,13 @@ paths:
   /v1/api-tokens/sub-account:
     post: 
       operationId: CreateApiTokenRequest
-      summary: Create a sub account API token. Must be run with an API token from the main account.
+      summary: Create a sub account API token. 
       description: >-
-        Creates a new API token for a sub account.
+        Creates a new API token for a sub account. 
+        
+        Must be run with an API token from the main account. 
+        
+        Once created, you can view the details for this new token in [Manage tokens > API tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/api), when you are logged into the relevant sub account.
 
       tags:
         - Manage API tokens
@@ -2733,17 +2737,17 @@ paths:
             properties:
               message:
                 type: string
-                example: Bad Request. API token with id 7386 not found for account 160343
-                description: Bad Request. The API token or query filter could not be found.
+                example: Bad Request. There was an issue with the request syntax from the client. Received integer instead of expected string parameter
+                description: Bad Request. The request cannot be completed. 
         401:
-          description: Insufficient privileges
+          description: Unauthorized
           schema:
             type: object
             properties:
               message:
                 type: string
-                example: Insufficient privileges
-                description: Insufficient privileges to create an API token for this account. Contact our Support team for access to this API feature.
+                example: Unauthorized. There was a problem with the authorization provided in the request. 
+                description: Unauthorized. Attempted to create an API token for a sub account with insufficient or missing credentials for the main or owner account. Contact our Support team for access to this API feature.
         403:
           description: Forbidden
           schema:
@@ -2751,8 +2755,8 @@ paths:
             properties:
               message:
                 type: string
-                example: Forbidden
-                description: Forbidden. A user who does not have the relevant permissions attempted to create an API token for this account.                         
+                example: Forbidden. Attempted to create a sub account API token with an illegal token. 
+                description: Forbidden. Attempted to create sub account API token with an invalid token. This operation requires a valid API token for the main or owner account.                         
       x-code-samples:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"newAPITokenTest999\", \"accountId\":7386}"'
@@ -5584,7 +5588,7 @@ definitions:
   CreateApiTokenRequest:
     type: object
     properties:
-      tokenName:
+      name:
         type: string
         default: string
         description: The name of the newly created API token for the sub account

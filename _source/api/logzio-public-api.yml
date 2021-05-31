@@ -179,7 +179,7 @@ tags:
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
   - name: Manage API tokens
     description: >-
-      You can manage API tokens for main and sub accounts.
+      You can manage API tokens for sub accounts.
   - name: Logz.io snapshots
   - name: Manage users
   - name: Alerts
@@ -2743,7 +2743,7 @@ paths:
               message:
                 type: string
                 example: Insufficient privileges
-                description: Insufficient privileges. Contact our Support team for access to this API feature.
+                description: Insufficient privileges to create an API token for this account. Contact our Support team for access to this API feature.
         403:
           description: Forbidden
           schema:
@@ -2752,7 +2752,7 @@ paths:
               message:
                 type: string
                 example: Forbidden
-                description: Forbidden. You don't own this account and cannot create an API token for it. Contact our Support team for access to this API feature.                        
+                description: Forbidden. A user who does not have the relevant permissions attempted to create an API token for this account.                         
       x-code-samples:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"newAPITokenTest999\", \"accountId\":7386}"'
@@ -5578,7 +5578,7 @@ definitions:
         description: The API token
         example: c498fbc3-a3ac-4676-ad09-689854b5cbbd"
       createdAt: 
-        type:
+        type: Instant
         description: The time at which the new subaccount API token was created 
         example: 1621858311.000000000
   CreateApiTokenRequest:

@@ -177,6 +177,9 @@ tags:
 
 
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
+  - name: Manage API tokens
+    description: >-
+      You can manage API tokens for sub accounts.
   - name: Logz.io snapshots
   - name: Manage users
   - name: Alerts
@@ -256,6 +259,7 @@ x-tagGroups:
       - Who am I
       - Manage time-based log accounts
       - Manage shared tokens
+      - Manage API tokens
       - Manage notification endpoints
       - Import or export Kibana objects
   - name: Manage data shipping
@@ -2700,6 +2704,72 @@ paths:
       x-code-samples:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/shared-tokens" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"Support shared token\", \"filters\":[339]}"'
+
+  # ::::: API TOKENS
+  /v1/api-tokens/sub-account:
+    post: 
+      operationId: CreateApiTokenRequest
+      summary: Create a sub account API token. 
+      description: >-
+        Creates a new API token for a sub account. 
+        
+        Must be run with an API token of the owner account. 
+        
+        Once created, you can view the details for this new token in [Manage tokens > API tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/api), when you are logged in to the relevant sub account.
+
+      tags:
+        - Manage API tokens
+      parameters: 
+        - in: body
+          name: body
+          required: true  
+          schema:
+            $ref: '#/definitions/CreateApiTokenRequest'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ApiTokenResponse'
+        400:
+          description: Bad Request
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Bad Request. There was an issue with the request syntax from the client. Received integer instead of expected string parameter
+                description: Bad Request. The request cannot be completed. Errors may include malformed request syntax, invalid request message parameters, and so on. 
+        401:
+          description: Unauthorized
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Unauthorized. There was a problem with the authorization provided in the request. 
+                description: Unauthorized. Attempted to create an API token for a sub account with insufficient or missing credentials for the main or owner account. Please contact our Support team for access to this API feature via [help@logz.io](mailto:help@logz.io).
+        403:
+          description: Forbidden
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Forbidden. Attempted to create an API token for a sub account using an illegal owner account token. 
+                description: Forbidden. Attempted to create an API token for a sub account with an invalid owner account token. This operation requires a valid API token for the owner account.                         
+        404:
+          description: Not Found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Not Found. Could not find the sub account associated with this request.
+                description: Not Found. Could not find the sub account associated with this request or the relevant owner account for the sub account.  
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"newAPITokenTest999\", \"accountId\":7386}"'
+
 
   # ::::: SNAPSHOTS
   /v1/snapshotter:
@@ -5503,6 +5573,41 @@ definitions:
           example: 339
         description: IDs of filters to attach to the token. To remove all filters, use an empty array `[]`.
 
+  # ::::: API TOKENS DEFINITIONS
+  ApiTokenResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID of the newly created API token for the sub account
+        example: 7386
+      name:
+        type: string
+        description: The name of the newly created API token for the sub account. Uses the name provided in the request.
+        example: newTokenTest999
+      token:
+        type: string
+        description: The API token
+        example: c498fbc3-a3ac-4676-ad09-689854b5cbbd"
+      createdAt: 
+        type: Instant
+        description: The time at which the new sub account API token was created 
+        example: 1621858311.000000000
+  CreateApiTokenRequest:
+    type: object
+    properties:
+      name:
+        type: string
+        default: string
+        description: The name provided in the request for a new API token for the sub account
+        example: newTokenTest999
+      accountId:
+        type: integer
+        format: int32
+        description: Logz.io sub account ID.
+        example: 160343
+
   # ::::: SNAPSHOTS DEFINITIONS
   SnapshotCreateResponse:
     type: object
@@ -6046,7 +6151,7 @@ definitions:
         $ref: '#/definitions/Pagination'
 
 
-  # ::::: Alert
+  # ::::: Alert DEFINITIONS
   Aggregation:
     type: object
     description: Specifies a trigger condition that acts as a threshold.
@@ -6617,10 +6722,10 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ColumnConfig'
-      shouldUseAllFields:
-        type: boolean
-        description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
-        default: true
+      #shouldUseAllFields:
+      #  type: boolean
+      #  description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
+      # default: true
   RuleV2Request:
     type: object
     required:

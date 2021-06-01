@@ -2715,7 +2715,7 @@ paths:
         
         Must be run with an API token of the owner account. 
         
-        Once created, you can view the details for this new token in [Manage tokens > API tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/api), when you are logged into the relevant sub account.
+        Once created, you can view the details for this new token in [Manage tokens > API tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/api), when you are logged in to the relevant sub account.
 
       tags:
         - Manage API tokens

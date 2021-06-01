@@ -2747,7 +2747,7 @@ paths:
               message:
                 type: string
                 example: Unauthorized. There was a problem with the authorization provided in the request. 
-                description: Unauthorized. Attempted to create an API token for a sub account with insufficient or missing credentials for the main or owner account. Contact our Support team for access to this API feature.
+                description: Unauthorized. Attempted to create an API token for a sub account with insufficient or missing credentials for the main or owner account. Please contact our Support team for access to this API feature via [help@logz.io](mailto:help@logz.io).
         403:
           description: Forbidden
           schema:

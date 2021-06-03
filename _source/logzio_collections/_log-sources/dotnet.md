@@ -10,6 +10,7 @@ open-source:
     github-repo: logzio-dotnet
 contributors:
   - imnotashrimp
+  - shiranavidov
 shipping-tags:
   - from-your-code
 order: 230
@@ -20,6 +21,7 @@ order: 230
 
 * [log4net](#log4net-config)
 * [NLog](#nlog-config)
+* [LoggerFactory](#loggerfactory)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -373,6 +375,234 @@ When using 'JsonLayout' set the name of the attribute to **other than** 'message
 ```
 
 </div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="loggerfactory">
+
+#### Configure log4net
+
+**Before you begin, you'll need**:
+
+* log4net 2.0.8 or higher
+* .Net Core SDK version 2.0 or higher
+
+<div class="tasklist">
+
+##### Add the dependency to your project
+
+If you're on Windows, navigate to your project's folder in the command line, and run these commands to install the dependencies.
+
+```
+Install-Package Logzio.DotNet.Log4net
+```
+
+```
+Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore
+```
+
+If you're on a Mac or Linux machine, you can install the package using Visual Studio. Select **Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.Log4net` and `Microsoft.Extensions.Logging.Log4Net.AspNetCore`.
+
+##### Configure the appender
+
+You can configure the appender in a configuration file or directly in the code.
+Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [log4net documentation 🔗](https://github.com/apache/logging-log4net) to learn more about configuration options.
+
+For a complete list of options, see the configuration parameters below the code blocks.👇
+
+###### Option 1: In a configuration file
+
+```xml
+<log4net>
+  <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
+
+    <!-- Replace these parameters with your configuration -->
+    <token><<LOG-SHIPPING-TOKEN>></token>
+    <type>log4net</type>
+    <listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
+    <bufferSize>100</bufferSize>
+    <bufferTimeout>00:00:05</bufferTimeout>
+    <retriesMaxAttempts>3</retriesMaxAttempts>
+    <retriesInterval>00:00:02</retriesInterval>
+    <gzip>true</gzip>
+    <debug>false</debug>
+    <!--<parseJsonMessage>true</parseJsonMessage>-->
+    
+  </appender>
+
+  <root>
+    <level value="INFO" />
+    <appender-ref ref="LogzioAppender" />
+  </root>
+</log4net>
+```
+
+
+###### Option 2: In the code
+
+```csharp
+var hierarchy = (Hierarchy)LogManager.GetRepository();
+var logzioAppender = new LogzioAppender();
+
+// Replace these parameters with your configuration
+logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+logzioAppender.AddType("log4net");
+logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
+logzioAppender.AddBufferSize("100");
+logzioAppender.AddBufferTimeout("00:00:05");
+logzioAppender.AddRetriesMaxAttempts("3");
+logzioAppender.AddRetriesInterval("00:00:02");
+logzioAppender.AddDebug(false);
+logzioAppender.AddGzip(true);
+// <-- Uncomment and edit this line to enable proxy routing: --> 
+// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
+// <-- Uncomment this to prase messages as Json -->  
+// logzioAppender.ParseJsonMessage(true);
+hierarchy.Root.AddAppender(logzioAppender);
+hierarchy.Configured = true;
+```
+
+###### Parameters
+
+| Parameter | Description | Default/Required |
+|---|---|---|
+| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} | Required |
+| listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
+| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
+| retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
+| retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
+| gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` 
+| parseJsonMessage | To parse your message as Json format add this field and set it to `true`. | `false` |
+| proxyAddress | Proxy address to route you logs through | `None` |
+
+
+
+###### Code sample
+
+###### ASP.NET Core
+
+Update Startup.cs file in Configure method to include the Log4Net middleware as below.
+
+```csharp
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+    {
+        ...
+        
+        loggerFactory.AddLog4Net();
+        
+        ...
+    } 
+```
+
+In the Controller add Data Member and Constructor as below.
+
+```C#
+    private readonly ILoggerFactory _loggerFactory;
+    
+    public ExampleController(ILoggerFactory loggerFactory, ...)
+        {
+            _loggerFactory = loggerFactory;
+            
+            ...
+        }
+```
+
+In the Controller methods:
+
+```C#
+    [Route("<PUT_HERE_YOUR_ROUTE>")]
+    public ActionResult ExampleMethod()
+    {
+        var logger = _loggerFactory.CreateLogger<ExampleController>();
+        var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            
+        // Replace "App.config" with the config file that holds your log4net configuration
+        XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+            
+        logger.LogInformation("Hello");
+        logger.LogInformation("Is it me you looking for?");
+            
+        LogManager.Shutdown();
+            
+        return Ok();
+    }
+```
+
+###### .NET Core Desktop Application
+
+```C#
+    using System.IO;
+    using System.Reflection;
+    using log4net;
+    using log4net.Config;
+    using Microsoft.Extensions.Logging;
+
+    namespace LoggerFactoryAppender
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                ILoggerFactory loggerFactory = new LoggerFactory();
+                loggerFactory.AddLog4Net();
+
+                var logger = loggerFactory.CreateLogger<Program>();
+                var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+
+                // Replace "App.config" with the config file that holds your log4net configuration
+                XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+
+                logger.LogInformation("Hello");
+                logger.LogInformation("Is it me you looking for?");
+                
+                LogManager.Shutdown();
+            }
+        }
+    }
+```
+
+</div>
+
+### Custom fields
+
+You can add static keys and values to be added to all log messages.
+These custom fields must be children of `<appender>`, as shown here.
+
+```xml
+<appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
+  <customField>
+    <key>Environment</key>
+    <value>Production</value>
+  <customField>
+  <customField>
+    <key>Location</key>
+    <value>New Jerseay B1</value>
+  </customField>
+</appender>
+```
+
+### Extending the appender
+
+To change or add fields to your logs, inherit the appender and override the `ExtendValues` method.
+
+```csharp
+public class MyAppLogzioAppender : LogzioAppender
+{
+  protected override void ExtendValues(LoggingEvent loggingEvent, Dictionary<string, string> values)
+  {
+    values["logger"] = "MyPrefix." + values["logger"];
+    values["myAppClientId"] = new ClientIdProvider().Get();
+  }
+}
+```
+
+Change your configuration to use your new appender name.
+For the example above, you'd use `MyAppLogzioAppender`.
 
 </div>
 <!-- tab:end -->

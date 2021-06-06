@@ -10,9 +10,12 @@ contributors:
   - shalper
   - imnotashrimp
   - daniel-tk
+  - yberlinger
 ---
 
-**Explore in Kibana** are drilldown links that give you a direct shortcut from your Metrics' visualizations to the relevant logs in Kibana.
+**Explore in Kibana** provides drilldown links that give you a direct shortcut from your Metrics' visualizations to the relevant logs in Kibana.
+
+<!--Logzio offers a number of dashboards which include preconfigured  **Explore in Kibana** drilldown links, but, generally speaking, these are highly user-specific, so you'll want to set them up yourself, to suit your particular implementation.  -->
 
 A few dashboards provided out-of-the-box by Logz.io come with **Explore in Kibana** drilldown links preconfigured. But generally speaking, these are very user-specific, so you'll want to set them up for yourself to suit your particular implementation.
 
@@ -29,26 +32,40 @@ Drilldown links help you go straight to the related logs whenever you identify a
 {:.no_toc}
 
 **Before you begin, you'll need**:
-Edit-permissions to the dashboard. If you don't, duplicate the dashboard first.
+*Edit* permissions for the dashboard. If you don't have edit permissions, duplicate the dashboard first.
 It's also a good idea to have [variables configured](/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links) for your dashboard. Variables aren't required, but they are highly recommended.
 
 <div class="tasklist">
 
 ##### Add a new panel
 
-If you want to start fresh with a new dashboard, click <i class="fas fa-plus"></i> in the left menu to add it. Otherwise you can just add a new panel: Click the **Add panel** button in the toolbar (in the upper right corner).
+If you want to start fresh with a new dashboard, click <i class="fas fa-plus"></i> in the left menu to add it. 
+
+Otherwise you can just add a new panel: Click the **Add panel** button in the toolbar (in the upper right corner).
+
+![Metrics new panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/metrics-prometheus/metrics-dash_add-panel.png)
+
+
 
 Click **Add Query**.
 
-![Grafana new panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/new-panel.png)
+![Metrics configure a query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/metrics-prometheus/metrics-dashbd_query-config.png)
 
-##### Configure the panel
+<!-- ![Grafana new panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/new-panel.png)-->
 
-Select your Infrastructure Monitoring account from the list of datasources. (This is an Elasticsearch index).
+##### Configure the data source and query
+
+![Metrics configure a panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/metrics-prometheus/metrics-dashbd_panel-config.png)
+
+
+
+Select your Infrastructure Monitoring account from the list of datasources. <!--(This is an Elasticsearch index). --> 
 
 Configure the Elasticsearch **Query**.
 
-![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--datasource-list.png)
+<!-- ![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--datasource-list.png) -->
+
+
 
 
 ##### Configure the visualization

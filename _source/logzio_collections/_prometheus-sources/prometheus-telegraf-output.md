@@ -6,7 +6,6 @@ logo:
 data-source: Telegraf for Prometheus metrics
 open-source:
   - title: Telegraf Collector for Prometheus metrics
-    github-repo: logz-telegraf-metrics
 templates: ["docker"]
 contributors:
   - fadi-khatib

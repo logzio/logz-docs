@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Kubernetes deployment reference
-permalink: /user-guide/distributed-tracing/k8s-deployment
+permalink: #/user-guide/distributed-tracing/k8s-deployment
 flags:
   logzio-plan: pro enterprise
 tags:
@@ -10,7 +10,7 @@ contributors:
   - yberlinger   
   - yyyogev
 ---
-If you’re working with Kubernetes, you can use the yaml file below as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value. This example may not work for all files: Some environments may require you to modify the yaml file.
+If you’re working with Kubernetes, you can use the yaml file below as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value. This example may not work for all files: Some environments may require you to modify the yaml file. 
 
 #### _Before you begin:_
 
@@ -19,13 +19,13 @@ If you’re working with Kubernetes, you can use the yaml file below as a refere
 <div class="tasklist">
 
 ##### Determine the Jaeger version for the agent.
-Make sure you use the relevant Jaeger version for the `jaeger-agent` image. 
+Make sure you use the correct Jaeger version for the `jaeger-agent` image. Logz.io has tested this yaml file for version 1.18. It is possible that the reference may not work for other versions. 
 
 ##### Get your tracing account token.
 Look up your Distributed Tracing `ACCOUNT TOKEN`: {% include tracing-shipping/tracing-token.md %}
 
 ##### Get your region code
-{% include tracing-shipping/region-code.md %}
+Look up the 2-letter code in the **Region code** column of <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a>  For US east, the region code is **us**.  <a href="/user-guide/distributed-tracing/getting-started-tracing/   #look-up-your-distributed-tracing-token-and-region-information-in-logzio" target ="_blank"> *Reminder: How to find the Distributed Tracing token and account region in the **settings** pages for your account.* </a>
 
 ##### Create a secret for your Distributed Tracing shipping token:
 
@@ -40,7 +40,20 @@ kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
 
 Deploy Jaeger agents and a collector. 
 
-Logz.io recommends that you use the OpenTelemetry collector. <br>If you already have a local Jaeger in your environment, use the [Logz.io Jaeger collector](https://docs.logz.io/user-guide/distributed-tracing/local-jaeger_transition) to get a head start on sending your tracing data to Logz.io.
+Logz.io recommends that you use the OpenTelemetry collector. <br>If you already have a local Jaeger in your environment, use the Logz.io Jaeger collector to get a head start on sending your tracing data to Logz.io.
+
+
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [OpenTelemetry collector + Jaeger agents (recommended)](#opentelemetry-collector)
+* [Jaeger collector and agents](#jaeger-collector) <!--removing this tab, pointing user to SYD topic -->
+{:.branching-tabs}
+
+
+<!-- tab:start -->
+<div id="opentelemetry-collector">
+
 
 ###### OpenTelemetry collector (recommended) + Jaeger agents:
 
@@ -226,5 +239,142 @@ spec:
   type: ClusterIP
 ```
 
-</div>
 
+</div>
+<!-- tab:end -->
+<!-- tab:start -->
+<div id="jaeger-collector">
+
+1. Save the yaml below to a file and name it `config.yaml`.
+2. Edit the 2-letter region code if needed. The region appears in the  jaeger-collector-logzio deployment under `spec: > template: > spec: > containers: > env: ` specification in the yaml code below.
+3. Deploy the yaml:
+
+```
+kubectl apply -f config.yaml
+```
+
+```yaml
+apiVersion:  apps/v1
+kind: Deployment
+metadata:
+  name: jaeger-collector-logzio
+  labels:
+    app: jaeger-logzio
+    app.kubernetes.io/name: jaeger-logzio
+    app.kubernetes.io/component: collector
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: jaeger-logzio
+      app.kubernetes.io/name: jaeger-logzio
+      app.kubernetes.io/component: collector
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jaeger-logzio
+        app.kubernetes.io/name: jaeger-logzio
+        app.kubernetes.io/component: collector
+    spec:
+      containers:
+      - image: logzio/jaeger-logzio-collector:latest
+        name: jaeger-collector-logzio
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 14268
+          protocol: TCP
+        - containerPort: 9411
+          protocol: TCP
+        - containerPort: 14250
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: "/"
+            port: 14269
+        env:
+        - name: ACCOUNT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: logzio-traces-shipping-token
+              name: logzio-monitoring-secret
+        - name: REGION
+          value: us # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
+#        - name: GRPC_STORAGE_PLUGIN_LOG_LEVEL  # Uncomment these lines to enable debug logs in the collector
+#          value: debug
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jaeger-collector-logzio
+  labels:
+    app: jaeger-logzio
+    app.kubernetes.io/name: jaeger-logzio
+    app.kubernetes.io/component: collector
+  namespace: monitoring
+spec:
+  ports:
+  - name: jaeger-health-check
+    port: 14269
+    protocol: TCP
+    targetPort: 14269
+  - name: jaeger-collector-http
+    port: 14268
+    protocol: TCP
+    targetPort: 14268
+  - name: jaeger-collector-zipkin
+    port: 9411
+    protocol: TCP
+    targetPort: 9411
+  - name: jaeger-collector-grpc
+    port: 14250
+    protocol: TCP
+    targetPort: 14250
+  selector:
+    app: jaeger-logzio
+    app.kubernetes.io/name: jaeger-logzio
+    app.kubernetes.io/component: collector
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: jaeger-agent
+  labels:
+    app: jaeger
+    app.kubernetes.io/name: jaeger
+    app.kubernetes.io/component: agent
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: jaeger
+      app.kubernetes.io/name: jaeger
+      app.kubernetes.io/component: agent
+  template:
+    metadata:
+      labels:
+        app: jaeger
+        app.kubernetes.io/name: jaeger
+        app.kubernetes.io/component: agent
+    spec:
+      containers:
+      - name: jaeger-agent
+        image: jaegertracing/jaeger-agent:1.18.0   # This specific version has been tested by Logz.io. If you opt for a later version, the Logz.io recommendation is to test before you deploy.
+        args: ["--reporter.grpc.host-port=jaeger-collector-logzio:14250", "--log-level=debug"]
+        ports:
+          - containerPort: 5775
+            protocol: UDP
+          - containerPort: 6831
+            protocol: UDP
+          - containerPort: 6832
+            protocol: UDP
+          - containerPort: 5778
+            protocol: TCP
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+```
+</div>
+<!-- tab:end -->

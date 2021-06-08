@@ -22,6 +22,9 @@ Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces
 
 This topic explains how to install the OpenTelemetry Collector.  For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing). 
 
+To learn more about tracing instrumentation, see [Setting up instrumentation and ingesting traces.](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation)
+
+
 ### OpenTelemetry components
 
 The OpenTelemetry Collector pipeline has the following main components: 
@@ -86,5 +89,4 @@ For a complete working example, you can run [this docker compose file](https://r
 
 Give your traces some time to get from your system to ours, then check the Distributed Tracing tab in Logz.io to see the traces in the Jaeger UI.
 
-To learn more about tracing instrumentation, see [Instrumentation recommendations and resources.](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation#instrumentation-recommendations-and-resources)
 

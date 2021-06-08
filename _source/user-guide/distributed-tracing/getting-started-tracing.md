@@ -21,9 +21,9 @@ If you already have Jaeger installed locally, learn how to go about [Making the 
 
 ##### Set up instrumentation
 Determine the best instrumentation strategy for your system: Manual or automatic instrumentation.
-<a href="/user-guide/distributed-tracing/tracing-instrumentation.html" target ="_blank"> Read more about setting up instrumentation.</a>
+<a href="https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation.html" target ="_blank"> Read more about setting up instrumentation.</a>
 
-##### Look up your Distributed Tracing Token and Region information in Logz.io
+##### Look up your Distributed Tracing token and Region information in Logz.io
 
 ###### Tracing token
 {% include tracing-shipping/tracing-token.md %}
@@ -36,7 +36,9 @@ Determine the best instrumentation strategy for your system: Manual or automatic
 Decide on your tracing source, make deployment decisions, and decide whether or not to use an agent to send tracing data to Logz.io.
 <a href="/user-guide/distributed-tracing/deploying-components.html" target ="_blank"> Read more about deploying tracing components.</a>
 
-If you’re deploying distributed tracing on Kubernetes, we recommend the following blog post: <a href="https://logz.io/blog/jaeger-kubernetes-best-practices/" target ="_blank">A Guide to Deploying Jaeger on Kubernetes in Production. </a>
+If you’re deploying distributed tracing on Kubernetes, we recommend the [Kubernetes deployment reference](https://docs.logz.io/user-guide/user-guide/distributed-tracing/k8s-deployment) topic.
+
+<!-- removed blog link     <a href="https://logz.io/blog/jaeger-kubernetes-best-practices/" target ="_blank">A Guide to Deploying Jaeger on Kubernetes in Production. </a>   ->
 
 
 

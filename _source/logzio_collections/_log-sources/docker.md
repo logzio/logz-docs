@@ -81,10 +81,10 @@ logzio/docker-collector-logs
 | includeLines | Comma-separated list of regular expressions to match the lines that you want to include. **Note**: Regular expressions in this list should not contain commas. | -- |
 | excludeLines | Comma-separated list of regular expressions to match the lines that you want to exclude. **Note**: Regular expressions in this list should not contain commas. | -- |
 | renameFields | Rename fields with every message sent, formatted as `"oldName,newName;oldName2,newName2"`. To use an environment variable, format as `"oldName,newName;oldName2,$ENV_VAR_NAME"`. When using an environment variable, it should be the only value in the field. If the environment variable can't be resolved, the field will be omitted. | -- |
-| **HOSTNAME** | **Default** `''` <br> Insert your host name if you want it to appear under the field `agent.name`. If no value entered,  `agent.name` will show the container's id.|
-| **multilinePattern** | **Default** `''` <br> Insert your regex pattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for further info. |
-| **multilineNegate** | **Default** `'false'` <br> Insert `'true'` to negate the pattern. <br /> **Note**: Cannot be used without multilinePattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for further info.|
-| **multilineMatch** | **Default** `'after'` <br>  Specifies how Filebeat combines matching lines into an event. The settings are `after` or `before`. The behavior of these settings depends on what you specify for negate. <br /> **Note**: Cannot be used without multilinePattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for further info.|
+| **HOSTNAME** | Insert your host name if you want it to appear under the field `agent.name`. If no value entered,  `agent.name` will show the container's id.| `''` |
+| **multilinePattern** | Insert your regex pattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for further info. | `''` |
+| **multilineNegate** |Insert `'true'` to negate the pattern. **Note**: Cannot be used without multilinePattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for further info.| `'false'`  |
+| **multilineMatch** | Specifies how Filebeat combines matching lines into an event. The settings are `after` or `before`. The behavior of these settings depends on what you specify for negate. **Note**: Cannot be used without multilinePattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for further info.| `'after'` |
 
 
 <!-- info-box-start:info -->

@@ -675,7 +675,7 @@ paths:
               version:
                 type: object
                 description: Returns a version for each result. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-version.html) for details.
-              store:
+              stored_fields:
                 type: array of objects
                 description: Useful for querying for fields that don’t appear in the _source field or querying for larger documents by date or title. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/mapping-store.html) for details.
               highlight:
@@ -728,7 +728,7 @@ paths:
                   }
                 }
               }
-            }' '
+            }'
       responses:
         200:
           description: successful query

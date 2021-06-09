@@ -660,7 +660,7 @@ paths:
                   * If you pass `'_source': false`, it will exclude the `_source` field from the results.
                 properties:
                   includes:
-                    type: array of strings
+                    type: array
                     description: Array of fields to return
                     example: message
                 items:

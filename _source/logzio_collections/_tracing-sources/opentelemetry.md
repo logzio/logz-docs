@@ -22,6 +22,13 @@ Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces
 
 This topic explains how to install the OpenTelemetry Collector.  For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing). 
 
+
+<!-- info-box-start:info -->
+**Known Issue, June 2021**: OpenTelemetry collector version 0.24 and above does not function as expected when deployed with the Logz.io exporter. To remediate this issue, if you’re currently using version 0.24 or above, replace your  OpenTelemetry collector with version 0.23 or lower.
+The expected resolution period for this issue is end of June 2021.
+{:.info-box.important}
+<!-- info-box-end -->
+
 ### OpenTelemetry components
 
 The OpenTelemetry Collector pipeline has the following main components: 

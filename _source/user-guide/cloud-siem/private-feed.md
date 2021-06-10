@@ -28,15 +28,18 @@ Go to **Threats > Threat Intelligence Feeds** from the top menu, and select the 
 
 ##### Configure the connection
 
-Fill in the form to configure the connection.
+Fill in the form to configure the connection.   <!--UPDATE THE SCREEN  -->
 
-![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)
+![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)   
 
 **About the feed**
 
 1. **IOC type** - Select one type. Supported types include IPs, DNSs (domain), URLs, md5/sha1/sha256 hash-based signatures, user-agent HTTP headers, and custom indicators of your choice.
-2. **Confidence** - Select a reliability score for your feed.
-3. **Description** - Give some context for your feed. It's a good idea to add contact info for the person who owns the feed.
+2. **Use STIX** - Toggle the option on to use STIX format. _Structured Threat Information Expression_ (STIX™) is a language and serialization format used to exchange cyber threat intelligence (CTI). 
+
+Logz.io currently supports a single IOC type per feed for this format. We recommend that you define a separate private feed for each relevant IOC type that exists in your STIX feed.
+3. **Confidence** - Select a reliability score for your feed.
+4. **Description** - Give some context for your feed. It's a good idea to add contact info for the person who owns the feed.
 
 **Configure the feed connection**
 

@@ -635,13 +635,13 @@ paths:
                 minimum: 0
                 default: 0
                 description: Of the results found, the first result to return
-                example: 10
+                example: 0
               size:
                 type: integer
                 description: Number of results to return
                 default: 10
                 maximum: 10,000
-                example: 50
+                example: 0
               sort:
                 type: array
                 description: >-
@@ -660,24 +660,30 @@ paths:
                   * If you pass `'_source': false`, it will exclude the `_source` field from the results.
                 properties:
                   includes:
-                    type: array of strings
+                    type: array
                     description: Array of fields to return
                     example: message
                 items:
                   - type: string
                     description: Field to return.
+                example: false
               post_filter:
                 type: object
                 description: A filter applied after the aggregations have been calculated. Useful for reusing a single query to calculate several outputs with different filtering criteria. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-post-filter.html) for details.
+                example: null
               docvalue_fields:
-                type: object
+                type: array
                 description: Powers inverted indexing. Allows queries to look up the search term in unique sorted list of terms, for faster access to the list of documents that contain the term. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-docvalue-fields.html) for details.
+                items:
+                  type: object
+                example: []
               version:
-                type: object
+                type: boolean
                 description: Returns a version for each result. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-version.html) for details.
-              store:
-                type: array of objects
-                description: Useful for querying for fields that don’t appear in the _source field or querying for larger documents by date or title. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/mapping-store.html) for details.
+              stored_fields:
+                type: array of strings
+                description: Useful for querying for fields that don’t appear in the _source field or querying for larger documents by date or title. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-stored-fields.html) for details.
+                example: ["*"]
               highlight:
                 type: object
                 description: Highlight strings in one or more fields in your search results. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-highlighting.html) for details.
@@ -707,7 +713,6 @@ paths:
               -H 'Content-Type: application/json' \
               -H 'X-API-TOKEN: <token>' \
               -d '{
-              "size": 10,
               "query": {
                 "bool": {
                   "must": [{
@@ -720,6 +725,15 @@ paths:
                   }]
                 }
               },
+              "from": 0,
+              "size": 0,
+              "sort": [{}],
+              "_source": false,
+              "post_filter": null,
+              "docvalue_fields": [],
+              "version": false,
+              "stored_fields": ["*"],
+              "highlight": {},
               "aggs": {
                 "byType": {
                   "terms": {
@@ -728,7 +742,7 @@ paths:
                   }
                 }
               }
-            }' '
+            }'
       responses:
         200:
           description: successful query
@@ -738,7 +752,7 @@ paths:
               {
                 "hits": {
                   "total": 339604,
-                  "max_score": 0,
+                  "max_score": 0.0,
                   "hits": [ ]
                 },
                 "aggregations": {
@@ -750,7 +764,7 @@ paths:
                         "key": "web-app",
                         "doc_count": 163690
                       }, {
-                        "key": \"core-service\",
+                        "key": "core-service",
                         "doc_count": 64893
                       }
                     ]

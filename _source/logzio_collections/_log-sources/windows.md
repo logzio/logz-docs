@@ -1,6 +1,6 @@
 ---
 title: Ship Windows logs
-shortDescription: Send logs directly from your Windows machine.
+short-description: Send logs directly from your Windows machine.
 logo:
   logofile: windows.svg
   orientation: vertical

@@ -1,6 +1,6 @@
 ---
 title: Ship Node.js logs
-shortDescription: Add this library to your code to begin shipping logs from your Node.js applications.
+short-description: Add this library to your code to begin shipping logs from your Node.js applications.
 logo:
   logofile: nodejs.svg
   orientation: vertical

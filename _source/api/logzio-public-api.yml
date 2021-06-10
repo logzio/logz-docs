@@ -662,7 +662,7 @@ paths:
                   includes:
                     type: array
                     description: Array of fields to return
-                    example: message
+                    example: ["message"]
                 items:
                   - type: string
                     description: Field to return.
@@ -5481,9 +5481,9 @@ definitions:
           * If you pass `'_source': false`, it will exclude the `_source` field from the results.
         properties:
           includes:
-            type: array of strings
+            type: array
             description: Array of fields to return
-            example: message
+            example: ["message"]
         items:
           - type: string
             description: Field to return.

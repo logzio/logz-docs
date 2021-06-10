@@ -67,6 +67,6 @@ To edit or delete a private feed, hover over the feed in the list,
   and click <i class="li li-pencil"></i> (edit)
   or <i class="li li-trash"></i> (delete).
 
-If you delete a private feed, Logz.io will stop using it to enrich logs immediately.
+If you delete a private feed, Logz.io will immediately stop using it to enrich logs.
 
 ![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/feed-info.png)

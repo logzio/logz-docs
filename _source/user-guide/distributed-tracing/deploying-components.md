@@ -12,11 +12,11 @@ contributors:
 You’ll need to install and deploy the following components for distributed tracing:
 
 **Client libraries (required)** - These are language-specific implementations. An instrumented service creates spans when receiving new requests and attaches context meta-data to outgoing requests (Trace ID, Span ID, and so on). 
-We support the Jaeger, Zipkin, OpenTracing, and OpenTelemetry instrumentation libraries.
+We support the Jaeger, OpenTelemetry, Zipkin, and OpenTracing instrumentation libraries.
 
 **Agent (optional)** - The Agent component acts as a “buffer” between the tracer and the collector. Because it sits so close to the instrumentation, we use UDP to enhance performance and reduce round trips. 
 
-**Collector (required)** - The collector receives spans and runs them through a processing pipeline. It can receive spans from the agents or directly from the instrumentation, depending on the implementation. The collector is also responsible for batching spans and sending them to Logz.io. ![Distributed tracing architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_architecture.png)
+**Collector (required)** - The collector receives spans and runs them through a processing pipeline. It can receive spans from the agents or directly from the instrumentation, depending on the implementation. The collector is also responsible for batching spans and sending them to Logz.io. ![Distributed tracing architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_architecture2.png)
 
 
 Logz.io recommends that you use the OpenTelemetry Collector. If you already have a local Jaeger in your environment, use the Logz.io Jaeger Collector to get a head start on sending tracing data to Logz.io.

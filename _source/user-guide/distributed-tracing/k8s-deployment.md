@@ -10,7 +10,9 @@ contributors:
   - yberlinger   
   - yyyogev
 ---
-If you’re working with Kubernetes, you can use the yaml file below as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value. This example may not work for all files: Some environments may require you to modify the yaml file.
+If you’re working with Kubernetes, you can use the yaml file below as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value. 
+
+We checked this Kubernetes deployment reference with Jaeger agent version 1.18.  If you're using a newer Jaeger agent version and you have issues implementing this example in your environment, you may need to modify the yaml. If you need help, reach out to the Logz.io Support team by chat or by email. 
 
 #### _Before you begin:_
 
@@ -18,16 +20,17 @@ If you’re working with Kubernetes, you can use the yaml file below as a refere
 
 <div class="tasklist">
 
-##### Determine the Jaeger version for the agent.
-Make sure you use the relevant Jaeger version for the `jaeger-agent` image. 
+##### Make note of the Jaeger agent version for your deployment
+You'll need this info to update the relevant parameter in the yaml file. 
 
-##### Get your tracing account token.
-Look up your Distributed Tracing `ACCOUNT TOKEN`: {% include tracing-shipping/tracing-token.md %}
+##### Determine which tracing account you want to use and get your tracing account token
+Look up your Distributed Tracing `ACCOUNT TOKEN`. <br>
+{% include tracing-shipping/tracing-token.md %}
 
 ##### Get your region code
 {% include tracing-shipping/region-code.md %}
 
-##### Create a secret for your Distributed Tracing shipping token:
+##### Create a secret for your Distributed Tracing shipping token
 
 We recommend that you _not_ hard code tokens in your yaml. <br> To add another layer of security with a token secret, copy the Tracing token value you obtained in step 2 above to the `<<ACCOUNT-TOKEN>>` placeholder in the following command: 
 
@@ -42,7 +45,7 @@ Deploy Jaeger agents and a collector.
 
 Logz.io recommends that you use the OpenTelemetry collector. <br>If you already have a local Jaeger in your environment, use the [Logz.io Jaeger collector](https://docs.logz.io/user-guide/distributed-tracing/local-jaeger_transition) to get a head start on sending your tracing data to Logz.io.
 
-###### OpenTelemetry collector (recommended) + Jaeger agents:
+###### OpenTelemetry collector (recommended) + Jaeger agents
 
 1. Save the yaml below to a file and name it `config.yaml`.
 2. Edit the 2-letter region code, if needed. The region appears in the otel-collector-config ConfigMap under `config.yaml > exporters > logzio: ` specification in the yaml code below).
@@ -226,5 +229,8 @@ spec:
   type: ClusterIP
 ```
 
-</div>
+##### Check the Distributed Tracing tab for your traces.
 
+Give your traces some time to get from your system to ours, then check the Distributed Tracing tab in Logz.io to see the traces in the Jaeger UI.
+
+</div>

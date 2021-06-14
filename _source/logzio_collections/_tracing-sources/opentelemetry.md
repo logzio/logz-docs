@@ -20,9 +20,11 @@ order: 330
 
 Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces to Logz.io from different APM (Application Performance Management/Monitoring) agents, such as Jaeger, Zipkin, and so on.
 
-This topic explains how to install the OpenTelemetry Collector.  For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing). 
+This topic explains how to install the OpenTelemetry Collector using a Docker network, but if you prefer Kubernetes, see the [Logz.io Kubernetes deployment reference](https://docs.logz.io/user-guide/distributed-tracing/k8s-deployment).  
 
-To learn more about tracing instrumentation, see [Setting up instrumentation and ingesting traces.](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation)
+###### Related information
++ For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing). 
++ To learn more about tracing instrumentation, see [Setting up instrumentation and ingesting traces.](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation)
 
 
 ### OpenTelemetry components
@@ -48,13 +50,13 @@ docker network create net-logzio
 
 To enable communication between the collector and the agent, include the name of the network you create in this step (for example, `net-logzio`) in the config file for each component. 
 
-##### Pull the opentelemetry-collector-contrib image:
+##### Pull the opentelemetry-collector-contrib image
 
 ```yaml
 docker pull otel/opentelemetry-collector-contrib:0.17.0
 ```
 
-##### Create a config file to mount to the container. 
+##### Create a config file to mount to the container
 
 The config file must include the required components for the OpenTelemetry Collector - receivers, processors, exporters, services and optional extensions.
 You can use [this config file](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/master/exporter/logzioexporter/example/config.yaml) as a starting point, with the Logz.io exporter parameters, below.
@@ -65,7 +67,7 @@ You can use [this config file](https://github.com/open-telemetry/opentelemetry-c
 
 
 
-##### Save the file as `config.yaml`.
+##### Save the file as `config.yaml`
 
 ##### Deploy the OpenTelemetry collector and mount the config file you saved.
 
@@ -76,7 +78,7 @@ docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 
         --config /etc/otel-collector-config.yaml
 ```
 
-##### Run a working example.
+##### Run a working example (Optional)
 For a complete working example, you can run [this docker compose file](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml) for the [Logz.io Hotrod demo application](https://docs.logz.io/user-guide/distributed-tracing/trace-hotrod-demo).
 
   1. Download the docker compose file.
@@ -85,7 +87,7 @@ For a complete working example, you can run [this docker compose file](https://r
   3. Run `docker-compose up`. 
   4. Head to [http://0.0.0.0:8080/](http://0.0.0.0:8080/) to trigger the event that will generate and send traces to your Logz.io account.
 
-##### Check the Distributed Tracing tab for your traces.
+##### Check the Distributed Tracing tab for your traces
 
 Give your traces some time to get from your system to ours, then check the Distributed Tracing tab in Logz.io to see the traces in the Jaeger UI.
 

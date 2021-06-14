@@ -122,7 +122,7 @@ metadata:
    app: otel-logzio
    component: otel-collector-conf
 data:
- config.yaml: |
+ config.yaml: |  #  In the "exporters" section,  replace the "{your code}" region placeholder with the 2-letter code for your region - from the Logz.io Regions and Listener hosts table, or from your Account settings page - as in step 3 above. 
   receivers:
     opencensus:
     zipkin:
@@ -135,7 +135,7 @@ data:
   exporters:
     logzio:
       account_token: "${LOGZIO_TRACES_TOKEN}"
-      region: "us"    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
+      region: "{your code}"    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
     logging:
 
   processors:

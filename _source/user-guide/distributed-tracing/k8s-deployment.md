@@ -39,13 +39,10 @@ kubectl --namespace=monitoring create secret generic logzio-monitoring-secret \
   --from-literal=logzio-traces-shipping-token=<<ACCOUNT-TOKEN>> 
 ```
 
-##### Deploy agent and collector
-
-Deploy Jaeger agents and a collector. 
+##### Deploy a Jaeger agent and a collector
 
 Logz.io recommends that you use the OpenTelemetry collector. <br>If you already have a local Jaeger in your environment, use the [Logz.io Jaeger collector](https://docs.logz.io/user-guide/distributed-tracing/local-jaeger_transition) to get a head start on sending your tracing data to Logz.io.
 
-###### OpenTelemetry collector (recommended) + Jaeger agents
 
 1. Save the yaml below to a file and name it `config.yaml`.
 2. Edit the 2-letter region code, if needed. The region appears in the otel-collector-config ConfigMap under `config.yaml > exporters > logzio: ` specification in the yaml code below).
@@ -122,7 +119,7 @@ metadata:
    app: otel-logzio
    component: otel-collector-conf
 data:
- config.yaml: |  #  In the "exporters" section,  replace the "{your code}" region placeholder with the 2-letter code for your region - from the Logz.io Regions and Listener hosts table, or from your Account settings page - as in step 3 above. 
+ config.yaml: |  #  In the "exporters" section,  replace the "{generic}" region placeholder with the 2-letter code for your region - from the Logz.io Regions and Listener hosts table, or from your Account settings page - as in step 3 above. 
   receivers:
     opencensus:
     zipkin:
@@ -135,7 +132,7 @@ data:
   exporters:
     logzio:
       account_token: "${LOGZIO_TRACES_TOKEN}"
-      region: "{your code}"    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
+      region: "{generic}"    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
     logging:
 
   processors:

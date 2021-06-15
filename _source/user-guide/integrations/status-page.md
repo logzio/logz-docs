@@ -7,7 +7,7 @@ tags:
   - endpoints
   - integrations
 contributors:
-  - r
+  - rhershenhoren 
   - yberlinger
 ---
 

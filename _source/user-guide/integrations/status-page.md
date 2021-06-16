@@ -33,8 +33,6 @@ To implement the integration, you will:
 
 
 ##### Look up your `page_id`
-
-To find your `page_id`: 
 1. Log in to your StatusPage account.
 2. Click your profile picture.
 3. Select **API info** from the menu.
@@ -54,42 +52,58 @@ To find your `page_id`:
 ##### Create the endpoint
 
 1. Use the API at the following URL: [https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId](https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId).
-2. Replace the placeholder values for {page_id} and {component_id} with the values you looked up in steps 2 and 3. 
-
-1. To add a new custom endpoint, click **Add endpoint**.
-2. **Type**: Select the option **Custom**.
-3. **URL**: Use the [StatusPage API -  https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId](https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId).
-4. **Method**: Select the **PUT** method. 
-5. **Headers**: Add `Authentication=OAuth {{API key}}` and replace the {{API key}} with the StatusPage API key you determined in step 4.
-3. **body**: Add your body message. See the next step for details.
+2. Replace the placeholder values for {page_id} and {component_id} with the values you looked up in the previous steps. 
+3. To add a new custom endpoint, click **Add endpoint**.
+4. **Type**: Select the option **Custom**.
+5. **URL**: Use the [StatusPage API -  https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId](https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId).
+6. **Method**: Select the **PUT** method. 
+7. **Headers**: Add `Authentication=OAuth {{API key}}` and replace the {{API key}} with the StatusPage API key you determined in step 4.
+8. **body**: Add your body message. See the next step for details.
 
 ![StatusPage custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/statuspage-custom-endpoint.png) 
 
 ##### Add your message
-The body should be: 
 
-```json
+Use the following code and replace the placeholder with the relevant status parameter.
+
+###### Message body structure
+
+```yml
 {
     "component": {
-        "status": "partial_outage"
+        "status": "{placeholder value}"  # replace with the relevant option from the list of status parameters
     }
 }
 ```
 
-###### Status values
-Status values can be
+###### Status parameter options
+
+
 + `operational`
 + `degraded_performance`
 + `partial_outage`
 + `major_outage`
 + `under_maintenance`
 
-###### Example payload
+######  Payload example
+
+
+```json
+{
+    "component": {
+        "status": "partial_outage"  
+    }
+}
+```
+
+
+
+
 
 
 ##### Test the endpoint (_optional_)
 
-Click **Run the test** to test your endpoint. Logz.io shows if the message was successfully sent.
+Click **Run the test** to verify your endpoint. Logz.io shows if the message was successfully sent.
 
 Check that the message arrived at the target endpoint.
 

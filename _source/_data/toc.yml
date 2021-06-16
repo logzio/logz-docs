@@ -358,7 +358,8 @@ firstLevel:
         url: /user-guide/integrations/custom-endpoints.html
       - title: Microsoft Teams endpoint
         url: /user-guide/integrations/ms-teams.html
-
+      - title: StatusPage endpoint
+        url: /user-guide/integrations/status-page.html
 
     # ===== API Reference =====
   - title: Logz.io API

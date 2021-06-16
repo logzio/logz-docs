@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Create and integration with StatusPage
+title: Create an integration with StatusPage
 permalink: /user-guide/integrations/status-page.html
 tags:
   - alerts
@@ -12,7 +12,7 @@ contributors:
 ---
 
 
-Use this StatusPage integration to notify StatusPage when there are service degradations that impact your platform. 
+Use this StatusPage integration to notify StatusPage when there are service issues that impact your platform. 
 
 To implement the integration, you will:
 
@@ -31,11 +31,6 @@ To implement the integration, you will:
 
 <div class="tasklist">
 
-##### Allow firewall access
-
-See [Custom Endpoints](/user-guide/integrations/custom-endpoints.html) for general instructions on setting up firewall access for Logz.io notifications.
-
-This may include whitelisting Logz.io IPs and/or creating a verification token.
 
 ##### Look up your `page_id`
 
@@ -63,12 +58,12 @@ To find your `page_id`:
 
 1. To add a new custom endpoint, click **Add endpoint**.
 2. **Type**: Select the option **Custom**.
-3. **URL**: Use this [StatusPage API -  https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId](https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId).
+3. **URL**: Use the [StatusPage API -  https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId](https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId).
 4. **Method**: Select the **PUT** method. 
 5. **Headers**: Add `Authentication=OAuth {{API key}}` and replace the {{API key}} with the StatusPage API key you determined in step 4.
 3. **body**: Add your body message. See the next step for details.
 
-{{screen capture placeholder}}
+![StatusPage custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/statuspage-custom-endpoint.png) 
 
 ##### Add your message
 The body should be: 

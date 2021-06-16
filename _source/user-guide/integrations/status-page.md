@@ -47,7 +47,7 @@ To implement the integration, you will:
 1. Log in to your StatusPage account.
 2. Click your profile picture.
 3. Select **API info** from the menu.
-4. Find your account API key.
+4. Find your account `API key`.
 
 ##### Create the endpoint
 The endpoint makes use of the StatusPage API, which can be found [here](https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId).
@@ -55,9 +55,9 @@ The endpoint makes use of the StatusPage API, which can be found [here](https://
 
 1. To add a new custom endpoint, click **Add endpoint**.
 1. **Type**: Select the option **Custom**.
-1. **URL**: Use the following StatusPage API URL and replace the placeholder values in the URL with the values that you looked up in the previous steps for  `page_id` and `component_id`: **https://api.statuspage.io/v1/pages/[*page_id*]/components/[*component_id*]**. 
+1. **URL**: Use the following StatusPage API URL and replace the placeholder values in the URL for `[page_id]` and `[component_id]` with the values that you looked up in the previous steps: **https://api.statuspage.io/v1/pages/`[page_id]`/components/`[component_id]`**. 
 1. **Method**: Select the **PUT** method. 
-1. **Headers**: Add `Authentication=OAuth {{API key}}` and replace the {API key} with the StatusPage API key you determined in step 4.
+1. **Headers**: Add `Authentication=OAuth {[API key]}` and replace the `[API key]` placeholder with the StatusPage API key you determined in step 3.
 1. **Body**: Add your body message. See the next step for details.
 
 ![StatusPage custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/statuspage-custom-endpoint.png) 

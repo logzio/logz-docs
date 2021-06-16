@@ -87,7 +87,7 @@ Status values can be
 ###### Example payload
 
 
-##### Test the endpoint (_Optional_)
+##### Test the endpoint (_optional_)
 
 Click **Run the test** to test your endpoint. Logz.io shows if the message was successfully sent.
 

@@ -21,7 +21,7 @@ Your AWS S3 bucket must grant Logz.io the right permissions to support Logz.io a
 You'll set these permissions for an AWS IAM user or role,
 depending on which authentication method you choose in Logz.io.
 
-We recommend allowing all three permissions
+We recommend allowing all the mentioned permissions
 so you won't run into any issues when you need to restore.
 {:.info-box.tip}
 

@@ -33,7 +33,7 @@ order: 230
 **Before you begin, you'll need**:
 
 * log4net 2.0.8 or higher
-* .Net Core SDK version 2.0 or higher
+* .NET Core SDK version 2.0 or higher
 
 <div class="tasklist">
 
@@ -204,7 +204,7 @@ For the example above, you'd use `MyAppLogzioAppender`.
 **Before you begin, you'll need**:
 
 * NLog 4.5.0 or higher
-* .Net Core SDK version 2.0 or higher
+* .NET Core SDK version 2.0 or higher
 
 <div class="tasklist">
 
@@ -388,7 +388,7 @@ When using 'JsonLayout' set the name of the attribute to **other than** 'message
 **Before you begin, you'll need**:
 
 * log4net 2.0.8 or higher
-* .Net Core SDK version 2.0 or higher
+* .NET Core SDK version 2.0 or higher
 
 <div class="tasklist">
 

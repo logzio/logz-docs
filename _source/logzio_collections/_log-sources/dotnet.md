@@ -110,7 +110,7 @@ hierarchy.Configured = true;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} | Required |
+| token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
 | listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
@@ -289,7 +289,7 @@ LogManager.Configuration = config;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} | Required |
+| token | Y[Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
 | listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
@@ -469,7 +469,7 @@ hierarchy.Configured = true;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). {% include log-shipping/log-shipping-token.html %} | Required |
+| token | [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
 | listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all in bulk. | `100` |

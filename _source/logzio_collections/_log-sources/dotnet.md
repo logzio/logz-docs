@@ -11,6 +11,7 @@ open-source:
 contributors:
   - imnotashrimp
   - savidov
+  - yberlinger
 shipping-tags:
   - from-your-code
 order: 230
@@ -118,8 +119,8 @@ hierarchy.Configured = true;
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` 
-| parseJsonMessage | To parse your message as Json format add this field and set it to `true`. | `false` |
-| proxyAddress | Proxy address to route you logs through | `None` |
+| parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
+| proxyAddress | Proxy address to route your logs through. | `None` |
 
 
 
@@ -296,8 +297,8 @@ LogManager.Configuration = config;
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
-| parseJsonMessage | To parse your message as Json format add this field and set it to `true`. | `false` |
-| proxyAddress | Proxy address to route you logs through | `None` |
+| parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
+| proxyAddress | Proxy address to route your logs through. | `None` |
 
 
 ###### Code sample
@@ -468,17 +469,17 @@ hierarchy.Configured = true;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {% include log-shipping/log-shipping-token.html %} | Required |
+| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). {% include log-shipping/log-shipping-token.html %} | Required |
 | listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
-| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| bufferSize | Maximum number of messages the logger will accumulate before sending them all in bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` 
-| parseJsonMessage | To parse your message as Json format add this field and set it to `true`. | `false` |
-| proxyAddress | Proxy address to route you logs through | `None` |
+| parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
+| proxyAddress | Proxy address to route your logs through. | `None` |
 
 
 
@@ -486,7 +487,7 @@ hierarchy.Configured = true;
 
 ###### ASP.NET Core
 
-Update Startup.cs file in Configure method to include the Log4Net middleware as below.
+Update Startup.cs file in Configure method to include the Log4Net middleware as in the code below.
 
 ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
@@ -499,7 +500,7 @@ Update Startup.cs file in Configure method to include the Log4Net middleware as 
     } 
 ```
 
-In the Controller add Data Member and Constructor as below.
+In the Controller, add Data Member and Constructor, as in the code below.
 
 ```C#
     private readonly ILoggerFactory _loggerFactory;
@@ -570,8 +571,8 @@ In the Controller methods:
 
 ### Custom fields
 
-You can add static keys and values to be added to all log messages.
-These custom fields must be children of `<appender>`, as shown here.
+You can add static keys and values to all log messages.
+These custom fields must be children of `<appender>`, as shown in the code below.
 
 ```xml
 <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">

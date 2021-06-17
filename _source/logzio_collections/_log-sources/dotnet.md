@@ -10,7 +10,7 @@ open-source:
     github-repo: logzio-dotnet
 contributors:
   - imnotashrimp
-  - shiranavidov
+  - savidov
 shipping-tags:
   - from-your-code
 order: 230

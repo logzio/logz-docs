@@ -4574,6 +4574,8 @@ definitions:
       enabledState:
         type: list of booleans
         description: true to include enabled rules, false to include disabled rules. An empty list defaults to both enabled and disabled rules.
+        example:
+          [true]
       emailNotifications:
         type: array
         items:

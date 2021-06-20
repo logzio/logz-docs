@@ -4307,7 +4307,6 @@ definitions:
         example: 833203f9-de71-5a12-9083-9055a6d925bb
   Pagination:
     type: object
-    default: 25
     description: Default pagination is a page of 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
     properties:
       pageNumber:

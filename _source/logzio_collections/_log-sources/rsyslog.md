@@ -3,7 +3,7 @@ title: Shipping with Rsyslog
 logo:
   logofile: linux.svg
   orientation: vertical
-short-description: You can configure rsyslog to monitor a single log file or a directory, and then send it to Logz.io via TLS.
+short-description: Configure rsyslog to monitor a single log file or a directory, and then send it to Logz.io via TLS.
 data-source: Rsyslog over TLS
 templates: ["no-template"]
 contributors:

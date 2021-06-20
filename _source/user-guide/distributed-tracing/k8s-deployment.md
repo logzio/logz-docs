@@ -12,16 +12,15 @@ contributors:
 ---
 If you’re working with Kubernetes, you can use the yaml file below as a reference to deploy the collector/agent and use the output of `kubectl explain deployment` as your **apiVersion** value. 
 
+<!-- info-box-start:info -->
 We checked this Kubernetes deployment reference with Jaeger agent version 1.18.  If you're using a newer Jaeger agent version and you have issues implementing this example in your environment, you may need to modify the yaml. If you need help, reach out to the Logz.io Support team by chat or by email. 
-
-#### _Before you begin:_
+{:.info-box.note}
+<!-- info-box-end -->
+#### _Configuring your Kubernetes yaml file_
 
 {:.no_toc}  
 
 <div class="tasklist">
-
-##### Make note of the Jaeger agent version for your deployment
-You'll need this info to update the relevant parameter in the yaml file. 
 
 ##### Determine which tracing account you want to use and get your tracing account token
 Look up your Distributed Tracing `ACCOUNT TOKEN`. <br>

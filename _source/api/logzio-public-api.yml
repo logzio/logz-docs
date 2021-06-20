@@ -4517,14 +4517,10 @@ definitions:
     properties:
       filter:
         description: Filter by rule name, severity, and more.
-        type: array
-        items:
-          $ref: '#/definitions/AlertsFilter'
+        $ref: '#/definitions/AlertsFilter'
       sort:
         description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
-        type: array
-        items:
-          $ref: '#/definitions/AlertsSortRequest'
+        $ref: '#/definitions/AlertsSortRequest'
       pagination:
         $ref: '#/definitions/Pagination'
   AlertsSortRequest:
@@ -4551,8 +4547,8 @@ definitions:
     properties:
       search:
         type: string
-        description: Searches by rule titles that contain the string.
-      severity:
+        description: Searches by rule titles and descriptions that contain the string.
+      severities:
         type: array
         items:
           type: string
@@ -4564,8 +4560,7 @@ definitions:
           - SEVERE
         description: List of rule severities, as specified by the security rule's definition
         example: 
-          SEVERE
-          HIGH
+          ["SEVERE", "HIGH"]
       updatedBy:
         type: array
         items:
@@ -4578,7 +4573,7 @@ definitions:
         description: Email addresses of the user who created the rules.
       enabledState:
         type: list of booleans
-        description: true for enabled rules, false for disabled rules.
+        description: true to include enabled rules, false to include disabled rules. An empty list defaults to both enabled and disabled rules.
       emailNotifications:
         type: array
         items:
@@ -4587,7 +4582,7 @@ definitions:
       tags:
         type: array
         items:
-          type: object
+          type: string
         description: Tags are labels used to organize security rules
 
 

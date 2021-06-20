@@ -3,6 +3,7 @@ title: Ship Java logs
 logo:
   logofile: java.svg
   orientation: vertical
+short-description: Add the Logz.io Log4j 2 appender as a dependency to your project to send logs to Logz.io.
 data-source: Java code
 templates: ["library"]
 open-source:

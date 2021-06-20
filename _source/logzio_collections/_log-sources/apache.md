@@ -3,7 +3,7 @@ title: Ship Apache logs
 logo:
   logofile: apache.svg
   orientation: vertical
-short-description: Use Filebeat, a lightweight open source agent, to ship Apache logs to Logz.io.
+short-description: Use Filebeat - a lightweight open source agent - to send Apache logs to Logz.io.
 data-source: Apache HTTPS Server
 templates: [beats-logs]
 contributors:

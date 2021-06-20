@@ -19,8 +19,8 @@ Fluentd's default configuration will split the above log into 4 logs, 1 for each
 
 To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs. The additional configuration is added to:
 
-* `kubernetes.conf` (for RBAC DaemonSet)
-* `kubernetes-containerd.conf` (for Containerd DaemonSet)
+* `kubernetes.conf` for RBAC DaemonSet
+* `kubernetes-containerd.conf` for Containerd DaemonSet
 
 For the above example, we could use the following regex expressions to demarcate the start and end of our example log:
 

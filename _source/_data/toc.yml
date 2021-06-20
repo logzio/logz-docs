@@ -139,7 +139,7 @@ firstLevel:
     - title: Transitioning to Logz.io Distributed Tracing from a local Jaeger
       url: /user-guide/distributed-tracing/local-jaeger_transition
     - title: Setting up instrumentation and ingesting traces
-      url: /user-guide/distributed-tracing/tracing-instrumentation
+      url: /user-guide/distributed-tracing/tracing-instrumentation   # change order?
     - title: Deploying components in your system
       url: /user-guide/distributed-tracing/deploying-components
     - title: Kubernetes deployment reference
@@ -239,15 +239,7 @@ firstLevel:
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
     - title: Tracing accounts
       url: /user-guide/accounts/manage-the-distributed-tracing-account.html
-  - title: PCI compliance
-    url: /user-guide/accounts/pci-compliance.html
-  - title: Granting access to Logz.io Support
-    url: /user-guide/accounts/support-access.html
-
-    # - title: Usage and billing
-
-
-
+      # - title: Usage and billing
   - title: Hosting Regions
     thirdLevel:
     - title: Hosting regions

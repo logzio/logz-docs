@@ -16,6 +16,7 @@ If you’re working with Kubernetes, you can use the yaml file below as a refere
 We checked this Kubernetes deployment reference with Jaeger agent version 1.18.  If you're using a newer Jaeger agent version and you have issues implementing this example in your environment, you may need to modify the yaml. If you need help, reach out to the Logz.io Support team by chat or by email. 
 {:.info-box.note}
 <!-- info-box-end -->
+
 #### _Configuring your Kubernetes yaml file_
 
 {:.no_toc}  

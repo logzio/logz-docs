@@ -3,7 +3,7 @@ title: Ship .NET logs
 logo:
   logofile: dotnet.svg
   orientation: vertical
-short-description: Configure a .NET appender in a configuration file or add it directly in the code to ship logs to Logz.io.
+short-description: Configure a .NET appender in a configuration file or add it directly to the code to send your logs to Logz.io.
 data-source: .NET code
 templates: ["library"]
 open-source:

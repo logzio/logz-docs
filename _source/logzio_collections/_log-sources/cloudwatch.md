@@ -4,7 +4,7 @@ logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
 data-source: CloudWatch
-short-description: Send your data to Logz.io from CloudWatch every x seconds with a Lambda function.
+short-description: Send your data to Logz.io from CloudWatch via a Lambda function, every x seconds.
 templates: ["lambda-cloudwatch", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudwatch
 open-source:

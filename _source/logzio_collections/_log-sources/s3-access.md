@@ -3,6 +3,7 @@ title: Ship S3 access logs
 logo:
   logofile: aws-s3.svg
   orientation: vertical
+short-description: Logz.io connects to your S3 bucket and fetches your access logs.
 data-source: S3 access logs
 templates: ["s3-fetcher"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-access

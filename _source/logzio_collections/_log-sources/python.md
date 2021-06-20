@@ -3,6 +3,7 @@ title: Ship Python logs
 logo:
   logofile: python.svg
   orientation: vertical
+short-description: Use the Logz.io Python Handler to send logs in bulk over HTTPS to Logz.io.
 data-source: Python code
 templates: ["library"]
 open-source:

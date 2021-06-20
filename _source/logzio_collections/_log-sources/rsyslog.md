@@ -3,6 +3,7 @@ title: Shipping with Rsyslog
 logo:
   logofile: linux.svg
   orientation: vertical
+short-description: You can configure rsyslog to monitor a log file. It can monitor a single log file or directory, and ship them over to Logz.io over TLS.
 data-source: Rsyslog over TLS
 templates: ["no-template"]
 contributors:

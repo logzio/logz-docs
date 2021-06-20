@@ -3,6 +3,7 @@ title: Ship Elastic Load Balancing logs
 logo:
   logofile: aws-elb.svg
   orientation: vertical
+short-description: Collect your ELB logs in an S3 bucket, and Logz.io will fetch them every x seconds.
 data-source: Elastic Load Balancing
 templates: ["s3-fetcher"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/elastic-load-balancing

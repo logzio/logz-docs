@@ -3,7 +3,6 @@ title: Ship Elastic Container Service logs
 logo:
   logofile: aws-ecs.svg
   orientation: vertical
-short-description: Collect your ELB logs in an S3 bucket, and Logz.io will fetch them every x seconds.
 open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs

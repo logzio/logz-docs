@@ -1,137 +1,199 @@
 ---
-title: Ship logs from SentinelOne
+title: Ship events from Crowdstrike
 logo:
-  logofile: sentintelone-icon.png
+  logofile: crowdstrike-logo.svg
   orientation: vertical
-data-source: SentinelOne
+data-source: Crowdstrike
 templates: ["network-device-filebeat"]
-contributors:
-  - shalper
 shipping-tags:
   - endpoint-security
 order: 1380
 ---
 
-**Before you begin, you'll need**:
+<!-- tabContainer:start -->
+<div class="branching-container">
 
-* SentinelOne installed
-* Root access
+* [Overview](#overview)
+* [Setup instructions](#setup-instructions)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
+Deploy this integration to ship Crowdstrike events from your Crowdstrike account to Logz.io using FluentD.
+
+
+### Architecture overview
+
+This integration includes:
+
+
+* Establishing communication between the Crowdstrike connector and your Crowdstrike account
+* Configuring a FluentD agent on your device
+* Establishing communication between the FluentD agent and your Logz.io account
+
+![Crowdstrike integration architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/crowdstrike/Crowdstrike_draft.png)
+
+Upon deployment, the Crowdstrike connector connects to your Crowdstrike account to collect events. This data is written into a file on your device. The FluentD agent collects the data from this file, connects to your Logz.io account and sends the events to Logz.io.
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="setup-instructions">
+
+
+
+#### Connect your Crowdstrike account to Logz.io
+
+**Before you begin, you'll need**: 
+
+* an active account with Crowdstrike
+* an active account with Logz.io
+* FluentD agent on your machine
+* Crowdstrike connector installed on your machine
 
 
 <div class="tasklist">
 
-##### Install the SentinelOne certificate on your Filebeat server
 
-SentinelOne sends encrypted data,
-so you'll need to create a dedicated SentinelOne certificate to decrypt the logs by the Filebeat server.
+##### Configure CrowdStrike connector
+
+
+1. Open the configuration file located at `/opt/crowdstrike/etc/cs.falconhoseclient.cfg`.
+2. Enter the Client ID value into the **client_id** value field.
+3. Enter the Client Secret value into the **client_secret** value field.
+4. Make sure that the base URL in `api_url` and `request_token_url` corresponds to the base URL for your account.
+5. Save the changes.
+
+
+##### Install Ruby gems for FluentD
+
+1. Install the **fluent-plugin_concat** gem. This gem will concatenate multiline logs.
+2. Install the **fluent-plugin-logzio** gem. This gem will enable communication between your FluentD agent and Logz.io.
+
+
+##### Configure FluentD
+
+1. Write down your Logz.io listener URL and logs shipping token by navigating to your Logz.io account and selecting **Settings > Tools > Manage Tokens**. The Listener URL for your account is displayed above the token table.
+2. Create a new configuration file for your FluentD. For example, `fluentdconfig.conf`.
+3. Paste the following into the file:
+
+   ```conf
+   <system>
+     log_level info
+   </system>
+   ​
+   # Tailing the default path Crowdstrike's SIEM Connector
+   <source>
+     @type tail
+     path /var/log/crowdstrike/falconhoseclient/output
+     pos_file /var/log/td-agent/falconhoseclient.log.pos
+     tag crowdstrike-fluentd
+     <parse>
+       @type none
+     </parse>
+   </source>
+   ​
+   # Concating the event as one log
+   <filter crowdstrike-fluentd>
+     @type concat
+     key message
+     multiline_start_regexp /^{/
+     multiline_end_regexp /^}/
+   </filter>
+   ​
+   # This adds type to the log && removes key log & message. If you change the type in this code section, the data is not parsed into the relevant fields for the Crowdstrike integration.
+    <filter crowdstrike-fluentd>
+      @type record_transformer
+      <record>
+        type crowdstrike
+      </record>
+    </filter>
+   ​
+   # Sending to Logz.io
+   <match crowdstrike-fluentd>
+     @type logzio_buffered
+   ​
+     endpoint_url https://<<LOGZIO_LISTENER>>:8071?token=<<LOGZIO_SHIPPING_TOKEN>>
+   ​
+     output_include_time true
+     output_include_tags true
+     http_idle_timeout 10
+   ​
+     <buffer>
+         @type memory
+         flush_thread_count 4
+         flush_interval 3s
+         chunk_limit_size 16m      # Logz.io bulk limit is decoupled from chunk_limit_size. Set whatever you want.
+         queue_limit_length 4096
+     </buffer>
+   </match>
+   ​
+   # Exclude fluentd logs
+   <label @FLUENT_LOG>
+     <match **>
+       @type null
+     </match>
+   </label>
+   ```
+
+   <!-- info-box-start:info -->
+   The default configuration for the log level is set to **info**. The **log_level** setting defines which events are recorded in the log. In order of verbosity, the log level can be defined as **fatal**, **error**, **warn**, **info**, **debug** or **trace**. The **info** level records all events categorized as **info** and higher in verbosity. To learn more about the settings used in the configuration file, see [Logz.io plugin for Fluentd](https://github.com/logzio/fluent-plugin-logzio).
+   {:.info-box.note}
+   <!-- info-box-end -->
+
+   <!-- info-box-start:info -->
+   If you change `type` in the `@type record_transformer` section, the data is not parsed into the relevant fields for the Crowdstrike integration.
+   {:.info-box.note}
+   <!-- info-box-end -->
+
+4. Replace ```<<LOGZIO_LISTENER>>``` with the Listener URL for your account.
+5. Replace ```<LOGZIO_SHIPPING_TOKEN>``` with your token value.
+6. Save the changes.
+
+
+##### Start the Crowdstrike connector
+
+Run the following command:
+
+* For Ubuntu 14.x:
 
 ```shell
-sudo mkdir /etc/filebeat/certificates
-sudo openssl req -newkey rsa:2048 -nodes \
--keyout /etc/filebeat/certificates/SentinelOne.key -x509 \
--days 365 \
--out /etc/filebeat/certificates/SentinelOne.crt
+sudo start cs.falconhoseclientd
 ```
 
-{% include log-shipping/certificate.md %}
+* For Ubuntu 16.04 and later:
 
+```shell
+sudo systemctl start cs.falconhoseclientd.service
+```
 
-##### Configure Filebeat
+* For CentOS:
 
-Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
-Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
-
-This code block adds SentinelOne as an input and sets Logz.io as the output.
-
-```yaml
-# ... Filebeat inputs
-filebeat.inputs:
-- type: tcp
-  max_message_size: 10MiB
-  host: "0.0.0.0:6514"
-  ssl.enabled: true
-  ssl.certificate: "/etc/filebeat/certificates/SentinelOne.crt"
-  ssl.key: "/etc/filebeat/certificates/SentinelOne.key"
-  ssl.verification_mode: none
-  fields:
-    logzio_codec: json
-    token: <<LOG-SHIPPING-TOKEN>>
-    type: sentinel_one
-  fields_under_root: true
-filebeat.registry.path: /var/lib/filebeat
-#The following processors are to ensure compatibility with version 7
-processors:
-- rename:
-    fields:
-     - from: "agent"
-       to: "beat_agent"
-    ignore_missing: true
-- rename:
-    fields:
-     - from: "log.file.path"
-       to: "source"
-    ignore_missing: true
-
-### Outputs
-output:
-  logstash:
-    hosts: ["<<LISTENER-HOST>>:5015"]
-    ssl:
-      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```shell
+sudo service cs.falconhoseclientd start
 ```
 
 
+##### Start FluentD
 
-{% include /general-shipping/replace-placeholders.html %}
+Start your FluentD agent with the configuration file created for this integration.
 
-* Replace the host port with your syslog port details. The above example has `host: "0.0.0.0:6514"` but you should change it to your specifics.
-
-<!-- info-box-start:info -->
-One last validation - make sure Logz.io is the only output and appears only once.
-If the file has other outputs, remove them.
-{:.info-box.note}
-<!-- info-box-end -->
+For example, run `fluentd -c <<PATH-TO-YOUR-FLUENTD-CONFIG-FILE>>`. 
 
 
+##### Check Logz.io for your events
 
-##### Start Filebeat
-
-Start or restart Filebeat for the changes to take effect.
-
-##### Configure SentinelOne to send logs to Logzio
-
-Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your Syslog server.
-
-1. Select your site.
-2. In the left side menu, click the slider icon **[⊶]** to open the **Settings menu**.
-3. Open the **INTEGRATIONS** tab, and fill in the details:
-    1. Under **Types**, select **SYSLOG**.
-    2. Toggle the button to **enable SYSLOG**.
-    3. **Host** - Enter your SYSLOG server IP address and port.
-    4. **TLS** - Enable TLS.
-    5. **Formatting** - Select **CEF2**.
-    6. Save your changes.
-
-![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin4.png)
-
-
-##### Configure SentinelOne to send notifications
-
-In the same screen, open the **NOTIFICATIONS** tab, and fill in the details:
-
-Under **Notification Types**, check all options under **Syslog** notifications.
-
-We recommend enabling all notification options to send Syslog logs. Still, it is optional. Note that if you leave some Syslog notification options disabled, it may interfere with Logz.io's detection rules.
-
-
-![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin2.png)
-
-
-
-##### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+Give your events some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `crowdstrike` to see the incoming Crowdstrike events.
+  
+If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

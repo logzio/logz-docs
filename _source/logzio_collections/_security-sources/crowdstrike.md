@@ -58,7 +58,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 <div class="tasklist">
 
 
-##### Configure CrowdStrike connector
+##### Configure Crowdstrike connector
 
 
 1. Open the configuration file located at `/opt/crowdstrike/etc/cs.falconhoseclient.cfg`.

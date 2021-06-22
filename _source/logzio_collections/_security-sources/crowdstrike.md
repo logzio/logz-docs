@@ -96,7 +96,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
      </parse>
    </source>
    ​
-   # Concating the event as one log
+   # Concatenating the event as one log
    <filter crowdstrike-fluentd>
      @type concat
      key message

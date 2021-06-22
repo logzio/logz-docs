@@ -221,7 +221,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
   <dependency>
     <groupId>io.logz.logback</groupId>
     <artifactId>logzio-logback-appender</artifactId>
-    <version>1.0.24</version>
+    <version>1.0.25</version>
   </dependency>
 </dependencies>
 ```

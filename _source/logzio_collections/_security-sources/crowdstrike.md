@@ -62,8 +62,8 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 
 
 1. Open the configuration file located at `/opt/crowdstrike/etc/cs.falconhoseclient.cfg`.
-2. Enter the Client ID value into the **client_id** value field.
-3. Enter the Client Secret value into the **client_secret** value field.
+2. Enter the Client ID value into the `client_id` value field.
+3. Enter the Client Secret value into the `client_secret` value field.
 4. Make sure that the base URL in `api_url` and `request_token_url` corresponds to the base URL for your account.
 5. Save the changes.
 

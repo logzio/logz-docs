@@ -45,8 +45,8 @@ info:
 
     # Rate limiting
 
-    API call and response rates are limited.
-    To find out your rate limits or request changes to your plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success Team</a>.
+    API call and response rates are limited to 100 concurrent API requests per account.
+    To verify your rate limits or request changes to your plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success Team</a>.
 
 
   title: Logz.io API
@@ -307,13 +307,9 @@ paths:
 
 
   # ::::: ACCOUNTS
-  /v2/account-management/whoami:
     get:
-      summary: Retrieve account details
-      description: Returns the account ID and a string with the account name. Good for testing or for confirming that you're using an API token from the right account.
       tags:
         - Who am I
-        - Account Management
       operationId: whoAmI
       produces:
         - application/json
@@ -329,7 +325,7 @@ paths:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/WhoAmIV2Response'
+            $ref: '#/definitions/WhoAmI'
   /v1/account-management/time-based-accounts:
     get:
       summary: Retrieve settings for all accounts
@@ -3896,18 +3892,12 @@ definitions:
 
   
   # ::::: ACCOUNTS DEFINITIONS
-  WhoAmIV2Response:
     type: object
     properties:
-      accountID:
-        type: integer
-        format: int32
-        description: Account ID 
-        example: 123456
       accountName:
         type: string
         description: Name of the account
-        example: Production Staging
+        example: Deployment Staging account
   AccountUtilizationSettings:
     type: object
     description: Settings for logging metrics on your account utilization, such as used and expected data volume at current indexing rate.
@@ -4313,7 +4303,6 @@ definitions:
         example: 833203f9-de71-5a12-9083-9055a6d925bb
   Pagination:
     type: object
-    default: 25
     description: Default pagination is a page of 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
     properties:
       pageNumber:
@@ -4523,14 +4512,10 @@ definitions:
     properties:
       filter:
         description: Filter by rule name, severity, and more.
-        type: array
-        items:
-          $ref: '#/definitions/AlertsFilter'
+        $ref: '#/definitions/AlertsFilter'
       sort:
         description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
-        type: array
-        items:
-          $ref: '#/definitions/AlertsSortRequest'
+        $ref: '#/definitions/AlertsSortRequest'
       pagination:
         $ref: '#/definitions/Pagination'
   AlertsSortRequest:
@@ -4557,8 +4542,8 @@ definitions:
     properties:
       search:
         type: string
-        description: Searches by rule titles that contain the string.
-      severity:
+        description: Searches by rule titles and descriptions that contain the string.
+      severities:
         type: array
         items:
           type: string
@@ -4570,8 +4555,7 @@ definitions:
           - SEVERE
         description: List of rule severities, as specified by the security rule's definition
         example: 
-          SEVERE
-          HIGH
+          ["SEVERE", "HIGH"]
       updatedBy:
         type: array
         items:
@@ -4584,7 +4568,9 @@ definitions:
         description: Email addresses of the user who created the rules.
       enabledState:
         type: list of booleans
-        description: true for enabled rules, false for disabled rules.
+        description: true to include enabled rules, false to include disabled rules. An empty list defaults to both enabled and disabled rules.
+        example:
+          [true]
       emailNotifications:
         type: array
         items:
@@ -4593,7 +4579,7 @@ definitions:
       tags:
         type: array
         items:
-          type: object
+          type: string
         description: Tags are labels used to organize security rules
 
 

@@ -1,7 +1,7 @@
 ---
 title: Nico Shishkin
 linkedin: 
-github: shishkinnico
+github: nico-shishkin
 
 
 logzio-role: Keeper of the Docs

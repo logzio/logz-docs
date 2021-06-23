@@ -81,7 +81,7 @@ For a complete list of options, see the configuration parameters below the code 
   </root>
 </log4net>
 ```
-
+Add a reference to the configuration file in your code, as shown in the example [here](https://github.com/logzio/logzio-dotnet/blob/master/sample-applications/LogzioLog4netSampleApplication/Program.cs).
 
 ###### Option 2: In the code
 

@@ -9,6 +9,7 @@ tags:
   - api-cookbook
 contributors:
   - imnotashrimp
+  - nshishkin
 ---
 
 If you've never used the Logz.io API before—or any API, for that matter—the `whoami` endpoint is a great way to dip your toes in.
@@ -28,7 +29,7 @@ You can access the `whoami` endpoint with a simple curl request.
 
 ```shell
 curl -X GET \
-  https://<<API-URL>>/account-management/whoami \
+  https://<<API-URL>>/v2/whoami \
   -H 'Content-Type: application/json' \
   -H 'X-API-TOKEN: <<API-TOKEN>>'
 ```
@@ -39,6 +40,7 @@ curl -X GET \
 
 ```json
 {
+  "accountId": 12345,
   "accountName": "Jean Valjean"
 }
 ```

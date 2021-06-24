@@ -307,10 +307,10 @@ paths:
 
 
   # ::::: ACCOUNTS
-  /v1/account-management/whoami:
+  /v2/whoami:
     get:
-      summary: Retrieve this account
-      description: Returns a single string with the account name. Good for testing or for confirming that you're using an API token from the right account.
+      summary: Retrieves the account information
+      description: Returns the account name as a string and the account ID as an integer. Good for testing or for confirming that you’re using an API token from the right account.
       tags:
         - Who am I
       operationId: whoAmI
@@ -319,26 +319,22 @@ paths:
       parameters:
       x-code-samples:
       - lang: cURL
-        source: >-
-          "curl -X GET \
-          https://api.logz.io/v1/account-management/whoami \
-          -H 'Content-Type: application/json' \
-          -H 'X-API-TOKEN: <token>'"
+        source: 'curl -X GET "https://api.logz.io/v2/whoami" -H "Content-Type: application/json" -H "X-API-TOKEN: <token>"'
       responses:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/WhoAmI'
+            $ref: '#/definitions/WhoAmIV2Response'
   /v1/account-management/time-based-accounts:
     get:
       summary: Retrieve settings for all accounts
       description: >-
-        
+
         Returns account settings for the main account and all of its associated sub accounts.
-        
+
 
         * The list of accounts is returned as an array of JSON objects.
-        
+
         * Must be run with an API token from the main account.
       tags:
         - Manage time-based log accounts
@@ -3895,13 +3891,17 @@ definitions:
 
   
   # ::::: ACCOUNTS DEFINITIONS
-  WhoAmI:
+  WhoAmIV2Response:
     type: object
     properties:
       accountName:
         type: string
         description: Name of the account
         example: Jean Valjean
+      accountId:
+        type: integer
+        format: int32
+        example: 24601
   AccountUtilizationSettings:
     type: object
     description: Settings for logging metrics on your account utilization, such as used and expected data volume at current indexing rate.

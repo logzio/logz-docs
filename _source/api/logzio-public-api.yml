@@ -3891,7 +3891,6 @@ definitions:
 
   
   # ::::: ACCOUNTS DEFINITIONS
-
   WhoAmIV2Response:
     type: object
     properties:

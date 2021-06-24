@@ -307,7 +307,10 @@ paths:
 
 
   # ::::: ACCOUNTS
+  /v1/account-management/whoami:
     get:
+      summary: Retrieve this account
+      description: Returns a single string with the account name. Good for testing or for confirming that you're using an API token from the right account.
       tags:
         - Who am I
       operationId: whoAmI
@@ -3892,12 +3895,13 @@ definitions:
 
   
   # ::::: ACCOUNTS DEFINITIONS
+  WhoAmI:
     type: object
     properties:
       accountName:
         type: string
         description: Name of the account
-        example: Deployment Staging account
+        example: Jean Valjean
   AccountUtilizationSettings:
     type: object
     description: Settings for logging metrics on your account utilization, such as used and expected data volume at current indexing rate.

@@ -361,7 +361,9 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/TimeBasedAccountCreateRequest'
+            oneOf:
+              - $ref: '#/definitions/TimeBasedAccountCreateRequest'
+              - $ref: '#/definitions/TimeBasedAccountCreateRequestEmptyArray'
       responses:
         200:
           description: successful operation
@@ -443,7 +445,9 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/TimeBasedAccountUpdateRequest'
+            oneOf:
+              - $ref: '#/definitions/TimeBasedAccountUpdateRequest'
+              - $ref: '#/definitions/TimeBasedAccountUpdateRequestEmptyArray'
       responses:
         204:
           description: successful operation
@@ -4028,7 +4032,63 @@ definitions:
           type: integer
           format: int32
           example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data.
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+      docSizeSetting:
+        $ref: '#/definitions/DocSizeSetting'
+      utilizationSettings:
+        $ref: '#/definitions/AccountUtilizationSettings'
+  TimeBasedAccountUpdateRequestEmptyArray:
+    type: object
+    required:
+      - accountName
+      - sharingObjectsAccounts
+    properties:
+      accountName:
+        type: string
+        description: Name of the account
+        example: AWS Lambda svr 3
+      reservedDailyGB:
+        type: number
+        format: float
+        default: null
+        description: >-
+          * If `isFlexible=false`, this field does not apply. Leave it null.
+   
+         
+          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
+        example: 3
+      maxDailyGB:
+        type: number
+        format: float
+        description: >-
+          The maximum volume of data that an account can index per calendar day.
+
+
+          * If `isFlexible=false` this parameter can only be used to update a sub account, but not a main account. It determines the only capacity reserved for use by the account. It cannot be null.
+
+
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
+          
+          
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
+        example: 5
+      retentionDays:
+        type: integer
+        format: int32
+        description: This is how long log data is stored and searchable in Kibana, in days.
+        minimum: 1
+        example: 5
+      searchable:
+        $ref: "#/definitions/Searchable"
+      accessible:
+        $ref: "#/definitions/Accessible"
+      sharingObjectsAccounts:
+        type: array
+        items:
+          type: integer
+          format: int32
+          example: [ ]
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
@@ -4117,11 +4177,76 @@ definitions:
           type: integer
           format: int32
           example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
+
+  TimeBasedAccountCreateRequestEmptyArray:
+    type: object
+    required:
+      - accountName
+      - email
+      - sharingObjectsAccounts
+      - retentionDays
+    properties:
+      email:
+        type: string
+        pattern: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
+        description: Account administrator's email address
+        example: help@logz.io
+      accountName:
+        type: string
+        description: Name of the account
+        example: AWS Lambda svr 3
+      reservedDailyGB:
+        type: number
+        format: float
+        default: null
+        description: >-
+          * If `isFlexible=false`, don't send this field or send it null.
+
+
+          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
+        example: 3
+      maxDailyGB:
+        type: number
+        format: float
+        description: >-
+          The maximum volume of data that an account can index per calendar day.
+
+
+          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
+
+
+          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
+
+
+          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
+        example: 5
+      retentionDays:
+        type: integer
+        format: int32
+        description: How long log data is stored and searchable in Kibana, in days.
+        minimum: 1
+        example: 5
+      searchable:
+        $ref: "#/definitions/Searchable"
+      accessible:
+        $ref: "#/definitions/Accessible"
+      sharingObjectsAccounts:
+        type: array
+        items:
+          type: integer
+          format: int32
+          example: [ ]
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+      docSizeSetting:
+        $ref: '#/definitions/DocSizeSetting'
+      utilizationSettings:
+        $ref: '#/definitions/AccountUtilizationSettings'
+ 
   SharingAccount:
     type: object
     properties:

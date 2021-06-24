@@ -45,7 +45,7 @@ curl -X GET \
 }
 ```
 
-If you see a status of 200 and a response body that includes accountName, congratulations! 🎉
+If you see a status of 200 and a response body that includes accountId and accountName, congratulations! 🎉
 You just made your first API call.
 
 If you didn't receive the expected response, continue to the troubleshooting steps below. 👇

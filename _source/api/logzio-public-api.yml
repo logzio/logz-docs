@@ -3900,6 +3900,7 @@ definitions:
         example: Jean Valjean
       accountId:
         type: integer
+        description: ID of the account
         format: int32
         example: 24601
   AccountUtilizationSettings:

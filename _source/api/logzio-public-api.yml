@@ -4032,7 +4032,7 @@ definitions:
           type: integer
           format: int32
           example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data.
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
@@ -4088,7 +4088,7 @@ definitions:
           type: integer
           format: int32
           example: [ ]
-        description: IDs of accounts that can access this account's data.
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:

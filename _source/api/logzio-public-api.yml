@@ -309,7 +309,7 @@ paths:
   # ::::: ACCOUNTS
   /v2/whoami:
     get:
-      summary: Retrieves the account information
+      summary: Retrieve account information
       description: Returns the account name as a string and the account ID as an integer. Good for testing or for confirming that you’re using an API token from the right account.
       tags:
         - Who am I

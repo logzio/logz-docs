@@ -32,7 +32,7 @@ This integration includes:
 * Configuring a FluentD agent on your device
 * Establishing communication between the FluentD agent and your Logz.io account
 
-![Crowdstrike integration architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/crowdstrike/Crowdstrike_draft.png)
+![Crowdstrike integration architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/crowdstrike/crowdstrike-hla-final.png)
 
 Upon deployment, the Crowdstrike connector connects to your Crowdstrike account to collect events. This data is written into a file on your device. The FluentD agent collects the data from this file, connects to your Logz.io account and sends the events to Logz.io.
 

@@ -1,6 +1,6 @@
 ---
 title: General guide to shipping logs with Beats
-short-description: This document describes the way to get logs from your system to Logz.io using any of the Beats products, except Filebeat. 
+short-description: This document describes the way to get logs from your system to Logz.io using any of the Beats shippers 
 logo:
   logofile: beats.svg
   orientation: vertical
@@ -9,7 +9,7 @@ shipping-tags:
   - log-shipper
   - beats
   - intro to beats
-description: This document describes the way to get logs from your system to Logz.io using any of the Beats products, except Filebeat. If you prefer to use Filebeat, refer to our [general guide to shipping logs with Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html).
+description: This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/beats
 contributors:
   - imnotashrimp
@@ -32,13 +32,13 @@ order: 10
 <!-- tab:start -->
 <div id="linux">
 
-This document describes the way to get logs from your system to Logz.io using any of the Beats products, except Filebeat. If you prefer to use Filebeat, refer to our [general guide to shipping logs with Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html).
+This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
 
 #### Configure your Beats shipper on macOS or Linux
 
 **Before you begin, you'll need**:
 
-* Any Beats shipper, except Filebeat, installed on your machine. This includes Auditbeat, Functionbeat, Heartbeat, Journalbeat, Metricbeat or Packetbeat. Logz.io recommends that you use the latest stable version.
+* Any Beats shipper installed on your machine. This includes [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), Auditbeat, Functionbeat, Heartbeat, Journalbeat, Metricbeat or Packetbeat. Logz.io recommends that you use the latest stable version.
 * Destination port 5015 open to outgoing traffic.
 
 
@@ -53,7 +53,7 @@ This document describes the way to get logs from your system to Logz.io using an
 
    ```yml
      fields:
-       logzio_codec: <PLAIN> or <JSON>
+       logzio_codec: <plain> or <json>
        token: <TOKEN>
        type: <LOGTYPE>
      fields_under_root: true
@@ -61,7 +61,7 @@ This document describes the way to get logs from your system to Logz.io using an
      ignore_older: 3h
    ```
 
-3. Specify the log file format in the `logzio_codec` field. It can be `PLAIN` or `JSON`.
+3. Specify the log file format in the `logzio_codec` field. It can be `plain` or `json`.
 4. Specify your Logz.io log shipping token in the `token` field. You can see the token by navigating to your Logz.io account and selecting **Settings > Tools > Manage Tokens**.
 5. Select the log type from the list or select **Other** and give it a name of your choice to specify a custom log type.
    * If you select a log type from the list, the logs will be automatically parsed and analyzed. [List of types available for parsing by default](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html).
@@ -71,12 +71,12 @@ This document describes the way to get logs from your system to Logz.io using an
    ```yml
    output:
      logstash:
-       hosts: ["listener.logz.io:5015"]  
+       hosts: ["<LISTENER URL>:5015"]  
        ssl:
          certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
-
-7. Save the changes.
+7. {% include general-shipping/listener-url.md %}
+8. Save the changes.
 
 ##### Validate the configuration file
 
@@ -101,13 +101,13 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:start -->
 <div id="windows">
 
-This document describes the way to get logs from your system to Logz.io using any of the Beats products, except Filebeat. If you prefer to use Filebeat, refer to our [general guide to shipping logs with Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html).
+This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
 
 #### Configure your Beats shipper on Windows
 
 **Before you begin, you'll need**: 
 
-* Any Beats shipper, except Filebeat, installed on your machine. This includes Auditbeat, Functionbeat, Heartbeat, Journalbeat, Metricbeat, Packetbeat or Winlogbeat. Logz.io recommends that you use the latest stable version.
+* Any Beats shipper installed on your machine. This includes [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), Auditbeat, Functionbeat, Heartbeat, Journalbeat, Metricbeat, Packetbeat or [Winlogbeat](https://docs.logz.io/shipping/log-sources/windows.html). Logz.io recommends that you use the latest stable version.
 * Destination port 5015 open to outgoing traffic.
 
 <div class="tasklist">
@@ -118,7 +118,7 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 
 Download the
 [Logz.io public certificate]({% include log-shipping/certificate-path.md %})
-to `C:\ProgramData\Filebeat\Logzio.crt`
+to `C:\ProgramData\<YOUR SHIPPER NAME>\Logzio.crt`
 on your machine.
 
 
@@ -134,7 +134,7 @@ on your machine.
 
    ```yml
      fields:
-       logzio_codec: <PLAIN> or <JSON>
+       logzio_codec: <plain> or <json>
        token: <TOKEN>
        type: <LOGTYPE>
      fields_under_root: true
@@ -142,7 +142,7 @@ on your machine.
      ignore_older: 3h
    ```
 
-3. Specify the log file format in the `logzio_codec` field. It can be `PLAIN` or `JSON`.
+3. Specify the log file format in the `logzio_codec` field. It can be `plain` or `json`.
 4. Specify your Logz.io log shipping token in the `token` field. You can see the token by navigating to your Logz.io account and selecting **Settings > Tools > Manage Tokens**.
 5. Select the log type from the list or select **Other** and give it a name of your choice to specify a custom log type.
    * If you select a log type from the list, the logs will be automatically parsed and analyzed. [List of types available for parsing by default](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html).
@@ -152,15 +152,13 @@ on your machine.
    ```yml
    output:
      logstash:
-       hosts: ["listener.logz.io:5015"]  
+       hosts: ["<LISTENER URL>:5015"]  
        ssl:
-         certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
+         certificate_authorities: ['C:\ProgramData\<YOUR SHIPPER NAME>\Logzio.crt']
    ```
 
 
 7. {% include general-shipping/listener-url.md %}
- 
-  
 8. Save the changes.
 
 ##### Validate the configuration file

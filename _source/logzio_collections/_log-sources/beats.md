@@ -75,7 +75,7 @@ This document describes the way to get logs from your system to Logz.io using an
        ssl:
          certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
-7. {% include general-shipping/listener-url.md %}
+7. {% include log-shipping/listener-var.html %}
 8. Save the changes.
 
 ##### Validate the configuration file
@@ -158,7 +158,7 @@ on your machine.
    ```
 
 
-7. {% include general-shipping/listener-url.md %}
+7. {% include log-shipping/listener-var.html %}
 8. Save the changes.
 
 ##### Validate the configuration file

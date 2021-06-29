@@ -49,6 +49,7 @@ _< image placeholder - let's sketch what you have in mind >_
 ## Configuring the OpenTelemetry Collector
 
 The OpenTelemetry Collector includes components that need to be configured to respond to the following considerations, and then enabled via **pipelines**: 
+
 + **Receivers**: Is it better to use a push or pull method to get data into the collector?
 + **Processors**: How should received data be handled?
 + **Exporters**: Where should the received data be sent and is it better to use a push or pull method for data export? 
@@ -74,7 +75,6 @@ receivers:
    jaeger:
       protocols:
         thrift_http:
-
 ```
 
 ### Exporter overview
@@ -91,8 +91,8 @@ exporters:
    logzio:
       account_token: "<<TRACING-SHIPPING-TOKEN>>"
       region: us
-
 ```
+
 ### Extension overview
 
 Many extensions come with default settings: Simply specifying the name of the extension is usually enough to configure it.
@@ -113,8 +113,6 @@ extensions:
   health_check:
   zpages:
   pprof:
-
-
 ```
 
 ### Processors

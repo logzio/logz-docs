@@ -28,7 +28,7 @@ OpenTelemetry offers configurable options to generate, transmit, collect, proces
 + A single collector binary that can be deployed in a variety of ways. 
 
 
-## Why (should you use) OpenTelemetry? 
+## Why (you should use) OpenTelemetry? 
 
 Telemetry data is needed to power observability products. Traditionally, telemetry data has been provided by either open-source projects or commercial vendors. With a lack of standardization, the net result is the lack of data portability and the burden on the user to maintain instrumentation.
 

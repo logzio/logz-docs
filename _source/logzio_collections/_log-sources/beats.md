@@ -25,7 +25,7 @@ order: 10
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Beats for Linux](#linux)
+* [Beats for macOS and Linux](#linux)
 * [Beats for Windows](#windows)
 {:.branching-tabs}
 

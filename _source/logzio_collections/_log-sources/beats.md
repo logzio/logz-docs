@@ -62,7 +62,7 @@ This document describes the way to get logs from your system to Logz.io using an
    ```
 
 3. Specify the log file format in the `logzio_codec` field. It can be `plain` or `json`.
-4. Specify your Logz.io log shipping token in the `token` field. You can see the token by navigating to your Logz.io account and selecting **Settings > Tools > Manage Tokens**.
+4. Specify your Logz.io log shipping token in the `token` field. You can see the token by navigating to your Logz.io account and selecting **Settings > Manage tokens > Data shipping tokens**.
 5. Select the log type from the list or select **Other** and give it a name of your choice to specify a custom log type.
    * If you select a log type from the list, the logs will be automatically parsed and analyzed. [List of types available for parsing by default](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html).
    * If you select **Other**, contact support to request custom parsing assistance. Don’t be shy, it’s included in your plan!
@@ -143,7 +143,7 @@ on your machine.
    ```
 
 3. Specify the log file format in the `logzio_codec` field. It can be `plain` or `json`.
-4. Specify your Logz.io log shipping token in the `token` field. You can see the token by navigating to your Logz.io account and selecting **Settings > Tools > Manage Tokens**.
+4. Specify your Logz.io log shipping token in the `token` field. You can see the token by navigating to your Logz.io account and selecting **Settings > Manage tokens > Data shipping tokens**.
 5. Select the log type from the list or select **Other** and give it a name of your choice to specify a custom log type.
    * If you select a log type from the list, the logs will be automatically parsed and analyzed. [List of types available for parsing by default](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html).
    * If you select **Other**, contact support to request custom parsing assistance. Don’t be shy, it’s included in your plan!

@@ -71,7 +71,7 @@ This document describes the way to get logs from your system to Logz.io using an
    ```yml
    output:
      logstash:
-       hosts: ["<LISTENER URL>:5015"]  
+       hosts: ["<LISTENER-HOST>:5015"]  
        ssl:
          certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
@@ -152,7 +152,7 @@ on your machine.
    ```yml
    output:
      logstash:
-       hosts: ["<LISTENER URL>:5015"]  
+       hosts: ["<LISTENER-HOST>:5015"]  
        ssl:
          certificate_authorities: ['C:\ProgramData\<YOUR SHIPPER NAME>\Logzio.crt']
    ```

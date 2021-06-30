@@ -4513,6 +4513,7 @@ definitions:
         $ref: '#/definitions/Pagination'
 
   AlertsSearchRequestFiltered:
+    title: Filtered request  
     type: object
     properties:
       filter:
@@ -4524,6 +4525,7 @@ definitions:
       pagination:
         $ref: '#/definitions/Pagination'
   AlertsSearchRequestUnfiltered:
+    title: Unfiltered request  
     type: object
     properties:
       query:

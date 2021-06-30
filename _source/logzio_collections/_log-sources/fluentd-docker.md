@@ -120,8 +120,9 @@ If you need to customize the default settings of the configuration parameters, a
 * To specify the threshold for chunk flush performance check:
   
    ```conf
-   -e LOGZIO_SLOW_FLUSH_LOG_THRESHOLD	=<<LOGZIO_SLOW_FLUSH_LOG_THRESHOLD>> \
+   -e LOGZIO_SLOW_FLUSH_LOG_THRESHOLD=<<LOGZIO_SLOW_FLUSH_LOG_THRESHOLD>> \
    ```
+
 The default value for this setting is `20.0`.
  
 * To specify which plugin to use as the backend:
@@ -129,6 +130,7 @@ The default value for this setting is `20.0`.
    ```conf
    -e LOGZIO_BUFFER_TYPE=<<LOGZIO_BUFFER_TYPE>> \
    ```
+
 The default value for this setting is `file`.
   
 * To specify the path to the backend plugin:
@@ -136,13 +138,15 @@ The default value for this setting is `file`.
    ```conf
    -e LOGZIO_BUFFER_PATH=<<LOGZIO_BUFFER_PATH>> \
    ```
+
 The default value for this setting is `/var/log/Fluentd-buffers/stackdriver.buffer`.
   
 * To specify the parameter that controls the behavior when the queue becomes full:
   
    ```conf
-   -e LLGZIO_OVERFLOW_ACTION=<<LOGZIO_OVERFLOW_ACTION>> \
+   -e LOGZIO_OVERFLOW_ACTION=<<LOGZIO_OVERFLOW_ACTION>> \
    ```
+
 The default value for this setting is `block`. Refer to [documentation on Fluentd](https://docs.fluentd.org/output#overflow_action) for more on this.
 
 * To specify the maximum size of a chunk allowed:
@@ -150,6 +154,7 @@ The default value for this setting is `block`. Refer to [documentation on Fluent
    ```conf
    -e LOGZIO_CHUNK_LIMIT_SIZE=<<LOGZIO_CHUNK_LIMIT_SIZE>> \
    ```
+
 The default value for this setting is `2M`.
 
 * To specify the maximum length of the output queue:
@@ -157,6 +162,7 @@ The default value for this setting is `2M`.
    ```conf
    -e LOGZIO_QUEUE_LIMIT_LENGTH=<<LOGZIO_QUEUE_LIMIT_LENGTH>> \
    ```
+
 The default value for this setting is `6`.
 
 * To specify the interval, in seconds, to wait before invoking the next buffer flush:
@@ -164,6 +170,7 @@ The default value for this setting is `6`.
    ```conf
    -e LOGZIO_FLUSH_INTERVAL=<<LOGZIO_FLUSH_INTERVAL>> \
    ```
+
 The default value for this setting is `5s`.
 
 * To specify the maximum interval, in seconds, to wait between retries:
@@ -171,6 +178,7 @@ The default value for this setting is `5s`.
    ```conf
    -e LOGZIO_RETRY_MAX_INTERVAL=<<LOGZIO_RETRY_MAX_INTERVAL>> \
    ```
+
 The default value for this setting is `30s`.
   
 * To specify the number of threads to flush the buffer:
@@ -178,6 +186,7 @@ The default value for this setting is `30s`.
    ```conf
    -e LOGZIO_FLUSH_THREAD_COUNT=<<LOGZIO_FLUSH_THREAD_COUNT>> \
    ```
+
 The default value for this setting is `2`.
 
 * To specify the log level for this container:
@@ -185,6 +194,7 @@ The default value for this setting is `2`.
    ```conf
    -e LOGZIO_LOG_LEVEL=<<LOGZIO_LOG_LEVEL>> \
    ```
+
 The default value for this setting is `info`.
  
 

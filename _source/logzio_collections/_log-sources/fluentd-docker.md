@@ -77,13 +77,11 @@ To send your container logs directly to Logz.io:
    -e LOGZIO_LOG_LISTENER="<<LISTENER-HOST>>:8071" \
    -e LOGZIO_LOG_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>> \
    -e LOGZIO_TYPE=docker-fluentd \
-   -e LOGZIO_INCLUDE_REGEX=<<LOGZIO_INCLUDE_REGEX>> \
    logzio/fluentd-docker-logs
    ```
 
 2. {% include log-shipping/listener-var.html %}
 3. {% include log-shipping/log-shipping-token.html %}
-4. Replace `<<LOGZIO_INCLUDE_REGEX>>` with the Regex that matches names of containers that you need to ship logs from. The default value for this setting is `.+`.
 
 To send your container logs to Logz.io via a proxy server:
 
@@ -99,7 +97,6 @@ To send your container logs to Logz.io via a proxy server:
    -e LOGZIO_LOG_LISTENER="<<LISTENER-HOST>>:8071" \
    -e LOGZIO_LOG_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>> \
    -e LOGZIO_TYPE=docker-fluentd \
-   -e LOGZIO_INCLUDE_REGEX=<<LOGZIO_INCLUDE_REGEX>> \
    -e LOGZIO_PROXY_URI=<<LOGZIO_PROXY_URI>> \
    -e LOGZIO_PROXY_CERT=<<LOGZIO_PROXY_CERT>> \
    logzio/fluentd-docker-logs
@@ -107,9 +104,89 @@ To send your container logs to Logz.io via a proxy server:
 
 2. {% include log-shipping/listener-var.html %}
 3. {% include log-shipping/log-shipping-token.html %}
-4. Replace `<<LOGZIO_INCLUDE_REGEX>>` with the Regex that matches names of containers that you need to ship logs from. The default value for this setting is `.+`.
-5. Replace `<<LOGZIO_PROXY_URI>>` with your proxy URI.
-6. Replace `<<LOGZIO_PROXY_CERT>>` with your proxy certificate.
+4. Replace `<<LOGZIO_PROXY_URI>>` with your proxy URI.
+5. Replace `<<LOGZIO_PROXY_CERT>>` with your proxy certificate.
+
+If you need to customize the default settings of the configuration parameters, add any of the following lines to the command:
+  
+* To use Regex to specify what conainers to ship logs from: 
+  
+   ```conf
+   -e LOGZIO_INCLUDE_REGEX=<<LOGZIO_INCLUDE_REGEX>> \
+   ```
+  
+ If a container name does not match the Regex, logs from this container will not be shipped. The default value for this setting is `.+`.
+  
+* To specify the threshold for chunk flush performance check:
+  
+   ```conf
+   -e LOGZIO_SLOW_FLUSH_LOG_THRESHOLD	=<<LOGZIO_SLOW_FLUSH_LOG_THRESHOLD>> \
+   ```
+The default value for this setting is `20.0`.
+ 
+* To specify which plugin to use as the backend:
+  
+   ```conf
+   -e LOGZIO_BUFFER_TYPE=<<LOGZIO_BUFFER_TYPE>> \
+   ```
+The default value for this setting is `file`.
+  
+* To specify the path to the backend plugin:
+  
+   ```conf
+   -e LOGZIO_BUFFER_PATH=<<LOGZIO_BUFFER_PATH>> \
+   ```
+The default value for this setting is `/var/log/Fluentd-buffers/stackdriver.buffer`.
+  
+* To specify the parameter that controls the behavior when the queue becomes full:
+  
+   ```conf
+   -e LLGZIO_OVERFLOW_ACTION=<<LOGZIO_OVERFLOW_ACTION>> \
+   ```
+The default value for this setting is `block`. Refer to [documentation on Fluentd](https://docs.fluentd.org/output#overflow_action) for more on this.
+
+* To specify the maximum size of a chunk allowed:
+  
+   ```conf
+   -e LOGZIO_CHUNK_LIMIT_SIZE=<<LOGZIO_CHUNK_LIMIT_SIZE>> \
+   ```
+The default value for this setting is `2M`.
+
+* To specify the maximum length of the output queue:
+  
+   ```conf
+   -e LOGZIO_QUEUE_LIMIT_LENGTH=<<LOGZIO_QUEUE_LIMIT_LENGTH>> \
+   ```
+The default value for this setting is `6`.
+
+* To specify the interval, in seconds, to wait before invoking the next buffer flush:
+  
+   ```conf
+   -e LOGZIO_FLUSH_INTERVAL=<<LOGZIO_FLUSH_INTERVAL>> \
+   ```
+The default value for this setting is `5s`.
+
+* To specify the maximum interval, in seconds, to wait between retries:
+  
+   ```conf
+   -e LOGZIO_RETRY_MAX_INTERVAL=<<LOGZIO_RETRY_MAX_INTERVAL>> \
+   ```
+The default value for this setting is `30s`.
+  
+* To specify the number of threads to flush the buffer:
+  
+   ```conf
+   -e LOGZIO_FLUSH_THREAD_COUNT=<<LOGZIO_FLUSH_THREAD_COUNT>> \
+   ```
+The default value for this setting is `2`.
+
+* To specify the log level for this container:
+  
+   ```conf
+   -e LOGZIO_LOG_LEVEL=<<LOGZIO_LOG_LEVEL>> \
+   ```
+The default value for this setting is `info`.
+ 
 
 ##### Check Logz.io for your logs
 

@@ -7,6 +7,9 @@ short-description: Ship container logs with Fluentd on Docker
 data-source: Fluentd on Docker
 shipping-tags:
   - log-shipper
+open-source:
+  - title: Fluentd-Docker-logs
+    github-repo: fluentd-docker-logs
 contributors:
   - nshishkin
 shipping-tags:

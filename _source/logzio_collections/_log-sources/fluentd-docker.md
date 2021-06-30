@@ -36,7 +36,7 @@ This integration includes:
 
 ![Integration architecture Fluentd on Docker](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/docker_fluentd_draft_hla.png)
 
-Upon deployment, each container on your host system, including the Fluentd container, writes logs to a dedicated log file. Fluentd fetches the log data from this file and ships the data to your Logz.io account, either via an optional proxy sever or directly.
+Upon deployment, each container on your host system, including the Fluentd container, writes logs to a dedicated log file. Fluentd fetches the log data from this file and ships the data over HTTP or HTTPS to your Logz.io account, either via an optional proxy sever or directly.
 
 </div>
 <!-- tab:end -->

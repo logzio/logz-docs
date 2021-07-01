@@ -39,6 +39,7 @@ This table shows the log types that Logz.io parses automatically using pre-built
 | Checkpoint            | `checkpoint`                               |
 | Cisco ASA             | `cisco-asa`                                |
 | Cisco Meraki          | `cisco-meraki`                             |
+| Crowdstrike           | `crowdstrike`                              |
 | Docker                | `docker_logs`                              |
 | Docker Collector Logs | `docker-collector-logs`                    |
 | Elasticsearch         | `elasticsearch`                            |

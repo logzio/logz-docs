@@ -36,33 +36,32 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled`, `
   
 ##### Add logzio-helm repo to your helm repo list
 
-```shell
-helm repo add logzio-helm https://logzio.github.io/logzio-helm
-helm repo update
-```
+  ```shell
+  helm repo add logzio-helm https://logzio.github.io/logzio-helm
+  helm repo update
+  ```
 
 ##### Deploy the Helm chart
 
-To deploy the Helm chart, enter the relevant parameters for the placeholders and run the code. 
+1. Configure the relevant parameters in the following code:
 
-###### Configure the parameters in the code
+   ```
+   helm install --namespace <<YOUR-NAMESPACE>>  \
+   --set secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
+   --set secrets.ListenerHost="<<HTTPS://LISTENER-HOST>>:8053" \
+   --set secrets.p8s_logzio_name=<<ENV-TAG>> \
+   logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics
+   ```
 
-Replace the Logz-io `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) of the metrics account to which you want to send your data.
+   * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
 
+   * {% include /metric-shipping/replace-metrics-token.html %}
 
-Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `https://listener.logz.io:8053`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+   * {% include /log-shipping/listener-var.html %}
 
-Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
+   * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 
-###### Run the Helm deployment code
-
-```
-helm install  \
---set secrets.MetricsToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
---set secrets.ListenerHost=<<LISTENER-HOST>> \
---set secrets.p8s_logzio_name=<<ENV-TAG>> \
-logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics
-```
+2. Run the code.
 
 ##### Check Logz.io for your metrics
 

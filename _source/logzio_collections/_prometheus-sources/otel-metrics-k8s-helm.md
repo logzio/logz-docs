@@ -48,7 +48,7 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled`, `
    ```
    helm install --namespace <<YOUR-NAMESPACE>>  \
    --set secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
-   --set secrets.ListenerHost="<<HTTPS://LISTENER-HOST>>:8053" \
+   --set secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
    --set secrets.p8s_logzio_name=<<ENV-TAG>> \
    logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics
    ```

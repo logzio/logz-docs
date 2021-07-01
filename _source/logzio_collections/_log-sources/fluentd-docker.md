@@ -74,7 +74,7 @@ To send your container logs directly to Logz.io:
    -v /var/lib/docker/containers:/var/lib/docker/containers:/var/lib/docker/containers:ro \
    -v /var/run/docker.sock:/var/run/docker.sock:ro \
    -p 5001:5001 \
-   -e LOGZIO_LOG_LISTENER="<<LISTENER-HOST>>:8071" \
+   -e LOGZIO_LOG_LISTENER="https://<<LISTENER-HOST>>:8071" \
    -e LOGZIO_LOG_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>> \
    -e LOGZIO_TYPE=docker-fluentd \
    logzio/fluentd-docker-logs
@@ -94,7 +94,7 @@ To send your container logs to Logz.io via a proxy server:
    -v /var/lib/docker/containers:/var/lib/docker/containers:/var/lib/docker/containers:ro \
    -v /var/run/docker.sock:/var/run/docker.sock:ro \
    -p 5001:5001 \
-   -e LOGZIO_LOG_LISTENER="<<LISTENER-HOST>>:8071" \
+   -e LOGZIO_LOG_LISTENER="https://<<LISTENER-HOST>>:8071" \
    -e LOGZIO_LOG_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>> \
    -e LOGZIO_TYPE=docker-fluentd \
    -e LOGZIO_PROXY_URI=<<LOGZIO_PROXY_URI>> \

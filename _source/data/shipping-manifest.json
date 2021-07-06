@@ -10,7 +10,7 @@ permalink: /data/shipping-manifest.json
   {%- when "production" -%}
     {%- assign branch = "/master" -%}
   {%- else -%}
-    {%- assign branch = "/added-pfsense
+    {%- assign branch = "/added-pfsense" -%}
 {%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
 
 {% capture json -%}

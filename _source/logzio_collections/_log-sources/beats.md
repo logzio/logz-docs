@@ -54,7 +54,7 @@ This document describes the way to get logs from your system to Logz.io using an
    ```yml
      fields:
        logzio_codec: <plain> or <json>
-       token: <TOKEN>
+       token: <LOG-SHIPPING-TOKEN>
        type: <LOGTYPE>
      fields_under_root: true
      encoding: utf-8

@@ -87,7 +87,6 @@ order: 1380
 * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
 * {% include log-shipping/log-shipping-token.md %}
 * {% include log-shipping/listener-var.md %}
-  
 2. Run Filebeat with the new configuration.
 
 ##### Check Logz.io for your logs

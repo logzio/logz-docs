@@ -11,6 +11,7 @@ permalink: /data/shipping-manifest.json
     {%- assign branch = "/master" -%}
   {%- else -%}
     {%- assign branch = "/added-pfsense" -%}
+{%- endcase -%}
 {%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
 
 {% capture json -%}

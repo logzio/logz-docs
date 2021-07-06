@@ -116,7 +116,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
    <match crowdstrike-fluentd>
      @type logzio_buffered
    ​
-     endpoint_url https://<<LOGZIO_LISTENER>>:8071?token=<<LOGZIO_SHIPPING_TOKEN>>
+     endpoint_url https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>
    ​
      output_include_time true
      output_include_tags true
@@ -149,8 +149,8 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
    {:.info-box.note}
    <!-- info-box-end -->
 
-4. Replace ```<<LOGZIO_LISTENER>>``` with the Listener URL for your account.
-5. Replace ```<LOGZIO_SHIPPING_TOKEN>``` with your token value.
+4. {% include /log-shipping/listener-var.html %}
+5. {% include /log-shipping/log-shipping-token.html %}
 6. Save the changes.
 
 

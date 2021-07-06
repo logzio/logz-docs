@@ -634,7 +634,7 @@ paths:
                 type: integer
                 minimum: 0
                 default: 0
-                description: Of the results found, the first result to return
+                description: Of the results found, the first result to return.
                 example: 0
               size:
                 type: integer
@@ -1227,7 +1227,86 @@ paths:
         default:
           description: successful operation
 
-  
+  # ::::: TriggeredAlerts V1
+
+  /v1/alerts/triggered-alerts:
+    post:
+      operationId: TriggeredAlerts
+      summary: Retrieve triggered alerts
+      description: Returns a paged filtered list of triggered alerts for your accounts.
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: from
+          in: query
+          type: integer
+          minimum: 0
+          default: 0
+          description: Of the results found, the first result to return
+          example: 0
+        - name: size
+          in: query
+          type: integer
+          description: Size of page to return.
+          example: 15
+        - name: search
+          in: query
+          type: string
+          description: Part of the alert name to filter by name (ignore case).
+          example: test
+        - name: severities
+          in: query
+          type: array
+          items:
+            type: string
+            enum:
+              - SEVERE
+              - HIGH
+              - MEDIUM
+              - LOW
+              - INFO
+          description: Filter results by severity of triggered alerts.
+          example: SEVERE
+        - name: sortBy
+          in: query
+          description: Sort alerts by date or severety.
+          schema:
+            type: string
+            enum: [DATE, SEVERETY]
+        - name: sortOrder
+          in: query
+          description: Sort order of alerts retrieved.
+          schema:
+            type: string
+            enum: [ASC, DESC]
+      x-code-samples:
+              - lang: cURL
+                source: >-
+                  curl -X POST https://api.logz.io/v1/search \
+                    -H 'Content-Type: application/json' \
+                    -H 'X-API-TOKEN: <token>' \
+                    -d '{
+                  	"from": 0,
+                  	"size": 15,
+                  	"search": "test",
+                  	"severities": ["HIGH", "LOW"],
+                  	"sortBy": "DATE",
+                  	"sortOrder": "ASC"
+                  }' 
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TriggeredAlertsResponse'
+          headers: {}
+
+
+
+
   # ::::: Deployment markers
   /v2/markers/create-markers:
     post:
@@ -6445,6 +6524,45 @@ definitions:
           type: integer
           format: int32
           example: 2321
+
+  TriggeredAlertsResponse:
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        description: Size of page returned.
+        example: 2
+      from:
+        type: integer
+        description: Of the results found, the first result to return.
+        example: 1
+      total:
+        type: integer
+        description: Total number of alerts retrieved.
+        example: 2
+      results:
+        type: array
+        description: Array of alerts retrieved by the search.
+        items:
+          type: object
+          properties: 
+            alertId: 
+              type: integer
+              description: Alert ID.
+              example: 1
+            name: 
+              type: string
+              description: Alert name.
+              example: test
+            eventDate: 
+              type: number
+              description: Alert date.
+              example: 1523970558.657000000
+            severity: 
+              type: string
+              description: Alert severety.
+              example: HIGH
+
 
   AlertRecipients:
     type: object

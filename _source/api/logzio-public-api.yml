@@ -1300,7 +1300,7 @@ paths:
                   	"search": "test",
                   	"severities": ["HIGH", "LOW"],
                   	"sortBy": "DATE",
-                  	"sortOrder": "ASC"
+                  	"sortOrder": "ASC",
                     "tags": "network"
                   }' 
       responses:

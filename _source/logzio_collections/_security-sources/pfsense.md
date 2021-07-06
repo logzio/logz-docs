@@ -33,7 +33,7 @@ order: 1380
    * IP Protocol - IPV4
    * Remote log servers - `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>`:514
    * Remote Syslog Contents - Everything
-   * Log message format - syslog (RFC 5424, with RFC 3339 microsecond-precision timestamps.
+   * Log message format - syslog (RFC 5424, with RFC 3339 microsecond-precision timestamps).
 5. Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
 6. Save the changes.
    <!-- info-box-start:info -->

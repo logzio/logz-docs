@@ -1262,13 +1262,14 @@ paths:
           items:
             type: string
             enum:
-              - SEVERE
-              - HIGH
-              - MEDIUM
-              - LOW
-              - INFO
+              -
+                - SEVERE
+                - HIGH
+                - MEDIUM
+                - LOW
+                - INFO
+            example: '["SEVERE", "HIGH"]'
           description: Filter results by severity of triggered alerts.
-          example: SEVERE
         - name: sortBy
           in: query
           description: Sort alerts by date or severety.
@@ -1281,10 +1282,16 @@ paths:
           schema:
             type: string
             enum: [ASC, DESC]
+        - name: tags
+          in: query
+          type: array
+          items:
+            type: string
+          description: List of tags the alert is related to.
       x-code-samples:
               - lang: cURL
                 source: >-
-                  curl -X POST https://api.logz.io/v1/search \
+                  curl -X POST https://api.logz.io/v1/alerts/triggered-alerts \
                     -H 'Content-Type: application/json' \
                     -H 'X-API-TOKEN: <token>' \
                     -d '{
@@ -1294,6 +1301,7 @@ paths:
                   	"severities": ["HIGH", "LOW"],
                   	"sortBy": "DATE",
                   	"sortOrder": "ASC"
+                    "tags": "network"
                   }' 
       responses:
         '200':

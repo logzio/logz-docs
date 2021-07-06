@@ -24,16 +24,22 @@ order: 1380
 
 ##### Configure pfSense to send syslog notifications to a remote Syslog server running Filebeat
 
-1. On your Pfsense firewall web interface, go to **Status > System logs > Setting**.
-2. On the Settings tab, locate the **Remote Logging Options** area and enable the following configuration:
+On your Pfsense firewall web interface, go to **Status > System logs > Setting**.
+![Status options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/pfsense/Pfsense_Status_Options.png)
+On the Settings tab, locate the **General Logging Options** area and enable the following configuration:
+
+   * Log message format - syslog (RFC 5424, with RFC 3339 microsecond-precision timestamps)
+![General logging](https://dytvr9ot2sszz.cloudfront.net/logz-docs/pfsense/Pfsense_General_Logging.png)
+
+On the Settings tab, locate the **Remote Logging Options** area and enable the following configuration:
+
    * Enable Remote Logging - Yes
    * Source Address - Any
    * IP Protocol - IPV4
-   * Remote log servers - `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>`:514
+   * Remote log servers - `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>`:514. This is the address of your dedicated server running Filebeat.
    * Remote Syslog Contents - Everything
-   * Log message format - syslog (RFC 5424, with RFC 3339 microsecond-precision timestamps).
-3. Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your dedicated server running Filebeat.
-4. Save the changes.
+![Remote logging](https://dytvr9ot2sszz.cloudfront.net/logz-docs/pfsense/Pfsense_Remote_Logging_Config.png)
+
    <!-- info-box-start:info -->
    By default, syslog will be forwarded over port 514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
    {:.info-box.note}
@@ -44,52 +50,43 @@ order: 1380
 
 ##### Configure Filebeat
 
-1. Paste the following into the inputs section of the Filebeat configuration file:
+Paste the following into the inputs section of the Filebeat configuration file:
 
    ```yaml
-   filebeatilebeat.inputs:
-       - type: udp
-       max_message_size: 10MiB
-       host: "`<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>`:514"
+   filebeat.inputs:
+   - type: udp
+     max_message_size: 10MiB
+     host: "<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>:514"
+     fields:
+       logzio_codec: plain
+       # Your Logz.io account token. You can find your token at
+       #  https://app.logz.io/#/dashboard/settings/manage-accounts
+       token: <<LOG-SHIPPING-TOKEN>>
+       type: pfsense
+     fields_under_root: true
+     encoding: utf-8
+     ignore_older: 3h
+   filebeat.registry.path: /var/lib/filebeat
+   processors:
+   - rename:
        fields:
-           logzio_codec: plain
-           # Your Logz.io account token. You can find your token at
-           #  https://app.logz.io/#/dashboard/settings/manage-accounts
-           token: <<LOG-SHIPPING-TOKEN>>
-           type: pfsense
-       fields_under_root: true
-       encoding: utf-8
-       ignore_older: 3h
-
-       filebeat.registry.path: /var/lib/filebeat
-          processors:
-          - rename:
-              fields:
-              - from: "agent"
-                to: "filebeat_agent"
-              ignore_missing: true
-          - rename:
-              fields:
-              - from: "log.file.path"
-                to: "source"
-              ignore_missing: true
-   ```
-
-2. Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
-3. {% include log-shipping/log-shipping-token.md %}
-4. Paste the following into the Outputs section of the Filebeat configuration file:
-
-   ```yaml
-   
+       - from: "agent"
+         to: "filebeat_agent"
+       ignore_missing: true
+   - rename:
+       fields:
+       - from: "log.file.path"
+         to: "source"
+       ignore_missing: true
    output.logstash:
-               hosts: ["<<LISTENER-HOST>>:5015"]
-               ssl:
-                 certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-   
+     hosts: ["<<LISTENER-HOST>>:5015"]
+     ssl:
+       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
 
-5. {% include log-shipping/listener-var.md %}
-
+* Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
+* {% include log-shipping/log-shipping-token.md %}
+* {% include log-shipping/listener-var.md %}
 
 ##### Check Logz.io for your logs
 

@@ -16,7 +16,17 @@ shipping-tags:
   - popular
 order: 390
 ---
+<!-- tabContainer:start -->
+<div class="branching-container">
 
+* [Overview](#overview)
+* [Standard configuration](#Standard-configuration)
+* [Customizing Helm chart parameters](#Customizing)
+* [Uninstalling the Chart](#Uninstalling)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
 
 ##  Overview
 
@@ -29,6 +39,12 @@ It is also dependent on the [kube-state-metrics](https://github.com/kubernetes/k
 To disable the dependency during installation, set `kubeStateMetrics.enabled`, `nodeExporter.enabled` or `pushGateway.enabled` to `false`.
 {:.info-box.note}
 <!-- info-box-end -->
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Standard-configuration">
 
 #### Standard configuration
 
@@ -69,6 +85,10 @@ Give your data some time to get from your system to ours, then log in to your Lo
 
 
 </div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Customizing">
 
 ####  Customizing Helm chart parameters
 
@@ -100,6 +120,10 @@ The default configuration uses the Prometheus receiver with the following scrape
 To customize your configuration, edit the `config` section in the `values.yaml` file.
 
 </div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Uninstalling">
 
 #### Uninstalling the Chart
 
@@ -110,4 +134,8 @@ To uninstall the `logzio-otel-k8s-metrics` deployment, use the following command
 ```shell
 helm uninstall logzio-otel-k8s-metrics
 ```
+</div>
+<!-- tab:end -->
 
+</div>
+<!-- tabContainer:end -->

@@ -80,8 +80,8 @@ Run the following command:
    logzio/fluentd-docker-logs
    ```
 
-* {% include log-shipping/listener-var.html %}
-* {% include log-shipping/log-shipping-token.html %}
+{% include log-shipping/listener-var.html %}
+{% include log-shipping/log-shipping-token.html %}
 
 If you need to send the logs via a proxy server:
 

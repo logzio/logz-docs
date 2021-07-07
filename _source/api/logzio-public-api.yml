@@ -634,7 +634,7 @@ paths:
                 type: integer
                 minimum: 0
                 default: 0
-                description: Of the results found, the first result to return
+                description: Of the results found, the first result to return.
                 example: 0
               size:
                 type: integer
@@ -1272,10 +1272,10 @@ paths:
           description: Filter results by severity of triggered alerts.
         - name: sortBy
           in: query
-          description: Sort alerts by date or severety.
+          description: Sort alerts by date or severity.
           schema:
             type: string
-            enum: [DATE, SEVERETY]
+            enum: [DATE, SEVERITY]
         - name: sortOrder
           in: query
           description: Sort order of alerts retrieved.

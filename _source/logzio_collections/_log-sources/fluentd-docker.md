@@ -63,8 +63,6 @@ docker pull logzio/fluentd-docker-logs
 
 ##### Start the container
 
-To send your container logs directly to Logz.io:
-
 1. Set the configuration parameters in the command below:
 
    ```conf
@@ -77,132 +75,43 @@ To send your container logs directly to Logz.io:
    -e LOGZIO_LOG_LISTENER="https://<<LISTENER-HOST>>:8071" \
    -e LOGZIO_LOG_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>> \
    -e LOGZIO_TYPE=docker-fluentd \
+   -e LOGZIO_PROXY_URI=nil \
+   -e LOGZIO_PROXY_CERT=nil \
    logzio/fluentd-docker-logs
    ```
 
-2. {% include log-shipping/listener-var.html %}
-3. {% include log-shipping/log-shipping-token.html %}
+{% include log-shipping/listener-var.html %}
+{% include log-shipping/log-shipping-token.html %}
 
-To send your container logs to Logz.io via a proxy server:
+If you need to send the logs via a proxy server:
 
-1. Set the configuration parameters in the command below:
-
-   ```conf
-   docker run -it --rm \
-   --name fluentd-docker-logs \
-   -v $(pwd)/log:/fluentd/log \
-   -v /var/lib/docker/containers:/var/lib/docker/containers:/var/lib/docker/containers:ro \
-   -v /var/run/docker.sock:/var/run/docker.sock:ro \
-   -p 5001:5001 \
-   -e LOGZIO_LOG_LISTENER="https://<<LISTENER-HOST>>:8071" \
-   -e LOGZIO_LOG_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>> \
-   -e LOGZIO_TYPE=docker-fluentd \
-   -e LOGZIO_PROXY_URI=<<LOGZIO_PROXY_URI>> \
-   -e LOGZIO_PROXY_CERT=<<LOGZIO_PROXY_CERT>> \
-   logzio/fluentd-docker-logs
-   ```
-
-2. {% include log-shipping/listener-var.html %}
-3. {% include log-shipping/log-shipping-token.html %}
-4. Replace `<<LOGZIO_PROXY_URI>>` with your proxy URI.
-5. Replace `<<LOGZIO_PROXY_CERT>>` with your proxy certificate.
-
-If you need to customize the default settings of the configuration parameters, add any of the following lines to the command:
-  
-* To use Regex to specify what conainers to ship logs from: 
-  
-   ```conf
-   -e LOGZIO_INCLUDE_REGEX=<<LOGZIO_INCLUDE_REGEX>> \
-   ```
-  
- If a container name does not match the Regex, logs from this container will not be shipped. The default value for this setting is `.+`.
-  
-* To specify the threshold for chunk flush performance check:
-  
-   ```conf
-   -e LOGZIO_SLOW_FLUSH_LOG_THRESHOLD=<<LOGZIO_SLOW_FLUSH_LOG_THRESHOLD>> \
-   ```
-
-The default value for this setting is `20.0`.
- 
-* To specify which plugin to use as the backend:
-  
-   ```conf
-   -e LOGZIO_BUFFER_TYPE=<<LOGZIO_BUFFER_TYPE>> \
-   ```
-
-The default value for this setting is `file`.
-  
-* To specify the path to the backend plugin:
-  
-   ```conf
-   -e LOGZIO_BUFFER_PATH=<<LOGZIO_BUFFER_PATH>> \
-   ```
-
-The default value for this setting is `/var/log/Fluentd-buffers/stackdriver.buffer`.
-  
-* To specify the parameter that controls the behavior when the queue becomes full:
-  
-   ```conf
-   -e LOGZIO_OVERFLOW_ACTION=<<LOGZIO_OVERFLOW_ACTION>> \
-   ```
-
-The default value for this setting is `block`. Refer to [documentation on Fluentd](https://docs.fluentd.org/output#overflow_action) for more on this.
-
-* To specify the maximum size of a chunk allowed:
-  
-   ```conf
-   -e LOGZIO_CHUNK_LIMIT_SIZE=<<LOGZIO_CHUNK_LIMIT_SIZE>> \
-   ```
-
-The default value for this setting is `2M`.
-
-* To specify the maximum length of the output queue:
-  
-   ```conf
-   -e LOGZIO_QUEUE_LIMIT_LENGTH=<<LOGZIO_QUEUE_LIMIT_LENGTH>> \
-   ```
-
-The default value for this setting is `6`.
-
-* To specify the interval, in seconds, to wait before invoking the next buffer flush:
-  
-   ```conf
-   -e LOGZIO_FLUSH_INTERVAL=<<LOGZIO_FLUSH_INTERVAL>> \
-   ```
-
-The default value for this setting is `5s`.
-
-* To specify the maximum interval, in seconds, to wait between retries:
-  
-   ```conf
-   -e LOGZIO_RETRY_MAX_INTERVAL=<<LOGZIO_RETRY_MAX_INTERVAL>> \
-   ```
-
-The default value for this setting is `30s`.
-  
-* To specify the number of threads to flush the buffer:
-  
-   ```conf
-   -e LOGZIO_FLUSH_THREAD_COUNT=<<LOGZIO_FLUSH_THREAD_COUNT>> \
-   ```
-
-The default value for this setting is `2`.
-
-* To specify the log level for this container:
-  
-   ```conf
-   -e LOGZIO_LOG_LEVEL=<<LOGZIO_LOG_LEVEL>> \
-   ```
-
-The default value for this setting is `info`.
- 
+* Add your proxy URI to the `OGZIO_PROXY_URI` field
+* Add your proxy certificate to the `LOGZIO_PROXY_CERT` field.
 
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `docker-fluentd` to see the incoming container logs.
   
 If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+#### Advanced settings
+
+If you need to customize the default settings of the configuration parameters, add any of the following lines to the command:
+
+| Parameter | Description | Default |
+|---|---|---|
+| `-e LOGZIO_INCLUDE_REGEX=<<LOGZIO_INCLUDE_REGEX>> \` | If a container name does not match the Regex, logs from this container will not be shipped. | `.+` |
+| `-e LOGZIO_SLOW_FLUSH_LOG_THRESHOLD=<<LOGZIO_SLOW_FLUSH_LOG_THRESHOLD>> \` | Specifies the threshold for chunk flush performance check. |  `20.0` |
+| `-e LOGZIO_BUFFER_TYPE=<<LOGZIO_BUFFER_TYPE>> \` | Specifies which plugin to use as the backend. |  `file` |
+| `-e LOGZIO_BUFFER_PATH=<<LOGZIO_BUFFER_PATH>> \`  | Specifies the path to the backend plugin. | `/var/log/Fluentd-buffers/stackdriver.buffer` |
+| `-e LOGZIO_OVERFLOW_ACTION=<<LOGZIO_OVERFLOW_ACTION>> \` | Specifies the parameter that controls the behavior when the queue becomes full. Refer to [documentation on Fluentd](https://docs.fluentd.org/output#overflow_action) for more on this. | `block` |
+| `-e LOGZIO_CHUNK_LIMIT_SIZE=<<LOGZIO_CHUNK_LIMIT_SIZE>> \` | Specifies the maximum size of a chunk allowed.  | `2M` |
+| `-e LOGZIO_QUEUE_LIMIT_LENGTH=<<LOGZIO_QUEUE_LIMIT_LENGTH>> \` | Specifies the maximum length of the output queue.  | `6` |
+| `-e LOGZIO_FLUSH_INTERVAL=<<LOGZIO_FLUSH_INTERVAL>> \` | Specifies the interval, in seconds, to wait before invoking the next buffer flush.  | `5s` |
+| `-e LOGZIO_RETRY_MAX_INTERVAL=<<LOGZIO_RETRY_MAX_INTERVAL>> \` | Specifies the maximum interval, in seconds, to wait between retries.  | `30s` |
+| `-e LOGZIO_FLUSH_THREAD_COUNT=<<LOGZIO_FLUSH_THREAD_COUNT>> \` | Specifies the number of threads to flush the buffer.  | `2` |
+| `-e LOGZIO_LOG_LEVEL=<<LOGZIO_LOG_LEVEL>> \` | Specifies the log level for this container.  | `info` |
+
 </div>
 
 </div>

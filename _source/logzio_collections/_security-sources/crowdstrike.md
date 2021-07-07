@@ -5,6 +5,8 @@ logo:
   orientation: vertical
 data-source: Crowdstrike
 templates: ["network-device-filebeat"]
+contributors:
+  - nshishkin
 shipping-tags:
   - endpoint-security
 order: 1380

@@ -82,8 +82,9 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled`, `
 ##### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
-
-
+  
+</div>
+  
 </div>
 <!-- tab:end -->
 
@@ -120,6 +121,8 @@ The default configuration uses the Prometheus receiver with the following scrape
 To customize your configuration, edit the `config` section in the `values.yaml` file.
 
 </div>
+
+</div>
 <!-- tab:end -->
 
 <!-- tab:start -->
@@ -134,6 +137,9 @@ To uninstall the `logzio-otel-k8s-metrics` deployment, use the following command
 ```shell
 helm uninstall logzio-otel-k8s-metrics
 ```
+
+</div>
+
 </div>
 <!-- tab:end -->
 

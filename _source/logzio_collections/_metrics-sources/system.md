@@ -174,7 +174,7 @@ that runs Metricbeat with the modules you enable at runtime.
 
 <!-- info-box-start:info -->
 This Docker container monitors Linux system metrics only.
-For other OSes, we recommend running Metricbeat locally on the system itself.
+For other operating systems, we recommend running Metricbeat locally on the system itself.
 {:.info-box.note}
 <!-- info-box-end -->
 

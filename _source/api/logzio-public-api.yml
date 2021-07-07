@@ -1244,7 +1244,7 @@ paths:
           type: integer
           minimum: 0
           default: 0
-          description: Of the results found, the first result to return
+          description: Of the results found, the first result to return.
           example: 0
         - name: size
           in: query

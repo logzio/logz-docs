@@ -88,7 +88,7 @@ Give your data some time to get from your system to ours, then log in to your Lo
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="Customizing">
+<div id="Customizing-helm-chart-parameters">
 
 ####  Customizing Helm chart parameters
 
@@ -123,7 +123,7 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="Uninstalling">
+<div id="Uninstalling-the-chart">
 
 #### Uninstalling the Chart
 

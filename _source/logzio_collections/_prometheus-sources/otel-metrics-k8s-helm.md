@@ -21,14 +21,14 @@ order: 390
 
 * [Overview](#overview)
 * [Standard configuration](#Standard-configuration)
-* [Customizing Helm chart parameters](#Customizing)
-* [Uninstalling the Chart](#Uninstalling)
+* [Customizing Helm chart parameters](#Customizing-helm-chart-parameters)
+* [Uninstalling the Chart](#Uninstalling-the-chart)
 {:.branching-tabs}
 
 <!-- tab:start -->
 <div id="overview">
 
-##  Overview
+####  Overview
 
 
 **logzio-otel-k8s-metrics** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.

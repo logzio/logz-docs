@@ -6,7 +6,7 @@
 | LOGZIO_MODULES | Comma-separated list of Metricbeat modules to enable on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/modules`. | Required |
 
 <!-- info-box-start:info -->
-The `LOGZIO_MODULES` parameter by default supports only these prebuilt modules: `aws`, `system` and `docker`.
+By default, the `LOGZIO_MODULES` parameter supports only the following prebuilt modules: `aws`, `system` and `docker`.
 {:.info-box.note}
 <!-- info-box-end --> 
 

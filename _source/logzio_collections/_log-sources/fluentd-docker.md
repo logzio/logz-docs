@@ -63,7 +63,7 @@ docker pull logzio/fluentd-docker-logs
 
 ##### Start the container
 
-1. Set the configuration parameters in the command below:
+Run the following command:
 
    ```conf
    docker run -it --rm \
@@ -80,8 +80,8 @@ docker pull logzio/fluentd-docker-logs
    logzio/fluentd-docker-logs
    ```
 
-{% include log-shipping/listener-var.html %}
-{% include log-shipping/log-shipping-token.html %}
+* {% include log-shipping/listener-var.html %}
+* {% include log-shipping/log-shipping-token.html %}
 
 If you need to send the logs via a proxy server:
 
@@ -93,6 +93,8 @@ If you need to send the logs via a proxy server:
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `docker-fluentd` to see the incoming container logs.
   
 If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+  
+</div>
 
 #### Advanced settings
 
@@ -111,8 +113,6 @@ If you need to customize the default settings of the configuration parameters, a
 | `-e LOGZIO_RETRY_MAX_INTERVAL=<<LOGZIO_RETRY_MAX_INTERVAL>> \` | Specifies the maximum interval, in seconds, to wait between retries.  | `30s` |
 | `-e LOGZIO_FLUSH_THREAD_COUNT=<<LOGZIO_FLUSH_THREAD_COUNT>> \` | Specifies the number of threads to flush the buffer.  | `2` |
 | `-e LOGZIO_LOG_LEVEL=<<LOGZIO_LOG_LEVEL>> \` | Specifies the log level for this container.  | `info` |
-
-</div>
 
 </div>
 <!-- tab:end -->

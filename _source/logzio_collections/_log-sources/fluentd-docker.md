@@ -85,7 +85,7 @@ Run the following command:
 
 If you need to send the logs via a proxy server:
 
-   * Add your proxy URI to the `LOGZIO_PROXY_URI` field
+   * Add your proxy URI to the `LOGZIO_PROXY_URI` field.
    * Add your proxy certificate to the `LOGZIO_PROXY_CERT` field.
 
 ##### Check Logz.io for your logs

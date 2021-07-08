@@ -33,7 +33,7 @@ Follow the instructions on [Get started with Telegraf](https://docs.influxdata.c
 
 ##### Add the inputs.mongodb plug-in
 
-First you need to configure the input plug-in to enable Telegraf to scrape the PostgreSQL data from your hosts. To do this, add the following code to the configuration file:
+First you need to configure the input plug-in to enable Telegraf to scrape the MongoDB data from your hosts. To do this, add the following code to the configuration file:
 
 
 ``` yaml

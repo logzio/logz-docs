@@ -38,9 +38,9 @@ First you need to configure the input plug-in to enable Telegraf to scrape the P
 
 ``` yaml
 [[inputs.postgresql]]
-  address = "host=<<HOST-NAME>> user=<<USER-NAME>> password=<<PASSWORD>> sslmode=disable dbname=<<DB-NAME>>"
+  address = "host=<<ADDRESS>> user=<<USER-NAME>> password=<<PASSWORD>> sslmode=disable dbname=<<DB-NAME>>"
 ```
-* Replace `<<HOST-NAME>>` with the address of your PostgreSQL database host.
+* Replace `<<ADDRESS>>` with the address of your PostgreSQL database host.
 * Replace `<<USER-NAME>>` with the user name for your PostgreSQL database.
 * Replace `<<PASSWORD>>` with the password for your PostgreSQL database.
 * Replace `<<DB-NAME>>` with the name of your PostgreSQL database.

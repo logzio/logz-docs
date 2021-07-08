@@ -21,8 +21,8 @@ order: 460
 <div class="branching-container">
 
 * [Overview](#overview)
-* [Connect to existing blob storage account](#existing-blob-config)
 * [Create a new blob storage account](#new-blob-config)
+* [Connect to existing blob storage account](#existing-blob-config)
 * [Update settings](#update)
 {:.branching-tabs}
 

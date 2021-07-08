@@ -95,6 +95,7 @@ LOGGING = {
             'level': 'INFO',
             'formatter': 'logzioFormat',
             'token': '<<LOG-SHIPPING-TOKEN>>',
+            'logzio_type': '<<LOG-TYPE>>',
             'logs_drain_timeout': 5,
             'url': 'https://<<LISTENER-HOST>>:8071'
         }

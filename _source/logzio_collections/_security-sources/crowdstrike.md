@@ -141,13 +141,13 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
    </label>
    ```
 
-The default configuration for the log level is set to **info**. The **log_level** setting defines which events are recorded in the log. In order of verbosity, the log level can be defined as **fatal**, **error**, **warn**, **info**, **debug** or **trace**. The **info** level records all events categorized as **info** and higher in verbosity. To learn more about the settings used in the configuration file, see [Logz.io plugin for Fluentd](https://github.com/logzio/fluent-plugin-logzio).
-
-If you change `type` in the `@type record_transformer` section, the data is not parsed into the relevant fields for the Crowdstrike integration.
-
-{% include /log-shipping/listener-var.html %}
-{% include /log-shipping/log-shipping-token.html %}
-
+   The default configuration for the log level is set to **info**. The **log_level** setting defines which events are recorded in the log. In order    of verbosity, the log level can be defined as **fatal**, **error**, **warn**, **info**, **debug** or **trace**. The **info** level records all    events categorized as **info** and higher in verbosity. To learn more about the settings used in the configuration file, see [Logz.io plugin for    Fluentd](https://github.com/logzio/fluent-plugin-logzio).
+   
+   If you change `type` in the `@type record_transformer` section, the data is not parsed into the relevant fields for the Crowdstrike integration.
+   
+   {% include /log-shipping/listener-var.html %}
+   {% include /log-shipping/log-shipping-token.html %}
+   
 4. Save the changes.
 
 

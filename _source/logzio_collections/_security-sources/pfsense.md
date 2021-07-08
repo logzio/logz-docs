@@ -8,7 +8,7 @@ templates: ["network-device-filebeat"]
 contributors:
   - nshishkin
 shipping-tags:
-  - endpoint-security
+  - firewalls
 order: 1380
 ---
 [pfSense](https://www.pfsense.org/) is an open source firewall solution. This topic describes how to configure pfSense to send system logs to Logz.io via Filebeat running on a dedicated server. 

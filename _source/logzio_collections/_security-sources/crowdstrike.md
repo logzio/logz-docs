@@ -147,6 +147,7 @@ If you change `type` in the `@type record_transformer` section, the data is not 
 
 {% include /log-shipping/listener-var.html %}
 {% include /log-shipping/log-shipping-token.html %}
+
 4. Save the changes.
 
 

@@ -23,7 +23,7 @@ order: 460
 * [Overview](#overview)
 * [Create a new blob storage account](#new-blob-config)
 * [Connect to existing blob storage account](#existing-blob-config)
-* [Update settings](#update)
+* [Update parameters after deployment](#update)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -58,7 +58,7 @@ The following services are created when you deploy this integration:
 
 
 
-#### Set up a new blob storage account
+#### Create a new blob storage account
 
 <div class="tasklist">
 
@@ -105,7 +105,7 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 
 
 
-#### Use your existing blob storage account
+#### Connect to existing blob storage account
 
 **Before you begin, you'll need**: a blob storage account of the type **StorageV2 (general purpose v2)**.
 
@@ -167,7 +167,7 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <!-- tab:start -->
 <div id="update">
 
-#### Updating parameters after deployment
+#### Update parameters after deployment
 
 To update your parameters post-deployment:
 

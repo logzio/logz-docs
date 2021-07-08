@@ -8,7 +8,7 @@ templates: ["network-device-filebeat"]
 contributors:
   - nshishkin
 shipping-tags:
-  - endpoint-security
+  - firewalls
 order: 1380
 ---
 [pfSense](https://www.pfsense.org/) is an open source firewall solution. This topic describes how to configure pfSense to send system logs to Logz.io via Filebeat running on a dedicated server. 
@@ -41,10 +41,11 @@ order: 1380
    * Remote Syslog Contents - Everything
 ![Remote logging](https://dytvr9ot2sszz.cloudfront.net/logz-docs/pfsense/Pfsense_Remote_Logging_Config.png)
 
-   <!-- info-box-start:info -->
-   By default, syslog will be forwarded over port 514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
-   {:.info-box.note}
-   <!-- info-box-end -->
+  
+<!-- info-box-start:info -->
+By default, syslog will be forwarded over port 514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
+{:.info-box.note}
+<!-- info-box-end -->
 
 {% include log-shipping/certificate.md %}
 

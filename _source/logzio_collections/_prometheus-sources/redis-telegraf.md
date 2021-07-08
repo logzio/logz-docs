@@ -49,7 +49,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the R
 * Replace `<<PROTOCOL>>` with the name of your shipping protocol (tcp protocol recommended).
 * Replace `<<PASSWORD>>` with the password for your Redis database.
 * Replace `<<ADDRESS>>` with the address of your Redis database host.
-* Replace `<<PORT>>` with the address of your host port allocated to MongoDB database.
+* Replace `<<PORT>>` with the address of your host port allocated to Redis database.
 
 <!-- info-box-start:info -->
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/redis/README.md).

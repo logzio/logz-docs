@@ -96,7 +96,7 @@ azureADClient:
   pullIntervalSeconds: 300
   tenantId: "<<AD_TENANT_ID>>"
   clientId: "<<APP_CLIENT_ID>>"
-  clientSecret: "<<APP_CLIENT_SECRET>>"
+  clientSecret: "<<APP_CLIENT_SECRET_VALUE>>"
 
 logLevel: INFO
 ```
@@ -111,7 +111,7 @@ logLevel: INFO
 | senderParams.senderDrainIntervals | How often the sender should drain the queue, in seconds. | `30` |
 | azureADClient.tenantId  | Azure Active Directory tenant ID. You can find this in the _Overview_ section of the app you registered in step 1. | Required |
 | azureADClient.clientId  | Application client ID.    You can find this in the _Overview_ section of the app you registered in step 1. | Required |
-| azureADClient.clientSecret | The Application Client Secret you created in step 2. | Required |
+| azureADClient.clientSecret | Value of the Application Client Secret you created in step 2. | Required |
 | azureADClient.pullIntervalSeconds | Time interval, in seconds, to pull the logs with the Graph API. | `300` |
 | logLevel | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. | `INFO` |
 

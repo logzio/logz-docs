@@ -56,7 +56,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the P
 ```
 
 <!-- info-box-start:info -->
-The full list of data scraping and configuring options can be found [here](https://docs.influxdata.com/telegraf/v1.18/plugins/)
+The full list of data scraping and configuring options can be found [here](https://docs.influxdata.com/telegraf/v1.18/plugins/).
 {:.info-box.note}
 <!-- info-box-end -->
 

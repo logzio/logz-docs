@@ -38,7 +38,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the P
 
 ``` yaml
 [[inputs.mongodb]]
-  servers = ["mongodb://<<USER-NAME>>:<<PASSWORD>>@<<HOST-NAME>>:<<PORT>>"]
+  servers = ["mongodb://<<USER-NAME>>:<<PASSWORD>>@<<ADDRESS>>:<<PORT>>"]
   ## An array of URLs of the form:
   ##   "mongodb://" [user ":" pass "@"] host [ ":" port]
   ## For example:
@@ -53,7 +53,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the P
 
 * Replace `<<USER-NAME>>` with the user name for your MongoDB database.
 * Replace `<<PASSWORD>>` with the password for your MongoDB database.
-* Replace `<<HOST-NAME>>` with the address of your MongoDB database host.
+* Replace `<<ADDRESS>>` with the address of your MongoDB database host.
 * Replace `<<PORT>>` with the address of your host port allocated to MongoDB database.
 
 <!-- info-box-start:info -->

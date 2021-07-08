@@ -38,15 +38,15 @@ First you need to configure the input plug-in to enable Telegraf to scrape the P
 
 ``` yaml
 [[inputs.postgresql]]
-  address = "host=<<HOST-NAMES>> user=<<USER-NAME>> password=<<PASSWORD>> sslmode=disable dbname=<<DB-NAME>>"
+  address = "host=<<HOST-NAME>> user=<<USER-NAME>> password=<<PASSWORD>> sslmode=disable dbname=<<DB-NAME>>"
 ```
-* Replace `<<HOST-NAMES>>` with the address of your PostgreSQL database host.
+* Replace `<<HOST-NAME>>` with the address of your PostgreSQL database host.
 * Replace `<<USER-NAME>>` with the user name for your PostgreSQL database.
 * Replace `<<PASSWORD>>` with the password for your PostgreSQL database.
 * Replace `<<DB-NAME>>` with the name of your PostgreSQL database.
 
 <!-- info-box-start:info -->
-The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/postgresql/README.md)
+The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/postgresql/README.md).
 {:.info-box.note}
 <!-- info-box-end -->
 

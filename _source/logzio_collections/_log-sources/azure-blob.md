@@ -141,6 +141,7 @@ where you'll configure the resources to be deployed.
 | Location | Select the same region as the Azure services that will stream data to this Blob Storage.  |  Required |
 | Logzio host | {% include log-shipping/listener-var.md %} |  Required |
 | Log shipping token  | {% include log-shipping/log-shipping-token.md %} | Required |
+| Test  | Test | Test |
 | Blob Storage Account Name | Insert the name of the storage account that contains the logs. |  Required |
 | Format | Select one of the supported parsing formats: text/json/csv | Required |
 | Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |

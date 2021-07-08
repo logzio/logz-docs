@@ -130,7 +130,7 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 
 #### Uninstalling the Chart
 
-The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
+The `uninstall` command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
 To uninstall the `logzio-otel-k8s-metrics` deployment, use the following command:
 

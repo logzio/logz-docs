@@ -78,7 +78,7 @@ where you'll configure the resources to be deployed.
 |---|---|---|
 | Resource group | Click Create new. Give a meaningful Name, such as "logziobBlobStorageIntegration", and then click OK. | Required |
 | Location | Select the same region as the Azure services that will stream data to this Blob Storage. |  Required |
-| Logzio host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |  Required |
+| Logzio host | {% include log-shipping/listener-var.md %} |  Required |
 | Log shipping token  | {% include log-shipping/log-shipping-token.md %} | Required |
 | Format | Select one of the supported parsing formats: text/json/csv | Required |
 | Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |

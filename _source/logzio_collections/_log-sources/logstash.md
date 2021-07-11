@@ -33,6 +33,8 @@ We recommend using it for shipping to Logz.io only when you have an existing Log
 
 For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/shippers/filebeat.html).
 
+These instructions apply to Logstash running on MacOS, Lunix and Windows.
+
 </div>
 <!-- tab:end -->
 
@@ -50,12 +52,15 @@ For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/sh
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
+* For MacOS and Linux:
 
 ```shell
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /usr/share/logstash/keys/COMODORSADomainValidationSecureServerCA.crt
 ```
 
+* For Windows:
 
+Download the [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) to `C:\ProgramData\ElkStack\logstash-<<YOUR-LOGSTASH-VERSION-NUMBER>>\configLogzio.crt` on your machine.
 
 ##### Add Logz.io to your configuration file
 
@@ -66,6 +71,8 @@ Make sure the `mutate` block is the last item in the `filters` block.
 {% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/listener-var.html %}
+
+* For MacOS and Linux:
 
 ```conf
 filter {
@@ -81,6 +88,27 @@ output {
     hosts => ["<<LISTENER-HOST>>"]
     port => 5006
     ssl_certificate => "/usr/share/logstash/keys/COMODORSADomainValidationSecureServerCA.crt"
+    codec => "json_lines"
+  }
+}
+```
+
+* For Windows:
+
+```conf
+filter {
+  # ...
+  # ...
+  mutate {
+    add_field => { "token" => "<<LOG-SHIPPING-TOKEN>>" }
+  }
+}
+
+output {
+  lumberjack {
+    hosts => ["<<LISTENER-HOST>>"]
+    port => 5006
+    ssl_certificate => "/C:\ProgramData\ElkStack\logstash-<<YOUR-LOGSTASH-VERSION-NUMBER>>\configLogzio.crt"
     codec => "json_lines"
   }
 }

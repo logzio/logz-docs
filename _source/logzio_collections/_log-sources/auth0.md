@@ -8,11 +8,11 @@ templates: ["no-template"]
 contributors:
   - nshishkin
 shipping-tags:
-  - platform-service
-order: 50
+  - identity
+order: 810
 ---
 
-#### Ship events data from your Auth0 account to Logz.io
+### Ship events data from your Auth0 account to Logz.io
 
 Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using Logstash.
 
@@ -20,28 +20,54 @@ Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io 
 
 <div class="tasklist">
 
-##### Install the "Auth0 Logs to Logstash" extension
+#### Install and configure the "Auth0 Logs to Logstash" extension
 
-1. Login to your Auth0 account.
+##### Select the "Auth0 Logs to Logstash" extension
 
-2. On the Auth0 Dashboard, select **Extensions**.
+Login to your Auth0 account, navigate to **Auth0 Dashboard > Extensions**, and select **Auth0 Logs to Logstash**.
 
-3. Configure the required parameters as follows:
+The following screen will appear:
+![Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Dashboard_Logstash.png)
+
+##### Configure the required parameters
+
+Configure the required parameters as follows:
 
    * Enter your Listener host URL and port into the **LOGSTASH_URL** filed. {% include log-shipping/listener-var.md %}
    * Enter your log shipping token (`<<LOG-SHIPPING-TOKEN>>`) into the **LOGSTASH_TOKEN** field. {% include log-shipping/log-shipping-token.md %}
    * Enter `auth0` into the **LOGSTASH_INDEX** field.
 
-4. Configure the optional parameters as described [here](https://auth0.com/docs/extensions/export-logs-to-logstash).
+##### Configure the optional parameters
 
-5. Select **Install**.
+If required, configure the required parameters as follows:
 
-6. On the **Installed extensions** page, select **Auth0 Logs to Logstash**.
+   * Enter the required schedule value into the **Schedule** field. This is the frequency with which logs should be exported. This can be customized after creation.
+   * Enter the required batch size value into the **Batch size** field. This is the number of logs to be sent per batch. Maximum is `100`. Logs are batched before sending, and multiple batches are sent each time the extension runs.
+   * Enter the **Start from** value. This is the checkpoint ID of the log from which you want to start sending.
+   * Enter the adrress for the Slack incoming webhook into the **Slack incoming webhook url** field. This is the specific Slack webhook to which you want to send reports from the extension.
+   * Using the selector menu in the **Slack send success** field, choose whether to send verbose notifications to Slack.
+   * In the **Log level** field, specify minimal log level of events that you would like sent to Logstash.
+   * In the **Log types** field, select the events for which logs should be exported.
 
-7. Authorize the extension.
+ For detailed information on these parameters, refer to the [Auth0 documentation](https://auth0.com/docs/extensions/export-logs-to-logstash).
 
+##### Install the extension
 
-##### Check Logz.io for your data
+Select **Install** and wait until you are redirected to the **Installed extensions** page.
+
+![Installed extensions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Auth0_installed_extensions.png)
+
+##### Authorize the extension
+
+Select the **Auth0 Logs to Logstash** extension and confirm that you authorize this extension.
+
+#####  View the exported logs
+
+Upon authorizing the extension, you will be taken to the **Logs Export** page. Here you can see the events that are exported to Logz.io
+
+![Logs export](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Auth0_logs_export.png)
+
+#### Check Logz.io for your data
 
 Give your data some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type `auth0` to see the incoming Auth0 events.
 

@@ -40,7 +40,7 @@ For help with setting up a new trail, see [Overview for Creating a Trail](https:
 
 <!-- logzio-inject:aws:cloudtrail -->
 
-{% include log-shipping/s3-fetcher.html %}
+{% include log-shipping/S3-fetcher.html %}
 
 1. Click **+ Add a bucket**
 2. Select your preferred method of authentication - an IAM role or access keys.

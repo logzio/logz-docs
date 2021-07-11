@@ -39,7 +39,7 @@ Configure the required parameters as follows:
 
 ##### Configure the optional parameters
 
-If required, configure the required parameters as follows:
+If required, configure the optional parameters as follows:
 
    * Enter the required schedule value into the **Schedule** field. This is the frequency with which logs should be exported. This can be customized after creation.
    * Enter the required batch size value into the **Batch size** field. This is the number of logs to be sent per batch. Maximum is `100`. Logs are batched before sending, and multiple batches are sent each time the extension runs.

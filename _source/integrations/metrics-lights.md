@@ -24,6 +24,11 @@ To learn more about which resources are deployed behind the scenes and to unders
 This solution will be deployed directly on your AWS account.
 {:.info-box.note}
 
+<!-- info-box-start:info -->
+At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 #### Configuration
 

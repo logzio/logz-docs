@@ -22,6 +22,11 @@ that runs Metricbeat with the modules you enable at runtime.
 
 {% include /metric-shipping/docker-metricbeat-version.md %}
 
+<!-- info-box-start:info -->
+At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+{:.info-box.note}
+<!-- info-box-end -->
+
 #### Configuration
 
 If you're not already running Docker Metrics Collector,

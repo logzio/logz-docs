@@ -117,6 +117,11 @@ Include this line at the end of the run if you're using logzio-nodejs in a sever
   logger.sendAndClose();
   ```
 
+<!-- info-box-start:info -->
+At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+{:.info-box.note}
+<!-- info-box-end -->
+
 </div>
 
 </div>

@@ -38,6 +38,11 @@ The Logz.io Lambda extension for logs, uses the AWS Extensions API and [AWS Logs
 
 This repo is based on the [AWS lambda extensions sample](https://github.com/aws-samples/aws-lambda-extensions/tree/main/python-example-logs-api-extension/extensions).
 
+<!-- info-box-start:info -->
+At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+{:.info-box.note}
+<!-- info-box-end -->
+
 ### Prerequisites
 
 * Lambda function with supported runtime for extensions (`python 3.7`, `python 3.8`).

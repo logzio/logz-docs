@@ -31,6 +31,11 @@ order: 1150
 
 {% include /p8s-shipping/cloudwatch-otel-overview.md %}
 
+<!-- info-box-start:info -->
+At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 </div>
 <!-- tab:end -->

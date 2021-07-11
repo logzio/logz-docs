@@ -18,6 +18,10 @@ Log data sent in an array cannot be used for configuring alerts or creating visu
 
 Some shipping methods offer the option to parse an array of JSON objects into discrete events. That way, the logs can be fully parsed and mapped by Logz.io.
 
+<!-- info-box-start:info -->
+At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+{:.info-box.note}
+<!-- info-box-end -->
 
 ### Shipping methods that support arrays
 

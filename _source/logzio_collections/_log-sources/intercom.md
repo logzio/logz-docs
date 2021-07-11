@@ -54,6 +54,6 @@ Deploy this integration to ship Intercom events from your Intercom account to Lo
 
 Give your data some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you stil ldon't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>

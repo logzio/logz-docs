@@ -14,7 +14,7 @@ order: 810
 
 ### Ship events data from your Auth0 account to Logz.io
 
-Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using Logstash.
+Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using Logstash. 
 
 **Before you begin, you'll need**: an active account with Auth0
 

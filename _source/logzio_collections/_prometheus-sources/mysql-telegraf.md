@@ -102,7 +102,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 After you have created the configuration file, you need to configure the output plug-in to enable Telegraf to send your data to Logz.io in Prometheus-format. To do this, add the following code to the configuration file:
 
-``` yaml
+``` ini
 [[outputs.http]]
   url = "https://<<LISTENER-HOST>>:8053"
   data_format = "prometheusremotewrite"

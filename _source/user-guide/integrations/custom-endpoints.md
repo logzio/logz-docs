@@ -56,7 +56,8 @@ Here's an example of a JSON payload for an alert that includes a verification to
 "alert_title": "{{alert_title}}",
 "alert_description": "{{alert_description}}",
 "alert_severity": "{{alert_severity}}",
-"alert_event_samples": "{{alert_samples}}"
+"alert_event_samples": "{{alert_samples}}",
+"alert_tags":["{{alert_tags_json}}"]
 }
 ```
 {% endraw %}
@@ -109,6 +110,8 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 | {{alert_timeframe_start_epoch_millis}} |  Start time for the triggered alert event in UNIX milliseconds |
 | {{alert_timeframe_end_epoch_millis}} |  End time for the triggered alert event in UNIX milliseconds |
 | {{alert_app_url}}| The domain to your Logz.io account, for example: `https://app.logz.io`. Is used to build links. |
+| {{alert_tags}}| A comma separated list of tags assigned to the alert. i.e. `tag1, tag2, tag3`                                                                                   |
+| {{alert_tags_json}}| A comma separated list of string tags as would be used in a json array. i.e. `"tag1", "tag2", "tag3"`                                                                                                                                                                                              |
 
 
 Test your payload. Some parameters may not be supported by the service receiving the alerts from Logz.io.
@@ -151,6 +154,8 @@ The following list is provided for convenience, to make it easy to copy & paste 
 {{alert_timeframe_start_epoch_millis}}
 {{alert_timeframe_end_epoch_millis}}
 {{alert_app_url}}
+{{alert_tags}}
+{{alert_tags_json}}
 ```
 
 

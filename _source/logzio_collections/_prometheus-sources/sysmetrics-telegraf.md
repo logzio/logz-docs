@@ -38,16 +38,16 @@ First you need to configure the input plug-in to enable Telegraf to scrape the P
 
 ``` yaml
 [[inputs.cpu]]
-  ## Whether to report per-cpu stats or not
+  # Whether to report per-cpu stats or not
   percpu = false
   
-  ## Whether to report total system cpu stats or not
+  # Whether to report total system cpu stats or not
   totalcpu = true
   
-  ## If true, collect raw CPU time metrics.
+  # If true, collect raw CPU time metrics.
   collect_cpu_time = true
   
-  ## If true, compute and report the sum of all non-idle CPU states.
+  # If true, compute and report the sum of all non-idle CPU states.
   report_active = true
   
 [[inputs.mem]]

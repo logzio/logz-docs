@@ -35,7 +35,7 @@ Follow the instructions on [Get started with Telegraf](https://docs.influxdata.c
 
 First you need to configure the input plug-in to enable Telegraf to scrape the MySQL data from your hosts. To do this, add the following code to the configuration file:
 
-``` yaml
+``` ini
 [[inputs.mysql]]
   servers = ["<<USER-NAME>>:<<PASSWORD>>@<<PROTOCOL>>(<<HOST-NAMES>>)/?tls=false"]
   ##  e.g.

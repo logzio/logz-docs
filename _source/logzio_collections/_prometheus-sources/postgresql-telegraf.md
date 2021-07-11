@@ -36,7 +36,7 @@ Follow the instructions on [Get started with Telegraf](https://docs.influxdata.c
 First you need to configure the input plug-in to enable Telegraf to scrape the PostgreSQL data from your hosts. To do this, add the following code to the configuration file:
 
 
-``` yaml
+``` ini
 [[inputs.postgresql]]
   address = "host=<<ADDRESS>> user=<<USER-NAME>> password=<<PASSWORD>> sslmode=disable dbname=<<DB-NAME>>"
 ```
@@ -54,7 +54,7 @@ The database name is only required for instantiating a connection with the serve
 
 After you have created the configuration file, you need to configure the output plug-in to enable Telegraf to send your data to Logz.io in Prometheus-format. To do this, add the following code to the configuration file:
 
-``` yaml
+``` ini
 [[outputs.http]]
   url = "https://<<LISTENER-HOST>>:8053"
   data_format = "prometheusremotewrite"

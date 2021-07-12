@@ -23,14 +23,13 @@ Deploy this integration to install and launch Telegraf on the dynos of your Hero
 
 **Before you begin, you'll need**:
 
-* [wget](https://www.gnu.org/software/wget/)
 * [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
 <div class="tasklist">
 
 ##### Download the Telegraf configuration file
 
-Run the following command:
+From your Heroku app directory run the following command:
 
 ``` shell
 

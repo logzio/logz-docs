@@ -1,7 +1,7 @@
 ---
 title: Ship Heroku metrics via Telegraf
 logo:
-  logofile: heroku-telegraf.svg
+  logofile: heroku-telegraf.png
   orientation: vertical
 data-source: Heroku metrics over Telegraf
 templates: ["docker"]
@@ -48,7 +48,7 @@ heroku labs:enable runtime-dyno-metadata -a <<HEROKU_APP_NAME>>
 
 heroku config:set LOGZIO_LISTENER=https://<<LISTENER-HOST>>:8053   
 
-heroku config:set LOGZIO_TOKEN=<<ROMETHEUS-METRICS-SHIPPING-TOKEN>>
+heroku config:set LOGZIO_TOKEN=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
 
 git add .
 
@@ -59,7 +59,7 @@ git push heroku main
 ```
 
 {% include general-shipping/replace-placeholders-prometheus.html %}
-* Replace `<<HEROKU_APP_NAME>>`` with the name of your Heroku app
+* Replace `<<HEROKU_APP_NAME>>` with the name of your Heroku app
 
 ##### Add the buildpack to the list of your Heroku buildpacks
 

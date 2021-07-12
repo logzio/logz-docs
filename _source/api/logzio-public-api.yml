@@ -3233,7 +3233,9 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/AlertsSearchRequest'
+            oneOf:
+              - $ref: '#/definitions/AlertsSearchRequestFiltered'
+              - $ref: '#/definitions/AlertsSearchRequestUnfiltered'
       responses:
         '200':
           description: successful operation
@@ -4723,8 +4725,8 @@ definitions:
       pagination:
         $ref: '#/definitions/Pagination'
 
-
-  AlertsSearchRequest:
+  AlertsSearchRequestFiltered:
+    title: Filtered Results  
     type: object
     properties:
       filter:
@@ -4735,6 +4737,24 @@ definitions:
         $ref: '#/definitions/AlertsSortRequest'
       pagination:
         $ref: '#/definitions/Pagination'
+  AlertsSearchRequestUnfiltered:
+    title: Unfiltered Results  
+    type: object
+    properties:
+      query:
+        type: object
+        description: Search query.
+        properties:
+            bool:
+              type: object
+              properties:
+                  must:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        match_all:
+                          type: object
   AlertsSortRequest:
     type: object
     required:

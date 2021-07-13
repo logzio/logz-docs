@@ -156,7 +156,7 @@ Using the certificate you just downloaded,
 send the logs to TCP port 5052.
 
 ```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/TrustExternalCARoot_and_USERTrustRSAAAACA.crt
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
 ```
 
 {% include /general-shipping/replace-placeholders.html %}
@@ -168,48 +168,6 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
-
-<!-- 21 April 2021 Removing NXLog scode sample: needs rewrite -->
-
-<!--  temporary deprecation starts here --.
-
-### Code sample: NXLog
-
-
-```conf
-User nxlog
-Group nxlog
-LogFile /var/log/nxlog/nxlog.log
-LogLevel INFO
-<Extension json>
-    Module      xm_json
-</Extension>
-<Input in>
-    Module  im_file
-    File    "/var/log/samples.log"
-    Exec    $token="<<LOG-SHIPPING-TOKEN>>"; $type="samples_log"; $message = $raw_event;
-    SavePos TRUE
-</Input>
-<Output out>
-    Module  om_ssl
-    CAFile /etc/nxlog/certs/COMODORSADomainValidationSecureServerCA.crt
-    AllowUntrusted FALSE
-    Host    <<LISTENER-HOST>>
-    Exec    $OutputModule="om_ssl"; to_json();
-    Port    5052
-</Output>
-<Route 1>
-    Path    in => out
-</Route>
-```
-
-.-- temporary deprecation of NXLog sample ends here 21 April 2021 -->
-
-<!-- info-box-start:info -->
-To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html).
-{:.info-box.read}
-<!-- info-box-end -->
-
 
 
 </div>

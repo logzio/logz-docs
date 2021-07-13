@@ -93,15 +93,15 @@ var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddType("log4net");
 logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-logzioAppender.AddBufferSize("100");
-logzioAppender.AddBufferTimeout("00:00:05");
-logzioAppender.AddRetriesMaxAttempts("3");
-logzioAppender.AddRetriesInterval("00:00:02");
+logzioAppender.AddBufferSize(100);
+logzioAppender.AddBufferTimeout(TimeSpan.FromSeconds(5));
+logzioAppender.AddRetriesMaxAttempts(3);
+logzioAppender.AddRetriesInterval(TimeSpan.FromSeconds(2));
 logzioAppender.AddDebug(false);
 logzioAppender.AddGzip(true);
 // <-- Uncomment and edit this line to enable proxy routing: --> 
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// <-- Uncomment this to prase messages as Json -->  
+// <-- Uncomment this to parse messages as Json -->  
 // logzioAppender.ParseJsonMessage(true);
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;

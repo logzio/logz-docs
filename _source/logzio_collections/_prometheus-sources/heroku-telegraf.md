@@ -27,9 +27,12 @@ Deploy this integration to install and launch Telegraf on the dynos of your Hero
 
 <div class="tasklist">
 
-##### Download the Telegraf configuration file
+<!-- info-box-start:info -->
+All commands in these instructions should be run from your Heroku app directory.
+{:.info-box.note}
+<!-- info-box-end -->
 
-From your Heroku app directory run the following command:
+##### Download the Telegraf configuration file
 
 ``` shell
 
@@ -38,8 +41,6 @@ wget -O telegraf.conf https://raw.githubusercontent.com/logzio/heroku-buildpack-
 ```
 
 ##### Enable environment variable
-
-Run the following command:
 
 ``` shell
 
@@ -61,8 +62,6 @@ git push heroku main
 * Replace `<<HEROKU_APP_NAME>>` with the name of your Heroku app
 
 ##### Add the buildpack to the list of your Heroku buildpacks
-
-Run the following command:
 
 ``` shell
 

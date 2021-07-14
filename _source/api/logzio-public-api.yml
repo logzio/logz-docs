@@ -3438,8 +3438,8 @@ paths:
                 type: string
                 format: date-time
                 description: >-
-                Date this account was created.
-                Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
+                  Date this account was created.
+                  Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
                 example: 2018-04-01T19:18:38Z
               
 

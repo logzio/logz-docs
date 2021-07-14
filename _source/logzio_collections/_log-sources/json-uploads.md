@@ -156,7 +156,7 @@ Using the certificate you just downloaded,
 send the logs to TCP port 5052.
 
 ```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/TrustExternalCARoot_and_USERTrustRSAAAACA.crt
+sudo https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /etc/pki/tls/certs/AAACertificateServices.crt
 ```
 
 {% include /general-shipping/replace-placeholders.html %}
@@ -206,8 +206,8 @@ LogLevel INFO
 .-- temporary deprecation of NXLog sample ends here 21 April 2021 -->
 
 <!-- info-box-start:info -->
-To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html).
-{:.info-box.read}
+<!-- To configure NXLog for log shipping, see [Ship Windows logs (NXLog)]({{site.baseurl}}/shipping/log-sources/windows.html). -->
+<!-- {:.info-box.read} -->
 <!-- info-box-end -->
 
 

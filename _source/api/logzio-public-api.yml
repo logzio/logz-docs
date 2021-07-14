@@ -200,6 +200,11 @@ tags:
 
 
       You can also create new security rules to supplement the built-in rules.
+
+  - name: Security account
+    description: >-
+      A security account with SIEM allows you to use the SIEM platform. You can create a SIEM account uaing an API call.
+
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -250,6 +255,7 @@ x-tagGroups:
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
+      - Security account
       - Security rules
       - Security events
       - Lookup lists
@@ -3347,6 +3353,89 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseTriggeredAlert'
           headers: {}
+  
+  # ::::: SECURITY ACCOUNT
+  /v1/account-management/siem:
+    post:
+      summary: Create SIEM account
+      description: >-
+        Creates SIEM account through public API
+      tags:
+        - Security account
+      operationId: createSIEMaccount
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            required:
+              - accountName
+              - accountsToScan
+              - userName
+            properties:
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+              userName:
+                type: string
+                description: Email address of the account user.
+                example: "User"
+
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/account-management/siem \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "accountName": "User",
+                "accountsToScan": 88888, 55555,
+                "sharingObjectsAccounts": 55555
+                "userName": "user@logz.io",
+              }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              accountId:
+                type: integer
+                description: ID of the account
+                example: 24601
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+              
+
   /v2/security/rules/events/logs/search:
     post:
       summary: Fetch the logs that triggered a security event
@@ -3803,10 +3892,117 @@ paths:
           schema:
             $ref: '#/definitions/LookupListElementBulkResponse'
           headers: {}
+  /v1/grafana/api/alerts/:
+    post:
+      operationId: getAlerts
+      summary: Get alerts
+      description: >-
+        Retrieves alerts as per parameters given.
 
-  
-  
-  
+        **NOTE:** These parameters are used as querystring parameters. For example: `/api/alerts?dashboardId=1`
+      tags:
+        - Metrics gateway
+      parameters:
+        - in: query
+          name: dashboardId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. dashboardId=23&dashboardId=35.
+        - in: query
+          name: panelId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alert for a specified panel on a dashboard.
+        - in: query
+          name: query
+          type: string
+          schema:
+            description: >-
+              Limit response to alerts having a name like this value.
+        - in: query
+          name: state
+          type: string
+          schema:
+            description: >-
+              Return alerts with one or more of the following alert states: ALL,no_data, paused, alerting, ok, pending. To specify multiple states use the following format: ?state=paused&state=alerting.
+        - in: query
+          name: limit
+          type: integer
+          schema:
+            description: >-
+              Limit response to X number of alerts.
+        - in: query
+          name: folderId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts of dashboards in specified folder(s). You can specify multiple folders, e.g. folderId=23&folderId=35.
+        - in: query
+          name: dashboardQuery
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts having a dashboard name like this value.
+        - in: query
+          name: dashboardTag
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts of dashboards with specified tags. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times e.g. dashboardTag=tag1&dashboardTag=tag2.
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST https://api.logz.io/v1/search \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+              dashboardId=1
+            }'
+      responses:
+        200:
+          description: successful query
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              dashboardId:
+                type: integer
+                example: 1
+              dashboardUId:
+                type: string
+                example: "ABcdEFghij"
+              dashboardSlug:
+                type: string
+                example: "sensors"
+              panelId:
+                type: integer
+                example: 1
+              name:
+                type: string
+                example: "fire place sensor"
+              state:
+                type: string
+                example: "alerting"
+              newStateDate:
+                type: string
+                example: "2018-05-14T05:55:20+02:00"
+              evalDate:
+                type: string
+                example: "0001-01-01T00:00:00Z"
+              evalData:
+                type: string
+                example: null
+              executionError:
+                type: string
+                example: ""
+              url:
+                type: string
+                example: "http://grafana.com/dashboard/db/sensors"
+            
 
 definitions:
   # ::::: SIEM LOOKUPS

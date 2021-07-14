@@ -28,9 +28,9 @@ Go to **Threats > Threat Intelligence Feeds** from the top menu, and select the 
 
 ##### Configure the connection
 
-Fill in the form to configure the connection.   <!--UPDATE THE SCREEN  -->
+Fill in the form to configure the connection.   
 
-![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)   
+![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed_newnav.png)    
 
 **About the feed**
 

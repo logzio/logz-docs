@@ -39,7 +39,7 @@ when you filter for the `logzio_account_utilization` log type.
 | expected_volume_in_GB_EOD | The expected utilization by the end of the day, in GB |
 | grace_capacity | The overage configured on the account, in percent. For instance, `120%` means that you have an overage allowance of 20% of your plan volume. |
 | number_of_fields| The total number of fields in the current index |
-|plan_retention_in_days| The number of days data is kept in the account until it is deleted|
+| plan_retention_in_days| The number of days data is kept in the account until it is deleted|
 | plan_volume_in_GB | Data allocated to this account, in GB |
 | utilization | Current utilization, in percent |
 | volume_in_GB | Current utilization, in GB |

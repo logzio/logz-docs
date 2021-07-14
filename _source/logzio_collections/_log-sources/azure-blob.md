@@ -21,9 +21,9 @@ order: 460
 <div class="branching-container">
 
 * [Overview](#overview)
-* [Connect to existing blob storage account](#existing-blob-config)
 * [Create a new blob storage account](#new-blob-config)
-* [Update settings](#update)
+* [Connect to existing blob storage account](#existing-blob-config)
+* [Update parameters after deployment](#update)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -58,7 +58,7 @@ The following services are created when you deploy this integration:
 
 
 
-#### Set up a new blob storage account
+#### Create a new blob storage account
 
 <div class="tasklist">
 
@@ -78,7 +78,7 @@ where you'll configure the resources to be deployed.
 |---|---|---|
 | Resource group | Click Create new. Give a meaningful Name, such as "logziobBlobStorageIntegration", and then click OK. | Required |
 | Location | Select the same region as the Azure services that will stream data to this Blob Storage. |  Required |
-| Logzio host | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |  Required |
+| Logzio host | {% include log-shipping/listener-var.md %} |  Required |
 | Log shipping token  | {% include log-shipping/log-shipping-token.md %} | Required |
 | Format | Select one of the supported parsing formats: text/json/csv | Required |
 | Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |
@@ -105,7 +105,7 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 
 
 
-#### Use your existing blob storage account
+#### Connect to existing blob storage account
 
 **Before you begin, you'll need**: a blob storage account of the type **StorageV2 (general purpose v2)**.
 
@@ -141,10 +141,10 @@ where you'll configure the resources to be deployed.
 | Location | Select the same region as the Azure services that will stream data to this Blob Storage.  |  Required |
 | Logzio host | {% include log-shipping/listener-var.md %} |  Required |
 | Log shipping token  | {% include log-shipping/log-shipping-token.md %} | Required |
+| Blob Storage Account Name | Insert the name of the storage account that contains the logs. |  Required |
 | Format | Select one of the supported parsing formats: text/json/csv | Required |
 | Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |
 | Timeout | The read/write/connection timeout in *milliseconds*.  | `180,000 = 3 minutes` | 
-
 
 
 At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. Only logs sent from this point on will be searchable in Logz.io.
@@ -167,7 +167,7 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 <!-- tab:start -->
 <div id="update">
 
-#### Updating parameters after deployment
+#### Update parameters after deployment
 
 To update your parameters post-deployment:
 

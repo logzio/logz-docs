@@ -1244,7 +1244,7 @@ paths:
           type: integer
           minimum: 0
           default: 0
-          description: Of the results found, the first result to return
+          description: Of the results found, the first result to return.
           example: 0
         - name: size
           in: query
@@ -1262,29 +1262,36 @@ paths:
           items:
             type: string
             enum:
-              - SEVERE
-              - HIGH
-              - MEDIUM
-              - LOW
-              - INFO
+              -
+                - SEVERE
+                - HIGH
+                - MEDIUM
+                - LOW
+                - INFO
+            example: '["SEVERE", "HIGH"]'
           description: Filter results by severity of triggered alerts.
-          example: SEVERE
         - name: sortBy
           in: query
-          description: Sort alerts by date or severety.
+          description: Sort alerts by date or severity.
           schema:
             type: string
-            enum: [DATE, SEVERETY]
+            enum: [DATE, SEVERITY]
         - name: sortOrder
           in: query
           description: Sort order of alerts retrieved.
           schema:
             type: string
             enum: [ASC, DESC]
+        - name: tags
+          in: query
+          type: array
+          items:
+            type: string
+          description: List of tags the alert is related to.
       x-code-samples:
               - lang: cURL
                 source: >-
-                  curl -X POST https://api.logz.io/v1/search \
+                  curl -X POST https://api.logz.io/v1/alerts/triggered-alerts \
                     -H 'Content-Type: application/json' \
                     -H 'X-API-TOKEN: <token>' \
                     -d '{
@@ -1293,7 +1300,8 @@ paths:
                   	"search": "test",
                   	"severities": ["HIGH", "LOW"],
                   	"sortBy": "DATE",
-                  	"sortOrder": "ASC"
+                  	"sortOrder": "ASC",
+                    "tags": "network"
                   }' 
       responses:
         '200':
@@ -3225,7 +3233,9 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/AlertsSearchRequest'
+            oneOf:
+              - $ref: '#/definitions/AlertsSearchRequestFiltered'
+              - $ref: '#/definitions/AlertsSearchRequestUnfiltered'
       responses:
         '200':
           description: successful operation
@@ -4715,8 +4725,8 @@ definitions:
       pagination:
         $ref: '#/definitions/Pagination'
 
-
-  AlertsSearchRequest:
+  AlertsSearchRequestFiltered:
+    title: Filtered Results  
     type: object
     properties:
       filter:
@@ -4727,6 +4737,24 @@ definitions:
         $ref: '#/definitions/AlertsSortRequest'
       pagination:
         $ref: '#/definitions/Pagination'
+  AlertsSearchRequestUnfiltered:
+    title: Unfiltered Results  
+    type: object
+    properties:
+      query:
+        type: object
+        description: Search query.
+        properties:
+            bool:
+              type: object
+              properties:
+                  must:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        match_all:
+                          type: object
   AlertsSortRequest:
     type: object
     required:
@@ -5104,14 +5132,14 @@ definitions:
         format: int32
         minimum: 0
         maximum: 2147483647
-        description: Of the results found, the first result returned
+        description: Of the results found, the first result returned.
         example: 0
       total:
         type: integer
         format: int64
         minimum: 0
         maximum: 500
-        description: Total number of results that met the search criteria
+        description: Total number of results that met the search criteria.
       results:
         type: array
         items:
@@ -5133,7 +5161,7 @@ definitions:
         minimum: 0
         maximum: 500
         default: 500
-        description: Maximum number of results to return
+        description: Maximum number of results to return.
         example: 150
       from:
         type: integer
@@ -5141,7 +5169,7 @@ definitions:
         minimum: 0
         maximum: 2147483647
         default: 0
-        description: Of the results found, the first result to return
+        description: Of the results found, the first result to return.
         example: 15
       auditEventUser:
         $ref: '#/definitions/AuditEventUser'
@@ -5152,12 +5180,12 @@ definitions:
       fromDate:
         type: integer
         format: int64
-        description: Starting timedate, as Unix epoch milliseconds
+        description: Starting timedate, as Unix epoch milliseconds.
         example: 389880000
       toDate:
         type: integer
         format: int64
-        description: Ending timedate, as Unix epoch milliseconds
+        description: Ending timedate, as Unix epoch milliseconds.
         example: 414763200
       sortDescending:
         type: boolean
@@ -5662,7 +5690,7 @@ definitions:
         type: integer
         format: int32
         minimum: 0
-        description: Of the results found, the first result to return
+        description: Of the results found, the first result to return.
         example: 0
       sort:
         type: array
@@ -6560,7 +6588,7 @@ definitions:
               example: 1523970558.657000000
             severity: 
               type: string
-              description: Alert severety.
+              description: Alert severity
               example: HIGH
 
 

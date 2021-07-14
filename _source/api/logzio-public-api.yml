@@ -3434,6 +3434,13 @@ paths:
                   type: integer
                 example: [ 88888, 55555 ]
                 description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+              createdDate:
+                type: string
+                format: date-time
+                description: >-
+                Date this account was created.
+                Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
+                example: 2018-04-01T19:18:38Z
               
 
   /v2/security/rules/events/logs/search:

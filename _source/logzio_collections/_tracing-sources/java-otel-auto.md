@@ -32,7 +32,7 @@ This integration includes:
 * Installing the OpenTelemetry collector with Logz.io exporter
 * Establishing communication between the agent and collector
 
-Upon deployment, the Java agent automatically captures spans from your application and forwards them the collector, which exports the data to your Logz.io account.
+Upon deployment, the Java agent automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
 </div>
 <!-- tab:end -->
@@ -122,7 +122,7 @@ Run the following command:
 <path/to>/otelcontribcol_<version_name> --config ./config.yaml
 
 ```
-* Replace `<path/to>` to the path to the directory where you downloaded the collector.
+* Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<version_name>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
 ##### Attach the agent to the collector and run it
@@ -140,7 +140,7 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 
 ```
 
-* Replace `<path/to>` to the path to the directory where you downloaded the agent.
+* Replace `<path/to>` with the path to the directory where you downloaded the agent.
 * Replace `your-service-name` with the name of your tracing service defined earlier.
 
 

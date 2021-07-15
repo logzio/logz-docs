@@ -113,11 +113,11 @@ Run the following command:
 
 ```shell
 
-<path/to>/otelcontribcol_<version_name> --config ./config.yaml
+<path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
 
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
-* Replace `<version_name>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
+* Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
 ##### Attach the agent to the collector and run it
 
@@ -128,14 +128,14 @@ Run the following command from the directory of your Java application:
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
      -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
-     -Dotel.resource.attributes=service.name=your-service-name \
+     -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
      -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
      -jar target/*.jar
 
 ```
 
 * Replace `<path/to>` with the path to the directory where you downloaded the agent.
-* Replace `your-service-name` with the name of your tracing service defined earlier.
+* Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 
 ##### Check Logz.io for your traces

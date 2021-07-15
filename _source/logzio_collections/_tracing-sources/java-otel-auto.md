@@ -32,7 +32,7 @@ This integration includes:
 * Installing the OpenTelemetry collector with Logz.io exporter
 * Establishing communication between the agent and collector
 
-Upon deployment, the Java agent automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
+On deployment, the Java agent automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
 </div>
 <!-- tab:end -->

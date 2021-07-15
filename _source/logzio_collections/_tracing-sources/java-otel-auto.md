@@ -48,18 +48,12 @@ On deployment, the Java agent automatically captures spans from your application
 
 * a Java application without instrumentation
 * an active account with Logz.io
+* port `4317` available on your host system
+* a name defined for your tracing service
 
 
 <div class="tasklist">
 
-
-##### Define the port for the collector
-
-By default, the OpenTelemetry Java agent uses OTLP exporter configured to send data to OpenTelemetry collector at `http://localhost:4317` via gRPC. Make sure that port `4317` is available on your host system.
-
-##### Define a name for your tracing service
-
-Your tracing service name is used to identify your service.
 
 ##### Download Java agent
 

@@ -4192,6 +4192,9 @@ definitions:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
+      isFlexible:
+        type: boolean
+        default: false
       reservedDailyGB:
         type: number
         format: float

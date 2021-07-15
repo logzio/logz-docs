@@ -16,9 +16,7 @@ contributors:
 Logz.io offers an integration for SSO with Azure Marketplace++. 
 This topic provides guidance for admins on how to set up SSO for users who will access Logz.io resources via the Microsoft Azure/Liftr Marketplace++.
 
-<-- _notes_
-
-# _Notes CAPTCHA_
+# -- _< notes CAPTCHA_
 
 <!-- info-box-start:info -->
 Prepare SSO before setting up the Azure resource for Logz.io. You'll need the SSO to create the resource. 
@@ -57,3 +55,26 @@ The advantages of providing your users access to the Logz.io Azure resource via 
 
 
 _end notes_ -->
+
+Creating SSO connectivity for your Logz.io account/resource on Marketplace++  
+
+You'll create an Azure Active Directory (AD) Enterprise application and enabble SSO to connect Logz.io as a resource. 
+
+How to set up SSO
+
+1. In the Azure AD Gallery, browse to the Logz.io - Azure AD Integration  infrastructure template and select it.
+2. Rename the integration to something relevant and click **Create**.
+   ![Rename the integration]()
+3. In **AD app for a logz.io resource | Overview > Properties**, copy the **Application ID** property
+   ![Copy Application ID]()
+4. In  **AD app for a logz.io resource | Overview > Getting Started**, in **2. Set up single sign on**, click **Get started** to open **Single sign-on**
+   xx opens
+   ![Set up SSP]()
+5. In **AD app for a logz.io resource | Single sign-on**, select the **SAML** method.
+   ![Select SAML SSO method]()
+6. In **AD app for a logz.io resource | SAML-based Sign-on**, edit the basic SAML configuration: 
+   ![Edit basic SAML]()
+  a. **Identifier (Entity ID)**: After the field prefix `urn:auth0:logzio:*`, replace the `*` with the **Application ID** you copied in step 3. 
+  b. **Reply URL (Assertion Consumer Service URL)**: Update the field to `https://logzio.auth0
+7.    
+

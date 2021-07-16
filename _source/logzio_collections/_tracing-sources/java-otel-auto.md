@@ -42,7 +42,7 @@ On deployment, the Java agent automatically captures spans from your application
 <div id="local-host">
 
 
-### Connect your Crowdstrike account to Logz.io
+### Setup auto-instrumentation for your Java application and send traces to Logz.io
 
 **Before you begin, you'll need**:
 

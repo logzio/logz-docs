@@ -29,6 +29,11 @@ order: 780
 
 #### Manual Lambda configuration
 
+<!-- info-box-start:info -->
+At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+{:.info-box.note}
+<!-- info-box-end -->
+
 <div class="tasklist">
 
 ##### Create a new Kinesis data stream
@@ -141,6 +146,11 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <div id="automated-cloudformation-deployment">
 
 #### Automated CloudFormation deployment
+
+<!-- info-box-start:info -->
+At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+{:.info-box.note}
+<!-- info-box-end -->
 
 **Before you begin, you'll need**:
 AWS CLI,

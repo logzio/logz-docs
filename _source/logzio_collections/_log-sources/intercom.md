@@ -45,7 +45,7 @@ Deploy this integration to ship Intercom events from your Intercom account to Lo
 
 9. {% include log-shipping/type.md %}
 
-10. Select the required webhook topics. These are the types of notifications that will be sent to Logz.io.
+10. Select the required webhook topics for the notification types that will be sent to Logz.io.
 
 11. Select **Save**.
 

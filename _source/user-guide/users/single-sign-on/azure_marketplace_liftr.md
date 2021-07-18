@@ -23,7 +23,7 @@ The advantages of providing your users access to the Logz.io Azure resource via 
 + Better user control: A user must be defined in the Azure account to be able to use the SSO link.
 
 <!-- info-box-start:info -->
-Prepare SSO connectivity efore setting up the Azure resource for Logz.io. You'll need the credentials you create in this process to set up the resource. 
+Prepare SSO connectivity before setting up the Azure resource for Logz.io. You'll need the credentials you create in this process to set up the resource. 
 {:.info-box.tip}
 <!-- info-box-end -->
 

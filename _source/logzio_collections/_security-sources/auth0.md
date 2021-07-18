@@ -12,11 +12,65 @@ shipping-tags:
 order: 810
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Custom webhooks](#webhooks)
+* [Logstash extension](#logstash)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="webhooks">
+
 ### Ship events data from your Auth0 account to Logz.io
 
-Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using Logstash. 
+Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using custom log stream via webhooks.
 
 **Before you begin, you'll need**: an active account with Auth0
+
+<div class="tasklist">
+
+#### Setup a custom log stream using webhooks
+
+##### Create a custom log stream
+
+Login to your Auth0 account, navigate to **Auth0 Dashboard > Monitoring > Streams**, and select **Create Steam**.
+
+The following screen will appear:
+![Create stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/webhook-auth0.png)
+
+##### Configure the required parameters
+
+Configure the required parameters as follows:
+
+   * Enter **Logz.io integration** into the **Name** field.
+   * Enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>` into the **Payload url** field. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
+   * Enter `auth0` into the **MY-TYPE** field.
+
+##### Save the changes
+
+Select **Save** to save the changes and create the stream.
+
+#### Check Logz.io for your data
+
+Give your data some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type `auth0` to see the incoming Auth0 events.
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="setup-instructions">
+
+### Ship events data from your Auth0 account to Logz.io
+
+Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using Logstash.
+
+**Before you begin, you'll need**: an active account with Auth0
+
 
 <div class="tasklist">
 
@@ -74,3 +128,9 @@ Give your data some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

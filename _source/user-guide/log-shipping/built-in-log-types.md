@@ -23,7 +23,7 @@ Logz.io offers many pre-built parsing pipelines for a large number of log source
 
 This table shows the log types that Logz.io parses automatically.
 
-| Description           | Type                                       | Pipeline |
+| Description           | Type                                       | Parsing pipeline |
 |-----------------------|--------------------------------------------|
 | Alcide kAudit         | `alcide-kaudit` | No prebuilt pipeline. Auto-parsed as part of platform integration. |
 | Apache access         | `apache`, `apache_access`, `apache-access` | Prebuilt |

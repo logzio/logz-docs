@@ -48,7 +48,7 @@ Each user must be defined in the Azure account to be able to use and access the 
 ##### Copy the Application ID
 
 In **AD app for a logz.io resource | Overview > Properties**, copy the **Application ID** property.
-![Copy Application ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-copy_application_id.png)
+![Copy Application ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-copy_application_id2.png)
 
 ##### Select the SSO method
 
@@ -73,7 +73,7 @@ In **AD app for a logz.io resource | Overview > Properties**, copy the **Applica
 
 In **AD app for a logz.io resource|Properties  (Manage > Properties)**, set **User assignment required?** to **No** and click **Save**.  
 This step enables users with access to the SSO link to sign in to Logz.io via Microsoft Azure Liftr, without requiring that you predefine each user in Active Directory.
-   ![User assignment not required](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-user-assignment-required-no.png)
+![User assignment not required](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-user-assignment-required-no.png)
 
 </div>
 

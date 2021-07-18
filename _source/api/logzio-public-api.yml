@@ -5724,6 +5724,27 @@ definitions:
           #### Limitations
 
           * Time search must be ≤ 5 minutes. If no time is specified, default is `1m` (1 minute).
+      aggregations:
+        type: object
+        description: >-
+          Apply field aggregations. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html) for details.
+
+
+          #### Limitations
+
+          * When using the `size` element, the value must be ≤ `1000`
+
+          * Can't nest 2 or more bucket aggregations of these types: `date_histogram`, `geohash_grid`, `histogram`, `ip_ranges`, `significant_terms`, `terms`
+
+          * Can't sort or aggregate on analyzed fields, such as the `message` field
+
+          * Aggregation type `significant_terms` can't be used
+
+          * If the request specifies aggregations, only the initial search response will contain the aggregations results
+
+
+          **Note:** You can use `aggs` or `aggregations` as the field name
+        example: { "byType": { "terms": { "field": "type", "size": 5 } } }
 
   # ::::: SHARED TOKENS DEFINITIONS
   QueryFilter:

@@ -3,7 +3,7 @@ title: Sending traces from C# applications via auto instrumentation
 logo:
   logofile: csharp-dotnet.png
   orientation: vertical
-data-source: .NET C# auto instrumentation example
+data-source: Autonatic .NET C# instrumentation
 description: How to auto instrument traces from a C# application
 open-source:
   - title: 

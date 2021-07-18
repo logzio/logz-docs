@@ -16,13 +16,13 @@ order: 50
 
 Deploy this integration to ship Intercom events from your Intercom account to Logz.io using webhooks.
 
-**Before you begin, you'll need**: an active account with Intercom
+**Before you begin, you'll need**: an active account with Intercom.
 
 <div class="tasklist">
 
 ##### Create an Intercom developer app
 
-1. Login to your Intercom account.
+1. Log in to your Intercom account.
 
 2. Navigate to the [Developer hub](https://app.intercom.com/a/apps/_/developer-hub) and select **New app**.
 
@@ -45,7 +45,7 @@ Deploy this integration to ship Intercom events from your Intercom account to Lo
 
 9. {% include log-shipping/type.md %}
 
-10. Select required webhook topics. These are types of notifications that will be sent to Logz.io.
+10. Select the required webhook topics. These are the types of notifications that will be sent to Logz.io.
 
 11. Select **Save**.
 

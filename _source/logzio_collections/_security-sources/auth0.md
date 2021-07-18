@@ -15,7 +15,7 @@ order: 810
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Custom webhooks](#webhooks)
+* [Custom log stream](#webhooks)
 * [Logstash extension](#logstash)
 {:.branching-tabs}
 
@@ -46,6 +46,8 @@ Configure the required parameters as follows:
    * Enter **Logz.io integration** into the **Name** field.
    * Enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>` into the **Payload url** field. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
    * Enter `auth0` into the **MY-TYPE** field.
+   * Select **application/json** as the *Content Type**.
+   * Select **JSON lines** as the **Content Format**.
 
 ##### Save the changes
 
@@ -63,7 +65,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="setup-instructions">
+<div id="logstash">
 
 ### Ship events data from your Auth0 account to Logz.io
 

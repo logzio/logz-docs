@@ -56,7 +56,7 @@ The advantages of providing your users access to the Logz.io Azure resource via 
 
 _end notes_ -->
 
-Creating SSO connectivity for your Logz.io account/resource on Marketplace++  
+### Creating SSO connectivity for your Logz.io account/resource on Marketplace++  
 
 You'll create an Azure Active Directory (AD) Enterprise application and enabble SSO to connect Logz.io as a resource. 
 
@@ -75,6 +75,7 @@ How to set up SSO
 6. In **AD app for a logz.io resource | SAML-based Sign-on**, edit the basic SAML configuration: 
    ![Edit basic SAML]()
   a. **Identifier (Entity ID)**: After the field prefix `urn:auth0:logzio:*`, replace the `*` with the **Application ID** you copied in step 3. 
+
   b. **Reply URL (Assertion Consumer Service URL)**: Update the field to `https://logzio.auth0
 7.    
 

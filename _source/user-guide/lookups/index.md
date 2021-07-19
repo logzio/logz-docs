@@ -52,13 +52,15 @@ To create a large lookup list with up to 200 elements, we recommend that you use
   
   Click **+ New element** to add a new item to the lookup. 
     
-  ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup-blank.png)  <!-- change image -->
+  ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup-blank.png)
 
 * Enter a **Value**. For example, an IP address or domain. You can also add a reference. 
 
 * Click **Add** to confirm and save the new record.
 
-  ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup.png)   <!-- change image -->
+  ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup.png)
+
+*     
 
 * Repeat the above step to continue adding the relevant records to your lookup.
 
@@ -85,7 +87,7 @@ You can filter by lookups in Kibana dashboards, security rules, and searches.
 
 For example, go to the [Research](https://app.logz.io/#/dashboard/security/research) page or open a Dashboard. Click **Add a filter** to show the filter dialog box.
 
-![Filter by lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-by-lookup.png)  <!-- change image -->
+![Filter by lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-by-lookup.png)
 
 * **Field** - Select a field to filter by.
 * **Operator** - Select the operator **in lookups** or **not in lookups**.
@@ -95,4 +97,4 @@ For example, go to the [Research](https://app.logz.io/#/dashboard/security/resea
 
 Security rules can filter by a lookup. [Learn more about managing security rules]({{site.baseurl}}/user-guide/cloud-siem/manage-security-rules.html).
 
-![Filter by lookup in Logz.io security rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-by-lookup-rules.png)   <!-- change image -->
+![Filter by lookup in Logz.io security rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-by-lookup-rules.png)

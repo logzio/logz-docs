@@ -73,7 +73,7 @@ Some endpoints require a particular attribute/payload. For example, [Microsoft T
 {:.info-box.important}
 
 
-![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST.png)
+![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST_2021.png)
 
 
 ##### Configure your payload to add data to your alert notifications

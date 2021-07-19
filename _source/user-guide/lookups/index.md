@@ -46,6 +46,11 @@ To create a large lookup list with up to 200 elements, we recommend that you use
 * CSV upload: For larger lists, you can upload a CSV with up to 200 elements. You can also use a CSV file to update elements in a lookup list. 
 * Via API: To create a new list, use the [Create lookup lists API](https://docs.logz.io/api/#tag/Lookup-lists), and then add elements, either with a CSV file or with the [Add eleement to a lookup list API](https://docs.logz.io/api/#operation/createLookupListElement). -->
 
+<!-- 
+Time to live (TTL) displays the number of days remaining until the lookup list is expired: A lookup list with a TTL of 1 day expires within 24 hours from the time it was created and a list with a TTL of 2 days expires within 48 hours from the creation time.
+
+
+  -->
 
 * In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page,
   click **+ New lookup**, and **Name** your lookup. You can also add a **Description**. 

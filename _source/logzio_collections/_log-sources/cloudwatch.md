@@ -32,7 +32,7 @@ order: 110
 #### Manual configuration with a Lambda function
 
 <!-- info-box-start:info -->
-At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+At the moment, our AWS Lambda-based integrations do not support working with test events. This option will be available soon.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -136,7 +136,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 #### Automated CloudFormation deployment
 
 <!-- info-box-start:info -->
-At the moment, our AWS Lambda-based integrations do not support working with test events to send demo logs. This option will be available soon.
+At the moment, our AWS Lambda-based integrations do not support working with test events. This option will be available soon.
 {:.info-box.note}
 <!-- info-box-end -->
 

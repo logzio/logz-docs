@@ -173,7 +173,7 @@ filebeat.inputs:
   ignore_older: 3h
 
 #For version 7 and higher
-filebeat.registry.path: /var/lib/filebeat
+filebeat.registry.path: C:\ProgramData\Filebeat
 #The following processors are to ensure compatibility with version 7
 processors:
 - rename:

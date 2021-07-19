@@ -124,7 +124,9 @@ The expected resolution for this issue is later this year.
 {:.info-box.important}
 <!-- info-box-end -->
 
-After downloading the collector, create a configuration file `config.yaml` with the following parameters:
+After downloading the collector, create a configuration file `config.yaml` with the parameters below.
+
+{% include /tracing-shipping/replace-tracing-token.md %}
 
 ```yaml
 
@@ -158,8 +160,6 @@ service:
       exporters: [logzio]
 
 ```
-
-{% include /tracing-shipping/replace-tracing-token.html %}
 
 
 ##### Start the collector

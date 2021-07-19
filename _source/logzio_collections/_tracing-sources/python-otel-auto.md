@@ -126,7 +126,7 @@ The expected resolution for this issue is later this year.
 
 After downloading the collector, create a configuration file `config.yaml` with the parameters below.
 
-{% include /tracing-shipping/replace-tracing-token.md %}
+* {% include /tracing-shipping/replace-tracing-token.md %}
 
 ```yaml
 

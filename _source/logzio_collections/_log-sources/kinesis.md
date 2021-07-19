@@ -31,10 +31,7 @@ order: 750
 
 #### Manual configuration with a Lambda function
 
-<!-- info-box-start:info -->
-At the moment, our AWS Lambda-based integrations do not support working with test events. This option will be available soon.
-{:.info-box.note}
-<!-- info-box-end -->
+{% include log-shipping/note-lambda-test.md %}
 
 <div class="tasklist">
 
@@ -116,10 +113,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Automated CloudFormation deployment
 
-<!-- info-box-start:info -->
-At the moment, our AWS Lambda-based integrations do not support working with test events. This option will be available soon.
-{:.info-box.note}
-<!-- info-box-end -->
+{% include log-shipping/note-lambda-test.md %}
 
 **Before you begin, you'll need**:
 

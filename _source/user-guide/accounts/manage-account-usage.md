@@ -50,7 +50,7 @@ when you filter for the `logzio_account_utilization` log type.
 When you enable saving log size,
 a new field is added to incoming logs.
 This new field is called `LogSize`,
-and it contains the size of the log line in bytes.
+and it contains the size of the log line in bytes if it were all a string.
 
 Kibana doesn't recognize `LogSize` as a number right away.
 You can fix this by clicking <i class="fas fa-sync-alt"></i> (refresh mapping) for `LogSize` in Kibana.

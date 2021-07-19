@@ -32,14 +32,20 @@ Prepare SSO connectivity before setting up the Azure resource for Logz.io. You'l
 
 You'll create an Azure Active Directory (AD) Enterprise application and enable SSO to connect to Logz.io as a Marketplace/Liftr resource. 
 
-### Prerequisite: 
+### Prerequisites: 
+To get started you need the following subscriptions: 
+* An Azure AD subscription. If you don't have a subscription, you can get a free account.
+* Logz.io - Azure AD Integration single sign-on (SSO) enabled subscription.
+
 Each user must be defined in the Azure account to be able to use and access the SSO link which is defined for the resource.
 
-#### How to set up SSO
+#### Setting up an SSO link for the Logz.io-Azure AD Integration
 
 <div class="tasklist">
 
 ##### Add the Logz.io-Azure Active Directory Integration from the gallery
+
+To configure the Logz.io - Azure AD Integration in Azure AD, you need to add the Logz.io - Azure AD Integration from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure portal using a Microsoft account.
 2. In the Azure Active Directory Gallery, navigate to the Logz.io - Azure AD Integration template and select it.
@@ -47,6 +53,8 @@ Each user must be defined in the Azure account to be able to use and access the 
 ![Rename the integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-rename_logzio-ad_integration.png)
 
 ##### Copy the Application ID
+
+
 
 In **AD app for a logz.io resource | Overview > Properties**, copy the **Application ID** property.
 ![Copy Application ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-copy_application_id2.png)

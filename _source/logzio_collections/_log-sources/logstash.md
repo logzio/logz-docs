@@ -33,7 +33,7 @@ We recommend using it for shipping to Logz.io only when you have an existing Log
 
 For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/shippers/filebeat.html).
 
-These instructions apply to Logstash running on MacOS, Lunix and Windows.
+These instructions apply to Logstash running on MacOS, Linux and Windows.
 
 </div>
 <!-- tab:end -->

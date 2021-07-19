@@ -27,10 +27,7 @@ Your Lambda function needs to run within the AWS Lambda limits, such as memory a
 {:.info-box.important}
 <!-- info-box-end -->
 
-<!-- info-box-start:info -->
-At the moment, our AWS Lambda-based integrations do not support working with test events. This option will be available soon.
-{:.info-box.note}
-<!-- info-box-end -->
+{% include log-shipping/note-lambda-test.md %}
 
 <div class="tasklist">
 

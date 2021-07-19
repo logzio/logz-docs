@@ -206,7 +206,7 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Correlated rules
       url: /user-guide/siem/security-correlated-queries/
-    - title: Lookups
+    - title: Lookup lists
       url: /user-guide/lookups/
   - title: Dashboards & Reports
     url: /user-guide/cloud-siem/dashboards/

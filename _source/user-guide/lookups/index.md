@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Lookups
+title: Lookup lists
 permalink: /user-guide/lookups/
 flags:
   logzio-plan: enterprise
@@ -38,7 +38,7 @@ To create a large lookup list with up to 200 elements, we recommend that you use
 
 
 
-#### Create a lookup
+#### Create a lookup list
 
 <!-- You can use one of the following methods to create a lookup list: 
 

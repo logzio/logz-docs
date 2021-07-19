@@ -3373,7 +3373,7 @@ paths:
             required:
               - accountName
               - accountsToScan
-              - userName
+              - Email
             properties:
               accountName:
                 type: string
@@ -3391,10 +3391,10 @@ paths:
                   type: integer
                 example: [ 88888, 55555 ]
                 description: IDs of accounts that can access this account's data. The array is required, but can be empty.
-              userName:
+              Email:
                 type: string
                 description: Email address of the account user.
-                example: "User"
+                example: "User@logz.io"
 
       x-code-samples:
         - lang: cURL
@@ -3406,7 +3406,7 @@ paths:
                 "accountName": "User",
                 "accountsToScan": 88888, 55555,
                 "sharingObjectsAccounts": 55555
-                "userName": "user@logz.io",
+                "Email": "user@logz.io",
               }'
       responses:
         '200':

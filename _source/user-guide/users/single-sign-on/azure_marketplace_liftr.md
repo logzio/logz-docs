@@ -32,25 +32,34 @@ Prepare SSO connectivity before setting up the Azure resource for Logz.io. You'l
 
 You'll create an Azure Active Directory (AD) Enterprise application and enable SSO to connect to Logz.io as a Marketplace/Liftr resource. 
 
-### Prerequisite: 
+### Prerequisites: 
+To get started, you need the following subscriptions: 
+* An Azure AD subscription. If you don't have a subscription, you can get a free account.
+* Logz.io - Azure AD Integration single sign-on (SSO) enabled subscription.
+
 Each user must be defined in the Azure account to be able to use and access the SSO link which is defined for the resource.
 
-#### How to set up SSO
+#### Setting up an SSO link for the Logz.io-Azure AD Integration
 
 <div class="tasklist">
 
-##### Select a template and name the integration
+##### Add the Logz.io-Azure Active Directory Integration from the gallery
 
-1. In the Azure AD Gallery, browse to the Logz.io - Azure AD Integration infrastructure template and select it.
-2. Rename the integration to something relevant and click **Create**.
+To configure the Logz.io - Azure AD Integration in Azure AD, you need to add the Logz.io - Azure AD Integration from the gallery to your list of managed SaaS apps.
+
+1. Sign in to the Azure portal using a Microsoft account.
+2. In the Azure Active Directory Gallery, navigate to the Logz.io - Azure AD Integration template and select it.
+2. Rename the integration to with a relevant name and click **Create**.
 ![Rename the integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-rename_logzio-ad_integration.png)
 
 ##### Copy the Application ID
 
+
+
 In **AD app for a logz.io resource | Overview > Properties**, copy the **Application ID** property.
 ![Copy Application ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-copy_application_id2.png)
 
-##### Select the SSO method
+##### Configure Azure AD SSO
 
 1. In  **AD app for a logz.io resource | Overview > Getting Started**, in **2. Set up single sign on**, click **Get started** to open **Single sign-on**.
 ![Set up SSO](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-set-up_sso.png)
@@ -62,14 +71,14 @@ In **AD app for a logz.io resource | Overview > Properties**, copy the **Applica
 1. In **AD app for a logz.io resource | SAML-based Sign-on**, click **Edit** to open the **Basic SAML Configuration** panel.
 ![Edit basic SAML](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-edit_basic_saml.png)
 
-2. Create the **Identifier (Entity ID)**: After the field prefix `urn:auth0:logzio:*`, replace the `*` with the **Application ID** you copied in procedure 2, and click the **Default** option. 
+2. In the **Identifier (Entity ID)** text box, type a value using the pattern `urn:auth0:logzio:*`: Replace the `*` with the **Application ID** you copied in procedure 2, and click the **Default** option. 
 
-3. Create the **Reply URL (Assertion Consumer Service URL)**: Use the pattern `https://logzio.auth0.com/login/callvack?connection=`and  replace `CONNECTION_NAME` with the **Application ID** you copied in procedure 2.
+3. In the **Reply URL (Assertion Consumer Service URL)**, text box, type a URL using the pattern `https://logzio.auth0.com/login/callvack?connection=`: Replace `CONNECTION_NAME` with the **Application ID** you copied in procedure 2.
 
 3. Click **Save** at the top of the panel.
 ![Set SML](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-basic-saml-config.png)
 
-##### Configure user assignment option    
+##### Configure the user assignment option    
 
 In **AD app for a logz.io resource|Properties  (Manage > Properties)**, set **User assignment required?** to **No** and click **Save**.  
 This step enables users with access to the SSO link to sign in to Logz.io via Microsoft Azure Liftr, without requiring that you predefine each user in Active Directory.

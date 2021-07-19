@@ -155,11 +155,7 @@ Keep to these practices when shipping JSON logs over TCP:
 Using the certificate you just downloaded,
 send the logs to TCP port 5052.
 
-```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
-```
-
-{% include /general-shipping/replace-placeholders.html %}
+{% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
 
 ##### Check Logz.io for your logs
 

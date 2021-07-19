@@ -31,8 +31,9 @@ The following Logz.io API endpoints are supported by this provider:
 
 * [User management](https://docs.logz.io/api/#tag/Manage-users)
 * [Notification channels](https://docs.logz.io/api/#tag/Manage-notification-endpoints)
-* [Sub accounts](https://docs.logz.io/api/#tag/Manage-sub-accounts)
+* [Sub accounts](https://docs.logz.io/api/#tag/Manage-time-based-log-accounts)
 * [Logs-based alerts v2](https://docs.logz.io/api/#tag/Alerts)
+* [Log shipping tokens](https://docs.logz.io/api/#tag/Manage-log-shipping-tokens)
 * [Log-based alerts v1](https://github.com/logzio/public-api/tree/master/alerts) (deprecated)
 
 #### Working with Terraform

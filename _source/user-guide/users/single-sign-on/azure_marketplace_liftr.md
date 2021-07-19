@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Single sign-on with Azure Marketplace++
+title: Single sign-on for the Logz.io- Azure AD integration
 permalink: /user-guide/users/single-sign-on/azure_marketplace_liftr.html
 flags:
   admin: true
@@ -13,8 +13,8 @@ contributors:
   - yberlinger
 ---
 
-Logz.io offers an integration for SSO with Azure Marketplace++. 
-This topic provides guidance for admins on how to set up SSO for the Logz.io-Azure AD integration, for users who will access Logz.io resources via the Microsoft Azure Liftr/Marketplace++.
+Logz.io offers an integration with Azure Marketplace++. 
+This topic provides guidance for admins to set up SSO for the Logz.io-Azure AD integration, which enables an SSO link for users who access Logz.io resources via the Microsoft Azure Liftr/Marketplace++.
 
 ### Benefits
 The advantages of providing your users access to the Logz.io Azure resource via SSO: 

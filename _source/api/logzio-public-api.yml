@@ -3434,7 +3434,7 @@ paths:
                   type: integer
                 example: [ 88888, 55555 ]
                 description: IDs of accounts that can access this account's data. The array is required, but can be empty.
-              createdDate:
+              CreatedAt:
                 type: string
                 format: date-time
                 description: >-

@@ -33,7 +33,7 @@ Prepare SSO connectivity before setting up the Azure resource for Logz.io. You'l
 You'll create an Azure Active Directory (AD) Enterprise application and enable SSO to connect to Logz.io as a Marketplace/Liftr resource. 
 
 ### Prerequisites: 
-To get started you need the following subscriptions: 
+To get started, you need the following subscriptions: 
 * An Azure AD subscription. If you don't have a subscription, you can get a free account.
 * Logz.io - Azure AD Integration single sign-on (SSO) enabled subscription.
 

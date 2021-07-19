@@ -101,7 +101,7 @@ logzioAppender.AddDebug(false);
 logzioAppender.AddGzip(true);
 // <-- Uncomment and edit this line to enable proxy routing: --> 
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// <-- Uncomment this to parse messages as Json -->  
+// <-- Uncomment this to parse messages as JSON -->  
 // logzioAppender.ParseJsonMessage(true);
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;

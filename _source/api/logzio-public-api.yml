@@ -3145,7 +3145,7 @@ paths:
             properties:
               message:
                 type: string
-                example: "Finished suspending user 131140 from accounts."
+                example: "Finished suspending user 11300 from accounts."
 
   /v1/user-management/{id}/unsuspend/recursive:
     put:
@@ -3175,7 +3175,7 @@ paths:
             properties:
               message:
                 type: string
-                example: "Finished unsuspending user 131140 from accounts."
+                example: "Finished unsuspending user 11300 from accounts."
 
 
   # ::::: CLOUD SIEM RULES

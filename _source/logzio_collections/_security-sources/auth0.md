@@ -54,7 +54,7 @@ Configure the required parameters as follows:
 
    * Enter **Logz.io integration** into the **Name** field.
    * Enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=autho0` into the **Payload URL** field. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
-   * Select **application/json** as the *Content Type**.
+   * Select **application/json** as the **Content Type**.
    * Select **JSON lines** as the **Content Format**.
 
 ##### Save the changes

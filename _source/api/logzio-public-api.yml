@@ -3116,6 +3116,66 @@ paths:
       responses:
         200:
           description: successful operation
+  
+  /v1/user-management/{id}/suspend/recursive:
+    put:
+      tags:
+        - Manage users
+      summary: Suspend a user from all accounts
+      description: >-
+        Suspends a user from the main account and all associated sub accounts. Must be run with an API token for the main account.
+        The user will not be suspended from accounts for which there are no other users. In other words, any accounts where the user is the last user will be skipped. The success message will list accounts that were skipped.
+      operationId: suspendUserRecursively
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the user
+          example: 11300
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "https://api.logz.io/v1/user-management/11300/suspend/recursive" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Finished suspending user 131140 from accounts."
+
+  /v1/user-management/{id}/unsuspend/recursive:
+    put:
+      tags:
+        - Manage users
+      summary: Unsuspend a user from all accounts
+      description: >-
+        Unsuspends a user from the main account and all associated sub accounts. Must be run with an API token for the main account.
+        The user will not be unsuspended from accounts for which there are no other users. In other words, any accounts where the user is the last user will be skipped. The success message will list accounts that were skipped.
+      operationId: unsuspendUserRecursively
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the user
+          example: 11300
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "https://api.logz.io/v1/user-management/11300/suspend/recursive" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Finished unsuspending user 131140 from accounts."
 
 
   # ::::: CLOUD SIEM RULES

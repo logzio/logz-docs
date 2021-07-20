@@ -55,16 +55,6 @@ On deployment, the Python instrumentation automatically captures spans from your
 <div class="tasklist">
 
 
-##### Install required Python packages
-
-Run the following command:
-
-```shell
-
-pip3 install flask requests
-
-```
-
 ##### Install general Python OpenTelemetry instrumentation components
 
 Run the following command:
@@ -180,7 +170,7 @@ Run the following command from the directory of your Python application script:
 
 ```shell
 
-pip3 opentelemetry-instrument python3 <YOUR-APPLICATION-SCRIPT>.py
+opentelemetry-instrument python3 <YOUR-APPLICATION-SCRIPT>.py
 
 ```
 

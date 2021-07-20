@@ -3383,7 +3383,7 @@ paths:
                 items:
                   type: integer
                 example: [ 88888, 55555 ]
-                description: IDs of accounts that will be accessed for logs. `ownerAccountId` will be the default account to scan.
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
               sharingObjectsAccounts:
                 type: array
                 items:
@@ -3426,7 +3426,7 @@ paths:
                 items:
                   type: integer
                 example: [ 88888, 55555 ]
-                description: IDs of accounts that will be accessed for logs. `ownerAccountId` will be the default account to scan.
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
               sharingObjectsAccounts:
                 type: array
                 items:

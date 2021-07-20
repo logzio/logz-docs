@@ -34,7 +34,7 @@ Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io 
 
 ##### Create a custom log stream
 
-Login to your Auth0 account, navigate to **Auth0 Dashboard > Monitoring > Streams**, and select **Create Steam**.
+Login to your Auth0 account, navigate to **Auth0 Dashboard > Monitoring > Streams**, and select **Create Stream**.
   
 On the **New Event Stream**, select **Custom Webhook**.
 
@@ -53,8 +53,7 @@ Configure the required parameters as follows:
 ![Configure stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/webhook-auth0.png)
 
    * Enter **Logz.io integration** into the **Name** field.
-   * Enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>` into the **Payload URL** field. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
-   * Enter `auth0` into the **MY-TYPE** field.
+   * Enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=autho0` into the **Payload URL** field. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
    * Select **application/json** as the *Content Type**.
    * Select **JSON lines** as the **Content Format**.
 

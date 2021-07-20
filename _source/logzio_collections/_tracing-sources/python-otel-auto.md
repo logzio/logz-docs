@@ -60,15 +60,10 @@ On deployment, the Python instrumentation automatically captures spans from your
 Run the following commands:
 
 ```shell
-
 pip3 install opentelemetry-distro
-
 pip3 install opentelemetry-instrumentation
-
 opentelemetry-bootstrap --action=install
-
 pip3 install opentelemetry-exporter-otlp
-
 ```
 
 ##### set environment variables 
@@ -76,17 +71,11 @@ pip3 install opentelemetry-exporter-otlp
 After installation, configure the exporter by running the following command:
 
 ```shell 
-
 export OTEL_TRACES_EXPORTER=otlp
-
 export OTEL_RESOURCE_ATTRIBUTES="service.name=<YOUR-SERVICE-NAME>"
-
 ```
 
-  
 Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
-
-
 
 ##### Download and configure OpenTelemetry collector
 
@@ -103,7 +92,6 @@ After downloading the collector, create a configuration file `config.yaml` with 
 * {% include /tracing-shipping/replace-tracing-token.md %}
 
 ```yaml
-
 receivers:  
   otlp:
     protocols:
@@ -132,7 +120,6 @@ service:
       receivers: [otlp]
       processors: [batch]
       exporters: [logzio]
-
 ```
 
 
@@ -141,9 +128,7 @@ service:
 Run the following command:
 
 ```shell
-
 <path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
-
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
@@ -153,9 +138,7 @@ Run the following command:
 Run the following command from the directory of your Python application script:
 
 ```shell
-
 opentelemetry-instrument python3 <YOUR-APPLICATION-SCRIPT>.py
-
 ```
 
 Replace `<YOUR-APPLICATION-SCRIPT>` with the name of your Python application script.

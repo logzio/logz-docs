@@ -3372,7 +3372,6 @@ paths:
             type: object
             required:
               - accountName
-              - accountsToScan
               - Email
             properties:
               accountName:

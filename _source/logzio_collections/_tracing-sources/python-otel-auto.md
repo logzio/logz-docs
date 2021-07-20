@@ -57,7 +57,7 @@ On deployment, the Python instrumentation automatically captures spans from your
 
 ##### Install general Python OpenTelemetry instrumentation components
 
-Run the following command:
+Run the following commands:
 
 ```shell
 
@@ -65,28 +65,13 @@ pip3 install opentelemetry-distro
 
 pip3 install opentelemetry-instrumentation
 
-```
-
-##### Install Python OpenTelemetry instrumentation components specific to your application
-
-Run the following command:
-
-```shell
-
 opentelemetry-bootstrap --action=install
-
-```
-
-##### Install and configure Python OpenTelemetry exporter
-
-
-Run the following command to install Python OpenTelemetry exporter:
-
-```shell
 
 pip3 install opentelemetry-exporter-otlp
 
 ```
+
+##### set environment variables 
 
 After installation, configure the exporter by running the following command:
 
@@ -98,6 +83,7 @@ export OTEL_RESOURCE_ATTRIBUTES="service.name=<YOUR-SERVICE-NAME>"
 
 ```
 
+  
 Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 

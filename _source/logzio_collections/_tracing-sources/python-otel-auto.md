@@ -73,7 +73,7 @@ Run the following command:
 
 ```shell
 
-pip3 opentelemetry-bootstrap --action=install
+opentelemetry-bootstrap --action=install
 
 ```
 

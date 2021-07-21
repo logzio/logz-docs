@@ -69,7 +69,7 @@ Run the following command:
    docker run -it --rm \
    --name fluentd-docker-logs \
    -v $(pwd)/log:/fluentd/log \
-   -v /var/lib/docker/containers:/var/lib/docker/containers:/var/lib/docker/containers:ro \
+   -v /var/lib/docker/containers:/var/lib/docker/containers:ro \
    -v /var/run/docker.sock:/var/run/docker.sock:ro \
    -p 5001:5001 \
    -e LOGZIO_LOG_LISTENER="https://<<LISTENER-HOST>>:8071" \

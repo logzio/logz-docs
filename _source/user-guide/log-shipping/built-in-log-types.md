@@ -25,18 +25,18 @@ This table shows the log types that Logz.io parses automatically.
 
 | Description           | Type                                       | Prebuilt parsing pipeline unless marked |
 |-----------------------|--------------------------------------------|
-| Alcide kAudit         | `alcide-kaudit` | ⨯ Auto-parsed as part of platform integration. |
+| Alcide kAudit         | `alcide-kaudit` | ✖️ Auto-parsed as part of platform integration. |
 | Apache access         | `apache`, `apache_access`, `apache-access` | ✔ |
 | Auditd                | `auditd`                                   | ✔ |
 | AWS CloudFront        | `cloudfront`                               | ✔ |
 | AWS CloudTrail        | `cloudtrail`                               | ✔ |
 | AWS ELB               | `elb`                                      | ✔ |
-| AWS Fargate           | `fargate`                                  | ⨯ Auto-parsed as part of platform integration. |
+| AWS Fargate           | `fargate`                                  | ✖️ Auto-parsed as part of platform integration. |
 | AWS GuardDuty             | `guardduty`                                | ✔ |
 | AWS Route 53          | `route_53`                                 | ✔ |
 | AWS S3 access         | `S3Access`                                 | ✔ |
 | AWS VPC Flow           | `vpcflow`                                  | ✔ |
-| AWS WAF         | `awswaf`                                 | ⨯ Auto-parsed as part of platform integration. |
+| AWS WAF         | `awswaf`                                 | ✖️ Auto-parsed as part of platform integration. |
 | Checkpoint            | `checkpoint`                               | ✔ |
 | Cisco ASA             | `cisco-asa`                                | ✔ |
 | Cisco Meraki          | `cisco-meraki`                             | ✔ |
@@ -46,18 +46,18 @@ This table shows the log types that Logz.io parses automatically.
 | Elasticsearch         | `elasticsearch`                            | ✔ |
 | Fail2ban              | `fail2ban`                                 | ✔ |
 | Falco                 | `falco`                                    | ✔ |
-| Fargate                 | `fargate`                                | ⨯ Auto-parsed as part of platform integration. |
+| Fargate                 | `fargate`                                | ✖️ Auto-parsed as part of platform integration. |
 | Fortigate             | `fortigate`                               | ✔ |
-| GitHub                  | `github`                                     | ⨯ Auto-parsed as part of platform integration. |
+| GitHub                  | `github`                                     | ✖️ Auto-parsed as part of platform integration. |
 | GPFS                  | `gpfs`                                     | ✔ |
 | HAProxy Load Balancer              | `haproxy`                                  | ✔ |
 | Jenkins               | `jenkins`                                  | ✔ |
 | Juniper                  | `juniper`                             | ✔ |
 | Kafka                 | `kafka_server`                             | ✔ |
-| Kubernetes                 | `k8s`                             | ⨯ Auto-parsed as part of platform integration. |
+| Kubernetes                 | `k8s`                             | ✖️ Auto-parsed as part of platform integration. |
 | Mcafee EPO            | `mcafee_epo`                                      | ✔ |
 | Microsoft IIS         | `iis`                                      | ✔ |
-| ModSecurity               | `modsecurity`                                  | ⨯ Auto-parsed as part of platform integration. |
+| ModSecurity               | `modsecurity`                                  | ✖️ Auto-parsed as part of platform integration. |
 | MongoDB               | `mongodb`                                  | ✔ |
 | Monit                 | `monit`                                    | ✔ |
 | MySQL                 | `mysql`                                    | ✔ |
@@ -73,7 +73,7 @@ This table shows the log types that Logz.io parses automatically.
 | Palo Alto Networks    | `paloalto`                                  | ✔ |
 | Performance-tab       | `performance-tab`                                  | ✔ |
 | Sonicwall                | `sonicwall`                                  | ✔ |
-| Sophos Intercept X       | `sophos-ep`                                  | ⨯ Auto-parsed as part of platform integration. |
+| Sophos Intercept X       | `sophos-ep`                                  | ✖️ Auto-parsed as part of platform integration. |
 | Stormshield                | `stormshield`                              | ✔ |
 | Sysmon                | `wineventlog`                              | ✔ |
 | Windows WinEventLog          | `wineventlog`                             | ✔ |

@@ -6578,6 +6578,10 @@ definitions:
   AlertV2Request:
     type: object
     required:
+     - title
+     - enabled
+     - searchTimeFrameMinutes
+     - subComponents
     properties:
       title:
         type: string
@@ -6613,6 +6617,9 @@ definitions:
 
 
           The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+
+
+          The default value is 5. 
         example: 20
       subComponents:
         type: array
@@ -6623,7 +6630,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
       enabled:
         type: boolean
-        description: If `true`, the alert is enabled and active.
+        description: If `true`, the alert is enabled and active. Default value is `true`.
   AlertTrigger:
     type: object
     description: Sets the triggering threshold and severity tab to label the event when the alert triggers.

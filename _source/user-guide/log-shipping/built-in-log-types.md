@@ -33,9 +33,9 @@ This table shows the log types that Logz.io parses automatically.
 | AWS ELB               | `elb`                                      | Prebuilt |
 | AWS Fargate           | `fargate`                                  | No prebuilt pipeline. Auto-parsed as part of platform integration. |
 | AWS GuardDuty             | `guardduty`                                | Prebuilt |
-| AWS VPCFlow           | `vpcflow`                                  | Prebuilt |
 | AWS Route 53          | `route_53`                                 | Prebuilt |
 | AWS S3 access         | `S3Access`                                 | Prebuilt |
+| AWS VPC Flow           | `vpcflow`                                  | Prebuilt |
 | AWS WAF         | `awswaf`                                 | No prebuilt pipeline. Auto-parsed as part of platform integration. |
 | Checkpoint            | `checkpoint`                               | Prebuilt |
 | Cisco ASA             | `cisco-asa`                                | Prebuilt |
@@ -76,7 +76,6 @@ This table shows the log types that Logz.io parses automatically.
 | Sophos Intercept X       | `sophos-ep`                                  | No prebuilt pipeline. Auto-parsed as part of platform integration. |
 | Stormshield                | `stormshield`                              | Prebuilt |
 | Sysmon                | `wineventlog`                              | Prebuilt |
-| VPC Flow           | `vpcflow`                             | Prebuilt |
 | Windows WinEventLog          | `wineventlog`                             | Prebuilt |
 | Zeek           | `zeek`                              | Prebuilt |
 | Zipkin span           | `zipkinSpan`                             | Prebuilt |

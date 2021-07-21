@@ -3390,7 +3390,7 @@ paths:
                   type: integer
                 example: [ 88888, 55555 ]
                 description: IDs of accounts that can access this account's data. The array is required, but can be empty.
-              Email:
+              email:
                 type: string
                 description: Email address of the account user.
                 example: "User@logz.io"
@@ -3433,7 +3433,7 @@ paths:
                   type: integer
                 example: [ 88888, 55555 ]
                 description: IDs of accounts that can access this account's data. The array is required, but can be empty. 
-              CreatedAt:
+              createdAt:
                 type: string
                 format: date-time
                 description: >-

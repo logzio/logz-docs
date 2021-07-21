@@ -81,12 +81,6 @@ Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earl
 
 Create a dedicated directory on the host of your Python application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.23.0) that is relevant to the operating system of your host.
 
-<!-- info-box-start:info -->
-**Known Issue, June 2021**: OpenTelemetry collector version 0.24 and above does not function as expected when deployed with the Logz.io exporter. To remediate this issue, if you’re currently using version 0.24 or above, replace your OpenTelemetry collector with version 0.23 or lower.
-The expected resolution for this issue is later this year.
-{:.info-box.important}
-<!-- info-box-end -->
-
 After downloading the collector, create a configuration file `config.yaml` with the parameters below.
 
 * {% include /tracing-shipping/replace-tracing-token.md %}

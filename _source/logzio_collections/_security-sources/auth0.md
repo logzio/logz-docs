@@ -38,7 +38,7 @@ Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io 
   
 2. On the **New Event Stream**, select **Custom Webhook**.
 
-The following screen will appear:
+The following screen appears:
 ![Create stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Auth0-logzio-integration.png)
   
 3. Enter **Logz.io integration** into the **Name** field and select **Create**.
@@ -117,7 +117,7 @@ If required, configure the optional parameters as follows:
 
 ##### Install the extension
 
-Select **Install** and wait until you are redirected to the **Installed extensions** page.
+Select **Install**.  You will be redirected to the **Installed extensions** page.
 
 ![Installed extensions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Auth0_installed_extensions.png)
 
@@ -127,7 +127,7 @@ Select the **Auth0 Logs to Logstash** extension and confirm that you authorize t
 
 #####  View the exported logs
 
-Upon authorizing the extension, you will be taken to the **Logs Export** page. Here you can see the events that are exported to Logz.io
+After you authorize the extension, you are directed to the **Logs Export** page ,where you can see the events that are exported to Logz.io
 
 ![Logs export](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Auth0_logs_export.png)
 

@@ -23,10 +23,10 @@ Logz.io offers many pre-built parsing pipelines for a large number of log source
 
 This table shows the log types that Logz.io parses automatically.
 
-| Description           | Type                                       | Parsing pipeline |
+| Description           | Type                                       | Prebuilt parsing pipeline unless marked |
 |-----------------------|--------------------------------------------|
-| Alcide kAudit         | `alcide-kaudit` | No prebuilt pipeline. Auto-parsed as part of platform integration. |
-| Apache access         | `apache`, `apache_access`, `apache-access` | Prebuilt |
+| Alcide kAudit         | `alcide-kaudit` | &#9746; Auto-parsed as part of platform integration. |
+| Apache access         | `apache`, `apache_access`, `apache-access` | &#9745; |
 | Auditd                | `auditd`                                   | Prebuilt |
 | AWS CloudFront        | `cloudfront`                               | Prebuilt |
 | AWS CloudTrail        | `cloudtrail`                               | Prebuilt |

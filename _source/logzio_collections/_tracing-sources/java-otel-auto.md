@@ -75,9 +75,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 Run the following command:
 
 ```shell
-
 <path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
-
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
@@ -87,14 +85,12 @@ Run the following command:
 Run the following command from the directory of your Java application:
 
 ```shell
-
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
      -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
      -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
      -jar target/*.jar
-
 ```
 
 * Replace `<path/to>` with the path to the directory where you downloaded the agent.

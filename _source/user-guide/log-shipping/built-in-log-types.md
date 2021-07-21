@@ -26,7 +26,7 @@ This table shows the log types that Logz.io parses automatically.
 | Description           | Type                                       | Prebuilt parsing pipeline unless marked |
 |-----------------------|--------------------------------------------|
 | Alcide kAudit         | `alcide-kaudit` | &#9746; Auto-parsed as part of platform integration. |
-| Apache access         | `apache`, `apache_access`, `apache-access` | &#9745; |
+| Apache access         | `apache`, `apache_access`, `apache-access` | :*:\check:: |
 | Auditd                | `auditd`                                   | Prebuilt |
 | AWS CloudFront        | `cloudfront`                               | Prebuilt |
 | AWS CloudTrail        | `cloudtrail`                               | Prebuilt |

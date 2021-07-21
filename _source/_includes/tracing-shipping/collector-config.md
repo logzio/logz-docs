@@ -1,5 +1,4 @@
 ```yaml
-
 receivers:  
   otlp:
     protocols:
@@ -28,5 +27,4 @@ service:
       receivers: [otlp]
       processors: [batch]
       exporters: [logzio]
-
 ```

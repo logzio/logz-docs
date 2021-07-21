@@ -19,7 +19,7 @@ or when Logz.io
 [Insights]({{site.baseurl}}/user-guide/insights/exploring-insights.html)
 identifies new exceptions in your logs.
 
-![Notification endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification-endpoints-11.png)
+![Notification endpoints animation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification_endpoints_2021.gif)
 
 You can manage your endpoints
 from [**Alerts & events > Alert endpoints**](https://app.logz.io/#/dashboard/alerts/endpoints)
@@ -72,7 +72,7 @@ and fill in your Opsgenie API key.
 Note that currently only Opsgenie accounts hosted by the US data center are supported. You'll know you're in the US region if you log into your Opsgenie account at https://app.opsgenie.com. If you're hosted in another region, you can configure a [custom endpoint]({{site.baseurl}}/user-guide/integrations/custom-endpoints.html).
 {:.info-box.important}
 
-![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint.png)
+![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint07-2021.png)
 
 See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/resolved-metrics-alerts.html) for related information.
 
@@ -84,4 +84,4 @@ You can configure your Logz.io alerts to reach the right Slack channel by config
 
 The example below shows different Slack channels dedicated to production and security alerts, application updates, and account overage.
 
-![Multiple Slack endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/slack-endpoints.png)
+![Multiple Slack endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/slack-endpoints2021.png)

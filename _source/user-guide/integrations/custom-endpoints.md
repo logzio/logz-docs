@@ -28,7 +28,7 @@ Logz.io log alerts can only be sent on **ports 80 & 443**. If you try setting an
 
 If you need to, allowlist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted:
 
-| Region slug | Allowlisted IP  |
+| Region  | Allowlisted IP  |
 |---|---|
 | us-east-1 | 3.223.132.12 |
 | eu-central-1 | 52.59.86.203 |
@@ -73,7 +73,7 @@ Some endpoints require a particular attribute/payload. For example, [Microsoft T
 {:.info-box.important}
 
 
-![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST.png)
+![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST_2021.png)
 
 
 ##### Configure your payload to add data to your alert notifications

@@ -12,8 +12,7 @@ contributors:
   - yyyogev
   - yberlinger
 shipping-tags:
-  - instrumentation
-  - tracing
+  - new-instrumentation
 order: 970
 ---
 

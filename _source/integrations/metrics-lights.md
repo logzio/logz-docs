@@ -24,6 +24,8 @@ To learn more about which resources are deployed behind the scenes and to unders
 This solution will be deployed directly on your AWS account.
 {:.info-box.note}
 
+{% include log-shipping/note-lambda-test.md %}
+
 
 #### Configuration
 

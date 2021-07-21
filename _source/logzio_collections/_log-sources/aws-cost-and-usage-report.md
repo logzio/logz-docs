@@ -27,6 +27,8 @@ Your Lambda function needs to run within the AWS Lambda limits, such as memory a
 {:.info-box.important}
 <!-- info-box-end -->
 
+{% include log-shipping/note-lambda-test.md %}
+
 <div class="tasklist">
 
 ##### Create a new Lambda function

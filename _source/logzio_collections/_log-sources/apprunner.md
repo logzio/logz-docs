@@ -29,6 +29,8 @@ order: 110
 
 #### Manual configuration with a Lambda function
 
+{% include log-shipping/note-lambda-test.md %}
+
 <div class="tasklist">
 
 ##### Create a new Lambda function
@@ -127,6 +129,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <div id="automated-cloudformation-deployment">
 
 #### Automated CloudFormation deployment
+
+{% include log-shipping/note-lambda-test.md %}
 
 **Before you begin, you'll need**:
 AWS CLI,

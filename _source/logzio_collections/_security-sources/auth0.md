@@ -106,8 +106,8 @@ Configure the required parameters as follows:
 If required, configure the optional parameters as follows:
 
    * In the **Schedule** field, enter the required schedule value. This is the frequency with which logs should be exported. This can be customized after creation.
-   * into the **Batch size** field, enter the required batch size value. This is the number of logs to be sent per batch. Maximum is `100`. Logs are batched before sending, and multiple batches are sent each time the extension runs.
-   * Enter the **Start from** value. This is the checkpoint ID of the log from which you want to start sending.
+   * In the **Batch size** field, enter the required batch size value. This is the number of logs to be sent per batch. Maximum is `100`. Logs are batched before sending, and multiple batches are sent each time the extension runs.
+   * In the **Start from** field, enter a log ID value. This is the checkpoint ID of the log from which you want to start sending.
    * In the **Slack incoming webhook url** field, enter the address for the Slack incoming webhook. This is the specific Slack webhook to which you want to send reports from the extension.
    * In the **Slack send success** field, use the selector menu to choose whether to send verbose notifications to Slack.
    * In the **Log level** field, specify minimal log level of events that you would like sent to Logstash.

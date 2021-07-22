@@ -53,9 +53,9 @@ Configure the required parameters as follows:
 ![Configure stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/webhook-auth0.png)
 
    * In the **Name** field, enter **Logz.io integration**.
-   * Enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=autho0` into the **Payload URL** field. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
-   * Select **application/json** as the **Content Type**.
-   * Select **JSON lines** as the **Content Format**.
+   * In the **Payload URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=autho0`. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
+   * In the **Content Type** field, select **application/json**.
+   * In the**Content Format**, select **JSON lines**.
 
 ##### Save the changes
 

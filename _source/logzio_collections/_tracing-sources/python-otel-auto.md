@@ -46,10 +46,10 @@ On deployment, the Python instrumentation automatically captures spans from your
 
 **Before you begin, you'll need**:
 
-* a Python application without instrumentation
-* an active account with Logz.io
-* port `4317` available on your host system
-* a name defined for your tracing service
+* A Python application without instrumentation
+* An active account with Logz.io
+* Port `4317` available on your host system
+* A name defined for your tracing service
 
 
 <div class="tasklist">

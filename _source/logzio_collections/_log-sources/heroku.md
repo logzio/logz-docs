@@ -18,6 +18,14 @@ order: 530
 [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
 <div class="tasklist">
+  
+##### Enable the runtime metrics 
+
+Optional - run this command to get application run time metrics in your logs ( like http status code, customers ip and more )
+
+```shell
+heroku labs:enable log-runtime-metrics -a <<HEROKU-APP-NAME>>
+```
 
 ##### Set up the log drain in Heroku CLI
 

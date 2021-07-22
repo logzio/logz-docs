@@ -90,19 +90,15 @@ Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io 
 
 ##### Select the "Auth0 Logs to Logstash" extension
 
-Login to your Auth0 account, navigate to **Auth0 Dashboard > Extensions**, and select **Auth0 Logs to Logstash**.
-
-The following screen will appear:
+Login to your Auth0 account, navigate to **Auth0 Dashboard > Extensions**, and select **Auth0 Logs to Logstash** to display the **Install Extension** screen:
 ![Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Dashboard_Logstash.png)
 
 ##### Configure the required parameters
 
 Configure the required parameters as follows:
 
-   * In the  **LOGSTASH_URL** field, enter your Listener host URL and port. 
-   * {% include log-shipping/listener-var.md %}
-   * In the **LOGSTASH_TOKEN** field, enter your log shipping token (`<<LOG-SHIPPING-TOKEN>>`) . 
-   * {% include log-shipping/log-shipping-token.md %}
+   * In the  **LOGSTASH_URL** field, enter your Listener host URL and port. {% include log-shipping/listener-var.md %}
+   * In the **LOGSTASH_TOKEN** field, enter your log shipping token (`<<LOG-SHIPPING-TOKEN>>`). {% include log-shipping/log-shipping-token.md %}
    * In the **LOGSTASH_INDEX** field, enter `auth0`.
 
 ##### Configure the optional parameters

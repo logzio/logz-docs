@@ -162,10 +162,13 @@ firstLevel:
       url: /user-guide/distributed-tracing/compare-traces
     - title: Topology diagrams
       url: /user-guide/distributed-tracing/topology-system_architecture
+  - title: Add drilldown links in Distributed Tracing
+    url: /user-guide/distributed-tracing/jaeger-drilldown/
   - title: Correlate logs and traces
     url:  /user-guide/distributed-tracing/correlate-traces/
   - title: Visualize traces in Kibana
     url: /user-guide/distributed-tracing/visualize-traces/
+
 
 
   # ===== CLOUD SIEM =====

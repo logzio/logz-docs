@@ -57,6 +57,8 @@ On deployment, the .NET instrumentation automatically captures spans from your a
 
 ##### Download instrumentation packages
 
+Run the following command from the application directory:
+
 ```shell
 
 dotnet add package OpenTelemetry

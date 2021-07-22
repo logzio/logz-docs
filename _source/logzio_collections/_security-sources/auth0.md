@@ -34,7 +34,7 @@ Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io 
 
 ##### Create a custom log stream
 
-1. Login to your Auth0 account, navigate to **Auth0 Dashboard > Monitoring > Streams**, and select **Create Stream**.
+1. Log in to your Auth0 account, navigate to **Auth0 Dashboard > Monitoring > Streams**, and select **Create Stream**.
   
 2. On the **New Event Stream**, select **Custom Webhook**.
 

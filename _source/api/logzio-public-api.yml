@@ -200,6 +200,11 @@ tags:
 
 
       You can also create new security rules to supplement the built-in rules.
+
+  - name: Security account
+    description: >-
+      A security account with SIEM allows you to use the SIEM platform. You can create a SIEM account uaing an API call.
+
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -250,6 +255,7 @@ x-tagGroups:
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
+      - Security account
       - Security rules
       - Security events
       - Lookup lists
@@ -3354,6 +3360,95 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseTriggeredAlert'
           headers: {}
+  
+  # ::::: SECURITY ACCOUNT
+  /v1/account-management/siem:
+    post:
+      summary: Create SIEM account
+      description: >-
+        Creates SIEM account through public API
+      tags:
+        - Security account
+      operationId: createSIEMaccount
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            required:
+              - accountName
+              - Email
+            properties:
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+              email:
+                type: string
+                description: Email address of the account user.
+                example: "User@logz.io"
+
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/account-management/siem \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "accountName": "User",
+                "accountsToScan": 88888, 55555,
+                "sharingObjectsAccounts": 55555
+                "Email": "user@logz.io",
+              }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              accountId:
+                type: integer
+                description: ID of the account
+                example: 24601
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty. 
+              createdAt:
+                type: string
+                format: date-time
+                description: >-
+                  Date this account was created.
+                  Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
+                example: 2018-04-01T19:18:38Z
+              
+
   /v2/security/rules/events/logs/search:
     post:
       summary: Fetch the logs that triggered a security event
@@ -3810,10 +3905,7 @@ paths:
           schema:
             $ref: '#/definitions/LookupListElementBulkResponse'
           headers: {}
-
-  
-  
-  
+            
 
 definitions:
   # ::::: SIEM LOOKUPS

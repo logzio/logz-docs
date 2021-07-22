@@ -53,7 +53,9 @@ Configure the required parameters as follows:
 ![Configure stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/webhook-auth0.png)
 
    * In the **Name** field, enter **Logz.io integration**.
-   * In the **Payload URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=autho0`. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
+   * In the **Payload URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=autho0`. 
+   * {% include log-shipping/listener-var.html %} 
+   * {% include log-shipping/log-shipping-token.html %}
    * In the **Content Type** field, select **application/json**.
    * In the **Content Format** field, select **JSON lines**.
 
@@ -97,8 +99,10 @@ The following screen will appear:
 
 Configure the required parameters as follows:
 
-   * In the  **LOGSTASH_URL** field, enter your Listener host URL and port. {% include log-shipping/listener-var.md %}
-   * In the **LOGSTASH_TOKEN** field, enter your log shipping token (`<<LOG-SHIPPING-TOKEN>>`) . {% include log-shipping/log-shipping-token.md %}
+   * In the  **LOGSTASH_URL** field, enter your Listener host URL and port. 
+   * {% include log-shipping/listener-var.md %}
+   * In the **LOGSTASH_TOKEN** field, enter your log shipping token (`<<LOG-SHIPPING-TOKEN>>`) . 
+   * {% include log-shipping/log-shipping-token.md %}
    * In the **LOGSTASH_INDEX** field, enter `auth0`.
 
 ##### Configure the optional parameters

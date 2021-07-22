@@ -63,46 +63,9 @@ Download the latest version of the [OpenTelemetry Java agent](https://github.com
 
 Create a dedicated directory on the host of your Java application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.23.0) that is relevant to the operating system of your host.
 
-<!-- info-box-start:info -->
-**Known Issue, June 2021**: OpenTelemetry collector version 0.24 and above does not function as expected when deployed with the Logz.io exporter. To remediate this issue, if you’re currently using version 0.24 or above, replace your OpenTelemetry collector with version 0.23 or lower.
-The expected resolution for this issue is later this year.
-{:.info-box.important}
-<!-- info-box-end -->
-
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
-```yaml
-
-receivers:  
-  otlp:
-    protocols:
-      grpc:
-        endpoint: "localhost:4317"
-
-exporters:
-  logzio:
-    account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    #region: "<<LOGZIO_ACCOUNT_REGION_CODE>>" - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is different than US East. https://docs.logz.io/user-guide/accounts/account-region.html#available-regions
-
-processors:
-  batch:
-
-extensions:
-  pprof:
-    endpoint: :1777
-  zpages:
-    endpoint: :55679
-  health_check:
-
-service:
-  extensions: [health_check, pprof, zpages]
-  pipelines:
-    traces:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [logzio]
-
-```
+{% include /tracing-shipping/collector-config.md %}
 
 {% include /tracing-shipping/replace-tracing-token.html %}
 
@@ -112,9 +75,7 @@ service:
 Run the following command:
 
 ```shell
-
 <path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
-
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
@@ -124,14 +85,12 @@ Run the following command:
 Run the following command from the directory of your Java application:
 
 ```shell
-
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
      -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
      -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
      -jar target/*.jar
-
 ```
 
 * Replace `<path/to>` with the path to the directory where you downloaded the agent.

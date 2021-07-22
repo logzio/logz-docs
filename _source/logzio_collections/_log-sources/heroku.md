@@ -21,7 +21,7 @@ order: 530
   
 ##### Enable the runtime metrics 
 
-Optional - run this command to get application run time metrics in your logs ( like http status code, customers ip and more )
+Optional - run the following command to include application run time metrics in your logs (for example, http status code, customer's IP, and more):
 
 ```shell
 heroku labs:enable log-runtime-metrics -a <<HEROKU-APP-NAME>>

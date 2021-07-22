@@ -38,8 +38,8 @@ Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io 
   
 2. On the **New Event Stream**, select **Custom Webhook**.
 
-The following screen appears:
-![Create stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Auth0-logzio-integration.png)
+   The following screen appears:
+   ![Create stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Auth0-logzio-integration.png)
   
 3. In the **Name** field, enter **Logz.io integration** and select **Create**.
 

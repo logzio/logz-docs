@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Customize your log parsing with Sawmill
+title: Customize your log parsing with the Logz.io Parsing rule editor
 permalink: /user-guide/mapping-and-parsing/sawmill-parsing
 flags:
   admin: true
@@ -112,3 +112,74 @@ When you're done editing the parsing rules, add the email for the admin user ass
 The parsing rules you create can only be applied to the Logz.io account that matches your API token, and are only valid for the log type you chose. <br> <br> To apply the parsing rules you create, you must be an admin for the account. 
 {:.info-box.note}
 <!-- info-box-end -->
+
+## Parsing rule editor examples
+
+The goal of log parsing is to transform your log text into useable data fields so you can then run queries and refine query performance, and to extend the text in your logs to create data visualizations and dashboards. 
+
+
+### Grok transformation
+
+Use grok parsing to transform a *regex* (regular expression) into human-friendly patterns. 
+For the log sample: `2021-06-21T20:19:40.45+01:00 DEBUG This should be a log sample`, the resulting transformation is:  ![Grok parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/grok_parsing-example.png)
+
+
+###### Grok parsing comparison
+
+|Log example| Applied parsing rule |  Parsed example|
+|---|---|--|
+|`2021-06-21T20:19:40.45+01:00 DEBUG This should be a log sample`|  `{ "steps": [{"grok": {"config": {"field": "message"                "patterns": [ "^%{TIMESTAMP_ISO8601:time} %{LOGLEVEL:logLevel} %{GREEDYDATA:logMessage}$" ] } } } ]}`| `{ "@timestamp": "2021-06-30T08:40:57.684+0000","logLevel": "DEBUG", "logMessage": "This should be a log sample\n\n", "time": "2021-06-21T20:19:40.45+01:00", "message": "2021-06-21T20:19:40.45+01:00 DEBUG This should be a log sample\n\n", "type": All-Prod-Health"}`|
+
+
+
+### Conditional parsing
+
+Use conditional parsing to relabel specific fields. 
+For the log sample below,
+
+``` ts
+{
+    "date": "02/May/2021:15:27:05 +0000",
+      "userAgent": "aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40",
+    "requestURI": "PUT /1019/150921/150921T152904.log.gz HTTP/1.1",
+    "message": "7455bc43ad9c06bf1a5dcd3a1c7a30acfe2ff1bdc028bbfed6ccc8817927767b backups-logzio-prod [02/May/2021:15:27:05 +0000] 54.86.133.203 arn:aws:iam::406095609952:user/backups-logzio-prod-user 7E37FD23C998A4E6 REST.PUT.OBJECT 1019/150921/150921T152904.log.gz \"PUT /1019/150921/150921T152904.log.gz HTTP/1.1\" 200 - - 37325 39 22 \"-\" \"aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40\" -",
+    "UA-os_patch": "0",
+       "@timestamp": "2021-05-02T15:27:05.000Z",
+    "requestID": "7E37FD23C998A4E6",
+    "http_status": 200,
+  "fragment": "test",
+    "UA-device": "Other"
+  }
+```
+
+The resulting transformation is:  ![Conditional parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/conditional_parsing-example.png)
+
+
+###### Conditional parsing comparison
+
+|Log example| Applied parsing rule |  Parsed example|
+|---|---|--|
+|`{"date": "02/May/2021:15:27:05 +0000", "userAgent": "aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40","requestURI": "PUT /1019/150921/150921T152904.log.gz HTTP/1.1","message":"7455bc43ad9c06bf1a5dcd3a1c7a30acfe2ff1bdc028bbfed6ccc8817927767b backups-logzio-prod [02/May/2021:15:27:05 +0000] 54.86.133.203 arn:aws:iam::406095609952:user/backups-logzio-prod-user 7E37FD23C998A4E6 REST.PUT.OBJECT 1019/150921/150921T152904.log.gz \"PUT /1019/150921/150921T152904.log.gz HTTP/1.1\" 200 - - 37325 39 22 \"-\" \"aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40\" -","UA-os_patch": "0","@timestamp": "2021-05-02T15:27:05.000Z","requestID": "7E37FD23C998A4E6", "http_status": 200,"fragment": "test","UA-device": "Other" }`| `{ "steps": [ { "if": {"condition": {      "fieldType": {            "path": "fragment",         "type": "string"          }        },        "then": [          {            "rename": {              "config": {                "from": "fragment",                "to": "fragment_str"              }  }   }  ]  }    }  ]}` | `{        "date": "02/May/2021:15:27:05 +0000",        "userAgent": "aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40","requestURI": "PUT /1019/150921/150921T152904.log.gz HTTP/1.1", "message": 7455bc43ad9c06bf1a5dcd3a1c7a30acfe2ff1bdc028bbfed6ccc8817927767b backups-logzio-prod [02/May/2021:15:27:05 +0000] 54.86.133.203 arn:aws:iam::406095609952:user/backups-logzio-prod-user 7E37FD23C998A4E6 REST.PUT.OBJECT 1019/150921/150921T152904.log.gz \"PUT /1019/150921/150921T152904.log.gz HTTP/1.1\" 200 - - 37325 39 22 \"-\" \"aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40\" -",        "type": "All-Prod-Health",        "UA-os_patch": "0",        "@timestamp": 2021-05-02T15:27:05.000Z",        "fragment_str": "test",        "requestID": "7E37FD23C998A4E6",        "http_status": 200,        "UA-device": "Other"    }`|
+
+
+
+
+### Template parsing
+
+Use templating to consolidate or transform separate field strings into a single, aggregated field.
+For the log sample below,
+
+```java
+{
+"the_date": "20/6/2021",
+"the_time": "17:34"
+}
+
+```
+The resulting transformation is: ![Template parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/template_parsing-example.png)
+
+###### Template parsing comparison
+
+|Log example| Applied parsing rule |  Parsed example|
+|---|---|--|
+| `{"the_date": "20/6/2021","the_time": "17:34"}`|`{    "steps": [        {            "addField": {                "config": {                    "path": "timestamp",                   "value": "{{the_date}} {{the_time}}"                }            }        }    ]}` |`{        "the_time": "17:34",        "@timestamp": "2021-06-21T14:29:08.369+0000",        "the_date": "20/6/2021",        "timestamp": "20/6/2021 17:34"    } ` | 

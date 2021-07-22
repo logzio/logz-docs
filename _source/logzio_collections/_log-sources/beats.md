@@ -36,6 +36,7 @@ This document describes the way to get logs from your system to Logz.io using an
 
 #### Configure your Beats shipper on macOS or Linux
 
+<!-- logzio-inject:grafana:dashboards-installation id=['282035','283510'] -->
 **Before you begin, you'll need**:
 
 * Any Beats shipper installed on your machine. This includes [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), Auditbeat, Functionbeat, Heartbeat, Journalbeat, Metricbeat or Packetbeat. Logz.io recommends that you use the latest stable version.

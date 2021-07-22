@@ -16,90 +16,118 @@ contributors:
   - danielberman
 ---
 
-Lookups are custom lists that you can use for simpler, easier query filtering in Kibana. 
-Instead of adding a long list of elements to your query, you can create lookup lists and use them to filter results by adding the operator `in lookups` or `not in lookups`. 
-
-For example, you can create lookups of allowlisted or blocklisted usernames, IP addresses, regions, or domains. 
+Lookup lists are custom lists that you can use for simpler, easier query filtering in Kibana. 
+Instead of adding a long list of elements to your query, you can create lookup lists and use them to filter results by adding the operator `in lookups` or `not in lookups`. For example, you can create lookup lists of allowlisted or blocklisted usernames, IP addresses, regions, or domains. 
 
 Each list you create is added the main Lookups library: Because the lookup lists are centrally managed, any list can be easily updated and changed without requiring manually updating multiple dashboards, saved searches, security rules, and so on.
 
 Configuring an expiration with the optional **Time to Live** (**TTL**) setting makes it possible to set a default time range for how long new lists should be actively used to filter queries, or to set a specific time range for a specific list. 
 
+To view and create lookup lists, from the **Cloud SIEM** menu, go to [**More Options > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup).
 
-![Lookup lists](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookup_lists-existinglists.png)
-
-To view and create lookup lists, from the **Cloud SIEM** menu, select [**More Options > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup).
-
-![Lookup navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookups_newnav.png)
+![Open Lookup lists](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookuplist-nav.gif)
 
 
-To create a large lookup list with up to 200 elements, we recommend that you use a CSV file to upload values. The [Lookup lists API endpoints](https://docs.logz.io/api/#tag/Lookup-lists) also let you independently create and update a large lookup list.
+To create a large lookup list with up to 200 elements, we recommend that you use a CSV file to upload values. The [Lookup lists API endpoints](https://docs.logz.io/api/#tag/Lookup-lists) also let you independently manage lookup lists: To create a new list, you'd use the [Create lookup lists API](https://docs.logz.io/api/#tag/Lookup-lists), and add elements (either via CSV file  or via the [Add eleement to a lookup list API](https://docs.logz.io/api/#operation/createLookupListElement).
 {:.info-box.tip} 
 
+#### Managing and using lookup lists
+{:.no_toc}
+
+- toc list
+{:toc}
+
+{:.no_toc}
+
+<div class="tasklist">
 
 
-#### Create a lookup list
+##### Configure the default expiration period for new lookup lists
 
-<!-- You can use one of the following methods to create a lookup list: 
+Time to live (TTL) is the number of days remaining until the lookup list is expired: A lookup list with a TTL of 1 day expires within 24 hours from the time it was created and a list with a TTL of 2 days expires within 48 hours from the creation time.
 
-* Manual 
-* CSV upload: For larger lists, you can upload a CSV with up to 200 elements. You can also use a CSV file to update elements in a lookup list. 
-* Via API: To create a new list, use the [Create lookup lists API](https://docs.logz.io/api/#tag/Lookup-lists), and then add elements, either with a CSV file or with the [Add eleement to a lookup list API](https://docs.logz.io/api/#operation/createLookupListElement). -->
-
-<!-- 
-Time to live (TTL) displays the number of days remaining until the lookup list is expired: A lookup list with a TTL of 1 day expires within 24 hours from the time it was created and a list with a TTL of 2 days expires within 48 hours from the creation time.
+By default, all new lookup lists are created without an expiration period. To set the Default **Time to live** (**TTL**) for new lookup lists, at the top of the Lookup lists page, click **Change**, select **No expiration** or a period between 1-364 days, and then **Save** your changes to apply them or **Cancel** the change. 
+![Configure the default TTL for new lists](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/set-default-ttl_2021.gif)
 
 
-  -->
 
-* In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page,
-  click **+ New lookup**, and **Name** your lookup. You can also add a **Description**. 
+##### Create or edit a lookup list manually
+
+
+1. In the [Lookup lists](https://app.logz.io/#/dashboard/security/rules/lookup) page, do one of the following: 
+   * Click **+ New lookup** to open **Edit a lookup list**. 
+   * For an existing list, hover over the list in the table, and click **edit** <i class="li li-pencil"></i> to open **Edit a lookup list**.   
+   ![Create a new lookup list or modify an existing list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/screate-edit-lookup_manual.png) 
+
+1. In the **Edit a lookup list** page, update the **Name** and optional **Description** for the list.
   
-  Click **+ New element** to add a new item to the lookup. 
+1. To add a new line to the list: 
+
+   a. Click **+New element**. 
     
-  ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup-blank.png)
+   ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup-blank.png)
 
-* Enter a **Value**. For example, an IP address or domain. You can also add a reference. 
+   b.  Enter a **Value** for the element: For example, an IP address or domain. You can also add an optional note. 
 
-* Click **Add** to confirm and save the new record.
+   c.  Set an expiration period (**Time to live**) for the element: Select **No expiration** or select the number of days (1-364) you want the list to be active.
 
-  ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup.png)
+   d. Click **Add** to confirm and save the new element or **Cancel** to discard your changes.
 
-*     
+   ![Add a new list manually](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup.png)
 
-* Repeat the above step to continue adding the relevant records to your lookup.
+   e. Repeat these steps to continue adding elements to your lookup.
 
-#### Update or delete a lookup
+1. To edit an existing element: 
 
-In the [Lookups](https://app.logz.io/#/dashboard/security/rules/lookup) page:
+   a.  Hover over the element in the table, click **edit** <i class="li li-pencil"></i> and update the **Value**, **Comment**, or **Time to live** as needed. 
+   b. Click **Save** or **Cancel.**
 
-* To add, update, or remove items from the lookup, hover over the lookup, click **edit** <i class="li li-pencil"></i>, make your changes, and then click **Save**.
+1. To delete an existing element, hover over the element in the table, click **delete** <i class="li li-trash"></i> , and **Confirm** or **Cancel** the action.    
 
-* To delete a lookup, hover over the item and click **delete** <i class="li li-trash"></i> to delete it. You'll be asked to confirm the deletion.
+##### Create or edit a lookup list via CSV file upload
+
+Create a large lookup list of up to 200 elements, or update the elements of an existing list with a CSV file. 
+
+Prepare a CSV file that includes between 1 and 200 elements:  
+
+* An element line can include a single value and an optional comment, but should not be left blank. 
+* Don't include header titles for element tables: The headers for the lookup list tables in Cloud SIEM are always **Value** and **Comment**.
+
+If your CSV file includes elements that are already in the lookup list, the values are merged and the comments in the uploaded file overwrite the existing comments.
+
+![CSV files for upload](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/csv-for-upload.png)
+
+1. In the [Lookup lists](https://app.logz.io/#/dashboard/security/rules/lookup) page, click **Upload from CSV file**. 
+   ![Upload from CSV ](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/newlookup-csv.png)
+1. In the **Upload records from CSV file** dialog, configure the TTL for the list as needed.
+1. Click **Upload CSV file**, select the relevant file, and confirm, or **Cancel** to exit the upload. 
+   The **Edit a lookup list** page opens and your new lookup list is displayed with an **Untitledxx** default name (for example, **Untitled20**).
+1. Rename your lookup list, add an optional description, and click **Save** to update.
 
 
-#### Upload a CSV file with lookup list elements
 
-To create larger lists, you can upload a CSV with up to 200 elements, or use a CSV file to update elements in an existing lookup list.
+##### Delete a lookup list
 
-Duplicate values are merged
-
+To delete a lookup, hover over the item and click **delete** <i class="li li-trash"></i> to delete it. You'll be asked to confirm the deletion.
 
 
-#### Filter by lookups in Kibana
+</div>
 
-You can filter by lookups in Kibana dashboards, security rules, and searches.
 
-For example, go to the [Research](https://app.logz.io/#/dashboard/security/research) page or open a Dashboard. Click **Add a filter** to show the filter dialog box.
+## Filter by lookup lists in Kibana
 
-![Filter by lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-by-lookup.png)
+You can filter by lookup lists in Kibana dashboards, security rules, and searches.
+
+For example, go to the SIEM [Kibana](https://app.logz.io/#/dashboard/security/research) page or open a Dashboard. Click **Add a filter** to show the filter dialog box.
+
+![Filter by lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookup_filter-kibana_or_dashbd.gif)
 
 * **Field** - Select a field to filter by.
 * **Operator** - Select the operator **in lookups** or **not in lookups**.
 * **Value** - Select the lookup you want to filter by.
 
-#### Add a lookup filter to a security rule
+## Add a lookup list filter to a security rule
 
-Security rules can filter by a lookup. [Learn more about managing security rules]({{site.baseurl}}/user-guide/cloud-siem/manage-security-rules.html).
+Security rules can filter by a lookup list. [Learn more about managing security rules]({{site.baseurl}}/user-guide/cloud-siem/manage-security-rules.html).
 
-![Filter by lookup in Logz.io security rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-by-lookup-rules.png)
+![Filter by lookup in Logz.io security rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-with-lookup_rules.png)

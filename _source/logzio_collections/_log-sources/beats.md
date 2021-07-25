@@ -34,6 +34,10 @@ order: 10
 
 This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
 
+#### NEW BUTTON
+
+<!-- logzio-inject:grafana:dashboards-installation id=['282035','283510'] -->
+
 #### Configure your Beats shipper on macOS or Linux
 
 **Before you begin, you'll need**:

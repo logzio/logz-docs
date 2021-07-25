@@ -16,20 +16,28 @@ contributors:
   - danielberman
 ---
 
+
 Lookup lists are custom lists that you can use for simpler, easier query filtering in Kibana. 
 Instead of adding a long list of elements to your query, you can create lookup lists and use them to filter results by adding the operator `in lookups` or `not in lookups`. For example, you can create lookup lists of allowlisted or blocklisted usernames, IP addresses, regions, or domains. 
 
-Each list you create is added the main Lookups library: Because the lookup lists are centrally managed, any list can be easily updated and changed without requiring manually updating multiple dashboards, saved searches, security rules, and so on.
+Each list you create is added to the main Lookup lists library: Because the lookup lists are centrally managed, any list can be easily updated and changed without requiring manually updating multiple dashboards, saved searches, security rules, and so on.
 
-Configuring an expiration with the optional **Time to Live** (**TTL**) setting makes it possible to set a default time range for how long new lists should be actively used to filter queries, or to set a specific time range for a specific list. 
+Configuring an expiration with the optional **Time to Live** (**TTL**) setting makes it possible to set a default time range for how long new lists should be actively used to filter queries, or to set a specific time range for a specific list. In addition to setting a TTL for a list, you can also configure a unique TTL for each element in the list, separate from the general TTL of the list. 
 
 To view and create lookup lists, from the **Cloud SIEM** menu, go to [**More Options > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup).
 
 ![Open Lookup lists](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookuplist-nav.gif)
 
-
-To create a large lookup list with up to 200 elements, we recommend that you use a CSV file to upload values. The [Lookup lists API endpoints](https://docs.logz.io/api/#tag/Lookup-lists) also let you independently manage lookup lists: To create a new list, you'd use the [Create lookup lists API](https://docs.logz.io/api/#tag/Lookup-lists), and add elements (either via CSV file  or via the [Add eleement to a lookup list API](https://docs.logz.io/api/#operation/createLookupListElement).
+<!-- info-box-start: tip -->
+To create a large lookup list with up to 200 elements, we recommend that you use a CSV file to upload values. The [Lookup lists API endpoints](https://docs.logz.io/api/#tag/Lookup-lists) also let you independently manage lookup lists: To create a new list, you'd use the [Create lookup lists API](https://docs.logz.io/api/#tag/Lookup-lists), and add elements (either via CSV file  or via the [Add element to a Lookup list API](https://docs.logz.io/api/#operation/createLookupListElement).
 {:.info-box.tip} 
+<!-- info-box-end -->
+
+<!-- info-box-start: Note-->
+The **Time to live** and CSV upload features are currently in Beta. Contact [Logzio Support](mailto:help@logz.io?subject=Requesting%early%20access.%20Thanks!)  or your Logz.io account manager to request early access. 
+{:.info-box.note} 
+<!-- info-box-end -->
+
 
 #### Managing and using lookup lists
 {:.no_toc}
@@ -57,15 +65,15 @@ By default, all new lookup lists are created without an expiration period. To se
 1. In the [Lookup lists](https://app.logz.io/#/dashboard/security/rules/lookup) page, do one of the following: 
    * Click **+ New lookup** to open **Edit a lookup list**. 
    * For an existing list, hover over the list in the table, and click **edit** <i class="li li-pencil"></i> to open **Edit a lookup list**.   
-   ![Create a new lookup list or modify an existing list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/screate-edit-lookup_manual.png) 
+   ![Create a new lookup list or modify an existing list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/create-edit-lookup_manual.png) 
 
 1. In the **Edit a lookup list** page, update the **Name** and optional **Description** for the list.
   
 1. To add a new line to the list: 
 
-   a. Click **+New element**. 
+   a. Click **+ New element**. 
     
-   ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup-blank.png)
+   ![Lookups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add_element-lookup_list.gif)
 
    b.  Enter a **Value** for the element: For example, an IP address or domain. You can also add an optional note. 
 
@@ -73,9 +81,7 @@ By default, all new lookup lists are created without an expiration period. To se
 
    d. Click **Add** to confirm and save the new element or **Cancel** to discard your changes.
 
-   ![Add a new list manually](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/add-record-lookup.png)
-
-   e. Repeat these steps to continue adding elements to your lookup.
+   e. Repeat these steps to continue adding elements to your lookup list.
 
 1. To edit an existing element: 
 

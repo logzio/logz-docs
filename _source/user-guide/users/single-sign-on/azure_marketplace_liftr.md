@@ -33,7 +33,7 @@ Prepare SSO connectivity before setting up the Azure resource for Logz.io. You'l
 You'll create an Azure Active Directory (AD) Enterprise application toallow you use SSO to connect to your Logz.io account from your Azure resource. 
 
 ### Prerequisites: 
-To get started, you need the following privileges: 
+To get started, you need the following privileges:
 
 * Access to Azure Active Directory (AAD)
 * Permissions to create a new Enterprise Application

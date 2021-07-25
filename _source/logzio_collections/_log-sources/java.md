@@ -132,7 +132,7 @@ If you receive an error message regarding a missing appender, try adding the fol
 
 <Configuration status="info" packages="io.logz.log4j2">
 
-# rest of the [config|https://docs.logz.io/shipping/log-sources/java.html#configure-the-appender]
+# Place the configuration from step 2
 
 </Configuration>
 

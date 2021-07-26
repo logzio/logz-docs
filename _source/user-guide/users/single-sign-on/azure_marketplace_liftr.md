@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Single sign-on for the Logz.io- Azure AD integration
+title: Single sign-on for the Logz.io- Azure Portal integration
 permalink: /user-guide/users/single-sign-on/azure_marketplace_liftr.html
 flags:
   admin: true
@@ -14,7 +14,7 @@ contributors:
 ---
 
 Logz.io offers an integration with Azure Marketplace. 
-This topic provides guidance for admins to set up SSO for the Logz.io-Azure AD integration, which enables an SSO link for users who access Logz.io resources via Microsoft Azure Marketplace.
+This topic provides guidance for admins to set up SSO for the Logz.io-Azure Portal integration, which enables an SSO link for users who access Logz.io resources via Microsoft Azure Marketplace.
 
 ### Benefits
 The advantages of providing your users access to the Logz.io Azure resource via SSO: 
@@ -30,7 +30,7 @@ Prepare SSO connectivity before setting up the Azure resource for Logz.io. You'l
 
 ## Creating SSO connectivity for your Logz.io resource in Azure Active Directory 
 
-You'll create an Azure Active Directory (AD) Enterprise application toallow you use SSO to connect to your Logz.io account from your Azure resource. 
+You'll create an Azure Active Directory (AD) Enterprise application to allow you use SSO to connect to your Logz.io account from your Azure resource. 
 
 ### Prerequisites: 
 To get started, you need the following privileges:
@@ -42,15 +42,15 @@ To get started, you need the following privileges:
 
 To be able to access and use the SSO link that is created for a Logz.io-Azure integration resource, users must be defined in the associated Azure account. 
 
-#### Setting up an SSO link for the Logz.io-Azure portal resource
+#### Setting up an SSO link for the Logz.io-Azure Portal resource
 
 <div class="tasklist">
 
 ##### Add the Logz.io-Azure Active Directory Integration from the gallery
 
-To configure the Logz.io - Azure AD Integration in Azure AD, you need to add the Logz.io - Azure AD Integration from the gallery to your list of managed SaaS apps.
+To configure SSO for the Logz.io resource in the Azure Portal, you need to add the Logz.io - Azure AD Integration from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using a Microsoft account.
+1. Sign in to the Azure Portal using a Microsoft account.
 2. In the Azure Active Directory Gallery, navigate to the Logz.io - Azure AD Integration template and select it.
 3. Rename the integration to with a relevant name and click **Create**.
 ![Rename the integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-rename_logzio-ad_integration.png)
@@ -83,7 +83,7 @@ In **AD app for a logz.io resource | Overview > Properties**, copy the **Applica
 ##### Configure the user assignment option    
 
 In **AD app for a logz.io resource|Properties  (Manage > Properties)**, set **User assignment required?** to **No** and click **Save**.  
-This step enables users with access to the SSO link to sign in to Logz.io via Microsoft Azure Marketplace, without requiring that you predefine each user in Active Directory.
+This step enables users with access to the SSO link to sign in to Logz.io via Microsoft Azure Portal, without requiring that you predefine each user in Active Directory.
 
 This option allows any user who is defined under Active Directory to use the SSO link, instead of requiring that you define specific access rights for each user through the AD app that was just created. 
 

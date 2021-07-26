@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Single sign-on for the Logz.io-Azure Portal integration
+title: Single sign-on (SSO) for the Logz.io-Azure Portal integration
 permalink: /user-guide/users/single-sign-on/azure_marketplace_liftr.html
 flags:
   admin: true

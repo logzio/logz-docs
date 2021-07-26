@@ -3,7 +3,7 @@ layout: article
 title: Lookup lists
 permalink: /user-guide/lookups/
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - security-analytics
   - lookups

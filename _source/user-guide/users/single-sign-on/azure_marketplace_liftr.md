@@ -51,8 +51,10 @@ To be able to access and use the SSO link that is created for a Logz.io-Azure in
 To configure SSO for the Logz.io resource in the Azure Portal, you need to add the Logz.io - Azure AD Integration from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure Portal using a Microsoft account.
-2. In the Azure Active Directory Gallery, navigate to the Logz.io - Azure AD Integration template and select it.
-3. Rename the integration to with a relevant name and click **Create**.
+2. In the Azure Portal, in **Logz.io | Overview**, in the **+ Add** menu, select **Enterprise application**.
+   ![Enterprise application option](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-ovrview_enterprise_apps.png)
+3. In the Azure Active Directory Gallery, browse to the **Logz.io - Azure AD Integration** application and select it.
+4. Rename the integration to with a relevant name and click **Create**.
 ![Rename the integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-rename_logzio-ad_integration.png)
 
 ##### Copy the Application ID

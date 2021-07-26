@@ -150,7 +150,7 @@ where you'll configure the resources to be deployed.
 At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. 
 
 <!-- info-box-start:info -->
-Only new logs that are created from the moment the integration process is complete, will get shipped. Logs that were added before this integration, will not get shipped.
+Only new logs that are created from the moment the integration process is complete are sent to Logz.io. Logs that were added before this integration are not sent to Logz.io.
 {:.info-box.important}
 <!-- info-box-end -->
 

@@ -22,7 +22,7 @@ Instead of adding a long list of elements to your query, you can create lookup l
 
 Each list you create is added to the main Lookup lists library: Because the lookup lists are centrally managed, any list can be easily updated and changed without requiring manually updating multiple dashboards, saved searches, security rules, and so on.
 
-Configuring an expiration with the optional **Time to Live** (**TTL**) setting makes it possible to set a default time range for how long new lists should be actively used to filter queries, or to set a specific time range for a specific list. In addition to setting a TTL for a list, you can also configure a unique TTL for each element in the list, separate from the general TTL of the list. 
+Configuring an expiration with the optional **Time to live** (**TTL**) setting makes it possible to set a default time range for how long new lists should be actively used to filter queries, or to set a specific time range for a specific list. In addition to setting a TTL for a list, you can also configure a unique TTL for each element in the list, separate from the general TTL of the list. 
 
 To view and create lookup lists, from the **Cloud SIEM** menu, go to [**More Options > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup).
 

@@ -46,10 +46,10 @@ On deployment, the Java agent automatically captures spans from your application
 
 **Before you begin, you'll need**:
 
-* a Java application without instrumentation
-* an active account with Logz.io
-* port `4317` available on your host system
-* a name defined for your tracing service
+* A Java application without instrumentation
+* An active account with Logz.io
+* Port `4317` available on your host system
+* A name defined for your tracing service
 
 
 <div class="tasklist">

@@ -147,7 +147,13 @@ where you'll configure the resources to be deployed.
 | Timeout | The read/write/connection timeout in *milliseconds*.  | `180,000 = 3 minutes` | 
 
 
-At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. Only logs sent from this point on will be searchable in Logz.io.
+At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. 
+
+<!-- info-box-start:info -->
+Only new logs that are created from the moment the integration process is complete are sent to Logz.io. Logs that were added before this integration are not sent to Logz.io.
+{:.info-box.important}
+<!-- info-box-end -->
+
 
 ##### Check Logz.io for your logs
 

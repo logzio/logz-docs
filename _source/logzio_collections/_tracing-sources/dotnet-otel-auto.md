@@ -60,12 +60,10 @@ On deployment, the .NET instrumentation automatically captures spans from your a
 Run the following command from the application directory:
 
 ```shell
-
 dotnet add package OpenTelemetry
 dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
 dotnet add package OpenTelemetry.Instrumentation.AspNetCore
 dotnet add package OpenTelemetry.Extensions.Hosting
-
 ```
 
 ##### Enable instrumentation in the code
@@ -73,16 +71,13 @@ dotnet add package OpenTelemetry.Extensions.Hosting
 Add the following configuration to the beginning of the Startup.cs file:
 
 ```cs
-
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
-
 ```
 
 Add the following configuration to the Startup class:
 
 ```cs
-
 public void ConfigureServices(IServiceCollection services)
         {
 
@@ -98,7 +93,6 @@ public void ConfigureServices(IServiceCollection services)
                 })
             );
         }
-
 ```
 
 
@@ -119,9 +113,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 Run the following command:
 
 ```shell
-
 <path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
-
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.

@@ -35,11 +35,12 @@ go get -u github.com/logzio/logzio-go
 ```
   
 Logzio golang api client offers two queue implementations that you can use:
-## Disk queue
+
+### Disk queue
 Logzio go client uses [goleveldb](https://github.com/syndtr/goleveldb) and [goqueue](github.com/beeker1121/goque) as a persistent storage.
 Every 5 seconds logs are sent to logz.io (if any are available)
 
-## In memory queue
+### In memory queue
 You can see the logzio go client queue implementation in `inMemoryQueue.go` file. The in memory queue is initialized with 500k log count limit and 20mb capacity by default.
 You can use the `SetinMemoryCapacity()` and `SetlogCountLimit()` functions to override default settings.
 

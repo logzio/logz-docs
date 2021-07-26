@@ -34,7 +34,7 @@ To create a large lookup list with up to 200 elements, we recommend that you use
 <!-- info-box-end -->
 
 <!-- info-box-start: Note-->
-The **Time to live** and CSV upload features are currently in Beta. Contact [Logzio Support](mailto:help@logz.io?subject=Requesting%early%20access.%20Thanks!)  or your Logz.io account manager to request early access. 
+The **Time to live (TTL)** and **CSV upload** features are currently in Beta. Contact [Logzio Support](mailto:help@logz.io?subject=Requesting%early%20access.%20Thanks!) to request early access. 
 {:.info-box.note} 
 <!-- info-box-end -->
 

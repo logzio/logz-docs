@@ -269,7 +269,7 @@ firstLevel:
       url: /user-guide/users/single-sign-on/
     - title: Azure single sign-on
       url: /user-guide/users/single-sign-on/azure-sso.html
-    - title: Single sign-on for the Logz.io-Azure Portal integration
+    - title: Logz.io-Azure Portal integration single sign-on
       url: /user-guide/users/single-sign-on/azure_marketplace_liftr.html      
     - title: Okta single sign-on
       url: /user-guide/users/single-sign-on/okta-sso.html

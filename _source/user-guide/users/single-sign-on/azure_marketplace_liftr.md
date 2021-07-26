@@ -54,7 +54,7 @@ To configure SSO for the Logz.io resource in the Azure Portal, you need to add t
 2. In the Azure Portal, in **Logz.io | Overview**, in the **+ Add** menu, select **Enterprise application**.
    ![Enterprise application option](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-ovrview_enterprise_apps.png)
 3. In the Azure Active Directory Gallery, browse to the **Logz.io - Azure AD Integration** application and select it.
-4. Rename the integration to with a relevant name and click **Create**.
+4. Rename the integration to with a relevant name and click **Create**. (In the steps that follow, we used the name **AD app for a logz.io resource**)
 ![Rename the integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-rename_logzio-ad_integration.png)
 
 ##### Copy the Application ID
@@ -77,7 +77,7 @@ In **AD app for a logz.io resource | Overview > Properties**, copy the **Applica
 
 2. In the **Identifier (Entity ID)** text box, type a value using the pattern `urn:auth0:logzio:*`: Replace the `*` with the **Application ID** you copied in procedure 2, and click the **Default** option. 
 
-3. In the **Reply URL (Assertion Consumer Service URL)**, text box, type a URL using the pattern `https://logzio.auth0.com/login/callvack?connection=`: Replace `CONNECTION_NAME` with the **Application ID** you copied in procedure 2.
+3. In the **Reply URL (Assertion Consumer Service URL)**, text box, type a URL using the pattern `https://logzio.auth0.com/login/callback?connection=`: Replace `CONNECTION_NAME` with the **Application ID** you copied in procedure 2.
 
 4. Click **Save** at the top of the panel.
 ![Set SML](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-basic-saml-config.png) 

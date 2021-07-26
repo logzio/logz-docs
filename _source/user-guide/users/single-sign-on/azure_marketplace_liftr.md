@@ -104,9 +104,9 @@ The Logz.io AAD app resource name is automatically populated as you type.
 
 
 The SSO link is displayed when you sign into your Logz.io resource.  <br>
+![One click SSO to Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-logzio-sso-link.png)
 Click the link to access your account in Logz.io. 
 
 If you don't configure SSO while you are creating the Logz.io resource, you can configure it later via the Single sign-on blade.
 
 You'll have to configure your logs in Azure to ensure they're sent to Logz.io.
-![One click SSO to Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-logzio-sso-link.png)

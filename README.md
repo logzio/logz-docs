@@ -134,7 +134,7 @@ Please check your work for errors and readability.
 
 **To preview locally**:
 
-1. Run `./preview`.
+1. Run `./preview.sh`.
 
 2. Point your browser to [http://localhost:4000/](http://localhost:4000/).
   (Don't worry about the ducks.

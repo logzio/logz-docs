@@ -32,9 +32,7 @@ Add the following parameters to your Prometheus yaml file:
 | Environment variable | Description |Required/Default|
 |---|---|---|
 {% include p8s-shipping/p8s_logzio_name.md %}||
-| remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. ||
-|url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
-|bearer_token|The Logz.io Prometheus Metrics account token.  | Required|
+{% include p8s-shipping/remotewrite-syd-userguide-values-not-to-show-in-app.html %}
 
 
 ```yaml

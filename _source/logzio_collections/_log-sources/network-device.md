@@ -3,6 +3,7 @@ title: Ship logs from network devices
 logo:
   logofile: network-device.svg
   orientation: horizontal
+short-description: Configure your network device to send logs to your Filebeat server, which can then forward your logs to Logz.io.
 data-source: Network device
 templates: ["network-device-filebeat"]
 contributors:

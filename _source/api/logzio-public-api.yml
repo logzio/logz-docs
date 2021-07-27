@@ -45,8 +45,8 @@ info:
 
     # Rate limiting
 
-    API call and response rates are limited.
-    To find out your rate limits or request changes to your plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success Team</a>.
+    API call and response rates are limited to 100 concurrent API requests per account.
+    To verify your rate limits or request changes to your plan, please contact your account manager or the <a class="intercom-launch" href="mailto:help@logz.io">Customer Success Team</a>.
 
 
   title: Logz.io API
@@ -177,6 +177,9 @@ tags:
 
 
       **Note:** Shared token endpoints require permissions that must be set by our Support team. Please email help@logz.io for assistance.
+  - name: Manage API tokens
+    description: >-
+      You can manage API tokens for sub accounts.
   - name: Logz.io snapshots
   - name: Manage users
   - name: Alerts
@@ -197,6 +200,11 @@ tags:
 
 
       You can also create new security rules to supplement the built-in rules.
+
+  - name: Security account
+    description: >-
+      A security account with SIEM allows you to use the SIEM platform. You can create a SIEM account uaing an API call.
+
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -247,6 +255,7 @@ x-tagGroups:
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
+      - Security account
       - Security rules
       - Security events
       - Lookup lists
@@ -256,6 +265,7 @@ x-tagGroups:
       - Who am I
       - Manage time-based log accounts
       - Manage shared tokens
+      - Manage API tokens
       - Manage notification endpoints
       - Import or export Kibana objects
   - name: Manage data shipping
@@ -303,10 +313,10 @@ paths:
 
 
   # ::::: ACCOUNTS
-  /v1/account-management/whoami:
+  /v2/whoami:
     get:
-      summary: Retrieve this account
-      description: Returns a single string with the account name. Good for testing or for confirming that you're using an API token from the right account.
+      summary: Retrieve account information
+      description: Returns the account name as a string and the account ID as an integer. Good for testing or for confirming that you’re using an API token from the right account.
       tags:
         - Who am I
       operationId: whoAmI
@@ -315,26 +325,22 @@ paths:
       parameters:
       x-code-samples:
       - lang: cURL
-        source: >-
-          "curl -X GET \
-          https://api.logz.io/v1/account-management/whoami \
-          -H 'Content-Type: application/json' \
-          -H 'X-API-TOKEN: <token>'"
+        source: 'curl -X GET "https://api.logz.io/v2/whoami" -H "Content-Type: application/json" -H "X-API-TOKEN: <token>"'
       responses:
         200:
           description: successful operation
           schema:
-            $ref: '#/definitions/WhoAmI'
+            $ref: '#/definitions/WhoAmIV2Response'
   /v1/account-management/time-based-accounts:
     get:
       summary: Retrieve settings for all accounts
       description: >-
-        
+
         Returns account settings for the main account and all of its associated sub accounts.
-        
+
 
         * The list of accounts is returned as an array of JSON objects.
-        
+
         * Must be run with an API token from the main account.
       tags:
         - Manage time-based log accounts
@@ -362,6 +368,7 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/TimeBasedAccountCreateRequest'
+
       responses:
         200:
           description: successful operation
@@ -444,6 +451,7 @@ paths:
           required: false
           schema:
             $ref: '#/definitions/TimeBasedAccountUpdateRequest'
+
       responses:
         204:
           description: successful operation
@@ -630,14 +638,14 @@ paths:
                 type: integer
                 minimum: 0
                 default: 0
-                description: Of the results found, the first result to return
-                example: 10
+                description: Of the results found, the first result to return.
+                example: 0
               size:
                 type: integer
                 description: Number of results to return
                 default: 10
                 maximum: 10,000
-                example: 50
+                example: 0
               sort:
                 type: array
                 description: >-
@@ -656,24 +664,30 @@ paths:
                   * If you pass `'_source': false`, it will exclude the `_source` field from the results.
                 properties:
                   includes:
-                    type: array of strings
+                    type: array
                     description: Array of fields to return
-                    example: message
+                    example: ["message"]
                 items:
                   - type: string
                     description: Field to return.
+                example: false
               post_filter:
                 type: object
                 description: A filter applied after the aggregations have been calculated. Useful for reusing a single query to calculate several outputs with different filtering criteria. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-post-filter.html) for details.
+                example: null
               docvalue_fields:
-                type: object
+                type: array
                 description: Powers inverted indexing. Allows queries to look up the search term in unique sorted list of terms, for faster access to the list of documents that contain the term. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-docvalue-fields.html) for details.
+                items:
+                  type: object
+                example: []
               version:
-                type: object
+                type: boolean
                 description: Returns a version for each result. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-version.html) for details.
-              store:
-                type: array of objects
-                description: Useful for querying for fields that don’t appear in the _source field or querying for larger documents by date or title. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/mapping-store.html) for details.
+              stored_fields:
+                type: array of strings
+                description: Useful for querying for fields that don’t appear in the _source field or querying for larger documents by date or title. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-stored-fields.html) for details.
+                example: ["*"]
               highlight:
                 type: object
                 description: Highlight strings in one or more fields in your search results. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-highlighting.html) for details.
@@ -703,7 +717,6 @@ paths:
               -H 'Content-Type: application/json' \
               -H 'X-API-TOKEN: <token>' \
               -d '{
-              "size": 10,
               "query": {
                 "bool": {
                   "must": [{
@@ -716,6 +729,15 @@ paths:
                   }]
                 }
               },
+              "from": 0,
+              "size": 0,
+              "sort": [{}],
+              "_source": false,
+              "post_filter": null,
+              "docvalue_fields": [],
+              "version": false,
+              "stored_fields": ["*"],
+              "highlight": {},
               "aggs": {
                 "byType": {
                   "terms": {
@@ -724,7 +746,7 @@ paths:
                   }
                 }
               }
-            }' '
+            }'
       responses:
         200:
           description: successful query
@@ -734,7 +756,7 @@ paths:
               {
                 "hits": {
                   "total": 339604,
-                  "max_score": 0,
+                  "max_score": 0.0,
                   "hits": [ ]
                 },
                 "aggregations": {
@@ -746,7 +768,7 @@ paths:
                         "key": "web-app",
                         "doc_count": 163690
                       }, {
-                        "key": \"core-service\",
+                        "key": "core-service",
                         "doc_count": 64893
                       }
                     ]
@@ -1209,7 +1231,94 @@ paths:
         default:
           description: successful operation
 
-  
+  # ::::: TriggeredAlerts V1
+
+  /v1/alerts/triggered-alerts:
+    post:
+      operationId: TriggeredAlerts
+      summary: Retrieve triggered alerts
+      description: Returns a paged filtered list of triggered alerts for your accounts.
+      tags:
+        - Alerts
+      produces:
+        - application/json
+      parameters:
+        - name: from
+          in: query
+          type: integer
+          minimum: 0
+          default: 0
+          description: Of the results found, the first result to return.
+          example: 0
+        - name: size
+          in: query
+          type: integer
+          description: Size of page to return.
+          example: 15
+        - name: search
+          in: query
+          type: string
+          description: Part of the alert name to filter by name (ignore case).
+          example: test
+        - name: severities
+          in: query
+          type: array
+          items:
+            type: string
+            enum:
+              -
+                - SEVERE
+                - HIGH
+                - MEDIUM
+                - LOW
+                - INFO
+            example: '["SEVERE", "HIGH"]'
+          description: Filter results by severity of triggered alerts.
+        - name: sortBy
+          in: query
+          description: Sort alerts by date or severity.
+          schema:
+            type: string
+            enum: [DATE, SEVERITY]
+        - name: sortOrder
+          in: query
+          description: Sort order of alerts retrieved.
+          schema:
+            type: string
+            enum: [ASC, DESC]
+        - name: tags
+          in: query
+          type: array
+          items:
+            type: string
+          description: List of tags the alert is related to.
+      x-code-samples:
+              - lang: cURL
+                source: >-
+                  curl -X POST https://api.logz.io/v1/alerts/triggered-alerts \
+                    -H 'Content-Type: application/json' \
+                    -H 'X-API-TOKEN: <token>' \
+                    -d '{
+                  	"from": 0,
+                  	"size": 15,
+                  	"search": "test",
+                  	"severities": ["HIGH", "LOW"],
+                  	"sortBy": "DATE",
+                  	"sortOrder": "ASC",
+                    "tags": "network"
+                  }' 
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TriggeredAlertsResponse'
+          headers: {}
+
+
+
+
   # ::::: Deployment markers
   /v2/markers/create-markers:
     post:
@@ -1432,8 +1541,6 @@ paths:
       description: >-
         Returns a list of all S3 buckets connected to your Logz.io account.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getS3Buckets
@@ -1456,9 +1563,7 @@ paths:
 
 
         Logs will be parsed using the Logz.io custom parsing pipeline for the resource.
-
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
+ 
       tags:
         - Connect to S3 Buckets
       operationId: createBuckets
@@ -1481,8 +1586,6 @@ paths:
       description: >-
         Returns connection details for an S3 bucket connector by its ID.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getS3Bucket
@@ -1507,8 +1610,6 @@ paths:
       description: >-
         Updates connection details for an S3 bucket connector.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: updateBucket
@@ -1536,8 +1637,6 @@ paths:
       description: >-
         Deletes an S3 bucket connector. As a result, the connected AWS resource will stop shipping logs to your Logz.io account.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: deleteBucket
@@ -1568,8 +1667,6 @@ paths:
 
         * Create a new S3 bucket connector. Provide the ARN from the previous step in the request body.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getAWSAssumeRoleDetails
@@ -2701,6 +2798,72 @@ paths:
         - lang: cURL
           source: 'curl -X POST "https://api.logz.io/v1/shared-tokens" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"Support shared token\", \"filters\":[339]}"'
 
+  # ::::: API TOKENS
+  /v1/api-tokens/sub-account:
+    post: 
+      operationId: CreateApiTokenRequest
+      summary: Create a sub account API token. 
+      description: >-
+        Creates a new API token for a sub account. 
+        
+        Must be run with an API token of the owner account. 
+        
+        Once created, you can view the details for this new token in [Manage tokens > API tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/api), when you are logged in to the relevant sub account.
+
+      tags:
+        - Manage API tokens
+      parameters: 
+        - in: body
+          name: body
+          required: true  
+          schema:
+            $ref: '#/definitions/CreateApiTokenRequest'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/ApiTokenResponse'
+        400:
+          description: Bad Request
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Bad Request. There was an issue with the request syntax from the client. Received integer instead of expected string parameter
+                description: Bad Request. The request cannot be completed. Errors may include malformed request syntax, invalid request message parameters, and so on. 
+        401:
+          description: Unauthorized
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Unauthorized. There was a problem with the authorization provided in the request. 
+                description: Unauthorized. Attempted to create an API token for a sub account with insufficient or missing credentials for the main or owner account. Please contact our Support team for access to this API feature via [help@logz.io](mailto:help@logz.io).
+        403:
+          description: Forbidden
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Forbidden. Attempted to create an API token for a sub account using an illegal owner account token. 
+                description: Forbidden. Attempted to create an API token for a sub account with an invalid owner account token. This operation requires a valid API token for the owner account.                         
+        404:
+          description: Not Found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: Not Found. Could not find the sub account associated with this request.
+                description: Not Found. Could not find the sub account associated with this request or the relevant owner account for the sub account.  
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"newAPITokenTest999\", \"accountId\":7386}"'
+
+
   # ::::: SNAPSHOTS
   /v1/snapshotter:
     post:
@@ -3048,13 +3211,13 @@ paths:
           schema:
             $ref: '#/definitions/RuleV2Response'
           headers: {}
-  /v2/security/rules/search: 
+  /v2/security/rules/search/{FilteredRequest}: 
     post: 
       tags: 
         - Security rules
-      operationId: searchAccountSecurityRules
-      summary: Retrieve security rules
-      description: Retrieve a filtered or unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      operationId: searchAccountSecurityRulesFiltered
+      summary: Retrieve filtered security rules
+      description: Retrieve a filtered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
       produces:
         - application/json
       parameters: 
@@ -3062,7 +3225,30 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/AlertsSearchRequest'
+            $ref: '#/definitions/AlertsSearchRequestFiltered'
+
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseSecurityRuleResponse'
+
+  /v2/security/rules/search/{UnfilteredRequest}: 
+    post: 
+      tags: 
+        - Security rules
+      operationId: searchAccountSecurityRulesUnfiltered
+      summary: Retrieve unfiltered security rules
+      description: Retrieve an unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      produces:
+        - application/json
+      parameters: 
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertsSearchRequestUnfiltered'
+
       responses:
         '200':
           description: successful operation
@@ -3174,6 +3360,95 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseTriggeredAlert'
           headers: {}
+  
+  # ::::: SECURITY ACCOUNT
+  /v1/account-management/siem:
+    post:
+      summary: Create SIEM account
+      description: >-
+        Creates SIEM account through public API
+      tags:
+        - Security account
+      operationId: createSIEMaccount
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            required:
+              - accountName
+              - Email
+            properties:
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+              email:
+                type: string
+                description: Email address of the account user.
+                example: "User@logz.io"
+
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/account-management/siem \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "accountName": "User",
+                "accountsToScan": 88888, 55555,
+                "sharingObjectsAccounts": 55555
+                "Email": "user@logz.io",
+              }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              accountId:
+                type: integer
+                description: ID of the account
+                example: 24601
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty. 
+              createdAt:
+                type: string
+                format: date-time
+                description: >-
+                  Date this account was created.
+                  Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
+                example: 2018-04-01T19:18:38Z
+              
+
   /v2/security/rules/events/logs/search:
     post:
       summary: Fetch the logs that triggered a security event
@@ -3630,10 +3905,7 @@ paths:
           schema:
             $ref: '#/definitions/LookupListElementBulkResponse'
           headers: {}
-
-  
-  
-  
+            
 
 definitions:
   # ::::: SIEM LOOKUPS
@@ -3811,13 +4083,18 @@ definitions:
 
   
   # ::::: ACCOUNTS DEFINITIONS
-  WhoAmI:
+  WhoAmIV2Response:
     type: object
     properties:
       accountName:
         type: string
         description: Name of the account
         example: Jean Valjean
+      accountId:
+        type: integer
+        description: ID of the account
+        format: int32
+        example: 24601
   AccountUtilizationSettings:
     type: object
     description: Settings for logging metrics on your account utilization, such as used and expected data volume at current indexing rate.
@@ -3943,12 +4220,15 @@ definitions:
         items:
           type: integer
           format: int32
-          example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data.
+          example:
+            - [ 88888, 55555 ]
+            - []
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
+
   DetailedTimeBasedAccount:
     type: object
     properties:
@@ -3992,6 +4272,9 @@ definitions:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
+      isFlexible:
+        type: boolean
+        default: false
       reservedDailyGB:
         type: number
         format: float
@@ -4032,12 +4315,15 @@ definitions:
         items:
           type: integer
           format: int32
-          example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data
+          example:
+            - [ 88888, 55555 ]
+            - []
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
+ 
   SharingAccount:
     type: object
     properties:
@@ -4223,7 +4509,6 @@ definitions:
         example: 833203f9-de71-5a12-9083-9055a6d925bb
   Pagination:
     type: object
-    default: 25
     description: Default pagination is a page of 25 results. Look for the `total` field in the response for the number of available results overall, and use the pagination function to page through the results.
     properties:
       pageNumber:
@@ -4427,22 +4712,36 @@ definitions:
       pagination:
         $ref: '#/definitions/Pagination'
 
-
-  AlertsSearchRequest:
+  AlertsSearchRequestFiltered:
+    title: Filtered Results  
     type: object
     properties:
       filter:
         description: Filter by rule name, severity, and more.
-        type: array
-        items:
-          $ref: '#/definitions/AlertsFilter'
+        $ref: '#/definitions/AlertsFilter'
       sort:
         description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
-        type: array
-        items:
-          $ref: '#/definitions/AlertsSortRequest'
+        $ref: '#/definitions/AlertsSortRequest'
       pagination:
         $ref: '#/definitions/Pagination'
+  AlertsSearchRequestUnfiltered:
+    title: Unfiltered Results  
+    type: object
+    properties:
+      query:
+        type: object
+        description: Search query.
+        properties:
+            bool:
+              type: object
+              properties:
+                  must:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        match_all:
+                          type: object
   AlertsSortRequest:
     type: object
     required:
@@ -4467,8 +4766,8 @@ definitions:
     properties:
       search:
         type: string
-        description: Searches by rule titles that contain the string.
-      severity:
+        description: Searches by rule titles and descriptions that contain the string.
+      severities:
         type: array
         items:
           type: string
@@ -4480,8 +4779,7 @@ definitions:
           - SEVERE
         description: List of rule severities, as specified by the security rule's definition
         example: 
-          SEVERE
-          HIGH
+          ["SEVERE", "HIGH"]
       updatedBy:
         type: array
         items:
@@ -4494,7 +4792,9 @@ definitions:
         description: Email addresses of the user who created the rules.
       enabledState:
         type: list of booleans
-        description: true for enabled rules, false for disabled rules.
+        description: true to include enabled rules, false to include disabled rules. An empty list defaults to both enabled and disabled rules.
+        example:
+          [true]
       emailNotifications:
         type: array
         items:
@@ -4503,7 +4803,7 @@ definitions:
       tags:
         type: array
         items:
-          type: object
+          type: string
         description: Tags are labels used to organize security rules
 
 
@@ -4819,14 +5119,14 @@ definitions:
         format: int32
         minimum: 0
         maximum: 2147483647
-        description: Of the results found, the first result returned
+        description: Of the results found, the first result returned.
         example: 0
       total:
         type: integer
         format: int64
         minimum: 0
         maximum: 500
-        description: Total number of results that met the search criteria
+        description: Total number of results that met the search criteria.
       results:
         type: array
         items:
@@ -4848,7 +5148,7 @@ definitions:
         minimum: 0
         maximum: 500
         default: 500
-        description: Maximum number of results to return
+        description: Maximum number of results to return.
         example: 150
       from:
         type: integer
@@ -4856,7 +5156,7 @@ definitions:
         minimum: 0
         maximum: 2147483647
         default: 0
-        description: Of the results found, the first result to return
+        description: Of the results found, the first result to return.
         example: 15
       auditEventUser:
         $ref: '#/definitions/AuditEventUser'
@@ -4867,12 +5167,12 @@ definitions:
       fromDate:
         type: integer
         format: int64
-        description: Starting timedate, as Unix epoch milliseconds
+        description: Starting timedate, as Unix epoch milliseconds.
         example: 389880000
       toDate:
         type: integer
         format: int64
-        description: Ending timedate, as Unix epoch milliseconds
+        description: Ending timedate, as Unix epoch milliseconds.
         example: 414763200
       sortDescending:
         type: boolean
@@ -5377,7 +5677,7 @@ definitions:
         type: integer
         format: int32
         minimum: 0
-        description: Of the results found, the first result to return
+        description: Of the results found, the first result to return.
         example: 0
       sort:
         type: array
@@ -5397,9 +5697,9 @@ definitions:
           * If you pass `'_source': false`, it will exclude the `_source` field from the results.
         properties:
           includes:
-            type: array of strings
+            type: array
             description: Array of fields to return
-            example: message
+            example: ["message"]
         items:
           - type: string
             description: Field to return.
@@ -5423,6 +5723,27 @@ definitions:
           #### Limitations
 
           * Time search must be ≤ 5 minutes. If no time is specified, default is `1m` (1 minute).
+      aggregations:
+        type: object
+        description: >-
+          Apply field aggregations. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html) for details.
+
+
+          #### Limitations
+
+          * When using the `size` element, the value must be ≤ `1000`
+
+          * Can't nest 2 or more bucket aggregations of these types: `date_histogram`, `geohash_grid`, `histogram`, `ip_ranges`, `significant_terms`, `terms`
+
+          * Can't sort or aggregate on analyzed fields, such as the `message` field
+
+          * Aggregation type `significant_terms` can't be used
+
+          * If the request specifies aggregations, only the initial search response will contain the aggregations results
+
+
+          **Note:** You can use `aggs` or `aggregations` as the field name
+        example: { "byType": { "terms": { "field": "type", "size": 5 } } }
 
   # ::::: SHARED TOKENS DEFINITIONS
   QueryFilter:
@@ -5502,6 +5823,41 @@ definitions:
           description: ID of the filter
           example: 339
         description: IDs of filters to attach to the token. To remove all filters, use an empty array `[]`.
+
+  # ::::: API TOKENS DEFINITIONS
+  ApiTokenResponse:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: ID of the newly created API token for the sub account
+        example: 7386
+      name:
+        type: string
+        description: The name of the newly created API token for the sub account. Uses the name provided in the request.
+        example: newTokenTest999
+      token:
+        type: string
+        description: The API token
+        example: c498fbc3-a3ac-4676-ad09-689854b5cbbd"
+      createdAt: 
+        type: Instant
+        description: The time at which the new sub account API token was created 
+        example: 1621858311.000000000
+  CreateApiTokenRequest:
+    type: object
+    properties:
+      name:
+        type: string
+        default: string
+        description: The name provided in the request for a new API token for the sub account
+        example: newTokenTest999
+      accountId:
+        type: integer
+        format: int32
+        description: Logz.io sub account ID.
+        example: 160343
 
   # ::::: SNAPSHOTS DEFINITIONS
   SnapshotCreateResponse:
@@ -6046,7 +6402,7 @@ definitions:
         $ref: '#/definitions/Pagination'
 
 
-  # ::::: Alert
+  # ::::: Alert DEFINITIONS
   Aggregation:
     type: object
     description: Specifies a trigger condition that acts as a threshold.
@@ -6205,6 +6561,45 @@ definitions:
           format: int32
           example: 2321
 
+  TriggeredAlertsResponse:
+    type: object
+    properties:
+      pageSize:
+        type: integer
+        description: Size of page returned.
+        example: 2
+      from:
+        type: integer
+        description: Of the results found, the first result to return.
+        example: 1
+      total:
+        type: integer
+        description: Total number of alerts retrieved.
+        example: 2
+      results:
+        type: array
+        description: Array of alerts retrieved by the search.
+        items:
+          type: object
+          properties: 
+            alertId: 
+              type: integer
+              description: Alert ID.
+              example: 1
+            name: 
+              type: string
+              description: Alert name.
+              example: test
+            eventDate: 
+              type: number
+              description: Alert date.
+              example: 1523970558.657000000
+            severity: 
+              type: string
+              description: Alert severity
+              example: HIGH
+
+
   AlertRecipients:
     type: object
     description: Add email addresses and/or endpoint channels to automatically receive notifications with sample data when the alert triggers.
@@ -6275,6 +6670,8 @@ definitions:
   AlertV2Request:
     type: object
     required:
+     - title
+     - subComponents
     properties:
       title:
         type: string
@@ -6310,6 +6707,9 @@ definitions:
 
 
           The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+
+
+          The default value is 5. 
         example: 20
       subComponents:
         type: array
@@ -6320,7 +6720,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
       enabled:
         type: boolean
-        description: If `true`, the alert is enabled and active.
+        description: If `true`, the alert is enabled and active. Default value is `true`.
   AlertTrigger:
     type: object
     description: Sets the triggering threshold and severity tab to label the event when the alert triggers.
@@ -6617,10 +7017,10 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ColumnConfig'
-      shouldUseAllFields:
-        type: boolean
-        description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
-        default: true
+      #shouldUseAllFields:
+      #  type: boolean
+      #  description: If `true`, the notification output will include entire logs with all of their fields in the sample data.
+      # default: true
   RuleV2Request:
     type: object
     required:

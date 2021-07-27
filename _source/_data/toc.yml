@@ -139,7 +139,7 @@ firstLevel:
     - title: Transitioning to Logz.io Distributed Tracing from a local Jaeger
       url: /user-guide/distributed-tracing/local-jaeger_transition
     - title: Setting up instrumentation and ingesting traces
-      url: /user-guide/distributed-tracing/tracing-instrumentation
+      url: /user-guide/distributed-tracing/tracing-instrumentation   # change order?
     - title: Deploying components in your system
       url: /user-guide/distributed-tracing/deploying-components
     - title: Kubernetes deployment reference
@@ -209,7 +209,7 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Correlated rules
       url: /user-guide/siem/security-correlated-queries/
-    - title: Lookups
+    - title: Lookup lists
       url: /user-guide/lookups/
   - title: Dashboards & Reports
     url: /user-guide/cloud-siem/dashboards/
@@ -255,8 +255,6 @@ firstLevel:
   
     # - title: Usage and billing
 
-
-
   - title: Hosting Regions
     thirdLevel:
     - title: Hosting regions
@@ -286,6 +284,8 @@ firstLevel:
       url: /user-guide/users/single-sign-on/
     - title: Azure single sign-on
       url: /user-guide/users/single-sign-on/azure-sso.html
+    - title: Logz.io-Azure Portal integration single sign-on
+      url: /user-guide/users/single-sign-on/azure_marketplace_liftr.html      
     - title: Okta single sign-on
       url: /user-guide/users/single-sign-on/okta-sso.html
     - title: OneLogin single sign-on
@@ -367,7 +367,8 @@ firstLevel:
         url: /user-guide/integrations/custom-endpoints.html
       - title: Microsoft Teams endpoint
         url: /user-guide/integrations/ms-teams.html
-
+      - title: StatusPage endpoint
+        url: /user-guide/integrations/status-page.html
 
     # ===== API Reference =====
   - title: Logz.io API

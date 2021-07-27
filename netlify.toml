@@ -3,6 +3,7 @@
   [headers.values]
     Strict-Transport-Security = "max-age=31536000; includeSubDomains;"
     Content-Security-Policy = "default-src 'self' logz.io *.logz.io"
+    X-Content-Type-Options = "nosniff"
 
 
 # Settings in the [build] context are global and are applied to all contexts

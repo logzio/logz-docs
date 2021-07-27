@@ -71,6 +71,7 @@ For a complete list of options, see the configuration parameters below the code 
     <retriesInterval>00:00:02</retriesInterval>
     <gzip>true</gzip>
     <debug>false</debug>
+    <jsonKeysCamelCase>false</jsonKeysCamelCase>
     <!--<parseJsonMessage>true</parseJsonMessage>-->
     
   </appender>
@@ -100,6 +101,7 @@ logzioAppender.AddRetriesMaxAttempts(3);
 logzioAppender.AddRetriesInterval(TimeSpan.FromSeconds(2));
 logzioAppender.AddDebug(false);
 logzioAppender.AddGzip(true);
+logzioAppender.JsonKeysCamelCase(false);
 // <-- Uncomment and edit this line to enable proxy routing: --> 
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
 // <-- Uncomment this to parse messages as JSON -->  
@@ -123,6 +125,7 @@ hierarchy.Configured = true;
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
+| jsonKeysCamelCase | Set to true if you want JSON keys in Logz.io to be in camelCase. | `false` |
 
 ###### Code sample
 
@@ -242,7 +245,8 @@ For a complete list of options, see the configuration parameters below the code 
       bufferTimeout="00:00:05"
       retriesMaxAttempts="3"
       retriesInterval="00:00:02"
-      debug="false" 
+      debug="false"
+      jsonKeysCamelCase="false" 
      >
       <!-- parseJsonMessage="true" -->  <!-- include in previous section -->    
 
@@ -272,6 +276,7 @@ var logzioTarget = new LogzioTarget {
   RetriesMaxAttempts = 3,
   RetriesInterval = TimeSpan.Parse("00:00:02"),
   Debug = false,
+  JsonKeysCamelCase = false,
   // ParseJsonMessage = true,
   // ProxyAddress = "http://your.proxy.com:port"
 };
@@ -294,6 +299,7 @@ LogManager.Configuration = config;
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
+| jsonKeysCamelCase | Set to true if you want JSON keys in Logz.io to be in camelCase. | `false` |
 
 ###### Code sample
 
@@ -423,6 +429,7 @@ For a complete list of options, see the configuration parameters below the code 
     <retriesInterval>00:00:02</retriesInterval>
     <gzip>true</gzip>
     <debug>false</debug>
+    <jsonKeysCamelCase>false</jsonKeysCamelCase>
     <!--<parseJsonMessage>true</parseJsonMessage>-->
     
   </appender>
@@ -450,6 +457,7 @@ logzioAppender.AddRetriesMaxAttempts("3");
 logzioAppender.AddRetriesInterval("00:00:02");
 logzioAppender.AddDebug(false);
 logzioAppender.AddGzip(true);
+logzioAppender.JsonKeysCamelCase(false);
 // <-- Uncomment and edit this line to enable proxy routing: --> 
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
 // <-- Uncomment this to prase messages as Json -->  
@@ -473,6 +481,7 @@ hierarchy.Configured = true;
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
+| jsonKeysCamelCase | Set to true if you want JSON keys in Logz.io to be in camelCase. | `false` |
 
 ###### Code sample
 

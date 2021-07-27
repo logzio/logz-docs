@@ -3,6 +3,7 @@ title: Ship S3 access logs
 logo:
   logofile: aws-s3.svg
   orientation: vertical
+short-description: Logz.io connects to your S3 bucket and fetches your access logs.
 data-source: S3 access logs
 templates: ["s3-fetcher"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-access
@@ -28,14 +29,14 @@ order: 160
 ##### Send your logs to an S3 bucket
 
 Logz.io fetches your S3 access logs from a separate S3 bucket.
-S3 access logs are not enabled S3 by default, so you'll need to set this up.
+By default, S3 access logs are not enabled, so you'll need to set this up.
 
 For help with this, see [Amazon S3 Server Access Logging](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html) from AWS.
 
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/S3-Access) and add a new S3 bucket.
+{% include log-shipping/app_login.html %}
 
 
 <!-- logzio-inject:aws:s3-access -->

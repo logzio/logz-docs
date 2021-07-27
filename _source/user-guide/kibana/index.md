@@ -47,6 +47,7 @@ You can type a search query in Lucene syntax or KQL. It is an alternative to fil
 The default time frame in Kibana Discover is always the last 15 minutes.
 
 You can select the time frame in any number of ways, including relative times such as the last hour, today so far, or the day before yesterday, or use absolute times by calendar dates and timestamps.
+
 ##### Results
 
 The logs returned by your search are your results - aka "hits". Depending on the time frame you've selected, the results can be set to continuously auto-refresh and can be quite dynamic.

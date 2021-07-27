@@ -1,6 +1,6 @@
 ---
 title: Ship Kubernetes logs using a Fluentd DaemonSet
-shortDescription: Want to ship and analyze your Kubernetes logs? The Fluentd DaemonSet is a flexible way to get your Kubernetes logs into Logz.io.
+short-description: Want to ship and analyze your Kubernetes logs? The Fluentd DaemonSet is a flexible way to get your Kubernetes logs into Logz.io.
 logo:
   logofile: k8s-fluentd.svg
   orientation: horizontal

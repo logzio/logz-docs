@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Distributed tracing shipping token
+title: Distributed Tracing shipping token
 permalink: /user-guide/accounts/finding-your-tracing-account-token/
 flags:
   admin: true

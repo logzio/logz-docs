@@ -1,6 +1,6 @@
 ---
 title: Ship Linux logs
-shortDescription: Send logs directly from your Linux machine with a single command.
+short-description: Send logs directly from your Linux machine with a single command.
 logo:
   logofile: linux.svg
   orientation: vertical

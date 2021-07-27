@@ -9,6 +9,7 @@ tags:
   - security-rules
 contributors:
   - shalper
+  - yberlinger
 ---
 
 You can enrich log threat detection by adding your own private feeds to those provided by Logz.io. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
@@ -28,15 +29,17 @@ Go to **Threats > Threat Intelligence Feeds** from the top menu, and select the 
 
 ##### Configure the connection
 
-Fill in the form to configure the connection.
 
-![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)
+Fill in the form to configure the connection.   <!--UPDATE THE SCREEN    stix_feed.png -->
+
+![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed_newnav.png)   
 
 **About the feed**
 
 1. **IOC type** - Select one type. Supported types include IPs, DNSs (domain), URLs, md5/sha1/sha256 hash-based signatures, user-agent HTTP headers, and custom indicators of your choice.
-2. **Confidence** - Select a reliability score for your feed.
-3. **Description** - Give some context for your feed. It's a good idea to add contact info for the person who owns the feed.
+2. **Use STIX** - Toggle the option on to use STIX format. _Structured Threat Information Expression_ (STIX™) is a language and serialization format used to exchange cyber threat intelligence (CTI). <br>   Logz.io currently supports a single IOC type per feed for this format. We recommend that you define a separate private feed for each relevant IOC type that exists in your STIX feed.
+3. **Confidence** - Select a reliability score for your feed.
+4. **Description** - Give some context for your feed. It's a good idea to add contact info for the person who owns the feed.
 
 **Configure the feed connection**
 
@@ -64,6 +67,6 @@ To edit or delete a private feed, hover over the feed in the list,
   and click <i class="li li-pencil"></i> (edit)
   or <i class="li li-trash"></i> (delete).
 
-If you delete a private feed, Logz.io will stop using it to enrich logs immediately.
+If you delete a private feed, Logz.io will immediately stop using it to enrich logs.
 
 ![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/feed-info.png)

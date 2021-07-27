@@ -4,6 +4,7 @@ logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
 data-source: CloudWatch
+short-description: Send your data to Logz.io from CloudWatch via a Lambda function, every x seconds.
 templates: ["lambda-cloudwatch", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudwatch
 open-source:
@@ -29,6 +30,8 @@ order: 110
 <div id="manual-lambda-configuration">
 
 #### Manual configuration with a Lambda function
+
+{% include log-shipping/note-lambda-test.md %}
 
 <div class="tasklist">
 
@@ -128,6 +131,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <div id="automated-cloudformation-deployment">
 
 #### Automated CloudFormation deployment
+
+{% include log-shipping/note-lambda-test.md %}
 
 **Before you begin, you'll need**:
 AWS CLI,

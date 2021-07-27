@@ -28,7 +28,10 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 
 ##### Register Insights provider
 
-Register the Microsoft.Insights provider as described [here](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider).
+1. Navigate to **All services > Subscriptions**.
+2. Select the subscription that the Azure resource group belongs to.
+3. Select **Settings > Resource providers**.
+4. Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.
 
 ##### Enable NSG flow log
 

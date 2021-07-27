@@ -5,6 +5,8 @@ logo:
   orientation: vertical
 data-source: Crowdstrike
 templates: ["network-device-filebeat"]
+contributors:
+  - nshishkin
 shipping-tags:
   - endpoint-security
 order: 1380
@@ -78,7 +80,8 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 
 1. Write down your Logz.io listener URL and logs shipping token by navigating to your Logz.io account and selecting **Settings > Tools > Manage Tokens**. The Listener URL for your account is displayed above the token table.
 2. Create a new configuration file for your FluentD. For example, `fluentdconfig.conf`.
-3. Paste the following into the file:
+3. Copy and paste the code block below into the configuration file. The **log_level** setting defines which events are recorded in the log. In order of verbosity, the log level can be defined as **fatal**, **error**, **warn**, **info**, **debug** or **trace**.  The default for the log level is **info**: The **info** level records all events categorized as **info** and higher in verbosity. To learn more about the settings used in the configuration file, see [Logz.io plugin for Fluentd](https://github.com/logzio/fluent-plugin-logzio).
+   
 
    ```conf
    <system>
@@ -116,7 +119,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
    <match crowdstrike-fluentd>
      @type logzio_buffered
    ​
-     endpoint_url https://<<LOGZIO_LISTENER>>:8071?token=<<LOGZIO_SHIPPING_TOKEN>>
+     endpoint_url https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>
    ​
      output_include_time true
      output_include_tags true
@@ -139,19 +142,12 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
    </label>
    ```
 
-   <!-- info-box-start:info -->
-   The default configuration for the log level is set to **info**. The **log_level** setting defines which events are recorded in the log. In order of verbosity, the log level can be defined as **fatal**, **error**, **warn**, **info**, **debug** or **trace**. The **info** level records all events categorized as **info** and higher in verbosity. To learn more about the settings used in the configuration file, see [Logz.io plugin for Fluentd](https://github.com/logzio/fluent-plugin-logzio).
-   {:.info-box.note}
-   <!-- info-box-end -->
-
-   <!-- info-box-start:info -->
    If you change `type` in the `@type record_transformer` section, the data is not parsed into the relevant fields for the Crowdstrike integration.
-   {:.info-box.note}
-   <!-- info-box-end -->
-
-4. Replace ```<<LOGZIO_LISTENER>>``` with the Listener URL for your account.
-5. Replace ```<LOGZIO_SHIPPING_TOKEN>``` with your token value.
-6. Save the changes.
+   
+   {% include /log-shipping/listener-var.html %}
+   {% include /log-shipping/log-shipping-token.html %}
+   
+4. Save the changes.
 
 
 ##### Start the Crowdstrike connector

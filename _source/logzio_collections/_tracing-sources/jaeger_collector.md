@@ -13,7 +13,7 @@ contributors:
   - yberlinger
   - doron-bargo
 shipping-tags:
-  - components
+  - existing-instrumentation
 order: 300
 ---
 

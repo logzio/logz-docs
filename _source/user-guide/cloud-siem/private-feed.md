@@ -9,6 +9,7 @@ tags:
   - security-rules
 contributors:
   - shalper
+  - yberlinger
 ---
 
 You can enrich log threat detection by adding your own private feeds to those provided by Logz.io. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
@@ -28,9 +29,10 @@ Go to **Threats > Threat Intelligence Feeds** from the top menu, and select the 
 
 ##### Configure the connection
 
-Fill in the form to configure the connection.   <!--UPDATE THE SCREEN  -->
 
-![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)   
+Fill in the form to configure the connection.   <!--UPDATE THE SCREEN    stix_feed.png -->
+
+![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed_newnav.png)   
 
 **About the feed**
 

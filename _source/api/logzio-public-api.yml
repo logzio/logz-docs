@@ -200,6 +200,11 @@ tags:
 
 
       You can also create new security rules to supplement the built-in rules.
+
+  - name: Security account
+    description: >-
+      A security account with SIEM allows you to use the SIEM platform. You can create a SIEM account uaing an API call.
+
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -250,6 +255,7 @@ x-tagGroups:
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
+      - Security account
       - Security rules
       - Security events
       - Lookup lists
@@ -361,9 +367,8 @@ paths:
           name: body
           required: false
           schema:
-            oneOf:
-              - $ref: '#/definitions/TimeBasedAccountCreateRequest'
-              - $ref: '#/definitions/TimeBasedAccountCreateRequestEmptyArray'
+            $ref: '#/definitions/TimeBasedAccountCreateRequest'
+
       responses:
         200:
           description: successful operation
@@ -445,9 +450,8 @@ paths:
           name: body
           required: false
           schema:
-            oneOf:
-              - $ref: '#/definitions/TimeBasedAccountUpdateRequest'
-              - $ref: '#/definitions/TimeBasedAccountUpdateRequestEmptyArray'
+            $ref: '#/definitions/TimeBasedAccountUpdateRequest'
+
       responses:
         204:
           description: successful operation
@@ -1537,8 +1541,6 @@ paths:
       description: >-
         Returns a list of all S3 buckets connected to your Logz.io account.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getS3Buckets
@@ -1561,9 +1563,7 @@ paths:
 
 
         Logs will be parsed using the Logz.io custom parsing pipeline for the resource.
-
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
+ 
       tags:
         - Connect to S3 Buckets
       operationId: createBuckets
@@ -1586,8 +1586,6 @@ paths:
       description: >-
         Returns connection details for an S3 bucket connector by its ID.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getS3Bucket
@@ -1612,8 +1610,6 @@ paths:
       description: >-
         Updates connection details for an S3 bucket connector.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: updateBucket
@@ -1641,8 +1637,6 @@ paths:
       description: >-
         Deletes an S3 bucket connector. As a result, the connected AWS resource will stop shipping logs to your Logz.io account.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: deleteBucket
@@ -1673,8 +1667,6 @@ paths:
 
         * Create a new S3 bucket connector. Provide the ARN from the previous step in the request body.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getAWSAssumeRoleDetails
@@ -3219,13 +3211,13 @@ paths:
           schema:
             $ref: '#/definitions/RuleV2Response'
           headers: {}
-  /v2/security/rules/search: 
+  /v2/security/rules/search/{FilteredRequest}: 
     post: 
       tags: 
         - Security rules
-      operationId: searchAccountSecurityRules
-      summary: Retrieve security rules
-      description: Retrieve a filtered or unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      operationId: searchAccountSecurityRulesFiltered
+      summary: Retrieve filtered security rules
+      description: Retrieve a filtered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
       produces:
         - application/json
       parameters: 
@@ -3233,7 +3225,30 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/AlertsSearchRequest'
+            $ref: '#/definitions/AlertsSearchRequestFiltered'
+
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseSecurityRuleResponse'
+
+  /v2/security/rules/search/{UnfilteredRequest}: 
+    post: 
+      tags: 
+        - Security rules
+      operationId: searchAccountSecurityRulesUnfiltered
+      summary: Retrieve unfiltered security rules
+      description: Retrieve an unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      produces:
+        - application/json
+      parameters: 
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertsSearchRequestUnfiltered'
+
       responses:
         '200':
           description: successful operation
@@ -3345,6 +3360,95 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseTriggeredAlert'
           headers: {}
+  
+  # ::::: SECURITY ACCOUNT
+  /v1/account-management/siem:
+    post:
+      summary: Create SIEM account
+      description: >-
+        Creates SIEM account through public API
+      tags:
+        - Security account
+      operationId: createSIEMaccount
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            required:
+              - accountName
+              - Email
+            properties:
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+              email:
+                type: string
+                description: Email address of the account user.
+                example: "User@logz.io"
+
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/account-management/siem \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "accountName": "User",
+                "accountsToScan": 88888, 55555,
+                "sharingObjectsAccounts": 55555
+                "Email": "user@logz.io",
+              }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              accountId:
+                type: integer
+                description: ID of the account
+                example: 24601
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty. 
+              createdAt:
+                type: string
+                format: date-time
+                description: >-
+                  Date this account was created.
+                  Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
+                example: 2018-04-01T19:18:38Z
+              
+
   /v2/security/rules/events/logs/search:
     post:
       summary: Fetch the logs that triggered a security event
@@ -3801,10 +3905,7 @@ paths:
           schema:
             $ref: '#/definitions/LookupListElementBulkResponse'
           headers: {}
-
-  
-  
-  
+            
 
 definitions:
   # ::::: SIEM LOOKUPS
@@ -4119,68 +4220,15 @@ definitions:
         items:
           type: integer
           format: int32
-          example: [ 88888, 55555 ]
+          example:
+            - [ 88888, 55555 ]
+            - []
         description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
-  TimeBasedAccountUpdateRequestEmptyArray:
-    type: object
-    required:
-      - accountName
-      - sharingObjectsAccounts
-    properties:
-      accountName:
-        type: string
-        description: Name of the account
-        example: AWS Lambda svr 3
-      reservedDailyGB:
-        type: number
-        format: float
-        default: null
-        description: >-
-          * If `isFlexible=false`, this field does not apply. Leave it null.
-   
-         
-          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
-        example: 3
-      maxDailyGB:
-        type: number
-        format: float
-        description: >-
-          The maximum volume of data that an account can index per calendar day.
 
-
-          * If `isFlexible=false` this parameter can only be used to update a sub account, but not a main account. It determines the only capacity reserved for use by the account. It cannot be null.
-
-
-          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
-          
-          
-          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
-        example: 5
-      retentionDays:
-        type: integer
-        format: int32
-        description: This is how long log data is stored and searchable in Kibana, in days.
-        minimum: 1
-        example: 5
-      searchable:
-        $ref: "#/definitions/Searchable"
-      accessible:
-        $ref: "#/definitions/Accessible"
-      sharingObjectsAccounts:
-        type: array
-        items:
-          type: integer
-          format: int32
-          example: [ ]
-        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
-      docSizeSetting:
-        $ref: '#/definitions/DocSizeSetting'
-      utilizationSettings:
-        $ref: '#/definitions/AccountUtilizationSettings'
   DetailedTimeBasedAccount:
     type: object
     properties:
@@ -4224,6 +4272,9 @@ definitions:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
+      isFlexible:
+        type: boolean
+        default: false
       reservedDailyGB:
         type: number
         format: float
@@ -4264,71 +4315,9 @@ definitions:
         items:
           type: integer
           format: int32
-          example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
-      docSizeSetting:
-        $ref: '#/definitions/DocSizeSetting'
-      utilizationSettings:
-        $ref: '#/definitions/AccountUtilizationSettings'
-
-  TimeBasedAccountCreateRequestEmptyArray:
-    type: object
-    required:
-      - accountName
-      - email
-      - sharingObjectsAccounts
-      - retentionDays
-    properties:
-      email:
-        type: string
-        pattern: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
-        description: Account administrator's email address
-        example: help@logz.io
-      accountName:
-        type: string
-        description: Name of the account
-        example: AWS Lambda svr 3
-      reservedDailyGB:
-        type: number
-        format: float
-        default: null
-        description: >-
-          * If `isFlexible=false`, don't send this field or send it null.
-
-
-          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
-        example: 3
-      maxDailyGB:
-        type: number
-        format: float
-        description: >-
-          The maximum volume of data that an account can index per calendar day.
-
-
-          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
-
-
-          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
-
-
-          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
-        example: 5
-      retentionDays:
-        type: integer
-        format: int32
-        description: How long log data is stored and searchable in Kibana, in days.
-        minimum: 1
-        example: 5
-      searchable:
-        $ref: "#/definitions/Searchable"
-      accessible:
-        $ref: "#/definitions/Accessible"
-      sharingObjectsAccounts:
-        type: array
-        items:
-          type: integer
-          format: int32
-          example: [ ]
+          example:
+            - [ 88888, 55555 ]
+            - []
         description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
@@ -4723,8 +4712,8 @@ definitions:
       pagination:
         $ref: '#/definitions/Pagination'
 
-
-  AlertsSearchRequest:
+  AlertsSearchRequestFiltered:
+    title: Filtered Results  
     type: object
     properties:
       filter:
@@ -4735,6 +4724,24 @@ definitions:
         $ref: '#/definitions/AlertsSortRequest'
       pagination:
         $ref: '#/definitions/Pagination'
+  AlertsSearchRequestUnfiltered:
+    title: Unfiltered Results  
+    type: object
+    properties:
+      query:
+        type: object
+        description: Search query.
+        properties:
+            bool:
+              type: object
+              properties:
+                  must:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        match_all:
+                          type: object
   AlertsSortRequest:
     type: object
     required:
@@ -5716,6 +5723,27 @@ definitions:
           #### Limitations
 
           * Time search must be ≤ 5 minutes. If no time is specified, default is `1m` (1 minute).
+      aggregations:
+        type: object
+        description: >-
+          Apply field aggregations. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html) for details.
+
+
+          #### Limitations
+
+          * When using the `size` element, the value must be ≤ `1000`
+
+          * Can't nest 2 or more bucket aggregations of these types: `date_histogram`, `geohash_grid`, `histogram`, `ip_ranges`, `significant_terms`, `terms`
+
+          * Can't sort or aggregate on analyzed fields, such as the `message` field
+
+          * Aggregation type `significant_terms` can't be used
+
+          * If the request specifies aggregations, only the initial search response will contain the aggregations results
+
+
+          **Note:** You can use `aggs` or `aggregations` as the field name
+        example: { "byType": { "terms": { "field": "type", "size": 5 } } }
 
   # ::::: SHARED TOKENS DEFINITIONS
   QueryFilter:
@@ -6642,6 +6670,8 @@ definitions:
   AlertV2Request:
     type: object
     required:
+     - title
+     - subComponents
     properties:
       title:
         type: string
@@ -6677,6 +6707,9 @@ definitions:
 
 
           The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+
+
+          The default value is 5. 
         example: 20
       subComponents:
         type: array
@@ -6687,7 +6720,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
       enabled:
         type: boolean
-        description: If `true`, the alert is enabled and active.
+        description: If `true`, the alert is enabled and active. Default value is `true`.
   AlertTrigger:
     type: object
     description: Sets the triggering threshold and severity tab to label the event when the alert triggers.

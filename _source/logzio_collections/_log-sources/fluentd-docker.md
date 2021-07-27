@@ -69,14 +69,12 @@ Run the following command:
    docker run -it --rm \
    --name fluentd-docker-logs \
    -v $(pwd)/log:/fluentd/log \
-   -v /var/lib/docker/containers:/var/lib/docker/containers:/var/lib/docker/containers:ro \
+   -v /var/lib/docker/containers:/var/lib/docker/containers \
    -v /var/run/docker.sock:/var/run/docker.sock:ro \
    -p 5001:5001 \
    -e LOGZIO_LOG_LISTENER="https://<<LISTENER-HOST>>:8071" \
    -e LOGZIO_LOG_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>> \
    -e LOGZIO_TYPE=docker-fluentd \
-   -e LOGZIO_PROXY_URI=nil \
-   -e LOGZIO_PROXY_CERT=nil \
    logzio/fluentd-docker-logs
    ```
 
@@ -85,8 +83,8 @@ Run the following command:
 
 If you need to send the logs via a proxy server:
 
-   * Add your proxy URI to the `LOGZIO_PROXY_URI` field.
-   * Add your proxy certificate to the `LOGZIO_PROXY_CERT` field.
+   * Add ` -e LOGZIO_PROXY_URI=<YOUR-PROXY-URI>` to the above command and replace `<YOUR-PROXY-URI>` with your proxy URI.
+   * Add ` -e LOGZIO_PROXY_CERT=<YOUR-PROXY-CERTIFICATE>` to the above commad and replace `<YOUR-PROXY-CERTIFICATE>` with your proxy certificate value.
 
 ##### Check Logz.io for your logs
 

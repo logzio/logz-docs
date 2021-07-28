@@ -98,6 +98,12 @@ public void ConfigureServices(IServiceCollection services)
 
 ##### Download and configure OpenTelemetry collector
 
+<!-- info-box-start:info -->
+**Known Issue, June 2021**: OpenTelemetry collector version 0.24 and above does not function as expected when deployed with the Logz.io exporter. To remediate this issue, if you’re currently using version 0.24 or above, replace your  OpenTelemetry collector with version 0.23 or lower.
+The resolution for this issue is in development.
+{:.info-box.important}
+<!-- info-box-end -->
+
 Create a dedicated directory on the host of your ASP.NET Core application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.23.0) that is relevant to the operating system of your host.
 
 

@@ -3154,7 +3154,6 @@ paths:
       summary: Unsuspend a user from all accounts
       description: >-
         Unsuspends a user from the main account and all associated sub accounts. Must be run with an API token for the main account.
-        The user will not be unsuspended from accounts for which there are no other users. In other words, any accounts where the user is the last user will be skipped. The success message will list accounts that were skipped.
       operationId: unsuspendUserRecursively
       parameters:
         - name: id

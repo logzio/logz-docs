@@ -34,8 +34,11 @@ c. Select **Settings > Resource providers**.
 d. Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.
 
 ###### Enable NSG flow log
+  
 ##### Enable NSG flow log
+  
 #### Enable NSG flow log
+  
 ## Enable NSG flow log
   
 

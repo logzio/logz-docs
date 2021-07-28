@@ -3,8 +3,8 @@
   [headers.values]
     Strict-Transport-Security = "max-age=31536000; includeSubDomains;"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy-Report-Only = "default-src 'none'; script-src 'self' *.intercomcdn.com www.google-analytics.com; style-src 'self' *.jquery.com fonts.googleapis.com; connect-src *.amplitude.com *.intercom.io; font-src 'self' *.fontawesome.com fonts.gstatic.com; frame-src www.googletagmanager.com"
-
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'sha256-m6LLxclyRtUyKJv7W6YqJfXyFhjoqwYL6hEL85BKkYo=' 'sha256-Kjzj2nqI5ZGGOjyXwafSeEwjzCbrusJg1SzlnaSKLFE=' *.intercomcdn.com www.google-analytics.com www.googletagmanager.com cnd.amplitude.com widget.intercom.io; style-src 'self' 'unsafe-inline' *.jquery.com fonts.googleapis.com use.fontawesome.com; connect-src 'self' *.amplitude.com *.intercom.io wss://*.intercom.io *.mktoresp.com *.hotjar.com; font-src 'self' use.fontawesome.com fonts.gstatic.com script.hotjar.com; frame-src www.googletagmanager.com vars.hotjar.com; worker-src 'self'; img-src 'self' www.google-analytics.com;"
+    
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
 [build]

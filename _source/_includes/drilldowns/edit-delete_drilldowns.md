@@ -1,5 +1,6 @@
-### Edit or delete a drilldown link
+Edit or delete a drilldown
+
+Editing and deleting drilldowns is managed via your main account, in the [**Drilldown settings**](https://app.logz.io/#/dashboard/settings/drilldowns) page. 
 
 * To edit a drilldown link, hover over the drilldown, click **edit** <i class="li li-pencil"></i>, make your changes, and click **Save** to confirm the changes.
-
 * To delete a drilldown link, hover over the drilldown and click **delete** <i class="li li-trash"></i>. You'll be asked to confirm the deletion.

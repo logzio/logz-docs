@@ -41,7 +41,7 @@ See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Installi
 
 <!-- info-box-start:info -->
 **Known Issue, June 2021**: OpenTelemetry collector version 0.24 and above does not function as expected when deployed with the Logz.io exporter. To remediate this issue, if you’re currently using version 0.24 or above, replace your  OpenTelemetry collector with version 0.23 or lower.
-The expected resolution period for this issue is end of June 2021.
+The resolution for this issue is end of June 2021.
 {:.info-box.important}
 <!-- info-box-end -->
 

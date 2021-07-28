@@ -251,7 +251,7 @@ firstLevel:
   - title: Tools
     thirdLevel:
     - title: Managing cross-platform drilldown settings
-      url: /user-guide/drilldowns/x-platform_drilldown-settings.html
+      url: /user-guide/drilldowns/xplatform_drilldown-settings.html
   
     # - title: Usage and billing
 

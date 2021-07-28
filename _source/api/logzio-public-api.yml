@@ -2338,7 +2338,7 @@ paths:
           type: boolean
           default: false
           description: >-
-            To send a test message to the endpoint, `true`. Otherwise, `false`.
+            To send a test message to the endpoint, `true`. Otherwise, `false`. 
 
 
             **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.

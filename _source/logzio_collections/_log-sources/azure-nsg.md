@@ -33,7 +33,11 @@ b. Select the subscription that the Azure resource group belongs to.
 c. Select **Settings > Resource providers**.
 d. Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.
 
-####### Enable NSG flow log
+###### Enable NSG flow log
+##### Enable NSG flow log
+#### Enable NSG flow log
+## Enable NSG flow log
+  
 
 a. For your VM, navigate to **Networking > NSG > NSG flow**.
 b. From the list of NSGs, select the NSG with the name of your VM.

@@ -26,6 +26,8 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 
 <div class="tasklist">
 
+##### Configure the NSG flow to your Azure Blob Storage account
+
 ###### Register Insights provider
 
 1. Navigate to **All services > Subscriptions**.
@@ -45,14 +47,12 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 8. Save the configuration.
 
 
-###### Connect your Azure Blob Storage account to Logz.io
+##### Connect your Azure Blob Storage account to Logz.io
 
-1. Open the link below.
+Open the link below and fill in the form according to the table.
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-blob%2Fmaster%2Fdeployments%2FdeploymentTemplate.json)
 {:.override.btn-img}
-
-2. Fill in the form according to the table below.
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -65,7 +65,7 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 | Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |
 | Timeout | The read/write/connection timeout in *milliseconds*.  | `180,000 = 3 minutes` | 
 
-3. At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. 
+At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. 
 
 <!-- info-box-start:info -->
 Only new logs that are created from the moment the integration process is complete are sent to Logz.io. Logs that were added before this integration are not sent to Logz.io.

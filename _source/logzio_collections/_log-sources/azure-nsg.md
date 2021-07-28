@@ -26,40 +26,33 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 
 <div class="tasklist">
 
-##### Register Insights provider
+###### Register Insights provider
 
-a. Navigate to **All services > Subscriptions**.
-b. Select the subscription that the Azure resource group belongs to.
-c. Select **Settings > Resource providers**.
-d. Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.
+1. Navigate to **All services > Subscriptions**.
+2. Select the subscription that the Azure resource group belongs to.
+3. Select **Settings > Resource providers**.
+4. Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.
 
 ###### Enable NSG flow log
-  
-##### Enable NSG flow log
-  
-#### Enable NSG flow log
-  
-## Enable NSG flow log
-  
-
-a. For your VM, navigate to **Networking > NSG > NSG flow**.
-b. From the list of NSGs, select the NSG with the name of your VM.
-c. Set the **Flow logs** status to **on**.
-d. Select the required **Flow logs version**.
-e. In the **Storage accound** field, select the Logzio_NSG_BLOB Azure Blob Storage account.
-f. Select the required retention period.
-g. If required, enable the **Traffic Analytics**.
-h. Save the configuration.
+   
+1. For your VM, navigate to **Networking > NSG > NSG flow**.
+2. From the list of NSGs, select the NSG with the name of your VM.
+3. Set the **Flow logs** status to **on**.
+4. Select the required **Flow logs version**.
+5. In the **Storage accound** field, select the Logzio_NSG_BLOB Azure Blob Storage account.
+6. Select the required retention period.
+7. If required, enable the **Traffic Analytics**.
+8. Save the configuration.
 
 
 ###### Connect your Azure Blob Storage account to Logz.io
 
-a. Open the link below.
+1. Open the link below.
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-blob%2Fmaster%2Fdeployments%2FdeploymentTemplate.json)
 {:.override.btn-img}
 
-b. Fill in the form according to the table below.
+2. Fill in the form according to the table below.
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -72,14 +65,14 @@ b. Fill in the form according to the table below.
 | Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |
 | Timeout | The read/write/connection timeout in *milliseconds*.  | `180,000 = 3 minutes` | 
 
-c. At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. 
+3. At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. 
 
 <!-- info-box-start:info -->
 Only new logs that are created from the moment the integration process is complete are sent to Logz.io. Logs that were added before this integration are not sent to Logz.io.
 {:.info-box.important}
 <!-- info-box-end -->
 
-##### Check Logz.io for your logs
+###### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for logs of `type` `blobStorage` to see the incoming logs.
   

@@ -47,7 +47,30 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 
 ##### Connect your Azure Blob Storage account to Logz.io
 
-Connect your Azure Blob Storage account to Logz.io as described in the instructions [here](https://docs.logz.io/shipping/log-sources/azure-blob.html#existing-blob-config).
+Open the link below.
+
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-blob%2Fmaster%2Fdeployments%2FdeploymentTemplate.json)
+{:.override.btn-img}
+
+Fill in the form according to the table below.
+
+| Parameter | Description | Required/Default |
+|---|---|---|
+| Resource group | Select your existing resource group. | Required |
+| Location | Select the same region as the Azure services that will stream data to this Blob Storage.  |  Required |
+| Logzio host | {% include log-shipping/listener-var.md %} |  Required |
+| Log shipping token  | {% include log-shipping/log-shipping-token.md %} | Required |
+| Blob Storage Account Name | Insert the name of the storage account that contains the logs. |  Required |
+| Format | Select one of the supported parsing formats: text/json/csv | Required |
+| Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |
+| Timeout | The read/write/connection timeout in *milliseconds*.  | `180,000 = 3 minutes` | 
+
+At the bottom of the page, select **Review + Create**, and then click **Create** to deploy.  Deployment can take a few minutes. 
+
+<!-- info-box-start:info -->
+Only new logs that are created from the moment the integration process is complete are sent to Logz.io. Logs that were added before this integration are not sent to Logz.io.
+{:.info-box.important}
+<!-- info-box-end -->
 
 ##### Check Logz.io for your logs
 

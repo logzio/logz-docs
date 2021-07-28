@@ -3,7 +3,7 @@
   [headers.values]
     Strict-Transport-Security = "max-age=31536000; includeSubDomains;"
     X-Content-Type-Options = "nosniff"
-
+    Content-Security-Policy-Report-Only = "default-src 'none'; script-src 'self' *.intercomcdn.com www.google-analytics.com; style-src 'self' *.jquery.com fonts.googleapis.com; connect-src *.amplitude.com *.intercom.io; font-src 'self' *.fontawesome.com fonts.gstatic.com; frame-src www.googletagmanager.com"
 
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.

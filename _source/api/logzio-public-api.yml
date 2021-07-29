@@ -5845,7 +5845,7 @@ definitions:
         example: Password
       url:
         type: string
-        description: Your ServiceNow webhook URL
+        description: Provide your instance URL to connect to your existing ServiceNow instance, i.e. https://xxxxxxxxx.service-now.com/.
         example: https://my.custom-endpoint.com
 
   MicrosoftTeamsEndpointUpsertRequest:

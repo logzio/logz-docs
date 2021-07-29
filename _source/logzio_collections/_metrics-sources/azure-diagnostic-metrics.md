@@ -21,7 +21,7 @@ shipping-tags:
 ---
 
 <!-- info-box-start:info -->
-This metrics solution is deprecated and only works with the elastic-based Logz.io metrics product.
+This metrics solution is deprecated and only works with the Elastic-based Logz.io metrics product.
 {:.info-box.important}
 <!-- info-box-end -->
 

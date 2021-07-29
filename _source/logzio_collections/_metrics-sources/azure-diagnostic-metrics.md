@@ -20,6 +20,11 @@ shipping-tags:
   - azure
 ---
 
+<!-- info-box-start:info -->
+This metrics solution is deprecated and only works with the Elastic-based Logz.io metrics product.
+{:.info-box.important}
+<!-- info-box-end -->
+
 Ship your Azure activity metrics using an automated deployment process.
 At the end of this process, your Azure function will forward metrics from an Azure Event Hub to your Logz.io account.
 

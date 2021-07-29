@@ -61,6 +61,8 @@ Download the latest version of the [OpenTelemetry Java agent](https://github.com
 
 ##### Download and configure OpenTelemetry collector
 
+{% include tracing-shipping/otel_bug_june2021.md %}
+
 Create a dedicated directory on the host of your Java application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.23.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:

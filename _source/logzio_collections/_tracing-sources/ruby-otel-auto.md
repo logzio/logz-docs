@@ -112,6 +112,8 @@ export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:55681
 
 ##### Download and configure OpenTelemetry collector
 
+{% include tracing-shipping/otel_bug_june2021.md %}
+
 Create a dedicated directory on the host of your Ruby application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.23.0) that is relevant to the operating system of your host.
 
 

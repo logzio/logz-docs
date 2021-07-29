@@ -38,11 +38,7 @@ OpenTelemetry also includes extensions for additional functionality, such as dia
 
 #### Deploy OpenTelemetry Collector with Logz.io Exporter
 
-<!-- info-box-start:info -->
-**Known Issue, June 2021**: OpenTelemetry collector version 0.24 and above does not function as expected when deployed with the Logz.io exporter. To remediate this issue, if you’re currently using version 0.24 or above, replace your  OpenTelemetry collector with version 0.23 or lower.
-The resolution for this issue is in development.
-{:.info-box.important}
-<!-- info-box-end -->
+{% include tracing-shipping/otel_bug_june2021.md %}
 
 <div class="tasklist">
 

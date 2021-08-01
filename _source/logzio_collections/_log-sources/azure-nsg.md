@@ -61,7 +61,7 @@ Open the link below and fill in the form according to the table.
 | Location | Select the same region as the Azure services that will stream data to this Blob Storage.  |  Required |
 | Logzio host | {% include log-shipping/listener-var.md %} |  Required |
 | Log shipping token  | {% include log-shipping/log-shipping-token.md %} | Required |
-| Blob Storage Account Name | Insert the name of the storage account that contains the logs. |  Required |
+| Blob Storage Account Name | Logzio_NSG_BLOB |  Required |
 | Format | Select the supported parsing format: json | Required |
 | Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |
 | Timeout | The read/write/connection timeout in *milliseconds*.  | `180,000 = 3 minutes` | 

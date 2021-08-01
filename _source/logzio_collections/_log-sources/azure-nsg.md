@@ -32,7 +32,7 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 
 <ol type="a">
   <li>Log in to the Azure Portal.</li>
-  <li>Navigate to **All services > Subscriptions**.</li>
+  <li>Navigate to <b>All services > Subscriptions</b>.
   <li>Select the subscription that the Azure resource group belongs to.</li>
   <li>Select **Settings > Resource providers**.</li>
   <li>Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.</li>

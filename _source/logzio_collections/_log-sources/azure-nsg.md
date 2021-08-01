@@ -47,7 +47,12 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 7. If required, enable the **Traffic Analytics**.
 8. Save the configuration.
 
-
+<ol type="a">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+  
 ##### Connect your Azure Blob Storage account to Logz.io
 
 Open the link below and fill in the form according to the table.

@@ -30,10 +30,11 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 
 ###### Register Insights provider
 
-1. Navigate to **All services > Subscriptions**.
-2. Select the subscription that the Azure resource group belongs to.
-3. Select **Settings > Resource providers**.
-4. Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.
+1. Log in to the Azure Portal.
+2. Navigate to **All services > Subscriptions**.
+3. Select the subscription that the Azure resource group belongs to.
+4. Select **Settings > Resource providers**.
+5. Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.
 
 ###### Enable NSG flow log
    
@@ -61,7 +62,7 @@ Open the link below and fill in the form according to the table.
 | Logzio host | {% include log-shipping/listener-var.md %} |  Required |
 | Log shipping token  | {% include log-shipping/log-shipping-token.md %} | Required |
 | Blob Storage Account Name | Insert the name of the storage account that contains the logs. |  Required |
-| Format | Select one of the supported parsing formats: text/json/csv | Required |
+| Format | Select the supported parsing format: json | Required |
 | Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |
 | Timeout | The read/write/connection timeout in *milliseconds*.  | `180,000 = 3 minutes` | 
 

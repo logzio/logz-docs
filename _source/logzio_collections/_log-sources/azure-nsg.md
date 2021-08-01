@@ -32,24 +32,26 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 
 <ol type="a">
   <li>Log in to the Azure Portal.</li>
-  <li>Navigate to <b>All services > Subscriptions</b>.
+  <li>Navigate to <b>All services > Subscriptions</b>.</li>
   <li>Select the subscription that the Azure resource group belongs to.</li>
-  <li>Select **Settings > Resource providers**.</li>
-  <li>Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.</li>
+  <li>Select <b>Settings > Resource providers</b>.
+  <li>Make sure that <b>Status</b> for the <b>microsoft.insights</b> provider is set to <b>Registered</b>. If not, set it to <b>Registered</b>.</li>
 </ol>
-    
+  
+
 ###### Enable NSG flow log
    
 <ol type="a">  
-  <li>For your VM, navigate to **Networking > NSG > NSG flow**.</li>
+  <li>For your VM, navigate to <b>Networking > NSG > NSG flow</b>.</li>
   <li>From the list of NSGs, select the NSG with the name of your VM.</li>
-  <li>Set the **Flow logs** status to **on**.</li>
-  <li>Select the required **Flow logs version**.</li>
-  <li>In the **Storage accound** field, select the Logzio_NSG_BLOB Azure Blob Storage account.</li>
+  <li>Set the <b>Flow logs** status to <b>on</b>.</li>
+  <li>Select the required <b>Flow logs version</b>.</li>
+  <li>In the <b>Storage accound</b> field, select the Logzio_NSG_BLOB Azure Blob Storage account.</li>
   <li>Select the required retention period.</li>
-  <li>If required, enable the **Traffic Analytics**.</li>
+  <li>If required, enable the <b>Traffic Analytics</b>.</li>
   <li>Save the configuration.</li>
 </ol>
+
   
 ##### Connect your Azure Blob Storage account to Logz.io
 

@@ -34,7 +34,7 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
   <li>Log in to the Azure Portal.</li>
   <li>Navigate to <b>All services > Subscriptions</b>.</li>
   <li>Select the subscription that the Azure resource group belongs to.</li>
-  <li>Select <b>Settings > Resource providers</b>.
+  <li>Select <b>Settings > Resource providers</b>.</li>
   <li>Make sure that <b>Status</b> for the <b>microsoft.insights</b> provider is set to <b>Registered</b>. If not, set it to <b>Registered</b>.</li>
 </ol>
   
@@ -44,7 +44,7 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 <ol type="a">  
   <li>For your VM, navigate to <b>Networking > NSG > NSG flow</b>.</li>
   <li>From the list of NSGs, select the NSG with the name of your VM.</li>
-  <li>Set the <b>Flow logs** status to <b>on</b>.</li>
+  <li>Set the <b>Flow logs</b> status to <b>on</b>.</li>
   <li>Select the required <b>Flow logs version</b>.</li>
   <li>In the <b>Storage accound</b> field, select the Logzio_NSG_BLOB Azure Blob Storage account.</li>
   <li>Select the required retention period.</li>

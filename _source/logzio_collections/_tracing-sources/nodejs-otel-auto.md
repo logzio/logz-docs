@@ -67,7 +67,6 @@ npm install --save @opentelemetry/exporter-collector
 npm install --save @opentelemetry/resources
 npm install --save @opentelemetry/semantic-conventions
 npm install --save @opentelemetry/auto-instrumentations-node
-
 ```
 
 ##### Create a tracer file

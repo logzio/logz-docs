@@ -25,7 +25,7 @@ The custom output will display the data that is matched in the capture group(s) 
 
 | Value | Regex filter | Output |
 |---|---|---|
-| logzio-support-host-1 | logzio-(*.) | support-host-1 |
+| logzio-support-host-1 | logzio-(.*) | support-host-1 |
 | logzio-support-host-1 | (.*)-support(.*) | logzio-host-1 |
 | logzio-support-host-1 | .*(\d+) | 1 |
 

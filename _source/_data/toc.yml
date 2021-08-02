@@ -206,7 +206,7 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Correlated rules
       url: /user-guide/siem/security-correlated-queries/
-    - title: Lookups
+    - title: Lookup lists
       url: /user-guide/lookups/
   - title: Dashboards & Reports
     url: /user-guide/cloud-siem/dashboards/
@@ -269,6 +269,8 @@ firstLevel:
       url: /user-guide/users/single-sign-on/
     - title: Azure single sign-on
       url: /user-guide/users/single-sign-on/azure-sso.html
+    - title: Logz.io-Azure Portal integration single sign-on
+      url: /user-guide/users/single-sign-on/azure_marketplace_liftr.html      
     - title: Okta single sign-on
       url: /user-guide/users/single-sign-on/okta-sso.html
     - title: OneLogin single sign-on

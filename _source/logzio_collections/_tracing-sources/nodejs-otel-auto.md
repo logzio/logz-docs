@@ -67,7 +67,6 @@ npm install --save @opentelemetry/exporter-collector
 npm install --save @opentelemetry/resources
 npm install --save @opentelemetry/semantic-conventions
 npm install --save @opentelemetry/auto-instrumentations-node
-npm install --save @opentelemetry/instrumentation-http
 
 ```
 
@@ -86,8 +85,6 @@ const { CollectorTraceExporter } = require('@opentelemetry/exporter-collector');
 const { Resource } = require('@opentelemetry/resources');
 const { ResourceAttributes } = require('@opentelemetry/semantic-conventions');
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
-const { HttpInstrumentation } = require('@opentelemetry/instrumentation-http');
-
 
 // const { CollectorTraceExporter } = require('@opentelemetry/exporter-collector-grpc');
 // const { CollectorTraceExporter } = require('@opentelemetry/exporter-collector-proto');
@@ -116,7 +113,7 @@ provider.register();
 registerInstrumentations({
     // // when boostraping with lerna for testing purposes
     instrumentations: [
-      new HttpInstrumentation(),
+      new getNodeAutoInstrumentations(),
     ],
   });
 
@@ -131,7 +128,7 @@ return opentelemetry.trace.getTracer('logzio-collector-exporter-node');
 Add the following configuration to the beginning of the Node.js file:
 
 ```javascript
-'const tracer = require('./tracer.js')('logzio-collector-exporter-node');
+const tracer = require('./tracer.js')('logzio-collector-exporter-node');
 ```
 
 Add the following configuration to the same file:
@@ -177,7 +174,12 @@ Run the following command:
 
 ##### Run the application
 
-Run the application to generate traces.
+Run the application to generate traces:
+
+```shell
+  
+node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
+```
 
 
 ##### Check Logz.io for your traces

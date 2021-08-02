@@ -85,19 +85,10 @@ const { Resource } = require('@opentelemetry/resources');
 const { ResourceAttributes } = require('@opentelemetry/semantic-conventions');
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
 
-// const { CollectorTraceExporter } = require('@opentelemetry/exporter-collector-grpc');
-// const { CollectorTraceExporter } = require('@opentelemetry/exporter-collector-proto');
 
-// opentelemetry.diag.setLogger(
-//   new opentelemetry.DiagConsoleLogger(),
-//   opentelemetry.DiagLogLevel.DEBUG,
-// );
 module.exports = (serviceName) => {
 
 const exporter = new CollectorTraceExporter({
-  // headers: {
-  //   foo: 'bar'
-  // },
 });
 
 const provider = new BasicTracerProvider({
@@ -110,7 +101,6 @@ provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
 provider.register();
 
 registerInstrumentations({
-    // // when boostraping with lerna for testing purposes
     instrumentations: [
       new getNodeAutoInstrumentations(),
     ],

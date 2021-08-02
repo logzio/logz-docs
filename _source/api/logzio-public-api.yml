@@ -2149,6 +2149,213 @@ paths:
             items:
               $ref: '#/definitions/Endpoint'
 
+  /v1/endpoints/ops-genie:
+    post:
+      tags:
+        - Manage notification endpoints
+      summary: Create an OpsGenie endpoint
+      description: Creates a new OpsGenie  notification endpoint or sends a test message to OpsGenie.
+      operationId: createOpsGenie
+      parameters:
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/OpsGenieEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/endpoints/ops-genie" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New OpsGenie endpoint\",  \"description\": \"Sends notifications to OpsGenie\",  \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/ops-genie/{id}:
+    put:
+      tags:
+        - Manage notification endpoints
+      summary: Update an OpsGenie endpoint
+      description: Updates an OpsGenie notification endpoint or sends a test message to OpsGenie.
+      operationId: updateOpsGenie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the notification endpoint
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/OpsGenieEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "http://endpoints/ops-genie/273" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{\"title\": \"Updated OpsGenie endpoint\", \"description\": \"Sends notifications to OpsGenie\", \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+
+  /v1/endpoints/service-now:
+    post:
+      tags:
+        - Manage notification endpoints
+      summary: Create an ServiceNow endpoint
+      description: Creates a new ServiceNow  notification endpoint or sends a test message to ServiceNow.
+      operationId: createServiceNow
+      parameters:
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ServiceNowEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/endpoints/service-now" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New ServiceNow endpoint\",  \"description\": \"Sends notifications to ServiceNow\",  \"username\": \"User\", \"password\": \"Password\", \"url\": \"https://my.custom-endpoint.com\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/service-now/{id}:
+    put:
+      tags:
+        - Manage notification endpoints
+      summary: Update an ServiceNow endpoint
+      description: Updates an ServiceNow notification endpoint or sends a test message to ServiceNow.
+      operationId: updateServiceNow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the notification endpoint
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ServiceNowEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "http://endpoints/service-now/273" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New ServiceNow endpoint\",  \"description\": \"Sends notifications to ServiceNow\",  \"username\": \"User\", \"password\": \"Password\", \"url\": \"https://my.custom-endpoint.com\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+
+  /v1/endpoints/microsoft-teams:
+    post:
+      tags:
+        - Manage notification endpoints
+      summary: Create an  Microsoft Teams endpoint
+      description: Creates a new  Microsoft Teams  notification endpoint or sends a test message to  Microsoft Teams.
+      operationId: createMicrosoftTeams
+      parameters:
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/MicrosoftTeamsEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/endpoints/microsoft-teams" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New OpsGenie endpoint\",  \"description\": \"Sends notifications to OpsGenie\",  \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/microsoft-teams/{id}:
+    put:
+      tags:
+        - Manage notification endpoints
+      summary: Update an Microsoft Teams endpoint
+      description: Updates an Microsoft Teams notification endpoint or sends a test message to Microsoft Teams.
+      operationId: updateMicrosoftTeams
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the notification endpoint
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`. 
+
+
+            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/MicrosoftTeamsEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "http://endpoints/microsoft-teams/273" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{\"title\": \"Updated ServiceNow endpoint\", \"description\": \"Sends notifications to ServiceNow\", \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+
   # ::::: KIBANA IMPORT/EXPORT
   /v1/kibana/export:
     post:
@@ -5600,6 +5807,62 @@ definitions:
         type: string
         description: Detailed description of the endpoint
         example: Endpoint for sending alerts to Slack
+
+  OpsGenieEndpointUpsertRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Name of the endpoint
+        example: OpsGenie endpoint
+      description:
+        type: string
+        description: Detailed description of the endpoint
+        example: Sends notifications to OpsGenie
+      apiKey:
+        type: string
+        description: API key from OpsGenie, see https://docs.opsgenie.com/docs/logz-io-integration
+        example: c687f9231619d7d7b959f33e4cc821a5
+
+  ServiceNowEndpointUpsertRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Name of the endpoint
+        example: New ServiceNow endpoint
+      description:
+        type: string
+        description: Detailed description of the endpoint
+        example: Sends notifications to logzio-alerts channel
+      username:
+        type: string
+        description: ServiceNow user name
+        example: User
+      password:
+        type: string
+        description: ServiceNow password
+        example: Password
+      url:
+        type: string
+        description: Provide your instance URL to connect to your existing ServiceNow instance, i.e. https://xxxxxxxxx.service-now.com/.
+        example: https://my.custom-endpoint.com
+
+  MicrosoftTeamsEndpointUpsertRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Name of the endpoint
+        example: New Microsoft Teams endpoint
+      description:
+        type: string
+        description: Detailed description of the endpoint
+        example: Sends notifications to logzio-alerts channel
+      url:
+        type: string
+        description: Your Microsoft Teams webhook URL, see https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook
+        example: https://my.custom-endpoint.com
 
   # ::::: KIBANA IMPORT/EXPORT DEFINITIONS
   KibanaExportResponse:

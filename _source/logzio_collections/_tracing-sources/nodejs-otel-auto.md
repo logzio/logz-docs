@@ -75,7 +75,6 @@ npm install --save @opentelemetry/auto-instrumentations-node
 Create a file named `tracer.js` with the following configuration:
 
 ```javascript
-
 'use strict';
 
 const opentelemetry = require('@opentelemetry/api');
@@ -125,7 +124,7 @@ return opentelemetry.trace.getTracer('logzio-collector-exporter-node');
 
 ##### Enable instrumentation in the application code
 
-Add the following configuration to the beginning of the Node.js file:
+Add the following configuration to the beginning of your application Node.js file:
 
 ```javascript
 const tracer = require('./tracer.js')('logzio-collector-exporter-node');
@@ -177,7 +176,6 @@ Run the following command:
 Run the application to generate traces:
 
 ```shell
-  
 node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 ```
 

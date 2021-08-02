@@ -4418,15 +4418,13 @@ definitions:
         format: int64
         description: >-
           Date this account was created.
-          Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
-        example: 2018-02-22T09:14:53Z
+        example: 1627489797000
       lastUpdatedDate:
         type: integer
         format: int64
         description: >-
           Date this account was last updated.
-          Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
-        example: 2018-04-01T19:18:38Z
+        example: 1627489797000
       lastUpdaterUserId:
         type: integer
         format: int32

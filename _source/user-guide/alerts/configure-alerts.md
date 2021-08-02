@@ -9,6 +9,7 @@ tags:
 contributors:
   - shalper
   - imnotashrimp
+  - yberlinger
 ---
 
 You can set up Logz.io log alerts to automatically get notified about issues that demand attention.
@@ -31,7 +32,15 @@ Next, set the search components. This determines which logs to look for and in w
 If you intend to create a correlated alert with 2 queries, see the [this guide](/user-guide/alerts/correlated-alert/).
 
 
-![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-search-component.png)
+![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-search-component_aug2021.gif)
+
+
+<!-- info-box-start:info -->
+To perform date range filtering on the `@timestamp` field, include the field as part of a query, 
+rather than by adding it as a filter: `@timestamp` filters are overwritten.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 ###### Query and filters
 
@@ -55,7 +64,7 @@ The order of group-by fields matters. Results are grouped in the order in which 
 
 For example, the following will group results by continent, then country, then city:
 
-![Ordered group by field functions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/ordered-group-by.png)
+![Ordered group by field functions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/ordered-group-by_aug2021.png)
 
 If we reverse the order (city, then country, then continent),
 it will likely generate unintended results.
@@ -74,13 +83,13 @@ Set your threshold and severity levels.
 
 In the _Trigger if..._ section, click **Add a threshold** to set as many as 5 threshold conditions, each with its own severity tag.
 
-![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings.png)
+![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
 
 ##### _(Optional)_ Set notification details
 
 ###### Description and tags
 
-![Alert description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags.png)
+![Alert description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags_aug2021.png)
 
 The **Description** is visible on the _Alert definitions_ page.
 It's also included with emails and Slack messages when the alert is triggered.
@@ -91,7 +100,7 @@ The **Tags** are useful for filtering. They can be used to create filtered visua
 
 ###### Who to send it to
 
-![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-wait.png)
+![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-wait_aug2021.png)
 
 If you want to send notifications or emails when the alert is triggered,
 choose notification endpoints.
@@ -112,12 +121,14 @@ Sample data can be sent in either **JSON** or **Table** formats. Toggle the butt
 
 If the alert includes any aggregation or group by field, the notification output will send the aggregated results by default.
 
+![Output format](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output_aggregated_aug2021.png)
+
 To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](/user-guide/alerts/regex-filters.html)
 
-  * If you select the JSON format, you can send the full log (with all fields) or select as many as 7 fields.
-  * If you select a table, you can send as many as 7 fields.
+  * If you select **JSON** format, you can send the full log (with all fields) or select as many as 7 fields.
+  * If you select **Table**, you can send as many as 7 fields.
 
-![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields.png)
+![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-formats_aug2021.gif)
 
 ##### Save it!
 

@@ -71,7 +71,7 @@ npm install --save @opentelemetry/auto-instrumentations-node
 
 ##### Create a tracer file
 
-Create a file named `tracer.js` with the following configuration:
+In the directory of your application file, create a file named `tracer.js` with the following configuration:
 
 ```javascript
 'use strict';
@@ -152,7 +152,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 
 ##### Start the collector
 
-Run the following command:
+Run the following command from the directory of your application file:
 
 ```shell
 <path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml

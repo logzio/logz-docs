@@ -4414,15 +4414,15 @@ definitions:
       accessible:
         $ref: "#/definitions/Accessible"
       createdDate:
-        type: string
-        format: date-time
+        type: integer
+        format: int64
         description: >-
           Date this account was created.
           Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
         example: 2018-02-22T09:14:53Z
       lastUpdatedDate:
-        type: string
-        format: date-time
+        type: integer
+        format: int64
         description: >-
           Date this account was last updated.
           Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`

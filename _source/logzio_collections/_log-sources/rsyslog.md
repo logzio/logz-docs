@@ -17,6 +17,7 @@ order: 130
 <div class="branching-container">
 
 * [Rsyslog over TLS](#rsyslog-tls)
+* [Rsyslog with SELinux](#rsyslog-selinux)
 * [Automatic configuration](#rsyslog-auto)
 * [Manual configuration](#rsyslog-manual)
 {:.branching-tabs}
@@ -118,6 +119,110 @@ sudo service rsyslog restart
 Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana). 
 
 If you still don't see your logs, see our [rsyslog troubleshooting guide](https://support.logz.io/hc/en-us/articles/209486069-Troubleshooting-Rsyslog-Failed-to-install).
+
+</div>
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="rsyslog-selinux">
+
+###### Shipping with Rsyslog and SELinux
+
+Security-Enhanced Linux (SELinux) is a security architecture for Linux based systems that allows administrators to have more control over who can access the system.
+
+In systems, where SELinux is enabled, Rsyslog is one of the system processes that are protected by it. One of the ways it protects the service is by allowing it to send logs only using the standard port which is 514 UDP. In order to be able to ship logs to Logz.io, we’ll need to modify the current SELinux policy to allow shipping logs using the non-standard port 5000 TCP.
+
+
+#### Modify the SELinux policy to allow shipping logs to Logz.io
+
+**Before you begin, you'll need**:
+
+* Sudo access
+* Rsyslog version 5.8.0 and above
+* Outgoing TCP traffic to destination port 5000 allowed
+* A common linux distribution
+
+<!-- info-box-start:info -->
+The commands brought here are for Red Hat/Fedora based distributions. Depending on what distribution you’re using, you may need to slightly modify the commands.
+{:.info-box.note}
+<!-- info-box-end -->
+
+
+<div class="tasklist">
+
+##### Ensure logs are not sent to Logz.io from your system
+
+Execute the following command to check if your system sends logs to Logz.io.
+
+```shell
+curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz \
+  && tar xzf logzio-rsyslog.tar.gz \
+  && sudo rsyslog/install.sh -t linux -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>"
+```
+
+
+The above assumes the following defaults:
+
+* Log location - `/var/log/`
+* Log type - `syslog`
+
+{% include log-shipping/log-shipping-token.html %}
+
+{% include log-shipping/listener-var.html %} 
+
+If you do not see logs on [your Kibana dashboard](https://app.logz.io/#/dashboard/kibana), proceed to the next step.
+
+##### Check the audit logs for incoming logs
+
+Navigate to the directory or your audit logs (by default, this is `/var/log/audit/audit.log`) and check for AVC records containing `dest=5000`. If you see them, this means that SELinux is blocking the logs export over port TCP 5000.
+
+
+##### Ensure logs are sent to Logz.io when SELinux is disabled
+
+Temporarily disable SELinux by running this command:
+
+```shell
+$ sudo setenforce 0
+```
+
+Wait a few minutes and check [your Kibana dashboard](https://app.logz.io/#/dashboard/kibana). If you see the logs, we have confirmed that the problem is that we use SELinux and try to send logs over port 5000 TCP.
+
+
+##### Enable SELinux 
+
+At this point, we need to switch SELinux back on, to ensure the system remains protected.
+
+To do this, run:
+
+```shell
+$ sudo setenforce 1
+```
+
+##### Install the SELinux policy core utilities package
+
+Now we need to add the package `policycoreutils` containing the SELinux command `semanage` that will enable us to modify the policy.
+
+If you already have this package installed, proceed to the next step. Otherwise, run:
+
+```shell
+$ sudo dnf install policycoreutils
+```
+
+##### Add port 5000 TCP to the SELinux policy
+
+Execute the following command to add port 5000 TCP to the SELinux policy:
+
+```shell
+$ sudo semanage port -m -t syslogd_port_t -p tcp 5000
+```
+
+##### Check your dashboard for logs
+
+Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
 </div>

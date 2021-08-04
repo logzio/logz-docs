@@ -26,7 +26,7 @@ To learn more about this solution, refer to [Logz.io documentation on SSO](https
 
 #### Manage the platform options
 
-Logz.io's Cloud-Native Observability Platform provides a variety of different options to manage the monotoring of your Azure environment.
+Logz.io's Cloud-Native Observability Platform provides a variety of different options to manage the monitoring of your Azure environment.
 
 To learn more about this, refer to [Microsoft Azure documentation](https://docs.microsoft.com/en-us/azure/partner-solutions/logzio/manage).
 

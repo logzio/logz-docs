@@ -30,7 +30,7 @@ order: 130
 
 Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
 
-You can configure rsyslog to monitor a log file. It can monitor a single log file or directory, and ship them over to Logz.io over TLS. In case of directory, all first level files will be monitored.
+You can configure rsyslog to monitor a single log file or directory, and ship them over to Logz.io over TLS. For directories, all the first level files are monitored.
 
 #### Configuration
 
@@ -57,7 +57,7 @@ For distributions based on Red Hat, use `rpm` or `yum` in place of `apt-get`.
 
 ##### Configure rsyslog file spooling
 
-To ship a log to logz.io, SSH to your Linux server, and run this command. The code verifies the working directory exists. In an Ubuntu server, it will set the proper permissions.
+To ship a log to logz.io, SSH to your Linux server, and run the command below: The code verifies the working directory exists. In an Ubuntu server, it will set the proper permissions.
 
 ```
 sudo mkdir -v /var/spool/rsyslog 
@@ -132,7 +132,7 @@ If you still don't see your logs, see our [rsyslog troubleshooting guide](https:
 
 Security-Enhanced Linux (SELinux) is a security architecture for Linux based systems that allows administrators to have more control over who can access the system.
 
-In systems, where SELinux is enabled, Rsyslog is one of the system processes that are protected by it. One of the ways it protects the service is by allowing it to send logs only using the standard port which is 514 UDP. In order to be able to ship logs to Logz.io, we’ll need to modify the current SELinux policy to allow shipping logs using the non-standard port 5000 TCP.
+In systems where SELinux is enabled, Rsyslog is one of the system processes that SELinux protects. One of the ways SELinux protects the service is by allowing it to only send logs using the standard port, which is 514 UDP. To be able to ship logs to Logz.io, you’ll need to modify the current SELinux policy to allow shipping logs using the non-standard port 5000 TCP.
 
 
 #### Modify the SELinux policy to allow shipping logs to Logz.io
@@ -145,7 +145,7 @@ In systems, where SELinux is enabled, Rsyslog is one of the system processes tha
 * A common linux distribution
 
 <!-- info-box-start:info -->
-The commands brought here are for Red Hat/Fedora based distributions. Depending on what distribution you’re using, you may need to slightly modify the commands.
+The commands presented here are for Red Hat/Fedora-based distributions. Depending on which distribution you’re using, you may need to modify the commands slightly.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -154,7 +154,7 @@ The commands brought here are for Red Hat/Fedora based distributions. Depending 
 
 ##### Ensure logs are not sent to Logz.io from your system
 
-Execute the following command to check if your system sends logs to Logz.io.
+Execute the following command to check if your system sends logs to Logz.io:
 
 ```shell
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz \

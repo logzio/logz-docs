@@ -109,8 +109,11 @@ Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your S
     2. Toggle the button to **enable SYSLOG**.
     3. **Host** - Enter your SYSLOG server IP address and port.
     4. **TLS** - Enable TLS.
-    5. **Formatting** - Select **CEF2**.
-    6. Save your changes.
+    5. Upload a server certificate to enable the syslog server authorization. This can be a self-signed certificate.
+    6. Upload a client certificate with a client key to enable the syslog client authorization. This can be a self-signed certificate.
+    7. Provide a client key used with the client certificate.
+    8. **Formatting** - Select **CEF2**.
+    9. Save your changes.
 
 ![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin4.png)
 

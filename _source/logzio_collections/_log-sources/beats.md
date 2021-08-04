@@ -36,7 +36,7 @@ This document describes the way to get logs from your system to Logz.io using an
 
 #### NEW BUTTON
 
-<!-- logzio-inject:install:grafana:dashboards ids="12312312312" -->
+<!-- logzio-inject:install:grafana:dashboards ids=["4Tk1cgkBEnyrOjTuhKILto","4F0PJis1p02ZyMtuMflYyo","7GOPHucWSajA5pptILGV8G"] -->
 
 #### Configure your Beats shipper on macOS or Linux
 

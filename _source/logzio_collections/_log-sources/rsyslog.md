@@ -263,7 +263,7 @@ curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslo
 ```
 
 
-###### If your are monitoring JSON logs
+###### If you are monitoring JSON logs
 
 Run the following command to configure your rsyslog daemon to monitor JSON log files.  Each log should be formatted as a single JSON line that ends with a newline character.
 

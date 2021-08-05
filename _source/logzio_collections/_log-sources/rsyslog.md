@@ -187,12 +187,12 @@ Temporarily disable SELinux by running this command:
 $ sudo setenforce 0
 ```
 
-Wait a few minutes and check [your Kibana dashboard](https://app.logz.io/#/dashboard/kibana). If you see the logs, we have confirmed that the problem is that we use SELinux and try to send logs over port 5000 TCP.
+Wait a few minutes and check [your Kibana dashboard](https://app.logz.io/#/dashboard/kibana). If you see the logs, it means that the problem is caused by SELinux and using port 5000 TCP to send logs.
 
 
 ##### Enable SELinux 
 
-At this point, we need to switch SELinux back on, to ensure the system remains protected.
+At this point, you need to switch SELinux back on, to ensure the system remains protected.
 
 To do this, run:
 
@@ -202,7 +202,7 @@ $ sudo setenforce 1
 
 ##### Install the SELinux policy core utilities package
 
-Now we need to add the package `policycoreutils` containing the SELinux command `semanage` that will enable us to modify the policy.
+Add the package `policycoreutils` containing the SELinux command `semanage` to enable modifications to the SELinux policy.
 
 If you already have this package installed, proceed to the next step. Otherwise, run:
 

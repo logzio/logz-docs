@@ -30,7 +30,7 @@ order: 130
 
 Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
 
-You can configure rsyslog to monitor a single log file or directory, and ship them over to Logz.io over TLS. For directories, all the first level files are monitored.
+You can configure rsyslog to monitor a single log file or directory and ship them over to Logz.io over TLS. For directories, all the first level files are monitored.
 
 #### Configuration
 
@@ -132,7 +132,7 @@ If you still don't see your logs, see our [rsyslog troubleshooting guide](https:
 
 Security-Enhanced Linux (SELinux) is a security architecture for Linux based systems that allows administrators to have more control over who can access the system.
 
-In systems where SELinux is enabled, Rsyslog is one of the system processes that SELinux protects. One of the ways SELinux protects the service is by allowing it to only send logs using the standard port, which is 514 UDP. To be able to ship logs to Logz.io, you’ll need to modify the current SELinux policy to allow shipping logs using the non-standard port 5000 TCP.
+In systems where SELinux is enabled, rsyslog is one of the system processes that SELinux protects. One of the ways SELinux protects the service is by allowing it to only send logs using the standard port, which is 514 UDP. To be able to ship logs to Logz.io, you’ll need to modify the current SELinux policy to allow shipping logs using the non-standard port 5000 TCP.
 
 
 #### Modify the SELinux policy to allow shipping logs to Logz.io
@@ -152,21 +152,21 @@ The commands presented here are for Red Hat/Fedora-based distributions. Dependin
 
 <div class="tasklist">
 
-##### Ensure logs are not sent to Logz.io from your system
+##### Ensure that logs are not sent to Logz.io from your system
 
-Execute the following command to check if your system sends logs to Logz.io:
+
+
+Execute the command below to check if your system sends logs to Logz.io. 
+The following defaults are assumed: 
+* Log location - `/var/log/`
+* Log type - `syslog`
+
 
 ```shell
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz \
   && tar xzf logzio-rsyslog.tar.gz \
   && sudo rsyslog/install.sh -t linux -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>"
 ```
-
-
-The above assumes the following defaults:
-
-* Log location - `/var/log/`
-* Log type - `syslog`
 
 {% include log-shipping/log-shipping-token.html %}
 
@@ -235,8 +235,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
 
-You can configure rsyslog to monitor a log file. It can monitor a single log file or directory, and ship them over to Logz.io. In case of directory all first level files will be monitored.
-
+You can configure rsyslog to monitor a single log file or directory, and ship them over to Logz.io.
+For directories, all the first level files are monitored.
 
 #### Automatic configuration
 
@@ -254,7 +254,7 @@ You can configure rsyslog to monitor a log file. It can monitor a single log fil
 
 ###### If your are monitoring plain-text logs
 
-Run the following in order to configure your rsyslog daemon to monitor a log file or directory.
+Run the following to configure your rsyslog daemon to monitor a log file or directory.
 
 ```
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "<<PATH_TO_FILE>>" -tag "<<TYPE>>" 
@@ -263,7 +263,7 @@ curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslo
 
 ###### If your are monitoring JSON logs
 
-Run the following to configure your rsyslog daemon to monitor JSON log files.  Each log will need to be a single JSON line that ends with a new line.
+Run the following command to configure your rsyslog daemon to monitor JSON log files.  Each log should be formatted as a single JSON line that ends with a newline character.
 
 
 ```
@@ -287,10 +287,10 @@ curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslo
 
 ###### Shipping with Rsyslog
 
-Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
+Most Unix systems these days come with pre-installed rsyslog, which is a great lightweight service to consolidate logs.
 
-You can configure rsyslog to monitor a log file. It can monitor a single log file or directory, and ship them over to Logz.io. In case of directory all first level files will be monitored.
-
+You can configure rsyslog to monitor a single log file or directory, and ship them over to Logz.io.
+For directories, all the first level files are monitored.
 
 #### Manual configuration
 
@@ -306,7 +306,7 @@ You can configure rsyslog to monitor a log file. It can monitor a single log fil
 
 ##### Configure rsyslog file spooling
 
-To ship a log to logz.io, SSH to your Linux server, copy the below code snippet to your terminal window and execute it. The code verifies the working directory exists. In an Ubuntu server, it will set the proper permissions.
+To ship a log to Logz.io, SSH to your Linux server, copy the below code snippet to your terminal window and execute it. The code verifies that the working directory exists. For an Ubuntu server, it sets the proper permissions.
 
 ```
 sudo mkdir -v /var/spool/rsyslog
@@ -354,7 +354,7 @@ if $programname == 'TYPE' then ~
 
 ##### Restart rsyslog
 
-After editing and saving the file, execute the following command
+After editing and saving the file, execute the following command:
 
 ```
 sudo service rsyslog restart

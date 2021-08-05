@@ -192,7 +192,7 @@ Wait a few minutes and check [your Kibana dashboard](https://app.logz.io/#/dashb
 
 ##### Enable SELinux 
 
-At this point, you need to switch SELinux back on, to ensure the system remains protected.
+At this point, switch SELinux back on to ensure that the system remains protected.
 
 To do this, run:
 

@@ -158,6 +158,7 @@ The commands presented here are for Red Hat/Fedora-based distributions. Dependin
 
 Execute the command below to check if your system sends logs to Logz.io. 
 The following defaults are assumed: 
+  
 * Log location - `/var/log/`
 * Log type - `syslog`
 

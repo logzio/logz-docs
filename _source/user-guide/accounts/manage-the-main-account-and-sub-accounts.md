@@ -33,13 +33,13 @@ By default, all users of your main account have permission to view the data in o
 
 If you're an admin for the main account,
 you can manage the main account and sub accounts
-from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-users) page
-(**<i class="li li-gear"></i> > Settings > Manage accounts** in the top menu).
+from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) page
+(**Settings > Manage accounts** in the navigation menu).
 
 
 ### Main account settings
 
-![Manage the main account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts--manage-main-account.png)
+![Manage the main account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts--manage-main-account2.png)
 
 
 | Settings | Description |

@@ -24,8 +24,8 @@ In general, drop filters are recommended for logs that are needed infrequently, 
 ![Drop filters list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filters-list.png)
 
 To get to drop filters,
-select [**<i class="li li-gear"></i> > Tools > Drop filters**](https://app.logz.io/#/dashboard/tools/drop-filters)
-from the top menu.
+select [**Logs > Manage Data > Drop filters**](https://app.logz.io/#/dashboard/tools/drop-filters)
+from the navigation menu.
 
 
 
@@ -65,7 +65,7 @@ please contact <a class="intercom-launch" href="mailto:help@logz.io">the Support
   If you're restoring logs from an archive,
   turn off drop filters if you want them to be indexed in your Kibana account.
   When restoring,
-  always make sure logs you need won't be filtered out using drop filters.
+  always make sure that the logs you need are not filtered out using drop filters.
 
 #### To set up a drop filter
 
@@ -80,7 +80,7 @@ to open the _New drop filter_ form.
 ##### Choose a log type
 
 If you choose a **Log type**,
-only logs of that type will be dropped.
+only logs of that type are dropped.
 
 To include all log types, leave **Log type** blank.
 
@@ -98,16 +98,16 @@ Logs from a Docker container might contain this field-value pair:
 { "docker.container.name": "system-logs" }
 ```
 
-Those logs will be filtered
-only if we set **Field** to `docker.container.name`
+Those logs are only filtered
+if we set **Field** to `docker.container.name`
 and **Value** to `system-logs`.
 
 If we set **Value** to anything else—such as `system`—those logs
-won't be filtered.
+are not filtered.
 
 ##### Confirm and save
 
-Before saving, it's important to know that all logs that meet
+Before saving, it's important to know that all the logs that meet
 your filter criteria will be dropped.
 
 If you have [Archiving]({{site.baseurl}}/user-guide/archive-and-restore/configure-archiving.html) enabled,

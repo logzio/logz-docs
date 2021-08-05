@@ -28,7 +28,7 @@ order: 130
 
 ###### Shipping with Rsyslog
 
-Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
+Most Unix systems these days come with pre-installed rsyslog, which is a great lightweight service to consolidate logs.
 
 You can configure rsyslog to monitor a single log file or directory and ship them over to Logz.io over TLS. For directories, all the first level files are monitored.
 
@@ -57,7 +57,7 @@ For distributions based on Red Hat, use `rpm` or `yum` in place of `apt-get`.
 
 ##### Configure rsyslog file spooling
 
-To ship a log to logz.io, SSH to your Linux server, and run the command below: The code verifies the working directory exists. In an Ubuntu server, it will set the proper permissions.
+To ship a log to logz.io, SSH to your Linux server, and run the command below: The code verifies the working directory exists. For an Ubuntu server, it will set the proper permissions.
 
 ```
 sudo mkdir -v /var/spool/rsyslog 
@@ -152,7 +152,7 @@ The commands presented here are for Red Hat/Fedora-based distributions. Dependin
 
 <div class="tasklist">
 
-##### Ensure that logs are not sent to Logz.io from your system
+##### Ensure that logs are not being sent to Logz.io from your system
 
 
 
@@ -181,7 +181,7 @@ If you do not see logs on [your Kibana dashboard](https://app.logz.io/#/dashboar
 Navigate to the directory or your audit logs (by default, this is `/var/log/audit/audit.log`) and check for AVC records containing `dest=5000`. If you see them, this means that SELinux is blocking the logs export over port TCP 5000.
 
 
-##### Ensure logs are sent to Logz.io when SELinux is disabled
+##### Ensure that logs are sent to Logz.io when SELinux is disabled
 
 Temporarily disable SELinux by running this command:
 
@@ -204,7 +204,7 @@ $ sudo setenforce 1
 
 ##### Install the SELinux policy core utilities package
 
-Add the package `policycoreutils` containing the SELinux command `semanage` to enable modifications to the SELinux policy.
+To enable modifications to the SELinux policy, add the package `policycoreutils`, which includes the SELinux command `semanage`.
 
 If you already have this package installed, proceed to the next step. Otherwise, run:
 
@@ -235,7 +235,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ###### Shipping with Rsyslog
 
-Most Unix systems these days come with pre-installed rsyslog, which is a great light weight service to consolidate logs.
+Most Unix systems these days come with pre-installed rsyslog, which is a great lightweight service to consolidate logs.
 
 You can configure rsyslog to monitor a single log file or directory, and ship them over to Logz.io.
 For directories, all the first level files are monitored.
@@ -308,7 +308,7 @@ For directories, all the first level files are monitored.
 
 ##### Configure rsyslog file spooling
 
-To ship a log to Logz.io, SSH to your Linux server, copy the below code snippet to your terminal window and execute it. The code verifies that the working directory exists. For an Ubuntu server, it sets the proper permissions.
+To ship a log to Logz.io, SSH to your Linux server, copy the code snippet below to your terminal window and execute it. The code verifies that the working directory exists. For an Ubuntu server, it sets the proper permissions.
 
 ```
 sudo mkdir -v /var/spool/rsyslog

@@ -31,7 +31,7 @@ For more information on PCI compliance and DDS (Data Security Standard), see the
 
 ##### Prerequisites
 
-To insure that we redact the necessary details, your organization is responsible for providing Logz.io with the required cardhold information guidelines in writing, including but not limited to:
+To insure that we redact the necessary details, your organization is responsible for providing Logz.io with the required cardholder information guidelines in writing, including but not limited to:
 
 1.  The relevant log types and accounts to mask
 1.  The list of fields to mask

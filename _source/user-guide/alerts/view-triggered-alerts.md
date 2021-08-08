@@ -16,10 +16,10 @@ The **Triggered alerts** page offers an updated list of notifications of recentl
 You can think of it as a live dashboard summary of all the triggered alert notifications sent.
 So that even if you're not on the recipients list, you can still know which events occurred.
 
-![Triggered alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/triggered-log-alerts.png)
+![Triggered alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/triggered-log-alerts-new-nav.png)
 
 To view the **Triggered alerts** page,
-select [**Alerts & Events > Triggered alerts**](https://app.logz.io/#/dashboard/triggers/triggered-alerts)
+select [**Logs > Triggered alerts**](https://app.logz.io/#/dashboard/triggers/triggered-alerts)
 from the top menu.
 
 * To view the raw logs for a particular event, click the button **View in Kibana**.

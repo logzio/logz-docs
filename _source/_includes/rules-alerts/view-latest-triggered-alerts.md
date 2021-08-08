@@ -2,12 +2,12 @@
 
 You can easily view the event logs written by the alert over the last 36 hours, regardless of notification suppression.
 
-* Open the [**Alert definitions**](https://app.logz.io/#/dashboard/triggers/alert-definitions)
-page from the top menu.
+* Open the [**Logs > Alert definitions**](https://app.logz.io/#/dashboard/triggers/alert-definitions)
+page from the navigation menu.
 * Hover over an alert and click its **Menu button <i class="li li-ellipsis-v"></i>**.
 * Select **View last events**.
 
-![View last events option to quickly review triggered alerts regardless of notification suppression](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/view-last-events.png)
+![View last events option to quickly review triggered alerts regardless of notification suppression](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/view-last-events-new-nav.png)
 
 You'll be taken to the Kibana Discover view, filtered by the alert ID for the last 36 hours. You can easily adjust the time picker to filter for another time frame.
 

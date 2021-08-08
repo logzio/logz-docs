@@ -19,7 +19,7 @@ To schedule your report:
 
   ![Create a report from a Dashboard](https://dytvr9ot2sszz.cloudfront.net/whats-new-announcements/1-click-report1.png)
 
-* Select **Alerts & Events > Reports** in the top menu, and click **+ New report**.
+* From **Logs > Reports +** in the navigation menu.
 
 
 #### Configuring a report

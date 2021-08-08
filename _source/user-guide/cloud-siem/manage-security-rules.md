@@ -21,6 +21,7 @@ and security use cases.
 You can create new security rules to supplement the built-in rules.
 You can also update any preconfigured rule at any time, including adding a notification endpoint (like email or Slack) or changing trigger thresholds.
 
+Click **SIEM > Rules +** in the navigation menu.
 
 #### To configure a rule
 
@@ -36,7 +37,7 @@ Next, set the search components. This determines which logs to look for and in w
 
 If you intend to create a correlated rule with 2 queries, see [this guide](/user-guide/siem/security-correlated-queries/).
 
-![rule group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/configure-security-rule.png)
+![rule group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/configure-security-rule-new-nav.png)
 
 ###### Query and filters
 
@@ -78,13 +79,13 @@ Set your threshold and severity levels.
 
 In the _Trigger if..._ section, click **Add a threshold** to set as many as 5 threshold conditions, each with its own severity tag.
 
-![rule trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings.png)
+![rule trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings-new-nav.png)
 
 ##### _(Optional)_ Set notification details
 
 ###### Description and tags
 
-![Rule description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags.png)
+![Rule description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags-new-nav.png)
 
 The **Description** will be included in any emails, Slack messages, and other notifications when the rule is triggered.
 We recommend making your description helpful to recipients,

@@ -17,7 +17,7 @@ You can use insights to sift through the noise in your logging infrastructure so
 
 ![Insights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/insights--insights-annotated.png)
 
-To see this page, select [**Insights**](https://app.logz.io/#/dashboard/insights) from the top menu.
+Click **Logs >** [**Insights**](https://app.logz.io/#/dashboard/insights) in the navigation menu.
 
 Insights chart
 : Shows recent insights and markers on an interactive graph

@@ -26,9 +26,9 @@ There is also an option to add your own Private Feeds for any of the above IOC t
 
 ### Review your Threat Intelligence feeds
 
-To view the list of feeds in your Cloud SIEM, go to **Threats > Threat Intelligence Feeds** from the top menu.
+To view the list of feeds in your Cloud SIEM, go to **SIEM > Threat Intelligence Feeds** from the navigation menu.
 
-![TI feeds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/add-private-feed.png)
+![TI feeds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/add-private-feed-new-nav.png)
 
 The list of feeds includes the feed name and description, IOC type, the calendar date when it was last synced, and a direct link to the source.
 
@@ -40,4 +40,4 @@ Logz.io syncs each feed once daily to look for updates. The last sync date is sh
 
 You can look up specific IOCs to see in which feeds they appear. You can click the source links to look up additional details from each IOC reference.
 
-![Look up an IOC](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/look-up-ioc.png)
+![Look up an IOC](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/look-up-ioc-new-nav.png)

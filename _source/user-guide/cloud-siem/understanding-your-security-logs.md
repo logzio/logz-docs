@@ -14,9 +14,9 @@ Your Cloud SIEM offers the full Kibana experience so you can dig deep into your 
 
 You can follow Kibana's standard search practices to fully investigate any events and threats.
 
-![Logz.io Cloud SIEM Research page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-kibana1.png)
+![Logz.io Cloud SIEM Research page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-kibana1-new-nav.png)
 
-Select **Kibana** from the top menu and use Kibana's left-menu to navigate between Kibana Discover, Visualizations, Dashboards, and Admin settings.
+Click **SIEM > Kibana** from the navigation menu and use Kibana's left-menu to navigate between Kibana Discover, Visualizations, Dashboards, and Admin settings.
 
 On your first visit, it will open on Kibana Discover, by default. After that, it will open on the Kibana section you last visited.
 

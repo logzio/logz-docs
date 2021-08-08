@@ -53,6 +53,6 @@ If an **Application Insight** or **Cognitive Insight** interests you, you can cr
 
 These are your most standard methods for creating an alert.
 
-* From the top menu, select **Alerts & Events > New alert**
+* From the navigation menu, select **Logs > New alert**
 
 * From the top menu, select **Alerts & Events > Alert definitions** and click the button **+ New alert**.

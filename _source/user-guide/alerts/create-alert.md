@@ -53,6 +53,6 @@ If an **Application Insight** or **Cognitive Insight** interests you, you can cr
 
 These are your most standard methods for creating an alert.
 
-* From the navigation menu, select **Logs > <i class=“fas fa-search-plus”></i>**
+* From the navigation menu, select **Logs > Alerts +**.
 
 * From the top menu, select **Logs > Alerts** and click the button **+ New alert**.

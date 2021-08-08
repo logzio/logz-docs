@@ -18,9 +18,9 @@ When investigating a security incident through the logs, drilldown links make it
 Adding Drilldown links to your security account will help you speed up and streamline investigations and structure your team's workflows and processes.
 
 Drilldown links are configurable from the account settings. To get to this page,
-select [**<i class="li li-gear"></i> > Tools > Drilldown settings**](https://app.logz.io/#/dashboard/settings/drilldowns) in the top menu.
+Click [**<i class="li li-gear"></i> > SIEM > Drilldowns**](https://app.logz.io/#/dashboard/settings/drilldowns) in the navigation menu.
 
-![Security drilldown links](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-drilldown-links.png)
+![Security drilldown links](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-drilldown-links-new-nav.png)
 
 ### Add a drilldown link
 

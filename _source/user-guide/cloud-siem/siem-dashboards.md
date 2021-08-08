@@ -17,11 +17,11 @@ Cloud SIEM offers pre-configured monitoring dashboards for all official [securit
 
 ## Dashboards
 
-To see the list of available dashboards, select **Research > Dashboards** from the top menu.
+To see the list of available dashboards, select **SIEM > Dashboards** from the top menu.
 
 You can search dashboards by name or description or sort them by their date of creation or last update.
 
-![Logz.io Security Dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/security-dashboards.png)
+![Logz.io Security Dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/security-dashboards-new-nav.png)
 
 Note that dashboards provided by Logz.io are labeled and locked to editing. You can duplicate them to make them your own.
 You can always create your own dashboards to add to Logz.io's pre-built dashboards.

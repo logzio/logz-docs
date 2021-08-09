@@ -67,9 +67,9 @@ Alternatively, If you prefer to install the library manually, download the lates
 
 To create MetricsBuilder, copy and paste the following code into the function of the code that you need to export metris from:
 
-```java
+```csharp
 var metrics = new MetricsBuilder()
-                .Report.ToLogzioHttp("[[<<LISTENER-HOST>>]]", "[[<<METRICS-SHIPPING-TOKEN>>]]")
+                .Report.ToLogzioHttp("<<LISTENER-HOST>>", "<<METRICS-SHIPPING-TOKEN>>")
                 .Build();
 ```
 
@@ -82,7 +82,7 @@ var metrics = new MetricsBuilder()
 
 To create Scheduler, copy and paste the following code into the same function of the code as the MetricsBuilder:
 
-```java
+```csharp
 var scheduler = new AppMetricsTaskScheduler(
                 TimeSpan.FromSeconds(15),
                 async () => { await Task.WhenAll(metrics.ReportRunner.RunAllAsync()); });
@@ -102,7 +102,7 @@ You can send the following metrics from your code:
 
 You must have at least one of the above metrics in your code to use the Logzio.App.Metrics. For example, to add a counter metric to your code, copy and paste the following code block into the same function of the code as the MetricsBuilder and Scheduler:
 
-```java
+```csharp
 var counter = new CounterOptions {Name = "my_counter", Tags = new MetricTags("test", "my_test")};
             metrics.Measure.Counter.Increment(counter);
 
@@ -264,7 +264,7 @@ Some of the metrics have custom labels as described below.
 
 Install the App.Metrics.Logzio package from the Package Manager Console:
 
-```shell
+```csharp
 Install-Package Logzio.App.Metrics
 ```
 
@@ -275,7 +275,7 @@ Alternatively, If you prefer to install the library manually, download the lates
 
 To create MetricsBuilder, copy and paste the following code into the function of the code that you need to export metris from:
 
-```java
+```csharp
 
 var metrics = new MetricsBuilder()
                 .Report.ToLogzioHttp("[[ path_to_the_config_file ]]")
@@ -324,7 +324,7 @@ You can send the following metrics from your code:
 
 You must have at least one of the above metrics in your code to use the Logzio.App.Metrics. For example, to add a counter metric to your code, copy and paste the following code block into the same function of the code as the MetricsBuilder and Scheduler:
 
-```java
+```csharp
 var counter = new CounterOptions {Name = "my_counter", Tags = new MetricTags("test", "my_test")};
             metrics.Measure.Counter.Increment(counter);
 
@@ -473,7 +473,7 @@ Some of the metrics have custom labels as described below.
 
 You can configure MetricsBuilder to use ToLogzioHttp exporter, which allows you to exprt metrics via HTTP using additional export settings. To enable this exporter, add the following code block to define the MetricsBuilder:
 
-```java
+```csharp
 var metrics = new MetricsBuilder()
                 .Report.ToLogzioHttp(options =>
                 {
@@ -509,14 +509,14 @@ The runtime metrics are additional parameters that will be sent from your code. 
 
 To enable collection of these metrics with default settings, add the following code block after the MetricsBuilder:
 
-```java
+```csharp
 // metrics is the MetricsBuilder
 IDisposable collector = DotNetRuntimeStatsBuilder.Default(metrics).StartCollecting();
 ```
 
 To enable collection of these metrics with custom settings, add the following code block after the MetricsBuilder:
 
-```java
+```csharp
 IDisposable collector = DotNetRuntimeStatsBuilder
     .Customize()
     .WithContentionStats()
@@ -533,7 +533,7 @@ Data collected from these metrics are found in in Logz.io under the Contexts lab
 
 The current snapshot creates a perview of the metrics in Logz.io format. To enable this option, add the following code block to the MetricsBuilder:
 
-```java
+```csharp
 var metrics = new MetricsBuilder()
                 .OutputMetrics.AsLogzioCompressedProtobuf()
                 .Build();

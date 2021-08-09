@@ -15,11 +15,11 @@ Logz.io reports allow you to automatically send dashboards on a regular schedule
 
 To schedule your report:
 
-* Open a dashboard, and click **Create report** from the top menu.
+* Open a dashboard, and click **Create report** from the dashboard menu.
 
   ![Create a report from a Dashboard](https://dytvr9ot2sszz.cloudfront.net/whats-new-announcements/1-click-report1.png)
 
-* Select **Alerts & Events > Reports** in the top menu, and click **+ New report**.
+* From **Logs > Reports** in the navigation menu, click the yellow <i class="fas fa-plus"></i> icon to open the **Create a report** page. 
 
 
 #### Configuring a report
@@ -53,7 +53,7 @@ Use **Who to send it to** to choose the report's email and Slack recipients.
 
 ##### Custom logo & sharing link
 
-![Logz.io report scheduling form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/report-form.png)
+![Logz.io report scheduling form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/report-form2_aug2021.png)
 
 You will find more options at the bottom of the form:
 

@@ -37,7 +37,7 @@ When you share a dashboard, you can decide whether to share the dashboard with a
   This option means the sharing link will automatically be updated to reflect any changes made to the dashboard in the future. So if someone saves changes to the dashboard after the sharing link was sent out, your recipients will see the updated version without you having to resend them a new link.
 
 <video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/share-permalink.mp4" type="video/mp4" />
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/share-permalink_aug2021.mp4" type="video/mp4" />
 </video>
 
 

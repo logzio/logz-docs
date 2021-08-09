@@ -52,7 +52,7 @@ firstLevel:
       url: /user-guide/alerts/suppress-notifications/
 
   - title: Reports
-    url: /user-guide/reports/
+    url: /user-guide/reports/  
 
   - title: Long term storage for select logs
     thirdLevel:
@@ -63,8 +63,9 @@ firstLevel:
 
 
   - title: Insights
-    url: /user-guide/insights/
     thirdLevel:
+    - title: Insights
+      url: /user-guide/insights/
     - title: Exploring insights
       url: /user-guide/insights/exploring-insights.html
     - title: Markers

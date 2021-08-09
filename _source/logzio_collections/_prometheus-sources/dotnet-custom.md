@@ -105,8 +105,6 @@ You must have at least one of the above metrics in your code to use the Logzio.A
 ```csharp
 var counter = new CounterOptions {Name = "my_counter", Tags = new MetricTags("test", "my_test")};
 metrics.Measure.Counter.Increment(counter);
-
-metrics.Measure.Counter.Increment(counter);
 ```
 
 In the above example, the metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"). These parameters are used to query data from this metric in your Logz.io dashboard.
@@ -330,8 +328,6 @@ You must have at least one of the above metrics in your code to use the Logzio.A
 ```csharp
 var counter = new CounterOptions {Name = "my_counter", Tags = new MetricTags("test", "my_test")};
 metrics.Measure.Counter.Increment(counter);
-
-metrics.Measure.Counter.Increment(counter); 
 ```
 
 In the above example, the metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"). These parameters are used to query data from this metric in your Logz.io dashboard.

@@ -44,8 +44,8 @@ These instructions show you how to:
 
 **Before you begin, you'll need**: 
 
-* an application in .NET Core 3.1 and higher
-* an active account with Logz.io
+* An application in .NET Core 3.1 and higher
+* An active account with Logz.io
 
 
 <div class="tasklist">
@@ -60,7 +60,7 @@ Install the App.Metrics.Logzio package from the Package Manager Console:
 Install-Package Logzio.App.Metrics
 ```
 
-Alternatively, If you prefer to install the library manually, download the latest version from NuGet Gallery
+If you prefer to install the library manually, download the latest version from NuGet Gallery.
 
 
 ##### Create MetricsBuilder
@@ -80,7 +80,7 @@ var metrics = new MetricsBuilder()
 
 ##### Create Scheduler
 
-To create Scheduler, copy and paste the following code into the same function of the code as the MetricsBuilder:
+To create the Scheduler, copy and paste the following code into the same function of the code as the MetricsBuilder:
 
 ```csharp
 var scheduler = new AppMetricsTaskScheduler(
@@ -112,15 +112,15 @@ In the above example, the metric has a name ("my_counter"), a tag key ("test") a
 
 ###### Apdex
 
-Apdex (Application Performance Index) allows us to monitor end-user satisfaction. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/apdex/).
+Apdex (Application Performance Index) allows you to monitor end-user satisfaction. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/apdex/).
 
 ###### Counter
 
-Counters are one of the simpliest metrics types supported and allow us to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
+Counters are one of the simpliest metrics types supported and allow you to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
 
 ###### Gauge
 
-A Gauge is simply an action that returns the instantaneous measure of a value, where the value abitrarily increases and decreases, for example CPU usage. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/gauges/).
+A Gauge is an action that returns the instantaneous measurement of a value for a value that abitrarily increases and decreases: For example, CPU usage. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/gauges/).
 
 ###### Histogram
 
@@ -155,7 +155,7 @@ Once the metrics are in Logz.io, you can query requited metrics using labels. Ea
 | Context | The context which the metric belong to. By default it is `Application`.	 | `context` |
 | Tags | Pairs of key and value of the metric. It is not required to have tags for a metric.| Tags keys |
 
-Some of the metrics have custom labels as described below.
+Some of the metrics have custom labels, as described below.
 
 ###### Meter
 
@@ -270,7 +270,7 @@ Install the App.Metrics.Logzio package from the Package Manager Console:
 Install-Package Logzio.App.Metrics
 ```
 
-Alternatively, If you prefer to install the library manually, download the latest version from NuGet Gallery
+If you prefer to install the library manually, download the latest version from NuGet Gallery.
 
 
 ##### Create MetricsBuilder
@@ -303,7 +303,7 @@ Add the following code to the configuration file:
 
 ##### Create Scheduler
 
-To create Scheduler, copy and paste the following code into the same function of the code as the MetricsBuilder:
+To create a Scheduler, copy and paste the following code into the same function of the code as the MetricsBuilder:
 
 ```csharp
 var scheduler = new AppMetricsTaskScheduler(
@@ -335,11 +335,11 @@ In the above example, the metric has a name ("my_counter"), a tag key ("test") a
 
 ###### Apdex
 
-Apdex (Application Performance Index) allows us to monitor end-user satisfaction. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/apdex/).
+Apdex (Application Performance Index) allows you to monitor end-user satisfaction. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/apdex/).
 
 ###### Counter
 
-Counters are one of the simpliest metrics types supported and allow us to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
+Counters are one of the simpliest metrics types supported and allow you to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
 
 ###### Gauge
 

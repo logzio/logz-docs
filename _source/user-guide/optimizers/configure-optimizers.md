@@ -29,8 +29,7 @@ and press **Enter**.
 Review the results in the histogram and the document table,
 and make sure your query returned the expected results.
 
-Click **Create Optimizer** (to the right of the query bar) to open the **Create an optimizer** page.
-
+Click **Create Optimizer** (to the right of the query bar) to open the **Create an optimizer** page. <br>
 Continue with [To configure an optimizer](#to-configure-an-optimizer).
 
 

@@ -304,7 +304,7 @@ Add the following code to the configuration file:
 
 To create Scheduler, copy and paste the following code into the same function of the code as the MetricsBuilder:
 
-```java
+```csharp
 var scheduler = new AppMetricsTaskScheduler(
                 TimeSpan.FromSeconds(15),
                 async () => { await Task.WhenAll(metrics.ReportRunner.RunAllAsync()); });

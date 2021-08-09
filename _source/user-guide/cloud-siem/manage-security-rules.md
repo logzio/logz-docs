@@ -19,7 +19,7 @@ with security rules for different attack types
 and security use cases.
 
 You can create new security rules to supplement the built-in rules.
-You can also update any preconfigured rule at any time, including adding a notification endpoint (like email or Slack) or changing trigger thresholds.
+You can also update any preconfigured rule at any time, including adding a notification endpoint (for example, email or Slack) or changing trigger thresholds.
 
 
 

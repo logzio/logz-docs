@@ -73,7 +73,7 @@ var metrics = new MetricsBuilder()
                 .Build();
 ```
 
-{% include log-shipping/listener-var.html %} 
+{% include log-shipping/listener-var.html %} For HTTPS communication use port 8053. For HTTP communication use port 8052.
 
 {% include metric-shipping/replace-metrics-token.html %}
 

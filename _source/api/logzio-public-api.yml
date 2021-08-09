@@ -5790,6 +5790,9 @@ definitions:
           - Custom
           - PagerDuty
           - VictorOps
+          - Opsgenie
+          - ServiceNow
+          - Microsoft Teams
         description: The notification endpoint type that will receive alert messages
         example: Slack
       id:

@@ -40,7 +40,7 @@ Next, set the search components. This determines which logs to look for and in w
 
 If you intend to create a correlated rule with 2 queries, see [this guide](/user-guide/siem/security-correlated-queries/).
 
-![rule group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/configure-security-rule_aug2021.png)
+![rule group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/configure-security-rule2_aug2021.png)
 
 ###### Query and filters
 

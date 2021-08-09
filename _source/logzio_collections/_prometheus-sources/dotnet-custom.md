@@ -276,7 +276,6 @@ Alternatively, If you prefer to install the library manually, download the lates
 To create MetricsBuilder, copy and paste the following code into the function of the code that you need to export metris from:
 
 ```csharp
-
 var metrics = new MetricsBuilder()
                 .Report.ToLogzioHttp("[[ path_to_the_config_file ]]")
                 .Build();

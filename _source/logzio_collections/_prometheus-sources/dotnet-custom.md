@@ -23,7 +23,7 @@ order: 280
 <!-- tab:start -->
 <div id="overview">
 
-Logzio.App.Metrics is an open-source and cross-platform .NET library used to record metrics within an application and forward it to Logz.io.
+You can send custom metrics from your .NET Core application using Logzio.App.Metrics. Logzio.App.Metrics is an open-source and cross-platform .NET library used to record metrics within an application and forward it to Logz.io.
 
 These instructions show you how to:
 
@@ -93,12 +93,12 @@ var scheduler = new AppMetricsTaskScheduler(
 
 You can send the following metrics from your code:
 
-[Apdex (Application Performance Index)](https://www.app-metrics.io/getting-started/metric-types/apdex/)
-[Counter](https://www.app-metrics.io/getting-started/metric-types/counters/)
-[Gauge](https://www.app-metrics.io/getting-started/metric-types/gauges/)
-[Histogram](https://www.app-metrics.io/getting-started/metric-types/histograms/)
-[Meter](https://www.app-metrics.io/getting-started/metric-types/meters/)
-[Timer](https://www.app-metrics.io/getting-started/metric-types/timers/)
+* [Apdex (Application Performance Index)](https://www.app-metrics.io/getting-started/metric-types/apdex/)
+* [Counter](https://www.app-metrics.io/getting-started/metric-types/counters/)
+* [Gauge](https://www.app-metrics.io/getting-started/metric-types/gauges/)
+* [Histogram](https://www.app-metrics.io/getting-started/metric-types/histograms/)
+* [Meter](https://www.app-metrics.io/getting-started/metric-types/meters/)
+* [Timer](https://www.app-metrics.io/getting-started/metric-types/timers/)
 
 You must have at least one of the above metrics in your code to use the Logzio.App.Metrics. For example, to add a counter metric to your code, copy and paste the following code block into the same function of the code as the MetricsBuilder and Scheduler:
 
@@ -176,6 +176,8 @@ Some of the metrics have custom labels as described below.
 | Five Min Rate | [[your_meter_name]]_five_min_rate |
 | Fifteen Min Rate | [[your_meter_name]]_fifteen_min_rate |
 | Mean Rate | [[your_meter_name]]_mean_rate |
+  
+Replace [[your_meter_name]] with the name that you assigned to the meter metric.
 
 ###### Histogram
 
@@ -201,6 +203,8 @@ Some of the metrics have custom labels as described below.
 | Percentile 999 | [[your_histogram_name]]_percentile999 |
 | Sample Size | [[your_histogram_name]]_sample_size |
 | Std Dev | [[your_histogram_name]]_std_dev |
+  
+Replace [[your_histogram_name]] with the name that you assigned to the histogram metric.
 
 ###### Timer
 
@@ -229,6 +233,8 @@ Some of the metrics have custom labels as described below.
 | Rate Fifteen Min Rate | [[your_timer_name]]_rate_fifteen_min_rate |
 | Rate Mean Rate | [[your_timer_name]]_rate_mean_rate |
 
+Replace [[your_timer_name]] with the name that you assigned to the timer metric.
+  
 ###### Apdex
 
 | App Metrics parameter name | Logz.io parameter name |
@@ -238,6 +244,8 @@ Some of the metrics have custom labels as described below.
 | Frustrating | [[your_apdex_name]]_frustrating |
 | Satisfied | [[your_apdex_name]]_satisfied |
 | Tolerating | [[your_apdex_name]]_tolerating |
+
+Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 
 </div>
 
@@ -294,7 +302,7 @@ Add the following code to the configuration file:
 </Configuration>
 ```
 
-{% include log-shipping/listener-var.html %} 
+{% include log-shipping/listener-var.html %} For HTTPS communication use port 8053. For HTTP communication use port 8052.
 
 {% include metric-shipping/replace-metrics-token.html %}
 
@@ -398,6 +406,8 @@ Some of the metrics have custom labels as described below.
 | Fifteen Min Rate | [[your_meter_name]]_fifteen_min_rate |
 | Mean Rate | [[your_meter_name]]_mean_rate |
 
+Replace [[your_meter_name]] with the name that you assigned to the meter metric.
+  
 ###### Histogram
 
 | App Metrics label name | Logz.io label name |
@@ -422,6 +432,8 @@ Some of the metrics have custom labels as described below.
 | Percentile 999 | [[your_histogram_name]]_percentile999 |
 | Sample Size | [[your_histogram_name]]_sample_size |
 | Std Dev | [[your_histogram_name]]_std_dev |
+
+Replace [[your_histogram_name]] with the name that you assigned to the histogram metric.
 
 ###### Timer
 
@@ -449,6 +461,8 @@ Some of the metrics have custom labels as described below.
 | Rate Five Min Rate | [[your_timer_name]]_rate_five_min_rate |
 | Rate Fifteen Min Rate | [[your_timer_name]]_rate_fifteen_min_rate |
 | Rate Mean Rate | [[your_timer_name]]_rate_mean_rate |
+  
+Replace [[your_timer_name]] with the name that you assigned to the timer metric.
 
 ###### Apdex
 
@@ -460,6 +474,8 @@ Some of the metrics have custom labels as described below.
 | Satisfied | [[your_apdex_name]]_satisfied |
 | Tolerating | [[your_apdex_name]]_tolerating |
 
+Replace [[your_apdex_name]] with the name that you assigned to the apdex metric.
+  
 </div>
 
 </div>
@@ -487,7 +503,7 @@ var metrics = new MetricsBuilder()
                 .Build();
 ```
 
-* {% include log-shipping/listener-var.html %} 
+* {% include log-shipping/listener-var.html %} For HTTPS communication use port 8053. For HTTP communication use port 8052.
 * {% include metric-shipping/replace-metrics-token.html %}
 * `FlushInterval` is a value in seconds defining delay between reporting metrics.
 * `Filter`is used to filter metrics for this reporter.

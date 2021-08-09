@@ -277,7 +277,7 @@ To create MetricsBuilder, copy and paste the following code into the function of
 
 ```csharp
 var metrics = new MetricsBuilder()
-                .Report.ToLogzioHttp("[[ path_to_the_config_file ]]")
+                .Report.ToLogzioHttp("<<path_to_the_config_file>>")
                 .Build();
 ```
 
@@ -288,8 +288,8 @@ Add the following code to the configuration file:
 
 <Configuration>
     <LogzioConnection>
-        <Endpoint> [[<<LISTENER-HOST>>]] </Endpoint>
-        <Token> [[<<METRICS-SHIPPING-TOKEN>>]] </Token>
+        <Endpoint> <<LISTENER-HOST>> </Endpoint>
+        <Token> <<METRICS-SHIPPING-TOKEN>> </Token>
     </LogzioConnection>
 </Configuration>
 ```
@@ -476,8 +476,8 @@ You can configure MetricsBuilder to use ToLogzioHttp exporter, which allows you 
 var metrics = new MetricsBuilder()
                 .Report.ToLogzioHttp(options =>
                 {
-                    options.Logzio.EndpointUri = new Uri("[[logzio_endpoint]]");
-                    options.Logzio.Token = "[[metrics_token]]";
+                    options.Logzio.EndpointUri = new Uri("<<LISTENER-HOST>>");
+                    options.Logzio.Token = "<<METRICS-SHIPPING-TOKEN>>";
                     options.FlushInterval = TimeSpan.FromSeconds(15);
                     options.Filter = new MetricsFilter().WhereType(MetricType.Counter);
                     options.HttpPolicy.BackoffPeriod = TimeSpan.FromSeconds(30);

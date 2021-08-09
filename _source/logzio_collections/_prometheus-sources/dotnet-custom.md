@@ -86,7 +86,7 @@ To create Scheduler, copy and paste the following code into the same function of
 var scheduler = new AppMetricsTaskScheduler(
                 TimeSpan.FromSeconds(15),
                 async () => { await Task.WhenAll(metrics.ReportRunner.RunAllAsync()); });
-                scheduler.Start();
+scheduler.Start();
 ```
 
 ##### Add required metrics to your code
@@ -309,7 +309,7 @@ To create Scheduler, copy and paste the following code into the same function of
 var scheduler = new AppMetricsTaskScheduler(
                 TimeSpan.FromSeconds(15),
                 async () => { await Task.WhenAll(metrics.ReportRunner.RunAllAsync()); });
-                scheduler.Start();
+scheduler.Start();
 ```
 
 ##### Add required metrics to your code

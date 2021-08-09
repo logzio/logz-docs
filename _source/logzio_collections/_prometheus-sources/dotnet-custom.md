@@ -45,7 +45,7 @@ These instructions show you how to:
 **Before you begin, you'll need**: 
 
 * An application in .NET Core 3.1 and higher
-* An active account with Logz.io
+* An active Logz.io account 
 
 
 <div class="tasklist">
@@ -73,7 +73,7 @@ var metrics = new MetricsBuilder()
                 .Build();
 ```
 
-{% include log-shipping/listener-var.html %} For HTTPS communication use port 8053. For HTTP communication use port 8052.
+{% include log-shipping/listener-var.html %} For HTTPS communication, use port 8053. For HTTP communication, use port 8052.
 
 {% include metric-shipping/replace-metrics-token.html %}
 
@@ -142,11 +142,11 @@ Run your application to start sending metrics to Logz.io.
 
 ##### Check Logz.io for your events
 
-Give your events some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
+Give your events some time to get from your system to ours, and then open the [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
 
 ##### Filter the metrics by labels
 
-Once the metrics are in Logz.io, you can query requited metrics using labels. Each metric has the following labels:
+Once the metrics are in Logz.io, you can query the required metrics using labels. Each metric has the following labels:
 
 | App Metrics parameter name | Description | Logz.io parameter name |
 |---|---|---|
@@ -254,8 +254,8 @@ Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 
 **Before you begin, you'll need**: 
 
-* an application in .NET Core 3.1 and higher
-* an active account with Logz.io
+* An application in .NET Core 3.1 and higher
+* An active Logz.io account
 
 
 <div class="tasklist">
@@ -275,7 +275,7 @@ If you prefer to install the library manually, download the latest version from 
 
 ##### Create MetricsBuilder
 
-To create MetricsBuilder, copy and paste the following code into the function of the code that you need to export metris from:
+To create MetricsBuilder, copy and paste the following code into the function of the code that you need to export metrics from:
 
 ```csharp
 var metrics = new MetricsBuilder()
@@ -296,7 +296,7 @@ Add the following code to the configuration file:
 </Configuration>
 ```
 
-{% include log-shipping/listener-var.html %} For HTTPS communication use port 8053. For HTTP communication use port 8052.
+{% include log-shipping/listener-var.html %} For HTTPS communication, use port 8053. For HTTP communication, use port 8052.
 
 {% include metric-shipping/replace-metrics-token.html %}
 
@@ -312,7 +312,7 @@ var scheduler = new AppMetricsTaskScheduler(
 scheduler.Start();
 ```
 
-##### Add required metrics to your code
+##### Add the required metrics to your code
 
 You can send the following metrics from your code:
 
@@ -369,7 +369,7 @@ Give your events some time to get from your system to ours, and then open [Metri
 
 ##### Filter the metrics by labels
 
-Once the metrics are in Logz.io, you can query requited metrics using labels. Each metric has the following labels:
+Once the metrics are in Logz.io, you can query the required metrics using labels. Each metric has the following labels:
 
 | App Metrics parameter name | Description | Logz.io parameter name |
 |---|---|---|
@@ -474,7 +474,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the apdex metric.
 
 #### Export using ToLogzioHttp exporter
 
-You can configure MetricsBuilder to use ToLogzioHttp exporter, which allows you to exprt metrics via HTTP using additional export settings. To enable this exporter, add the following code block to define the MetricsBuilder:
+You can configure MetricsBuilder to use ToLogzioHttp exporter, which allows you to export metrics via HTTP using additional export settings. To enable this exporter, add the following code block to define the MetricsBuilder:
 
 ```csharp
 var metrics = new MetricsBuilder()
@@ -493,11 +493,11 @@ var metrics = new MetricsBuilder()
 
 * {% include log-shipping/listener-var.html %} For HTTPS communication use port 8053. For HTTP communication use port 8052.
 * {% include metric-shipping/replace-metrics-token.html %}
-* `FlushInterval` is a value in seconds defining delay between reporting metrics.
+* `FlushInterval` is the value in seconds defining delay between reporting metrics.
 * `Filter`is used to filter metrics for this reporter.
-* `HttpPolicy.BackoffPeriod	` is a value in seconds defining the `TimeSpan` to back-off when metrics are failing to report to the metrics ingress endpoint.
-* `HttpPolicy.FailuresBeforeBackoff	` is a value defining the number of failures before backing-off when metrics are failing to report to the metrics ingress endpoint.
-* `HttpPolicy.Timeout	` is a value in seconds defining the HTTP timeout duration when attempting to report metrics to the metrics ingress endpoint.
+* `HttpPolicy.BackoffPeriod	` is the value in seconds defining the `TimeSpan` to back-off when metrics are failing to report to the metrics ingress endpoint.
+* `HttpPolicy.FailuresBeforeBackoff	` is the value defining the number of failures before backing-off when metrics are failing to report to the metrics ingress endpoint.
+* `HttpPolicy.Timeout	` is the value in seconds defining the HTTP timeout duration when attempting to report metrics to the metrics ingress endpoint.
 
 #### .NET Core runtime metrics
 
@@ -530,11 +530,11 @@ IDisposable collector = DotNetRuntimeStatsBuilder
     .StartCollecting(metrics);          // metrics is the MetricsBuilder
 ```
 
-Data collected from these metrics are found in in Logz.io under the Contexts labels `process` and `dotnet`.
+Data collected from these metrics is found in Logz.io, under the Contexts labels `process` and `dotnet`.
 
 #### Get current snapshot
 
-The current snapshot creates a perview of the metrics in Logz.io format. To enable this option, add the following code block to the MetricsBuilder:
+The current snapshot creates a preview of the metrics in Logz.io format. To enable this option, add the following code block to the MetricsBuilder:
 
 ```csharp
 var metrics = new MetricsBuilder()

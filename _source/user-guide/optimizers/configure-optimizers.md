@@ -10,28 +10,33 @@ contributors:
   - imnotashrimp
 ---
 
-To create a new optimizer, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Optimizer page, where you can configure the optimizer settings.
+To create a new optimizer, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the **Create an optimizer** page, where you can configure the optimizer settings.
 
   Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
   {:.info-box.note}
 
 If you want help updating an existing optimizer, you can [skip the first part of this page](#to-configure-an-optimizer).
 
-#### To start a new optimizer
-
-![Kibana query bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana--query-bar.png)
+#### Creating an optimizer
 
 ##### Set your query in Kibana
 
 In Kibana, type a query in the query bar
-and press Enter.
+and click **Enter**.
+
+![Kibana query bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana--query-bar.png)
+
 Review the results in the histogram and the document table,
 and make sure your query returned the expected results.
 
-Click **Create Alert > Create Optimizer** (to the right of the query bar).
+Click **Create Optimizer** (to the right of the query bar).
+
+![Create optimizer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/optimizer/optimizer_new-nav_aug2021.png)
+
 The _Create a New Optimizer_ page is shown.
 Continue with [To configure an optimizer](#to-configure-an-optimizer).
 
+<!-- To reach this page, navigate to [**Logs > Kibana > Create optimizers**](https://app.logz.io/#/dashboard/triggers/optimizer-definitions) to open the **Create an optimizer** .  --->
 #### To configure an optimizer {#to-configure-an-optimizer}
 
 ![Configure an Optimizer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--configure-alert.png)

@@ -57,7 +57,7 @@ For distributions based on Red Hat, use `rpm` or `yum` in place of `apt-get`.
 
 ##### Configure rsyslog file spooling
 
-To ship a log to logz.io, SSH to your Linux server, and run the command below: The code verifies the working directory exists. For an Ubuntu server, it will set the proper permissions.
+To ship a log to logz.io, SSH to your Linux server, and run the command below. The code verifies the working directory exists. For an Ubuntu server, it will set the proper permissions.
 
 ```
 sudo mkdir -v /var/spool/rsyslog 
@@ -72,7 +72,7 @@ fi
 sudo vim /etc/rsyslog.d/21-logzio-sample.conf
 ```
 
-Add the additional configuration
+Add the additional configuration:
 
 ```
 #   -------------------------------------------------------

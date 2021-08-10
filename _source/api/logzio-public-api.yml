@@ -274,6 +274,7 @@ x-tagGroups:
       - Drop filters
       - Archive logs
       - Restore logs
+      - Parsing
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -1078,6 +1079,93 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
 
+  /v1/sawmill/log-type-pipeline/logType:
+    post:
+      operationId: getSawmillTestType
+      summary: Parse sample logs with a Sawmill pipeline
+      description: Performs parsing of sample logs with a given Sawmill pipeline.
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: logType
+          description: Type of the log being parsed.
+          example: TestType
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              pipeLineDefinition:
+                type: object
+                description: Sawmill pipeline is a list of the steps that should process on document. The steps executes in regular order. See https://github.com/logzio/sawmill/wiki/Sawmill-Pipeline.
+                example: {\"steps\":[{\"addField\":{\"name\":\"addField\",\"config\":{\"path\":\"Movie\",\"value\":\"TheMatrix\"}}}]}
+              sampleLogs:
+                type: array
+                items:
+                  type: string
+                description: Each JSON object needs to be wrapped with a JSON object that has a key of the full message. The message value is the given JSON object.
+                example:
+                  [{
+		                "fullMessage": {
+			                "fragment": "test",
+			                "UA-device": "Other",
+			                "check": "value",
+			                "message": "balima",
+		                	"type": "TestType"
+		                }
+                  }]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                example: {\“Movie\“:\“TheMatrix\“,\“fragment\“:\“test\“,\“@timestamp\“:\“2021-08-04T14:34:19.651+0000\“,\“check\“:\“value\“,\“message\“:\“balima\“,\“type\“:\“TestType\“,\“UA-device\“:\“Other\“}
+
+    get:
+      operationId: getLogType
+      summary: Get pipeline definition for a log type
+      description: Receive pipeline definition for a given log type, if the definition is already stored.
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: logType
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              type: string
+            example: {\"steps\":[{\"addField\":{\"name\":\"addField\",\"config\":{\"path\":\"Movie\",\"value\":\"TheMatrix\"}}}]}
+
+  /v1/account/log-types:
+    get:
+      operationId: getLogType
+      summary: Get all log types
+      description: Sends all log types for a given account.
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              type: string
+            example: 
+              - [“metering-access”,“lag-monitor”,“business-analytics-metrics”,“consul-agent”,“auth0”]
 
 
   # ::::: Alerts V2

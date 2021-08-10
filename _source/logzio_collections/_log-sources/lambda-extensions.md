@@ -67,7 +67,7 @@ You can deploy the extension via the AWS CLI or via the AWS Management Console.
 
 <div class="tasklist">
 
-##### Deploy the extension, dependencies and configuration
+##### Deploy the extension and configuration
 
 If you haven't done it already, [install](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) and [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) the AWS CLI.
 
@@ -108,7 +108,7 @@ This command overwrites the existing function configuration. If you already have
 
 #### Deleting the extension
 
-To delete the extension, its dependencies and environment variables, use the following command:
+To delete the extension, and its environment variables, use the following command:
 
 ```shell
 aws lambda update-function-configuration \
@@ -159,7 +159,6 @@ Run the function. It may take more than one run of the function for the logs to 
 #### Deleting the extension
 
 - To delete the **extension layer**: In your function page, go to the **layers** panel. Click `edit`, select the extension layer, and click `save`.
-- To delete the **extension dependencies layer**: In your function page, go to the **layers** panel, click `edit`, select the extension dependencies layer, and click `save`.
 - To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`, click `edit`, and remove the variables that you added for the extension.
 
 

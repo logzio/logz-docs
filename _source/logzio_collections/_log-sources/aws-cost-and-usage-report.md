@@ -1,5 +1,5 @@
 ---
-title: AWS cost and usage report
+title: AWS cost and usage
 logo:
   logofile: aws.svg
   orientation: vertical
@@ -7,8 +7,8 @@ data-source: AWS cost and usage report
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/aws-cost-and-usage-report
 templates: ["lambda-cloudwatch"]
 open-source:
-  - title: AWS Cost and Usage Lambda
-    github-repo: aws-cost-and-usage-lambda
+  - title: AWS Cost and Usage
+    github-repo: aws-cost-and-usage-auto-deployment
 contributors:
   - idohalevi
   - imnotashrimp
@@ -20,15 +20,10 @@ order: 830
 
 #### Configuration
 
-**Before you begin, you'll need**:
-AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
-
 <!-- info-box-start:info -->
 Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout. Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 {:.info-box.important}
 <!-- info-box-end -->
-
-{% include log-shipping/note-lambda-test.md %}
 
 This deployment will automatically create the following resources:
 

@@ -37,18 +37,19 @@ To read more about Lambda Extensions, [click here](https://docs.aws.amazon.com/l
 The Logz.io Lambda extension for logs, uses the AWS Extensions API and [AWS Logs API](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-logs-api.html), and sends your Lambda Function Logs directly to your Logz.io account.
 
 This repo is based on the [AWS lambda extensions sample](https://github.com/aws-samples/aws-lambda-extensions).
-This extension is written in Go, but can be run with runtimes that support extensions](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html).
+This extension is written in Go, but can be run with runtimes that support [extensions](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html).
 
 ### Prerequisites
 * Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html) for extensions.
 * AWS Lambda limitations: A function can use up to five layers at a time. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size limit of 250 MB.
 
 
-### Important notes:
-* If the extension won't have enough time to receive logs from AWS Logs API, it may send the logs in the next invocation of the Lambda function.
-So if you want that all the logs will be sent by the end of your function's run, you'll need to add at the end of your Lambda function code a sleep interval that will allow the extension enough time to do it's job.
-* Due to [Lambda's execution environment lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html), the extension is being invoked on two events - `INVOKE` and `SHUTDOWN`.
-That means that if your Lambda function goes into the `SHUTDOWN` phase, the extension will run and if there are logs in it's queue, it will send them.
+### Important notes
+  
+* If an extension does not have enough time to receive logs from AWS Logs API, it may send the logs at the next invocation of the Lambda function.
+If you want to send all the logs by the time your Lambda function stops running, you will need to add a sleep interval at the end of your Lambda function code. This will give the extension enough time to do the job.
+* Due to [Lambda's execution environment lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html), the extension is invoked at two events - `INVOKE` and `SHUTDOWN`.
+This means that if your Lambda function goes into the `SHUTDOWN` phase, the extension will start running and send all logs that are in the queue. 
 
 
 ### Extension deployment options
@@ -108,7 +109,7 @@ This command overwrites the existing function configuration. If you already have
 
 #### Deleting the extension
 
-To delete the extension, and its environment variables, use the following command:
+To delete the extension and its environment variables, use the following command:
 
 ```shell
 aws lambda update-function-configuration \
@@ -176,8 +177,8 @@ Run the function. It may take more than one run of the function for the logs to 
 
 | Name | Description |Required/Default|
 | --- | --- | --- |
-| `LOGZIO_LOGS_TOKEN` | Your Logz.io log shipping [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). | Required |
-| `LOGZIO_LISTENER` |  Your  Logz.io listener address, with port 8070 (http) or 8071 (https). For example, for example: `https://listener.logz.io:8071` | Required |
+| `LOGZIO_LOGS_TOKEN` | Your Logz.io log shipping [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). {% include log-shipping/log-shipping-token.md %} | Required |
+| `LOGZIO_LISTENER` |  Your  Logz.io listener address, with port 8070 (http) or 8071 (https). For example, for example: `https://listener.logz.io:8071`. {% include log-shipping/listener-var.md %} | Required |
 | `LOGS_EXT_LOG_LEVEL` |  Log level of the extension. Can be set to one of the following: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |Default: `info` |
 | `ENABLE_EXTENSION_LOGS` |  Set to `true` if you wish the extension logs will be shipped to your Logz.io account. | Default: `false` |
 | `ENABLE_PLATFORM_LOGS` | The platform log captures runtime or execution environment errors. Set to `true` if you wish the platform logs will be shipped to your Logz.io account. | Default: `false` |

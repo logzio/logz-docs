@@ -81,7 +81,10 @@ aws lambda update-function-configuration \
     --environment "Variables={<<ENV-VARS>>}"
 ```
 
-**Note:** this command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, list them as well.
+<!-- info-box-start:info -->
+This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, list them as well.
+{:.info-box.note}
+<!-- info-box-end -->
 
 | Placeholder | Description | Required/Default|
 |---|---|---|

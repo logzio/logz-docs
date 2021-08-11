@@ -1,6 +1,13 @@
 # This file is NOT reloaded automatically when you use 'bundle exec jekyll
 # serve'. If you change this file, restart the server.
 
+# ===== HEADERS ===========
+# These headers were set by Noni, in order to improve our securityscorecard.io score
+headers:
+  for: "/*"
+  values:
+    Strict-Transport-Security: "max-age=31536000; includeSubDomains;"
+
 
 # ===== SITE SETTINGS =====
 # These are used to personalize your new site. If you look in the HTML files,

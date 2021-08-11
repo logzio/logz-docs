@@ -30,11 +30,11 @@ If you need to, allowlist the relevant IPs in your firewalls. These depend on th
 
 | Region slug | Allowlisted IP  |
 |---|---|
-| us-east-1 | 3.223.132.12 |
-| eu-central-1 | 52.59.86.203 |
-| ca-central-1 | 35.182.168.208 |
-| eu-west-2 | 18.132.31.199 |
-| ap-southeast-2 | 3.105.7.135 |
+| us-east-1 | 75.101.240.34, 54.86.133.203 |
+| eu-central-1 | 52.28.84.118, 52.59.12.246 |
+| ca-central-1 | 3.97.162.114 |
+| eu-west-2 | 18.168.65.253, 35.177.1.213 |
+| ap-southeast-2 | 3.104.195.194 |
 
 
 ##### Create a verification token (_Best practice but optional_)

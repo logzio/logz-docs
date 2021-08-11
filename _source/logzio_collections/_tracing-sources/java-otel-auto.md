@@ -46,10 +46,10 @@ On deployment, the Java agent automatically captures spans from your application
 
 **Before you begin, you'll need**:
 
-* a Java application without instrumentation
-* an active account with Logz.io
-* port `4317` available on your host system
-* a name defined for your tracing service
+* A Java application without instrumentation
+* An active account with Logz.io
+* Port `4317` available on your host system
+* A name defined for your tracing service
 
 
 <div class="tasklist">
@@ -60,6 +60,8 @@ On deployment, the Java agent automatically captures spans from your application
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar) to the host of your Java application.
 
 ##### Download and configure OpenTelemetry collector
+
+{% include tracing-shipping/otel_bug_june2021.md %}
 
 Create a dedicated directory on the host of your Java application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.23.0) that is relevant to the operating system of your host.
 

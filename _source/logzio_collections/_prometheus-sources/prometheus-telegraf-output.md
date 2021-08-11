@@ -52,8 +52,6 @@ For the list of options, see the parameters below the code block.👇
      Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
 ``` 
 
-###### Parameters 
-
 {% include general-shipping/replace-placeholders-prometheus.html %}
 
 

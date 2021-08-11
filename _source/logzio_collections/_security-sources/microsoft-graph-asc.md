@@ -1,7 +1,7 @@
 ---
 title: Ship logs from Microsoft Graph Azure Security Center
 logo:
-  logofile: azure.svg
+  logofile: asc.png
   orientation: horizontal
 data-source: Microsoft Graph Azure Security Center
 templates: ["no-template"]

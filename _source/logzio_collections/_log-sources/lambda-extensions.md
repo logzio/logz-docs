@@ -22,6 +22,7 @@ order: 255
 <div class="branching-container">
 
 * [Overview](#overview)
+* [Upgrade](#upgrade)
 * [Deploy with CLI](#cli)
 * [Deploy with Console](#console)
 * [Environment Variables & ARNs](#tables)
@@ -49,6 +50,60 @@ You can deploy the extension via the AWS CLI or via the AWS Management Console.
 
 </div>
 <!-- tab:end --> 
+
+<!-- tab:start -->
+<div id="upgrade">
+
+
+#### Upgrading from v0.0.1 to v0.1.0
+
+If you have extension v0.0.1, you need to upgrade to extension v0.1.0 to ensure that your logs are correctly sent to Logz.io.
+
+The following steps explain you what needs to be done to upgrade your extension to v0.1.0
+
+<div class="tasklist">
+
+##### Delete existing extension layer, its dependencies and environment variables
+
+If you haven't done it already, [install](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) and [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) the AWS CLI.
+
+To delete the extension, its dependencies and environment variables, use the following command:
+
+```shell
+aws lambda update-function-configuration \
+    --function-name some-func \
+    --layers [] \
+    --environment "Variables={}"
+```
+
+<!-- info-box-start:info -->
+This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list.
+{:.info-box.note}
+<!-- info-box-end -->
+
+##### Deploy the new extension, its dependencies and configuration
+
+Add the layer to your function and configure the environment variables using the following command:
+
+```shell
+aws lambda update-function-configuration \
+    --function-name <<FUNCTION-NAME>> \
+    --layers <<LAYERS>> \
+    --environment "Variables={<<ENV-VARS>>}"
+```
+
+**Note:** this command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, list them as well.
+
+| Placeholder | Description | Required/Default|
+|---|---|---|
+| `<<FUNCTION-NAME>>` |  Name of the Lambda Function you want to monitor. |Required|
+| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**Lambda extension versions** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}. You may need to add another layer that has the extensions dependencies.  For the libraries that your extension requires, see the [**Lambda extensions dependencies** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}. If your function doesn't already have those libraries under `/opt/python`, you'll need to add the dependencies as a layer, too.|  |
+| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}.|  |
+
+
+</div>
+</div>
+<!-- tab:end -->
 
 
 <!-- tab:start -->

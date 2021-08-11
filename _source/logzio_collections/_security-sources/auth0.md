@@ -53,7 +53,7 @@ Configure the required parameters as follows:
 ![Configure stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/webhook-auth0.png)
 
    * In the **Name** field, enter **Logz.io integration**.
-   * In the **Payload URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=autho0`. {% include log-shipping/listener-var.html %}  {% include log-shipping/log-shipping-token.html %}
+   * In the **Payload URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=auth0`. {% include log-shipping/listener-var.html %}  {% include log-shipping/log-shipping-token.html %}
    * In the **Content Type** field, select **application/json**.
    * In the **Content Format** field, select **JSON lines**.
 
@@ -63,7 +63,7 @@ Select **Save** to save the changes and create the stream.
 
 #### Check Logz.io for your data
 
-Give your data some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type `auth0` to see the incoming Auth0 events.
+Give your data some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type `auth0` to see the incoming Auth0 events. 
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

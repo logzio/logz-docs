@@ -20,15 +20,7 @@ order: 930
 You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.
 Logzio-MSGraph is a self-hosted application.
 
-Logzio-MSGraph supports these APIs:
-
-**Azure Active Directory:**
-
-* Audit logs
-
-* Sign-in logs (Including risky sign-in)
-
-**ASC (Azure Security Center):**
+Logzio-MSGraph currently supports these Azure Security Center APIs:
 
 * Alerts
 

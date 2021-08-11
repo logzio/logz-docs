@@ -32,9 +32,6 @@ order: 10
 <div id="linux">
 
 Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.io has a dedicated configuration wizard to make it simple to configure Filebeat. If you already have Filebeat and you want to add new sources, check out our other shipping instructions to copy&paste just the relevant changes from our code examples.
-#### NEW BUTTON111
-
-<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G","7GOPHucWSajA5pptILGV8G11111"] -->
 
 #### Configure Filebeat on macOS or Linux
 

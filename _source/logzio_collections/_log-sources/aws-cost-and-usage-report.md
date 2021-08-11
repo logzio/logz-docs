@@ -82,7 +82,7 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources 
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
   
-To get more out of this functionlaity, you can enable a dedicated AWS cost and usage dashboard in [ELK Apps](https://app.logz.io/#/dashboard/elk-apps).
+To get more out of this functionality, you can enable a dedicated AWS cost and usage dashboard in [ELK Apps](https://app.logz.io/#/dashboard/elk-apps).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

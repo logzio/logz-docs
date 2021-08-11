@@ -17,10 +17,6 @@ order: 20
 Some AWS services can be configured to ship their logs to an S3 bucket,
 where Logz.io can fetch those logs directly.
 
-#### NEW BUTTON111
-
-<!-- logzio-inject:install:grafana:dashboards ids=[] -->
-
 ## Best practices
 
 The S3 API does not allow retrieval of object timestamps, so Logz.io must collect logs in alphabetical order.

@@ -19,7 +19,7 @@ where Logz.io can fetch those logs directly.
 
 #### NEW BUTTON111
 
-<!-- logzio-inject:install:grafana:dashboards ids=[7GOPHucWSajA5pptILGV8G11111,"7GOPHucWSajA5pptILGV8G"] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G11111","7GOPHucWSajA5pptILGV8G"] -->
 
 ## Best practices
 

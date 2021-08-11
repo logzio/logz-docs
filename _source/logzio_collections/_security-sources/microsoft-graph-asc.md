@@ -1,9 +1,9 @@
 ---
-title: Ship logs from Microsoft Graph Azure Security Center
+title: Ship logs from Azure Security Center
 logo:
   logofile: asc.png
   orientation: horizontal
-data-source: Microsoft Graph Azure Security Center
+data-source: Azure Security Center
 templates: ["no-template"]
 open-source:
   - title: Logzio-MSGraph
@@ -17,8 +17,7 @@ shipping-tags:
 order: 930
 ---
 
-You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.
-Logzio-MSGraph is a self-hosted application.
+You can ship logs available from Azure Security Center via the Microsoft Graph APIs with Logzio-MSGraph. Logzio-MSGraph is a self-hosted application.
 
 Logzio-MSGraph currently supports these Azure Security Center APIs:
 

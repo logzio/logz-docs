@@ -1,7 +1,7 @@
 ---
 title: Ship logs from Axonius
 logo:
-  logofile: Axonius.png
+  logofile: axonius.png
   orientation: vertical
 data-source: Axonius
 templates: ["network-device-filebeat"]

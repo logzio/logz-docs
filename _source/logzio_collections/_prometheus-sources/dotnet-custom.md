@@ -44,7 +44,7 @@ These instructions show you how to:
 
 **Before you begin, you'll need**: 
 
-* An application in .NET Core 3.1 and higher
+* An application in .NET Core 3.1 or higher
 * An active Logz.io account 
 
 
@@ -60,12 +60,12 @@ Install the App.Metrics.Logzio package from the Package Manager Console:
 Install-Package Logzio.App.Metrics
 ```
 
-If you prefer to install the library manually, download the latest version from NuGet Gallery.
+If you prefer to install the library manually, download the latest version from the NuGet Gallery.
 
 
 ##### Create MetricsBuilder
 
-To create MetricsBuilder, copy and paste the following code into the function of the code that you need to export metris from:
+To create MetricsBuilder, copy and paste the following code into the function of the code that you need to export metrics from:
 
 ```csharp
 var metrics = new MetricsBuilder()
@@ -100,14 +100,15 @@ You can send the following metrics from your code:
 * [Meter](https://www.app-metrics.io/getting-started/metric-types/meters/)
 * [Timer](https://www.app-metrics.io/getting-started/metric-types/timers/)
 
-You must have at least one of the above metrics in your code to use the Logzio.App.Metrics. For example, to add a counter metric to your code, copy and paste the following code block into the same function of the code as the MetricsBuilder and Scheduler:
+You must have at least one of the above metrics in your code to use the Logzio.App.Metrics. 
+For example, to add a counter metric to your code, copy and paste the following code block into the same function of the code as the MetricsBuilder and Scheduler. 
 
 ```csharp
 var counter = new CounterOptions {Name = "my_counter", Tags = new MetricTags("test", "my_test")};
 metrics.Measure.Counter.Increment(counter);
 ```
 
-In the above example, the metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"). These parameters are used to query data from this metric in your Logz.io dashboard.
+In the example above, the metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"): These parameters are used to query data from this metric in your Logz.io dashboard.
 
 
 ###### Apdex
@@ -116,11 +117,11 @@ Apdex (Application Performance Index) allows you to monitor end-user satisfactio
 
 ###### Counter
 
-Counters are one of the simpliest metrics types supported and allow you to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
+Counters are one of the most basic supported metrics types: They enable you to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
 
 ###### Gauge
 
-A Gauge is an action that returns the instantaneous measurement of a value for a value that abitrarily increases and decreases: For example, CPU usage. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/gauges/).
+A Gauge is an action that returns an instantaneous measurement for a value that abitrarily increases and decreases (for example, CPU usage). For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/gauges/).
 
 ###### Histogram
 
@@ -128,11 +129,11 @@ Histograms measure the statistical distribution of a set of values. For more inf
 
 ###### Meter
 
-A Meter measures the rate at which an event occurs along with a total count of the occurances. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/meters/).
+A Meter measures the rate at which an event occurs, along with the total count of the occurences. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/meters/).
 
 ###### Timer
 
-A Timer is a combination of a Histogram and a Meter allowing us to measure the duration of a type of event, the rate of its occurrence and provide duration statistics. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/timers/).
+A Timer is a combination of a histogram and a meter, which enables you to measure the duration of a type of event, the rate of its occurrence, and provide duration statistics. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/timers/).
 
 
 ##### Run your application
@@ -254,7 +255,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 
 **Before you begin, you'll need**: 
 
-* An application in .NET Core 3.1 and higher
+* An application in .NET Core 3.1 or higher
 * An active Logz.io account
 
 
@@ -330,7 +331,7 @@ var counter = new CounterOptions {Name = "my_counter", Tags = new MetricTags("te
 metrics.Measure.Counter.Increment(counter);
 ```
 
-In the above example, the metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"). These parameters are used to query data from this metric in your Logz.io dashboard.
+In the example above, the metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"). These parameters are used to query data from this metric in your Logz.io dashboard.
 
 
 ###### Apdex
@@ -339,11 +340,11 @@ Apdex (Application Performance Index) allows you to monitor end-user satisfactio
 
 ###### Counter
 
-Counters are one of the simpliest metrics types supported and allow you to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
+Counters are one of the most basic supported metrics types: They enable you to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
 
 ###### Gauge
 
-A Gauge is simply an action that returns the instantaneous measure of a value, where the value abitrarily increases and decreases, for example CPU usage. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/gauges/).
+A Gauge is an action that returns an instantaneous measurement for a value that abitrarily increases and decreases (for example, CPU usage). For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/gauges/).
 
 ###### Histogram
 
@@ -351,11 +352,12 @@ Histograms measure the statistical distribution of a set of values. For more inf
 
 ###### Meter
 
-A Meter measures the rate at which an event occurs along with a total count of the occurances. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/meters/).
+A Meter measures the rate at which an event occurs, along with the total count of the occurences. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/meters/).
 
 ###### Timer
 
-A Timer is a combination of a Histogram and a Meter allowing us to measure the duration of a type of event, the rate of its occurrence and provide duration statistics. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/timers/).
+A Timer is a combination of a histogram and a meter, which enables you to measure the duration of a type of event, the rate of its occurrence, and provide duration statistics. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/timers/).
+ 
 
 
 ##### Run your application

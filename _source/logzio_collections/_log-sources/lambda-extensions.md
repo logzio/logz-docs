@@ -47,7 +47,7 @@ This repo is based on the [AWS lambda extensions sample](https://github.com/aws-
 
 You can deploy the extension via the AWS CLI or via the AWS Management Console.
   
-#### Upgrading from v0.0.1 to v0.1.0
+### Upgrading from v0.0.1 to v0.1.0
   
 If you have extension v0.0.1, you need to upgrade to extension v0.1.0 to ensure that your logs are correctly sent to Logz.io.
 

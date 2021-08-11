@@ -57,7 +57,7 @@ For distributions based on Red Hat, use `rpm` or `yum` in place of `apt-get`.
 
 ##### Configure rsyslog file spooling
 
-To ship a log to logz.io, SSH to your Linux server, and run the command below. The code verifies the working directory exists. For an Ubuntu server, it will set the proper permissions.
+To ship a log to Logz.io, SSH to your Linux server, and run the command below. The code verifies the working directory exists. For an Ubuntu server, it will set the proper permissions.
 
 ```
 sudo mkdir -v /var/spool/rsyslog 
@@ -178,7 +178,7 @@ If you do not see logs on [your Kibana dashboard](https://app.logz.io/#/dashboar
 
 ##### Check the audit logs for incoming logs
 
-Navigate to the directory or your audit logs (by default, this is `/var/log/audit/audit.log`) and check for AVC records containing `dest=5000`. If you see them, this means that SELinux is blocking the logs export over port TCP 5000.
+Navigate to the directory or to your audit logs (by default, this is `/var/log/audit/audit.log`) and check for AVC records containing `dest=5000`. If you see them, this means that SELinux is blocking the logs export over port TCP 5000.
 
 
 ##### Ensure that logs are sent to Logz.io when SELinux is disabled

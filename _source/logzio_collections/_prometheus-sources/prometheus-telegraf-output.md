@@ -58,7 +58,9 @@ For the list of options, see the parameters below the code block.👇
 ##### Check Logz.io for your metrics
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
-
+To install the dashboard press here 
+<!-- logzio-inject:install:grafana:dashboards ids=["283510"] -->
+ 
 </div>
 
 

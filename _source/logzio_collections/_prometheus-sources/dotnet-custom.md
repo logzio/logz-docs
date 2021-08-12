@@ -34,7 +34,6 @@ These instructions show you how to:
 
 </div>
 <!-- tab:end -->
- 
 
 <!-- tab:start -->
 <div id="in-code">

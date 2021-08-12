@@ -15,8 +15,8 @@ order: 280
 <div class="branching-container">
 
 * [Overview](#overview)
-* [Hardcoded Logz.io exporter](#in-code)
-* [Logz.io exporter in config](#in-config)
+* [Hardcoded exporter](#hardcoded-exporter)
+* [Exporter in config](#exporter-in-config)
 * [Advanced settings](#advanced-settings)
 {:.branching-tabs}
 

@@ -41,9 +41,12 @@ order: 380
 
 {% include /p8s-shipping/collect-aws-var-metrics.md namespace="AppRunner" %}
 
-
+<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G"] -->
+  
 </div>
 <!-- tab:end -->
 
 
+
+  
 </div>

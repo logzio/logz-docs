@@ -34,7 +34,7 @@ order: 1380
 
   
 <!-- info-box-start:info -->
-By default, syslog will be forwarded over port 6514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
+By default, syslog will be forwarded over port 514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -49,7 +49,7 @@ By default, syslog will be forwarded over port 6514. Feel free to adjust this, b
    filebeat.inputs:
    - type: udp
      max_message_size: 10MiB
-     host: "<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>:6514"
+     host: "<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>:514"
      fields:
        logzio_codec: plain
        # Your Logz.io account token. You can find your token at

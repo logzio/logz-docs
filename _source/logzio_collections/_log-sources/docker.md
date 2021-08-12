@@ -148,7 +148,7 @@ For a complete list of options, see the configuration parameters below the code 
   "log-opts": {
     "logzio-url": "<<LISTENER-HOST>>",
     "logzio-token": "<<LOG-SHIPPING-TOKEN>>",
-    "logzio-dir-path": "/path/to/logs/"
+    "logzio-dir-path": "<dir_path_to_logs_disk_queue>"
   }
 }
 ```

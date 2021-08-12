@@ -26,7 +26,7 @@ order: 1380
 ##### Configure Axonius to send syslog notifications to a remote Syslog server running Filebeat
 
 1. On your Axonius web interface, go to **System Settings > Global Settings > Syslog Settings**.
-![Axonius](https://dytvr9ot2sszz.cloudfront.net/logz-docs/axonius/axonius.png)
+![Axonius](https://dytvr9ot2sszz.cloudfront.net/logz-docs/axonius/axonius514.png)
 2. Select **Use Syslog**.
 3. Enter the IP address of your remote syslog server into the **Syslog host** field. This is the server where you run Filebeat.
 4. Enter the port number into the **Port** field.

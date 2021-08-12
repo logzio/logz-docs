@@ -15,8 +15,8 @@ order: 1380
 
 **Before you begin, you'll need**:
 
-* an active account with Axonius
-* an active account with Logz.io
+* An active account with Axonius
+* An active account with Logz.io
 * Filebeat 7 installed on your machine
 * Root priveleges on your machines 
 

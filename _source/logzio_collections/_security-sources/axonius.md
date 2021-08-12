@@ -28,13 +28,13 @@ order: 1380
 1. On your Axonius web interface, go to **System Settings > Global Settings > Syslog Settings**.
 ![Axonius](https://dytvr9ot2sszz.cloudfront.net/logz-docs/axonius/axonius.png)
 2. Select **Use Syslog**.
-3. Enter the IP address of your remote syslog server into the **Syslog host** field.
+3. Enter the IP address of your remote syslog server into the **Syslog host** field. This is the server where you run Filebeat.
 4. Enter the port number into the **Port** field.
 5. Select **UDP** in the **Protocol** menu.
 
   
 <!-- info-box-start:info -->
-By default, syslog will be forwarded over port 514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
+By default, syslog will be forwarded over port 6514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
 {:.info-box.note}
 <!-- info-box-end -->
 

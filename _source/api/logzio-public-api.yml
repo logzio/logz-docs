@@ -1152,7 +1152,7 @@ paths:
     get:
       operationId: getLogType
       summary: Get all log types
-      description: Sends all log types for a given account.
+      description: Get all log types for a given account.
       tags:
         - Parsing
       produces:

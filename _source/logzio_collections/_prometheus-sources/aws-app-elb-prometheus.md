@@ -42,6 +42,8 @@ order: 1070
 
 {% include /p8s-shipping/collect-aws-var-metrics.md namespace="Application ELB" %}
 
+<!-- logzio-inject:install:grafana:dashboards ids=["4Tk1cgkBEnyrOjTuhKILto"] -->
+
 
 </div>
 <!-- tab:end -->

@@ -42,6 +42,8 @@ order: 380
 
 {% include /p8s-shipping/collect-aws-var-metrics.md namespace="AmazonMQ" %}
 
+To install the dashboard press here 
+<!-- logzio-inject:install:grafana:dashboards ids=["6xL47YQQhGicghUPvHVwFl"] -->
 
 </div>
 <!-- tab:end -->

@@ -1139,7 +1139,7 @@ paths:
       parameters:
         - in: path
           name: logType
-	  description: Log type that you need to retrieve a Sawmill pipeline for. If no parsing has been applied to this log type, no results will be retrieved.
+          description: Log type that you need to retrieve a Sawmill pipeline for. If no parsing has been applied to this log type, no results will be retrieved.
       responses:
         '200':
           description: successful operation

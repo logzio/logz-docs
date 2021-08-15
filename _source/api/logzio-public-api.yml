@@ -1091,7 +1091,7 @@ paths:
       parameters:
         - in: path
           name: logType
-          description: Type of the log being parsed.
+          description: Type of the log being parsed. This can be an existing type (already sent to Logz.io) or a new type (will be sent to Logz.io for parsing).
           example: TestType
         - in: body
           name: body
@@ -1107,7 +1107,7 @@ paths:
                 type: array
                 items:
                   type: string
-                description: Each JSON object needs to be wrapped with a JSON object that has a key of the full message. The message value is the given JSON object.
+                description: A list of JSON objects if the log is specified as an object. If the log is specified as a string,  the string need to be in the `message` field of the JSON object.
                 example:
                   [{
 		                "fullMessage": {
@@ -1139,6 +1139,7 @@ paths:
       parameters:
         - in: path
           name: logType
+	  description: Log type that you need to retrieve a Sawmill pipeline for. If no parsing has been applied to this log type, no results will be retrieved.
       responses:
         '200':
           description: successful operation

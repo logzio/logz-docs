@@ -1091,7 +1091,7 @@ paths:
       parameters:
         - in: path
           name: logType
-          description: Type of the log being parsed. This can be an existing type (already sent to Logz.io) or a new type (will be sent to Logz.io for parsing).
+          description: Type of the log being parsed. This can be an existing type (already sent to Logz.io) or a new type (to be sent to Logz.io for parsing).
           example: TestType
         - in: body
           name: body
@@ -1101,7 +1101,7 @@ paths:
             properties:
               pipeLineDefinition:
                 type: object
-                description: Sawmill pipeline is a list of the steps that should process on document. The steps executes in regular order. See https://github.com/logzio/sawmill/wiki/Sawmill-Pipeline.
+                description: A Sawmill pipeline is a list of the steps that should be used to process log documents. The steps execute in regular order. See https://github.com/logzio/sawmill/wiki/Sawmill-Pipeline.
                 example: {\"steps\":[{\"addField\":{\"name\":\"addField\",\"config\":{\"path\":\"Movie\",\"value\":\"TheMatrix\"}}}]}
               sampleLogs:
                 type: array

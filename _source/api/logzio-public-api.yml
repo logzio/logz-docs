@@ -1124,6 +1124,7 @@ paths:
             application/json:
               schema:
                 type: array
+                description: The response provides the value of `sampleLogs` after parsing.
                 items:
                   type: string
                 example: {\“Movie\“:\“TheMatrix\“,\“fragment\“:\“test\“,\“@timestamp\“:\“2021-08-04T14:34:19.651+0000\“,\“check\“:\“value\“,\“message\“:\“balima\“,\“type\“:\“TestType\“,\“UA-device\“:\“Other\“}

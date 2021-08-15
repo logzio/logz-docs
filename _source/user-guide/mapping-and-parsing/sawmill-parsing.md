@@ -31,7 +31,7 @@ The collection of Sawmill processors can be found in the [Github wiki for the pr
 
 ### The Logz.io Parsing editor
 
-The Logz.io Parsing editor tool works with the Logz.io public API and lets you: 
+The Logz.io Parsing editor works with the Logz.io public API and lets you: 
 
 1. Create, access, and edit custom parsing rules for a log type, using Sawmill processors.
 2. Build a parsing pipeline for your logs from the rules.

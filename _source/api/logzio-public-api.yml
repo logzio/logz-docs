@@ -1083,7 +1083,7 @@ paths:
     post:
       operationId: getSawmillTestType
       summary: Parse sample logs with a Sawmill pipeline
-      description: Performs parsing of sample logs with a given Sawmill pipeline.
+      description: Performs parsing of sample logs with a given Sawmill pipeline. A pipeline is a collection of parsing rules to be executed in a specific order where the syntax and functionality follow the guidelines of the Sawmill library.
       tags:
         - Parsing
       produces:

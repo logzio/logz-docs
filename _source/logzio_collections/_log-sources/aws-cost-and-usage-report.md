@@ -1,5 +1,5 @@
 ---
-title: AWS cost and usage report
+title: AWS cost and usage
 logo:
   logofile: aws.svg
   orientation: vertical
@@ -7,11 +7,12 @@ data-source: AWS cost and usage report
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/aws-cost-and-usage-report
 templates: ["lambda-cloudwatch"]
 open-source:
-  - title: AWS Cost and Usage Lambda
-    github-repo: aws-cost-and-usage-lambda
+  - title: AWS Cost and Usage
+    github-repo: aws-cost-and-usage-auto-deployment
 contributors:
   - idohalevi
   - imnotashrimp
+  - nshishkin
 shipping-tags:
   - aws
 order: 830
@@ -19,119 +20,69 @@ order: 830
 
 #### Configuration
 
-**Before you begin, you'll need**:
-AWS Cost and Usage [turned on](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html)
-
 <!-- info-box-start:info -->
 Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout. Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 {:.info-box.important}
 <!-- info-box-end -->
 
-{% include log-shipping/note-lambda-test.md %}
+This deployment will automatically create the following resources:
+
+![Resources](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/Resources.png)
 
 <div class="tasklist">
 
-##### Create a new Lambda function
+##### Login to your account
 
-This Lambda function collects your AWS Cost and Usage report files from an S3 bucket and sends them to Logz.io in bulk over HTTP.
+To begin, you need to login to your AWS account.
 
-Open the AWS Lambda Console, and click **Create function**.
-Choose **Author from scratch**, and use this information:
+##### Create a new stack
 
-* **Name**: We suggest using "cost-and-usage" in the name, but you can name this function whatever you want.
-* **Runtime**: Choose **Python 2.7**
-* **Role**: Choose **Create a custom role**. This opens the IAM Management Console in a new tab.
+Select the button below to create a new stack dedicated to sending the AWS cost and usage reports to Logz.io.
 
-We'll come back to the Lambda Managment Console, so keep this tab open.
+[![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://aws-cost-usage-auto-deployment.s3.amazonaws.com/auto-deployment.yaml&stackName=logzio-aws-cost-usage-auto-deployment)
 
-##### Create a new IAM Role
+![Create stack](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/create_stack.png)
 
-In the IAM Management Console page that just opened:
+Keep the default setting in the **Create stack** screen and select **Next**.
 
-* **IAM Role**: Choose **Create a new IAM Role**.
-* **Role Name**: We suggest using "cost_and_usage" in the name, but you can name this role whatever you want.
+##### Specify the stack details
 
-Click **View Policy Document**, and then click **Edit**. Delete all the text in the policy document, and replace it with this block:
+![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/specify_stack_details.png)
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:Get*",
-        "s3:List*"
-      ],
-      "Resource": "*"
-    }
-  ]
-}
-```
-
-Click **Allow** to create the new role and close the page.
-
-In the Lambda Management Console, click **Create Function** (bottom right corner of the page). After a few moments, you'll see configuration options for your Lambda function.
-
-You'll need this page later on, so keep it open.
-
-##### Zip the source files
-
-Download the [aws-cost-and-usage-lambda](https://github.com/logzio/aws-cost-and-usage-lambda) project from GitHub to your computer, and zip the Python files in the src/ folder.
-
-```shell
-zip logzio-cost-and-usage-shipper lambda_function.py shipper.py
-```
-
-##### Upload the zip file and set environment variables
-
-In the Function code section of Lambda find the **Code entry type** list. Choose **Upload a .ZIP file** from this list.
-
-Click **Upload**, and choose the zip file you created earlier (`logzio-cost-and-usage-shipper.zip`).
-
-In the Environment variables section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
+Specify the stack details as per the table below and select **Next**.
 
 | Parameter | Description |
 |---|---|
-| TOKEN (Required) |  Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} |
-| URL (Required) | {% include log-shipping/region-code.md %} |
-| REPORT_NAME | In [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports), copy this from the **Report name** column for your report. |
-| REPORT_PATH | Copy this from [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports). Click ▶️ (next to the report name) to copy the **Report path**. |
-| S3_BUCKET_NAME | Copy this in [AWS Cost and Usage Reports](https://console.aws.amazon.com/billing/home?#/reports) from the **S3 Bucket** column of your report. |
-{:.paramlist}
+| Stack name | logzio-cur-auto-deployment |
+| CloudWatchEventScheduleExpression | `Default: rate(10 hours)` The scheduling expression that determines when and how often the Lambda function runs. Logz.io recommends to start with 10 hours rate. |
+| LambdaMemorySize | `Default: 1024 (MB)` The amount of memory available to the function at runtime. Logz.io recommends to start with 1024 MB. |
+| LambdaTimeout | `Default: 300 (seconds)` The amount of time that Lambda allows a function to run before stopping it. Logz.io recommends to start with 300 seconds (5 minutes). |
+| LogzioToken | Your Logz.io log shipping token:`<<LOG-SHIPPING-TOKEN>>` {% include log-shipping/log-shipping-token.html %} |
+| LogzioURL | The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {% include log-shipping/listener-var.html %} |
+| ReportAdditionalSchemaElements | Choose INCLUDE if you want AWS to include additional details about individual resources IDs in the report (This might significantly increase the report size and might affect performance. AWS Lambda can run for up to 15 minutes with up to 10240 MB, and the process time for the whole file must end within this timeframe.) This is an optional parameter. |
+| ReportName | The name of report that you want to create. |
+| ReportPrefix | The prefix that AWS adds to the report name when AWS delivers the report. |
+| ReportTimeUnit | The granularity of the line items in the report. Can be Hourly, Daily or Monthly. (Enabling hourly reports does not mean that a new report is generated every hour. It means that data in the report is aggregated with a granularity of one hour.) |
+| S3BucketName | The name for the bucket which will contain the report files. |
 
-##### Configure the function's basic settings
+##### Configure the stack options
 
-In Basic settings, we recommend starting with these settings:
+![Configure stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/specify_stack_details.png)
 
-* **Memory**: 1024 MB
-* **Timeout**: 5 min 0 sec
+Specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 
-<!-- info-box-start:info -->
-These default settings are just a starting point. Check your Lambda usage regularly, and adjust these values if you need to.
-{:.info-box.note}
-<!-- info-box-end -->
+##### Review the deployment
 
-##### Set the CloudWatch Logs event trigger
+![Review deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/review_deployment.png)
+![Confirm deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/confirm_and_create_stack.png)
 
-Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Events** from this list.
-
-Below the Designer, you'll see the Configure triggers panel. Choose **Create a new rule** from the **Rule** list.
-
-Type a **Rule name** (required) and **Rule description** (optional).
-
-Under **Rule type**, select **Schedule expression**, and then type `rate(10 hours)` in the **Schedule expression** box.
-
-<!-- info-box-start:info -->
-We recommend starting with 10 hours, but you can adjust this time as needed.
-{:.info-box.note}
-<!-- info-box-end -->
-
-Click **Add**, and then click **Save** at the top of the page.
+Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+  
+To get more out of this functionality, you can enable a dedicated AWS cost and usage dashboard in [ELK Apps](https://app.logz.io/#/dashboard/elk-apps).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

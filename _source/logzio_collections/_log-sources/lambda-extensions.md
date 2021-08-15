@@ -55,10 +55,16 @@ This means that if your Lambda function goes into the `SHUTDOWN` phase, the exte
 ### Extension deployment options
 
 You can deploy the extension via the AWS CLI or via the AWS Management Console.
+  
+### Upgrading from v0.0.1 to v0.1.0
+  
+If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensure that your logs are correctly sent to Logz.io:
+  
+1. Delete the existing extension layer, its dependencies, and environment variables as decribed below in this topic.
+2. Deploy the new extension, its dependencies, and configuration as decribed below in this topic.
 
 </div>
 <!-- tab:end --> 
-
 
 <!-- tab:start -->
 <div id="cli">

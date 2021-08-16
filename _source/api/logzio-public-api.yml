@@ -1101,7 +1101,7 @@ paths:
             properties:
               pipeLineDefinition:
                 type: object
-                description: JSON object of a Sawmill pipeline. Defines what transaformations should be applied to the input. In the example shown, an extra field `Movie` with the value `TheMatrix` will be added to the input. Always make sure that items in the input object are escaped.
+                description: JSON object of a Sawmill pipeline. Defines what transaformations should be applied to the input. In the example shown, an extra field `Movie` with the value `TheMatrix` will be added to the input. Always make sure that items in the input object representing the sawmill pipeline, are escaped.
                 example: {\"steps\":[{\"addField\":{\"name\":\"addField\",\"config\":{\"path\":\"Movie\",\"value\":\"TheMatrix\"}}}]}
               sampleLogs:
                 type: array

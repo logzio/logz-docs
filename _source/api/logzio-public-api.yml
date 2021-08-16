@@ -1083,7 +1083,7 @@ paths:
     post:
       operationId: getSawmillTestType
       summary: Parse sample logs with a Sawmill pipeline
-      description: Performs parsing of sample logs with a given Sawmill pipeline. A pipeline is a collection of parsing rules to be executed in a specific order where the syntax and functionality follow the guidelines of the Sawmill library.
+      description: Performs parsing of sample logs with a given Sawmill pipeline (https://github.com/logzio/sawmill/wiki). A pipeline is a collection of parsing rules to be executed in a specific order where the syntax and functionality follow the guidelines of the Sawmill library.
       tags:
         - Parsing
       produces:
@@ -1101,22 +1101,22 @@ paths:
             properties:
               pipeLineDefinition:
                 type: object
-                description: A Sawmill pipeline is a list of the steps that should be used to process log documents. The steps execute in regular order. See https://github.com/logzio/sawmill/wiki/Sawmill-Pipeline.
+                description: JSON object of a Sawmill pipeline. Defines what transaformations should be applied to the input. In the example shown, an extra field `Movie` with the value `TheMatrix` will be added to the input. Always make sure that items in the input object representing the sawmill pipeline, are escaped.
                 example: {\"steps\":[{\"addField\":{\"name\":\"addField\",\"config\":{\"path\":\"Movie\",\"value\":\"TheMatrix\"}}}]}
               sampleLogs:
                 type: array
                 items:
-                  type: string
-                description: A list of JSON objects if the log is specified as an object. If the log is specified as a string,  the string need to be in the `message` field of the JSON object.
+                  type: object
+                description: A list of JSON objects. If the log is available only as a plain string, this string needs to be in the `message` field of the JSON object.
                 example:
                   [{
-		                "fullMessage": {
+		              
 			                "fragment": "test",
 			                "UA-device": "Other",
 			                "check": "value",
 			                "message": "balima",
 		                	"type": "TestType"
-		                }
+		                
                   }]
       responses:
         '200':
@@ -1124,8 +1124,9 @@ paths:
             application/json:
               schema:
                 type: array
+                description: The response provides the value of `sampleLogs` after parsing.
                 items:
-                  type: string
+                  type: object
                 example: {\“Movie\“:\“TheMatrix\“,\“fragment\“:\“test\“,\“@timestamp\“:\“2021-08-04T14:34:19.651+0000\“,\“check\“:\“value\“,\“message\“:\“balima\“,\“type\“:\“TestType\“,\“UA-device\“:\“Other\“}
 
     get:
@@ -1139,21 +1140,30 @@ paths:
       parameters:
         - in: path
           name: logType
-          description: Log type that you need to retrieve a Sawmill pipeline for. If no parsing has been applied to this log type, no results will be retrieved.
+          description: Log type that you need to retrieve a Sawmill pipeline for. If no parsing has been applied to this log type, 404 error will be given.
       responses:
         '200':
           description: successful operation
           schema:
-            type: array
-            items:
-              type: string
+            type: object
             example: {\"steps\":[{\"addField\":{\"name\":\"addField\",\"config\":{\"path\":\"Movie\",\"value\":\"TheMatrix\"}}}]}
+        '404':
+          description: pipeline not found for this log type
+          schema:
+            type: object
+            example: {
+    "errorCode": "SAWMILL_SELF_PARSE/PIPELINE NOT FOUND",
+    "message": "log type with name (logType) not found",
+    "parameters": {
+        "logTypeName": "SampleLogType"
+    }
+}
 
   /v1/account/log-types:
     get:
       operationId: getLogType
       summary: Get all log types
-      description: Get all log types for a given account.
+      description: Get all log types for a given account including the log types with no parsing attached. 
       tags:
         - Parsing
       produces:

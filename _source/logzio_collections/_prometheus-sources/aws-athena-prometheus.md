@@ -31,7 +31,8 @@ order: 1080
 
 {% include /p8s-shipping/cloudwatch-otel-overview.md %}
 
-
+<!-- logzio-inject:install:grafana:dashboards ids=["6xL47YQQhGicghUPvHVwFl"] -->
+  
 </div>
 <!-- tab:end -->
 

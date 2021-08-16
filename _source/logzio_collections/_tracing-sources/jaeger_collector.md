@@ -9,6 +9,7 @@ contributors:
   - yyyogev
   - yberlinger
   - doron-bargo
+  - nshishkin
 shipping-tags:
   - existing-instrumentation
 order: 300

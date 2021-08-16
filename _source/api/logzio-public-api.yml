@@ -1147,11 +1147,11 @@ paths:
           schema:
             type: object
             example: {\"steps\":[{\"addField\":{\"name\":\"addField\",\"config\":{\"path\":\"Movie\",\"value\":\"TheMatrix\"}}}]}
-	'404':
-	   description: pipeline not found for this log type
-	   schema:
-	     type: object
-	     example: {
+        '404':
+          description: pipeline not found for this log type
+          schema:
+            type: object
+            example: {
     "errorCode": "SAWMILL_SELF_PARSE/PIPELINE NOT FOUND",
     "message": "log type with name (logType) not found",
     "parameters": {

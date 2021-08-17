@@ -1,0 +1,93 @@
+---
+title: Ship Ceph Storage metrics via Telegraf
+logo:
+  logofile: ceph-telegraf.png
+  orientation: vertical
+data-source: Ceph Storage metrics over Telegraf
+templates: ["docker"]
+contributors:
+  - daniel-tk
+  - nshishkin
+shipping-tags:  
+  - prometheus
+order: 800
+---
+
+## Overview
+
+Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+
+To send your Prometheus-format Ceph Storage metrics to Logz.io, you need to add the **inputs.ceph** and **outputs.http** plug-ins to your Telegraf configuration file.
+
+#### Configuring Telegraf to send your metrics data to Logz.io
+
+<div class="tasklist">
+
+##### Set up Telegraf v1.17 or higher
+
+{% include metric-shipping/telegraf-setup.md %}
+
+##### Add the inputs.ceph plug-in
+
+First you need to configure the input plug-in to enable Telegraf to scrape the Ceph data from your hosts. To do this, add the following code to the configuration file:
+
+``` ini
+[[inputs.ceph]]
+  ## This is the recommended interval to poll.  Too frequent and you will lose
+  ## data points due to timeouts during rebalancing and recovery
+  interval = '1m'
+
+  ## All configuration values are optional, defaults are shown below
+
+  ## location of ceph binary
+  ceph_binary = "/usr/bin/ceph"
+
+  ## directory in which to look for socket files
+  socket_dir = "/var/run/ceph"
+
+  ## prefix of MON and OSD socket files, used to determine socket type
+  mon_prefix = "ceph-mon"
+  osd_prefix = "ceph-osd"
+  mds_prefix = "ceph-mds"
+  rgw_prefix = "ceph-client"
+
+  ## suffix used to identify socket files
+  socket_suffix = "asok"
+
+  ## Ceph user to authenticate as, ceph will search for the corresponding keyring
+  ## e.g. client.admin.keyring in /etc/ceph, or the explicit path defined in the
+  ## client section of ceph.conf for example:
+  ##
+  ##     [client.telegraf]
+  ##         keyring = /etc/ceph/client.telegraf.keyring
+  ##
+  ## Consult the ceph documentation for more detail on keyring generation.
+  ceph_user = "client.admin"
+
+  ## Ceph configuration to use to locate the cluster
+  ceph_config = "/etc/ceph/ceph.conf"
+
+  ## Whether to gather statistics via the admin socket
+  gather_admin_socket_stats = true
+
+  ## Whether to gather statistics via ceph commands, requires ceph_user and ceph_config
+  ## to be specified
+  gather_cluster_stats = false
+```
+
+<!-- info-box-start:info -->
+The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/ceph/README.md)
+{:.info-box.note}
+<!-- info-box-end -->
+
+##### Add the outputs.http plug-in
+  
+{% include metric-shipping/telegraf-outputs.md %}
+{% include general-shipping/replace-placeholders-prometheus.html %}
+
+##### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+
+</div>

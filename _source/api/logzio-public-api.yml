@@ -2242,7 +2242,6 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Endpoint'
-
   /v1/endpoints/ops-genie:
     post:
       tags:
@@ -2311,7 +2310,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-
   /v1/endpoints/service-now:
     post:
       tags:
@@ -2380,7 +2378,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-
   /v1/endpoints/microsoft-teams:
     post:
       tags:

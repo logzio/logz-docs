@@ -5899,7 +5899,6 @@ definitions:
         type: string
         description: Detailed description of the endpoint
         example: Endpoint for sending alerts to Slack
-
   OpsGenieEndpointUpsertRequest:
     type: object
     properties:
@@ -5915,7 +5914,6 @@ definitions:
         type: string
         description: API key from OpsGenie, see https://docs.opsgenie.com/docs/logz-io-integration
         example: c687f9231619d7d7b959f33e4cc821a5
-
   ServiceNowEndpointUpsertRequest:
     type: object
     properties:
@@ -5939,7 +5937,6 @@ definitions:
         type: string
         description: Provide your instance URL to connect to your existing ServiceNow instance, i.e. https://xxxxxxxxx.service-now.com/.
         example: https://my.custom-endpoint.com
-
   MicrosoftTeamsEndpointUpsertRequest:
     type: object
     properties:

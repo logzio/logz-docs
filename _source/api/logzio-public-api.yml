@@ -1079,6 +1079,7 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
 
+  # ::::: Parsing
   /v1/sawmill/log-type-pipeline/logType:
     post:
       operationId: getSawmillTestType
@@ -1171,7 +1172,7 @@ paths:
             example: [“metering-access”,“lag-monitor”,“business-analytics-metrics”,“consul-agent”,“auth0”]
 
 
-  # ::::: Alerts V2
+  # ::::: Alerts V2 
   /v2/alerts:
     get:
       operationId: getAllAlerts

@@ -38,8 +38,6 @@ OpenTelemetry also includes extensions for additional functionality, such as dia
 
 #### Deploy OpenTelemetry Collector with Logz.io Exporter
 
-{% include tracing-shipping/otel_bug_june2021.md %}
-
 <div class="tasklist">
 
 ##### Create a Docker network

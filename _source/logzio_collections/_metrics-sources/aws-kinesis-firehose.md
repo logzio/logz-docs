@@ -95,7 +95,7 @@ docker pull logzio/docker-collector-metrics
 
 {% include metric-shipping/aws-metrics.md namespace="Kinesis Firehose" %}
 
-{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/Kinesis Firehose" %}
+{% include metric-shipping/open-dashboard.md title="Cloudwatch AWS/Firehose" %}
 
 </div>
 </div>

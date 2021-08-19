@@ -1,7 +1,7 @@
 ---
 title: Ship Elasticsearch metrics via Telegraf
 logo:
-  logofile: ipmi-telegraf.png
+  logofile: elasticsearch-telegraf.png
   orientation: vertical
 data-source: Elasticsearch metrics over Telegraf
 templates: ["docker"]

@@ -11,7 +11,7 @@ shipping-tags:
   - firewalls
 order: 1380
 ---
-[Cynet](https://www.cynet.com/platform/) is a cybersecurity asset management platform. This topic describes how to send system logs from your Cynet platform to Logz.io. . 
+[Cynet](https://www.cynet.com/platform/) is a cybersecurity asset management platform. This topic describes how to send system logs from your Cynet platform to Logz.io.
 
 **Before you begin, you'll need**: 
 

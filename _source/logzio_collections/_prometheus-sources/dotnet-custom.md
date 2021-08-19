@@ -30,14 +30,13 @@ These instructions show you how to:
 * Create a basic custom metrics export configuration with a hardcoded Logz.io exporter
 * Create a basic custom metrics export configuration with a Logz.io exporter defined by a configuration file
 * Add advanced settings to the basic custom metrics export configuration
-
-</div>
   
+
 </div>
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="in-code">
+<div id="hardcoded-exporter">
 
 
 #### Send custom metrics to Logz.io with a hardcoded Logz.io exporter
@@ -248,7 +247,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="in-config">
+<div id="exporter-in-config">
 
 
 #### Send custom metrics to Logz.io with a Logz.io exporter defined by a config file
@@ -465,7 +464,7 @@ Replace [[your_timer_name]] with the name that you assigned to the timer metric.
 | Tolerating | [[your_apdex_name]]_tolerating |
 
 Replace [[your_apdex_name]] with the name that you assigned to the apdex metric.
-  
+
 </div>
 
 </div>
@@ -553,7 +552,6 @@ using (var stream = new MemoryStream())
 }
 ```
 
-</div>
 
 </div>
 <!-- tab:end -->

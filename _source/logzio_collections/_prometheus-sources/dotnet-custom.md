@@ -37,7 +37,7 @@ These instructions show you how to:
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="in-code">
+<div id="hardcoded-exporter">
 
 
 #### Send custom metrics to Logz.io with a hardcoded Logz.io exporter
@@ -248,7 +248,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="in-config">
+<div id="exporter-in-config">
 
 
 #### Send custom metrics to Logz.io with a Logz.io exporter defined by a config file

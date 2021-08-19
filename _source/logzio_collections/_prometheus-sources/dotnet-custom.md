@@ -240,6 +240,7 @@ Replace [[your_timer_name]] with the name that you assigned to the timer metric.
 
 Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 
+</div>
 
 </div>
 <!-- tab:end -->
@@ -462,7 +463,9 @@ Replace [[your_timer_name]] with the name that you assigned to the timer metric.
 | Tolerating | [[your_apdex_name]]_tolerating |
 
 Replace [[your_apdex_name]] with the name that you assigned to the apdex metric.
-  
+
+</div>
+
 </div>
 <!-- tab:end -->
 

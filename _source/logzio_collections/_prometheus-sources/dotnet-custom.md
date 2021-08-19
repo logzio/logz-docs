@@ -30,8 +30,6 @@ These instructions show you how to:
 * Create a basic custom metrics export configuration with a hardcoded Logz.io exporter
 * Create a basic custom metrics export configuration with a Logz.io exporter defined by a configuration file
 * Add advanced settings to the basic custom metrics export configuration
-
-</div>
   
 </div>
 <!-- tab:end -->
@@ -242,7 +240,6 @@ Replace [[your_timer_name]] with the name that you assigned to the timer metric.
 
 Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 
-</div>
 
 </div>
 <!-- tab:end -->
@@ -466,8 +463,6 @@ Replace [[your_timer_name]] with the name that you assigned to the timer metric.
 
 Replace [[your_apdex_name]] with the name that you assigned to the apdex metric.
   
-</div>
-
 </div>
 <!-- tab:end -->
 

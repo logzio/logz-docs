@@ -43,7 +43,7 @@ For Linux:
 
 ```shell
 wget -o /fluent-bit/plugins/out_logzio.so \
-https://github.com/logzio/fluent-bit-logzio-output/blob/master/build/out_logzio-linux.so
+https://github.com/logzio/fluent-bit-logzio-output/raw/master/build/out_logzio-linux.so
 ```
 
 For MacOS:

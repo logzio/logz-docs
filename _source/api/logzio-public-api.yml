@@ -6792,6 +6792,8 @@ definitions:
 
   ShippingTokensFilterRequest:
       type: object
+      required:
+      - enabled
       description: Filters your search for token attributes.
       properties:
         enabled:

@@ -70,7 +70,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [jaeger]
+      receivers: [otlp]
       processors: [batch]
       exporters: [logzio]
 ```

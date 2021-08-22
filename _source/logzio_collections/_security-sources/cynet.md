@@ -30,7 +30,7 @@ order: 1380
 ![Advanced options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet1.png)
 2. Select the box beside **Send Audit Records to SIEM**.
 3. Go to **Configuration > SIEM settings** and enable the following configuration:
-![SIEM settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2.png)
+![SIEM settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet22.png)
    * **IP** - IP
    * **Port** - 514
    * **IP address** - IP adrress of your Cynet cloud instance, e.g. 34.10.2.78:9000

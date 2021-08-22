@@ -32,7 +32,7 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 
 <div class="tasklist">
 
-{% include p8s-shipping/remotewrite-syd-userguide-tokens-lookup.html %}
+{% include p8s-shipping/remotewrite-syd-userguide-tokens-lookup.html %} 
 
 ##### Add a remote_write url
 

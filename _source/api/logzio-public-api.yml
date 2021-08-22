@@ -23,6 +23,10 @@ info:
 
     This API is documented using the **OpenAPI 2.0** specification.
 
+    # Automation
+
+    You can automate most of our APIs using our [Terraform provider](https://docs.logz.io/integrations/terraform/).
+
 
     <!-- You can browse the API documentation on this page, or you can download the specification file. -->
 

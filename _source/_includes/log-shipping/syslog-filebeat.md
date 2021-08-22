@@ -2,7 +2,7 @@
    filebeat.inputs:
    - type: udp
      max_message_size: 10MiB
-     host: "<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>:514"
+     host: "0.0.0.0.:9000"
      fields:
        logzio_codec: plain
        # Your Logz.io account token. You can find your token at

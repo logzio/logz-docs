@@ -12,13 +12,7 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 
 <div class="tasklist">
 
-##### Get your Logz.io Infrastructure Monitoring account information
-Within Logz.io, look up the Listener host for your region (URL) and the Logz.io Metrics Account token.
-
-+ You'll find the correct Region and Listener URL for your region in the [*Regions and Listener Hosts*](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions) table. 
-
-+ Look up your Prometheus Metrics account token in the [Settings > Manage tokens > Data shipping tokens > Metrics](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) tab of your Operations workspace. For more information, see [Metrics shipping token. ](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) 
-
+{% include p8s-shipping/remotewrite-syd-userguide-tokens-lookup.html %}
 
 ##### Add a remote_write url
 

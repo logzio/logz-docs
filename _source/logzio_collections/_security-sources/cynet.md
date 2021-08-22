@@ -33,7 +33,7 @@ order: 1380
 ![SIEM settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2.png)
    * **IP** - IP
    * **Port** - 514
-   * **IP address** - `<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>`, e.g. 100.25.154.13:9000
+   * **IP address** - IP adrress of your Cynet cloud instance, e.g. 34.10.2.78:9000
 
 <!-- info-box-start:info -->
 By default, syslog will be forwarded over port 514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
@@ -51,7 +51,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
    filebeat.inputs:
    - type: udp
      max_message_size: 10MiB
-     host: "<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>"
+     host: 0.0.0.0.:9000
      fields:
        logzio_codec: json
        # Your Logz.io account token. You can find your token at
@@ -79,7 +79,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
   
-   * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
+   * 0.0.0.0.:9000 is the default address and port of the Filebeat server. If you use a different address and port, replace the default values with your parameters.
    * {% include log-shipping/log-shipping-token.md %}
    * {% include log-shipping/listener-var.md %}
 

@@ -47,39 +47,10 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
-   ```yaml
-   filebeat.inputs:
-   - type: udp
-     max_message_size: 10MiB
-     host: 0.0.0.0.:9000
-     fields:
-       logzio_codec: json
-       # Your Logz.io account token. You can find your token at
-       #  https://app.logz.io/#/dashboard/settings/manage-accounts
-       token: <<LOG-SHIPPING-TOKEN>>
-       type: cynet
-     fields_under_root: true
-     encoding: utf-8
-     ignore_older: 3h
-   filebeat.registry.path: /var/lib/filebeat
-   processors:
-   - rename:
-       fields:
-       - from: "agent"
-         to: "beat_agent"
-       ignore_missing: true
-   - rename:
-       fields:
-       - from: "log.file.path"
-         to: "source"
-       ignore_missing: true
-   output.logstash:
-     hosts: ["<<LISTENER-HOST>>:5015"]
-     ssl:
-       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-   ```
-  
+{% include log-shipping/syslog-filebeat.md %}
+ 
    * 0.0.0.0.:9000 is the default address and port of the Filebeat server. If you use a different address and port, replace the default values with your parameters.
+   * Replace `<<LOG_TYPE>>` with `cynet`.
    * {% include log-shipping/log-shipping-token.md %}
    * {% include log-shipping/listener-var.md %}
 
@@ -87,7 +58,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `cynet` to see the incoming pfSense logs.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `cynet` to see the incoming logs.
   
 If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

@@ -58,9 +58,21 @@ The full list of data scraping and configuring options can be found [here](https
 {% include metric-shipping/telegraf-outputs.md %}
 {% include general-shipping/replace-placeholders-prometheus.html %}
 
+##### Start Telegraf
+
+Start telegraf as per your OS. - snippet
+
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+Give your metrics some time to get from your system to ours.
+
+
+{% include metric-shipping/custom-dashboard.md %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["6xL47YQQhGicghUPvHVwFl"] --> 
+
+{% include metric-shipping/generic-dashboard.md %} 
+
 
 
 </div>

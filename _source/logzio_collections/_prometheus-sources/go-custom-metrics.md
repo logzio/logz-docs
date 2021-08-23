@@ -54,14 +54,14 @@ package main
 import (
 	"context"
 	"fmt"
-	"math/rand"
 	"time"
 
 	"go.opentelemetry.io/contrib/exporters/metric/cortex"
-	"go.opentelemetry.io/otel/label"
+	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/metric"
 	controller "go.opentelemetry.io/otel/sdk/metric/controller/basic"
 	"go.opentelemetry.io/otel/sdk/resource"
+	semconv "go.opentelemetry.io/otel/semconv/v1.4.0"
 )
 
 func main() {
@@ -74,7 +74,13 @@ func main() {
 	}
 	// Create and install the exporter. Additionally, set the push interval to 15 seconds
 	// and add a resource to the controller.
-	pusher, err := cortex.InstallNewPipeline(config, controller.WithCollectPeriod(15*time.Second), controller.WithResource(resource.NewWithAttributes(label.String("p8s_logzio_name", "<<label-value>>"))))
+	pusher, err := cortex.InstallNewPipeline(config,
+		controller.WithCollectPeriod(15*time.Second),
+		controller.WithResource(resource.NewWithAttributes(
+			semconv.SchemaURL,
+			attribute.String("p8s_logzio_name", "LABEL_NAME")),
+		),
+	)
 	if err != nil {
 		fmt.Printf("Error: %v", err)
 	}
@@ -87,10 +93,10 @@ func main() {
 		"go_metrics.counter",
 		metric.WithDescription("Counts things"),
 	)
-    // Start the metrics pipline
+	// Start the metrics pipline
 	pusher.Start(ctx)
 	// Record values to the instruments and add labels
-    counter.Add(ctx, 10, label.String("key", "value"))
+	counter.Add(ctx, 10, attribute.String("key", "value"))
 }
 func handleErr(err error) {
 	if err != nil {
@@ -123,8 +129,8 @@ float_counter := metric.Must(meter).NewFloat64Counter(
 	metric.WithDescription("your metric description"),
 )
 // Record values to the instruments and add labels
-counter.Add(ctx, int64(10), label.String("key", "value"))
-float_counter.Add(ctx, float64(8.3), label.String("key", "value"))
+counter.Add(ctx, int64(10), attribute.String("key", "value"))
+float_counter.Add(ctx, float64(8.3), attribute.String("key", "value"))
 ```
 <!-- See full [example](link2github) -->
 
@@ -141,8 +147,8 @@ float_updowncounter := metric.Must(meter).NewFloat64UpDownCounter(
 	metric.WithDescription("your metric description"),
 )
 // Record values to the instruments and add labels
-updowncounter.Add(ctx, int64(-3), label.String("key", "value"))
-float_updowncounter.Add(ctx, float64(8.3), label.String("key", "value"))
+updowncounter.Add(ctx, int64(-3), attribute.String("key", "value"))
+float_updowncounter.Add(ctx, float64(8.3), attribute.String("key", "value"))
 ```
 <!-- See full [example](link2github) -->
 
@@ -159,8 +165,8 @@ float_valuerecorder := metric.Must(meter).NewFloat64ValueRecorder(
 	metric.WithDescription("your metric description"),
 )
 // Record values to the instruments and add labels
-valuerecorder.Record(ctx, int(83), label.String("key", "value"))
-float_valuerecorder.Record(ctx, float64(8.3), label.String("key", "value"))
+valuerecorder.Record(ctx, int(83), attribute.String("key", "value"))
+float_valuerecorder.Record(ctx, float64(8.3), attribute.String("key", "value"))
 ```
 <!-- See full [example](link2github) -->
 
@@ -169,7 +175,7 @@ float_valuerecorder.Record(ctx, float64(8.3), label.String("key", "value"))
 ```go
 // Create callback for your SumObserver instrument
 observerCallback := func(_ context.Context, result metric.Int64ObserverResult) {
-	result.Observe(1, label.String("key", "value"))
+	result.Observe(1, attribute.String("key", "value"))
 }
 // Start the metrics pipline
 pusher.Start(ctx)
@@ -185,7 +191,7 @@ _ = metric.Must(meter).NewInt64SumObserver("sum_observer", observerCallback,
 ```go
 // Create callback for your UpDownSumObserver instrument
 observerCallback := func(_ context.Context, result metric.Int64ObserverResult) {
-	result.Observe(-5, label.String("key", "value"))
+	result.Observe(-5, attribute.String("key", "value"))
 }
 // Start the metrics pipline
 pusher.Start(ctx)
@@ -201,7 +207,7 @@ _ = metric.Must(meter).NewInt64UpDownSumObserver("updown_sum_observer", observer
 ```go
 // Create callback for your UpDownSumObserver instrument
 observerCallback := func(_ context.Context, result metric.Int64ObserverResult) {
-	result.Observe(83, label.String("key", "value"))
+	result.Observe(83, attribute.String("key", "value"))
 }
 // Start the metrics pipline
 pusher.Start(ctx)

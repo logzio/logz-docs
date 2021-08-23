@@ -30,12 +30,12 @@ order: 1380
 ![Advanced options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet1.png)
 2. Select the box beside **Send Audit Records to SIEM**.
 3. Go to **Configuration > SIEM settings** and enable the following configuration:
-![SIEM settings before](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2before.png)
+![SIEM settings before](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2before.jpg)
    * **UDP**
    * **IP** - public IP adrress of your syslog server
    * **Port** - port that is configured on your syslog server
 4. Press **Add**. The added IP and port will appear on the screen.
-![SIEM settings after](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2after.png)
+![SIEM settings after](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2after.jpg)
   
 <!-- info-box-start:info -->
 These instructions are based on UDP. If you want to use TCP, make sure your syslog server configuration is aligned with this.

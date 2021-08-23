@@ -23,6 +23,10 @@ info:
 
     This API is documented using the **OpenAPI 2.0** specification.
 
+    # Automation
+
+    You can automate most of our APIs using our [Terraform provider](https://docs.logz.io/integrations/terraform/).
+
 
     <!-- You can browse the API documentation on this page, or you can download the specification file. -->
 
@@ -1079,6 +1083,7 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
 
+  # ::::: Sawmill
   /v1/sawmill/log-type-pipeline/logType:
     post:
       operationId: getSawmillTestType
@@ -1102,22 +1107,19 @@ paths:
               pipeLineDefinition:
                 type: object
                 description: JSON object of a Sawmill pipeline. Defines what transaformations should be applied to the input. In the example shown, an extra field `Movie` with the value `TheMatrix` will be added to the input. Always make sure that items in the input object representing the sawmill pipeline, are escaped.
-                example: {\"steps\":[{\"addField\":{\"name\":\"addField\",\"config\":{\"path\":\"Movie\",\"value\":\"TheMatrix\"}}}]}
+                example: >-
+                 {"steps":[{"addField":{"name":"addField","config":{"path":"Movie","value":"TheMatrix"}}}]}
               sampleLogs:
                 type: array
                 items:
                   type: object
                 description: A list of JSON objects. If the log is available only as a plain string, this string needs to be in the `message` field of the JSON object.
                 example:
-                  [{
-		              
-			                "fragment": "test",
-			                "UA-device": "Other",
-			                "check": "value",
-			                "message": "balima",
-		                	"type": "TestType"
-		                
-                  }]
+                  - fragment: test
+                    UA-device: Other
+                    check: value
+                    message: balima
+                    type": TestType
       responses:
         '200':
           content:
@@ -1127,8 +1129,8 @@ paths:
                 description: The response provides the value of `sampleLogs` after parsing.
                 items:
                   type: object
-                example: {\“Movie\“:\“TheMatrix\“,\“fragment\“:\“test\“,\“@timestamp\“:\“2021-08-04T14:34:19.651+0000\“,\“check\“:\“value\“,\“message\“:\“balima\“,\“type\“:\“TestType\“,\“UA-device\“:\“Other\“}
-
+                example: >-
+                 {"Movie":"TheMatrix","fragment":"test","@timestamp":"2021-08-15T12:17:45.731+0000","check":"value","message":"balima","type":"TestType","UA-device":"Other"}
     get:
       operationId: getLogType
       summary: Get pipeline definition for a log type
@@ -1146,22 +1148,20 @@ paths:
           description: successful operation
           schema:
             type: object
-            example: {\"steps\":[{\"addField\":{\"name\":\"addField\",\"config\":{\"path\":\"Movie\",\"value\":\"TheMatrix\"}}}]}
+            example: >-
+             {"steps":[{"addField":{"name":"addField","config":{"path":"Movie","value":"TheMatrix"}}}]}
         '404':
           description: pipeline not found for this log type
           schema:
             type: object
-            example: {
-    "errorCode": "SAWMILL_SELF_PARSE/PIPELINE NOT FOUND",
-    "message": "log type with name (logType) not found",
-    "parameters": {
-        "logTypeName": "SampleLogType"
-    }
-}
-
+            example:
+              - errorCode: SAWMILL_SELF_PARSE/PIPELINE NOT FOUND
+                message": log type with name (logType) not found
+                parameters:
+                  - logTypeName: SampleLogType
   /v1/account/log-types:
     get:
-      operationId: getLogType
+      operationId: getLogTypes
       summary: Get all log types
       description: Get all log types for a given account including the log types with no parsing attached. 
       tags:
@@ -1175,11 +1175,10 @@ paths:
             type: array
             items:
               type: string
-            example: 
-              - [“metering-access”,“lag-monitor”,“business-analytics-metrics”,“consul-agent”,“auth0”]
+            example: [“metering-access”,“lag-monitor”,“business-analytics-metrics”,“consul-agent”,“auth0”]
 
 
-  # ::::: Alerts V2
+  # ::::: Alerts V2 
   /v2/alerts:
     get:
       operationId: getAllAlerts
@@ -2247,7 +2246,6 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Endpoint'
-
   /v1/endpoints/ops-genie:
     post:
       tags:
@@ -2316,7 +2314,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-
   /v1/endpoints/service-now:
     post:
       tags:
@@ -2385,7 +2382,6 @@ paths:
           description: successful operation
           schema:
             $ref: '#/definitions/EndpointUpsertResponse'
-
   /v1/endpoints/microsoft-teams:
     post:
       tags:
@@ -5907,7 +5903,6 @@ definitions:
         type: string
         description: Detailed description of the endpoint
         example: Endpoint for sending alerts to Slack
-
   OpsGenieEndpointUpsertRequest:
     type: object
     properties:
@@ -5923,7 +5918,6 @@ definitions:
         type: string
         description: API key from OpsGenie, see https://docs.opsgenie.com/docs/logz-io-integration
         example: c687f9231619d7d7b959f33e4cc821a5
-
   ServiceNowEndpointUpsertRequest:
     type: object
     properties:
@@ -5947,7 +5941,6 @@ definitions:
         type: string
         description: Provide your instance URL to connect to your existing ServiceNow instance, i.e. https://xxxxxxxxx.service-now.com/.
         example: https://my.custom-endpoint.com
-
   MicrosoftTeamsEndpointUpsertRequest:
     type: object
     properties:
@@ -6803,6 +6796,8 @@ definitions:
 
   ShippingTokensFilterRequest:
       type: object
+      required:
+      - enabled
       description: Filters your search for token attributes.
       properties:
         enabled:

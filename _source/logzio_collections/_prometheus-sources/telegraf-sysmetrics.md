@@ -30,7 +30,7 @@ To send your Prometheus-format System metrics to Logz.io, you need to add multip
 
 ##### Add the inputs plug-in
 
-First you need to configure the input plug-in to enable Telegraf to scrape the PostgreSQL data from your hosts. To do this, add the following code to the configuration file:
+First you need to configure the input plug-in to enable Telegraf to scrape the system metrics from your hosts. To do this, add the following code to the configuration file:
 
 
 ``` ini

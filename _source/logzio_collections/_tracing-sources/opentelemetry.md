@@ -42,7 +42,7 @@ On deployment, your OpenTelemetry instrumentation captures spans from your appli
 <div id="local-host">
 
 
-### Setup your locally hosted OpenTelemetry installation to send traces to Logz.io
+### Set up your locally hosted OpenTelemetry installation to send traces to Logz.io
 
 **Before you begin, you'll need**:
 

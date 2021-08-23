@@ -30,13 +30,15 @@ order: 1380
 ![Advanced options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet1.png)
 2. Select the box beside **Send Audit Records to SIEM**.
 3. Go to **Configuration > SIEM settings** and enable the following configuration:
-![SIEM settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet22.png)
-   * **IP** - IP
-   * **Port** - 514
-   * **IP address** - IP adrress of your Cynet cloud instance, e.g. 34.10.2.78:9000
-
+![SIEM settings before](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2before.png)
+   * **UDP**
+   * **IP** - public IP adrress of your syslog server
+   * **Port** - port that is configured on your syslog server
+4. Press **Add**. The added IP and port will appear on the screen.
+![SIEM settings after](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2after.png)
+  
 <!-- info-box-start:info -->
-By default, syslog will be forwarded over port 514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
+These instructions are based on UDP. If you want to use TCP, make sure your syslog server configuration is aligned with this.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -49,8 +51,9 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 
 {% include log-shipping/syslog-filebeat.md %}
  
-   * 0.0.0.0.:9000 is the default address and port of the Filebeat server. If you use a different address and port, replace the default values with your parameters.
+   * 0.0.0.0.:5044 is the default address and port of the Filebeat server. If you use a different address and port, replace the default values with your parameters.
    * Replace `<<LOG_TYPE>>` with `cynet`.
+   * Replace `<<CODEC-TYPE>>` with `json`.
    * {% include log-shipping/log-shipping-token.md %}
    * {% include log-shipping/listener-var.md %}
 

@@ -53,7 +53,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
    filebeat.inputs:
    - type: udp
      max_message_size: 10MiB
-     host: "0.0.0.0.:5400"
+     host: "0.0.0.0:5400"
      fields:
        logzio_codec: json
        # Your Logz.io account token. You can find your token at
@@ -81,7 +81,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
  
-   * 0.0.0.0.:5044 is the default address and port of the Filebeat server. If you use a different address and port, replace the default values with your parameters.
+   * 0.0.0.0:5044 is the default address and port of the Filebeat server. If you use a different address and port, replace the default values with your parameters.
    * {% include log-shipping/log-shipping-token.md %}
    * {% include log-shipping/listener-var.md %}
 

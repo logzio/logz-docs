@@ -82,6 +82,9 @@ Choose an **Output**.
 
 
 To send the raw JSON documents to your timeless account, choose **Full log**.
+
+
+
 To send a summary table, choose **Aggregations**.
 
   If you added any groups (in step 3), the aggregations table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.
@@ -89,13 +92,10 @@ To send a summary table, choose **Aggregations**.
 
 If you choose **Aggregations**, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
 
-![Optimizer aggregation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/optimizr-aggreg_aug2021.png)
+![Optimizer aggregation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/optimizr-aggreg2_aug2021.png)
 
 
-<!-- replace video -->
-<video autoplay loop>
-    <source src="{{site.baseurl}}/videos/alerts/alerts--custom-format.mp4" type="video/mp4" />
-</video>
+
 
 Click **Save** to save your optimizer. Logz.io will start sending your logs to the configured timeless account.
 

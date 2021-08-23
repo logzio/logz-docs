@@ -2,9 +2,9 @@
    filebeat.inputs:
    - type: udp
      max_message_size: 10MiB
-     host: "0.0.0.0.:9000"
+     host: "0.0.0.0.:5400"
      fields:
-       logzio_codec: plain
+       logzio_codec: <<CODE-TYPE>>
        # Your Logz.io account token. You can find your token at
        #  https://app.logz.io/#/dashboard/settings/manage-accounts
        token: <<LOG-SHIPPING-TOKEN>>

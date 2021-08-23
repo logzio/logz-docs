@@ -45,7 +45,7 @@ On deployment, your Zipkin instrumentation captures spans from your application 
 <div id="local-host">
 
 
-### Setup your locally hosted Zipkin installation to send traces to Logz.io
+### Set up your locally hosted Zipkin installation to send traces to Logz.io
 
 **Before you begin, you'll need**:
 

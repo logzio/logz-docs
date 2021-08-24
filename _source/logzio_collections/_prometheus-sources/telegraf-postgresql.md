@@ -54,7 +54,13 @@ The database name is only required for instantiating a connection with the serve
 
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+Give your metrics some time to get from your system to ours.
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["3L7cjHptO2CFcrvpqGCNI0"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
 
 
 </div>

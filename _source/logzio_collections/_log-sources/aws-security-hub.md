@@ -59,11 +59,11 @@ Specify the stack details as per the table below and select **Next**.
 | --- | --- |
 | `logzioListener` | Your Logz.io [listener url](https://docs.logz.io/user-guide/accounts/account-region.html), followed by port `8070` or `8071`. For example, `https://listener.logz.io:8071` |
 | `logzioLogLevel` | Log level for the Lambda function. Defaults to `info`. Valid options are: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |
-| `logzioOperationsToken` | Your Logz.io [operations token](https://app.logz.io/#/dashboard/settings/general) |
+| `logzioOperationsToken` | Your Logz.io [operations token](https://app.logz.io/#/dashboard/settings/general). |
 
 ##### Configure the stack options
 
-![Configure stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/ssecurity-hub-step3.png)
+![Configure stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/security-hub-step3.png)
 
 Specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 

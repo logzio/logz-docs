@@ -79,7 +79,7 @@ Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earl
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your Python application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.23.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your Python application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.33.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml` with the parameters below.
 

@@ -114,7 +114,13 @@ Here is an example of the configuration file that will enable Telegraf to scrape
 
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboards to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["VpeHVDlhfo1mF22Lc0UKf"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["6CpW1YzdonmTQ8uIXAN5OL"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["3AvORCMPVJd8948i9oKaBO"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
 
 
 </div>

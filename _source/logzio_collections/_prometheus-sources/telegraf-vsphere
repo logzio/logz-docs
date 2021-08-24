@@ -44,14 +44,13 @@ First you need to configure the input plug-in to enable Telegraf to scrape the V
 
 
 <!-- info-box-start:info -->
-The above integration scrapes all possbile Vmware Vsphere metrics. 
-If you wish to include or exclude specific metrics, or entire components from your Vsphere environment, you can find the full list of data scraping and configuring options [here](https://github.com/influxdata/telegraf/blob/release-1.19/plugins/inputs/vsphere/README.md).
+The above integration scrapes all Vmware Vsphere metrics available on your machine. 
+If you wish to include or exclude specific metrics, add them to the inputs file as described [here](https://github.com/influxdata/telegraf/blob/release-1.19/plugins/inputs/vsphere/README.md).
 {:.info-box.note}
 <!-- info-box-end -->
 
 
-Here is an example of a more complex configuration file, including some of the more danvaced scraping options: 
-
+Here is an example of the configuration file that will enable Telegraf to scrape metrics defined by `vm_metric_include` and `host_metric_include` arrays.
 
 ``` ini
 # Read metrics from one or many vCenters

@@ -247,6 +247,15 @@ In this example, the resulting transformation is: ![Template parsing example](ht
 ###### Log sample 
 ```java
 {
+"the_date": "20/6/2021",
+"the_time": "17:34"
+}
+```
+
+###### Applied parsing rule 
+
+```json
+{
     "steps": [
         {
             "addField": {
@@ -257,15 +266,6 @@ In this example, the resulting transformation is: ![Template parsing example](ht
             }
         }
     ]
-}
-```
-
-###### Applied parsing rule 
-
-```json
-{
-"the_date": "20/6/2021",
-"the_time": "17:34"
 }
 ```
 

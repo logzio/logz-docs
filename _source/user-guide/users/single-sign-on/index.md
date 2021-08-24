@@ -40,9 +40,11 @@ If you don't configure any groups,
 all users who authenticate with your identity provider
 will be able to access your Logz.io account.
 
-The first time a user logs in,
+The first time a new user logs in,
 they're given "User" access.
 You can edit a user to change them to "Admin" access.
+
+Existing users will retain their current level of access.
 
 ###### If you have groups
 

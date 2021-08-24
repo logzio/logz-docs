@@ -1,7 +1,7 @@
 ---
 title: Ship Vmware Vsphere metrics via Telegraf
 logo:
-  logofile: 
+  logofile: vsphere-telegraf.png
   orientation: vertical
 data-source: Vmware Vsphere metrics over Telegraf
 templates: ["docker"]

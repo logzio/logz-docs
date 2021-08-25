@@ -24,7 +24,7 @@ For example, "Brute-force attack from malicious address followed by malware down
 
 Click **+ Add another query** to add the option to correlate queries.
 
-![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/add-another-query.png)
+![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/add-another-query_aug2021.png)
 
 ##### Query 1 & Query 2
 

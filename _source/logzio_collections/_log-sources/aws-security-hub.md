@@ -1,5 +1,5 @@
 ---
-title: AAWS Security Hub 
+title: AWS Security Hub 
 logo:
   logofile: aws.svg
   orientation: vertical

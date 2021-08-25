@@ -8,6 +8,7 @@ templates: ["docker"]
 contributors:
   - daniel-tk
   - nshishkin
+  - YaelHeger
 shipping-tags:  
   - prometheus 
 order: 800
@@ -112,9 +113,9 @@ This document describes how to install Telegraf on your machine automatically us
 
 <div class="tasklist">
 
-##### Install git 
+##### Install Git 
 
-Make sure you have git on your os.
+Make sure you have Git on your operating system.
 
 ##### Clone the Logz.io Telegraf repo
 

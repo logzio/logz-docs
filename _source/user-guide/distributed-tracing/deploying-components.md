@@ -39,7 +39,6 @@ We recommend that you use the OpenTelemetry collector to gather trace transactio
 See _<a href ="/shipping/tracing-sources/opentelemetry" target="_blank">Installing the OpenTelemetry Collector for Distributed Tracing</a>_ for the procedure to configure and deploy the OpenTelemetry collector.
 
 
-{% include tracing-shipping/otel_bug_june2021.md %}
 
 ### Logz.io Jaeger Collector
 If you already have a local Jaeger in your environment, to get a head start on sending tracing data to Logz.io, you may want to consider using the Logz.io Jaeger Collector. 

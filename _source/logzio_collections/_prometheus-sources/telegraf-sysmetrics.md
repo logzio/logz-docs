@@ -24,6 +24,7 @@ order: 800
 <!-- tab:start -->
 <div id="overview">
 
+Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 This integration allows you to send system metrics from your machine to Logz.io. You can set up this integration manually or automatically as described in this document.
 
@@ -34,9 +35,9 @@ This integration allows you to send system metrics from your machine to Logz.io.
 <!-- tab:start -->
 <div id="manual">
 
-## Overview
+### Manual installation
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+This document describes how to install Telegraf on your machine manually and enable it to collect system metrics and send it to Logz.io.
 
 To send your Prometheus-format System metrics to Logz.io, you need to add multiple system-related inputs and **outputs.http** plug-ins to your Telegraf configuration file.
 
@@ -101,6 +102,13 @@ The full list of data scraping and configuring options can be found [here](https
 
 <!-- tab:start -->
 <div id="auto">
+
+### Automatic installation
+
+This document describes how to install Telegraf on your machine automatically using a script and enable it to collect system metrics and send them to Logz.io. All configuration happens automatically without the need to change the Telegraf configuration file. 
+
+
+#### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">
 

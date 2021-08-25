@@ -13,6 +13,26 @@ shipping-tags:
 order: 800
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Manual installation](#manual)
+* [Automatic installation](#auto)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
+
+This integration allows you to send system metrics from your machine to Logz.io. You can set up this integration manually or automatically as described in this document.
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="manual">
 
 ## Overview
 
@@ -76,3 +96,42 @@ The full list of data scraping and configuring options can be found [here](https
 
 
 </div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="auto">
+
+##### Install git 
+
+Make sure you have git on your os.
+
+##### Clone the Logz.io Telegraf repo
+
+```shell
+git clone https://github.com/logzio/telegraf_demo.git
+```
+
+##### Navigate to the telegraf_demo directory
+
+```shell
+cd telegraf_demo
+```
+##### Enable the execution permission
+
+```shell
+chmod +x ./script.sh
+```
+##### Execute the script
+
+```shell
+export LOGZIO_LISTENER="<<LISTENER-HOST>>:8053" && export LOGZIO_METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" && ./script.sh
+```
+{% include general-shipping/replace-placeholders-prometheus.html %}
+
+
+</div>
+</div>
+<!-- tab:end -->
+</div>
+<!-- tabContainer:end -->

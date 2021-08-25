@@ -131,7 +131,6 @@ export LOGZIO_LISTENER="<<LISTENER-HOST>>:8053" && export LOGZIO_METRICS_TOKEN="
 
 
 </div>
-</div>
 <!-- tab:end -->
 </div>
 <!-- tabContainer:end -->

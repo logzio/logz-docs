@@ -38,7 +38,7 @@ This integration allows you to send system metrics from your machine to Logz.io.
 
 ### Manual installation
 
-This document describes how to install Telegraf on your machine manually and enable it to collect system metrics and send it to Logz.io.
+This document describes how to install Telegraf on your machine manually and enable it to collect system metrics and send them to Logz.io.
 
 To send your Prometheus-format System metrics to Logz.io, you need to add multiple system-related inputs and **outputs.http** plug-ins to your Telegraf configuration file.
 

@@ -94,7 +94,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 {% include metric-shipping/generic-dashboard.html %} 
 
-
+</div>
 </div>
 <!-- tab:end -->
 

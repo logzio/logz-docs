@@ -11,7 +11,7 @@ open-source:
 contributors:
   - nshishkin
 shipping-tags:
-  - aws
+  - endpoint-security
 order: 830
 ---
 

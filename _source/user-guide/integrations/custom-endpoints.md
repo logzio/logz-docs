@@ -26,15 +26,15 @@ Set up your systems to receive notifications from Logz.io.
 
 Logz.io log alerts can only be sent on **ports 80 & 443**. If you try setting another port in your endpoint, the alert will NOT be sent.
 
-If you need to, whitelist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted:
+If you need to, allowlist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted:
 
-| Region slug | Whitelisted IP  |
+| Region slug | Allowlisted IP  |
 |---|---|
-| us-east-1 | 3.223.132.12 |
-| eu-central-1 | 52.59.86.203 |
-| ca-central-1 | 35.182.168.208 |
-| eu-west-2 | 18.132.31.199 |
-| ap-southeast-2 | 3.105.7.135 |
+| us-east-1 | 75.101.240.34, 54.86.133.203 |
+| eu-central-1 | 52.28.84.118, 52.59.12.246 |
+| ca-central-1 | 3.97.162.114 |
+| eu-west-2 | 18.168.65.253, 35.177.1.213 |
+| ap-southeast-2 | 3.104.195.194 |
 
 
 ##### Create a verification token (_Best practice but optional_)
@@ -56,7 +56,8 @@ Here's an example of a JSON payload for an alert that includes a verification to
 "alert_title": "{{alert_title}}",
 "alert_description": "{{alert_description}}",
 "alert_severity": "{{alert_severity}}",
-"alert_event_samples": "{{alert_samples}}"
+"alert_event_samples": "{{alert_samples}}",
+"alert_tags":["{{alert_tags_json}}"]
 }
 ```
 {% endraw %}
@@ -100,15 +101,17 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 | {{alert_severity}} | Severity of the alert that triggered  |
 | {{account_id}} | ID of the affected Logz.io account  |
 | {{account_name}} |  Name of the affected Logz.io account |
-| {{alert_samples}} | Prints a sample of the raw logs that caused the alert to trigger. (JSON format, max. of 10 logs.) |
-| {{alert_event_html}} | Returns a URL to an HTML file with the output table, as defined in the alert. Only relevant if the alert is configured to output data in tables. |
-| {{alert_event_image}} | Returns a URL to an image file with the output table, as defined in the alert. Only relevant if the alert is configured to output data in tables. |
-| {{alert_timeframe_start}} | Start time for the triggered alert event.   |
+| {{alert_samples}} | Prints a sample of the raw logs that caused the alert to trigger (JSON format, up to 10 logs) |
+| {{alert_event_html}} | Returns a URL to an HTML file with the output table, as defined in the alert: Only relevant if the alert is configured to output data in tables |
+| {{alert_event_image}} | Returns a URL to an image file with the output table, as defined in the alert: Only relevant if the alert is configured to output data in tables |
+| {{alert_timeframe_start}} | Start time for the triggered alert event   |
 | {{alert_timeframe_end}} | End time for the triggered alert event  |
 | {{alert_severity_img}} | Colored icon indicating the alert severity  |
 | {{alert_timeframe_start_epoch_millis}} |  Start time for the triggered alert event in UNIX milliseconds |
 | {{alert_timeframe_end_epoch_millis}} |  End time for the triggered alert event in UNIX milliseconds |
-| {{alert_app_url}}| The domain to your Logz.io account, for example: `https://app.logz.io`. Is used to build links. |
+| {{alert_app_url}}| The domain to your Logz.io account that is used to build links: For example: `https://app.logz.io` |
+| {{alert_tags}}| A comma separated list of tags assigned to the alert: That is, `tag1, tag2, tag3`                                                                                   |
+| {{alert_tags_json}}| A comma separated list of string tags as would be used in a JSON array: That is, `"tag1", "tag2", "tag3"`|
 
 
 Test your payload. Some parameters may not be supported by the service receiving the alerts from Logz.io.
@@ -151,6 +154,8 @@ The following list is provided for convenience, to make it easy to copy & paste 
 {{alert_timeframe_start_epoch_millis}}
 {{alert_timeframe_end_epoch_millis}}
 {{alert_app_url}}
+{{alert_tags}}
+{{alert_tags_json}}
 ```
 
 

@@ -40,7 +40,7 @@ The Logz.io Data parsing editor tool works with the Logz.io public API and lets 
 2. Test and validate the pipeline to examine how it impacts your logs.
 3. Submit the pipeline to Logz.io so that it can be reviewed, validated, and then applied to your ingested logs.
 
-The **Logz.io Data parsing editor** is available [here](https://sawmill.logz.io/).
+The **Logz.io Data parsing editor** is available [**here**](https://parsing.logz.io/).
 
 #### Create a parsing rule pipeline with Sawmill
 
@@ -106,8 +106,6 @@ The right panel is where you view and modify your log sample, and test how your 
 ##### Submit your pipeline for review
 
 When you're done editing the parsing rules, add the email for the admin user associated with your Logz.io account, along with information about the parsing mechanism you created, and click **Submit** to send your pipeline to Logz.io.
-
-
 
 
 <!-- info-box-start:info -->

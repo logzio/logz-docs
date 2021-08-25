@@ -12,6 +12,7 @@ contributors:
   - boofinka
   - gregoryloucas
   - imnotashrimp
+  - yberlinger
 ---
 
 If your account is nearing its daily quota,
@@ -37,6 +38,8 @@ when you filter for the `logzio_account_utilization` log type.
 | expected_utilization_EOD | Expected utilization by the end of the day, in percent |
 | expected_volume_in_GB_EOD | The expected utilization by the end of the day, in GB |
 | grace_capacity | The overage configured on the account, in percent. For instance, `120%` means that you have an overage allowance of 20% of your plan volume. |
+| number_of_fields| The total number of fields in the current index |
+| plan_retention_in_days| The number of days data is kept in the account until it is deleted|
 | plan_volume_in_GB | Data allocated to this account, in GB |
 | utilization | Current utilization, in percent |
 | volume_in_GB | Current utilization, in GB |
@@ -47,7 +50,7 @@ when you filter for the `logzio_account_utilization` log type.
 When you enable saving log size,
 a new field is added to incoming logs.
 This new field is called `LogSize`,
-and it contains the size of the log line in bytes.
+and it contains the size of the log line in bytes, taken as a single string.
 
 Kibana doesn't recognize `LogSize` as a number right away.
 You can fix this by clicking <i class="fas fa-sync-alt"></i> (refresh mapping) for `LogSize` in Kibana.

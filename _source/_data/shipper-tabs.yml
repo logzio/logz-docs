@@ -68,7 +68,7 @@ tags:
     name: CI/CD
     order: 4
   - slug: components
-    name: Tracing components   
+    name: Tracing components
     order: 5
   - slug: container
     name: Containers & pods
@@ -82,60 +82,66 @@ tags:
   - slug: endpoint-security
     name: Endpoint security
     order: 8
+  - slug: existing-instrumentation
+    name: My code is instrumented
+    order: 9
   - slug: firewalls
     name: Firewalls
-    order: 9
+    order: 10
   - slug: from-your-code
     name: From your code
-    order: 10
+    order: 11
   - slug: gcp
     name: Google Cloud
-    order: 11
+    order: 12
   - slug: ids
     name: IDS
-    order: 12
+    order: 13
   - slug: identity
     name: Identity providers
-    order: 13
+    order: 14
   - slug: instrumentation
     name: Tracing instrumentation      
-    order: 14
+    order: 15
   - slug: k8s
     name: K8S
-    order: 15
+    order: 16
   - slug: linux
     name: Linux security
-    order: 16
+    order: 17
   - slug: networking
     name: Networking
-    order: 17
+    order: 18
+  - slug: new-instrumentation
+    name: My code is not instrumented   
+    order: 19
   - slug: platform-service
     name: Platforms & services
-    order: 18
+    order: 20
   - slug: prometheus
     name: Prometheus as a service
-    order: 20
+    order: 21
   - slug: os
     name: Operating systems
-    order: 21
+    order: 22
   - slug: security
     name: Security
-    order: 22
+    order: 23
   - slug: server-app
     name: Server apps & devices
-    order: 23 
+    order: 24
   - slug: traces
     name: Tracing
-    order: 24
+    order: 25
   - slug: vulnerability-scanners
     name: Vulnerability scanners
-    order: 25
+    order: 26
   - slug: web-firewalls
     name: Web application firewalls
-    order: 26
+    order: 27
   - slug: windows
     name: Windows security
-    order: 27
+    order: 28
 
 
 

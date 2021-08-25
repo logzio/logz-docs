@@ -124,6 +124,20 @@ public class LogzioLog4j2Example {
 
 </div>
 
+#### Troubleshooting
+
+If you receive an error message regarding a missing appender, try adding the following configuration to the beginning and end of the configuration file:
+
+```xml
+
+<Configuration status="info" packages="io.logz.log4j2">
+
+# Place the configuration from step 2
+
+</Configuration>
+
+```
+
 #### More options
 
 You can optionally add mapped diagnostic context (MDC)

@@ -71,6 +71,7 @@ For a complete list of options, see the configuration parameters below the code 
     <retriesInterval>00:00:02</retriesInterval>
     <gzip>true</gzip>
     <debug>false</debug>
+    <jsonKeysCamelCase>false</jsonKeysCamelCase>
     <!--<parseJsonMessage>true</parseJsonMessage>-->
     
   </appender>
@@ -81,6 +82,7 @@ For a complete list of options, see the configuration parameters below the code 
   </root>
 </log4net>
 ```
+
 Add a reference to the configuration file in your code, as shown in the example [here](https://github.com/logzio/logzio-dotnet/blob/master/sample-applications/LogzioLog4netSampleApplication/Program.cs).
 
 ###### Option 2: In the code
@@ -93,15 +95,16 @@ var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddType("log4net");
 logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-logzioAppender.AddBufferSize("100");
-logzioAppender.AddBufferTimeout("00:00:05");
-logzioAppender.AddRetriesMaxAttempts("3");
-logzioAppender.AddRetriesInterval("00:00:02");
+logzioAppender.AddBufferSize(100);
+logzioAppender.AddBufferTimeout(TimeSpan.FromSeconds(5));
+logzioAppender.AddRetriesMaxAttempts(3);
+logzioAppender.AddRetriesInterval(TimeSpan.FromSeconds(2));
 logzioAppender.AddDebug(false);
 logzioAppender.AddGzip(true);
+logzioAppender.JsonKeysCamelCase(false);
 // <-- Uncomment and edit this line to enable proxy routing: --> 
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// <-- Uncomment this to prase messages as Json -->  
+// <-- Uncomment this to parse messages as JSON -->  
 // logzioAppender.ParseJsonMessage(true);
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Configured = true;
@@ -119,11 +122,10 @@ hierarchy.Configured = true;
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
-| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` 
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
-
-
+| jsonKeysCamelCase | Set to true if you want JSON keys in Logz.io to be in camelCase. | `false` |
 
 ###### Code sample
 
@@ -167,7 +169,7 @@ These custom fields must be children of `<appender>`, as shown here.
   <customField>
     <key>Environment</key>
     <value>Production</value>
-  <customField>
+  </customField>
   <customField>
     <key>Location</key>
     <value>New Jerseay B1</value>
@@ -195,7 +197,6 @@ For the example above, you'd use `MyAppLogzioAppender`.
 
 </div>
 <!-- tab:end -->
-
 
 <!-- tab:start -->
 <div id="nlog-config">
@@ -226,7 +227,6 @@ Use the samples in the code blocks below as a starting point, and replace them w
 
 For a complete list of options, see the configuration parameters below the code blocks.👇
 
-
 ###### Option 1: In a configuration file
 
 ```xml
@@ -245,7 +245,8 @@ For a complete list of options, see the configuration parameters below the code 
       bufferTimeout="00:00:05"
       retriesMaxAttempts="3"
       retriesInterval="00:00:02"
-      debug="false" 
+      debug="false"
+      jsonKeysCamelCase="false" 
      >
       <!-- parseJsonMessage="true" -->  <!-- include in previous section -->    
 
@@ -261,7 +262,6 @@ For a complete list of options, see the configuration parameters below the code 
 
 ###### Option 2: In the code
 
-
 ```csharp
 var config = new LoggingConfiguration();
 
@@ -276,6 +276,7 @@ var logzioTarget = new LogzioTarget {
   RetriesMaxAttempts = 3,
   RetriesInterval = TimeSpan.Parse("00:00:02"),
   Debug = false,
+  JsonKeysCamelCase = false,
   // ParseJsonMessage = true,
   // ProxyAddress = "http://your.proxy.com:port"
 };
@@ -284,9 +285,7 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
 LogManager.Configuration = config;
 ```
 
-
 ###### Parameters
-
 
 | Parameter | Description | Default/Required |
 |---|---|---|
@@ -300,7 +299,7 @@ LogManager.Configuration = config;
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
-
+| jsonKeysCamelCase | Set to true if you want JSON keys in Logz.io to be in camelCase. | `false` |
 
 ###### Code sample
 
@@ -372,7 +371,7 @@ When using 'JsonLayout' set the name of the attribute to **other than** 'message
 
 ```xml
 <layout type="JsonLayout" includeAllProperties="true">
-	<attribute name="msg"  layout="${message}" encode="false"/>
+ <attribute name="msg"  layout="${message}" encode="false"/>
 </layout>
 ```
 
@@ -430,6 +429,7 @@ For a complete list of options, see the configuration parameters below the code 
     <retriesInterval>00:00:02</retriesInterval>
     <gzip>true</gzip>
     <debug>false</debug>
+    <jsonKeysCamelCase>false</jsonKeysCamelCase>
     <!--<parseJsonMessage>true</parseJsonMessage>-->
     
   </appender>
@@ -440,7 +440,6 @@ For a complete list of options, see the configuration parameters below the code 
   </root>
 </log4net>
 ```
-
 
 ###### Option 2: In the code
 
@@ -458,6 +457,7 @@ logzioAppender.AddRetriesMaxAttempts("3");
 logzioAppender.AddRetriesInterval("00:00:02");
 logzioAppender.AddDebug(false);
 logzioAppender.AddGzip(true);
+logzioAppender.JsonKeysCamelCase(false);
 // <-- Uncomment and edit this line to enable proxy routing: --> 
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
 // <-- Uncomment this to prase messages as Json -->  
@@ -478,11 +478,10 @@ hierarchy.Configured = true;
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
 | retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
 | gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
-| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` 
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
-
-
+| jsonKeysCamelCase | Set to true if you want JSON keys in Logz.io to be in camelCase. | `false` |
 
 ###### Code sample
 
@@ -580,7 +579,7 @@ These custom fields must be children of `<appender>`, as shown in the code below
   <customField>
     <key>Environment</key>
     <value>Production</value>
-  <customField>
+  </customField>
   <customField>
     <key>Location</key>
     <value>New Jerseay B1</value>

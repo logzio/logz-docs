@@ -23,6 +23,10 @@ info:
 
     This API is documented using the **OpenAPI 2.0** specification.
 
+    # Automation
+
+    You can automate most of our APIs using our [Terraform provider](https://docs.logz.io/integrations/terraform/).
+
 
     <!-- You can browse the API documentation on this page, or you can download the specification file. -->
 
@@ -200,6 +204,11 @@ tags:
 
 
       You can also create new security rules to supplement the built-in rules.
+
+  - name: Security account
+    description: >-
+      A security account with SIEM allows you to use the SIEM platform. You can create a SIEM account uaing an API call.
+
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -250,6 +259,7 @@ x-tagGroups:
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
+      - Security account
       - Security rules
       - Security events
       - Lookup lists
@@ -268,6 +278,7 @@ x-tagGroups:
       - Drop filters
       - Archive logs
       - Restore logs
+      - Parsing
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -361,9 +372,8 @@ paths:
           name: body
           required: false
           schema:
-            oneOf:
-              - $ref: '#/definitions/TimeBasedAccountCreateRequest'
-              - $ref: '#/definitions/TimeBasedAccountCreateRequestEmptyArray'
+            $ref: '#/definitions/TimeBasedAccountCreateRequest'
+
       responses:
         200:
           description: successful operation
@@ -445,9 +455,8 @@ paths:
           name: body
           required: false
           schema:
-            oneOf:
-              - $ref: '#/definitions/TimeBasedAccountUpdateRequest'
-              - $ref: '#/definitions/TimeBasedAccountUpdateRequestEmptyArray'
+            $ref: '#/definitions/TimeBasedAccountUpdateRequest'
+
       responses:
         204:
           description: successful operation
@@ -1074,9 +1083,102 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
 
+  # ::::: Sawmill
+  /v1/sawmill/log-type-pipeline/logType:
+    post:
+      operationId: getSawmillTestType
+      summary: Parse sample logs with a Sawmill pipeline
+      description: Performs parsing of sample logs with a given Sawmill pipeline (https://github.com/logzio/sawmill/wiki). A pipeline is a collection of parsing rules to be executed in a specific order where the syntax and functionality follow the guidelines of the Sawmill library.
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: logType
+          description: Type of the log being parsed. This can be an existing type (already sent to Logz.io) or a new type (to be sent to Logz.io for parsing).
+          example: TestType
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              pipeLineDefinition:
+                type: object
+                description: JSON object of a Sawmill pipeline. Defines what transaformations should be applied to the input. In the example shown, an extra field `Movie` with the value `TheMatrix` will be added to the input. Always make sure that items in the input object representing the sawmill pipeline, are escaped.
+                example: >-
+                 {"steps":[{"addField":{"name":"addField","config":{"path":"Movie","value":"TheMatrix"}}}]}
+              sampleLogs:
+                type: array
+                items:
+                  type: object
+                description: A list of JSON objects. If the log is available only as a plain string, this string needs to be in the `message` field of the JSON object.
+                example:
+                  - fragment: test
+                    UA-device: Other
+                    check: value
+                    message: balima
+                    type": TestType
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The response provides the value of `sampleLogs` after parsing.
+                items:
+                  type: object
+                example: >-
+                 {"Movie":"TheMatrix","fragment":"test","@timestamp":"2021-08-15T12:17:45.731+0000","check":"value","message":"balima","type":"TestType","UA-device":"Other"}
+    get:
+      operationId: getLogType
+      summary: Get pipeline definition for a log type
+      description: Receive pipeline definition for a given log type, if the definition is already stored.
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: logType
+          description: Log type that you need to retrieve a Sawmill pipeline for. If no parsing has been applied to this log type, 404 error will be given.
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            example: >-
+             {"steps":[{"addField":{"name":"addField","config":{"path":"Movie","value":"TheMatrix"}}}]}
+        '404':
+          description: pipeline not found for this log type
+          schema:
+            type: object
+            example:
+              - errorCode: SAWMILL_SELF_PARSE/PIPELINE NOT FOUND
+                message": log type with name (logType) not found
+                parameters:
+                  - logTypeName: SampleLogType
+  /v1/account/log-types:
+    get:
+      operationId: getLogTypes
+      summary: Get all log types
+      description: Get all log types for a given account including the log types with no parsing attached. 
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              type: string
+            example: [“metering-access”,“lag-monitor”,“business-analytics-metrics”,“consul-agent”,“auth0”]
 
 
-  # ::::: Alerts V2
+  # ::::: Alerts V2 
   /v2/alerts:
     get:
       operationId: getAllAlerts
@@ -1244,7 +1346,7 @@ paths:
           type: integer
           minimum: 0
           default: 0
-          description: Of the results found, the first result to return
+          description: Of the results found, the first result to return.
           example: 0
         - name: size
           in: query
@@ -1262,29 +1364,36 @@ paths:
           items:
             type: string
             enum:
-              - SEVERE
-              - HIGH
-              - MEDIUM
-              - LOW
-              - INFO
+              -
+                - SEVERE
+                - HIGH
+                - MEDIUM
+                - LOW
+                - INFO
+            example: '["SEVERE", "HIGH"]'
           description: Filter results by severity of triggered alerts.
-          example: SEVERE
         - name: sortBy
           in: query
-          description: Sort alerts by date or severety.
+          description: Sort alerts by date or severity.
           schema:
             type: string
-            enum: [DATE, SEVERETY]
+            enum: [DATE, SEVERITY]
         - name: sortOrder
           in: query
           description: Sort order of alerts retrieved.
           schema:
             type: string
             enum: [ASC, DESC]
+        - name: tags
+          in: query
+          type: array
+          items:
+            type: string
+          description: List of tags the alert is related to.
       x-code-samples:
               - lang: cURL
                 source: >-
-                  curl -X POST https://api.logz.io/v1/search \
+                  curl -X POST https://api.logz.io/v1/alerts/triggered-alerts \
                     -H 'Content-Type: application/json' \
                     -H 'X-API-TOKEN: <token>' \
                     -d '{
@@ -1293,7 +1402,8 @@ paths:
                   	"search": "test",
                   	"severities": ["HIGH", "LOW"],
                   	"sortBy": "DATE",
-                  	"sortOrder": "ASC"
+                  	"sortOrder": "ASC",
+                    "tags": "network"
                   }' 
       responses:
         '200':
@@ -1529,8 +1639,6 @@ paths:
       description: >-
         Returns a list of all S3 buckets connected to your Logz.io account.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getS3Buckets
@@ -1553,9 +1661,7 @@ paths:
 
 
         Logs will be parsed using the Logz.io custom parsing pipeline for the resource.
-
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
+ 
       tags:
         - Connect to S3 Buckets
       operationId: createBuckets
@@ -1578,8 +1684,6 @@ paths:
       description: >-
         Returns connection details for an S3 bucket connector by its ID.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getS3Bucket
@@ -1604,8 +1708,6 @@ paths:
       description: >-
         Updates connection details for an S3 bucket connector.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: updateBucket
@@ -1633,8 +1735,6 @@ paths:
       description: >-
         Deletes an S3 bucket connector. As a result, the connected AWS resource will stop shipping logs to your Logz.io account.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: deleteBucket
@@ -1665,8 +1765,6 @@ paths:
 
         * Create a new S3 bucket connector. Provide the ARN from the previous step in the request body.
 
-
-        **Note:** This endpoint requires permissions that must be set by our Support team. Please email [help@logz.io](mailto:help@logz.io) for assistance.
       tags:
         - Connect to S3 Buckets
       operationId: getAWSAssumeRoleDetails
@@ -2148,6 +2246,210 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Endpoint'
+  /v1/endpoints/ops-genie:
+    post:
+      tags:
+        - Manage notification endpoints
+      summary: Create an OpsGenie endpoint
+      description: Creates a new OpsGenie  notification endpoint or sends a test message to OpsGenie.
+      operationId: createOpsGenie
+      parameters:
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/OpsGenieEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/endpoints/ops-genie" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New OpsGenie endpoint\",  \"description\": \"Sends notifications to OpsGenie\",  \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/ops-genie/{id}:
+    put:
+      tags:
+        - Manage notification endpoints
+      summary: Update an OpsGenie endpoint
+      description: Updates an OpsGenie notification endpoint or sends a test message to OpsGenie.
+      operationId: updateOpsGenie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the notification endpoint
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/OpsGenieEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "http://endpoints/ops-genie/273" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{\"title\": \"Updated OpsGenie endpoint\", \"description\": \"Sends notifications to OpsGenie\", \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/service-now:
+    post:
+      tags:
+        - Manage notification endpoints
+      summary: Create an ServiceNow endpoint
+      description: Creates a new ServiceNow  notification endpoint or sends a test message to ServiceNow.
+      operationId: createServiceNow
+      parameters:
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ServiceNowEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/endpoints/service-now" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New ServiceNow endpoint\",  \"description\": \"Sends notifications to ServiceNow\",  \"username\": \"User\", \"password\": \"Password\", \"url\": \"https://my.custom-endpoint.com\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/service-now/{id}:
+    put:
+      tags:
+        - Manage notification endpoints
+      summary: Update an ServiceNow endpoint
+      description: Updates an ServiceNow notification endpoint or sends a test message to ServiceNow.
+      operationId: updateServiceNow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the notification endpoint
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ServiceNowEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "http://endpoints/service-now/273" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New ServiceNow endpoint\",  \"description\": \"Sends notifications to ServiceNow\",  \"username\": \"User\", \"password\": \"Password\", \"url\": \"https://my.custom-endpoint.com\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/microsoft-teams:
+    post:
+      tags:
+        - Manage notification endpoints
+      summary: Create an  Microsoft Teams endpoint
+      description: Creates a new  Microsoft Teams  notification endpoint or sends a test message to  Microsoft Teams.
+      operationId: createMicrosoftTeams
+      parameters:
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/MicrosoftTeamsEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/endpoints/microsoft-teams" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New OpsGenie endpoint\",  \"description\": \"Sends notifications to OpsGenie\",  \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/microsoft-teams/{id}:
+    put:
+      tags:
+        - Manage notification endpoints
+      summary: Update an Microsoft Teams endpoint
+      description: Updates an Microsoft Teams notification endpoint or sends a test message to Microsoft Teams.
+      operationId: updateMicrosoftTeams
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the notification endpoint
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`. 
+
+
+            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/MicrosoftTeamsEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "http://endpoints/microsoft-teams/273" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{\"title\": \"Updated ServiceNow endpoint\", \"description\": \"Sends notifications to ServiceNow\", \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
 
   # ::::: KIBANA IMPORT/EXPORT
   /v1/kibana/export:
@@ -3122,6 +3424,65 @@ paths:
       responses:
         200:
           description: successful operation
+  
+  /v1/user-management/{id}/suspend/recursive:
+    put:
+      tags:
+        - Manage users
+      summary: Suspend a user from all accounts
+      description: >-
+        Suspends a user from the main account and all associated sub accounts. Must be run with an API token for the main account.
+        The user will not be suspended from accounts for which there are no other users. In other words, any accounts where the user is the last user will be skipped. The success message will list accounts that were skipped.
+      operationId: suspendUserRecursively
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the user
+          example: 11300
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "https://api.logz.io/v1/user-management/11300/suspend/recursive" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Finished suspending user 11300 from accounts."
+
+  /v1/user-management/{id}/unsuspend/recursive:
+    put:
+      tags:
+        - Manage users
+      summary: Unsuspend a user from all accounts
+      description: >-
+        Unsuspends a user from the main account and all associated sub accounts. Must be run with an API token for the main account.
+      operationId: unsuspendUserRecursively
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the user
+          example: 11300
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "https://api.logz.io/v1/user-management/11300/suspend/recursive" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Finished unsuspending user 11300 from accounts."
 
 
   # ::::: CLOUD SIEM RULES
@@ -3211,13 +3572,13 @@ paths:
           schema:
             $ref: '#/definitions/RuleV2Response'
           headers: {}
-  /v2/security/rules/search: 
+  /v2/security/rules/search/{FilteredRequest}: 
     post: 
       tags: 
         - Security rules
-      operationId: searchAccountSecurityRules
-      summary: Retrieve security rules
-      description: Retrieve a filtered or unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      operationId: searchAccountSecurityRulesFiltered
+      summary: Retrieve filtered security rules
+      description: Retrieve a filtered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
       produces:
         - application/json
       parameters: 
@@ -3225,7 +3586,30 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/AlertsSearchRequest'
+            $ref: '#/definitions/AlertsSearchRequestFiltered'
+
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/PagedSearchResponseSecurityRuleResponse'
+
+  /v2/security/rules/search/{UnfilteredRequest}: 
+    post: 
+      tags: 
+        - Security rules
+      operationId: searchAccountSecurityRulesUnfiltered
+      summary: Retrieve unfiltered security rules
+      description: Retrieve an unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      produces:
+        - application/json
+      parameters: 
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/AlertsSearchRequestUnfiltered'
+
       responses:
         '200':
           description: successful operation
@@ -3337,6 +3721,95 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseTriggeredAlert'
           headers: {}
+  
+  # ::::: SECURITY ACCOUNT
+  /v1/account-management/siem:
+    post:
+      summary: Create SIEM account
+      description: >-
+        Creates SIEM account through public API
+      tags:
+        - Security account
+      operationId: createSIEMaccount
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            required:
+              - accountName
+              - Email
+            properties:
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+              email:
+                type: string
+                description: Email address of the account user.
+                example: "User@logz.io"
+
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/account-management/siem \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "accountName": "User",
+                "accountsToScan": 88888, 55555,
+                "sharingObjectsAccounts": 55555
+                "Email": "user@logz.io",
+              }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              accountId:
+                type: integer
+                description: ID of the account
+                example: 24601
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty. 
+              createdAt:
+                type: string
+                format: date-time
+                description: >-
+                  Date this account was created.
+                  Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
+                example: 2018-04-01T19:18:38Z
+              
+
   /v2/security/rules/events/logs/search:
     post:
       summary: Fetch the logs that triggered a security event
@@ -3793,10 +4266,7 @@ paths:
           schema:
             $ref: '#/definitions/LookupListElementBulkResponse'
           headers: {}
-
-  
-  
-  
+            
 
 definitions:
   # ::::: SIEM LOOKUPS
@@ -4111,68 +4581,15 @@ definitions:
         items:
           type: integer
           format: int32
-          example: [ 88888, 55555 ]
+          example:
+            - [ 88888, 55555 ]
+            - []
         description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
-  TimeBasedAccountUpdateRequestEmptyArray:
-    type: object
-    required:
-      - accountName
-      - sharingObjectsAccounts
-    properties:
-      accountName:
-        type: string
-        description: Name of the account
-        example: AWS Lambda svr 3
-      reservedDailyGB:
-        type: number
-        format: float
-        default: null
-        description: >-
-          * If `isFlexible=false`, this field does not apply. Leave it null.
-   
-         
-          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
-        example: 3
-      maxDailyGB:
-        type: number
-        format: float
-        description: >-
-          The maximum volume of data that an account can index per calendar day.
 
-
-          * If `isFlexible=false` this parameter can only be used to update a sub account, but not a main account. It determines the only capacity reserved for use by the account. It cannot be null.
-
-
-          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
-          
-          
-          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
-        example: 5
-      retentionDays:
-        type: integer
-        format: int32
-        description: This is how long log data is stored and searchable in Kibana, in days.
-        minimum: 1
-        example: 5
-      searchable:
-        $ref: "#/definitions/Searchable"
-      accessible:
-        $ref: "#/definitions/Accessible"
-      sharingObjectsAccounts:
-        type: array
-        items:
-          type: integer
-          format: int32
-          example: [ ]
-        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
-      docSizeSetting:
-        $ref: '#/definitions/DocSizeSetting'
-      utilizationSettings:
-        $ref: '#/definitions/AccountUtilizationSettings'
   DetailedTimeBasedAccount:
     type: object
     properties:
@@ -4216,6 +4633,9 @@ definitions:
         type: string
         description: Name of the account
         example: AWS Lambda svr 3
+      isFlexible:
+        type: boolean
+        default: false
       reservedDailyGB:
         type: number
         format: float
@@ -4256,71 +4676,9 @@ definitions:
         items:
           type: integer
           format: int32
-          example: [ 88888, 55555 ]
-        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
-      docSizeSetting:
-        $ref: '#/definitions/DocSizeSetting'
-      utilizationSettings:
-        $ref: '#/definitions/AccountUtilizationSettings'
-
-  TimeBasedAccountCreateRequestEmptyArray:
-    type: object
-    required:
-      - accountName
-      - email
-      - sharingObjectsAccounts
-      - retentionDays
-    properties:
-      email:
-        type: string
-        pattern: "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
-        description: Account administrator's email address
-        example: help@logz.io
-      accountName:
-        type: string
-        description: Name of the account
-        example: AWS Lambda svr 3
-      reservedDailyGB:
-        type: number
-        format: float
-        default: null
-        description: >-
-          * If `isFlexible=false`, don't send this field or send it null.
-
-
-          * If `isFlexible=true`, this parameter is required. It determines the volume that is reserved for the account.
-        example: 3
-      maxDailyGB:
-        type: number
-        format: float
-        description: >-
-          The maximum volume of data that an account can index per calendar day.
-
-
-          * If `isFlexible=false` this is the only capacity reserved for use by the account. Cannot be null.
-
-
-          * If `isFlexible=true` this is used to limit the account's access to shared volume. Once the data shipped to the account exceeds the account's reserved capacity, the account can continue to index data up to its `maxDailyGB`, as long as shared volume is available.
-
-
-          * If null (and `isFlexible=true`), the account is uncapped and can continue to index data as long as shared volume is available.
-        example: 5
-      retentionDays:
-        type: integer
-        format: int32
-        description: How long log data is stored and searchable in Kibana, in days.
-        minimum: 1
-        example: 5
-      searchable:
-        $ref: "#/definitions/Searchable"
-      accessible:
-        $ref: "#/definitions/Accessible"
-      sharingObjectsAccounts:
-        type: array
-        items:
-          type: integer
-          format: int32
-          example: [ ]
+          example:
+            - [ 88888, 55555 ]
+            - []
         description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
@@ -4358,19 +4716,17 @@ definitions:
       accessible:
         $ref: "#/definitions/Accessible"
       createdDate:
-        type: string
-        format: date-time
+        type: integer
+        format: int64
         description: >-
           Date this account was created.
-          Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
-        example: 2018-02-22T09:14:53Z
+        example: 1627489797000
       lastUpdatedDate:
-        type: string
-        format: date-time
+        type: integer
+        format: int64
         description: >-
           Date this account was last updated.
-          Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
-        example: 2018-04-01T19:18:38Z
+        example: 1627489797000
       lastUpdaterUserId:
         type: integer
         format: int32
@@ -4715,8 +5071,8 @@ definitions:
       pagination:
         $ref: '#/definitions/Pagination'
 
-
-  AlertsSearchRequest:
+  AlertsSearchRequestFiltered:
+    title: Filtered Results  
     type: object
     properties:
       filter:
@@ -4727,6 +5083,24 @@ definitions:
         $ref: '#/definitions/AlertsSortRequest'
       pagination:
         $ref: '#/definitions/Pagination'
+  AlertsSearchRequestUnfiltered:
+    title: Unfiltered Results  
+    type: object
+    properties:
+      query:
+        type: object
+        description: Search query.
+        properties:
+            bool:
+              type: object
+              properties:
+                  must:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        match_all:
+                          type: object
   AlertsSortRequest:
     type: object
     required:
@@ -5104,14 +5478,14 @@ definitions:
         format: int32
         minimum: 0
         maximum: 2147483647
-        description: Of the results found, the first result returned
+        description: Of the results found, the first result returned.
         example: 0
       total:
         type: integer
         format: int64
         minimum: 0
         maximum: 500
-        description: Total number of results that met the search criteria
+        description: Total number of results that met the search criteria.
       results:
         type: array
         items:
@@ -5133,7 +5507,7 @@ definitions:
         minimum: 0
         maximum: 500
         default: 500
-        description: Maximum number of results to return
+        description: Maximum number of results to return.
         example: 150
       from:
         type: integer
@@ -5141,7 +5515,7 @@ definitions:
         minimum: 0
         maximum: 2147483647
         default: 0
-        description: Of the results found, the first result to return
+        description: Of the results found, the first result to return.
         example: 15
       auditEventUser:
         $ref: '#/definitions/AuditEventUser'
@@ -5152,12 +5526,12 @@ definitions:
       fromDate:
         type: integer
         format: int64
-        description: Starting timedate, as Unix epoch milliseconds
+        description: Starting timedate, as Unix epoch milliseconds.
         example: 389880000
       toDate:
         type: integer
         format: int64
-        description: Ending timedate, as Unix epoch milliseconds
+        description: Ending timedate, as Unix epoch milliseconds.
         example: 414763200
       sortDescending:
         type: boolean
@@ -5511,6 +5885,9 @@ definitions:
           - Custom
           - PagerDuty
           - VictorOps
+          - Opsgenie
+          - ServiceNow
+          - Microsoft Teams
         description: The notification endpoint type that will receive alert messages
         example: Slack
       id:
@@ -5526,6 +5903,59 @@ definitions:
         type: string
         description: Detailed description of the endpoint
         example: Endpoint for sending alerts to Slack
+  OpsGenieEndpointUpsertRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Name of the endpoint
+        example: OpsGenie endpoint
+      description:
+        type: string
+        description: Detailed description of the endpoint
+        example: Sends notifications to OpsGenie
+      apiKey:
+        type: string
+        description: API key from OpsGenie, see https://docs.opsgenie.com/docs/logz-io-integration
+        example: c687f9231619d7d7b959f33e4cc821a5
+  ServiceNowEndpointUpsertRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Name of the endpoint
+        example: New ServiceNow endpoint
+      description:
+        type: string
+        description: Detailed description of the endpoint
+        example: Sends notifications to logzio-alerts channel
+      username:
+        type: string
+        description: ServiceNow user name
+        example: User
+      password:
+        type: string
+        description: ServiceNow password
+        example: Password
+      url:
+        type: string
+        description: Provide your instance URL to connect to your existing ServiceNow instance, i.e. https://xxxxxxxxx.service-now.com/.
+        example: https://my.custom-endpoint.com
+  MicrosoftTeamsEndpointUpsertRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Name of the endpoint
+        example: New Microsoft Teams endpoint
+      description:
+        type: string
+        description: Detailed description of the endpoint
+        example: Sends notifications to logzio-alerts channel
+      url:
+        type: string
+        description: Your Microsoft Teams webhook URL, see https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook
+        example: https://my.custom-endpoint.com
 
   # ::::: KIBANA IMPORT/EXPORT DEFINITIONS
   KibanaExportResponse:
@@ -5662,7 +6092,7 @@ definitions:
         type: integer
         format: int32
         minimum: 0
-        description: Of the results found, the first result to return
+        description: Of the results found, the first result to return.
         example: 0
       sort:
         type: array
@@ -5708,6 +6138,27 @@ definitions:
           #### Limitations
 
           * Time search must be ≤ 5 minutes. If no time is specified, default is `1m` (1 minute).
+      aggregations:
+        type: object
+        description: >-
+          Apply field aggregations. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-aggregations.html) for details.
+
+
+          #### Limitations
+
+          * When using the `size` element, the value must be ≤ `1000`
+
+          * Can't nest 2 or more bucket aggregations of these types: `date_histogram`, `geohash_grid`, `histogram`, `ip_ranges`, `significant_terms`, `terms`
+
+          * Can't sort or aggregate on analyzed fields, such as the `message` field
+
+          * Aggregation type `significant_terms` can't be used
+
+          * If the request specifies aggregations, only the initial search response will contain the aggregations results
+
+
+          **Note:** You can use `aggs` or `aggregations` as the field name
+        example: { "byType": { "terms": { "field": "type", "size": 5 } } }
 
   # ::::: SHARED TOKENS DEFINITIONS
   QueryFilter:
@@ -6345,6 +6796,8 @@ definitions:
 
   ShippingTokensFilterRequest:
       type: object
+      required:
+      - enabled
       description: Filters your search for token attributes.
       properties:
         enabled:
@@ -6560,7 +7013,7 @@ definitions:
               example: 1523970558.657000000
             severity: 
               type: string
-              description: Alert severety.
+              description: Alert severity
               example: HIGH
 
 
@@ -6634,6 +7087,8 @@ definitions:
   AlertV2Request:
     type: object
     required:
+     - title
+     - subComponents
     properties:
       title:
         type: string
@@ -6669,6 +7124,9 @@ definitions:
 
 
           The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+
+
+          The default value is 5. 
         example: 20
       subComponents:
         type: array
@@ -6679,7 +7137,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
       enabled:
         type: boolean
-        description: If `true`, the alert is enabled and active.
+        description: If `true`, the alert is enabled and active. Default value is `true`.
   AlertTrigger:
     type: object
     description: Sets the triggering threshold and severity tab to label the event when the alert triggers.
@@ -6749,15 +7207,30 @@ definitions:
         type: array
         items:
           type: object
-          additionalProperties:
-            type: object
-
+          properties:
+            match_phrase:
+              type: object
+              properties:
+                Field:
+                  type: object
+                  properties:
+                    query:
+                      type: string
+                      example: value
       must_not:
         type: array
         items:
           type: object
-          additionalProperties:
-            type: object
+          properties:
+            match_phrase:
+              type: object
+              properties:
+                Field:
+                  type: object
+                  properties:
+                    query:
+                      type: string
+                      example: value
   PagedSearchResponseString:
     type: object
     properties:

@@ -148,7 +148,7 @@ auditbeat.modules:
 #-------------------------- Elasticsearch output ------------------------------
 # ...
 output.logstash:
-  hosts: ["<<LISTENER-HOST>>.io:5015"]
+  hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```

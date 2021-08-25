@@ -147,7 +147,7 @@ pubsubs:
 
 ** Note that YAML files are sensitive to spaces and tabs. We recommend using a YAML validator to make sure that the file structure is correct.
 
-Click here for more information about [filebeat for Google Cloud Pub/Sub](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-input-google-pubsub.html#filebeat-input-google-pubsub).
+Click here for more information about [filebeat for Google Cloud Pub/Sub](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-input-gcp-pubsub.html#filebeat-input-gcp-pubsub).
 
 ###### Configuration instructions
 

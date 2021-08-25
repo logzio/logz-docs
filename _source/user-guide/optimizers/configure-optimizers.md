@@ -8,6 +8,7 @@ tags:
   - data-optimizers
 contributors:
   - imnotashrimp
+  - yberlinger
 ---
 
 To create a new optimizer, start in Kibana so you can test the query you want to use. After that, continue to the **Create an optimizer** page, where you can configure the optimizer settings.

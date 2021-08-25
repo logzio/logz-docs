@@ -17,7 +17,7 @@ order: 830
 
 #### Overview
 
-This integration ships events from AWS Security Hub to Logz.io.
+This integration ships events from AWS Security Hub to Logz.io. It will automatically deploy [resources](#resources) to your AWS Account.
 
 A new event triggers a designated EventBridge rule, which invokes a Lambda function. The function processes the event and sends it to Logz.io.
 
@@ -71,6 +71,7 @@ Specify the **Key** and **Value** parameters for the **Tags** and select **Next*
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
+<div id="resources">
 ##### Deployed resources
 
 This deployment will automatically create the following resources:
@@ -78,10 +79,11 @@ This deployment will automatically create the following resources:
 ![Resources](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/resources-security-hub.png)
 
 
-##### Check Logz.io for your logs
+##### Check Logz.io for your events
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give the stack some time to deploy and the resources to get created. Once this is finished, the stack sends a security event to Logz.io as soon as the event is created on the security hub. You can then see the data in [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your events, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
+</div>
 </div>

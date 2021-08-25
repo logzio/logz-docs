@@ -44,7 +44,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the V
 
 
 <!-- info-box-start:info -->
-The above integration scrapes all Vmware Vsphere metrics available on your machine. 
+The above integration scrapes all Vmware Vsphere metrics available on your machines. 
 If you wish to include or exclude specific metrics, add them to the inputs file as described [here](https://github.com/influxdata/telegraf/blob/release-1.19/plugins/inputs/vsphere/README.md).
 {:.info-box.note}
 <!-- info-box-end -->
@@ -116,9 +116,7 @@ Here is an example of the configuration file that will enable Telegraf to scrape
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboards to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["VpeHVDlhfo1mF22Lc0UKf"] --> 
-<!-- logzio-inject:install:grafana:dashboards ids=["6CpW1YzdonmTQ8uIXAN5OL"] --> 
-<!-- logzio-inject:install:grafana:dashboards ids=["3AvORCMPVJd8948i9oKaBO"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["VpeHVDlhfo1mF22Lc0UKf", "6CpW1YzdonmTQ8uIXAN5OL", "3AvORCMPVJd8948i9oKaBO"] -->
 
 {% include metric-shipping/generic-dashboard.html %} 
 

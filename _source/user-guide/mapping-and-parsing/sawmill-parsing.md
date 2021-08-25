@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Customize your log parsing with the Logz.io Parsing rule editor
+title: Logz.io DIY parsing
 permalink: /user-guide/mapping-and-parsing/sawmill-parsing
 flags:
   admin: true
@@ -12,6 +12,8 @@ contributors:
   - yberlinger
 ---
 
+## Customize your log parsing with the Logz.io Data parsing editor
+
 Create your own parsing rule pipelines for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule pipelines will be applied to your Logz.io account to transform your logs. 
 
 <!-- info-box-start:info -->
@@ -20,7 +22,7 @@ You must be an account admin to apply a parsing pipeline to an account.
 <!-- info-box-end -->
 
 
-## What is Sawmill and what is the Logz.io Parsing editor?
+## What is Sawmill and what is the Logz.io Data parsing editor?
 
 The [Sawmill open source library](https://github.com/logzio/sawmill) is used for text transformations. 
 
@@ -29,16 +31,16 @@ A Sawmill pipeline is composed of a series of steps that are applied to a specif
 The collection of Sawmill processors can be found in the [Github wiki for the project.](https://github.com/logzio/sawmill/wiki)  
 
 
-### The Logz.io Parsing editor
+### The Logz.io Data parsing editor
 
-The Logz.io Parsing editor tool works with the Logz.io public API and lets you: 
+The Logz.io Data parsing editor tool works with the Logz.io public API and lets you: 
 
 1. Create, access, and edit custom parsing rules for a log type, using Sawmill processors.
 2. Build a parsing pipeline for your logs from the rules.
 2. Test and validate the pipeline to examine how it impacts your logs.
 3. Submit the pipeline to Logz.io so that it can be reviewed, validated, and then applied to your ingested logs.
 
-The **Logz.io Parsing editor** is available [here](https://sawmill.logz.io/).
+The **Logz.io Data parsing editor** is available [here](https://sawmill.logz.io/).
 
 #### Create a parsing rule pipeline with Sawmill
 
@@ -48,7 +50,7 @@ This process creates parsing rules (pipelines) for the specified log type. The l
 
 ##### Prerequisites
 
-To use the Parsing editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
+To use the Data parsing editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
 
 1. To work with the Logz.io public API, obtain or create an API token in the [Manage tokens page](https://app.logz.io/#/dashboard/settings/manage-tokens/api). <br>We recommend that you create a dedicated API token for parsing tasks. 
    
@@ -57,9 +59,9 @@ To use the Parsing editor you need a Logz.io API token. To get an API token, you
 2. Select your region. You can look up your Logz.io account region in [**Settings > General settings > Account settings > Region**](https://app.logz.io/#/dashboard/settings/general).  
 
 
-##### Set up the Parsing editor
+##### Set up the Data parsing editor
 
-In the [Parsing editor](https://sawmill-logz.herokuapp.com/), click **Editor setup**.  
+In the [Data parsing editor](https://parsing.logz.io), click **Editor setup**.  
 
 ![Sample log process](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/editor_setup.png)
 The **Editor setup** screen opens.

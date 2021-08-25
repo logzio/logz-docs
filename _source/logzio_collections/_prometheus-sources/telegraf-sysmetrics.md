@@ -102,6 +102,8 @@ The full list of data scraping and configuring options can be found [here](https
 <!-- tab:start -->
 <div id="auto">
 
+<div class="tasklist">
+
 ##### Install git 
 
 Make sure you have git on your os.
@@ -117,11 +119,13 @@ git clone https://github.com/logzio/telegraf_demo.git
 ```shell
 cd telegraf_demo
 ```
+  
 ##### Enable the execution permission
 
 ```shell
 chmod +x ./script.sh
 ```
+  
 ##### Execute the script
 
 ```shell

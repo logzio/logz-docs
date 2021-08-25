@@ -15,20 +15,17 @@ shipping-tags:
 order: 830
 ---
 
-#### Configuration
+#### Overview
+
+This integration ships events from AWS Security Hub to Logz.io.
+
+A new event triggers a designated EventBridge rule, which invokes a Lambda function. The function processes the event and sends it to Logz.io.
 
 <!-- info-box-start:info -->
 Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout. Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 {:.info-box.important}
 <!-- info-box-end -->
 
-This deployment will automatically create the following resources:
-
-![Resources](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/resources-security-hub.png)
-
-This integration ships events from AWS Security Hub to Logz.io.
-
-A new event triggers a designated EventBridge rule, which invokes a Lambda function. The function processes the event and sends it to Logz.io.
 
 <div class="tasklist">
 
@@ -73,6 +70,13 @@ Specify the **Key** and **Value** parameters for the **Tags** and select **Next*
 ![Confirm deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/security-hub-step4b.png)
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
+
+##### Deployed resources
+
+This deployment will automatically create the following resources:
+
+![Resources](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/resources-security-hub.png)
+
 
 ##### Check Logz.io for your logs
 

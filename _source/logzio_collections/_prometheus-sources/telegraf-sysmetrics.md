@@ -8,7 +8,7 @@ templates: ["docker"]
 contributors:
   - daniel-tk
   - nshishkin
-  - YaelHeger
+  - yheger
 shipping-tags:  
   - prometheus 
 order: 800

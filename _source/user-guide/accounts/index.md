@@ -19,7 +19,7 @@ Each Logz.io plan has one main account, from which admin users can create and ma
 
 ![Manage accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flexible-volume-sub-accounts.png)
 
-You can find the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page by clicking ****<i class="li li-gear"></i> > Settings > ADMIN ZONE > Manage accounts** in the navigation menu.
+You can find the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page by clicking **<i class="li li-gear"></i> > Settings > ADMIN ZONE > Manage accounts** in the navigation menu.
 
 ## Configuration options
 

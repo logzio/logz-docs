@@ -237,6 +237,9 @@ export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:55681
 ```
 
 {% include /tracing-shipping/docker-collector.md %}
+  
+{% include /tracing-shipping/replace-tracing-token.html %}
+
 
 
 ##### Run the application

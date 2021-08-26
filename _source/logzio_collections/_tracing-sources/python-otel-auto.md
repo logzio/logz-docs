@@ -45,6 +45,9 @@ On deployment, the Python instrumentation automatically captures spans from your
 
 ### Setup auto-instrumentation for your locally hosted Python application and send traces to Logz.io
 
+This integration enables you to auto-instrument your Python application and run a locally hosted OpenTelemetry collector to send your traces to Logz.io. 
+
+
 **Before you begin, you'll need**:
 
 * A Python application without instrumentation
@@ -153,7 +156,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 ### Setup auto-instrumentation for your Python application using Docker and send traces to Logz.io
 
-This integration enables you to auto-instrument your Node.js application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
+This integration enables you to auto-instrument your Python application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
 
 
 

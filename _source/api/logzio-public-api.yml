@@ -5070,6 +5070,16 @@ definitions:
           $ref: '#/definitions/SecurityRuleResponse'
       pagination:
         $ref: '#/definitions/Pagination'
+      schedule:
+        type: object
+        description: Defines the intervals in which an alert will be evaluated.
+        properties:
+          cron:
+            type: string
+            description: Cron job for the timezone
+          timezone:
+            type: string
+            description: Time zone
 
   AlertsSearchRequestFiltered:
     title: Filtered Results  
@@ -6920,6 +6930,17 @@ definitions:
           $ref: '#/definitions/SubAlert'
       correlations:
         $ref: '#/definitions/SubAlertCorrelation'
+      schedule:
+        type: object
+        description: Defines the intervals in which an alert will be evaluated.
+        properties:
+          cron:
+            type: string
+            description: Cron job for the timezone
+          timezone:
+            type: string
+            description: Time zone
+
   AlertOutput:
     type: object
     description: Automatically sends out notifications with sample results when the alert triggers.
@@ -7328,6 +7349,16 @@ definitions:
           $ref: '#/definitions/SubRule'
       correlations:
         $ref: '#/definitions/SubRuleCorrelation'
+      schedule:
+        type: object
+        description: Defines the intervals in which an alert will be evaluated.
+        properties:
+          cron:
+            type: string
+            description: Cron job for the timezone
+          timezone:
+            type: string
+            description: Time zone
   RuleOutput:
     type: object
     description: Automatically sends out notifications with sample results when the rule triggers.

@@ -42,7 +42,7 @@ order: 1170
 
 {% include /p8s-shipping/collect-aws-var-metrics.md namespace="RDS" %}
 
-##### Check Logz.io for your metrics
+#### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours.
 

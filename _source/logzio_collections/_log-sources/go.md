@@ -55,7 +55,7 @@ func main() {
   l, err := logzio.New(
     "<<LOG-SHIPPING-TOKEN>>",
     logzio.SetDebug(os.Stderr),
-    logzio.SetUrl("<<LISTENER-HOST>>:8071"),
+    logzio.SetUrl("https://<<LISTENER-HOST>>:8071"),
     logzio.SetDrainDuration(time.Second * 5),
     logzio.SetTempDirectory("myQueue"),
     logzio.SetDrainDiskThreshold(99),

@@ -26,7 +26,7 @@ To send custom metrics from your Java application to Logz.io, use a [Micrometer 
 This registry can be used by any application that uses Micrometer for recording metrics.
 
 <!-- info-box-start:info -->
-This integration currently works only with Java 11 and higher. The resolution for this issue is in development and is expected later this year.
+This integration currently works with Java 11 or higher. Support for earlier versions is in development and is expected later this year.
 {:.info-box.important}
 <!-- info-box-end -->
 

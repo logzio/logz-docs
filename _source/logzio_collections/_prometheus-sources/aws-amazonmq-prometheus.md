@@ -44,7 +44,7 @@ order: 380
   
 <div class="tasklist">
 
-##### Check Logz.io for your metrics
+#### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours.
 

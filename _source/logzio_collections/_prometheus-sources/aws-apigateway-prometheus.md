@@ -42,6 +42,17 @@ order: 1060
 
 {% include /p8s-shipping/collect-aws-var-metrics.md namespace="ApiGateway" %}
 
+##### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours.
+
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2PcQBDV6WKJMHg3wjVHm2X"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
+
 
 </div>
 <!-- tab:end -->

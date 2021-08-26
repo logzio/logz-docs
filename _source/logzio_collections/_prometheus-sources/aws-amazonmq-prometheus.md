@@ -41,8 +41,21 @@ order: 380
 {% include /p8s-shipping/cloudwatch-otel-beforeyb.md %}
 
 {% include /p8s-shipping/collect-aws-var-metrics.md namespace="AmazonMQ" %}
+  
+<div class="tasklist">
+
+#### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours.
 
 
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["1xglfXxBurNsVZIla5zRnS"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
+
+</div>
 </div>
 <!-- tab:end -->
 

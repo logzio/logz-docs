@@ -17,6 +17,7 @@ order: 1380
 
 * [Overview](#overview)
 * [Local host](#local-host)
+* [Docker](#docker)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -43,6 +44,8 @@ On deployment, the .NET instrumentation automatically captures spans from your a
 
 
 ### Setup auto-instrumentation for your locally hosted ASP.NET Core application and send traces to Logz.io
+
+This integration enables you to auto-instrument your ASP.NET Core application and run a locally hosted OpenTelemetry collector to send your traces to Logz.io. 
 
 **Before you begin, you'll need**:
 
@@ -117,6 +120,121 @@ Run the following command:
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
+
+##### Run the application
+
+Run the application to generate traces.
+
+
+##### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+
+</div>
+</div>
+
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="docker">
+
+
+### Setup auto-instrumentation for your ASP.NET Core application using Docker and send traces to Logz.io
+
+This integration enables you to auto-instrument your ASP.NET Core application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
+
+**Before you begin, you'll need**:
+
+* An ASP.NET Core application without instrumentation
+* An active account with Logz.io
+* Port `4317` available on your host system
+* A name defined for your tracing service
+
+
+<div class="tasklist">
+
+
+##### Download instrumentation packages
+
+Run the following command from the application directory:
+
+```shell
+dotnet add package OpenTelemetry
+dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
+dotnet add package OpenTelemetry.Instrumentation.AspNetCore
+dotnet add package OpenTelemetry.Extensions.Hosting
+```
+
+##### Enable instrumentation in the code
+
+Add the following configuration to the beginning of the Startup.cs file:
+
+```cs
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
+```
+
+Add the following configuration to the Startup class:
+
+```cs
+public void ConfigureServices(IServiceCollection services)
+        {
+
+            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+
+            services.AddOpenTelemetryTracing((builder) => builder
+                .AddAspNetCoreInstrumentation()
+                .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("my-app"))
+                .AddOtlpExporter(options =>
+                {
+                    options.Endpoint = new Uri("http://localhost:55681");
+             
+                })
+            );
+        }
+```
+
+
+##### Pull the Docker image for the OpenTelemetry collector
+
+```shell
+docker pull yotamloe/otel-collector-traces
+```
+
+
+##### Run the container
+
+When running on a Linux host, use the `--network host` flag to publish the collector ports:
+
+```
+docker run \
+-e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+-e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
+--network host \
+yotamloe/otel-collector-traces
+```
+
+When running on MacOS or Windows hosts, publish the ports using the `-p` flag:
+
+```
+docker run \
+-e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+-e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
+-p 55678-55680:55678-55680 \
+-p 1777:1777 \
+-p 9411:9411 \
+-p 9943:9943 \
+-p 6831:6831 \
+-p 6832:6832 \
+-p 14250:14250 \
+-p 14268:14268 \
+-p 4317:4317 \
+-p 55681:55681 \
+yotamloe/otel-collector-traces
+```
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+
 
 ##### Run the application
 

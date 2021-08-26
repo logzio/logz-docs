@@ -17,11 +17,11 @@ Logz.io alerts use a Kibana search query to continuously scan your logs and aler
 
 Event logs of triggered alerts are always available and searchable in Kibana. In Kibana Discover, just filter for `_exists_:logzio-alert`. But you also have the option to add notifications, and control their contents, format, and who they are sent to.
 
-To reach this page,
-select [**Alerts & Events > Alert definitions**](https://app.logz.io/#/dashboard/triggers/alert-definitions)
-from the top menu.
+To open the **Alert definitions** page,
+select [**Logs > Alerts**](https://app.logz.io/#/dashboard/triggers/alert-definitions)
+from the navigation menu.
 
-![Alert definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts-index.png)
+![Alert definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts-index_aug2021.png)
 
 You'll see a paginated list of all alerts configured for your account.
 
@@ -42,6 +42,8 @@ You'll see a paginated list of all alerts configured for your account.
 * Toggle the **Active** button, to enable or disable an alert, as needed. You have the option to filter the list of alerts by their **Active** state.
 
 
-### Edit, duplicate, or delete an alert
+### Edit, duplicate, delete an alert, or view last events
 
 * You can click the **Menu button <i class="li li-ellipsis-v"></i>** to edit, duplicate, or delete an alert.
+
+* Select **View last events** to display the alert query and number of hits in **Discover**.

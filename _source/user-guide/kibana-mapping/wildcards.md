@@ -46,10 +46,10 @@ Tokenization can mean indexing the words in a sentence, or breaking up a complex
 The tokenizing processor can use different predefined characters as delimiters to cut up the string into shorter terms. These can be spaces, periods, slashes, underscores, etc.
 
 To change a field mapping,
-select [<i class="li li-gear"></i> > Tools > Field mapping](https://app.logz.io/#/dashboard/tools/field-mapping)
-from the top menu. Search for the field name, hover over it, and select the **analyzed** mapping option. The field will be explicitly mapped.
+select [Logs > MANAGE DATA > Field mappings](https://app.logz.io/#/dashboard/tools/field-mapping)
+from the navigation menu. Search for the field name, hover over it, and select the **analyzed** mapping option. The field will be explicitly mapped.
 
-![Explicit field mapping in Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/kibana-field-mapping.png)
+![Explicit field mapping in Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/kibana-field-mapping_aug2021.png)
 
 ##### Contact support to request a custom configuration
 

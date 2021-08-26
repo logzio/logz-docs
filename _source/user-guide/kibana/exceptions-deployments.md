@@ -70,6 +70,6 @@ Some of the fields in the deployment logs sent by API are not rendered in the Ex
 
 You can run the search `_exists_: __logzio_marker_title` to retrieve your marker logs. Switch to the JSON log view to look up the additional details and context available for your Deployment markers.
 
-![Search deployment logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/search-deployment-logs1.png)
+![Search deployment logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/search-deployment-logs_aug2021.png)
 
 </div>

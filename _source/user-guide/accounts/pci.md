@@ -70,6 +70,6 @@ Logiz.io Support cannot intervene with the creation of the appropriate regex pat
 
 Once the regex pattern is approved, the changes will be applied to your data parsing patterns and take effect on your account.
 
-You can deactivate PCI compliance at any time. Go to [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the top menu and click `deactivate`.
+You can deactivate PCI compliance at any time. Go to [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the navigation menu and click `deactivate`.
 
 </div>

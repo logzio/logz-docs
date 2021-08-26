@@ -20,7 +20,7 @@ Once you are ready to investigate a particular IP, click the IP drilldown link. 
 
 
 <video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/investigate_IP.mp4" type="video/mp4" />
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/Investigate_IP-aug2021.mp4" type="video/mp4" />
 </video>
 
 ### Log enrichment for IPs

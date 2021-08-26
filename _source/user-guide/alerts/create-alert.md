@@ -21,7 +21,7 @@ Sometimes, you may want to take shortcuts when creating an alert. You have sever
 Your easiest option is to first test out filters and a search query directly in **Kibana Discover** or reuse a saved search. When the search captures the right logs, click the button **Create alert** to copy over the search criteria and begin configuring an alert.
 
   <video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/create-alert.mp4" type="video/mp4" />
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/create_alert_aug2021.mp4" type="video/mp4" />
   </video>
 
   The alert form will automatically inherit the search query, filters, and selected accounts.

@@ -317,6 +317,116 @@ paths:
       parameters:
 
 
+  /v1/grafana/api/alerts/:
+    get:
+      operationId: getAlerts
+      summary: Get alerts
+      description: >-
+        Retrieves alerts as per parameters given.
+        **NOTE:** These parameters are used as querystring parameters. For example: `/api/alerts?dashboardId=1`
+      tags:
+        - Metrics gateway
+      parameters:
+        - in: query
+          name: dashboardId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. dashboardId=23&dashboardId=35.
+        - in: query
+          name: panelId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alert for a specified panel on a dashboard.
+        - in: query
+          name: query
+          type: string
+          schema:
+            description: >-
+              Limit response to alerts having a name like this value.
+        - in: query
+          name: state
+          type: string
+          schema:
+            description: >-
+              Return alerts with one or more of the following alert states: ALL,no_data, paused, alerting, ok, pending. To specify multiple states use the following format: ?state=paused&state=alerting.
+        - in: query
+          name: limit
+          type: integer
+          schema:
+            description: >-
+              Limit response to X number of alerts.
+        - in: query
+          name: folderId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts of dashboards in specified folder(s). You can specify multiple folders, e.g. folderId=23&folderId=35.
+        - in: query
+          name: dashboardQuery
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts having a dashboard name like this value.
+        - in: query
+          name: dashboardTag
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts of dashboards with specified tags. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times e.g. dashboardTag=tag1&dashboardTag=tag2.
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/alerts/ \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+              dashboardId=1
+            }'
+      responses:
+        200:
+          description: successful query
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              dashboardId:
+                type: integer
+                example: 1
+              dashboardUId:
+                type: string
+                example: "ABcdEFghij"
+              dashboardSlug:
+                type: string
+                example: "sensors"
+              panelId:
+                type: integer
+                example: 1
+              name:
+                type: string
+                example: "fire place sensor"
+              state:
+                type: string
+                example: "alerting"
+              newStateDate:
+                type: string
+                example: "2018-05-14T05:55:20+02:00"
+              evalDate:
+                type: string
+                example: "0001-01-01T00:00:00Z"
+              evalData:
+                type: array
+                items:
+                  type: string
+              executionError:
+                type: string
+                example: ""
+              url:
+                  type: string
+                  example: "http://grafana.com/dashboard/db/sensors"
   /v1/grafana/api/alerts/:id:
       get:
         operationId: getAlertsbyId
@@ -453,7 +563,6 @@ paths:
                 alertsAffected:
                   type: integer
                   example: 1
-  
   
   /v1/grafana/api/annotations/:
       get:
@@ -832,6 +941,10 @@ paths:
                         count:
                           type: integer
                           example: 1
+  
+  
+  
+  
   
   /v1/grafana/api/dashboards/db:
       post:
@@ -1389,381 +1502,6 @@ paths:
             description: successful query
             schema:
               type: object
-              examples:
-  
-  
-  
-  
-  /v1/grafana/api/search/:
-      get:
-        operationId: searchDashboard
-        summary: Restores a dashboard.
-        description: >-
-          Restores a dashboard to a given dashboard version.
-        tags:
-          - Metrics gateway
-        parameters:
-          - in: query
-            name: query
-            type: string
-            schema:
-              description: >-
-                Search query.
-          - in: query
-            name: tag
-            type: string
-            schema:
-              description: >-
-                List of tags to search for.
-          - in: query
-            name: type
-            type: string
-            schema:
-              description: >-
-                Type to search for, dash-folder or dash-db
-          - in: query
-            name: dashboardIds
-            type: integer
-            schema:
-              description: >-
-                List of dashboard id’s to search for.
-          - in: query
-            name: folderIds
-            type: integer
-            schema:
-              description: >-
-                List of folder id’s to search in for dashboards.
-          - in: query
-            name: starred
-            type: boolean
-            schema:
-              description: >-
-                Flag indicating if only starred Dashboards should be returned.
-          - in: query
-            name: limit
-            type: integer
-            schema:
-              description: >-
-                Limit the number of returned results (max 5000).
-          - in: query
-            name: page
-            type: integer
-            schema:
-              description: >-
-                Use this parameter to access hits beyond limit. Numbering starts at 1. limit param acts as page size. Only available in Grafana v6.2+.
- 
-  
-        responses:
-          200:
-            description: successful query
-            schema:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  example: 163
-                uid:
-                  type: string
-                  example: "000000163"
-                title:
-                  type: string
-                  example: "Folder"
-                url:
-                  type: string
-                  example: "/dashboards/f/000000163/folder"
-                type:
-                  type: string
-                  example: "dash-folder"
-                tags:
-                  type: array
-                isStarred:
-                  type: boolean
-                uri:
-                  type: string
-                  example: "db/folder"
-  
-  /v1/grafana/api/snapshots/:
-      post:
-        operationId: createSnapshot
-        summary: Creates a dashboard.
-        description: >-
-          Creates a snapshot.
-        tags:
-          - Metrics gateway
-        parameters:
-          - in: body
-            name: dashboard
-            type: object
-            required: true
-            schema:
-              description: >-
-                The complete dashboard model..
-          - in: query
-            name: name
-            type: string
-            schema:
-              description: >-
-                Snapshot name.
-          - in: query
-            name: expires
-            type: integer
-            schema:
-              description: >-
-                When the snapshot should expire in seconds. 3600 is 1 hour, 86400 is 1 day. Default is never to expire.
-          - in: query
-            name: external
-            type: boolean
-            schema:
-              description: >-
-                Save the snapshot on an external server rather than locally. Default is false.
-          - in: query
-            name: key
-            type: string
-            schema:
-              description: >-
-                Define the unique key. Required if external is true.
-          - in: query
-            name: deleteKey
-            type: string
-            schema:
-              description: >-
-                Unique key used to delete the snapshot. It is different from the key so that only the creator can delete the snapshot. Required if external is true.
- 
-  
-  
-        responses:
-          200:
-            description: successful query
-            schema:
-              type: object
-              properties:
-                deleteKey:
-                  type: string
-                  example: XXXXXXX
-                deleteUrl:
-                  type: string
-                  example: myurl/api/snapshots-delete/XXXXXXX
-                key:
-                  type: string
-                  example: YYYYYYY
-                url:
-                  type: string
-                  example: myurl/dashboard/snapshot/YYYYYYY
-                id:
-                  type: integer
-                  example: 1
-  
-      get:
-        operationId: getSnapshot
-        summary: Get list of Snapshots
-        description: >-
-          Get list of Snapshots.
-        tags:
-          - Metrics gateway
-        parameters:
-          - in: query
-            name: query
-            type: string
-            schema:
-              description: >-
-                Search query.
-          - in: query
-            name: limit
-            type: integer
-            schema:
-              description: >-
-                Limit the number of returned results.
-  
-  
-
-  
-  
-        responses:
-          200:
-            description: successful query
-            schema:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  format: int32
-                  example: 8
-                name:
-                  type: string
-                  example: Home
-                key:
-                  type: string
-                  example: YYYYYYY
-                orgId:
-                  type: integer
-                  format: int32
-                  example: 1
-                userId:
-                  type: integer
-                  format: int32
-                  example: 1
-                external:
-                  type: boolean
-                externalUrl:
-                  type: string
-                  example:
-                expires:
-                  type: string
-                  example: 2200-13-32T25:23:23+02:00
-                created:
-                  type: string
-                  example: 2200-13-32T28:24:23+02:00
-                updated:
-                  type: string
-                  example: 2200-13-32T28:24:23+02:00
-  
-  /v1/grafana/api/snapshots/:key/:
-      get:
-        operationId: getSnapshotbyKey
-        summary: Get Snapshot by Key.
-        description: >-
-          Gets Snapshot by Key.
-        tags:
-          - Metrics gateway
-        parameters:
-          - in: path
-            name: key
-            type: string
-            required: true
-  
-  
-  
-        responses:
-          200:
-            description: successful query
-            schema:
-              type: object
-              properties:
-                meta:
-                  type: object
-                  properties:
-                    isSnapshot:
-                      type: boolean
-                    type:
-                      type: string
-                      example: snapshot
-                    canSave:
-                      type: boolean
-                    canEdit:
-                      type: boolean
-                    canStar:
-                      type: boolean
-                    slug:
-                      type: string
-                      example:
-                    expires:
-                      type: string
-                      example: 2200-13-32T25:23:23+02:00
-                    created:
-                      type: string
-                      example: 2200-13-32T28:24:23+02:00
-                dashboard:
-                  type: object
-                  properties:
-                    editable:
-                      type: boolean
-                    hideControls:
-                      type: boolean
-                    nav:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          enable:
-                            type: boolean
-                          type:
-                            type: string
-                            example: timepicker
-                    rows:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                    style:
-                      type: string
-                      example: dark
-                    tags:
-                      type: array
-                      items:
-                    templating:
-                      type: object
-                      properties:
-                        list:
-                          type: array
-                          items:
-                    time:
-                      type: object
-                      properties:
-                    timezone:
-                      type: string
-                      example: browser
-                    title:
-                      type: string
-                      example: Home
-                    version:
-                      type: integer
-                      format: int32
-                      example: 5
-  
-      delete:
-        operationId: deleteSnapshotbyKey
-        summary: Delete Snapshot by Key.
-        description: >-
-          Deletes snapshot by Key.
-        tags:
-          - Metrics gateway
-        parameters:
-          - in: path
-            name: key
-            type: string
-            required: true
-  
-        responses:
-          200:
-            description: successful query
-            schema:
-              type: object
-              properties:
-                message:
-                  type: string
-                  example: Snapshot deleted. It might take an hour before it's cleared from any CDN caches.
-                id:
-                  type: integer
-                  format: int32
-                  example: 1
-  
-  /v1/grafana/api/snapshots/:deleteKey/:
-      get:
-        operationId: deleteSnapshotbyDeleteKey
-        summary: Delete snapshot by deleteKey.
-        description: >-
-          Delete snapshot by deleteKey.
-        tags:
-          - Metrics gateway
-        parameters:
-          - in: path
-            name: deleteKey
-            type: string
-            required: true
-  
-        responses:
-          200:
-            description: successful query
-            schema:
-              type: object
-              properties:
-                message:
-                  type: string
-                  example: Snapshot deleted. It might take an hour before it's cleared from any CDN caches.
-                id:
-                  type: integer
-                  format: int32
-                  example: 1
               
               
   

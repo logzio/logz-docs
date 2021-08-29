@@ -961,15 +961,15 @@ paths:
               properties:
                 dashboard:
                   type: object
-                  description: The complete dashboard model, id = "null" to create a new dashboard.
+                  description: The complete dashboard model, to create a new dashboard.
                   properties:
                     id:
                       type: integer
-                      description: id = "null" to create a new dashboard.
+                      description:  to create a new dashboard.
                       example: 1
                     uid:
                       type: integer
-                      description: Optional unique identifier when creating a dashboard. uid = "null" will generate a new uid.
+                      description: Optional unique identifier when creating a dashboard.  will generate a new uid.
                       example: 1
                     title:
                       type: string
@@ -1060,15 +1060,15 @@ paths:
               properties:
                 dashboard:
                   type: object
-                  description: The complete dashboard model, id = "null" to create a new dashboard.
+                  description: The complete dashboard model,  to create a new dashboard.
                   properties:
                     id:
                       type: integer
-                      description: id = "null" to create a new dashboard.
+                      description: to create a new dashboard.
                       example: 1
                     uid:
                       type: integer
-                      description: Optional unique identifier when creating a dashboard. uid = "null" will generate a new uid.
+                      description: Optional unique identifier when creating a dashboard.  will generate a new uid.
                       example: 1
                     title:
                       type: string
@@ -1089,7 +1089,7 @@ paths:
                       example: 0
                 meta:
                   type: object
-                  description: The complete dashboard model, id = "null" to create a new dashboard.
+                  description: The complete dashboard model, to create a new dashboard.
                   properties:
                     isStarred:
                       type: boolean
@@ -1145,7 +1145,7 @@ paths:
               properties:
                 dashboard:
                   type: object
-                  description: The complete dashboard model, id = "null" to create a new dashboard.
+                  description: The complete dashboard model, to create a new dashboard.
                   properties:
                     editable:
                       type: boolean
@@ -1191,7 +1191,7 @@ paths:
                       example: 2
                 meta:
                   type: object
-                  description: The complete dashboard model, id = "null" to create a new dashboard.
+                  description: The complete dashboard model, to create a new dashboard.
                   properties:
                     isHome:
                       type: boolean
@@ -1436,7 +1436,7 @@ paths:
               properties:
                 dashboard:
                   type: object
-                  description: The complete dashboard model, id = null to create a new dashboard.
+                  description: The complete dashboard model,  to create a new dashboard.
                   properties:
                     version:
                       type: integer

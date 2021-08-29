@@ -55,8 +55,11 @@ docker pull logzio/docker-collector-logs
 ```
 
 ##### Run the Docker image
+  
 
 For a complete list of options, see the parameters below the code block.👇
+  
+###### Docker
 
 ```shell
 docker run --name docker-collector-logs \
@@ -65,7 +68,17 @@ docker run --name docker-collector-logs \
 -v /var/lib/docker/containers:/var/lib/docker/containers \
 logzio/docker-collector-logs
 ```
+  
+###### Docker Swarm
 
+```shell
+docker service create --name docker-collector-logs \
+--env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
+--mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
+--mount type=bind,source=/var/lib/docker/containers,target=/var/lib/docker/containers \
+--mode global logzio/docker-collector-logs
+```  
+  
 ###### Parameters
 
 | Parameter | Description | Required/Default |

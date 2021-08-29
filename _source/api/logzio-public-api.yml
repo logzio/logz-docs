@@ -824,9 +824,8 @@ paths:
               description: >-
                 Annotation tags.
               items:
-                type: object
-                additionalProperties: integer
-                  type: object
+                type: string
+                example: tag3
           - in: body
             name: text
             type: string

@@ -83,9 +83,10 @@ security:
 
 tags:
   - name: Metrics gateway
-    description: Metrics API Gateway to supported endpoints. In the context of this API, "*Grafana*" refers to the Logz.io fork of Grafana, thus this gateway provides support for the APIs of the Logz.io fork of Grafana and for some of the open source Grafana APIs. Read more about the fork created by Logz.io [here.](https://logz.io/about-us/forked-statement/) 
+    description: >-
+      Metrics API Gateway to supported endpoints. In the context of this API, "*Grafana*" refers to the Logz.io fork of Grafana, thus this gateway provides support for the APIs of the Logz.io fork of Grafana and for some of the open source Grafana APIs. Read more about the fork created by Logz.io [here.](https://logz.io/about-us/forked-statement/) 
     
-    **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
+      **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
 
 
   - name: Who am I

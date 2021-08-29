@@ -449,7 +449,7 @@ paths:
                   -H 'Content-Type: application/json' \
                   -H 'X-API-TOKEN: <token>' \
                   --data-raw '{
-                  dashboardId=1
+                  "dashboardId"=1
                   }'
         responses:
           200:

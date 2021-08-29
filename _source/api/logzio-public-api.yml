@@ -1384,13 +1384,13 @@ paths:
                         items:
                     time:
                       type: object
-                        properties:
-                          from:
-                            type: string
-                            example: "now-6h"
-                          to:
-                            type: string
-                            example: now
+                      properties:
+                        from:
+                          type: string
+                          example: "now-6h"
+                        to:
+                          type: string
+                          example: now
                     timepicker:
                       type: object
                       properties:

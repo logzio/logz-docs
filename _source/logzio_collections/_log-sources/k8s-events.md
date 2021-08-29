@@ -13,7 +13,7 @@ shipping-tags:
 order: 160
 ---
 
-# Shipping Kubernetes events
+#### Shipping Kubernetes events
 
 Kubernetes events are a resource type that Kubernetes automatically creates when other resources get state changes, errors, or other messages that should be shared across the system.
 
@@ -21,13 +21,13 @@ This guide uses the [kubernetes-event-exporter](https://github.com/opsgenie/kube
 
 <div class="tasklist">
 
-### 1. Create monitoring namespace
+##### Create monitoring namespace
 
 ```shell
 kubectl create namespace monitoring
 ```
 
-### 2. Store your Logz.io credentials
+##### Store your Logz.io credentials
 Save your Logz.io shipping credentials as a Kubernetes secret. To do this, customize the sample command below to your specifics and run it.
 
 ```shell
@@ -40,13 +40,13 @@ kubectl create secret generic logzio-events-secret \
 * {% include /log-shipping/listener-var.html %}
 * {% include /log-shipping/log-shipping-token.html %}
 
-### 3. Deploy
+##### Deploy
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-events.yaml
 ```
 
-### 4. Check Logz.io for your events
+##### Check Logz.io for your events
 
 Give your events some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

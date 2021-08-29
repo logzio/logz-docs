@@ -1,6 +1,6 @@
 # Shipping Kubernetes events
 
-Kubernetes events are a resource type in Kubernetes that are automatically created when other resources have state changes, errors, or other messages that should be broadcast to the system.
+Kubernetes events are a resource type that Kubernetes automatically creates when other resources get state changes, errors, or other messages that should be shared across the system.
 
 This guide uses the [kubernetes-event-exporter](https://github.com/opsgenie/kubernetes-event-exporter) tool to ship kubernetes events to Logz.io.
 
@@ -11,7 +11,7 @@ kubectl create namespace monitoring
 ```
 
 ### 2. Store your Logz.io credentials
-Save your Logz.io shipping credentials as a Kubernetes secret. Customize the sample command below to your specifics before running it.
+Save your Logz.io shipping credentials as a Kubernetes secret. To do this, customize the sample command below to your specifics and run it.
 
 ```shell
 kubectl create secret generic logzio-events-secret \
@@ -20,8 +20,8 @@ kubectl create secret generic logzio-events-secret \
   -n monitoring
 ```
 
--   Replace  `<<LOG-SHIPPING-TOKEN>>`  with the token of the account you want to ship to.
--   Replace  `<<LISTENER-HOST>>`  with the host  [for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). For example,  `listener.logz.io`  if your account is hosted on AWS US East, or  `listener-nl.logz.io`  if hosted on Azure West Europe.
+* {% include /log-shipping/listener-var.html %}
+* {% include /log-shipping/log-shipping-token.html %}
 
 ### 3. Deploy
 

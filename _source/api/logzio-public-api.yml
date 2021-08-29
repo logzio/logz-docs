@@ -427,7 +427,7 @@ paths:
               url:
                   type: string
                   example: "http://grafana.com/dashboard/db/sensors"
-   /v1/grafana/api/alerts/:id:
+  /v1/grafana/api/alerts/:id:
       get:
         operationId: getAlertsbyId
         summary: Get alerts by Id

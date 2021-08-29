@@ -302,7 +302,8 @@ paths:
     get:
       operationId: getAlerts
       summary: Get alerts
-      description: Retrieves alerts as per parameters given. The parameters are used as querystring parameters. For example: `/api/alerts?dashboardId=1`.
+      description: >-
+        Retrieves alerts as per parameters given. The parameters are used as querystring parameters. For example: `/api/alerts?dashboardId=1`.
       tags:
         - Metrics gateway
       parameters:

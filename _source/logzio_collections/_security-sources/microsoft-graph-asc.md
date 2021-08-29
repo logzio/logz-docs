@@ -96,7 +96,7 @@ azureADClient:
   clientId: "<<APP_CLIENT_ID>>"
   clientSecret: "<<APP_CLIENT_SECRET>>"
 
-targetApis:
+targetApi:
   ASCApis:
     - <<supportedApi1>>
 

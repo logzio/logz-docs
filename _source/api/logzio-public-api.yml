@@ -1460,7 +1460,51 @@ paths:
                   type: integer
                   example: 1
   
+  /v1/grafana/api/dashboards/calculate-diff:
+      post:
+        operationId: compareDashboard
+        summary: Compares dashboards.
+        description: >-
+          Compares two dashboard versions by calculating the JSON diff of them.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            type: object
+            schema:
+              properties:
+                base:
+                  type: object
+                  description: Object representing the base dashboard version.
+                  properties:
+                    dashboardId:
+                      type: integer
+                      example: 1
+                    version:
+                      type: integer
+                      example: 1
+                new:
+                  type: object
+                  description: Object representing the new dashboard version
+                  properties:
+                    dashboardId:
+                      type: integer
+                      example: 1
+                    version:
+                      type: integer
+                      example: 1
+                diffType:
+                  type: string
+                  description: the type of diff to return. Can be “json” or “basic”.
   
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              examples:
+              text/html: '<p id="l1" class="diff-line diff-json-same"> <!-- Diff omitted --> </p>'
   
   # ::::: ACCOUNTS
   /v2/whoami:

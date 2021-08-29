@@ -1503,8 +1503,8 @@ paths:
             description: successful query
             schema:
               type: object
-              examples:
-              text/html: '<p id="l1" class="diff-line diff-json-same"> <!-- Diff omitted --> </p>'
+              
+              
   
   # ::::: ACCOUNTS
   /v2/whoami:

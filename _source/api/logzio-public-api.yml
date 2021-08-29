@@ -450,7 +450,7 @@ paths:
                 -H 'X-API-TOKEN: <token>' \
                 -d '{
                 dashboardId=1
-              }'
+                }' 
         responses:
           200:
             description: successful query

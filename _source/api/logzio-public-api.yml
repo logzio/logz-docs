@@ -427,6 +427,145 @@ paths:
               url:
                   type: string
                   example: "http://grafana.com/dashboard/db/sensors"
+   /v1/grafana/api/alerts/:id:
+      get:
+        operationId: getAlertsbyId
+        summary: Get alerts by Id
+        description: >-
+          Retrieves alerts by Id.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+                Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. dashboardId=23&dashboardId=35.
+
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                dashboardId:
+                  type: integer
+                  example: 1
+                dashboardUId:
+                  type: string
+                  example: "ABcdEFghij"
+                dashboardSlug:
+                  type: string
+                  example: "sensors"
+                panelId:
+                  type: integer
+                  example: 1
+                name:
+                  type: string
+                  example: "fire place sensor"
+                state:
+                  type: string
+                  example: "alerting"
+                newStateDate:
+                  type: string
+                  example: "2018-05-14T05:55:20+02:00"
+                evalDate:
+                  type: string
+                  example: "0001-01-01T00:00:00Z"
+                evalData:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                     metric:
+                      type: string
+                     tags:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                     value:
+                       type: string
+              
+                executionError:
+                  type: string
+                  example: ""
+                url:
+                  type: string
+                  example: "http://grafana.com/dashboard/db/sensors"
+  
+  /v1/grafana/api/alerts/:id/pause:
+      post:
+        operationId: pauseAlertsbyId
+        summary: Pause alert by id
+        description: >-
+          Pauses alerts by Id.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: dashboardId
+            type: integer
+            example: 1
+          - in: query
+            name: pause
+            type: boolean
+            description: Can be true or false. True to pause an alert. False to unpause an alert.
+
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                alertId:
+                  type: integer
+                  example: 1
+                state:
+                  type: string
+                  example: "Paused"
+                message:
+                  type: string
+                  example: "Alert paused"
+  
+  /v1/grafana/api/admin/pause-all-alerts:
+      post:
+        operationId: pauseAllAlerts
+        summary: Pause all alerts
+        description: >-
+          Pauses all alerts.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: pause
+            type: boolean
+            description: Can be true or false. True to pause an alert. False to unpause an alert.
+
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                alertId:
+                  type: integer
+                  example: 1
+                state:
+                  type: string
+                  example: "Paused"
+                message:
+                  type: string
+                  example: "Alert paused"
+                alertsAffected:
+                  type: integer
+                  example: 1
+  
+  
   
   
   

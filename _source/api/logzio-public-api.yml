@@ -448,9 +448,9 @@ paths:
               curl -X GET https://api.logz.io/v1/grafana/api/alerts/1 \
                 -H 'Content-Type: application/json' \
                 -H 'X-API-TOKEN: <token>' \
-                -d '{
+                --data-raw '{
                 dashboardId=1
-                }' 
+                }'
         responses:
           200:
             description: successful query

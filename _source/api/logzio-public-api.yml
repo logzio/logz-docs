@@ -768,7 +768,7 @@ paths:
                 type: object
                 items: 
                   type: string
-                  example: "deploy", "production"
+                  example: ["deploy", "production"]
           - in: body
             name: data
             type: string

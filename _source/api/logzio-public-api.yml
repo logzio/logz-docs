@@ -442,15 +442,7 @@ paths:
             schema:
               description: >-
                 Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. dashboardId=23&dashboardId=35.
-          x-code-samples:
-            - lang: cURL
-              source: >-
-                curl -X GET https://api.logz.io/v1/grafana/api/alerts/1 \
-                  -H 'Content-Type: application/json' \
-                  -H 'X-API-TOKEN: <token>' \
-                  --data-raw '{
-                  "dashboardId"=1
-                  }'
+
         responses:
           200:
             description: successful query

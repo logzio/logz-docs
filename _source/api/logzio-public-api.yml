@@ -1365,20 +1365,20 @@ paths:
                   properties:
                     dashboardId:
                       type: integer
-                      example: 0
+                      example: 1
                     version:
                       type: integer
-                      example: 0
+                      example: 1
                 new:
                   type: object
                   description: Object representing the new dashboard version
                   properties:
                     dashboardId:
                       type: integer
-                      example: 0
+                      example: 1
                     version:
                       type: integer
-                      example: 0
+                      example: 1
                 diffType:
                   type: string
                   description: the type of diff to return. Can be “json” or “basic”.

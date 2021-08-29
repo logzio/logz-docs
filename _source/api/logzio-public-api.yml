@@ -1324,7 +1324,7 @@ paths:
                       type: boolean
                     gnetId:
                       type: string
-]                    graphTooltip:
+                    graphTooltip:
                       type: integer
                       format": int32
                       example": 0

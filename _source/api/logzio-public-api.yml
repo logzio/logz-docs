@@ -1503,7 +1503,93 @@ paths:
             schema:
               type: object
               
-              
+  /v1/grafana/api/search/:
+      get:
+        operationId: searchDashboard
+        summary: Restores a dashboard.
+        description: >-
+          Restores a dashboard to a given dashboard version.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: query
+            type: string
+            schema:
+              description: >-
+                Search query.
+          - in: query
+            name: tag
+            type: string
+            schema:
+              description: >-
+                List of tags to search for.
+          - in: query
+            name: type
+            type: string
+            schema:
+              description: >-
+                Type to search for, dash-folder or dash-db
+          - in: query
+            name: dashboardIds
+            type: integer
+            schema:
+              description: >-
+                List of dashboard id’s to search for.
+          - in: query
+            name: folderIds
+            type: integer
+            schema:
+              description: >-
+                List of folder id’s to search in for dashboards.
+          - in: query
+            name: starred
+            type: boolean
+            schema:
+              description: >-
+                Flag indicating if only starred Dashboards should be returned.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Limit the number of returned results (max 5000).
+          - in: query
+            name: page
+            type: integer
+            schema:
+              description: >-
+                Use this parameter to access hits beyond limit. Numbering starts at 1. limit param acts as page size. Only available in Grafana v6.2+.
+ 
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 163
+                uid:
+                  type: string
+                  example: "000000163"
+                title:
+                  type: string
+                  example: "Folder"
+                url:
+                  type: string
+                  example: "/dashboards/f/000000163/folder"
+                type:
+                  type: string
+                  example: "dash-folder"
+                tags:
+                  type: array
+                isStarred:
+                  type: boolean
+                uri:
+                  type: string
+                  example: "db/folder"              
   
   # ::::: ACCOUNTS
   /v2/whoami:

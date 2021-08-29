@@ -110,7 +110,7 @@ For a complete list of options, see the parameters below the code block.👇
 
 ```shell
 docker service create --name docker-collector-logs \
---env LOGZIO_TOKEN="{token}" \
+--env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
 --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
 --mount type=bind,source=/var/lib/docker/containers,target=/var/lib/docker/containers \
 --mode global logzio/docker-collector-logs

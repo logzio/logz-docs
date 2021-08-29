@@ -289,34 +289,11 @@ x-tagGroups:
   - name: Metrics API Gateway
     tags:
       - Metrics gateway
-    description: Metrics API Gateway to supported endpoints.
+    description: Metrics API Gateway to supported endpoints. **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
 
 paths:
   # ::::: GRAFANA
-  /v1/grafana/api/{GRAFANA_API_URL}:
-    get:
-      summary: Metrics API Capabilities
-      description: >-
-        Prepend your Logz.io API Gateway to the relevant Metrics API endpoint.
-
-
-        Supported endpoints:
-          * [Alerting](https://grafana.com/docs/grafana/latest/http_api/alerting/)
-          * [Annotations](https://grafana.com/docs/grafana/latest/http_api/annotations/)
-          * [Dashboard](https://grafana.com/docs/grafana/latest/http_api/dashboard/)
-          * [Dashboard versions](https://grafana.com/docs/grafana/latest/http_api/dashboard_versions/)
-          * [Folder/dashboard search](https://grafana.com/docs/grafana/latest/http_api/folder_dashboard_search/)
-          * [Snapshot](https://grafana.com/docs/grafana/latest/http_api/snapshot/)
-
-        **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
-      tags:
-        - Metrics gateway
-      operationId: metricsGateway
-      produces:
-        - application/json
-      parameters:
-
-
+  
   /v1/grafana/api/alerts/:
     get:
       operationId: getAlerts

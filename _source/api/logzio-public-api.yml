@@ -1314,10 +1314,10 @@ paths:
                   properties:
                     annotations:
                       type: object
-                        properties:
-                          list:
-                            type: array
-                            items:
+                      properties:
+                        list:
+                          type: array
+                          items:
                     editable:
                       type: boolean
                     gnetId:

@@ -1353,13 +1353,13 @@ paths:
                             items:
                           repeat:
                             type: string
-                            format: nullable
+
                           repeatIteration:
                             type: string
-                            format: nullable
+
                           repeatRowId":
                             type: string
-                            format: nullable
+
                           showTitle:
                             type: boolean
                           title:

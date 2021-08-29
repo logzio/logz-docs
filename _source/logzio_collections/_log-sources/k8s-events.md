@@ -1,8 +1,25 @@
+---
+title: Ship Kubernetes events
+logo:
+  logofile: kubernetes.svg
+  orientation: vertical
+data-source: Kubernetes events
+templates: ["s3-fetcher"]
+contributors:
+  - mirii1994
+  - nshishkin
+shipping-tags:
+  - container
+order: 160
+---
+
 # Shipping Kubernetes events
 
 Kubernetes events are a resource type that Kubernetes automatically creates when other resources get state changes, errors, or other messages that should be shared across the system.
 
 This guide uses the [kubernetes-event-exporter](https://github.com/opsgenie/kubernetes-event-exporter) tool to ship kubernetes events to Logz.io.
+
+<div class="tasklist">
 
 ### 1. Create monitoring namespace
 
@@ -34,3 +51,6 @@ kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipp
 Give your events some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don’t see your events, see  [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+  
+</div>
+

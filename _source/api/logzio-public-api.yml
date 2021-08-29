@@ -419,7 +419,8 @@ paths:
                 example: "0001-01-01T00:00:00Z"
               evalData:
                 type: array
-                example: null
+                items:
+                  type: string
               executionError:
                 type: string
                 example: ""
@@ -490,7 +491,7 @@ paths:
                           type: string
                      value:
                        type: string
-                  example: null
+              
                 executionError:
                   type: string
                   example: ""
@@ -665,7 +666,8 @@ paths:
                   example: "0001-01-01T00:00:00Z"
                 evalData:
                   type: array
-                  example: null
+                  items:
+                    type: string
                 executionError:
                   type: string
                   example: ""

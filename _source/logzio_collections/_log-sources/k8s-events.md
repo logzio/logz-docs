@@ -29,8 +29,8 @@ kubectl create secret generic logzio-events-secret \
 kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-events.yaml
 ```
 
-### 4. Check Logz.io for your logs
+### 4. Check Logz.io for your events
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your events some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don’t see your logs, see  [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don’t see your events, see  [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).

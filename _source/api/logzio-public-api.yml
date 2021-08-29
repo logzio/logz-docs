@@ -302,9 +302,7 @@ paths:
     get:
       operationId: getAlerts
       summary: Get alerts
-      description: >-
-        Retrieves alerts as per parameters given.
-        **NOTE:** These parameters are used as querystring parameters. For example: `/api/alerts?dashboardId=1`
+      description: Retrieves alerts as per parameters given. The parameters are used as querystring parameters. For example: `/api/alerts?dashboardId=1`.
       tags:
         - Metrics gateway
       parameters:
@@ -313,7 +311,7 @@ paths:
           type: integer
           schema:
             description: >-
-              Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. dashboardId=23&dashboardId=35.
+              Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. `dashboardId=23&dashboardId=35`.
         - in: query
           name: panelId
           type: integer
@@ -331,7 +329,7 @@ paths:
           type: string
           schema:
             description: >-
-              Return alerts with one or more of the following alert states: ALL,no_data, paused, alerting, ok, pending. To specify multiple states use the following format: ?state=paused&state=alerting.
+              Return alerts with one or more of the following alert states: ALL,no_data, paused, alerting, ok, pending. To specify multiple states use the following format: `?state=paused&state=alerting`.
         - in: query
           name: limit
           type: integer
@@ -343,7 +341,7 @@ paths:
           type: integer
           schema:
             description: >-
-              Limit response to alerts of dashboards in specified folder(s). You can specify multiple folders, e.g. folderId=23&folderId=35.
+              Limit response to alerts of dashboards in specified folder(s). You can specify multiple folders, e.g. `folderId=23&folderId=35`.
         - in: query
           name: dashboardQuery
           type: integer
@@ -355,7 +353,7 @@ paths:
           type: integer
           schema:
             description: >-
-              Limit response to alerts of dashboards with specified tags. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times e.g. dashboardTag=tag1&dashboardTag=tag2.
+              Limit response to alerts of dashboards with specified tags. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times e.g. `dashboardTag=tag1&dashboardTag=tag2`.
       x-code-samples:
         - lang: cURL
           source: >-

@@ -68,6 +68,7 @@ docker run --name docker-collector-logs \
 -v /var/lib/docker/containers:/var/lib/docker/containers \
 logzio/docker-collector-logs
 ```
+  
 ###### Docker Swarm
 
 ```shell

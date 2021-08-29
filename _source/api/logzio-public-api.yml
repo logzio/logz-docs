@@ -766,8 +766,9 @@ paths:
                 Annotation tags.  Can also be in prior to Graphite 0.10.0 format (string with multiple tags being separated by a space).
               items:
                 type: object
-                additionalProperties: integer
-                  type: object
+                items: 
+                  type: string
+                  example: "deploy", "production"
           - in: body
             name: data
             type: string

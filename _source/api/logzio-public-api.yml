@@ -330,7 +330,7 @@ paths:
           type: string
           schema:
             description: >-
-              Return alerts with one or more of the following alert states: ALL,no_data, paused, alerting, ok, pending. To specify multiple states use the following format: `?state=paused&state=alerting`.
+              Return alerts with one or more of the following alert states: `ALL`, `no_data`, `paused`, `alerting`, `ok`, `pending`. To specify multiple states use the following format: `?state=paused&state=alerting`.
         - in: query
           name: limit
           type: integer

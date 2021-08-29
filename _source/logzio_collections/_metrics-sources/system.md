@@ -29,6 +29,8 @@ order: 190
 
 #### Metricbeat setup - Linux/MacOS
 
+{% include metric-shipping/elk-accounts-note.md %}
+
 **Before you begin, you'll need**:
 [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/7.1/metricbeat-installation.html) or higher
 
@@ -93,6 +95,8 @@ Give your metrics some time to get from your system to ours, and then open [Logz
 <div id="metricbeat-config-win">
 
 #### Metricbeat setup - Windows
+
+{% include metric-shipping/elk-accounts-note.md %}
 
 **Before you begin, you'll need**:
 [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/7.1/metricbeat-installation.html#win) or higher
@@ -166,6 +170,8 @@ Give your metrics some time to get from your system to ours, and then open [Logz
 <div id="docker-config">
 
 ## Docker setup
+
+{% include metric-shipping/elk-accounts-note.md %}
 
 To simplify shipping metrics from one or many sources,
 we created Docker Metrics Collector.

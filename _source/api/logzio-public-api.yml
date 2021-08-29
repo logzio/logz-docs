@@ -317,6 +317,1655 @@ paths:
       parameters:
 
 
+  /v1/grafana/api/alerts/:
+    get:
+      operationId: getAlerts
+      summary: Get alerts
+      description: >-
+        Retrieves alerts as per parameters given.
+        **NOTE:** These parameters are used as querystring parameters. For example: `/api/alerts?dashboardId=1`
+      tags:
+        - Metrics gateway
+      parameters:
+        - in: query
+          name: dashboardId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. dashboardId=23&dashboardId=35.
+        - in: query
+          name: panelId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alert for a specified panel on a dashboard.
+        - in: query
+          name: query
+          type: string
+          schema:
+            description: >-
+              Limit response to alerts having a name like this value.
+        - in: query
+          name: state
+          type: string
+          schema:
+            description: >-
+              Return alerts with one or more of the following alert states: ALL,no_data, paused, alerting, ok, pending. To specify multiple states use the following format: ?state=paused&state=alerting.
+        - in: query
+          name: limit
+          type: integer
+          schema:
+            description: >-
+              Limit response to X number of alerts.
+        - in: query
+          name: folderId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts of dashboards in specified folder(s). You can specify multiple folders, e.g. folderId=23&folderId=35.
+        - in: query
+          name: dashboardQuery
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts having a dashboard name like this value.
+        - in: query
+          name: dashboardTag
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts of dashboards with specified tags. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times e.g. dashboardTag=tag1&dashboardTag=tag2.
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/alerts/ \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+              dashboardId=1
+            }'
+      responses:
+        200:
+          description: successful query
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              dashboardId:
+                type: integer
+                example: 1
+              dashboardUId:
+                type: string
+                example: "ABcdEFghij"
+              dashboardSlug:
+                type: string
+                example: "sensors"
+              panelId:
+                type: integer
+                example: 1
+              name:
+                type: string
+                example: "fire place sensor"
+              state:
+                type: string
+                example: "alerting"
+              newStateDate:
+                type: string
+                example: "2018-05-14T05:55:20+02:00"
+              evalDate:
+                type: string
+                example: "0001-01-01T00:00:00Z"
+              evalData:
+                type: array
+                example: null
+              executionError:
+                type: string
+                example: ""
+              url:
+                  type: string
+                  example: "http://grafana.com/dashboard/db/sensors"
+  
+  /v1/grafana/api/alerts/:id:
+      get:
+        operationId: getAlertsbyId
+        summary: Get alerts by Id
+        description: >-
+          Retrieves alerts by Id.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+                Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. dashboardId=23&dashboardId=35.
+          x-code-samples:
+          - lang: cURL
+            source: >-
+              curl -X GET https://api.logz.io/v1/grafana/api/alerts/1 \
+                -H 'Content-Type: application/json' \
+                -H 'X-API-TOKEN: <token>' \
+                -d '{
+                dashboardId=1
+              }'
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                dashboardId:
+                  type: integer
+                  example: 1
+                dashboardUId:
+                  type: string
+                  example: "ABcdEFghij"
+                dashboardSlug:
+                  type: string
+                  example: "sensors"
+                panelId:
+                  type: integer
+                  example: 1
+                name:
+                  type: string
+                  example: "fire place sensor"
+                state:
+                  type: string
+                  example: "alerting"
+                newStateDate:
+                  type: string
+                  example: "2018-05-14T05:55:20+02:00"
+                evalDate:
+                  type: string
+                  example: "0001-01-01T00:00:00Z"
+                evalData:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                     metric:
+                      type: string
+                     tags:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                     value:
+                       type: string
+                  example: null
+                executionError:
+                  type: string
+                  example: ""
+                url:
+                  type: string
+                  example: "http://grafana.com/dashboard/db/sensors"
+  
+  /v1/grafana/api/alerts/:id/pause:
+      post:
+        operationId: pauseAlertsbyId
+        summary: Pause alert by id
+        description: >-
+          Pauses alerts by Id.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: dashboardId
+            type: integer
+            example: 1
+          - in: query
+            name: pause
+            type: boolean
+            description: Can be true or false. True to pause an alert. False to unpause an alert.
+          x-code-samples:
+          - lang: cURL
+            source: >-
+              curl -X POST /v1/grafana/api/alerts/1/pause \
+                -H 'Content-Type: application/json' \
+                -H 'X-API-TOKEN: <token>' \
+                -d '{
+                paused=true
+              }'
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                alertId:
+                  type: integer
+                  example: 1
+                state:
+                  type: string
+                  example: "Paused"
+                message:
+                  type: string
+                  example: "Alert paused"
+  
+  /v1/grafana/api/admin/pause-all-alerts:
+      post:
+        operationId: pauseAllAlerts
+        summary: Pause all alerts
+        description: >-
+          Pauses all alerts.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: pause
+            type: boolean
+            description: Can be true or false. True to pause an alert. False to unpause an alert.
+          x-code-samples:
+          - lang: cURL
+            source: >-
+              curl -X POST /v1/grafana/api/admin/pause-all-alerts \
+                -H 'Content-Type: application/json' \
+                -H 'X-API-TOKEN: <token>' \
+                -d '{
+                paused=true
+              }'
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                alertId:
+                  type: integer
+                  example: 1
+                state:
+                  type: string
+                  example: "Paused"
+                message:
+                  type: string
+                  example: "Alert paused"
+                alertsAffected:
+                  type: integer
+                  example: 1
+  
+  
+  /v1/grafana/api/annotations/:
+      get:
+        operationId: getAnnotations
+        summary: Find annotations
+        description: >-
+          Searches for annotations in the Grafana database.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: from
+            type: integer
+            schema:
+              description: >-
+                Epoch datetime in milliseconds. Optional.
+          - in: query
+            name: to
+            type: integer
+            schema:
+              description: >-
+                Epoch datetime in milliseconds. Optional.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Number. Optional - default is 100. Max limit for results returned.
+          - in: query
+            name: alertId
+            type: integer
+            schema:
+              description: >-
+                Number. Optional. Find annotations for a specified alert.
+          - in: query
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+                Number. Optional. Find annotations that are scoped to a specific dashboard
+          - in: query
+            name: panelId
+            type: integer
+            schema:
+              description: >-
+                Number. Optional. Find annotations that are scoped to a specific panel
+          - in: query
+            name: userId
+            type: integer
+            schema:
+              description: >-
+                Number. Optional. Find annotations created by a specific user
+          - in: query
+            name: type
+            type: string
+            schema:
+              description: >-
+                string. Optional. alert|annotation Return alerts or user created annotations
+          - in: query
+            name: tags
+            type: string
+            schema:
+              description: >-
+                string. Optional. Use this to filter global annotations. Global annotations are annotations from an annotation data source that are not connected specifically to a dashboard or panel. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times e.g. tags=tag1&tags=tag2.
+        x-code-samples:
+          - lang: cURL
+            source: >-
+              curl -X GET https://api.logz.io/v1/grafana/api/annotations?from=1506676478816&to=1507281278816&tags=tag1&tags=tag2&limit=100 \
+                -H 'Content-Type: application/json' \
+                -H 'X-API-TOKEN: <token>' \
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                dashboardId:
+                  type: integer
+                  example: 1
+                dashboardUId:
+                  type: string
+                  example: "ABcdEFghij"
+                dashboardSlug:
+                  type: string
+                  example: "sensors"
+                panelId:
+                  type: integer
+                  example: 1
+                name:
+                  type: string
+                  example: "fire place sensor"
+                state:
+                  type: string
+                  example: "alerting"
+                newStateDate:
+                  type: string
+                  example: "2018-05-14T05:55:20+02:00"
+                evalDate:
+                  type: string
+                  example: "0001-01-01T00:00:00Z"
+                evalData:
+                  type: array
+                  example: null
+                executionError:
+                  type: string
+                  example: ""
+                url:
+                  type: string
+                  example: "http://grafana.com/dashboard/db/sensors"
+      post:
+        operationId: createAnnotations
+        summary: Create annotations
+        description: >-
+          Creates an annotation in the Grafana database.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            name: dashboardId
+            type: integer
+            required: false
+            schema:
+              description: >-
+                Id of the dashboard. The dashboardId and panelId fields are optional. If they are not specified then a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source.
+          - in: body
+            name: panelId
+            type: integer
+            required: false
+            schema:
+              description: >-
+                Id of the panel. The dashboardId and panelId fields are optional. If they are not specified then a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source.
+          - in: body
+            name: time
+            type: integer
+            schema:
+              description: >-
+                Epoch time in milliseconds.
+          - in: body
+            name: timeEnd
+            type: integer
+            schema:
+              description: >-
+                Epoch time in milliseconds.
+          - in: body
+            name: tags
+            schema:
+              type: array
+              description: >-
+                Annotation tags.
+              items:
+                type: object
+                additionalProperties: integer
+                  type: object
+          - in: body
+            name: text
+            type: string
+            schema:
+              description: >-
+                Annotation Description.
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                message:
+                  type: string
+                  example: Annotation added
+  
+  /v1/grafana/api/annotations/graphite:
+      post:
+        operationId: createAnnotationsGraphite
+        summary: Create annotations in Graphite format
+        description: >-
+          Creates an annotation in the Grafana database by using Graphite-compatible event format.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            name: what
+            type: string
+            schema:
+              description: >-
+                Graphite annotation.
+              example: Event - deploy
+          - in: body
+            name: when
+            type: integer
+            required: false
+            schema:
+              description: >-
+                Epoch datetime of the annotation in milliseconds. Optional. If `when` is not specified then the current time will be used as annotation’s timestamp.
+          - in: body
+            name: tags
+            schema:
+              type: array
+              description: >-
+                Annotation tags.  Can also be in prior to Graphite 0.10.0 format (string with multiple tags being separated by a space).
+              items:
+                type: object
+                additionalProperties: integer
+                  type: object
+          - in: body
+            name: data
+            type: string
+            required: false
+            schema:
+              description: >-
+                Annotation Description.
+              example: deploy of master branch happened at Wed Jul 6 22:34:41 UTC 2016
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                message:
+                  type: string
+                  example: Graphite annotation added
+  
+  /v1/grafana/api/annotations/:id:
+      put:
+        operationId: updateAnnotations
+        summary: Update annotations
+        description: >-
+          Updates an annotation in the Grafana database.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: id
+            type: integer
+            schema:
+              description: >-
+                Id of the annotation.
+          - in: body
+            name: time
+            type: integer
+            schema:
+              description: >-
+                Epoch time in milliseconds.
+          - in: body
+            name: timeEnd
+            type: integer
+            schema:
+              description: >-
+                Epoch time in milliseconds.
+          - in: body
+            name: tags
+            schema:
+              type: array
+              description: >-
+                Annotation tags.
+              items:
+                type: object
+                additionalProperties: integer
+                  type: object
+          - in: body
+            name: text
+            type: string
+            schema:
+              description: >-
+                Annotation Description.
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Annotation updated
+      patch:
+        operationId: patchAnnotations
+        summary: Patch annotations
+        description: >-
+          Updates one or more properties of an annotation that matches the specified id. This operation currently supports updating of the text, tags, time and timeEnd properties.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: id
+            type: integer
+            schema:
+              description: >-
+                Id of the annotation.
+          - in: body
+            name: tags
+            schema:
+              type: array
+              description: >-
+                Annotation tags.
+              items:
+                type: object
+                additionalProperties: integer
+                  type: object
+          - in: body
+            name: text
+            type: string
+            schema:
+              description: >-
+                Annotation Description.
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Annotation patched
+  
+      delete:
+        operationId: deleteAnnotations
+        summary: Delete annotation by id
+        description: >-
+          Deletes the annotation that matches the specified id.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: id
+            type: integer
+            schema:
+              description: >-
+                Id of the annotation.
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Annotation deleted
+  
+  /v1/grafana/api/annotations/tags:
+      get:
+        operationId: getAnnotationsTags
+        summary: Get event tags created in annotations.
+        description: >-
+          Searches for event tags in annotations in the Grafana database.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: tag
+            type: string
+            schema:
+              description: >-
+                Tag. Optional.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Optional. A number, where the default is 100. Max limit for results returned.
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  properties:
+                    tags:
+                      type: object
+                      properties:
+                        tag:
+                          type: string
+                          example: outage
+                        count:
+                          type: integer
+                          example: 1
+  
+  /v1/grafana/api/dashboards/db:
+      post:
+        operationId: createDashboard
+        summary: Create/update a dashboard.
+        description: >-
+          Creates or updates a new dashboard or updates an existing dashboard.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            type: object
+            schema:
+              properties:
+                dashboard:
+                  type: object
+                  description: The complete dashboard model, id = null to create a new dashboard.
+                  properties:
+                    id:
+                      type: integer
+                      description: id = null to create a new dashboard.
+                      example: 1
+                    uid:
+                      type: integer
+                      description: Optional unique identifier when creating a dashboard. uid = null will generate a new uid.
+                      example: 1
+                    title:
+                      type: string
+                      example: Production Overview
+                    tags:
+                      type: array
+                      additionalProperties:
+                        type: string
+                    timezone:
+                      type: string
+                      example: browser
+                    schemaVersion:
+                      type: integer
+                      example: 1
+                    version:
+                      type: integer
+                      example: 0
+                    refresh:
+                      type: string
+                      description: Set the dashboard refresh interval. If this is lower than the minimum refresh interval, then Grafana will ignore it and will enforce the minimum refresh interval.
+                      example: 25s
+                folderId:
+                  type: integer
+                  description: The id of the folder to save the dashboard in.
+                  example: 1
+                folderUid:
+                  type: string
+                  description: The UID of the folder to save the dashboard in. Overrides the folderId.
+                  example: l3KqBxCMz
+                message:
+                  type: string
+                  description: Set a commit message for the version history.
+                  example: Made changes to xyz
+                overwrite:
+                  description: Set to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.
+                  type: boolean
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                uid:
+                  type: string
+                  example: cIBgcSjkk
+                url:
+                  type: string
+                  example: /d/cIBgcSjkk/production-overview
+                status:
+                  type: string
+                  example: success
+                version:
+                  type: integer
+                  example: 1
+                slug:
+                  type: string
+                  example: production-overview
+          412:
+            description: failed
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: The dashboard has been changed by someone else
+                status:
+                  type: string
+                  example: version-mismatch
+  
+  /v1/grafana/api/dashboards/uid/:uid:
+      get:
+        operationId: getDashboarById
+        summary: Get dashboard by uid
+        description: >-
+          Will return the dashboard given the dashboard unique identifier (uid). Information about the unique identifier of a folder containing the requested dashboard might be found in the metadata.
+        tags:
+          - Metrics gateway
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                dashboard:
+                  type: object
+                  description: The complete dashboard model, id = null to create a new dashboard.
+                  properties:
+                    id:
+                      type: integer
+                      description: id = null to create a new dashboard.
+                      example: 1
+                    uid:
+                      type: integer
+                      description: Optional unique identifier when creating a dashboard. uid = null will generate a new uid.
+                      example: 1
+                    title:
+                      type: string
+                      example: Production Overview
+                    tags:
+                      type: array
+                      additionalProperties:
+                        type: string
+                    timezone:
+                      type: string
+                      example: browser
+                    schemaVersion:
+                      type: integer
+                      example: 1
+                    version:
+                      type: integer
+                      example: 0
+                meta:
+                  type: object
+                  description: The complete dashboard model, id = null to create a new dashboard.
+                  properties:
+                    isStarred:
+                      type: boolean
+                      example: true
+                    url:
+                      type: string
+                      description: /d/cIBgcSjkk/production-overview
+                    folderId:
+                      type: integer
+                      example: 2
+                    folderUid:
+                      type: string
+                      example: l3KqBxCMz
+                    slug:
+                      type: string
+                      example: production-overview
+      delete:
+        operationId: deleteDashboarById
+        summary: Delete dashboard by uid
+        description: >-
+          Will delete the dashboard given the specified unique identifier (uid).
+        tags:
+          - Metrics gateway
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                title:
+                  type: object
+                  example: Production Overview
+                message:
+                  type: object
+                  description: Dashboard Production Overview deleted
+                id:
+                  type: integer
+                  example: 2
+  
+  /v1/grafana/api/dashboards/home:
+      get:
+        operationId: getHomeDashboard
+        summary: Get home dashboard
+        description: >-
+          Will return the home dashboard.
+        tags:
+          - Metrics gateway
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                dashboard:
+                  type: object
+                  description: The complete dashboard model, id = null to create a new dashboard.
+                  properties:
+                    editable:
+                      type: boolean
+                      example: false
+                    hideControls:
+                      type: integer
+                      example: false
+                    nav:
+                      type: object
+                      properties:
+                        enable:
+                          type: boolean
+                          example: false
+                        type:
+                          type: string
+                          example: timepicker
+                    style:
+                      type: string
+                      example: dark
+                    tags:
+                      type: object
+                      properties:
+                        tag:
+                          type: string
+                          example: outage
+                    templating:
+                      type: object
+                      properties:
+                        list:
+                          type: array
+                          additionalProperties:
+                            type: string
+                    time:
+                      type: object
+                    timezone:
+                      type: string
+                      example: browser
+                    title:
+                      type: string
+                      example: Home
+                    version:
+                      type: integer
+                      example: 2
+                meta:
+                  type: object
+                  description: The complete dashboard model, id = null to create a new dashboard.
+                  properties:
+                    isHome:
+                      type: boolean
+                      example: true
+                    canSave:
+                      type: boolean
+                      example: false
+                    canEdit:
+                      type: boolean
+                      example: false
+                    canStar:
+                      type: boolean
+                      example: false
+                    url:
+                      type: string
+                      example: url
+                    expires:
+                      type: string
+                      example: 0001-01-01T00:00:00Z
+                    created:
+                      type: string
+                      example: 0001-01-01T00:00:00Z
+  
+  /v1/grafana/api/dashboards/tags:
+      get:
+        operationId: getDashboardTags
+        summary: Get all tags of dashboards
+        description: >-
+          Will return all tags for all dashboard.
+        tags:
+          - Metrics gateway
+        responses:
+          200:
+            description: success
+            schema:
+              type: array
+              properties:
+                term:
+                  type: string
+                  example: tag1
+                count:
+                  type: string
+                  example: count1
+  
+  
+  /v1/grafana/api/dashboards/id/:dashboardId/versions:
+      get:
+        operationId: getAllDashboardVersions
+        summary: Get all dashboard versions
+        description: >-
+          Gets all existing dashboard versions for the dashboard with the given dashboardId.
+        tags:
+          - Metrics gateway
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                dashboardId:
+                  type: integer
+                  example: 2
+                parentVersion:
+                  type: integer
+                  example: 0
+                restoredFrom:
+                  type: integer
+                  example: 0
+                version:
+                  type: integer
+                  example: 2
+                created:
+                  type: integer
+                  example: 2017-06-08T17:24:33-04:00"
+                createdBy:
+                  type: string
+                  example: admin
+                message:
+                  type: string
+                  example: Initial save
+  
+  /v1/grafana/api/dashboards/id/:dashboardId/versions/:id:
+      get:
+        operationId: getAllDashboardVersions
+        summary: Get all dashboard versions
+        description: >-
+          Gets all existing dashboard versions for the dashboard with the given dashboardId.
+        tags:
+          - Metrics gateway
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                dashboardId:
+                  type: integer
+                  example: 1
+                parentVersion:
+                  type: integer
+                  example: 0
+                restoredFrom:
+                  type: integer
+                  example: 0
+                version:
+                  type: integer
+                  example: 1
+                created:
+                  type: string
+                  example: 2017-04-26T17:18:38-04:00
+                message:
+                  type: string
+                  example: Initial save
+                data:
+                  type: object
+                  properties:
+                    annotations:
+                      type: object
+                        properties:
+                          list:
+                            type: array
+                            items:
+                    editable:
+                      type: boolean
+                    gnetId:
+                      type: string
+                      format: nullable
+                    graphTooltip:
+                      type: integer
+                      format": int32
+                      example": 0
+                    hideControls":
+                      type: boolean
+                    id:
+                      type: integer
+                      format: int32
+                      example: 1
+                    links:
+                      type: array
+                      items:
+                    rows:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          collapse:
+                            type: boolean
+                          height:
+                            type: string
+                            example: 250px
+                          panels:
+                            type: array
+                            items:
+                          repeat:
+                            type: string
+                            format: nullable
+                          repeatIteration:
+                            type: string
+                            format: nullable
+                          repeatRowId":
+                            type: string
+                            format: nullable
+                          showTitle:
+                            type: boolean
+                          title:
+                            type: string
+                            example: "Dashboard Row"
+                          titleSize:
+                            type: string
+                            example: "h6"
+                    schemaVersion:
+                      type: integer
+                      format: int32
+                      example: "14"
+                    style:
+                      type: string
+                      example: "dark"
+                    tags:
+                      type: array
+                      items:
+                    templating:
+                      type: object
+                      properties:
+                        list:
+                        type: array
+                          items:
+                    time:
+                      type: object
+                        properties:
+                          from:
+                            type: string
+                            example: "now-6h"
+                          to:
+                            type: string
+                            example: now
+                    timepicker:
+                      type: object
+                      properties:
+                        refresh_intervals:
+                          type: array
+                          items:
+                            type: string
+                            example: "5s"
+                        time_options:
+                          type: array
+                          items:
+                            type: string
+                            example: "5m"
+                    timezone:
+                      type: string
+                      example: browser
+                    title:
+                      type: string
+                      example: test
+                    version:
+                      type: integer
+                      format: int32
+                      example: 1
+                createdBy:
+                  type: string
+                  example: "admin"
+  
+  
+  
+  /v1/grafana/api/dashboards/id/:dashboardId/restore:
+      post:
+        operationId: restoreDashboard
+        summary: Restores a dashboard.
+        description: >-
+          Restores a dashboard to a given dashboard version.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            type: object
+            schema:
+              properties:
+                dashboard:
+                  type: object
+                  description: The complete dashboard model, id = null to create a new dashboard.
+                  properties:
+                    version:
+                      type: integer
+                      example: 0
+  
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  example: production-overview
+                status:
+                  type: string
+                  example: success
+                version:
+                  type: integer
+                  example: 1
+  
+  /v1/grafana/api/dashboards/calculate-diff:
+      post:
+        operationId: compareDashboard
+        summary: Compares dashboards.
+        description: >-
+          Compares two dashboard versions by calculating the JSON diff of them.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            type: object
+            schema:
+              properties:
+                base:
+                  type: object
+                  description: Object representing the base dashboard version.
+                  properties:
+                    dashboardId:
+                      type: integer
+                      example: 0
+                    version:
+                      type: integer
+                      example: 0
+                new:
+                  type: object
+                  description: Object representing the new dashboard version
+                  properties:
+                    dashboardId:
+                      type: integer
+                      example: 0
+                    version:
+                      type: integer
+                      example: 0
+                diffType:
+                  type: string
+                  description: the type of diff to return. Can be “json” or “basic”.
+  
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              examples:
+              text/html: '<p id="l1" class="diff-line diff-json-same"> <!-- Diff omitted --> </p>'
+  
+  
+  
+  
+  /v1/grafana/api/search/:
+      get:
+        operationId: searchDashboard
+        summary: Restores a dashboard.
+        description: >-
+          Restores a dashboard to a given dashboard version.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: query
+            type: string
+            schema:
+              description: >-
+                Search query.
+          - in: query
+            name: tag
+            type: string
+            schema:
+              description: >-
+                List of tags to search for.
+          - in: query
+            name: type
+            type: string
+            schema:
+              description: >-
+                Type to search for, dash-folder or dash-db
+          - in: query
+            name: dashboardIds
+            type: integer
+            schema:
+              description: >-
+                List of dashboard id’s to search for.
+          - in: query
+            name: folderIds
+            type: integer
+            schema:
+              description: >-
+                List of folder id’s to search in for dashboards.
+          - in: query
+            name: starred
+            type: boolean
+            schema:
+              description: >-
+                Flag indicating if only starred Dashboards should be returned.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Limit the number of returned results (max 5000).
+          - in: query
+            name: page
+            type: integer
+            schema:
+              description: >-
+                Use this parameter to access hits beyond limit. Numbering starts at 1. limit param acts as page size. Only available in Grafana v6.2+..
+  
+  
+  
+  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST /v1/grafana/api/search?folderIds=0&query=&starred=false \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+              paused=true
+            }'
+  
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 163
+                uid:
+                  type: string
+                  example: "000000163"
+                title:
+                  type: string
+                  example: "Folder"
+                url:
+                  type: string
+                  example: "/dashboards/f/000000163/folder"
+                type:
+                  type: string
+                  example: "dash-folder"
+                tags:
+                  type: array
+                isStarred:
+                  type: boolean
+                uri:
+                  type: string
+                  example: "db/folder"
+  
+  /v1/grafana/api/snapshots/:
+      post:
+        operationId: createSnapshot
+        summary: Creates a dashboard.
+        description: >-
+          Creates a snapshot.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            name: dashboard
+            type: object
+            required: true
+            schema:
+              description: >-
+                The complete dashboard model..
+          - in: query
+            name: name
+            type: string
+            schema:
+              description: >-
+                Snapshot name.
+          - in: query
+            name: expires
+            type: integer
+            schema:
+              description: >-
+                When the snapshot should expire in seconds. 3600 is 1 hour, 86400 is 1 day. Default is never to expire.
+          - in: query
+            name: external
+            type: boolean
+            schema:
+              description: >-
+                Save the snapshot on an external server rather than locally. Default is false.
+          - in: query
+            name: key
+            type: string
+            schema:
+              description: >-
+                Define the unique key. Required if external is true.
+          - in: query
+            name: deleteKey
+            type: string
+            schema:
+              description: >-
+                Unique key used to delete the snapshot. It is different from the key so that only the creator can delete the snapshot. Required if external is true.
+  
+  
+  
+  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST /v1/grafana/api/search?folderIds=0&query=&starred=false \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+        "dashboard": {
+          "editable":false,
+          "hideControls":true,
+          "nav":[
+          {
+            "enable":false,
+          "type":"timepicker"
+          }
+          ],
+          "rows": [
+            {
+  
+            }
+          ],
+          "style":"dark",
+          "tags":[],
+          "templating":{
+            "list":[
+            ]
+          },
+          "time":{
+          },
+          "timezone":"browser",
+          "title":"Home",
+          "version":5
+          },
+        "expires": 3600
+      }
+  
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                deleteKey:
+                  type: string
+                  example: XXXXXXX
+                deleteUrl:
+                  type: string
+                  example: myurl/api/snapshots-delete/XXXXXXX
+                key:
+                  type: string
+                  example: YYYYYYY
+                url:
+                  type: string
+                  example: myurl/dashboard/snapshot/YYYYYYY
+                id:
+                  type: integer
+                  example: 1
+  
+      get:
+        operationId: getSnapshot
+        summary: Get list of Snapshots
+        description: >-
+          Get list of Snapshots.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: query
+            type: string
+            schema:
+              description: >-
+                Search query.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Limit the number of returned results.
+  
+  
+  
+  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST /v1/grafana/api/search?folderIds=0&query=&starred=false \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+  
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  format: int32
+                  example: 8
+                name:
+                  type: string
+                  example: Home
+                key:
+                  type: string
+                  example: YYYYYYY
+                orgId:
+                  type: integer
+                  format: int32
+                  example: 1
+                userId:
+                  type: integer
+                  format: int32
+                  example: 1
+                external:
+                  type: boolean
+                externalUrl:
+                  type: string
+                  example:
+                expires:
+                  type: string
+                  example: 2200-13-32T25:23:23+02:00
+                created:
+                  type: string
+                  example: 2200-13-32T28:24:23+02:00
+                updated:
+                  type: string
+                  example: 2200-13-32T28:24:23+02:00
+  
+  /v1/grafana/api/snapshots/:key/:
+      get:
+        operationId: getSnapshotbyKey
+        summary: Get Snapshot by Key.
+        description: >-
+          Gets Snapshot by Key.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: key
+            type: string
+            required: true
+  
+  
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                meta:
+                  type: object
+                  properties:
+                    isSnapshot:
+                      type: boolean
+                    type:
+                      type: string
+                      example: snapshot
+                    canSave:
+                      type: boolean
+                    canEdit:
+                      type: boolean
+                    canStar:
+                      type: boolean
+                    slug:
+                      type: string
+                      example:
+                    expires:
+                      type: string
+                      example: 2200-13-32T25:23:23+02:00
+                    created:
+                      type: string
+                      example: 2200-13-32T28:24:23+02:00
+                dashboard:
+                  type: object
+                  properties:
+                    editable:
+                      type: boolean
+                    hideControls:
+                      type: boolean
+                    nav:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          enable:
+                            type: boolean
+                          type:
+                            type: string
+                            example: timepicker
+                    rows:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                    style:
+                      type: string
+                      example: dark
+                    tags:
+                      type: array
+                      items:
+                    templating:
+                      type: object
+                      properties:
+                        list:
+                          type: array
+                          items:
+                    time:
+                      type: object
+                      properties:
+                    timezone:
+                      type: string
+                      example: browser
+                    title:
+                      type: string
+                      example: Home
+                    version:
+                      type: integer
+                      format: int32
+                      example: 5
+  
+      delete:
+        operationId: deleteSnapshotbyKey
+        summary: Delete Snapshot by Key.
+        description: >-
+          Deletes snapshot by Key.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: key
+            type: string
+            required: true
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Snapshot deleted. It might take an hour before it's cleared from any CDN caches.
+                id:
+                  type: integer
+                  format: int32
+                  example: 1
+  
+  /v1/grafana/api/snapshots/:deleteKey/:
+      get:
+        operationId: deleteSnapshotbyDeleteKey
+        summary: Delete snapshot by deleteKey.
+        description: >-
+          Delete snapshot by deleteKey.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: deleteKey
+            type: string
+            required: true
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Snapshot deleted. It might take an hour before it's cleared from any CDN caches.
+                id:
+                  type: integer
+                  format: int32
+                  example: 1
+  
+  
+  
   # ::::: ACCOUNTS
   /v2/whoami:
     get:

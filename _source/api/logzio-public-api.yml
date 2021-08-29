@@ -713,15 +713,15 @@ paths:
               description: >-
                 Annotation tags.
               items:
-                type: object
-                additionalProperties: integer
-                  type: object
+                type: string
+                example: tag1
           - in: body
             name: text
             type: string
             schema:
               description: >-
                 Annotation Description.
+                
         responses:
           200:
             description: successful query

@@ -515,15 +515,7 @@ paths:
             name: pause
             type: boolean
             description: Can be true or false. True to pause an alert. False to unpause an alert.
-          x-code-samples:
-          - lang: cURL
-            source: >-
-              curl -X POST /v1/grafana/api/alerts/1/pause \
-                -H 'Content-Type: application/json' \
-                -H 'X-API-TOKEN: <token>' \
-                -d '{
-                paused=true
-              }'
+
         responses:
           200:
             description: successful query
@@ -553,15 +545,7 @@ paths:
             name: pause
             type: boolean
             description: Can be true or false. True to pause an alert. False to unpause an alert.
-          x-code-samples:
-          - lang: cURL
-            source: >-
-              curl -X POST /v1/grafana/api/admin/pause-all-alerts \
-                -H 'Content-Type: application/json' \
-                -H 'X-API-TOKEN: <token>' \
-                -d '{
-                paused=true
-              }'
+
         responses:
           200:
             description: successful query
@@ -645,12 +629,7 @@ paths:
             schema:
               description: >-
                 string. Optional. Use this to filter global annotations. Global annotations are annotations from an annotation data source that are not connected specifically to a dashboard or panel. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times e.g. tags=tag1&tags=tag2.
-        x-code-samples:
-          - lang: cURL
-            source: >-
-              curl -X GET https://api.logz.io/v1/grafana/api/annotations?from=1506676478816&to=1507281278816&tags=tag1&tags=tag2&limit=100 \
-                -H 'Content-Type: application/json' \
-                -H 'X-API-TOKEN: <token>' \
+
         responses:
           200:
             description: successful query
@@ -1583,21 +1562,8 @@ paths:
             type: integer
             schema:
               description: >-
-                Use this parameter to access hits beyond limit. Numbering starts at 1. limit param acts as page size. Only available in Grafana v6.2+..
-  
-  
-  
-  
-        x-code-samples:
-        - lang: cURL
-          source: >-
-            curl -X POST /v1/grafana/api/search?folderIds=0&query=&starred=false \
-              -H 'Content-Type: application/json' \
-              -H 'X-API-TOKEN: <token>' \
-              -d '{
-              paused=true
-            }'
-  
+                Use this parameter to access hits beyond limit. Numbering starts at 1. limit param acts as page size. Only available in Grafana v6.2+.
+ 
   
         responses:
           200:
@@ -1674,45 +1640,7 @@ paths:
             schema:
               description: >-
                 Unique key used to delete the snapshot. It is different from the key so that only the creator can delete the snapshot. Required if external is true.
-  
-  
-  
-  
-        x-code-samples:
-        - lang: cURL
-          source: >-
-            curl -X POST /v1/grafana/api/search?folderIds=0&query=&starred=false \
-              -H 'Content-Type: application/json' \
-              -H 'X-API-TOKEN: <token>' \
-              -d '{
-        "dashboard": {
-          "editable":false,
-          "hideControls":true,
-          "nav":[
-          {
-            "enable":false,
-          "type":"timepicker"
-          }
-          ],
-          "rows": [
-            {
-  
-            }
-          ],
-          "style":"dark",
-          "tags":[],
-          "templating":{
-            "list":[
-            ]
-          },
-          "time":{
-          },
-          "timezone":"browser",
-          "title":"Home",
-          "version":5
-          },
-        "expires": 3600
-      }
+ 
   
   
         responses:
@@ -1759,14 +1687,7 @@ paths:
                 Limit the number of returned results.
   
   
-  
-  
-        x-code-samples:
-        - lang: cURL
-          source: >-
-            curl -X POST /v1/grafana/api/search?folderIds=0&query=&starred=false \
-              -H 'Content-Type: application/json' \
-              -H 'X-API-TOKEN: <token>' \
+
   
   
         responses:

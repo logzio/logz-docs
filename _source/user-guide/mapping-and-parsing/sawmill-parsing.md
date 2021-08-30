@@ -113,7 +113,7 @@ The parsing rules you create can only be applied to the Logz.io account that mat
 {:.info-box.note}
 <!-- info-box-end -->
 
-## Parsing rule editor examples
+## Parsing rule examples
 
 The goal of log parsing is to transform your log text into useable data fields so you can then run queries and refine query performance, and to extend the text in your logs to create data visualizations and dashboards. 
 

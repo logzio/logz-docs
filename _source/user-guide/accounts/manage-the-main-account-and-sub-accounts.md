@@ -4,7 +4,7 @@ title: Manage log accounts
 permalink: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
 flags:
   admin: true
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - accounts
   - main-account

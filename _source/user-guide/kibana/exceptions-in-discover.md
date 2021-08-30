@@ -55,4 +55,4 @@ To reorder exceptions by **# of occurrences**, **First occurrence**, or **Last s
 
 Exceptions that occurred for the first time within the search time frame are tagged as **New** exceptions.
 
-![Expand an exception for more details directly in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/new-exceptions_2021.png)
+![Expand an exception for more details directly in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/new-exceptions_aug2021.png)

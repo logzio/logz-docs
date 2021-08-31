@@ -522,9 +522,13 @@ paths:
             type: integer
             example: 1
           - in: body
-            name: pause
-            type: boolean
-            description: Can be `true` or `false`. True to pause an alert. False to unpause an alert.
+            name: body
+            schema:
+              type: object
+              properties:
+                paused:
+                  type: boolean
+                  description: Can be `true` or `false`. True to pause an alert. False to unpause an alert.
         x-code-samples:
           - lang: cURL
             source: >-

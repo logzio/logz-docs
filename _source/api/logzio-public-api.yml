@@ -358,12 +358,9 @@ paths:
       x-code-samples:
         - lang: cURL
           source: >-
-            curl -X GET https://api.logz.io/v1/grafana/api/alerts/ \
+            curl -X GET https://api.logz.io/v1/grafana/api/alerts?dashboardId=1 \
               -H 'Content-Type: application/json' \
               -H 'X-API-TOKEN: <token>' \
-              -d '{
-              dashboardId=1
-            }'
       responses:
         200:
           description: successful query
@@ -428,7 +425,7 @@ paths:
         tags:
           - Metrics gateway
         parameters:
-          - in: query
+          - in: path
             name: dashboardId
             type: integer
             schema:

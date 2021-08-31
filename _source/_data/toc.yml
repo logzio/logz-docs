@@ -22,7 +22,7 @@ firstLevel:
     - title: Exceptions
       url: /user-guide/insights/exceptions/
     - title: Deployment markers
-      url: /user-guide/insights/exceptions/deployments/
+      url: /user-guide/kibana/exceptions-deployments
     - title: Patterns
       url: /user-guide/kibana/log-patterns.html
     - title: Wildcard searches

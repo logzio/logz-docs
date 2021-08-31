@@ -372,7 +372,7 @@ paths:
             properties:
               id:
                 type: integer
-                description: Query ID.
+                description: ID.
                 example: 1
               dashboardId:
                 type: integer
@@ -442,33 +442,43 @@ paths:
               properties:
                 id:
                   type: integer
+                  description: ID.
                   example: 1
                 dashboardId:
                   type: integer
+                  description: Dashboard ID.
                   example: 1
                 dashboardUId:
                   type: string
+                  description: Unique Identifier of the dashboard.
                   example: "ABcdEFghij"
                 dashboardSlug:
                   type: string
+                  description: Dashboard slug.
                   example: "sensors"
                 panelId:
                   type: integer
+                  description: ID of the dashboard panel.
                   example: 1
                 name:
                   type: string
+                  description: Dashboard name.
                   example: "fire place sensor"
                 state:
                   type: string
+                  description: Dashboard state.
                   example: "alerting"
                 newStateDate:
                   type: string
+                  description: New state date.
                   example: "2018-05-14T05:55:20+02:00"
                 evalDate:
                   type: string
+                  description: Evaluation date.
                   example: "0001-01-01T00:00:00Z"
                 evalData:
                   type: array
+                  description: Evaluation data.
                   items:
                     type: object
                     properties:
@@ -484,9 +494,11 @@ paths:
               
                 executionError:
                   type: string
+                  description: Execution error message, if present.
                   example: ""
                 url:
                   type: string
+                  description: Dashboard url.
                   example: "http://grafana.com/dashboard/db/sensors"
   
   /v1/grafana/api/alerts/:id/pause:
@@ -515,12 +527,15 @@ paths:
               properties:
                 alertId:
                   type: integer
+                  description: Alert ID.
                   example: 1
                 state:
                   type: string
+                  description: Alert state.
                   example: "Paused"
                 message:
                   type: string
+                  description: Response message.
                   example: "Alert paused"
   
   /v1/grafana/api/admin/pause-all-alerts:
@@ -545,15 +560,19 @@ paths:
               properties:
                 alertId:
                   type: integer
+                  description: Alert ID.
                   example: 1
                 state:
                   type: string
+                  description: State of alerts affected by request.
                   example: "Paused"
                 message:
                   type: string
+                  description: Response message.
                   example: "Alert paused"
                 alertsAffected:
                   type: integer
+                  description: List of alerts affected by request.
                   example: 1
   
   /v1/grafana/api/annotations/:

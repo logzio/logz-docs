@@ -527,7 +527,7 @@ paths:
         x-code-samples:
           - lang: cURL
             source: >-
-              curl -X GET https://api.logz.io/v1/grafana/api/alerts/1/pause \
+              curl -X POST https://api.logz.io/v1/grafana/api/alerts/1/pause \
                 -H 'Content-Type: application/json' \
                 -H 'X-API-TOKEN: <token>' 
         responses:
@@ -565,7 +565,7 @@ paths:
         x-code-samples:
           - lang: cURL
             source: >-
-              curl -X GET https://api.logz.io/v1/grafana/api/admin/pause-all-alerts \
+              curl -X POST https://api.logz.io/v1/grafana/api/admin/pause-all-alerts \
                 -H 'Content-Type: application/json' \
                 -H 'X-API-TOKEN: <token>' \
                 -d '{
@@ -1040,7 +1040,7 @@ paths:
         x-code-samples:
         - lang: cURL
           source: >-
-            curl -X DELETE https://api.logz.io/v1/grafana/api/annotations/1141 \
+            curl -X GET https://api.logz.io/v1/grafana/api/annotations/1141 \
               -H 'Content-Type: application/json' \
               -H 'X-API-TOKEN: <token>' \
 

@@ -839,6 +839,20 @@ paths:
               description: >-
                 Annotation Description.
               example: deploy of master branch happened at Wed Jul 6 22:34:41 UTC 2016
+              
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST https://api.logz.io/v1/grafana/api/annotations/graphite \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "what": "Event - deploy",
+                    "tags": ["deploy", "production"],
+                    "when": 1467844481,
+                    "data": "deploy of master branch happened at Wed Jul 6 22:34:41 UTC 2016"
+            }'
+            
         responses:
           200:
             description: successful query
@@ -896,6 +910,17 @@ paths:
             schema:
               description: >-
                 Annotation Description.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X PUT https://api.logz.io/v1/grafana/api/annotations/1141 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                      "time":1507037197339,
+                      "timeEnd":1507180805056,
+                      "text":"Annotation Description",
+              }'
         responses:
           200:
             description: successful query
@@ -935,6 +960,17 @@ paths:
             schema:
               description: >-
                 Annotation Description.
+                
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X PATCH https://api.logz.io/v1/grafana/api/annotations/1141 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "text":"New Annotation Description",
+                    "tags":["tag6","tag7","tag8"]
+              }'
         responses:
           200:
             description: successful query
@@ -960,6 +996,14 @@ paths:
             schema:
               description: >-
                 Id of the annotation.
+                
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X DELETE https://api.logz.io/v1/grafana/api/annotations/1141 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+
         responses:
           200:
             description: successful query
@@ -992,6 +1036,14 @@ paths:
             schema:
               description: >-
                 Optional. A number, where the default is 100. Max limit for results returned.
+                
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X DELETE https://api.logz.io/v1/grafana/api/annotations/1141 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+
         responses:
           200:
             description: successful query

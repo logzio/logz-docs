@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Deployment markers
-permalink: /user-guide/insights/exceptions/deployments.html
+permalink: /user-guide/kibana/exceptions-deployments.html   
 flags:
   logzio-plan: community
   beta: true
@@ -25,7 +25,7 @@ You can send deployment logs by API to automatically correlate exceptions with s
 
 ##### Send deployment logs by API
 
-Use the [API endpoint](/api/#operation/createMarkers) to create **Deployment markers**.
+Use the [API endpoint](https://docs.logz.io/api/#tag/Deployments) to create **Deployment markers**.
 
 Here's an example payload:
 

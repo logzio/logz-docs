@@ -818,9 +818,9 @@ paths:
                   description: Annotation tags.  Can also be in prior to Graphite 0.10.0 format (string with multiple tags being separated by a space).
                     items:
                       type: object
-                        items: 
-                          type: string
-                          example: ["deploy", "production"]
+                      items: 
+                        type: string
+                        example: ["deploy", "production"]
                   data:
                     type: strin
                     description: Annotation Description.

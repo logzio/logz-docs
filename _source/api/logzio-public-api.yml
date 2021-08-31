@@ -566,10 +566,14 @@ paths:
         tags:
           - Metrics gateway
         parameters:
-          - in: query
-            name: pause
-            type: boolean
-            description: Can be `true` or `false`. True to pause an alert. False to unpause an alert.
+          - in: body
+            name: body
+            schema:
+              type: object
+              properties:
+                paused:
+                  type: boolean
+                  description: Can be `true` or `false`. True to pause an alert. False to unpause an alert.
         x-code-samples:
           - lang: cURL
             source: >-
@@ -736,45 +740,31 @@ paths:
           - Metrics gateway
         parameters:
           - in: body
-            name: dashboardId
-            type: integer
+            name: body
             schema:
-              description: >-
-                Id of the dashboard. The dashboardId and panelId fields are optional. If they are not specified then a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source.
-          - in: body
-            name: panelId
-            type: integer
-            required: false
-            schema:
-              description: >-
-                Id of the panel. The dashboardId and panelId fields are optional. If they are not specified then a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source.
-          - in: body
-            name: time
-            type: integer
-            schema:
-              description: >-
-                Epoch time in milliseconds.
-          - in: body
-            name: timeEnd
-            type: integer
-            schema:
-              description: >-
-                Epoch time in milliseconds.
-          - in: body
-            name: tags
-            schema:
-              type: array
-              description: >-
-                Annotation tags.
-              items:
-                type: string
-                example: tag1
-          - in: body
-            name: text
-            type: string
-            schema:
-              description: >-
-                Annotation Description.
+              type: object
+              properties:
+                dashboardId:
+                  type: integer
+                  description: Id of the dashboard. The dashboardId and panelId fields are optional. If they are not specified then a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source.
+                panelId:
+                  type: integer
+                  description: Id of the panel. The dashboardId and panelId fields are optional. If they are not specified then a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source.
+                time:
+                  type: integer
+                  description: Epoch time in milliseconds.
+                timeEnd:
+                  type: integer
+                  description: Epoch time in milliseconds.
+                tags:
+                  type: array
+                  description: Annotation tags.
+                    items:
+                      type: string
+                      example: tag1
+                text:
+                  type: string
+                  description: Annotation Description.
         x-code-samples:
         - lang: cURL
           source: >-

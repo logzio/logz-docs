@@ -430,7 +430,7 @@ paths:
             type: integer
             schema:
               description: >-
-                Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. `dashboardId=23&dashboardId=35`.
+                ID of the dashboard queried.
         x-code-samples:
           - lang: cURL
             source: >-
@@ -514,7 +514,7 @@ paths:
         tags:
           - Metrics gateway
         parameters:
-          - in: query
+          - in: path
             name: dashboardId
             type: integer
             example: 1

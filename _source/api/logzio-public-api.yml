@@ -440,6 +440,7 @@ paths:
               curl -X GET https://api.logz.io/v1/grafana/api/alerts/1 \
                 -H 'Content-Type: application/json' \
                 -H 'X-API-TOKEN: <token>' 
+                
         responses:
           200:
             description: successful query
@@ -520,7 +521,7 @@ paths:
             name: dashboardId
             type: integer
             example: 1
-          - in: query
+          - in: body
             name: pause
             type: boolean
             description: Can be `true` or `false`. True to pause an alert. False to unpause an alert.
@@ -530,6 +531,9 @@ paths:
               curl -X POST https://api.logz.io/v1/grafana/api/alerts/1/pause \
                 -H 'Content-Type: application/json' \
                 -H 'X-API-TOKEN: <token>' 
+                -d '{
+                      "paused": true
+                }'
         responses:
           200:
             description: successful query
@@ -603,6 +607,7 @@ paths:
         tags:
           - Metrics gateway
         parameters:
+          
           - in: query
             name: from
             type: integer
@@ -729,7 +734,6 @@ paths:
           - in: body
             name: dashboardId
             type: integer
-            required: false
             schema:
               description: >-
                 Id of the dashboard. The dashboardId and panelId fields are optional. If they are not specified then a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source.

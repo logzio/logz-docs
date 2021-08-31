@@ -524,12 +524,12 @@ paths:
             name: pause
             type: boolean
             description: Can be true or false. True to pause an alert. False to unpause an alert.
-      x-code-samples:
-        - lang: cURL
-          source: >-
-            curl -X GET https://api.logz.io/v1/grafana/api/alerts/1/pause \
-              -H 'Content-Type: application/json' \
-              -H 'X-API-TOKEN: <token>' 
+        x-code-samples:
+          - lang: cURL
+            source: >-
+              curl -X GET https://api.logz.io/v1/grafana/api/alerts/1/pause \
+                -H 'Content-Type: application/json' \
+                -H 'X-API-TOKEN: <token>' 
         responses:
           200:
             description: successful query

@@ -759,9 +759,9 @@ paths:
                 tags:
                   type: array
                   description: Annotation tags.
-                    items:
-                      type: string
-                      example: tag1
+                  items:
+                    type: string
+                    example: tag1
                 text:
                   type: string
                   description: Annotation Description.

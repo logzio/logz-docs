@@ -1810,7 +1810,7 @@ paths:
         x-code-samples:
         - lang: cURL
           source: >-
-            curl -X POST https://api.logz.io/v1/grafana/api/dashboards/id/1/restore \
+            curl -X POST https://api.logz.io/v1/grafana/api/dashboards/calculate-diff \
               -H 'Content-Type: application/json' \
               -H 'X-API-TOKEN: <token>' \
               -d '{
@@ -1894,31 +1894,10 @@ paths:
         x-code-samples:
         - lang: cURL
           source: >-
-            curl -X GET https://api.logz.io/v1/grafana/api/search \
+            curl -X GET https://api.logz.io/v1/grafana/api/search?query=Production%20Overview&starred=true&tag=prod \
               -H 'Content-Type: application/json' \
               -H 'X-API-TOKEN: <token>' \
-              -d '[
-                    {
-                      "id": 163,
-                      "uid": "000000163",
-                      "title": "Folder",
-                      "url": "/dashboards/f/000000163/folder",
-                      "type": "dash-folder",
-                      "tags": [],
-                      "isStarred": false,
-                      "uri": "db/folder" // deprecated in Grafana v5.0
-                    },
-                    {
-                      "id": 1,
-                      "uid": "cIBgcSjkk",
-                      "title": "Production Overview",
-                      "url": "/d/cIBgcSjkk/production-overview",
-                      "type": "dash-db",
-                      "tags": [prod],
-                      "isStarred": true,
-                      "uri":"db/production-overview" // deprecated in Grafana v5.0
-                    }
-                  ]'
+
         responses:
           200:
             description: successful query

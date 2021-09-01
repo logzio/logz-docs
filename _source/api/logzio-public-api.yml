@@ -1119,19 +1119,19 @@ paths:
               -H 'X-API-TOKEN: <token>' \
               -d '{
                     "dashboard": {
-    "id": null,
-    "uid": null,
-    "title": "Production Overview",
-    "tags": [ "templated" ],
-    "timezone": "browser",
-    "schemaVersion": 16,
-    "version": 0,
-    "refresh": "25s"
-  },
-  "folderId": 0,
-  "folderUid": "l3KqBxCMz",
-  "message": "Made changes to xyz",
-  "overwrite": false
+                      "id": null,
+                      "uid": null,
+                      "title": "Production Overview",
+                      "tags": [ "templated" ],
+                      "timezone": "browser",
+                      "schemaVersion": 16,
+                      "version": 0,
+                      "refresh": "25s"
+                    },
+                    "folderId": 0,
+                    "folderUid": "l3KqBxCMz",
+                    "message": "Made changes to xyz",
+                    "overwrite": false
               }'
         responses:
           200:

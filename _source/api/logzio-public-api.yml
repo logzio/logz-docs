@@ -1228,7 +1228,7 @@ paths:
                   properties:
                     id:
                       type: integer
-                      description: `id = null` to create a new dashboard.
+                      description: Set `id = null` to create a new dashboard.
                       example: 1
                     uid:
                       type: integer

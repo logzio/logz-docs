@@ -868,32 +868,25 @@ paths:
               description: >-
                 Id of the annotation.
           - in: body
-            name: time
-            type: integer
+            name: body
             schema:
-              description: >-
-                Epoch time in milliseconds.
-          - in: body
-            name: timeEnd
-            type: integer
-            schema:
-              description: >-
-                Epoch time in milliseconds.
-          - in: body
-            name: tags
-            schema:
-              type: array
-              description: >-
-                Annotation tags.
-              items:
-                type: string
-                example: tag3
-          - in: body
-            name: text
-            type: string
-            schema:
-              description: >-
-                Annotation Description.
+              type: object
+              properties:
+                time:
+                  type: integer
+                  description: Epoch time in milliseconds.
+                timeEnd:
+                  type: integer
+                  description: Epoch time in milliseconds.
+                  example: Event - deploy                
+                text:
+                  type: string
+                  description: Annotation Description.
+                tags:
+                  type: attay
+                  description: Tags.
+                  items:
+                    type: string
         x-code-samples:
         - lang: cURL
           source: >-
@@ -904,6 +897,7 @@ paths:
                       "time":1507037197339,
                       "timeEnd":1507180805056,
                       "text":"Annotation Description",
+                      "tags":["tag3","tag4","tag5"]
               }'
         responses:
           200:
@@ -930,20 +924,19 @@ paths:
               description: >-
                 Id of the annotation.
           - in: body
-            name: tags
+            name: body
             schema:
-              type: array
-              description: >-
-                Annotation tags.
-              items:
-                type: string
-                example: tag3
-          - in: body
-            name: text
-            type: string
-            schema:
-              description: >-
-                Annotation Description.
+              type: object
+              properties:
+                text:
+                  type: string
+                  description: Annotation Description.
+                tags:
+                  type: attay
+                  description: Tags.
+                  items:
+                    type: string
+
                 
         x-code-samples:
         - lang: cURL
@@ -981,6 +974,7 @@ paths:
               description: >-
                 Id of the annotation.
                 
+
         x-code-samples:
         - lang: cURL
           source: >-

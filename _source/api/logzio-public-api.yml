@@ -1672,7 +1672,7 @@ paths:
                       properties:
                         list:
                           type: array
-                             items:
+                          items:
                     time:
                       type: object
                       description: Time.
@@ -1836,9 +1836,9 @@ paths:
   /v1/grafana/api/search/:
       get:
         operationId: searchDashboard
-        summary: Restores a dashboard.
+        summary: Search folders and dashboards.
         description: >-
-          Restores a dashboard to a given dashboard version.
+          Search folders and dashboards.
         tags:
           - Metrics gateway
         parameters:
@@ -1859,7 +1859,7 @@ paths:
             type: string
             schema:
               description: >-
-                Type to search for, dash-folder or dash-db
+                Type to search for, dash-folder or dash-db.
           - in: query
             name: dashboardIds
             type: integer
@@ -1891,7 +1891,34 @@ paths:
               description: >-
                 Use this parameter to access hits beyond limit. Numbering starts at 1. limit param acts as page size. Only available in Grafana v6.2+.
  
-  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/search \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '[
+                    {
+                      "id": 163,
+                      "uid": "000000163",
+                      "title": "Folder",
+                      "url": "/dashboards/f/000000163/folder",
+                      "type": "dash-folder",
+                      "tags": [],
+                      "isStarred": false,
+                      "uri": "db/folder" // deprecated in Grafana v5.0
+                    },
+                    {
+                      "id": 1,
+                      "uid": "cIBgcSjkk",
+                      "title": "Production Overview",
+                      "url": "/d/cIBgcSjkk/production-overview",
+                      "type": "dash-db",
+                      "tags": [prod],
+                      "isStarred": true,
+                      "uri":"db/production-overview" // deprecated in Grafana v5.0
+                    }
+                  ]'
         responses:
           200:
             description: successful query
@@ -1900,31 +1927,39 @@ paths:
               properties:
                 id:
                   type: integer
+                  description: ID.
                   example: 163
                 uid:
                   type: string
+                  description: UID.
                   example: "000000163"
                 title:
                   type: string
+                  description: Title.
                   example: "Folder"
                 url:
                   type: string
+                  description: URL.
                   example: "/dashboards/f/000000163/folder"
                 type:
                   type: string
+                  description: Type.
                   example: "dash-folder"
                 tags:
                   type: array
+                  description: Tags.
                 isStarred:
                   type: boolean
+                  description: Whether the dashboard is starred.
                 uri:
                   type: string
+                  description: URI.
                   example: "db/folder"           
    
    
   /v1/grafana/api/snapshots/:
       post:
-        operationId: createSnapshot
+        operationId: createGrafanaSnapshot
         summary: Creates a dashboard.
         description: >-
           Creates a snapshot.

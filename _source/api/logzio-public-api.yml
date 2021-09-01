@@ -1946,44 +1946,70 @@ paths:
           - Metrics gateway
         parameters:
           - in: body
-            name: dashboard
             type: object
-            required: true
             schema:
-              description: >-
-                The complete dashboard model..
-          - in: query
-            name: name
-            type: string
-            schema:
-              description: >-
-                Snapshot name.
-          - in: query
-            name: expires
-            type: integer
-            schema:
-              description: >-
-                When the snapshot should expire in seconds. 3600 is 1 hour, 86400 is 1 day. Default is never to expire.
-          - in: query
-            name: external
-            type: boolean
-            schema:
-              description: >-
-                Save the snapshot on an external server rather than locally. Default is false.
-          - in: query
-            name: key
-            type: string
-            schema:
-              description: >-
-                Define the unique key. Required if external is true.
-          - in: query
-            name: deleteKey
-            type: string
-            schema:
-              description: >-
-                Unique key used to delete the snapshot. It is different from the key so that only the creator can delete the snapshot. Required if external is true.
+              properties:
+                dashboard:
+                  type: object
+                  required: true
+                  description: The complete dashboard model.
+                name:
+                  type: string
+                  description: Snapshot name.
+                expires:
+                  type: integer
+                  description: >-
+                      When the snapshot should expire in seconds. 3600 is 1 hour, 86400 is 1 day. Default is never to expire.
+                external:
+                  type: boolean
+                  description: >-
+                    Save the snapshot on an external server rather than locally. Default is false.
+                key:
+                  type: string
+                  description: >-
+                    Define the unique key. Required if external is true.
+                 deleteKey:
+                   type: string
+                   description: >-
+                     Unique key used to delete the snapshot. It is different from the key so that only the creator can delete the snapshot. Required if external is true.
  
-  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST https://api.logz.io/v1/grafana/api/dashboards/calculate-diff \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    
+                    "dashboard": {
+                      "editable":false,
+                      "hideControls":true,
+                      "nav":[
+                      {
+                        "enable":false,
+                         "type":"timepicker"
+                      }
+                      ],
+                    "rows": [
+                      {
+
+                      }
+                      ],
+                    "style":"dark",
+                    "tags":[],
+                    "templating":{
+                                   "list":[
+                                          ]
+                    },
+                    "time":{
+                    },
+                    "timezone":"browser",
+                    "title":"Home",
+                    "version":5
+                    },
+                    "expires": 3600
+
+              }'
   
         responses:
           200:
@@ -1993,18 +2019,23 @@ paths:
               properties:
                 deleteKey:
                   type: string
+                  description: Unique key used to delete the snapshot. It is different from the `key` so that only the creator can delete the snapshot. Required if external is `true`.
                   example: XXXXXXX
                 deleteUrl:
                   type: string
+                  description: Delete url.
                   example: myurl/api/snapshots-delete/XXXXXXX
                 key:
                   type: string
+                  description: Unique key.
                   example: YYYYYYY
                 url:
                   type: string
+                  description: URL.
                   example: myurl/dashboard/snapshot/YYYYYYY
                 id:
                   type: integer
+                  description: ID.
                   example: 1
   
       get:
@@ -2134,46 +2165,60 @@ paths:
                       example: 2200-13-32T28:24:23+02:00
                 dashboard:
                   type: object
+                  description: Dashboard.
                   properties:
                     editable:
                       type: boolean
+                      description: Whether the dashboard is editable.
                     hideControls:
                       type: boolean
+                      description: Whether to hide controls.
                     nav:
                       type: array
+                      description: Nav.
                       items:
                         type: object
                         properties:
                           enable:
                             type: boolean
+                            description: Nav enabled or not.
                           type:
                             type: string
+                            description: Nav type.
                             example: timepicker
                     rows:
                       type: array
+                      description: Rows.
                       items:
                         type: object
                         properties:
                     style:
                       type: string
+                      description: Style.
                       example: dark
                     tags:
                       type: array
+                      description: Tags.
                       items:
                     templating:
                       type: object
+                      description: Templating.
                       properties:
                         list:
+                          description: List.
                           type: array
                           items:
                     time:
                       type: object
+                      description: Time.
                       properties:
                     timezone:
                       type: string
+                      description: Time zone.
                       example: browser
                     title:
                       type: string
+                      description: Title.
                       example: Home
                     version:
                       type: integer

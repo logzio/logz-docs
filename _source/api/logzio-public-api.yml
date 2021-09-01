@@ -1439,9 +1439,11 @@ paths:
                 properties:
                   term:
                     type: string
+                    description: Tag term.
                     example: tag1
                   count:
                     type: string
+                    description: Tag count.
                     example: count1
   
   
@@ -1460,6 +1462,24 @@ paths:
             schema:
               description: >-
                 Dashboard ID.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Maximum number of results to return.
+          - in: query
+            name: start
+            type: integer
+            schema:
+              description: >-
+                Version to start from when returning queries.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/id/1/versions?limit=2?start=0 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
         responses:
           200:
             description: success
@@ -1468,27 +1488,35 @@ paths:
               properties:
                 id:
                   type: integer
+                  description: ID.
                   example: 1
                 dashboardId:
                   type: integer
+                  description: Dashboard ID.
                   example: 2
                 parentVersion:
                   type: integer
+                  description: Dashboard parent version.
                   example: 0
                 restoredFrom:
                   type: integer
+                  description: Restored from.
                   example: 0
                 version:
                   type: integer
+                  description: Version.
                   example: 2
                 created:
                   type: integer
+                  description: Date created.
                   example: 2017-06-08T17:24:33-04:00"
                 createdBy:
                   type: string
+                  description: Created by.
                   example: admin
                 message:
                   type: string
+                  description: Message.
                   example: Initial save
   
   /v1/grafana/api/dashboards/id/:dashboardId/versions/:id:
@@ -1497,7 +1525,19 @@ paths:
         summary: Get dashboard version
         description: >-
           Get the dashboard version with the given id, for the dashboard with the given id.
-
+        parameters:
+          - in: path
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+                Dashboard ID.
+          - in: path
+            name: id
+            type: integer
+            schema:
+              description: >-
+                Version ID.
         tags:
           - Metrics gateway
         responses:

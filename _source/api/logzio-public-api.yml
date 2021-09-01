@@ -885,6 +885,7 @@ paths:
                 tags:
                   type: attay
                   description: Tags.
+                  example: ["tag3","tag4","tag5"]
                   items:
                     type: string
         x-code-samples:

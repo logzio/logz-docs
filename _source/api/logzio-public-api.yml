@@ -1434,13 +1434,15 @@ paths:
             description: success
             schema:
               type: array
-              properties:
-                term:
-                  type: string
-                  example: tag1
-                count:
-                  type: string
-                  example: count1
+              items:
+                type: object
+                  properties:
+                    term:
+                      type: string
+                      example: tag1
+                    count:
+                      type: string
+                      example: count1
   
   
   /v1/grafana/api/dashboards/id/:dashboardId/versions:
@@ -1491,10 +1493,11 @@ paths:
   
   /v1/grafana/api/dashboards/id/:dashboardId/versions/:id:
       get:
-        operationId: getAllDashboardVersions
-        summary: Get all dashboard versions
+        operationId: getDashboardVersion
+        summary: Get dashboard version
         description: >-
-          Gets all existing dashboard versions for the dashboard with the given dashboardId.
+          Get the dashboard version with the given id, for the dashboard with the given id.
+
         tags:
           - Metrics gateway
         responses:

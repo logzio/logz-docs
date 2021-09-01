@@ -1451,12 +1451,13 @@ paths:
           Gets all existing dashboard versions for the dashboard with the given dashboardId.
         tags:
           - Metrics gateway
-        - in: path
-            name: dashboardId
-            type: integer
-            schema:
-              description: >-
-               Dashboard ID.
+        parameters:
+          - in: path
+              name: dashboardId
+              type: integer
+              schema:
+                description: >-
+                  Dashboard ID.
         responses:
           200:
             description: success

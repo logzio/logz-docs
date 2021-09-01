@@ -1188,7 +1188,7 @@ paths:
         parameters:
           - in: path
             name: uid
-            type: integer
+            type: string
             schema:
               description: >-
                Dashboard UID.
@@ -1200,21 +1200,21 @@ paths:
               -H 'X-API-TOKEN: <token>' \
               -d '{
                     "dashboard": {
-    "id": 1,
-    "uid": "cIBgcSjkk",
-    "title": "Production Overview",
-    "tags": [ "templated" ],
-    "timezone": "browser",
-    "schemaVersion": 16,
-    "version": 0
-  },
-  "meta": {
-    "isStarred": false,
-    "url": "/d/cIBgcSjkk/production-overview",
-    "folderId": 2,
-    "folderUid": "l3KqBxCMz",
-    "slug": "production-overview" //deprecated in Grafana v5.0
-  }
+                      "id": 1,
+                      "uid": "cIBgcSjkk",
+                      "title": "Production Overview",
+                      "tags": [ "templated" ],
+                      "timezone": "browser",
+                      "schemaVersion": 16,
+                      "version": 0
+                    },
+                    "meta": {
+                      "isStarred": false,
+                      "url": "/d/cIBgcSjkk/production-overview",
+                      "folderId": 2,
+                      "folderUid": "l3KqBxCMz",
+                      "slug": "production-overview" //deprecated in Grafana v5.0
+                    }
               }'
         responses:
           200:
@@ -1290,7 +1290,7 @@ paths:
         parameters:
           - in: path
             name: uid
-            type: integer
+            type: string
             schema:
               description: >-
                Dashboard UID.
@@ -1302,8 +1302,8 @@ paths:
               -H 'X-API-TOKEN: <token>' \
               -d '{
                     "title": "Production Overview",
-  "message": "Dashboard Production Overview deleted",
-  "id": 2
+                    "message": "Dashboard Production Overview deleted",
+                    "id": 2
               }'
         responses:
           200:
@@ -1408,6 +1408,12 @@ paths:
                     created:
                       type: string
                       example: 0001-01-01T00:00:00Z
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/home \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
   
   /v1/grafana/api/dashboards/tags:
       get:
@@ -1417,6 +1423,12 @@ paths:
           Will return all tags for all dashboard.
         tags:
           - Metrics gateway
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/tags \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
         responses:
           200:
             description: success
@@ -1439,6 +1451,12 @@ paths:
           Gets all existing dashboard versions for the dashboard with the given dashboardId.
         tags:
           - Metrics gateway
+        - in: path
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+               Dashboard ID.
         responses:
           200:
             description: success

@@ -1111,7 +1111,28 @@ paths:
                 overwrite:
                   description: Set to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.
                   type: boolean
-  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X PATCH https://api.logz.io/v1/grafana/api/dashboards/db \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "dashboard": {
+    "id": null,
+    "uid": null,
+    "title": "Production Overview",
+    "tags": [ "templated" ],
+    "timezone": "browser",
+    "schemaVersion": 16,
+    "version": 0,
+    "refresh": "25s"
+  },
+  "folderId": 0,
+  "folderUid": "l3KqBxCMz",
+  "message": "Made changes to xyz",
+  "overwrite": false
+              }'
         responses:
           200:
             description: successful query
@@ -1121,21 +1142,27 @@ paths:
                 id:
                   type: integer
                   example: 1
+                  description: ID.
                 uid:
                   type: string
                   example: cIBgcSjkk
+                  description: UID.
                 url:
                   type: string
                   example: /d/cIBgcSjkk/production-overview
+                  description: URL.
                 status:
                   type: string
                   example: success
+                  description: Request status.
                 version:
                   type: integer
                   example: 1
+                  description: Dashboard version.
                 slug:
                   type: string
                   example: production-overview
+                  description: Dashboard slug.
           412:
             description: failed
             schema:
@@ -1144,9 +1171,11 @@ paths:
                 message:
                   type: string
                   example: The dashboard has been changed by someone else
+                  description: Error message.
                 status:
                   type: string
                   example: version-mismatch
+                  description: Error status.
   
   /v1/grafana/api/dashboards/uid/:uid:
       get:
@@ -1156,6 +1185,37 @@ paths:
           Will return the dashboard given the dashboard unique identifier (uid). Information about the unique identifier of a folder containing the requested dashboard might be found in the metadata.
         tags:
           - Metrics gateway
+        parameters:
+          - in: path
+            name: uid
+            type: integer
+            schema:
+              description: >-
+               Dashboard UID.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/uid/cIBgcSjkk \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "dashboard": {
+    "id": 1,
+    "uid": "cIBgcSjkk",
+    "title": "Production Overview",
+    "tags": [ "templated" ],
+    "timezone": "browser",
+    "schemaVersion": 16,
+    "version": 0
+  },
+  "meta": {
+    "isStarred": false,
+    "url": "/d/cIBgcSjkk/production-overview",
+    "folderId": 2,
+    "folderUid": "l3KqBxCMz",
+    "slug": "production-overview" //deprecated in Grafana v5.0
+  }
+              }'
         responses:
           200:
             description: success
@@ -1164,52 +1224,62 @@ paths:
               properties:
                 dashboard:
                   type: object
-                  description: The complete dashboard model,  to create a new dashboard.
+                  description: The complete dashboard model, `id = null ` to create a new dashboard.
                   properties:
                     id:
                       type: integer
-                      description: to create a new dashboard.
+                      description: `id = null` to create a new dashboard.
                       example: 1
                     uid:
                       type: integer
-                      description: Optional unique identifier when creating a dashboard.  will generate a new uid.
+                      description: Optional unique identifier when creating a dashboard. `id = null` will generate a new uid.
                       example: 1
                     title:
                       type: string
                       example: Production Overview
+                      description: Dashboard title.
                     tags:
                       type: array
+                      description: Dashboard tags.
                       items:
                         type: string
                         example: tag3
                     timezone:
                       type: string
+                      description: Timezone.
                       example: browser
                     schemaVersion:
                       type: integer
+                      description: Schema version.
                       example: 1
                     version:
                       type: integer
+                      description: Dashboard version.
                       example: 0
                 meta:
                   type: object
-                  description: The complete dashboard model, to create a new dashboard.
+                  description: Information about the unique identifier of a folder containing the requested dashboard .
                   properties:
                     isStarred:
                       type: boolean
                       example: true
+                      description: Whether the dashboard is starred.
                     url:
                       type: string
                       description: /d/cIBgcSjkk/production-overview
+                      description: Dashboard url.
                     folderId:
                       type: integer
                       example: 2
+                      description: Dashboard folder id.
                     folderUid:
                       type: string
                       example: l3KqBxCMz
+                      description: Dashboard folder Uid.
                     slug:
                       type: string
                       example: production-overview
+                      description: Dashboard slug.
       delete:
         operationId: deleteDashboarById
         summary: Delete dashboard by uid
@@ -1217,6 +1287,24 @@ paths:
           Will delete the dashboard given the specified unique identifier (uid).
         tags:
           - Metrics gateway
+        parameters:
+          - in: path
+            name: uid
+            type: integer
+            schema:
+              description: >-
+               Dashboard UID.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X DELETE https://api.logz.io/v1/grafana/api/dashboards/uid/cIBgcSjkk \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "title": "Production Overview",
+  "message": "Dashboard Production Overview deleted",
+  "id": 2
+              }'
         responses:
           200:
             description: success
@@ -1226,12 +1314,14 @@ paths:
                 title:
                   type: object
                   example: Production Overview
+                  description: Dashboard title.
                 message:
                   type: object
-                  description: Dashboard Production Overview deleted
+                  description: Response message.
                 id:
                   type: integer
                   example: 2
+                  description: Dashboard id.
   
   /v1/grafana/api/dashboards/home:
       get:

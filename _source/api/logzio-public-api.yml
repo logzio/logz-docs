@@ -1938,7 +1938,7 @@ paths:
    
   /v1/grafana/api/snapshots/:
       post:
-        operationId: createGrafanaSnapshot
+        operationId: postGrafanaSnapshot
         summary: Creates a dashboard.
         description: >-
           Creates a snapshot.
@@ -2008,7 +2008,7 @@ paths:
                   example: 1
   
       get:
-        operationId: getSnapshot
+        operationId: getGrafanaSnapshot
         summary: Get list of Snapshots
         description: >-
           Get list of Snapshots.
@@ -2027,8 +2027,13 @@ paths:
             schema:
               description: >-
                 Limit the number of returned results.
-  
-  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/snapshots \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+
 
   
   
@@ -2040,40 +2045,46 @@ paths:
               properties:
                 id:
                   type: integer
-                  format: int32
+                  description: ID.
                   example: 8
                 name:
                   type: string
+                  description: Snapshot name.
                   example: Home
                 key:
                   type: string
+                  description: Snapshot key.
                   example: YYYYYYY
                 orgId:
                   type: integer
-                  format: int32
+                  description: Snapshot orgId.
                   example: 1
                 userId:
                   type: integer
-                  format: int32
+                  description: Snapshot user ID.
                   example: 1
                 external:
                   type: boolean
+                  description: Whether the snapshot is external.
                 externalUrl:
                   type: string
-                  example:
+                  description: Snapshot external url.
                 expires:
                   type: string
+                  description: Snapshot expiry date.
                   example: 2200-13-32T25:23:23+02:00
                 created:
                   type: string
+                  description: Snapshot creation date.
                   example: 2200-13-32T28:24:23+02:00
                 updated:
                   type: string
+                  description: Snapshot update date.
                   example: 2200-13-32T28:24:23+02:00
   
   /v1/grafana/api/snapshots/:key/:
       get:
-        operationId: getSnapshotbyKey
+        operationId: getGrafanaSnapshotbyKey
         summary: Get Snapshot by Key.
         description: >-
           Gets Snapshot by Key.
@@ -2085,7 +2096,12 @@ paths:
             type: string
             required: true
   
-  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/snapshots/YYYYYYY \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
   
         responses:
           200:
@@ -2161,11 +2177,11 @@ paths:
                       example: Home
                     version:
                       type: integer
-                      format: int32
+                      description: Dashboard version.
                       example: 5
   
       delete:
-        operationId: deleteSnapshotbyKey
+        operationId: deleteGrafanaSnapshotbyKey
         summary: Delete Snapshot by Key.
         description: >-
           Deletes snapshot by Key.
@@ -2176,7 +2192,12 @@ paths:
             name: key
             type: string
             required: true
-  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X DELETE https://api.logz.io/v1/grafana/api/snapshots/YYYYYYY \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
         responses:
           200:
             description: successful query
@@ -2185,15 +2206,16 @@ paths:
               properties:
                 message:
                   type: string
+                  description: Message.
                   example: Snapshot deleted. It might take an hour before it's cleared from any CDN caches.
                 id:
                   type: integer
-                  format: int32
+                  description: ID.
                   example: 1
   
-  /v1/grafana/api/snapshots/:deleteKey/:
+  /v1/grafana/api/snapshots-delete/:deleteKey:
       get:
-        operationId: deleteSnapshotbyDeleteKey
+        operationId: deleteGrafanaSnapshotbyDeleteKey
         summary: Delete snapshot by deleteKey.
         description: >-
           Delete snapshot by deleteKey.
@@ -2204,7 +2226,12 @@ paths:
             name: deleteKey
             type: string
             required: true
-  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X DELETE https://api.logz.io/v1/grafana/api/snapshots-delete/XXXXXX \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
         responses:
           200:
             description: successful query
@@ -2213,10 +2240,11 @@ paths:
               properties:
                 message:
                   type: string
+                  description: Message.
                   example: Snapshot deleted. It might take an hour before it's cleared from any CDN caches.
                 id:
                   type: integer
-                  format: int32
+                  description: ID.
                   example: 1
   
   # ::::: ACCOUNTS

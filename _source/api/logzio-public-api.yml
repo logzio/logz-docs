@@ -1453,11 +1453,11 @@ paths:
           - Metrics gateway
         parameters:
           - in: path
-              name: dashboardId
-              type: integer
-              schema:
-                description: >-
-                  Dashboard ID.
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+                Dashboard ID.
         responses:
           200:
             description: success

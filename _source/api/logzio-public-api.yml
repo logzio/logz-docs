@@ -1266,7 +1266,7 @@ paths:
                       description: Whether the dashboard is starred.
                     url:
                       type: string
-                      description: /d/cIBgcSjkk/production-overview
+                      example: /d/cIBgcSjkk/production-overview
                       description: Dashboard url.
                     folderId:
                       type: integer

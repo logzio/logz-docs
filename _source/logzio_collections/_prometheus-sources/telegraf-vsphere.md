@@ -26,6 +26,8 @@ To send your Prometheus-format Vmware Vsphere metrics to Logz.io, you need to ad
 
 ##### Set up Telegraf v1.17 or higher
 
+Set up Telegraf on a dedicated server as described below.
+  
 {% include metric-shipping/telegraf-setup.md %}
  
 ##### Add the inputs.vsphere plug-in

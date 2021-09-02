@@ -32,7 +32,7 @@ order: 1380
 3. Go to **Configuration > SIEM settings** and enable the following configuration:
 ![SIEM settings before](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2before.jpg)
    * **UDP**
-   * **IP** - public IP adrress of your syslog server
+   * **IP** - public IP address of your syslog server
    * **Port** - port that is configured on your syslog server
 4. Press **Add**. The added IP and port will appear on the screen.
 ![SIEM settings after](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2after.jpg)
@@ -53,7 +53,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
    filebeat.inputs:
    - type: udp
      max_message_size: 10MiB
-     host: "0.0.0.0:5400"
+     host: "0.0.0.0:5044"
      fields:
        logzio_codec: json
        # Your Logz.io account token. You can find your token at

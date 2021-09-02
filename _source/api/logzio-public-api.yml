@@ -997,7 +997,7 @@ paths:
   /v1/grafana/api/annotations/tags:
       get:
         operationId: getAnnotationsTags
-        summary: Get event tags created in annotations.
+        summary: Get event tags created in annotations
         description: >-
           Searches for event tags in annotations in the Grafana database.
         tags:
@@ -1053,7 +1053,7 @@ paths:
   /v1/grafana/api/dashboards/db:
       post:
         operationId: createDashboard
-        summary: Create/update a dashboard.
+        summary: Create/update a dashboard
         description: >-
           Creates or updates a new dashboard or updates an existing dashboard.
         tags:
@@ -1723,7 +1723,7 @@ paths:
   /v1/grafana/api/dashboards/id/:dashboardId/restore:
       post:
         operationId: restoreDashboard
-        summary: Restores a dashboard.
+        summary: Restore a dashboard
         description: >-
           Restores a dashboard to a given dashboard version.
         tags:
@@ -1774,7 +1774,7 @@ paths:
   /v1/grafana/api/dashboards/calculate-diff:
       post:
         operationId: compareDashboard
-        summary: Compares dashboards.
+        summary: Compare dashboards
         description: >-
           Compares two dashboard versions by calculating the JSON diff of them.
         tags:
@@ -1836,7 +1836,7 @@ paths:
   /v1/grafana/api/search/:
       get:
         operationId: searchDashboard
-        summary: Search folders and dashboards.
+        summary: Search folders and dashboards
         description: >-
           Search folders and dashboards.
         tags:
@@ -1939,7 +1939,7 @@ paths:
   /v1/grafana/api/snapshots/:
       post:
         operationId: postGrafanaSnapshot
-        summary: Creates a dashboard.
+        summary: Create a dashboard
         description: >-
           Creates a snapshot.
         tags:
@@ -2116,7 +2116,7 @@ paths:
   /v1/grafana/api/snapshots/:key/:
       get:
         operationId: getGrafanaSnapshotbyKey
-        summary: Get Snapshot by Key.
+        summary: Get Snapshot by Key
         description: >-
           Gets Snapshot by Key.
         tags:
@@ -2227,7 +2227,7 @@ paths:
   
       delete:
         operationId: deleteGrafanaSnapshotbyKey
-        summary: Delete Snapshot by Key.
+        summary: Delete Snapshot by Key
         description: >-
           Deletes snapshot by Key.
         tags:
@@ -2261,7 +2261,7 @@ paths:
   /v1/grafana/api/snapshots-delete/:deleteKey:
       get:
         operationId: deleteGrafanaSnapshotbyDeleteKey
-        summary: Delete snapshot by deleteKey.
+        summary: Delete snapshot by deleteKey
         description: >-
           Delete snapshot by deleteKey.
         tags:

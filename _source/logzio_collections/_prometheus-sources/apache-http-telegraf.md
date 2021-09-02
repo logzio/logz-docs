@@ -58,6 +58,19 @@ First you need to configure the input plug-in to enable Telegraf to scrape the A
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/apache/README.md)
 {:.info-box.note}
 <!-- info-box-end -->
+  
+
+##### Enable the ExtendedStatus option on your server
+  
+The `ExtendedStatus` option must be enabled on your server in order to collect all available fields. To do this, add the following code to your `httpd.conf` configuration file:
+  
+```html
+<Location "/server-status">
+    SetHandler server-status
+    Require host example.com
+</Location>
+```
+
 
 ##### Add the outputs.http plug-in
   

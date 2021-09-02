@@ -1088,7 +1088,7 @@ paths:
     post:
       operationId: getSawmillTestType
       summary: Parse sample logs with a Sawmill pipeline
-      description: Performs parsing of sample logs with a given Sawmill pipeline (https://github.com/logzio/sawmill/wiki). A pipeline is a collection of parsing rules to be executed in a specific order where the syntax and functionality follow the guidelines of the Sawmill library.
+      description: Performs parsing of sample logs with a given Sawmill pipeline (https://github.com/logzio/sawmill/wiki). A pipeline is a collection of parsing rules to be executed in a specific order where the syntax and functionality follow the guidelines of the Sawmill library. **Note:** this endpoint is not used to create or update parsing, but for testing purposes only,
       tags:
         - Parsing
       produces:

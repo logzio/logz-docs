@@ -26,10 +26,11 @@ You must be an account admin to apply a parsing rule set to an account.
 
 The [Sawmill open source library](https://github.com/logzio/sawmill) is used for text transformations. 
 
-A Sawmill rule set is composed of a series of steps that are applied to a specific log type. Each step is a Sawmill processor which performs an action, a transformation, or includes some logic to enrich your logs. You set the processor step order according to the transformations and changes you need to apply to meet your parsing requirements.
+A Sawmill rule set is composed of a series of steps that are applied to a specific log type. Each step is a Sawmill processor that performs an action, a transformation, or includes some logic to enrich your logs. You set the processor step order according to the transformations and changes you need to apply to meet your parsing requirements.
 
 The collection of Sawmill processors can be found in the [Github wiki for the project.](https://github.com/logzio/sawmill/wiki)  
 
+<!--when this topic goes live ==> DEPRECATE _source/user-guide/mapping-and-parsing/data-parsing-wizard.md    -->
 
 ### The Logz.io Data parsing editor
 

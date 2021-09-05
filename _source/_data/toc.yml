@@ -333,8 +333,8 @@ firstLevel:
       url: /user-guide/mapping-and-parsing/split-json-array.html
     - title: Parsing Wizard
       url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
-    - title: Logz.io Data parsing
-      url: /user-guide/mapping-and-parsing/sawmill-parsing.html
+    #- title: Logz.io Data parsing
+    #  url: /user-guide/mapping-and-parsing/sawmill-parsing.html
 
   # ===== INTEGRATIONS =====
 - title: Integrations

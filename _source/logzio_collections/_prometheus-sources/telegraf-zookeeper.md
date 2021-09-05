@@ -23,13 +23,13 @@ To send your Prometheus-format Apache Zookeper metrics to Logz.io, you need to a
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on each Zookeeper machine
 
 {% include metric-shipping/telegraf-setup.md %}
 
 ##### Add the inputs.zookeper plug-in
 
-First you need to configure the input plug-in to enable Telegraf to scrape the Apache Zookeper data from your hosts. To do this, add the following code to the configuration file:
+First you need to configure the input plug-in to enable Telegraf to scrape the Apache Zookeper data from your hosts. To do this, add the below code to the configuration file. 
 
 ``` ini
 [[inputs.zookeper]]
@@ -51,7 +51,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the A
   ## If false, skip chain & host verification
   # insecure_skip_verify = true
 ```
-
+    
 <!-- info-box-start:info -->
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/zookeper/README.md)
 {:.info-box.note}

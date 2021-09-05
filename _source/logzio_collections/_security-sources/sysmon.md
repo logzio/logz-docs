@@ -17,6 +17,11 @@ Sysmon (System Monitor) is a Windows system service that monitors and logs syste
 
 #### Configuration
 
+#### NEW BUTTON
+456
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
 **Before you begin, you'll need**:
 
 * [Winlogbeat 7](https://www.elastic.co/downloads/past-releases/winlogbeat-7-0-0) installed.

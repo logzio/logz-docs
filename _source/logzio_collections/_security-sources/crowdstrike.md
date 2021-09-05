@@ -27,6 +27,11 @@ Deploy this integration to ship Crowdstrike events from your Crowdstrike account
 
 ### Architecture overview
 
+#### NEW BUTTON
+123
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
 This integration includes:
 
 

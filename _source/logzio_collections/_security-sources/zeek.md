@@ -14,6 +14,11 @@ order: 670
 
 #### Guided configuration
 
+#### NEW BUTTON
+456
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
 **Before you begin, you'll need**:
 Zeek or Bro,
 [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),

@@ -34,6 +34,11 @@ order: 740
 
 ##### Configure Sophos to collect the Central Cloud logs
 
+#### NEW BUTTON
+456
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
 Follow the official instructions provided by Sophos for [collecting Sophos Central Cloud logs from all machines](https://support.sophos.com/support/s/article/KB-000036372?language=en_US).
 
 The procedure involves using the Sophos API. Make sure that the `config.ini` used in the Sophos siem.py script is under `format = json` (this is the default setting).

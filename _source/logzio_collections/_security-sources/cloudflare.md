@@ -19,6 +19,11 @@ For an overview of Cloudflare logs, and the related S3 and Logpush configuration
 
 #### Setup
 
+#### NEW BUTTON
+123
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
 To send firewall event logs to Logz.io Cloud SIEM, you'll first configure a Logpush job to send your Cloudflare data to a dedicated S3 bucket, then configure Logz.io to collect and ingest that data from the S3 bucket. 
 
 ##### Prerequisites

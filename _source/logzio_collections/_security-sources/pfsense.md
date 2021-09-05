@@ -25,6 +25,11 @@ order: 1380
 
 ##### Configure pfSense to send syslog notifications to a remote Syslog server running Filebeat
 
+#### NEW BUTTON
+456
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
 1. On your Pfsense firewall web interface, go to **Status > System logs > Setting**.
 ![Status options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/pfsense/Pfsense_Status_Options.png)
 2. On the Settings tab, locate the **General Logging Options** area and enable the following configuration:

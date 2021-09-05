@@ -28,6 +28,11 @@ You can review the Trend Micro resources in your security account, including pre
 
 ##### Install the Trend Micro certificate on your Filebeat server {#key}
 
+#### NEW BUTTON
+456
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
 Trend Micro sends encrypted data, so you'll need to install the Trend Micro certificate on your Filebeat server.
 
 ```

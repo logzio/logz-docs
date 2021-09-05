@@ -22,6 +22,11 @@ order: 1380
 
 ##### Install the SentinelOne certificate on your Filebeat server
 
+#### NEW BUTTON
+456
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
 SentinelOne sends encrypted data,
 so you'll need to create a dedicated SentinelOne certificate to decrypt the logs by the Filebeat server.
 

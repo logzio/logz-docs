@@ -25,6 +25,11 @@ order: 1280
 
 ##### Configure Filebeat
 
+#### NEW BUTTON
+456
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:

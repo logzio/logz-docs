@@ -19,6 +19,11 @@ You can review Alcide kAudit findings in your Logz.io security account, includin
 
 #### Configuration
 
+#### NEW BUTTON
+789
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
+
 You can configure an Alcide kAudit integration that uses the Logz.io HTTPS API. The integration can be configured from the kAudit app or kAudit Kubernetes ConfigMap.
 
 Each finding type requires a separate configuration. If you plan to send all kAudit data to Logz.io, you will need to configure 3 HTTPS API integrations, one per finding type.

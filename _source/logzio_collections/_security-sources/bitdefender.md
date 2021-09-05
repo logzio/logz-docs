@@ -24,6 +24,10 @@ order: 650
 <div class="tasklist">
 
 ##### Generate Bitdefender GravityZone API key
+#### NEW BUTTON
+789
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 * Log in to your Bitdefender GravityZone Control Center.
 * Click the username in the upper-right corner and select **My Account**.

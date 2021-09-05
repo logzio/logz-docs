@@ -28,6 +28,10 @@ The resources set up by the automated deployment can collect data for a single A
 
 
 ###### Overview of the services you'll be setting up in your Azure account
+#### NEW BUTTON
+789
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
 

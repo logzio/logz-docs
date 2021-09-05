@@ -14,6 +14,13 @@ order: 1330
 
 #### Configure Filebeat 
 
+
+#### NEW BUTTON
+456
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
+
 **Before you begin, you'll need**:
 
 * Apache2 Web Server and Terminal access to the instance running it

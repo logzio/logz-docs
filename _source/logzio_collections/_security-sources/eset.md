@@ -24,6 +24,11 @@ order: 730
 
 ##### Install the ESET certificate on your Filebeat server
 
+#### NEW BUTTON
+123
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
 ESET sends encrypted data,
 so you'll need to create a dedicated ESET certificate to decrypt the logs by the Filebeat server.
 

@@ -14,6 +14,12 @@ order: 1310
 
 #### Configuration
 
+#### NEW BUTTON
+789
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
+
+
 **Before you begin, you'll need**:
 
 * [Check Point Log Exporter](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323)

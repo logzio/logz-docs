@@ -19,6 +19,11 @@ Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to rev
 #### Step by step
 
 
+#### NEW BUTTON
+456
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
 **Before you begin, you'll need**:
 
 * [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)

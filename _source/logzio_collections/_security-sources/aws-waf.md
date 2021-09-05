@@ -16,6 +16,10 @@ order: 360
 If you're using AWS WAF as a web application firewall, you can ship its alerts to your Logz.io Cloud SIEM.
 
 #### Configuration
+#### NEW BUTTON
+789
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 
 <div class="tasklist">

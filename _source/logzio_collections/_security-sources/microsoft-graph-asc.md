@@ -29,6 +29,13 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
 
 #### To integrate Microsoft Graph and Logz.io
 
+
+#### NEW BUTTON
+123
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
+
 <div class="tasklist">
 
 ##### Register a new app in Azure Active Directory

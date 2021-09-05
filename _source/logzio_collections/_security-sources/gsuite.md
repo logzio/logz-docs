@@ -26,6 +26,13 @@ The GSuite module was [deprecated as of Filebeat 7.12](https://www.elastic.co/gu
 
 #### G Suite setup
 
+
+#### NEW BUTTON
+123
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
+
 ##### Set up a Service Account
 
 Follow the official G Suite [tutorial](https://support.google.com/gsuitemigrate/answer/9222993?hl=en) for setting up a service account.

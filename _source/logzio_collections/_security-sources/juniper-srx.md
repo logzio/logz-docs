@@ -22,6 +22,11 @@ You can review the Juniper SRX resources in your Logz.io Cloud SIEM account, und
 #### Step by step
 
 
+#### NEW BUTTON
+123
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
 **Before you begin, you'll need**:
 
 * Juniper SRX

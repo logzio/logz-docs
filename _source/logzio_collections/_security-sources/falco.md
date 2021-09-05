@@ -21,6 +21,11 @@ Once your Falco logs are coming into your account, you can review the pre-config
 
 #### Configuration
 
+#### NEW BUTTON
+123
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
 **Before you begin, you'll need**:
 
 * Falco installed on the host

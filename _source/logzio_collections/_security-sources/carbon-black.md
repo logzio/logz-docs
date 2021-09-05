@@ -15,6 +15,10 @@ order: 1300
 Ship alerts from VMware Carbon Black to your Logz.io Cloud SIEM.
 
 #### Configuration
+#### NEW BUTTON
+789
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 
 <div class="tasklist">

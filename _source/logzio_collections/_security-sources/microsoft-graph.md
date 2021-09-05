@@ -35,6 +35,13 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
 
 ##### Register a new app in Azure Active Directory
 
+
+#### NEW BUTTON
+123
+
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
+
 In the Azure portal, go to [App registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 and select **New registration** from the top menu.
 

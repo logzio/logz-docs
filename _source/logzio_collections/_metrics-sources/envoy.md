@@ -19,6 +19,9 @@ You can send Envoy metrics to Logz.io using Metricbeat.
 Please note that the following configuration needs to be performed on all relevant Envoy client nodes.
 {:.info-box.important}
 <!-- info-box-end -->
+#### NEW BUTTON
+123
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
 
 #### Metricbeat setup
 

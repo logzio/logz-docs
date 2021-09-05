@@ -18,6 +18,9 @@ To simplify shipping metrics from one or many sources,
 we created Docker Metrics Collector.
 Docker Metrics Collector is a container
 that runs Metricbeat with the modules you enable at runtime.
+#### NEW BUTTON
+789
+<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 {% include /metric-shipping/docker-metricbeat-version.md %}
 

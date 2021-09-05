@@ -18,6 +18,9 @@ to send their metrics to Azure Monitor.
 When you set up Metricbeat using the configuration on this page,
 Metricbeat will collect metrics from Azure VM Scale Sets
 and forward them to Logz.io.
+#### NEW BUTTON
+123
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
 
 #### Metricbeat setup
 

@@ -19,6 +19,10 @@ When you set up Metricbeat using the configuration on this page,
 Metricbeat will collect metrics from Azure VMs
 and forward them to Logz.io.
 
+#### NEW BUTTON
+456
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+
 #### Metricbeat setup
 
 {% include metric-shipping/azure-services-requirements.html %}

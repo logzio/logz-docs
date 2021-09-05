@@ -17,6 +17,9 @@ shipping-tags:
   - container
 order: 40
 ---
+#### NEW BUTTON
+123
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
 
 To simplify shipping metrics from one or many sources,
 we created Docker Metrics Collector.

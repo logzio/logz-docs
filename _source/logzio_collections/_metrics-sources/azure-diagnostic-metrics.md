@@ -19,6 +19,9 @@ contributors:
 shipping-tags:
   - azure
 ---
+#### NEW BUTTON
+456
+<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
 
 <!-- info-box-start:info -->
 This metrics solution is deprecated and only works with the Elastic-based Logz.io metrics product.

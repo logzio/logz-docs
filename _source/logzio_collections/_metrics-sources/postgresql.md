@@ -14,6 +14,11 @@ order: 700
 
 You can ship PostgreSQL metrics using Metricbeat.
 
+#### NEW BUTTON
+123
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
+
 #### Metricbeat setup
 
 **Before you begin, you'll need**:

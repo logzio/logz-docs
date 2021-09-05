@@ -17,6 +17,9 @@ shipping-tags:
 
 <!-- tabContainer:start -->
 <div class="branching-container">
+#### NEW BUTTON
+789
+<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 * [Ship Kinesis Firehose metrics over Docker container](#Kinesis-Firehose-docker)
 * [Ship over self-hosted Metricbeat](#Kinesis-Firehose-vanilla)

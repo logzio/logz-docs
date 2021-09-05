@@ -22,11 +22,6 @@ shipping-tags:
 order: 10
 ---
 
-#### NEW BUTTON
-
-<!-- logzio-inject:grafana:dashboards-installation id=['7GOPHucWSajA5pptILGV8G'] -->
-
-
 <!-- tabContainer:start -->
 <div class="branching-container">
 

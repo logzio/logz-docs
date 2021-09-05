@@ -240,10 +240,10 @@ The resulting transformation is:  ![Conditional parsing example](https://dytvr9o
 
 ### Example 3: Template parsing
 
-In Logz.io parsing, templating lets you include your original field values in various transformations. 
+In Logz.io parsing, templating lets you include your original field values with various transformations, wherever you decide it's relevant. 
 
-Use templating to consolidate or transform separate field strings into a single, aggregated field. 
-In this example, the resulting transformation is: ![Template parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/template-parse-example_sept2021.gif)
+You can also use the templating option to consolidate or transform separate field strings into a single, aggregated field. 
+In this example, the resulting transformation consolidates several fields and timestamps: ![Template parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/template-parse-example_sept2021.gif)
 
 ###### Log sample 
 ```java

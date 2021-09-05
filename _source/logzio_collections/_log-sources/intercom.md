@@ -14,7 +14,7 @@ order: 50
 
 #### NEW BUTTON
 123
-<!-- logzio-inject:grafana:dashboards-installation id=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 #### Ship events data from your Intercom account to Logz.io
 

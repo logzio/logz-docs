@@ -20,7 +20,7 @@ You will need to repeat the following procedure for each Consul server and clien
 **Before you begin, you'll need**:
 #### NEW BUTTON
 123
-<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["1m3Sqx6atnxPd7829LV2W5"] -->
 
 * [Metricbeat 7.6](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation-configuration.html) or higher.
 

@@ -27,7 +27,7 @@ order: 650
 #### NEW BUTTON
 789
 
-<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G"] -->
 
 * Log in to your Bitdefender GravityZone Control Center.
 * Click the username in the upper-right corner and select **My Account**.

@@ -26,7 +26,7 @@ order: 520
 #### NEW BUTTON
 123
 
-<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["1m3Sqx6atnxPd7829LV2W5"] -->
 
 Configure your FortiGate firewall to send logs to your Filebeat server.
 Make sure you meet this configuration:

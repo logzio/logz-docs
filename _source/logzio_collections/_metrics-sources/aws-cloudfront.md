@@ -20,7 +20,7 @@ order: 760
 <div class="branching-container">
 #### NEW BUTTON
 789
-<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G"] -->
 
 * [Ship CloudFront metrics over Docker container](#CloudFront-docker)
 * [Ship over self-hosted Metricbeat](#CloudFront-vanilla)

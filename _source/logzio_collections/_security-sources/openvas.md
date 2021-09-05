@@ -22,7 +22,7 @@ Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to rev
 #### NEW BUTTON
 456
 
-<!-- logzio-inject:install:grafana:dashboards ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["4Tk1cgkBEnyrOjTuhKILto","4F0PJis1p02ZyMtuMflYyo"] -->
 
 **Before you begin, you'll need**:
 

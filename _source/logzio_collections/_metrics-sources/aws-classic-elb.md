@@ -20,7 +20,7 @@ order: 790
 <div class="branching-container">
 #### NEW BUTTON
 789
-<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G"] -->
 
 * [Ship Classic ELB metrics over Docker container](#Classic-ELB-docker)
 * [Ship over self-hosted Metricbeat](#Classic-ELB-vanilla)

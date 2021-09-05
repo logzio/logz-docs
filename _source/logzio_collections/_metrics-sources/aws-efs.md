@@ -19,7 +19,7 @@ shipping-tags:
 <div class="branching-container">
 #### NEW BUTTON
 789
-<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G"] -->
 
 * [Ship EFS metrics over Docker container](#EFS-docker)
 * [Ship over self-hosted Metricbeat](#EFS-vanilla)

@@ -27,7 +27,7 @@ order: 940
 #### NEW BUTTON
 456
 
-<!-- logzio-inject:install:grafana:dashboards ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["4Tk1cgkBEnyrOjTuhKILto","4F0PJis1p02ZyMtuMflYyo"] -->
 
 In the Wazuh configuration file (/var/ossec/etc/ossec.conf), find the `<logging>` tag, and set the `<log_format>` property to `json`.
 

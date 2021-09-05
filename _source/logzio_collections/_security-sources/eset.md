@@ -27,7 +27,7 @@ order: 730
 #### NEW BUTTON
 123
 
-<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["1m3Sqx6atnxPd7829LV2W5"] -->
 
 ESET sends encrypted data,
 so you'll need to create a dedicated ESET certificate to decrypt the logs by the Filebeat server.

@@ -33,7 +33,7 @@ please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at 
 #### NEW BUTTON
 123
 
-<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["1m3Sqx6atnxPd7829LV2W5"] -->
 
 
 <div class="tasklist">

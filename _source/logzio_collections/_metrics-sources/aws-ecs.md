@@ -20,7 +20,7 @@ order: 390
 <div class="branching-container">
 #### NEW BUTTON
 789
-<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G"] -->
 
 * [Ship ECS metrics over Docker container](#ECS-docker)
 * [Ship over self-hosted Metricbeat](#ECS-vanilla)

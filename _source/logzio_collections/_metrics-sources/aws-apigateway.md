@@ -20,7 +20,7 @@ order: 890
 <div class="branching-container">
 #### NEW BUTTON
 789
-<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G"] -->
 
 * [Ship ApiGateway metrics over Docker container](#ApiGateway-docker)
 * [Ship over self-hosted Metricbeat](#ApiGateway-vanilla)

@@ -14,7 +14,7 @@ shipping-tags:
 You can ship MongoDB metrics using Metricbeat.
 #### NEW BUTTON
 123
-<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["1m3Sqx6atnxPd7829LV2W5"] -->
 
 #### Metricbeat setup
 

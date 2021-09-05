@@ -19,7 +19,7 @@ shipping-tags:
 <div class="branching-container">
 #### NEW BUTTON
 789
-<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["7GOPHucWSajA5pptILGV8G"] -->
 
 * [Ship Athena metrics over Docker container](#Athena-docker)
 * [Ship over self-hosted Metricbeat](#Athena-vanilla)

@@ -25,7 +25,7 @@ order: 1380
 #### NEW BUTTON
 456
 
-<!-- logzio-inject:install:grafana:dashboards ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["4Tk1cgkBEnyrOjTuhKILto","4F0PJis1p02ZyMtuMflYyo"] -->
 
 SentinelOne sends encrypted data,
 so you'll need to create a dedicated SentinelOne certificate to decrypt the logs by the Filebeat server.

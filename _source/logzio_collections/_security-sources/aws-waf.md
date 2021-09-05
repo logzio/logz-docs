@@ -19,7 +19,7 @@ If you're using AWS WAF as a web application firewall, you can ship its alerts t
 #### NEW BUTTON
 789
 
-<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 
 <div class="tasklist">

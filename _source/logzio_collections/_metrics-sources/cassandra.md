@@ -19,7 +19,7 @@ You can ship Cassandra metrics to Logz.io using Metricbeat.
 **Before you begin, you'll need**:
 #### NEW BUTTON
 123
-<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
 
 * A server or cluster with Cassandra installed
 * [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher installed

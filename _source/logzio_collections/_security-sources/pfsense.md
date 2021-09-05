@@ -28,7 +28,7 @@ order: 1380
 #### NEW BUTTON
 456
 
-<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
 
 1. On your Pfsense firewall web interface, go to **Status > System logs > Setting**.
 ![Status options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/pfsense/Pfsense_Status_Options.png)

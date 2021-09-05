@@ -19,7 +19,7 @@ shipping-tags:
 <div class="branching-container">
 #### NEW BUTTON
 789
-<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 * [Ship Kinesis metrics over Docker container](#Kinesis-docker)
 * [Ship over self-hosted Metricbeat](#Kinesis-vanilla)

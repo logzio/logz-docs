@@ -15,7 +15,7 @@ order: 280
 You can ship MySQL metrics using Metricbeat.
 #### NEW BUTTON
 123
-<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
 
 
 #### Metricbeat setup

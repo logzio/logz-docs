@@ -14,7 +14,7 @@ order: 770
 ---
 #### NEW BUTTON
 456
-<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
 
 You can ship Azure Event Hub metrics using Metricbeat to monitor your Azure services.
 First, you'll need to configure your services

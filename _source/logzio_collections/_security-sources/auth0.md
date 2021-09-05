@@ -27,7 +27,7 @@ order: 810
 #### NEW BUTTON
 789
 
-<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using custom log stream via webhooks.
 

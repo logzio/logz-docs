@@ -23,7 +23,7 @@ so you can easily ship your audit logs to Logz.io.
 #### NEW BUTTON
 789
 
-<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 **Before you begin, you'll need**:
 auditd,

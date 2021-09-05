@@ -17,14 +17,14 @@ You can send your application metrics to your Logz.io Infrastructure Monitoring 
 
 #### NEW BUTTON
 123
-<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
 
 <div class="tasklist">
 
 ##### Metrics vs. Dimensions
 #### NEW BUTTON
 123
-<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
 
 Our guiding principle is to use key-value pairs to define metrics and their dimensions.
 

@@ -14,7 +14,7 @@ shipping-tags:
 ---
 #### NEW BUTTON
 456
-<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
 
 To monitor your Azure service metrics,
 we recommend configuring your services

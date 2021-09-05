@@ -28,7 +28,7 @@ These are the prerequisites you'll need before you can begin:
 #### NEW BUTTON
 456
 
-<!-- logzio-inject:grafana:dashboards-installation ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['4Tk1cgkBEnyrOjTuhKILto','4F0PJis1p02ZyMtuMflYyo'] -->
 
 Configure your SonicWall firewall to send logs to your Filebeat server.
 Make sure you meet this configuration:

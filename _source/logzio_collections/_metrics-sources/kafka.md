@@ -20,7 +20,7 @@ You can ship Kafka metrics to logz.io using Metricbeat.
 * A host installed with [Docker](https://www.docker.com/get-started) and [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-installation.html) or higher
 #### NEW BUTTON
 123
-<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['1m3Sqx6atnxPd7829LV2W5'] -->
 
 ### Expose metrics
 

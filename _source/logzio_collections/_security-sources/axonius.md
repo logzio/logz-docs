@@ -27,7 +27,7 @@ order: 1380
 #### NEW BUTTON
 789
 
-<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
+<!-- logzio-inject:install:grafana:dashboards ids=['7GOPHucWSajA5pptILGV8G'] -->
 
 1. On your Axonius web interface, go to **System Settings > Global Settings > Syslog Settings**.
 ![Axonius](https://dytvr9ot2sszz.cloudfront.net/logz-docs/axonius/axonius514.png)

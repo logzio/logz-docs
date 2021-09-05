@@ -15,6 +15,10 @@ order: 370
 You can send your application metrics to your Logz.io Infrastructure Monitoring account and create your own dashboards. To do this, you'll need to send your application metrics to Logz.io in JSON format and keep to the following formatting guidelines.
 
 
+#### NEW BUTTON
+123
+<!-- logzio-inject:grafana:dashboards-installation ids=['1m3Sqx6atnxPd7829LV2W5'] -->
+
 <div class="tasklist">
 
 ##### Metrics vs. Dimensions

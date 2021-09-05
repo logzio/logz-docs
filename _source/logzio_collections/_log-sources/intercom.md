@@ -12,10 +12,6 @@ shipping-tags:
 order: 50
 ---
 
-#### NEW BUTTON
-123
-<!-- logzio-inject:grafana:dashboards-installation ids=['7GOPHucWSajA5pptILGV8G'] -->
-
 #### Ship events data from your Intercom account to Logz.io
 
 Deploy this integration to ship Intercom events from your Intercom account to Logz.io using webhooks.

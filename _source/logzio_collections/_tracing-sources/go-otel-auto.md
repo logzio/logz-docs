@@ -162,7 +162,7 @@ In the `main` function of your application, add the following code:
 	defer shutdown()
 ```
 
-After this, you need to declare the instrumentation according to your application. The example below is given for a HTTP server application:
+After this, you need to declare the instrumentation according to your application. The example below is given for a HTTP server application. The HTTP handler instructs the tracer to create spans on each request.
 
 ```go
 uk := attribute.Key("username")

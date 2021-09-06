@@ -55,90 +55,10 @@ On deployment, the Node.js instrumentation automatically captures spans from you
 <div class="tasklist">
 
 
-##### Download instrumentation packages
-
-Run the following command from the application directory:
-
-```shell
-npm install --save @opentelemetry/api
-npm install --save @opentelemetry/instrumentation
-npm install --save @opentelemetry/tracing
-npm install --save @opentelemetry/exporter-collector
-npm install --save @opentelemetry/resources
-npm install --save @opentelemetry/semantic-conventions
-npm install --save @opentelemetry/auto-instrumentations-node
-```
-
-##### Create a tracer file
-
-In the directory of your application file, create a file named `tracer.js` with the following configuration:
-
-```javascript
-'use strict';
-
-const opentelemetry = require('@opentelemetry/api');
-const { registerInstrumentations } = require('@opentelemetry/instrumentation');
-const { BasicTracerProvider, ConsoleSpanExporter, SimpleSpanProcessor } = require('@opentelemetry/tracing');
-const { CollectorTraceExporter } = require('@opentelemetry/exporter-collector');
-const { Resource } = require('@opentelemetry/resources');
-const { ResourceAttributes } = require('@opentelemetry/semantic-conventions');
-const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
-
-
-module.exports = (serviceName) => {
-
-const exporter = new CollectorTraceExporter({
-});
-
-const provider = new BasicTracerProvider({
-  resource: new Resource({
-    [ResourceAttributes.SERVICE_NAME]: serviceName,
-  }),
-});
-provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
-provider.register();
-
-registerInstrumentations({
-    instrumentations: [
-      new getNodeAutoInstrumentations(),
-    ],
-  });
-
-return opentelemetry.trace.getTracer('logzio-collector-exporter-node');
-
-};
-```
-
-
-##### Enable instrumentation in the application code
-
-Add the following configuration to the beginning of your application Node.js file:
-
-```javascript
-const tracer = require('./tracer.js')('logzio-collector-exporter-node');
-```
-
-Add the following configuration to the same file:
-
-```javascript
-app.get('/', async (req, res) => {
-  // This outgoing HTTP request should be captured by Trace
-  try {
-    const {body} = await got(DISCOVERY_URL, {responseType: 'json'});
-    const names = body.items.map(item => item.name);
-    res.status(200).send(names.join('\n')).end();
-    // res.status(200).send(body).end();
-  } catch (err) {
-    console.error(err);
-  }
-});
-```
+{% include tracing-shipping/node-steps.md %}
 
 
 ##### Download and configure OpenTelemetry collector
-
-{% include tracing-shipping/otel_bug_june2021.md %}
 
 Create a dedicated directory on the host of your Node.js application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.33.0) that is relevant to the operating system of your host.
 

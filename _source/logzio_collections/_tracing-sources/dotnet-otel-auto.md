@@ -55,45 +55,7 @@ On deployment, the .NET instrumentation automatically captures spans from your a
 <div class="tasklist">
 
 
-##### Download instrumentation packages
-
-Run the following command from the application directory:
-
-```shell
-dotnet add package OpenTelemetry
-dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
-dotnet add package OpenTelemetry.Instrumentation.AspNetCore
-dotnet add package OpenTelemetry.Extensions.Hosting
-```
-
-##### Enable instrumentation in the code
-
-Add the following configuration to the beginning of the Startup.cs file:
-
-```cs
-using OpenTelemetry.Resources;
-using OpenTelemetry.Trace;
-```
-
-Add the following configuration to the Startup class:
-
-```cs
-public void ConfigureServices(IServiceCollection services)
-        {
-
-            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
-
-            services.AddOpenTelemetryTracing((builder) => builder
-                .AddAspNetCoreInstrumentation()
-                .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("my-app"))
-                .AddOtlpExporter(options =>
-                {
-                    options.Endpoint = new Uri("http://localhost:55681");
-             
-                })
-            );
-        }
-```
+{% include /tracing-shipping/dotnet-steps.md %}
 
 
 ##### Download and configure OpenTelemetry collector

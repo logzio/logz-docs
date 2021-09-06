@@ -14,7 +14,7 @@ docker run \
 -e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 -e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
 --network host \
-yotamloe/otel-collector-traces
+logzio/otel-collector-traces
 ```
 
 When running on MacOS or Windows hosts, publish the ports using the `-p` flag:
@@ -33,5 +33,5 @@ docker run \
 -p 14268:14268 \
 -p 4317:4317 \
 -p 55681:55681 \
-yotamloe/otel-collector-traces
+logzio/otel-collector-traces
 ```

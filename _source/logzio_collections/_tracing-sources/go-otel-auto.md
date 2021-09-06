@@ -57,7 +57,7 @@ On deployment, the Go instrumentation automatically captures spans from your app
 
 ##### Download the general instrumentation packages
 
-These packages are required to enable instrumentation for your code regardless the type of application that you need to instrument. 
+These packages are required to enable instrumentation for your code regardless of the type of application that you need to instrument. 
 
 To download these packages, run the following command from the application directory:
 
@@ -82,7 +82,7 @@ We recommend sending OTLP traces using HTTP. This is why we import the `otlptrac
 
 ##### Download the application specific instrumentation packages
 
-Depending on the type of your application, you need to download instrumentation packages specific to your application. For example, if your applicatiion is a HTTP server, you will need the `opentelemetry.io/contrib/instrumentation/net/http/otelhttp` package. The full list of all available packages can be found in the [OpenTelemetry contrib directory](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/v0.22.0/instrumentation).
+Depending on the type of your application, you need to download instrumentation packages specific to your application. For example, if your application is a HTTP server, you will need the `opentelemetry.io/contrib/instrumentation/net/http/otelhttp` package. The full list of all available packages can be found in the [OpenTelemetry contrib directory](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/v0.22.0/instrumentation).
 
 The example below is given for a HTTP server application:
 

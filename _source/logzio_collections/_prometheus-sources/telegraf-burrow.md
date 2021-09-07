@@ -3,7 +3,7 @@ title: Ship Burrow metrics via Telegraf
 logo:
   logofile: burrow-telegraf.png
   orientation: vertical
-data-source: Burrow metrics over Telegraf
+data-source: Kafka metrics over Telegraf
 templates: ["docker"]
 contributors:
   - daniel-tk
@@ -17,7 +17,7 @@ order: 800
 
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Burrow metrics to Logz.io, you need to add the **inputs.burrow** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Kafka Burrow metrics to Logz.io, you need to add the **inputs.burrow** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 

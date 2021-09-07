@@ -23,7 +23,7 @@ To send your Prometheus-format Ceph Storage metrics to Logz.io, you need to add 
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on each Ceph server
 
 **Ubuntu & Debian**
 

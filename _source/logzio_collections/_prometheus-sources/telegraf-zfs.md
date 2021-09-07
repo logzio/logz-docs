@@ -24,7 +24,7 @@ To send your Prometheus-format ZFS metrics to Logz.io, you need to add the **inp
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on the same machine as ZFS
 
 {% include metric-shipping/telegraf-setup.md %}
 

@@ -25,6 +25,8 @@ To send your Prometheus-format bCache metrics to Logz.io, you need to add the **
 <div class="tasklist">
 
 ##### Set up Telegraf v1.17 or higher
+  
+Install Telegraf on the Linux server that you need to collect the bCache metrics from.
 
 **Ubuntu & Debian**
 

@@ -24,7 +24,7 @@ To send your Prometheus-format Phfusion Passenger metrics to Logz.io, you need t
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on the Passanger server
 
 {% include metric-shipping/telegraf-setup.md %}
 

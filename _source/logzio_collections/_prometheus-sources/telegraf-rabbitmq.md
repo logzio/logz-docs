@@ -24,7 +24,7 @@ To send your Prometheus-format RabbitMQ metrics to Logz.io, you need to add the 
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on the RabbitMQ server
 
 {% include metric-shipping/telegraf-setup.md %}
 

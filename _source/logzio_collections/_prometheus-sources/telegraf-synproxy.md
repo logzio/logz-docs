@@ -26,7 +26,41 @@ To send your Prometheus-format Synproxy metrics to Logz.io, you need to add the 
 
 ##### Set up Telegraf v1.17 or higher
 
-{% include metric-shipping/telegraf-setup.md %}
+**Ubuntu & Debian**
+
+```shell
+sudo apt-get update && sudo apt-get install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**RedHat and CentOS**
+
+```shell
+sudo yum install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**SLES & openSUSE**
+
+```shell
+# add go repository
+zypper ar -f obs://devel:languages:go/ go
+# install latest telegraf
+zypper in telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**FreeBSD/PC-BSD**
+
+```shell
+sudo pkg install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+  
 
 ##### Add the inputs.Synproxy plug-in
 

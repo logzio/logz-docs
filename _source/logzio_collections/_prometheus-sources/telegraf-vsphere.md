@@ -114,6 +114,10 @@ Here is an example of the configuration file that will enable Telegraf to scrape
 {% include metric-shipping/telegraf-outputs.md %}
 {% include general-shipping/replace-placeholders-prometheus.html %}
 
+##### Start Telegraf
+
+{% include metric-shipping/telegraf-run.md %}
+
 ##### Check Logz.io for your metrics
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboards to enhance the observability of your metrics.

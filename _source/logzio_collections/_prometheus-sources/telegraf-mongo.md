@@ -108,7 +108,7 @@ To send your Prometheus-format Mongo Atlas metrics to Logz.io, you need to add t
 
 ##### Add the inputs.mongodb plug-in
 
-First you need to configure the input plug-in to enable Telegraf to scrape the MongoDB data from your hosts. To do this, add the following code to the configuration file:
+First you need to configure the input plug-in to enable Telegraf to scrape the Mongo Atlas data from your hosts. To do this, add the following code to the configuration file:
 
 
 ``` ini
@@ -121,11 +121,11 @@ First you need to configure the input plug-in to enable Telegraf to scrape the M
     cluster = "<<YOUR-CLUSTER>>"
 ```
 
-* Replace `<<USER-NAME>>` with the user name for your MongoDB database.
-* Replace `<<PASSWORD>>` with the password for your MongoDB database.
-* Replace `<<ADDRESS>>` with the address of your MongoDB database host. This is `localhost` if installed locally.
-* Replace `<<PORT>>` with the address of your host port allocated to MongoDB database.
-* Replace `<<YOUR-CLUSTER>>` with the cluster of your Mongo Atlas.
+* Replace `<<USER-NAME>>` with the user name for your Mongo Atlas database.
+* Replace `<<PASSWORD>>` with the password for your Mongo Atlas database.
+* Replace `<<ADDRESS>>` with the address of your Mongo Atlas database host. This is `localhost` if installed locally.
+* Replace `<<PORT>>` with the address of your host port allocated to Mongo Atlas database.
+* Replace `<<YOUR-CLUSTER>>` with the cluster of your Mongo Atlas database.
 
 <!-- info-box-start:info -->
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/mongodb/README.md).

@@ -24,7 +24,7 @@ To send your Prometheus-format Wireguard metrics to Logz.io, you need to add the
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on the same machine as Wireguard
 
 {% include metric-shipping/telegraf-setup.md %}
 

@@ -24,7 +24,7 @@ To send your Prometheus-format uWSGI metrics to Logz.io, you need to add the **i
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on the same maching as uWSGI
 
 {% include metric-shipping/telegraf-setup.md %}
 

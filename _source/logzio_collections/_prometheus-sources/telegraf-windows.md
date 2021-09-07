@@ -26,8 +26,14 @@ To send your Prometheus-format Windows Services metrics to Logz.io, you need to 
 
 ##### Set up Telegraf v1.17 or higher
 
-{% include metric-shipping/telegraf-setup.md %}
+```shell
+wget https://dl.influxdata.com/telegraf/releases/telegraf-1.19.2_windows_amd64.zip
+```
 
+After downloading the archive, extract its contents into `C:\Program Files\Logzio\telegraf\`.
+
+The configuration file is located at `C:\Program Files\Logzio\telegraf\`.
+  
 ##### Add the inputs.win_services plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Windows Services data from your hosts. To do this, add the following code to the configuration file:

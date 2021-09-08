@@ -1,90 +1,139 @@
 ---
-title: Installing the OpenTelemetry Collector for Distributed Tracing
+title: Send traces from your OpenTelemetry installation to Logz.io 
 logo:
   logofile: opentelemetry-icon-color.png
   orientation: vertical
-data-source: Using OpenTelemetry to send tracing data
-description: How to deploy an OpenTelemetry Collector for traces to Logz.io
-open-source:
-  - title: Logz.io-OpenTelemetry trace exporter
-    github-repo: opentelemetry-collector-contrib
+data-source: OpenTelemetry installation
+description: Send traces from your OpenTelemetry installation to Logz.io 
 contributors:
   - yyyogev
   - yberlinger
   - doron-bargo
+  - nshishkin
 shipping-tags:
-  - components
+  - existing-instrumentation
 order: 330
 ---
-## Overview
+<!-- tabContainer:start -->
+<div class="branching-container">
 
-Logz.io's trace exporter for OpenTelemetry allows you to ship distributed traces to Logz.io from different APM (Application Performance Management/Monitoring) agents, such as Jaeger, Zipkin, and so on.
+* [Overview](#overview)
+* [Local host](#local-host)
+{:.branching-tabs}
 
-This topic explains how to install the OpenTelemetry Collector.  For an overview of the process to send traces to Logz.io, see [Getting started with Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing). 
+<!-- tab:start -->
+<div id="overview">
 
-### OpenTelemetry components
+Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
 
-The OpenTelemetry Collector pipeline has the following main components: 
+### Architecture overview
 
-* **Receivers** are used to gather data from your environment (pull-based) or receive it from external sources (push-based). Your system must have at least one receiver configured. Receivers are typically HTTP/gRPC endpoints or daemon-like processes. 
-* **Processors** are used at various stages of your pipeline to pre-process data before exporting it.  Processors may be used to modify attributes or sample the data. This component is used to ensure that your data successfully makes it through a pipeline.  
-* **Exporters** are used to send data to your designated tracing (or metrics, or logging) backends/destinations. Your system must have at least one exporter configured to move data from collector to backend.
+This integration includes:
 
-OpenTelemetry also includes extensions for additional functionality, such as diagnostics and health checks for components contributed by the community, such as the Logz.io exporter, as well as a dedicated collector.
+* Configuring the OpenTelemetry collector to receive traces from your OpenTelemetry installation and send them to Logz.io
 
-#### Deploy OpenTelemetry Collector with Logz.io Exporter
+On deployment, your OpenTelemetry instrumentation captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="local-host">
+
+
+
+### Set up your locally hosted OpenTelemetry installation to send traces to Logz.io
+
+**Before you begin, you'll need**:
+
+* An application instrumented with an OpenTelemetry installation
+* An active account with Logz.io
+
 
 <div class="tasklist">
 
-##### Create a Docker network
-Run the following command to create a Docker network: 
+##### Add Logz.io exporter to your OpenTelemetry collector
+
+Add the following parameters to the configuration file of your OpenTelemetry collector:
+
+* Under the `exporters` list
 
 ```yaml
-docker network create net-logzio
+  logzio:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    #region: "<<LOGZIO_ACCOUNT_REGION_CODE>>" - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is different than US East. https://docs.logz.io/user-guide/accounts/account-region.html#available-regions
 ```
 
-To enable communication between the collector and the agent, include the name of the network you create in this step (for example, `net-logzio`) in the config file for each component. 
-
-##### Pull the opentelemetry-collector-contrib image:
+* Under the `service` list:
 
 ```yaml
-docker pull otel/opentelemetry-collector-contrib:0.17.0
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logzio]
 ```
 
-##### Create a config file to mount to the container. 
+{% include /tracing-shipping/replace-tracing-token.html %}
 
-The config file must include the required components for the OpenTelemetry Collector - receivers, processors, exporters, services and optional extensions.
-You can use [this config file](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/master/exporter/logzioexporter/example/config.yaml) as a starting point, with the Logz.io exporter parameters, below.
-
-
-{% include tracing-shipping/tracing-parameters.md %}
-| CUSTOM_LISTENER_ADDRESS | Custom traces endpoint, for dev. This optional parameter overrides the region parameter.  You can find your Listener Address in the [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions) table.| |
-
-
-
-##### Save the file as `config.yaml`.
-
-##### Deploy the OpenTelemetry collector and mount the config file you saved.
+An example configuration file looks as follows:
 
 ```yaml
-docker run -p 7276:7276 -p 8888:8888 -p 9943:9943 -p 55679:55679 -p 55680:55680 -p 9411:9411 \
-    -v config.yaml:/etc/otel-collector-config.yaml:ro \
-    --name logzio-collector otel/opentelemetry-collector-contrib:0.17.0 \  ## In the collector configuration, the --name attribute specifies the <<collector name>> used to run the collector. In this example, the <<collector-name>> is "logzio-collector"
-        --config /etc/otel-collector-config.yaml
+receivers:  
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+exporters:
+  logzio:
+    account_token: "<<TRACING-SHIPPING-TOKEN>>"
+    #region: "<<LOGZIO_ACCOUNT_REGION_CODE>>" - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is different than US East. https://docs.logz.io/user-guide/accounts/account-region.html#available-regions
+
+processors:
+  batch:
+
+extensions:
+  pprof:
+    endpoint: :1777
+  zpages:
+    endpoint: :55679
+  health_check:
+
+service:
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logzio]
 ```
 
-##### Run a working example.
-For a complete working example, you can run [this docker compose file](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/docker-compose.yaml) for the [Logz.io Hotrod demo application](https://docs.logz.io/user-guide/distributed-tracing/trace-hotrod-demo).
+##### Start the collector
 
-  1. Download the docker compose file.
+Run the following command:
 
-  2. Edit the Account Token and the other necessary parameters, according to the parameters listed in step 3, above.
-  3. Run `docker-compose up`. 
-  4. Head to [http://0.0.0.0:8080/](http://0.0.0.0:8080/) to trigger the event that will generate and send traces to your Logz.io account.
+```shell
+<path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
+```
+* Replace `<path/to>` with the path to the directory where you downloaded the collector.
+* Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-##### Check the Distributed Tracing tab for your traces.
+##### Run the application
 
-Give your traces some time to get from your system to ours, then check the Distributed Tracing tab in Logz.io to see the traces in the Jaeger UI.
+Run the application to generate traces.
 
-To learn more about tracing instrumentation, see [Instrumentation recommendations and resources.](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation#instrumentation-recommendations-and-resources)
 
+##### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

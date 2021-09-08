@@ -16,19 +16,34 @@ shipping-tags:
   - popular
 order: 390
 ---
+<!-- tabContainer:start -->
+<div class="branching-container">
 
+* [Overview](#overview)
+* [Standard configuration](#Standard-configuration)
+* [Customizing Helm chart parameters](#Customizing-helm-chart-parameters)
+* [Uninstalling the Chart](#Uninstalling-the-chart)
+{:.branching-tabs}
 
-##  Overview
+<!-- tab:start -->
+<div id="overview">
+
+####  Overview
 
 
 **logzio-otel-k8s-metrics** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
-<!-- info-box-start:info -->
-This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. 
+This chart is a fork of the [opentelemetry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. 
+  
 It is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics), [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) and [prometheus-pushgateway](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-pushgateway) charts, which are installed by default. 
+  
 To disable the dependency during installation, set `kubeStateMetrics.enabled`, `nodeExporter.enabled` or `pushGateway.enabled` to `false`.
-{:.info-box.note}
-<!-- info-box-end -->
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Standard-configuration">
 
 #### Standard configuration
 
@@ -36,40 +51,51 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled`, `
   
 ##### Add logzio-helm repo to your helm repo list
 
-```shell
-helm repo add logzio-helm https://logzio.github.io/logzio-helm
-helm repo update
-```
+  ```shell
+  helm repo add logzio-helm https://logzio.github.io/logzio-helm
+  helm repo update
+  ```
 
 ##### Deploy the Helm chart
 
-To deploy the Helm chart, enter the relevant parameters for the placeholders and run the code. 
+1. Configure the relevant parameters in the following code:
 
-###### Configure the parameters in the code
+   ```
+   helm install --namespace <<YOUR-NAMESPACE>>  \
+   --set secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
+   --set secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
+   --set secrets.p8s_logzio_name=<<ENV-TAG>> \
+   logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics
+   ```
 
-Replace the Logz-io `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) of the metrics account to which you want to send your data.
+   * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
 
+   * {% include /metric-shipping/replace-metrics-token.html %}
 
-Replace `<<LISTENER-HOST>>` with your region’s listener host (for example, `https://listener.logz.io:8053`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+   * {% include /log-shipping/listener-var.html %}
 
-Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
+   * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 
-###### Run the Helm deployment code
-
-```
-helm install  \
---set secrets.MetricsToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
---set secrets.ListenerHost=<<LISTENER-HOST>> \
---set secrets.p8s_logzio_name=<<ENV-TAG>> \
-logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics
-```
+2. Run the code.
 
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+Give your metrics some time to get from your system to ours.
 
 
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["7BMEKdVrHKPQtt5IgaQ7Bw", "4knWrgcTsEj5kqNXJTES87", "NwO3pdosDJVRWo6i9QJEy", "6RFNnTgcwAmmFnuRropnGu", "5lqRpL1ADesghZbNCEPaZ9"] -->
+
+{% include metric-shipping/generic-dashboard.html %} 
+  
 </div>
+  
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Customizing-helm-chart-parameters">
 
 ####  Customizing Helm chart parameters
 
@@ -102,9 +128,15 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 
 </div>
 
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Uninstalling-the-chart">
+
 #### Uninstalling the Chart
 
-The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
+The `uninstall` command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
 To uninstall the `logzio-otel-k8s-metrics` deployment, use the following command:
 
@@ -112,3 +144,8 @@ To uninstall the `logzio-otel-k8s-metrics` deployment, use the following command
 helm uninstall logzio-otel-k8s-metrics
 ```
 
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

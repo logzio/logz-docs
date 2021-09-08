@@ -3,6 +3,7 @@ title: Ship Java logs
 logo:
   logofile: java.svg
   orientation: vertical
+short-description: Add the Logz.io Log4j 2 appender as a dependency to your project to send logs to Logz.io.
 data-source: Java code
 templates: ["library"]
 open-source:
@@ -123,6 +124,20 @@ public class LogzioLog4j2Example {
 
 </div>
 
+#### Troubleshooting
+
+If you receive an error message regarding a missing appender, try adding the following configuration to the beginning and end of the configuration file:
+
+```xml
+
+<Configuration status="info" packages="io.logz.log4j2">
+
+# Place the configuration from step 2
+
+</Configuration>
+
+```
+
 #### More options
 
 You can optionally add mapped diagnostic context (MDC)
@@ -220,7 +235,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
   <dependency>
     <groupId>io.logz.logback</groupId>
     <artifactId>logzio-logback-appender</artifactId>
-    <version>1.0.24</version>
+    <version>1.0.25</version>
   </dependency>
 </dependencies>
 ```

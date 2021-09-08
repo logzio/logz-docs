@@ -3,6 +3,7 @@ title: Ship Python logs
 logo:
   logofile: python.svg
   orientation: vertical
+short-description: Use the Logz.io Python Handler to bulk send logs to Logz.io via HTTPS.
 data-source: Python code
 templates: ["library"]
 open-source:
@@ -94,6 +95,7 @@ LOGGING = {
             'level': 'INFO',
             'formatter': 'logzioFormat',
             'token': '<<LOG-SHIPPING-TOKEN>>',
+            'logzio_type': '<<LOG-TYPE>>',
             'logs_drain_timeout': 5,
             'url': 'https://<<LISTENER-HOST>>:8071'
         }

@@ -3,6 +3,7 @@ title: Fluentd
 logo:
   logofile: fluentd.svg
   orientation: vertical
+short-description: Fluentd is a DaemonSet that collects and sends logs to Logz.io.
 data-source: Fluentd
 shipping-tags:
   - log-shipper

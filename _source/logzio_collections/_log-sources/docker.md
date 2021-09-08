@@ -55,8 +55,11 @@ docker pull logzio/docker-collector-logs
 ```
 
 ##### Run the Docker image
+  
 
 For a complete list of options, see the parameters below the code block.👇
+  
+###### Docker
 
 ```shell
 docker run --name docker-collector-logs \
@@ -65,7 +68,17 @@ docker run --name docker-collector-logs \
 -v /var/lib/docker/containers:/var/lib/docker/containers \
 logzio/docker-collector-logs
 ```
+  
+###### Docker Swarm
 
+```shell
+docker service create --name docker-collector-logs \
+--env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
+--mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
+--mount type=bind,source=/var/lib/docker/containers,target=/var/lib/docker/containers \
+--mode global logzio/docker-collector-logs
+```  
+  
 ###### Parameters
 
 | Parameter | Description | Required/Default |
@@ -81,6 +94,10 @@ logzio/docker-collector-logs
 | includeLines | Comma-separated list of regular expressions to match the lines that you want to include. **Note**: Regular expressions in this list should not contain commas. | -- |
 | excludeLines | Comma-separated list of regular expressions to match the lines that you want to exclude. **Note**: Regular expressions in this list should not contain commas. | -- |
 | renameFields | Rename fields with every message sent, formatted as `"oldName,newName;oldName2,newName2"`. To use an environment variable, format as `"oldName,newName;oldName2,$ENV_VAR_NAME"`. When using an environment variable, it should be the only value in the field. If the environment variable can't be resolved, the field will be omitted. | -- |
+| HOSTNAME | Include your host name to display it for the field `agent.name`. If no value is entered, `agent.name`displays the container id.| `''` |
+| multilinePattern | Include your regex pattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for more information. | `''` |
+| multilineNegate |Include `'true'` to negate the pattern. **Note**: Cannot be used without multilinePattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for more information.| `'false'`  |
+| multilineMatch | Specifies how Filebeat combines matching lines into an event. The settings are `after` or `before`. The behavior of these settings depends on what you specify for negate. **Note**: Cannot be used without multilinePattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for more information.| `'after'` |
 
 
 <!-- info-box-start:info -->
@@ -114,7 +131,7 @@ Docker Community Edition (Docker CE) 18.03 or later
 ##### Install the plugin from the Docker store
 
 ```shell
-docker plugin install store/logzio/logzio-logging-plugin:1.0.0 \
+docker plugin install store/logzio/logzio-logging-plugin:1.0.2 \
 --alias logzio/logzio-logging-plugin
 ```
 
@@ -144,7 +161,7 @@ For a complete list of options, see the configuration parameters below the code 
   "log-opts": {
     "logzio-url": "<<LISTENER-HOST>>",
     "logzio-token": "<<LOG-SHIPPING-TOKEN>>",
-    "logzio-dir-path": "/path/to/logs/"
+    "logzio-dir-path": "<dir_path_to_logs_disk_queue>"
   }
 }
 ```

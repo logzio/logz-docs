@@ -143,7 +143,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 ##### Start Filebeat
 
-Start or restart Filebeat for the changes to take effect.
+[Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
 ##### Check Logz.io for your logs
 

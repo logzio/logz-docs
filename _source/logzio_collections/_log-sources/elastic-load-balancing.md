@@ -3,6 +3,7 @@ title: Ship Elastic Load Balancing logs
 logo:
   logofile: aws-elb.svg
   orientation: vertical
+short-description: Collect your ELB logs in an S3 bucket to be fetched by Logz.io every x seconds.
 data-source: Elastic Load Balancing
 templates: ["s3-fetcher"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/elastic-load-balancing
@@ -42,7 +43,7 @@ For help with setting this up, see these docs from AWS:
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/ELB) and add a new S3 bucket.
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/elastic-load-balancing) and add a new S3 bucket.
 
 
 <!-- logzio-inject:aws:elb -->

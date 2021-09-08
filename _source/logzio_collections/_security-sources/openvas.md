@@ -105,7 +105,7 @@ If the file has other outputs, remove them.
 
 ##### Start Filebeat
 
-Start or restart Filebeat for the changes to take effect.
+[Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
   
 Filebeat is now configured to send OpenVAS CSV reports directly to Logz.io.
 

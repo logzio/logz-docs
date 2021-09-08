@@ -35,7 +35,7 @@ order: 320
 
 If you haven't installed Fluent Bit yet,
 you can build it from source
-according to the [instructions from Fluent Bit](https://docs.fluentbit.io/manual/installation/sources/build-and-install).
+according to the [instructions from Fluent Bit](https://docs.fluentbit.io/manual/installation/getting-started-with-fluent-bit).
 
 ##### Install and configure the Logz.io plugin
 
@@ -43,7 +43,7 @@ For Linux:
 
 ```shell
 wget -o /fluent-bit/plugins/out_logzio.so \
-https://github.com/logzio/fluent-bit-logzio-output/blob/master/build/out_logzio-linux.so
+https://github.com/logzio/fluent-bit-logzio-output/raw/master/build/out_logzio-linux.so
 ```
 
 For MacOS:

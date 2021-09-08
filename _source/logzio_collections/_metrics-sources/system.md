@@ -29,6 +29,8 @@ order: 190
 
 #### Metricbeat setup - Linux/MacOS
 
+{% include metric-shipping/elk-accounts-note.md %}
+
 **Before you begin, you'll need**:
 [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/7.1/metricbeat-installation.html) or higher
 
@@ -93,6 +95,8 @@ Give your metrics some time to get from your system to ours, and then open [Logz
 <div id="metricbeat-config-win">
 
 #### Metricbeat setup - Windows
+
+{% include metric-shipping/elk-accounts-note.md %}
 
 **Before you begin, you'll need**:
 [Metricbeat 7.1](https://www.elastic.co/guide/en/beats/metricbeat/7.1/metricbeat-installation.html#win) or higher
@@ -167,6 +171,8 @@ Give your metrics some time to get from your system to ours, and then open [Logz
 
 ## Docker setup
 
+{% include metric-shipping/elk-accounts-note.md %}
+
 To simplify shipping metrics from one or many sources,
 we created Docker Metrics Collector.
 Docker Metrics Collector is a container
@@ -174,7 +180,7 @@ that runs Metricbeat with the modules you enable at runtime.
 
 <!-- info-box-start:info -->
 This Docker container monitors Linux system metrics only.
-For other OSes, we recommend running Metricbeat locally on the system itself.
+For other operating systems, we recommend running Metricbeat locally on the system itself.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -226,6 +232,12 @@ logzio/docker-collector-metrics
 |---|---|---|
 | LOGZIO_TOKEN  | Your Metrics account token. {% include metric-shipping/replace-metrics-token.html %} | Required |
 | LOGZIO_MODULES  | Comma-separated list of Metricbeat modules to be enabled on this container (formatted as `"module1,module2,module3"`). To use a custom module configuration file, mount its folder to `/logzio/modules`. | Required |
+
+<!-- info-box-start:info -->
+The `LOGZIO_MODULES` parameter by default supports only these prebuilt modules: `aws`, `system` and `docker`.
+{:.info-box.note}
+<!-- info-box-end --> 
+
 | LOGZIO_REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs](docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. | Blank (US East) |
 | LOGZIO_TYPE | This field is needed only if you're shipping metrics to Kibana and you want to override the default value.    In Kibana, this is shown in the `type` field. Logz.io applies parsing based on `type`. | `docker-collector-metrics` |
 | LOGZIO_LOG_LEVEL  | The log level the module startup scripts will generate. | `"INFO"` |

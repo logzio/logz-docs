@@ -26,7 +26,13 @@ order: 720
 Deploy this integration to send custom metrics from your Java application to Logz.io using [Micrometer](https://micrometer.io/). The dedicated Logz.io Micrometer metrics registry sends custom metrics from your Java application to your Logz.io account.
 
 **Before you begin, you'll need**:
-Java application
+Java 11 or higher 
+
+<!-- info-box-start:info -->
+This integration currently works with Java 11 or higher. Support for earlier versions is in development and is expected later this year.
+{:.info-box.important}
+<!-- info-box-end -->
+
 
 #### Configuring your Java applicatin to send custom metrics to Logz.io
 

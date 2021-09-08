@@ -30,6 +30,9 @@ Please keep these notes in mind when configuring logging.
   We recommend starting the object name (after the prefix) with the Unix epoch time.
   The Unix epoch time is always increasing, ensuring we can always fetch your incoming logs.
 
+* **The size of each log file should not exceed 50 MB** \\
+  To guarantee successful file upload, make sure that the size of each log file does not exceed 50 MB.
+
 ## Setup
 
 You can add your buckets directly from Logz.io by providing your S3 credentials and configuration.
@@ -53,8 +56,6 @@ Log into the app to use the dedicated Logz.io [configuration wizard](https://app
 
 
 {% include log-shipping/add-s3-bucket.md %}
-
-<!--updated image in include 25-5-2021 -->
 
 ##### Check Logz.io for your logs
 

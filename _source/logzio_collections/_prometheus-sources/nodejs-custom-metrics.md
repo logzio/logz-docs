@@ -1,11 +1,11 @@
-title: Logz.io nodejs metrics sdk
+title: Logz.io Node.js metrics
 logo:
   logofile: 
   orientation: vertical
 open-source:
   - title: Logz.io nodejs metrics sdk
     github-repo: js-metrics
-data-source: Nodejs custom metrics
+data-source: Node.js custom metrics
 flags:
   logzio-plan:  
   beta: false
@@ -18,39 +18,42 @@ shipping-tags:
 order: 720
 ---
 
-## Logz.io nodejs metrics sdk
-This topic includes instructions on how to send custom metrics to Logz.io from your Node.js application.
+## Logz.io Node.js metrics sdk
 
-The included example uses the [OpenTelemetry JS SDK](https://github.com/open-telemetry/opentelemetry-js) and its based on [OpenTelemetry exporter collector proto](https://github.com/open-telemetry/opentelemetry-js/tree/main/packages/opentelemetry-exporter-collector-proto).
+Deploy this integration to send custom metrics from your Node.js application to Logz.io.
+
+The provided example uses the [OpenTelemetry JS SDK](https://github.com/open-telemetry/opentelemetry-js) and is based on [OpenTelemetry exporter collector proto](https://github.com/open-telemetry/opentelemetry-js/tree/main/packages/opentelemetry-exporter-collector-proto).
 
 **Before you begin, you'll need**:
-Node 8 or higher
+* Node 8 or higher
 
+<!-- info-box-start:info -->
+We advise to use this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/). However, the integration is compatible with all backends that support metrics in `prometheuesrmotewrite` format.
+{:.info-box.note}
+<!-- info-box-end -->
 
-**Note** This project works best with logzio as metrics backend, but its compatible with all backends that support `prometheuesrmotewrite` format
+#### Configuring your Node.js applicatin to send custom metrics to Logz.io
 
-## Quick start
+<div class="tasklist">
 
-Install the package:
+##### Install the SDK package
 
-```
+```shell
 npm install logzio-nodejs-metrics-sdk@0.1.0
 ```
 
-Set the variables in the following code snippet:
-
-|Environment variable|Description|
-|---|---|
-|url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. |
-|token| Your Logz.io Prometheus Metrics account token.  |
+##### Initialize the exporter and meter provider
+  
+Add the following code to your application:
+  
 ```js
 const { MeterProvider } = require('@opentelemetry/metrics');
 const { RemoteWriteMetricExporter } =  require('logzio-nodejs-metrics-sdk');
 
 const collectorOptions = {
-    url: '<<url>>',
+    url: '<<LISTENER-HOST>>:8053',
     headers: {
-        "Authorization":"Bearer <<token>>"
+        "Authorization":"Bearer <<METRICS-SHIPPING-TOKEN>>"
     }
 };
 // Initialize the exporter
@@ -62,6 +65,31 @@ const meter = new MeterProvider({
     interval: 15000, // Push interval in seconds
 }).getMeter('example-exporter');
 
+
+```
+{% include general-shipping/replace-placeholders-prometheus.html %}
+
+
+##### Add required metrics to the code
+  
+This integration allows you to use the following metrics:
+
+| Name | Behavior |
+| ---- | ---------- |
+| Counter           | Metric value can only go up or be reset to 0, calculated per `counter.Add(context,value,labels)` request. |
+| UpDownCounter     | Metric value can arbitrarily increment or decrement, calculated per `updowncounter.Add(context,value,labels)` request. |
+| ValueRecorder     | Metric values captured by the `valuerecorder.Record(context,value,labels)` function, calculated per request. |
+| SumObserver       | Metric value can only go up or be reset to 0, calculated per push interval.|
+| UpDownSumObserver | Metric value can arbitrarily increment or decrement, calculated per push interval.|
+| ValueObserver     | Metric values captured by the callback function, calculated per push interval.|
+  
+For more information on each of these metrics, see the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
+
+To add a required metric to your code, copy and paste the required metric code to your application:
+  
+###### Counter
+
+```js
 // Create your first counter metric
 const requestCounter = meter.createCounter('Counter', {
     description: 'Example of a Counter', 
@@ -73,42 +101,9 @@ requestCounter.bind(labels).add(1);
 // In logzio Metrics you will see the following metric:
 // Counter_total{environment: 'prod'} 1.0
 ```
-
-### Types of metric instruments
-For more information, see the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
-
-| Name | Behavior |
-| ---- | ---------- |
-| Counter           | Metric value can only go up or be reset to 0, calculated per `counter.Add(context,value,labels)` request. |
-| UpDownCounter     | Metric value can arbitrarily increment or decrement, calculated per `updowncounter.Add(context,value,labels)` request. |
-| ValueRecorder     | Metric values captured by the `valuerecorder.Record(context,value,labels)` function, calculated per request. |
-| SumObserver       | Metric value can only go up or be reset to 0, calculated per push interval.|
-| UpDownSumObserver | Metric value can arbitrarily increment or decrement, calculated per push interval.|
-| ValueObserver     | Metric values captured by the callback function, calculated per push interval.|
-
-### More examples
-First Initialize the exporter and meter provider:
-```js
-const { MeterProvider } = require('@opentelemetry/metrics');
-const { RemoteWriteMetricExporter } =  require('logzio-nodejs-metrics-sdk');
-
-const collectorOptions = {
-    url: '<<url>>',
-    headers: {
-        "Authorization":"Bearer <<token>>"
-    }
-};
-// Initialize the exporter
-const metricExporter = new RemoteWriteMetricExporter(collectorOptions);
-
-// Initialize the meter provider
-const meter = new MeterProvider({
-    exporter: metricExporter,
-    interval: 15000, // Push interval in seconds
-}).getMeter('example-exporter');
-```
-Then create different types of metrics
-#### UpDownCounter:
+  
+###### UpDownCounter
+  
 ```js
 // Create UpDownCounter metric
 const upDownCounter = meter.createUpDownCounter('UpDownCounter', {
@@ -124,7 +119,8 @@ upDownCounter.add(-1);
 // UpDownCounter{environment: 'prod'} 4.0
 ```
 
-#### ValueRecorder:
+###### ValueRecorder
+  
 ```js
 // Create ValueRecorder metric
 const recorder = meter.createValueRecorder('test_value_recorder', {
@@ -142,7 +138,8 @@ recorder.record(20);
 // test_value_recorder_avg{environment: 'prod'} 25.0
 ```
 
-#### SumObserver:
+###### SumObserver
+  
 ```js
 // Create SumObserver metric
 meter.createSumObserver('SumObserver', {
@@ -156,7 +153,8 @@ meter.createSumObserver('SumObserver', {
 // SumObserver_total{environment: 'prod'}
 ```
 
-#### UpDownSumObserver:
+###### UpDownSumObserver
+  
 ```js
 // This function will calculate your metric value
 function getAsyncValue() {
@@ -178,7 +176,8 @@ meter.createUpDownSumObserver('UpDownSumObserver', {
 // UpDownSumObserver{environment: 'prod'}
 ```
 
-#### ValueObserver:
+###### ValueObserver
+  
 ```js
 // This function will calculate your metric value
 function getSomeAsyncMetrics() {
@@ -215,3 +214,11 @@ meter.createBatchObserver((observerBatchResult) => {
 // another_value_observer{environment: 'prod'}
 ```
 
+##### Run your application
+
+Run your application to start sending metrics to Logz.io.
+
+
+##### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).

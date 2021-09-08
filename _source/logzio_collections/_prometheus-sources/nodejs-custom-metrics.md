@@ -1,3 +1,4 @@
+---
 title: Logz.io Node.js metrics
 logo:
   logofile: nodejs.svg

@@ -51,7 +51,7 @@ const { RemoteWriteMetricExporter } =  require('logzio-nodejs-metrics-sdk');
 const collectorOptions = {
     url: '<<LISTENER-HOST>>',
     headers: {
-        "Authorization":"Bearer <<METRICS-SHIPPING-TOKEN>>"
+        "Authorization":"Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
     }
 };
 // Initialize the exporter

@@ -21,15 +21,24 @@ shipping-tags:
 order: 720
 ---
 
-To send custom metrics from your Java application to Logz.io, use a [Micrometer metrics](https://micrometer.io/) registry for your dimensional metrics.
+## Logz.io Java custom metrics
 
-This registry can be used by any application that uses Micrometer for recording metrics.
+Deploy this integration to send custom metrics from your Java application to Logz.io using [Micrometer](https://micrometer.io/). The dedicated Logz.io Micrometer metrics registry sends custom metrics from your Java application to your Logz.io account.
 
-## Usage:
+**Before you begin, you'll need**:
+Java application
 
-#### Via Maven:
+#### Configuring your Java applicatin to send custom metrics to Logz.io
 
-```
+<div class="tasklist">
+
+##### Add the Micrometer registry to your application
+
+###### Via Maven
+
+If you use Maven, add the dependency to your project configuration file (for instance, pom.xml in a Maven project) as follows:
+
+```xml
 <dependency>
     <groupId>io.logz.micrometer</groupId>
     <artifactId>micrometer-registry-logzio</artifactId>
@@ -37,28 +46,27 @@ This registry can be used by any application that uses Micrometer for recording 
 </dependency>
 ```
 
-#### Via Gradle:
-```j
+###### Via Gradle
+  
+If you use Gradle, add the dependency to your project as follows:
+
+```java
 implementation 'io.logz.micrometer:micrometer-registry-logzio:1.0'
 ```
 
-#### Import in your package:
+###### Import in your package
+  
+To add the dependency directly to your package:
+  
 ```java
 import io.micrometer.logzio.LogzioConfig;
 import io.micrometer.logzio.LogzioMeterRegistry;
 ```
 
-## Quick start:
+##### Initialize the Micrometer in your application code
    
-Replace the placeholders in the code (indicated by the double angle brackets `<< >>`) to match your specifics.
+Add the following code to your application:
 
-| Environment variable | Description |Required/Default|
-|---|---|---|
-|listener-url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Regions page](https://docs.logz.io/user-guide/accounts/account-region.html) | Required|
-|metrics-token | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
-|interval | The interval in seconds, to push metrics to Logz.io  | Required|
-
-#### In your package:
 ```java
 package your_package;
 import io.micrometer.core.instrument.*;
@@ -77,12 +85,12 @@ class MicrometerLogzio {
          }
          @Override
          public String uri() {
-            return "<<listener-url>>";
+            return "<<LISTENER-HOST>>";
          }
 
          @Override
          public String token() {
-            return "<<metrics-token>>";
+            return "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>";
          }
 
          @Override
@@ -96,21 +104,17 @@ class MicrometerLogzio {
       ArrayList<Tag> tags = new ArrayList<>();
       tags.add(Tag.of("env","dev"));
 
-      // Create counter
-      Counter counter = Counter
-              .builder("counter_example")
-              .description("a description of what this counter does") // optional
-              .tags(tags) // optional
-              .register(registry);
-      // Increment your counter
-      counter.increment(); 
-      counter.increment(2); 
    }
 }
 ```
+  
+{% include general-shipping/replace-placeholders-prometheus.html %}
 
-## Common tags
-You can attach common tags to your registry that will be added to all metrics reported, for example:
+
+##### Add common tags to the registry
+
+If required, you can attach common tags ("key" and "value") to your registry. These tags will be added to all metrics reported, for example:
+  
 ```java
 // Initialize registry
 LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
@@ -118,8 +122,10 @@ LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTE
 registry.config().commonTags("key", "value");
 ```
 
-## Meter binders
-Micrometer provides a set of binders for monitoring JVM metrics out of the box, for example:
+##### Add required meter binders
+  
+Micrometer provides a set of binders for monitoring Java metrics out of the box. If you want to enable a meter binder, add the metric binder code defnition to your application code, after the registry initialization. For example:
+  
 ```java
 // Initialize registry
 LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
@@ -144,12 +150,11 @@ new UptimeMetrics(tags).bindTo(registry);
 new LogbackMetrics().bindTo(registry);
 new Log4j2Metrics().bindTo(registry);
 ```
-For more information about other binders check out [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) Github repo.
+For the full list of available meter binders, refer to the [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) Github repo.
 
-## Types of metrics 
+##### Add required metrics
 
-Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for more details.
-
+This integration allows you to use the following metrics:
 
 | Name | Behavior | 
 | ---- | ---------- | 
@@ -157,8 +162,13 @@ Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for
 | Gauge             | Metric value can arbitrarily increment or decrement, values can set automaticaly by tracking `Collection` size or set manually by `gauge.set(value)`  | 
 | DistributionSummary | Metric values captured by the `summary.record(value)` function, the output is a distribution of `count`,`sum` and `max` for the recorded values during the push interval. |
 | Timer       | Mesures timing, metric values can be recorded by `timer.record()` call. |
+  
+Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for more details on each metric.
+  
+To add a required metric to your code, copy and paste the required metric code to your application, placing it after the initialization code (or the meter binders, if present):
 
-### [Counter](https://micrometer.io/docs/concepts#_counters)
+###### [Counter](https://micrometer.io/docs/concepts#_counters)
+  
 ```java
 Counter counter = Counter
         .builder("counter_example")
@@ -171,7 +181,8 @@ counter.increment(2);
 // The following metric will be created and sent to Logz.io: counter_example_total{env="dev"} 3
 ```
 
-### [Gauge](https://micrometer.io/docs/concepts#_gauges)
+###### [Gauge](https://micrometer.io/docs/concepts#_gauges)
+  
 ```java
 // Create Gauge
 List<String> cache = new ArrayList<>(4);
@@ -195,7 +206,8 @@ manual_gauge.set(83);
 
 ```
 
-### [DistributionSummary](https://micrometer.io/docs/concepts#_distribution_summaries)
+###### [DistributionSummary](https://micrometer.io/docs/concepts#_distribution_summaries)
+  
 ```java
 // Create DistributionSummary
 DistributionSummary summary = DistributionSummary
@@ -213,7 +225,8 @@ summary.record(30);
 // summary_example_sum{env="dev"} 60
 ```
 
-### [Timer](https://micrometer.io/docs/concepts#_timers)
+###### [Timer](https://micrometer.io/docs/concepts#_timers)
+  
 ```java
 // Create Timer
 Timer timer = Timer
@@ -237,4 +250,13 @@ timer.record(()-> {
 // timer_example_duration_seconds_sum{env="dev"} 3000
 
 ```
+
+##### Run your application
+
+Run your application to start sending metrics to Logz.io.
+
+
+##### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
 

@@ -23,7 +23,7 @@ Deploy this integration to send custom metrics from your Node.js application to 
 The provided example uses the [OpenTelemetry JS SDK](https://github.com/open-telemetry/opentelemetry-js) and is based on [OpenTelemetry exporter collector proto](https://github.com/open-telemetry/opentelemetry-js/tree/main/packages/opentelemetry-exporter-collector-proto).
 
 **Before you begin, you'll need**:
-* Node 8 or higher
+Node 8 or higher
 
 <!-- info-box-start:info -->
 We advise to use this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/). However, the integration is compatible with all backends that support metrics in `prometheuesrmotewrite` format.
@@ -49,7 +49,7 @@ const { MeterProvider } = require('@opentelemetry/metrics');
 const { RemoteWriteMetricExporter } =  require('logzio-nodejs-metrics-sdk');
 
 const collectorOptions = {
-    url: '<<LISTENER-HOST>>:8053',
+    url: '<<LISTENER-HOST>>',
     headers: {
         "Authorization":"Bearer <<METRICS-SHIPPING-TOKEN>>"
     }
@@ -83,7 +83,7 @@ This integration allows you to use the following metrics:
   
 For more information on each of these metrics, see the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
 
-To add a required metric to your code, copy and paste the required metric code to your application:
+To add a required metric to your code, copy and paste the required metric code to your application, placing it after the initialization code:
   
 ###### Counter
 

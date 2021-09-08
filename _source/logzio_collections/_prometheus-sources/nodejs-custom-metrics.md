@@ -10,6 +10,7 @@ data-source: Node.js custom metrics
 templates: ["docker"]
 contributors:
   - yotamloe
+  - nshishkin
 shipping-tags:  
   - prometheus
   - custom-metrics

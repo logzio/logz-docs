@@ -1,14 +1,11 @@
 title: Logz.io Node.js metrics
 logo:
-  logofile: 
+  logofile: nodejs.svg
   orientation: vertical
 open-source:
   - title: Logz.io nodejs metrics sdk
     github-repo: js-metrics
 data-source: Node.js custom metrics
-flags:
-  logzio-plan:  
-  beta: false
 templates: ["docker"]
 contributors:
   - yotamloe

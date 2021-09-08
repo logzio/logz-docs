@@ -15,6 +15,7 @@ templates: ["docker"]
 contributors:
   - yotamloe
   - yberlinger
+  - nshishkin
 shipping-tags:  
   - prometheus
   - custom-metrics

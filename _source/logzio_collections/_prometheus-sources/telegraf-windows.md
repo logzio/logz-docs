@@ -57,6 +57,12 @@ The full list of data scraping and configuring options can be found [here](https
   
 {% include metric-shipping/telegraf-outputs.md %}
 {% include general-shipping/replace-placeholders-prometheus.html %}
+  
+##### Start Telegraf
+
+```shell
+telegraf.exe --service start
+```
 
 ##### Check Logz.io for your metrics
 

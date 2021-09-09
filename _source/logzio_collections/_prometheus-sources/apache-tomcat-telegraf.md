@@ -62,6 +62,10 @@ The full list of data scraping and configuring options can be found [here](https
 {% include metric-shipping/telegraf-outputs.md %}
 {% include general-shipping/replace-placeholders-prometheus.html %}
 
+##### Start Telegraf
+
+{% include metric-shipping/telegraf-run.md %}
+  
 ##### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

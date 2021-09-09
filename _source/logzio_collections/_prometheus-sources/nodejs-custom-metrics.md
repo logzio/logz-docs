@@ -17,8 +17,6 @@ shipping-tags:
 order: 720
 ---
 
-## Logz.io Node.js metrics sdk
-
 Deploy this integration to send custom metrics from your Node.js application to Logz.io.
 
 The provided example uses the [OpenTelemetry JS SDK](https://github.com/open-telemetry/opentelemetry-js) and is based on [OpenTelemetry exporter collector proto](https://github.com/open-telemetry/opentelemetry-js/tree/main/packages/opentelemetry-exporter-collector-proto).

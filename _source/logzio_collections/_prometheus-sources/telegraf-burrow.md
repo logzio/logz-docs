@@ -1,5 +1,5 @@
 ---
-title: Ship Burrow metrics via Telegraf
+title: Ship Kafka metrics via Telegraf
 logo:
   logofile: burrow-telegraf.png
   orientation: vertical

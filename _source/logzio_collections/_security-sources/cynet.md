@@ -18,7 +18,7 @@ order: 1380
 * An active Cynet license
 * Cynet login credentials 
 * An active account with Logz.io
-* Filebeat 7 installed on your machine
+* Filebeat 7 installed on a dedicated machine (acting as a syslog server)
 * Root priveleges on your machines 
 
 <div class="tasklist">
@@ -33,7 +33,7 @@ order: 1380
 ![SIEM settings before](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2before.jpg)
    * **UDP**
    * **IP** - public IP address of your syslog server
-   * **Port** - port that is configured on your syslog server
+   * **Port** - port that is configured on your syslog server. We use 9000 in this example, but you can change it to your preference.
 4. Press **Add**. The added IP and port will appear on the screen.
 ![SIEM settings after](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet2after.jpg)
   
@@ -53,7 +53,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
    filebeat.inputs:
    - type: udp
      max_message_size: 10MiB
-     host: "0.0.0.0:5044"
+     host: "0.0.0.0:9000"
      fields:
        logzio_codec: json
        # Your Logz.io account token. You can find your token at
@@ -81,7 +81,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
  
-   * 0.0.0.0:5044 is the default address and port of the Filebeat server. If you use a different address and port, replace the default values with your parameters.
+   * 9000 is the port we suggest. If you use a different port, replace the default values with your parameters.
    * {% include log-shipping/log-shipping-token.md %}
    * {% include log-shipping/listener-var.md %}
 

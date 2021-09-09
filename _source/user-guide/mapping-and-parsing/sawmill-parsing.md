@@ -22,7 +22,7 @@ You must be an account admin to apply a parsing rule set to an account.
 <!-- info-box-end -->
 
 
-## What is Sawmill and what is the Logz.io Data parsing editor?
+### What is Sawmill and what is the Logz.io Data parsing editor?
 
 The [Sawmill open source library](https://github.com/logzio/sawmill) is used for text transformations. 
 
@@ -64,19 +64,27 @@ To use the Data parsing editor you need a Logz.io API token. To get an API token
 
 In the [Data parsing editor](https://parsing.logz.io), click **Editor setup**.  
 
-![Sample log process](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/editor_setup.png)
+![Sample log process](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/editor_setup-sept2021.png)
 The **Editor setup** screen opens.
 
-![credentials and log info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_cred2.png)
+![credentials and log info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_cred-sept2021.png)
 
 ##### Set up your credentials and sample log information
 
 In the **Editor setup** screen:
 
 1. Enter your API token and region information. 
-2. Choose a log type from the list of log types that have been ingested into your Logz.io account.
-3. Add a sample log to use to validate your parsing rules. <br> The sample log can be a text or JSON string. To test different log formats, you can change the sample at any time.    
+2. Choose a log type from the list of log types that have been ingested into your Logz.io account or create a new log type. 
+   + New log type: This option lets you add a custom string for a log type and enables you to assign parsing rules for future logs that are associated with the log type you add.  
+   + Pre-built parsing: These log types are documented in the [Default parsing](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html) topic. You can select a pre-built parsing type and create additional rules that run _after_ the default rules for these types are executed. 
+
+      **NOTE:** When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**.
+
+   ![Custom log type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/custom_type-sept2021.png)   
+3. Add a sample log to use to validate your parsing rules. <br> The sample log can be a text or JSON string. To test different log formats, you can change the sample at any time. The **Load latest sample** option lets you use the previous log sample you entered.
+   ![Load latest sample](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/load_latest-sept2021.png)  
 4. Click **Start parsing** to save your changes and start building your rule set.
+
 
 #####  Write parsing rules
 
@@ -84,11 +92,11 @@ You create your Sawmill rule set in the left panel of the editor screen, either 
 
 The editor supports autocomplete for existing Sawmill processors: Enter the start of a processor name, scroll through the options, and select the relevant option to load the full processor template.  
 
-![Processor autocomplete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parse_autocomplete.png)
+![Processor autocomplete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parse_autocomplete-sept2021.png)
 
 Use **Auto re-format** to clean up your indentations. 
 
-![Processor autoreformat](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/reformat_parsing.png) 
+![Processor autoreformat](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/reformat_parsing-sept2021.png) 
 
 
 ##### Validate your rule set
@@ -102,7 +110,7 @@ The Logz.io backend has a sequence of rule sets that run on your logs: Some of t
 
 ##### Test parsing rules
 The right panel is where you view and modify your log sample, and test how your rules are applied. 
-![Testing parsing rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_logs2.gif)
+![Testing parsing rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/test_parsing-sept2021.gif)
    
 ##### Submit your rule set for review
 

@@ -76,6 +76,10 @@ The `ExtendedStatus` option must be enabled on your server in order to collect a
   
 {% include metric-shipping/telegraf-outputs.md %}
 {% include general-shipping/replace-placeholders-prometheus.html %}
+  
+##### Start Telegraf
+
+{% include metric-shipping/telegraf-run.md %}
 
 ##### Check Logz.io for your metrics
 

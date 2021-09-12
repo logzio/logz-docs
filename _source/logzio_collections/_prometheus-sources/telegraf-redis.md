@@ -10,7 +10,7 @@ contributors:
   - nshishkin
 shipping-tags:  
   - prometheus
-  - prebuilt-dashboard
+  - prebuilt-dashboards
 order: 800
 ---
 

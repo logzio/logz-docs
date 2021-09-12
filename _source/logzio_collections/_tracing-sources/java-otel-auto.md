@@ -146,12 +146,13 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
      -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
-     -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
+     -Dotel.exporter.otlp.endpoint=http://localhost:<<PORT>> \
      -jar target/*.jar
 ```
 
 * Replace `<path/to>` with the path to the directory where you downloaded the agent.
 * Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
+* * {% include /tracing-shipping/tracing-ports.md %}
 
 
 ##### Check Logz.io for your traces

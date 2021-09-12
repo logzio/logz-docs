@@ -43,7 +43,8 @@ tabs:
         <br> </br>
         Contact your Logz.io Customer Success Manager for assistance with selecting the best Metrics data shipping options for your environments. 
       </p>
-
+  - collection: dashboards
+    templated: true
 # Tags is an array of tags that can be filtered on the data shipping page.
 # Each item in the array contains two properties:
 #   `slug: <kebab-cased-machine-readable-tag>` (lowercase, dashes only, no other characters)

@@ -84,6 +84,13 @@ collections:
     id: :slug
     in-shipping-manifest: true
     order: 4
+  dashboards:
+    output: true
+    permalink: /shipping/dashboards/:slug.html
+    name: Dashboards
+    id: :slug
+    in-shipping-manifest: true
+    order: 5
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html
@@ -96,7 +103,6 @@ collections:
     name: 
     id: :slug
     in-shipping-manifest: false
-    order: 
   shippers:
     output: true
     permalink: /shipping/shippers/:slug.html

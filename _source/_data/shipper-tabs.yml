@@ -119,7 +119,7 @@ tags:
     name: Platforms & services
     order: 20
   - slug: prebuilt-dashboard
-    name: Pre-built dashboard
+    name: Pre-built dashboards
     order: 21
   - slug: prometheus
     name: Prometheus as a service

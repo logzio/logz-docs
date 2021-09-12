@@ -101,7 +101,7 @@ tags:
     name: Identity providers
     order: 14
   - slug: instrumentation
-    name: Tracing instrumentation      
+    name: Tracing instrumentation     
     order: 15
   - slug: k8s
     name: K8S
@@ -118,8 +118,8 @@ tags:
   - slug: platform-service
     name: Platforms & services
     order: 20
-  - slug: prebuilt-dashboard
-    name: Pre-built dashboard
+  - slug: prebuilt-dashboards
+    name: Pre-built dashboards
     order: 21
   - slug: prometheus
     name: Prometheus as a service

@@ -14,7 +14,7 @@ contributors:
   - yberlinger
 shipping-tags:
   - aws
-  - prebuilt-dashboard
+  - prebuilt-dashboards
 order: 1100
 ---
 
@@ -53,7 +53,6 @@ Give your metrics some time to get from your system to ours.
 <!-- logzio-inject:install:grafana:dashboards ids=["4nriUUJ1MCqnV5DbwN4A4K"] --> 
 
 {% include metric-shipping/generic-dashboard.html %} 
-
 
 
 </div>

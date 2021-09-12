@@ -14,7 +14,7 @@ contributors:
 shipping-tags:
   - container
   - popular
-  - prebuilt-dashboard
+  - prebuilt-dashboards
 order: 390
 ---
 <!-- tabContainer:start -->
@@ -147,6 +147,7 @@ helm uninstall logzio-otel-k8s-metrics
 
 </div>
 <!-- tab:end -->
+
 
 </div>
 <!-- tabContainer:end -->

@@ -15,7 +15,7 @@ contributors:
 shipping-tags:
   - aws
   - popular
-  - prebuilt-dashboard
+  - prebuilt-dashboards
 order: 540
 ---
 
@@ -58,6 +58,5 @@ Give your metrics some time to get from your system to ours.
 
 </div>
 <!-- tab:end -->
-
 
 </div>

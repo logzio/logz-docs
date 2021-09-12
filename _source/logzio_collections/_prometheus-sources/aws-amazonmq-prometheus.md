@@ -14,7 +14,7 @@ contributors:
   - yberlinger
 shipping-tags:
   - aws
-  - prebuilt-dashboard
+  - prebuilt-dashboards
 order: 380
 ---
 
@@ -59,6 +59,5 @@ Give your metrics some time to get from your system to ours.
 </div>
 </div>
 <!-- tab:end -->
-
 
 </div>

@@ -14,7 +14,7 @@ contributors:
 shipping-tags:
   - container
   - popular
-  - prebuilt-dashboard
+  - prebuilt-dashboards
 order: 390
 ---
 <!-- tabContainer:start -->

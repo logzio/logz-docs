@@ -31,7 +31,7 @@ public void ConfigureServices(IServiceCollection services)
                 .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("my-app"))
                 .AddOtlpExporter(options =>
                 {
-                    options.Endpoint = new Uri("http://localhost:55681");
+                    options.Endpoint = new Uri("http://localhost:4317");
              
                 })
             );

@@ -118,30 +118,33 @@ tags:
   - slug: platform-service
     name: Platforms & services
     order: 20
+  - slug: prebuilt-dashboard
+    name: Pre-built dashboard
+    order: 21
   - slug: prometheus
     name: Prometheus as a service
-    order: 21
+    order: 22
   - slug: os
     name: Operating systems
-    order: 22
+    order: 23
   - slug: security
     name: Security
-    order: 23
+    order: 24
   - slug: server-app
     name: Server apps & devices
-    order: 24
+    order: 25
   - slug: traces
     name: Tracing
-    order: 25
+    order: 26
   - slug: vulnerability-scanners
     name: Vulnerability scanners
-    order: 26
+    order: 27
   - slug: web-firewalls
     name: Web application firewalls
-    order: 27
+    order: 28
   - slug: windows
     name: Windows security
-    order: 28
+    order: 29
 
 
 

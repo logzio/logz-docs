@@ -10,6 +10,7 @@ contributors:
   - yberlinger
 shipping-tags:  
   - prometheus
+  - prebuilt-dashboard
 order: 800
 ---
 

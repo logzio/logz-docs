@@ -10,9 +10,9 @@ contributors:
   - nshishkin
 shipping-tags:  
   - prometheus
+  - prebuilt-dashboards
 order: 800
 ---
-
 
 ## Overview
 
@@ -57,6 +57,10 @@ The full list of data scraping and configuring options can be found [here](https
 
 {% include metric-shipping/telegraf-outputs.md %}
 {% include general-shipping/replace-placeholders-prometheus.html %}
+
+##### Start Telegraf
+
+{% include metric-shipping/telegraf-run.md %}
 
 ##### Check Logz.io for your metrics
 

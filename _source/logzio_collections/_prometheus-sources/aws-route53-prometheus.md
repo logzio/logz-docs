@@ -14,6 +14,7 @@ contributors:
   - yberlinger
 shipping-tags:
   - aws
+  - prebuilt-dashboards
 order: 1185
 ---
 
@@ -42,9 +43,18 @@ order: 1185
 
 {% include /p8s-shipping/collect-aws-var-metrics.md namespace="Route53" %}
 
+#### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours.
+
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["Tnb9WjjHnI3COgp08Wsin"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
 
 </div>
 <!-- tab:end -->
-
 
 </div>

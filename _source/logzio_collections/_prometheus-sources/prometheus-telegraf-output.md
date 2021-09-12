@@ -10,9 +10,9 @@ contributors:
   - yberlinger
 shipping-tags:  
   - prometheus
+  - prebuilt-dashboards
 order: 800
 ---
-
 
 
 This project lets you configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.

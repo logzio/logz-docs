@@ -11,6 +11,7 @@ contributors:
   - yheger
 shipping-tags:  
   - prometheus 
+  - prebuilt-dashboards
 order: 800
 ---
 
@@ -24,6 +25,9 @@ order: 800
 
 <!-- tab:start -->
 <div id="overview">
+=======
+## Overview
+
 
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
@@ -87,6 +91,10 @@ The full list of data scraping and configuring options can be found [here](https
 
 {% include metric-shipping/telegraf-outputs.md %}
 {% include general-shipping/replace-placeholders-prometheus.html %}
+
+##### Start Telegraf
+
+{% include metric-shipping/telegraf-run.md %}
 
 ##### Check Logz.io for your metrics
 

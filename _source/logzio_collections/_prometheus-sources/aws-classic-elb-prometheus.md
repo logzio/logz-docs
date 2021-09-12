@@ -14,6 +14,7 @@ contributors:
   - yberlinger
 shipping-tags:
   - aws
+  - prebuilt-dashboards
 order: 1090
 ---
 
@@ -41,6 +42,17 @@ order: 1090
 {% include /p8s-shipping/cloudwatch-otel-beforeyb.md %}
 
 {% include /p8s-shipping/collect-aws-var-metrics.md namespace="Classic ELB" %}
+
+#### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours.
+
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["7E8wYXunWaktugT8hjt3hG"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
 
 
 </div>

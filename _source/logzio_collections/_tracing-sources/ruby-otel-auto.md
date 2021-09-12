@@ -17,6 +17,7 @@ order: 1380
 
 * [Overview](#overview)
 * [Local host](#local-host)
+* [Docker](#docker)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -48,67 +49,15 @@ On deployment, the Ruby instrumentation automatically captures spans from your a
 
 * A Ruby application without instrumentation
 * An active account with Logz.io
-* Port `4317` available on your host system
+* Port `55681` available on your host system
 * A name defined for your tracing service
 
 
 <div class="tasklist">
 
-
-##### Download instrumentation packages
-
-Run the following command from the application directory:
-
-```shell
-gem install opentelemetry-sdk
-gem install opentelemetry-exporter-otlp
-gem install opentelemetry-instrumentation-all
-```
-
-##### Enable instrumentation in the code
-
-Add the following configuration to the `Gemfile`:
-
-```ruby
-require 'opentelemetry/sdk'
-require 'opentelemetry/exporter/otlp'
-require 'rubygems'
-require 'bundler/setup'
-```
-
-Add the following configuration to the application file:
-
-```ruby
-Bundler.require
-
-OpenTelemetry::SDK.configure do |c|
- c.service_name = '<YOUR-SERVICE-NAME>'
- c.use_all
-end
-```
-
-Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
+{% include /tracing-shipping/ruby-steps.md %}
 
 
-##### Install the Bundler
-
-Run the following command:
-
-```shell
-
-bundle install
-
-```
-
-##### Configure data exporter
-
-Run the following command:
-
-```shell
-
-export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:55681
-
-```
 
 ##### Download and configure OpenTelemetry collector
 
@@ -131,6 +80,54 @@ Run the following command:
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
+
+##### Run the application
+
+Run the application:
+
+```shell
+
+ruby <NAME-OF-YOUR-APPLICATION-FILE>.rb
+
+```
+
+<!-- info-box-start:info -->
+When running the application, you may receive an error message regarding a package missing from the application code. This is normal, as the opentelemetry-instrumentation-all searches for all Ruby packages by default.
+{:.info-box.note}
+<!-- info-box-end -->
+
+
+##### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="docker">
+
+
+### Setup auto-instrumentation for your Ruby application using Docker and send traces to Logz.io
+
+This integration enables you to auto-instrument your Ruby application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
+
+**Before you begin, you'll need**:
+
+* A Ruby application without instrumentation
+* An active account with Logz.io
+* Port `55681` available on your host system
+* A name defined for your tracing service
+
+
+<div class="tasklist">
+
+{% include /tracing-shipping/ruby-steps.md %}
+
+{% include tracing-shipping/docker.md %}
+{% include /tracing-shipping/replace-tracing-token.html %}
 
 ##### Run the application
 

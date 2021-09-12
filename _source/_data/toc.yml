@@ -22,7 +22,7 @@ firstLevel:
     - title: Exceptions
       url: /user-guide/insights/exceptions/
     - title: Deployment markers
-      url: /user-guide/insights/exceptions/deployments/
+      url: /user-guide/kibana/exceptions-deployments
     - title: Patterns
       url: /user-guide/kibana/log-patterns.html
     - title: Wildcard searches
@@ -333,6 +333,8 @@ firstLevel:
       url: /user-guide/mapping-and-parsing/split-json-array.html
     - title: Parsing Wizard
       url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+    #- title: Logz.io Data parsing
+    #  url: /user-guide/mapping-and-parsing/sawmill-parsing.html
 
   # ===== INTEGRATIONS =====
 - title: Integrations

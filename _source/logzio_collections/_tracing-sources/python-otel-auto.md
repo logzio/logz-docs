@@ -17,6 +17,7 @@ order: 1380
 
 * [Overview](#overview)
 * [Local host](#local-host)
+* [Docker](#docker)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -54,28 +55,8 @@ On deployment, the Python instrumentation automatically captures spans from your
 
 <div class="tasklist">
 
+{% include /tracing-shipping/python-steps.md %}
 
-##### Install general Python OpenTelemetry instrumentation components
-
-Run the following commands:
-
-```shell
-pip3 install opentelemetry-distro
-pip3 install opentelemetry-instrumentation
-opentelemetry-bootstrap --action=install
-pip3 install opentelemetry-exporter-otlp
-```
-
-##### set environment variables 
-
-After installation, configure the exporter by running the following command:
-
-```shell 
-export OTEL_TRACES_EXPORTER=otlp
-export OTEL_RESOURCE_ATTRIBUTES="service.name=<YOUR-SERVICE-NAME>"
-```
-
-Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 ##### Download and configure OpenTelemetry collector
 
@@ -126,6 +107,48 @@ Run the following command:
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
+
+##### Run the OpenTelemetry instrumentation in conjunction with your Python application
+
+Run the following command from the directory of your Python application script:
+
+```shell
+opentelemetry-instrument python3 <YOUR-APPLICATION-SCRIPT>.py
+```
+
+Replace `<YOUR-APPLICATION-SCRIPT>` with the name of your Python application script.
+
+##### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="docker">
+
+
+### Setup auto-instrumentation for your Python application using Docker and send traces to Logz.io
+
+This integration enables you to auto-instrument your Node.js application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
+
+**Before you begin, you'll need**:
+
+* A Python application without instrumentation
+* An active account with Logz.io
+* Port `4317` available on your host system
+* A name defined for your tracing service
+
+
+<div class="tasklist">
+
+{% include /tracing-shipping/python-steps.md %}
+
+{% include tracing-shipping/docker.md %}
+{% include /tracing-shipping/replace-tracing-token.html %}
 
 ##### Run the OpenTelemetry instrumentation in conjunction with your Python application
 

@@ -45,8 +45,8 @@ But they will not appear in filters and do not support 1-click visualizations.
 If you find that many of the fields you are interested in exploring aren't mapped, you can refresh your Kibana mapping.
 
 To refresh your mapping,
-select [<i class="li li-gear"></i> > General > Refresh mapping](https://app.logz.io/#/dashboard/settings/general)
-from the top menu.
+click [<i class="li li-gear"></i> Settings> General settings > Kibana mapping > Refresh mapping](https://app.logz.io/#/dashboard/settings/general)
+via the navigation menu.
 
 
 ##### Add specific fields to your default Kibana mapping
@@ -56,10 +56,10 @@ Instead of refreshing the mapping in bulk, you can add specific fields to your d
 ##### Explicitly map a field 
 
 To manually edit a field mapping,
-select [<i class="li li-gear"></i> > Tools > Field mapping](https://app.logz.io/#/dashboard/tools/field-mapping)
-from the top menu. 
+Select [Logs > MANAGE DATA > Field mappings](https://app.logz.io/#/dashboard/tools/field-mapping)
+from the navigation menu. 
 
-To change the field mapping type, hover over the field, click **edit** <i class="li li-pencil"></i>, make your changes, and then click **Save**.
+To change the field mapping type, hover over the field, click **edit** <i class="li li-pencil"></i>, make your changes, and click **Save**.
 
 </div>
 

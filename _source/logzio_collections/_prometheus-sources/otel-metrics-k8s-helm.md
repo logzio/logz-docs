@@ -148,5 +148,6 @@ helm uninstall logzio-otel-k8s-metrics
 </div>
 <!-- tab:end -->
 
+
 </div>
 <!-- tabContainer:end -->

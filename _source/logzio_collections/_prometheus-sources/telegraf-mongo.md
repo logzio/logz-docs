@@ -14,7 +14,6 @@ shipping-tags:
 order: 800
 ---
 
-
 ## Overview
 
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.

@@ -101,7 +101,7 @@ tags:
     name: Identity providers
     order: 14
   - slug: instrumentation
-    name: Tracing instrumentation      
+    name: Tracing instrumentation     
     order: 15
   - slug: k8s
     name: K8S

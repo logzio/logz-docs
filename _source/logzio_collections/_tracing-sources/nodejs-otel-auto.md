@@ -49,7 +49,6 @@ On deployment, the Node.js instrumentation automatically captures spans from you
 
 * A Node.js application without instrumentation
 * An active account with Logz.io
-* Port `4317` available on your host system
 * A name defined for your tracing service
 
 
@@ -111,7 +110,6 @@ This integration enables you to auto-instrument your Node.js application and run
 
 * A Node.js application without instrumentation
 * An active account with Logz.io
-* Port `4317` available on your host system
 * A name defined for your tracing service
 
 

@@ -49,7 +49,6 @@ On deployment, the .NET instrumentation automatically captures spans from your a
 
 * An ASP.NET Core application without instrumentation
 * An active account with Logz.io
-* Port `4317` available on your host system
 * A name defined for your tracing service
 
 
@@ -108,7 +107,6 @@ This integration enables you to auto-instrument your ASP.NET Core application an
 
 * An ASP.NET Core application without instrumentation
 * An active account with Logz.io
-* Port `4317` available on your host system
 * A name defined for your tracing service
 
 

@@ -11,7 +11,7 @@ contributors:
 ---
 Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in Logz.io.
 
-If you already have Jaeger installed locally, learn how to go about [Making the switch from your local Jaeger installation to Logz.io Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/local-jaeger_transition).
+If you already have Jaeger installed locally, learn how to [Send traces from your Jaeger installation to Logz.io](https://deploy-preview-1368--logz-docs.netlify.app/shipping/tracing-sources/jaeger-collector.html).
 
 
 #### To set up Distributed Tracing: 
@@ -20,8 +20,9 @@ If you already have Jaeger installed locally, learn how to go about [Making the 
 <div class="tasklist">
 
 ##### Set up instrumentation
-Determine the best instrumentation strategy for your system: Manual or automatic instrumentation.
-<a href="https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation.html" target ="_blank"> Read more about setting up instrumentation.</a>
+Determine the best instrumentation strategy for your system, starting with [Ship data > Tracing](https://deploy-preview-1368--logz-docs.netlify.app/shipping/#tracing-sources), and select the relevant filter for the **Tracing** tab: **My code is instrumented** or **My code is not instrumented**. 
+
+
 
 ##### Look up your Distributed Tracing token and Region information in Logz.io
 

@@ -1,7 +1,7 @@
 ---
 title: Ship Apache Zookeper metrics via Telegraf
 logo:
-  logofile: zookeper-telegraf.png
+  logofile: zookeeper-logo.png
   orientation: vertical
 data-source: Apache Zookeper metrics over Telegraf
 templates: ["docker"]

@@ -1,7 +1,7 @@
 ---
 title: Ship Ravendb metrics via Telegraf
 logo:
-  logofile: raven-telegraf.png
+  logofile: ravendb-logo.png
   orientation: vertical
 data-source: Ravendb metrics over Telegraf
 templates: ["docker"]

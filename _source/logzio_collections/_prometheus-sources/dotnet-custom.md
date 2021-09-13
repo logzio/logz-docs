@@ -1,7 +1,7 @@
 ---
 title: Ship custom metrics from your .NET Core application
 logo:
-  logofile: dotnet.svg
+  logofile: dotnet-logo.png
   orientation: horizontal
 data-source: .NET Core application
 contributors:

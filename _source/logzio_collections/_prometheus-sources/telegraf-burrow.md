@@ -1,7 +1,7 @@
 ---
 title: Ship Kafka metrics via Telegraf
 logo:
-  logofile: burrow-telegraf.png
+  logofile: kafka.svg
   orientation: vertical
 data-source: Kafka metrics over Telegraf
 templates: ["docker"]

@@ -1,7 +1,7 @@
 ---
 title: Ship GCP metrics via Telegraf
 logo:
-  logofile: google-telegraf.png
+  logofile: gcp-logo.png
   orientation: vertical
 data-source: GCP metrics over Telegraf
 templates: ["docker"]

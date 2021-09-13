@@ -1,7 +1,7 @@
 ---
 title: Ship system metrics via Telegraf
 logo:
-  logofile: telegraf-logo-preview.svg
+  logofile: telegraf-logo.png
   orientation: vertical
 data-source: System metrics over Telegraf
 templates: ["docker"]

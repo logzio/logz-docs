@@ -1,7 +1,7 @@
 ---
 title: Ship Apache HTTP Server metrics via Telegraf
 logo:
-  logofile: apache-telegraf.png
+  logofile: apache-http-logo.png
   orientation: vertical
 data-source: Apache HTTP Server metrics over Telegraf
 templates: ["docker"]

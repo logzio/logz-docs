@@ -1,7 +1,7 @@
 ---
 title: Ship Aerospike metrics via Telegraf
 logo:
-  logofile: aerospike-telegraf.png
+  logofile: aerospike-logo.png
   orientation: vertical
 data-source: Aerospike metrics over Telegraf
 templates: ["docker"]

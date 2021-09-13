@@ -1,7 +1,7 @@
 ---
 title: Ship Synproxy metrics via Telegraf
 logo:
-  logofile: synproxy-telegraf.png
+  logofile: linux.svg
   orientation: vertical
 data-source: Synproxy metrics over Telegraf
 templates: ["docker"]

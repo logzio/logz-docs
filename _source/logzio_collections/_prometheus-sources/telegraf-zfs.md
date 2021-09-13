@@ -1,7 +1,7 @@
 ---
 title: Ship ZFS metrics via Telegraf
 logo:
-  logofile: zfs-telegraf.png
+  logofile: zfs-logo.png
   orientation: vertical
 data-source: ZFS metrics over Telegraf
 templates: ["docker"]

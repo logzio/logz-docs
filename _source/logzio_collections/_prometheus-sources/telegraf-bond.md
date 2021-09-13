@@ -1,7 +1,7 @@
 ---
 title: Ship Bond metrics via Telegraf
 logo:
-  logofile: bond-telegraf.png
+  logofile: bond-logo.png
   orientation: vertical
 data-source: Bond metrics over Telegraf
 templates: ["docker"]

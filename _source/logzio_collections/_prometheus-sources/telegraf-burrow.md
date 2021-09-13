@@ -23,6 +23,10 @@ To send your Prometheus-format Kafka Burrow metrics to Logz.io, you need to add 
 
 <div class="tasklist">
 
+##### Set up Burrow
+
+Install Burrow to monitor your Kafka installation. The setup instructions are described [here](https://github.com/linkedin/Burrow).
+
 ##### Set up Telegraf v1.17 or higher
 
 {% include metric-shipping/telegraf-setup.md %}

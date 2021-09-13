@@ -14,6 +14,7 @@ contributors:
   - yberlinger
 shipping-tags:
   - aws
+  - prebuilt-dashboards
 order: 1140
 ---
 

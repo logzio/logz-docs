@@ -128,22 +128,20 @@ This document describes how to install Telegraf on your machine automatically us
 Run the following command:
   
 ```shell
-curl -L https://raw.githubusercontent.com/logzio/telegraf_demo/main/script.sh -o script.sh && export LOGZIO_LISTENER="<<LISTENER-HOST>>:8053" && export LOGZIO_METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" && chmod +x ./script.sh && ./script.sh <<TYPE>>
+curl -L https://raw.githubusercontent.com/logzio/telegraf_demo/main/script.sh -o script.sh && export LOGZIO_LISTENER="<<LISTENER-HOST>>:8053" && export LOGZIO_METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" && chmod +x ./script.sh && ./script.sh system
 ```
 
 {% include general-shipping/replace-placeholders-prometheus.html %}
-* Replace `<<TYPE>>` with `system`.
   
 ###### Windows
   
 Run the following command in PowerShell:
   
 ```shell
-curl -o telegraf-1.19.3._windows_amd64.zip https://dl.influxdata.com/telegraf/releases/telegraf-1.19.3_windows_amd64.zip; Expand-Archive -LiteralPath .\telegraf-1.19.3._windows_amd64.zip -DestinationPath C:\'Program Files'\InfluxData\telegraf\; curl -o telegraf.conf https://raw.githubusercontent.com/logzio/telegraf_demo/main/telegraf_win_<<TYPE>>.conf; $env:LOGZIO_LISTENER="<<LISTENER-HOST>>:8053"; $env:LOGZIO_METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"; C:\'Program Files'\InfluxData\Telegraf\telegraf-1.19.3\telegraf.exe -config telegraf.conf
+curl -o telegraf-1.19.3._windows_amd64.zip https://dl.influxdata.com/telegraf/releases/telegraf-1.19.3_windows_amd64.zip; Expand-Archive -LiteralPath .\telegraf-1.19.3._windows_amd64.zip -DestinationPath C:\'Program Files'\InfluxData\telegraf\; curl -o telegraf.conf https://raw.githubusercontent.com/logzio/telegraf_demo/main/telegraf_win_system.conf; $env:LOGZIO_LISTENER="<<LISTENER-HOST>>:8053"; $env:LOGZIO_METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"; C:\'Program Files'\InfluxData\Telegraf\telegraf-1.19.3\telegraf.exe -config telegraf.conf
 ```
 
 {% include general-shipping/replace-placeholders-prometheus.html %}
-* Replace `<<TYPE>>` with `system`.
 
 </div>
 <!-- tab:end -->

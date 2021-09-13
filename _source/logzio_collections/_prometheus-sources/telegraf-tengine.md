@@ -1,7 +1,7 @@
 ---
 title: Ship Tengine Web Server metrics via Telegraf
 logo:
-  logofile: tengine-telegraf.png
+  logofile: tengine-logo.png
   orientation: vertical
 data-source: Tengine Web Server metrics over Telegraf
 templates: ["docker"]

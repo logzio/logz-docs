@@ -1,7 +1,7 @@
 ---
 title: Ship PHP-FPM metrics via Telegraf
 logo:
-  logofile: phpfpm-telegraf.png
+  logofile: phpfpm-logo.png
   orientation: vertical
 data-source: PHP-FPM metrics over Telegraf
 templates: ["docker"]

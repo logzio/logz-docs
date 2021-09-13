@@ -1,7 +1,7 @@
 ---
 title: Ship Windows Services metrics via Telegraf
 logo:
-  logofile: windows-telegraf.png
+  logofile: windows.svg
   orientation: vertical
 data-source: Windows Services metrics over Telegraf
 templates: ["docker"]

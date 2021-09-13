@@ -1,7 +1,7 @@
 ---
 title: Ship Suricata metrics via Telegraf
 logo:
-  logofile: suricata-telegraf.png
+  logofile: suricata-logo.png
   orientation: vertical
 data-source: Suricata metrics over Telegraf
 templates: ["docker"]

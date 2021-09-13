@@ -1,7 +1,7 @@
 ---
 title: Ship MySQL metrics via Telegraf
 logo:
-  logofile: mysql-telegraf.png
+  logofile: mysql.svg
   orientation: vertical
 data-source: MySQL metrics over Telegraf
 templates: ["docker"]

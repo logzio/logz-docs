@@ -1,7 +1,7 @@
 ---
 title: Ship Riak metrics via Telegraf
 logo:
-  logofile: riak-telegraf.png
+  logofile: riak-logo.png
   orientation: vertical
 data-source: Riak metrics over Telegraf
 templates: ["docker"]

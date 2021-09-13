@@ -1,7 +1,7 @@
 ---
 title: Ship bCache metrics via Telegraf
 logo:
-  logofile: bcache-telegraf.png
+  logofile: linux.svg
   orientation: vertical
 data-source: bCache metrics over Telegraf
 templates: ["docker"]

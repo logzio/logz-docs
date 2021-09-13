@@ -1,7 +1,7 @@
 ---
 title: Ship Apache Tomcat metrics via Telegraf
 logo:
-  logofile: tomcat-telegraf.png
+  logofile: tomcat-logo.png
   orientation: vertical
 data-source: Apache Tomcat metrics over Telegraf
 templates: ["docker"]

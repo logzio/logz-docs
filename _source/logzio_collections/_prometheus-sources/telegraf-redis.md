@@ -1,7 +1,7 @@
 ---
 title: Ship Redis metrics via Telegraf
 logo:
-  logofile: redis-telegraf.png
+  logofile: redis-logo.png
   orientation: vertical
 data-source: Redis metrics over Telegraf
 templates: ["docker"]

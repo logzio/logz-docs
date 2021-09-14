@@ -45,18 +45,18 @@ docker run -d --name logzio-mysql-logs -e LOGZIO_TOKEN=<<LOG-SHIPPING-TOKEN>> [-
 
 ###### Parameters
 
-| Parameter | Description | Required/Optional |
+| Parameter | Description | Required/Default |
 |---|---|---|
 | `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}   | Required |
-| `<<LISTENER-HOST>>` | Your Logz.io account listener URL. {% include log-shipping/listener-var.html %} | Required |
+| `<<LISTENER-HOST>>` | Your Logz.io account listener URL. {% include log-shipping/listener-var.html %} | Required. Default: `listener.logz.io` |
 | `<<AWS-ACCESS-KEY>>` | A proper AMI credentials for RDS logs access (permissions for `download-db-log-file-portion` and `describe-db-log-files` are needed). | Required |
 | `<<AWS-SECRET-KEY>>` | A proper AMI credentials for RDS logs access (permissions for `download-db-log-file-portion` and `describe-db-log-files` are needed). | Required |
 | `<<RDS-IDENTIFIER>>` |  The RDS identifier of the host from which you want to read logs from. | Required |
-| `<<AWS-REGION>>` | AWS region of your account. | Optional |
-| `RDS-ERROR-LOG-FILE` | The path to the RDS error log file. Default: error/mysql-error.log | Optional |
-| `<<RDS-SLOW-LOG-FILE>>` | The path to the RDS slow query log file. Default: slowquery/mysql-slowquery.log | Optional |
-| `<<RDS-LOG-FILE>>` | The path to the RDS general log file. Default: general/mysql-general.log | Optional |
-| `<<INTERVAL-SECONDS>>` | RDS Sync interval. Default: 60 seconds | Optional |
+| `<<AWS-REGION>>` | AWS region of your account. | Optional. Default: `us-east-1` |
+| `RDS-ERROR-LOG-FILE` | The path to the RDS error log file. | Optional. Default: `error/mysql-error.log` |
+| `<<RDS-SLOW-LOG-FILE>>` | The path to the RDS slow query log file. | Optional. Default: `slowquery/mysql-slowquery.log` |
+| `<<RDS-LOG-FILE>>` | The path to the RDS general log file. | Optional. Default: `general/mysql-general.log` |
+| `<<INTERVAL-SECONDS>>` | RDS Sync interval. | Optional. Default: `60 seconds` |
 
 
 ##### Check Logz.io for your logs

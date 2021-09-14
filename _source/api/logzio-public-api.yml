@@ -2685,9 +2685,7 @@ paths:
 
                   * Can't sort or aggregate on analyzed fields, such as the `message` field
 
-                  * Aggregation type `significant_terms` can't be used
-
-                  * We don't currently support `multi_terms` aggregations: https://www.elastic.co/guide/en/elasticsearch//reference/master/search-aggregations-bucket-multi-terms-aggregation.html
+                  * Aggregation type `significant_terms` and `multi_terms` can't be used
 
 
                   **Note:** You can use `aggs` or `aggregations` as the field name
@@ -8129,10 +8127,8 @@ definitions:
 
           * Can't sort or aggregate on analyzed fields, such as the `message` field
 
-          * Aggregation type `significant_terms` can't be used
-
-          * We don't currently support `multi_terms` aggregations: https://www.elastic.co/guide/en/elasticsearch//reference/master/search-aggregations-bucket-multi-terms-aggregation.html
-
+          * Aggregation type `significant_terms` and `multi_terms` can't be used
+          
           * If the request specifies aggregations, only the initial search response will contain the aggregations results
 
 

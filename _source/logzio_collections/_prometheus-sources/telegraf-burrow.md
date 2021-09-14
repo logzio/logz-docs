@@ -1,9 +1,9 @@
 ---
-title: Ship Kafka metrics via Telegraf
+title: Ship Burrow metrics via Telegraf
 logo:
   logofile: kafka.svg
   orientation: vertical
-data-source: Kafka metrics over Telegraf
+data-source: Burrow metrics over Telegraf
 templates: ["docker"]
 contributors:
   - daniel-tk
@@ -15,13 +15,19 @@ order: 800
 
 ## Overview
 
+Burrow is a monitoring application for Apache Kafka that monitors committed offsets for all consumers and calculates the status of those consumers on demand. It automatically monitors all consumers and their consumed partitions.
+
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Kafka Burrow metrics to Logz.io, you need to add the **inputs.burrow** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Burrow metrics to Logz.io, you need to add the **inputs.burrow** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">
+
+##### Set up Burrow
+
+Install Burrow to monitor your Kafka installation. The setup instructions are described [here](https://github.com/linkedin/Burrow).
 
 ##### Set up Telegraf v1.17 or higher
 

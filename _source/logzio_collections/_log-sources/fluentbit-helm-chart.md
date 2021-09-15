@@ -1,7 +1,7 @@
 ---
 title: Ship Fluent Bit logs with Helm
 logo:
-  logofile: fluent-bit.svg
+  logofile: fluentbit-helm.png
   orientation: horizontal
 data-source: Fluent Bit over Helm
 templates: ["k8s-daemonset"]

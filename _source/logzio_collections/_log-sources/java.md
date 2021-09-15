@@ -265,6 +265,8 @@ See the [Logback documentation](https://logback.qos.ch/manual/configuration.html
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
       <level>INFO</level>
     </filter>
+    <inMemoryQueue>true</inMemoryQueue> 
+    <inMemoryQueueCapacityBytes>-1</inMemoryQueueCapacityBytes>
   </appender>
 
   <root level="debug">

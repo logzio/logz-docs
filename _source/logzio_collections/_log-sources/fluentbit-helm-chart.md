@@ -49,9 +49,9 @@ helm install  \
 logzio-fluent-bit logzio-helm/logzio-fluent-bit
 ```
   
-{% include log-shipping/listener-var.html %}
-{% include log-shipping/log-shipping-token.html %}
-If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit`.
+* {% include log-shipping/listener-var.html %}
+* {% include log-shipping/log-shipping-token.html %}
+* If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit`.
 
 
 ##### Check Logz.io for your logs
@@ -91,8 +91,3 @@ To uninstall the `logzio-fluent-bit` deployment, use the following command:
 ```shell
 helm uninstall logzio-fluent-bit
 ```
-
-
-# Change log
-
-* 0.0.1 - Initial realese

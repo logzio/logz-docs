@@ -16,10 +16,8 @@ shipping-tags:
 order: 430
 ---
 
-
 # Logzio Fluent Bit Helm chart
 
-##  Overview
 
 You can use this Helm chart to ship Kubernetes logs to Logz.io with Fluent Bit. Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.
 
@@ -95,6 +93,6 @@ helm uninstall logzio-fluent-bit
 ```
 
 
-## Change log
+# Change log
 
 * 0.0.1 - Initial realese

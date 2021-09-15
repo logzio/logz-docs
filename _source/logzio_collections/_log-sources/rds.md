@@ -1,7 +1,7 @@
 ---
 title: Ship RDS logs
 logo:
-  logofile: was-rds-logo.png
+  logofile: aws-rds-logo.png
   orientation: horizontal
 data-source: RDS
 templates: [beats-logs, "docker"]

@@ -1,7 +1,7 @@
 ---
 title: Sending traces from instrumented Docker containers using OpenTelemetry
 logo:
-  logofile: docker.svg
+  logofile: docker-logo.png
   orientation: vertical
 data-source: Docker
 templates: ["network-device-filebeat"]

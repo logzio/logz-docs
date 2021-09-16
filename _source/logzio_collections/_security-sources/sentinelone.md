@@ -107,7 +107,7 @@ Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your S
     4. **Formatting** - Select **CEF2**.
     5. Save your changes.
 
-![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin4.png)
+![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin5.png)
 
 
 ##### Configure SentinelOne to send notifications

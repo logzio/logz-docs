@@ -120,7 +120,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the M
   insecure_skip_verify = true
 ```
 
-* Replace `<<USER-NAME>>` with the user name for your Mongo Atlas database.
+* Replace `<<USER-NAME>>` with the user name for your Mongo Atlas database. The user needs to have relevant permission to query metrics.
 * Replace `<<PASSWORD>>` with the password for your Mongo Atlas database.
 * Replace `<<SERVER-NAME>>` with the address of your Mongo Atlas database host.
 * Replace `<<YOUR-CLUSTER>>` with the cluster of your Mongo Atlas database.

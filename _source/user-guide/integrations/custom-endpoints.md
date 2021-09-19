@@ -98,6 +98,7 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 | {{alert_title}} | Title of the alert that triggered  |
 | {{alert_description}} | Description of the alert|
 | {{alert_definition_id}} | Unique alert ID. |
+| {{alert_event_id}} | Unique ID of the triggered alert instance. |
 | {{alert_severity}} | Severity of the alert that triggered  |
 | {{account_id}} | ID of the affected Logz.io account  |
 | {{account_name}} |  Name of the affected Logz.io account |
@@ -143,6 +144,7 @@ The following list is provided for convenience, to make it easy to copy & paste 
 {{alert_title}}
 {{alert_description}}
 {{alert_definition_id}}
+{{alert_event_id}}
 {{alert_severity}}
 {{account_name}}
 {{account_id}}

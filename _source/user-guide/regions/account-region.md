@@ -50,7 +50,9 @@ Your listener host and API host will always be in the same region as your accoun
 
 ## Supported regions for Prometheus metrics
 
-Prometheus Metrics are currently in roll-out. Supported regions include US East, EU Central, and EU West. Your listener host and API host will always be in the same region as your Prometheus metrics account.
+
+{% include /p8s-shipping/prometheus-rollout.md %}
+Your listener host and API host will always be in the same region as your Prometheus metrics account.
 
 | Region | Cloud | Logz.io account host | Listener host | API host | Region code | Region slug |
 |---|---|---|

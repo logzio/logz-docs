@@ -113,18 +113,16 @@ First you need to configure the input plug-in to enable Telegraf to scrape the M
 
 ``` ini
 [[inputs.mongodb]]
-  servers = ["mongodb://<<USER-NAME>>:<<PASSWORD>>@<<ADDRESS>>:<<PORT>>"]
+  servers = ["mongodb://<<USER-NAME>>:<<PASSWORD>>@<<SERVER-NAME>>:27017"]
   gather_perdb_stats = true
-  [inputs.mongodb.ssl]
-    enabled = true
-  [inputs.mongodb.tags]
-    cluster = "<<YOUR-CLUSTER>>"
+  gather_col_stats = true
+  interval = “30s”
+  insecure_skip_verify = true
 ```
 
 * Replace `<<USER-NAME>>` with the user name for your Mongo Atlas database.
 * Replace `<<PASSWORD>>` with the password for your Mongo Atlas database.
-* Replace `<<ADDRESS>>` with the address of your Mongo Atlas database host. This is `localhost` if installed locally.
-* Replace `<<PORT>>` with the address of your host port allocated to Mongo Atlas database.
+* Replace `<<SERVER-NAME>>` with the address of your Mongo Atlas database host.
 * Replace `<<YOUR-CLUSTER>>` with the cluster of your Mongo Atlas database.
 
 <!-- info-box-start:info -->

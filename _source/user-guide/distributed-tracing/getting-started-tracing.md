@@ -39,7 +39,7 @@ Decide on your tracing source, make deployment decisions, and decide whether or 
 
 If you’re deploying distributed tracing on Kubernetes, we recommend the [Kubernetes deployment reference](https://docs.logz.io/user-guide/user-guide/distributed-tracing/k8s-deployment) topic.
 
-<!-- removed blog link     <a href="https://logz.io/blog/jaeger-kubernetes-best-practices/" target ="_blank">A Guide to Deploying Jaeger on Kubernetes in Production. </a>   ->
+<!--  removed blog link     <a href="https://logz.io/blog/jaeger-kubernetes-best-practices/" target ="_blank">A Guide to Deploying Jaeger on Kubernetes in Production. </a>   -->
 
 
 

@@ -51,7 +51,7 @@ Copy and paste the code block below, overwriting the previous contents, to repla
 filebeat.inputs:
 - type: tcp
   max_message_size: 10MiB
-  host: "0.0.0.0:1514"
+  host: "0.0.0.0:6514"
   ssl.enabled: true
   ssl.certificate: "/etc/filebeat/certificates/Trendmicro.crt"
   ssl.key: "/etc/filebeat/certificates/Trendmicro.key"

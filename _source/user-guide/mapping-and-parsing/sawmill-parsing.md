@@ -114,7 +114,9 @@ The right panel is where you view and modify your log sample, and test how your 
    
 ##### Submit your rule set for review
 
-When you're done editing the parsing rules, add the email for the admin user associated with your Logz.io account, along with information about the parsing mechanism you created, and click **Submit** to send your rule set to Logz.io.
+To ensure that your parsing works properly, our Support team reviews your rule set for consistency and then either applies the rule set or contacts you if there are issues that need to be addressed.
+
+**To send your rule set to Logz.io:** When you're done editing the parsing rules, add the email for the admin user associated with your Logz.io account, along with information about the parsing mechanism you created, and click **Submit**.
 
 
 <!-- info-box-start:info -->

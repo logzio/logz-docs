@@ -40,7 +40,7 @@ ps -o args= -C java | grep -Po -- '-Dstorm.log.dir=\K[^\s]+'
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to the filebeat.inputs section.
 
 
-{% include log-shipping/log-shipping-token.html %} Replace `<<LOGS_DIRECTORY>>` with the path to your Apache Storm logs directory mentioned in the step above.
+{% include log-shipping/log-shipping-token.html %} Replace `<<LOGS_DIRECTORY>>` with the path to your Apache Storm logs directory mentioned in the step above. 
 
 ```yaml
 # ...
@@ -48,8 +48,8 @@ filebeat.inputs:
 - type: log
 
   paths:
-  - `<<LOGS_DIRECTORY>>`/*.log
-  - /`<<LOGS_DIRECTORY>>`/workers-artifacts/*/*/*.log*
+    - <<LOGS_DIRECTORY>>/*.log
+    - <<LOGS_DIRECTORY>>/workers-artifacts/*/*/*.log*
 
   exclude_files: ['.gz$']
 
@@ -108,7 +108,7 @@ output.logstash:
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search for `type:apache OR apache_access OR apache-access` to filter for your Apache logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search for `type:apache_storm` to filter for your Apache Storm logs. 
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

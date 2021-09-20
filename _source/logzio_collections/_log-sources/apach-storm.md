@@ -48,8 +48,8 @@ filebeat.inputs:
 - type: log
 
   paths:
-  - `<<LOGS_DIRECTORY>>`/*.log
-  - /`<<LOGS_DIRECTORY>>`/workers-artifacts/*/*/*.log*
+  - <<LOGS_DIRECTORY>>/*.log
+  - /<<LOGS_DIRECTORY>>/workers-artifacts/*/*/*.log*
 
   exclude_files: ['.gz$']
 

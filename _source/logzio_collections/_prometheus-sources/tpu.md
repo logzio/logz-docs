@@ -3,7 +3,7 @@ title: Ship Cloud TPU metrics
 logo:
   logofile: gcp-logo.png
   orientation: vertical
-data-source: Cloud TPU
+data-source: Google Cloud TPU
 templates: ["docker"]
 contributors:
   - daniel-tk

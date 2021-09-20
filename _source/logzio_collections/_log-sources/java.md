@@ -380,6 +380,36 @@ public class LogzioLogbackExample {
   "Your log message follows": "..."
 }
 ```
+  
+#### Troubleshooting
+  
+If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>` and `<inMemoryQueueCapacityBytes>-1</inMemoryQueueCapacityBytes>` to the configuration file as follows:
+  
+```xml
+<configuration>
+  <!-- Closes gracefully and finishes the log drain -->
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+  <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+    <!-- Replace these parameters with your configuration -->
+    <token><<LOG-SHIPPING-TOKEN>></token>
+    <logzioUrl><<LISTENER-HOST>>:8071</logzioUrl>
+    <logzioType>myType</logzioType>
+
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>INFO</level>
+    </filter>
+    <inMemoryQueue>true</inMemoryQueue> 
+    <inMemoryQueueCapacityBytes>-1</inMemoryQueueCapacityBytes>
+  </appender>
+
+  <root level="debug">
+    <!-- IMPORTANT: This line is required -->
+    <appender-ref ref="LogzioLogbackAppender"/>
+  </root>
+</configuration>
+```
+  
 
 </div>
 <!-- tab:end -->

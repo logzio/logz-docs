@@ -13,7 +13,7 @@ The process of getting logs from your system to Logz.io can be tricky,
 and it can be difficult to pinpoint the exact issue.
 
 In this guide, we'll walk through troubleshooting some common problems when using Filebeat.
-We assume that you have already followed [Logz.io instructions for configuring Filebeat](https://app.logz.io/#/dashboard/data-sources/Filebeat).
+We assume that you have already followed [Logz.io instructions for configuring Filebeat](https://app.logz.io/#/dashboard/send-your-data/log-sources/filebeat).
 
 
 ## Linux & other Operating Systems

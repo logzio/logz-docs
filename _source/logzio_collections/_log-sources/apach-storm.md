@@ -40,7 +40,7 @@ ps -o args= -C java | grep -Po -- '-Dstorm.log.dir=\K[^\s]+'
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to the filebeat.inputs section.
 
 
-{% include log-shipping/log-shipping-token.html %} Replace `<<LOGS_DIRECTORY>>` with the path to your Apache Storm logs directory mentioned in the step above.
+{% include log-shipping/log-shipping-token.html %} Replace `<<LOGS_DIRECTORY>>` with the path to your Apache Storm logs directory mentioned in the step above. 
 
 ```yaml
 # ...

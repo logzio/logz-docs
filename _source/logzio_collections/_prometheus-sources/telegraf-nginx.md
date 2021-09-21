@@ -16,6 +16,8 @@ order: 800
 
 ## Overview
 
+Deploy this integration to ship Nginx metrics, including Plus API, Plus, Stream STS, VTS.
+
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Nginx metrics to Logz.io, you need to add the **inputs.nginx** and **outputs.http** plug-ins to your Telegraf configuration file.
@@ -47,7 +49,46 @@ First you need to configure the input plug-in to enable Telegraf to scrape the N
 
   ## HTTP response timeout (default: 5s)
   response_timeout = "5s"
+  
+[[inputs.nginx_plus_api]]
+  ## An array of Nginx API URIs to gather stats.
+  urls = ["http://localhost/api"]
+  # Nginx API version, default: 3
+  # api_version = 3
+  
+[[inputs.nginx_plus]]
+  ## An array of Nginx status URIs to gather stats.
+  urls = ["http://localhost/status"]
+  
+[[inputs.nginx_sts]]
+  ## An array of ngx_http_status_module or status URI to gather stats.
+  urls = ["http://localhost/status"]
+
+  ## HTTP response timeout (default: 5s)
+  response_timeout = "5s"
+
+  ## Optional TLS Config
+  # tls_ca = "/etc/telegraf/ca.pem"
+  # tls_cert = "/etc/telegraf/cert.pem"
+  # tls_key = "/etc/telegraf/key.pem"
+  ## Use TLS but skip chain & host verification
+  # insecure_skip_verify = false
+  
+[[inputs.nginx_vts]]
+  ## An array of Nginx stub_status URI to gather stats.
+  urls = ["http://localhost/server_status"]
+
+  ## Optional TLS Config
+  # tls_ca = "/etc/telegraf/ca.pem"
+  # tls_cert = "/etc/telegraf/cert.pem"
+  # tls_key = "/etc/telegraf/key.pem"
+  ## Use TLS but skip chain & host verification
+  # insecure_skip_verify = false
+
+  ## HTTP response timeout (default: 5s)
+  response_timeout = "5s"
 ```
+
 
 <!-- info-box-start:info -->
 The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/nginx/README.md).

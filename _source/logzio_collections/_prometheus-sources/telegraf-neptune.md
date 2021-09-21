@@ -10,6 +10,7 @@ contributors:
   - nshishkin
 shipping-tags:  
   - prometheus
+  - iot
 order: 800
 ---
 

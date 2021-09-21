@@ -103,48 +103,51 @@ tags:
   - slug: instrumentation
     name: Tracing instrumentation     
     order: 15
+  - slug: iot
+    name: IoT
+    order: 16
   - slug: k8s
     name: K8S
-    order: 16
+    order: 17
   - slug: linux
     name: Linux security
-    order: 17
+    order: 18
   - slug: networking
     name: Networking
-    order: 18
+    order: 19
   - slug: new-instrumentation
     name: My code is not instrumented   
-    order: 19
+    order: 20
   - slug: platform-service
     name: Platforms & services
-    order: 20
+    order: 21
   - slug: prebuilt-dashboards
     name: Pre-built dashboards
-    order: 21
+    order: 22
   - slug: prometheus
     name: Prometheus as a service
-    order: 22
+    order: 23
   - slug: os
     name: Operating systems
-    order: 23
+    order: 24
   - slug: security
     name: Security
-    order: 24
+    order: 25
   - slug: server-app
     name: Server apps & devices
-    order: 25
+    order: 26
   - slug: traces
     name: Tracing
-    order: 26
+    order: 27
   - slug: vulnerability-scanners
     name: Vulnerability scanners
-    order: 27
+    order: 28
   - slug: web-firewalls
     name: Web application firewalls
-    order: 28
+    order: 29
   - slug: windows
     name: Windows security
-    order: 29
+    order: 30
 
 
 

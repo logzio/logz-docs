@@ -24,7 +24,7 @@ To send your Prometheus-format NSQ Consumer metrics to Logz.io, you need to add 
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on the same machine as NSQ Consumer
 
 {% include metric-shipping/telegraf-setup.md %}
  

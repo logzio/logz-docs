@@ -34,7 +34,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the M
 
 
 ``` ini
-[[inputs.ds]]
+[[inputs.mcrouter]]
   ## An array of address to gather stats about. Specify an ip or hostname
   ## with port. ie tcp://localhost:11211, tcp://10.0.0.1:11211, etc.
   servers = ["tcp://localhost:11211", "unix:///var/run/mcrouter.sock"]

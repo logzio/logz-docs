@@ -24,10 +24,43 @@ To send your Prometheus-format NLnet Labs Name Server Daemon metrics to Logz.io,
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on the same machine as NLnet Labs Name Server Daemon
 
-{% include metric-shipping/telegraf-setup.md %}
- 
+**Ubuntu & Debian**
+
+```shell
+sudo apt-get update && sudo apt-get install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**RedHat and CentOS**
+
+```shell
+sudo yum install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**SLES & openSUSE**
+
+```shell
+# add go repository
+zypper ar -f obs://devel:languages:go/ go
+# install latest telegraf
+zypper in telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**FreeBSD/PC-BSD**
+
+```shell
+sudo pkg install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+  
 ##### Add the inputs.nsd plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the NLnet Labs Name Server Daemon data from your hosts. To do this, add the following code to the configuration file:

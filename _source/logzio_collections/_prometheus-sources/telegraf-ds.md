@@ -24,7 +24,7 @@ To send your Prometheus-format Mesosphere DC/OS metrics to Logz.io, you need to 
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on a dedicated server
 
 {% include metric-shipping/telegraf-setup.md %}
  

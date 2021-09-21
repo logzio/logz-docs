@@ -25,9 +25,42 @@ To send your Prometheus-format Neptune Apex metrics to Logz.io, you need to add 
 
 <div class="tasklist">
 
-##### Set up Telegraf v1.17 or higher
+##### Set up Telegraf v1.17 or higher on the same machine as the Apex System
 
-{% include metric-shipping/telegraf-setup.md %}
+**Ubuntu & Debian**
+
+```shell
+sudo apt-get update && sudo apt-get install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**RedHat and CentOS**
+
+```shell
+sudo yum install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**SLES & openSUSE**
+
+```shell
+# add go repository
+zypper ar -f obs://devel:languages:go/ go
+# install latest telegraf
+zypper in telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**FreeBSD/PC-BSD**
+
+```shell
+sudo pkg install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
  
 ##### Add the inputs.neptune_apex plug-in
 

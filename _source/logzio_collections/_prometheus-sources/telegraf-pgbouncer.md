@@ -20,14 +20,49 @@ Telegraf is a plug-in driven server agent for collecting and sending metrics and
 
 To send your Prometheus-format PgBouncer metrics to Logz.io, you need to add the **inputs.pgbouncer** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+**Before you begin, you'll need**: PgBouncer
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">
 
 ##### Set up Telegraf v1.17 or higher
 
-{% include metric-shipping/telegraf-setup.md %}
- 
+**Ubuntu & Debian**
+
+```shell
+sudo apt-get update && sudo apt-get install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**RedHat and CentOS**
+
+```shell
+sudo yum install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**SLES & openSUSE**
+
+```shell
+# add go repository
+zypper ar -f obs://devel:languages:go/ go
+# install latest telegraf
+zypper in telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**FreeBSD/PC-BSD**
+
+```shell
+sudo pkg install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+  
 ##### Add the inputs.pgbouncer plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the PgBouncer data from your hosts. To do this, add the following code to the configuration file:

@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud DNS metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: dns.png
   orientation: vertical
 data-source: Google Cloud DNS
 templates: ["docker"]

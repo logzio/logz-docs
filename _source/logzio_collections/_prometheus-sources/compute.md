@@ -1,7 +1,7 @@
 ---
 title: Ship Google Compute Engine metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: computeengine.png
   orientation: vertical
 data-source: Google Compute Engine
 templates: ["docker"]

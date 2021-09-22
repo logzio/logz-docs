@@ -1,7 +1,7 @@
 ---
 title: Ship Google Datastream metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpdatastream.png
   orientation: vertical
 data-source: Google atastream
 templates: ["docker"]

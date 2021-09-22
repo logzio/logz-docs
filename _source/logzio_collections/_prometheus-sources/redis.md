@@ -1,7 +1,7 @@
 ---
 title: Ship Google Memorystore for Redis metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: memorystore.png
   orientation: vertical
 data-source: Google Memorystore for Redis
 templates: ["docker"]

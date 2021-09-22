@@ -1,7 +1,7 @@
 ---
 title: Ship Google BigQuery Data Transfer Service metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: bigquery.png
   orientation: vertical
 data-source: Google BigQuery Data Transfer Service
 templates: ["docker"]

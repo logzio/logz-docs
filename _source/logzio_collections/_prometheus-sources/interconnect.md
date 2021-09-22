@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Interconnect metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: interconnect.png
   orientation: vertical
 data-source: Google Cloud Interconnect
 templates: ["docker"]

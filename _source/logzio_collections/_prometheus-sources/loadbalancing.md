@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Load Balancing metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcplb.png
   orientation: vertical
 data-source: Google Cloud Load Balancing
 templates: ["docker"]

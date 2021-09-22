@@ -1,7 +1,7 @@
 ---
 title: Ship Google Firewall Insights metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpfirewall.png
   orientation: vertical
 data-source: Google Firewall Insights
 templates: ["docker"]

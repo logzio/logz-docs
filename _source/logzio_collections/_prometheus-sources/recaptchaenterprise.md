@@ -1,7 +1,7 @@
 ---
 title: Ship Google reCAPTCHA Enterprise metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: recap.png
   orientation: vertical
 data-source: Google reCAPTCHA Enterprise
 templates: ["docker"]

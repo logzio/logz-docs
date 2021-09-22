@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Logging metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: cloudlogging.png
   orientation: vertical
 data-source: Google Cloud Logging
 templates: ["docker"]

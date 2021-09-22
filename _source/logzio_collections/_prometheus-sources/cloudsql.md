@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud SQL metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpsql.png
   orientation: vertical
 data-source: Google Cloud SQL
 templates: ["docker"]

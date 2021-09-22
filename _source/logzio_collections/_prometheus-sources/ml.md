@@ -1,7 +1,7 @@
 ---
 title: Ship Google AI Platforme metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpai.png
   orientation: vertical
 data-source: Google AI Platform
 templates: ["docker"]

@@ -1,9 +1,9 @@
 ---
-title: Ship Virtual Private Cloud (VPC) metrics
+title: Ship Google Virtual Private Cloud (VPC) metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: vpc.png
   orientation: vertical
-data-source: Virtual Private Cloud (VPC)
+data-source: Google Virtual Private Cloud (VPC)
 templates: ["docker"]
 contributors:
   - daniel-tk
@@ -18,7 +18,7 @@ order: 800
 
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Virtual Private Cloud (VPC) metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Google Virtual Private Cloud (VPC) metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 

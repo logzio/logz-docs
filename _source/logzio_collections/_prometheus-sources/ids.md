@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud IDS metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: ids.png
   orientation: vertical
 data-source: Google Cloud IDS
 templates: ["docker"]

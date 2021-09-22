@@ -1,7 +1,7 @@
 ---
 title: Ship Google Dataflow metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpdataflow.png
   orientation: vertical
 data-source: Google Dataflow
 templates: ["docker"]

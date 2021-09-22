@@ -1,7 +1,7 @@
 ---
 title: Ship Google Recommendations AI metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpai.png
   orientation: vertical
 data-source: Google Recommendations AI
 templates: ["docker"]

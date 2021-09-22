@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Composer metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpcomposer.png
   orientation: vertical
 data-source: Google Cloud Composer
 templates: ["docker"]

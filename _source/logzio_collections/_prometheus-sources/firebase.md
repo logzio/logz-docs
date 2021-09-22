@@ -1,7 +1,7 @@
 ---
 title: Ship Google Firebase metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: firebase.png
   orientation: vertical
 data-source: Google Firebase
 templates: ["docker"]

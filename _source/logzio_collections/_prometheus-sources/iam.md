@@ -1,7 +1,7 @@
 ---
 title: Ship Google Identity and Access Management metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpiam.png
   orientation: vertical
 data-source: Google Identity and Access Management
 templates: ["docker"]

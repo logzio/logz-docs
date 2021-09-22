@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Router metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcprouter.png
   orientation: vertical
 data-source: Google Cloud Router
 templates: ["docker"]

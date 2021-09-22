@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Healthcare API metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcphealthcare.png
   orientation: vertical
 data-source: Google Cloud Healthcare API
 templates: ["docker"]

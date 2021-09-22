@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Tasks metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcptasks.png
   orientation: vertical
 data-source: Google Cloud Tasks
 templates: ["docker"]

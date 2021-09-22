@@ -1,7 +1,7 @@
 ---
 title: Ship Google Workflows metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: workflows.png
   orientation: vertical
 data-source: Google Workflows
 templates: ["docker"]

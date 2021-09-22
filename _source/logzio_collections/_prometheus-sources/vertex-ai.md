@@ -1,9 +1,9 @@
 ---
-title: Ship Vertex AI metrics
+title: Ship Google Vertex AI metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: vertexai.png
   orientation: vertical
-data-source: Vertex AI
+data-source: Google Vertex AI
 templates: ["docker"]
 contributors:
   - daniel-tk

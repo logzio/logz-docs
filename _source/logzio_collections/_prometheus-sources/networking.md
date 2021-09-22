@@ -1,7 +1,7 @@
 ---
 title: Ship Google Network Topology metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpnetwork.png
   orientation: vertical
 data-source: Google Network Topology
 templates: ["docker"]

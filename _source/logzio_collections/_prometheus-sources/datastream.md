@@ -3,7 +3,7 @@ title: Ship Google Datastream metrics
 logo:
   logofile: gcpdatastream.png
   orientation: vertical
-data-source: Google atastream
+data-source: Google Datastream
 templates: ["docker"]
 contributors:
   - daniel-tk

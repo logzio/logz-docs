@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Dashboards & Reports
+title: Cloud SIEM Event Management
 permalink: /user-guide/cloud-siem/siem-event-management.html
 flags:
   logzio-plan: pro

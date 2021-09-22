@@ -1,7 +1,7 @@
 ---
 title: Ship Google BigQuery BI Engine metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: bigquery.png
   orientation: vertical
 data-source: Google BigQuery BI Engine
 templates: ["docker"]

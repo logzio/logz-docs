@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Data Loss Prevention metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: lossprevention.png
   orientation: vertical
 data-source: Google Cloud Data Loss Prevention
 templates: ["docker"]

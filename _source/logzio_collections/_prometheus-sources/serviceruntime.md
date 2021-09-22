@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud API metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpapis.png
   orientation: vertical
 data-source: Google Cloud API
 templates: ["docker"]

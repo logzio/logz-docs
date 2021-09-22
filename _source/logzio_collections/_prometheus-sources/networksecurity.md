@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Armor metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: cloudarmor.png
   orientation: vertical
 data-source: Google Cloud Armor
 templates: ["docker"]

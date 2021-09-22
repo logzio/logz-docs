@@ -1,7 +1,7 @@
 ---
 title: Ship Google Dataproc metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpdataproc.png
   orientation: vertical
 data-source: Google Dataproc
 templates: ["docker"]

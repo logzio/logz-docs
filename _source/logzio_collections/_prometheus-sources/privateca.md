@@ -1,7 +1,7 @@
 ---
 title: Ship Google Certificate Authority Service metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: certmanager.png
   orientation: vertical
 data-source: Google Certificate Authority Service
 templates: ["docker"]

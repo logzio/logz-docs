@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Monitoring metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: cloudmonitoring.png
   orientation: vertical
 data-source: Google Cloud Monitoring
 templates: ["docker"]

@@ -27,7 +27,7 @@ If you already have Jaeger installed locally, learn how to [Send traces from you
 2. Navigate to the [**Tracing** menu](https://app.logz.io/#/dashboard/jaeger) and activate the account.
    ![Activate tracing](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_activate.png)
    
-
+<!--Step 2 is not accurate or clear -->
 
 ##### Look up your Distributed Tracing token and Region information in Logz.io
 

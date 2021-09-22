@@ -1,7 +1,7 @@
 ---
 title: Ship Google Pub/Sub metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: pubsub.png
   orientation: vertical
 data-source: Google Pub/Sub
 templates: ["docker"]

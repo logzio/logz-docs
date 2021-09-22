@@ -1,7 +1,7 @@
 ---
 title: Ship Google API Gateway metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: apigateway.png
   orientation: vertical
 data-source: Google API Gateway
 templates: ["docker"]

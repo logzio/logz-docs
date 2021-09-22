@@ -1,7 +1,7 @@
 ---
 title: Ship Google Assistant Smart Home metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: assistant.png
   orientation: vertical
 data-source: Google Assistant Smart Home
 templates: ["docker"]

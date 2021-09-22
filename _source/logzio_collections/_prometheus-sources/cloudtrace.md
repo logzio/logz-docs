@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Trace metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcptrace.png
   orientation: vertical
 data-source: Google Cloud Trace
 templates: ["docker"]

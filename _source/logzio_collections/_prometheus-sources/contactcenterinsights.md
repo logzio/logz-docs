@@ -1,7 +1,7 @@
 ---
 title: Ship Google Contact Center AI Insights metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpai.png
   orientation: vertical
 data-source: Google Contact Center AI Insights
 templates: ["docker"]

@@ -1,7 +1,7 @@
 ---
 title: Ship Google Apigee metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: apigee.png
   orientation: vertical
 data-source: Google Apigee
 templates: ["docker"]

@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Run metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: cloudrun.png
   orientation: vertical
 data-source: Google Cloud Run
 templates: ["docker"]

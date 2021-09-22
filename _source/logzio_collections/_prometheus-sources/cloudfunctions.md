@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Functions metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: cloudfunctions.png
   orientation: vertical
 data-source: Google Cloud Functions
 templates: ["docker"]

@@ -1,7 +1,7 @@
 ---
 title: Ship Google Datastore metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpdatastore.png
   orientation: vertical
 data-source: Google Datastore
 templates: ["docker"]

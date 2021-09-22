@@ -1,7 +1,7 @@
 ---
 title: Ship Google Filestore metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpfilestore.png
   orientation: vertical
 data-source: Google Filestore
 templates: ["docker"]

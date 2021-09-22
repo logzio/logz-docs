@@ -19,9 +19,14 @@ If you already have Jaeger installed locally, learn how to [Send traces from you
 
 <div class="tasklist">
 
-##### Set up instrumentation
-Determine the best instrumentation strategy for your system, starting with [Ship data > Tracing](https://deploy-preview-1368--logz-docs.netlify.app/shipping/#tracing-sources), and select the relevant filter for the **Tracing** tab: **My code is instrumented** or **My code is not instrumented**. 
+##### Get access to Logz.io
 
+1. [Create a free trial account.](https://logz.io/freetrial-choose/)
+   ![Sign up](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trial_signup.png)
+
+2. Navigate to the [**Tracing** menu](https://app.logz.io/#/dashboard/jaeger) and activate the account.
+   ![Activate tracing](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_activate.png)
+   
 
 
 ##### Look up your Distributed Tracing token and Region information in Logz.io
@@ -33,18 +38,33 @@ Determine the best instrumentation strategy for your system, starting with [Ship
 {% include tracing-shipping/region-code.md %}
 
 
-##### Deploy tracing components
-Decide on your tracing source, make deployment decisions, and decide whether or not to use an agent to send tracing data to Logz.io.
-<a href="/user-guide/distributed-tracing/deploying-components.html" target ="_blank"> Read more about deploying tracing components.</a>
+##### Set up instrumentation
+
+Logz.io makes the process of collecting data from the software as easy as possible by taking advantage of community-developed plug-ins for the most commonly used libraries and frameworks. 
+
+There’s a growing trend to do this for every type of library, software system, infrastructure component, such as proxies and service meshes, and even for orchestration systems, such as Kubernetes itself.
+
+Logz.io’s distributed tracing solution is designed to support a variety of popular open source instrumentation libraries, including OpenTracing, Jaeger, OpenTelemetry, and Zipkin.    
+
+But instrumentation doesn't *have* to be a huge all-or-nothing effort. It's not mandatory to immediately instrument ALL the code in your environment to start benefitting from Distributed Tracing: You can ramp up your instrumentation gradually, by implementing on a service-by-service basis.  
+
+If you hit a wall, we’ll do our best to provide support to help you solve your instrumentation issues. 
+
+To determine the best instrumentation strategy for your system, start with [**Tracing > Send your traces**](https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=tracing-sources&accountIds=true), and then select the relevant filter in the **Tracing** tab: Either **My code is instrumented** or **My code is not instrumented**. 
+
+This information is available in the **Logz.io Docs**, in [**Send your data > Tracing**](https://docs.logz.io/shipping/#tracing-sources).
+
+
+##### Install the OpenTelemetry Collector
+
+Logz.io captures end-to-end distributed transactions from your applications and infrastructure with trace spans sent directly to Logz.io via the OpenTelemetry collector which you install inside your environment.
+
+We recommend that you use the OpenTelemetry collector to gather trace transaction data from your system. With the merging of the OpenTracing and OpenCensus projects, OpenTelemetry is the CNCF standard. We plan to add aggregated tracing metrics capabilities that will only be available via the OpenTelemetry collector.
+
+[OpenTelemetry Installation](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry)
+
+This information is also available in the **Logz.io Docs**, in [**Ship your data > OpenTelemetry installation**](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html).
 
 If you’re deploying distributed tracing on Kubernetes, we recommend the [Kubernetes deployment reference](https://docs.logz.io/user-guide/user-guide/distributed-tracing/k8s-deployment) topic.
 
-<!--  removed blog link     <a href="https://logz.io/blog/jaeger-kubernetes-best-practices/" target ="_blank">A Guide to Deploying Jaeger on Kubernetes in Production. </a>   -->
-
-
-
-
-
-
-
-
+To additional insights, check out our [Guide to OpenTelemetry!](https://logz.io/learn/opentelemetry-guide/)

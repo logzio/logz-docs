@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Storage metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpstorage.png
   orientation: vertical
 data-source: Google Cloud Storage
 templates: ["docker"]

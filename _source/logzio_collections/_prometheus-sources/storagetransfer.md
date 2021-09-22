@@ -1,7 +1,7 @@
 ---
 title: Ship Google Storage Transfer Service for on-premises data metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpstorage.png
   orientation: vertical
 data-source: Google Storage Transfer Service for on-premises data
 templates: ["docker"]

@@ -35,62 +35,27 @@ First you need to configure the input plug-in to enable Telegraf to scrape the H
 
 ``` ini
 [[inputs.haproxy]]
-  ## Username for authorization on HAproxy server
-  ## example: username = "default"
-  username = "default"
+  ## An array of address to gather stats about. Specify an ip on hostname
+  ## with optional port. ie localhost, 10.10.3.33:1936, etc.
+  ## Make sure you specify the complete path to the stats endpoint
+  ## including the protocol, ie http://10.10.3.33:1936/haproxy?stats
 
-  ## Password for authorization on HAproxy server
-  ## example: password = "super_secret"
+  ## Credentials for basic HTTP authentication
+  # username = "admin"
+  # password = "admin"
 
-  ## HTTP(s) timeout while getting metrics values
-  ## The timeout includes connection time, any redirects, and reading the response body.
-  ##   example: timeout = 1s
-  # timeout = 5s
+  ## If no servers are specified, then default to 127.0.0.1:1936/haproxy?stats
+  servers = ["http://myhaproxy.com:1936/haproxy?stats"]
 
-  ## List of servers for metrics scraping
-  ## metrics scrape via HTTP(s) HAproxy interface
-  ## https://HAproxy.tech/docs/en/interfaces/http/
-  ##    example: servers = ["http://127.0.0.1:8123","https://custom-server.mdb.yandexcloud.net"]
-  servers         = ["http://127.0.0.1:8123"]
+  ## You can also use local socket with standard wildcard globbing.
+  ## Server address not starting with 'http' will be treated as a possible
+  ## socket, so both examples below are valid.
+  # servers = ["socket:/run/haproxy/admin.sock", "/run/haproxy/*.sock"]
 
-  ## If "auto_discovery"" is "true" plugin tries to connect to all servers available in the cluster
-  ## with using same "user:password" described in "user" and "password" parameters
-  ## and get this server hostname list from "system.clusters" table
-  ## see
-  ## - https://HAproxy.tech/docs/en/operations/system_tables/#system-clusters
-  ## - https://HAproxy.tech/docs/en/operations/server_settings/settings/#server_settings_remote_servers
-  ## - https://HAproxy.tech/docs/en/operations/table_engines/distributed/
-  ## - https://HAproxy.tech/docs/en/operations/table_engines/replication/#creating-replicated-tables
-  ##    example: auto_discovery = false
-  # auto_discovery = true
-
-  ## Filter cluster names in "system.clusters" when "auto_discovery" is "true"
-  ## when this filter present then "WHERE cluster IN (...)" filter will apply
-  ## please use only full cluster names here, regexp and glob filters is not allowed
-  ## for "/etc/HAproxy-server/config.d/remote.xml"
-  ## <yandex>
-  ##  <remote_servers>
-  ##    <my-own-cluster>
-  ##        <shard>
-  ##          <replica><host>HAproxy-ru-1.local</host><port>9000</port></replica>
-  ##          <replica><host>HAproxy-ru-2.local</host><port>9000</port></replica>
-  ##        </shard>
-  ##        <shard>
-  ##          <replica><host>HAproxy-eu-1.local</host><port>9000</port></replica>
-  ##          <replica><host>HAproxy-eu-2.local</host><port>9000</port></replica>
-  ##        </shard>
-  ##    </my-onw-cluster>
-  ##  </remote_servers>
-  ##
-  ## </yandex>
-  ##
-  ## example: cluster_include = ["my-own-cluster"]
-  # cluster_include = []
-
-  ## Filter cluster names in "system.clusters" when "auto_discovery" is "true"
-  ## when this filter present then "WHERE cluster NOT IN (...)" filter will apply
-  ##    example: cluster_exclude = ["my-internal-not-discovered-cluster"]
-  # cluster_exclude = []
+  ## By default, some of the fields are renamed from what haproxy calls them.
+  ## Setting this option to true results in the plugin keeping the original
+  ## field names.
+  # keep_field_names = false
 
   ## Optional TLS Config
   # tls_ca = "/etc/telegraf/ca.pem"

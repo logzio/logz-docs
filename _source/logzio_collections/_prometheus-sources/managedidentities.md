@@ -1,7 +1,7 @@
 ---
 title: Ship Google Managed Service for Microsoft Active Directory metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpiam.png
   orientation: vertical
 data-source: Google Managed Service for Microsoft Active Directory
 templates: ["docker"]

@@ -1,7 +1,7 @@
 ---
 title: Ship Google VM Manager metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: computeengine.png
   orientation: vertical
 data-source: Google VM Manager
 templates: ["docker"]

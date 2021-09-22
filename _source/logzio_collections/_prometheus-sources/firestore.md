@@ -1,7 +1,7 @@
 ---
 title: Ship Google Firestore metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: firestore.png
   orientation: vertical
 data-source: Google Firestore
 templates: ["docker"]

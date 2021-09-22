@@ -11,6 +11,6 @@ contributors:
   - yberlinger
 ---
 
-This content is currently in development, pending the release of this feature.
+This content is currently in development, pending the release of the Event Management feature for Logz.io Cloud SIEM.
 
 <!-- Action Item - Add this topic in `_source/_data/toc.yml`, somewhere after line 172 -->

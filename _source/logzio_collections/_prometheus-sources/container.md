@@ -1,7 +1,7 @@
 ---
 title: Ship Google Kubernetes Engine metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: gcpkubernetes.png
   orientation: vertical
 data-source: Google Kubernetes Engine
 templates: ["docker"]

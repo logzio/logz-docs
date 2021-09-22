@@ -1,7 +1,7 @@
 ---
 title: Ship Google IoT Core metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: googleiot.png
   orientation: vertical
 data-source: Google IoT Core
 templates: ["docker"]

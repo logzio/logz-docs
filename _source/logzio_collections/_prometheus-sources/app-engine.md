@@ -1,7 +1,7 @@
 ---
 title: Ship Google App Engine metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: appengine.png
   orientation: vertical
 data-source: Google App Engine
 templates: ["docker"]

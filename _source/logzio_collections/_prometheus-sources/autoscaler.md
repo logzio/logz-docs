@@ -1,7 +1,7 @@
 ---
 title: Ship Google Compute Engine Autoscaler metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: computeengine.png
   orientation: vertical
 data-source: Google Compute Engine Autoscaler
 templates: ["docker"]

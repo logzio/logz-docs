@@ -1,7 +1,7 @@
 ---
 title: Ship Google Cloud Bigtable metrics
 logo:
-  logofile: gcp-logo.png
+  logofile: bigtable.png
   orientation: vertical
 data-source: Google Cloud Bigtable
 templates: ["docker"]

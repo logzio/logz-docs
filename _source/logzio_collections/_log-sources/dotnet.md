@@ -125,7 +125,7 @@ hierarchy.Configured = true;
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
-| jsonKeysCamelCase | Set to true if you want JSON keys in Logz.io to be in camelCase. | `false` |
+| jsonKeysCamelCase | If you have custom fields keys that start with capital letter and want to see the fields with capital letter in Logz.io, set this field to true. | `false` |
 
 ###### Code sample
 
@@ -299,7 +299,7 @@ LogManager.Configuration = config;
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false` |
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
-| jsonKeysCamelCase | Set to true if you want JSON keys in Logz.io to be in camelCase. | `false` |
+| jsonKeysCamelCase | If you have custom fields keys that start with capital letter and want to see the fields with capital letter in Logz.io, set this field to true. | `false` |
 
 ###### Code sample
 
@@ -481,7 +481,7 @@ hierarchy.Configured = true;
 | debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
-| jsonKeysCamelCase | Set to true if you want JSON keys in Logz.io to be in camelCase. | `false` |
+| jsonKeysCamelCase | If you have custom fields keys that start with capital letter and want to see the fields with capital letter in Logz.io, set this field to true. | `false` |
 
 ###### Code sample
 

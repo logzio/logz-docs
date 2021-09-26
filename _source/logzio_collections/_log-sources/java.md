@@ -45,7 +45,7 @@ Java 8 or higher
 
 ##### Add the dependency to your project
 
-Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project).
+Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project). 
 
 ```xml
 <dependencies>
@@ -56,6 +56,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
   </dependency>
 </dependencies>
 ```
+The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
 ##### Configure the appender
 
@@ -239,6 +240,8 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
   </dependency>
 </dependencies>
 ```
+
+The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
 ##### Configure the appender
 

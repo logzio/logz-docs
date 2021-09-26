@@ -42,7 +42,7 @@ The following services are created when you deploy this integration:
 * Logz.io Function App + Logz.io Blob Trigger Function
 * Storage Account for Logz.io Function App logs
 
-![Integration-architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/iazure_blob/blob-trigger-resources.png)
+![Integration-architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-resources.png)
 
 ### Supported data types
 
@@ -85,7 +85,8 @@ If you don't have a general purpose v2 storage account with a container for logs
 👇 Click this button:
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-blob-trigger%2Fmain%2Fazure%2Ffull-auto-deployment.json)
-
+{:.override.btn-img}
+  
 ##### Fill in the deployment parameters
 
 In the **Custom deployment** screen, fill in all the parameters as per table below and click **Review + create**.
@@ -155,6 +156,8 @@ Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExten
 👇 Click this button:
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-blob-trigger%2Fmain%2Fazure%2Ffunction-auto-deployment.json)
+{:.override.btn-img}
+  
 
 ##### Fill in the deployment parameters
 

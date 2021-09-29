@@ -54,7 +54,11 @@ This Logz.io function supports the following data types:
 * Json
 * CSV (supported delimiters: `',' ';' '|'`)
 * Text (supports multiline text - MultilineRegex parameter)
-* The file name does not have to be with these extensions.
+
+<!-- info-box-start:info -->
+The file name does not have to be with these extensions.
+{:.info-box.important}
+<!-- info-box-end -->
 
 ### Supported file formats
 

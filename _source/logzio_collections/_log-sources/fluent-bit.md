@@ -10,6 +10,7 @@ open-source:
 contributors:
   - imnotashrimp
   - idohalevi
+  - nshishkin
 shipping-tags:
   - log-shipper
 shipping-tags:
@@ -53,6 +54,12 @@ wget -o /fluent-bit/plugins/out_logzio.so \
     https://github.com/logzio/fluent-bit-logzio-output/raw/master/build/out_logzio-macOS.so
 ```
 
+For Windows:
+
+```shell
+wget https://github.com/logzio/fluent-bit-logzio-output/raw/master/build/out_logzio-windows.so
+```
+
 In your Fluent Bit configuration file (`fluent-bit.conf` by default),
 add Logz.io as an output.
 
@@ -83,9 +90,17 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 
 ##### Run Fluent Bit with the Logz.io plugin
 
+Linux and MacOS:
+
 ```shell
 fluent-bit -e /fluent-bit/plugins/out_logzio.so \
 -c /fluent-bit/etc/fluent-bit.conf
+```
+
+Windows:
+
+```shell
+C:\PROGRA~1\td-agent-bit\bin\fluent-bit.exe -c C:\PROGRA~1\td-agent-bit\conf\fluent-bit.conf -e <<PATH_TO_PLUGIN>>\out_logzio-windows.so
 ```
 
 ##### Check Logz.io for your logs

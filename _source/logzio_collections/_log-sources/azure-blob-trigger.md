@@ -29,15 +29,10 @@ order: 460
 
 Deploy this integration to forward logs from your Azure Blob Storage account to Logz.io using an automated deployment process via the trigger function. Each new log in the container path inside the storage account (including sub directories), will trigger the Logz.io function that will ship the file content to Logz.io.
 
-This integration offers the option to connect to an existing Blob storage account or create a new one, and it can be updated post-deployment.
-  
-Logs that were in the container before the deployment will be shipped to Logz.io. If these logs have already been shipped to Logz.io, we recommend that you empty the container before the deployment.
-
-
 
 ## Architecture overview
 
-The following services are needed for this integration:
+The following resources are needed for this integration:
 
 * Storage Account (general purpose v2) + Container
 * App Service Plan - Consumption Plan

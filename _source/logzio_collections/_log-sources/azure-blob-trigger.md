@@ -35,8 +35,9 @@ This integration offers the option to connect to an existing Blob storage accoun
 
 ## Architecture overview
 
-The following services are created when you deploy this integration:
+The following services are needed for this integration:
 
+* Storage Account (general purpose v2) + Container
 * App Service Plan - Consumption Plan
 * Application Insights
 * Logz.io Function App + Logz.io Blob Trigger Function

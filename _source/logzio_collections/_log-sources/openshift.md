@@ -10,7 +10,7 @@ open-source:
 contributors:
   - nshishkin
 shipping-tags:
-  - agents
+  - containers
   - popular
 order: 10
 ---

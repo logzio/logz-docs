@@ -175,7 +175,7 @@ In the **Custom deployment** screen, fill in all the parameters as per table bel
 | Multiline Regex | The regex that matches the multiline logs in text blob files. Leave empty if you do not use multiline logs in your text blob files. |
 
 <!-- info-box-start:info -->
-Only new logs that are created from the moment the integration process is complete are sent to Logz.io. Logs that were added before this integration are not sent to Logz.io.
+Logs that were in the container before the deployment will be shipped to Logz.io. If these logs have already been shipped to Logz.io, we recommend that you empty the container before the deployment.
 {:.info-box.important}
 <!-- info-box-end -->
 

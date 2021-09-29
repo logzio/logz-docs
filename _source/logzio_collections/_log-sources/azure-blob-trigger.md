@@ -96,7 +96,6 @@ In the **Custom deployment** screen, fill in all the parameters as per table bel
 
 | Parameter | Description |
 | --- | --- |
-| Storage Account Name | The storage account (general purpose v2) name. |
 | Storage Account Resource Name | The resource name that contains the storage account. | 
 | Container Name | The name of the container inside the storage account |
 | Logs Path | The path from where blob files will trigger the Logz.io function (including sub-directories in that path). Leave empty if you want every blob file in the container to trigger the Logz.io function. |

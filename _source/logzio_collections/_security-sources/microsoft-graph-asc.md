@@ -1,7 +1,7 @@
 ---
 title: Ship logs from Azure Security Center
 logo:
-  logofile: security-center.svg
+  logofile: azc-logo.png
   orientation: horizontal
 data-source: Azure Security Center
 templates: ["no-template"]

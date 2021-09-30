@@ -3,7 +3,7 @@ title: Ship MongoDB metrics via Telegraf
 logo:
   logofile: mongo-logo.png
   orientation: vertical
-data-source: MongoDB metrics over Telegraf
+data-source: MongoDB 
 templates: ["docker"]
 contributors:
   - daniel-tk

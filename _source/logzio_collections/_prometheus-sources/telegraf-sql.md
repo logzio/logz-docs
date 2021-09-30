@@ -1,9 +1,9 @@
 ---
 title: Ship SQL Server metrics via Telegraf
 logo:
-  logofile: sql-telegraf.png
+  logofile: sqlserver.png
   orientation: vertical
-data-source: SQL Server metrics over Telegraf
+data-source: SQL Server 
 templates: ["docker"]
 contributors:
   - daniel-tk

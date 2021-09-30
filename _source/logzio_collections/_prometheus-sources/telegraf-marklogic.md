@@ -1,9 +1,9 @@
 ---
 title: Ship MarkLogic metrics via Telegraf
 logo:
-  logofile: marklogic-telegraf.png
+  logofile: marklogic.png
   orientation: vertical
-data-source: MarkLogic metrics over Telegraf
+data-source: MarkLogic
 templates: ["docker"]
 contributors:
   - daniel-tk

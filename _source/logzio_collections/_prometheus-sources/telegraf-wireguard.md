@@ -3,7 +3,7 @@ title: Ship Wireguard metrics via Telegraf
 logo:
   logofile: wireguard-logo.png
   orientation: vertical
-data-source: Wireguard metrics over Telegraf
+data-source: Wireguard
 templates: ["docker"]
 contributors:
   - daniel-tk

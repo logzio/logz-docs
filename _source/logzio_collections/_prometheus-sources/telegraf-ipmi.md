@@ -1,9 +1,9 @@
 ---
 title: Ship IPMI Sensor metrics via Telegraf
 logo:
-  logofile: ipmi-telegraf.png
+  logofile: ipmi.png
   orientation: vertical
-data-source: IPMI Sensor metrics over Telegraf
+data-source: IPMI Sensor
 templates: ["docker"]
 contributors:
   - daniel-tk

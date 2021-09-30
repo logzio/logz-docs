@@ -3,7 +3,7 @@ title: Ship Disque metrics via Telegraf
 logo:
   logofile: 
   orientation: vertical
-data-source: Disque metrics over Telegraf
+data-source: Disque
 templates: ["docker"]
 contributors:
   - daniel-tk

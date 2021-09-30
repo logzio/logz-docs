@@ -3,7 +3,7 @@ title: Ship Big Blue Button metrics via Telegraf
 logo:
   logofile: bigbluebutton-logo.png
   orientation: vertical
-data-source: Big Blue Button metrics over Telegraf
+data-source: Big Blue Button
 templates: ["docker"]
 contributors:
   - daniel-tk

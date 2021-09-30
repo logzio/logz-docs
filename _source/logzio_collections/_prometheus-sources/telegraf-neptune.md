@@ -1,9 +1,9 @@
 ---
 title: Ship Neptune Apex metrics via Telegraf
 logo:
-  logofile: neptune-telegraf.png
+  logofile: neptune.png
   orientation: vertical
-data-source: Neptune Apex metrics over Telegraf
+data-source: Neptune Apex
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -1,9 +1,9 @@
 ---
 title: Ship Elasticsearch metrics via Telegraf
 logo:
-  logofile: elasticsearch-telegraf.png
+  logofile: elasticsearch.png
   orientation: vertical
-data-source: Elasticsearch metrics over Telegraf
+data-source: Elasticsearch
 templates: ["docker"]
 contributors:
   - daniel-tk

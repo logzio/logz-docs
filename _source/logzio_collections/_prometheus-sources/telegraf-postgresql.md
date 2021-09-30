@@ -3,7 +3,7 @@ title: Ship PostgreSQL metrics via Telegraf
 logo:
   logofile: postgresql-logo.png
   orientation: vertical
-data-source: PostgreSQL metrics over Telegraf
+data-source: PostgreSQL 
 templates: ["docker"]
 contributors:
   - daniel-tk

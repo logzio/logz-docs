@@ -1,9 +1,9 @@
 ---
 title: Ship Mailchimp metrics via Telegraf
 logo:
-  logofile: ds-telegraf.png
+  logofile: mailchimp.png
   orientation: vertical
-data-source: Mailchimp metrics over Telegraf
+data-source: Mailchimp 
 templates: ["docker"]
 contributors:
   - daniel-tk

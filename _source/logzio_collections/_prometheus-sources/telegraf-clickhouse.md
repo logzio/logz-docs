@@ -1,9 +1,9 @@
 ---
 title: Ship ClickHouse metrics via Telegraf
 logo:
-  logofile: clickhouse-telegraf.png
+  logofile: clickhouse.png
   orientation: vertical
-data-source: ClickHouse metrics over Telegraf
+data-source: ClickHouse
 templates: ["docker"]
 contributors:
   - daniel-tk

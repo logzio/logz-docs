@@ -1,9 +1,9 @@
 ---
 title: Ship NSQ Consumer metrics via Telegraf
 logo:
-  logofile: nsq-telegraf.png
+  logofile: nsq.png
   orientation: vertical
-data-source: NSQ Consumer metrics over Telegraf
+data-source: NSQ Consumer
 templates: ["docker"]
 contributors:
   - daniel-tk

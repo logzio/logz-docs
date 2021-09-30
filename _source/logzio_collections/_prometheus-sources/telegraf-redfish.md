@@ -3,7 +3,7 @@ title: Ship Redfish metrics via Telegraf
 logo:
   logofile: redfish-logo.png
   orientation: vertical
-data-source: Redfish metrics over Telegraf
+data-source: Redfish 
 templates: ["docker"]
 contributors:
   - daniel-tk

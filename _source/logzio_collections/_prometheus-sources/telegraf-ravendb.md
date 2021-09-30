@@ -3,7 +3,7 @@ title: Ship Ravendb metrics via Telegraf
 logo:
   logofile: ravendb-logo.png
   orientation: vertical
-data-source: Ravendb metrics over Telegraf
+data-source: Ravendb
 templates: ["docker"]
 contributors:
   - daniel-tk

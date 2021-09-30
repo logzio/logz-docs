@@ -1,9 +1,9 @@
 ---
 title: Ship PgBouncer metrics via Telegraf
 logo:
-  logofile: pgbouncer-telegraf.png
+  logofile: pgbouncer.png
   orientation: vertical
-data-source: PgBouncer metrics over Telegraf
+data-source: PgBouncer 
 templates: ["docker"]
 contributors:
   - daniel-tk

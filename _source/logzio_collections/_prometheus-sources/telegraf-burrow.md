@@ -3,7 +3,7 @@ title: Ship Burrow metrics via Telegraf
 logo:
   logofile: kafka.svg
   orientation: vertical
-data-source: Burrow metrics over Telegraf
+data-source: Burrow 
 templates: ["docker"]
 contributors:
   - daniel-tk

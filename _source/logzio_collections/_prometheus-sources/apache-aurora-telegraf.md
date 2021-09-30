@@ -3,7 +3,7 @@ title: Ship Apache Aurora metrics via Telegraf
 logo:
   logofile: aurora-logo.png
   orientation: vertical
-data-source: Apache Aurora metrics over Telegraf
+data-source: Apache Aurora
 templates: ["docker"]
 contributors:
   - daniel-tk

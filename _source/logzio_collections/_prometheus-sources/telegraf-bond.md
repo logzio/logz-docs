@@ -3,7 +3,7 @@ title: Ship Bond metrics via Telegraf
 logo:
   logofile: bond-logo.png
   orientation: vertical
-data-source: Bond metrics over Telegraf
+data-source: Bond
 templates: ["docker"]
 contributors:
   - daniel-tk

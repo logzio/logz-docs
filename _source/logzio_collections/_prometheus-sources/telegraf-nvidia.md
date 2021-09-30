@@ -1,9 +1,9 @@
 ---
 title: Ship NVIDIA SMI metrics via Telegraf
 logo:
-  logofile: nvidia-telegraf.png
+  logofile: nvidia.png
   orientation: vertical
-data-source: NVIDIA SMI metrics over Telegraf
+data-source: NVIDIA SMI
 templates: ["docker"]
 contributors:
   - daniel-tk

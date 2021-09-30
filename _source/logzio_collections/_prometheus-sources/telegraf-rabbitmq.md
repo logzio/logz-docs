@@ -3,7 +3,7 @@ title: Ship RabbitMQ metrics via Telegraf
 logo:
   logofile: rabbitmq-logo.png
   orientation: vertical
-data-source: RabbitMQ metrics over Telegraf
+data-source: RabbitMQ 
 templates: ["docker"]
 contributors:
   - daniel-tk

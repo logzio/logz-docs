@@ -3,7 +3,7 @@ title: Ship ActiveMQ metrics via Telegraf
 logo:
   logofile: activemq-logo.png
   orientation: vertical
-data-source: ActiveMQ metrics over Telegraf
+data-source: ActiveMQ
 templates: ["docker"]
 contributors:
   - daniel-tk

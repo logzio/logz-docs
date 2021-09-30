@@ -1,9 +1,9 @@
 ---
 title: Ship Jenkins metrics via Telegraf
 logo:
-  logofile: jenkins-telegraf.png
+  logofile: jenkins.png
   orientation: vertical
-data-source: Jenkins metrics over Telegraf
+data-source: Jenkins
 templates: ["docker"]
 contributors:
   - daniel-tk

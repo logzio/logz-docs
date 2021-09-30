@@ -1,9 +1,9 @@
 ---
 title: Ship Github metrics via Telegraf
 logo:
-  logofile: github-telegraf.png
+  logofile: github.png
   orientation: vertical
-data-source: Github metrics over Telegraf
+data-source: Github
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -1,9 +1,9 @@
 ---
 title: Ship CouchDB metrics via Telegraf
 logo:
-  logofile: couchdb-telegraf.png
+  logofile: couchdb.png
   orientation: vertical
-data-source: CouchDB metrics over Telegraf
+data-source: CouchDB
 templates: ["docker"]
 contributors:
   - daniel-tk

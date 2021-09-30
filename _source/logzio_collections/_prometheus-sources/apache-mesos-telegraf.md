@@ -3,7 +3,7 @@ title: Ship Apache Mesos metrics via Telegraf
 logo:
   logofile: mesos-logo.png
   orientation: vertical
-data-source: Apache Mesos metrics over Telegraf
+data-source: Apache Mesos
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -3,7 +3,7 @@ title: Ship Unbound metrics via Telegraf
 logo:
   logofile: unbound-logo.png
   orientation: vertical
-data-source: Unbound metrics over Telegraf
+data-source: Unbound 
 templates: ["docker"]
 contributors:
   - daniel-tk

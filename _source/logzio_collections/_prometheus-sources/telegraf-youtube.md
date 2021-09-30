@@ -3,7 +3,7 @@ title: Ship Youtube metrics via Telegraf
 logo:
   logofile: youtube-logo.png
   orientation: vertical
-data-source: Youtube metrics over Telegraf
+data-source: Youtube 
 templates: ["docker"]
 contributors:
   - daniel-tk

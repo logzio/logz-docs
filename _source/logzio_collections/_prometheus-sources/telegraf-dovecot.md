@@ -1,9 +1,9 @@
 ---
 title: Ship Dovecot metrics via Telegraf
 logo:
-  logofile: dovecot-telegraf.png
+  logofile: dovecot.png
   orientation: vertical
-data-source: Dovecot metrics over Telegraf
+data-source: Dovecot
 templates: ["docker"]
 contributors:
   - daniel-tk

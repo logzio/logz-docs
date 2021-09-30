@@ -1,7 +1,7 @@
 ---
 title: Ship NLnet Labs Name Server Daemon metrics via Telegraf
 logo:
-  logofile: nsd-telegraf.png
+  logofile: nsd.png
   orientation: vertical
 data-source: NLnet Labs Name Server Daemon
 templates: ["docker"]

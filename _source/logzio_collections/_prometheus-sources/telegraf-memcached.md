@@ -1,9 +1,9 @@
 ---
 title: Ship Memcached metrics via Telegraf
 logo:
-  logofile: memcached-telegraf.png
+  logofile: memcached.png
   orientation: vertical
-data-source: Memcached metrics over Telegraf
+data-source: Memcached 
 templates: ["docker"]
 contributors:
   - daniel-tk

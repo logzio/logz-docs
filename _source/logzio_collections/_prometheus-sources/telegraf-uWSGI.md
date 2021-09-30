@@ -3,7 +3,7 @@ title: Ship uWSGI metrics via Telegraf
 logo:
   logofile: uwsgi-logo1.png
   orientation: vertical
-data-source: uWSGI metrics over Telegraf
+data-source: uWSGI 
 templates: ["docker"]
 contributors:
   - daniel-tk

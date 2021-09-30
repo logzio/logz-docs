@@ -1,9 +1,9 @@
 ---
 title: Ship Mesosphere DC/OS metrics via Telegraf
 logo:
-  logofile: ds-telegraf.png
+  logofile: dcos.png
   orientation: vertical
-data-source: Mesosphere DC/OS metrics over Telegraf
+data-source: Mesosphere DC/OS
 templates: ["docker"]
 contributors:
   - daniel-tk

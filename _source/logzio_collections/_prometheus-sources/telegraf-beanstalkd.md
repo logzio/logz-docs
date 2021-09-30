@@ -3,7 +3,7 @@ title: Ship Beanstalkd metrics via Telegraf
 logo:
   logofile: beanstalk-logo.png
   orientation: vertical
-data-source: Beanstalkd metrics over Telegraf
+data-source: Beanstalkd
 templates: ["docker"]
 contributors:
   - daniel-tk

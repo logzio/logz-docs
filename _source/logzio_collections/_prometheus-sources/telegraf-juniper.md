@@ -1,9 +1,9 @@
 ---
 title: Ship JTI OpenConfig Telemetry metrics via Telegraf
 logo:
-  logofile: juniper-telegraf.png
+  logofile: juniper.png
   orientation: vertical
-data-source: JTI OpenConfig Telemetry metrics over Telegraf
+data-source: JTI OpenConfig Telemetry
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -1,9 +1,9 @@
 ---
 title: Ship NSQ metrics via Telegraf
 logo:
-  logofile: nsq-telegraf.png
+  logofile: nsq.png
   orientation: vertical
-data-source: NSQ metrics over Telegraf
+data-source: NSQ
 templates: ["docker"]
 contributors:
   - daniel-tk

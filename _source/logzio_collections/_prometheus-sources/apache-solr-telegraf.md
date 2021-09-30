@@ -3,7 +3,7 @@ title: Ship Apache Solr metrics via Telegraf
 logo:
   logofile: solr-logo.png
   orientation: vertical
-data-source: Apache Solr metrics over Telegraf
+data-source: Apache Solr
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -3,7 +3,7 @@ title: Ship Phfusion Passenger metrics via Telegraf
 logo:
   logofile: phfusion-logo.png
   orientation: vertical
-data-source: Phfusion Passenger metrics over Telegraf
+data-source: Phfusion Passenger 
 templates: ["docker"]
 contributors:
   - daniel-tk

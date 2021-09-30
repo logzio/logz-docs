@@ -1,9 +1,9 @@
 ---
 title: Ship Nginx metrics via Telegraf
 logo:
-  logofile: nginx-telegraf.png
+  logofile: nginx.png
   orientation: vertical
-data-source: Nginx metrics over Telegraf
+data-source: Nginx
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -3,7 +3,7 @@ title: Ship Ceph Storage metrics via Telegraf
 logo:
   logofile: ceph-logo.png
   orientation: vertical
-data-source: Ceph Storage metrics over Telegraf
+data-source: Ceph Storage
 templates: ["docker"]
 contributors:
   - daniel-tk

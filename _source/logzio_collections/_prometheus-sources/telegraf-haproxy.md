@@ -1,7 +1,7 @@
 ---
 title: Ship HAproxy metrics via Telegraf
 logo:
-  logofile: haproxy.png
+  logofile: haproxy.png 
   orientation: vertical
 data-source: HAproxy
 templates: ["docker"]

@@ -27,7 +27,7 @@ curl https://sh.vector.dev -sSf | sh
 ```
 
 For alternate installation instructions,
-see [Installation](https://vector.dev/docs/setup/) from Vector.
+see [Installation](https://vector.dev/docs/setup/) from Vector. 
 
 ##### Configure Vector with Logz.io sink
 

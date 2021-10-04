@@ -1939,7 +1939,7 @@ paths:
   /v1/grafana/api/snapshots/:
       post:
         operationId: postGrafanaSnapshot
-        summary: Create a dashboard
+        summary: Create a snapshot
         description: >-
           Creates a snapshot.
         tags:

@@ -6936,10 +6936,10 @@ definitions:
         properties:
           cron:
             type: string
-            description: Cron job for the timezone
+            description: Cron job for the intervals schedule.
           timezone:
             type: string
-            description: Time zone
+            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
 
   AlertOutput:
     type: object
@@ -7355,10 +7355,10 @@ definitions:
         properties:
           cron:
             type: string
-            description: Cron job for the timezone
+            description: Cron job for the intervals schedule.
           timezone:
             type: string
-            description: Time zone
+            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
   RuleOutput:
     type: object
     description: Automatically sends out notifications with sample results when the rule triggers.

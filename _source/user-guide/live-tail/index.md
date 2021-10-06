@@ -28,6 +28,9 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
   press <i class="li li-scroll"></i> (scroll).
 * To clear the Live Tail view,
   click <i class="li li-clear"></i> (clear).
+  
+  the "Raw data" view shows the value of logs' "message" field as they are entered into the log management queue; to view a live tail of logs without a "message" field, use the [parsed data view](#work-in-parsed-data-view).
+  {:.info-box.note}
 
 #### Find and highlight terms
 

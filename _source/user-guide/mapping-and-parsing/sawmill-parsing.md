@@ -12,7 +12,7 @@ contributors:
   - yberlinger
 ---
 
-## Customize your log parsing with the Logz.io Data Data Parsing
+## Customize your log parsing with the Logz.io Data Parsing
 
 Create your own parsing rule sets for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule sets will be applied to your Logz.io account to transform your logs. 
 
@@ -23,10 +23,9 @@ You must be an account admin to apply a parsing rule set to an account.
 
 
 <!-- info-box-start:info -->
-**The Data Parsing public API is available as follows:** <br> <br>
-Pro and Enterprise accounts -  The Data Parsing API is available for Pro and Enterprise accounts. <br>
-Trial accounts - Contact Support to enable the public API for your account. <br>
-Free accounts - The Data Parsing API is not available for free (Community) accounts.<br>
+**Logz.io Data Parsing is available as follows:** <br> <br>
+Trial accounts - To use Logz.io Data Parsing, contact Support to enable the Logz.io public API for your account. <br>
+Community accounts - These accounts do not have access to Logz.io Data Parsing because the Logz.io public API is not available for Community (free) accounts.<br>
 {:.info-box.note}
 <!-- info-box-end -->
 

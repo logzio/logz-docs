@@ -12,9 +12,6 @@ contributors:
 order: 150
 ---
 
-{% include /p8s-shipping/prometheus-rollout.md %}
-
-
 {% include p8s-shipping/remotewrite-syd-userguide.md %}
 
 

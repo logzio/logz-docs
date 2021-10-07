@@ -11,7 +11,6 @@ contributors:
   - yberlinger
   - yotamloe
 ---
-{% include /p8s-shipping/prometheus-rollout.md %}
 
 You can import your existing dashboards to Logz.io via a bulk process (using a Python script) or via a manual process.
 

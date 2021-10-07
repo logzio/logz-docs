@@ -19,6 +19,7 @@ order: 330
 
 * [Overview](#overview)
 * [Local host](#local-host)
+* [Docker](#docker)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -120,6 +121,39 @@ Run the following command:
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
+
+##### Run the application
+
+Run the application to generate traces.
+
+
+##### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="docker">
+
+
+### Set up your OpenTelemetry installation using containerized collector to send traces to Logz.io
+
+**Before you begin, you'll need**:
+
+* An application instrumented with an OpenTelemetry installation
+* An active account with Logz.io
+
+
+<div class="tasklist">
+
+
+{% include /tracing-shipping/docker.md %}
+
+{% include /tracing-shipping/replace-tracing-token.html %}
 
 ##### Run the application
 

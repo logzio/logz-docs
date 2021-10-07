@@ -11,8 +11,8 @@ contributors:
 ---
 Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in Logz.io.
 
-If you already have Jaeger installed locally, learn how to [Send traces from your Jaeger installation to Logz.io](https://deploy-preview-1368--logz-docs.netlify.app/shipping/tracing-sources/jaeger-collector.html).
-
+If you already use Distributed Tracing, refer to our [guides on how to get connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data?tag=existing-instrumentation&collection=tracing-sources). <br>
+This information is also available in the [**Logz.io Docs**](https://docs.logz.io/shipping/#tracing-sources), via the **My code is instrumented** filter.
 
 #### To set up Distributed Tracing: 
 {:.no_toc}  
@@ -21,20 +21,18 @@ If you already have Jaeger installed locally, learn how to [Send traces from you
 
 ##### Get access to Logz.io
 
-1. [Create a free trial account.](https://logz.io/freetrial-choose/)
-   ![Sign up](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trial_signup.png)
+Sign up for a free trial account via [https://logz.io/freetrial](https://logz.io/freetrial).<br>
+Once you have a Logz.io account, navigate to the [**Distributed Tracing** interface](https://app.logz.io/#/dashboard/jaeger). 
+![Ready to get some trace data!](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_activate.png)
 
-2. Navigate to the [**Tracing** menu](https://app.logz.io/#/dashboard/jaeger) and activate the account.
-   ![Activate tracing](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_activate.png)
-   
-<!--Step 2 is not accurate or clear -->
+##### Get your credentials to send tracing data
 
-##### Look up your Distributed Tracing token and Region information in Logz.io
+When you configure your system to send tracing data to Logz.io, you need to provide your Logz.io Distributed Tracing token and Region information.
 
-###### Tracing token
+###### Look up your Tracing token
 {% include tracing-shipping/tracing-token.md %}
 
-###### Region information
+###### Look up your Region information
 {% include tracing-shipping/region-code.md %}
 
 
@@ -66,4 +64,4 @@ This information is also available in the **Logz.io Docs**, in [**Ship your data
 
 If you’re deploying distributed tracing on Kubernetes, we recommend the [Kubernetes deployment reference](https://docs.logz.io/user-guide/user-guide/distributed-tracing/k8s-deployment) topic.
 
-To additional insights, check out our [Guide to OpenTelemetry!](https://logz.io/learn/opentelemetry-guide/)
+For additional insights, check out our [Guide to OpenTelemetry!](https://logz.io/learn/opentelemetry-guide/)

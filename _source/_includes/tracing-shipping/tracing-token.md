@@ -8,4 +8,4 @@ You must have admin permissions for the Logz.io account to view the **Manage tok
 
    For information about how to manage your tracing data sources, see [Manage a Distributed Tracing account](https://docs.logz.io/user-guide/accounts/manage-the-distributed-tracing-account/).  
 
-   For more details on locating the token, see [Distributed Tracing shipping token](https://docs.logz.io/user-guide/accounts/finding-your-tracing-account-token/).
+   This information is also available in [**Logz.io Docs > Distributed Tracing shipping token**](https://docs.logz.io/user-guide/accounts/finding-your-tracing-account-token/).

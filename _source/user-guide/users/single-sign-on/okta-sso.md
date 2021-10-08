@@ -94,8 +94,8 @@ Copy the **Identity Provider Single Sign-On URL**, and paste this in the email t
 
 Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
-* Your zipped certificate (from step 4)
-* Your Identity Provider Single Sign-On URL (from step 5)
+* Your zipped certificate (from step 5)
+* Your Identity Provider Single Sign-On URL (from step 6)
 
 ##### _(Optional)_ Restrict Logz.io access to specific user groups
 

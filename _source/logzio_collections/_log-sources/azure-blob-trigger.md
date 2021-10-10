@@ -93,7 +93,7 @@ If you don't have a general purpose v2 storage account with a container for logs
 
 In the **Custom deployment** screen, fill in all the parameters as per table below and click **Review + create**.
 
-![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1-new.png)
+![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1-new-account.png)
 
 | Parameter | Description |
 | --- | --- |

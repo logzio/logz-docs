@@ -4,7 +4,7 @@ linkedin:
 github: Simplychee 
 
 
-logzio-role: Keeper of the Docs
+logzio-role: Loves anything T-related; mainly technology and tea
 ---
 
 {% comment %} LEAVE CONTENT EMPTY {% endcomment %}

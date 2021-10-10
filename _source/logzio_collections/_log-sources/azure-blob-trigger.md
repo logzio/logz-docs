@@ -60,6 +60,11 @@ The file name does not have to be with these extensions.
 The Logz.io function supports the following file formats:
 
 * Gzip
+  
+<!-- info-box-start:info -->
+The file name does not have to be with these extensions.
+{:.info-box.important}
+<!-- info-box-end -->
 
 </div>
 <!-- tab:end -->
@@ -93,7 +98,7 @@ If you don't have a general purpose v2 storage account with a container for logs
 
 In the **Custom deployment** screen, fill in all the parameters as per table below and click **Review + create**.
 
-![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1.png)
+![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1-new-account.png)
 
 | Parameter | Description |
 | --- | --- |
@@ -103,6 +108,8 @@ In the **Custom deployment** screen, fill in all the parameters as per table bel
 | Logzio URL | {% include log-shipping/listener-var.md %} |
 | Logzio Token | {% include log-shipping/log-shipping-token.md %} |
 | Multiline Regex | The regex that matches the multiline logs in text blob files. Leave empty if you do not use multiline logs in your text blob files. |
+| FilterDate | Every log with a date greater than or equal to this date will be shipped to Logz.io. For it to take effect, FilterDateJson must not be empty. The date must be in the same format as the date in the logs. Leave empty if you want all logs to be shipped to Logz.io. |
+| FilterDateJsonPath |	The json path of the date inside each log (for example: metadata.datetime). If this value cannot be found inside a log, the log will be shipped to Logz.io. Leave empty if you are not using FilterDate. |
 
 ##### Confirm the deployment parameters
 
@@ -164,7 +171,7 @@ Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExten
 
 In the **Custom deployment** screen, fill in all the parameters as per table below and click **Review + create**.
 
-![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1.png)
+![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1-existing.png)
 
 | Parameter | Description |
 | --- | --- |
@@ -175,9 +182,12 @@ In the **Custom deployment** screen, fill in all the parameters as per table bel
 | Logzio URL | {% include log-shipping/listener-var.md %} |
 | Logzio Token | {% include log-shipping/log-shipping-token.md %} |
 | Multiline Regex | The regex that matches the multiline logs in text blob files. Leave empty if you do not use multiline logs in your text blob files. |
+| FilterDate | Every log with a date greater than or equal to this date will be shipped to Logz.io. For it to take effect, FilterDateJson must not be empty. The date must be in the same format as the date in the logs. Leave empty if you want all logs to be shipped to Logz.io. |
+| FilterDateJsonPath |	The json path of the date inside each log (for example: metadata.datetime). If this value cannot be found inside a log, the log will be shipped to Logz.io. Leave empty if you are not using FilterDate. |
+
 
 <!-- info-box-start:info -->
-Logs that were in the container before the deployment will be shipped to Logz.io. If these logs have already been shipped to Logz.io, we recommend that you empty the container before the deployment.
+Logs that were in the container before the deployment will be shipped to Logz.io. If these logs have already been shipped to Logz.io, we recommend that you empty the container before the deployment or use the FilterDate and FilterDateJsonPath parameters.
 {:.info-box.important}
 <!-- info-box-end -->
 
@@ -185,7 +195,7 @@ Logs that were in the container before the deployment will be shipped to Logz.io
 
 In the **Custom deployment: review + create** screen, review the deployment and click **Create**.
 
-![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-2.png)
+![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-2-updated.png)
 
 If all the parameters have been configured correctly, the following conformation screen will appear:
 

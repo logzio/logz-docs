@@ -23,16 +23,18 @@ click [**Logs > (MORE OPTIONS) Drilldowns**](https://app.logz.io/#/dashboard/set
 <!-- link placeholder for drilldowns -->
 
 ![Log Management drilldown links](https://dytvr9ot2sszz.cloudfront.net/logz-docs/placeholderxxxx.png)
-<!--create video of creating drilldown, then using a drilldown link to open a dashboard -->
+_create video of creating drilldown, then using a drilldown link to open a dashboard_ 
 
 ### Add a drilldown link
 
+/comment _- _is it "Start from",  "Lead to", or "Correlate with"?_
+
 1. Click **+ Add drilldown** and provide a name for the link.
 1. In **Start from**, select the **log field** from the dropdown list. This is the field that will become a hyperlink.
-1. In **Lead to**, select a **Dashboard** from the dropdown list. This is the target destination of the drilldown link. When users click the log field in a dashboard or Kibana Discover, it will direct them to this dashboard.
+1. In **Correlate with**, select a **Dashboard** from the dropdown list. This is the target destination of the drilldown link. When users click the log field in a dashboard or Kibana Discover, it will direct them to this dashboard.
 1. Click **Save drilldown** to confirm the new drilldown link.
 
-![Adding a Log Management drilldown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drilldowns/logdrilldown_oct2021.png)
+![Adding a Log Management drilldown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drilldowns/logdrilldown_oct2021.png)  _this is a placeholder_
 
 ### Edit or delete a drilldown link
 
@@ -49,4 +51,4 @@ For example, IP addresses in the [Threat Overview dashboard](https://app.logz.io
 
 Drilldown links maintain context: The filters and time range settings that are already applied for the starting field are retained when the drilldown link is opened.
 
-![IP addresses function as drilldown links](https://dytvr9ot2sszz.cloudfront.net/logz-docs/placeholder.png)
+![IP addresses function as drilldown links](https://dytvr9ot2sszz.cloudfront.net/logz-docs/placeholder.png) _this is a placeholder_

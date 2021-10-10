@@ -60,6 +60,11 @@ The file name does not have to be with these extensions.
 The Logz.io function supports the following file formats:
 
 * Gzip
+  
+<!-- info-box-start:info -->
+The file name does not have to be with these extensions.
+{:.info-box.important}
+<!-- info-box-end -->
 
 </div>
 <!-- tab:end -->
@@ -182,7 +187,7 @@ In the **Custom deployment** screen, fill in all the parameters as per table bel
 
 
 <!-- info-box-start:info -->
-Logs that were in the container before the deployment will be shipped to Logz.io. If these logs have already been shipped to Logz.io, we recommend that you empty the container before the deployment.
+Logs that were in the container before the deployment will be shipped to Logz.io. If these logs have already been shipped to Logz.io, we recommend that you empty the container before the deployment or use the FilterDate and FilterDateJsonPath parameters.
 {:.info-box.important}
 <!-- info-box-end -->
 

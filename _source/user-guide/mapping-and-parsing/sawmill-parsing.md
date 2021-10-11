@@ -4,7 +4,7 @@ title: Logz.io DIY parsing
 permalink: /user-guide/mapping-and-parsing/sawmill-parsing
 flags:
   admin: true
-  beta: true
+  beta: 
   logzio-plan: pro
 tags:
   - parsing
@@ -12,7 +12,7 @@ contributors:
   - yberlinger
 ---
 
-## Customize your log parsing with the Logz.io Data parsing editor
+## Customize your log parsing with Logz.io Data Parsing
 
 Create your own parsing rule sets for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule sets will be applied to your Logz.io account to transform your logs. 
 
@@ -21,8 +21,13 @@ You must be an account admin to apply a parsing rule set to an account.
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+**Logz.io Data Parsing requires access to the Logz.io public API**<br> If your API access is disabled, contact Support for help. <br><br>
+Community (free) accounts do not have access to Logz.io Data Parsing because the Logz.io public API is not available for Community accounts.
+{:.info-box.note}
+<!-- info-box-end -->
 
-### What is Sawmill and what is the Logz.io Data parsing editor?
+### What is Sawmill and what is the Logz.io Data Parsing Editor?
 
 The [Sawmill open source library](https://github.com/logzio/sawmill) is used for text transformations. 
 
@@ -30,18 +35,18 @@ A Sawmill rule set is composed of a series of steps that are applied to a specif
 
 The collection of Sawmill processors can be found in the [Github wiki for the project.](https://github.com/logzio/sawmill/wiki)  
 
-<!--when this topic goes live ==> DEPRECATE _source/user-guide/mapping-and-parsing/data-parsing-wizard.md    -->
+<!--Future AI, deprecate Parsing Wizard topic at EoL for wizard ==> DEPRECATE _source/user-guide/mapping-and-parsing/data-parsing-wizard.md    -->
 
-### The Logz.io Data parsing editor
+### The Logz.io Data Parsing Editor
 
-The Logz.io Data parsing editor tool works with the Logz.io public API and lets you: 
+The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets you: 
 
 1. Create, access, and edit custom parsing rules for a log type, using Sawmill processors.
 2. Build a parsing rule set for your logs from the rules.
 2. Test and validate the rule set to examine how it impacts your logs.
 3. Submit the rule set to Logz.io so that it can be reviewed, validated, and then applied to your ingested logs.
 
-The **Logz.io Data parsing editor** is available [**here**](https://parsing.logz.io/).
+**Logz.io Data Parsing** is available [**here**](https://parsing.logz.io/).
 
 #### Create a parsing rule set with Sawmill
 
@@ -51,7 +56,7 @@ This process creates a parsing rule set for the specified log type. The log type
 
 ##### Prerequisites
 
-To use the Data parsing editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
+To use the Data Parsing Editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
 
 1. To work with the Logz.io public API, obtain or create an API token in the [Manage tokens page](https://app.logz.io/#/dashboard/settings/manage-tokens/api). <br>We recommend that you create a dedicated API token for parsing tasks. 
    

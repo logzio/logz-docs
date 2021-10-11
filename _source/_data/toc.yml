@@ -331,10 +331,10 @@ firstLevel:
       url: /user-guide/log-shipping/built-in-log-types.html
     - title: Split an array
       url: /user-guide/mapping-and-parsing/split-json-array.html
+    - title: Logz.io Data Parsing
+      url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
     - title: Parsing Wizard
       url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
-    #- title: Logz.io Data parsing
-    #  url: /user-guide/mapping-and-parsing/sawmill-parsing.html
 
   # ===== INTEGRATIONS =====
 - title: Integrations

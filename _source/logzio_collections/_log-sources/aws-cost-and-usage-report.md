@@ -81,6 +81,8 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources 
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+All logs that were sent from the Lambda function will be under the type **billing**.
   
 To get more out of this functionality, you can enable a dedicated AWS cost and usage dashboard in [ELK Apps](https://app.logz.io/#/dashboard/elk-apps).
 

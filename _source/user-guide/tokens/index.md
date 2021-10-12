@@ -56,7 +56,7 @@ To manage your shared tokens, select [**<i class="li li-gear"></i> > Tools > Man
 The short answer: **API token**
 
 Use API tokens to authenticate integrations with your Logz.io account.
-API tokens are available to Enterprise and Pro plan subscribers.
+API tokens are available to Enterprise and Pro plan subscribers, as well as during an account's trial period.
 
 To manage your API tokens, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab.
 

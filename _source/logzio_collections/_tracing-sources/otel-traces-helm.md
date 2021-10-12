@@ -37,7 +37,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-###### Run the Helm deployment code
+##### Run the Helm deployment code
 
 ```
 helm install  \
@@ -49,7 +49,7 @@ logzio-otel-traces logzio-helm/logzio-otel-traces
 {% include /tracing-shipping/replace-tracing-token.html %}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is different than US East. https://docs.logz.io/user-guide/accounts/account-region.html#available-regions
 
-###### Check Logz.io for your traces
+##### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 

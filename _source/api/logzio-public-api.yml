@@ -9462,6 +9462,7 @@ definitions:
   RuleV2Request:
     type: object
     required:
+      - subComponents
     properties:
       title:
         type: string

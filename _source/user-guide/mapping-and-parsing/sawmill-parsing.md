@@ -35,6 +35,12 @@ A Sawmill rule set is composed of a series of steps that are applied to a specif
 
 The collection of Sawmill processors can be found in the [Github wiki for the project.](https://github.com/logzio/sawmill/wiki)  
 
+<!-- info-box-start:info -->
+The syntax requirements for the Logz.io Data Parsing Editor differ from the examples provided in the Sawmil wiki: The Data Parsing Editor requires that all attributes and values within the JSON be surrounded by double quotes.
+{:.info-box.note}
+<!-- info-box-end -->
+
+
 <!--Future AI, deprecate Parsing Wizard topic at EoL for wizard ==> DEPRECATE _source/user-guide/mapping-and-parsing/data-parsing-wizard.md    -->
 
 ### The Logz.io Data Parsing Editor
@@ -42,7 +48,7 @@ The collection of Sawmill processors can be found in the [Github wiki for the pr
 The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets you: 
 
 1. Create, access, and edit custom parsing rules for a log type, using Sawmill processors.
-2. Build a parsing rule set for your logs from the rules.
+2. Build a parsing rule set for your logs from the available options of the Sawmill processors.
 2. Test and validate the rule set to examine how it impacts your logs.
 3. Submit the rule set to Logz.io so that it can be reviewed, validated, and then applied to your ingested logs.
 
@@ -50,7 +56,7 @@ The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets 
 
 #### Create a parsing rule set with Sawmill
 
-This process creates a parsing rule set for the specified log type. The log type is a field used to differentiate the source of each log. You need to select one of your existing log types for the parsing rules. When you submit a rule set to be applied on the backend, only the logs of the selected log type are processed.
+This process creates a parsing rule set for the specified log type. The log type is a field used to differentiate the source of each log. You need to select one of your existing log types (or create a new log type) for the parsing rules. When you submit a rule set to be applied on the backend, only the logs of the selected log type are processed.
 
 <div class="tasklist">
 
@@ -277,7 +283,7 @@ In this example, the resulting transformation consolidates several fields and ti
             "addField": {
                 "config": {
                     "path": "timestamp",
-                    "value": "{{the_date}} {{the_time}}"
+                    "value": "{% raw %}{{the_date}} {{the_time}}{% endraw %}"
                 }
             }
         }

@@ -48,7 +48,7 @@ The syntax requirements for the Logz.io Data Parsing Editor differ from the exam
 The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets you: 
 
 1. Create, access, and edit custom parsing rules for a log type, using Sawmill processors.
-2. Build a parsing rule set for your logs from the available options of the Sawmill processors.
+2. Build a parsing rule set for your logs from the available Sawmill processor options.
 2. Test and validate the rule set to examine how it impacts your logs.
 3. Submit the rule set to Logz.io so that it can be reviewed, validated, and then applied to your ingested logs.
 

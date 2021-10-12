@@ -90,8 +90,8 @@ In the **Editor setup** screen:
    + Pre-built parsing: These log types are documented in the [Default parsing](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html) topic. You can select a pre-built parsing type and create additional rules that run _after_ the default rules for these types are executed. 
 
       **NOTE:** When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**.
+   ![Custom log type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/new_logtype2.gif)
 
-   ![Custom log type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/custom_type-sept2021.png)   
 3. Add a sample log to use to validate your parsing rules. <br> The sample log can be a text or JSON string. To test different log formats, you can change the sample at any time. The **Load latest sample** option lets you use the previous log sample you entered.
    ![Load latest sample](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/load_latest-sept2021.png)  
 4. Click **Start parsing** to save your changes and start building your rule set.
@@ -264,7 +264,7 @@ The resulting transformation is:  ![Conditional parsing example](https://dytvr9o
 In Logz.io parsing, templating lets you include your original field values with various transformations, wherever you decide it's relevant. 
 
 You can also use the templating option to consolidate or transform separate field strings into a single, aggregated field. 
-In this example, the resulting transformation consolidates several fields and timestamps: ![Template parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/template-parse-example_sept2021.gif)
+In this example, the resulting transformation consolidates several fields and timestamps: ![Template parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/template-parse-example_oct2021.gif)
 
 ###### Log sample 
 ```java
@@ -298,6 +298,7 @@ In this example, the resulting transformation consolidates several fields and ti
 {
         "the_time": "17:34",
         "@timestamp": "2021-06-21T14:29:08.369+0000",
+        "type": "All-Prod-Health",
         "the_date": "20/6/2021",
         "timestamp": "20/6/2021 17:34"
 }

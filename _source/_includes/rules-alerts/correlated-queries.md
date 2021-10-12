@@ -55,7 +55,7 @@ If you opt to join the queries, you must first add **group by** fields that will
   As a result, the {{include.name}} will count the query results returned per value of the **group by** field. This allows you to join the results by searching for overlapping values that are the same for the join field pairs.
 
 <!-- info-box-start:info -->
-**Grouped fields** limitation: You cannot use the **group by** feature on analyzed fields (text data type).
+**Grouped fields** limitation: You cannot use the **group by** feature on analyzed fields (_Text_ data type).
 {:.info-box.note}
 <!-- info-box-end -->
 

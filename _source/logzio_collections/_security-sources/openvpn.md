@@ -11,7 +11,7 @@ shipping-tags:
   - firewalls
 order: 1380
 ---
-[OpenVPN](https://openvpn.net) is ais a virtual private network system for secure point-to-point or site-to-site connections.
+[OpenVPN](https://openvpn.net) is a virtual private network system for secure point-to-point or site-to-site connections.
 
 
 

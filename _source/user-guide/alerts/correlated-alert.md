@@ -8,6 +8,7 @@ tags:
   - alerts
 contributors:
   - shalper
+  - yberlinger
 ---
 
 Some incidents are best detected by a sequence of logs, which may involve different log types, log fields, or even accounts.

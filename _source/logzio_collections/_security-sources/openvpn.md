@@ -35,6 +35,9 @@ order: 1380
    ```yaml
    filebeat.inputs:
    - type: log
+     paths:
+       - /var/log/openvpnas.log.*
+       - /var/log/messages
      fields:
        logzio_codec: json
        # Your Logz.io account token. You can find your token at

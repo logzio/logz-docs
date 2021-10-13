@@ -13,17 +13,21 @@ order: 1380
 ---
 [OpenVPN](https://openvpn.net) is a virtual private network system for secure point-to-point or site-to-site connections.
 
+These instructions only apply to Linux and MacOS systems.
 
 
 **Before you begin, you'll need**: 
 
-* OpenVPN installed and configured on your machine
 * an active account with Logz.io
 * Filebeat 7 installed on your machine
 * Root priveleges on your machines 
 
 <div class="tasklist">
 
+##### Setup OpenVPN Access Server
+
+Setup OpenVPN Access Server on your machine. Filebeat and Access Server need to be installed on the same machine.
+  
 
 {% include log-shipping/certificate.md %}
 
@@ -37,7 +41,6 @@ order: 1380
    - type: log
      paths:
        - /var/log/openvpnas.log.*
-       - /var/log/messages
      fields:
        logzio_codec: json
        # Your Logz.io account token. You can find your token at

@@ -20,4 +20,4 @@ Logz.io Cloud SIEM integrates with dozens of security services, including firewa
 As soon as you start using Cloud SIEM, your logs will be cross referenced against multiple Threat Intelligence feeds to flag malicious IPs, DNSs, and URLs and identify the method of attack. Cloud SIEM can help your team drastically reduce threat detection time and oversee the security of even the largest environments at scale, regardless of whether they are on-prem, cloud, or hybrid environments.
 
 
-![Showcase Security SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-intro.png)
+![Showcase Security SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-intro_aug2021.png)

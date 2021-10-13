@@ -23,6 +23,10 @@ info:
 
     This API is documented using the **OpenAPI 2.0** specification.
 
+    # Automation
+
+    You can automate most of our APIs using our [Terraform provider](https://docs.logz.io/integrations/terraform/).
+
 
     <!-- You can browse the API documentation on this page, or you can download the specification file. -->
 
@@ -79,7 +83,11 @@ security:
 
 tags:
   - name: Metrics gateway
-    description: Metrics API Gateway to supported endpoints. In the context of this API, "*Grafana*" refers to the Logz.io fork of Grafana, thus this gateway provides support for the APIs of the Logz.io fork of Grafana and for some of the open source Grafana APIs. Read more about the fork created by Logz.io [here.](https://logz.io/about-us/forked-statement/)
+    description: >-
+      Metrics API Gateway to supported endpoints. In the context of this API, "*Grafana*" refers to the Logz.io fork of Grafana, thus this gateway provides support for the APIs of the Logz.io fork of Grafana and for some of the open source Grafana APIs. Read more about the fork created by Logz.io [here.](https://logz.io/about-us/forked-statement/) 
+    
+      **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
+
 
   - name: Who am I
   - name: Manage time-based log accounts
@@ -200,6 +208,11 @@ tags:
 
 
       You can also create new security rules to supplement the built-in rules.
+
+  - name: Security account
+    description: >-
+      A security account with SIEM allows you to use the SIEM platform. You can create a SIEM account uaing an API call.
+
   - name: Security events
     description: >-
       A security event is logged whenever a security rule triggers in your [Logz.io Cloud SIEM account](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
@@ -250,6 +263,7 @@ x-tagGroups:
       - Logz.io snapshots
   - name: Cloud SIEM
     tags:
+      - Security account
       - Security rules
       - Security events
       - Lookup lists
@@ -268,6 +282,7 @@ x-tagGroups:
       - Drop filters
       - Archive logs
       - Restore logs
+      - Parsing
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -278,34 +293,2005 @@ x-tagGroups:
   - name: Metrics API Gateway
     tags:
       - Metrics gateway
-    description: Metrics API Gateway to supported endpoints.
-
+    description: Metrics API Gateway to supported endpoints. 
+    
 paths:
   # ::::: GRAFANA
-  /v1/grafana/api/{GRAFANA_API_URL}:
+  
+  /v1/grafana/api/alerts/:
     get:
-      summary: Metrics API Capabilities
+      operationId: getAlerts
+      summary: Get alerts
       description: >-
-        Prepend your Logz.io API Gateway to the relevant Metrics API endpoint.
-
-
-        Supported endpoints:
-          * [Alerting](https://grafana.com/docs/grafana/latest/http_api/alerting/)
-          * [Annotations](https://grafana.com/docs/grafana/latest/http_api/annotations/)
-          * [Dashboard](https://grafana.com/docs/grafana/latest/http_api/dashboard/)
-          * [Dashboard versions](https://grafana.com/docs/grafana/latest/http_api/dashboard_versions/)
-          * [Folder/dashboard search](https://grafana.com/docs/grafana/latest/http_api/folder_dashboard_search/)
-          * [Snapshot](https://grafana.com/docs/grafana/latest/http_api/snapshot/)
-
-        **Note:** Run these endpoints with an API token belonging to the main Log Management account associated with your Metrics account.
+        Retrieves alerts as per parameters given. The parameters are used as querystring parameters. For example: `/api/alerts?dashboardId=1`.
       tags:
         - Metrics gateway
-      operationId: metricsGateway
-      produces:
-        - application/json
       parameters:
+        - in: query
+          name: dashboardId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts in specified dashboard(s). You can specify multiple dashboards, e.g. `dashboardId=23&dashboardId=35`.
+        - in: query
+          name: panelId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alert for a specified panel on a dashboard.
+        - in: query
+          name: query
+          type: string
+          schema:
+            description: >-
+              Limit response to alerts having a name like this value.
+        - in: query
+          name: state
+          type: string
+          schema:
+            description: >-
+              Return alerts with one or more of the following alert states: `ALL`, `no_data`, `paused`, `alerting`, `ok`, `pending`. To specify multiple states use the following format: `?state=paused&state=alerting`.
+        - in: query
+          name: limit
+          type: integer
+          schema:
+            description: >-
+              Limit response to X number of alerts.
+        - in: query
+          name: folderId
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts of dashboards in specified folder(s). You can specify multiple folders, e.g. `folderId=23&folderId=35`.
+        - in: query
+          name: dashboardQuery
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts having a dashboard name like this value.
+        - in: query
+          name: dashboardTag
+          type: integer
+          schema:
+            description: >-
+              Limit response to alerts of dashboards with specified tags. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times e.g. `dashboardTag=tag1&dashboardTag=tag2`.
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/alerts?dashboardId=1 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+      responses:
+        200:
+          description: successful query
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID.
+                example: 1
+              dashboardId:
+                type: integer
+                description: Dashboard ID.
+                example: 1
+              dashboardUId:
+                type: string
+                description: Unique Identifier of the dashboard.
+                example: "ABcdEFghij"
+              dashboardSlug:
+                type: string
+                description: Dashboard slug.
+                example: "sensors"
+              panelId:
+                type: integer
+                description: ID of the dashboard panel.
+                example: 1
+              name:
+                type: string
+                description: Dashboard name.
+                example: "fire place sensor"
+              state:
+                type: string
+                description: Dashboard state.
+                example: "alerting"
+              newStateDate:
+                type: string
+                description: New state date.
+                example: "2018-05-14T05:55:20+02:00"
+              evalDate:
+                type: string
+                description: Evaluation date.
+                example: "0001-01-01T00:00:00Z"
+              evalData:
+                type: array
+                description: Evaluation data.
+                items:
+                  type: string
+              executionError:
+                type: string
+                description: Execution error message, if present.
+                example: ""
+              url:
+                type: string
+                description: Dashboard url.
+                example: "http://grafana.com/dashboard/db/sensors"
+  /v1/grafana/api/alerts/:id:
+      get:
+        operationId: getAlertsbyId
+        summary: Get alerts by Id
+        description: >-
+          Retrieves alerts by Id.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: id
+            type: integer
+            schema:
+              description: >-
+                ID of the alert queried.
+        x-code-samples:
+          - lang: cURL
+            source: >-
+              curl -X GET https://api.logz.io/v1/grafana/api/alerts/1 \
+                -H 'Content-Type: application/json' \
+                -H 'X-API-TOKEN: <token>' 
+                
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID.
+                  example: 1
+                dashboardId:
+                  type: integer
+                  description: Dashboard ID.
+                  example: 1
+                dashboardUId:
+                  type: string
+                  description: Unique Identifier of the dashboard.
+                  example: "ABcdEFghij"
+                dashboardSlug:
+                  type: string
+                  description: Dashboard slug.
+                  example: "sensors"
+                panelId:
+                  type: integer
+                  description: ID of the dashboard panel.
+                  example: 1
+                name:
+                  type: string
+                  description: Dashboard name.
+                  example: "fire place sensor"
+                state:
+                  type: string
+                  description: Dashboard state.
+                  example: "alerting"
+                newStateDate:
+                  type: string
+                  description: New state date.
+                  example: "2018-05-14T05:55:20+02:00"
+                evalDate:
+                  type: string
+                  description: Evaluation date.
+                  example: "0001-01-01T00:00:00Z"
+                evalData:
+                  type: array
+                  description: Evaluation data.
+                  items:
+                    type: object
+                    properties:
+                     metric:
+                      type: string
+                     tags:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                     value:
+                       type: string
+              
+                executionError:
+                  type: string
+                  description: Execution error message, if present.
+                  example: ""
+                url:
+                  type: string
+                  description: Dashboard url.
+                  example: "http://grafana.com/dashboard/db/sensors"
+  
+  /v1/grafana/api/alerts/:id/pause:
+      post:
+        operationId: pauseAlertsbyId
+        summary: Pause alert by id
+        description: >-
+          Pauses alerts by Id.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: id
+            type: integer
+            description: ID of alert to be paused.
+          - in: body
+            name: body
+            schema:
+              type: object
+              properties:
+                paused:
+                  type: boolean
+                  description: Can be `true` or `false`. True to pause an alert. False to unpause an alert.
+        x-code-samples:
+          - lang: cURL
+            source: >-
+              curl -X POST https://api.logz.io/v1/grafana/api/alerts/1/pause \
+                -H 'Content-Type: application/json' \
+                -H 'X-API-TOKEN: <token>' 
+                -d '{
+                      "paused": true
+                }'
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                alertId:
+                  type: integer
+                  description: Alert ID.
+                  example: 1
+                state:
+                  type: string
+                  description: Alert state.
+                  example: "Paused"
+                message:
+                  type: string
+                  description: Response message.
+                  example: "Alert paused"
+  
+  /v1/grafana/api/admin/pause-all-alerts:
+      post:
+        operationId: pauseAllAlerts
+        summary: Pause all alerts
+        description: >-
+          Pauses all alerts.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: object
+              properties:
+                paused:
+                  type: boolean
+                  description: Can be `true` or `false`. True to pause an alert. False to unpause an alert.
+        x-code-samples:
+          - lang: cURL
+            source: >-
+              curl -X POST https://api.logz.io/v1/grafana/api/admin/pause-all-alerts \
+                -H 'Content-Type: application/json' \
+                -H 'X-API-TOKEN: <token>' \
+                -d '{
+                "paused": true
+                }'
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                alertId:
+                  type: integer
+                  description: Alert ID.
+                  example: 1
+                state:
+                  type: string
+                  description: State of alerts affected by request.
+                  example: "Paused"
+                message:
+                  type: string
+                  description: Response message.
+                  example: "Alert paused"
+                alertsAffected:
+                  type: integer
+                  description: List of alerts affected by request.
+                  example: 1
+  
+  /v1/grafana/api/annotations/:
+      get:
+        operationId: getAnnotations
+        summary: Find annotations
+        description: >-
+          Searches for annotations in the Grafana database.
+        tags:
+          - Metrics gateway
+        parameters:
+          
+          - in: query
+            name: from
+            type: integer
+            schema:
+              description: >-
+                Epoch datetime in milliseconds. Optional.
+          - in: query
+            name: to
+            type: integer
+            schema:
+              description: >-
+                Epoch datetime in milliseconds. Optional.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Optional - default is 100. Max limit for results returned.
+          - in: query
+            name: alertId
+            type: integer
+            schema:
+              description: >-
+                Optional. Find annotations for a specified alert.
+          - in: query
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+                Optional. Find annotations that are scoped to a specific dashboard
+          - in: query
+            name: panelId
+            type: integer
+            schema:
+              description: >-
+                Optional. Find annotations that are scoped to a specific panel
+          - in: query
+            name: userId
+            type: integer
+            schema:
+              description: >-
+                Optional. Find annotations created by a specific user
+          - in: query
+            name: type
+            type: string
+            schema:
+              description: >-
+                Optional. Return alerts or user created annotations
+          - in: query
+            name: tags
+            type: string
+            schema:
+              description: >-
+                Optional. Use this to filter global annotations. Global annotations are annotations from an annotation data source that are not connected specifically to a dashboard or panel. To do an “AND” filtering with multiple tags, specify the tags parameter multiple times e.g. tags=tag1&tags=tag2.
+        x-code-samples:
+          - lang: cURL
+            source: >-
+              curl -X GET https://api.logz.io/v1/grafana/api/annotations?from=1506676478816&to=1507281278816&tags=tag1&tags=tag2&limit=100 \
+                -H 'Content-Type: application/json' \
+                -H 'X-API-TOKEN: <token>' \              
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID.
+                  example: 1
+                dashboardId:
+                  type: integer
+                  description: Dashboard ID.
+                  example: 1
+                dashboardUId:
+                  type: string
+                  description: Dashboard UID.
+                  example: "ABcdEFghij"
+                dashboardSlug:
+                  type: string
+                  description: Dashboard slug.
+                  example: "sensors"
+                panelId:
+                  type: integer
+                  description: Panel ID.
+                  example: 1
+                name:
+                  type: string
+                  description: Dashboard name.
+                  example: "fire place sensor"
+                state:
+                  type: string
+                  description: Dashboard state.
+                  example: "alerting"
+                newStateDate:
+                  type: string
+                  description: Date of the new state.
+                  example: "2018-05-14T05:55:20+02:00"
+                evalDate:
+                  type: string
+                  description: Evaluation date.
+                  example: "0001-01-01T00:00:00Z"
+                evalData:
+                  type: array
+                  description: Evaluation data.
+                  items:
+                    type: string
+                executionError:
+                  type: string
+                  description: Execution error, if present
+                  example: ""
+                url:
+                  type: string
+                  description: Dashboard url.
+                  example: "http://grafana.com/dashboard/db/sensors"
+      post:
+        operationId: createAnnotations
+        summary: Create annotations
+        description: >-
+          Creates an annotation in the Grafana database.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: object
+              properties:
+                dashboardId:
+                  type: integer
+                  description: Id of the dashboard. The dashboardId and panelId fields are optional. If they are not specified then a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source.
+                panelId:
+                  type: integer
+                  description: Id of the panel. The dashboardId and panelId fields are optional. If they are not specified then a global annotation is created and can be queried in any dashboard that adds the Grafana annotations data source.
+                time:
+                  type: integer
+                  description: Epoch time in milliseconds.
+                timeEnd:
+                  type: integer
+                  description: Epoch time in milliseconds.
+                tags:
+                  type: array
+                  description: Annotation tags.
+                  items:
+                    type: string
+                    example: tag1
+                text:
+                  type: string
+                  description: Annotation Description.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST https://api.logz.io/v1/grafana/api/annotations/ \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                "dashboardId":468,
+                "panelId":1,
+                "time":1507037197339,
+                "timeEnd":1507180805056,
+                "tags":["tag1","tag2"],
+                "text":"Annotation Description"
+            }'
+                
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID.
+                  example: 1
+                message:
+                  type: string
+                  description: Confirmation message.
+                  example: Annotation added
+  
+  /v1/grafana/api/annotations/graphite:
+      post:
+        operationId: createAnnotationsGraphite
+        summary: Create annotations in Graphite format
+        description: >-
+          Creates an annotation in the Grafana database by using Graphite-compatible event format.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            name: body
+            schema:
+              type: object
+              properties:
+                what:
+                  type: string
+                  description: Graphite annotation.
+                  example: Event - deploy
+                when:
+                  type: integer
+                  description: Epoch datetime of the annotation in milliseconds. Optional. If `when` is not specified then the current time will be used as annotation’s timestamp..
+                tags:
+                  type: array
+                  description: Annotation tags.  Can also be in prior to Graphite 0.10.0 format (string with multiple tags being separated by a space).
+                  example: ["deploy", "production"]
+                  items:
+                    type: string
+                data:
+                  type: string
+                  description: Annotation Description.
+                  example: deploy of master branch happened at Wed Jul 6 22:34:41 UTC 2016
+              
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST https://api.logz.io/v1/grafana/api/annotations/graphite \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "what": "Event - deploy",
+                    "tags": ["deploy", "production"],
+                    "when": 1467844481,
+                    "data": "deploy of master branch happened at Wed Jul 6 22:34:41 UTC 2016"
+            }'
+            
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID.
+                  example: 1
+                message:
+                  type: string
+                  description: Confirmation message.
+                  example: Graphite annotation added
+  
+  /v1/grafana/api/annotations/:id:
+      put:
+        operationId: updateAnnotations
+        summary: Update annotations
+        description: >-
+          Updates an annotation in the Grafana database.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: id
+            type: integer
+            schema:
+              description: >-
+                Id of the annotation.
+          - in: body
+            name: body
+            schema:
+              type: object
+              properties:
+                time:
+                  type: integer
+                  description: Epoch time in milliseconds.
+                timeEnd:
+                  type: integer
+                  description: Epoch time in milliseconds.
+                  example: Event - deploy                
+                text:
+                  type: string
+                  description: Annotation Description.
+                tags:
+                  type: attay
+                  description: Tags.
+                  example: ["tag3","tag4","tag5"]
+                  items:
+                    type: string
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X PUT https://api.logz.io/v1/grafana/api/annotations/1141 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                      "time":1507037197339,
+                      "timeEnd":1507180805056,
+                      "text":"Annotation Description",
+                      "tags":["tag3","tag4","tag5"]
+              }'
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Confirmation message.
+                  example: Annotation updated
+      patch:
+        operationId: patchAnnotations
+        summary: Patch annotations
+        description: >-
+          Updates one or more properties of an annotation that matches the specified id. This operation currently supports updating of the text, tags, time and timeEnd properties.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: id
+            type: integer
+            schema:
+              description: >-
+                Id of the annotation.
+          - in: body
+            name: body
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  description: Annotation Description.
+                tags:
+                  type: attay
+                  description: Tags.
+                  items:
+                    type: string
+
+                
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X PATCH https://api.logz.io/v1/grafana/api/annotations/1141 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "text":"New Annotation Description",
+                    "tags":["tag6","tag7","tag8"]
+              }'
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Confirmation message.
+                  example: Annotation patched
+  
+      delete:
+        operationId: deleteAnnotations
+        summary: Delete annotation by id
+        description: >-
+          Deletes the annotation that matches the specified id.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: id
+            type: integer
+            schema:
+              description: >-
+                Id of the annotation.
+                
+
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X DELETE https://api.logz.io/v1/grafana/api/annotations/1141 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Confirmation message.
+                  example: Annotation deleted
+  
+  /v1/grafana/api/annotations/tags:
+      get:
+        operationId: getAnnotationsTags
+        summary: Get event tags created in annotations
+        description: >-
+          Searches for event tags in annotations in the Grafana database.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: tag
+            type: string
+            schema:
+              description: >-
+                Tag. Optional.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Optional. A number, where the default is 100. Max limit for results returned.
+                
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/annotations/tags?tag=out \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                result:
+                  type: object
+                  description: Query result.
+                  properties:
+                    tags:
+                      type: object
+                      description: Tags retrieved by the query.
+                      properties:
+                        tag:
+                          type: string
+                          description: Tag.
+                          example: outage
+                        count:
+                          type: integer
+                          description: Tags count.
+                          example: 1
+  
+  
+  
+  
+  
+  /v1/grafana/api/dashboards/db:
+      post:
+        operationId: createDashboard
+        summary: Create/update a dashboard
+        description: >-
+          Creates or updates a new dashboard or updates an existing dashboard.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            type: object
+            schema:
+              properties:
+                dashboard:
+                  type: object
+                  description: The complete dashboard model, to create a new dashboard.
+                  properties:
+                    id:
+                      type: integer
+                      description:  to create a new dashboard.
+                      example: 1
+                    uid:
+                      type: integer
+                      description: Optional unique identifier when creating a dashboard.  will generate a new uid.
+                      example: 1
+                    title:
+                      type: string
+                      example: Production Overview
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                        example: tag3
+                    timezone:
+                      type: string
+                      example: browser
+                    schemaVersion:
+                      type: integer
+                      example: 1
+                    version:
+                      type: integer
+                      example: 0
+                    refresh:
+                      type: string
+                      description: Set the dashboard refresh interval. If this is lower than the minimum refresh interval, then Grafana will ignore it and will enforce the minimum refresh interval.
+                      example: 25s
+                folderId:
+                  type: integer
+                  description: The id of the folder to save the dashboard in.
+                  example: 1
+                folderUid:
+                  type: string
+                  description: The UID of the folder to save the dashboard in. Overrides the folderId.
+                  example: l3KqBxCMz
+                message:
+                  type: string
+                  description: Set a commit message for the version history.
+                  example: Made changes to xyz
+                overwrite:
+                  description: Set to true if you want to overwrite existing dashboard with newer version, same dashboard title in folder or same dashboard uid.
+                  type: boolean
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X PATCH https://api.logz.io/v1/grafana/api/dashboards/db \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "dashboard": {
+                      "id": null,
+                      "uid": null,
+                      "title": "Production Overview",
+                      "tags": [ "templated" ],
+                      "timezone": "browser",
+                      "schemaVersion": 16,
+                      "version": 0,
+                      "refresh": "25s"
+                    },
+                    "folderId": 0,
+                    "folderUid": "l3KqBxCMz",
+                    "message": "Made changes to xyz",
+                    "overwrite": false
+              }'
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 1
+                  description: ID.
+                uid:
+                  type: string
+                  example: cIBgcSjkk
+                  description: UID.
+                url:
+                  type: string
+                  example: /d/cIBgcSjkk/production-overview
+                  description: URL.
+                status:
+                  type: string
+                  example: success
+                  description: Request status.
+                version:
+                  type: integer
+                  example: 1
+                  description: Dashboard version.
+                slug:
+                  type: string
+                  example: production-overview
+                  description: Dashboard slug.
+          412:
+            description: failed
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: The dashboard has been changed by someone else
+                  description: Error message.
+                status:
+                  type: string
+                  example: version-mismatch
+                  description: Error status.
+  
+  /v1/grafana/api/dashboards/uid/:uid:
+      get:
+        operationId: getDashboarById
+        summary: Get dashboard by uid
+        description: >-
+          Will return the dashboard given the dashboard unique identifier (uid). Information about the unique identifier of a folder containing the requested dashboard might be found in the metadata.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: uid
+            type: string
+            schema:
+              description: >-
+               Dashboard UID.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/uid/cIBgcSjkk \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "dashboard": {
+                      "id": 1,
+                      "uid": "cIBgcSjkk",
+                      "title": "Production Overview",
+                      "tags": [ "templated" ],
+                      "timezone": "browser",
+                      "schemaVersion": 16,
+                      "version": 0
+                    },
+                    "meta": {
+                      "isStarred": false,
+                      "url": "/d/cIBgcSjkk/production-overview",
+                      "folderId": 2,
+                      "folderUid": "l3KqBxCMz",
+                      "slug": "production-overview" //deprecated in Grafana v5.0
+                    }
+              }'
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                dashboard:
+                  type: object
+                  description: The complete dashboard model, `id = null ` to create a new dashboard.
+                  properties:
+                    id:
+                      type: integer
+                      description: Set `id = null` to create a new dashboard.
+                      example: 1
+                    uid:
+                      type: integer
+                      description: Optional unique identifier when creating a dashboard, `id = null` will generate a new uid.
+                      example: 1
+                    title:
+                      type: string
+                      example: Production Overview
+                      description: Dashboard title.
+                    tags:
+                      type: array
+                      description: Dashboard tags.
+                      items:
+                        type: string
+                        example: tag3
+                    timezone:
+                      type: string
+                      description: Timezone.
+                      example: browser
+                    schemaVersion:
+                      type: integer
+                      description: Schema version.
+                      example: 1
+                    version:
+                      type: integer
+                      description: Dashboard version.
+                      example: 0
+                meta:
+                  type: object
+                  description: Information about the unique identifier of a folder containing the requested dashboard.
+                  properties:
+                    isStarred:
+                      type: boolean
+                      example: true
+                      description: Whether the dashboard is starred.
+                    url:
+                      type: string
+                      example: /d/cIBgcSjkk/production-overview
+                      description: Dashboard url.
+                    folderId:
+                      type: integer
+                      example: 2
+                      description: Dashboard folder id.
+                    folderUid:
+                      type: string
+                      example: l3KqBxCMz
+                      description: Dashboard folder Uid.
+                    slug:
+                      type: string
+                      example: production-overview
+                      description: Dashboard slug.
+      delete:
+        operationId: deleteDashboarById
+        summary: Delete dashboard by uid
+        description: >-
+          Will delete the dashboard given the specified unique identifier (uid).
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: uid
+            type: string
+            schema:
+              description: >-
+               Dashboard UID.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X DELETE https://api.logz.io/v1/grafana/api/dashboards/uid/cIBgcSjkk \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "title": "Production Overview",
+                    "message": "Dashboard Production Overview deleted",
+                    "id": 2
+              }'
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                title:
+                  type: object
+                  example: Production Overview
+                  description: Dashboard title.
+                message:
+                  type: object
+                  description: Response message.
+                id:
+                  type: integer
+                  example: 2
+                  description: Dashboard id.
+  
+  /v1/grafana/api/dashboards/home:
+      get:
+        operationId: getHomeDashboard
+        summary: Get home dashboard
+        description: >-
+          Will return the home dashboard.
+        tags:
+          - Metrics gateway
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                dashboard:
+                  type: object
+                  description: The complete dashboard model, `id = null` to create a new dashboard.
+                  properties:
+                    editable:
+                      type: boolean
+                      example: false
+                    hideControls:
+                      type: integer
+                      example: false
+                    nav:
+                      type: object
+                      properties:
+                        enable:
+                          type: boolean
+                          example: false
+                        type:
+                          type: string
+                          example: timepicker
+                    style:
+                      type: string
+                      example: dark
+                    tags:
+                      type: object
+                      properties:
+                        tag:
+                          type: string
+                          example: outage
+                    templating:
+                      type: object
+                      properties:
+                        list:
+                          type: array
+                          items:
+                            type: string
+                    time:
+                      type: object
+                    timezone:
+                      type: string
+                      example: browser
+                    title:
+                      type: string
+                      example: Home
+                    version:
+                      type: integer
+                      example: 2
+                meta:
+                  type: object
+                  description: The complete dashboard model, `id = null` to create a new dashboard.
+                  properties:
+                    isHome:
+                      type: boolean
+                      example: true
+                    canSave:
+                      type: boolean
+                      example: false
+                    canEdit:
+                      type: boolean
+                      example: false
+                    canStar:
+                      type: boolean
+                      example: false
+                    url:
+                      type: string
+                      example: url
+                    expires:
+                      type: string
+                      example: 0001-01-01T00:00:00Z
+                    created:
+                      type: string
+                      example: 0001-01-01T00:00:00Z
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/home \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+  
+  /v1/grafana/api/dashboards/tags:
+      get:
+        operationId: getDashboardTags
+        summary: Get all tags of dashboards
+        description: >-
+          Will return all tags for all dashboard.
+        tags:
+          - Metrics gateway
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/tags \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+        responses:
+          200:
+            description: success
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  term:
+                    type: string
+                    description: Tag term.
+                    example: tag1
+                  count:
+                    type: string
+                    description: Tag count.
+                    example: count1
+  
+  
+  /v1/grafana/api/dashboards/id/:dashboardId/versions:
+      get:
+        operationId: getAllDashboardVersions
+        summary: Get all dashboard versions
+        description: >-
+          Gets all existing dashboard versions for the dashboard with the given dashboardId.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+                Dashboard ID.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Maximum number of results to return.
+          - in: query
+            name: start
+            type: integer
+            schema:
+              description: >-
+                Version to start from when returning queries.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/id/1/versions?limit=2?start=0 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID.
+                  example: 1
+                dashboardId:
+                  type: integer
+                  description: Dashboard ID.
+                  example: 2
+                parentVersion:
+                  type: integer
+                  description: Dashboard parent version.
+                  example: 0
+                restoredFrom:
+                  type: integer
+                  description: Restored from.
+                  example: 0
+                version:
+                  type: integer
+                  description: Version.
+                  example: 2
+                created:
+                  type: integer
+                  description: Date created.
+                  example: 2017-06-08T17:24:33-04:00"
+                createdBy:
+                  type: string
+                  description: Created by.
+                  example: admin
+                message:
+                  type: string
+                  description: Message.
+                  example: Initial save
+  
+  /v1/grafana/api/dashboards/id/:dashboardId/versions/:id:
+      get:
+        operationId: getDashboardVersion
+        summary: Get dashboard version
+        description: >-
+          Get the dashboard version with the given id, for the dashboard with the given id.
+        parameters:
+          - in: path
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+                Dashboard ID.
+          - in: path
+            name: id
+            type: integer
+            schema:
+              description: >-
+                Version ID.
+        tags:
+          - Metrics gateway
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/id/1/versions/1 \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+
+        responses:
+          200:
+            description: success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID.
+                  example: 1
+                dashboardId:
+                  type: integer
+                  description: Dashboard ID.
+                  example: 1
+                parentVersion:
+                  type: integer
+                  description: Parent version.
+                  example: 0
+                restoredFrom:
+                  type: integer
+                  description: Restored from.
+                  example: 0
+                version:
+                  type: integer
+                  description: Version.
+                  example: 1
+                created:
+                  type: string
+                  description: Creation date.
+                  example: 2017-04-26T17:18:38-04:00
+                message:
+                  type: string
+                  description: Message.
+                  example: Initial save
+                data:
+                  type: object
+                  description: Data.
+                  properties:
+                    annotations:
+                      type: object
+                      description: Annotations.
+                      properties:
+                        list:
+                          type: array
+                          items:
+                    editable:
+                      type: boolean
+                      description: Whether the data is editable.
+                    gnetId:
+                      type: string
+                      description: Gnet Id.
+                    graphTooltip:
+                      type: integer
+                      description: Graph tooltip.
+                      example: 0
+                    hideControls:
+                      type: boolean
+                      description: Whether to hide controls.
+                    id:
+                      type: integer
+                      description: ID.
+                      example: 1
+                    links:
+                      type: array
+                      description: Links.
+                      items:
+                    rows:
+                      type: array
+                      description: Rows.
+                      items:
+                        type: object
+                        description: Items.
+                        properties:
+                          collapse:
+                            type: boolean
+                            description: Whether to collapse items.
+                          height:
+                            type: string
+                            description: Height.
+                            example: 250px
+                          panels:
+                            type: array
+                            description: Panels.
+                            items:
+                          repeat:
+                            type: string
+                            description: Repeat.
+
+                          repeatIteration:
+                            type: string
+                            description: Repeat iteration.
+
+                          repeatRowId:
+                            type: string
+                            description: Repeat row id.
+
+                          showTitle:
+                            type: boolean
+                            description: Whether to show title.
+                          title:
+                            type: string
+                            example: "Dashboard Row"
+                            description: Title.
+                          titleSize:
+                            type: string
+                            example: "h6"
+                            description: Title size.
+                    schemaVersion:
+                      type: integer
+                      example: "14"
+                      description: Schema version.
+                    style:
+                      type: string
+                      example: "dark"
+                      description: Style.
+                    tags:
+                      type: array
+                      items:
+                      description: Tags.
+                    templating:
+                      type: object
+                      description: Templating.
+                      properties:
+                        list:
+                          type: array
+                          items:
+                    time:
+                      type: object
+                      description: Time.
+                      properties:
+                        from:
+                          type: string
+                          description: From.
+                          example: "now-6h"
+                        to:
+                          type: string
+                          description: To.
+                          example: now
+                    timepicker:
+                      type: object
+                      description: Time picker.
+                      properties:
+                        refresh_intervals:
+                          type: array
+                          description: Refresh intervals.
+                          items:
+                            type: string
+                            example: "5s"
+                        time_options:
+                          type: array
+                          description: Time options.
+                          items:
+                            type: string
+                            example: "5m"
+                    timezone:
+                      type: string
+                      description: Time zone.
+                      example: browser
+                    title:
+                      type: string
+                      description: Title.
+                      example: test
+                    version:
+                      type: integer
+                      description: Version.
+                      example: 1
+                createdBy:
+                  type: string
+                  description: Created by.
+                  example: "admin"
+  
+  
+  
+  /v1/grafana/api/dashboards/id/:dashboardId/restore:
+      post:
+        operationId: restoreDashboard
+        summary: Restore a dashboard
+        description: >-
+          Restores a dashboard to a given dashboard version.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            type: object
+            schema:
+              properties:
+                version:
+                  type: integer
+                  description: Dashboard version.
+          - in: path
+            name: dashboardId
+            type: integer
+            schema:
+              description: >-
+                Dashboard ID.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST https://api.logz.io/v1/grafana/api/dashboards/id/1/restore \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    "version": 1
+              }'
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                slug:
+                  type: string
+                  description: Dashboard slug.
+                  example: production-overview
+                status:
+                  type: string
+                  description: Dashboard status.
+                  example: success
+                version:
+                  type: integer
+                  description: Dashboard version.
+                  example: 1
+  
+  /v1/grafana/api/dashboards/calculate-diff:
+      post:
+        operationId: compareDashboard
+        summary: Compare dashboards
+        description: >-
+          Compares two dashboard versions by calculating the JSON diff of them.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            type: object
+            schema:
+              properties:
+                base:
+                  type: object
+                  description: Object representing the base dashboard version.
+                  properties:
+                    dashboardId:
+                      type: integer
+                      example: 1
+                    version:
+                      type: integer
+                      example: 1
+                new:
+                  type: object
+                  description: Object representing the new dashboard version
+                  properties:
+                    dashboardId:
+                      type: integer
+                      example: 1
+                    version:
+                      type: integer
+                      example: 1
+                diffType:
+                  type: string
+                  description: the type of diff to return. Can be “json” or “basic”.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST https://api.logz.io/v1/grafana/api/dashboards/calculate-diff \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    
+                    "base": {
+                      "dashboardId": 1,
+                      "version": 1
+                    },
+                    "new": {
+                      "dashboardId": 1,
+                      "version": 2
+                    },
+                    "diffType": "json"
+
+              }'
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              
+  /v1/grafana/api/search/:
+      get:
+        operationId: searchDashboard
+        summary: Search folders and dashboards
+        description: >-
+          Search folders and dashboards.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: query
+            type: string
+            schema:
+              description: >-
+                Search query.
+          - in: query
+            name: tag
+            type: string
+            schema:
+              description: >-
+                List of tags to search for.
+          - in: query
+            name: type
+            type: string
+            schema:
+              description: >-
+                Type to search for, dash-folder or dash-db.
+          - in: query
+            name: dashboardIds
+            type: integer
+            schema:
+              description: >-
+                List of dashboard id’s to search for.
+          - in: query
+            name: folderIds
+            type: integer
+            schema:
+              description: >-
+                List of folder id’s to search in for dashboards.
+          - in: query
+            name: starred
+            type: boolean
+            schema:
+              description: >-
+                Flag indicating if only starred Dashboards should be returned.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Limit the number of returned results (max 5000).
+          - in: query
+            name: page
+            type: integer
+            schema:
+              description: >-
+                Use this parameter to access hits beyond limit. Numbering starts at 1. limit param acts as page size. Only available in Grafana v6.2+.
+ 
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/search?query=Production%20Overview&starred=true&tag=prod \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID.
+                  example: 163
+                uid:
+                  type: string
+                  description: UID.
+                  example: "000000163"
+                title:
+                  type: string
+                  description: Title.
+                  example: "Folder"
+                url:
+                  type: string
+                  description: URL.
+                  example: "/dashboards/f/000000163/folder"
+                type:
+                  type: string
+                  description: Type.
+                  example: "dash-folder"
+                tags:
+                  type: array
+                  description: Tags.
+                isStarred:
+                  type: boolean
+                  description: Whether the dashboard is starred.
+                uri:
+                  type: string
+                  description: URI.
+                  example: "db/folder"           
+   
+   
+  /v1/grafana/api/snapshots/:
+      post:
+        operationId: postGrafanaSnapshot
+        summary: Create a snapshot
+        description: >-
+          Creates a snapshot.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: body
+            type: object
+            schema:
+              properties:
+                dashboard:
+                  type: object
+                  required: true
+                  description: The complete dashboard model.
+                name:
+                  type: string
+                  description: Snapshot name.
+                expires:
+                  type: integer
+                  description: >-
+                      When the snapshot should expire in seconds. 3600 is 1 hour, 86400 is 1 day. Default is never to expire.
+                external:
+                  type: boolean
+                  description: >-
+                    Save the snapshot on an external server rather than locally. Default is false.
+                key:
+                  type: string
+                  description: >-
+                    Define the unique key. Required if external is true.
+                deleteKey:
+                  type: string
+                  description: >-
+                    Unique key used to delete the snapshot. It is different from the key so that only the creator can delete the snapshot. Required if external is true.
+ 
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X POST https://api.logz.io/v1/grafana/api/dashboards/calculate-diff \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+              -d '{
+                    
+                    "dashboard": {
+                      "editable":false,
+                      "hideControls":true,
+                      "nav":[
+                      {
+                        "enable":false,
+                         "type":"timepicker"
+                      }
+                      ],
+                    "rows": [
+                      {
+
+                      }
+                      ],
+                    "style":"dark",
+                    "tags":[],
+                    "templating":{
+                                   "list":[
+                                          ]
+                    },
+                    "time":{
+                    },
+                    "timezone":"browser",
+                    "title":"Home",
+                    "version":5
+                    },
+                    "expires": 3600
+
+              }'
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                deleteKey:
+                  type: string
+                  description: Unique key used to delete the snapshot. It is different from the `key` so that only the creator can delete the snapshot. Required if external is `true`.
+                  example: XXXXXXX
+                deleteUrl:
+                  type: string
+                  description: Delete url.
+                  example: myurl/api/snapshots-delete/XXXXXXX
+                key:
+                  type: string
+                  description: Unique key.
+                  example: YYYYYYY
+                url:
+                  type: string
+                  description: URL.
+                  example: myurl/dashboard/snapshot/YYYYYYY
+                id:
+                  type: integer
+                  description: ID.
+                  example: 1
+  
+      get:
+        operationId: getGrafanaSnapshot
+        summary: Get list of Snapshots
+        description: >-
+          Get list of Snapshots.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: query
+            name: query
+            type: string
+            schema:
+              description: >-
+                Search query.
+          - in: query
+            name: limit
+            type: integer
+            schema:
+              description: >-
+                Limit the number of returned results.
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/dashboards/snapshots \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
 
 
+  
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID.
+                  example: 8
+                name:
+                  type: string
+                  description: Snapshot name.
+                  example: Home
+                key:
+                  type: string
+                  description: Snapshot key.
+                  example: YYYYYYY
+                orgId:
+                  type: integer
+                  description: Snapshot orgId.
+                  example: 1
+                userId:
+                  type: integer
+                  description: Snapshot user ID.
+                  example: 1
+                external:
+                  type: boolean
+                  description: Whether the snapshot is external.
+                externalUrl:
+                  type: string
+                  description: Snapshot external url.
+                expires:
+                  type: string
+                  description: Snapshot expiry date.
+                  example: 2200-13-32T25:23:23+02:00
+                created:
+                  type: string
+                  description: Snapshot creation date.
+                  example: 2200-13-32T28:24:23+02:00
+                updated:
+                  type: string
+                  description: Snapshot update date.
+                  example: 2200-13-32T28:24:23+02:00
+  
+  /v1/grafana/api/snapshots/:key/:
+      get:
+        operationId: getGrafanaSnapshotbyKey
+        summary: Get Snapshot by Key
+        description: >-
+          Gets Snapshot by Key.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: key
+            type: string
+            required: true
+  
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X GET https://api.logz.io/v1/grafana/api/snapshots/YYYYYYY \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+  
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                meta:
+                  type: object
+                  properties:
+                    isSnapshot:
+                      type: boolean
+                    type:
+                      type: string
+                      example: snapshot
+                    canSave:
+                      type: boolean
+                    canEdit:
+                      type: boolean
+                    canStar:
+                      type: boolean
+                    slug:
+                      type: string
+                      example:
+                    expires:
+                      type: string
+                      example: 2200-13-32T25:23:23+02:00
+                    created:
+                      type: string
+                      example: 2200-13-32T28:24:23+02:00
+                dashboard:
+                  type: object
+                  description: Dashboard.
+                  properties:
+                    editable:
+                      type: boolean
+                      description: Whether the dashboard is editable.
+                    hideControls:
+                      type: boolean
+                      description: Whether to hide controls.
+                    nav:
+                      type: array
+                      description: Nav.
+                      items:
+                        type: object
+                        properties:
+                          enable:
+                            type: boolean
+                            description: Nav enabled or not.
+                          type:
+                            type: string
+                            description: Nav type.
+                            example: timepicker
+                    rows:
+                      type: array
+                      description: Rows.
+                      items:
+                        type: object
+                        properties:
+                    style:
+                      type: string
+                      description: Style.
+                      example: dark
+                    tags:
+                      type: array
+                      description: Tags.
+                      items:
+                    templating:
+                      type: object
+                      description: Templating.
+                      properties:
+                        list:
+                          description: List.
+                          type: array
+                          items:
+                    time:
+                      type: object
+                      description: Time.
+                      properties:
+                    timezone:
+                      type: string
+                      description: Time zone.
+                      example: browser
+                    title:
+                      type: string
+                      description: Title.
+                      example: Home
+                    version:
+                      type: integer
+                      description: Dashboard version.
+                      example: 5
+  
+      delete:
+        operationId: deleteGrafanaSnapshotbyKey
+        summary: Delete Snapshot by Key
+        description: >-
+          Deletes snapshot by Key.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: key
+            type: string
+            required: true
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X DELETE https://api.logz.io/v1/grafana/api/snapshots/YYYYYYY \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Message.
+                  example: Snapshot deleted. It might take an hour before it's cleared from any CDN caches.
+                id:
+                  type: integer
+                  description: ID.
+                  example: 1
+  
+  /v1/grafana/api/snapshots-delete/:deleteKey:
+      get:
+        operationId: deleteGrafanaSnapshotbyDeleteKey
+        summary: Delete snapshot by deleteKey
+        description: >-
+          Delete snapshot by deleteKey.
+        tags:
+          - Metrics gateway
+        parameters:
+          - in: path
+            name: deleteKey
+            type: string
+            required: true
+        x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -X DELETE https://api.logz.io/v1/grafana/api/snapshots-delete/XXXXXX \
+              -H 'Content-Type: application/json' \
+              -H 'X-API-TOKEN: <token>' \
+        responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Message.
+                  example: Snapshot deleted. It might take an hour before it's cleared from any CDN caches.
+                id:
+                  type: integer
+                  description: ID.
+                  example: 1
+  
   # ::::: ACCOUNTS
   /v2/whoami:
     get:
@@ -699,7 +2685,7 @@ paths:
 
                   * Can't sort or aggregate on analyzed fields, such as the `message` field
 
-                  * Aggregation type `significant_terms` can't be used
+                  * Aggregation type `significant_terms` and `multi_terms` can't be used
 
 
                   **Note:** You can use `aggs` or `aggregations` as the field name
@@ -1072,9 +3058,102 @@ paths:
             $ref: '#/definitions/RestoreApiResponse'
           headers: {}
 
+  # ::::: Sawmill
+  /v1/sawmill/log-type-pipeline/logType:
+    post:
+      operationId: getSawmillTestType
+      summary: Parse sample logs with a Sawmill pipeline
+      description: Performs parsing of sample logs with a given Sawmill pipeline (https://github.com/logzio/sawmill/wiki). A pipeline is a collection of parsing rules to be executed in a specific order where the syntax and functionality follow the guidelines of the Sawmill library. **Note:** this endpoint is not used to create or update parsing, but for testing purposes only,
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: logType
+          description: Type of the log being parsed. This can be an existing type (already sent to Logz.io) or a new type (to be sent to Logz.io for parsing).
+          example: TestType
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              pipeLineDefinition:
+                type: object
+                description: JSON object of a Sawmill pipeline. Defines what transaformations should be applied to the input. In the example shown, an extra field `Movie` with the value `TheMatrix` will be added to the input. Always make sure that items in the input object representing the sawmill pipeline, are escaped.
+                example: >-
+                 {"steps":[{"addField":{"name":"addField","config":{"path":"Movie","value":"TheMatrix"}}}]}
+              sampleLogs:
+                type: array
+                items:
+                  type: object
+                description: A list of JSON objects. If the log is available only as a plain string, this string needs to be in the `message` field of the JSON object.
+                example:
+                  - fragment: test
+                    UA-device: Other
+                    check: value
+                    message: balima
+                    type": TestType
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The response provides the value of `sampleLogs` after parsing.
+                items:
+                  type: object
+                example: >-
+                 {"Movie":"TheMatrix","fragment":"test","@timestamp":"2021-08-15T12:17:45.731+0000","check":"value","message":"balima","type":"TestType","UA-device":"Other"}
+    get:
+      operationId: getLogType
+      summary: Get pipeline definition for a log type
+      description: Receive pipeline definition for a given log type, if the definition is already stored.
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: logType
+          description: Log type that you need to retrieve a Sawmill pipeline for. If no parsing has been applied to this log type, 404 error will be given.
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            example: >-
+             {"steps":[{"addField":{"name":"addField","config":{"path":"Movie","value":"TheMatrix"}}}]}
+        '404':
+          description: pipeline not found for this log type
+          schema:
+            type: object
+            example:
+              - errorCode: SAWMILL_SELF_PARSE/PIPELINE NOT FOUND
+                message": log type with name (logType) not found
+                parameters:
+                  - logTypeName: SampleLogType
+  /v1/account/log-types:
+    get:
+      operationId: getLogTypes
+      summary: Get all log types
+      description: Get all log types for a given account including the log types with no parsing attached. 
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              type: string
+            example: [“metering-access”,“lag-monitor”,“business-analytics-metrics”,“consul-agent”,“auth0”]
 
 
-  # ::::: Alerts V2
+  # ::::: Alerts V2 
   /v2/alerts:
     get:
       operationId: getAllAlerts
@@ -2142,6 +4221,210 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Endpoint'
+  /v1/endpoints/ops-genie:
+    post:
+      tags:
+        - Manage notification endpoints
+      summary: Create an OpsGenie endpoint
+      description: Creates a new OpsGenie  notification endpoint or sends a test message to OpsGenie.
+      operationId: createOpsGenie
+      parameters:
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/OpsGenieEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/endpoints/ops-genie" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New OpsGenie endpoint\",  \"description\": \"Sends notifications to OpsGenie\",  \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/ops-genie/{id}:
+    put:
+      tags:
+        - Manage notification endpoints
+      summary: Update an OpsGenie endpoint
+      description: Updates an OpsGenie notification endpoint or sends a test message to OpsGenie.
+      operationId: updateOpsGenie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the notification endpoint
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/OpsGenieEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "http://endpoints/ops-genie/273" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{\"title\": \"Updated OpsGenie endpoint\", \"description\": \"Sends notifications to OpsGenie\", \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/service-now:
+    post:
+      tags:
+        - Manage notification endpoints
+      summary: Create an ServiceNow endpoint
+      description: Creates a new ServiceNow  notification endpoint or sends a test message to ServiceNow.
+      operationId: createServiceNow
+      parameters:
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ServiceNowEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/endpoints/service-now" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New ServiceNow endpoint\",  \"description\": \"Sends notifications to ServiceNow\",  \"username\": \"User\", \"password\": \"Password\", \"url\": \"https://my.custom-endpoint.com\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/service-now/{id}:
+    put:
+      tags:
+        - Manage notification endpoints
+      summary: Update an ServiceNow endpoint
+      description: Updates an ServiceNow notification endpoint or sends a test message to ServiceNow.
+      operationId: updateServiceNow
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the notification endpoint
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/ServiceNowEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "http://endpoints/service-now/273" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New ServiceNow endpoint\",  \"description\": \"Sends notifications to ServiceNow\",  \"username\": \"User\", \"password\": \"Password\", \"url\": \"https://my.custom-endpoint.com\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/microsoft-teams:
+    post:
+      tags:
+        - Manage notification endpoints
+      summary: Create an  Microsoft Teams endpoint
+      description: Creates a new  Microsoft Teams  notification endpoint or sends a test message to  Microsoft Teams.
+      operationId: createMicrosoftTeams
+      parameters:
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`.
+
+
+            **Note:** If set to `true`, the notification endpoint is not created. To create the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/MicrosoftTeamsEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X POST "https://api.logz.io/v1/endpoints/microsoft-teams" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{  \"title\": \"New OpsGenie endpoint\",  \"description\": \"Sends notifications to OpsGenie\",  \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
+  /v1/endpoints/microsoft-teams/{id}:
+    put:
+      tags:
+        - Manage notification endpoints
+      summary: Update an Microsoft Teams endpoint
+      description: Updates an Microsoft Teams notification endpoint or sends a test message to Microsoft Teams.
+      operationId: updateMicrosoftTeams
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the notification endpoint
+        - name: test
+          in: query
+          required: false
+          type: boolean
+          default: false
+          description: >-
+            To send a test message to the endpoint, `true`. Otherwise, `false`. 
+
+
+            **Note:** If set to `true`, the notification endpoint is not updated. To update the endpoint, you need to send the API request where `test=false`.
+        - in: body
+          name: body
+          required: false
+          schema:
+            $ref: '#/definitions/MicrosoftTeamsEndpointUpsertRequest'
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "http://endpoints/microsoft-teams/273" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{\"title\": \"Updated ServiceNow endpoint\", \"description\": \"Sends notifications to ServiceNow\", \"apiKey\": \"c687f9231619d7d7b959f33e4cc821a5\"}"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/EndpointUpsertResponse'
 
   # ::::: KIBANA IMPORT/EXPORT
   /v1/kibana/export:
@@ -2855,7 +5138,7 @@ paths:
                 description: Not Found. Could not find the sub account associated with this request or the relevant owner account for the sub account.  
       x-code-samples:
         - lang: cURL
-          source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"tokenName\": \"newAPITokenTest999\", \"accountId\":7386}"'
+          source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"Name\": \"newAPITokenTest999\", \"accountId\":7386}"'
 
 
   # ::::: SNAPSHOTS
@@ -3116,6 +5399,65 @@ paths:
       responses:
         200:
           description: successful operation
+  
+  /v1/user-management/{id}/suspend/recursive:
+    put:
+      tags:
+        - Manage users
+      summary: Suspend a user from all accounts
+      description: >-
+        Suspends a user from the main account and all associated sub accounts. Must be run with an API token for the main account.
+        The user will not be suspended from accounts for which there are no other users. In other words, any accounts where the user is the last user will be skipped. The success message will list accounts that were skipped.
+      operationId: suspendUserRecursively
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the user
+          example: 11300
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "https://api.logz.io/v1/user-management/11300/suspend/recursive" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Finished suspending user 11300 from accounts."
+
+  /v1/user-management/{id}/unsuspend/recursive:
+    put:
+      tags:
+        - Manage users
+      summary: Unsuspend a user from all accounts
+      description: >-
+        Unsuspends a user from the main account and all associated sub accounts. Must be run with an API token for the main account.
+      operationId: unsuspendUserRecursively
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the user
+          example: 11300
+      x-code-samples:
+        - lang: cURL
+          source: 'curl -X PUT "https://api.logz.io/v1/user-management/11300/suspend/recursive" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Finished unsuspending user 11300 from accounts."
 
 
   # ::::: CLOUD SIEM RULES
@@ -3354,6 +5696,95 @@ paths:
           schema:
             $ref: '#/definitions/PagedSearchResponseTriggeredAlert'
           headers: {}
+  
+  # ::::: SECURITY ACCOUNT
+  /v1/account-management/siem:
+    post:
+      summary: Create SIEM account
+      description: >-
+        Creates SIEM account through public API
+      tags:
+        - Security account
+      operationId: createSIEMaccount
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: object
+            required:
+              - accountName
+              - Email
+            properties:
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+              email:
+                type: string
+                description: Email address of the account user.
+                example: "User@logz.io"
+
+      x-code-samples:
+        - lang: cURL
+          source: >-
+            curl -L -X POST 'https://api.logz.io/v1/account-management/siem \
+            -H 'X-API-TOKEN: <token> \
+            -H 'Content-Type: application/json' \
+            -d '{
+                "accountName": "User",
+                "accountsToScan": 88888, 55555,
+                "sharingObjectsAccounts": 55555
+                "Email": "user@logz.io",
+              }'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              accountId:
+                type: integer
+                description: ID of the account
+                example: 24601
+              accountName:
+                type: string
+                description: Name of the account
+                example: Jean Valjean
+              accountsToScan:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+              sharingObjectsAccounts:
+                type: array
+                items:
+                  type: integer
+                example: [ 88888, 55555 ]
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty. 
+              createdAt:
+                type: string
+                format: date-time
+                description: >-
+                  Date this account was created.
+                  Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
+                example: 2018-04-01T19:18:38Z
+              
+
   /v2/security/rules/events/logs/search:
     post:
       summary: Fetch the logs that triggered a security event
@@ -3810,10 +6241,7 @@ paths:
           schema:
             $ref: '#/definitions/LookupListElementBulkResponse'
           headers: {}
-
-  
-  
-  
+            
 
 definitions:
   # ::::: SIEM LOOKUPS
@@ -4263,19 +6691,17 @@ definitions:
       accessible:
         $ref: "#/definitions/Accessible"
       createdDate:
-        type: string
-        format: date-time
+        type: integer
+        format: int64
         description: >-
           Date this account was created.
-          Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
-        example: 2018-02-22T09:14:53Z
+        example: 1627489797000
       lastUpdatedDate:
-        type: string
-        format: date-time
+        type: integer
+        format: int64
         description: >-
           Date this account was last updated.
-          Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
-        example: 2018-04-01T19:18:38Z
+        example: 1627489797000
       lastUpdaterUserId:
         type: integer
         format: int32
@@ -4619,6 +7045,16 @@ definitions:
           $ref: '#/definitions/SecurityRuleResponse'
       pagination:
         $ref: '#/definitions/Pagination'
+      schedule:
+        type: object
+        description: Defines the intervals in which an alert will be evaluated.
+        properties:
+          cron:
+            type: string
+            description: Cron job for the intervals schedule.
+          timezone:
+            type: string
+            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
 
   AlertsSearchRequestFiltered:
     title: Filtered Results  
@@ -5434,6 +7870,9 @@ definitions:
           - Custom
           - PagerDuty
           - VictorOps
+          - Opsgenie
+          - ServiceNow
+          - Microsoft Teams
         description: The notification endpoint type that will receive alert messages
         example: Slack
       id:
@@ -5449,6 +7888,59 @@ definitions:
         type: string
         description: Detailed description of the endpoint
         example: Endpoint for sending alerts to Slack
+  OpsGenieEndpointUpsertRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Name of the endpoint
+        example: OpsGenie endpoint
+      description:
+        type: string
+        description: Detailed description of the endpoint
+        example: Sends notifications to OpsGenie
+      apiKey:
+        type: string
+        description: API key from OpsGenie, see https://docs.opsgenie.com/docs/logz-io-integration
+        example: c687f9231619d7d7b959f33e4cc821a5
+  ServiceNowEndpointUpsertRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Name of the endpoint
+        example: New ServiceNow endpoint
+      description:
+        type: string
+        description: Detailed description of the endpoint
+        example: Sends notifications to logzio-alerts channel
+      username:
+        type: string
+        description: ServiceNow user name
+        example: User
+      password:
+        type: string
+        description: ServiceNow password
+        example: Password
+      url:
+        type: string
+        description: Provide your instance URL to connect to your existing ServiceNow instance, i.e. https://xxxxxxxxx.service-now.com/.
+        example: https://my.custom-endpoint.com
+  MicrosoftTeamsEndpointUpsertRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        description: Name of the endpoint
+        example: New Microsoft Teams endpoint
+      description:
+        type: string
+        description: Detailed description of the endpoint
+        example: Sends notifications to logzio-alerts channel
+      url:
+        type: string
+        description: Your Microsoft Teams webhook URL, see https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook
+        example: https://my.custom-endpoint.com
 
   # ::::: KIBANA IMPORT/EXPORT DEFINITIONS
   KibanaExportResponse:
@@ -5645,8 +8137,8 @@ definitions:
 
           * Can't sort or aggregate on analyzed fields, such as the `message` field
 
-          * Aggregation type `significant_terms` can't be used
-
+          * Aggregation type `significant_terms` and `multi_terms` can't be used
+          
           * If the request specifies aggregations, only the initial search response will contain the aggregations results
 
 
@@ -6289,6 +8781,8 @@ definitions:
 
   ShippingTokensFilterRequest:
       type: object
+      required:
+      - enabled
       description: Filters your search for token attributes.
       properties:
         enabled:
@@ -6411,6 +8905,17 @@ definitions:
           $ref: '#/definitions/SubAlert'
       correlations:
         $ref: '#/definitions/SubAlertCorrelation'
+      schedule:
+        type: object
+        description: Defines the intervals in which an alert will be evaluated.
+        properties:
+          cron:
+            type: string
+            description: Cron job for the intervals schedule.
+          timezone:
+            type: string
+            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
+
   AlertOutput:
     type: object
     description: Automatically sends out notifications with sample results when the alert triggers.
@@ -6578,6 +9083,8 @@ definitions:
   AlertV2Request:
     type: object
     required:
+     - title
+     - subComponents
     properties:
       title:
         type: string
@@ -6613,6 +9120,9 @@ definitions:
 
 
           The maximum recommended time frame is 1440 minutes (24 hours). The alert runs on the index from today and yesterday (in UTC) and the maximum time frame increases throughout the day, reaching 48 hours exactly before midnight UTC.
+
+
+          The default value is 5. 
         example: 20
       subComponents:
         type: array
@@ -6623,7 +9133,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
       enabled:
         type: boolean
-        description: If `true`, the alert is enabled and active.
+        description: If `true`, the alert is enabled and active. Default value is `true`.
   AlertTrigger:
     type: object
     description: Sets the triggering threshold and severity tab to label the event when the alert triggers.
@@ -6693,15 +9203,30 @@ definitions:
         type: array
         items:
           type: object
-          additionalProperties:
-            type: object
-
+          properties:
+            match_phrase:
+              type: object
+              properties:
+                Field:
+                  type: object
+                  properties:
+                    query:
+                      type: string
+                      example: value
       must_not:
         type: array
         items:
           type: object
-          additionalProperties:
-            type: object
+          properties:
+            match_phrase:
+              type: object
+              properties:
+                Field:
+                  type: object
+                  properties:
+                    query:
+                      type: string
+                      example: value
   PagedSearchResponseString:
     type: object
     properties:
@@ -6799,6 +9324,16 @@ definitions:
           $ref: '#/definitions/SubRule'
       correlations:
         $ref: '#/definitions/SubRuleCorrelation'
+      schedule:
+        type: object
+        description: Defines the intervals in which an alert will be evaluated.
+        properties:
+          cron:
+            type: string
+            description: Cron job for the intervals schedule.
+          timezone:
+            type: string
+            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
   RuleOutput:
     type: object
     description: Automatically sends out notifications with sample results when the rule triggers.
@@ -6927,6 +9462,7 @@ definitions:
   RuleV2Request:
     type: object
     required:
+      - subComponents
     properties:
       title:
         type: string

@@ -24,7 +24,7 @@ For example, "Brute-force attack from malicious address followed by malware down
 
 Click **+ Add another query** to add the option to correlate queries.
 
-![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/add-another-query.png)
+![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/add-another-query_aug2021.png)
 
 ##### Query 1 & Query 2
 
@@ -45,19 +45,25 @@ The following criteria are similar for both the single-query and multi-query {{i
 
 ##### Joining the queries (_optional_)
 
-If you opt to join the queries, you must first add group by fields that will aggregate results by values. When the queries are joined, the values of the join fields must match for the {{include.name}} to trigger.
+If you opt to join the queries, you must first add **group by** fields that will aggregate results by values. When the queries are joined, the values of the join fields must match for the {{include.name}} to trigger.
 
 * First, select the **group by** fields for each of the queries.
   * You can select as many as 3 fields.
-  * The number of group by fields can differ between the queries.
-* Group by fields provide criteria for count aggregations.
+  * The number of **group by** fields can differ between the queries.
+* **Group by** fields provide criteria for count aggregations.
 
-  As a result, the {{include.name}} will count the query results returned per value of the group by field. This allows you to join the results by searching for overlapping values that are the same for the join field pairs.
+  As a result, the {{include.name}} will count the query results returned per value of the **group by** field. This allows you to join the results by searching for overlapping values that are the same for the join field pairs.
+
+<!-- info-box-start:info -->
+**Grouped fields** limitation: You cannot use the **group by** feature on analyzed fields (_Text_ data type).
+{:.info-box.note}
+<!-- info-box-end -->
+
 * Select the join pairs you want to enable. You can enable as many as 3 pairs.
 
-  Available join options are automatically determined by the order of your group by fields. The suggestions are ordered pairs of the group by fields.
+  Available join options are automatically determined by the order of your **group by** fields. The suggestions are ordered pairs of the **group by** ields.
 
-  You do not have to join all of the group by fields, and the queries can have a different number of group by fields.
+  You do not have to join all of the **group by** fields, and the queries can have a different number of **group by** fields.
 
 ![{{include.name}} with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
 

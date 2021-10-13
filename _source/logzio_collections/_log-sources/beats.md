@@ -27,6 +27,7 @@ order: 10
 
 * [Beats for macOS and Linux](#linux)
 * [Beats for Windows](#windows)
+* [Modules](#modules)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -184,3 +185,20 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 </div>
 <!-- tab:end -->
 
+<!-- tab:start -->
+<div id="modules">
+
+Beat shippers make use of modules to ship data from various sources. Refer to the list below to see what modules each of the shippers support.
+
+* [Auditbeat](https://www.elastic.co/guide/en/beats/auditbeat/master/auditbeat-modules.html)
+
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html)
+
+* [Metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/6.8/metricbeat-modules.html)
+
+* [Winlogbeat](https://www.elastic.co/guide/en/beats/winlogbeat/current/winlogbeat-modules.html)
+
+
+
+</div>
+<!-- tab:end -->

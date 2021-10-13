@@ -25,13 +25,13 @@ The custom output will display the data that is matched in the capture group(s) 
 
 | Value | Regex filter | Output |
 |---|---|---|
-| logzio-support-host-1 | logzio-(*.) | support-host-1 |
-| logzio-support-host-1 | (.*)-support(.*) | logzio-host-1 |
-| logzio-support-host-1 | .*(\d+) | 1 |
+| logzio-support-host-1 | `logzio-(.*)` | support-host-1 |
+| logzio-support-host-1 |`(.*)-support(.*)` | logzio-host-1 |
+| logzio-support-host-1 | `.*(\d+)` | 1 |
 
 
-For example, if you have a hostname that is "logzio-support-host-1", then a regular expression of logzio-(*.) will give you "support-host-1".
+For example, if you have a hostname that is "logzio-support-host-1", then a regular expression of `logzio-(.*)` will give you **"support-host-1"**.
 
-You could also capture multiple parts of a string, for example, if I run (.*)-support(.*)  on the previous example, I will get "logzio-host-1".  This is because the first capture group matches the "logzio" and the second capture group matches the "-host-1" and the results are concatenated in the field.
+You could also capture multiple parts of a string, for example, if you run `(.*)-support(.*)`  on the previous example, you will get **"logzio-host-1"**.  This is because the first capture group matches the **"logzio"** and the second capture group matches the **"-host-1"** and the results are concatenated in the field.
 
-Let's say I only want to capture the "1" from "logzio-support-host-1" then I can use .*(\d+), this will match any character up until the first number and will capture that number.
+Let's say you only want to capture the **"1"** from **"logzio-support-host-1"** then you can use `.*(\d+)`, this will match any character up until the first number and will capture that number.

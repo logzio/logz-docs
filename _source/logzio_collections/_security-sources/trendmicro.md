@@ -51,7 +51,7 @@ Copy and paste the code block below, overwriting the previous contents, to repla
 filebeat.inputs:
 - type: tcp
   max_message_size: 10MiB
-  host: "0.0.0.0:1514"
+  host: "0.0.0.0:6514"
   ssl.enabled: true
   ssl.certificate: "/etc/filebeat/certificates/Trendmicro.crt"
   ssl.key: "/etc/filebeat/certificates/Trendmicro.key"
@@ -96,7 +96,7 @@ If the file has other outputs, remove them.
 
 ##### Start Filebeat
 
-Start or restart Filebeat for the changes to take effect.
+[Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
 ##### Configure Trend Micro agents to forward logs to Filebeat
 

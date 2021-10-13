@@ -18,7 +18,7 @@ As you’re troubleshooting in Kibana Discover, you can easily see the number of
 
 Patterns can help you isolate unusual events from a mass of repetitive events, identify frequent errors, and spot bulky uninteresting logs that can be dropped.
 
-![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-patterns/patterns-in-discover-count1.png)
+![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-patterns/patterns-in-discover-count_aug2021.png)
 
 To review your log results clustered into Patterns, switch to the **Patterns** tab in Kibana Discover and filter Patterns in/out of your results.
 
@@ -91,5 +91,5 @@ Unidentified patterns
 : Logs that don't fall under any pattern are grouped under the unidentified pattern category.
 {:.letter-labels}
 
-![Log pattern limitations](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/log-pattern-limitations1.png)
+![Log pattern limitations](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/log-pattern-limitations_aug2021.png)
 

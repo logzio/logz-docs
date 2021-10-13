@@ -14,6 +14,7 @@ contributors:
 shipping-tags:
   - container
   - popular
+  - prebuilt-dashboards
 order: 390
 ---
 <!-- tabContainer:start -->
@@ -80,7 +81,14 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled`, `
 
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+Give your metrics some time to get from your system to ours.
+
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["7BMEKdVrHKPQtt5IgaQ7Bw", "4knWrgcTsEj5kqNXJTES87", "NwO3pdosDJVRWo6i9QJEy", "6RFNnTgcwAmmFnuRropnGu", "5lqRpL1ADesghZbNCEPaZ9"] -->
+
+{% include metric-shipping/generic-dashboard.html %} 
   
 </div>
   
@@ -139,6 +147,7 @@ helm uninstall logzio-otel-k8s-metrics
 
 </div>
 <!-- tab:end -->
+
 
 </div>
 <!-- tabContainer:end -->

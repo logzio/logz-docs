@@ -12,7 +12,7 @@ contributors:
 
 ### Fast track shortcuts: Oh, the Traces You'll Go! 
 
-* [Get started](/user-guide/distributed-tracing/getting-started-tracing): Deploy components and set up instrumentation
+* [Get started](/user-guide/distributed-tracing/getting-started-tracing): Get access to Logz.io and set up trace ingestion
 * [Search for traces](/user-guide/distributed-tracing/tracing-tour): Log in and get on the trace 
 * [View the trace timeline](/user-guide/distributed-tracing/trace-timeline): Dig into the details of each span
 * [Compare traces](/user-guide/distributed-tracing/compare-traces): See where traces differ from each other by comparing node blocks

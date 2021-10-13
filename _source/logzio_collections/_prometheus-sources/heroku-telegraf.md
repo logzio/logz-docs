@@ -1,9 +1,9 @@
 ---
 title: Ship Heroku metrics via Telegraf
 logo:
-  logofile: heroku-telegraf.png
+  logofile: heroku.svg
   orientation: vertical
-data-source: Heroku metrics over Telegraf
+data-source: Heroku metrics
 templates: ["docker"]
 open-source:
   - title: heroku-buildpack-telegraf

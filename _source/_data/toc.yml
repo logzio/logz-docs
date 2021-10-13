@@ -22,7 +22,7 @@ firstLevel:
     - title: Exceptions
       url: /user-guide/insights/exceptions/
     - title: Deployment markers
-      url: /user-guide/insights/exceptions/deployments/
+      url: /user-guide/kibana/exceptions-deployments
     - title: Patterns
       url: /user-guide/kibana/log-patterns.html
     - title: Wildcard searches
@@ -52,7 +52,7 @@ firstLevel:
       url: /user-guide/alerts/suppress-notifications/
 
   - title: Reports
-    url: /user-guide/reports/
+    url: /user-guide/reports/  
 
   - title: Long term storage for select logs
     thirdLevel:
@@ -63,8 +63,9 @@ firstLevel:
 
 
   - title: Insights
-    url: /user-guide/insights/
     thirdLevel:
+    - title: Insights
+      url: /user-guide/insights/
     - title: Exploring insights
       url: /user-guide/insights/exploring-insights.html
     - title: Markers
@@ -122,6 +123,11 @@ firstLevel:
 
 
     # ===== DISTRIBUTED TRACING =====
+    # remove topics from Getting started: 22.sept.2021
+    # 1- title: Transitioning to Logz.io Distributed Tracing from a local Jaeger (url: /user-guide/distributed-tracing/local-jaeger_transition)
+    # 2- title: Setting up instrumentation and ingesting traces (url: /user-guide/distributed-tracing/tracing-instrumentation )
+    # 3- title: Deploying components in your system ( url: /user-guide/distributed-tracing/deploying-components)
+
 - title: Distributed Tracing
   icon: fas fa-align-left
 
@@ -136,12 +142,6 @@ firstLevel:
     thirdLevel:
     - title: Getting started
       url: /user-guide/distributed-tracing/getting-started-tracing/
-    - title: Transitioning to Logz.io Distributed Tracing from a local Jaeger
-      url: /user-guide/distributed-tracing/local-jaeger_transition
-    - title: Setting up instrumentation and ingesting traces
-      url: /user-guide/distributed-tracing/tracing-instrumentation   # change order?
-    - title: Deploying components in your system
-      url: /user-guide/distributed-tracing/deploying-components
     - title: Kubernetes deployment reference
       url: /user-guide/distributed-tracing/k8s-deployment
     - title: Sending demo traces with the HotROD application
@@ -206,7 +206,7 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Correlated rules
       url: /user-guide/siem/security-correlated-queries/
-    - title: Lookups
+    - title: Lookup lists
       url: /user-guide/lookups/
   - title: Dashboards & Reports
     url: /user-guide/cloud-siem/dashboards/
@@ -269,6 +269,8 @@ firstLevel:
       url: /user-guide/users/single-sign-on/
     - title: Azure single sign-on
       url: /user-guide/users/single-sign-on/azure-sso.html
+    - title: Logz.io-Azure Portal integration single sign-on
+      url: /user-guide/users/single-sign-on/azure_marketplace_liftr.html      
     - title: Okta single sign-on
       url: /user-guide/users/single-sign-on/okta-sso.html
     - title: OneLogin single sign-on
@@ -328,6 +330,8 @@ firstLevel:
       url: /user-guide/log-shipping/built-in-log-types.html
     - title: Split an array
       url: /user-guide/mapping-and-parsing/split-json-array.html
+  #  - title: Logz.io Data Parsing
+  #    url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
     - title: Parsing Wizard
       url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
@@ -370,6 +374,8 @@ firstLevel:
       url: /api/cookbook/managing-sub-account-capacity.html
     - title: Backing up Kibana objects to GitHub
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
+    - title: Using Inspect feature on Kibana UI
+      url: /api/cookbook/inspect.html
 
   - title: LightS - Light Synthetic Monitoring for AWS
     url: /integrations/lights/

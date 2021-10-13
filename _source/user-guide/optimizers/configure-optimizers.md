@@ -8,33 +8,36 @@ tags:
   - data-optimizers
 contributors:
   - imnotashrimp
+  - yberlinger
 ---
 
-To create a new optimizer, you'll start in Kibana so you can test the query you want to use. After that, you'll continue to the Create a New Optimizer page, where you can configure the optimizer settings.
+To create a new optimizer, start in Kibana so you can test the query you want to use. After that, continue to the **Create an optimizer** page, where you can configure the optimizer settings.
 
   Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
   {:.info-box.note}
 
 If you want help updating an existing optimizer, you can [skip the first part of this page](#to-configure-an-optimizer).
 
-#### To start a new optimizer
-
-![Kibana query bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana--query-bar.png)
+#### To create an optimizer
 
 ##### Set your query in Kibana
 
 In Kibana, type a query in the query bar
-and press Enter.
+and press **Enter**.
+
+
+![Kibana query bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana--query-bar_aug2021.png)
+
 Review the results in the histogram and the document table,
 and make sure your query returned the expected results.
 
-Click **Create Alert > Create Optimizer** (to the right of the query bar).
-The _Create a New Optimizer_ page is shown.
+Click **Create Optimizer** (above the query bar) to open the **Create an optimizer** page. <br>
 Continue with [To configure an optimizer](#to-configure-an-optimizer).
+
 
 #### To configure an optimizer {#to-configure-an-optimizer}
 
-![Configure an Optimizer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--configure-alert.png)
+![Configure an Optimizer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/create-optimizer_aug2021.png)
 
 <div class="tasklist">
 
@@ -54,11 +57,11 @@ Run your query in Kibana so you can be sure you're getting the expected results.
 
 To store aggregate results, group your search fields.
 
-![Group alert fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--group-by.png)
+![Group optimizer fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/optimizer-groupby_aug2021.png)
 
-Click **Add group by** to add up to 3 groups.
+Click **Group by** to add up to 3 groups.
 
-In the **Select Field** list,
+In the **Choose fields** list,
 choose a field to group by.
 
 To limit the available fields,
@@ -78,17 +81,18 @@ In the **Action** section, choose a timeless account to send to.
 
 Choose an **Output**.
 
-<video autoplay loop>
-    <source src="{{site.baseurl}}/videos/alerts/alerts--custom-format.mp4" type="video/mp4" />
-</video>
 
-To send the raw JSON documents to your timeless account, choose **Default format**.
-To send a summary table, choose **Custom format**.
+To send the raw JSON documents to your timeless account, choose **Full log**.
 
-  If you added any groups (in step 3), the custom format table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.
+
+To send a summary table, choose **Aggregations**.
+
+  If you added any groups (in step 3), the aggregations table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.
   {:.info-box.note}
 
-If you choose Custom format, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
+If you choose **Aggregations**, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
+
+![Optimizer aggregation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/optimizr-aggreg2_aug2021.png)
 
 Click **Save** to save your optimizer. Logz.io will start sending your logs to the configured timeless account.
 

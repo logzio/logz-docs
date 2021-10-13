@@ -11,9 +11,6 @@ contributors:
   - yotamloe
 ---
 
-{% include /p8s-shipping/prometheus-rollout.md %}
-
-
 You can import your existing Grafana dashboards to Logz.io via a manual process.
  
 For the dashboard import to work smoothly, you'll need to change the name of the data source in your JSON file to the name of your Logz.io Metrics account. 

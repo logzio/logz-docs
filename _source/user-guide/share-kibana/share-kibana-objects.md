@@ -28,8 +28,8 @@ You can share Kibana dashboards, saved searches and visualizations between accou
 
 The first step is to export your existing dashboards, searches and visualizations out of your Kibana instance.
 
-1. In your Kibana instance, click on **<i class="li li-gear"></i> (Settings) > Saved objects** 
-2. Select **Export ____ objects**. 
+1. In **Logs > Kibana**, click  **<i class="li li-gear"></i> (Settings) > Saved objects** 
+2. Select **Export xxx objects** (**xxx** is the number of objects available for export).
 3. You can un-select any categories you want to exclude from the export. Another way to do this is to hand-pick the objects you want to export, but this is less recommended.
 4. Click **Export all**. 
 5. A JSON file with your exported objects will be saved to your default location.
@@ -49,9 +49,9 @@ Make sure that the relevant logs have already shipped to your Logz.io account an
 
 Assuming you've got a JSON with your exported objects, it's time to import them into your Logz.io account.
 
-1. Open your Logz.io main account. Click **<i class="li li-gear"></i> (Settings) > Saved objects**.
+1. In **Logs > Kibana**,  click **<i class="li li-gear"></i> (Settings) > Saved objects**.
 2. Click **Import** and select the relevant JSON file.
-3. You can toggle the option to **automatically overwrite all saved objects**. Enable it if you want the export to overwrite existing objects in case of conflict. Select the option that works for you.
+3. You can toggle the option to **Automatically overwrite all saved objects**. Enable it if you want the export to overwrite existing objects in case of conflict. Select the option that works for you.
 
 You're done! You are ready to use your newly imported Kibana dashboards, saved searches, and visualivations.
 

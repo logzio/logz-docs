@@ -15,7 +15,7 @@ Kibana Discover is where you search and query your logs to figure out what happe
 
 You can use the Discover page to filter logs, search for specific events, and create alerts based on your search queries.
 
-![Kibana Discover Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/kibana-discover-intro-annotated1.png)
+![Kibana Discover Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/kibana-discover-intro-annotated_aug2021.png)
 
 #### Searching your logs
 

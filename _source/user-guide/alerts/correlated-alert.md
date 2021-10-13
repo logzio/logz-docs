@@ -8,6 +8,7 @@ tags:
   - alerts
 contributors:
   - shalper
+  - yberlinger
 ---
 
 Some incidents are best detected by a sequence of logs, which may involve different log types, log fields, or even accounts.
@@ -29,7 +30,7 @@ When a correlated alert triggers, it writes 2 event logs - 1 per query. The even
 The group-by fields used in the alert will be toggled into the table by default.
 {:.info-box.note}
 
-![Correlated events may be grouped by different fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-events-groupby.png)
+![Correlated events may be grouped by different fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-events-groupby_aug2021.png)
 
 If the queries are joined, you can filter for the matching join values. Expand the event log to reveal the full list of fields. Hover over the field `logzio-alert-join-values` and click **<i class="fas fa-search-plus"></i>** to filter for its value.
 

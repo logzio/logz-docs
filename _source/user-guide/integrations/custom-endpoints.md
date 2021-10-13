@@ -8,6 +8,7 @@ tags:
   - integrations
 contributors:
   - shalper
+  - yberlinger
 ---
 
 Integrate with your favorite tools using a custom webhook. Configuring a custom endpoint will allow you to send Logz.io notifications to your preferred apps,

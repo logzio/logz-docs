@@ -18,6 +18,7 @@ order: 1380
 * [Overview](#overview)
 * [Local host](#local-host)
 * [Docker](#docker)
+* [Kubernetes](#kubernetes)
 {:.branching-tabs}
 
 <!-- tab:start -->

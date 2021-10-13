@@ -24,17 +24,23 @@ of allowing you to customize the message body too.
 
 Set up your systems to receive notifications from Logz.io.
 
-Logz.io log alerts can only be sent on **ports 80 & 443**. If you try setting another port in your endpoint, the alert will NOT be sent.
+<!-- info-box-start:info --> 
+Alerts can only be sent on **ports 80 & 443**.
+If you try to set another port in your end point, the alert will NOT be sent.
+{:.info-box.important}
+<!--info-box-end -->
 
-If you need to, allowlist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted:
+If necessary, allowlist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted:
 
-| Region  | Allowlisted IP  |
-|---|---|
-| us-east-1 | 3.223.132.12 |
-| eu-central-1 | 52.59.86.203 |
-| ca-central-1 | 35.182.168.208 |
-| eu-west-2 | 18.132.31.199 |
-| ap-southeast-2 | 3.105.7.135 |
+| Region  | Allowlisted IP  | Cloud |
+|---|---|---|
+| us-east-1 | 3.223.132.12 | AWS |
+| eu-central-1 | 52.59.86.203 | AWS |
+| ca-central-1 | 35.182.168.208 | AWS |
+| eu-west-2 | 18.132.31.199 | AWS |
+| ap-southeast-2 | 3.105.7.135 | AWS |
+| westeurope | x.x.x.x | Azure |
+| westus2 | x.x.x.x | Azure |
 
 
 ##### Create a verification token (_Best practice but optional_)

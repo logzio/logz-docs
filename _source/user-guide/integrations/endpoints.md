@@ -58,10 +58,11 @@ There are two types of endpoints.
   and click <i class="li li-pencil"></i> (edit)
   or <i class="li li-trash"></i> (delete).
 
-Alerts can only be sent on ports 80 & 443.
+<!-- info-box-start:info --> 
+Alerts can only be sent on **ports 80 & 443**.
 If you accidently set a custom port for an alert endpoint, the alert will not be sent.
 {:.info-box.important}
-
+<!--info-box-end -->
 ## Example - Adding an Opsgenie endpoint
 
 Opsgenie is a typical example for a preconfigured endpoint.

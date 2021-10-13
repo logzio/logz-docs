@@ -9,7 +9,9 @@ tags:
 contributors:
   - yberlinger
 ---
-Logz.io makes the process of collecting data from the software as easy as possible, by taking advantage of community-developed plug-ins for the most commonly used libraries and frameworks. 
+
+<!--This topic deprecated 22.Sept.2021 -->
+Logz.io makes the process of collecting data from the software as easy as possible by taking advantage of community-developed plug-ins for the most commonly used libraries and frameworks. 
 
 There’s a growing trend to do this for every type of library, software system, infrastructure component, such as proxies and service meshes, and even for orchestration systems, such as Kubernetes itself.
 

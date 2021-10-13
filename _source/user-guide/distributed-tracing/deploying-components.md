@@ -9,6 +9,8 @@ tags:
 contributors:
   - yberlinger   
 ---
+<!--This topic deprecated 22.Sept.2021 -->
+
 You’ll need to install and deploy the following components for distributed tracing:
 
 **Client libraries (required)** - These are language-specific implementations. An instrumented service creates spans when receiving new requests and attaches context meta-data to outgoing requests (Trace ID, Span ID, and so on). 

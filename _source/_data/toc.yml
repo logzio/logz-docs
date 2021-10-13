@@ -123,6 +123,11 @@ firstLevel:
 
 
     # ===== DISTRIBUTED TRACING =====
+    # remove topics from Getting started: 22.sept.2021
+    # 1- title: Transitioning to Logz.io Distributed Tracing from a local Jaeger (url: /user-guide/distributed-tracing/local-jaeger_transition)
+    # 2- title: Setting up instrumentation and ingesting traces (url: /user-guide/distributed-tracing/tracing-instrumentation )
+    # 3- title: Deploying components in your system ( url: /user-guide/distributed-tracing/deploying-components)
+
 - title: Distributed Tracing
   icon: fas fa-align-left
 
@@ -137,12 +142,6 @@ firstLevel:
     thirdLevel:
     - title: Getting started
       url: /user-guide/distributed-tracing/getting-started-tracing/
-    - title: Transitioning to Logz.io Distributed Tracing from a local Jaeger
-      url: /user-guide/distributed-tracing/local-jaeger_transition
-    - title: Setting up instrumentation and ingesting traces
-      url: /user-guide/distributed-tracing/tracing-instrumentation   # change order?
-    - title: Deploying components in your system
-      url: /user-guide/distributed-tracing/deploying-components
     - title: Kubernetes deployment reference
       url: /user-guide/distributed-tracing/k8s-deployment
     - title: Sending demo traces with the HotROD application

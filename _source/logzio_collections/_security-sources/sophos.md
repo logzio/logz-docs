@@ -6,10 +6,20 @@ logo:
 data-source: Sophos
 contributors:
   - shalper
+  - nshishkin
 shipping-tags:
   - endpoint-security
 order: 740
 ---
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Sophos for Linux](#linux)
+* [Sophos for Windows](#windows)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="linux">
 
 **Before you begin, you'll need**:
 
@@ -32,7 +42,7 @@ The procedure involves using the Sophos API. Make sure that the `config.ini` use
 
 ##### Configure Filebeat
 
-Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
+Open the Filebeat configuration file (`/etc/filebeat/filebeat.yml`) with your preferred text editor.
 
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:
 
@@ -91,6 +101,119 @@ If the file has other outputs, remove them.
 
 ##### Start Filebeat
 
+[Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
+
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search or filter for Sophos logs, under `type:sophos-ep`.
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+##### Contact support to request custom parsing assistance
+
+The logs will require customized parsing so they can be effectively mapped in Kibana.
+
+[Email our support](mailto:help@logz.io?subject=Requesting%20parsing%20assistance%20for%20Sophos%20security%20logs&body=Hi!%20Please%20be%20in%20touch%20with%20further%20instructions%20for%20parsing%20Sophos%20security%20logs.%20Thanks!) to request custom parsing assistance.
+
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="windows">
+
+**Before you begin, you'll need**:
+
+* Sophos Intercept X Endpoint installed
+* Access to the [Sophos Central Cloud console](https://central.sophos.com/)
+* [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* Terminal access to the instance running Filebeat. It is recommended to run the Sophos API script from the same instance running your Filebeat.
+
+
+
+<div class="tasklist">
+
+##### Configure Sophos to collect the Central Cloud logs
+
+Follow the official instructions provided by Sophos for [collecting Sophos Central Cloud logs from all machines](https://support.sophos.com/support/s/article/KB-000036372?language=en_US).
+
+The procedure involves using the Sophos API. Make sure that the `config.ini` used in the Sophos siem.py script is under `format = json` (this is the default setting).
+
+##### Download the Logz.io public certificate
+
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+
+Download the
+[Logz.io public certificate]({% include log-shipping/certificate-path.md %})
+to `C:\ProgramData\Filebeat\Logzio.crt`
+on your machine.
+
+
+##### Configure Filebeat
+
+Open the Filebeat configuration file (`C:\Program Files\Filebeat\filebeat.yml`) with your preferred text editor.
+
+Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:
+
+```yaml
+#... Filebeat
+filebeat.inputs:
+- type: log
+  paths:
+    - <<FILE_PATH>>
+  fields:
+    token: <<LOG-SHIPPING-TOKEN>>
+  fields_under_root: true
+  json.keys_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+#For version 7 and higher
+filebeat.registry.path: 'C:\ProgramData\Filebeat'
+#The following processors are to ensure compatibility with version 7
+processors:
+- rename:
+    fields:
+     - from: "type"
+       to: "event_type"
+    ignore_missing: true
+- add_fields:
+    target: ''
+    fields:
+      type: "sophos-ep"
+- rename:
+    fields:
+     - from: "log.file.path"
+       to: "source"
+    ignore_missing: true
+- drop_event:
+    when:
+      regexp:
+        message: "^\\s*$"
+#... Output
+output:
+  logstash:
+    hosts: ["<<LISTENER-HOST>>"]
+    ssl:
+      certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
+```
+
+{% include log-shipping/listener-var.html %} 
+
+{% include log-shipping/log-shipping-token.html %}
+
+Change `<<FILE_PATH>>` to the output TXT file retrieved from the Sophos siem.py script.
+
+
+One last validation - make sure Logz.io is the only output and appears only once.
+If the file has other outputs, remove them.
+
+##### Start Filebeat
+
 Start or restart Filebeat for the changes to take effect.
 
 
@@ -108,3 +231,9 @@ The logs will require customized parsing so they can be effectively mapped in Ki
 
 
 </div>
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

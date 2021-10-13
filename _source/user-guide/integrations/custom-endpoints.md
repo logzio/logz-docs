@@ -42,7 +42,6 @@ If necessary, allowlist the relevant IPs in your firewalls. These depend on the 
 | westeurope | x.x.x.x | Azure |
 | westus2 | x.x.x.x | Azure |
 
-
 ##### Create a verification token (_Best practice but optional_)
 
 The Logz.io IP range is used by all customers and should be used together with a verification token.
@@ -101,10 +100,11 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 
 | Parameter | Description |
 |---|---|---|
-| {{alert_title}} | Title of the alert that triggered  |
-| {{alert_description}} | Description of the alert|
-| {{alert_definition_id}} | Unique alert ID. |
-| {{alert_severity}} | Severity of the alert that triggered  |
+| {{alert_title}} | Title of the triggered alert  |
+| {{alert_description}} | Alert description|
+| {{alert_definition_id}} | Unique alert ID |
+| {{alert_event_id}} | Unique ID of the triggered alert instance |
+| {{alert_severity}} | Severity of the triggered alert |
 | {{account_id}} | ID of the affected Logz.io account  |
 | {{account_name}} |  Name of the affected Logz.io account |
 | {{alert_samples}} | Prints a sample of the raw logs that caused the alert to trigger (JSON format, up to 10 logs) |
@@ -116,7 +116,7 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 | {{alert_timeframe_start_epoch_millis}} |  Start time for the triggered alert event in UNIX milliseconds |
 | {{alert_timeframe_end_epoch_millis}} |  End time for the triggered alert event in UNIX milliseconds |
 | {{alert_app_url}}| The domain to your Logz.io account that is used to build links: For example: `https://app.logz.io` |
-| {{alert_tags}}| A comma separated list of tags assigned to the alert: That is, `tag1, tag2, tag3`                                                                                   |
+| {{alert_tags}}| A comma separated list of tags assigned to the alert: That is, `tag1, tag2, tag3` |
 | {{alert_tags_json}}| A comma separated list of string tags as would be used in a JSON array: That is, `"tag1", "tag2", "tag3"`|
 
 
@@ -149,6 +149,7 @@ The following list is provided for convenience, to make it easy to copy & paste 
 {{alert_title}}
 {{alert_description}}
 {{alert_definition_id}}
+{{alert_event_id}}
 {{alert_severity}}
 {{account_name}}
 {{account_id}}

@@ -45,17 +45,18 @@ Java 8 or higher
 
 ##### Add the dependency to your project
 
-Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project).
+Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project). 
 
 ```xml
 <dependencies>
   <dependency>
     <groupId>io.logz.log4j2</groupId>
     <artifactId>logzio-log4j2-appender</artifactId>
-    <version>1.0.12</version>
+    <version>v1.0.12</version>
   </dependency>
 </dependencies>
 ```
+The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
 ##### Configure the appender
 
@@ -123,6 +124,20 @@ public class LogzioLog4j2Example {
 ```
 
 </div>
+
+#### Troubleshooting
+
+If you receive an error message regarding a missing appender, try adding the following configuration to the beginning and end of the configuration file:
+
+```xml
+
+<Configuration status="info" packages="io.logz.log4j2">
+
+# Place the configuration from step 2
+
+</Configuration>
+
+```
 
 #### More options
 
@@ -221,10 +236,12 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
   <dependency>
     <groupId>io.logz.logback</groupId>
     <artifactId>logzio-logback-appender</artifactId>
-    <version>1.0.25</version>
+    <version>v1.0.25</version>
   </dependency>
 </dependencies>
 ```
+
+The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
 ##### Configure the appender
 
@@ -366,6 +383,36 @@ public class LogzioLogbackExample {
   "Your log message follows": "..."
 }
 ```
+  
+#### Troubleshooting
+  
+If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>` and `<inMemoryQueueCapacityBytes>-1</inMemoryQueueCapacityBytes>` to the configuration file as follows:
+  
+```xml
+<configuration>
+  <!-- Closes gracefully and finishes the log drain -->
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+  <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+    <!-- Replace these parameters with your configuration -->
+    <token><<LOG-SHIPPING-TOKEN>></token>
+    <logzioUrl><<LISTENER-HOST>>:8071</logzioUrl>
+    <logzioType>myType</logzioType>
+
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>INFO</level>
+    </filter>
+    <inMemoryQueue>true</inMemoryQueue> 
+    <inMemoryQueueCapacityBytes>-1</inMemoryQueueCapacityBytes>
+  </appender>
+
+  <root level="debug">
+    <!-- IMPORTANT: This line is required -->
+    <appender-ref ref="LogzioLogbackAppender"/>
+  </root>
+</configuration>
+```
+  
 
 </div>
 <!-- tab:end -->

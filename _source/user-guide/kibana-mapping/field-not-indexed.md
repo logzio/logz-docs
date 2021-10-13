@@ -10,10 +10,10 @@ contributors:
   - shalper
 ---
 
-Sometimes, it will appear that a field in Kibana is not mapped. The mapping icon will show a <i class="fas fa-question"></i> question mark indicating that the field is not mapped in Kibana. 
+Sometimes, it will appear that a field in Kibana Discover is not mapped. The mapping icon will show a <i class="fas fa-question"></i> question mark, indicating that the field is not mapped in Kibana. 
 
 
-![Kibana field not indexed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/field-not-indexed.png)
+![Kibana field not indexed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/field-not-indexed_aug2021.png)
 
 
 Whenever you see the message **Field not indexed**, this is simply an indication that the field is not indexed because nothing in your Kibana account is dependent on it. It wasn't required for any of your account's alerts, filters, saved searches, visualizations, dashboards, or any other Kibana objects.

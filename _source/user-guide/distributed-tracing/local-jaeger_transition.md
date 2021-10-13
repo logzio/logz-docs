@@ -11,5 +11,6 @@ contributors:
   - yberlinger
   - doron-bargo
 ---
+<!--This topic deprecated 22.Sept.2021 -->
 
 {% include tracing-shipping/local_jaeger_installation.md %}

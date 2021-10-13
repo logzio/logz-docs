@@ -9,7 +9,6 @@ tags:
 contributors:
   - yberlinger
 ---
-{% include /p8s-shipping/prometheus-rollout.md %}
 
 ## Why go it alone? 
 Manage your metrics with Logz.io Infrastructure Monitoring, powered by Prometheus.  

@@ -81,7 +81,7 @@ For incoming Logz.io alerts, the event trigger is **`[Event.event_name] Equals <
 
 Fill in the Logz.io integration panel:
 
-1. **Logz.io Security Token** - Enter the token for your selected Security account.
+1. **Logz.io Security Token** - Enter the API token for your selected Security account.
 2. **Logz.io Region** - Enter the 2-letter region code for your Logz.io account. [Look up your Logz.io account region code](https://docs.logz.io/user-guide/accounts/account-region.html).
 3. **Logz.io Operations Token** - Enter the token for your selected Log Management account.
 4. **Logz.io Custom Endpoint** - (Optional) Only relevant if you use a custom URL with the Logz.io API.

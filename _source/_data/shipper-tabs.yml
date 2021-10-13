@@ -18,12 +18,7 @@ tabs:
     templated: true
   - collection: prometheus-sources
     templated: true
-    top-content: >-
-      <p class="info-box important no-title">
-        <span class="bold">Prometheus Metrics are currently in roll-out. Supported regions include US East, EU Central, and EU West.
-         <br> </br>
-        Contact your Logz.io Customer Success Manager to request early-access.
-      </p>
+    top-content:
   - collection: tracing-sources
     templated: true
   - collection: security-sources
@@ -101,47 +96,53 @@ tags:
     name: Identity providers
     order: 14
   - slug: instrumentation
-    name: Tracing instrumentation      
+    name: Tracing instrumentation     
     order: 15
+  - slug: iot
+    name: IoT
+    order: 16
   - slug: k8s
     name: K8S
-    order: 16
+    order: 17
   - slug: linux
     name: Linux security
-    order: 17
+    order: 18
   - slug: networking
     name: Networking
-    order: 18
+    order: 19
   - slug: new-instrumentation
     name: My code is not instrumented   
-    order: 19
+    order: 20
   - slug: platform-service
     name: Platforms & services
-    order: 20
+    order: 21
+  - slug: prebuilt-dashboards
+    name: Pre-built dashboards
+    order: 22
   - slug: prometheus
     name: Prometheus as a service
-    order: 21
+    order: 23
   - slug: os
     name: Operating systems
-    order: 22
+    order: 24
   - slug: security
     name: Security
-    order: 23
+    order: 25
   - slug: server-app
     name: Server apps & devices
-    order: 24
+    order: 26
   - slug: traces
     name: Tracing
-    order: 25
+    order: 27
   - slug: vulnerability-scanners
     name: Vulnerability scanners
-    order: 26
+    order: 28
   - slug: web-firewalls
     name: Web application firewalls
-    order: 27
+    order: 29
   - slug: windows
     name: Windows security
-    order: 28
+    order: 30
 
 
 

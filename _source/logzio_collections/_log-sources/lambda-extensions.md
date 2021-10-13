@@ -36,20 +36,35 @@ Lambda extensions enable tools to integrate deeply into the Lambda execution env
 To read more about Lambda Extensions, [click here](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-extensions-api.html).  
 The Logz.io Lambda extension for logs, uses the AWS Extensions API and [AWS Logs API](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-logs-api.html), and sends your Lambda Function Logs directly to your Logz.io account.
 
-This repo is based on the [AWS lambda extensions sample](https://github.com/aws-samples/aws-lambda-extensions/tree/main/python-example-logs-api-extension/extensions).
+This repo is based on the [AWS lambda extensions sample](https://github.com/aws-samples/aws-lambda-extensions).
+This extension is written in Go, but can be run with runtimes that support [extensions](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html).
 
 ### Prerequisites
-
-* Lambda function with supported runtime for extensions (`python 3.7`, `python 3.8`).
+* Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html) for extensions.
 * AWS Lambda limitations: A function can use up to five layers at a time. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size limit of 250 MB.
+
+
+### Important notes
+  
+* If an extension does not have enough time to receive logs from AWS Logs API, it may send the logs at the next invocation of the Lambda function.
+If you want to send all the logs by the time your Lambda function stops running, you will need to add a sleep interval at the end of your Lambda function code. This will give the extension enough time to do the job.
+* Due to [Lambda's execution environment lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html), the extension is invoked at two events - `INVOKE` and `SHUTDOWN`.
+This means that if your Lambda function goes into the `SHUTDOWN` phase, the extension will start running and send all logs that are in the queue. 
+
 
 ### Extension deployment options
 
 You can deploy the extension via the AWS CLI or via the AWS Management Console.
+  
+### Upgrading from v0.0.1 to v0.1.0
+  
+If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensure that your logs are correctly sent to Logz.io:
+  
+1. Delete the existing extension layer, its dependencies, and environment variables as decribed below in this topic.
+2. Deploy the new extension, its dependencies, and configuration as decribed below in this topic.
 
 </div>
 <!-- tab:end --> 
-
 
 <!-- tab:start -->
 <div id="cli">
@@ -59,7 +74,7 @@ You can deploy the extension via the AWS CLI or via the AWS Management Console.
 
 <div class="tasklist">
 
-##### Deploy the extension, dependencies and configuration
+##### Deploy the extension and configuration
 
 If you haven't done it already, [install](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) and [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) the AWS CLI.
 
@@ -72,12 +87,15 @@ aws lambda update-function-configuration \
     --environment "Variables={<<ENV-VARS>>}"
 ```
 
-**Note:** this command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, list them as well.
+<!-- info-box-start:info -->
+This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, list them as well.
+{:.info-box.note}
+<!-- info-box-end -->
 
 | Placeholder | Description | Required/Default|
 |---|---|---|
 | `<<FUNCTION-NAME>>` |  Name of the Lambda Function you want to monitor. |Required|
-| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**Lambda extension versions** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}. You may need to add another layer that has the extensions dependencies.  For the libraries that your extension requires, see the [**Lambda extensions dependencies** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}. If your function doesn't already have those libraries under `/opt/python`, you'll need to add the dependencies as a layer, too.|  |
+| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**Lambda extension versions** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}.|  |
 | `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}.|  |
 
 ##### Run the function
@@ -100,7 +118,7 @@ This command overwrites the existing function configuration. If you already have
 
 #### Deleting the extension
 
-To delete the extension, its dependencies and environment variables, use the following command:
+To delete the extension and its environment variables, use the following command:
 
 ```shell
 aws lambda update-function-configuration \
@@ -139,14 +157,6 @@ You'll have to add the extension
 3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**Lambda extension versions** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}, and click the `Add` button.
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
-4. *Optional*. This step adds the python libraries the extension needs to run. Refer to the [**ARN for extension dependencies** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}: If your Lambda function already has those libraries under `/opt/python`, you can skip this step. If not, you'll need it for the extension to run.
-
-    a. Repeat step 2 to add another layer.
-  
-    b. Select the `Specify an ARN` option, then select the ARN that's compatible with the extension version you chose from the [**Dependencies** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}, and paste it in the textbox. 
-  
-    c. Click `Add`.
-
 ##### Configure the extension parameters
 
 Add the environment variables to the function, according to the [**Environment variables** table]{% include log-shipping/lambda-xtension-tablink.md %} {% include log-shipping/lambda-xtension-tablink-indox.html %}.
@@ -159,7 +169,6 @@ Run the function. It may take more than one run of the function for the logs to 
 #### Deleting the extension
 
 - To delete the **extension layer**: In your function page, go to the **layers** panel. Click `edit`, select the extension layer, and click `save`.
-- To delete the **extension dependencies layer**: In your function page, go to the **layers** panel, click `edit`, select the extension dependencies layer, and click `save`.
 - To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`, click `edit`, and remove the variables that you added for the extension.
 
 
@@ -178,43 +187,44 @@ Run the function. It may take more than one run of the function for the logs to 
 | Name | Description |Required/Default|
 | --- | --- | --- |
 | `LOGZIO_LOGS_TOKEN` | Your Logz.io log shipping [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). | Required |
-| `LOGZIO_REGION` |  Two-letter region code, or blank for US. This determines your listener URL. You can find your region code in the [Regions and URLs table](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls). | Default: (left blank for US)|
-| `LOGS_EXT_LOG_LEVEL` |  Log level of the extension. Can be set to one of the following: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`. |Default: `INFO` |
+| `LOGZIO_LISTENER` |  Your  Logz.io listener address, with port 8070 (http) or 8071 (https). For example, for example: `https://listener.logz.io:8071`. {% include log-shipping/listener-var.md %} | Required |
+| `LOGS_EXT_LOG_LEVEL` |  Log level of the extension. Can be set to one of the following: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |Default: `info` |
 | `ENABLE_EXTENSION_LOGS` |  Set to `true` if you wish the extension logs will be shipped to your Logz.io account. | Default: `false` |
 | `ENABLE_PLATFORM_LOGS` | The platform log captures runtime or execution environment errors. Set to `true` if you wish the platform logs will be shipped to your Logz.io account. | Default: `false` |
-| `THREAD_TIMEOUT` | Execution timeout for the threads that parse and send the logs. | Default: `5` (seconds)|
-| `LOGZIO_CUSTOM_LISTENER` | Use if you have a custom Logz.io listener endpoint). Will override `LOGZIO_REGION`. | Optional |
 
 
 ### Lambda extension versions
 
 | Version | Supported Runtimes | AWS ARN |
 | --- | --- | --- |
-| 0.0.1 | python 3.7, python 3.8 | `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogs:1` |
+| 0.1.0| `.NET Core 3.1`, `Java 11`, `Java 8`, `Node.js 14.x`, `Node.js 12.x`, `Node.js 10.x`, `Python 3.8`, `Python 3.7`, `Ruby 2.7`, `Ruby 2.5`, `Custom runtime`| `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogs:2` |
+| 0.0.1 | `Python 3.7`, `Python 3.8` | `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogs:1` |
 
-### ARN for extension dependencies
+
+### Available AWS regions
+
+| Region Name | Region Code | Notes |
+| --- | ---- | --- |
+| US East (N. Virginia) | `us-east-1` | - |
+| US East (Ohio) | `us-east-2` | - |
+| US West (N. California) | `us-west-1` | - |
+| US West (Oregon) | `us-west-2` | - |
+| Europe (Frankfurt) | `eu-central-1`| - |
+| Europe (Ireland) | `eu-west-1` | - |
+| Europe (Stockholm) | `eu-north-1` | - |
+| Asia Pacific (Sydney) | `ap-southeast-2` | Available from v0.1.0 |
+
+### ARN for extension dependencies - DEPRECATED
 
 |Compatible with extension versions | Imports | AWS ARN |
 | --- | --- | --- |
 | 0.0.1 | `requests` | `arn:aws:lambda:<<YOUR-AWS-REGION-CODE>>:486140753397:layer:LogzioLambdaExtensionLogsLibs:1` |
 
-### Available AWS regions
-
-| Region Name | Region Code |
-| --- | ---- |
-| US East (N. Virginia) | `us-east-1` |
-| US East (Ohio) | `us-east-2` |
-| US West (N. California) | `us-west-1` |
-| US West (Oregon) | `us-west-2` |
-| Europe (Frankfurt) | `eu-central-1` |
-| Europe (Ireland) | `eu-west-1` |
-| Europe (Stockholm) | `eu-north-1` |
 
 <!-- info-box-start:info -->
 If your AWS region is not in the list, please reach out to Logz.io's support or open an issue in the [project's Github repo](https://github.com/logzio/logzio-lambda-extensions).
 {:.info-box.note}
 <!-- info-box-end -->
-
 
 </div>
 <!-- tab:end -->

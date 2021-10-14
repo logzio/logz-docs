@@ -3,7 +3,7 @@ title: Ship system metrics via Telegraf
 logo:
   logofile: telegraf-logo.png
   orientation: vertical
-data-source: System metrics
+data-source: System metrics via Telegraf
 templates: ["docker"]
 contributors:
   - daniel-tk

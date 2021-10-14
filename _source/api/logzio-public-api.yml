@@ -2319,7 +2319,7 @@ paths:
       description: Returns existing authentication groups
       tags:
         - Authentication groups
-      operationId: getauthenticationgroups
+      operationId: getAuthGroups
       produces:
         - application/json
       parameters:
@@ -2347,7 +2347,7 @@ paths:
         Creates/updates existing authentication groups. When you add groups, only group members can access the account. If you don’t add any groups, all authenticated users can access the account.
       tags:
         - Authentication groups
-      operationId: postauthenticationgroups
+      operationId: setAuthGroups
       parameters:
         - in: body
           name: body

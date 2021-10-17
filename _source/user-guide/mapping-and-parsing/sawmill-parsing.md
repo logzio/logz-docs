@@ -23,6 +23,7 @@ allowing you to create rich visualizations and helpful alerts.
 Parsing is not necessary for all types of logs.
 But if you use a custom or uncommon log type,
 parsing can be an invaluable tool.
+
 ## Customize your log parsing with Logz.io Data Parsing
 
 Create your own parsing rule sets for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule sets will be applied to your Logz.io account to transform your logs. 

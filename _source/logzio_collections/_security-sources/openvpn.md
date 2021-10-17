@@ -72,7 +72,7 @@ Paste the following into the inputs section of the Filebeat configuration file:
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
   
-   * {% include log-shipping/log-shipping-token.md %}
+   * Your Logz.io log shipping token directs the data securely to your Logz.io Log Management account. [Manage your tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared).
    * {% include log-shipping/listener-var.md %}
 
 ##### Restart Filebeat to run it with the new configuration.

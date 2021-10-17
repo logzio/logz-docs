@@ -22,7 +22,7 @@ Parsing is not necessary for all types of logs.
 But if you use a custom or uncommon log type,
 parsing can be an invaluable tool.
 
-You can analyze a set of sample logs for a Community (free account) in the data parsing wizard,
+You can analyze a set of sample logs for a Community (free) account in the data parsing wizard,
 to simplify the process.
 
 You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> > Tools > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the menu.

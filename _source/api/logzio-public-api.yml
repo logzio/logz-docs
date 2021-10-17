@@ -2346,7 +2346,7 @@ paths:
     post:
       summary: Create/update authentication groups
       description: >-
-        Creates/updates existing authentication groups. To create or update groups, you need to send these groups in the payload. With every update, all running user sessions will be terminated, so the users need to login again. To delete a group, you need to exclude this group from the payload that you sed to update groups.
+        Creates/updates existing authentication groups. To create or update groups, you need to send these groups in the payload. With every update, all running user sessions will be terminated, so the users need to login again. To delete a group, you need to exclude this group from the payload that you send to update groups. With every deletion, all running user sessions will be terminated, so the users need to login again.
 
       tags:
         - Authentication groups

@@ -1,7 +1,8 @@
 ---
 layout: article
 title: Listener IP addresses
-description: If you're having trouble sending your data to Logz.io, you may need to open your firewall to Logz.io listener servers. This page contains the Logz.io listener IP addresses so you can do just that.
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: If you're having trouble sending your data to Logz.io, open your firewall to the relevant Logz.io listener IP addresses listed on this page.
 permalink: /user-guide/log-shipping/listener-ip-addresses.html
 show-date: false
 flags:

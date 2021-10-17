@@ -2316,7 +2316,7 @@ paths:
   /v1/authentication/groups:
     get:
       summary: Get authentication groups
-      description: Returns existing authentication groups
+      description: Returns a list of all existing authentication groups
       tags:
         - Authentication groups
       operationId: getAuthGroups
@@ -2330,21 +2330,24 @@ paths:
         200:
           description: successful operation
           schema:
-            type: object
-            properties:
-              group:
-                type: string
-                description: Group name
-                example: group
-              userRole:
-                type: string
-                description: User role
-                example: role
+            type: array
+            items:
+              type: object
+              properties:
+                group:
+                  type: string
+                  description: Group name
+                  example: group
+                userRole:
+                  type: string
+                  description: User role
+                  example: role
 
     post:
       summary: Create/update authentication groups
       description: >-
-        Creates/updates existing authentication groups. Triggering this endpoint will delete all existing sessions. When you add groups, only group members can access the account. If you don’t add any groups, all authenticated users can access the account.
+        Creates/updates existing authentication groups. To create or update groups, you need to send these groups in the payload. With every update, all running user sessions will be terminated, so the users need to login again. To delete a group, you need to exclude this group from the payload that you sed to update groups.
+
       tags:
         - Authentication groups
       operationId: setAuthGroups
@@ -2353,16 +2356,18 @@ paths:
           name: body
           required: true
           schema:
-            type: object
-            properties:
-              group:
-                type: string
-                description: Group name
-                example: group
-              userRole:
-                type: string
-                description: User role
-                example: role
+            type: array
+            items:
+              type: object
+              properties:
+                group:
+                  type: string
+                  description: Group name
+                  example: group
+                userRole:
+                  type: string
+                  description: User role
+                  example: role
       x-code-samples:
       - lang: cURL
         source: 'curl -X POST "http://api.logz.io/v1/authentication/groups" -H "accept: application/json" -H "Content-Type: application/json" -d "[ { \"group\": \"string\", \"userRole\": \"USER_ROLE_READONLY\" }]" -H "X-API-TOKEN: <token>"'
@@ -2370,16 +2375,18 @@ paths:
         200:
           description: successful operation
           schema:
-            type: object
-            properties:
-              group:
-                type: string
-                description: Group name
-                example: group
-              userRole:
-                type: string
-                description: User role
-                example: role
+            type: array
+            items:
+              type: object
+              properties:
+                group:
+                  type: string
+                  description: Group name
+                  example: group
+                userRole:
+                  type: string
+                  description: User role
+                  example: role
 
   /v1/account-management/time-based-accounts:
     get:

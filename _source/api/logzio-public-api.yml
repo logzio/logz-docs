@@ -2325,7 +2325,7 @@ paths:
       parameters:
       x-code-samples:
       - lang: cURL
-        source: 'curl -X GET "http://api.logz.io/v1/authentication/groups" -H "accept: application/json"'
+        source: 'curl -X GET "http://api.logz.io/v1/authentication/groups" -H "accept: application/json" -H "X-API-TOKEN: <token>"'
       responses:
         200:
           description: successful operation
@@ -2365,7 +2365,7 @@ paths:
                 example: role
       x-code-samples:
       - lang: cURL
-        source: 'curl -X POST "http://api.logz.io/v1/authentication/groups" -H "accept: application/json" -H "Content-Type: application/json" -d "[ { \"group\": \"string\", \"userRole\": \"USER_ROLE_READONLY\" }]"'
+        source: 'curl -X POST "http://api.logz.io/v1/authentication/groups" -H "accept: application/json" -H "Content-Type: application/json" -d "[ { \"group\": \"string\", \"userRole\": \"USER_ROLE_READONLY\" }]" -H "X-API-TOKEN: <token>"'
       responses:
         200:
           description: successful operation

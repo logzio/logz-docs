@@ -18,15 +18,12 @@ These instructions only apply to Linux and MacOS systems.
 
 **Before you begin, you'll need**: 
 
-* an active account with Logz.io
-* Filebeat 7 installed on your machine
+* An active account with Logz.io
+* OpenVPN Access Server installed
+* Filebeat 7 installed on the same machine as OpenVPN Access Server
 * Root priveleges on your machines 
 
 <div class="tasklist">
-
-##### Setup OpenVPN Access Server
-
-Setup OpenVPN Access Server on your machine. Filebeat and Access Server need to be installed on the same machine.
   
 
 {% include log-shipping/certificate.md %}

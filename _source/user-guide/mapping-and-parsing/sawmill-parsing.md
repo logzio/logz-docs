@@ -20,8 +20,8 @@ and enriching data with additional information such as geolocation.
 Parsed logs can be more easily analyzed than raw data,
 allowing you to create rich visualizations and helpful alerts.
 
-Parsing is not necessary for all types of logs.
-But if you use a custom or uncommon log type,
+Parsing is not necessary for all types of logs,
+but if you use a custom or uncommon log type,
 parsing can be an invaluable tool.
 
 ## Customize your log parsing with Logz.io Data Parsing

@@ -2,7 +2,8 @@
 layout: article
 title: Custom endpoints
 permalink: /user-guide/integrations/custom-endpoints.html
-tags:
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure a custom endpoint to send Logz.io notifications to the apps you use the most
   - alerts
   - endpoints
   - integrations

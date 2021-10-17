@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Logz.io DIY parsing
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: DIY Logz.io Data Parsing for ingested logs
 permalink: /user-guide/mapping-and-parsing/sawmill-parsing
 flags:
   admin: true
@@ -11,6 +13,16 @@ tags:
 contributors:
   - yberlinger
 ---
+
+Parsing is the process of breaking down your log message into smaller chunks of data,
+placing each chunk into its own specific named field,
+and enriching data with additional information such as geolocation.
+Parsed logs can be more easily analyzed than raw data,
+allowing you to create rich visualizations and helpful alerts.
+
+Parsing is not necessary for all types of logs,
+but if you use a custom or uncommon log type,
+parsing can be an invaluable tool.
 
 ## Customize your log parsing with Logz.io Data Parsing
 
@@ -41,7 +53,7 @@ The syntax requirements for the Logz.io Data Parsing Editor differ from the exam
 <!-- info-box-end -->
 
 
-<!--Future AI, deprecate Parsing Wizard topic at EoL for wizard ==> DEPRECATE _source/user-guide/mapping-and-parsing/data-parsing-wizard.md    -->
+<!--October 2021 - Future AI, deprecate Parsing Wizard topic: Create a note that the Parsing Wizard is EoL for Community (free) accounts, then DEPRECATE _source/user-guide/mapping-and-parsing/data-parsing-wizard.md    -->
 
 ### The Logz.io Data Parsing Editor
 

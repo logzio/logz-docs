@@ -34,7 +34,7 @@ Setup OpenVPN Access Server on your machine. Filebeat and Access Server need to 
 
 ##### Configure Filebeat
 
-1. Paste the following into the inputs section of the Filebeat configuration file:
+Paste the following into the inputs section of the Filebeat configuration file:
 
    ```yaml
    filebeat.inputs:
@@ -75,7 +75,11 @@ Setup OpenVPN Access Server on your machine. Filebeat and Access Server need to 
    * {% include log-shipping/log-shipping-token.md %}
    * {% include log-shipping/listener-var.md %}
 
-2. Run Filebeat with the new configuration.
+##### Restart Filebeat to run it with the new configuration.
+  
+```shell
+service filebeat restart
+```
 
 ##### Check Logz.io for your logs
 

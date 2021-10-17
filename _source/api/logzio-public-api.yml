@@ -2344,7 +2344,7 @@ paths:
     post:
       summary: Create/update authentication groups
       description: >-
-        Creates/updates existing authentication groups. When you add groups, only group members can access the account. If you don’t add any groups, all authenticated users can access the account.
+        Creates/updates existing authentication groups. Triggering this endpoint will delete all existing sessions. When you add groups, only group members can access the account. If you don’t add any groups, all authenticated users can access the account.
       tags:
         - Authentication groups
       operationId: setAuthGroups

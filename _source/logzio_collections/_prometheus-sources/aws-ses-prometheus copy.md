@@ -1,7 +1,7 @@
 ---
 title: Ship Amazon SES metrics
 logo:
-  logofile: aws-sns.svg
+  logofile: aws-ses.png
   orientation: vertical
 data-source: Amazon SES
 templates: ["docker-metricbeat"]

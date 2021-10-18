@@ -9,6 +9,7 @@ tags:
   - sso
 contributors:
   - imnotashrimp
+  - hidan
 ---
 
 Single sign-on (SSO) allows you to manage access to your Logz.io account
@@ -29,10 +30,19 @@ and more secure for your company.
 When you enable SSO on your account,
 you're configuring Logz.io to hand off authentication
 to your identity provider.
-You'll be able expand or restrict a user's access to Logz.io,
+You'll be able to expand or restrict a user's access to Logz.io,
 but not add or remove users from within Logz.io.
 
-All authenticated users will have access to your account, unless you configure groups.
+All authenticated users will have access to your account, and existing users will retain the permission levels they had before SSO was enabled, unless you configure groups.
+
+###### How SSO groups work
+
+Groups allow setting "User" or "Admin" level permissions to users when using SSO.
+(Read more on permission levels [here](https://docs.logz.io/user-guide/accounts/permissions/)).
+
+* Create a group in your SSO provider and add the users to the groups. 
+* Add the group in your Logz.io account from **<i class="li li-gear"></i> Settings > Manage users > Groups tab**.
+* Set the permission level for the group to “User” or “Admin”.
 
 ###### If you don't have any groups
 
@@ -61,6 +71,9 @@ they will get the highest permissions set.
 For example:
 If someone is part of an "User" group and an "Admin" group,
 they'll receive admin permissions.
+
+The same group can be used across multiple accounts, and it needs to be added to each account separately.
+Those who are members of the group will have access to the accounts on which the group is configured.
 
 ## Available identity providers
 

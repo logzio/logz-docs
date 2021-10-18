@@ -2346,7 +2346,16 @@ paths:
     post:
       summary: Create/update authentication groups
       description: >-
-        Creates/updates existing authentication groups. To create or update groups, you need to send these groups in the payload. With every update, all running user sessions will be terminated, so the users need to login again. To delete a group, you need to exclude this group from the payload that you send to update groups. With every deletion, all running user sessions will be terminated, so the users need to login again.
+        Creates/updates existing authentication groups. To create or update groups, you need to send all these groups in the payload. With every update, all running user sessions will be terminated, so the users need to login again. To delete a group, you need to exclude this group from the payload that you send to update groups. With every deletion, all running user sessions will be terminated, so the users need to login again. 
+        
+        
+        **Example 1.** Create groups called `group1` and `group2`. The payload will contain `[ { \"group\": \”group1\”, \"userRole\": \”USER_ROLE_READONLY\” }, { \"group\": \”group2\”, \"userRole\": \”USER_ROLE_ADMIN\” }]`. As a result, the two groups will be created with specified permissions. 
+        
+        
+        **Example 2.** Update existing groups called `group1` and `group2`. The payload will contain `[ { \"group\": \”group1\”, \"userRole\": \”USER_ROLE_ADMIN” }, { \"group\": \”group2\”, \"userRole\": \”USER_ROLE_READONLY\” }]`. As a result, the two groups will be updated with specified permissions. 
+        
+
+        **Example 3.** Delete group called `group1` from the existing two groups: `group1` and `group2`. The payload will contain `[{ \"group\": \”group2\”, \"userRole\": \”USER_ROLE_READONLY\” }]`. As a result, `group1` will be deleted, as it is excluded from the payload.
 
       tags:
         - Authentication groups

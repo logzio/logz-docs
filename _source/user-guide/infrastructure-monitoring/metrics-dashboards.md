@@ -49,6 +49,6 @@ In the list of all available integration, select the integration for which you n
 
 ##### Click the **Install** button
 
-The **Install** button is located at the end of the shipping instructions. Simply click this button and the dashboard will be install in a matter of seconds.
+The **Install** button is located at the end of the shipping instructions. Simply click this button and the dashboard will be installed in a matter of seconds.
 
 <div>

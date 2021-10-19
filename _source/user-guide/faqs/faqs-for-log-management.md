@@ -3,10 +3,9 @@ layout: article
 title: FAQs for Log Management
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Log Management FAQs
-permalink: /user-guide/faqs-for-log-management/
+permalink: /user-guide/faqs/faqs-for-log-management/
 flags:
-  admin: false
-  beta: 
+  admin: 
   logzio-plan: community
 tags:
   - log-shipping
@@ -20,7 +19,7 @@ You've heard it before, but we'll say it again: At Logz.io, customer obsession i
 
 # Integrating with your service or application
 
-## Q: Can we integrate with {the name of your service or application}
+## Q: Can we integrate with a specific service or application?
 
 ## TL;DR - The short version
 

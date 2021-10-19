@@ -16,3 +16,10 @@ Licensed under: <br>
 Source code is located at: [https://github.com/logzio/logzio-grafana](https://github.com/logzio/logzio-grafana) <br>
 License terms can be found at: [placeholder]() <br>
 
+
+| Product | Grafana |
+|---|---|
+| License version | AGPL-3.0 |
+| Licensed under| _placeholder text_ |
+| Source code| [https://github.com/logzio/logzio-grafana](https://github.com/logzio/logzio-grafana)|
+| License terms  | [placeholder]() |

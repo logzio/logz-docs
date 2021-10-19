@@ -394,6 +394,9 @@ firstLevel:
   - title: Videos
     url: https://logz.io/learn/video/
     external: true
+  - title: Open Source Software (OSS) and 3rd-party licenses
+    url: /user-guide/legal/opensource-3rd-party
+    external: false
   - title: Report a security issue
     url: /report-a-security-issue/
     external: false

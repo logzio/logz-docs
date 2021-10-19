@@ -82,7 +82,8 @@ firstLevel:
       url: /user-guide/kibana/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
-
+  - title: FAQs for Log Management
+    url: /user-guide/faqs-for-log-management/
 
     # ===== METRICS INFRASTRUCTURE MONITORING =====
     # the Prometheus remote write topic & dashboard import topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory

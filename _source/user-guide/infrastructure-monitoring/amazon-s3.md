@@ -1,0 +1,34 @@
+---
+layout: article
+title: Amazon S3
+permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-s3.html 
+flags:
+  logzio-plan: pro
+tags:
+  - metrics integrations
+contributors:
+  - nshishkin
+---
+
+## Amazon S3
+
+This dashboard provides an interface to view and analyze storage metrics and dimensions from your Amazon S3.
+
+
+| Metric visualization               | Description                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Bucket size                        | The amount of data in bytes stored in a bucket in the STANDARD storage class, INTELLIGENT\_TIERING storage class, Standard-Infrequent Access (STANDARD\_IA) storage class, OneZone-Infrequent Access (ONEZONE\_IA), Reduced Redundancy Storage (RRS) class, Deep Archive Storage (S3 Glacier Deep Archive) class or, Glacier (GLACIER) storage class. |
+| Number of objects                  | The total number of objects stored in a bucket for all storage classes.                                                                                                                                                                                                                                                                               |
+| Total http requests                | The total number of HTTP requests made to an Amazon S3 bucket, regardless of type.                                                                                                                                                                                                                                                                    |
+| Total request latency              | The elapsed per-request time from the first byte received to the last byte sent to an Amazon S3 bucket.                                                                                                                                                                                                                                               |
+| Download vs Upload rate            | The number of bytes downloaded for requests made to an Amazon S3 bucket, where the response includes a body versus the number of bytes uploaded that contain a request body, made to an Amazon S3 bucket.                                                                                                                                             |
+| Top 10 buckets - bucket size       | Top 10 used buckets size in bytes.                                                                                                                                                                                                                                                                                                                    |
+| Top 10 buckets - number of objects | Number of objects stored in top 10 buckets.                                                                                                                                                                                                                                                                                                           |
+| List requests                      | The number of HTTP requests that list the contents of a bucket.                                                                                                                                                                                                                                                                                       |
+| Put requests                       | The number of HTTP PUT requests made for objects in an Amazon S3 bucket.                                                                                                                                                                                                                                                                              |
+| Get requests                       | The number of HTTP GET requests made for objects in an Amazon S3 bucket. This doesn't include list operations.                                                                                                                                                                                                                                        |
+| Head requests                      | The number of HTTP HEAD requests made to an Amazon S3 bucket.                                                                                                                                                                                                                                                                                         |
+| 4XX errors                         | The number of HTTP 4xx client error status code requests made to an Amazon S3 bucket with a value of either 0 or 1.                                                                                                                                                                                                                                   |
+| 5XX errors                         | The number of HTTP 5xx server error status code requests made to an Amazon S3 bucket with a value of either 0 or 1.                                                                                                                                                                                                                                   |
+| TotalRequestLatency                | The elapsed per-request time from the first byte received to the last byte sent to an Amazon S3 bucket.                                                                                                                                                                                                                                               |
+| FirstByteLatency                   | The per-request time from the complete request being received by an Amazon S3 bucket to when the response starts to be returned.                                                                                                                                                                                                                      |

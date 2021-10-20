@@ -10,9 +10,7 @@ contributors:
   - nshishkin
 ---
 
-## AWS Cloudwatch - API Gateway
-
-This dashboard provides an interface to view and analyze system metrics from AWS Cloudwatch - API Gateway.
+This dashboard provides an interface to view and analyze system metrics from AWS Cloudwatch - API Gateway. To learn more about this integration, check our [documentation](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/aws-apigateway-prometheus).
 
 | Metric visualization                     | Metrci name | Description                                                                                                                                                                                                                                |
 | ---------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

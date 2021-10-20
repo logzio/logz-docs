@@ -229,7 +229,11 @@ Java 8 or higher
 
 ##### Add the dependency to your project
 
-Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project).
+Add a dependency to your project configuration file
+
+###### Installation from Maven
+
+In the `pom.xml` add the following dependencies:
 
 ```xml
 <dependencies>
@@ -242,6 +246,14 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
 ```
 
 The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
+
+###### Installation from Gradle
+
+If you use Gradle, add the dependency to your project as follows:
+
+```java
+implementation 'io.logz.sender:logzio-java-sender:V1.1.2'
+```
 
 ##### Configure the appender
 

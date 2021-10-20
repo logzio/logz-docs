@@ -2,7 +2,7 @@
 layout: article
 title: Open Source Software (OSS) and 3rd-party licenses
 
-permalink: /user-guide/legal/opensource-3rd-party
+permalink: /user-guide/legal/oss-3rd-party
 flags:
   logzio-plan: 
 
@@ -28,3 +28,10 @@ License terms can be found at: [placeholder]() <br>
 |Licensed under: | GNU Affero General Public License v3.0 (AGPLv3.0)|
 |Source code:| [https://github.com/logzio/logzio-grafana](https://github.com/logzio/logzio-grafana)|
 |License terms: |[https://github.com/grafana/grafana/blob/main/LICENSE](https://github.com/grafana/grafana/blob/main/LICENSE) |
+
+
+
+<!-- 
+Netlify
+Jekyll
+GraphCMS -->

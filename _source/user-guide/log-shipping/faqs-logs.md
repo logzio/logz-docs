@@ -107,20 +107,23 @@ This information is also available in the Logz.io Docs **Ship your data** sectio
 
 ### One-time upload
 
-Run the relevant API query per the instructions provided by the application or service and send the response as payload* to the [Logz.io bulk HTTP/S endpoint](https://app.logz.io/#/dashboard/data-sources/Bulk-HTTPS). 
+Run the relevant API query per the instructions provided by the application or service and send the response as  payload to the [Logz.io JSON bulk uploads over HTTP/HTTPs](https://app.logz.io/#/dashboard/send-your-data/log-sources/json-uploads?type=http-config) endpoint. 
 
 This method requires outside bulk HTTP/S endpoint communication on ports 8070 (HTTP) and 8071 (HTTPS).
-
-This information is also available in the Logz.io Docs **Ship your data** section, in the [placeholder]().
-
-### Continuous shipping
-
-This method follows the same instructions as the one-time upload, but we recommend that you script the process to save time and effort. 
 
 <!--info-box-start:info -->
 The payload must be formatted as inline JSON objects separated by a newline. Arrays or pretty-printed JSON payloads will fail.
 {:.info-box.important}
 <!-- info-box-end -->
+
+This information is also available in the Logz.io Docs **Ship your data** section, in the [placeholder](https://docs.logz.io/shipping/log-sources/json-uploads.html).
+
+
+### Continuous shipping
+
+This method follows the same instructions as the one-time upload, but we recommend that you script the process to save time and effort. 
+
+
 
 
 </div>

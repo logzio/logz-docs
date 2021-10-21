@@ -32,9 +32,9 @@ If you try to set another port in your end point, the alert will NOT be sent.
 {:.info-box.important}
 <!--info-box-end -->
 
-If necessary, allowlist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted. For accounts hosted in the Azure regions **West Europe (Netherlands)** or **West US 2 (Washington)**, contact our Customer Success team to discuss your requirements. 
-
 ###### Allowlist IPs per region
+
+If necessary, allowlist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted.  For accounts hosted in the Azure regions **West Europe (Netherlands)** or **West US 2 (Washington)**, contact our Customer Success team to discuss your requirements. 
 
 | Region  | Allowlisted IP  | Cloud |
 |---|---|---|

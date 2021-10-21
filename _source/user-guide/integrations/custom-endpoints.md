@@ -2,12 +2,14 @@
 layout: article
 title: Custom endpoints
 permalink: /user-guide/integrations/custom-endpoints.html
-tags:
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure custom endpoints to integrate Logz.io notifications with your favorite alerting tools
   - alerts
   - endpoints
   - integrations
 contributors:
   - shalper
+  - yberlinger
 ---
 
 Integrate with your favorite tools using a custom webhook. Configuring a custom endpoint will allow you to send Logz.io notifications to your preferred apps,
@@ -24,17 +26,28 @@ of allowing you to customize the message body too.
 
 Set up your systems to receive notifications from Logz.io.
 
-Logz.io log alerts can only be sent on **ports 80 & 443**. If you try setting another port in your endpoint, the alert will NOT be sent.
+<!-- info-box-start:info --> 
+Alerts can only be sent on **ports 80 & 443**.
+If you try to set another port in your end point, the alert will NOT be sent.
+{:.info-box.important}
+<!--info-box-end -->
 
-If you need to, allowlist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted:
+###### Allowlist IPs per region
 
-| Region slug | Allowlisted IP  |
-|---|---|
-| us-east-1 | 75.101.240.34, 54.86.133.203 |
-| eu-central-1 | 52.28.84.118, 52.59.12.246 |
-| ca-central-1 | 3.97.162.114 |
-| eu-west-2 | 18.168.65.253, 35.177.1.213 |
-| ap-southeast-2 | 3.104.195.194 |
+If necessary, allowlist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted.  For accounts hosted in the Azure regions **West Europe (Netherlands)** or **West US 2 (Washington)**, contact our Customer Success team to discuss your requirements. 
+
+| Region  | Allowlisted IP  | Cloud |
+|---|---|---|
+| us-east-1 | 3.223.132.12 | AWS |
+| eu-central-1 | 52.59.86.203 | AWS |
+| ca-central-1 | 35.182.168.208 | AWS |
+| eu-west-2 | 18.132.31.199 | AWS |
+| ap-southeast-2 | 3.105.7.135 | AWS |
+
+<!--  21 Oct 2021: These table entries are on hold until the issue with Azure regions is resolved
+| westeurope | x.x.x.x | Azure |
+| westus2 | x.x.x.x | Azure |  -->
+
 
 
 ##### Create a verification token (_Best practice but optional_)
@@ -73,7 +86,7 @@ Some endpoints require a particular attribute/payload. For example, [Microsoft T
 {:.info-box.important}
 
 
-![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST.png)
+![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST_2021.png)
 
 
 ##### Configure your payload to add data to your alert notifications

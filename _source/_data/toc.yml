@@ -336,7 +336,7 @@ firstLevel:
       url: /user-guide/mapping-and-parsing/split-json-array.html
     - title: Logz.io DIY Data Parsing
       url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
-    - title: Parsing Wizard
+    - title: Parsing Wizard (deprecated)
       url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
   # ===== INTEGRATIONS =====

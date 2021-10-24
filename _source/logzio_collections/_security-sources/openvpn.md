@@ -37,6 +37,7 @@ Paste the following into the inputs section of the Filebeat configuration file:
    filebeat.inputs:
    - type: log
      paths:
+       - /var/log/openvpnas.log
        - /var/log/openvpnas.log.*
      fields:
        logzio_codec: json

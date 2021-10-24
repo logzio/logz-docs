@@ -26,11 +26,21 @@ To send your Prometheus-format Apache Cassandra metrics to Logz.io, you need to 
   
 ##### Install Jolokia agent on your Cassandra server
   
-Run the following command to download Jolokia agent and enable it in your Cassandra server:
+<!-- info-box-start:info -->
+You need to install and enable Jolokia on every Cassandra server.
+{:.info-box.note}
+<!-- info-box-end -->
+    
+Download Jolokia agent to `/usr/share/java`:
   
 ```shell
-RUN curl -L http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.6.0/jolokia-jvm-1.6.0-agent.jar > jolokia-jvm-1.6.0-agent.jar
-ENV JVM_OPTS="$JVM_OPTS -javaagent:/opt/bitnami/cassandra/lib/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost"
+RUN curl -L http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.6.0/jolokia-jvm-1.6.0-agent.jar
+```
+
+##### Enable Jolokia agent on your Cassandra server
+    
+```shell
+JVM_OPTS="$JVM_OPTS -javaagent:/usr/share/java/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost"
 ```
   
 ##### Restart Cassandra

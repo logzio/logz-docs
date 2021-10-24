@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Archive & restore
+title: Archive & Restore
 permalink: /user-guide/archive-and-restore/
 flags:
   admin: true
@@ -16,8 +16,10 @@ Archiving provides a cost-effective solution for long-term storage of logs that 
 
 When you need to investigate old logs after they have expired from your account, you can restore them to a temporary account with no additional storage costs.
 
+<!--info-box-start:info -->
 Restored accounts are complimentary, and do not count against your daily log volume.
 {:.info-box.tip}
+<!--info-box-end -->
 
 ![Archive and restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/new-annotated-archive.png)
 

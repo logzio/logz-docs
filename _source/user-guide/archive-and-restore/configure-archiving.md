@@ -29,6 +29,8 @@ The Logz.io archiver copies incoming logs to your selected storage container. Th
 
 #### To set up archiving in AWS
 
+
+
 **Before you begin, you'll need**:
 
 * An AWS S3 bucket with appropriate permissions. The recommended permissions are `PutObject`, `ListBucket`, and `GetObject`. [Learn more](/user-guide/archive-and-restore/set-s3-permissions.html)

@@ -19,7 +19,7 @@ contributors:
 
 You can archive logs to either an Amazon S3 bucket or a Microsoft Azure Storage container.
 
-The Logz.io archiver copies incoming logs to your selected storage container. The data is archived in its "raw" state - pre-indexing and pre-mapping.
+The Logz.io archiver copies incoming logs to your selected storage container. The data is archived in its "raw" state ~ pre-indexing and pre-mapping.
 
 ###### On this page
 {:.no_toc}
@@ -28,6 +28,12 @@ The Logz.io archiver copies incoming logs to your selected storage container. Th
 {:toc}
 
 #### To set up archiving in AWS
+
+
+<!--info-box-start:info -->
+Archiving with AWS S3 is only available for accounts in the following AWS regions: US East (Northern Virginia), Asia Pacific (Sydney), Canada (Central), Europe (Frankfort), Europe (London)
+{:.info-box.note}
+<!--info-box-end -->
 
 **Before you begin, you'll need**:
 
@@ -48,9 +54,10 @@ we recommend authenticating with an IAM role.
 * To set up an access key, see
   [_Give AWS access with access keys_]({{site.baseurl}}/user-guide/give-aws-access-with-access-keys/)
 
-
+<!--info-box-start:info -->
 Select a path to the **root of an S3 bucket**, to support data restore options. Data cannot be restored from a sub-bucket path.
 {:.info-box.important}
+<!--info-box-end -->
 
 ##### Test your connection and save
 
@@ -74,6 +81,11 @@ and selecting **Remove my S3 settings** in the confirmation box.
 </div>
 
 #### To set up archiving in Microsoft Azure
+
+<!--info-box-start:info -->
+Archiving with Microsoft Azure is only available for accounts in the following Azure regions: West Europe (Netherlands) and West US 2 (Washington) 
+{:.info-box.note}
+<!--info-box-end -->
 
 **Before you begin, you'll need**:
 

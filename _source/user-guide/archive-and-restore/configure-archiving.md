@@ -30,6 +30,10 @@ The Logz.io archiver copies incoming logs to your selected storage container. Th
 #### To set up archiving in AWS
 
 
+<!--info-box-start:info -->
+Archiving with AWS S3 is only available for accounts in the following AWS regions: US East (Northern Virginia), Asia Pacific (Sydney), Canada (Central), Europe (Frankfort), Europe (London)
+{:.info-box.note}
+<!--info-box-end -->
 
 **Before you begin, you'll need**:
 
@@ -76,6 +80,11 @@ and selecting **Remove my S3 settings** in the confirmation box.
 </div>
 
 #### To set up archiving in Microsoft Azure
+
+<!--info-box-start:info -->
+Archiving with Microsoft Azure is only available for accounts in the following Azure regions: West Europe (Netherlands) and West US 2 (Washington) 
+{:.info-box.note}
+<!--info-box-end -->
 
 **Before you begin, you'll need**:
 

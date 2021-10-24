@@ -68,7 +68,7 @@ This information is also available in the Logz.io Docs, via [**Ship data > Logs*
 
 ### One time upload
 
-cURL file upload enables single file shipping and comes native with both MacOs and Linux.  The full command syntax can be found in our [cURL shipping instructions](https://app.logz.io/#/dashboard/data-sources/File-UploadcURL). 
+**cURL file upload** enables single file shipping and comes native with both MacOs and Linux.  The full command syntax can be found in our [cURL shipping instructions](https://app.logz.io/#/dashboard/data-sources/File-UploadcURL). 
 Windows users can [download the files from the official website.](https://curl.haxx.se/download.html)
 
 This method requires the following outside communication ports: 
@@ -80,9 +80,13 @@ This information is also available in the Logz.io Docs, in [**Ship your data > L
 
 
 ### Continuous shipping
-[Filebeat](https://app.logz.io/#/dashboard/data-sources/Filebeat) is your best option: It's lightweight, reliable, and easy to set up. Other options: [Logstash](https://app.logz.io/#/dashboard/data-sources/Logstash-overSSL), [Rsyslog](https://app.logz.io/#/dashboard/data-sources/rsyslog-overTLS), and [Fluentd.](https://app.logz.io/#/dashboard/data-sources/Fluentd) 
+[Filebeat](https://app.logz.io/#/dashboard/data-sources/Filebeat) is your best option: It's lightweight, reliable, and easy to set up. This method requires outside communication on port 5015.
 
-This method requires outside communication on port 5015.
+Other options: 
+
+- [Logstash](https://app.logz.io/#/dashboard/data-sources/Logstash-overSSL): This method requires outside communication on port 5006 (encrypted) or port 5050 (unencrypted).
+- [Rsyslog](https://app.logz.io/#/dashboard/data-sources/rsyslog-overTLS): This method requires outside communication on port 5001.
+- [Fluentd](https://app.logz.io/#/dashboard/data-sources/Fluentd): This method requires outside communication on port 8071.
 
 This information is also available in the Logz.io Docs **Ship your data** section in the [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), [Logstash](https://docs.logz.io/shipping/log-sources/logstash.html), [Rsyslog over TLS](https://docs.logz.io/shipping/log-sources/rsyslog.html), and [Fluentd](https://docs.logz.io/shipping/log-sources/fluentd.html) topics.
 </div>
@@ -116,7 +120,7 @@ The payload must be formatted as inline JSON objects separated by a newline. Arr
 {:.info-box.important}
 <!-- info-box-end -->
 
-This information is also available in the Logz.io Docs **Ship your data** section, in the [placeholder](https://docs.logz.io/shipping/log-sources/json-uploads.html).
+This information is also available in the Logz.io Docs **Ship your data** section, in the [Upload JSON logs](https://docs.logz.io/shipping/log-sources/json-uploads.html) topic.
 
 
 ### Continuous shipping
@@ -129,6 +133,3 @@ This method follows the same instructions as the one-time upload, but we recomme
 </div>
 <!-- tab:end -->
 </div>
-
-
-###### _You've heard it before, but we'll say it again: At Logz.io, customer obsession is in our DNA. We're here to make cloud observability easy, valuable, and cost effective._

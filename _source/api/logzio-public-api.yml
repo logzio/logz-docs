@@ -5224,7 +5224,7 @@ paths:
                 description: Not Found. Could not find the sub account associated with this request or the relevant owner account for the sub account.  
       x-code-samples:
         - lang: cURL
-          source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"Name\": \"newAPITokenTest999\", \"accountId\":7386}"'
+          source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"name\": \"newAPITokenTest999\", \"accountId\":7386}"'
 
 
   # ::::: SNAPSHOTS

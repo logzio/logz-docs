@@ -68,7 +68,7 @@ This information is also available in the Logz.io Docs, via [**Ship data > Logs*
 
 ### One time upload
 
-**cURL file upload** enables single file shipping and comes native with both MacOs and Linux.  The full command syntax can be found in our [cURL shipping instructions](https://app.logz.io/#/dashboard/data-sources/File-UploadcURL). 
+**cURL file upload** enables single file shipping and comes native with both MacOs and Linux.  The full command syntax can be found in our [cURL shipping instructions](https://app.logz.io/#/dashboard/send-your-data/log-sources/curl). 
 Windows users can [download the files from the official website.](https://curl.haxx.se/download.html)
 
 This method requires the following outside communication ports: 
@@ -80,13 +80,13 @@ This information is also available in the Logz.io Docs, in [**Ship your data > L
 
 
 ### Continuous shipping
-[Filebeat](https://app.logz.io/#/dashboard/data-sources/Filebeat) is your best option: It's lightweight, reliable, and easy to set up. This method requires outside communication on port 5015.
+[Filebeat](https://app.logz.io/#/dashboard/send-your-data/log-sources/filebeat) is your best option: It's lightweight, reliable, and easy to set up. This method requires outside communication on port 5015.
 
 Other options: 
 
-- [Logstash](https://app.logz.io/#/dashboard/data-sources/Logstash-overSSL): This method requires outside communication on port 5006 (encrypted) or port 5050 (unencrypted).
-- [Rsyslog](https://app.logz.io/#/dashboard/data-sources/rsyslog-overTLS): This method requires outside communication on port 5001.
-- [Fluentd](https://app.logz.io/#/dashboard/data-sources/Fluentd): This method requires outside communication on port 8071.
+- [Logstash](https://app.logz.io/#/dashboard/send-your-data/log-sources/logstash): This method requires outside communication on port 5006 (encrypted) or port 5050 (unencrypted).
+- [Rsyslog](https://app.logz.io/#/dashboard/send-your-data/log-sources/rsyslog): This method requires outside communication on port 5001.
+- [Fluentd](https://app.logz.io/#/dashboard/send-your-data/log-sources/fluentd): This method requires outside communication on port 8071.
 
 This information is also available in the Logz.io Docs **Ship your data** section in the [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), [Logstash](https://docs.logz.io/shipping/log-sources/logstash.html), [Rsyslog over TLS](https://docs.logz.io/shipping/log-sources/rsyslog.html), and [Fluentd](https://docs.logz.io/shipping/log-sources/fluentd.html) topics.
 </div>
@@ -96,7 +96,7 @@ This information is also available in the Logz.io Docs **Ship your data** sectio
 <!-- tab:start -->
 <div id="cloud">
 
-We have existing integrations with both [S3](https://app.logz.io/#/dashboard/data-sources/S3-Bucket) and [Azure Blob](https://app.logz.io/#/dashboard/data-sources/Azure-BlobStorage) storage.
+We have existing integrations with both [S3](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket) and [Azure Blob](https://app.logz.io/#/dashboard/send-your-data/log-sources/azure-blob) storage.
 
 This information is also available in the Logz.io Docs **Ship your data** section, in the [S3 Bucket](https://docs.logz.io/shipping/log-sources/s3-bucket.html)  and [Azure Blob Storage](https://docs.logz.io/shipping/log-sources/azure-blob.html) topics.
 

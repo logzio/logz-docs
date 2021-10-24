@@ -23,6 +23,27 @@ To send your Prometheus-format Apache Cassandra metrics to Logz.io, you need to 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">
+  
+##### Install Jolokia agent on your Cassandra server
+  
+Run the following command to download Jolokia agent and enable it in your Cassandra server:
+  
+```shell
+RUN curl -L http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.6.0/jolokia-jvm-1.6.0-agent.jar > jolokia-jvm-1.6.0-agent.jar
+ENV JVM_OPTS="$JVM_OPTS -javaagent:/opt/bitnami/cassandra/lib/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost"
+```
+  
+##### Restart Cassandra
+  
+```shell
+sudo service cassandra restart
+```
+
+##### Verify Jolokia is accessible
+
+```shell
+curl http://localhost:8778/jolokia/
+```
 
 ##### Set up Telegraf v1.17 or higher on your Cassandra server
 

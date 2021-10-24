@@ -79,6 +79,10 @@ This method requires the following outside communication ports:
 This information is also available in the Logz.io Docs, in [**Ship your data > Logs > cURL file upload**](https://docs.logz.io/shipping/log-sources/curl.html).
 
 
+**Invoke-RestMethod file upload** allows you to interact with REST APIs in PowerShell to upload JSON or plain text files. You can use Invoke_RestMethod to test your configuration or troubleshoot your connectivity to Logz.io. The full command syntax can be found in [Invoke-RestMethod file upload](https://app.logz.io/#/dashboard/send-your-data/log-sources/file-upload).
+
+This information is also available in the Logz.io Docs, in [**Ship your data > Logs > Upload log files using Invoke-RestMethod**](https://docs.logz.io/shipping/log-sources/file-upload.html).
+
 ### Continuous shipping
 [Filebeat](https://app.logz.io/#/dashboard/send-your-data/log-sources/filebeat) is your best option: It's lightweight, reliable, and easy to set up. This method requires outside communication on port 5015.
 

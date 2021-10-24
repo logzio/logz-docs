@@ -318,8 +318,11 @@ firstLevel:
     url: /shipping/
 #  - title: Log shipping intro
 #    url: /user-guide/log-shipping/
+
   - title: Resources
     thirdLevel:
+    - title: FAQs about sending logs
+      url: /user-guide/log-shipping/faqs-logs/
     - title: Log shipping troubleshooting
       url: /user-guide/log-shipping/log-shipping-troubleshooting.html
     - title: Troubleshooting Filebeat
@@ -328,6 +331,7 @@ firstLevel:
       url: /user-guide/log-shipping/listener-ip-addresses.html
     - title: Hosting regions
       url: /user-guide/accounts/account-region.html
+
   - title: Log Parsing
     thirdLevel:
     - title: Default parsing

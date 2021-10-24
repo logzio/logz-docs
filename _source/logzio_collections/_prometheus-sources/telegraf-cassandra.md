@@ -57,6 +57,12 @@ curl http://localhost:8778/jolokia/
 
 ##### Set up Telegraf v1.17 or higher on your Cassandra server
 
+<!-- info-box-start:info -->
+You need to install Telegraf on every Cassandra server.
+{:.info-box.note}
+<!-- info-box-end -->
+
+  
 {% include metric-shipping/telegraf-setup.md %}
 
 ##### Add the inputs.jolokia2_agent plug-in

@@ -59,6 +59,9 @@ Select a path to the **root of an S3 bucket**, to support data restore options. 
 {:.info-box.important}
 <!--info-box-end -->
 
+###### Related information
+You may also be interested in the API methods included in [**Connect to AWS S3 Buckets**](https://docs.logz.io/api/#tag/Connect-to-S3-Buckets) and [**Archive logs**](https://docs.logz.io/api/#tag/Archive-logs).
+
 ##### Test your connection and save
 
 Click **Test connection** to make sure your bucket name and credentials

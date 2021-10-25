@@ -1,6 +1,8 @@
 ---
 layout: article
 title: The data parsing wizard (deprecated)
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Log data parsing wizard for Community (free) accounts
 permalink: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 flags:
   logzio-plan: community

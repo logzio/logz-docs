@@ -16,6 +16,8 @@ order: 800
 
 ## Overview
 
+[Apache Cassandra](https://cassandra.apache.org/) is an open source NoSQL distributed database management system designed to process large amounts of data across commodity servers.
+
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your JMX-format Apache Cassandra metrics to Logz.io, you need to add the **inputs.jolokia2_agent** and **outputs.http** plug-ins to your Telegraf configuration file.

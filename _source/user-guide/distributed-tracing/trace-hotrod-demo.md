@@ -8,14 +8,15 @@ tags:
   - distributed tracing
 contributors:
   - yberlinger
+  - hidan
 ---
 Not ready to instrument and deploy components? <br>
-We've got you covered with an app that can send demo traces to your Distributed Tracing. 
-<br>Using the HotROD app is so easy, and so fast, that you'll be searching for traces in Logz.io within a few minutes of setting up the app! 
+We've got you covered with an app that can send demo traces to your Distributed Tracing.
+<br><br>Using the HotROD app is so easy, and so fast, that you'll be searching for traces in Logz.io within a few minutes of setting up the app! 
 
-### About the HotROD demo application
+## What's HotROD demo application? ##
 
-HotROD (Rides on Demand) is a demo application that consists of several microservices that send requests to each other. The application is used to illustrate the use of the OpenTracing API. It can be run standalone, but requires a Jaeger backend to view the traces. 
+HotROD (Rides on Demand) is a demo application, created by Logz.io, that consists of several microservices that send requests to each other. The application is used to illustrate the use of the OpenTracing API. It can be run standalone, but requires a Jaeger backend to view the traces. 
 
 The _HotROD (Rides on Demand)_ application generates a web page with four customer buttons to order a car to the customer's business to pick up passengers or merchandise for delivery to a desired location. 
 
@@ -35,7 +36,7 @@ In this example, the web client ID is 1465. All the ride requests generated in t
 + Latency - how long the backend took to respond, as measured by the Javascript UI.
 
 
-And once you open the Distributed Tracing tab, select a service, and **Find Traces**: ![HotROD traces in Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traces-hotrod-res8lts.png)
+And once you open the Distributed Tracing tab, select a service, and **Find Traces**: ![HotROD traces in Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traces-hotrod-driver-results_oct21.png	)
 
 For more background information, visit the <a href ="https://github.com/jaegertracing/jaeger/tree/master/examples/hotrod" target="_blank">  HotROD in Github project <i class="fas fa-external-link-alt"></i>. </a> 
 
@@ -43,13 +44,15 @@ For more background information, visit the <a href ="https://github.com/jaegertr
 
 ## Getting started with HotROD demo traces 
 
-This topic explains how to set up the Logz.io sample application to send demo traces to your Logz.io Distributed Tracing account. You'll use a simple yaml configuration file to deploy the following components in a Docker environment:
+This topic explains how to set up the Logz.io HotROD sample application to send demo traces to your Distributed Tracing account. 
 
-+ A modified HotROD sample application, based on the original project developed to demonstrate distributed tracing.
+During this process, you'll use a simple yaml configuration file to deploy the following components in a Docker environment:
+
++ A modified HotROD sample application, based on the original project developed to demonstrate distributed tracing
 + The Jaeger agent
 + The Logz.io Jaeger collector
 
-The <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  Logz.io **tracing-demo** project repository <i class="fas fa-external-link-alt"></i> </a> includes modified configuration paramaters to create the HotROD web app. The app sends data to a Logz.io Jaeger collector that you configure to work with your Distributed Tracing account.  Click to open the <a href ="https://github.com/logzio/tracing-demo/blob/main/README.md" target="_blank"> **README** for the tracing demo project </a>
+*The Logz.io **tracing-demo** project repository includes modified configuration paramaters to create the HotROD web app. The app sends data to a Logz.io Jaeger collector that you configure to work with your Distributed Tracing account.  Click to open the <a href ="https://github.com/logzio/tracing-demo/blob/main/README.md" target="_blank"> **README** for the tracing demo project. </a>*
 
 <!--The configuration repository <a href ="https://github.com/logzio/tracing-demo"  target="_blank">  is here <i class="fas fa-external-link-alt"></i> </a>. -->
 
@@ -64,20 +67,22 @@ To run the demo configuration and deploy the components, you must have the follo
 
 We've streamlined the process: Use the **.env** file to add your Logz.io credentials to the demo config. 
 
-Updating the **.env** file in the <a href ="https://github.com/logzio/tracing-demo" target="_blank"> Logz.io tracing demo repo <i class="fas fa-external-link-alt"></i>  </a> with your tracing account token and region code 
+Updating the **.env** file in the Logz.io tracing demo repo with your tracing account token and region code 
 adds your `jaeger-logzio-collector` definition parameters to the yaml file, in the `environment` section.
 
-_To update your parameters, in the **.env** file:_ 
+##### To update your parameters, in the **.env** file: #####
+_Please note: If you can't find the **.env** file in your list, it might be hidden._
 
 1. Use a terminal to grab the repo code using the git command:  `git clone https://github.com/logzio/tracing-demo.git` and change directories: `cd tracing-demo`.
-1. Open the **.env** file and update the parameters with your preferred text editor.
+
+1. Open the `.env` file and update the parameters with your preferred text editor.
 1. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. {% include tracing-shipping/tracing-token.md %}
 1. Enter the correct 2-letter code for your region in the second line: `REGION_CODE=Enter your region code here`<br>
     Look up the 2-letter code for your region in the <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> 
    
    You can find your the region code for your account in the General settings page, here: <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> >Settings > General**.
 
-   ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings.png)
+   ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traces-general-settings_oct21.png	)
 
 
 1. Save and close the updated **.env** file.     
@@ -109,4 +114,3 @@ _To run the demo:_
 After you send traces with the tracing demo app, navigate to the <a href = "https://app.logz.io/#/dashboard/jaeger/search?switchToAccountId=2977"  target ="_blank"> Distributed Tracing tab in Logz.io </a>, select a service and click **Find Traces** to view your generated trace data.    
 
 Visit the docs to learn more about <a href=" /user-guide/distributed-tracing"  target ="_blank"> Logz.io Distributed Tracing. </a>
-

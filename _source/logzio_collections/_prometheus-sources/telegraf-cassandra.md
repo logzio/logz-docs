@@ -18,7 +18,7 @@ order: 800
 
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Apache Cassandra metrics to Logz.io, you need to add the **inputs.jolokia2_agent** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your JMX-format Apache Cassandra metrics to Logz.io, you need to add the **inputs.jolokia2_agent** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 

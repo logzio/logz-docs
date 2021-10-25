@@ -1,7 +1,7 @@
 ---
 title: Ship HAProxy logs
 logo:
-  logofile: haproxy.png
+  logofile: haproxy-logo.png
   orientation: horizontal
 data-source: HAProxy
 templates: ["no-template"]

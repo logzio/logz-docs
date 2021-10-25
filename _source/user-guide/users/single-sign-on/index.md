@@ -37,12 +37,12 @@ All authenticated users will have access to your account, and existing users wil
 
 ###### How SSO groups work
 
-Groups allow setting "User" or "Admin" level permissions to users when using SSO.
+Groups allow setting **User** or **Admin** level permissions to users when using SSO.
 (Read more on permission levels [here](https://docs.logz.io/user-guide/accounts/permissions/)).
 
 * Create a group in your SSO provider and add the users to the groups. 
-* Add the group in your Logz.io account from **<i class="li li-gear"></i> Settings > Manage users > Groups tab**.
-* Set the permission level for the group to “User” or “Admin”.
+* Add the group in your Logz.io account from **<i class="li li-gear"></i> Settings > [Manage users > Groups tab](https://app.logz.io/#/dashboard/settings/manage-users)**.
+* Set the permission level for the group to **User** or **Admin**.
 
 ###### If you don't have any groups
 
@@ -51,8 +51,8 @@ all users who authenticate with your identity provider
 will be able to access your Logz.io account.
 
 The first time a new user logs in,
-they're given "User" access.
-You can edit a user to change them to "Admin" access.
+they're given **User** access.
+Existing admins can edit a user to change them to **Admin** access.
 
 Existing users will retain their current level of access.
 
@@ -61,15 +61,15 @@ Existing users will retain their current level of access.
 As soon as you configure your first group,
 only users who are part of that SSO group will be able to log in to this account.
 
-Each group can be given "Admin", "User", or "Configured per user" permissions.
+Each group can be given **Admin**, **User**, or **Configured per user** permissions.
 
 Permissions are set at the group level
-unless a group is set to "Configured per user".
+unless a group is set to **Configured per user**.
 If a user is part of multiple groups,
 they will get the highest permissions set.
 
 For example:
-If someone is part of an "User" group and an "Admin" group,
+If someone is part of an **User** group and an **Admin** group,
 they'll receive admin permissions.
 
 The same group can be used across multiple accounts, and it needs to be added to each account separately.

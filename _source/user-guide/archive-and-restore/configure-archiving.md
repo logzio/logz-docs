@@ -13,6 +13,7 @@ contributors:
   - ayigal
   - schwin007
   - shalper
+  - yberlinger
 ---
 
 ![Archive settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/archive-settings-112020.png)
@@ -26,6 +27,10 @@ The Logz.io archiver copies incoming logs to your selected storage container. Th
 
 1. toc list
 {:toc}
+
+**Related information**
+
+You may also be interested in the API methods included in [**Archive logs**](https://docs.logz.io/api/#tag/Archive-logs) and [**Connect to AWS S3 Buckets**](https://docs.logz.io/api/#tag/Connect-to-S3-Buckets).
 
 #### To set up archiving in AWS
 
@@ -106,3 +111,4 @@ From now on, Logz.io will archive your logs as they come in.
 You can stop archiving at any time.
 
 </div>
+

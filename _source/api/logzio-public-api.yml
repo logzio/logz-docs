@@ -2939,7 +2939,7 @@ paths:
             $ref: '#/definitions/ArchiveSettingsResponse'
     post:
       summary: Set up archiving
-      description: Configure archiving for a time-based log account. One archive can be configured per account (or sub account).
+      description: Configure archiving for a time-based log account. One archive can be configured per account (or sub account). For more on this, see https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/ and https://docs.logz.io/user-guide/archive-and-restore/configure-archiving.html.
       tags:
         - Archive logs
       operationId: createSettings

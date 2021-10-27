@@ -4,6 +4,7 @@ logo:
   logofile: nodejs.svg
   orientation: vertical
 data-source: Automatic Node.js instrumentation
+data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

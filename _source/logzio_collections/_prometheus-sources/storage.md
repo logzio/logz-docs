@@ -4,6 +4,7 @@ logo:
   logofile: gcpstorage.png
   orientation: vertical
 data-source: Google Cloud Storage
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

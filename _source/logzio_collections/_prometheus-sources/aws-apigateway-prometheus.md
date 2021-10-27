@@ -4,6 +4,7 @@ logo:
   logofile: aws-api-gateway.svg
   orientation: vertical
 data-source: Amazon API Gateway
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

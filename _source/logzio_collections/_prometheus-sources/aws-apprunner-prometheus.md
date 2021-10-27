@@ -4,6 +4,7 @@ logo:
   logofile: aws-fusion.svg   
   orientation: vertical
 data-source: Amazon AppRunner
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

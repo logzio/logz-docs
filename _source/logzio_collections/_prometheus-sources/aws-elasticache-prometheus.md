@@ -4,6 +4,7 @@ logo:
   logofile: Amazon-ElastiCache.svg
   orientation: vertical
 data-source: Amazon ElastiCache
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

@@ -4,6 +4,7 @@ logo:
   logofile: AWS-WAF.svg
   orientation: vertical
 data-source: AWS WAF
+data-for-product-source: Cloud SIEM
 templates: ["no-template"]
 contributors:
   - shalper

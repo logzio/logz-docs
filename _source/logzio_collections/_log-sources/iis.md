@@ -4,6 +4,7 @@ logo:
   logofile: iis.png
   orientation: horizontal
 data-source: Microsoft IIS
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - imnotashrimp

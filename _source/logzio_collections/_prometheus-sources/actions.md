@@ -4,6 +4,7 @@ logo:
   logofile: assistant.png
   orientation: vertical
 data-source: Google Assistant Smart Home
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

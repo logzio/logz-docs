@@ -4,6 +4,7 @@ logo:
   logofile: clickhouse.png
   orientation: vertical
 data-source: ClickHouse
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

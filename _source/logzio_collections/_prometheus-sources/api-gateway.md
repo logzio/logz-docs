@@ -4,6 +4,7 @@ logo:
   logofile: apigateway.png
   orientation: vertical
 data-source: Google API Gateway
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -4,6 +4,7 @@ logo:
   logofile: memorystore.png
   orientation: vertical
 data-source: Google Memorystore for Redis
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

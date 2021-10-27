@@ -4,6 +4,7 @@ logo:
   logofile: Azure-native-integration2.png
   orientation: vertical
 data-source: Azure native integration
+data-for-product-source: Logs
 templates: ["azure-deployment"]
 contributors:
   - nshishkin

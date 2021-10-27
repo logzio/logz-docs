@@ -4,6 +4,7 @@ logo:
   logofile: okta.png
   orientation: vertical
 data-source: Okta
+data-for-product-source: Cloud SIEM
 templates: ["docker"]
 open-source:
   - title: logzio-okta

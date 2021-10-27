@@ -4,6 +4,7 @@ logo:
   logofile: phpfpm-logo.png
   orientation: vertical
 data-source: PHP-FPM 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

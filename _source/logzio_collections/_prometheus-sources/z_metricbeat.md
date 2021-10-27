@@ -4,6 +4,7 @@ logo:
   logofile: metricbeat_logo.svg
   orientation: horizontal
 data-source: Metricbeat integrations
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 contributors:
   - yberlinger

@@ -4,6 +4,7 @@ logo:
   logofile: modsec.png
   orientation: horizontal
 data-source: ModSecurity
+data-for-product-source: Cloud SIEM
 contributors:
   - dorisnaaman
   - shalper

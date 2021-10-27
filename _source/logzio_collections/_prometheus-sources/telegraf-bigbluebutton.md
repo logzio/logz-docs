@@ -4,6 +4,7 @@ logo:
   logofile: bigbluebutton-logo.png
   orientation: vertical
 data-source: Big Blue Button
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

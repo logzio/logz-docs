@@ -4,6 +4,7 @@ logo:
   logofile: azc-logo.png
   orientation: horizontal
 data-source: Azure Security Center
+data-for-product-source: Cloud SIEM
 templates: ["no-template"]
 open-source:
   - title: Logzio-MSGraph

@@ -4,6 +4,7 @@ logo:
   logofile: cisco-meraki-logo.png
   orientation: horizontal
 data-source: Cisco Meraki
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

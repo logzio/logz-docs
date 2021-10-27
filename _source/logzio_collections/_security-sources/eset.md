@@ -4,6 +4,7 @@ logo:
   logofile: eset.png
   orientation: vertical
 data-source: ESET
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

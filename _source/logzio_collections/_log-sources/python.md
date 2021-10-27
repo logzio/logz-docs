@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 short-description: Use the Logz.io Python Handler to bulk send logs to Logz.io via HTTPS.
 data-source: Python code
+data-for-product-source: Logs
 templates: ["library"]
 open-source:
   - title: Logz.io Python Handler

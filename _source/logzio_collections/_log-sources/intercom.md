@@ -4,6 +4,7 @@ logo:
   logofile: intercom.png
   orientation: vertical
 data-source: Intercom
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - nshishkin

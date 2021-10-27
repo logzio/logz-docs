@@ -4,6 +4,7 @@ logo:
   logofile: cassandra-logo.png
   orientation: vertical
 data-source: Apache Cassandra 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

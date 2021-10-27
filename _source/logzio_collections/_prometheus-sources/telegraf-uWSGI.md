@@ -4,6 +4,7 @@ logo:
   logofile: uwsgi-logo1.png
   orientation: vertical
 data-source: uWSGI 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

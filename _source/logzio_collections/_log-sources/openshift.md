@@ -4,6 +4,7 @@ logo:
   logofile: openshift.png
   orientation: vertical
 data-source: OpenShift
+data-for-product-source: Logs
 open-source:
   - title: logzio-openshift
     github-repo: logzio-openshift

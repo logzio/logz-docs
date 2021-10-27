@@ -4,6 +4,7 @@ logo:
   logofile: cloudlogging.png
   orientation: vertical
 data-source: Google Cloud Logging
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

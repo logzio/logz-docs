@@ -4,6 +4,7 @@ logo:
   logofile: gcpnetwork.png
   orientation: vertical
 data-source: Google Network Topology
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

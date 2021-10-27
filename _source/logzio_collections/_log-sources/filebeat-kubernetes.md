@@ -4,6 +4,7 @@ logo:
   logofile: k8s-beats.svg
   orientation: horizontal
 data-source: Filebeat DaemonSet for Kubernetes
+data-for-product-source: Logs
 templates: ["no-template", "no-template"]
 shipping-tags:
   - container

@@ -4,6 +4,7 @@ logo:
   logofile: interconnect.png
   orientation: vertical
 data-source: Google Cloud Interconnect
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

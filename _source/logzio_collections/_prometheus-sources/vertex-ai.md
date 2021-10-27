@@ -4,6 +4,7 @@ logo:
   logofile: vertexai.png
   orientation: vertical
 data-source: Google Vertex AI
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

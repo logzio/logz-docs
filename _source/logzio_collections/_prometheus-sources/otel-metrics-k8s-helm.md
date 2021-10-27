@@ -4,6 +4,7 @@ logo:
   logofile: k8s-helm.svg
   orientation: horizontal
 data-source: Kubernetes over Helm with OpenTelemetry
+data-for-product-source: Metrics
 open-source:
   - title: Logzio-otel-k8s-metrics
     github-repo: logzio-helm/tree/master/charts/opentelemetry

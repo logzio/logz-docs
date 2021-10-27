@@ -4,6 +4,7 @@ logo:
   logofile: cisco.svg
   orientation: vertical
 data-source: Cisco ASA
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

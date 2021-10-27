@@ -5,6 +5,7 @@ logo:
   logofile: cloudflare.svg 
   orientation: horizontal
 data-source: Cloudflare
+data-for-product-source: Cloud SIEM
 shipping-tags:
   - firewalls
   - popular

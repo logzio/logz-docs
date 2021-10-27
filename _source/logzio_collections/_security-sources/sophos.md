@@ -4,6 +4,7 @@ logo:
   logofile: sophos-shield.png
   orientation: vertical
 data-source: Sophos
+data-for-product-source: Cloud SIEM
 contributors:
   - shalper
   - nshishkin

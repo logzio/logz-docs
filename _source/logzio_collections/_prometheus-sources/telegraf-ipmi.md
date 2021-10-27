@@ -4,6 +4,7 @@ logo:
   logofile: ipmi.png
   orientation: vertical
 data-source: IPMI Sensor
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

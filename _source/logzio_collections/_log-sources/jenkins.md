@@ -4,6 +4,7 @@ logo:
   logofile: jenkins.png
   orientation: vertical
 data-source: Jenkins
+data-for-product-source: Logs
 templates: [beats-logs, "no-template"]
 contributors:
   - amosd92

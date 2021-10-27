@@ -4,6 +4,7 @@ logo:
   logofile: gcphealthcare.png
   orientation: vertical
 data-source: Google Cloud Healthcare API
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

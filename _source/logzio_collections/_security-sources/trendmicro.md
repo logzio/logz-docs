@@ -4,6 +4,7 @@ logo:
   logofile: trendmicro-small-logo.png
   orientation: vertical
 data-source: Trend Micro
+data-for-product-source: Cloud SIEM
 contributors:
   - dorisnaaman
   - shalper

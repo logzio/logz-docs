@@ -4,6 +4,7 @@ logo:
   logofile: go.svg
   orientation: vertical
 data-source: Go instrumentation
+data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

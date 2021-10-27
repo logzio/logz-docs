@@ -4,6 +4,7 @@ logo:
   logofile: gsuite-logo.svg
   orientation: horizontal
 data-source: G Suite
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

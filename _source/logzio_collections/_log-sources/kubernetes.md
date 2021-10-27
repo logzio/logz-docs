@@ -5,6 +5,7 @@ logo:
   logofile: k8s-fluentd.svg
   orientation: horizontal
 data-source: Fluentd DaemonSet for Kubernetes
+data-for-product-source: Logs
 templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-k8s

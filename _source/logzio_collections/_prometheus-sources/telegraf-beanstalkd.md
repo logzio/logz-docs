@@ -4,6 +4,7 @@ logo:
   logofile: beanstalk-logo.png
   orientation: vertical
 data-source: Beanstalkd
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

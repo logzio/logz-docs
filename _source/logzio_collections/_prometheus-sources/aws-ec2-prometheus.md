@@ -4,6 +4,7 @@ logo:
   logofile: aws-ec2.svg
   orientation: vertical
 data-source: Amazon EC2
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

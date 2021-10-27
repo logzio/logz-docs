@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 short-description: Ship container logs with Fluentd on Docker
 data-source: Fluentd on Docker
+data-for-product-source: Logs
 shipping-tags:
   - log-shipper
 open-source:

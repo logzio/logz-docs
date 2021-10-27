@@ -4,6 +4,7 @@ logo:
   logofile: riak-logo.png
   orientation: vertical
 data-source: Riak 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

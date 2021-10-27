@@ -7,6 +7,7 @@ open-source:
   - title: Kinesis Stream Shipper - Lambda
     github-repo: logzio_aws_serverless/tree/master/python3/kinesis
 data-source: Kinesis
+data-for-product-source: Logs
 templates: ["lambda-kinesis", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/kinesis
 contributors:

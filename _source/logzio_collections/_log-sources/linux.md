@@ -5,6 +5,7 @@ logo:
   logofile: linux.svg
   orientation: vertical
 data-source: Linux
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - imnotashrimp

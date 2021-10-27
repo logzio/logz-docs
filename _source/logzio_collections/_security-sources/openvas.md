@@ -4,6 +4,7 @@ logo:
   logofile: greenbone_icon.png
   orientation: vertical
 data-source: OpenVAS
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

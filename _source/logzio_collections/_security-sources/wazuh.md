@@ -4,6 +4,7 @@ logo:
   logofile: wazuh.svg
   orientation: vertical
 data-source: Wazuh
+data-for-product-source: Cloud SIEM
 templates: [beats-logs]
 contributors:
   - imnotashrimp

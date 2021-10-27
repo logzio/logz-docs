@@ -4,6 +4,7 @@ logo:
   logofile: wireguard-logo.png
   orientation: vertical
 data-source: Wireguard
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

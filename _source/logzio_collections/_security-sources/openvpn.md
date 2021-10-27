@@ -4,6 +4,7 @@ logo:
   logofile: openvpn.png
   orientation: vertical
 data-source: OpenVPN
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

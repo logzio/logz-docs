@@ -4,6 +4,7 @@ logo:
   logofile: telegraf-logo.png
   orientation: vertical
 data-source: System metrics via Telegraf
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

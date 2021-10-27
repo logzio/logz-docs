@@ -4,6 +4,7 @@ logo:
   logofile: ruby.svg
   orientation: vertical
 data-source: Automatic Ruby instrumentation
+data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

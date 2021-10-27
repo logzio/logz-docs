@@ -4,6 +4,7 @@ logo:
   logofile: couchdb.png
   orientation: vertical
 data-source: CouchDB
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

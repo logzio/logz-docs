@@ -4,6 +4,7 @@ logo:
   logofile: fluentbit-helm.png
   orientation: horizontal
 data-source: Fluent Bit over Helm
+data-for-product-source: Logs
 templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-helm

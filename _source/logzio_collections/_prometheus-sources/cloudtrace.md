@@ -4,6 +4,7 @@ logo:
   logofile: gcptrace.png
   orientation: vertical
 data-source: Google Cloud Trace
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

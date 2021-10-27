@@ -4,6 +4,7 @@ logo:
   logofile: aurora-logo.png
   orientation: vertical
 data-source: Apache Aurora
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

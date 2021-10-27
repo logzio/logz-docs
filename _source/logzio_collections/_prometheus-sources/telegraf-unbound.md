@@ -4,6 +4,7 @@ logo:
   logofile: unbound-logo.png
   orientation: vertical
 data-source: Unbound 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

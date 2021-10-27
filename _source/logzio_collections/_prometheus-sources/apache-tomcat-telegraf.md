@@ -4,6 +4,7 @@ logo:
   logofile: tomcat-logo.png
   orientation: vertical
 data-source: Apache Tomcat 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

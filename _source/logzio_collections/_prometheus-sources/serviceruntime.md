@@ -4,6 +4,7 @@ logo:
   logofile: gcpapis.png
   orientation: vertical
 data-source: Google Cloud API
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

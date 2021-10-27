@@ -4,6 +4,7 @@ logo:
   logofile: juniper.png
   orientation: vertical
 data-source: JTI OpenConfig Telemetry
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

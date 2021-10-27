@@ -4,6 +4,7 @@ logo:
   logofile: gcpdatastream.png
   orientation: vertical
 data-source: Google Datastream
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

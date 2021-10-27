@@ -4,6 +4,7 @@ logo:
   logofile: github.png
   orientation: vertical
 data-source: Github
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

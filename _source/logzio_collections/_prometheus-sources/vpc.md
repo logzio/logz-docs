@@ -4,6 +4,7 @@ logo:
   logofile: vpc.png
   orientation: vertical
 data-source: Google Virtual Private Cloud (VPC)
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

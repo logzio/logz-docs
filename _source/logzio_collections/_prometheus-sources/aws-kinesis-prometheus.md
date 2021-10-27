@@ -4,6 +4,7 @@ logo:
   logofile: Amazon-Kinesis.svg
   orientation: vertical
 data-source: Amazon Kinesis
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

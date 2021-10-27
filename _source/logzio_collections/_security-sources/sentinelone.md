@@ -4,6 +4,7 @@ logo:
   logofile: sentintelone-icon.png
   orientation: vertical
 data-source: SentinelOne
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

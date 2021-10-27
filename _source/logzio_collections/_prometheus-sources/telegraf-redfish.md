@@ -4,6 +4,7 @@ logo:
   logofile: redfish-logo.png
   orientation: vertical
 data-source: Redfish 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

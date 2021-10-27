@@ -4,6 +4,7 @@ logo:
   logofile: juniper.png
   orientation: horizontal
 data-source: Juniper
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

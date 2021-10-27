@@ -4,6 +4,7 @@ logo:
   logofile: zipkin.png
   orientation: vertical
 data-source: Zipkin installation
+data-for-product-source: Tracing
 description: Send traces from your Zipkin installation to Logz.io
 contributors:
   - yyyogev

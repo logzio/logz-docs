@@ -5,6 +5,7 @@ logo:
   logofile: beats.svg
   orientation: vertical
 data-source: Filebeat
+data-for-product-source: Logs
 shipping-tags:
   - log-shipper
   - filebeat

@@ -4,6 +4,7 @@ logo:
   logofile: mcafee.svg
   orientation: vertical
 data-source: McAfee ePolicy Orchestrator
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp

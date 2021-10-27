@@ -4,6 +4,7 @@ logo:
   logofile: elasticsearch.png
   orientation: vertical
 data-source: Elasticsearch
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

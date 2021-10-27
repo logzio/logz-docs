@@ -4,6 +4,7 @@ logo:
   logofile: iks.png
   orientation: vertical
 data-source: IBM Cloud Kubernetes Service
+data-for-product-source: Logs
 templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-k8s

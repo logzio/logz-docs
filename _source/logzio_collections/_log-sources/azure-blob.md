@@ -4,6 +4,7 @@ logo:
   logofile: azure-blob.svg
   orientation: vertical
 data-source: Azure Blob Storage
+data-for-product-source: Logs
 templates: ["azure-deployment"]
 open-source:
   - title: logzio-azure-blob

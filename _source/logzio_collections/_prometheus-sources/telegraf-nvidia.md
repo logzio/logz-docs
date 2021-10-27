@@ -4,6 +4,7 @@ logo:
   logofile: nvidia.png
   orientation: vertical
 data-source: NVIDIA SMI
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

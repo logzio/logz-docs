@@ -4,6 +4,7 @@ logo:
   logofile: bigquery.png
   orientation: vertical
 data-source: Google BigQuery
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

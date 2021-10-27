@@ -4,6 +4,7 @@ logo:
   logofile: computeengine.png
   orientation: vertical
 data-source: Google Compute Engine
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

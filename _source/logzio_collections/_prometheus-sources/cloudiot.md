@@ -4,6 +4,7 @@ logo:
   logofile: googleiot.png
   orientation: vertical
 data-source: Google IoT Core
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

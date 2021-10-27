@@ -7,6 +7,7 @@ open-source:
   - title: Logz.io nodejs metrics sdk
     github-repo: js-metrics
 data-source: Node.js custom metrics
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - yotamloe

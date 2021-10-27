@@ -4,6 +4,7 @@ logo:
   logofile: suricata-logo.png
   orientation: vertical
 data-source: Suricata 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

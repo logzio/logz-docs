@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 short-description: Use Filebeat - a lightweight open source agent - to send Apache Storm logs to Logz.io.
 data-source: Apache Storm
+data-for-product-source: Logs
 templates: [beats-logs]
 contributors:
   - nshishkin

@@ -4,6 +4,7 @@ logo:
   logofile: jaeger.svg
   orientation: vertical
 data-source: Jaeger installation
+data-for-product-source: Tracing
 description: Send traces from your Jaeger installation to Logz.io 
 contributors:
   - yyyogev

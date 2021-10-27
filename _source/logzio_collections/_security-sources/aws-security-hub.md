@@ -4,6 +4,7 @@ logo:
   logofile: aws.svg
   orientation: vertical
 data-source: AWS Security Hub
+data-for-product-source: Cloud SIEM
 templates: ["lambda-cloudwatch"]
 open-source:
   - title: AWS Security Hub

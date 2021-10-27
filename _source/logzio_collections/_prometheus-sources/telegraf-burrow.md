@@ -4,6 +4,7 @@ logo:
   logofile: kafka.svg
   orientation: vertical
 data-source: Burrow 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

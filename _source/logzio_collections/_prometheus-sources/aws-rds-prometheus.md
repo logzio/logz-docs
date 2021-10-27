@@ -4,6 +4,7 @@ logo:
   logofile: aws-rds.svg
   orientation: vertical
 data-source: Amazon RDS
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

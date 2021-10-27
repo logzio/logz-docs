@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 short-description: Add the Logz.io Log4j 2 appender as a dependency to your project to send logs to Logz.io.
 data-source: Java code
+data-for-product-source: Logs
 templates: ["library"]
 open-source:
   - title: Logzio Log4j 2 Appender

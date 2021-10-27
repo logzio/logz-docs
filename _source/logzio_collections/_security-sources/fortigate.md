@@ -4,6 +4,7 @@ logo:
   logofile: fortinet.svg
   orientation: vertical
 data-source: FortiGate
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp

@@ -4,6 +4,7 @@ logo:
   logofile: auth0.png
   orientation: vertical
 data-source: Auth0
+data-for-product-source: Cloud SIEM
 templates: ["no-template"]
 contributors:
   - nshishkin

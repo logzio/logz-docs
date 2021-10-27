@@ -4,6 +4,7 @@ logo:
   logofile: fluent-bit.svg
   orientation: vertical
 data-source: Fluent Bit
+data-for-product-source: Logs
 open-source:
   - title: Logz.io-Out Plugin for Fluent Bit
     github-repo: fluent-bit-logzio-output

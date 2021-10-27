@@ -4,6 +4,7 @@ logo:
   logofile: pubsub.png
   orientation: vertical
 data-source: Google Pub/Sub
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

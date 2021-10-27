@@ -4,6 +4,7 @@ logo:
   logofile: kubernetes.svg
   orientation: vertical
 data-source: Kubernetes
+data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
   - yotamloe

@@ -6819,10 +6819,6 @@ definitions:
         type: string
         description: Name of the account
         example: 404 errors
-      accountToken:
-        type: string
-        description: Account log shipping token (unique to every account)
-        example: f483abe93b
       isFlexible:
         type: boolean
         default: false
@@ -6885,10 +6881,6 @@ definitions:
         format: int32
         description: ID of the account
         example: 99999
-      accountToken:
-        type: string
-        description: Account log shipping token (unique to this account)
-        example: x93afghvexbn841h45vkjn5
   Searchable:
     type: boolean
     description: If other accounts can search this account's logs, `true`. Otherwise, `false`.

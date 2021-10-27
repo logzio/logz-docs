@@ -16,6 +16,21 @@
     {%- if page.data-source -%}
     <div class="breadcrumbs">
       <span><a href="{{site.baseurl}}/shipping/">Ship your data</a></span>
+			{%- if page.data-for-product-source == "Logs" -%}
+      <span><a href="{{site.baseurl}}/shipping/#log-sources">{{ page.data-for-product-source  }}</a></span>
+			{%- endif -%}
+			{%- if page.data-for-product-source == "Metrics" -%}
+      <span><a href="{{site.baseurl}}/shipping/#prometheus-sources">{{ page.data-for-product-source  }}</a></span>
+			{%- endif -%}
+			{%- if page.data-for-product-source == "Tracing" -%}
+      <span><a href="{{site.baseurl}}/shipping/#tracing-sources">{{ page.data-for-product-source  }}</a></span>
+			{%- endif -%}
+			{%- if page.data-for-product-source == "Cloud SIEM" -%}
+      <span><a href="{{site.baseurl}}/shipping/#security-sources">{{ page.data-for-product-source  }}</a></span>
+			{%- endif -%}
+			{%- if page.data-for-product-source == "Community Shippers" -%}
+      <span><a href="{{site.baseurl}}/shipping/#community-shippers">{{ page.data-for-product-source  }}</a></span>
+			{%- endif -%}
       <span>{{ page.data-source }}</span>
     </div>
     {%- endif -%}

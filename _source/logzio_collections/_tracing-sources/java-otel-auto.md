@@ -4,6 +4,7 @@ logo:
   logofile: java.svg
   orientation: vertical
 data-source: Automatic Java instrumentation
+data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

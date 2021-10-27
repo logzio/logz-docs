@@ -4,6 +4,7 @@ logo:
   logofile: puppet.png
   orientation: vertical
 data-source: Puppet
+data-for-product-source: Logs
 templates: [beats-logs]
 contributors:
   - amosd92

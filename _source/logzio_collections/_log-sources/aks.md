@@ -4,6 +4,7 @@ logo:
   logofile: aks.svg
   orientation: vertical
 data-source: Azure Kubernetes Service
+data-for-product-source: Logs
 open-source:
   - title: logzio-k8s
     github-repo: logzio-k8s

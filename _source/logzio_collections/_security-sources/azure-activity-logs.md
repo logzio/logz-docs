@@ -7,6 +7,7 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 data-source: Azure activity logs
+data-for-product-source: Cloud SIEM
 templates: ["azure-deployment-event-hubs"]
 tags:
   - azure

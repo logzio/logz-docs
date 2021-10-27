@@ -4,6 +4,7 @@ logo:
   logofile: ravendb-logo.png
   orientation: vertical
 data-source: Ravendb
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

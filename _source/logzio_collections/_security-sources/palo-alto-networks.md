@@ -4,6 +4,7 @@ logo:
   logofile: palo-alto-networks.svg
   orientation: horizontal
 data-source: Palo Alto Networks
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp

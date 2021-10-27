@@ -5,6 +5,7 @@ logo:
   logofile: docker-swarm-logo2.png
   orientation: horizontal
 data-source: Docker Swarm container
+data-for-product-source: Logs
 open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs

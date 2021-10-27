@@ -4,6 +4,7 @@ logo:
   logofile: cloudarmor.png
   orientation: vertical
 data-source: Google Cloud Armor
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -5,6 +5,7 @@ logo:
   logofile: aws-s3.svg
   orientation: vertical
 data-source: S3 Bucket
+data-for-product-source: Logs
 shipping-tags:
   - aws
   - popular

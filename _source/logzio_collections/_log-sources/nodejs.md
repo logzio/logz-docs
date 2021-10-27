@@ -5,6 +5,7 @@ logo:
   logofile: nodejs.svg
   orientation: vertical
 data-source: Node.js code
+data-for-product-source: Logs
 templates: ["library"]
 open-source:
   - title: logzio-nodejs

@@ -4,6 +4,7 @@ logo:
   logofile: linux.svg
   orientation: vertical
 data-source: auditd
+data-for-product-source: Cloud SIEM
 templates: ["beats-logs"]
 contributors:
   - imnotashrimp

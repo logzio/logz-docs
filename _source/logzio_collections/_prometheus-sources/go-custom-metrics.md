@@ -6,6 +6,7 @@ logo:
 open-source:
   - title: GO custom metrics
 data-source: GO code
+data-for-product-source: Metrics
 flags:
   logzio-plan:  
   beta: true

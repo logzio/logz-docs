@@ -4,6 +4,7 @@ logo:
   logofile: nsg-logo.png
   orientation: vertical
 data-source: Azure NSG logs
+data-for-product-source: Logs
 templates: ["azure-deployment-event-hubs"]
 tags:
   - azure

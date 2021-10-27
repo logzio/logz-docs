@@ -4,6 +4,7 @@ logo:
   logofile: ossec.png
   orientation: vertical
 data-source: OSSEC
+data-for-product-source: Cloud SIEM
 templates: [beats-logs]
 contributors:
   - imnotashrimp

@@ -4,6 +4,7 @@ logo:
   logofile: dns.png
   orientation: vertical
 data-source: Google Cloud DNS
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

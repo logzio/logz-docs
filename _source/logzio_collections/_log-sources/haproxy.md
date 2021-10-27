@@ -4,6 +4,7 @@ logo:
   logofile: haproxy-logo.png
   orientation: horizontal
 data-source: HAProxy
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - imnotashrimp

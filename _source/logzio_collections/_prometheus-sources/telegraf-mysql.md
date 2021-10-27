@@ -4,6 +4,7 @@ logo:
   logofile: mysql.svg
   orientation: vertical
 data-source: MySQL
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

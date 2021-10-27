@@ -5,6 +5,7 @@ logo:
   logofile: logstash_temp.png
   orientation: vertical
 data-source: Logstash
+data-for-product-source: Logs
 shipping-tags:
   - log-shipper
 contributors:

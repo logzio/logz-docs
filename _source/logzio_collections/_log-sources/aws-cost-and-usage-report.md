@@ -4,6 +4,7 @@ logo:
   logofile: aws.svg
   orientation: vertical
 data-source: AWS cost and usage report
+data-for-product-source: Logs
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/aws-cost-and-usage-report
 templates: ["lambda-cloudwatch"]
 open-source:

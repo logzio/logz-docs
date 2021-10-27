@@ -4,6 +4,7 @@ logo:
   logofile: gcpsql.png
   orientation: vertical
 data-source: Google Cloud SQL
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

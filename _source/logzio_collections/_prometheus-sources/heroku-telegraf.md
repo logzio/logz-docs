@@ -4,6 +4,7 @@ logo:
   logofile: heroku.svg
   orientation: vertical
 data-source: Heroku metrics
+data-for-product-source: Metrics
 templates: ["docker"]
 open-source:
   - title: heroku-buildpack-telegraf

@@ -4,6 +4,7 @@ logo:
   logofile: activemq-logo.png
   orientation: vertical
 data-source: ActiveMQ
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -4,6 +4,7 @@ logo:
   logofile: fail2ban.png
   orientation: vertical
 data-source: Fail2ban
+data-for-product-source: Cloud SIEM
 templates: [beats-logs]
 contributors:
   - imnotashrimp

@@ -7,6 +7,7 @@ logo:
   logofile: azure-monitor.svg
   orientation: vertical
 data-source: Azure diagnostic logs
+data-for-product-source: Logs
 templates: ["azure-deployment-event-hubs"]
 tags:
   - azure

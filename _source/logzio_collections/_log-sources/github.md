@@ -4,6 +4,7 @@ logo:
   logofile: Octocat.png
   orientation: vertical
 data-source: GitHub
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - doron-bargo

@@ -4,6 +4,7 @@ logo:
   logofile: docker-logo.png
   orientation: vertical
 data-source: Docker
+data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

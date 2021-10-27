@@ -4,6 +4,7 @@ logo:
   logofile: neptune.png
   orientation: vertical
 data-source: Neptune Apex
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

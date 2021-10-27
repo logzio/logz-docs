@@ -4,6 +4,7 @@ logo:
   logofile: carbon-black.jpeg
   orientation: vertical
 data-source: VMware Carbon Black
+data-for-product-source: Cloud SIEM
 contributors:
   - shalper
 shipping-tags:

@@ -4,6 +4,7 @@ logo:
   logofile: Amazon-Route-53.svg
   orientation: vertical
 data-source: Amazon Route 53
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

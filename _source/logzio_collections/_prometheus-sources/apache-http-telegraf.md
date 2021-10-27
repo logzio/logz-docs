@@ -4,6 +4,7 @@ logo:
   logofile: apache-http-logo.png
   orientation: vertical
 data-source: Apache HTTP Server
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

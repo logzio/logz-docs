@@ -4,6 +4,7 @@ logo:
   logofile: gcpfilestore.png
   orientation: vertical
 data-source: Google Filestore
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

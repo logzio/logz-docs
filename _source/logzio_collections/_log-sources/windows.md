@@ -5,6 +5,7 @@ logo:
   logofile: windows.svg
   orientation: vertical
 data-source: Windows
+data-for-product-source: Logs
 templates: ["beats-logs", "no-template"]
 contributors:
   - imnotashrimp

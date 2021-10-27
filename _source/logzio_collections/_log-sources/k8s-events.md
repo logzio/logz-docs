@@ -4,6 +4,7 @@ logo:
   logofile: kubernetes.svg
   orientation: vertical
 data-source: Kubernetes events
+data-for-product-source: Logs
 templates: ["s3-fetcher"]
 contributors:
   - mirii1994

@@ -4,6 +4,7 @@ logo:
   logofile: crowdstrike-logo.svg
   orientation: vertical
 data-source: Crowdstrike
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

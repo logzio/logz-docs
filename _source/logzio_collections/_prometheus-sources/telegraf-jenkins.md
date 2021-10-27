@@ -4,6 +4,7 @@ logo:
   logofile: jenkins.png
   orientation: vertical
 data-source: Jenkins
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

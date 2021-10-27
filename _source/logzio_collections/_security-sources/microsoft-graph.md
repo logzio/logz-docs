@@ -4,6 +4,7 @@ logo:
   logofile: azure.svg
   orientation: horizontal
 data-source: Microsoft Graph
+data-for-product-source: Cloud SIEM
 templates: ["no-template"]
 open-source:
   - title: Logzio-MSGraph

@@ -4,6 +4,7 @@ logo:
   logofile: aws-ses.png
   orientation: vertical
 data-source: Amazon SES
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

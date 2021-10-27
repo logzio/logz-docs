@@ -4,6 +4,7 @@ logo:
   logofile: heroku.svg
   orientation: vertical
 data-source: Heroku
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - imnotashrimp

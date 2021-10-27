@@ -5,6 +5,7 @@ logo:
   logofile: json.svg
   orientation: vertical
 data-source: JSON uploads
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - imnotashrimp

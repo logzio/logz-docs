@@ -4,6 +4,7 @@ logo:
   logofile: nginx.svg
   orientation: horizontal
 data-source: nginx
+data-for-product-source: Cloud SIEM
 templates: [beats-logs]
 contributors:
   - amosd92

@@ -4,6 +4,7 @@ logo:
   logofile: aws-s3.svg
   orientation: vertical
 data-source: Amazon S3
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

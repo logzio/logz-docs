@@ -4,6 +4,7 @@ logo:
   logofile: gitlab.svg
   orientation: vertical
 data-source: GitLab
+data-for-product-source: Logs
 templates: [beats-logs]
 contributors:
   - amosd92

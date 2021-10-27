@@ -4,6 +4,7 @@ logo:
   logofile: dovecot.png
   orientation: vertical
 data-source: Dovecot
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

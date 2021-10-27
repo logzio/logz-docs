@@ -4,6 +4,7 @@ logo:
   logofile: zookeeper-logo.png
   orientation: vertical
 data-source: Apache Zookeper
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

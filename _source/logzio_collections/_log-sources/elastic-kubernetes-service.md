@@ -4,6 +4,7 @@ logo:
   logofile: aws-eks.svg
   orientation: vertical
 data-source: Elastic Kubernetes Service
+data-for-product-source: Logs
 templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-k8s

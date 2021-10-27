@@ -4,6 +4,7 @@ logo:
   logofile: docker.svg
   orientation: horizontal
 data-source: Docker performance logs
+data-for-product-source: Logs
 templates: ["docker"]
 contributors:
   - imnotashrimp

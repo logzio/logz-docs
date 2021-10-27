@@ -4,6 +4,7 @@ logo:
   logofile: pfsense-logo.png
   orientation: vertical
 data-source: pfSense
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

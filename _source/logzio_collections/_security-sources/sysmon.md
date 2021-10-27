@@ -4,6 +4,7 @@ logo:
   logofile: windows.svg
   orientation: vertical
 data-source: Sysmon
+data-for-product-source: Cloud SIEM
 templates: ["beats-logs"]
 contributors:
   - shalper

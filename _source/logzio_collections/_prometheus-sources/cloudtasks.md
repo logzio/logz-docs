@@ -4,6 +4,7 @@ logo:
   logofile: gcptasks.png
   orientation: vertical
 data-source: Google Cloud Tasks
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

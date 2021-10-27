@@ -4,6 +4,7 @@ logo:
   logofile: vector.svg
   orientation: vertical
 data-source: Vector
+data-for-product-source: Logs
 shipping-tags:
   - log-shipper
 contributors:

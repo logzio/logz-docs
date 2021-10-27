@@ -4,6 +4,7 @@ logo:
   logofile: ids.png
   orientation: vertical
 data-source: Google Cloud IDS
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

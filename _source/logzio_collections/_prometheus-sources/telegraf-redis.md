@@ -4,6 +4,7 @@ logo:
   logofile: redis-logo.png
   orientation: vertical
 data-source: Redis
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

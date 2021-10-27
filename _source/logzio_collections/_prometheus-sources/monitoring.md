@@ -4,6 +4,7 @@ logo:
   logofile: cloudmonitoring.png
   orientation: vertical
 data-source: Google Cloud Monitoring
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

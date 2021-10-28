@@ -127,8 +127,6 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-s3.html
     - title: Amazon EC2
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ec2.html
-    - title: Telegraf for Prometheus metrics
-      url: /user-guide/infrastructure-monitoring/metrics-dashboards/telegraf-prometheus.html
     - title: MongoDB
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/mongodb.html
     - title: MySQL

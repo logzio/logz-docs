@@ -15,6 +15,7 @@ contributors:
 This dashboard provides an interface to view and analyze metrics from your VMware infrastructure.
 
 ### Overview
+
 | Metric visualization | Metric name | Description                                                                                                                                                                                                                                |
 | ---------------------| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Clusters Number  | vsphere_host_cpu_utilization_average | CPU utilization as a percentage during the interval (CPU usage and CPU utilization might be different due to power management technologies or hyper-threading) for a host. |

@@ -214,6 +214,7 @@ Run the function. It may take more than one run of the function for the logs to 
 | Europe (Ireland) | `eu-west-1` | - |
 | Europe (Stockholm) | `eu-north-1` | - |
 | Asia Pacific (Sydney) | `ap-southeast-2` | Available from v0.1.0 |
+| Canada (Central) ) | `ca-central-1` | Available from v0.1.0 |
 
 ### ARN for extension dependencies - DEPRECATED
 

@@ -119,7 +119,7 @@ firstLevel:
     - title: Explore in Kibana
       url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
   - title: Elastic-based Metrics information #deprecated topics
-      url: /user-guide/infrastructure-monitoring/elastic-metrics
+    url: /user-guide/infrastructure-monitoring/elastic-metrics
 
 
     # ===== DISTRIBUTED TRACING =====

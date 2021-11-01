@@ -14,7 +14,7 @@ Monitor your infrastructure metrics to gain a clear picture of the ongoing statu
 
 Use Logz.io Metrics to continuously monitor your system’s health and help you maintain system performance, speed, and resilience, and address problematic trends when they first appear - and before they become critical and threaten crashes or system outages.
 
-![Showcased Metrics dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-intro.png)
+![Showcased Metrics dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/infm-whymetrics-main_nov21.png)
 
 ## Leverage infrastructure metrics
 

@@ -118,8 +118,8 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/annotations/
     - title: Explore in Kibana
       url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
-  - title: Pre-built metrics dashboards
-    url: /user-guide/infrastructure-monitoring/metrics-dashboards
+  #- title: Pre-built metrics dashboards
+  #  url: /user-guide/infrastructure-monitoring/metrics-dashboards
   - title: Elastic-based Metrics information #deprecated topics
     url: /user-guide/infrastructure-monitoring/elastic-metrics
 

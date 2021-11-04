@@ -35,7 +35,9 @@ This integration currently works with Java 11 or higher. Support for earlier ver
 
 
 ## Send Custom metrics from your JAVA application to Logz.io
-## Usage:
+
+### Usage:
+
 #### Via maven:
 
 ```xml
@@ -68,8 +70,8 @@ Replace the placeholders in the code (indicated by the double angle brackets `<<
 
 | Environment variable | Description |Required/Default|
 |---|---|---|
-|listener-url|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:5053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required|
-|metrics-token | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
+|LISTENER-HOST|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required|
+|PROMETHEUS-METRICS-SHIPPING-TOKEN | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
 |interval | The interval in seconds, to push metrics to Logz.io **Note that your program will need to run for at least one interval for the metrics to be sent**  | Required|
 
 #### In your package:
@@ -91,14 +93,14 @@ class MicrometerLogzio {
          }
          @Override
          public String uri() {
-            return "<<listener-url>>";
+            return ""https://<<LISTENER-HOST>>:8053";
             // example:
             // return "https://listener.logz.io:5053"; 
          }
 
          @Override
          public String token() {
-            return "<<metrics-token>>";
+            return "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>";
          }
 
          @Override
@@ -129,6 +131,7 @@ class MicrometerLogzio {
 
 ## Common tags
 You can attach common tags to your registry that will be added to all metrics reported, for example:
+
 ```java
 // Initialize registry
 LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
@@ -138,6 +141,7 @@ registry.config().commonTags("key", "value");
 
 ## Meter binders
 Micrometer provides a set of binders for monitoring JVM metrics out of the box, for example:
+
 ```java
 // Initialize registry
 LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
@@ -162,6 +166,7 @@ new UptimeMetrics(tags).bindTo(registry);
 new LogbackMetrics().bindTo(registry);
 new Log4j2Metrics().bindTo(registry);
 ```
+
 For more information about other binders check out [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) Github repo.
 
 ## Types of metrics 

@@ -37,6 +37,7 @@ The following Logz.io API endpoints are supported by this provider:
 * [Drop filters](https://docs.logz.io/api/#tag/Drop-filters)
 * [Archive logs](https://docs.logz.io/api/#tag/Archive-logs)
 * [Restore logs](https://docs.logz.io/api/#tag/Restore-logs)
+* [Authentication groups](https://docs.logz.io/api/#tag/Authentication-groups)
 * [Log-based alerts v1](https://github.com/logzio/public-api/tree/master/alerts) (deprecated)
 
 #### Working with Terraform

@@ -3,6 +3,7 @@ layout: article
 title: Field mapping
 permalink: /user-guide/kibana/mapping/
 flags:
+  admin: true
   logzio-plan: community
 tags:
   - kibana

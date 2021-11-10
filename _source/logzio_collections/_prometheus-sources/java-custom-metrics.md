@@ -23,7 +23,7 @@ shipping-tags:
 order: 720
 ---
 
-Deploy this integration to send custom metrics from your Java application to Logz.io using [Micrometer](https://micrometer.io/). The dedicated Logz.io Micrometer metrics registry sends custom metrics from your Java application to your Logz.io account.
+Deploy this integration to send custom metrics from your Java application to Logz.io, using [Micrometer](https://micrometer.io/). The dedicated Logz.io Micrometer metrics registry sends custom metrics from your Java application to your Logz.io account.
 
 **Before you begin, you'll need**:
 Java 11 or higher 
@@ -167,19 +167,19 @@ new LogbackMetrics().bindTo(registry);
 new Log4j2Metrics().bindTo(registry);
 ```
 
-For more information about other binders check out [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) Github repo.
+For more information about other binders, visit the [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) GitHub repo.
 
-## Types of metrics 
+## Meter types 
 
 Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for more details.
 
 
 | Name | Behavior | 
 | ---- | ---------- | 
-| Counter           | Metric value can only go up or be reset to 0, calculated per `counter.increment(value); ` call. |
-| Gauge             | Metric value can arbitrarily increment or decrement, values can set automaticaly by tracking `Collection` size or set manually by `gauge.set(value)`  | 
-| DistributionSummary | Metric values captured by the `summary.record(value)` function, the output is a distribution of `count`,`sum` and `max` for the recorded values during the push interval. |
-| Timer       | Mesures timing, metric values can be recorded by `timer.record()` call. |
+| Counter           | Metric value can only go up or be reset to 0: Calculated per `counter.increment(value); ` call |
+| Gauge             | Metric value can arbitrarily increment or decrement: Values can be set automatically by tracking `Collection` size, or can be set manually by `gauge.set(value)`  | 
+| DistributionSummary | Metric values captured by the `summary.record(value)` function: The output is a distribution of `count`,`sum`, and `max` for the recorded values during the push interval |
+| Timer       | Measures timing: Metric values can be recorded by `timer.record()` call |
 
 ### [Counter](https://micrometer.io/docs/concepts#_counters)
 ```java

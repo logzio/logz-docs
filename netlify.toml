@@ -308,3 +308,8 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/integrations/alice-slack-chatbot*"   
+  to = "https://docs.logz.io"
+  status = 301
+  force = true

@@ -37,7 +37,7 @@ In addition, the dashboard includes a breakdown of R.E.D data based on the opera
 
 ![Operations metrics chart](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-chart-sort.png)
 
-If you're interested in diving deeper into traces of each operation, you can click on the **View traces** button located at the end of every row.
+If you're interested in diving deeper into the traces of each operation, you can click on the **View traces** button located at the end of every row.
 
 ![View all traces](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-view-traces-button.png)
 

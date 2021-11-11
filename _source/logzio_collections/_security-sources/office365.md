@@ -9,11 +9,11 @@ templates: ["network-device-filebeat"]
 contributors:
   - nshishkin
 shipping-tags:
-  - endpoint-security
-order: 730
+  - Azure
+order: 731
 ---
 
-This guide is intended to assist with forwarding Unified Audit Logging from Microsoft 365 to Logz.io. This method of log forwarding utilizes the Office/Microsoft 365 Management API, which at the time of writing supports the following M365 content types:
+This guide is intended to assist you with forwarding Unified Audit Logging from Microsoft Office 365 to Logz.io. This method of log forwarding utilizes the Office/Microsoft 365 Management API, which at the time of writing supports the following Microsoft Office 365 content types:
 
 * Audit.AzureActiveDirectory
 
@@ -27,9 +27,9 @@ This guide is intended to assist with forwarding Unified Audit Logging from Micr
 
 **Before you begin, you'll need**:
 
-* An active subscription for Microsoft 365 with an appropriately provisioned administrator account.
-* Unified Audit Logging enabled within M365’s Security and Audit Center https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#verify-the-auditing-status-for-your-organization 
-* A machine for hosting [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* An active subscription for Microsoft Office 365 with an appropriately provisioned administrator account.
+* Unified Audit Logging enabled within M365’s Security and [Audit Center](https://docs.microsoft.com/en-us/microsoft-365/compliance/turn-audit-log-search-on-or-off?view=o365-worldwide#verify-the-auditing-status-for-your-organization )
+* A machine with installed [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 
 
 <div class="tasklist">
@@ -107,6 +107,13 @@ output.logstash:
 
 
 {% include /general-shipping/replace-placeholders.html %}
+# Replace <<Application/Client ID>> with the Client ID you kept in step 1.5 .
+
+# Replace <<Tenant ID>> with the Tenant ID you kept in step 1.5 .
+	
+# Replace <<Tenant Name>> with the token of the account you want to ship to.
+
+# Replace <<Client Secret>> with the Client Secret you kept in step 2.3
 
 <!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.

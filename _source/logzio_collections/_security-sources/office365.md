@@ -127,7 +127,7 @@ If the file has other outputs, remove them.
 
 ##### Check Logz.io for your logs
   
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type pfsense o365 to see the incoming pfSense logs.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type o365 to see the incoming pfSense logs.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

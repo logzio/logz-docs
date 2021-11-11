@@ -33,6 +33,10 @@ The dashboard includes the following data:
 * Error rate - The total percentage of errors in this service
 * Latency - The duration it took to complete the operations, indicating the 95th, 75th and 50th percentile latency
 
+You can quickly view all of the related traces by clicking the **View all traces** button at the top of the dashboard:
+
+![View all traces](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-all-traces-button.png)
+
 In addition, the dashboard includes a breakdown of R.E.D data based on the operations running inside the chosen service. Each one has an impact score based on an average of R.E.D data points. To sort the data, click on the arrows next to the title of your preferred data point.
 
 ![Operations metrics chart](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-chart-sort.png)

@@ -79,6 +79,12 @@ add_new-account.gif)
   + You can use this process to keep a local backup copy of these data objects. 
   + Create a library of data objects in your main Security account, and then enable client accounts to use objects from your main account.  
 
+##### Configure a repository account
+
+This topic is currently in development, pending the release of the Repository account feature for Logz.io Cloud SIEM.
+<!--placeholder -->
+
+
 ##### Save your changes
 
 Click **Create**/**Apply** to save your changes.

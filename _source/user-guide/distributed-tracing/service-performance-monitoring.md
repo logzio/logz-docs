@@ -21,7 +21,7 @@ That’s where Service Performance Monitoring comes in. It's a high-level monito
 
 Service Performance Monitoring helps cut down the time to identify and resolve anomalies, spikes and issues. It does that by aggregating Request, Error and Duration (R.E.D) metrics from span data, pointing and isolating incidents in your systems.
 
-<p class="info-box note">This feature is in Beta. Please contact your account manager to request early access.</p>
+{% include page-info/early-access.md type="Beta" %}
 
 ##### Service Performance Monitoring dashboard
 

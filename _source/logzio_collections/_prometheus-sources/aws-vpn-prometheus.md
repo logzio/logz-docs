@@ -10,9 +10,7 @@ open-source:
   - title: CloudWatch metrics for Prometheus
     github-repo: logzio-aws-metrics
 contributors:
-  - yotamloe
-  - imnotashrimp
-  - yberlinger
+  - nshishkin
 shipping-tags:
   - aws
   - prebuilt-dashboards

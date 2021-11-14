@@ -99,7 +99,7 @@ If you don't have a general purpose v2 storage account with a container for logs
 
 In the **Custom deployment** screen, fill in all the parameters as per table below and click **Review + create**.
 
-![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1-new-account.png)
+![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1-new-acc.png)
 
 | Parameter | Description | Is Required | Value If Empty |
 | --- | --- | --- | --- |
@@ -174,7 +174,7 @@ Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExten
 
 In the **Custom deployment** screen, fill in all the parameters as per table below and click **Review + create**.
 
-![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1-existing.png)
+![Custom deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-1-existing-acc.png)
 
 | Parameter | Description | Is Required | Value If Empty |
 | --- | --- | --- | --- |

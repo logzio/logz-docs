@@ -36,7 +36,7 @@ order: 1190
 </div>
 <!-- tab:end -->
 
-<!-- tab:start -->
+<!-- tab:start --> 
 <div id="Procedure">
 
 {% include /p8s-shipping/cloudwatch-otel-beforeyb.md %}

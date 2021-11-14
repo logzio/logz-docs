@@ -275,7 +275,7 @@ See the [Logback documentation](https://logback.qos.ch/manual/configuration.html
   <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
     <!-- Replace these parameters with your configuration -->
     <token><<LOG-SHIPPING-TOKEN>></token>
-    <logzioUrl><<LISTENER-HOST>>:8071</logzioUrl>
+    <logzioUrl>https://<<LISTENER-HOST>>:8071</logzioUrl>
     <logzioType>myType</logzioType>
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">

@@ -109,11 +109,11 @@ output.logstash:
 {% include /general-shipping/replace-placeholders.html %}
 # Replace <<Application/Client ID>> with the Client ID you kept in step 1.5 .
 
-# Replace <<Tenant ID>> with the Tenant ID you kept in step 1.5 .
+* Replace <<Tenant ID>> with the Tenant ID you kept in step 1.5 .
 	
-# Replace <<Tenant Name>> with the token of the account you want to ship to.
+* Replace <<Tenant Name>> with the token of the account you want to ship to.
 
-# Replace <<Client Secret>> with the Client Secret you kept in step 2.3
+* Replace <<Client Secret>> with the Client Secret you kept in step 2.3
 
 <!-- info-box-start:info -->
 One last validation - make sure Logz.io is the only output and appears only once.

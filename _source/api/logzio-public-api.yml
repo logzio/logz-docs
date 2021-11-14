@@ -123,7 +123,7 @@ tags:
   
   - name: Deployments
     description: >-
-      Send deployment logs by API to automatically correlate exceptions with service deployments directly in your Logz.io Exceptions tab. The API endpoints documented here are in Beta, and are subject to change.
+      Send deployment logs by API to automatically correlate exceptions with service deployments directly in your Logz.io Exceptions tab.
 
   - name: Insights
     description: >-

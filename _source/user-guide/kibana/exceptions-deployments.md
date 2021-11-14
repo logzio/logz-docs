@@ -3,8 +3,8 @@ layout: article
 title: Deployment markers
 permalink: /user-guide/kibana/exceptions-deployments.html   
 flags:
-  logzio-plan: community
-  beta: true
+  logzio-plan: pro
+  beta: false
 tags:
   - insights
   - exceptions

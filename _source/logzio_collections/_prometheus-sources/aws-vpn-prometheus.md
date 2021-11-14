@@ -42,7 +42,7 @@ order: 1190
 
 {% include /p8s-shipping/cloudwatch-otel-beforeyb.md %}
 
-{% include /p8s-shipping/collect-aws-var-metrics.md namespace="SES" %}
+{% include /p8s-shipping/collect-aws-var-metrics.md namespace="NAT" %}
 
 #### Check Logz.io for your metrics
 

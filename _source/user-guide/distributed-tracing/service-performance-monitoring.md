@@ -21,6 +21,8 @@ That’s where Service Performance Monitoring comes in. It's a high-level monito
 
 Service Performance Monitoring helps cut down the time to identify and resolve anomalies, spikes and issues. It does that by aggregating Request, Error and Duration (R.E.D) metrics from span data, pointing and isolating incidents in your systems.
 
+<p class="info-box note">This feature is in Beta. Please contact your account manager to request early access.</p>
+
 ##### Service Performance Monitoring dashboard
 
 The Service Performance Monitoring dashboard is part of your [Tracing account](https://app.logz.io/#/dashboard/jaeger/monitoring), located under the **Monitor** tab. You can generate a dashboard view for each of your services, and adjust the time span between 1 hour to 2 days ago.

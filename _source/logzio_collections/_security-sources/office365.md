@@ -107,7 +107,8 @@ output.logstash:
 
 
 {% include /general-shipping/replace-placeholders.html %}
-# Replace <<Application/Client ID>> with the Client ID you kept in step 1.5 .
+
+* Replace <<Application/Client ID>> with the Client ID you kept in step 1.5 .
 
 * Replace <<Tenant ID>> with the Tenant ID you kept in step 1.5 .
 	

@@ -403,8 +403,6 @@ To destroy the resources, use the following:
 ```bash
 terraform destroy
 ```
-
-</div>
 <!-- tab:end -->
 
 </div>

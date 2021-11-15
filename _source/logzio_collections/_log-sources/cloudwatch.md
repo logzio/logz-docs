@@ -219,6 +219,7 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+</div>
 <!-- tab:end -->
 
 <!-- tab:start -->
@@ -403,6 +404,8 @@ To destroy the resources, use the following:
 ```bash
 terraform destroy
 ```
+
+</div>
 <!-- tab:end -->
 
 </div>

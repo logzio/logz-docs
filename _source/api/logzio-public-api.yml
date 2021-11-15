@@ -5647,7 +5647,7 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/AlertsSearchRequestFiltered'
+            $ref: '#/definitions/AlertsSearchRequest'
 
       responses:
         '200':
@@ -7102,21 +7102,11 @@ definitions:
         $ref: '#/definitions/Pagination'
       
 
-  AlertsSearchRequestFiltered:
-    title: Filtered Results  
+  AlertsSearchRequest:
+    title: Search request Results  
     type: object
-    properties:
-      filter:
-        description: Filter by rule name, severity, and more.
-        $ref: '#/definitions/AlertsFilter'
-      sort:
-        description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
-        $ref: '#/definitions/AlertsSortRequest'
-      pagination:
-        $ref: '#/definitions/Pagination'
-  AlertsSearchRequestUnfiltered:
-    title: Unfiltered Results  
-    type: object
+    required:
+      - query
     properties:
       query:
         type: object
@@ -7132,6 +7122,16 @@ definitions:
                       properties:
                         match_all:
                           type: object
+      filter:
+        description: Filter by rule name, severity, and more.
+        $ref: '#/definitions/AlertsFilter'
+      sort:
+        description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
+        $ref: '#/definitions/AlertsSortRequest'
+      pagination:
+        $ref: '#/definitions/Pagination'
+      
+      
   AlertsSortRequest:
     type: object
     required:

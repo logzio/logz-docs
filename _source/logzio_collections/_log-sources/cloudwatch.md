@@ -249,6 +249,7 @@ The above script will create `logzio-cloudwatch.zip` that contains the source co
 ##### Set AWS credentials
 
 Create environment variables that contain your AWS credentials:
+
 ```bash
 export AWS_ACCESS_KEY_ID="<<AWS-ACCESS-KEY>>"
 export AWS_SECRET_ACCESS_KEY="<<AWS-SECRET-KEY>>"

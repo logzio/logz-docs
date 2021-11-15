@@ -280,7 +280,6 @@ terraform {
 
 resource "aws_iam_role" "iam_lambda_cw_to_logzio" {
   name = "lambda_cw_to_logzio"
-
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
@@ -297,7 +296,6 @@ resource "aws_iam_role" "iam_lambda_cw_to_logzio" {
 
 resource "aws_iam_policy" "policy_cw_to_logzio" {
   name        = "policy_cw_to_logzio"
-
   policy = jsonencode({
     "Version": "2012-10-17",
     "Statement": [

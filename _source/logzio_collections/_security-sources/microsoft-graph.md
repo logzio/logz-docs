@@ -115,7 +115,7 @@ logLevel: INFO
 | azureADClient.clientSecret | Value of the Application Client Secret you created in step 2. | Required |
 | azureADClient.pullIntervalSeconds | Time interval, in seconds, to pull the logs with the Graph API. | `300` |
 | logLevel | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. | `INFO` |
-
+| targetApi	 | Specifies types of api lists to run, each API provider has its own list. Must contain at least 1 list with 1 api in the list. Current supported providers: ADApis, ASCApis. | Required |
 
 ###### If fromDisk=true
 

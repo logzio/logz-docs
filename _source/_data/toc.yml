@@ -384,6 +384,8 @@ firstLevel:
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
     - title: Using Inspect feature on Kibana UI
       url: /api/cookbook/inspect.html
+    - title: Retrieve security rules using filtered and unfiltered requests
+      url: /api/cookbook/filtered-unfiltered-security-rule.html
 
   - title: LightS - Light Synthetic Monitoring for AWS
     url: /integrations/lights/

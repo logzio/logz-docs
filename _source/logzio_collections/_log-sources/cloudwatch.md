@@ -278,7 +278,6 @@ terraform {
   }
 }
 
-
 resource "aws_iam_role" "iam_lambda_cw_to_logzio" {
   name = "lambda_cw_to_logzio"
 

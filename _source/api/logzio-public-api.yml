@@ -5639,7 +5639,7 @@ paths:
         - Security rules
       operationId: searchAccountSecurityRules
       summary: Retrieve security rules
-      description: Retrieve a filtered or unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. For the example of filtered and unfiltered requests, see [API cookbook](https://docs.logz.io/api/cookbook/filtered-unfiltered-security-rule.html).
+      description: Retrieve a list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. If you want to get all rules, just send `filter` as an empty object the payload.
       produces:
         - application/json
       parameters: 

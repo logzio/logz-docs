@@ -62,6 +62,65 @@ If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensur
   
 1. Delete the existing extension layer, its dependencies, and environment variables as decribed below in this topic.
 2. Deploy the new extension, its dependencies, and configuration as decribed below in this topic.
+  
+### Parsing logs
+
+By default, the extension sends the logs as strings.  
+If your logs are formatted, and you wish to parse them to separate fields, the extension will use the [grok library](https://github.com/vjeantet/grok) to parse grok patterns.
+You can see all the pre-built grok patterns (for example `COMMONAPACHELOG` is already a known pattern in the library) [here](https://github.com/vjeantet/grok/tree/master/patterns).
+If you need to use a custom pattern, you can use the environment variables `GROK_PATTERNS` and `LOGS_FORMAT`.
+
+#### Example
+
+For logs that are formatted like this:
+
+```python
+%(app_name)s : %(message)s
+```
+
+we will use `cool app` as the `app_name` and the `message` will have strings containing whitespaces, letters and numbers.
+
+In Logz.io we wish to have `app_name`, `message` in their own fields, named `my_app` and `my_message`, respectively.
+To do so, we'll set the environment variables as follows:
+
+##### GROK_PATTERNS
+
+The `GROK_PATTERNS` variable should be in a JSON format.
+The key is used as the pattern name, and the value should be the regex that captures the pattern.  
+In our case, while `app_name` always stays `cool app`, we don't know what `message` will be, so we need to set `GROK_PATTERNS` as: `{"app_name":"cool app","message":".*"}`
+
+##### LOGS_FORMAT
+
+The `LOGS_FORMAT` variable will contain the same format as the logs, according to the pattern names that we used in `GROK_PATTERNS`.  
+The variable should be in a grok format for each pattern name: `${PATTERN_NAME:FIELD_NAME}` where `PATTERN_NAME` is the pattern name from `GROK_PATTERNS`, and `FIELD_NAME` is the name of the field you want the pattern to be parsed to.  
+**Note** that the `FIELD_NAME` cannot contain a dot (`.`) in it.
+In our case, we want `app_name` to appear under the field `my_app`, and `message` to appear under the field `my_message`. Since we know that the logs format is as mentioned above, we will set `LOGS_FORMAT` as: `%{app_name:my_app} : %{message:my_message}`.
+
+The logs that match the configuration above will appear in Logz.io with the fields `lambda.record.my_app`, `lambda.record.my_message`.  
+The log: `"cool app : The sky is so blue"`, will be parsed to look like this:
+```
+my_app: cool app
+my_message: The sky is so blue
+```
+
+To learn more about grok, read the [grok library](https://github.com/vjeantet/grok), [Logz.io's blog post](https://logz.io/blog/logstash-grok/), or watch [this introduction to grok video](https://logz.io/learn/introduction-to-the-logstash-grok/).
+
+### Nested fields
+
+As of v0.2.0 the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
+For example, the following log:
+
+```
+{ "foo": "bar", "field2": "val2" }
+```
+
+Will appear under the fields:
+```
+message_nested.foo: bar
+message_nested.field2: val2
+```
+
+**Note:** The user must insert a valid JSON. Sending a dictionary or any key-value data structure that is not in a JSON format will cause the log to be sent as a string.
 
 </div>
 <!-- tab:end --> 
@@ -171,65 +230,6 @@ Run the function. It may take more than one run of the function for the logs to 
 
 - To delete the **extension layer**: In your function page, go to the **layers** panel. Click `edit`, select the extension layer, and click `save`.
 - To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`, click `edit`, and remove the variables that you added for the extension.
-
-#### Parsing logs
-
-By default, the extension sends the logs as strings.  
-If your logs are formatted, and you wish to parse them to separate fields, the extension will use the [grok library](https://github.com/vjeantet/grok) to parse grok patterns.
-You can see all the pre-built grok patterns (for example `COMMONAPACHELOG` is already a known pattern in the library) [here](https://github.com/vjeantet/grok/tree/master/patterns).
-If you need to use a custom pattern, you can use the environment variables `GROK_PATTERNS` and `LOGS_FORMAT`.
-
-##### Example
-
-For logs that are formatted like this:
-
-```python
-%(app_name)s : %(message)s
-```
-
-we will use `cool app` as the `app_name` and the `message` will have strings containing whitespaces, letters and numbers.
-
-In Logz.io we wish to have `app_name`, `message` in their own fields, named `my_app` and `my_message`, respectively.
-To do so, we'll set the environment variables as follows:
-
-###### GROK_PATTERNS
-
-The `GROK_PATTERNS` variable should be in a JSON format.
-The key is used as the pattern name, and the value should be the regex that captures the pattern.  
-In our case, while `app_name` always stays `cool app`, we don't know what `message` will be, so we need to set `GROK_PATTERNS` as: `{"app_name":"cool app","message":".*"}`
-
-###### LOGS_FORMAT
-
-The `LOGS_FORMAT` variable will contain the same format as the logs, according to the pattern names that we used in `GROK_PATTERNS`.  
-The variable should be in a grok format for each pattern name: `${PATTERN_NAME:FIELD_NAME}` where `PATTERN_NAME` is the pattern name from `GROK_PATTERNS`, and `FIELD_NAME` is the name of the field you want the pattern to be parsed to.  
-**Note** that the `FIELD_NAME` cannot contain a dot (`.`) in it.
-In our case, we want `app_name` to appear under the field `my_app`, and `message` to appear under the field `my_message`. Since we know that the logs format is as mentioned above, we will set `LOGS_FORMAT` as: `%{app_name:my_app} : %{message:my_message}`.
-
-The logs that match the configuration above will appear in Logz.io with the fields `lambda.record.my_app`, `lambda.record.my_message`.  
-The log: `"cool app : The sky is so blue"`, will be parsed to look like this:
-```
-my_app: cool app
-my_message: The sky is so blue
-```
-
-To learn more about grok, read the [grok library](https://github.com/vjeantet/grok), [Logz.io's blog post](https://logz.io/blog/logstash-grok/), or watch [this introduction to grok video](https://logz.io/learn/introduction-to-the-logstash-grok/).
-
-### Nested fields
-
-As of v0.2.0 the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
-For example, the following log:
-
-```
-{ "foo": "bar", "field2": "val2" }
-```
-
-Will appear under the fields:
-```
-message_nested.foo: bar
-message_nested.field2: val2
-```
-
-**Note:** The user must insert a valid JSON. Sending a dictionary or any key-value data structure that is not in a JSON format will cause the log to be sent as a string.
 
 
 

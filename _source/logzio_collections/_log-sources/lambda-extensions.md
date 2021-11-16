@@ -5,7 +5,6 @@ logo:
   orientation: vertical
 data-source: Lambda extensions
 data-for-product-source: Logs
-logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/lambda-extensions
 templates: ["lambda-cloudwatch"]
 open-source:
   - title: AWS Lambda extensions

@@ -56,13 +56,6 @@ This means that if your Lambda function goes into the `SHUTDOWN` phase, the exte
 
 You can deploy the extension via the AWS CLI or via the AWS Management Console.
   
-### Upgrading from v0.0.1 to v0.1.0
-  
-If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensure that your logs are correctly sent to Logz.io:
-  
-1. Delete the existing extension layer, its dependencies, and environment variables as decribed below in this topic.
-2. Deploy the new extension, its dependencies, and configuration as decribed below in this topic.
-  
 ### Parsing logs
 
 By default, the extension sends the logs as strings.  
@@ -121,6 +114,13 @@ message_nested.field2: val2
 ```
 
 **Note:** The user must insert a valid JSON. Sending a dictionary or any key-value data structure that is not in a JSON format will cause the log to be sent as a string.
+  
+### Upgrading from v0.0.1 to v0.1.0
+  
+If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensure that your logs are correctly sent to Logz.io:
+  
+1. Delete the existing extension layer, its dependencies, and environment variables as decribed below in this topic.
+2. Deploy the new extension, its dependencies, and configuration as decribed below in this topic.
 
 </div>
 <!-- tab:end --> 

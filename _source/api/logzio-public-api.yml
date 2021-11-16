@@ -7107,7 +7107,7 @@ definitions:
     type: object
     properties:
       filter:
-        description: Filter by rule name, severity, and more. If you want to get all rules, just send `{"filter": {}}` as the payload.
+        description: Filter by rule name, severity, and more. If you want to get all rules, just send `filter` as an empty object the payload.
         $ref: '#/definitions/AlertsFilter'
       sort:
         description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.

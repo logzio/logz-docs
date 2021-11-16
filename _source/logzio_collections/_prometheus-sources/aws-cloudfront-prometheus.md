@@ -43,6 +43,19 @@ order: 1095
 
 {% include /p8s-shipping/collect-aws-var-metrics.md namespace="CloudFront" %}
 
+#### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours.
+
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["3MJWDTivgQCNz3DQIj3Kry"] -->  
+
+{% include metric-shipping/generic-dashboard.html %} 
+
+</div>
+
 
 </div>
 <!-- tab:end -->

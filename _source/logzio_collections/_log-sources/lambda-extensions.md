@@ -165,20 +165,21 @@ Add the environment variables to the function, according to the [**Environment v
 
 Run the function. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
 
+</div>
 
 #### Deleting the extension
 
 - To delete the **extension layer**: In your function page, go to the **layers** panel. Click `edit`, select the extension layer, and click `save`.
 - To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`, click `edit`, and remove the variables that you added for the extension.
 
-### Parsing logs
+#### Parsing logs
 
 By default, the extension sends the logs as strings.  
 If your logs are formatted, and you wish to parse them to separate fields, the extension will use the [grok library](https://github.com/vjeantet/grok) to parse grok patterns.
 You can see all the pre-built grok patterns (for example `COMMONAPACHELOG` is already a known pattern in the library) [here](https://github.com/vjeantet/grok/tree/master/patterns).
 If you need to use a custom pattern, you can use the environment variables `GROK_PATTERNS` and `LOGS_FORMAT`.
 
-#### Example
+##### Example
 
 For logs that are formatted like this:
 
@@ -191,13 +192,13 @@ we will use `cool app` as the `app_name` and the `message` will have strings con
 In Logz.io we wish to have `app_name`, `message` in their own fields, named `my_app` and `my_message`, respectively.
 To do so, we'll set the environment variables as follows:
 
-##### GROK_PATTERNS
+###### GROK_PATTERNS
 
 The `GROK_PATTERNS` variable should be in a JSON format.
 The key is used as the pattern name, and the value should be the regex that captures the pattern.  
 In our case, while `app_name` always stays `cool app`, we don't know what `message` will be, so we need to set `GROK_PATTERNS` as: `{"app_name":"cool app","message":".*"}`
 
-##### LOGS_FORMAT
+###### LOGS_FORMAT
 
 The `LOGS_FORMAT` variable will contain the same format as the logs, according to the pattern names that we used in `GROK_PATTERNS`.  
 The variable should be in a grok format for each pattern name: `${PATTERN_NAME:FIELD_NAME}` where `PATTERN_NAME` is the pattern name from `GROK_PATTERNS`, and `FIELD_NAME` is the name of the field you want the pattern to be parsed to.  

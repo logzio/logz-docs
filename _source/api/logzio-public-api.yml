@@ -5633,13 +5633,13 @@ paths:
           schema:
             $ref: '#/definitions/RuleV2Response'
           headers: {}
-  /v2/security/rules/search/{FilteredRequest}: 
+  /v2/security/rules/search: 
     post: 
       tags: 
         - Security rules
-      operationId: searchAccountSecurityRulesFiltered
-      summary: Retrieve filtered security rules
-      description: Retrieve a filtered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      operationId: searchAccountSecurityRules
+      summary: Retrieve security rules
+      description: Retrieve a list of security rules for a specific Security account. The results are paginated. Filtering, sorting and pagination are all optional. If you want to get all rules, send the payload in `{}` format.
       produces:
         - application/json
       parameters: 
@@ -5647,36 +5647,13 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/AlertsSearchRequestFiltered'
+            $ref: '#/definitions/AlertsSearchRequest'
 
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/PagedSearchResponseSecurityRuleResponse'
-
-  /v2/security/rules/search/{UnfilteredRequest}: 
-    post: 
-      tags: 
-        - Security rules
-      operationId: searchAccountSecurityRulesUnfiltered
-      summary: Retrieve unfiltered security rules
-      description: Retrieve an unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
-      produces:
-        - application/json
-      parameters: 
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/AlertsSearchRequestUnfiltered'
-
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/PagedSearchResponseSecurityRuleResponse'
-
 
   /v2/security/rules/{id}/enable: 
     post: 
@@ -7123,47 +7100,22 @@ definitions:
           $ref: '#/definitions/SecurityRuleResponse'
       pagination:
         $ref: '#/definitions/Pagination'
-      schedule:
-        type: object
-        description: Defines the intervals in which an alert will be evaluated.
-        properties:
-          cron:
-            type: string
-            description: Cron job for the intervals schedule.
-          timezone:
-            type: string
-            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
+      
 
-  AlertsSearchRequestFiltered:
-    title: Filtered Results  
+  AlertsSearchRequest:
+    title: Search request Results  
     type: object
     properties:
       filter:
-        description: Filter by rule name, severity, and more.
+        description: Filter by rule name, severity, and more. If you want to get all rules, just send `filter` as an empty object the payload.
         $ref: '#/definitions/AlertsFilter'
       sort:
         description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
         $ref: '#/definitions/AlertsSortRequest'
       pagination:
         $ref: '#/definitions/Pagination'
-  AlertsSearchRequestUnfiltered:
-    title: Unfiltered Results  
-    type: object
-    properties:
-      query:
-        type: object
-        description: Search query.
-        properties:
-            bool:
-              type: object
-              properties:
-                  must:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        match_all:
-                          type: object
+      
+      
   AlertsSortRequest:
     type: object
     required:
@@ -8985,7 +8937,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
       schedule:
         type: object
-        description: Defines the intervals in which an alert will be evaluated.
+        description: Defines the intervals in which an alert will be evaluated. This feature is still in production, but the payload already contains the data.
         properties:
           cron:
             type: string
@@ -9404,7 +9356,7 @@ definitions:
         $ref: '#/definitions/SubRuleCorrelation'
       schedule:
         type: object
-        description: Defines the intervals in which an alert will be evaluated.
+        description: Defines the intervals in which an alert will be evaluated. This feature is still in production, but the payload already contains the data.
         properties:
           cron:
             type: string
@@ -9733,6 +9685,16 @@ definitions:
           * `output` (in `subComponents`)
 
           * `searchTimeFrameMinutes`
+      schedule:
+        type: object
+        description: Defines the intervals in which an alert will be evaluated. This feature is still in production, but the payload already contains the data.
+        properties:
+          cron:
+            type: string
+            description: Cron job for the intervals schedule.
+          timezone:
+            type: string
+            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
 
 
   # ::::: RESTORE FROM ARCHIVE DEFINITIONS

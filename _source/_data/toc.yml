@@ -1,0 +1,403 @@
+# *** Logz.io template can handle 3 levels max ***
+# 3-level hierarchy:
+# firstLevel: - contains title and icon only (no url), and secondLevel array
+#   secondLevel: - contains title and url, and thirdLevel array
+#     thirdLevel: - contains title and url
+
+# Add `external: true` if an entry links to outside docs.
+# This adds the external link icon.
+
+firstLevel:
+
+  # ===== USER GUIDE =====
+  # These docs are generally in the /user-guide folder
+- title: Log Management
+  icon: li-bar-graph
+
+  secondLevel:
+  - title: Kibana Discover
+    thirdLevel:
+    - title: Intro to Kibana Discover
+      url: /user-guide/kibana/
+    - title: Exceptions
+      url: /user-guide/insights/exceptions/
+    - title: Deployment markers
+      url: /user-guide/kibana/exceptions-deployments
+    - title: Patterns
+      url: /user-guide/kibana/log-patterns.html
+    - title: Wildcard searches
+      url: /kibana/wildcards/
+  - title: Field Mapping
+    thirdLevel:
+    - title: Field Mapping
+      url: /user-guide/kibana/mapping/
+    - title: Field not indexed
+      url: /user-guide/kibana/mapping/field-not-indexed/
+
+  - title: Log Alerts
+    thirdLevel:
+    - title: Intro to Log Alerts
+      url: /user-guide/alerts/
+    - title: Configure an alert
+      url: /user-guide/alerts/configure-an-alert.html
+    - title: Correlated alerts
+      url: /user-guide/alerts/correlated-alert/
+    - title: Alert shortcuts
+      url: /user-guide/alerts/new-alert.html
+    - title: View triggered alerts
+      url: /user-guide/alerts/view-triggered-alerts.html
+    - title: Regex filters
+      url: /user-guide/alerts/regex-filters.html
+    - title: Wait between notifications
+      url: /user-guide/alerts/suppress-notifications/
+
+  - title: Reports
+    url: /user-guide/reports/  
+
+  - title: Long term storage for select logs
+    thirdLevel:
+    - title: Optimizers
+      url: /user-guide/optimizers/
+    - title: Configure optimizers
+      url: /user-guide/optimizers/configure-optimizers.html
+
+
+  - title: Insights
+    thirdLevel:
+    - title: Insights
+      url: /user-guide/insights/
+    - title: Exploring insights
+      url: /user-guide/insights/exploring-insights.html
+    - title: Markers
+      url: /user-guide/insights/markers.html
+    - title: Insights notifications
+      url: /user-guide/insights/insights-notifications.html
+  - title: Collaboration
+    thirdLevel:
+    - title: Collaboration
+      url: /user-guide/tokens/collaboration
+    - title: Sharing links
+      url: /user-guide/tokens/sharing-links.html
+    - title: Importing & exporting JSON objects
+      url: /user-guide/kibana/share-import-export
+  - title: Live Tail
+    url: /user-guide/live-tail/
+
+
+    # ===== METRICS INFRASTRUCTURE MONITORING =====
+    # the Prometheus remote write topic & dashboard import topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory
+- title: Infrastructure Monitoring
+  icon: fas fa-chart-pie
+
+  secondLevel:
+  - title: Metrics overview
+    thirdLevel:
+    - title: Why metrics?
+      url: /user-guide/infrastructure-monitoring/
+    - title: Highlights
+      url: /user-guide/infrastructure-monitoring/metrics-logzio
+  - title: Introduction to Prometheus
+    thirdLevel:
+    - title: Getting started with Prometheus metrics
+      url: /user-guide/infrastructure-monitoring/prometheus-getting-started.html
+    - title: Configuring remote write for Prometheus 
+      url: /user-guide/infrastructure-monitoring/prometheus-remote-write.html    
+    - title: Importing dashboards  
+      url: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
+    - title: Explore Prometheus metrics 
+      url: /user-guide/infrastructure-monitoring/metrics-explore-prometheus ##url
+  - title: Alerts
+    url: /user-guide/infrastructure-monitoring/alerts.html
+  - title: Variables
+    url: /user-guide/infrastructure-monitoring/configure-metrics-drilldown-links.html ##url
+  - title: Log correlations
+    thirdLevel:
+    - title: Log correlations
+      url: /user-guide/infrastructure-monitoring/metrics-correlations/ ##url
+    - title: Annotations
+      url: /user-guide/infrastructure-monitoring/annotations/
+    - title: Explore in Kibana
+      url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+  #- title: Pre-built metrics dashboards
+  #  url: /user-guide/infrastructure-monitoring/metrics-dashboards
+  - title: Elastic-based Metrics information #deprecated topics
+    url: /user-guide/infrastructure-monitoring/elastic-metrics
+
+
+    # ===== DISTRIBUTED TRACING =====
+    # remove topics from Getting started: 22.sept.2021
+    # 1- title: Transitioning to Logz.io Distributed Tracing from a local Jaeger (url: /user-guide/distributed-tracing/local-jaeger_transition)
+    # 2- title: Setting up instrumentation and ingesting traces (url: /user-guide/distributed-tracing/tracing-instrumentation )
+    # 3- title: Deploying components in your system ( url: /user-guide/distributed-tracing/deploying-components)
+
+- title: Distributed Tracing
+  icon: fas fa-align-left
+
+  secondLevel:
+  - title: Tracing overview
+    thirdLevel:
+    - title: Why Distributed Tracing?
+      url: /user-guide/distributed-tracing/
+    - title: What is Distributed Tracing?
+      url: /user-guide/distributed-tracing/what-is-tracing
+  - title: Setting up Distributed Tracing
+    thirdLevel:
+    - title: Getting started
+      url: /user-guide/distributed-tracing/getting-started-tracing/
+    - title: Kubernetes deployment reference
+      url: /user-guide/distributed-tracing/k8s-deployment
+    - title: Sending demo traces with the HotROD application
+      url: /user-guide/distributed-tracing/trace-hotrod-demo
+  - title: Navigating in Distributed Tracing
+    thirdLevel:
+    - title: The Grand Distributed Tracing Tour
+      url: /user-guide/distributed-tracing/tracing-tour/
+    - title: Trace Timeline
+      url: /user-guide/distributed-tracing/trace-timeline/
+    - title: Trace Graph
+      url: /user-guide/distributed-tracing/trace-graph/
+    - title: Trace Statistics
+      url: /user-guide/distributed-tracing/trace-statistics/
+    - title: Trace JSON
+      url: /user-guide/distributed-tracing/trace-json/
+    - title: Compare traces
+      url: /user-guide/distributed-tracing/compare-traces
+    - title: Topology diagrams
+      url: /user-guide/distributed-tracing/topology-system_architecture
+  - title: Correlate logs and traces
+    url:  /user-guide/distributed-tracing/correlate-traces/
+  - title: Visualize traces in Kibana
+    url: /user-guide/distributed-tracing/visualize-traces/
+
+
+  # ===== CLOUD SIEM =====
+- title: Cloud SIEM
+  icon: fas fa-shield-alt
+
+  secondLevel:
+  - title: About Logz.io Cloud SIEM
+    thirdLevel:
+    - title: Why Cloud SIEM?
+      url: /user-guide/siem/intro/
+    - title: Highlights
+      url: /user-guide/siem/highlights/
+  - title: Intro to Cloud SIEM workspace
+    url: /user-guide/cloud-siem/
+  - title: Investigate events
+    thirdLevel:
+    - title: Investigate security events
+      url: /user-guide/cloud-siem/security-events.html
+    - title: Research in Kibana
+      url: /user-guide/cloud-siem/understanding-your-security-logs.html
+    - title: Drilldown links
+      url: /user-guide/cloud-siem/drilldown-links/
+  - title: Threat Intelligence
+    thirdLevel:
+    - title: Threat Intelligence feeds
+      url: /user-guide/cloud-siem/threat-intelligence.html
+    - title: Add a private feed
+      url: /user-guide/cloud-siem/private-feeds.html
+    - title: Preparing a feed
+      url: /user-guide/siem/ioc-types/
+  - title: Investigate malicious IPs
+    url: /user-guide/cloud-siem/malicious-IPs.html
+
+  - title: Security Rules
+    thirdLevel:
+    - title: Configure a security rule
+      url: /user-guide/cloud-siem/manage-security-rules.html
+    - title: Correlated rules
+      url: /user-guide/siem/security-correlated-queries/
+    - title: Lookup lists
+      url: /user-guide/lookups/
+  - title: Dashboards & Reports
+    url: /user-guide/cloud-siem/dashboards/
+  - title: Integrations
+    thirdLevel:
+    - title: Supported Security Integrations
+      url: /user-guide/cloud-siem/integrations/
+    - title: Integrate with Siemplify
+      url: /user-guide/cloud-siem/integration/siemplify/
+    - title: Integrate with Cortex xSOAR
+      url: /user-guide/cloud-siem/xsoar-integration/
+
+  # ===== ADMIN =====
+- title: Admin
+  icon: li-gear
+  secondLevel:
+  - title: Logz.io Accounts
+    thirdLevel:
+    - title: Manage accounts
+      url: /user-guide/accounts/
+    - title: Time-based log accounts
+      url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
+    - title: Flexible volume log accounts
+      url: /user-guide/accounts/flexible-volume.html
+    - title: Timeless log accounts
+      url: /user-guide/accounts/manage-timeless-accounts.html
+    - title: Security accounts
+      url: /user-guide/accounts/manage-the-cloud-siem-account.html
+    - title: Metrics accounts
+      url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
+    - title: Tracing accounts
+      url: /user-guide/accounts/manage-the-distributed-tracing-account.html
+      # - title: Usage and billing
+  - title: Hosting Regions
+    thirdLevel:
+    - title: Hosting regions
+      url: /user-guide/accounts/account-region.html
+    - title: Migrating accounts between hosting regions
+      url: /user-guide/accounts/migration.html
+  - title: Account Volume Optimization
+    thirdLevel:
+    - title: Managing account usage
+      url: /user-guide/accounts/manage-account-usage.html
+    - title: Smart Tier
+      url: /user-guide/accounts/smart-tier/
+    - title: Drop filters
+      url: /user-guide/accounts/drop-filters/
+
+  - title: Users
+    thirdLevel:
+    - title: User management
+      url: /user-guide/users/
+    - title: Multi-factor authentication
+      url: /user-guide/users/multi-factor-authentication.html
+    - title: Permission levels
+      url: /user-guide/accounts/permissions/
+  - title: SSO
+    thirdLevel:
+    - title: Single sign-on
+      url: /user-guide/users/single-sign-on/
+    - title: Azure single sign-on
+      url: /user-guide/users/single-sign-on/azure-sso.html
+    - title: Logz.io-Azure Portal integration single sign-on
+      url: /user-guide/users/single-sign-on/azure_marketplace_liftr.html      
+    - title: Okta single sign-on
+      url: /user-guide/users/single-sign-on/okta-sso.html
+    - title: OneLogin single sign-on
+      url: /user-guide/users/single-sign-on/onelogin-sso.html
+  - title: Authentication Tokens
+    thirdLevel:
+    - title: Types of tokens
+      url: /user-guide/tokens/
+    - title: Log shipping tokens
+      url: /user-guide/tokens/log-shipping-tokens/
+    - title: Metrics shipping token
+      url: /user-guide/accounts/finding-your-metrics-account-token/
+    - title: Distributed Tracing shipping token
+      url: /user-guide/accounts/finding-your-tracing-account-token/
+    - title: Shared tokens
+      url: /user-guide/tokens/shared-tokens.html
+    - title: API tokens
+      url: /user-guide/tokens/api-tokens.html
+
+  - title: Archive & Restore
+    thirdLevel:
+      - title: Archive & restore
+        url: /user-guide/archive-and-restore/
+      - title: Configure archiving
+        url: /user-guide/archive-and-restore/configure-archiving.html
+      - title: Restore archived logs
+        url: /user-guide/archive-and-restore/restore-archived-logs.html
+      - title: Setting S3 permissions in AWS
+        url: /user-guide/archive-and-restore/set-s3-permissions.html
+      - title: Setting permissions in Microsoft Azure
+        url: /user-guide/archive-and-restore/azure-blob-permissions/
+  - title: PCI compliance
+    url: /user-guide/accounts/pci-compliance.html
+  - title: Granting access to Logz.io Support
+    url: /user-guide/accounts/support-access.html
+
+  # ===== SHIPPING AND PARSING =====
+- title: Shipping & Parsing
+  icon: li-plane
+
+  secondLevel:
+  - title: Ship your data to Logz.io
+    url: /shipping/
+#  - title: Log shipping intro
+#    url: /user-guide/log-shipping/
+
+  - title: Resources
+    thirdLevel:
+    - title: FAQs about sending logs
+      url: /user-guide/log-shipping/faqs-logs/
+    - title: Log shipping troubleshooting
+      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
+    - title: Troubleshooting Filebeat
+      url: /user-guide/log-shipping/filebeat-troubleshooting/
+    - title: Listener IP addresses
+      url: /user-guide/log-shipping/listener-ip-addresses.html
+    - title: Hosting regions
+      url: /user-guide/accounts/account-region.html
+
+  - title: Log Parsing
+    thirdLevel:
+    - title: Default parsing
+      url: /user-guide/log-shipping/built-in-log-types.html
+    - title: Split an array
+      url: /user-guide/mapping-and-parsing/split-json-array.html
+    - title: Logz.io DIY Data Parsing
+      url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
+    - title: Parsing Wizard (deprecated)
+      url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+
+  # ===== INTEGRATIONS =====
+- title: Integrations
+  icon: li-code
+  secondLevel:
+  - title: Notification endpoints
+    thirdLevel:
+      - title: Notification endpoints
+        url: /user-guide/integrations/endpoints.html
+      - title: ServiceNow endpoint
+        url: /user-guide/integrations/servicenow.html
+      - title: Opsgenie notifications for resolved metrics alerts
+        url: /user-guide/integrations/resolved-metrics-alerts.html
+
+  - title: Custom endpoints
+    thirdLevel:
+      - title: Custom endpoints
+        url: /user-guide/integrations/custom-endpoints.html
+      - title: Microsoft Teams endpoint
+        url: /user-guide/integrations/ms-teams.html
+      - title: StatusPage endpoint
+        url: /user-guide/integrations/status-page.html
+
+    # ===== API Reference =====
+  - title: Logz.io API
+    thirdLevel:
+    - title: Logz.io API
+      url: /api/
+    - title: Terraform Logz.io Provider
+      url: /integrations/terraform/
+  - title: API cookbook
+    thirdLevel:
+    - title: API cookbook
+      url: /api/cookbook/
+    - title: Who am I?
+      url: /api/cookbook/who-am-i.html
+    - title: Managing sub account capacity
+      url: /api/cookbook/managing-sub-account-capacity.html
+    - title: Backing up Kibana objects to GitHub
+      url: /api/cookbook/backing-up-kibana-objects-to-github.html
+    - title: Using Inspect feature on Kibana UI
+      url: /api/cookbook/inspect.html
+
+  - title: LightS - Light Synthetic Monitoring for AWS
+    url: /integrations/lights/
+
+
+  # ===== MORE =====
+- title: ""
+  secondLevel:
+  - title: Blog
+    url: https://logz.io/blog/
+    external: true
+  - title: Videos
+    url: https://logz.io/learn/video/
+    external: true
+  - title: Report a security issue
+    url: /report-a-security-issue/
+    external: false

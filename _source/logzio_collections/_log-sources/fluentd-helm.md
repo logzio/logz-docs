@@ -45,7 +45,7 @@ kubectl create namespace monitoring
 ##### Add logzio-fluentd repo to your helm repo list
 
 ```shell
-helm repo add logzio-helm https://logzio.github.io/logzio-helm/fluentd
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
 ```
 
 ##### Deploy

@@ -5639,7 +5639,7 @@ paths:
         - Security rules
       operationId: searchAccountSecurityRules
       summary: Retrieve security rules
-      description: Retrieve a list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. If you want to get all rules, just send `filter` as an empty object the payload.
+      description: Retrieve a list of security rules for a specific Security account. The results are paginated. Filtering, sorting and pagination are all optional. If you want to get all rules, send the payload in `{}` format.
       produces:
         - application/json
       parameters: 

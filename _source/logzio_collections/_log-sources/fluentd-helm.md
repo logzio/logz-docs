@@ -82,6 +82,7 @@ helm install -n monitoring \
   --set-file configmap.extraConfig=/path/to/config.yaml \
   logzio-fluentd logzio-helm/logzio-fluentd
 ```
+
 | Parameter | Description | Default |
 |---|---|---|
 | `image` | The logzio-fluentd docker image. | `logzio/logzio-fluentd` |

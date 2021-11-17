@@ -17,15 +17,19 @@ shipping-tags:
   - agents
 order: 180
 ---
-# Logzio-fluentd
+### Logzio-fluentd
 
 [Helm](https://helm.sh/) is a tool for managing packages of pre-configured Kubernetes resources using Charts.
 Logzio-fluentd allows you to ship logs from your Kubernetes cluster to Logz.io, using Fluentd.
 Fluentd is flexible enough and has the proper plugins to distribute logs to different third parties such as Logz.io.
 
-**Note:** The chart defaults to configuration for Conatinerd CRI. If your cluster uses Docker as CRI, please refer to `daemonset.containerdRuntime` in the [configuration table](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
+<!-- info-box-start:info -->
+The chart defaults to configuration for Conatinerd CRI. If your cluster uses Docker as CRI, please refer to `daemonset.containerdRuntime` in the [configuration table](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
+{:.info-box.note}
+<!-- info-box-end -->
 
-### Deploying the Chart
+
+#### Deploying the Chart
 
 <div class="tasklist">
 
@@ -64,9 +68,10 @@ logzio-fluentd logzio-helm/logzio-fluentd
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
+	
+</div>
 
-
-### Configuration
+#### Configuration
 
 This table contains all the parameters in `values.yaml`. If you wish to change the default values, specify each parameter using the `--set key=value` argument to `helm install` in step 2. For example:
 
@@ -142,7 +147,7 @@ my-custom-conf-name2.conf: |-
 	# .....
 ```
 
-### Uninstalling the Chart
+#### Uninstalling the Chart
 
 The command removes all the k8s components associated with the chart and deletes the release.  
 
@@ -152,4 +157,3 @@ To uninstall the `logzio-fluentd` deployment:
 helm uninstall -n monitoring logzio-fluentd
 ```
 
-</div>

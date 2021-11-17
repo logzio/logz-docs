@@ -137,7 +137,7 @@ helm install -n monitoring \
 - Add a `--set-file` flag to your `helm install` command, as seen in the [example above](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
 - Make sure that the `yaml` file with your configuration is in the following format:
 
-```yaml
+```ini
 my-custom-conf-name.conf: |-
 	# .....
 	# your config

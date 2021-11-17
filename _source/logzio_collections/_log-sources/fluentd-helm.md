@@ -15,6 +15,7 @@ contributors:
   - mirii1994
 shipping-tags:
   - agents
+  - container
 order: 180
 ---
 ### Logzio-fluentd

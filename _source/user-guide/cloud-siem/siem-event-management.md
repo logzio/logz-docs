@@ -20,7 +20,11 @@ The events are displayed in a table: You can sort the events table by severity, 
 You can also filter and search the events in the table, to further refine your results.
 
 Topics on this page: 
-<!-- consider the presumed order of actions for a user on this page -->
+<!-- consider the presumed order of actions for a user on this page 
+AIs: 
+Need to include descriptions for each field column in event table
+Need to give guidance if there are no events
+2 use cases. 1. No event rules were triggered. 2. Adjust filters and search terms. -->
 
 * [Filter events](user-guide/cloud-siem/siem-event-management.html#event-filtering) - Learn about the available filters to refine the list of triggered events.
 * [Search events](/user-guide/cloud-siem/siem-event-management.html#search-for-events) - Where to set your criteria to find specific events.

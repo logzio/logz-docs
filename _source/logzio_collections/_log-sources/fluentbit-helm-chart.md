@@ -45,7 +45,7 @@ helm repo update
 ```shell
 helm install  \
 --set logzio.token=<<LOG-SHIPPING-TOKEN>> \
---set logzio.listenerHost=<<LISTENER-HOST>>:8071 \
+--set logzio.listenerHost=<<LISTENER-HOST>> \
 --set logzio.logType=<<LOG-TYPE>> \
 logzio-fluent-bit logzio-helm/logzio-fluent-bit
 ```

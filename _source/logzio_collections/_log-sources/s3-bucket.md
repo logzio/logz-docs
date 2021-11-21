@@ -44,7 +44,7 @@ You can add your buckets directly from Logz.io by providing your S3 credentials 
 `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
 
 <div class="tasklist">
-
+ 
 
 
 

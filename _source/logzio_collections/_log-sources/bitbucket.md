@@ -12,7 +12,7 @@ tags:
 contributors:
   - nshishkin
 shipping-tags:
-  - azure
+  - ci-cd
 order: 630
 ---
 

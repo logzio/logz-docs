@@ -31,7 +31,7 @@ Log in to your Bitbucket account and navigate to the repository that you need to
 
 ##### Open the **Add new webhook** page
 
-Navigate to **Settings > Webhooks > Add webhook**.
+Navigate to **Repository Settings > Webhooks > Add webhook**.
 
 ##### Fill out the **Add new webhook** page
 

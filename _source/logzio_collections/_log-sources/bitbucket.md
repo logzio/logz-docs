@@ -43,7 +43,7 @@ Navigate to **Repository Settings > Webhooks > Add webhook**.
 
 * Skip the **SSL/TLS** section.
 
-* In the **Triggers** section, enable all triggers.
+* In the **Triggers** section, select triggers that you would like to enable.
 
 ##### Save changes
 

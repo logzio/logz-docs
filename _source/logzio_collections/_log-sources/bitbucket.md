@@ -37,7 +37,7 @@ Navigate to **Repository Settings > Webhooks > Add webhook**.
 
 * In the **Title** field, enter **logzio**.
 
-* In the **URL** field, enter `http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>`. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.md %}
+* In the **URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&&type=bitbucket`. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.md %}
 
 * In the **Status** section, enable **Active**.
 

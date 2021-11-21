@@ -43,7 +43,7 @@ For help with this, see [Amazon S3 Server Access Logging](https://docs.aws.amazo
 <!-- logzio-inject:aws:s3-access -->
 
 
-{% include log-shipping/add-s3-bucket.html %}
+{% include log-shipping/add-s3-bucket.md %}
 
 
 ##### Check Logz.io for your logs

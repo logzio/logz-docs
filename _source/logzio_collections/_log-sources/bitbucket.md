@@ -6,9 +6,6 @@ logo:
 data-source: Bitbucket
 data-for-product-source: Logs
 templates: ["azure-deployment-event-hubs"]
-tags:
-  - azure
-  - event-hubs
 contributors:
   - nshishkin
 shipping-tags:

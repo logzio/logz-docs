@@ -44,13 +44,13 @@ You can add your buckets directly from Logz.io by providing your S3 credentials 
 `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
 
 <div class="tasklist">
-
+ 
 
 
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket) and add a new S3 bucket.
+{% include log-shipping/s3-bucket-snippet.md %}
 
 
 <!-- logzio-inject:aws:s3-buckets -->

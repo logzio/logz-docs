@@ -15,7 +15,7 @@ contributors:
 
 Logz.io Service Performance Monitoring dashboard provides an overview of your systems' health by aggregating Request, Error and Duration (R.E.D) metrics from span data. The dashboard helps you to pinpoint and isolate incidents in your system quickly.
 
-<p class="info-box note">This feature is in Beta. If you encounter any issues, please contact the [Logz.io Support team](mailto:help@logz.io).</p>
+{% include page-info/early-access.md type="Beta" %}
 
 #### To generate a Service Performance Monitoring dashboard: 
 {:.no_toc}  
@@ -44,7 +44,7 @@ The Span Metrics Processor processes spans on the go, emitting R.E.D metrics at 
 [This link takes you to the OpenTelemetry installation.](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry) 
 The information is also available in the **Logz.io Docs**, in [**Ship your data > OpenTelemetry installation**](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html).
 
-Here is a configuration example. Make sure you include your account name, region and token.
+To configure your spanmetrics processor, make sure you use your **Metrics** account token, name and region:
 
 ```yaml
 receivers:
@@ -65,21 +65,20 @@ receivers:
           external_labels:
             p8s_logzio_name: YOUR-ACCOUNT-NAME # Replace with your account name
         scrape_configs: 
-        - job_name: 'atm'
+        - job_name: 'name' # give the job a name
           scrape_interval: 15s
           static_configs:
           - targets: [ "0.0.0.0:8889" ]
   exporters:
     logzio:
-      account_token: "${LOGZIO_TRACES_TOKEN}"
-      region: "us"    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
+      account_token: "${LOGZIO_TRACE_TOKEN}" #Replace with your Tracing account token
+      region: "us"    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page
     prometheusremotewrite:
       endpoint: https://listener.logz.io:8053
       headers:
         Authorization: Bearer ${LOGZIO_METRICS_TOKEN}
     prometheus:
       endpoint: "localhost:8889"
-      namespace: "atm"
     logging:
   processors:
     batch:
@@ -130,14 +129,21 @@ receivers:
         exporters: [logging,prometheusremotewrite]
 ```
 
-Additional configuration examples can be found in the [OpenTelemetry repository](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/spanmetricsprocessor/testdata).
+The OpenTelemetry repository offers additional configuration examples, such as:
 
+* [Exporter not found](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/spanmetricsprocessor/testdata/config-exporter-not-found.yaml) - Where the configured 'metrics_exporter' within spanprocessor, cannot be found in any pipeline, leading to a config validation error
+* [3-pipeline configuration](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/spanmetricsprocessor/testdata/config-3-pipelines.yaml) - When a user wishes to perform further processing of aggregated span metrics prior to exporting (traces -> metrics-proxy-pipeline -> metrics)
+* [And more](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/spanmetricsprocessor/testdata)
 
 
 ##### View your Service Performance Monitoring dashboard
 
-To view your dashboard, navigate to your [Tracing account](https://app.logz.io/#/dashboard/jaeger/monitoring), and click on the **Monitoring** tab.
+Once you've finished the setup, the new dashboard will be available under your Tracing account. To view it, navigate to the [Tracing account](https://app.logz.io/#/dashboard/jaeger/monitoring), and click on the **Monitoring** tab:
 
-![Service Performance Monitoring dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/service-performance-monitoring-screen.png)
+![Service Performance Monitoring dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-main-dashboard.png)
+
+The dashboard includes a breakdown of R.E.D data (Requests, Errors and Delay) based on the operations running inside the chosen service.
+
+To learn more about the Service Performance Monitoring dashboard, what it includes and how you can utilize it, **[check out our detailed overview](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring#service-performance-monitoring-dashboard)**.
 
 </div>

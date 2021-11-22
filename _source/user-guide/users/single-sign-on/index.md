@@ -37,12 +37,12 @@ All authenticated users will have access to your account, and existing users wil
 
 ###### How SSO groups work
 
-Groups allow setting **User** or **Admin** level permissions to users when using SSO.
+SSO groups help you map, monitor and edit access levels across multiple users in your organization. You can apply **User**, **Admin** or **Read only** level permissions to all users in the group with a single set up, and change permission levels quickly and easily.
 (Read more on permission levels [here](https://docs.logz.io/user-guide/accounts/permissions/)).
 
 * Create a group in your SSO provider and add the users to the groups. 
 * Add the group in your Logz.io account from **<i class="li li-gear"></i> Settings > [Manage users > Groups tab](https://app.logz.io/#/dashboard/settings/manage-users)**.
-* Set the permission level for the group to **User** or **Admin**.
+* Set the permission level for the group to **Read only**, **User** or **Admin**.
 
 ###### If you don't have any groups
 

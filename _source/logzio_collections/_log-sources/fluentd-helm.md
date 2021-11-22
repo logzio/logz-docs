@@ -18,6 +18,15 @@ shipping-tags:
   - container
 order: 180
 ---
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Multiline logs](#multiline)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
 ### Logzio-fluentd
 
 [Helm](https://helm.sh/) is a tool for managing packages of pre-configured Kubernetes resources using Charts.
@@ -159,3 +168,14 @@ To uninstall the `logzio-fluentd` deployment:
 helm uninstall -n monitoring logzio-fluentd
 ```
 
+</div>
+<!-- tab:end -->
+<!-- tab:start -->
+<div id="multiline">
+
+{% include /log-shipping/multiline-fluentd-plugin.md %}
+
+</div>
+<!-- tab:end -->
+</div>
+<!-- tabContainer:end -->

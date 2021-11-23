@@ -4,7 +4,7 @@ logo:
   logofile: onelogin.png
   orientation: vertical
 data-source: OneLogin
-data-for-product-source: Logs
+data-for-product-source: SIEM
 templates: ["azure-deployment-event-hubs"]
 contributors:
   - nshishkin

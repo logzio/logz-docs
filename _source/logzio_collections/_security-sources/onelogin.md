@@ -31,6 +31,8 @@ Log in to your OneLogin account as admin.
 Navigate to **Developers > Webhooks > New broadcaster**.
 
 ##### Fill out the **New broadcaster** dialog
+  
+![New-broadcaster](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/New-broadcaster.png)
 
 * In the **Title** field, enter **logzio**.
 

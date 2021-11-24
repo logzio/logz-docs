@@ -61,7 +61,7 @@ Existing users will retain their current level of access.
 As soon as you configure your first group,
 only users who are part of that SSO group will be able to log in to this account.
 
-Each group can be given **Admin**, **User**, or **Configured per user** permissions.
+Each group can be given **Admin**, **User**, **Read only**, or **Configured per user** permissions.
 
 Permissions are set at the group level
 unless a group is set to **Configured per user**.

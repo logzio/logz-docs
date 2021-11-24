@@ -10,8 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Amazon NAT
-
 This dashboard provides an interface to view and analyze metrics from your Amazon NAT.
 
 | Metric visualization                                 | Metric name                                                                                              | Description                                                                                                                                                    |

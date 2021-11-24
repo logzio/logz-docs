@@ -14,7 +14,7 @@ This dashboard provides an interface to view and analyze metrics from your Amazo
 
 | Metric visualization     | Metric name                                                                              | Description                                                                                             |
 | ------------------------ | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Group Size               | Aws\_autoscaling\_group\_max\_size\_average, aws\_autoscaling\_group\_min\_size\_average | The minimum size of the Auto Scaling group versus the maximum size of the Auto Scaling group. |
+| Group Size               | aws\_autoscaling\_group\_max\_size\_average, aws\_autoscaling\_group\_min\_size\_average | The minimum size of the Auto Scaling group versus the maximum size of the Auto Scaling group. |
 | Group's Desired Capacity | aws\_autoscaling\_group\_desired\_capacity\_average                                      | The number of instances that the Auto Scaling group attempts to maintain.                               |
 | Total Instances          | aws\_autoscaling\_group\_total\_instances\_average                                       | The total number of instances in the Auto Scaling group.                                                |
 | Running Instances        | aws\_autoscaling\_group\_in\_service\_instances\_average                                 | The number of instances that are running as part of the Auto Scaling group.                       |

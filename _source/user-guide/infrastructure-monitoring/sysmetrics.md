@@ -10,7 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Redis
 
 This dashboard provides an interface to view and analyze system metrics from your machine collected by Telegraf.
 

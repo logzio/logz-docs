@@ -10,8 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Amazon EC2
-
 This dashboard provides an interface to view and analyze metrics from your EC2 instances.
 
 | Metric visualization | Metric name | Description                                                                                                                                                                                                                                |

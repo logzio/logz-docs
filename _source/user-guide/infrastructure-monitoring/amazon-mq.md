@@ -10,7 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Amazon MQ
 
 This dashboard provides an interface to view and analyze metrics for your ActiveMQ broker and its destinations (queues and topics).
 

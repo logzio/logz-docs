@@ -19,7 +19,8 @@ This dashboard provides an interface to view and analyze metrics from your Amazo
 | Incoming Bytes     | aws\_firehose\_incoming\_bytes\_sum     | The number of bytes ingested successfully into the delivery stream over the specified time period after throttling.  |
 | Successful PutRecord And PutRecordBatch Requests   | aws\_firehose\_incoming\_put\_requests\_sum    | The number of successful PutRecord and PutRecordBatch requests over the specified period of time after throttling.  |
 | Put Latency        | aws\_firehose\_put\_record\_batch\_latency\_sum, aws\_firehose\_put\_record\_latency\_sum | The time taken per PutRecordBatch operation, measured over the specified time period and the time taken per PutRecord operation, measured over the specified time period. |
-| Read From Data Stream                                | Records Read | aws\_firehose\_data\_read\_from\_kinesis\_stream\_records\_sum          | When the data source is a Kinesis data stream, this metric indicates the number of records read from that data stream.   |
+| Read From Data Stream       |
+| Records Read | aws\_firehose\_data\_read\_from\_kinesis\_stream\_records\_sum          | When the data source is a Kinesis data stream, this metric indicates the number of records read from that data stream.   |
 | Bytes Read          | aws\_firehose\_data\_read\_from\_kinesis\_stream\_bytes\_sum       | When the data source is a Kinesis data stream, this metric indicates the number of bytes read from that data stream.      |
 | Throttled GetRecords Requests        | aws\_firehose\_throttled\_get\_records\_sum    | The total number of times the GetRecords operation is throttled when the data source is a Kinesis data stream.    |
 | Data Transformation With Lambda      |

@@ -10,7 +10,7 @@ contributors:
   - nshishkin
 ---
 
-## Amazon SES
+
 
 This dashboard provides an interface to view and analyze metrics from your Amazon SES.
 

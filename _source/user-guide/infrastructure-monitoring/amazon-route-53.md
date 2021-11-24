@@ -10,7 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Amazon Route 53
 
 This dashboard provides an interface to view and analyze metrics from your Amazon Route 53.
 

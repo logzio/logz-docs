@@ -10,8 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Amazon Kinesis Firehose
-
 This dashboard provides an interface to view and analyze metrics from your Amazon Kinesis Firehose.
 
 | Metric visualization                                                                                         | Metric name                                                                                | Description                                                                                                                                                                         |

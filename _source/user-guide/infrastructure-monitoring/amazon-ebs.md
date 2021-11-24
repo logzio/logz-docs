@@ -10,7 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Amazon EBS
 
 This dashboard provides an interface to view and analyze metrics from your Amazon EBS.
 

@@ -10,7 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## etcd
 
 This dashboard provides an interface to view and analyze metrics from your etcd servers.
 

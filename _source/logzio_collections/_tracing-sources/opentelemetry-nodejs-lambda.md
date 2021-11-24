@@ -18,8 +18,8 @@ order: 1380
 <div class="branching-container">
 
 * [Overview](#overview)
-* [New Lambda](#new)
-* [Existing Lambda](#existing)
+* [Build a layer](#new)
+* [Add to existing layer](#existing)
 {:.branching-tabs}
 
 <!-- tab:start -->

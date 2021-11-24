@@ -131,7 +131,7 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-auto-scaling.html
     - title: AWS Cloudwatch - EBS
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ebs.html
-    - title: AWS Cloudwatch - Amazon EC2
+    - title: AWS Cloudwatch - EC2
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ec2.html
     - title: AWS Cloudwatch - Classic ELB
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-classic-elb.html
@@ -151,7 +151,7 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-rds.html
     - title: AWS Cloudwatch - Route 53
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-route-53.html
-    - title: AWS Cloudwatch - Amazon S3
+    - title: AWS Cloudwatch - S3
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-s3.html
     - title: AWS Cloudwatch - SES
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ses.html

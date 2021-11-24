@@ -120,6 +120,29 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
   - title: Pre-built metrics dashboards
     url: /user-guide/infrastructure-monitoring/metrics-dashboards
+    thirdLevel:
+    - title: Amazon MQ
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-mq.html
+    - title: Amazon S3
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-s3.html
+    - title: Amazon EC2
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ec2.html
+    - title: MongoDB
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/mongodb.html
+    - title: MySQL
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/mysql.html
+    - title: PostgreSQL
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/postgresql.html
+    - title: Redis
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/redis.html
+    - title: System metrics over Telegraf
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/sysmetrics.html
+    - title: VMware
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/vmware.html
+    - title: AWS Cloudwatch - API Gateway
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aws-api-gateway.html
+    - title: AWS Cloudwatch - Application ELB
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aws-app-elb.html
   - title: Elastic-based Metrics information #deprecated topics
     url: /user-guide/infrastructure-monitoring/elastic-metrics
 

@@ -10,8 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Amazon Classic ELB
-
 This dashboard provides an interface to view and analyze metrics from your Amazon Classic ELB.
 
 | Metric visualization  | Metric name     | Description           |

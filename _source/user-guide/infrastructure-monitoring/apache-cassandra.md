@@ -10,7 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Apache Cassandra
 
 This dashboard provides an interface to view and analyze metrics from your Apache Cassandra databases.
 

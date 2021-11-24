@@ -4,6 +4,7 @@ logo:
   logofile: stormshield.png
   orientation: vertical
 data-source: Stormshield
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

@@ -8,6 +8,7 @@ open-source:
     github-repo: micrometer-registry-logzio
     maven: test
 data-source: Java custom metrics via Micrometer
+data-for-product-source: Metrics
 flags:
   logzio-plan:  
   beta: false

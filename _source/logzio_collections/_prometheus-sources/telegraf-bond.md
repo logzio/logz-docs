@@ -4,6 +4,7 @@ logo:
   logofile: bond-logo.png
   orientation: vertical
 data-source: Bond
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

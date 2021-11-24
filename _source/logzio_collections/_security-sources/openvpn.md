@@ -4,6 +4,7 @@ logo:
   logofile: openvpn.png
   orientation: vertical
 data-source: OpenVPN
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin
@@ -37,6 +38,7 @@ Paste the following into the inputs section of the Filebeat configuration file:
    filebeat.inputs:
    - type: log
      paths:
+       - /var/log/openvpnas.log
        - /var/log/openvpnas.log.*
      fields:
        logzio_codec: json

@@ -4,6 +4,7 @@ logo:
   logofile: vsphere-logo.png
   orientation: vertical
 data-source: Vmware Vsphere 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -4,6 +4,7 @@ logo:
   logofile: gcpai.png
   orientation: vertical
 data-source: Google Contact Center AI Insights
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

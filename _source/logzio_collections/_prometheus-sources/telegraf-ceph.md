@@ -4,6 +4,7 @@ logo:
   logofile: ceph-logo.png
   orientation: vertical
 data-source: Ceph Storage
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

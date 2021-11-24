@@ -4,6 +4,7 @@ logo:
   logofile: java.svg
   orientation: vertical
 data-source: Automatic Java instrumentation
+data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin
@@ -105,6 +106,27 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 </div>
 
+### Controlling the number of spans
+
+To limit the number of outgoing spans, you can use the sampling option in the Java agent.
+
+The sampler configures whether spans will be recorded for any call to `SpanBuilder.startSpan`.
+
+| System property                 | Environment variable            | Description                                                  |
+|---------------------------------|---------------------------------|--------------------------------------------------------------|
+| otel.traces.sampler              | OTEL_TRACES_SAMPLER              | The sampler to use for tracing. Defaults to `parentbased_always_on` |
+| otel.traces.sampler.arg          | OTEL_TRACES_SAMPLER_ARG          | An argument to the configured tracer if supported, for example a ratio. |
+
+Supported values for `otel.traces.sampler` are
+
+- "always_on": AlwaysOnSampler
+- "always_off": AlwaysOffSampler
+- "traceidratio": TraceIdRatioBased. `otel.traces.sampler.arg` sets the ratio.
+- "parentbased_always_on": ParentBased(root=AlwaysOnSampler)
+- "parentbased_always_off": ParentBased(root=AlwaysOffSampler)
+- "parentbased_traceidratio": ParentBased(root=TraceIdRatioBased). `otel.traces.sampler.arg` sets the ratio.
+
+
 </div>
 <!-- tab:end -->
 
@@ -160,6 +182,27 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 </div>
+
+### Controlling the number of spans
+
+To limit the number of outgoing spans, you can use the sampling option in the Java agent.
+
+The sampler configures whether spans will be recorded for any call to `SpanBuilder.startSpan`.
+
+| System property                 | Environment variable            | Description                                                  |
+|---------------------------------|---------------------------------|--------------------------------------------------------------|
+| otel.traces.sampler              | OTEL_TRACES_SAMPLER              | The sampler to use for tracing. Defaults to `parentbased_always_on` |
+| otel.traces.sampler.arg          | OTEL_TRACES_SAMPLER_ARG          | An argument to the configured tracer if supported, for example a ratio. |
+
+Supported values for `otel.traces.sampler` are
+
+- "always_on": AlwaysOnSampler
+- "always_off": AlwaysOffSampler
+- "traceidratio": TraceIdRatioBased. `otel.traces.sampler.arg` sets the ratio.
+- "parentbased_always_on": ParentBased(root=AlwaysOnSampler)
+- "parentbased_always_off": ParentBased(root=AlwaysOffSampler)
+- "parentbased_traceidratio": ParentBased(root=TraceIdRatioBased). `otel.traces.sampler.arg` sets the ratio.
+
 
 </div>
 <!-- tab:end -->

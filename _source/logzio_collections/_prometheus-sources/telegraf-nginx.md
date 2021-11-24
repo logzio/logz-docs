@@ -4,6 +4,7 @@ logo:
   logofile: nginx.png
   orientation: vertical
 data-source: Nginx
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

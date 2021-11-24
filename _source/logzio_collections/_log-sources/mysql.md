@@ -4,6 +4,7 @@ logo:
   logofile: mysql.svg
   orientation: horizontal
 data-source: MySQL
+data-for-product-source: Logs
 templates: [beats-logs, "docker"]
 open-source:
   - title: mysql-logs

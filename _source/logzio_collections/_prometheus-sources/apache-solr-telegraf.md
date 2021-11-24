@@ -4,6 +4,7 @@ logo:
   logofile: solr-logo.png
   orientation: vertical
 data-source: Apache Solr
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

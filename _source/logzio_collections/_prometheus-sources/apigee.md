@@ -4,6 +4,7 @@ logo:
   logofile: apigee.png
   orientation: vertical
 data-source: Google Apigee
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

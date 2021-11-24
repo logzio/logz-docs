@@ -4,6 +4,7 @@ logo:
   logofile: gcpkubernetes.png
   orientation: vertical
 data-source: Google Kubernetes Engine
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

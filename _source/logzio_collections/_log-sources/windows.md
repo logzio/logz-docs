@@ -5,6 +5,7 @@ logo:
   logofile: windows.svg
   orientation: vertical
 data-source: Windows
+data-for-product-source: Logs
 templates: ["beats-logs", "no-template"]
 contributors:
   - imnotashrimp
@@ -27,7 +28,7 @@ order: 100
 #### Configure Winlogbeat
 
 **Before you begin, you'll need**:
-[Winlogbeat 7](https://www.elastic.co/downloads/beats/winlogbeat) or
+[Winlogbeat 7](https://www.elastic.co/guide/en/beats/winlogbeat/7.x/winlogbeat-installation-configuration.html#installation) or
 [Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html)
 
 <div class="tasklist">

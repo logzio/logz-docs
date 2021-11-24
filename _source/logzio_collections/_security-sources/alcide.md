@@ -4,6 +4,7 @@ logo:
   logofile: alcide.png
   orientation: vertical
 data-source: Alcide kAudit
+data-for-product-source: Cloud SIEM
 contributors:
   - shalper
 shipping-tags:

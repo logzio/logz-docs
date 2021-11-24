@@ -4,6 +4,7 @@ logo:
   logofile: pgbouncer.png
   orientation: vertical
 data-source: PgBouncer 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -4,6 +4,7 @@ logo:
   logofile: mongo-logo.png
   orientation: vertical
 data-source: MongoDB 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -4,6 +4,7 @@ logo:
   logofile: linux.svg
   orientation: vertical
 data-source: bCache
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

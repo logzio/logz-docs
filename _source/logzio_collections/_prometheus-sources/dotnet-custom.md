@@ -4,6 +4,7 @@ logo:
   logofile: dotnet-logo.png
   orientation: horizontal
 data-source: .NET Core application
+data-for-product-source: Metrics
 contributors:
   - nshishkin
 shipping-tags:

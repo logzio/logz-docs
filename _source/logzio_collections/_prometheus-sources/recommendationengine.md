@@ -4,6 +4,7 @@ logo:
   logofile: gcpai.png
   orientation: vertical
 data-source: Google Recommendations AI
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

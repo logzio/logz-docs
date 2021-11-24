@@ -4,6 +4,7 @@ logo:
   logofile: aws-ec2-auto-scaling.svg
   orientation: vertical
 data-source: Amazon EC2 Auto Scaling
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

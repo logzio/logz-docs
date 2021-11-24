@@ -4,6 +4,7 @@ logo:
   logofile: lossprevention.png
   orientation: vertical
 data-source: Google Cloud Data Loss Prevention
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

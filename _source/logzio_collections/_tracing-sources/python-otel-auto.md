@@ -4,6 +4,7 @@ logo:
   logofile: python.svg
   orientation: vertical
 data-source: Automatic Python instrumentation
+data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

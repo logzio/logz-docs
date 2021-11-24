@@ -4,6 +4,7 @@ logo:
   logofile: tengine-logo.png
   orientation: vertical
 data-source: Tengine Web Server 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

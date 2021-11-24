@@ -123,7 +123,7 @@ tags:
   
   - name: Deployments
     description: >-
-      Send deployment logs by API to automatically correlate exceptions with service deployments directly in your Logz.io Exceptions tab. The API endpoints documented here are in Beta, and are subject to change.
+      Send deployment logs by API to automatically correlate exceptions with service deployments directly in your Logz.io Exceptions tab.
 
   - name: Insights
     description: >-
@@ -2939,7 +2939,7 @@ paths:
             $ref: '#/definitions/ArchiveSettingsResponse'
     post:
       summary: Set up archiving
-      description: Configure archiving for a time-based log account. One archive can be configured per account (or sub account).
+      description: Configure archiving for a time-based log account. One archive can be configured per account (or sub account). For more on this, see [AWS Access with IAM](https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/) and [Archiving](https://docs.logz.io/user-guide/archive-and-restore/configure-archiving.html).
       tags:
         - Archive logs
       operationId: createSettings
@@ -5224,7 +5224,7 @@ paths:
                 description: Not Found. Could not find the sub account associated with this request or the relevant owner account for the sub account.  
       x-code-samples:
         - lang: cURL
-          source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"Name\": \"newAPITokenTest999\", \"accountId\":7386}"'
+          source: 'curl -X POST "https://api.logz.io/v1/api-tokens/sub-account" -H  "accept: application/json" -H  "content-type: application/json" -H  "X-API-TOKEN: <token>" -d "{ \"name\": \"newAPITokenTest999\", \"accountId\":7386}"'
 
 
   # ::::: SNAPSHOTS
@@ -5633,13 +5633,13 @@ paths:
           schema:
             $ref: '#/definitions/RuleV2Response'
           headers: {}
-  /v2/security/rules/search/{FilteredRequest}: 
+  /v2/security/rules/search: 
     post: 
       tags: 
         - Security rules
-      operationId: searchAccountSecurityRulesFiltered
-      summary: Retrieve filtered security rules
-      description: Retrieve a filtered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
+      operationId: searchAccountSecurityRules
+      summary: Retrieve security rules
+      description: Retrieve a list of security rules for a specific Security account. The results are paginated. Filtering, sorting and pagination are all optional. If you want to get all rules, send the payload in `{}` format.
       produces:
         - application/json
       parameters: 
@@ -5647,36 +5647,13 @@ paths:
           name: body
           required: false
           schema:
-            $ref: '#/definitions/AlertsSearchRequestFiltered'
+            $ref: '#/definitions/AlertsSearchRequest'
 
       responses:
         '200':
           description: successful operation
           schema:
             $ref: '#/definitions/PagedSearchResponseSecurityRuleResponse'
-
-  /v2/security/rules/search/{UnfilteredRequest}: 
-    post: 
-      tags: 
-        - Security rules
-      operationId: searchAccountSecurityRulesUnfiltered
-      summary: Retrieve unfiltered security rules
-      description: Retrieve an unfiltered list of security rules for a specific Security account. The results are paginated. Filtering and sorting is optional. 
-      produces:
-        - application/json
-      parameters: 
-        - in: body
-          name: body
-          required: false
-          schema:
-            $ref: '#/definitions/AlertsSearchRequestUnfiltered'
-
-      responses:
-        '200':
-          description: successful operation
-          schema:
-            $ref: '#/definitions/PagedSearchResponseSecurityRuleResponse'
-
 
   /v2/security/rules/{id}/enable: 
     post: 
@@ -6819,10 +6796,6 @@ definitions:
         type: string
         description: Name of the account
         example: 404 errors
-      accountToken:
-        type: string
-        description: Account log shipping token (unique to every account)
-        example: f483abe93b
       isFlexible:
         type: boolean
         default: false
@@ -6885,10 +6858,6 @@ definitions:
         format: int32
         description: ID of the account
         example: 99999
-      accountToken:
-        type: string
-        description: Account log shipping token (unique to this account)
-        example: x93afghvexbn841h45vkjn5
   Searchable:
     type: boolean
     description: If other accounts can search this account's logs, `true`. Otherwise, `false`.
@@ -7131,47 +7100,22 @@ definitions:
           $ref: '#/definitions/SecurityRuleResponse'
       pagination:
         $ref: '#/definitions/Pagination'
-      schedule:
-        type: object
-        description: Defines the intervals in which an alert will be evaluated.
-        properties:
-          cron:
-            type: string
-            description: Cron job for the intervals schedule.
-          timezone:
-            type: string
-            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
+      
 
-  AlertsSearchRequestFiltered:
-    title: Filtered Results  
+  AlertsSearchRequest:
+    title: Search request Results  
     type: object
     properties:
       filter:
-        description: Filter by rule name, severity, and more.
+        description: Filter by rule name, severity, and more. If you want to get all rules, just send `filter` as an empty object the payload.
         $ref: '#/definitions/AlertsFilter'
       sort:
         description: Explicit sorting rules are not required, but recommended. Otherwise the database will determine the sorting.
         $ref: '#/definitions/AlertsSortRequest'
       pagination:
         $ref: '#/definitions/Pagination'
-  AlertsSearchRequestUnfiltered:
-    title: Unfiltered Results  
-    type: object
-    properties:
-      query:
-        type: object
-        description: Search query.
-        properties:
-            bool:
-              type: object
-              properties:
-                  must:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        match_all:
-                          type: object
+      
+      
   AlertsSortRequest:
     type: object
     required:
@@ -8993,7 +8937,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
       schedule:
         type: object
-        description: Defines the intervals in which an alert will be evaluated.
+        description: Defines the intervals in which an alert will be evaluated. This feature is still in production, but the payload already contains the data.
         properties:
           cron:
             type: string
@@ -9412,7 +9356,7 @@ definitions:
         $ref: '#/definitions/SubRuleCorrelation'
       schedule:
         type: object
-        description: Defines the intervals in which an alert will be evaluated.
+        description: Defines the intervals in which an alert will be evaluated. This feature is still in production, but the payload already contains the data.
         properties:
           cron:
             type: string
@@ -9741,6 +9685,16 @@ definitions:
           * `output` (in `subComponents`)
 
           * `searchTimeFrameMinutes`
+      schedule:
+        type: object
+        description: Defines the intervals in which an alert will be evaluated. This feature is still in production, but the payload already contains the data.
+        properties:
+          cron:
+            type: string
+            description: Cron job for the intervals schedule.
+          timezone:
+            type: string
+            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
 
 
   # ::::: RESTORE FROM ARCHIVE DEFINITIONS

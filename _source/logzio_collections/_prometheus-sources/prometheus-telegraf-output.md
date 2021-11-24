@@ -4,6 +4,7 @@ logo:
   logofile: mascot-telegraf.png #telegraf-tiger.png  #telegraf-logo-preview.svg
   orientation: vertical
 data-source: Telegraf for Prometheus metrics
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - fadi-khatib

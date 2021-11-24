@@ -4,6 +4,7 @@ logo:
   logofile: nsq.png
   orientation: vertical
 data-source: NSQ
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

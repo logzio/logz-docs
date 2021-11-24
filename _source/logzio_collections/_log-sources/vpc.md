@@ -4,6 +4,7 @@ logo:
   logofile: aws-vpc.svg
   orientation: vertical
 data-source: VPC
+data-for-product-source: Logs
 templates: ["s3-fetcher"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/vpc
 contributors:

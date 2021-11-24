@@ -4,6 +4,7 @@ logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
 data-source: Amazon CloudWatch for Prometheus metrics
+data-for-product-source: Metrics
 open-source:
   - title: CloudWatch metrics for Prometheus
     github-repo: logzio-aws-metrics

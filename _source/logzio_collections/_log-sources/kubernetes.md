@@ -5,6 +5,7 @@ logo:
   logofile: k8s-fluentd.svg
   orientation: horizontal
 data-source: Fluentd DaemonSet for Kubernetes
+data-for-product-source: Logs
 templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-k8s
@@ -185,6 +186,7 @@ If you wish to make advanced changes in your Fluentd configuration, you can down
 * Note that `FLUENT_FILTER_KUBERNETES_URL` does not appear in the default environment variable list in the DaemonSet.
 If you wish to use this variable, you'll have to add it manually to the DaemonSet's environment variables.
 
+* Verify that your node / k8s instance timezone is running in UTC timezone for your container logs to be parsed and shipped correctly. Otherwise replace `time_format` line in the config with `%Y-%m-%dT%H:%M:%S.%N%:z`. For more details about formatting see this [doc](https://docs.ruby-lang.org/en/2.4.0/Time.html#method-i-strftime).
 
 ##### Deploy the DaemonSet
 

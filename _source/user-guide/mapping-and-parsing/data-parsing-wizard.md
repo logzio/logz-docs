@@ -1,6 +1,8 @@
 ---
 layout: article
-title: The data parsing wizard
+title: The data parsing wizard (deprecated)
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Log data parsing wizard for Community (free) accounts
 permalink: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 flags:
   logzio-plan: community
@@ -26,6 +28,15 @@ You can analyze a set of sample logs for a Community (free) account in the data 
 to simplify the process.
 
 When you're logged into a Community account, you can find the data parsing wizard by selecting [**Logs > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the menu.
+
+
+<!-- info-box-start:info -->
+**Deprecation notice**<br>
+With the release of [Logz.io Data Parsing](https://docs.logz.io/user-guide/mapping-and-parsing/sawmill-parsing.html), **the parsing wizard is deprecated for trial and paid accounts.** 
+<br>
+The parsing wizard is only available for Community (free) accounts.
+{:.info-box.note}
+<!-- info-box-end -->
 
 #### To use the data parsing wizard
 

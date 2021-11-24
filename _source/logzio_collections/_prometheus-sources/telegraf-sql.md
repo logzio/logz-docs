@@ -4,6 +4,7 @@ logo:
   logofile: sqlserver.png
   orientation: vertical
 data-source: SQL Server 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

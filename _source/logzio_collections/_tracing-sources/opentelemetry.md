@@ -4,6 +4,7 @@ logo:
   logofile: opentelemetry-icon-color.png
   orientation: vertical
 data-source: OpenTelemetry installation
+data-for-product-source: Tracing
 description: Send traces from your OpenTelemetry installation to Logz.io 
 contributors:
   - yyyogev

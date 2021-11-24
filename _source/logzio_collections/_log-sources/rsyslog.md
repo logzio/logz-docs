@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 short-description: Configure rsyslog to monitor a single log file or a directory, and then send it to Logz.io via TLS.
 data-source: Rsyslog over TLS
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - shalper

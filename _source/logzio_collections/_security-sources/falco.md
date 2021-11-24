@@ -4,6 +4,7 @@ logo:
   logofile: falco-logo.png
   orientation: vertical
 data-source: Falco
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper

@@ -4,6 +4,7 @@ logo:
   logofile: dcos.png
   orientation: vertical
 data-source: Mesosphere DC/OS
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

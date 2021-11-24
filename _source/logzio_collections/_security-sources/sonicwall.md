@@ -4,6 +4,7 @@ logo:
   logofile: SonicWall-Logo.svg
   orientation: horizontal
 data-source: SonicWall
+data-for-product-source: Cloud SIEM
 contributors:
   - shalper
 shipping-tags:

@@ -4,6 +4,7 @@ logo:
   logofile: dotnet.svg
   orientation: vertical
 data-source: Automatic .NET instrumentation
+data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

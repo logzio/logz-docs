@@ -1,9 +1,10 @@
 ---
 title: Ship HAProxy logs
 logo:
-  logofile: haproxy.png
+  logofile: haproxy-logo.png
   orientation: horizontal
 data-source: HAProxy
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - imnotashrimp

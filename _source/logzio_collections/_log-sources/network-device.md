@@ -5,6 +5,7 @@ logo:
   orientation: horizontal
 short-description: Configure your network device to send logs to your Filebeat server, which can then forward your logs to Logz.io.
 data-source: Network device
+data-for-product-source: Logs
 templates: ["network-device-filebeat"]
 contributors:
   - imnotashrimp

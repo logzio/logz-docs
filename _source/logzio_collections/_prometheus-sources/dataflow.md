@@ -4,6 +4,7 @@ logo:
   logofile: gcpdataflow.png
   orientation: vertical
 data-source: Google Dataflow
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

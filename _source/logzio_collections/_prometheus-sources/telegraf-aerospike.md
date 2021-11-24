@@ -4,6 +4,7 @@ logo:
   logofile: aerospike-logo.png
   orientation: vertical
 data-source: Aerospike 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 short-description: Use Filebeat - a lightweight open source agent - to send Apache logs to Logz.io.
 data-source: Apache HTTPS Server
+data-for-product-source: Logs
 templates: [beats-logs]
 contributors:
   - amosd92

@@ -4,6 +4,7 @@ logo:
   logofile: gcpiam.png
   orientation: vertical
 data-source: Google Managed Service for Microsoft Active Directory
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

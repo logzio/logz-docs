@@ -4,6 +4,7 @@ logo:
   logofile: aws-app-elb.svg
   orientation: vertical
 data-source: Amazon App ELB
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

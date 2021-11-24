@@ -4,6 +4,7 @@ logo:
   logofile: hashicorp-vault.svg
   orientation: horizontal
 data-source: HashiCorp Vault
+data-for-product-source: Cloud SIEM
 templates: [beats-logs]
 contributors:
   - imnotashrimp

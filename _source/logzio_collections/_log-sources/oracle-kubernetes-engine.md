@@ -4,6 +4,7 @@ logo:
   logofile: oke.png
   orientation: vertical
 data-source: Oracle Kubernetes Engine
+data-for-product-source: Logs
 templates: ["k8s-daemonset"]
 contributors:
   - mirii1994

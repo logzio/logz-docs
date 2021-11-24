@@ -4,6 +4,7 @@ logo:
   logofile: 
   orientation: vertical
 data-source: Disque
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

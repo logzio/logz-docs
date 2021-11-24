@@ -4,6 +4,7 @@ logo:
   logofile: aws-efs.svg
   orientation: vertical
 data-source: Amazon EFS
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

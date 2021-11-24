@@ -4,6 +4,7 @@ logo:
   logofile: k8s-helm.svg
   orientation: horizontal
 data-source: Kubernetes over Helm
+data-for-product-source: Logs
 templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-helm

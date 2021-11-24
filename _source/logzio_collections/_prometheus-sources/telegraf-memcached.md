@@ -4,6 +4,7 @@ logo:
   logofile: memcached.png
   orientation: vertical
 data-source: Memcached 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

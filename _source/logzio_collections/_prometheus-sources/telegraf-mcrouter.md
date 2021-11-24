@@ -1,9 +1,10 @@
 ---
 title: Ship Mcrouter metrics via Telegraf
 logo:
-  logofile: memcached.png
+  logofile: mcrouter-logo.png
   orientation: vertical
 data-source: Mcrouter 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

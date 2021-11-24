@@ -4,6 +4,7 @@ logo:
   logofile: recap.png
   orientation: vertical
 data-source: Google reCAPTCHA Enterprise
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

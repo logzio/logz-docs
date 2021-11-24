@@ -4,6 +4,7 @@ logo:
   logofile: phfusion-logo.png
   orientation: vertical
 data-source: Phfusion Passenger 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

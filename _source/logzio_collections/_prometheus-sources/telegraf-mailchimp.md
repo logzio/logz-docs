@@ -4,6 +4,7 @@ logo:
   logofile: mailchimp.png
   orientation: vertical
 data-source: Mailchimp 
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

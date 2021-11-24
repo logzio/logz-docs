@@ -4,6 +4,7 @@ logo:
   logofile: aws-sqs.svg
   orientation: vertical
 data-source: Amazon SQS
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

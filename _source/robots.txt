@@ -9,6 +9,7 @@ Allow: /
 Disallow: /docs-admin/
 Disallow: /technical-notes/
 Disallow: /googlec6c327a13fb89cb5.html
+Disallow: /shipping/metrics-sources/
 Sitemap: {{ site.url | append: site.baseurl}}/sitemap.xml
 
 {%- else %}

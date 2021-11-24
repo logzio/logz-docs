@@ -4,6 +4,7 @@ logo:
   logofile: aws-sns.svg
   orientation: vertical
 data-source: Amazon SNS
+data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus

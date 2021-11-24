@@ -4,6 +4,7 @@ logo:
   logofile: marklogic.png
   orientation: vertical
 data-source: MarkLogic
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

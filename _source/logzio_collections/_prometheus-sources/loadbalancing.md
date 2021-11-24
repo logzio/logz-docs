@@ -4,6 +4,7 @@ logo:
   logofile: gcplb.png
   orientation: vertical
 data-source: Google Cloud Load Balancing
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

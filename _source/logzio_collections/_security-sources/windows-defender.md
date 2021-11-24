@@ -4,6 +4,7 @@ logo:
   logofile: windows-defender.svg
   orientation: vertical
 data-source: Windows Defender
+data-for-product-source: Cloud SIEM
 templates: ["beats-logs"]
 contributors:
   - imnotashrimp

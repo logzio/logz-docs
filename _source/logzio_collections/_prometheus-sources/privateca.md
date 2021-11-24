@@ -4,6 +4,7 @@ logo:
   logofile: certmanager.png
   orientation: vertical
 data-source: Google Certificate Authority Service
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

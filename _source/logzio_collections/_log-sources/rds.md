@@ -4,6 +4,7 @@ logo:
   logofile: aws-rds-logo.png
   orientation: horizontal
 data-source: RDS
+data-for-product-source: Logs
 templates: [beats-logs, "docker"]
 open-source:
   - title: mysql-logs

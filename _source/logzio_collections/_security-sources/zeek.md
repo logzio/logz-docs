@@ -4,6 +4,7 @@ logo:
   logofile: zeek.png
   orientation: vertical
 data-source: Zeek
+data-for-product-source: Cloud SIEM
 templates: [beats-logs]
 contributors:
   - imnotashrimp

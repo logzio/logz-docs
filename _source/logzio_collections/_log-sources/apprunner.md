@@ -4,6 +4,7 @@ logo:
   logofile: aws-fusion.svg  
   orientation: vertical
 data-source: AppRunner
+data-for-product-source: Logs
 templates: ["lambda-apprunner", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/apprunner
 open-source:

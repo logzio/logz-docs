@@ -4,6 +4,7 @@ logo:
   logofile: cloudrun.png
   orientation: vertical
 data-source: Google Cloud Run
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

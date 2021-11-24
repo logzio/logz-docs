@@ -4,6 +4,7 @@ logo:
   logofile: gcpfirewall.png
   orientation: vertical
 data-source: Google Firewall Insights
+data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
   - daniel-tk

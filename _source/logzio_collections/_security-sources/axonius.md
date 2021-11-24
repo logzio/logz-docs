@@ -4,6 +4,7 @@ logo:
   logofile: axonius.png
   orientation: vertical
 data-source: Axonius
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

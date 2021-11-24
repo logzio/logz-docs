@@ -4,6 +4,7 @@ logo:
   logofile: fluentbit-helm.png
   orientation: horizontal
 data-source: Fluent Bit over Helm
+data-for-product-source: Logs
 templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-helm
@@ -44,14 +45,12 @@ helm repo update
 ```shell
 helm install  \
 --set logzio.token=<<LOG-SHIPPING-TOKEN>> \
---set logzio.listenerHost=<<LISTENER_HOST>> \
---set logzio.logType=<<LOG_TYPE>> \
+--set logzio.listenerHost=<<LISTENER-HOST>> \
+--set logzio.logType=<<LOG-TYPE>> \
 logzio-fluent-bit logzio-helm/logzio-fluent-bit
 ```
   
-* {% include log-shipping/listener-var.html %}
-* {% include log-shipping/log-shipping-token.html %}
-* If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit`.
+{% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %} If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit`.
 
 
 ##### Check Logz.io for your logs

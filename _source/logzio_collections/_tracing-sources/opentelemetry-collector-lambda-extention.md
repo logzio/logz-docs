@@ -13,6 +13,7 @@ shipping-tags:
   - new-instrumentation
 order: 1380
 ---
+
 <!-- tabContainer:start -->
 <div class="branching-container">
 
@@ -30,7 +31,6 @@ The Logzio OpenTelemetry Collector Lambda Extension provides a mechanism to sync
 This project is a fork of [opentelemetry-lambda](https://github.com/open-telemetry/opentelemetry-lambda){:.info-box.note}
 <!-- info-box-end -->
 
-</div>
 
 </div>
 <!-- tab:end -->

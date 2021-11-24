@@ -10,8 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Amazon Auto Scaling
-
 This dashboard provides an interface to view and analyze metrics from your Amazon Auto Scaling instances.
 
 | Metric visualization     | Metric name                                                                              | Description                                                                                             |

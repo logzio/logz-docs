@@ -10,7 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## VMware
 
 This dashboard provides an interface to view and analyze metrics from your VMware infrastructure.
 

@@ -10,7 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## PostgreSQL
 
 This dashboard provides an interface to view and analyze metrics from your PostgreSQL databases.
 

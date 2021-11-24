@@ -10,7 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## AWS Cloudwatch - Application ELB
 
 This dashboard provides an interface to view and analyze system metrics from AWS Cloudwatch - Application ELB.
 

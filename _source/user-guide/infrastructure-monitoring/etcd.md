@@ -20,27 +20,27 @@ This dashboard provides an interface to view and analyze metrics from your etcd 
 | Total Number Of Failed Proposals Seen               | etcd\_server\_proposals\_failed\_total                                                                                                                       | The total number of failed proposals seen.                                                                         |
 | Leader Heartbeat Send Failures                      | etcd\_server\_heartbeat\_send\_failures\_total                                                                                                               | Total number of leader heartbeat send failures                                                                                |
 | Number Of Successful And Failed Health Checks| Etcd\_server\_health\_failures, etcd\_server\_health\_success                                                                                                | Total number of successful and failed health checks                                                                           |
-| Raft Proposals                                      | Etcd\_server\_proposals\_committed\_total, etcd\_server\_proposals\_applied\_total, etcd\_server\_proposals\_pending, etcd\_server\_proposals\_failed\_total | Total number of consensus proposals committed, applied and pending and failed                                                 |
+| Raft Proposals                                      | etcd\_server\_proposals\_committed\_total, etcd\_server\_proposals\_applied\_total, etcd\_server\_proposals\_pending, etcd\_server\_proposals\_failed\_total | Total number of consensus proposals committed, applied and pending and failed                                                 |
 | RPC Rate       | Grpc\_server\_started\_total
 
 grpc\_server\_handled\_total                                                                                                   | Total number of RPCs started and handled on the server.                                                                       |
-| RPC Cache Hit Success Rate                          | Etcd\_grpc\_proxy\_cache\_hits\_total
+| RPC Cache Hit Success Rate                          | etcd\_grpc\_proxy\_cache\_hits\_total
 
 etcd\_grpc\_proxy\_cache\_misses\_total                                       | Total number of cache hits and misses                                                                                         |
-| Peer Network                                        | Etcd\_network\_peer\_received\_bytes\_total,
+| Peer Network                                        | etcd\_network\_peer\_received\_bytes\_total,
 
 etcd\_network\_peer\_sent\_bytes\_total                                                                        | The total number of bytes received from and sent by peers.                                   |
-| Client Network                                      | Etcd\_network\_client\_grpc\_received\_bytes\_total,
+| Client Network                                      | etcd\_network\_client\_grpc\_received\_bytes\_total,
 
 etcd\_network\_client\_grpc\_sent\_bytes\_total                                                        | The total number of bytes received from and sent by clients.                                                                  |
 | Snapshot Duration                                   | etcd\_debugging\_snap\_save\_total\_duration\_seconds\_sum                                                                                                   | The total latency distributions of save called by snapshot.                                |
 | Number Of Open File Descriptors                     | Process\_open\_fds,
 
 process\_max\_fds                                                                                                                       | Number of open file descriptors versus maximum number of file descriptions                                                    |
-| Disk Operations Latency                             | Etcd\_disk\_wal\_fsync\_duration\_seconds\_sum,
+| Disk Operations Latency                             | etcd\_disk\_wal\_fsync\_duration\_seconds\_sum,
 
 etcd\_disk\_backend\_commit\_duration\_seconds\_sum                                                         | The count of latency distributions of fsync called by wal versus the latency distributions of commit called by backend. |
-| Actions Rate                                        | Etcd\_debugging\_store\_writes\_total,
+| Actions Rate                                        | etcd\_debugging\_store\_writes\_total,
 
 Etcd\_debugging\_store\_reads\_total,
 

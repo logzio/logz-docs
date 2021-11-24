@@ -10,8 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## Amazon S3
-
 This dashboard provides an interface to view and analyze storage metrics and dimensions from your Amazon S3.
 
 

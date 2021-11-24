@@ -10,8 +10,6 @@ contributors:
   - nshishkin
 ---
 
-## MongoDB
-
 This dashboard provides an interface to view and analyze metrics from your Mongo databases.
 
 | Metric visualization | Metric name | Description                                                                                                                                                                                                                                |

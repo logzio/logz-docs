@@ -121,12 +121,50 @@ firstLevel:
   - title: Pre-built metrics dashboards
     url: /user-guide/infrastructure-monitoring/metrics-dashboards
     thirdLevel:
-    - title: Amazon MQ
+    - title: AWS Cloudwatch - Amazon MQ
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-mq.html
-    - title: Amazon S3
-      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-s3.html
-    - title: Amazon EC2
+    - title: AWS Cloudwatch - API Gateway
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aws-api-gateway.html
+    - title: AWS Cloudwatch - Application ELB
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aws-app-elb.html
+    - title: AWS Cloudwatch - Auto Scaling
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-auto-scaling.html
+    - title: AWS Cloudwatch - EBS
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ebs.html
+    - title: AWS Cloudwatch - Amazon EC2
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ec2.html
+    - title: AWS Cloudwatch - Classic ELB
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-classic-elb.html
+    - title: AWS Cloudwatch - DynamoDB
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-dynamodb.html
+    - title: AWS Cloudwatch - Kinesis Firehose
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-firehose.html
+    - title: AWS Cloudwatch - Kinesis 
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-kinesis.html
+    - title: AWS Cloudwatch - Lambda 
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-lambda.html
+    - title: AWS Cloudwatch - NAT
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-nat.html
+    - title: AWS Cloudwatch - Network ELB 
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-network-elb.html
+    - title: AWS Cloudwatch - RDS
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-rds.html
+    - title: AWS Cloudwatch - Route 53
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-route-53.html
+    - title: AWS Cloudwatch - Amazon S3
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-s3.html
+    - title: AWS Cloudwatch - SES
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ses.html
+    - title: AWS Cloudwatch - SNS
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-sns.html
+    - title: AWS Cloudwatch - SQS
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-sqs.html
+    - title: AWS Cloudwatch - VPN
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-vpn.html
+    - title: Apache Cassandra
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/apache-cassandra.html
+    - title: etcd
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/etcd.html
     - title: MongoDB
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/mongodb.html
     - title: MySQL
@@ -139,10 +177,22 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/sysmetrics.html
     - title: VMware
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/vmware.html
-    - title: AWS Cloudwatch - API Gateway
-      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aws-api-gateway.html
-    - title: AWS Cloudwatch - Application ELB
-      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aws-app-elb.html
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   - title: Elastic-based Metrics information #deprecated topics
     url: /user-guide/infrastructure-monitoring/elastic-metrics
 

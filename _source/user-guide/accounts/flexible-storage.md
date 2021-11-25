@@ -18,8 +18,6 @@ Flexible volume gives you more control over how you allocate space between your 
 
 With flexible volume, accounts can share indexing capacity and use it as needed. Instead of reserving capacity in advance, you can rely on shared volume to cover your indexing needs across accounts. When properly configured, shared volume can help to optimize distribution and minimize the risk of running out of space.
 
-<!--   <script src="https://fast.wistia.com/embed/medias/jaahqzi56t.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><span class="wistia_embed wistia_async_jaahqzi56t popover=true popoverAnimateThumbnail=true" style="display:inline-block;height:270px;position:relative;width:600px">&nbsp;</span>  -->
-
 
 <iframe class="vidyard_iframe" src="//play.vidyard.com/Na9xMCntQUJFTVy3SXq4kd.html?" width="600" height="270" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
 

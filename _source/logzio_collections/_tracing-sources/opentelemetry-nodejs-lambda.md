@@ -19,7 +19,6 @@ order: 1380
 
 * [Overview](#overview)
 * [Build a layer](#new)
-* [Add to existing layer](#existing)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -65,49 +64,6 @@ This will download all dependencies and compile the code. The layer zip file wil
   
 </div>
 
-</div>
-<!-- tab:end -->
-
-<!-- tab:start -->
-<div id="existing">
- 
-#### Install the OpenTelemetry Collector Lambda Extension to an existing Lambda function
-
-**Before you begin, you'll need**:
-  
-* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
-* Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-
-<div class="tasklist">
-
-##### Install the OpenTelemetry Collector Lambda Extension to an existing Lambda function using the AWS CLI
-
-```shell
-aws lambda update-function-configuration --function-name Function --layers arn:aws:lambda:<<your-aws-region>>:486140753397:layer:logzio-opentelemetry-collector-layer:1
-```
-  
-##### Activate function tracing
-  
-```shell
-aws lambda update-function-configuration --function-name Function --tracing-config Mode=Active
-```
-
-##### Install the OpenTelemetry Collector NodeJS Lambda Extension to an existing Lambda function using the AWS CLI
-
-```shell
-aws lambda update-function-configuration --function-name Function --layers arn:aws:lambda:<<your-aws-region>>:486140753397:layer:logzio-opentelemetry-nodejs-wrapper:1
-```
-  
-##### Add environment variable
-  
-Add the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to point to the `otel-handler` executable:
-  
-```shell
-aws lambda update-function-configuration --function-name Function --environment Variables={AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-handler}
-```
-
-
-</div>
 </div>
 <!-- tab:end -->
   

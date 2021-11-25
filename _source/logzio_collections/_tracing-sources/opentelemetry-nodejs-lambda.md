@@ -32,10 +32,7 @@ To use it, you will need add the layer to your function configuration and then s
 
 [AWS SDK v2 instrumentation](https://github.com/aspecto-io/opentelemetry-ext-js/tree/master/packages/instrumentation-aws-sdk) is also
 included and loaded automatically if you use the AWS SDK v2.
-  
-<!-- info-box-start:info -->
-This project is a fork of [opentelemetry-lambda](https://github.com/open-telemetry/opentelemetry-lambda)<!-- info-box-end -->
-{:.info-box.note}
+
 
 </div>
 <!-- tab:end -->

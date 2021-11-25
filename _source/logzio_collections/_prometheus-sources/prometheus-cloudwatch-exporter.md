@@ -114,6 +114,7 @@ logzio/cloudwach-metrics
 ##### Publish extension ports
   
 You can monitor the container using opentelemetry extensions in the following ports:
+  
 * 8888 - `opentelemetry metrics`
 * 55679 - `Zpages`
 * 13133 - `Health check`
@@ -170,6 +171,7 @@ is "us-east-1", and the slug for Canada (Central) is "ca-central-1".
 ##### Run with configuration file
   
 Create `config.yml` file:
+  
 ```yaml
 otel:
   # your logz.io region
@@ -225,6 +227,7 @@ logzio/cloudwach-metrics
 ##### Publish extension ports
   
 You can monitor the container using opentelemetry extensions in the following ports:
+  
 * 8888 - `opentelemetry metrics`
 * 55679 - `Zpages`
 * 13133 - `Health check`

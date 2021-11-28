@@ -21,9 +21,18 @@ order: 110
 <!-- tabContainer:start -->
 <div class="branching-container">
 
+* [Overview](#overview)
 * [Manual Lambda configuration](#manual-lambda-configuration)
 * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 {:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
+AWS App Runner is a fully managed service that for deployment of containerized web applications and APIs. This integration allows you to send logs from your AppRunner instances to your Logz.io account.
+
+</div>
+<!-- tab:end -->
 
 <!-- tab:start -->
 <div id="manual-lambda-configuration">

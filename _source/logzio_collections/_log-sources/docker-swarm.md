@@ -23,9 +23,8 @@ shipping-tags:
 order: 40
 ---
 
-
-This integration is a Docker Swarm container that uses Filebeat to collect logs
-from other Docker containers and forward them to your Logz.io account.
+Docker Swarm is a container orchestration platform by Docker. This integration is a Docker Swarm container that uses Filebeat to collect logs
+from other Docker containers and forward them to your Logz.io account. 
 
 To use docker-collector-logs, you'll set environment variables when you run the container.
 The Docker logs directory and docker.sock are mounted to the container, allowing Filebeat to collect the logs and metadata.

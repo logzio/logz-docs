@@ -12,6 +12,7 @@ shipping-tags:
   - server-app
 order: 450
 ---
+Internet Information Services (IIS) for Windows® Server is a flexible, secure and manageable Web server for hosting on the Web. This integration allows you to send logs from your IIS services to your Logz.io account. 
 
 #### Configuration
 

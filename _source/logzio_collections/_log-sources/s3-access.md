@@ -16,6 +16,7 @@ shipping-tags:
   - aws
 order: 160
 ---
+Amazon S3 Access Logs provide detailed records about requests that are made to your S3 bucket. This integration allows you to send these logs to your Logz.io account.
 
 #### Configuration
 

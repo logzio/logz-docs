@@ -30,6 +30,7 @@ order: 280
 
 ## MySQL + Filebeat setup
 
+MySQL is an open-source relational database management system. Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.io has a dedicated configuration wizard to make it simple to configure Filebeat. If you already have Filebeat and you want to add new sources, check out our other shipping instructions to copy&paste just the relevant changes from our code examples.
 
 #### Configuration
 
@@ -191,6 +192,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <div id="docker-sidecar-config">
 
 ## Set up a Docker sidecar for MySQL
+
+MySQL is an open-source relational database management system. Docker sidecar is a container that runs on the same Pod as the application container. This integration allows you to send your MySQL logs to your Logz.io account using a Docker sidecar. 
+
 
 <div class="tasklist">
 

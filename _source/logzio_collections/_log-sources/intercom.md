@@ -12,6 +12,7 @@ shipping-tags:
   - platform-service
 order: 50
 ---
+Intercom is a messaging platform with bots, apps, product tours and oher features. Deploy this integration to ship Intercom events from your Intercom account to Logz.io using webhooks. 
 
 #### Ship events data from your Intercom account to Logz.io
 

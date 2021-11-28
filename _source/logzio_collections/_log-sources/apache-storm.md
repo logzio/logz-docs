@@ -13,6 +13,7 @@ shipping-tags:
   - server-app
 order: 120
 ---
+Apache Storm is a free and open source distributed realtime computation system. This integration allows you to send logs from your Apache Storm server instances to your Logz.io account.
 
 #### Step by step
 

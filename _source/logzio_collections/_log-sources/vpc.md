@@ -14,6 +14,7 @@ shipping-tags:
   - aws
 order: 580
 ---
+VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. This integration allows you to send these logs to your Logz.io account. 
 
 #### Configuration
 

@@ -23,7 +23,7 @@ order: 1380
 <!-- tab:start -->
 <div id="overview">
 
-Deploy this integration to ship Crowdstrike events from your Crowdstrike account to Logz.io using FluentD.
+Crowdstrike is a SaaS (software as a service) system security solution. Deploy this integration to ship Crowdstrike events from your Crowdstrike account to Logz.io using FluentD. 
 
 
 ### Architecture overview

@@ -17,6 +17,7 @@ shipping-tags:
   - identity
 order: 810
 ---
+Okta is an enterprise-grade, identity management service, built for the cloud, but compatible with many on-premises applications.
 
 To ship Okta logs,
 you'll deploy a Docker container

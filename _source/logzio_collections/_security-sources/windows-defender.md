@@ -13,6 +13,7 @@ shipping-tags:
   - endpoint-security
 order: 990
 ---
+Windows Defender is an anti-malware component of Microsoft Windows. This integration allows you to send Windows Defender logs to your Logz.io SIEM account.
 
 #### Configure Winlogbeat
 

@@ -12,6 +12,7 @@ shipping-tags:
   - firewalls
 order: 820
 ---
+Palo Alto Networks provides advanced protection, security and consistency across locations and clouds. This integration allows you to send logs from your Palo Alto Networks applications to your Logz.io SIEM account.
 
 #### Guided configuration
 

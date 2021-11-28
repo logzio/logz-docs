@@ -12,6 +12,7 @@ shipping-tags:
   - firewalls
 order: 1310
 ---
+Check Point provides hardware and software products for IT security, including network security, endpoint security, cloud security, mobile security, data security and security management. This integration allows you to send Check Point logs to your Logz.io SIEM account.
 
 #### Configuration
 

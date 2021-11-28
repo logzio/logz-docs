@@ -11,6 +11,7 @@ shipping-tags:
   - windows
 order: 200
 ---
+Active Directory is a directory service developed by Microsoft for Windows domain networks. This integration allows you to send Active Directory logs to your Logz.io SIEM account.
 
 #### Configuration
 

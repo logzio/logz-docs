@@ -25,7 +25,7 @@ order: 810
 
 ### Ship events data from your Auth0 account to Logz.io
 
-Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using custom log stream via webhooks.
+Auth0 is an easy to implement, adaptable authentication and authorization platform. Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using custom log stream via webhooks.
 
 **Before you begin, you'll need**: an active account with Auth0
 
@@ -78,7 +78,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ### Ship events data from your Auth0 account to Logz.io
 
-Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using Logstash.
+Auth0 is an easy to implement, adaptable authentication and authorization platform. Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using Logstash.
 
 **Before you begin, you'll need**: an active account with Auth0
 

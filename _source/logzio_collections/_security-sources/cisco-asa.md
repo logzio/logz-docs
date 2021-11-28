@@ -13,6 +13,7 @@ shipping-tags:
   - firewalls
 order: 950
 ---
+Cisco ASA is a security device that combines firewall, antivirus, intrusion prevention, and virtual private network (VPN) capabilities.
 
 #### Configuration
 

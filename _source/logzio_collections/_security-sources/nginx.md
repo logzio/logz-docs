@@ -15,6 +15,8 @@ shipping-tags:
   - popular
 order: 340
 ---
+Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx metrics, including Plus API, Plus, Stream STS, VTS. This integration allows you to send nginx logs to your Logz.io SIEM account.
+
 #### Filebeat configuration
 
 **Before you begin, you'll need**:

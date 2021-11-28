@@ -4,6 +4,7 @@ logo:
   logofile: cynet.png
   orientation: vertical
 data-source: Cynet
+data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin

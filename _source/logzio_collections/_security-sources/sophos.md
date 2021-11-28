@@ -22,6 +22,8 @@ order: 740
 <!-- tab:start -->
 <div id="linux">
 
+Sophos Endpoint is an endpoint protection product that combines antimalware, web and application control, device control and much more. This integration allows you to send logs from your Linux-based Sophos applications to your Logz.io SIEM account.
+
 **Before you begin, you'll need**:
 
 * Sophos Intercept X Endpoint installed
@@ -126,6 +128,7 @@ The logs will require customized parsing so they can be effectively mapped in Ki
 
 <!-- tab:start -->
 <div id="windows">
+Sophos Endpoint is an endpoint protection product that combines antimalware, web and application control, device control and much more. This integration allows you to send logs from your Windows-based Sophos applications to your Logz.io SIEM account.
 
 **Before you begin, you'll need**:
 

@@ -16,7 +16,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Bond is a software ecosystem that is transforming membership and customer engagement across business, unions, government, associations, sport and community. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Bond metrics to Logz.io, you need to add the **inputs.bond** and **outputs.http** plug-ins to your Telegraf configuration file.
 

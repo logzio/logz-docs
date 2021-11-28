@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+uWSGI is a software application that aims at developing a full stack for building hosting services. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format uWSGI metrics to Logz.io, you need to add the **inputs.uwsgi** and **outputs.http** plug-ins to your Telegraf configuration file.
 

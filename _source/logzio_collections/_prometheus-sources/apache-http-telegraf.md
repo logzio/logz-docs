@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+The Apache HTTP Server, colloquially called Apache, is a free and open-source cross-platform web server. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Apache HTTP Server metrics to Logz.io, you need to add the **inputs.apache** and **outputs.http** plug-ins to your Telegraf configuration file.
 

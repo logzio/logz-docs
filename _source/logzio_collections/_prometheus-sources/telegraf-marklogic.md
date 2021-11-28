@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+MarkLogic is a NoSQL database platform that is used in publishing, government, finance and other sectors, with hundreds of large-scale systems in production. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format MarkLogic metrics to Logz.io, you need to add the **inputs.marklogic** and **outputs.http** plug-ins to your Telegraf configuration file.
 

@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Junos Telemetry Interface (JTI) is a push mechanism to collect operational metrics for monitoring the health of a network that has no scaling limitations. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format JTI OpenConfig Telemetry metrics to Logz.io, you need to add the **inputs.jti_openconfig_telemetry** and **outputs.http** plug-ins to your Telegraf configuration file.
 

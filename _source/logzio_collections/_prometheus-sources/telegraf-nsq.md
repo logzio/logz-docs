@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+NSQ is a realtime distributed messaging platform designed to operate at scale, handling billions of messages per day. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To read metrics from an NSQ topic, you need to add the **inputs.nsq** and **outputs.http** plug-ins to your Telegraf configuration file.
 

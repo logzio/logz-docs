@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+IPMI is a standardized computer system interface used by system administrators to manage a computer system and monitor its operation. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format IPMI Sensor metrics to Logz.io, you need to add the **inputs.ipmi_sensor** and **outputs.http** plug-ins to your Telegraf configuration file.
 

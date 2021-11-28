@@ -1,9 +1,9 @@
 ---
-title: Ship Big Blue Button metrics via Telegraf
+title: Ship BigBlueButton metrics via Telegraf
 logo:
   logofile: bigbluebutton-logo.png
   orientation: vertical
-data-source: Big Blue Button
+data-source: BigBlueButton
 data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
@@ -16,9 +16,9 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+BigBlueButton is a free software web conferencing system for Linux servers. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Big Blue Button metrics to Logz.io, you need to add the **inputs.bigbluebutton** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format BigBlueButton metrics to Logz.io, you need to add the **inputs.bigbluebutton** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 

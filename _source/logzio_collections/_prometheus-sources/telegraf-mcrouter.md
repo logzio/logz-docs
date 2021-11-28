@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Mcrouter is a memcached protocol router for scaling memcached deployments. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Mcrouter metrics to Logz.io, you need to add the **inputs.mcrouter** and **outputs.http** plug-ins to your Telegraf configuration file.
 

@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+ClickHouse is a fast open-source column-oriented database management system that allows generating analytical data reports in real-time using SQL queries. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format ClickHouse metrics to Logz.io, you need to add the **inputs.clickhouse** and **outputs.http** plug-ins to your Telegraf configuration file.
 

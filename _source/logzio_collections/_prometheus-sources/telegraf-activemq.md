@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Apache ActiveMQ is an open source message broker written in Java together with a full Java Message Service client. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format ActiveMQ metrics to Logz.io, you need to add the **inputs.activemq** and **outputs.http** plug-ins to your Telegraf configuration file.
 

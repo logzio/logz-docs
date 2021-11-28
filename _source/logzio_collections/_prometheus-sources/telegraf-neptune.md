@@ -18,7 +18,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Neptune Apex is an aquarium control system. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Neptune Apex metrics to Logz.io, you need to add the **inputs.neptune_apex** and **outputs.http** plug-ins to your Telegraf configuration file.
 

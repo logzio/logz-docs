@@ -239,5 +239,5 @@ Run your application to start sending metrics to Logz.io.
 
 ##### Check Logz.io for your metrics
 
-Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open the [Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

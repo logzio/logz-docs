@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Network Topology is a visualization tool that shows the topology of your Virtual Private Cloud (VPC) networks, hybrid connectivity to and from your on-premises networks, connectivity to Google-managed services, and the associated metrics. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Google Network Topology metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 

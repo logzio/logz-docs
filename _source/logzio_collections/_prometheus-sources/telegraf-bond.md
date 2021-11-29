@@ -16,7 +16,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+This integration allows you to collects metrics from all bond interfaces in your network. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Bond metrics to Logz.io, you need to add the **inputs.bond** and **outputs.http** plug-ins to your Telegraf configuration file.
 

@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Cloud Tasks is a fully managed service that allows you to manage the execution, dispatch, and delivery of a large number of distributed tasks. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Google Cloud Tasks metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 

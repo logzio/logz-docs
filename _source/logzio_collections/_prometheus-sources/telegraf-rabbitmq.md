@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+RabbitMQ is an open-source message-broker software that originally implemented the Advanced Message Queuing Protocol and has since been extended with a plug-in architecture to support Streaming Text Oriented Messaging Protocol, MQ Telemetry Transport, and other protocols. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format RabbitMQ metrics to Logz.io, you need to add the **inputs.rabbitmq** and **outputs.http** plug-ins to your Telegraf configuration file.
 

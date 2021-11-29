@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Cloud DNS is a high-performance, resilient, global Domain Name System (DNS) service that publishes domain names to the global DNS in a cost-effective way. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Google Cloud DNS metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 

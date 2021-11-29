@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Riak is a distributed NoSQL key-value data store that offers high availability, fault tolerance, operational simplicity, and scalability.  Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Riak metrics to Logz.io, you need to add the **inputs.riak** and **outputs.http** plug-ins to your Telegraf configuration file.
 

@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+VMware vSphere is VMware's cloud computing virtualization platform. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Vmware Vsphere metrics to Logz.io, you need to add the **inputs.vsphere** and **outputs.http** plug-ins to your Telegraf configuration file.
 

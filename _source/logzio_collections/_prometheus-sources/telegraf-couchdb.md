@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Apache CouchDB is an open-source document-oriented NoSQL database, implemented in Erlang. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format CouchDB metrics to Logz.io, you need to add the **inputs.couchdb** and **outputs.http** plug-ins to your Telegraf configuration file.
 

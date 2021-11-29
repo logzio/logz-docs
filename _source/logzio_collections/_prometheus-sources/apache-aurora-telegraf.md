@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Apache Aurora is a Mesos framework for long-running services and cron jobs. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Apache Aurora metrics to Logz.io, you need to add the **inputs.aurora** and **outputs.http** plug-ins to your Telegraf configuration file.
 

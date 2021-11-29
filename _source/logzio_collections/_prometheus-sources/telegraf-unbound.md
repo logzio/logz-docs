@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Unbound is a crowdfunding publisher that gives people the tools, support and freedom to bring their ideas to life. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Unbound metrics to Logz.io, you need to add the **inputs.unbound** and **outputs.http** plug-ins to your Telegraf configuration file.
 

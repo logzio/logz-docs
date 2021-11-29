@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+DC/OS (the Distributed Cloud Operating System) is an open-source, distributed operating system based on the Apache Mesos distributed systems kernel. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Mesosphere DC/OS metrics to Logz.io, you need to add the **inputs.dcos** and **outputs.http** plug-ins to your Telegraf configuration file.
 

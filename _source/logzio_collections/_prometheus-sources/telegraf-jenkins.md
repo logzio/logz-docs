@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Jenkins is an automation server for building, testing, and deploying software. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Jenkins metrics to Logz.io, you need to add the **inputs.jenkins** and **outputs.http** plug-ins to your Telegraf configuration file.
 

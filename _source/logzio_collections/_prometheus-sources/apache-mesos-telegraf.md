@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Apache Mesos is an open-source project to manage computer clusters. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Apache Mesos metrics to Logz.io, you need to add the **inputs.mesos** and **outputs.http** plug-ins to your Telegraf configuration file.
 

@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+bCache is a cache in the Linux kernel's block layer, which is used for accessing secondary storage devices. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format bCache metrics to Logz.io, you need to add the **inputs.bcache** and **outputs.http** plug-ins to your Telegraf configuration file.
 

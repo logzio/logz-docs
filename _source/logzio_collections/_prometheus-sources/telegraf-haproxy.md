@@ -3,7 +3,7 @@ title: Ship HAproxy metrics via Telegraf
 logo:
   logofile: haproxy-logo.png
   orientation: vertical
-data-source: HAproxy
+data-source: HAProxy
 data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
@@ -17,9 +17,9 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+HAProxy is a free and open source software that provides a high availability load balancer and proxy server for TCP and HTTP-based applications that spreads requests across multiple servers. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format HAproxy metrics to Logz.io, you need to add the **inputs.haproxy** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format HAProxy metrics to Logz.io, you need to add the **inputs.haproxy** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -31,7 +31,7 @@ To send your Prometheus-format HAproxy metrics to Logz.io, you need to add the *
  
 ##### Add the inputs.haproxy plug-in
 
-First you need to configure the input plug-in to enable Telegraf to scrape the HAproxy data from your hosts. To do this, add the following code to the configuration file:
+First you need to configure the input plug-in to enable Telegraf to scrape the HAProxy data from your hosts. To do this, add the following code to the configuration file:
 
 
 ``` ini

@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Solr is an open-source enterprise-search platform, written in Java. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Apache Solr metrics to Logz.io, you need to add the **inputs.solr** and **outputs.http** plug-ins to your Telegraf configuration file.
 

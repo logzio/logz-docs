@@ -14,6 +14,8 @@ shipping-tags:
 order: 1290
 
 ---
+OSSEC is a multiplatform, open source and free Host Intrusion Detection System (HIDS). This integration allows you to send OSSEC logs to your Logz.io SIEM account.
+
 #### Filebeat configuration
 
 **Before you begin, you'll need**:

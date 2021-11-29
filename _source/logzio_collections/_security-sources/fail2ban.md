@@ -12,6 +12,7 @@ shipping-tags:
   - linux
 order: 560
 ---
+Fail2Ban is an intrusion prevention software framework that protects computer servers from brute-force attacks. This integration allows you to send Fail2ban logs to your Logz.io SIEM account.
 
 #### Guided configuration
 

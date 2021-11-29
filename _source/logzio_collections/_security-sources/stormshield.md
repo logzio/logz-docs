@@ -13,6 +13,7 @@ shipping-tags:
 order: 1280
 
 ---
+Stormshield provides cyber-security solutions. This integration allows you to send logs from your Stormshield applications to your Logz.io SIEM account.
 
 **Before you begin, you'll need**:
 

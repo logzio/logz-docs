@@ -13,7 +13,7 @@ shipping-tags:
   - endpoint-security
 order: 650
 ---
-
+Bitdefender is an antivirus software. This integration allows you to send Bitdefender logs to your Logz.io SIEM account.
 
 **Before you begin, you'll need**:
 

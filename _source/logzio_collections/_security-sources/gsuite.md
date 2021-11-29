@@ -12,8 +12,7 @@ shipping-tags:
   - gcp
 order: 630
 ---
-
-You can ship G Suite logs to Logz.io using Filebeat and Google Reports API.
+G Suite a suite of web applications created by Google for businesses. You can ship G Suite logs to Logz.io using Filebeat and Google Reports API.
 
 
 **Before you begin, you'll need**: [Filebeat 7.9](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html) or higher installed

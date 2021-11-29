@@ -11,6 +11,8 @@ shipping-tags:
   - firewalls
 order: 900
 ---
+SonicWall firewalls allow you to identify and control all of the applications in use on your network. This integration allows you to send logs from your SonicWall applications to your Logz.io SIEM account.
+
 
 #### Configuration
 

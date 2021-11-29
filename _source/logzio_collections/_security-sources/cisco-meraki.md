@@ -14,6 +14,7 @@ shipping-tags:
   - endpoint-security
 order: 550
 ---
+Cisco Meraki is a centralized management service that allows users to manage all of their Meraki network devices via a single simple and secure platform. 
 
 #### Configuration
 

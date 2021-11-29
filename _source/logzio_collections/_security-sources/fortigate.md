@@ -12,6 +12,7 @@ shipping-tags:
   - firewalls
 order: 520
 ---
+FortiGate units are installed as a gateway or router between two networks. This integration allows you to send FortiGate logs to your Logz.io SIEM account.
 
 #### Configuration
 

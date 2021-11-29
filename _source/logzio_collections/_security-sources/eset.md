@@ -12,6 +12,7 @@ shipping-tags:
   - endpoint-security
 order: 730
 ---
+ESET provides anti-virus and firewall solutions. This integration allows you to send ESET logs to your Logz.io SIEM account.
 
 **Before you begin, you'll need**:
 

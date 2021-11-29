@@ -13,6 +13,7 @@ shipping-tags:
   - server-app
 order: 1360
 ---
+HashiCorp Vault secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing. This integration allows you to send HashiCorp Vault logs to your Logz.io SIEM account.
 
 #### Configuration
 

@@ -28,13 +28,7 @@ Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to rev
 
 <div class="tasklist">
 
-##### Download the Logz.io public certificate to your Filebeat server
-
-For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
-
-```shell
-sudo wget https://raw.githubusercontent.com/logzio/public-certificates/master/COMODORSADomainValidationSecureServerCA.crt -P /etc/pki/tls/certs/
-```
+{% include log-shipping/certificate.md %}
 
 ##### Configure Filebeat
 

@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Disque is a distributed system where all nodes have the same role. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Disque is a distributed message broker. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Disque metrics to Logz.io, you need to add the **inputs.disque** and **outputs.http** plug-ins to your Telegraf configuration file.
 

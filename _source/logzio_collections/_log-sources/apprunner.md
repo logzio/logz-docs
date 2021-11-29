@@ -29,7 +29,7 @@ order: 110
 <!-- tab:start -->
 <div id="overview">
 
-This integration allows you to send logs from your AppRunner instances to your Logz.io account.
+AWS App Runner is a fully managed service for deployment of containerized web applications and APIs. This integration allows you to send logs from your AppRunner instances to your Logz.io account.
 
 </div>
 <!-- tab:end -->

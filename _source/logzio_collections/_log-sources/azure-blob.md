@@ -30,7 +30,7 @@ order: 460
 <!-- tab:start -->
 <div id="overview">
 
-Deploy this integration to forward logs from your Azure Blob Storage account
+Azure Blob Storage is Microsoft's object storage solution for the cloud.  Deploy this integration to forward logs from your Azure Blob Storage account
 to Logz.io using an automated deployment process. This integration offers the option to connect to an existing Blob storage account or create a new one, and it can be updated post-deployment.
 
 
@@ -183,7 +183,7 @@ To update your parameters post-deployment:
 3. Make your edits and save your changes.
 
 
-Here are the parameters that can be updated post-deployment:
+Here are the parameters that can be updated post-deployment: 
 
 * Shipper-related configurations:
   * **LogzioHost**

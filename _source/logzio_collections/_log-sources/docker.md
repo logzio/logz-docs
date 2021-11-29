@@ -34,7 +34,7 @@ order: 40
 <!-- tab:start -->
 <div id="docker-collector-logs-config">
 
-This integration is a Docker container that uses Filebeat to collect logs
+Docker is a set of platform as a service products that deliver software in containers. This integration is a Docker container that uses Filebeat to collect logs
 from other Docker containers and forward them to your Logz.io account.
 
 To use docker-collector-logs, you'll set environment variables when you run the container.
@@ -121,6 +121,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:start -->
 <div id="logzio-logging-plugin-config">
 
+Docker is a set of platform as a service products that deliver software in containers. Deploy this integration to send your Docker logs to your Logz.io account using a dedicated Logz.io plugin. 
 #### Set up logzio-logging-plugin
 
 **Before you begin, you'll need**:

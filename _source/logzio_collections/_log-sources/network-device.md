@@ -14,6 +14,7 @@ shipping-tags:
   - server-app
 order: 290
 ---
+This integration allows you to send logs from your network devices to your Logz.io account. 
 
 #### Guided configuration
 

@@ -14,6 +14,7 @@ shipping-tags:
   - ci-cd
 order: 1020
 ---
+Puppet is a software configuration management tool which includes its own declarative language to describe system configuration. Deploy this integration to send logs from your Puppet applications to your Logz,io account. 
 
 #### Configuration
 

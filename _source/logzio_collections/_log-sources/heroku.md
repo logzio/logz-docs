@@ -12,7 +12,7 @@ shipping-tags:
   - platform-service
 order: 530
 ---
-
+Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. This integration allows you to send logs from your Heroku applications to your Logz.io account. 
 #### Set up a Heroku log drain
 
 **Before you begin, you'll need**:

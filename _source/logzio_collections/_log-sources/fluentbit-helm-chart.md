@@ -20,7 +20,8 @@ order: 430
 # Logzio Fluent Bit Helm chart
 
 
-You can use this Helm chart to ship Kubernetes logs to Logz.io with Fluent Bit. Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.
+Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. You can use this Helm chart to ship Kubernetes logs to Logz.io with Fluent Bit. 
+
 
 <!-- info-box-start:info -->
 This chart is based on the [fluent-bit](https://github.com/fluent/helm-charts/tree/main/charts/fluent-bit) Helm chart.

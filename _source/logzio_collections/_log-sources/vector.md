@@ -14,6 +14,7 @@ shipping-tags:
   - agents
 order: 710
 ---
+Vector by Datadog is a lightweight, ultra-fast tool for building observability pipelines. Deploy this integration to send logs from your Vector tools to your Logz.io account.
 
 #### Configure Vector
 

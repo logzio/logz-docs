@@ -15,8 +15,8 @@ shipping-tags:
 order: 610
 ---
 
-This integration will create a new container that will run your image to send your AWS Fargate logs to Logz.io using FireLens. The integration will automatically create the replica.
-
+AWS Fargate is a serverless compute engine for building applications without managing servers. This integration will create a new container that will run your image to send your AWS Fargate logs to Logz.io using FireLens. The integration will automatically create the replica.
+ 
 #### Configuration
 
 <div class="tasklist">

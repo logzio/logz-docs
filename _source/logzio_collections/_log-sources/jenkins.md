@@ -14,6 +14,8 @@ shipping-tags:
   - ci-cd
 order: 590
 ---
+Jenkins is an automation server for building, testing, and deploying software. This integration allows you to send logs from your Jenkins servers to your Logz.io account. 
+
 #### Shipping Jenkins logs with Filebeat
 
 **Before you begin, you'll need**:

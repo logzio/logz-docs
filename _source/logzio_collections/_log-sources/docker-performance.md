@@ -12,6 +12,7 @@ shipping-tags:
   - container
 order: 500
 ---
+Docker is a set of platform as a service products that deliver software in containers. This integration allows you to ship performance logs of your Docker containers to your Logz.io account. 
 
 #### Configuration
 

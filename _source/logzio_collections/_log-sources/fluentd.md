@@ -15,6 +15,8 @@ shipping-tags:
 order: 180
 ---
 
+Fluentd is a data collector, which unifies the data collection and consumption. This integration allows you to use Fluentd to send logs to your Logz.io account. 
+
 #### Configure Fluentd
 
 **Before you begin, you'll need**:

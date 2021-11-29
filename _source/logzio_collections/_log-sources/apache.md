@@ -14,6 +14,7 @@ shipping-tags:
   - server-app
 order: 120
 ---
+The Apache HTTP Server, colloquially called Apache, is a free and open-source cross-platform web server. This integration allows you to send logs from your Apache server instances to your Logz.io account.
 
 #### Step by step
 

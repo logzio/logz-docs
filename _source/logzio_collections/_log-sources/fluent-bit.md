@@ -31,6 +31,9 @@ order: 320
 
 #### Run Fluent Bit as a standalone app
 
+Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. This integration allows you to send logs from Fluent Bit running as a standalone app and forward them to your Logz.io account.
+
+
 <div class="tasklist">
 
 ##### Install Fluent Bit
@@ -120,12 +123,15 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Run Fluent Bit in a Docker container
 
+Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. This integration allows you to send logs from Fluent Bit running in a Docker container and forward them to your Logz.io account.
+
+
 <div class="tasklist">
 
 ##### Make the configuration file
 
 To run in a container,
-create a configuration file named `fluent-bit.conf`.
+create a configuration file named `fluent-bit.conf`. 
 
 <!-- info-box-start:info -->
 Logz.io-Out Plugin for Fluent Bit supports one output stream to Logz.io. We recommend running a new instance for each output stream you need.

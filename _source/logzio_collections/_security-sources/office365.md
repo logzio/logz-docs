@@ -66,31 +66,38 @@ Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
    ```yaml
-   filebeat.inputs:
-   - type: udp
-     fields:
-       logzio_codec: plain
-       # Your Logz.io account token. You can find your token at
-       #  https://app.logz.io/#/dashboard/settings/manage-accounts
-       token: <<LOG-SHIPPING-TOKEN>>
-       type: o365
-     fields_under_root: true
+   fields:
+     logzio_codec: plain
+     token: <token>
+     type: o365
+   fields_under_root: true
+   #For version 6.x and lower uncomment the line below and remove the line after it
+   #filebeat.registry_file: 'C:\ProgramData\Filebeat'
    filebeat.registry.path: 'C:\ProgramData\filebeat'
+   #The following processors are to ensure compatibility with version 7
    processors:
    - rename:
        fields:
        - from: "agent"
-         to: "filebeat_agent"
+         to: "beat_agent"
        ignore_missing: true
    - rename:
        fields:
        - from: "log.file.path"
          to: "source"
        ignore_missing: true
-   output.logstash:
-     hosts: ["<<LISTENER-HOST>>:5015"]
-     ssl:
-       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+   ############################# Input  ##########################################
+   filebeat.inputs:
+   - type: o365audit
+     application_id: <application ID>
+     tenant_id: <tenant ID>
+     client_secret: <client Secret>
+   ############################# Output ##########################################
+   output:
+     logstash:
+       hosts: ["listener.logz.io:5015"]
+       ssl:  
+           certificate_authorities: ['C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt']
    ```
   
    * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.

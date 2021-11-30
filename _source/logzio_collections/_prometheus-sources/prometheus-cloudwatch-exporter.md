@@ -47,6 +47,8 @@ We simplify the data export and collection of your metrics. You tell us the desi
 <!-- tab:start -->
 <div id="variables">
 
+This integration allows you to run a Cloudwatch exporter as a Docker container with your custom environment variables to send Cloudwatch metrics to your Logz.io account.  
+  
 <div class="tasklist">
 
 ##### Set up your IAM user
@@ -137,6 +139,8 @@ logzio/cloudwach-metrics
 
 <!-- tab:start -->
 <div id="config">
+  
+This integration allows you to run a Cloudwatch exporter as a Docker container with your custom configuration file to send Cloudwatch metrics to your Logz.io account. 
 
 <div class="tasklist">
 
@@ -252,6 +256,9 @@ logzio/cloudwach-metrics
 <!-- tab:start -->
 <div id="cloudwatch">
 
+This integration allows you to run a Cloudwatch exporter as a Docker container with your variables specified in both a custom configuration file and as environment variables to send Cloudwatch metrics to your Logz.io account. 
+
+  
 <div class="tasklist">
 
 ##### Set up your IAM user

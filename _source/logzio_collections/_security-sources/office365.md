@@ -37,7 +37,6 @@ Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to
 2. Open the pop-out menu from the top left corner of the web page and click on **Azure Active Directory**.
 3. Under the **Manage** section on the left-hand side of the page, select **App registrations > New registration**.
   ![New registration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/office365/new.png)
-
 4. Name your app, and then adjust options as necessary. The default settings should be fine if working with a single M365 tenant without a URI proxy.
 5. Take note of the Application (client) ID and the Directory (tenant) ID. These will be used later when configuring Filebeat.
 

@@ -67,7 +67,7 @@ Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to
    ```yaml
    fields:
      logzio_codec: plain
-     token: <token>
+     token: <<LOG-SHIPPING-TOKEN>>
      type: o365
    fields_under_root: true
    #For version 6.x and lower uncomment the line below and remove the line after it
@@ -94,7 +94,7 @@ Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to
    ############################# Output ##########################################
    output:
      logstash:
-       hosts: ["listener.logz.io:5015"]
+       hosts: ["<<LISTENER-HOST>>:5015"]
        ssl:  
            certificate_authorities: ['C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt']
    ```

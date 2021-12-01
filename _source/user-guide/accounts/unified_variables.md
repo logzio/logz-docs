@@ -17,7 +17,7 @@ Unified variables represent a collection of fields from within your code. It all
 
 These variables are the engine behind [Unified filters](https://docs.logz.io/user-guide/accounts/unified_filters.html), an additional feature that provides a comprehensive overview of your systems and applications.
 
-<p class="info-box note">Only account admins can create and edit Unified variables. Account users can view the variables and the fields it includes.</p>
+<p class="info-box note">Only account admins can create, edit, and toggle Unified variables. Account users can view the variables and their fields.</p>
 
 #### Create a Unified variable
 
@@ -25,7 +25,7 @@ These variables are the engine behind [Unified filters](https://docs.logz.io/use
 
 ##### Open your Metrics account
 
-Navigate to your **[Metrics](https://app.logz.io/#/dashboard/metrics)** account, and click the **Unified variables** on the left side navigation. Alternatively, you can click the **<i class="li li-gear"></i>Edit variables** button located at the Filters top-navigation menu.
+Navigate to your **[Metrics](https://app.logz.io/#/dashboard/metrics)** account, and click the **Unified variables** on the left side navigation. Alternatively, you can click the **[<i class="li li-gear"></i>Edit variables](https://app.logz.io/#/dashboard/global-variables)** button located at the Filters top-navigation menu.
 
 
 ##### Name your new variable

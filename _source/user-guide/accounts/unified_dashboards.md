@@ -27,7 +27,7 @@ Logz.io offers two additional features that enhance the Unified Dashboards exper
 
 Create a functional overview of your data with intelligent filters that cover all of your data points at once. Unified Filters helps narrow down the logs, metrics, and traces across all of your Metrics dashboards, meaning you can change views without losing your pre-defined filters. In addition, Unified Filters utilize Unified Variables for a more comprehensive filtering ability.
 
-[Learn more about Unified Filters](https://).
+[Learn more about Unified Filters](https://docs.logz.io/user-guide/accounts/unified_filters.html).
 
 
 #### Unified Variables
@@ -36,9 +36,9 @@ Normalize data type names across your data by combining variables from multiple 
 
 Account admins can create custom Unified Variables based on similar fields across your accounts. In addition, Logz.io Machine Learning algorithms generate pre-built Unified Variables based on standard and industry best practices.
 
-[Learn more about Unified Variables](https://).
+[Learn more about Unified Variables](https://docs.logz.io/user-guide/accounts/unified_variables.html).
 
 
 ##### Additional resources
 
-[Read more](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-logzio) about the Logz.io Metrics solution.
+* [Read more](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-logzio) about the Logz.io Metrics solution.

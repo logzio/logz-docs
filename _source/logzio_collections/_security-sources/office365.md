@@ -99,7 +99,6 @@ Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to
            certificate_authorities: ['C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt']
    ```
   
-   * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
    * {% include log-shipping/log-shipping-token.md %}
    * {% include log-shipping/listener-var.md %}
 

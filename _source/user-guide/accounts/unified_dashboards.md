@@ -1,0 +1,44 @@
+---
+layout: article
+title: What are Unified Dashboards?
+permalink: /user-guide/accounts/unified_dashboards.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Introducing Logz.io Unified Dashboards, Unified Filters and Unified Variables
+flags:
+  admin: false
+  logzio-plan: community
+tags:
+  - accounts
+contributors:
+  - hidan
+---
+
+Monitoring data across multiple systems and applications can be challenging when working with more than one data source, and it becomes increasingly difficult as environments and data points increase.
+
+**Unified Dashboards** help address this challenge by adding a layer of observability into your data. 
+
+The dashboard combines information from logs, metrics, and tracing data, showcasing it side by side. As a result, you can monitor, identify and troubleshoot issues quickly and easily, without bouncing between separate interfaces specific to log, metric, or trace analytics.
+
+![Unified Dashboards Example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/unified-dashboards-main.png)
+
+Logz.io offers two additional features that enhance the Unified Dashboards experience: 
+
+#### Unified Filters
+
+Create a functional overview of your data with intelligent filters that cover all of your data points at once. Unified Filters helps narrow down the logs, metrics, and traces across all of your Metrics dashboards, meaning you can change views without losing your pre-defined filters. In addition, Unified Filters utilize Unified Variables for a more comprehensive filtering ability.
+
+[Learn more about Unified Filters](https://).
+
+
+#### Unified Variables
+
+Normalize data type names across your data by combining variables from multiple data sources into one parameter. Unified Variables make connecting fields and analyzing data easier, acting as a directory for your fields and data sources.
+
+Account admins can create custom Unified Variables based on similar fields across your accounts. In addition, Logz.io Machine Learning algorithms generate pre-built Unified Variables based on standard and industry best practices.
+
+[Learn more about Unified Variables](https://).
+
+
+##### Additional resources
+
+[Read more](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-logzio) about the Logz.io Metrics solution.

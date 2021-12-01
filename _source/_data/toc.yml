@@ -304,6 +304,16 @@ firstLevel:
         url: /user-guide/archive-and-restore/set-s3-permissions.html
       - title: Setting permissions in Microsoft Azure
         url: /user-guide/archive-and-restore/azure-blob-permissions/
+
+  - title: Unified dashboards
+    thirdLevel:
+    - title: Getting started
+      url: /user-guide/accounts/unified_dashboards.html
+    - title: Unified variables
+      url: /user-guide/accounts/unified_variables.html
+    - title: Unified filters
+      url: /user-guide/accounts/unified_filters.html
+
   - title: PCI compliance
     url: /user-guide/accounts/pci-compliance.html
   - title: Granting access to Logz.io Support

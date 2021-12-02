@@ -10,6 +10,7 @@ npm install --save @opentelemetry/exporter-collector
 npm install --save @opentelemetry/resources
 npm install --save @opentelemetry/semantic-conventions
 npm install --save @opentelemetry/auto-instrumentations-node
+npm install --save @opentelemetry/sdk-node
 ```
 
 ##### Create a tracer file
@@ -51,6 +52,7 @@ registerInstrumentations({
 return opentelemetry.trace.getTracer('logzio-collector-exporter-node');
 
 };
+
 ```
 
 
@@ -60,20 +62,4 @@ Add the following configuration to the beginning of your application Node.js fil
 
 ```javascript
 const tracer = require('./tracer.js')('logzio-collector-exporter-node');
-```
-
-Add the following configuration to the same file:
-
-```javascript
-app.get('/', async (req, res) => {
-  // This outgoing HTTP request should be captured by Trace
-  try {
-    const {body} = await got(DISCOVERY_URL, {responseType: 'json'});
-    const names = body.items.map(item => item.name);
-    res.status(200).send(names.join('\n')).end();
-    // res.status(200).send(body).end();
-  } catch (err) {
-    console.error(err);
-  }
-});
 ```

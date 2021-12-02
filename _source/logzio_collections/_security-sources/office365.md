@@ -9,7 +9,7 @@ templates: ["network-device-filebeat"]
 contributors:
   - nshishkin
 shipping-tags:
-  - windows
+  - azure
 order: 1380
 ---
 Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to Logz.io. This method of log forwarding utilizes the Office/Microsoft 365 Management API, which currently supports the following M365 content types:
@@ -38,7 +38,11 @@ Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to
 3. Under the **Manage** section on the left-hand side of the page, select **App registrations > New registration**.
   ![New registration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/office365/new.png)
 4. Name your app, and then adjust options as necessary. The default settings should be fine if working with a single M365 tenant without a URI proxy.
-5. Take note of the Application (client) ID and the Directory (tenant) ID. These will be used later when configuring Filebeat.
+  
+<!-- info-box-start:info -->
+Take note of the Application (client) ID and the Directory (tenant) ID. These will be used later when configuring Filebeat.
+{:.info-box.note}
+<!-- info-box-end -->
 
 ##### Create a client secret for your application
 

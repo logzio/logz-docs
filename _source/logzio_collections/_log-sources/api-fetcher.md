@@ -129,7 +129,7 @@ auth_apis:
 | json_paths.data | The json path to the data value inside the response of the Auth API. | Required. General type only | 
 | json_paths.data_date | The json path to the data's date value inside the response of the Auth API | Required. General type only | 
 
-###### Create a Last Start Dates text file
+##### Create a Last Start Dates text file
 
 Create an empty text file named last_start_dates.txt in the same directory as the config file:
 
@@ -141,7 +141,7 @@ After every successful iteration of an API, the last start date of the next iter
 
 If you stopped the container, you can continue from the exact place you stopped, by adding the date to the API filters in the configuration.
 
-###### Run the Docker container
+##### Run the Docker container
 
 ```shell
 docker run --name logzio-api-fetcher \
@@ -149,7 +149,7 @@ docker run --name logzio-api-fetcher \
 logzio/logzio-api-fetcher
 ```
 
-###### Stop the Docker container
+##### Stop the Docker container
 
 When you stop the container, the code will run until the iteration is completed. To make sure it will finish the iteration on time, please give it a grace period of 30 seconds when you run the `docker stop` command.
 
@@ -282,7 +282,7 @@ oauth_apis:
 | custom_fields | Pairs of key and value that will be added to each data and be sent to Logz.io. | Optional | 
 | start_date_name| The start date parameter name of the OAuth API url. (Same as json_paths.data_date in most cases)| Required | 
 
-###### Create a Last Start Dates text file
+##### Create a Last Start Dates text file
 
 Create an empty text file named last_start_dates.txt in the same directory as the config file:
 
@@ -294,7 +294,7 @@ After every successful iteration of an API, the last start date of the next iter
 
 If you stopped the container, you can continue from the exact place you stopped, by adding the date to the API filters in the configuration.
 
-###### Run the Docker container
+##### Run the Docker container
 
 ```shell
 docker run --name logzio-api-fetcher \
@@ -302,7 +302,7 @@ docker run --name logzio-api-fetcher \
 logzio/logzio-api-fetcher
 ```
 
-###### Stop the Docker container
+##### Stop the Docker container
 
 When you stop the container, the code will run until the iteration is completed. To make sure it will finish the iteration on time, please give it a grace period of 30 seconds when you run the `docker stop` command.
 

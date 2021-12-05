@@ -69,11 +69,3 @@ process.on("SIGTERM", () => {
 
 ```
 
-
-##### Enable instrumentation in the application code
-
-Add the following configuration to the beginning of your application Node.js file:
-
-```javascript
-const tracer = require('./tracer.js')('logzio-collector-exporter-node');
-```

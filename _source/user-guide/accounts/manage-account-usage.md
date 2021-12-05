@@ -44,6 +44,22 @@ when you filter for the `logzio_account_utilization` log type.
 | utilization | Current utilization, in percent |
 | volume_in_GB | Current utilization, in GB |
 
+### Account utilization metrics for flexible accounts
+
+The following fields are used for flexible volume accounts. 
+
+| Field name | Description |
+|---|---|
+|is_flexible| Indicates whether the account is fixed or flexible (Boolean)|
+|cap_volume| Optional maximum data volume for the account, in GB. This value can be 0: That is, the account has unlimited access to shared volume.|
+|expected_volume_in_GB_EOD| An estimate of how much data the account will be used by the end of the day, in GB. The estimation is based on how much data was sent until the current hour. |
+|reserved_volume| Volume guaranteed for the account per calendar day, in GB. This value can be 0: That is, no reserved volume is configured for the account. |
+|used_from_shareable| The amount of data used from the shareable volume, in GB|
+
+For flexible accounts, the current utilization is the sum of the reserved volume and the data used from the shareable volume:   `volume_in_GB = reserved_volume  +  used_from_shareable`
+
+
+![Flexible volume metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flex_utiliz_metrix.png) 
 
 ### What happens when I save log size? {#what-happens-when-i-save-log-size}
 

@@ -82,6 +82,8 @@ firstLevel:
       url: /user-guide/kibana/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
+  - title: Log usage measurement
+    url: /user-guide/log-usage-measurement/
 
 
     # ===== METRICS INFRASTRUCTURE MONITORING =====

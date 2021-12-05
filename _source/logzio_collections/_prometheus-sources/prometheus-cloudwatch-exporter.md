@@ -22,16 +22,15 @@ order: 400
 <div class="branching-container">
 
 * [Overview](#overview)
-* [Run as container with variables](#variables)
-* [Run with config](#config)
-* [Run with cloudwatch exporter](#cloudwatch)
+* [Default configuration](#variables)
+* [Custom config](#config)
+* [Custom cloudwatch exporter](#cloudwatch)
 {:.branching-tabs}
 
 <!-- tab:start -->
 <div id="overview">
 
-With this integration, you can collect Cloudwatch metrics and forward them to Logz.io using the OpenTelemetry collector.
-We simplify the data export and collection of your metrics. You tell us the desired namespaces and regions that you want to send your data from and we fetch the most relevant metrics to display in the Logz.io pre-built infrastructure monitoring dashboards.
+With this integration, you can collect Cloudwatch metrics and forward them to Logz.io using the OpenTelemetry collector. We simplify the data export and collection of your metrics. You tell us the desired namespaces and regions that you want to send your data from and we fetch the most relevant metrics to display in the Logz.io pre-built infrastructure monitoring dashboards.
 
 ### Important notes
 
@@ -47,7 +46,7 @@ We simplify the data export and collection of your metrics. You tell us the desi
 <!-- tab:start -->
 <div id="variables">
 
-This integration allows you to run a Cloudwatch exporter as a Docker container with your custom environment variables to send Cloudwatch metrics to your Logz.io account.  
+This integration allows you to run a Cloudwatch exporter as a Docker container with environment variables to send Cloudwatch metrics to your Logz.io account.  We recommend using this configuration as default.
   
 <div class="tasklist">
 
@@ -140,7 +139,7 @@ logzio/cloudwach-metrics
 <!-- tab:start -->
 <div id="config">
   
-This integration allows you to run a Cloudwatch exporter as a Docker container with your custom configuration file to send Cloudwatch metrics to your Logz.io account. 
+This integration allows you to run a Cloudwatch exporter as a Docker container with a configuration file to send Cloudwatch metrics to your Logz.io account. 
 
 <div class="tasklist">
 
@@ -256,7 +255,7 @@ logzio/cloudwach-metrics
 <!-- tab:start -->
 <div id="cloudwatch">
 
-This integration allows you to run a Cloudwatch exporter as a Docker container with your variables specified in both a custom configuration file and as environment variables to send Cloudwatch metrics to your Logz.io account. Please not that the envorinment variables will always overwrite variables specified in the configuration file in case the variables overlap.
+This integration allows you to run a Cloudwatch exporter as a Docker container with both environment variables and a configuration file to send Cloudwatch metrics to your Logz.io account. Please not that the envorinment variables will always overwrite variables specified in the configuration file in case the variables overlap.
 
   
 <div class="tasklist">

@@ -33,7 +33,7 @@ order: 430
 
 ###### Overview
 
-You can use a Helm chart to ship k8s logs to Logz.io via Filebeat.
+You can use a Helm chart to ship k8s logs to Logz.io via Filebeat from Linux and Windows nodes.
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.
 Logzio-k8s-logs allows you to ship logs from your Kubernetes cluster to Logz.io.

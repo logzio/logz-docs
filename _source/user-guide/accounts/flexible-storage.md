@@ -62,10 +62,6 @@ When flexible volume is enabled, your plan's shared volume helps to protect agai
 | Shared volume | 80% of shared volume is spent for the day. | 100% of shared volume is spent for the day. Only accounts with available reserved volume can continue to index logs. No shared capacity will be available until the index switches at 00:00 UTC tonight. |
 | Account cap | Account has reached 80% of its daily cap. | Account has reached 100% of its daily cap. It will no longer accept data until the index switches at 00:00 UTC. |
 
-[Account utilization metrics](/user-guide/accounts/manage-account-usage.html) are less accurate when flexible volume is enabled. This is because utilization is dynamic and constantly reshuffling between accounts, on an as-needed basis.
-
-If you prefer to rely on utilization logs as an accurate measure, consider sticking to the fixed volume plan instead.
-
 #### Configure flexible capacity accounts
 
 <div class="tasklist">

@@ -7,7 +7,7 @@ permalink: /user-guide/log-shipping/faqs-logs
 flags: 
   logzio-plan: community
 tags:
-  - log-shiping
+  - log-shipping
 contributors:
   - boofinka
   - ralongit

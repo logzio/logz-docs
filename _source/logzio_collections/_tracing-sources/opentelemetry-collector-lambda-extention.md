@@ -55,8 +55,8 @@ aws lambda update-function-configuration --function-name Function --tracing-conf
 ```
   
 ##### Configuration the function
-By default, OpenTelemetry Collector Lambda Extension exports the telemetry data to the Lambda console. To customize the collector configuration, add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment file.
-Here is a sample configuration file:
+By default, OpenTelemetry Collector Lambda Extension exports the telemetry data to the Lambda console. To customize the collector configuration, add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment file. Here is a sample configuration file:
+  
 ```yaml
 receivers:
   otlp:

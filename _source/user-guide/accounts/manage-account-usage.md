@@ -58,8 +58,7 @@ The following fields are used for flexible volume accounts.
 
 For flexible accounts, the current utilization is the sum of the reserved volume and the data used from the shareable volume:   `volume_in_GB = reserved_volume  +  used_from_shareable`
 
-
-![Flexible volume metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flex_utiliz_metrix.png) 
+In your logs, you might see something like this: ![Flexible volume metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flex_utilizn_metrix.png) 
 
 ### What happens when I save log size? {#what-happens-when-i-save-log-size}
 

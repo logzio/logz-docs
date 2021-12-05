@@ -22,7 +22,8 @@ order: 430
 
 * [Overview](#overview)
 * [Standard configuration](#standard-config)
-* [Autodiscover](#custom-config)
+* [Autodiscover Linux](#custom-config-linux)
+* [Autodiscover Windows](#custom-config-windows)
 * [Configurations & Defaults](#configurations)
 * [Multiline logs](#multiline)
 {:.branching-tabs}
@@ -94,7 +95,108 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="custom-config">
+<div id="custom-config-linux">
+
+#### Autodiscover configuration
+
+Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running.
+
+
+
+<div class="tasklist">
+
+##### Add logzio-k8s-logs repo to your helm repo list
+
+```shell
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
+helm repo update
+```
+
+##### Deploy
+
+In the following commands, make the following changes:
+
+* Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
+
+* Replace `<<LISTENER-REGION>>` with your region’s code (for example, `eu`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+
+* Replace `<<CLUSTER-NAME>>` with your cluster's name.
+
+* Use `--set configType='<<TYPE>>'` for linux based filebeat and/or `--set filebeatWindowsConfigType='<<TYPE>>'` for windows based filebeat.
+
+
+This Daemonset's default autodiscover configuration is [hints based](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover-hints.html). If you wish to deploy it use:
+
+```shell
+helm install --namespace=kube-system \
+--set configType='autodiscover' \
+--set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
+--set secrets.logzioRegion='<<LISTENER-REGION>>' \
+--set secrets.clusterName='<<CLUSTER-NAME>>' \
+logzio-k8s-logs logzio-helm/logzio-k8s-logs
+```
+
+If you have a custom configuration, deploy with:
+
+```shell
+helm install --namespace=kube-system \
+--set configType='auto-custom' \
+--set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
+--set secrets.logzioRegion='<<LISTENER-REGION>>' \
+--set secrets.clusterName='<<CLUSTER-NAME>>' \
+--set-file filebeatConfig.autoCustomConfig=/path/to/your/config.yaml \
+logzio-k8s-logs logzio-helm/logzio-k8s-logs
+```
+
+If you're using a custom config, please make sure that you're using a `.yaml` file with the following structure:
+
+```
+filebeat.yml: |-
+  filebeat.autodiscover:
+  #....
+    # your autodiscover config
+    # ...
+  processors:
+    - add_cloud_metadata: ~
+  fields:
+    logzio_codec: ${LOGZIO_CODEC}
+    token: ${LOGZIO_LOGS_SHIPPING_TOKEN}
+    cluster: ${CLUSTER_NAME}
+    type: ${LOGZIO_TYPE}
+  fields_under_root: ${FIELDS_UNDER_ROOT}
+  ignore_older: ${IGNORE_OLDER}
+  output:
+    logstash:
+      hosts: ["${LOGZIO_LOGS_LISTENER_HOST}:5015"]
+      ssl:
+        certificate_authorities: ['/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt']
+```
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours,
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs,
+see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+
+#### Uninstalling the Chart
+
+The command removes all the k8s components associated with the chart and deletes the release.  
+To uninstall the `logzio-k8s-logs` deployment:
+
+```shell
+helm uninstall --namespace=kube-system logzio-k8s-logs
+```
+
+
+</div>
+<!-- tab:end -->
+  
+<!-- tab:start -->
+<div id="custom-config-windows">
 
 #### Autodiscover configuration
 

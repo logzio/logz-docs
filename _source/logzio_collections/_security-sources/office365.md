@@ -69,9 +69,14 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
    ```yaml
+   filebeat.inputs:
+   - type: o365audit
+     application_id: <application ID>
+     tenant_id: <tenant ID>
+     client_secret: <client Secret>
    fields:
      logzio_codec: plain
-     token: <<LOG-SHIPPING-TOKEN>>
+     token: <shipping oken>
      type: o365
    fields_under_root: true
    #For version 6.x and lower uncomment the line below and remove the line after it
@@ -79,28 +84,23 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
    filebeat.registry.path: 'C:\ProgramData\filebeat'
    #The following processors are to ensure compatibility with version 7
    processors:
-   - rename:
+     - rename:
        fields:
-       - from: "agent"
-         to: "beat_agent"
+     - from: "agent"
+       to: "beat_agent"
        ignore_missing: true
-   - rename:
+     - rename:
        fields:
-       - from: "log.file.path"
-         to: "source"
+     - from: "log.file.path"
+       to: "source"
        ignore_missing: true
-   ############################# Input  ##########################################
-   filebeat.inputs:
-   - type: o365audit
-     application_id: <application ID>
-     tenant_id: <tenant ID>
-     client_secret: <client Secret>
-   ############################# Output ##########################################
+############################# Output ##########################################
    output:
      logstash:
-       hosts: ["<<LISTENER-HOST>>:5015"]
+       hosts: ["listener.logz.io:5015"]
        ssl:  
            certificate_authorities: ['C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt']
+           
    ```
   
    * {% include log-shipping/log-shipping-token.md %}

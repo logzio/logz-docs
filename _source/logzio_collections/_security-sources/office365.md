@@ -76,7 +76,7 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
      client_secret: <client Secret>
    fields:
      logzio_codec: plain
-     token: <shipping oken>
+     token: <<LOG-SHIPPING-TOKEN>>
      type: o365
    fields_under_root: true
    #For version 6.x and lower uncomment the line below and remove the line after it
@@ -97,7 +97,7 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
 ############################# Output ##########################################
    output:
      logstash:
-       hosts: ["listener.logz.io:5015"]
+       hosts: ["<<LISTENER-HOST>>:5015"]
        ssl:  
            certificate_authorities: ['C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt']
            

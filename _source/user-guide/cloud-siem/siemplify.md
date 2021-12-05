@@ -40,7 +40,7 @@ Siemplify is an industry-leading Security Orchestration, Automation & Response (
 
 * An active account with Siemplify.
 * An active account with Logz.io.
-* A valid Logz.io API token. Contact support if your account doesn't have one.
+* A valid [Logz.io API](https://app.logz.io/#/dashboard/settings/manage-tokens/api) token. Contact support if your account doesn't have one.
 
 ##### Add a Logz.io instance to your Siemplify workspace
 

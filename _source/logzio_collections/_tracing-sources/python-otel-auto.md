@@ -157,10 +157,10 @@ This integration enables you to auto-instrument your Python application and run 
 Run the following command from the directory of your Python application script:
 
 ```shell
-opentelemetry-instrument python3 <YOUR-APPLICATION-SCRIPT>.py
+opentelemetry-instrument python3 `<<YOUR-APPLICATION-SCRIPT>>`.py
 ```
 
-Replace `<YOUR-APPLICATION-SCRIPT>` with the name of your Python application script.
+Replace `<<YOUR-APPLICATION-SCRIPT>>` with the name of your Python application script.
 
 ##### Check Logz.io for your traces
 

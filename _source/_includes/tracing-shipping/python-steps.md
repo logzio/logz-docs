@@ -15,7 +15,7 @@ After installation, configure the exporter by running the following command:
 
 ```shell 
 export OTEL_TRACES_EXPORTER=otlp
-export OTEL_RESOURCE_ATTRIBUTES="service.name=<YOUR-SERVICE-NAME>"
+export OTEL_RESOURCE_ATTRIBUTES="service.name=<<YOUR-SERVICE-NAME>>"
 ```
 
-Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
+Replace `<<YOUR-SERVICE-NAME>>` with the name of your tracing service defined earlier.

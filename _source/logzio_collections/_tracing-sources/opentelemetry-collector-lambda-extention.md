@@ -14,7 +14,6 @@ shipping-tags:
 order: 1380
 ---
 
-
 The Logzio OpenTelemetry Collector Lambda Extension provides a mechanism to synchronously export traces from AWS Lambda applications. It does this by embedding a stripped-down version of [OpenTelemetry Collector Contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib) inside an [AWS Extension Layer](https://aws.amazon.com/blogs/compute/introducing-aws-lambda-extensions-in-preview/). This allows the Lambda applications to use the OpenTelemetry Collector Exporter to send traces and metrics to any configured backend, such as Logz.io.
 
   
@@ -24,6 +23,8 @@ The Logzio OpenTelemetry Collector Lambda Extension provides a mechanism to sync
 
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 * Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+* [Instrumentation](https://docs.logz.io/shipping/tracing-sources/opentelemetry-nodejs-lambda.html) enabled in your code
+
 
 <div class="tasklist">
 

@@ -56,9 +56,10 @@ The following fields are used for flexible volume accounts.
 |reserved_volume| Volume guaranteed for the account per calendar day, in GB. This value can be 0: That is, no reserved volume is configured for the account. |
 |used_from_shareable| The amount of data used from the shareable volume, in GB|
 
-For flexible accounts, the current utilization is the sum of the reserved volume and the data used from the shareable volume:   `volume_in_GB = reserved_volume  +  used_from_shareable`
+For flexible accounts, the amount of data you used from the shareable volume is derived from the difference between your current utilization and your reserved account volume: `used_from_shareable = volume_in_GB - reserved_volume` <br>
+Obviously, the value can't be negative: If you haven't used any of the shared volume, `used_from_shareable` will be normalized to 0.  
 
-In your logs, you might see something like this: ![Flexible volume metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flex_utilizn_metrix.png) 
+In your logs, you might see something like this: ![Flexible volume metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flex_utilizn_metrix2.png) 
 
 ### What happens when I save log size? {#what-happens-when-i-save-log-size}
 

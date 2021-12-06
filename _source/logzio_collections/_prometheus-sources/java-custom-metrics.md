@@ -26,12 +26,8 @@ order: 720
 Deploy this integration to send custom metrics from your Java application to Logz.io, using [Micrometer](https://micrometer.io/). The dedicated Logz.io Micrometer metrics registry sends custom metrics from your Java application to your Logz.io account.
 
 **Before you begin, you'll need**:
-Java 11 or higher 
+Java 8 or higher 
 
-<!-- info-box-start:info -->
-This integration currently works with Java 11 or higher. Support for earlier versions is in development and is expected later this year.
-{:.info-box.important}
-<!-- info-box-end -->
 
 
 ## Send Custom metrics from your JAVA application to Logz.io
@@ -44,18 +40,18 @@ This integration currently works with Java 11 or higher. Support for earlier ver
 <dependency>
     <groupId>io.logz.micrometer</groupId>
     <artifactId>micrometer-registry-logzio</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
 #### Via gradle groovy:
 ```groovy
-implementation 'io.logz.micrometer:micrometer-registry-logzio:1.0.1'
+implementation 'io.logz.micrometer:micrometer-registry-logzio:1.0.2'
 ```
 
 #### Via gradle Kotlin:
 ```kotlin
-implementation("io.logz.micrometer:micrometer-registry-logzio:1.0.1")
+implementation("io.logz.micrometer:micrometer-registry-logzio:1.0.2")
 ```
 
 #### Import in your package:
@@ -70,8 +66,8 @@ Replace the placeholders in the code (indicated by the double angle brackets `<<
 
 | Environment variable | Description |Required/Default|
 |---|---|---|
-|LISTENER-HOST|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required|
-|PROMETHEUS-METRICS-SHIPPING-TOKEN | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
+|listener-url|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:5053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required|
+|metrics-token | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
 |interval | The interval in seconds, to push metrics to Logz.io **Note that your program will need to run for at least one interval for the metrics to be sent**  | Required|
 
 #### In your package:
@@ -93,22 +89,29 @@ class MicrometerLogzio {
          }
          @Override
          public String uri() {
-            return ""https://<<LISTENER-HOST>>:8053";
-            // example:
-            // return "https://listener.logz.io:5053"; 
+           return "<<listener-url>>";
+           // example:
+           // return "https://listener.logz.io:8053"; 
          }
-
+         
          @Override
          public String token() {
-            return "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>";
+            return "<<metrics-token>>";
          }
 
          @Override
          public Duration step() {
-            return Duration.ofSeconds(<<interval>>);
-            // example:
-            // return Duration.ofSeconds(30);                    
+           return Duration.ofSeconds(<<interval>>);
+           // example:
+           // return Duration.ofSeconds(30);                    
          }
+         @Override
+         public Hashtable<String, String> includeLabels() {
+             return new Hashtable<>();
+         }
+         @Override
+         public Hashtable<String, String> excludeLabels() {
+             return new Hashtable<>();
       };
       // Initialize registry
        LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
@@ -131,7 +134,6 @@ class MicrometerLogzio {
 
 ## Common tags
 You can attach common tags to your registry that will be added to all metrics reported, for example:
-
 ```java
 // Initialize registry
 LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
@@ -139,9 +141,36 @@ LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTE
 registry.config().commonTags("key", "value");
 ```
 
+## Filter labels
+you can the `includeLabels` or `excludeLabels` functions to filter your metrics by labels.
+#### Include:
+Take for example this following usage, In your `LogzioConfig()` constructor:
+```java
+@Override
+public Hashtable<String, String> includeLabels() {
+    Hashtable<String, String> includeLabels = new Hashtable<>();
+    includeLabels.put("__name__", "my_counter_abc_total|my_second_counter_abc_total");
+    includeLabels.put("k1", "v1");
+    return includeLabels;
+}
+```
+The registry will keep only metrics with the label `__name__` matching the regex `my_counter_abc_total|my_second_counter_abc_total`, and with the label `k1` matching the regex `v1`.
+#### Exclude:
+In your `LogzioConfig()` constructor:
+```java
+@Override
+public Hashtable<String, String> excludeLabels() {
+    Hashtable<String, String> excludeLabels = new Hashtable<>();
+    excludeLabels.put("__name__", "my_counter_abc_total|my_second_counter_abc_total");
+    excludeLabels.put("k1", "v1");
+    return excludeLabels;
+}
+```
+The registry will drop all metrics with the label `__name__` matching the regex `my_counter_abc_total|my_second_counter_abc_total`, and with the label `k1` matching the regex `v1`.
+
+
 ## Meter binders
 Micrometer provides a set of binders for monitoring JVM metrics out of the box, for example:
-
 ```java
 // Initialize registry
 LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
@@ -166,20 +195,19 @@ new UptimeMetrics(tags).bindTo(registry);
 new LogbackMetrics().bindTo(registry);
 new Log4j2Metrics().bindTo(registry);
 ```
+For more information about other binders check out [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) Github repo.
 
-For more information about other binders, visit the [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) GitHub repo.
-
-## Meter types 
+## Types of metrics 
 
 Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for more details.
 
 
 | Name | Behavior | 
 | ---- | ---------- | 
-| Counter           | Metric value can only go up or be reset to 0: Calculated per `counter.increment(value); ` call |
-| Gauge             | Metric value can arbitrarily increment or decrement: Values can be set automatically by tracking `Collection` size, or can be set manually by `gauge.set(value)`  | 
-| DistributionSummary | Metric values captured by the `summary.record(value)` function: The output is a distribution of `count`,`sum`, and `max` for the recorded values during the push interval |
-| Timer       | Measures timing: Metric values can be recorded by `timer.record()` call |
+| Counter           | Metric value can only go up or be reset to 0, calculated per `counter.increment(value); ` call. |
+| Gauge             | Metric value can arbitrarily increment or decrement, values can set automaticaly by tracking `Collection` size or set manually by `gauge.set(value)`  | 
+| DistributionSummary | Metric values captured by the `summary.record(value)` function, the output is a distribution of `count`,`sum` and `max` for the recorded values during the push interval. |
+| Timer       | Mesures timing, metric values can be recorded by `timer.record()` call. |
 
 ### [Counter](https://micrometer.io/docs/concepts#_counters)
 ```java
@@ -260,7 +288,6 @@ timer.record(()-> {
 // timer_example_duration_seconds_sum{env="dev"} 3000
 
 ```
-
 
 
 

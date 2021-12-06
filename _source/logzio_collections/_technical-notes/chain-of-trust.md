@@ -38,7 +38,7 @@ you'll need to check your configurations to see if they're affected.
 This could affect you if any of these are true:
 
 * You’re sending data using any Beats shippers
-  (such as Filebeat, Metricbeat, or Winlogbeat)
+  (such as Filebeat or Winlogbeat)
 * You’re sending data with Logstash over SSL
 * You’ve deployed our Docker images or Kubernetes configmaps
 
@@ -55,16 +55,14 @@ we've covered the main update processes here:
 
 | For this shipping method... | ...see these instructions |
 |---|---|---|
-| Beats family shipper (such as Filebeat or Metricbeat) | See _[To replace the certificate file for Beats](#replace-the-cert-file)_ (below) |
+| Beats family shipper (such as Filebeat) | See _[To replace the certificate file for Beats](#replace-the-cert-file)_ (below) |
 | Logstash over SSL | See _[To configure Logstash for multiple certificates](#logstash-multiple-certs)_ (below) |
 | A Docker image managed by Logz.io | See _[To update a Docker container](#update-container)_ (below) |
 | rsyslog | See _[To check your rsyslog configuration](#check-rsyslog-config)_ (below) |
-| The Kubernetes Metricbeat daemonset | Re-deploy using the instructions in _[Ship Kubernetes metrics]({{site.baseurl}}/shipping/metrics-sources/kubernetes.html)_ |
-
 #### To replace the certificate file for Beats {#replace-the-cert-file}
 
 This covers instructions for any of the Beats shippers
-(such as Filebeat, Metricbeat, Winlogbeat, or Auditbeat)
+(such as Filebeat, Winlogbeat, or Auditbeat)
 and Logstash over SSL.
 
 If you're managing your shipping app
@@ -89,7 +87,7 @@ Double-check the file paths,
 just in case your team uses a different file location.
 {:.info-box.important}
 
-###### For Filebeat or Metricbeat (macOS or Linux)
+###### For Filebeat (macOS or Linux)
 
 ```shell
 sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/TrustExternalCARoot_and_USERTrustRSAAAACA.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt

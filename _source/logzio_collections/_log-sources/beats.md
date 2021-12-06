@@ -40,7 +40,7 @@ This document describes the way to get logs from your system to Logz.io using an
 
 **Before you begin, you'll need**:
 
-* Any Beats shipper installed on your machine. This includes [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), Auditbeat, Functionbeat, Heartbeat, Journalbeat, Metricbeat or Packetbeat. Logz.io recommends that you use the latest stable version.
+* Any Beats shipper installed on your machine. This includes [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), Auditbeat, Functionbeat, Heartbeat, Journalbeat or Packetbeat. Logz.io recommends that you use the latest stable version.
 * Destination port 5015 open to outgoing traffic.
 
 
@@ -109,7 +109,7 @@ This document describes the way to get logs from your system to Logz.io using an
 
 **Before you begin, you'll need**: 
 
-* Any Beats shipper installed on your machine. This includes [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), Auditbeat, Functionbeat, Heartbeat, Journalbeat, Metricbeat, Packetbeat or [Winlogbeat](https://docs.logz.io/shipping/log-sources/windows.html). Logz.io recommends that you use the latest stable version.
+* Any Beats shipper installed on your machine. This includes [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), Auditbeat, Functionbeat, Heartbeat, Journalbeat, Packetbeat or [Winlogbeat](https://docs.logz.io/shipping/log-sources/windows.html). Logz.io recommends that you use the latest stable version.
 * Destination port 5015 open to outgoing traffic.
 
 <div class="tasklist">
@@ -194,8 +194,6 @@ Beat shippers make use of modules to ship data from various sources. Refer to th
 * [Auditbeat](https://www.elastic.co/guide/en/beats/auditbeat/master/auditbeat-modules.html)
 
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html)
-
-* [Metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/6.8/metricbeat-modules.html)
 
 * [Winlogbeat](https://www.elastic.co/guide/en/beats/winlogbeat/current/winlogbeat-modules.html)
 

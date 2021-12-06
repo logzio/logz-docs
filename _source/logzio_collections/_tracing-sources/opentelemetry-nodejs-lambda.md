@@ -29,7 +29,6 @@ included and loaded automatically if you use the AWS SDK v2.
   
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 * Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-* [Instrumentation](https://docs.logz.io/shipping/tracing-sources/opentelemetry-nodejs-lambda.html) enabled in your code before
 
 <div class="tasklist">
 

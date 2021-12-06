@@ -75,6 +75,11 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 </div>
 
+#### Additional resources:
+
+For additional Filebeat modules and configuration details, check out [Filebeat Modules](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html).
+
+
 </div>
 <!-- tab:end -->
 
@@ -137,6 +142,10 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+#### Additional resources:
+
+For additional Filebeat modules and configuration details, check out [Filebeat Modules](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html).
 
 
 

@@ -39,8 +39,6 @@ Which view is better, depends on your goal:
 
 The Metrics view options offer a playground you can use to explore your data. They show a graph panel where you can experiment with queries. If you've edited a dashboard before, the interface will be familiar.
 
-{% include /metric-shipping/no-query-elastic-based.md %}
-
 The Metrics view options are great for learning what Metrics data is in your system. Here are a few examples of what it offers:
 
 * To check which Metricbeat modules you currently have, use a `group by` rule for the field `event.module`.

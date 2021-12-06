@@ -117,8 +117,8 @@ View the rule information for the triggered event, including the:
 - Time the event was triggered and subsequent actions
 
 ![Event History](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem_event_history.png)
-## Viewing grouped events
 
+## Viewing grouped events
 To view all the events grouped in the **Count** field, select **View all occurrences** in the **More actions**  menu for the event.
 ![View grouped events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/view_grouped.png)
 

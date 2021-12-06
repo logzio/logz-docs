@@ -27,6 +27,7 @@ order: 10
 
 * [Filebeat for Linux](#linux)
 * [Filebeat for Windows](#windows)
+* [Modules](#modules)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -74,11 +75,6 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
-
-#### Additional resources:
-
-For additional Filebeat modules and configuration details, check out [Filebeat Modules](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html).
-
 
 </div>
 <!-- tab:end -->
@@ -143,12 +139,29 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 </div>
 
-#### Additional resources:
+</div>
+<!-- tab:end -->
 
-For additional Filebeat modules and configuration details, check out [Filebeat Modules](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html).
+<!-- tab:start -->
+<div id="modules">
+
+Beat shippers make use of modules to ship data from various sources. Refer to the list below to see what modules each of the shippers support.
+
+* [Apache ActiveMQ](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-activemq.html#filebeat-module-activemq)
+
+* [AWS](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-aws.html)
+
+* [Azure](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-azure.html)
+
+* [Google Cloud](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-gcp.html)
+
+* [MySQL](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mysql.html)
+
+* [Find more modules](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html)
 
 
 
 </div>
 <!-- tab:end -->
+
 

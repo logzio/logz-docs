@@ -13,16 +13,6 @@ shipping-tags:
   - new-instrumentation
 order: 1380
 ---
-
-<!-- tabContainer:start -->
-<div class="branching-container">
-
-* [Overview](#overview)
-* [Install](#install)
-{:.branching-tabs}
-
-<!-- tab:start -->
-<div id="overview">
   
 OpenTelemetry Lambda NodeJS is a layer for running NodeJS applications on AWS Lambda with OpenTelemetry. Adding the layer and pointing to it with
 the `AWS_LAMBDA_EXEC_WRAPPER` environment variable will initialize OpenTelemetry, enabling tracing with no code change.
@@ -32,12 +22,6 @@ To use it, you will need add the layer to your function configuration and then s
 [AWS SDK v2 instrumentation](https://github.com/aspecto-io/opentelemetry-ext-js/tree/master/packages/instrumentation-aws-sdk) is also
 included and loaded automatically if you use the AWS SDK v2.
 
-
-</div>
-<!-- tab:end -->
-
-<!-- tab:start -->
-<div id="install">
   
 #### Install the OpenTelemetry Collector Lambda Extension to an existing Lambda function
 
@@ -76,9 +60,3 @@ aws lambda update-function-configuration --function-name Function --environment 
   
   
 </div>
-
-</div>
-<!-- tab:end -->
-  
-</div>
-<!-- tabContainer:end -->

@@ -46,98 +46,105 @@ The information is also available in the **Logz.io Docs**, in [**Ship your data 
 
 To configure your spanmetrics processor, make sure you use your **Metrics** account token, name and region.
 
-<!--
 
 ```yaml
 receivers:
-    otlp/spanmetrics:
-      protocols:
-        grpc:
-          endpoint: "0.0.0.0:12345"
-    opencensus:
-    zipkin:
-      endpoint: :9411
-    jaeger:
-      protocols:
-        thrift_http:
-        grpc:
-    prometheus:
-      config:
-        global:
-          external_labels:
-            p8s_logzio_name: YOUR-ACCOUNT-NAME # Replace with your account name
-        scrape_configs: 
-        - job_name: 'name' # give the job a name
-          scrape_interval: 15s
-          static_configs:
-          - targets: [ "0.0.0.0:8889" ]
-  exporters:
-    logzio:
-      account_token: "${LOGZIO_TRACE_TOKEN}" #Replace with your Tracing account token
-      region: "us"    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page
-    prometheusremotewrite:
-      endpoint: https://listener.logz.io:8053
-      headers:
-        Authorization: Bearer ${LOGZIO_METRICS_TOKEN}
-    prometheus:
-      endpoint: "localhost:8889"
-    logging:
-  processors:
-    batch:
-    spanmetrics:
-      metrics_exporter: prometheus
-      latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms]
-      # Additional list of dimensions on top of:
-      # - service.name
-      # - operation
-      # - span.kind
-      # - status.code
-      dimensions:
-        # If the span is missing http.method, the processor will insert
-        # the http.method dimension with value 'GET'.
-        # For example, in the following scenario, http.method is not present in a span and so will be added as a dimension to the metric with value "GET":
-        # - promexample_calls{http_method="GET",operation="/Address",
-        # service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
-        - name: http.method
-          default: GET
-        # If a default is not provided, the http.status_code dimension will be omitted
-        # if the span does not contain http.status_code.
-        # For example, consider a scenario with two spans, one span having http.status_code=200 and another missing http.status_code. Two metrics would result with this configuration, one with the http_status_code omitted and the other included:
-        # - promexample_calls{http_status_code="200",operation="/Address",
-        # service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
-        # - promexample_calls{operation="/Address",
-        # service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
-        - name: http.status_code
-  extensions:
-    pprof:
-      endpoint: :1777
-    zpages:
-      endpoint: :55679
-    health_check:
-  service:
-    extensions: [health_check, pprof]
-    pipelines:
-      traces:
-        receivers: [opencensus, jaeger, zipkin]
-        processors: [spanmetrics,batch]
-        exporters: [logzio]
-      metrics/spanmetrics:
-        # This receiver is just a dummy and never used.
-        # Added to pass validation requiring at least one receiver in a pipeline.
-        receivers: [otlp/spanmetrics]
-        exporters: [prometheus]
-      metrics:
-        receivers: [prometheus]
-        exporters: [logging,prometheusremotewrite]
+  jaeger:
+    protocols:
+      grpc:
+      thrift_binary:
+      thrift_compact:
+      thrift_http:
+​
+  otlp/spanmetrics:
+    protocols:
+      grpc:
+        endpoint: :12345
+  otlp:
+    protocols:
+      grpc:
+        endpoint: :4317
+  prometheus:
+    config:
+      global:
+        external_labels:
+          p8s_logzio_name: # Enter chosen name
+      scrape_configs: 
+      - job_name: '' # Enter job name
+        scrape_interval: 15s
+        static_configs:
+        - targets: [ "0.0.0.0:8889" ]
+​
+exporters:
+  logzio:
+    account_token: " " # Enter your account token
+    region: "us" # Enter your region
+  prometheusremotewrite:
+    endpoint: https://listener-us.logz.io:8053
+    headers:
+      Authorization: Bearer duwFfWzoOBTUgavSxtAacNWwXbwgPcnx
+  prometheus:
+    endpoint: "localhost:8889"
+  logging:
+​
+processors:
+  batch:
+  spanmetrics:
+    metrics_exporter: prometheus
+    latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms]
+    # Additional list of dimensions on top of:
+    # - service.name
+    # - operation
+    # - span.kind
+    # - status.code
+    dimensions:
+      # If the span is missing http.method, the processor will insert
+      # the http.method dimension with value 'GET'.
+      # For example, in the following scenario, http.method is not present in a span and so will be added as a dimension to the metric with value "GET":
+      # - promexample_calls{http_method="GET",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      - name: http.method
+        default: GET
+      # If a default is not provided, the http.status_code dimension will be omitted
+      # if the span does not contain http.status_code.
+      # For example, consider a scenario with two spans, one span having http.status_code=200 and another missing http.status_code. Two metrics would result with this configuration, one with the http_status_code omitted and the other included:
+      # - promexample_calls{http_status_code="200",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      # - promexample_calls{operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      - name: http.status_code    
+​
+extensions:
+  pprof:
+    endpoint: :1777
+  zpages:
+    endpoint: :55679
+  health_check:
+​
+service:
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [jaeger]
+      processors: [spanmetrics,batch]
+      exporters: [logzio]
+    metrics/spanmetrics:
+      # This receiver is just a dummy and never used.
+      # Added to pass validation requiring at least one receiver in a pipeline.
+      receivers: [otlp/spanmetrics]
+      exporters: [prometheus]
+    metrics:
+      receivers: [otlp,prometheus]
+      exporters: [logging,prometheusremotewrite]      
+  telemetry:
+    logs:
+      level: "error"
 ```
--->
 
+<!--
 The OpenTelemetry repository offers configuration examples, such as:
 
 * [Exporter not found](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/spanmetricsprocessor/testdata/config-exporter-not-found.yaml) - Where the configured 'metrics_exporter' within spanprocessor, cannot be found in any pipeline, leading to a config validation error
 * [3-pipeline configuration](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/spanmetricsprocessor/testdata/config-3-pipelines.yaml) - When a user wishes to perform further processing of aggregated span metrics prior to exporting (traces -> metrics-proxy-pipeline -> metrics)
 * [And more](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/spanmetricsprocessor/testdata)
-
+-->
 
 ##### View your Service Performance Monitoring dashboard
 

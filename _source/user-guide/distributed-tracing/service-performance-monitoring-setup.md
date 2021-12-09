@@ -44,7 +44,9 @@ The Span Metrics Processor processes spans on the go, emitting R.E.D metrics at 
 [This link takes you to the OpenTelemetry installation.](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry) 
 The information is also available in the **Logz.io Docs**, in [**Ship your data > OpenTelemetry installation**](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html).
 
-To configure your spanmetrics processor, make sure you use your **Metrics** account token, name and region:
+To configure your spanmetrics processor, make sure you use your **Metrics** account token, name and region.
+
+<!--
 
 ```yaml
 receivers:
@@ -128,8 +130,9 @@ receivers:
         receivers: [prometheus]
         exporters: [logging,prometheusremotewrite]
 ```
+-->
 
-The OpenTelemetry repository offers additional configuration examples, such as:
+The OpenTelemetry repository offers configuration examples, such as:
 
 * [Exporter not found](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/spanmetricsprocessor/testdata/config-exporter-not-found.yaml) - Where the configured 'metrics_exporter' within spanprocessor, cannot be found in any pipeline, leading to a config validation error
 * [3-pipeline configuration](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/spanmetricsprocessor/testdata/config-3-pipelines.yaml) - When a user wishes to perform further processing of aggregated span metrics prior to exporting (traces -> metrics-proxy-pipeline -> metrics)

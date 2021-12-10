@@ -28,12 +28,9 @@ parsing can be an invaluable tool.
 
 Create your own parsing rule sets for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule sets will be applied to your Logz.io account to transform your logs. 
 
+ 
 <!-- info-box-start:info -->
-You must be an account admin to apply a parsing rule set to an account.
-{:.info-box.note}
-<!-- info-box-end -->
-
-<!-- info-box-start:info -->
+You must be an account admin to apply a parsing rule set to an account.<br><br>
 **Logz.io Data Parsing requires access to the Logz.io public API**<br> If your API access is disabled, contact Support for help. <br><br>
 Community (free) accounts do not have access to Logz.io Data Parsing because the Logz.io public API is not available for Community accounts.
 {:.info-box.note}
@@ -102,7 +99,7 @@ In the **Editor setup** screen:
    + Pre-built parsing: These log types are documented in the [Default parsing](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html) topic. You can select a pre-built parsing type and create additional rules that run _after_ the default rules for these types are executed. 
 
       <!-- info-box-start:info -->
-      - When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**. <br><br> - The log types list displays the log types ingested by Logz.io in the last 24 hours.
+      When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**. <br><br> The log types list displays log types ingested by Logz.io in the last 24 hours.
       {:.info-box.note}
       <!-- info-box-end -->
 

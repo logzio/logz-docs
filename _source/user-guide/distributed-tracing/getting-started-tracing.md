@@ -17,7 +17,7 @@ This information is also available in the [**Logz.io Docs**](https://docs.logz.i
 #### To set up Distributed Tracing: 
 {:.no_toc}  
 
-<div class="tasklist">
+  <div class="tasklist">
 
 ##### Get access to Logz.io
 

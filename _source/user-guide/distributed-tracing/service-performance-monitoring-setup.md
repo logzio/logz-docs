@@ -26,11 +26,10 @@ Logz.io Service Performance Monitoring dashboard provides an overview of your sy
 
 _You must have admin permissions for the Logz.io account to view and edit the **Manage accounts** page._
 
-1. From the **Tracing** menu, go to <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage accounts**
-2. Scroll down to find the Metrics plan and click  **Get my Metrics account**
-3. Choose a name for your account. Note that your Metrics account name **must contain** your Tracing account name
-4. Pick your preferred number of unique metrics and click **Create**
-3. Find the new Metrics account, and copy the token
+1. Navigate to **Tracing** > <a href="https://app.logz.io/#/dashboard/settings/manage-accounts" target ="_blank"> **Manage accounts** > **Get my Metrics account**.
+3. Choose a name for your account. The new Metrics account name **must contain** your Tracing account name.
+4. Pick your preferred number of unique metrics and **Create** the account.
+3. Copy the new Metrics account token.
 
 ![Account management screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/manage-accounts-metrics-creation.png)
 

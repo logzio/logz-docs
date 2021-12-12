@@ -57,7 +57,11 @@ The information that is provided for each event triggered by a Cloud SIEM rule i
 ## Event filtering 
 
 Filter events by any combination of the available filters. 
+
+<!-- info-box-start:info  -->
 If you're using filters and no events are displayed, try adjusting your filter choices to find what you're looking for. It might also be that no events were triggered during the time frame you selected. 
+{:.info-box.tip}
+<!-- info-box-end -->
 
 ![Filter panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/filter_panel-nov2021.png)
 
@@ -75,12 +79,12 @@ To reset all the filters to the defaults, click **Clear filters**.
 
 ## Searching for events
 
-You can run a free text **Search** on the information in the: 
+You can run a free text **Search** on the information in the **Event details** field -  This includes any of the information in the event title, ID, or **Description**.
 
-- **Event details** field -  This includes any of the information in the event title, ID, or **Description**.
-- **Comment** field.  
-
+<!-- info-box-start:info  -->
 If you're running a search and no events are displayed, try adjusting your search terms to find what you're looking for. It might also be that no events were triggered during the time frame you selected. 
+{:.info-box.tip}
+<!-- info-box-end -->
 
 ## Editing an event
 
@@ -125,6 +129,9 @@ To view all the events grouped in the **Count** field, select **View all occurre
 In addition to the name, ID, and description of the triggered rule, the list also displays the date, time, and unique Event ID for each occurence , as well as the [**Investigate**](/user-guide/cloud-siem/siem-event-management.html#investigating-an-event) link to take you to the relevant logs in Kibana. 
 ![View list of grouped events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/view_all_occurences_nov2021.png)
 
+
+<!-- start of hidden text for 12-12-2021:  Assigning events placed in commented text 
+
 ## Assigning events
 
 When you assign an event, the user receives an email notification with the following information: 
@@ -137,3 +144,6 @@ When you assign an event, the user receives an email notification with the follo
 - Event ID
 
 The Event name and ID are clickable links to the [**Event Management**](https://app.logz.io/#/dashboard/security/event-management) table.
+
+
+--- end of commented section for 12-212-2021 -->

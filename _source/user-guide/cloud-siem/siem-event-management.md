@@ -13,8 +13,11 @@ contributors:
 
 Use Cloud SIEM Event Management to monitor the events triggered by Logz.io Cloud SIEM security rules.
 
-With a single source of truth, you have visibility into the triggered security events in your environment, to track triggered event rules, set the event status, assign an event handler, and use comments to add information and prioritize how those issues are handled.
-The events are displayed in a table: You can sort the events table by severity, status, handler, initial triggering date, and the last time the event was updated or edited. You can also filter and search the events in the table, to further refine your results. 
+With a single source of truth, you have visibility into the triggered security events in your environment, to track triggered event rules, set the event status, assign an event handler, and use comments to add information, and prioritize how those issues are handled.
+
+The events are displayed in a table: You can sort the events table by severity, status, handler, initial triggering date, and the last time the event was updated or edited. 
+
+You can also filter and search the events in the table, to further refine your results. 
 
 **Topics on this page:**
 

@@ -394,7 +394,7 @@ firstLevel:
 #  - title: Log shipping intro
 #    url: /user-guide/log-shipping/
 
-  - title: Resources
+  - title: Resources, FAQs & Troubleshooting
     thirdLevel:
     - title: FAQs about sending logs
       url: /user-guide/log-shipping/faqs-logs/

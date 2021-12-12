@@ -28,12 +28,9 @@ parsing can be an invaluable tool.
 
 Create your own parsing rule sets for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule sets will be applied to your Logz.io account to transform your logs. 
 
+ 
 <!-- info-box-start:info -->
-You must be an account admin to apply a parsing rule set to an account.
-{:.info-box.note}
-<!-- info-box-end -->
-
-<!-- info-box-start:info -->
+You must be an account admin to apply a parsing rule set to an account.<br><br>
 **Logz.io Data Parsing requires access to the Logz.io public API**<br> If your API access is disabled, contact Support for help. <br><br>
 Community (free) accounts do not have access to Logz.io Data Parsing because the Logz.io public API is not available for Community accounts.
 {:.info-box.note}
@@ -101,12 +98,17 @@ In the **Editor setup** screen:
    + New log type: This option lets you add a custom string for a log type and enables you to assign parsing rules for future logs that are associated with the log type you add.  
    + Pre-built parsing: These log types are documented in the [Default parsing](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html) topic. You can select a pre-built parsing type and create additional rules that run _after_ the default rules for these types are executed. 
 
-      **NOTE:** When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**.
+      <!-- info-box-start:info -->
+      When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**. <br><br> The log types list displays log types ingested by Logz.io in the last 24 hours.
+      {:.info-box.note}
+      <!-- info-box-end -->
+
    ![Custom log type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/new_logtype2.gif)
 
 3. Add a sample log to use to validate your parsing rules. <br> The sample log can be a text or JSON string. To test different log formats, you can change the sample at any time. The **Load latest sample** option lets you use the previous log sample you entered.
    ![Load latest sample](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/load_latest-sept2021.png)  
 4. Click **Start parsing** to save your changes and start building your rule set.
+
 
 
 #####  Write parsing rules

@@ -42,7 +42,7 @@ Once you select a Unified Variable, you'll be able to view which fields it conta
 
 ##### Choose condition
 
-Logz.io offers some conditions you can apply to your filters. Choose the one that matches your needs, and save. Once saved, the filter will automatically apply across your Metrics dashboards.
+Logz.io offers some conditions you can apply to your filters. Choose the one that matches your needs, and **Save**. The filter is automatically applied across your Metrics dashboards.
 
 ![Unified Filters condition list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/choose-condition.png)
 
@@ -52,7 +52,7 @@ Logz.io offers some conditions you can apply to your filters. Choose the one tha
 
 #### Remove/toggle filters
 
-You can **remove** filters by clicking the X located next to them. To disable all active filters, use the toggle located at the top right side of the page.
+You can **remove** filters by clicking the X located next to them. To disable all active filters, use the toggle in the upper right.
 
 ![Toggle unified filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/toggle-filters.gif)
 

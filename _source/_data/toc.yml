@@ -367,6 +367,16 @@ firstLevel:
     - title: API tokens
       url: /user-guide/tokens/api-tokens.html
 
+#  - title: Unified Dashboards
+#    thirdLevel:
+#    - title: Getting started
+#      url: /user-guide/accounts/unified_dashboards.html
+#    - title: Unified Variables
+#      url: /user-guide/accounts/unified_variables.html
+#    - title: Unified Filters
+#      url: /user-guide/accounts/unified_filters.html
+
+
   - title: Archive & Restore
     thirdLevel:
       - title: Archive & Restore
@@ -379,6 +389,7 @@ firstLevel:
         url: /user-guide/archive-and-restore/set-s3-permissions.html
       - title: Setting permissions in Microsoft Azure
         url: /user-guide/archive-and-restore/azure-blob-permissions/
+
   - title: PCI compliance
     url: /user-guide/accounts/pci-compliance.html
   - title: Granting access to Logz.io Support

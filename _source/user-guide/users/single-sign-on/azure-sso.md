@@ -80,7 +80,7 @@ Click **Save** (at the top of the page).
 
 ##### _(Optional)_ Restrict access to Logz.io to specific user groups
 
-![Add group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/sso--manage-groups.png)
+![Add group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/manage-users-groups.png)
 
 By default, all Azure users with Logz.io access can sign in to your Logz.io accounts.
 

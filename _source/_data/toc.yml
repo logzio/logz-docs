@@ -369,7 +369,7 @@ firstLevel:
 
   - title: Archive & Restore
     thirdLevel:
-      - title: Archive & restore
+      - title: Archive & Restore
         url: /user-guide/archive-and-restore/
       - title: Configure archiving
         url: /user-guide/archive-and-restore/configure-archiving.html

@@ -13,33 +13,38 @@ contributors:
   - hidan
 ---
 
-**Unified filters** allow you to narrow down logs, metrics, and traces data across your Metrics dashboards by creating a functional overview of your data.
+**Unified Filters** are part of the Logz.io [Unified Dashboard](https://docs.logz.io/user-guide/accounts/unified_dashboards.html) feature, letting you narrow down logs, metrics, and traces data across your Metrics dashboards by creating a functional overview of your data. 
 
-Filters apply to all dashboards and are saved per user, per account, which means that changing views or logging out will not affect your filters, and their current state will be saved.
+Each user can create their own list of filters, which apply to all Metrics dashboards.
 
-<p class="info-box note">To use Unified filters, you’ll first need to configure <a href="https://docs.logz.io/user-guide/accounts/unified_variables.html" target="_blank">Unified variables</a>.</p>
+<p class="info-box note">To use Unified Filters, you’ll first need to configure <a href="https://docs.logz.io/user-guide/accounts/unified_variables.html" target="_blank">Unified Variables</a>.</p>
 
-#### Create Unified filters
+#### Create a Unified filter
 
 <div class="tasklist">
 
 ##### Open your Metrics account
 
-Navigate to your **Metrics** account. Next, click the **Filters** button located at the header, and click on **Add a filter**.
+Navigate to **[Metrics](https://app.logz.io/#/dashboard/metrics)** > **Filters** > **Add a filter**.
 
 <video autoplay loop>
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/unified-filters-menu.mp4" type="video/mp4" />
   </video>
 
+
 ##### Select the Unified variable
 
-Select the field you want to use in your filter. The drop-down list includes all of your existing [Unified variables](https://docs.logz.io/user-guide/accounts/unified_variables.html), and once chosen, you'll be able to review the fields included in it.
+Filters use [Unified Variables](https://docs.logz.io/user-guide/accounts/unified_variables.html), and the drop-down list includes all of the existing variables in your account, showing the number of fields included in each one. 
+
+Once you select a Unified Variable, you'll be able to view which fields it contains.
 
 ![Unified Filters variables list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/uf-fields.png)
 
-##### Configure and save
+##### Choose condition
 
-Add the condition you'd like to apply to your filter from the drop-down menu, and click Save. Once saved, the filter will automatically apply across your Metrics dashboards.
+Logz.io offers some conditions you can apply to your filters. Choose the one that matches your needs, and save. Once saved, the filter will automatically apply across your Metrics dashboards.
+
+![Unified Filters condition list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/choose-condition.png)
 
 
 </div>
@@ -47,10 +52,10 @@ Add the condition you'd like to apply to your filter from the drop-down menu, an
 
 #### Remove/toggle filters
 
-To **remove** a specific filter, click on the X located next to it. 
-
-To disable/enable all of your filters, use the toggle button located on the right side of the menu.
+You can **remove** filters by clicking the X located next to them. To disable all active filters, use the toggle located at the top right side of the page.
 
 ![Toggle unified filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/toggle-filters.gif)
 
-**Please note**: navigating to the Logs, Tracing, or SIEM Logz.io platforms automatically disables all filters.
+<p class="info-box note">Navigating to the Logs, Tracing, or SIEM Logz.io platforms automatically disables all filters.</p>
+
+

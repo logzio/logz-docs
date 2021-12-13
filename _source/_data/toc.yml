@@ -305,14 +305,14 @@ firstLevel:
       - title: Setting permissions in Microsoft Azure
         url: /user-guide/archive-and-restore/azure-blob-permissions/
 
-  - title: Unified dashboards
-    thirdLevel:
-    - title: Getting started
-      url: /user-guide/accounts/unified_dashboards.html
-    - title: Unified variables
-      url: /user-guide/accounts/unified_variables.html
-    - title: Unified filters
-      url: /user-guide/accounts/unified_filters.html
+#  - title: Unified Dashboards
+#    thirdLevel:
+#    - title: Getting started
+#      url: /user-guide/accounts/unified_dashboards.html
+#    - title: Unified Variables
+#      url: /user-guide/accounts/unified_variables.html
+#    - title: Unified Filters
+#      url: /user-guide/accounts/unified_filters.html
 
   - title: PCI compliance
     url: /user-guide/accounts/pci-compliance.html

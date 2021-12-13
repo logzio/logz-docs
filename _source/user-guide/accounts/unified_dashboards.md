@@ -13,9 +13,9 @@ contributors:
   - hidan
 ---
 
-Monitoring data across multiple systems and applications can be challenging when working with more than one data source, and it becomes increasingly difficult as environments and data points increase.
+Monitoring data across multiple systems and applications can be challenging when working with more than one data source, and this becomes increasingly difficult as environments and data points increase.
 
-**Unified Dashboards** help address this challenge by adding a layer of observability into your data. 
+**Unified Dashboards** help address this challenge by adding a layer of observability for your data. 
 
 The dashboard combines information from logs, metrics, and tracing data, showcasing it side by side. As a result, you can monitor, identify and troubleshoot issues quickly and easily, without bouncing between separate interfaces specific to log, metric, or trace analytics.
 
@@ -25,14 +25,16 @@ Logz.io offers two additional features that enhance the Unified Dashboards exper
 
 #### Unified Filters
 
-Create a functional overview of your data with intelligent filters that cover all of your data points at once. Unified Filters helps narrow down the logs, metrics, and traces across all of your Metrics dashboards, meaning you can change views without losing your pre-defined filters. In addition, Unified Filters utilize Unified Variables for a more comprehensive filtering ability.
+Create a functional overview of your data with intelligent filters that cover all of your data points at once. 
+
+Unified Filters help narrow down the logs, metrics, and traces across all of your Metrics dashboards, enabling you to change views without losing your pre-defined filters. In addition, Unified Filters use Unified Variables for a more comprehensive filtering ability.
 
 [Learn more about Unified Filters](https://docs.logz.io/user-guide/accounts/unified_filters.html).
 
 
 #### Unified Variables
 
-Normalize data type names across your data by combining variables from multiple data sources into one parameter. Unified Variables make connecting fields and analyzing data easier, acting as a directory for your fields and data sources.
+Unified Variables make connecting fields and analyzing data easier, acting as a directory for your fields and data sources. It lets you normalize data type names across your data by combining variables from multiple data sources into one parameter.
 
 Account admins can create custom Unified Variables based on similar fields across your accounts. In addition, Logz.io Machine Learning algorithms generate pre-built Unified Variables based on standard and industry best practices.
 

@@ -366,16 +366,15 @@ firstLevel:
       url: /user-guide/tokens/shared-tokens.html
     - title: API tokens
       url: /user-guide/tokens/api-tokens.html
-
-#  - title: Unified Dashboards
-#    thirdLevel:
-#    - title: Getting started
-#      url: /user-guide/accounts/unified_dashboards.html
-#    - title: Unified Variables
-#      url: /user-guide/accounts/unified_variables.html
-#    - title: Unified Filters
-#      url: /user-guide/accounts/unified_filters.html
-
+      
+  - title: Unified Dashboards
+    thirdLevel:
+    - title: Getting started
+      url: /user-guide/accounts/unified_dashboards.html
+    - title: Unified Variables
+      url: /user-guide/accounts/unified_variables.html
+    - title: Unified Filters
+      url: /user-guide/accounts/unified_filters.html
 
   - title: Archive & Restore
     thirdLevel:

@@ -5,6 +5,7 @@ permalink: /user-guide/accounts/unified_dashboards.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Introducing Logz.io Unified Dashboards, Unified Filters and Unified Variables
 flags:
+  beta: true
   admin: false
   logzio-plan: community
 tags:

@@ -38,7 +38,7 @@ Go to the dashboard's settings:
   2. Select a **Data source** from your logging accounts. This is the relevant Kibana account you want to correlate with your metrics.
 
 <video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/grafana7-annotations.mp4" type="video/mp4" />
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/metrics-annotations.mp4" type="video/mp4" />
 </video>
 
 ##### Decide which logs should trigger the annotation
@@ -58,11 +58,6 @@ These should be fields that contain the crucial information from the log. Their 
 * **Text** - Type in the log field that is of most interest. The field's value will be shown when hovering over the marker. In the example below, the `message` field was selected.
 
 * **Tags** - Type in one or more log fields. Their values will appear as tags when you hover over annotations in the dashboard. In the example below, the `service` field was selected.
-
-Here's an example of a configuration and its resulting annotation.
-
-![Add log fields to your annotation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/annotation-fields.png)
-
 
 ##### Save the annotation & dashboard
 

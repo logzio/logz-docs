@@ -5,6 +5,7 @@ permalink: /user-guide/accounts/unified_variables.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Getting started with Logz.io Unified Variables
 flags:
+  beta: true
   admin: true
   logzio-plan: community
 tags:

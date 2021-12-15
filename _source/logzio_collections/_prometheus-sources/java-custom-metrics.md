@@ -66,8 +66,8 @@ Replace the placeholders in the code (indicated by the double angle brackets `<<
 
 | Environment variable | Description |Required/Default|
 |---|---|---|
-|listener-url|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:5053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required|
-|metrics-token | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
+|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required|
+|`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
 |interval | The interval in seconds, to push metrics to Logz.io **Note that your program will need to run for at least one interval for the metrics to be sent**  | Required|
 
 #### In your package:
@@ -89,14 +89,14 @@ class MicrometerLogzio {
          }
          @Override
          public String uri() {
-           return "<<listener-url>>";
+           return "<<LISTENER-HOST>>";
            // example:
            // return "https://listener.logz.io:8053"; 
          }
          
          @Override
          public String token() {
-            return "<<metrics-token>>";
+            return "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>";
          }
 
          @Override

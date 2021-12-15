@@ -38,7 +38,7 @@ If SSO is enabled for Logz.io in Azure:
   
 ![SSO enabled](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_extension/sso-opt-in-extension.png)
 
-If SSO is enabled for Logz.io in Azure:
+If SSO is not enabled for Logz.io in Azure:
   
 ![SSO not enabled](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_extension/sso-opt-out-extension.png) 
 

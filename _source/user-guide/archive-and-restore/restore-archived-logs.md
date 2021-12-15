@@ -14,7 +14,7 @@ contributors:
   - danielberman
 ---
 
-![Restore a new account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/restored-accounts.png)
+![Restore a new account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/restored-accounts2_dec2021.png)
 
 When you restore archived logs,
 those logs are re-ingested into a temporary account. You can search restored accounts directly from your main account.

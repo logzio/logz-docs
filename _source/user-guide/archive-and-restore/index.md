@@ -22,13 +22,19 @@ Restored accounts are complimentary, and do not count against your daily log vol
 {:.info-box.tip}
 <!--info-box-end -->
 
-![Archive and restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/new-annotated-archive.png)
+To get to the **Archive and restore** page, select **Logs > Archive and restore**, (in **MANAGE DATA**).
 
-You can get to this page by selecting
-[**<i class="li li-gear"></i> > Tools > Archive & restore**](https://app.logz.io/#/dashboard/tools/archive-and-restore) in the top menu.
+![Navigate to Archive and Restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/archive-restore_nav.png)
+
+
+
+
 
 
 ## Overview
+
+
+![Archive and restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/arch-res_config.gif)
 
 Archive settings
 : You can configure Logz.io to archive your logs to either an AWS S3 bucket or a Microsoft Azure Storage container. [Learn more](/user-guide/archive-and-restore/configure-archiving.html)

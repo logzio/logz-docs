@@ -17,6 +17,7 @@ There is no danger that a regex filter will disrupt the notification.
 
 * If the regex matches the relevant data, you will see only the desired results.
 * If the regex _does not_ match, the filter will be disregarded and the alert output will include the full value, unaltered.
+* The regex needs to be anchored.
 
 ### Example for regex filters
 

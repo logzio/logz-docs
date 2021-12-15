@@ -18,11 +18,8 @@ Endian Firewall is an open-source router, firewall and gateway security Linux di
 **Before you begin, you'll need**: 
 
 * Endian Firewall installed and configured.
-
 * Access to the Endian Firewall admin console.
-
 * Filebeat 7 installed.
-
 * Terminal access to the instance running Filebeat.
 
 

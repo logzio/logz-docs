@@ -16,7 +16,7 @@ contributors:
   - yberlinger
 ---
 
-![Archive settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/archive-settings-112020.png)
+![Archive settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/archive-settings_dec2021.png)
 
 You can archive logs to either an Amazon S3 bucket or a Microsoft Azure Storage container.
 

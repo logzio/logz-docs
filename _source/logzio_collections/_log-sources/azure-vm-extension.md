@@ -15,6 +15,11 @@ order: 460
 
 Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. You can install Logz.io agents on Azure virtual machines as an extension. This will allow you to ship logs directly from your VM to your Logz.io account.
 
+<!-- info-box-start:info -->
+Logz.io Azure VM extension currently only supports Linux-based VMs.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 <div class="tasklist">
   

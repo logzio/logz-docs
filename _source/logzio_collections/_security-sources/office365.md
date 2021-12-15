@@ -1,9 +1,9 @@
 ---
-title: Ship logs from Microsoft Office 365
+title: Ship logs from Microsoft 365
 logo:
   logofile: office365.png
   orientation: vertical
-data-source: Office 365
+data-source: Microsoft 365
 data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
@@ -12,7 +12,7 @@ shipping-tags:
   - azure
 order: 1380
 ---
-Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to Logz.io. This method of log forwarding utilizes the Office/Microsoft 365 Management API, which currently supports the following M365 content types:
+Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to Logz.io. This method of log forwarding utilizes the Office/Microsoft 365 Management API, which currently supports the following Microsoft 365 content types:
 
 * Audit.AzureActiveDirectory
 * Audit.Exchange
@@ -110,7 +110,7 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `o365` to see the incoming Office 365 logs.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `o365` to see the incoming Microsoft 365 logs.
   
 If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

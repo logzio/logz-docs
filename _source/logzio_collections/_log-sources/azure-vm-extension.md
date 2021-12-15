@@ -30,7 +30,10 @@ Log in to Logz.io using either the SSO in your Azure account or a link to the Lo
 
 ##### Navigate to the Virtual machine agent
 
-Select **Logz configuration > Virtual machine agent**
+Select **Logz configuration > Virtual machine agent**.
+  
+![VM agent](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_extension/vm-agent-extension.png)
+
 
 ##### Install the extension for the required VM
   

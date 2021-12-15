@@ -30,7 +30,7 @@ order: 470
 This integration allows you to collect data from Auth and OAuth APIs and send it to your Logz.io account. At the moment, this integration supports:
 
 * Cisco general and secure Auth API
-* Microsoft Graph general and secure OAuth API
+* Azure Graph and general OAuth API
 
 </div>
 <!-- tab:end -->
@@ -40,10 +40,10 @@ This integration allows you to collect data from Auth and OAuth APIs and send it
 
 ## Auth
 
-Deploy this integration to send general and Cisco Auth API data using the Logz.io API fetcher. The supported types of APIs currently include:
-
-* cisco_secure_x
-* general (cisco)
+Deploy this integration to send Auth APIs data using the Logz.io API fetcher. The supported types of APIs currently include:
+  
+* Cisco SecureX
+* General
 
 <div class="tasklist">
 
@@ -66,7 +66,7 @@ cd logzio-api-fetcher
 
 ##### Create a configuration file
 
-In the directory created in the previous step, create a file `config.yaml` with the following configuration:
+In the directory created in the previous step, create a file `config.yaml` using the example configuration below:
 
 ```yaml
 logzio:
@@ -117,7 +117,7 @@ auth_apis:
 | credentials.id | The Auth API credentials id. | Required |
 | credentials.key | The Auth API credentials key. | Required | 
 | settings.time_interval | The Auth API time interval between runs. | Required |
-| settings.days_back_fetch | The max days back to fetch from the Auth API. | Optional | 
+| settings.days_back_fetch | The max days back to fetch from the Auth API. | Optional. Default value is 14 days. | 
 | filters | Pairs of key and value of parameters that can be added to the Auth API url. Make sure the keys and values are valid for the Auth API. | Optional | 
 | custom_fields | Pairs of key and value that will be added to each data and be sent to Logz.io. | Optional | 
 | start_date_name| The start date parameter name of the auth api url. | Required. General type only | 
@@ -178,7 +178,7 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 Deploy this integration to send general and Azure Graph API data using the Logz.io API fetcher. The supported types of APIs currently include:
 
 * Azure Graph
-* General (Graph)
+* General 
 
 <div class="tasklist">
 
@@ -201,7 +201,7 @@ cd logzio-api-fetcher
 
 ##### Create a configuration file
 
-In the directory created in the previous step, create a file `config.yaml` with the following configuration:
+In the directory created in the previous step, create a file `config.yaml` using the example configuration below:
 
 ```yaml
 logzio:
@@ -277,7 +277,7 @@ oauth_apis:
 | json_paths.data | The json path to the data value inside the response of the OAuth API. | Required/Optional for Azure | 
 | json_paths.data_date | The json path to the data's date value inside the response of the OAuth API. | Required | 
 | settings.time_interval | The OAuth API time interval between runs. | Required | 
-| settings.days_back_fetch | The max days back to fetch from the OAuth API. | Optional | 
+| settings.days_back_fetch | The max days back to fetch from the OAuth API. | Optional. Default value is 14 days.| 
 | filters | Pairs of key and value of parameters that can be added to the OAuth API url. Make sure the keys and values are valid for the OAuth API. | Optional |
 | custom_fields | Pairs of key and value that will be added to each data and be sent to Logz.io. | Optional | 
 | start_date_name| The start date parameter name of the OAuth API url. (Same as json_paths.data_date in most cases)| Required | 

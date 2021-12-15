@@ -40,7 +40,7 @@ If SSO is enabled for Logz.io in Azure:
 
 If SSO is enabled for Logz.io in Azure:
   
-![SSO not enabled](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_extension/sso-opt-out-extension.png 
+![SSO not enabled](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_extension/sso-opt-out-extension.png) 
 
 ##### Navigate to the Virtual machine agent
 

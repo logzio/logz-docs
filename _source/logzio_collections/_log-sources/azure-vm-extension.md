@@ -23,10 +23,24 @@ Logz.io Azure VM extension currently only supports Linux-based VMs.
 
 <div class="tasklist">
   
+**Before you begin, you'll need**: 
+
+* Logz.io app installed from your Azure Marketplace.
+* An active account with Logz.io.
+* Resource group created under your Logz.io account in Azure.
+  
+  
 ##### Login to Logz.io from your Azure account
   
 Log in to Logz.io using either the SSO in your Azure account or a link to the Logz.io platform.
   
+If SSO is enabled for Logz.io in Azure:
+  
+![SSO enabled](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_extension/sso-opt-in-extension.png)
+
+If SSO is enabled for Logz.io in Azure:
+  
+![SSO not enabled](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_extension/sso-opt-out-extension.png 
 
 ##### Navigate to the Virtual machine agent
 

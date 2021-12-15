@@ -5,6 +5,7 @@ description: Use Alice to work with your Logz.io accounts. Search your logs, see
 permalink: /integrations/alice-slack-chatbot.html
 flags:
   logzio-plan: pro
+sitemap: false
 open-source:
   - title: Alice
     github-repo: slack-integration

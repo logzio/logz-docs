@@ -2,6 +2,7 @@
 layout: article
 title: TEST PAGE
 permalink: /test/
+sitemap: false
 # community-info: false
 ---
 

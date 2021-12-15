@@ -5,6 +5,7 @@ permalink: /user-guide/insights/exceptions/deployments.html
 flags:
   logzio-plan: community
   beta: true
+sitemap: false
 tags:
   - insights
   - exceptions

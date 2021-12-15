@@ -5,6 +5,7 @@ permalink: /user-guide/user-permissions/
 flags:
   admin: true
   logzio-plan: community
+sitemap: false
 tags:
   - users
 contributors:

@@ -5,4 +5,5 @@ linkedin: yotambernaz
 github: boofinka
 
 logzio-role: Customer Care Engineer
+sitemap: false
 ---

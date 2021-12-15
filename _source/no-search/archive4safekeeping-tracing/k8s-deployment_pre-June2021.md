@@ -2,6 +2,7 @@
 layout: article
 title: Kubernetes deployment reference
 permalink: #/user-guide/distributed-tracing/k8s-deployment
+sitemap: false
 flags:
   logzio-plan: pro enterprise
 tags:

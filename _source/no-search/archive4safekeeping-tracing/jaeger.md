@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 data-source: Jaeger
 description: Here's how you can use Logz.io as data storage for Jaeger traces.
+sitemap: false
 open-source:
   - title: Jaeger-Logz.io Trace Storage
     github-repo: jaeger-logzio

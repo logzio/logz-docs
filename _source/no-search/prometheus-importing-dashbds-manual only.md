@@ -4,6 +4,7 @@ title: Importing metrics dashboards
 permalink: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds-manual-only.html
 flags:
   logzio-plan: pro 
+sitemap: false
 tags:
   - metrics integrations
 contributors:

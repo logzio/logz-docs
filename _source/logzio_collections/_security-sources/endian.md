@@ -12,7 +12,7 @@ shipping-tags:
   - firewalls
 order: 1380
 ---
-Endian Firewall is an open-source router, firewall and gateway security Linux distribution. Deploy this integration to send logs from Endian Firewall to your to Logz.io account.
+Endian Firewall is an open-source router, firewall and gateway security Linux distribution. Deploy this integration to send logs from Endian Firewall to your to Logz.io account using Filebeat as the syslog server.
 
 
 **Before you begin, you'll need**: 
@@ -38,9 +38,9 @@ Endian Firewall is an open-source router, firewall and gateway security Linux di
 
 ##### Define log settings
 
-1. Navigate to **CLogs and Reports > Settings**.
+1. Navigate to **Logs and Reports > Settings**.
 2. Under **Log summaries**, select **Detail level: High is selected**.
-3. Under **Remote logging**, enable syslog server and enter the `<<Syslog server Address>>`.
+3. Under **Remote logging**, enable syslog server and enter the `<<Syslog server Address>>`, which is the address of your server running Filebeat.
 4. Under **Protocol**, select **TCP**.
 5. Under **Firewall logging**, enable all four logging options.
 

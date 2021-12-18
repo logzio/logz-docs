@@ -266,6 +266,8 @@ firstLevel:
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
     - title: Drilldown links
       url: /user-guide/cloud-siem/drilldown-links/
+    - title: Cloud SIEM Event Management
+      url: /user-guide/cloud-siem/siem-event-management.html
   - title: Threat Intelligence
     thirdLevel:
     - title: Threat Intelligence feeds

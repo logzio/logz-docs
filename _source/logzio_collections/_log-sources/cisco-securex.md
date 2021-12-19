@@ -7,7 +7,7 @@ data-source: Cisco SecureX
 data-for-product-source: Logs
 open-source:
   - title: Cisco SecureX API fetcher
-    github-repo: https://github.com/logzio/logzio-api-fetcher
+    github-repo: logzio-api-fetcher
 contributors:
   - nshishkin
 shipping-tags:

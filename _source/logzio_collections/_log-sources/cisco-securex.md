@@ -16,17 +16,13 @@ order: 470
 ---
 
 
-SecureX is a cloud-native, built-in platform experience that connects our Cisco Secure portfolio and your infrastructure. This integration allows you to collect data from Cisco SecureX along with general Auth APIs and send it to your Logz.io account. 
+SecureX is a cloud-native, built-in platform experience that connects our Cisco Secure portfolio and your infrastructure. This integration allows you to collect data from Cisco SecureX API along with general Auth APIs and send it to your Logz.io account. 
   
 <!-- info-box-start:info -->
 You can use this integration together with [Azure Graph API](https://app.logz.io/#/dashboard/send-your-data/log-sources/azure-graph).
 {:.info-box.note}
 <!-- info-box-end -->
 
-The supported types of APIs currently include:
-
-* Cisco SecureX
-* General
 
 <div class="tasklist">
 

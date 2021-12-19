@@ -23,17 +23,6 @@ You can use this integration together with [Cisco SecureX API](https://app.logz.
 {:.info-box.note}
 <!-- info-box-end -->
 
-The supported types of APIs currently include:
-
-* Azure Graph 
-* General OAuth API
-
-<div class="tasklist">
-
-
-Deploy this integration to send Microsoft Graph API and general OAuth APIs data using the Logz.io API fetcher.
-* General 
-
 <div class="tasklist">
 
 

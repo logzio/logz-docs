@@ -1,12 +1,12 @@
 ---
-title: Ship Azure Graph and general OAuth API data to Logz.io
+title: Ship Microsoft Graph API and general OAuth API data to Logz.io
 logo:
   logofile: graph-api-logo.png
   orientation: vertical
-data-source: Azure Graph API
+data-source: Microsoft Graph API
 data-for-product-source: Logs
 open-source:
-  - title: Azure Graph API fetcher
+  - title: Microsoft Graph API fetcher
     github-repo: logzio-api-fetcher
 contributors:
   - nshishkin
@@ -16,7 +16,7 @@ order: 470
 ---
 
 
-Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Azure Graph along with general OAuth APIs and send it to your Logz.io account.
+Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Microsoft Graph API along with general OAuth APIs and send it to your Logz.io account.
   
 <!-- info-box-start:info -->
 You can use this integration together with [Cisco SecureX API](https://app.logz.io/#/dashboard/send-your-data/log-sources/cisco-securex).
@@ -31,9 +31,7 @@ The supported types of APIs currently include:
 <div class="tasklist">
 
 
-Deploy this integration to send OAuth APIs data using the Logz.io API fetcher. The supported types of APIs currently include:
-
-* Azure Graph
+Deploy this integration to send Microsoft Graph API and general OAuth APIs data using the Logz.io API fetcher.
 * General 
 
 <div class="tasklist">

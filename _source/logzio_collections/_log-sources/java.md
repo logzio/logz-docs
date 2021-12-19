@@ -53,7 +53,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
   <dependency>
     <groupId>io.logz.log4j2</groupId>
     <artifactId>logzio-log4j2-appender</artifactId>
-    <version>1.0.14</version>
+    <version>1.0.15</version>
   </dependency>
 </dependencies>
 ```

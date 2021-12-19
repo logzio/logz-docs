@@ -7,7 +7,7 @@ data-source: Azure Graph API
 data-for-product-source: Logs
 open-source:
   - title: Azure Graph API fetcher
-    github-repo: https://github.com/logzio/logzio-api-fetcher
+    github-repo: logzio-api-fetcher
 contributors:
   - nshishkin
 shipping-tags:
@@ -16,7 +16,7 @@ order: 470
 ---
 
 
-SecureX is a cloud-native, built-in platform experience that connects our Cisco Secure portfolio and your infrastructure. This integration allows you to collect data from Cisco SecureX along with general Auth APIs and send it to your Logz.io account. A
+Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Azure Graph along with general OAuth APIs and send it to your Logz.io account.
   
 <!-- info-box-start:info -->
 You can use this integration together with [Cisco SecureX API](https://app.logz.io/#/dashboard/send-your-data/log-sources/cisco-securex).

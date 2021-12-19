@@ -29,8 +29,13 @@ order: 470
 
 This integration allows you to collect data from Auth and OAuth APIs and send it to your Logz.io account. At the moment, this integration supports:
 
-* Cisco general and secure Auth API
+* Cisco SecureX and general Auth API
 * Azure Graph and general OAuth API
+  
+<!-- info-box-start:info -->
+You can use both Auth API and OAuth APIs in the same deployment.
+{:.info-box.note}
+<!-- info-box-end -->
 
 </div>
 <!-- tab:end -->
@@ -173,9 +178,9 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 <!-- tab:start -->
 <div id="oauth">
 
-## Oauth
+## OAuth
 
-Deploy this integration to send general and Azure Graph API data using the Logz.io API fetcher. The supported types of APIs currently include:
+Deploy this integration to send OAuth APIs data using the Logz.io API fetcher. The supported types of APIs currently include:
 
 * Azure Graph
 * General 

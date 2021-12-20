@@ -10,9 +10,11 @@ contributors:
   - yberlinger
   - hidan
 ---
-Not ready to instrument and deploy components? <br>
+Not ready to instrument and deploy components?
+
 We've got you covered with an app that can send demo traces to your Distributed Tracing.
-<br><br>Using the HotROD app is so easy, and so fast, that you'll be searching for traces in Logz.io within a few minutes of setting up the app! 
+
+Using the HotROD app is so easy, and so fast, that you'll be searching for traces in Logz.io within a few minutes of setting up the app! 
 
 ## What's HotROD demo application? ##
 
@@ -71,6 +73,9 @@ Updating the **.env** file in the Logz.io tracing demo repo with your tracing ac
 adds your `jaeger-logzio-collector` definition parameters to the yaml file, in the `environment` section.
 
 ##### To update your parameters, in the **.env** file: #####
+
+
+
 _Please note: If you can't find the **.env** file in your list, it might be hidden._
 
 1. Use a terminal to grab the repo code using the git command:  `git clone https://github.com/logzio/tracing-demo.git` and change directories: `cd tracing-demo`.

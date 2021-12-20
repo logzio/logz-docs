@@ -4,4 +4,5 @@ linkedin: gregoryloucas
 github: gregoryloucas
 
 logzio-role: Solution Architect
+sitemap: false
 ---

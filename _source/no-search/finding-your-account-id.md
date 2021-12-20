@@ -5,6 +5,7 @@ permalink: /user-guide/accounts/finding-your-account-id.html
 flags:
   admin: true
   logzio-plan: community
+sitemap: false
 tags:
   - accounts
 contributors:

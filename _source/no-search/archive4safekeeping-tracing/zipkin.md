@@ -6,6 +6,7 @@ logo:
 data-source: Zipkin
 templates: ["no-template"]
 description: Here's how you can use Logz.io as data storage for Zipkin traces.
+sitemap: false
 open-source:
   - title: Zipkin-Logz.io Trace Storage
     github-repo: zipkin-logzio

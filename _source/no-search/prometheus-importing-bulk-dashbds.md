@@ -5,6 +5,7 @@ permalink: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.ht
 flags:
   logzio-plan:  
   beta: true
+sitemap: false
 tags:
   - metrics integrations
 contributors:

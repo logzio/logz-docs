@@ -5,6 +5,7 @@ logo:
   orientation: vertical
 data-source: Jaeger Collector
 description: How to deploy a Logz.io Jaeger Collector
+sitemap: false
 open-source:
   - title: jaeger-logzio
     github-repo: jaeger-logzio

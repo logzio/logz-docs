@@ -4,7 +4,8 @@ title: Parent
 permalink: /user-guide/distributed-tracing/navigation
 flags:
   logzio-plan: community
-  beta: true 
+  beta: true
+sitemap: false
 tags:
   - distributed tracing
 contributors:

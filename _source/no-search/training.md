@@ -4,6 +4,7 @@ title: Logz.io Training 101
 permalink: /training/
 flags:
   logzio-plan: community
+sitemap: false
 tags:
   - training
 ---

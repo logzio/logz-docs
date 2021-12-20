@@ -4,10 +4,12 @@ title: Remote write for Prometheus
 permalink: /user-guide/metrics/p8s-remote-write.html
 flags:
   logzio-plan: community
+sitemap: false
 tags:
   - metrics integrations
 contributors:
   - yberlinger
+ 
 ---
 This topic is for Prometheus users migrating their solution to Logz.io Infrastructure Monitoring.
 

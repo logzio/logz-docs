@@ -6,6 +6,7 @@ flags:
   admin: true
   beta: true
   logzio-plan: pro
+sitemap: false
 ---
 
 ## Page flags

@@ -2696,8 +2696,8 @@ paths:
                   * By default, your query runs on data sent today and yesterday, UTC.
                     You can move this 2-calendar-day window by using the `dayOffset` query parameter.
 
-                  * Searches without a `timestamp` filter will return 2 calendar days, UTC.
-                    To search a different time frame, specify a filter on `timestamp`.
+                  * Searches without a `timestamp` filter will return the last 2 calendar days, UTC.
+                    You can search other calendar days (up to 2 at a time) using a filter on the `timestamp`.
 
                 example: { "bool": { "must": [{ "range": { "@timestamp": { "gte": "now-5m", "lte": "now" } } }] } }
               from:

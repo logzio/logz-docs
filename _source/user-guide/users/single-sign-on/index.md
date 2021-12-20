@@ -52,7 +52,7 @@ will be able to access your Logz.io account.
 
 The first time a new user logs in,
 they get **User** access.
-Existing admins can edit each user and change their acess type to **Admin** or **Read only** access.
+Existing admins can edit each user and change their access type to **Admin** or **Read only** access.
 
 Existing users will retain their current level of access.
 

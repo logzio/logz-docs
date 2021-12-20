@@ -87,10 +87,6 @@ In the _Trigger if..._ section, click **+ Add a threshold** to set up to 5 thres
 
 ##### Set alert schedule
 
-By default, trigger conditions run approximately every minute. If there's a lag, the alert will not trigger until all data reaches Elastic.
-
-Once an alert is triggered, it won't run again for the remainder of the alert trigger condition.
-
 You can use the scheduling mechanism to manage the trigger condition frequency.
 
 Scheduling defines the frequency and the time frame for the alerts. To define a schedule, tick the On Schedule toggle and use [cron expression](https://www.freeformatter.com/cron-expression-generator-quartz.html) to specify when to trigger the alert.
@@ -109,7 +105,7 @@ For example, you can apply the following schedule to your alerts:
 | 0 * 8-17 ? * MON,TUE,WED,THU,FRI *  | Every minute between 8 am to 5 pm, Monday through Friday |
 | 0 5 0 ? * * *                           | Every day at exactly 12:05 am |
 
-
+By default, trigger conditions run approximately every minute. If there's a lag, the alert will not trigger until all data reaches Elastic. Also, once an alert is triggered, it won't run again for the remainder of the alert trigger condition.
 
 ##### _(Optional)_ Set notification details
 

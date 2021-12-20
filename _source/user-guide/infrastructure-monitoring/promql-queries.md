@@ -20,21 +20,17 @@ Logz.io Metrics solution is powered by Prometheus. The following doc is to help 
 ### Let's query
 
 First, to search all of the time series data points in your dashboard, run the following query:
-
 <code>count({__name__=~".+"}) by (__name__)</code>
 
 To search for a specific time series point, add the relevant value to the query:
-
 <code>{__name__=~"value.+"}</code>
 
 For example, to get all of the time series data points that starts with the value **container**, we'll use the following query:
-
 <code>{__name__=~"container.+"}</code>
 
 ![PromQL return container values](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/promql-query-container.png)
 
 Searching a label inside a time series changes the query. We'll add the name of the time series, and the value we're looking for:
-
 <code>nameOfTimeSeries{label=~"value.+"}</code>
 
 In this example, the time series we're querying has the following labels:
@@ -45,7 +41,6 @@ In this example, the time series we're querying has the following labels:
 * user
 
 To search for a namespace label that starts with **kub**, we'll run the following query:
-
 <code>container_memory_working_set_bytes{namespace=~"kub.+"}</code>
 
 ![PromQL search labels and values](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/promql-search-values.png)

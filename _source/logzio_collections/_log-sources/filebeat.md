@@ -145,7 +145,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:start -->
 <div id="modules">
 
-Beat shippers make use of modules to ship data from various sources. Refer to the list below to see what modules each of the shippers support.
+Beat shippers make use of modules to ship data from various sources. Refer to the list below to see which modules each shipper supports.
 
 * [Apache ActiveMQ](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-activemq.html#filebeat-module-activemq)
 

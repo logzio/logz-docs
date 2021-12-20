@@ -18,4 +18,4 @@ The following environment variables can be edited directly from the DaemonSet wi
 | KUBERNETES_VERIFY_SSL | Enable to validate SSL certificates. | `true` |
 | FLUENT_FILTER_KUBERNETES_URL | URL to the API server. This parameter isn't part of the default Daemonset. You can set it to retrieve additional Kubernetes metadata for logs from the  Kubernetes API server.  | `null` |
 | AUDIT_LOG_FORMAT |  The format of your audit logs. If your audit logs are in json format, set to `audit-json`.  | `audit` |
-
+| CRI | The CRI of the cluster. In `logzio-daemonset` & `logzio-daemonset-rbac` is set to `docker`, and in `logzio-daemonset-containerd` is set to `containerd`. The configmap uses this var to determin which includes it needs to make for the fluent.conf file, when configuration needs to be adjusted by the CRI. |

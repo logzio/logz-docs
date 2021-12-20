@@ -5739,7 +5739,9 @@ paths:
                         "fromDate": 1587134557,
                         "toDate": 1587137557
                     }
+                "includeMutedEvents": false
                 },
+
                 "sort": [
                     {
                         "field": "SEVERITY"
@@ -7018,6 +7020,10 @@ definitions:
         format: int32
         description: Hits represent the number of logs that triggered the security rule before being aggregated by the `groupBy` condition.
         example: 30
+      isMuted:
+        type: boolean
+        description: Describes whether a specific returned alert event is muted.
+        example: true
   AlertsEventsSearchRequest:
     type: object
     properties:
@@ -7068,6 +7074,11 @@ definitions:
             - SEVERE
       timeRange:
         $ref: '#/definitions/RulesTimeRange'
+      includeMutedEvents:
+        type: boolean
+        example: true
+        description: Defines if muted events need to be passed. The endpoint will return both non-muted and muted events if this is set to `true`.
+
   RulesTimeRange:
     type: object
     required:

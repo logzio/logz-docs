@@ -12,7 +12,7 @@ contributors:
 
 ## What causes an invalid log? 
 
-When an log that includes a specific issues is received, the logs is flattened and ingested in your account as **`type:logzio-invalid-log`** with an explanatory tag in the **`tags`** field.
+When a log that includes a specific issues is received, the log is flattened, ingested, and the **`type:logzio-invalid-log`** field is appended  with the explanatory **`tags`** field.
 
 ![Invalid log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log/invalid_log_15dec2021.png)
 

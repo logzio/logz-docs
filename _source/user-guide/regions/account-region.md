@@ -2,6 +2,7 @@
 layout: article
 title: Regions
 permalink: /user-guide/accounts/account-region.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: All services related to your Logz.io account are hosted in the same region. This means you'll ship logs, sign in, and access the API from the same region the account lives in.
 flags:
   admin: true

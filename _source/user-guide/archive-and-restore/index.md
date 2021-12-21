@@ -2,6 +2,8 @@
 layout: article
 title: Archive & Restore
 permalink: /user-guide/archive-and-restore/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about long term log archiving to an AWS S3 bucket or a Microsoft Azure Storage account
 flags:
   admin: true
   logzio-plan: pro

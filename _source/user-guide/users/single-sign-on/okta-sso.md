@@ -2,6 +2,8 @@
 layout: article
 title: Single sign-on with Okta
 permalink: /user-guide/users/single-sign-on/okta-sso.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: SSO with Okta
 flags:
   admin: true
   logzio-plan: pro

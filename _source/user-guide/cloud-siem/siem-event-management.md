@@ -2,6 +2,8 @@
 layout: article
 title: Cloud SIEM Event Management
 permalink: /user-guide/cloud-siem/siem-event-management.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Monitor and handle the events triggered by your Cloud SIEM security rules
 flags:
   logzio-plan: pro
 tags:

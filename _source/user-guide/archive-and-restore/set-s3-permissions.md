@@ -1,6 +1,8 @@
 ---
 layout: article
 title: AWS S3 bucket permissions & storage class required for archiving
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure your AWS S3 bucket to support Logz.op archiving and restoring data
 permalink: /user-guide/archive-and-restore/set-s3-permissions.html
 tags:
   - s3

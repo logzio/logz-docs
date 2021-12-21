@@ -2,6 +2,8 @@
 layout: article
 title: Single sign-on with OneLogin
 permalink: /user-guide/users/single-sign-on/onelogin-sso.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: SSO with OneLogin
 flags:
   admin: true
   logzio-plan: pro

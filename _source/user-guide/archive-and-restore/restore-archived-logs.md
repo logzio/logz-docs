@@ -2,6 +2,8 @@
 layout: article
 title: Restore archived logs
 permalink: /user-guide/archive-and-restore/restore-archived-logs.html
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Restore and search your archived logs to a temporary account
 flags:
   admin: true
   logzio-plan: pro

@@ -2,6 +2,8 @@
 layout: article
 title: Multi-factor authentication
 permalink: /user-guide/users/multi-factor-authentication.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: MFA for Logz.io account users
 flags:
   admin: true
   logzio-plan: community

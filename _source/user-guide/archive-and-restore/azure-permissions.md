@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Setting Azure Blob Storage permissions
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Azure permissions for log archiving
 permalink: /user-guide/archive-and-restore/azure-blob-permissions/
 tags:
   - Azure Blob Storage

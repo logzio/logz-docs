@@ -2,6 +2,8 @@
 layout: article
 title: Manage users
 permalink: /user-guide/users/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Managing account users
 flags:
   admin: true
   logzio-plan: community

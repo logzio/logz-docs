@@ -2,6 +2,8 @@
 layout: article
 title: Single sign-on with Azure
 permalink: /user-guide/users/single-sign-on/azure-sso.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: SSO with Azure for Logz.io accounts
 flags:
   admin: true
   logzio-plan: pro

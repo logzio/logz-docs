@@ -2,6 +2,8 @@
 layout: article
 title: Single sign-on
 permalink: /user-guide/users/single-sign-on/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: SSO for Logz.io accounts
 flags:
   admin: true
   logzio-plan: pro

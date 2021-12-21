@@ -2,6 +2,8 @@
 layout: article
 title: Understanding invalid log errors
 permalink: /user-guide/invalid_logs/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about invalid logs and the error tags that help you resolve issues
 flags:
   logzio-plan: community
 tags:
@@ -12,7 +14,7 @@ contributors:
 
 ## What causes an invalid log? 
 
-When a log that includes a specific issues is received, the log is flattened, ingested, the field **`type` is `logzio-invalid-log`**  and the explanatory **`tags`** field is added to the log.
+When a log that includes specific issues is received, the log is flattened and ingested, the **`type`** field is changed to **`logzio-invalid-log`**,  and the explanatory **`tags`** field is added to the log.
 
 ![Invalid log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log/invalid_log_dec2021.png)
 

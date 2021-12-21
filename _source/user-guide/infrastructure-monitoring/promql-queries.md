@@ -22,38 +22,34 @@ Instead, use `"~"` before the value you want to search, and `".+"` at the end of
 
 ### Let's query
 
-To search all of the time series data points in your dashboard, run the following query:
-
+* To search all of the time series data points in your dashboard, run the following query:<br>
 `count({__name__=~".+"}) by (__name__)`
 
-To search for a specific time series point, add the relevant value to the query:
-
-`{__name__=~"value.+"}`
-
-For example, to get all of the time series data points that starts with the value **container**, use the following query:
-
+* To search for a specific time series point, add the relevant value to the query:<br>
+`{__name__=~"value.+"}` 
+    <br>For example, to get all of the time series data points that starts with the value **container**, use the following query:<br>
 `{__name__=~"container.+"}`
 
 ![PromQL return container values](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/promql-query-container.png)
 
-Searching a label inside a time series changes the query. Add the name of the time series, and the value you're looking for:
-
+* Searching a label inside a time series changes the query. You need to add the name of the time series, and the value you're looking for:<br>
 `nameOfTimeSeries{label=~"value.+"}`
 
-In this example, the time series you're querying has the following labels:
+    For example, if the time series you're querying has the following labels:
+    
+    * namespace
+    * container
+    * pod
+    * user
 
-* namespace
-* container
-* pod
-* user
-
-To search for a namespace label that starts with **kub**, run the following query:
-
-`container_memory_working_set_bytes{namespace=~"kub.+"}`
+    To search for a namespace label that starts with **kub**, run the following query:<br>
+    `container_memory_working_set_bytes{namespace=~"kub.+"}`
 
 ![PromQL search labels and values](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/promql-search-values.png)
 
-If you're not sure what metrics your dashboard contains, which labels it includes, or the values you can search for, click **Metrics browser** to view all of the data, and build the query that fits your needs. 
+### Metrics browser
+
+* If you're not sure what metrics your dashboard contains, which labels it includes, or the values you can search for, click **Metrics browser** to view all of the data, and build the query that fits your needs. 
 
 ![PromQL cheatsheet](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/query-cheatsheet.png)
 

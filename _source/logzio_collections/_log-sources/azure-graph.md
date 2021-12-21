@@ -1,5 +1,5 @@
 ---
-title: Ship Microsoft Graph API and general OAuth API data to Logz.io
+title: Ship Microsoft Graph API data to Logz.io
 logo:
   logofile: graph-api-logo.png
   orientation: vertical
@@ -16,12 +16,8 @@ order: 470
 ---
 
 
-Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Microsoft Graph API along with general OAuth APIs and send it to your Logz.io account.
-  
-<!-- info-box-start:info -->
-You can use this integration together with [Cisco SecureX API](https://app.logz.io/#/dashboard/send-your-data/log-sources/cisco-securex).
-{:.info-box.note}
-<!-- info-box-end -->
+Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Microsoft Graph API and send it to your Logz.io account.
+
 
 <div class="tasklist">
 

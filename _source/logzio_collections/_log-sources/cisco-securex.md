@@ -1,5 +1,5 @@
 ---
-title: Ship Cisco SecureX and general Auth API data to Logz.io
+title: Ship Cisco SecureX data to Logz.io
 logo:
   logofile: securex-logo.png
   orientation: vertical
@@ -16,15 +16,11 @@ order: 470
 ---
 
 
-SecureX is a cloud-native, built-in platform experience that connects our Cisco Secure portfolio and your infrastructure. This integration allows you to collect data from Cisco SecureX API along with general Auth APIs and send it to your Logz.io account. 
+Cisco SecureX connects the breadth of Cisco's integrated security portfolio and your infrastructure. This integration allows you to collect data from Cisco SecureX API and send it to your Logz.io account. 
   
-<!-- info-box-start:info -->
-You can use this integration together with [Microsoft Graph API](https://app.logz.io/#/dashboard/send-your-data/log-sources/azure-graph).
-{:.info-box.note}
-<!-- info-box-end -->
-
 
 <div class="tasklist">
+
 
 
 ##### Pull the Docker image of the Logz.io API fetcher

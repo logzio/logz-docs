@@ -104,6 +104,8 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/prometheus-getting-started.html
     - title: Configuring remote write for Prometheus 
       url: /user-guide/infrastructure-monitoring/prometheus-remote-write.html    
+    - title: PromQL query examples 
+      url: /user-guide/infrastructure-monitoring/prometheus-promql-queries.html
     - title: Importing dashboards  
       url: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
     - title: Explore Prometheus metrics 

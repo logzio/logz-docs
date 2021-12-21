@@ -23,7 +23,7 @@ The Logzio OpenTelemetry Collector Lambda Extension provides a mechanism to sync
 
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 * Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-* [Instrumentation](https://docs.logz.io/shipping/tracing-sources/opentelemetry-nodejs-lambda.html) enabled in your code
+* [Tracing instrumentation](https://app.logz.io/#/dashboard/send-your-data?tag=new-instrumentation&collection=tracing-sources) enabled in your code 
 
 
 <div class="tasklist">

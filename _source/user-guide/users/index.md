@@ -12,11 +12,12 @@ tags:
 contributors:
   - shalper
   - imnotashrimp
+  - hidan
 ---
 
 Account Admins can manage users and change user access permissions at any time.
 
-![Manage users](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/manage-users-admin.png)
+![Manage users](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/manage-users-demo.png)
 
 You can get to this page
 by selecting [**<i class="li li-gear"></i> > Settings > User management**](https://app.logz.io/#/dashboard/settings/manage-users)
@@ -24,6 +25,16 @@ in the top menu.
 
 Community plans have a maximum of 50 users.
 {:.info-box.note}
+
+### Role differences
+
+The three main Roles you can choose from are Read Only, User and Admin. Only account admins can add and change roles for new and existing users. Each role comes with different access levels, to help you limit the data and abilities shared with others. 
+
+#### Access levels per role
+
+|--|--|
+
+
 
 ### Add or remove a user
 

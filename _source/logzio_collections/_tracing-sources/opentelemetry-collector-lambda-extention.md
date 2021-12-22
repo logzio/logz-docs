@@ -16,7 +16,8 @@ order: 1380
 
 The Logzio OpenTelemetry Collector Lambda Extension provides a mechanism to synchronously export traces from AWS Lambda applications. It does this by embedding a stripped-down version of [OpenTelemetry Collector Contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib) inside an [AWS Extension Layer](https://aws.amazon.com/blogs/compute/introducing-aws-lambda-extensions-in-preview/). This allows the Lambda applications to use the OpenTelemetry Collector Exporter to send traces and metrics to any configured backend, such as Logz.io.
 
-  
+**Supported AWS regions are: us-east-1, us-east-2, ca-central-1, ap-northeast-2, ap-northeast-1, eu-central-1, eu-west-2**
+
 #### Install the OpenTelemetry Collector Lambda Extension to an existing Lambda function
 
 **Before you begin, you'll need**:

@@ -26,17 +26,78 @@ in the top menu.
 Community plans have a maximum of 50 users.
 {:.info-box.note}
 
-### Role differences
+### Meet the different roles
 
-The three main Roles you can choose from are Read Only, User and Admin. Only account admins can add and change roles for new and existing users. Each role comes with different access levels, to help you limit the data and abilities shared with others. 
+You can choose whether users will get **Read Only**, **User** or **Admin** roles. Each role has different access that helps you limit the data, visibility, and abilities shared with other users. 
 
-#### Access levels per role
+##### Access levels: Logs
 
-|--|--|
+| **Logs**                                    | Read Only | User | Admin |
+|-----------------------------------------|-----------|------|-------|
+| View dashboards                         | ✓         | ✓    | ✓     |
+| View alerts                             | ✓         | ✓    | ✓     |
+| Create an alert                         |           | ✓    | ✓     |
+| View triggered alerts                   | ✓         | ✓    | ✓     |
+| Live tail                               | ✓         | ✓    | ✓     |
+| Optimizers                              |           | ✓    | ✓     |
+| Insights                                |           | ✓    | ✓     |
+| Reports                                 |           | ✓    | ✓     |
+| Send your logs                          | ✓         | ✓    | ✓     |
+| Data parsing                            |           | ✓    | ✓     |
+| Field mapping                           |           | ✓    | ✓     |
+| Archive and restore                     |           | ✓    | ✓     |
+| Drop filters                            |           | ✓    | ✓     |
+| Incident reports                        |           | ✓    | ✓     |
+
+###### Additional restrictions: Logs
+
+There are a few additional abilities that are ristrected:
+
+* **Read Only** roles can't save searches
+* **Read Only** and **User** roles can't create optimizers
+
+##### Access levels: Metrics
+
+| **Metrics**                                 | Read Only | User | Admin |
+|-----------------------------------------|-----------|------|-------|
+| View dashboards                         | ✓         | ✓    | ✓     |
+| Manage tokens                           |           |      | ✓     |
+| Send your metrics                       | ✓         | ✓    | ✓     |
+| Notification endpoints                  |           | ✓    | ✓     |
+| View unified variables                  | ✓         | ✓    | ✓     |
+| Create unified variables                |           |      | ✓     |
+
+##### Access levels: Tracing
+
+| **Tracing**                                 | Read Only | User | Admin |
+|-----------------------------------------|-----------|------|-------|
+| View dashboards                         | ✓         | ✓    | ✓     |
+| Manage tokens                           |           |      | ✓     |
+| Send your traces                        | ✓         | ✓    | ✓     |
+| Notification endpoints                  |           | ✓    | ✓     |
+
+##### Access levels: Cloud SIEM
+
+| **Cloud SIEM**                              | Read Only | User | Admin |
+|-----------------------------------------|-----------|------|-------|
+| View summary                            | ✓         | ✓    | ✓     |
+| Event management                        | ✓         | ✓    | ✓     |
+| View rules                              | ✓         | ✓    | ✓     |
+| Create rules                            |           | ✓    | ✓     |
+| Dashboards                              | ✓         | ✓    | ✓     |
+| Threats overview                        | ✓         | ✓    | ✓     |
+| Threats intelligent field               | ✓         | ✓    | ✓     |
+| Kibana                                  | ✓         | ✓    | ✓     |
+| Reports                                 |           | ✓    | ✓     |
+| Send your data                          | ✓         | ✓    | ✓     |
+| Drilldowns                              |           |      | ✓     |
+| Lookups                                 |           | ✓    | ✓     |
+| Incident reports                        |           | ✓    | ✓     |
 
 
+#### User management
 
-### Add or remove a user
+#### Add or remove a user
 
 * To add a user,
   click the button **+New user** at the top of the page.

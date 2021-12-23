@@ -5,18 +5,17 @@ permalink: /user-guide/distributed-tracing/trace-hotrod-demo
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: How to set up Logz.io's HotROD demo application
 flags:
-  logzio-plan: pro enterprise
+  logzio-plan: community
 tags:
   - distributed tracing
 contributors:
   - yberlinger
   - hidan
 ---
-Not ready to instrument and deploy components?
 
-We've got you covered with an app that can send demo traces to your Distributed Tracing.
+Not ready to instrument and deploy components? We've got you covered with an app that can send demo traces to your Distributed Tracing.
 
-Using the HotROD app is so easy, and so fast, that you'll be searching for traces in Logz.io within a few minutes of setting up the app! 
+Using the **HotROD app** is so easy, and so fast, that you'll be searching for traces in Logz.io within a few minutes of setting up the app! 
 
 In this guide you'll find:
 
@@ -73,7 +72,7 @@ To run the demo configuration and deploy the components, you must have the follo
 The **.env** file might be hidden.
 {:.info-box.note}
 
-1. Use a terminal to grab the repo code using the git command:  `git clone https://github.com/logzio/tracing-demo.git` and change directories: `cd tracing-demo`.
+1. Use a **terminal** to grab the repo code using the git command:  `git clone https://github.com/logzio/tracing-demo.git` and change directories: `cd tracing-demo`.
 
 1. Open the `.env` file and update the parameters with your preferred text editor.
 1. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. {% include tracing-shipping/tracing-token.md %}

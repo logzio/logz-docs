@@ -16,7 +16,7 @@ headers:
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Logz.io Docs
-copyright: 2015-2021, Logshero Ltd. # 2020 Logz.io 
+copyright: 2015-2022, Logshero Ltd. # 2020 Logz.io 
 # description:
 url: "https://docs.logz.io" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog

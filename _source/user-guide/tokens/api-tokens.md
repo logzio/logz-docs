@@ -10,19 +10,26 @@ tags:
   - api-tokens
 contributors:
   - imnotashrimp
+  - yberlinger
 ---
 
-If you're an Enterprise or Pro plan subscriber,
+If you're an Enterprise or Pro plan subscriber (or during your trial period),
 your account includes API access. You can reference the [API guide](/api/) and [Terraform Logz.io Provider guide](/integrations/terraform/) to help you build integrations with Logz.io.
 
 API tokens are unique to each account. The only exception is a subset of account configuration operations that must be run with the API token of the main account.
 
+{% include general-shipping/manage-tokens-nav.md %}
+
+From your account, go to the <a href="https://app.logz.io/#/dashboard/settings/manage-tokens/api" target ="_blank"> **Manage Tokens** > **API tokens** tab.</a> of your Operations workspace <br> It can be reached by selecting **<i class="li li-gear"></i> > Settings > Tools > Manage Tokens**. 
+
+The token for each account is listed in the table along with the date it was created.
+
+<!-- 
 
 ![Manage API tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/tokens/api-tokens.png)
 
-To get to this page,
 select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab.
-
+-->
 Community plans do not currently include API tokens. See the official [pricing page](https://logz.io/pricing/) for details.
 {:.info-box.note}
 

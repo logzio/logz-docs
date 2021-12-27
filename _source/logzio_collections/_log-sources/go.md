@@ -7,11 +7,13 @@ open-source:
   - title: Logzio Golang API client
     github-repo: logzio-go
 data-source: Go code
+data-for-product-source: Logs
 templates: ["library"]
 contributors:
   - imnotashrimp
 shipping-tags:
   - from-your-code
+order: 660
 ---
 
 This shipper uses goleveldb and goqueue as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.
@@ -52,9 +54,9 @@ import (
 func main() {
   // Replace these parameters with your configuration
   l, err := logzio.New(
-    "<<SHIPPING-TOKEN>>",
+    "<<LOG-SHIPPING-TOKEN>>",
     logzio.SetDebug(os.Stderr),
-    logzio.SetUrl("<<LISTENER-HOST>>:8071"),
+    logzio.SetUrl("https://<<LISTENER-HOST>>:8071"),
     logzio.SetDrainDuration(time.Second * 5),
     logzio.SetTempDirectory("myQueue"),
     logzio.SetDrainDiskThreshold(99),
@@ -72,16 +74,15 @@ func main() {
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
-| SetUrl <span class="required-param"></span> <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
-| SetDebug <span class="default-param">`false`</span> | Debug flag. |
-| SetDrainDuration <span class="default-param">`5 * time.Second`</span> | Time to wait between log draining attempts. |
-| SetTempDirectory | Filepath where the logs are buffered. |
-| SetCheckDiskSpace <span class="default-param">`true`</span> | To enable `SetDrainDiskThreshold`, set to `true`. Otherwise, `false`. |
-| SetDrainDiskThreshold <span class="default-param">`70.0`</span> | Maximum file system usage, in percent. Used only if `SetCheckDiskSpace` is set to `true`. If the file system storage exceeds this threshold, buffering stops and new logs are dropped. Buffering resumes if used space drops below the threshold. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| token | {% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
+| SetUrl | Listener URL and port.    {% include log-shipping/listener-var.html %}  |Required (default:  `https://listener.logz.io:8071`) |
+| SetDebug | Debug flag. | `false` |
+| SetDrainDuration  | Time to wait between log draining attempts. | `5 * time.Second` |
+| SetTempDirectory | Filepath where the logs are buffered. | -- |
+| SetCheckDiskSpace  | To enable `SetDrainDiskThreshold`, set to `true`. Otherwise, `false`. | `true` |
+| SetDrainDiskThreshold  | Maximum file system usage, in percent. Used only if `SetCheckDiskSpace` is set to `true`. If the file system storage exceeds this threshold, buffering stops and new logs are dropped. Buffering resumes if used space drops below the threshold. | `70.0` |
 
 
 ###### Code sample

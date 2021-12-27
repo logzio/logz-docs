@@ -7,15 +7,17 @@ logo:
   logofile: gcp-stackdriver.svg
   orientation: vertical
 data-source: Stackdriver
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - ronish31
   - imnotashrimp
 shipping-tags:
   - gcp
+order: 690
 ---
 
-Google Cloud Platform (GCP) Stackdriver collects logs and metrics from your cloud services.
+Google Cloud Platform (GCP) Stackdriver collects logs from your cloud services.
 You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.io.
 
 #### Configuration
@@ -124,21 +126,21 @@ listener: <<LISTENER-HOST>>
 pubsubs:
 - project_id: PROJECT-1_ID
   topic_id: TOPIC-1_ID
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
   credentials_file: ./credentials-file.json
   subscriptions: [SUB1_ID, SUB2_ID, SUB3_ID]
   type: stackdriver
 
 - project_id: PROJECT-1_ID
   topic_id: TOPIC-2_ID
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
   credentials_file: ./credentials-file.json
   subscriptions: [SUB1_ID, SUB2_ID, SUB3_ID]
   type: stackdriver
 
 - project_id: PROJECT-3_ID
   topic_id: TOPIC-1_ID
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
   credentials_file: ./credentials-file.json
   subscriptions: [SUB1_ID, SUB2_ID, SUB3_ID]
   type: stackdriver
@@ -146,15 +148,15 @@ pubsubs:
 
 ** Note that YAML files are sensitive to spaces and tabs. We recommend using a YAML validator to make sure that the file structure is correct.
 
-Click here for more information about [filebeat for Google Cloud Pub/Sub](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-input-google-pubsub.html#filebeat-input-google-pubsub).
+Click here for more information about [filebeat for Google Cloud Pub/Sub](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-input-gcp-pubsub.html#filebeat-input-gcp-pubsub).
 
 ###### Configuration instructions
 
 | Parameter | Description |
 |---|---|
-| listener | The Logz.io listener host. {% include log-shipping/replace-vars.html listener=true %} |
+| listener | The Logz.io listener host. {% include log-shipping/listener-var.html %}  |
 | pubsubs | This is an array of one or more GCP subscriptions. For each subscription, provide topic and subscription IDs, as given from Pub/Sub. |
-| token | Your Logz.io shipping token. For each project under `pubsubs`. Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. You can send your logs to different accounts that are in the same region, you can do that by inserting a different token per project.  |
+| token | Your Logz.io shipping token. For each project under `pubsubs`. Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. You can send your logs to different accounts that are in the same region, you can do that by inserting a different token per project.  |
 | credentials_file (Not required, Default value: '<project_id>-credentials.json') | This field is only required if your credentials file is named differently than the default value. For an example of adding this field go to [input example file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml). |
 {:.paramlist}
 

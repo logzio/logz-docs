@@ -4,6 +4,7 @@ title: Logz.io Training 101
 permalink: /training/
 flags:
   logzio-plan: community
+sitemap: false
 tags:
   - training
 ---
@@ -59,5 +60,5 @@ Each session is 60 minutes.
     * How to identify security risks
     * Supported data sources and predefined security rules
 
-* Infrastructure Monitoring with Grafana
+* Infrastructure Monitoring
     * Seamlessly correlate metrics and log data

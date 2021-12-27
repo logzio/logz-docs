@@ -4,6 +4,7 @@ title: Distributed Tracing table of contents
 permalink: /user-guide/distributed-tracing/tracing-highlights
 flags:
   logzio-plan: community
+sitemap: false
 tags:
   - distributed tracing
 contributors:

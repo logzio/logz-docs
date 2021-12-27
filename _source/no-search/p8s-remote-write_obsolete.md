@@ -4,12 +4,14 @@ title: Remote write for Prometheus
 permalink: /user-guide/metrics/p8s-remote-write.html
 flags:
   logzio-plan: community
+sitemap: false
 tags:
   - metrics integrations
 contributors:
   - yberlinger
+ 
 ---
-This topic is for Prometheus users migrating their solution to Logz.io Infrastructure Monitoring powered by Grafana.
+This topic is for Prometheus users migrating their solution to Logz.io Infrastructure Monitoring.
 
 You can send your Prometheus metrics to your Logz.io Infrastructure Monitoring account.
 To do this, you’ll need to send your application metrics to Logz.io in JSON format and stick to the formatting guidelines.
@@ -47,7 +49,7 @@ You can do this manually, or use a script to import all the dashboards in a fold
 
 After your Prometheus metrics begin to arrive to Logz.io:  
 
-1. To mport dashboards from your local Grafana 
+1. To import dashboards from your local Grafana 
     1. Export the relevant Prometheus dashboards from your Grafana as JSON files.
     2. Log into Logz.io 
 

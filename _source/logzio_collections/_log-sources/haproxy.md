@@ -1,14 +1,16 @@
 ---
 title: Ship HAProxy logs
 logo:
-  logofile: haproxy.png
+  logofile: haproxy-logo.png
   orientation: horizontal
 data-source: HAProxy
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - imnotashrimp
 shipping-tags:
   - server-app
+order: 960
 ---
 
 HAProxy is a network device, so it needs to transfer logs using the syslog protocol.
@@ -58,9 +60,9 @@ listen INPUT_NAME_TCP
 
 Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```conf
 $ModLoad imuxsock # provides support for local system logging
@@ -81,7 +83,7 @@ $PrivDropToGroup syslog
 $WorkDirectory /var/spool/rsyslog
 
 # the logz.io syslog template,
-$template HAProxyLogzioFormat,"[<<SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
+$template HAProxyLogzioFormat,"[<<LOG-SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=haproxy] %msg%\n"
 
 # Send messages to Logz over TCP using the template.
 *.* @@<<LISTENER-HOST>>:5000;HAProxyLogzioFormat

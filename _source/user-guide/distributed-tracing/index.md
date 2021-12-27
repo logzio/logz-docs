@@ -4,7 +4,6 @@ title: Distributed Tracing
 permalink: /user-guide/distributed-tracing/
 flags:
   logzio-plan: pro enterprise
-  beta: true
 tags:
   - distributed tracing
 contributors:
@@ -13,7 +12,7 @@ contributors:
 
 ### Fast track shortcuts: Oh, the Traces You'll Go! 
 
-* [Get started](/user-guide/distributed-tracing/getting-started-tracing): Deploy components and set up instrumentation
+* [Get started](/user-guide/distributed-tracing/getting-started-tracing): Get access to Logz.io and set up trace ingestion
 * [Search for traces](/user-guide/distributed-tracing/tracing-tour): Log in and get on the trace 
 * [View the trace timeline](/user-guide/distributed-tracing/trace-timeline): Dig into the details of each span
 * [Compare traces](/user-guide/distributed-tracing/compare-traces): See where traces differ from each other by comparing node blocks
@@ -25,7 +24,9 @@ Logz.io gives you the ability to look under the hood at how your microservices a
 
 Gain a system-wide view of your distributed architecture, detect failed or high latency requests, and quickly drill into end-to-end call sequences of selected requests of intercommunicating microservices. Logz.io Distributed Tracing provides Jaeger as a fully managed service - so DevOps teams can use the best cloud-native open source tracing tool - without managing or having to scale it themselves. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yYM_qLr__Ow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://play.vidyard.com/NA62kgFX2mLFsvkdMaJ9Kn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ### Yes, you _can_ have it all!
 

@@ -14,9 +14,10 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
 
 #### Start, stop, scroll, and clear
 
+* Click [**Logs > Live tail**](https://app.logz.io/#/dashboard/live-tail)
 * To start Live Tail, press <i class="li li-play"></i> (play).
 * To display only filtered results,
-  type a regex in the **Match** and **Ignore** boxes and press Enter.
+  type a regex in the **Match** and **Ignore** boxes and press **Enter**.
   Log lines that meet your Match and Ignore criteria are shown in real time.
   More on the [parsed data view](#work-in-parsed-data-view) below.&nbsp;👇
 * To end the Live Tail session,
@@ -27,6 +28,11 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
   press <i class="li li-scroll"></i> (scroll).
 * To clear the Live Tail view,
   click <i class="li li-clear"></i> (clear).
+ 
+<!-- info-box-start:info --> 
+The **Raw data** view shows the value of the log **message** fields as they enter the log management queue. <br> To view a live tail of logs without the **message** field, use the [**Parsed data view**](#work-in-parsed-data-view).
+{:.info-box.note}
+<!-- info-box-end -->
 
 #### Find and highlight terms
 

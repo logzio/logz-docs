@@ -3,6 +3,7 @@ layout: article
 title: API changes following the release of flexible volume
 permalink: /user-guide/accounts/flexible-volume-announcement/
 flags:
+sitemap: false
 tags:
   - accounts
   - main-account

@@ -6,7 +6,7 @@ logo:
   orientation: vertical
 shipping-summary:
   data-source: Amazon RDS (MySQL)
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/RDS
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/rds
 contributors:
   - imnotashrimp
 shipping-tags:

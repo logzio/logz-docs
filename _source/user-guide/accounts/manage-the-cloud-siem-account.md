@@ -12,22 +12,28 @@ tags:
 contributors:
   - shalper
   - imnotashrimp
+  - yberlinger
 ---
 
 You can manage your Cloud SIEM accounts
 from the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
 You'll need to be signed in to the main account in your Operations workspace.
 
+Each Security account is a separate entity, with its own users, rules, and feeds.
+Security accounts can only access each other's dashboards, rules, private feeds, or data if you enable and configure how these objects can be shared.
+
 If you're interested in adding a Cloud SIEM plan,
 reach out to your account manager
 or email [the Sales team](mailto:sales@logz.io).
 {:.info-box.note}
 
-#### To manage your Cloud SIEM accounts
+#### What can I do on the Manage accounts page?
+{:.no_toc}
 
-Each Security account is a separate entity, with its own users, rules, and feeds.
-Security accounts can’t access each other's dashboards, rules, private feeds, or data.
+1. toc list
+{:toc}
 
+{:.no_toc}
 
 <div class="tasklist">
 
@@ -40,12 +46,12 @@ of your Operations workspace. Scroll down towards the bottom of the page to see 
 Click **Add Security account** to open the form.
 The number of accounts you can create is listed.
 
-![Manage the Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-security-account.png)
+![Add a Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-security-account11.png)
 
 
-##### Configure your new account
+##### Configure or update a Cloud SIEM account
 
-![Manage the Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-security-accounts.png)
+![Configure a Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/config-security-account.png)
 
 
 Fill in the form:
@@ -55,9 +61,23 @@ Fill in the form:
 
     Logs are not shipped directly to your Cloud SIEM accounts. Instead, you'll grant read-access to log accounts you want a security account to monitor.
 
-  You can add the same log account to multiple Security accounts. It will be monitored by each Security account independently.
-  {:.info-box.note}
+    You can add the same log account to multiple Security accounts. It will be monitored by each   Security account independently.
+    {:.info-box.note}
 
+3. **Automatically pull dashboards, visualizations, and saved searches from these Security accounts** - Select which security accounts you can automatically pull shared objects from. 
+
+  ![Shared security objects](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/
+add_new-account.gif)
+
+  The security account you're configuring will automatically be able to access the Kibana dashboards, visualizations, and saved searches from the source accounts you add to this list, but will *not* have access to the data in these accounts.  
+  
+  This is helpful if you have multiple main accounts. 
+  
+  For example: 
+
+  + Instead of creating the same objects for each account, you can just share them! 
+  + You can use this process to keep a local backup copy of these data objects. 
+  + Create a library of data objects in your main Security account, and then enable client accounts to use objects from your main account.  
 
 ##### Save your changes
 
@@ -65,4 +85,12 @@ Click **Create**/**Apply** to save your changes.
 
 When you first add a new account, give it a few minutes to finish setting up.
 
+
+##### Delete a Cloud SIEM account from your plan 
+ 
+1. In the account details, click the **Delete** icon next to the account name.
+  ![delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/delete-SIEM.png)   
+
+2. Confirm (or **Cancel**) the action. 
+  ![Confirm delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/confirm-delete-siem-acct.png)
 </div>

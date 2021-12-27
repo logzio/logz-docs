@@ -3,19 +3,22 @@ title: Ship Elastic Load Balancing logs
 logo:
   logofile: aws-elb.svg
   orientation: vertical
+short-description: Collect your ELB logs in an S3 bucket to be fetched by Logz.io every x seconds.
 data-source: Elastic Load Balancing
+data-for-product-source: Logs
 templates: ["s3-fetcher"]
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/ELB
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/elastic-load-balancing
 contributors:
   - idohalevi
   - imnotashrimp
 shipping-tags:
   - aws
+order: 260
 ---
 
 When you set Logz.io to fetch Elastic Load Balancing (ELB) logs, Logz.io will periodically read logs from the configured S3 bucket. Elastic Load Balancing logs are useful for application usage intelligence and monitoring.
 
-{% include log-shipping/s3-bucket.html service="ELB" %}
+{% include log-shipping/s3-bucket.md service="ELB" %}
 
 #### Configuration
 
@@ -37,15 +40,17 @@ For help with setting this up, see these docs from AWS:
 * For Classic Load Balancer,
   see [Enable Access Logs for Your Classic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html).
 
-##### Add the S3 bucket information
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
 
-<!-- logzio-inject:s3-config -->
+##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-  Logz.io fetches logs that are generated after configuring an S3 bucket.
-  Logz.io cannot fetch past logs retroactively.
-  {:.info-box.important}
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/elastic-load-balancing) and add a new S3 bucket.
+
+
+<!-- logzio-inject:aws:elb -->
+
+{% include log-shipping/add-s3-bucket.md %}
+
 
 ##### Check Logz.io for your logs
 

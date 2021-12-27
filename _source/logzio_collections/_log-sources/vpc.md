@@ -4,14 +4,17 @@ logo:
   logofile: aws-vpc.svg
   orientation: vertical
 data-source: VPC
+data-for-product-source: Logs
 templates: ["s3-fetcher"]
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/VPC
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/vpc
 contributors:
   - idohalevi
   - imnotashrimp
 shipping-tags:
   - aws
+order: 580
 ---
+VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. This integration allows you to send these logs to your Logz.io account. 
 
 #### Configuration
 
@@ -19,7 +22,7 @@ shipping-tags:
 
 * `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
 
-* {% include log-shipping/s3-bucket-file-order.html %}
+* {% include log-shipping/s3-bucket-file-order.md %}
 
 <div class="tasklist">
 
@@ -30,11 +33,17 @@ VPC Flow logs are not stored in S3 by default, so you'll need to set up AWS to s
 
 For help with this, see [Publishing Flow Logs to Amazon S3](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html) from AWS.
 
-##### Add the S3 bucket information
+##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-<!-- logzio-inject:s3-config -->
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/vpc) and add a new S3 bucket.
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+
+<!-- logzio-inject:aws:vpc-flow -->
+
+
+{% include log-shipping/add-s3-bucket.md %}
+
+
 
 ##### Check Logz.io for your logs
 

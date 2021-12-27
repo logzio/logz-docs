@@ -3,13 +3,15 @@ layout: json
 permalink: /data/shipping-manifest.json
 ---
 
-{%- assign collectionsToAdd = site.collections | where: "in-shipping-manifest", true -%}
+{%- assign collectionsToAdd = site.collections | where: "in-shipping-manifest", true | sort: "order" -%}
+{%- assign tagsToAdd = site.data.shipper-tabs.tags | sort: "order" -%}
 
 {%- case jekyll.environment -%}
   {%- when "production" -%}
     {%- assign branch = "/master" -%}
   {%- else -%}
-    {%- assign branch = "/develop" -%}
+    {%- assign branch = "/prom-fix" -%}
+
 {%- endcase -%}
 {%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
 
@@ -17,14 +19,16 @@ permalink: /data/shipping-manifest.json
   "updatedAt": "{{ "now" | date: "%Y-%m-%d %H:%M" }}",
   "collections": [
     {% for thisCollection in collectionsToAdd -%}
-      {
-        "collection": "{{thisCollection.label}}",
-        "title": "{{thisCollection.name}}",
-        "contents": [
-          {%- for d in thisCollection.docs %}
+    {% assign docsToAdd = thisCollection.docs | sort:"order" %}
+    {
+      "collection": "{{thisCollection.label}}",
+      "title": "{{thisCollection.name}}",
+      "contents": [
+        {%- for d in docsToAdd %}
             {
               "title": "{{d.title}}",
-              "id": "{{d.id}}",
+              "shortDescription": "{{ | append: "" | append: d.short-description}}",
+              "id": "{{d.id| split: "/" | last}}",
               "dataSource": "{{d.data-source}}",
               {%- if d.open-source -%}
                 {%- capture openSourceString -%}
@@ -32,7 +36,10 @@ permalink: /data/shipping-manifest.json
                     {%- for project in d.open-source -%}
                       {
                         "title": "{{project.title}}",
-                        "githubRepo": "{{project.github-repo}}"
+                        "githubRepo": "{{
+                          | split: "." | last
+                          | append: "https://github.com/logzio/"
+                          | append: project.github-repo }}"
                       }
                       {%- unless forloop.last -%} , {% endunless -%}
                     {%- endfor -%}
@@ -40,11 +47,10 @@ permalink: /data/shipping-manifest.json
                 {%- endcapture %}
                 "openSource": {{ openSourceString }},
               {% endif -%}
-              "logo": "{{ site.source
+              "logo": "{{
                 | split: "." | last
-                | append: "/images/shipper-logos/"
-                | append: d.logo.logofile
-                | prepend: githubUrl }}",
+                | append: "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/"
+                | append: d.logo.logofile }}",
               "filepath": "{{ site.source
                 | split: "." | last
                 | append: "/"
@@ -62,7 +68,7 @@ permalink: /data/shipping-manifest.json
     {%- endfor -%}
   ],
   "tagMap": [
-    {%- for tag in site.data.shipper-tabs.tags -%}
+    {%- for tag in tagsToAdd -%}
       {
         "tag": "{{tag.slug}}",
         "name": "{{tag.name}}"

@@ -9,6 +9,7 @@ tags:
   - api-cookbook
 contributors:
   - imnotashrimp
+  - nshishkin
 ---
 
 If you've never used the Logz.io API before—or any API, for that matter—the `whoami` endpoint is a great way to dip your toes in.
@@ -28,7 +29,7 @@ You can access the `whoami` endpoint with a simple curl request.
 
 ```shell
 curl -X GET \
-  https://<<API-URL>>/account-management/whoami \
+  https://<<API-URL>>/v2/whoami \
   -H 'Content-Type: application/json' \
   -H 'X-API-TOKEN: <<API-TOKEN>>'
 ```
@@ -39,11 +40,12 @@ curl -X GET \
 
 ```json
 {
+  "accountId": 12345,
   "accountName": "Jean Valjean"
 }
 ```
 
-If you see a status of 200 and a response body that includes accountName, congratulations! 🎉
+If you see a status of 200 and a response body that includes accountId and accountName, congratulations! 🎉
 You just made your first API call.
 
 If you didn't receive the expected response, continue to the troubleshooting steps below. 👇
@@ -76,7 +78,7 @@ Check the response body for an error message.
 ###### If you see `{"code":403,"message":"Insufficient privileges"}`
 
 You might be using an invalid API token.
-Copy a valid [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from Logz.io and try again.
+Copy a valid [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/api) from Logz.io and try again.
 
 ###### If you see `Account region xx differs from current server region yy`
 

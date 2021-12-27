@@ -8,12 +8,15 @@ tags:
   - metrics
 contributors:
   - shalper
+  - yberlinger
 ---
 
 Logz.io Metrics will help you monitor the health of your systems and catch issues BEFORE your customers notice.
 Here's how Logz.io Metrics will get you there.
 
-Logz.io Metrics is a Grafana-based infrastructure monitoring platform that integrates seamlessly with the Kibana-based logging platform. Grafana is the leading open-source tool for visualizing numerical data at scale, with powerful graphing capabilities of trends, changes over time, derivatives, and inflection curves.
+Logz.io Metrics is a Prometheus-based infrastructure monitoring platform that integrates seamlessly with the Kibana-based logging platform. Prometheus is the leading open-source tool for visualizing numerical data at scale, with powerful graphing capabilities of trends, changes over time, derivatives, and inflection curves.
+
+The Logz.io’s Metrics UI, the front-end for Infrastructure Monitoring, is a forked version of the Grafana open-source software, created by Logz.io. Read more [here.](https://logz.io/about-us/forked-statement/)
 
 
 ### Easily correlate metrics with logs
@@ -41,7 +44,9 @@ That way you can benchmark your goals against past achievements.
 
 Logz.io’s Metrics platform is pre-loaded with dozens of dashboards to help you hit the ground running and get started immediately. Your Metrics account is ready to accept data from many environments, dockers, container systems, queue management systems, and more.
 
- After configuring Metricsbeat to stream your data to Logz.io, you can select any appropriate dashboard from the list and select the data source. Each dashboard is preconfigured to match the particular data type it is named after and is production-ready without any further customization, and does not require previous expertise. The dashboards are designed by Logz.io specialists and let you get up-and-running in a matter of minutes. [Learn how to select your first dashboard]({{site.baseurl}}/user-guide/infrastructure-monitoring/getting-started).
+After configuring how to stream your data to Logz.io, you can select any relevant dashboard from the list and select the data source. Each dashboard is preconfigured to match the particular data type it's named after. These dashboards are production-ready: You don't have to do any customizations, and you don't need to have previous experience to set them up. 
+
+The metrics dashboards are designed by Logz.io specialists so that you can get up-and-running in a matter of minutes. [Learn how to select your first dashboard]({{site.baseurl}}/user-guide/infrastructure-monitoring/getting-started).
 
 Once you’re ready to move to the next level, you can duplicate any of the preconfigured dashboards to add your own panels and changes, or create entirely new dashboards of your own. [Learn how to add a new dashboard]({{site.baseurl}}/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html).
 

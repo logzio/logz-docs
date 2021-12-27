@@ -19,10 +19,14 @@ with security rules for different attack types
 and security use cases.
 
 You can create new security rules to supplement the built-in rules.
-You can also update any preconfigured rule at any time, including adding a notification endpoint (like email or Slack) or changing trigger thresholds.
+You can also update any preconfigured rule at any time, including adding a notification endpoint (for example, email or Slack) or changing trigger thresholds.
+
 
 
 #### To configure a rule
+
+From **SIEM > Rules** in the navigation menu, click the yellow <i class="fas fa-plus"></i> icon to open the **Create a rule** page. 
+![Open **Create a rule** page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/create-rule_aug2021.png)
 
 <div class="tasklist">
 
@@ -36,7 +40,7 @@ Next, set the search components. This determines which logs to look for and in w
 
 If you intend to create a correlated rule with 2 queries, see [this guide](/user-guide/siem/security-correlated-queries/).
 
-![rule group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/configure-security-rule.png)
+![rule group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/configure-security-rule2_aug2021.png)
 
 ###### Query and filters
 
@@ -78,23 +82,23 @@ Set your threshold and severity levels.
 
 In the _Trigger if..._ section, click **Add a threshold** to set as many as 5 threshold conditions, each with its own severity tag.
 
-![rule trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings.png)
+![rule trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
 
 ##### _(Optional)_ Set notification details
 
 ###### Description and tags
 
-![Rule description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags.png)
+![Rule description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags_aug2021.png)
 
 The **Description** will be included in any emails, Slack messages, and other notifications when the rule is triggered.
 We recommend making your description helpful to recipients,
 like telling them how to fix the issues that led to the rule.
 
-The **Tags** are useful for filtering the _Rule definitions_ page.
+The **Tags** are useful for filtering for events. You can add up to 25 tags per rule.
 
 ###### Who to send it to
 
-![Recipients and suppress notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-suppress.png)
+![Recipients and suppress notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-suppress2_aug2021.png)
 
 If you want to send notifications or emails when the rule is triggered,
 choose notification endpoints.
@@ -105,7 +109,7 @@ If you need help adding a new endpoint,
 see [_Notification endpoints_]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 
 To limit how often recipients are notified,
-choose a time period to suppress notifications.
+choose the time period to wait between notifications.
 
 When notifications are suppressed,
 Logz.io will continue to log triggered rules without sending notifications.
@@ -123,7 +127,7 @@ Otherwise, you control the data format. It can be either **JSON** or a **Table**
   * If you select JSON, you can choose to send all fields or select fields.
   * If you select a table, you can send as many as 7 fields.
 
-![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields.png)
+![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-json-custom-fields2_aug2021.png)
 
 To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter.
 

@@ -1,0 +1,89 @@
+---
+title: Ship logs from OpenVPN
+logo:
+  logofile: openvpn.png
+  orientation: vertical
+data-source: OpenVPN
+data-for-product-source: Cloud SIEM
+templates: ["network-device-filebeat"]
+contributors:
+  - nshishkin
+shipping-tags:
+  - firewalls
+order: 1380
+---
+[OpenVPN](https://openvpn.net) is a virtual private network system for secure point-to-point or site-to-site connections.
+
+These instructions only apply to Linux and MacOS systems.
+
+
+**Before you begin, you'll need**: 
+
+* An active account with Logz.io
+* OpenVPN Access Server installed
+* Filebeat 7 installed on the same machine as OpenVPN Access Server
+* Root priveleges on your machines 
+
+<div class="tasklist">
+  
+
+{% include log-shipping/certificate.md %}
+
+
+##### Configure Filebeat
+
+Paste the following into the inputs section of the Filebeat configuration file:
+
+   ```yaml
+   filebeat.inputs:
+   - type: log
+     paths:
+       - /var/log/openvpnas.log
+       - /var/log/openvpnas.log.*
+     fields:
+       logzio_codec: json
+       # Your Logz.io account token. You can find your token at
+       #  https://app.logz.io/#/dashboard/settings/manage-accounts
+       token: <<LOG-SHIPPING-TOKEN>>
+       type: openvpn
+     fields_under_root: true
+     encoding: utf-8
+     ignore_older: 3h
+     multiline.type: pattern
+     multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\+[0-9]{4} \[\S+\]( {2,}| \})'
+     multiline.negate: false
+     multiline.match: after
+   filebeat.registry.path: /var/lib/filebeat
+   processors:
+   - rename:
+       fields:
+       - from: "agent"
+         to: "beat_agent"
+       ignore_missing: true
+   - rename:
+       fields:
+       - from: "log.file.path"
+         to: "source"
+       ignore_missing: true
+   output.logstash:
+     hosts: ["<<LISTENER-HOST>>:5015"]
+     ssl:
+       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+   ```
+  
+   * Your Logz.io log shipping token directs the data securely to your Logz.io Log Management account. [Manage your tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared).
+   * {% include log-shipping/listener-var.md %}
+
+##### Restart Filebeat to run it with the new configuration.
+  
+```shell
+service filebeat restart
+```
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `openvpn` to see the incoming OpenVPN logs.
+  
+If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>

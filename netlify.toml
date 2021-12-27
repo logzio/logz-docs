@@ -1,3 +1,10 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains;"
+    X-Content-Type-Options = "nosniff"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-eval' 'sha256-m6LLxclyRtUyKJv7W6YqJfXyFhjoqwYL6hEL85BKkYo=' 'sha256-Kjzj2nqI5ZGGOjyXwafSeEwjzCbrusJg1SzlnaSKLFE=' 'sha256-Q7UDa1GrlTa15wiAIFvw+Gfj1hlT1GqTf9eUxrSldYs=' 'sha256-afKegVSrTShzGXueUZ8xjwAJzDqzjw0WTFrL7+P116c=' 'sha256-SFczXEfmyW4bbzWtLtbez+aKOdBzUfA5p6qMHghBWJY=' 'sha256-P4zYLzFAId+v1lFO1IgWXxzl9qBe3xMVwkjBADJkA1w=' 'sha256-ZhpUbTIZTvtd2gJBIJyTDjPbwL7Po8szPZiQP6Ev5Oc=' 'sha256-C87waPXIclOrrpubcglnzBlguKNEv34PbGOF4nJ8K5o=' 'sha256-ZZQGwVCojXwVRz/d2DPUcTY42VwFcO3Mwy2lHg6VxW4=' *.logz.io *.intercomcdn.com www.google-analytics.com www.googletagmanager.com cdn.amplitude.com widget.intercom.io use.fontawesome.com static.hotjar.com script.hotjar.com munchkin.marketo.net; style-src 'self' 'unsafe-inline' *.jquery.com fonts.googleapis.com use.fontawesome.com; connect-src 'self' *.amplitude.com *.intercom.io wss://*.intercom.io *.mktoresp.com http://*.hotjar.com:* https://*.hotjar.com:* http://*.hotjar.io https://*.hotjar.io wss://*.hotjar.com www.google-analytics.com; font-src 'self' use.fontawesome.com fonts.gstatic.com script.hotjar.com data:; frame-src www.googletagmanager.com vars.hotjar.com play.vidyard.com; worker-src 'self' blob:; child-src 'self' blob:; img-src 'self' http://*.hotjar.com https://*.hotjar.com http://*.hotjar.io https://*.hotjar.io logz.io www.google-analytics.com dytvr9ot2sszz.cloudfront.net *.githubusercontent.com data:; media-src 'self' dytvr9ot2sszz.cloudfront.net;"
+    
 # Settings in the [build] context are global and are applied to all contexts
 # unless otherwise overridden by more specific contexts.
 [build]
@@ -39,5 +46,270 @@
 [[redirects]]
   from = "/user-guide/access-and-authentication/*"
   to = "/user-guide/tokens/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/shippers/*"
+  to = "/shipping/log-sources/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/active-directory-winserver.html"
+  to = "/shipping/security-sources/active-directory-winserver.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/alcide.html"
+  to = "/shipping/security-sources/alcide.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/auditd.html"
+  to = "/shipping/security-sources/auditd.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/aws-waf.html"
+  to = "/shipping/security-sources/aws-waf.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/azure-activity-logs.html"
+  to = "/shipping/security-sources/azure-activity-logs.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/bitdefender.html"
+  to = "/shipping/security-sources/bitdefender.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/check-point.html"
+  to = "/shipping/security-sources/check-point.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/cisco-asa.html"
+  to = "/shipping/security-sources/cisco-asa.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/cisco-meraki.html"
+  to = "/shipping/security-sources/cisco-meraki.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/cloudtrail.html"
+  to = "/shipping/security-sources/cloudtrail.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/eset.html"
+  to = "/shipping/security-sources/eset.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/fail2ban.html"
+  to = "/shipping/security-sources/fail2ban.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/falco.html"
+  to = "/shipping/security-sources/falco.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/fortigate.html"
+  to = "/shipping/security-sources/fortigate.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/gsuite.html"
+  to = "/shipping/security-sources/gsuite.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/guardduty.html"
+  to = "/shipping/security-sources/guardduty.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/hashicorp-vault.html"
+  to = "/shipping/security-sources/hashicorp-vault.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/juniper-srx.html"
+  to = "/shipping/security-sources/juniper-srx.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/mcafee-epolicy-orchestrator.html"
+  to = "/shipping/security-sources/mcafee-epolicy-orchestrator.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/microsoft-graph.html"
+  to = "/shipping/security-sources/microsoft-graph.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/modsecurity.html"
+  to = "/shipping/security-sources/modsecurity.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/nginx.html"
+  to = "/shipping/security-sources/nginx.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/okta.html"
+  to = "/shipping/security-sources/okta.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/openvas.html"
+  to = "/shipping/security-sources/openvas.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/ossec.html"
+  to = "/shipping/security-sources/ossec.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/palo-alto-networks.html"
+  to = "/shipping/security-sources/palo-alto-networks.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/sentinelone.html"
+  to = "/shipping/security-sources/sentinelone.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/sonicwall.html"
+  to = "/shipping/security-sources/sonicwall.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/sophos.html"
+  to = "/shipping/security-sources/sophos.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/stormshield.html"
+  to = "/shipping/security-sources/stormshield.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/sysmon.html"
+  to = "/shipping/security-sources/sysmon.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/trendmicro.html"
+  to = "/shipping/security-sources/trendmicro.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/wazuh.html"
+  to = "/shipping/security-sources/wazuh.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/windows-defender.html"
+  to = "/shipping/security-sources/windows-defender.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/zeek.html"
+  to = "/shipping/security-sources/zeek.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/log-sources/filebeat-for-windows.html"
+  to = "/shipping/log-sources/filebeat.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/custom-metrics"
+  to = "/shipping/metrics-sources/custom-metrics.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/p8s-sources/*"
+  to = "/shipping/prometheus-sources/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/prometheus-sources/aws-redshift-p8s.html"
+  to = "/shipping/prometheus-sources/aws-redshift-prometheus.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/p8s-*"
+  to = "/user-guide/infrastructure-monitoring/prometheus-:splat"
+  status = 301
+  force = true  
+
+
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/grafana*"   
+  to = "/user-guide/infrastructure-monitoring/metrics:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/configure-grafana*"   
+  to = "/user-guide/infrastructure-monitoring/configure-metrics:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/integrations/alice-slack-chatbot*"   
+  to = "https://docs.logz.io"
   status = 301
   force = true

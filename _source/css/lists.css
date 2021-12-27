@@ -101,7 +101,7 @@ dl.letter-labels dt::before {
 
   text-align: center;
   background-color: var(--docs-orange-primary);
-  color: white;
+  color: text-normal-25;
 }
 
 dl.letter-labels dd {

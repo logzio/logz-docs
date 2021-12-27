@@ -1,7 +1,7 @@
 ---
-layout: api-ref-flexible-storage
+layout: api-beta
 title: Logz.io API
-permalink: /beta-api-flexible-storage/
+permalink: /beta-api/
 tags:
   - api
 contributors:

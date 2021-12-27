@@ -6,6 +6,7 @@ logo:
 data-source: Zipkin
 templates: ["no-template"]
 description: Here's how you can use Logz.io as data storage for Zipkin traces.
+sitemap: false
 open-source:
   - title: Zipkin-Logz.io Trace Storage
     github-repo: zipkin-logzio
@@ -75,10 +76,10 @@ java -Dloader.path='zipkin-logzio.jar,zipkin-logzio.jar!lib' -Dspring.profiles.a
 
 | Parameter | Description |
 |---|---|
-| STORAGE_TYPE=logzio <span class="required-param"></span> | We wish there was a way to include this as a default. Alas, Zipkin requires it, so you'll need to include this bit. |
-| LOGZIO_ACCOUNT_TOKEN <span class="required-param"></span> | Required when using as a collector to ship logs to Logz.io. <br> {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject: account-token --> |
-| LOGZIO_API_TOKEN <span class="required-param"></span> | Required to read back traces from Logz.io. <br> Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/api-tokens) from the account you want to use. |
-| LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | {% include log-shipping/replace-vars.html listener=true %} <!-- logzio-inject: listener-url --> |
+| STORAGE_TYPE=logzio (Required) | We wish there was a way to include this as a default. Alas, Zipkin requires it, so you'll need to include this bit. |
+| LOGZIO_ACCOUNT_TOKEN (Required) | Required when using as a collector to ship logs to Logz.io. {% include log-shipping/log-shipping-token.html %} |
+| LOGZIO_API_TOKEN (Required) | Required to read back traces from Logz.io. <br> Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/api) from the account you want to use. |
+| LOGZIO_LISTENER_HOST <span class="default-param">`listener.logz.io`</span> | {% include log-shipping/listener-var.html %} |
 | LOGZIO_API_HOST <span class="default-param">`api.logz.io`</span> | Required to read back spans from Logz.io. <br> Replace `<<API-URL>>` with your region's base API URL. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
 | STRICT_TRACE_ID <span class="default-param">`true`</span> | Use `false` if your version of Zipkin server generates 64-bit trace IDs (version 1.14 or lower). If `false`, spans are grouped by the rightmost 16 characters of the trace ID. For version 1.15 or later, we recommend leaving the default. |
 | SENDER_DRAIN_INTERVAL <span class="default-param">`5`</span> | Time interval, in seconds, to send the traces accumulated on the disk. |

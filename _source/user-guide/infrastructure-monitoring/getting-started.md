@@ -13,6 +13,7 @@ contributors:
 
 This quick tour will help you get started with your new infrastructure monitoring workspace.
 
+
 ###### Overview
 {:.no_toc}
 
@@ -26,7 +27,7 @@ This quick tour will help you get started with your new infrastructure monitorin
 <div class="tasklist">
 
 ##### Log into your Metrics account
-Your Infrastucture Monitoring account complements your logging ELK stack. To reach it, log into your Logz.io Operations workspace and select the [Metrics tab](https://app.logz.io/#/dashboard/grafana/).
+Your Infrastucture Monitoring account complements your logging ELK stack. To reach it, log into your Logz.io Operations workspace and select the [Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 Don't see it? By default, your Metrics account can only be accessed from your main account. If you don't see the Metrics tab, the account doesn't have permissions to it. [Learn how to grant sub accounts permissions to Metrics]({{site.baseurl}}/user-guide/accounts/manage-the-infrastructure-monitoring-account.html).
 

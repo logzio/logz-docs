@@ -1,20 +1,24 @@
 ---
 title: Ship Windows logs
+short-description: Send logs directly from your Windows machine.
 logo:
   logofile: windows.svg
   orientation: vertical
 data-source: Windows
+data-for-product-source: Logs
 templates: ["beats-logs", "no-template"]
 contributors:
   - imnotashrimp
 shipping-tags:
   - os
+  - popular
+order: 100
 ---
 
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Winlogbeat <span class="sm ital">(recommended)</span>](#winlogbeat-config)
+* [Winlogbeat](#winlogbeat-config)
 * [NXLog](#nxlog-config)
 {:.branching-tabs}
 
@@ -24,7 +28,7 @@ shipping-tags:
 #### Configure Winlogbeat
 
 **Before you begin, you'll need**:
-[Winlogbeat 7](https://www.elastic.co/downloads/beats/winlogbeat) or
+[Winlogbeat 7](https://www.elastic.co/guide/en/beats/winlogbeat/7.x/winlogbeat-installation-configuration.html#installation) or
 [Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html)
 
 <div class="tasklist">
@@ -44,7 +48,7 @@ clear the contents and start with a fresh file.
 
 Paste this code block.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 winlogbeat.event_logs:
@@ -55,7 +59,7 @@ winlogbeat.event_logs:
 
 fields:
   logzio_codec: json
-  token: <<SHIPPING-TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
   type: wineventlog
 fields_under_root: true
 ```
@@ -90,7 +94,7 @@ If Logz.io isn't the output, set it now.
 
 Winlogbeat can have one output only, so remove any other `output` entries.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 output.logstash:
@@ -147,17 +151,16 @@ LogFile %ROOT%\\data\\nxlog.log
 </Extension>
 ```
 
-For information on parsing multiline logs,
-see
-[_Parsing Multi-Line Messages_](https://nxlog.co/documentation/nxlog-user-guide/parsing-multiline.html#parsing-multiline)
-from NXLog.
+<!-- info-box-start:info -->
+For information on parsing multi-line messages, see [this](https://nxlog.co/documentation/nxlog-user-guide/parsing-multiline.html#parsing-multiline) from NXLog.
 {:.info-box.read}
+<!-- info-box-end -->
 
 ##### Add Windows as an input
 
 Add an `Input` block to append your account token to log records.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
 ```conf
 <Input eventlog>
@@ -168,7 +171,7 @@ Add an `Input` block to append your account token to log records.
 
     Exec if $raw_event =~ /^#/ drop();
     Exec convert_fields("AUTO", "utf-8");
-    Exec    $raw_event = '[<<SHIPPING-TOKEN>>][type=wineventlog]' + $raw_event;
+    Exec    $raw_event = '[<<LOG-SHIPPING-TOKEN>>][type=wineventlog]' + $raw_event;
 </Input>
 ```
 
@@ -176,7 +179,7 @@ Add an `Input` block to append your account token to log records.
 
 Add the Logz.io listener in the `Output` block.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```conf
 <Output out>

@@ -12,13 +12,14 @@ contributors:
   - shalper
   - imnotashrimp
   - danielberman
+  - yberlinger
 ---
 
 Shared tokens give you the option to share Kibana dashboards and visualizations with stakeholders who don't have access to your Logz.io account.
 
 Note that also non-admin users of your account will be able to use the account's shared tokens.
 
-## Best-practice security recommendations
+## Best-practice recommendations
 
 A shared token has access to all of its account logs. When using a shared token, it is better not to rely on the Kibana filters applied to the dashboard or visualizations being shared. Instead, it is best to limit access at the token level using token filters.
 
@@ -49,9 +50,16 @@ These best-practice recommendations will help you keep your data secure when usi
 
 #### Managing shared tokens
 
-To manage your shared tokens, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) in the top menu and select the **Shared tokens** tab.
+To manage your shared tokens: 
+{% include general-shipping/manage-tokens-nav.md %}
+From your account, go to the <a href="https://app.logz.io/#/dashboard/settings/manage-tokens/shared" target ="_blank"> **Manage Tokens** > **Shared tokens** tab.</a> of your Operations workspace <br> It can be reached by selecting **<i class="li li-gear"></i> > Settings > Tools > Manage Tokens**.
 
-![Manage shared tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/tokens/shared-tokens.png)
+The token for each account is listed in the table along with the date it was created.
+
+
+<!-- select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) in the top menu and select the **Shared tokens** tab.
+
+![Manage shared tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/tokens/shared-tokens.png)  -->
 
 <div class="tasklist">
 

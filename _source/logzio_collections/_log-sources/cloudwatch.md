@@ -4,8 +4,10 @@ logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
 data-source: CloudWatch
+data-for-product-source: Logs
+short-description: Send your data to Logz.io from CloudWatch via a Lambda function, every x seconds.
 templates: ["lambda-cloudwatch", "cloudformation"]
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudWatch
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudwatch
 open-source:
   - title: CloudWatch Lambda Log Shipper
     github-repo: logzio_aws_serverless/tree/master/python3/cloudwatch
@@ -15,6 +17,7 @@ contributors:
   - ronish31
 shipping-tags:
   - aws
+order: 110
 ---
 
 <!-- tabContainer:start -->
@@ -22,12 +25,15 @@ shipping-tags:
 
 * [Manual Lambda configuration](#manual-lambda-configuration)
 * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+* [Terraform deployment](#terraform-deployment)
 {:.branching-tabs}
 
 <!-- tab:start -->
 <div id="manual-lambda-configuration">
 
 #### Manual configuration with a Lambda function
+
+{% include log-shipping/note-lambda-test.md %}
 
 <div class="tasklist">
 
@@ -72,16 +78,18 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 
 ###### Environment variables
 
-| Parameter | Description |
-|---|---|
-| TOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} <!-- logzio-inject:account-token --> |
-| REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| URL (Deprecated) | Use REGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`). For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html). <!-- logzio-inject:listener-url --> |
-| TYPE <span class="default-param">`logzio_cloudwatch_lambda`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
-| FORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
-| COMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
-| ENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| TOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
+| REGION |  {% include log-shipping/log-region.md %}
+| URL (Deprecated) | Use REGION instead. | -- |
+| TYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `logzio_cloudwatch_lambda` |
+| FORMAT | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
+| COMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| ENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. | -- |
+
+
+
 
 ##### Configure the function's basic settings
 
@@ -90,19 +98,25 @@ In Basic settings, we recommend starting with these settings:
 * **Memory**: 512 MB
 * **Timeout**: 1 min 0 sec
 
+<!-- info-box-start:info -->
 These default settings are just a starting point.
 Check your Lambda usage regularly, and adjust these values if you need to.
 {:.info-box.note}
+<!-- info-box-end -->
+
+
+{% include log-shipping/cloudwatch-defaults.md %}
+
 
 ##### Set the CloudWatch Logs event trigger
 
-Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
+1. Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
 
-Below the Designer, you'll see the Configure triggers panel. Choose the **Log group** that the Lambda function will watch.
+2. Below the Designer, you'll see the Configure triggers panel. Choose the **Log group** that the Lambda function will watch.
 
-Type a **Filter name** (required) and **Filter pattern** (optional).
+3. Type a **Filter name** (required) and **Filter pattern** (optional).
 
-Click **Add**, and then click **Save** at the top of the page.
+4. Click **Add**, then **Save** at the top of the page.
 
 ##### Check Logz.io for your logs
 
@@ -119,6 +133,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <div id="automated-cloudformation-deployment">
 
 #### Automated CloudFormation deployment
+
+{% include log-shipping/note-lambda-test.md %}
 
 **Before you begin, you'll need**:
 AWS CLI,
@@ -164,37 +180,222 @@ aws cloudformation deploy \
 --template-file $(pwd)/cloudformation-template.output.yaml \
 --stack-name logzio-cloudwatch-logs-lambda-stack \
 --parameter-overrides \
-  LogzioTOKEN='<<SHIPPING-TOKEN>>' \
+  LogzioTOKEN='<<LOG-SHIPPING-TOKEN>>' \
 --capabilities "CAPABILITY_IAM"
 ```
 
+
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| LogzioTOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
-| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| LogzioURL (Deprecated) | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. || LogzioTYPE (Default: `logzio_cloudwatch_logs`) | The log type you'll use with this Lambda. This can be a [built-in log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
-| LogzioFORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
-| LogzioCOMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
-| LogzioENRICH | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. |
-{:.paramlist}
+{% include log-shipping/cloudwatch-parameters.md %}
+
+
+
+{% include log-shipping/cloudwatch-defaults.md %}
+
 
 ##### Set the CloudWatch Logs event trigger
 
-Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
+1. Find the **Add triggers** list (left side of the Designer panel). Choose **CloudWatch Logs** from this list.
 
-Below the Designer, you'll see the Configure triggers panel. Choose the **Log group** that the Lambda function will watch.
+2. Below the Designer, you'll see the Configure triggers panel. Choose the **Log group** that the Lambda function will watch.
 
-Type a **Filter name** (required) and **Filter pattern** (optional).
+3. Type a **Filter name** (required) and **Filter pattern** (optional).
 
-Click **Add**, and then click **Save** at the top of the page.
+4. Click **Add**, then **Save** at the top of the page.
 
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="terraform-deployment">
+
+#### Terraform deployment
+
+You can deploy this integration using Terraform with [AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs).
+
+<div class="tasklist">
+
+##### Zip the source files
+Clone the CloudWatch Logs Shipper - Lambda project from GitHub to your computer, and zip the Python files in the src/ folder as follows:
+
+```bash
+git clone https://github.com/logzio/logzio_aws_serverless.git \
+&& cd logzio_aws_serverless/python3/cloudwatch/ \
+&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper \
+&& cp src/lambda_function.py dist \
+&& cd dist/ \
+&& zip logzio-cloudwatch lambda_function.py python3/shipper/* \
+&& mv logzio-cloudwatch.zip ..... \
+&& cd ..... \
+&& rm -rf logzio_aws_serverless
+```
+
+The above script will create `logzio-cloudwatch.zip` that contains the source code for your lambda function.
+
+##### Set AWS credentials
+
+Create environment variables that contain your AWS credentials:
+
+```bash
+export AWS_ACCESS_KEY_ID="<<AWS-ACCESS-KEY>>"
+export AWS_SECRET_ACCESS_KEY="<<AWS-SECRET-KEY>>"
+export AWS_DEFAULT_REGION="<<AWS-REGION>>"
+```
+
+<!-- info-box-start:info -->
+This configuration uses AWS keys credentials.
+If you're using another authentication method for AWS, see [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#shared-credentials-file) how to configure your provider accordingly.
+{:.info-box.note}
+<!-- info-box-end -->
+
+##### Configure Terraform
+
+Use the following configuration to create the necessary AWS resources to ship Cloudwatch logs to Logz.io.
+Make sure you replace within the configuration to your details, where applicable:
+
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "3.65.0"
+    }
+  }
+}
+
+resource "aws_iam_role" "iam_lambda_cw_to_logzio" {
+  name = "lambda_cw_to_logzio"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action = "sts:AssumeRole"
+      Effect = "Allow"
+      Sid    = ""
+      Principal = {
+        Service = "lambda.amazonaws.com"
+      }
+      }
+    ]
+  })
+}
+
+resource "aws_iam_policy" "policy_cw_to_logzio" {
+  name        = "policy_cw_to_logzio"
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "logs:PutResourcePolicy",
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+})
+}
+
+resource "aws_iam_policy_attachment" "attach_cw_to_logzio" {
+  name       = "attach_cw_to_logzio"
+  roles      = [aws_iam_role.iam_lambda_cw_to_logzio.name]
+  policy_arn = aws_iam_policy.policy_cw_to_logzio.arn
+}
+
+resource "aws_lambda_function" "lambda_cloudwatch_to_logzio" {
+  # Change to your path of the zip file you created in the 1st step
+  filename      = "/path/to/your/logzio-cloudwatch.zip"
+
+  function_name = "cloudwatch_to_logzio"
+  role          = aws_iam_role.iam_lambda_cw_to_logzio.arn
+  runtime = "python3.9"
+  handler = "lambda_function.lambda_handler"
+
+  # These default settings are just a starting point. Check your Lambda usage regularly, and adjust these values if you need to.
+  timeout = 60
+  memory_size = 512
+
+  environment {
+    variables = {
+      # Required variables:
+      TOKEN = "<<LOG-SHIPPING-TOKEN>>" # Your Logz.io shipping token
+      LISTENER_URL = "https://<<LISTENER-HOST>>:8071" # Your Logz.io listener host (for example, listener.logz.io)
+
+      # To learn more about all the environment variables for this function, see the parameters table in the documentation.
+    }
+  }
+}
+
+# Log group for the lambda function we create
+resource "aws_cloudwatch_log_group" "log_group_cw_to_logzio" {
+  name = "/aws/lambda/${aws_lambda_function.lambda_cloudwatch_to_logzio.function_name}"
+
+  # You can add retention days for the function's log group
+  # retention_in_days = 5
+}
+
+resource "aws_lambda_permission" "allow_cloudwatch" {
+  statement_id  = "AllowExecutionFromCloudWatch"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.lambda_cloudwatch_to_logzio.function_name
+  principal     = "logs.amazonaws.com"
+}
+
+# Subscription filter to the log group you wish to subscribe to.
+# Create a seperate "aws_cloudwatch_log_subscription_filter" resource for every log group you want to subscribe to.
+resource "aws_cloudwatch_log_subscription_filter" "cw_to_logzio_subscription" {
+  name            = "cw_to_logzio_subscription"
+  # Change "log_group_name" to the log group name you want to subscribe to. For example - /aws/lambda/my_lambda_function
+  log_group_name  = "<<LOG-GROUP-TO-READ-FROM>>"
+  filter_pattern  = ""
+  destination_arn = "${aws_lambda_function.lambda_cloudwatch_to_logzio.arn}"
+}
+
+```
+
+{% include log-shipping/cloudwatch-parameters.md %}
+
+##### Create Terraform execution plan
+
+The following command will create a Terraform execution plan out of your configuration
+
+```bash
+terraform plan -out terraform.plan
+```
+
+##### Apply the plan
+
+The following command will apply the execution plan you've created in the previous step, meaning that Terraform will create the resources you described in the configuration:
+
+```bash
+terraform apply terraform.plan  
+```
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+
+##### Destroying the resources
+
+To destroy the resources, use the following:
+
+```bash
+terraform destroy
+```
 
 </div>
 <!-- tab:end -->

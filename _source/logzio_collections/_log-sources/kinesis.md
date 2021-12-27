@@ -7,8 +7,9 @@ open-source:
   - title: Kinesis Stream Shipper - Lambda
     github-repo: logzio_aws_serverless/tree/master/python3/kinesis
 data-source: Kinesis
+data-for-product-source: Logs
 templates: ["lambda-kinesis", "cloudformation"]
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/Kinesis
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/kinesis
 contributors:
   - idohalevi
   - imnotashrimp
@@ -16,6 +17,7 @@ contributors:
   - yyyogev
 shipping-tags:
   - aws
+order: 750
 ---
 
 <!-- tabContainer:start -->
@@ -29,6 +31,8 @@ shipping-tags:
 <div id="manual-lambda-configuration">
 
 #### Manual configuration with a Lambda function
+
+{% include log-shipping/note-lambda-test.md %}
 
 <div class="tasklist">
 
@@ -63,16 +67,16 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 
 ###### Environment variables
 
-| Parameter | Description |
-|---|---|
-| TOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token='noReplace' %} <!-- logzio-inject:account-token --> |
-| REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| URL (_Deprecated_) | Use REGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`). For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html). <!-- logzio-inject:listener-url --> |
-| TYPE <span class="default-param">`kinesis_lambda`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
-| FORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
-| COMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
-| MESSAGES_ARRAY (_Optional_) | Name the field containing a JSON array that will be used to split the log document. [Learn more]({{site.baseurl}}/user-guide/mapping-and-parsing/split-json-array.html). **Note**: This option only works if the `FORMAT` is set to `json`. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| TOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required |
+| REGION | Logz.io 2-letter region code. {% include log-shipping/listener-var.html %} | Required |
+| URL (_Deprecated_) | Use REGION instead.  | -- |
+| TYPE | The log type you'll use with this Lambda. You should create a new Lambda for each log type you use. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. | `kinesis_lambda` |
+| FORMAT | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
+| COMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| MESSAGES_ARRAY (_Optional_) | Name the field containing a JSON array that will be used to split the log document. [Learn more]({{site.baseurl}}/user-guide/mapping-and-parsing/split-json-array.html). **Note**: This option only works if the `FORMAT` is set to `json`. | -- |
+
 
 ##### Configure the function's basic settings
 
@@ -81,9 +85,10 @@ In Basic settings, we recommend starting with these settings:
 * **Memory**: 512 MB
 * **Timeout**: 1 min 0 sec
 
-These default settings are just a starting point.
-Check your Lambda usage regularly, and adjust these values if you need to.
+<!-- info-box-start:info -->
+These default settings are just a starting point. Check your Lambda usage regularly, and adjust these values if you need to.
 {:.info-box.note}
+<!-- info-box-end -->
 
 ##### Set the Kinesis event trigger
 
@@ -108,6 +113,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <div id="automated-cloudformation-deployment">
 
 #### Automated CloudFormation deployment
+
+{% include log-shipping/note-lambda-test.md %}
 
 **Before you begin, you'll need**:
 
@@ -144,25 +151,25 @@ aws cloudformation deploy \
 --template-file $(pwd)/kinesis-template.output.yaml \
 --stack-name logzio-kinesis-logs-lambda-stack \
 --parameter-overrides \
-  LogzioTOKEN='<<SHIPPING-TOKEN>>' \
+  LogzioTOKEN='<<LOG-SHIPPING-TOKEN>>' \
   KinesisStream='<<KINESIS-STREAM-NAME>>' \
 --capabilities "CAPABILITY_IAM"
 ```
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| LogzioTOKEN <span class="required-param"></span> | {% include log-shipping/replace-vars.html token=true %} <!-- logzio-inject:account-token --> |
-| KinesisStream <span class="required-param"></span> | The name of the Kinesis stream where this function will listen for updates. |
-| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. <br> You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
-| LogzioURL (Deprecated) | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). <br > The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. |
-| LogzioTYPE <span class="default-param">`kinesis_lambda`</span> | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. |
-| LogzioFORMAT <span class="default-param">`text`</span> | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. |
-| LogzioCOMPRESS <span class="default-param">`false`</span> | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. |
-| KinesisStreamBatchSize <span class="default-param">`100`</span> | The largest number of records to read from your stream at one time. |
-| KinesisStreamStartingPosition <span class="default-param">`LATEST`</span> | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. |
-{:.paramlist}
+| Parameter | Description |  Required/Default |
+|---|---|---|
+| LogzioTOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} | Required  |
+| KinesisStream | The name of the Kinesis stream where this function will listen for updates. | Required  |
+| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). Logz.io 2-letter region code. {% include log-shipping/listener-var.html %} | Required | 
+| LogzioURL (Deprecated) | Use LogzioREGION instead. | -- |
+| LogzioTYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `kinesis_lambda` |
+| LogzioFORMAT  | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
+| LogzioCOMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| KinesisStreamBatchSize | The largest number of records to read from your stream at one time. | `100` |
+| KinesisStreamStartingPosition | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. | `LATEST` |
+
 
 ##### Check Logz.io for your logs
 

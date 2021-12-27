@@ -3,7 +3,9 @@ title: Ship Python logs
 logo:
   logofile: python.svg
   orientation: vertical
+short-description: Use the Logz.io Python Handler to bulk send logs to Logz.io via HTTPS.
 data-source: Python code
+data-for-product-source: Logs
 templates: ["library"]
 open-source:
   - title: Logz.io Python Handler
@@ -14,6 +16,7 @@ contributors:
   - imnotashrimp
 shipping-tags:
   - from-your-code
+order: 170
 ---
 
 Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.
@@ -54,7 +57,7 @@ class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
 # Parameters must be set in order. Replace these parameters with your configuration.
-args=('<<SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, '<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
+args=('<<LOG-SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, 'https://<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
 
 [formatters]
 keys=logzioFormat
@@ -92,7 +95,8 @@ LOGGING = {
             'class': 'logzio.handler.LogzioHandler',
             'level': 'INFO',
             'formatter': 'logzioFormat',
-            'token': '<<SHIPPING-TOKEN>>',
+            'token': '<<LOG-SHIPPING-TOKEN>>',
+            'logzio_type': '<<LOG-TYPE>>',
             'logs_drain_timeout': 5,
             'url': 'https://<<LISTENER-HOST>>:8071'
         }
@@ -101,49 +105,57 @@ LOGGING = {
         '': {
             'level': 'DEBUG',
             'handlers': ['logzio'],
-            'propogate': True
+            'propagate': True
         }
     }
 }
 ```
 
-###### Replace the placeholders
-
-* {% include log-shipping/replace-vars.html token=true %}
-* {% include log-shipping/replace-vars.html listener=true %} 
+{% include /general-shipping/replace-placeholders.html %}
 
 
 ##### Parameters
 
-The order of the arguments is important. Arguments _must_ be configured in the order shown here.
-For example, to set debug-flag to `True`,
-you need to set every argument that comes before it.
+<!-- info-box-start:info -->
+Order matters. The arguments _must_ be configured in the order shown here. For example, to set debug-flag to `true`, you need to set every argument that comes before it.
 {:.info-box.important}
+<!-- info-box-end -->
 
-| Parameter | Description |
-|---|---|
-| account-token <span class="required-param"></span> | Your Logz.io [account token](https://app.logz.io/#/dashboard/settings/general). <br> {% include log-shipping/replace-vars.html token=true %} |
-| log-type <span class="default-param">`python`</span> | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. |
-| timeout <span class="default-param">`3`</span> | Time to wait between log draining attempts, in seconds. |
-| listener-url <span class="default-param">`https://listener.logz.io:8071`</span> | Listener URL and port. <br> {% include log-shipping/replace-vars.html listener=true %} |
-| debug-flag <span class="default-param">`False`</span> | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. |
-| backup-logs <span class="default-param">`True`</span>| If set to False, disables the local backup of logs in case of failure. |
-| network-timeout <span class="default-param">`10`</span> | Timeout in seconds, int or float, for sending the logs to Logz.io. |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| account-token | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} | Required |
+| log-type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `python` |
+| timeout | Time to wait between log draining attempts, in seconds. | `3` |
+| listener-url | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| debug-flag | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. | `False` |
+| backup-logs | If set to False, disables the local backup of logs in case of failure. | `True` |
+| network-timeout | Timeout in seconds, int or float, for sending the logs to Logz.io. | `10` |
+
+
 
 #### Serverless platforms
 
 If you're using a serverless function, you'll need to import and add the LogzioFlusher annotation before your sender function. To do this, in the code sample below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.
 
+
+<!-- info-box-start:info -->
+For the LogzioFlusher to work properly, you'll need to make sure that the Logz.io. handler is added to the root logger. See the configuration above for an example.
+{:.info-box.important}
+<!-- info-box-end -->
+
+
+
+
 #### Code Example
+
 ```python
 import logging
 import logging.config
 # If you're using a serverless function, uncomment.
 # from logzio.flusher import LogzioFlusher
 
-# Say i have saved my configuration in a dictionary form in variable named myconf
-logging.config.dictConfig(myconf)
+# Say I have saved my configuration as a dictionary in a variable named 'LOGGING' - see 'Dict Config' sample section
+logging.config.dictConfig(LOGGING)
 logger = logging.getLogger('superAwesomeLogzioLogger')
 
 # If you're using a serverless function, uncomment.

@@ -2,6 +2,8 @@
 layout: article
 title: Single sign-on with Azure
 permalink: /user-guide/users/single-sign-on/azure-sso.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: SSO with Azure for Logz.io accounts
 flags:
   admin: true
   logzio-plan: pro
@@ -29,7 +31,7 @@ Write that you want to set up Azure SAML SSO for Logz.io.
 Include these items in the message:
 
 * Your Logz.io [account ID]({{site.baseurl}}/user-guide/accounts/finding-your-account-id.html)
-* Your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
+* The last six characters of your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
 The Support team will respond with the connection information you'll need to give in Azure.
 
@@ -72,18 +74,23 @@ Draft a new [email to Support](mailto:help@logz.io), and include these items:
 Return to the App registrations page in your [Azure Portal](https://portal.azure.com/).
 If you don't see Logz.io, click **View all applications**.
 
-Open the **Logz.io** application, and then click **Manifest**.
+Open the **App registrations** service, choose the relevant application from the list, and then click **Manifest**.
 In the manifest JSON, set groupMembershipClaims to `"All"`.
-Click **Save** (top of the page).
+Click **Save** (at the top of the page).
+
+![groupMembershipClaims Editor](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-groupmembershipclaim.png)
 
 ##### _(Optional)_ Restrict access to Logz.io to specific user groups
 
-![Add group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/sso--manage-groups.png)
+![Add group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-manage-users-groups.png)
 
 By default, all Azure users with Logz.io access can sign in to your Logz.io accounts.
 
 You can restrict this access from the [Manage users page](https://app.logz.io/#/dashboard/settings/manage-users) for each of your accounts.
-Click **Add group**, and then paste the group's **Object ID** from Azure for each group that should have access to the account in Logz.io.
+Click **Add group**, and then paste the group's **Object ID** for each group that should have access to the account in Logz.io.
+
+To obtain the **Object ID**, navigate to [Azure portal](https://portal.azure.com/) > [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) > [Groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups). Select the group you'd like to use and copy the Object ID string.
+
 
 ##### Receive confirmation from Support
 

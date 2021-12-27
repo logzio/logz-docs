@@ -1,54 +1,45 @@
 ---
 layout: article
-title: Add a private feed
+title: Adding a private feed
 permalink: /user-guide/cloud-siem/private-feeds.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - security-analytics
   - security-rules
 contributors:
   - shalper
+  - yberlinger
 ---
 
-You can enrich threat detection with your own private feed of malicious IPs. To do so, you'll need to maintain an IOC-specific feed for IPs and make it accessible by HTTP/HTTPS to Logz.io.
-
-![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed-alpha.png)
+You can enrich log threat detection by adding your own private feeds to those provided by Logz.io. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
 
 
-#### Configure a private feed
+#### Configure Logz.io to pull your private feed
 
-Configuring Logz.io to fetch a private feed is very much like configuring a custom notification endpoint.
+**Before you begin**
+
+You'll need to maintain a list of IOCs and host it where it can be fetched by Logz.io. See more details [here](/user-guide/siem/ioc-types/).
 
 <div class="tasklist">
 
-##### Prerequisites
-
-Before you begin, you'll need to maintain a private feed of malicious or suspected IPs and host it where it can be fetched by Logz.io.
-
-Other requirements:
-
-* The feed must be limited to 10K entities or fewer. (No more than 10,000 IPs).
-* Every IP must appear on a new line. Don't use separators or add explanations or comments.
-  Here's an example:
-
-  ```
-  1.1.1.1
-  2.2.2.2
-  3.3.3.3
-  ```
-
-##### Configure the connection
+##### Add a new feed
 
 Go to **Threats > Threat Intelligence Feeds** from the top menu, and select the option **+ Add private feed**.
 
-Fill in the form to configure the connection.
+##### Configure the connection
+
+
+Fill in the form to configure the connection.   <!--UPDATE THE SCREEN    stix_feed.png -->
+
+![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed_newnav.png)   
 
 **About the feed**
 
-1. **IOC type** - IPs are auto-selected. Currently only IPs are supported. In the future, the option to add private feeds for malicious URLs and Domains will be added.
-2. **Confidence** - Select a reliability score for your feed.
-3. **Description** - Give some context for your feed. It's a good idea to add contact info for the person who owns the feed.
+1. **IOC type** - Select one type. Supported types include IPs, DNSs (domain), URLs, md5/sha1/sha256 hash-based signatures, user-agent HTTP headers, and custom indicators of your choice.
+2. **Use STIX** - Toggle the option on to use STIX format. _Structured Threat Information Expression_ (STIX™) is a language and serialization format used to exchange cyber threat intelligence (CTI). <br>   Logz.io currently supports a single IOC type per feed for this format. We recommend that you define a separate private feed for each relevant IOC type that exists in your STIX feed.
+3. **Confidence** - Select a reliability score for your feed.
+4. **Description** - Give some context for your feed. It's a good idea to add contact info for the person who owns the feed.
 
 **Configure the feed connection**
 
@@ -76,6 +67,6 @@ To edit or delete a private feed, hover over the feed in the list,
   and click <i class="li li-pencil"></i> (edit)
   or <i class="li li-trash"></i> (delete).
 
-If you delete a private feed, Logz.io will stop using it to enrich logs immediately.
+If you delete a private feed, Logz.io will immediately stop using it to enrich logs.
 
 ![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/feed-info.png)

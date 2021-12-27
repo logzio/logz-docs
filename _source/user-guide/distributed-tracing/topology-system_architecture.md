@@ -4,7 +4,6 @@ title: Topology diagrams
 permalink: /user-guide/distributed-tracing/topology-system_architecture
 flags:
   logzio-plan: pro enterprise
-  beta: true
 tags:
   - distributed tracing
 contributors:

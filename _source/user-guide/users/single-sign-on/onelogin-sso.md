@@ -2,6 +2,8 @@
 layout: article
 title: Single sign-on with OneLogin
 permalink: /user-guide/users/single-sign-on/onelogin-sso.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: SSO with OneLogin
 flags:
   admin: true
   logzio-plan: pro
@@ -26,7 +28,7 @@ Write that you want to set up OneLogin SAML SSO for Logz.io.
 Include these items in the message:
 
 * Your Logz.io [account ID]({{site.baseurl}}/user-guide/accounts/finding-your-account-id.html)
-* Your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
+* The last six characters of your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
 The Support team will respond with the connection information you'll need to give in OneLogin.
 
@@ -34,7 +36,7 @@ The Support team will respond with the connection information you'll need to giv
 
 In the OneLogin top menu, browse to **Apps > Add Apps**.
 
-In the Find Applications page, search for "SAML Test Connector". Select **SAML Test Connector (IdP w/attr)** from the apps list.
+In the Find Applications page, search for "SAML Test Connector". Select **SAML Test Connector (Advanced)** from the apps list.
 
 On the Configuration page, set the **Display Name** to "Logz.io" and click **Save**.
 

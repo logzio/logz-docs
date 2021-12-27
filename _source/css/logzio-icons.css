@@ -20,3 +20,5 @@ i.{{char.class}}::before {
   {{ char.additional-css -}}
 }
 {% endfor -%}
+
+/* @import url("//d1azc1qln24ryf.cloudfront.net/131260/logzio-font/style-cf.css?kmbgn2") */

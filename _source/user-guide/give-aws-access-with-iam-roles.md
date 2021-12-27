@@ -7,33 +7,50 @@ flags:
   logzio-plan: community
 contributors:
   - imnotashrimp
+  - shalper
 ---
 
-Connect Logz.io to your AWS account using IAM roles.
+You can connect Logz.io to your AWS account more securely using IAM roles.
+
 This gives Logz.io the appropriate level of access
 while keeping your AWS account secure.
 
-#### Grant access to an S3 bucket {#grant-access-to-an-s3-bucket}
+###### On this page
+* [Connecting an S3 bucket to Logz.io](#grant-access-to-an-s3-bucket)
+* [Migrating to a new External ID](#new-external-id)
+* [Migrating to new IAM roles](#migrate-to-new-roles)
+
+#### Connecting an S3 bucket to Logz.io {#grant-access-to-an-s3-bucket}
 
 <div class="tasklist">
 
-##### Copy Logz.io details
+##### Create a Logz.io-AWS connector
 
-Paste the **Account ID** and **External ID** in your text editor.
+In your Logz.io app, go to **Send your data**.
+Select the relevant AWS resource from the left menu.
+
+Click **+ Add a bucket** and select the option to **Authenticate with a role**
+
+![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/configure-s3-bucket.png)
+
+Copy and paste the **Account ID** and **External ID** in your text editor.
+
+Fill in the form to create a new connector.
 
 Enter the **S3 bucket name** and, if needed,
 the **Prefix** where your logs are stored.
 
-Click **View and copy role policy**.
-You can review the role policy to confirm the permissions we need.
+Click **Get the role policy**.
+You can review the role policy to confirm the permissions that will be needed.
 Paste the policy in your text editor.
 
-Keep this information available so you can paste in AWS in step 2.
+Keep this information available so you can use it in AWS.
 
-##### Create the role
+##### Create the IAM Role in AWS
 
-Browse to the [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page
-and click **Create role**.
+Go to your [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page in your AWS admin console.
+
+Click **Create role**.
 You're taken to the _Create role_ wizard.
 
 ![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam--create-role.png)
@@ -106,7 +123,7 @@ your company might have.
 Before you migrate,
 you'll need to know where the existing IAM role is used in Logz.io.
 This is because you'll need to replace any
-[S3 fetcher](https://app.logz.io/#/dashboard/data-sources/S3-Bucket)
+[S3 fetcher](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)
 and
 [Archive & restore](https://app.logz.io/#/dashboard/tools/archive-and-restore)
 configurations that use the existing role.
@@ -145,7 +162,7 @@ make sure you know everywhere your existing IAM role is used in Logz.io.
 ##### Delete an S3 configuration from Logz.io
 
 Choose an
-[S3 fetcher](https://app.logz.io/#/dashboard/data-sources/S3-Bucket)
+[S3 fetcher](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)
 or
 [Archive & restore](https://app.logz.io/#/dashboard/tools/archive-and-restore)
 configuration to replace.
@@ -235,7 +252,7 @@ where you need to fetch or archive logs in an S3 bucket.
 ##### Delete an S3 configuration from Logz.io
 
 Choose an
-[S3 fetcher](https://app.logz.io/#/dashboard/data-sources/S3-Bucket)
+[S3 fetcher](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)
 or
 [Archive & restore](https://app.logz.io/#/dashboard/tools/archive-and-restore)
 configuration to replace.

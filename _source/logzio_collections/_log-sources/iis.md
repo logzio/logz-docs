@@ -4,12 +4,15 @@ logo:
   logofile: iis.png
   orientation: horizontal
 data-source: Microsoft IIS
+data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
   - imnotashrimp
 shipping-tags:
   - server-app
+order: 450
 ---
+Internet Information Services (IIS) for Windows® Server is a flexible, secure and manageable Web server for hosting on the Web. This integration allows you to send logs from your IIS services to your Logz.io account. 
 
 #### Configuration
 
@@ -24,9 +27,9 @@ shipping-tags:
 
 Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```conf
 define ROOT C:\\Program Files (x86)\\nxlog
@@ -49,7 +52,7 @@ LogFile %ROOT%\\data\\nxlog.log
     SavePos TRUE
     Exec if $raw_event =~ /^#/ drop();
     Exec convert_fields("AUTO", "utf-8");
-    Exec $raw_event = '[<<SHIPPING-TOKEN>>][type=iis]' + $raw_event;
+    Exec $raw_event = '[<<LOG-SHIPPING-TOKEN>>][type=iis]' + $raw_event;
 </Input>
 <Output out>
     Module  om_tcp

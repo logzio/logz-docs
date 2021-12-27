@@ -4,7 +4,6 @@ title: The Grand Distributed Tracing Tour
 permalink: /user-guide/distributed-tracing/tracing-tour
 flags:
   logzio-plan: pro enterprise
-  beta: true
 tags:
   - distributed tracing
 contributors:
@@ -25,7 +24,16 @@ contributors:
 Your Distributed Tracing account complements your logging ELK stack. To reach it, log into your Logz.io Operations workspace and select the **Jaeger** or **Tracing** tab.
 
 By default, your Distributed Tracing account is accessed from your main account. 
-![tracing tour](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_tour1a.png)
+![tracing tour](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_tour-update.png)
+
+
+
+##### Select a data source for the Distributed Tracing interface 
+
+To display tracing data from a single data source in the Distributed Tracing tab, use the Source selector. 
+![Pick a data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-data-source.gif)
+
+You cannot select multiple data sources for an aggregated view.
 
 ##### Search for traces. 
 You search for and view traces on the **Search** page. 

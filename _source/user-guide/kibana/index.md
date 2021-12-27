@@ -15,7 +15,7 @@ Kibana Discover is where you search and query your logs to figure out what happe
 
 You can use the Discover page to filter logs, search for specific events, and create alerts based on your search queries.
 
-![Kibana Discover Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/kibana-discover-intro-annotated.png)
+![Kibana Discover Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/kibana-discover-intro-annotated_aug2021.png)
 
 #### Searching your logs
 
@@ -47,6 +47,7 @@ You can type a search query in Lucene syntax or KQL. It is an alternative to fil
 The default time frame in Kibana Discover is always the last 15 minutes.
 
 You can select the time frame in any number of ways, including relative times such as the last hour, today so far, or the day before yesterday, or use absolute times by calendar dates and timestamps.
+
 ##### Results
 
 The logs returned by your search are your results - aka "hits". Depending on the time frame you've selected, the results can be set to continuously auto-refresh and can be quite dynamic.

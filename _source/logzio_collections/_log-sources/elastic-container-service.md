@@ -7,6 +7,7 @@ open-source:
   - title: docker-collector-logs
     github-repo: docker-collector-logs
 data-source: Elastic Container Service
+data-for-product-source: Logs
 templates: ["docker"]
 contributors:
   - imnotashrimp
@@ -17,6 +18,7 @@ contributors:
   - shalper
 shipping-tags:
   - aws
+order: 440
 ---
 
 This integration uses Filebeat in a Docker container to forward logs from Amazon Elastic Container Service (ECS) to Logz.io.
@@ -46,7 +48,7 @@ For a complete list of options, see the parameters below the code block. 👇
 
 ```shell
 docker run -d --name=docker-collector-logs \
---env LOGZIO_TOKEN="<<SHIPPING-TOKEN>>" \
+--env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
 --env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v /var/lib/docker/containers:/var/lib/docker/containers \
@@ -55,12 +57,12 @@ logzio/docker-collector-logs
 
 ###### Parameters
 
-| Parameter | Description |
-|---|---|
-| LOGZIO_TOKEN <span class="required-param"></span> | Your Logz.io account token. {% include log-shipping/replace-vars.html token=true %} |
-| LOGZIO_URL <span class="required-param"></span> | Your Logz.io listener URL and port. {% include log-shipping/replace-vars.html listener=true %} |
-| ignoreOlder <span class="default-param">`3h`</span> |  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). |
-{:.paramlist}
+| Parameter | Description | Required/Default |
+|---|---|---|
+| LOGZIO_TOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} | Required |
+| LOGZIO_URL | Your Logz.io listener URL and port. {% include log-shipping/listener-var.html %}  | Required |
+| ignoreOlder |  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). | `3h` |
+
 
 ##### Check Logz.io for your logs
 

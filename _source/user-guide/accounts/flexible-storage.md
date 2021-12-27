@@ -5,26 +5,27 @@ permalink: /user-guide/accounts/flexible-volume.html
 flags:
   admin: true
   logzio-plan: pro
-  beta: true
 tags:
   - accounts
   - main-account
   - sub-accounts
 contributors:
   - shalper
+  - yberlinger
 ---
-
-{% include page-info/early-access.md type="Beta" %}
 
 Flexible volume gives you more control over how you allocate space between your accounts.
 
 With flexible volume, accounts can share indexing capacity and use it as needed. Instead of reserving capacity in advance, you can rely on shared volume to cover your indexing needs across accounts. When properly configured, shared volume can help to optimize distribution and minimize the risk of running out of space.
 
 
-![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shared-volume.png)
+<iframe class="vidyard_iframe" src="//play.vidyard.com/Na9xMCntQUJFTVy3SXq4kd.html?" width="600" height="270" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
+
+
 
 Flexible volume is a global setting that applies to your time-based logging accounts. To reach it, go to [**<i class="li li-gear"></i> > Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts). This page is only available when logged in to the main account as an admin user.
 
+{% include /account-info/flexible-account-50subs.md %}
 
 ## Volume settings
 
@@ -60,10 +61,6 @@ When flexible volume is enabled, your plan's shared volume helps to protect agai
 |---|----|---|
 | Shared volume | 80% of shared volume is spent for the day. | 100% of shared volume is spent for the day. Only accounts with available reserved volume can continue to index logs. No shared capacity will be available until the index switches at 00:00 UTC tonight. |
 | Account cap | Account has reached 80% of its daily cap. | Account has reached 100% of its daily cap. It will no longer accept data until the index switches at 00:00 UTC. |
-
-[Account utilization metrics](/user-guide/accounts/manage-account-usage.html) are less accurate when flexible volume is enabled. This is because utilization is dynamic and constantly reshuffling between accounts, on an as-needed basis.
-
-If you prefer to rely on utilization logs as an accurate measure, consider sticking to the fixed volume plan instead.
 
 #### Configure flexible capacity accounts
 

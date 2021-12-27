@@ -2,6 +2,7 @@
 layout: article
 title: Our writers
 permalink: /credits.html
+sitemap: false
 show-date: false
 community-info: false
 ---

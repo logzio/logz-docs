@@ -3,7 +3,7 @@ layout: article
 title: Exceptions
 permalink: /user-guide/insights/exceptions/
 flags:
-  logzio-plan: community
+  logzio-plan: pro
 tags:
   - insights
 contributors:
@@ -16,7 +16,7 @@ As you're troubleshooting in Kibana Discover, you can easily see the number of e
 
 To review exceptions affecting your environments, switch to the **Exceptions** tab and expand the documents that interest you.
 
-![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-in-discover-count.png)
+![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-in-discover-count_aug2021.png)
 
 ### Exception count
 To help you stay focused, the list is capped and will always show the top 10 exceptions.
@@ -25,7 +25,7 @@ If there are more exceptions than can be shown, you can fetch the **Most frequen
 * **Most frequent** - Most number of occurrences in the given time frame.
 * **Most recent** - Most recently occurred within your selected time frame.
 
-![Filter exceptions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/top-exceptions.png)
+![Filter exceptions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/top-exceptions_aug2021.png)
 
 ### Investigating an exception
 
@@ -33,7 +33,7 @@ The same exception may recur in different log lines, with slight variations. Som
 
 Logz.io tracks the recurrence of each exception over time, and retains its **First occurrence**, that is the earliest time the exception was identified. The history of exceptions can date back up to 6 months.
 
-![Expand an exception for more details directly in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-in-discover-drilldown.png)
+![Expand an exception for more details directly in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-in-discover-drilldown_aug2021.png)
 
 |---|---|
 |Exception| Concise title auto-detected by Logz.io based on the contents of the logs |
@@ -55,4 +55,4 @@ To reorder exceptions by **# of occurrences**, **First occurrence**, or **Last s
 
 Exceptions that occurred for the first time within the search time frame are tagged as **New** exceptions.
 
-![Expand an exception for more details directly in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/new-exceptions.png)
+![Expand an exception for more details directly in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/new-exceptions_aug2021.png)

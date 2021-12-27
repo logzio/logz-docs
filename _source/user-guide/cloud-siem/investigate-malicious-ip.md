@@ -3,7 +3,7 @@ layout: article
 title: Investigate malicious IPs
 permalink: /user-guide/cloud-siem/malicious-IPs.html
 flags:
-  logzio-plan: enterprise
+  logzio-plan: pro
 tags:
   - logz.io-security
   - siem
@@ -12,7 +12,6 @@ contributors:
   - shalper
 ---
 
-Cloud SIEM scans logs for malicious IPs using threat feeds as threat intelligence sources and enriches the original logs.
 The **Threats Overview** dashboard aggregates all suspected IPs from all sources in a single dashboard.
 
 You can filter the dashboard by feed name, feed confidence, or country of origin. You can also filter by log type to check for malicious IPs reported by a specific security product.
@@ -21,12 +20,14 @@ Once you are ready to investigate a particular IP, click the IP drilldown link. 
 
 
 <video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/investigate_IP.mp4" type="video/mp4" />
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/investigate-ip2_aug2021.mp4" type="video/mp4" />
 </video>
 
-### Log enrichment
+### Log enrichment for IPs
 
-Logz.io enriches logs with appearances of malicious and suspected IPs, DNSs, and URLs, to make them easier and faster to track, investigate, and remediate. Below is the list of enrichment fields.
+Cloud SIEM scans logs for malicious IOCs sourced from threat intelligence feeds. The process involves enrichment of the original logs with additional fields.
+
+Below is the list of enrichment fields for IPs.
 
 ![Attacker IP list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/malicious-ip-logs.png)
 

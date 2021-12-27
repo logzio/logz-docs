@@ -35,7 +35,14 @@ at the bottom of the page.
 If you want, change the **Account name** here.
 
 You can leave the **Unique metrics** box at its default value.
-This box is reserved for future functionality.
+This box is reserved for future functionality.  <!-- comment: is this active yet? -->
+
+##### Create a new Metrics account
+
+##### Allocate UM to each Metrics account
+
+Set how many unique metrics (UMs) are allocated to each account from the overall Infrastructure Monitoring plan. 
+
 
 ##### Set the read permissions
 

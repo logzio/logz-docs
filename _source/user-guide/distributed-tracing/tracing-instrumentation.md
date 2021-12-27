@@ -9,7 +9,9 @@ tags:
 contributors:
   - yberlinger
 ---
-Logz.io makes the process of collecting data from the software as easy as possible, by taking advantage of community-developed plug-ins for the most commonly used libraries and frameworks. 
+
+<!--This topic deprecated 22.Sept.2021 -->
+Logz.io makes the process of collecting data from the software as easy as possible by taking advantage of community-developed plug-ins for the most commonly used libraries and frameworks. 
 
 There’s a growing trend to do this for every type of library, software system, infrastructure component, such as proxies and service meshes, and even for orchestration systems, such as Kubernetes itself.
 
@@ -17,6 +19,7 @@ Logz.io’s distributed tracing solution is designed to support a variety of pop
   <!--AI when these are integrated:OpenCensus -->
 
 But instrumentation doesn't *have* to be a huge all-or-nothing effort. It's not mandatory to immediately instrument ALL the code in your environment to start benefitting from Distributed Tracing: You can ramp up your instrumentation gradually, by implementing on a service-by-service basis.  
+
 
 If you hit a wall, we’ll do our best to provide support to help you solve your instrumentation issues. 
 
@@ -40,6 +43,7 @@ While both instrumentations may cause performance overhead, the pros and cons of
 |-----------------+------------+-----------------+----------------|
 |   |Less flexibility compared to manual instrumentation          |Can include business metrics within the trace, such as events or messages you want to use for monitoring or business observability                 |                |
 |-----------------+------------+-----------------+----------------|
+
 
 ## Instrumentation recommendations and resources
 We recommend that you first instrument the frameworks that are supported out-of-the-box, before proceeding with manual instrumentation to fine-tune the data. This will make instrumentation much easier and minimize the code you must write.
@@ -65,7 +69,13 @@ The following open infrastructure projects include built-in auto instrumentation
 
 * <a href ="https://istio.io/latest/docs/tasks/observability/distributed-tracing/jaeger/" target="_blank">Istio <i class="fas fa-external-link-alt"></i></a> 
 * <a href ="https://www.envoyproxy.io/docs/envoy/latest/start/sandboxes/jaeger_tracing" target="_blank">Envoy <i class="fas fa-external-link-alt"></i></a> 
-* <a href ="https://grafana.com/docs/grafana/latest/administration/configuration/" target="_blank">Grafana <i class="fas fa-external-link-alt"></i></a> 
 * <a href ="https://docs.traefik.io/observability/tracing/jaeger/" target="_blank">Traefik <i class="fas fa-external-link-alt"></i></a> 
 * <a href ="https://vertx-ci.github.io/vertx-4-preview/docs/vertx-opentracing/java/" target="_blank">VertX <i class="fas fa-external-link-alt"></i></a>
 * <a href ="https://docs.konghq.com/hub/kong-inc/zipkin/" target="_blank">Kong <i class="fas fa-external-link-alt"></i></a>
+
+### Expand your Instrumentation horizons: Logz.io blogs for inspiration and insights
+We have some blog posts that you might be interested in: 
+
+* <a href="https://logz.io/blog/jaeger-tracing-nodejs/" target="_blank"> Instrumenting Node.js for Tracing in Jaeger <i class="fas fa-external-link-alt"></i></a>
+* <a href="https://logz.io/blog/go-instrumentation-distributed-tracing-jaeger/"> Beginner’s Guide to Jaeger + OpenTracing Instrumentation for Go <i class="fas fa-external-link-alt"></i></a>
+* <a href="https://logz.io/blog/jaeger-instrumentation-introduction/#intro" target="_blank"> Jaeger Essentials: Introduction to Jaeger Instrumentation <i class="fas fa-external-link-alt"></i></a>

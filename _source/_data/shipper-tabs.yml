@@ -16,9 +16,13 @@
 tabs:
   - collection: log-sources
     templated: true
-  - collection: metrics-sources
+  - collection: prometheus-sources
     templated: true
-  - collection: shippers
+    top-content:
+  - collection: tracing-sources
+    templated: true
+  - collection: security-sources
+    templated: true
   - collection: community-shippers
     top-content: >-
       <p class="info-box important no-title">
@@ -26,7 +30,14 @@ tabs:
         These projects are maintained by third parties and recommended by members of the Logz.io community.
         Always test and review the code of any community project before using it.
       </p>
-
+  - collection: metrics-sources
+    templated: true
+    top-content: >-
+      <p class="info-box important no-title">
+        <span class="bold"> These are the Metricbeat integrations.<br> If you started using Logz.io metrics in March 2021 or later, select the relevant data shipping option from the <a href="https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=prometheus-sources"> Metrics </a> tab.
+        <br> </br>
+        Contact your Logz.io Customer Success Manager for assistance with selecting the best Metrics data shipping options for your environments. 
+      </p>
 
 # Tags is an array of tags that can be filtered on the data shipping page.
 # Each item in the array contains two properties:
@@ -36,34 +47,104 @@ tabs:
 # If you want to change the way it's displayed in the docs, change the `name`.
 
 tags:
-  - slug: log-shipper
-    name: Log shippers
-  - slug: os
-    name: Operating systems
-  - slug: server-app
-    name: Server apps & devices
-  - slug: from-your-code
-    name: From your code
-  - slug: platform-service
-    name: Platforms & services
+  - slug: popular
+    name: Popular
+    order: 1
   - slug: aws
     name: AWS
+    order: 2
+  - slug: agents
+    name: Agents
+    order: 2
   - slug: azure
     name: Azure
-  - slug: gcp
-    name: Google Cloud
-  - slug: container
-    name: Containers & pods
+    order: 3 
   - slug: ci-cd
     name: CI/CD
-  - slug: security
-    name: Security
+    order: 4
+  - slug: components
+    name: Tracing components
+    order: 5
+  - slug: container
+    name: Containers & pods
+    order: 6
+  - slug: custom-metrics
+    name: Custom metrics
+    order: 7
   - slug: database
     name: Databases
-  - slug: traces
-    name: Tracing
+    order: 7
+  - slug: endpoint-security
+    name: Endpoint security
+    order: 8
+  - slug: existing-instrumentation
+    name: My code is instrumented
+    order: 9
+  - slug: firewalls
+    name: Firewalls
+    order: 10
+  - slug: from-your-code
+    name: From your code
+    order: 11
+  - slug: gcp
+    name: Google Cloud
+    order: 12
+  - slug: ids
+    name: IDS
+    order: 13
+  - slug: identity
+    name: Identity providers
+    order: 14
+  - slug: instrumentation
+    name: Tracing instrumentation     
+    order: 15
+  - slug: iot
+    name: IoT
+    order: 16
+  - slug: k8s
+    name: K8S
+    order: 17
+  - slug: linux
+    name: Linux security
+    order: 18
   - slug: networking
     name: Networking
+    order: 19
+  - slug: new-instrumentation
+    name: My code is not instrumented   
+    order: 20
+  - slug: platform-service
+    name: Platforms & services
+    order: 21
+  - slug: prebuilt-dashboards
+    name: Pre-built dashboards
+    order: 22
+  - slug: prometheus
+    name: Prometheus as a service
+    order: 23
+  - slug: os
+    name: Operating systems
+    order: 24
+  - slug: security
+    name: Security
+    order: 25
+  - slug: server-app
+    name: Server apps & devices
+    order: 26
+  - slug: traces
+    name: Tracing
+    order: 27
+  - slug: vulnerability-scanners
+    name: Vulnerability scanners
+    order: 28
+  - slug: web-firewalls
+    name: Web application firewalls
+    order: 29
+  - slug: windows
+    name: Windows security
+    order: 30
+
+
 
 
 # templates is an array of rough procedures that are used by multiple shipping

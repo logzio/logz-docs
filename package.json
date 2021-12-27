@@ -18,7 +18,9 @@
     "grafana",
     "cloud siem",
     "Jaeger",
-    "distributed tracing"
+    "distributed tracing",
+    "metrics",
+    "Prometheus"
   ],
   "author": [
     "Shalom Boroda",

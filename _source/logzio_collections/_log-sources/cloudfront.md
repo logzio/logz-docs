@@ -4,19 +4,22 @@ logo:
   logofile: aws-cloudfront.svg
   orientation: vertical
 data-source: CloudFront
+data-for-product-source: Logs
 templates: ["s3-fetcher"]
-logzio-app-url: https://app.logz.io/#/dashboard/data-sources/CloudFront
+logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudfront
 contributors:
   - idohalevi
   - imnotashrimp
 shipping-tags:
   - aws
+order: 270
 ---
+Amazon CloudFront is a content delivery network operated by Amazon Web Services. When you set Logz.io to fetch CloudFront logs, Logz.io will periodically read logs from the configured S3 bucket. 
 
 When you set Logz.io to fetch CloudFront logs, Logz.io will periodically read logs from the configured S3 bucket.
 CloudFront logs are useful for auditing/security monitoring and business intelligence.
 
-{% include log-shipping/s3-bucket.html service="CloudFront" %}
+{% include log-shipping/s3-bucket.md service="CloudFront" %}
 
 #### Configuration
 
@@ -24,7 +27,7 @@ CloudFront logs are useful for auditing/security monitoring and business intelli
 
 * `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
 
-* {% include log-shipping/s3-bucket-file-order.html %}
+* {% include log-shipping/s3-bucket-file-order.md %}
 
 <div class="tasklist">
 
@@ -35,15 +38,13 @@ CloudFront access logs are not enabled by default, so you'll need to set this up
 
 For help with this, see [Configuring and Using CloudFront Access Logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) from AWS.
 
-##### Add the S3 bucket information
+##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-{% include log-shipping/in-app-configuration.html toolId="s3-config" %}
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudfront) and add a new S3 bucket.
 
-<!-- logzio-inject:s3-config -->
+<!-- logzio-inject:aws:cloudfront -->
 
-Logz.io fetches logs that are generated after configuring an S3 bucket.
-Logz.io cannot fetch past logs retroactively.
-{:.info-box.important}
+{% include log-shipping/add-s3-bucket.md %}
 
 ##### Check Logz.io for your logs
 

@@ -26,6 +26,8 @@
     - 52.87.10.17
     - 52.87.4.83
     - 54.210.40.1
+    - 54.82.127.215
+
 - suffix: au
   title: Asia Pacific (Sydney)
   cloud: AWS

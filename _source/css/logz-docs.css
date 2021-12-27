@@ -152,7 +152,7 @@ main.page-content img, main.page-content video, .post-content iframe {
   display: block;
   max-width: 90%;
   margin: 1.5rem auto;
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border-very-light);
   border-radius: 2px;
 }
 
@@ -460,7 +460,7 @@ ol .branching-tabs {
 
 .branching-tabs li {
   display: inline-block;
-  margin-bottom: -4px;
+  margin-bottom: 2px;
   color: var(--tab-inactive);
 }
 

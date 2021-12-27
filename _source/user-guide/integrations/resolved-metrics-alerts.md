@@ -11,6 +11,8 @@ contributors:
 ---
 Change your configuration within Opsgenie to receive notifications for resolved Logz.io metrics alerts.
 
+### Define or modify a Logz.io integration in Opsgenie
+
 To define a new integration or modify an existing Logz.io integration in Opsgenie:
 
 1.  In Opsgenie, navigate to the **Teams** tab.
@@ -42,3 +44,33 @@ To define a new integration or modify an existing Logz.io integration in Opsgeni
 When updating an existing integration, after clicking **Save integration**, you may be asked to confirm the switch to advanced mode: Click **Proceed**.
 
 ![Opsgenie confirm](https://dytvr9ot2sszz.cloudfront.net/logz-docs/opsgenie-resolved-metrics/opsgenie_confirm_advanced.png)
+
+### Logz.io fields shared with Opsgenie
+The following fields are sent to Opsgenie when an Opsgenie alert is triggered: 
+
+
+|Field|Description|
+|---|---|
+|alert_alias | Unique identifier for a Logz.io alert. Used to close resolved alerts |
+|alert_event_type  | Notifies Opsgenie to open or close an alert  |
+|alert_details | Specifies account name and alert samples|
+|alert_view_link |  Specifies the link to the dashboard where the alert was triggered|
+|alert_title| Alert title|
+|alert_description| Alert message|
+|alert_severity| Alert severity|
+
+
+###### Field value examples
+
+```
+"alert_title": "httpcode200test alert",
+"alert_description": "http code is 200",
+"alert_severity": "MEDIUM",
+"alert_alias": "12345...",
+"alert_event_type": "create",
+"alert_details": {
+	"Account": "Account Name" ,
+	"alert_event_samples": "Sample 1 event out of 1"
+},  
+"alert_view_link": "https://app.logz.io/#/dashboard/metrics/d/..."
+```

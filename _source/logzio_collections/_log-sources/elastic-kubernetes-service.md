@@ -1,65 +1,124 @@
 ---
-title: Ship EKS logs
+title: Ship EKS logs using a Fluentd DaemonSet
 logo:
   logofile: aws-eks.svg
   orientation: vertical
 data-source: Elastic Kubernetes Service
+data-for-product-source: Logs
 templates: ["k8s-daemonset"]
 open-source:
   - title: logzio-k8s
     github-repo: logzio-k8s
 contributors:
+  - mirii1994
   - idohalevi
-  - imnotashrimp
   - yyyogev
+  - imnotashrimp
+  - shalper
 shipping-tags:
   - aws
   - container
+order: 250
 ---
 
-For Kubernetes, a DaemonSet ensures that some or all nodes run a copy of a pod.
-This implementation uses a Fluentd DaemonSet to collect Kubernetes logs.
-Fluentd is flexible enough and has the proper plugins to distribute logs to different third parties such as Logz.io.
 
-The logzio-k8s image comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs.
+<!-- tabContainer:start -->
+<div class="branching-container">
 
-{%- comment -%} <div class="branching-container">
-
-* [Default configuration <span class="sm ital">(recommended)</span>](#default-config)
+* [Overview](#overview)
+* [Default configuration](#default-config)
 * [Custom configuration](#custom-config)
-{:.branching-tabs} {%- endcomment -%}
+* [Multiline logs](#multiline)
+{:.branching-tabs}
 
+<!-- tab:start -->
+<div id="overview">
+
+Fluentd is an open source data collector and a great option because of its flexibility. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
+
+
+The image used in this integration comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs. If you prefer to customize your Fluentd configuration, you can edit it before it's deployed.
+
+
+<!-- info-box-start:info -->
+The latest version pulls the image from `logzio/logzio-fluentd`. Previous versions pulled the image from `logzio/logzio-k8s`.
+{:.info-box.note}
+<!-- info-box-end -->
+
+###### K8S version compatibility
+
+Your Kubernetes version may affect your options, as follows:
+
+* **K8S 1.19.3+** - If you're running on K8S 1.19.3+ or later, be sure to use the DaemonSet that supports a containerd at runtime. It can be downloaded and customized from[`logzio-daemonset-containerd.yaml`](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml).
+
+* **K8S 1.16 or earlier** - If you're running K8S 1.16 or earlier, you may need to manually change the API version in your DaemonSet to `apiVersion: rbac.authorization.k8s.io/v1beta1`.
+
+  The API versions of `ClusterRole` and `ClusterRoleBinding` are found in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml`.
+  
+  If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
+
+{% include /log-shipping/multiline-logs-fluentd.md %}
+
+
+</div>
+<!-- tab:end -->
 <!-- tab:start -->
 <div id="default-config">
 
-{%- comment -%} ## Deploy logzio-k8s with default configuration
+## Deploy logzio-k8s with default configuration
 
 For most environments, we recommend using the default configuration.
-However, you can deploy a custom configuration if your environment needs it. {%- endcomment -%}
+However, you can deploy a custom configuration if your environment needs it.
 
-#### To deploy logzio-k8s
+
+#### Deploy Fluentd as a DaemonSet on Kubernetes
 
 <div class="tasklist">
+
+
+##### Create a monitoring namespace
+
+Your DaemonSet will be deployed under the namespace `monitoring`.
+
+
+```shell
+kubectl create namespace monitoring
+```
+
 
 ##### Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/replace-vars.html token=true %}
+{% include log-shipping/log-shipping-token.html %}
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
-  --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+  --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
-  -n kube-system
+  -n monitoring
 ```
 
 ##### Deploy the DaemonSet
 
+###### For an RBAC cluster:
+
 ```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml
+kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
+```
+
+###### For a non-RBAC cluster:
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
+```
+
+###### For container runtime Containerd:
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
 ```
 
 ##### Check Logz.io for your logs
@@ -75,69 +134,80 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 </div>
 <!-- tab:end -->
 
-{%- comment -%} <!-- tab:start -->
+<!-- tab:start -->
 <div id="custom-config">
 
 ## Deploy logzio-k8s with custom configuration
 
-You can customize the configuration of the Fluentd container.
-This is done using a ConfigMap that overwrites the default DaemonSet.
+You can customize the configuration of your Fluentd container by editing either your DaemonSet or your Configmap.
 
-#### To deploy logzio-k8s
 
 <div class="tasklist">
+
+
+##### Create a monitoring namespace
+
+Your DaemonSet will be deployed under the namespace `monitoring`.
+
+
+```shell
+kubectl create namespace monitoring
+```
 
 ##### Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{% include log-shipping/replace-vars.html token=true listener=true %}
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
-  --from-literal=logzio-log-shipping-token='<<SHIPPING-TOKEN>>' \
+  --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
-  -n kube-system
+  -n monitoring
 ```
+
+{% include log-shipping/log-shipping-token.html %}
+
+{% include log-shipping/listener-var.html %}
+
 
 ##### Configure Fluentd
 
-Download either
-the [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml)
-or the [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml)
-and open the file in your text editor.
+There are 3 DaemonSet options: [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml), [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml), [Containerd](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml). Download the relevant DaemonSet and open it in your text editor to edit it.
 
-Customize the Fluentd configuration with the parameters shown below.
-The Fluentd configuration is below the `fluent.conf: |-` line, at the bottom of the file.
+If you wish to make advanced changes in your Fluentd configuration, you can download and edit the [configmap yaml file](https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml).
 
-###### Parameters
 
-| Parameter | Description |
-|---|---|
-| output_include_time <span class="default-param">`true`</span> | To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. |
-| buffer_type <span class="default-param">`file`</span> | Specifies which plugin to use as the backend. |
-| buffer_path <span class="default-param">`/var/log/Fluentd-buffers/stackdriver.buffer`</span> | Path of the buffer. |
-| buffer_queue_full_action <span class="default-param">`block`</span> | Controls the behavior when the queue becomes full. |
-| buffer_chunk_limit <span class="default-param">`2M`</span> | Maximum size of a chunk allowed. |
-| buffer_queue_limit <span class="default-param">`6`</span> | Maximum length of the output queue. |
-| flush_interval <span class="default-param">`5s`</span> | Interval, in seconds, to wait before invoking the next buffer flush. |
-| max_retry_wait <span class="default-param">`30s`</span> | Maximum interval, in seconds, to wait between retries. |
-| num_threads <span class="default-param">`2`</span> | Number of threads to flush the buffer. |
-{:.paramlist}
+{% include k8s-fluentd.md %}
+
+###### Good to know
+
+* If `FLUENT_FILTER_KUBERNETES_URL` is not specified, the environment variables `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT` will be used, as long as both of them are  present. Typically, they are present when running Fluentd in a pod.
+
+* Note that `FLUENT_FILTER_KUBERNETES_URL` does not appear in the default environment variable list in the DaemonSet.
+If you wish to use this variable, you'll have to add it manually to the DaemonSet's environment variables.
+
 
 ##### Deploy the DaemonSet
 
-For the RBAC DaemonSet:
+###### For the RBAC DaemonSet:
 
 ```shell
-kubectl apply -f /path/to/logzio-daemonset-rbac.yaml
+kubectl apply -f /path/to/logzio-daemonset-rbac.yaml -f /path/to/configmap.yaml
 ```
 
-For the non-RBAC DaemonSet:
+###### For the non-RBAC DaemonSet:
 
 ```shell
-kubectl apply -f /path/to/logzio-daemonset.yaml
+kubectl apply -f /path/to/logzio-daemonset.yaml -f /path/to/configmap.yaml
 ```
+
+###### For container runtime Containerd:
+
+```shell
+kubectl apply -f /path/to/logzio-daemonset-containerd.yaml -f /path/to/configmap.yaml
+```
+
 
 ##### Check Logz.io for your logs
 
@@ -148,6 +218,25 @@ If you still don't see your logs,
 see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+
+### Disabling systemd input
+
+To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
+
+
+
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="multiline">
+
+
+{% include /log-shipping/multiline-fluentd-plugin.md %}
+
 
 </div>
 <!-- tab:end -->
@@ -155,6 +244,4 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 </div>
 <!-- tabContainer:end -->
 
-## Disabling systemd input
 
-To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment. {%- endcomment -%}

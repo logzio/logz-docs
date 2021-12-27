@@ -43,20 +43,23 @@ you'll need to wait until we fix the problem before you can ship your logs.
 
 ##### Check your shipper's connectivity
 
-To make sure your log shipper can connect to Logz.io listeners,
-run this command from the environment you're shipping from:
-
-```shell
-telnet listener.logz.io <port>
-```
-
-You can find the correct port for your shipping method in the table below.
+Use telnet to make sure your log shipper can connect to Logz.io listeners.
 
 As of macOS High Sierra (10.13),
 telnet is not installed by default.
 You can install telnet with Homebrew
 by running `brew install telnet`.
 {:.info-box.note}
+
+Run this command from the environment you're shipping from, after adding the appropriate port number:
+
+```shell
+telnet listener.logz.io {port-number}
+```
+
+The port number depends on your shipping method.
+You can find the correct port for your shipping method in the table below.
+
 
 | Shipping method                         | Port |
 |-----------------------------------------|------|
@@ -107,7 +110,7 @@ in the [account settings](https://app.logz.io/#/dashboard/settings/general) page
 Compare your account token
 with the token you're sending to Logz.io with your logs.
 Review the instructions for your
-[log shipping method](https://app.logz.io/#/dashboard/data-sources/)
+[log shipping method](https://app.logz.io/#/dashboard/send-your-data/log-sources/)
 if you're not sure where to find the token you're sending with your logs.
 
 In most cases, the token is stored in a configuration file

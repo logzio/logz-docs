@@ -2,8 +2,9 @@
 layout: article
 title: Getting started with Cloud SIEM
 permalink: /user-guide/cloud-siem/
-flags:
-  logzio-plan: enterprise
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Cloud SIEM - security analytics in combination with Kibana for identifying, investigating, and remediating threats
+  logzio-plan: pro
 tags:
   - security-analytics
   - security-summary
@@ -16,34 +17,33 @@ contributors:
   - danielberman
 ---
 
-Logz.io Cloud SIEM combines the ELK stack
-with advanced security analytics tools
-to help you identify and remediate threats to your system.
+Logz.io Cloud SIEM combines the power of Kibana with advanced security analytics tools
+to help you identify, investigate, and remediate threats quickly and efficiently.
 
 To open your Cloud SIEM account,
-click the Logz.io logo (upper left corner),
-and then click **Security**.
+click **SIEM** in the navigation menu.
 
-![Logz.io Cloud SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-getting-started.png)
+![Logz.io Cloud SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-overview-new-nav.png)
 
 Summary
-: The first thing you see when you sign in to your security account.
-  The summary dashboard shows the last 24 hours of events that Logz.io found in your log data.
-
-Threats
-: The Threats dashboard shows you potential threats by correlating your logs with lists of known threats using publicly available threat feeds.
-
-Research & Dashboards
-: Use Kibana Discover to drill down into your logs, or select dashboards to review.
-  Cloud SIEM helps you quickly investigate specific events and threats.
-
-Reports
-: Schedule reports to be sent out on a regular basis.
+: The summary dashboard shows the last 24 hours of security events affecting your systems. [Learn more about investigating events](/user-guide/cloud-siem/security-events.html)
 
 Rules
 : Manage your SIEM's preconfigured rules, or add your own.
   When a security rule triggers, a security event is logged
-  and written to the relevant dashboards as well as the Summary and Threats dashboards.
+  and written to the relevant dashboards as well as the Summary and Threats dashboards. [Learn more](/user-guide/cloud-siem/manage-security-rules.html)
+  
+Dashboards
+: Your Cloud SIEM is pre-loaded with a large library of dashboards curated by Logz.io. [Learn more](/user-guide/cloud-siem/understanding-your-security-logs.html)
+
+Threats Overview & Threat Intelligence feeds
+: The Threats dashboard shows you potential threats by correlating your logs with lists of known threats using public and private threat feeds. [Learn more](/user-guide/cloud-siem/threat-intelligence.html)
+
+Kibana
+: Use Kibana to drill down into your logs, or select dashboards to review events by specific Security products. Your Cloud SIEM is pre-loaded with a large library of dashboards curated by Logz.io. [Learn more](/user-guide/cloud-siem/understanding-your-security-logs.html)
+
+Reports
+: Schedule dashboards to be sent out as reports on a regular basis. [Learn more](/user-guide/cloud-siem/dashboards/)
 {:.letter-labels}
 
 

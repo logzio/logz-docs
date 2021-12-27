@@ -1,9 +1,10 @@
 ---
 layout: article
-title: The data parsing wizard
+title: The data parsing wizard (deprecated)
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Log data parsing wizard for Community (free) accounts
 permalink: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 flags:
-  beta: true
   logzio-plan: community
 tags:
   - data-parsing
@@ -23,12 +24,19 @@ Parsing is not necessary for all types of logs.
 But if you use a custom or uncommon log type,
 parsing can be an invaluable tool.
 
-You can analyze a set of sample logs in the data parsing wizard,
-simplifying the process.
+You can analyze a set of sample logs for a Community (free) account in the data parsing wizard,
+to simplify the process.
 
-![Data parsing wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing-and-mapping--data-parsing-wizard.png)
+When you're logged into a Community account, you can find the data parsing wizard by selecting [**Logs > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the menu.
 
-You can find the data parsing wizard by selecting [**<i class="li li-gear"></i> > Tools > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the top menu.
+
+<!-- info-box-start:info -->
+**Deprecation notice**<br>
+With the release of [Logz.io Data Parsing](https://docs.logz.io/user-guide/mapping-and-parsing/sawmill-parsing.html), **the parsing wizard is deprecated for trial and paid accounts.** 
+<br>
+The parsing wizard is only available for Community (free) accounts.
+{:.info-box.note}
+<!-- info-box-end -->
 
 #### To use the data parsing wizard
 
@@ -79,7 +87,7 @@ Type your grok pattern in the **Parse method** text box.
 To help make the best grok pattern for your logs,
 use the [Grok Debugger](https://grokdebug.herokuapp.com/).
 For reference,
-see [grok patterns](https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns)
+see [grok patterns](https://github.com/elastic/elasticsearch/blob/master/libs/grok/src/main/resources/patterns/grok-patterns)
 from Elastic.
 {:.info-box.tip}
 

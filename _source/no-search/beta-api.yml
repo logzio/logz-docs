@@ -1,0 +1,137 @@
+---
+layout: none
+---
+
+swagger: '2.0'
+schemes: [ https ]
+host: api.logz.io
+x-servers:
+{%- for region in site.data.logzio-regions %}
+  - url: https://api
+  {%- if region.suffix -%}
+    -{{region.suffix}}
+  {%- endif -%}
+  .logz.io/
+    description: {{region.title}}
+{% endfor -%}
+basePath: /
+produces: [ application/json ]
+consumes: [ application/json ]
+info:
+  description: >-
+    The API endpoints documented here are in Beta, and are subject to change.
+    
+    For all other endpoints, please refer to our main API documentation at [docs.logz.io/api/](docs.logz.io/api/).
+
+    <!-- ReDoc-Inject: <security-definitions> -->
+
+
+  title: Logz.io Beta APIs
+  termsOfService: 'https://logz.io/about-us/terms-of-use/'
+  contact:
+    email: help@logz.io
+    url: https://docs.logz.io/
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+securityDefinitions:
+  X-API-TOKEN:
+    description: >-
+      Manage your tokens on the Logz.io [API tokens](https://app.logz.io/#/dashboard/settings/api-tokens) page.
+      To get to this page, click the gear in the top menu, and then select [**Tools > API tokens**](https://app.logz.io/#/dashboard/settings/api-tokens).
+
+
+      API tokens carry privileges to make changes to users and accounts,
+      so it's important to keep your tokens secure. If you believe an API token has been compromised,
+      delete the compromised token, and replace it with a new token in your integrations.
+    type: apiKey
+    in: header
+    name: X-API-TOKEN
+security:
+  - X-API-TOKEN: []
+
+tags:
+  - name: Deployment markers
+x-tagGroups:
+  - name: Exceptions
+    tags:
+      - Deployment markers
+
+paths:
+  # ::::: Deployment markers
+  /v2/markers/create-markers:
+    post:
+      tags:
+        - Deployment markers
+      operationId: createMarkers
+      summary: Add deployment markers to Exception graphs
+      description: Send logs with details of service deployments to annotate Exception graphs in Kibana Discover. [Learn more about Deployment markers](/user-guide/insights/exceptions/deployments.html)
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/CreateMarkersRequest'
+      responses:
+        default:
+          description: successful operation
+
+
+
+definitions:
+  # ::::: Deployment markers
+
+  CreateMarkersRequest:
+    type: object
+    properties:
+      markers:
+        type: array
+        items:
+          $ref: '#/definitions/MarkerDataPoint'
+  MarkerDataPoint:
+    type: object
+    required:
+      - title
+      - description
+    properties:
+      title:
+        type: string
+        description: Specify a marker title, for example, a service name. The title appears in the Deployments list in your Exceptions tab.
+        example: ServiceA
+      tag:
+        type: string
+        description: Specify `DEPLOYMENT` for the Deployment marker to appear in the Deployments list in your Exceptions tab.
+        default: OTHER
+        example: DEPLOYMENT
+        enum:
+          - DEPLOYMENT
+          - OTHER
+      timestamp:
+        type: integer
+        format: int64
+        description: Date of the deployment event, as Unix epoch milliseconds
+        example: 1613311091679
+      description:
+        type: string
+        description: Add a description to provide additional detail.
+        example: Description with additional context
+        required: true
+      metadata:
+        type: object
+        additionalProperties:
+          type: string
+        example:
+          version: version 5
+          deployer: iron man
+        description: >-
+          Provides additional metadata with details of the deployment.
+          
+          
+          (Future functionality: Metadata will be used to filter deployments by several dimensions. For example, to filter deployments by service and region to focus on deployments performed on a specific service and a specific region.
+
+            
+
+

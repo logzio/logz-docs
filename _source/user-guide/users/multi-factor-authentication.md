@@ -2,6 +2,8 @@
 layout: article
 title: Multi-factor authentication
 permalink: /user-guide/users/multi-factor-authentication.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: MFA for Logz.io account users
 flags:
   admin: true
   logzio-plan: community
@@ -29,7 +31,7 @@ Logz.io emails users to tell them when multi-factor authentication is enabled.
 Write that you want to enable multi-factor authentication (MFA).
 
 MFA is applied to your main account and each sub account separately.
-Include the [account token](https://app.logz.io/#/dashboard/settings/manage-accounts) for each account that you want MFA enabled on.
+Include the last six digits of your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts) for each account that you want MFA enabled on.
 
 The Support team will tell you when multi-factor authentication is enabled.
 

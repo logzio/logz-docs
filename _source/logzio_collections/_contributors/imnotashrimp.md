@@ -6,4 +6,5 @@ twitter: KeeperOfTheDocs
 github: imnotashrimp
 
 logzio-role: Keeper of the Copy
+sitemap: false
 ---

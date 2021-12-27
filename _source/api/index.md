@@ -5,6 +5,6 @@ permalink: /api/
 tags:
   - api
 contributors:
-  - imnotashrimp
-  - shalper
+  - yberlinger
+  - mirii1994
 ---

@@ -1,6 +1,13 @@
 # This file is NOT reloaded automatically when you use 'bundle exec jekyll
 # serve'. If you change this file, restart the server.
 
+# ===== HEADERS ===========
+# These headers were set by Noni, in order to improve our securityscorecard.io score
+headers:
+  for: "/*"
+  values:
+    Strict-Transport-Security: "max-age=31536000; includeSubDomains;"
+
 
 # ===== SITE SETTINGS =====
 # These are used to personalize your new site. If you look in the HTML files,
@@ -9,7 +16,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Logz.io Docs
-copyright: 2020 Logz.io
+copyright: 2015-2021, Logshero Ltd. # 2020 Logz.io 
 # description:
 url: "https://docs.logz.io" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -53,19 +60,49 @@ collections:
     output: true
     permalink: /shipping/log-sources/:slug.html
     name: Logs
+    id: :slug
     in-shipping-manifest: true
-  metrics-sources:
+    order: 1
+  prometheus-sources:
     output: true
-    permalink: /shipping/metrics-sources/:slug.html
-    name: Metrics
+    permalink: /shipping/prometheus-sources/:slug.html
+    name: Metrics 
+    id: :slug
+    in-shipping-manifest: true
+    order: 2
+  tracing-sources:
+    output: true
+    permalink: /shipping/tracing-sources/:slug.html
+    name: Tracing
+    id: :slug
+    in-shipping-manifest: true
+    order: 3
+  security-sources:
+    output: true
+    permalink: /shipping/security-sources/:slug.html
+    name: Cloud SIEM
+    id: :slug
+    in-shipping-manifest: true
+    order: 4
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html
     name: Community shippers
+    id: :slug
+    in-shipping-manifest: false
+  metrics-sources:
+    output: true
+    permalink: /shipping/metrics-sources/:slug.html
+    name: 
+    id: :slug
+    in-shipping-manifest: false
+    order: 
   shippers:
     output: true
     permalink: /shipping/shippers/:slug.html
-    name: Shippers
+    name: Agents
+    id: :slug
+    in-shipping-manifest: false
 
   ## ALL OTHER COLLECTIONS ##
   contributors:

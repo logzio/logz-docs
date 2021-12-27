@@ -2,6 +2,8 @@
 layout: article
 title: Single sign-on with Okta
 permalink: /user-guide/users/single-sign-on/okta-sso.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: SSO with Okta
 flags:
   admin: true
   logzio-plan: pro
@@ -26,7 +28,7 @@ Write that you want to set up Okta SAML SSO for Logz.io.
 Include these items in the message:
 
 * Your Logz.io [account ID]({{site.baseurl}}/user-guide/accounts/finding-your-account-id.html)
-* Your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
+* The last six characters of your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
 The Support team will respond with the connection information you'll need to give in Okta.
 
@@ -94,8 +96,8 @@ Copy the **Identity Provider Single Sign-On URL**, and paste this in the email t
 
 Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
-* Your zipped certificate (from step 4)
-* Your Identity Provider Single Sign-On URL (from step 5)
+* Your zipped certificate (from step 5)
+* Your Identity Provider Single Sign-On URL (from step 6)
 
 ##### _(Optional)_ Restrict Logz.io access to specific user groups
 

@@ -3,39 +3,25 @@ title: Ship Apache logs
 logo:
   logofile: apache.svg
   orientation: vertical
-data-source: Apache HTTPS Server 2
+short-description: Use Filebeat - a lightweight open source agent - to send Apache logs to Logz.io.
+data-source: Apache HTTPS Server
+data-for-product-source: Logs
 templates: [beats-logs]
 contributors:
   - amosd92
   - imnotashrimp
 shipping-tags:
   - server-app
+order: 120
 ---
+The Apache HTTP Server, colloquially called Apache, is a free and open-source cross-platform web server. This integration allows you to send logs from your Apache server instances to your Logz.io account.
 
-## Setup
-
-<details>
-
-<summary>
-Configuration tl;dr
-</summary>
-
-| Item | Description |
-|---|---|
-| Files | [Sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) <br> [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) |
-| Listener | Port 5015. For help finding your region's listener host, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
-| Default log locations | Ubuntu, Debian: `/var/log/apache2/access.log` <br> RHEL, CentOS, Fedora: `/var/log/httpd/access_log` |
-| Log type _\(for preconfigured parsing\)_ | `apache`, `apache_access`, or `apache-access`|
-{:.paramlist}
-
-</details>
-
-#### Guided configuration
+#### Step by step
 
 **Before you begin, you'll need**:
 
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or
-[Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html) installed
+* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html) installed
+* Port 5015 open.
 * Root access
 
 <div class="tasklist">
@@ -46,7 +32,14 @@ Configuration tl;dr
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to the filebeat.inputs section.
 
-{% include log-shipping/replace-vars.html token=true %}
+
+The default log locations for:
+
+* Ubuntu and Debian - `/var/log/apache2/access.log`
+* RHEL, CentOS, Fedora - `/var/log/httpd/access_log`
+
+
+{% include log-shipping/log-shipping-token.html %}
 
 ```yaml
 # ...
@@ -61,9 +54,9 @@ filebeat.inputs:
   fields:
     logzio_codec: plain
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
     type: apache_access
   fields_under_root: true
   encoding: utf-8
@@ -79,9 +72,9 @@ filebeat.inputs:
   fields:
     logzio_codec: plain
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<SHIPPING-TOKEN>>
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
     type: apache_error
   fields_under_root: true
   encoding: utf-8
@@ -119,7 +112,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{% include log-shipping/replace-vars.html listener=true %}
+{% include log-shipping/listener-var.html %} 
 
 ```yaml
 # ...
@@ -131,12 +124,11 @@ output.logstash:
 
 ##### Start Filebeat
 
-Start or restart Filebeat for the changes to take effect.
+[Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
 ##### Check Logz.io for your logs
 
-Confirm you're shipping logs by opening an Apache-hosted webpage in your browser.
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search for `type:apache OR apache_access OR apache-access` to filter for your Apache logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

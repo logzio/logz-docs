@@ -39,6 +39,8 @@
   class: li-wrench
 - escape-sequence: \e918
   class: li-x
+- escape-sequence: \e927
+  class: li-clear
 - escape-sequence: \e93b
   class: li-plane
 - escape-sequence: \e93c
@@ -49,6 +51,7 @@
   class: li-signal
 - escape-sequence: \e940
   class: li-gear
+
 - escape-sequence: \e943
   class: li-minus
 - escape-sequence: \e953
@@ -59,5 +62,17 @@
   class: li-play
 - escape-sequence: \e957
   class: li-stop
-- escape-sequence: \e927
-  class: li-clear
+- escape-sequence: \e6c4
+  class:  li-pie_chart
+
+- escape-sequence: \e954
+  class:  li-donut_small
+
+- escape-sequence: \e955
+  class:  li-donut_large
+
+- escape-sequence: \e93a
+  class:  li-dashboard
+
+- escape-sequence: \e938
+  class:  li-visualization

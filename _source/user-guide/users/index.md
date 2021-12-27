@@ -26,13 +26,21 @@ in the top menu.
 Community plans have a maximum of 50 users.
 {:.info-box.note}
 
-### Meet the different roles
+### Acess level per role
 
-You can choose whether users will get **Read Only**, **User** or **Admin** roles. Each role has different access that helps you limit the data, visibility, and abilities shared with other users. 
+You can choose whether users will get **Read Only**, **User** or **Admin** roles. Each role has different access that helps you limit the data, visibility, and abilities shared with other users.
 
-##### Access levels: Logs
+See the permission and access levels for Logz.io different products:
 
-| **Logs**                                    | Read Only | User | Admin |
+* [Logs]()
+* [Metrics]()
+* [Tracing]()
+* [Cloud SIEM]()
+* [General settings]()
+
+##### Logs
+
+| **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
 | View dashboards                         | ✓         | ✓    | ✓     |
 | View alerts                             | ✓         | ✓    | ✓     |
@@ -48,17 +56,17 @@ You can choose whether users will get **Read Only**, **User** or **Admin** roles
 | Archive and restore                     |           | ✓    | ✓     |
 | Drop filters                            |           | ✓    | ✓     |
 | Incident reports                        |           | ✓    | ✓     |
+###### Additional restrictions
 
-###### Additional restrictions: Logs
-
-There are a few additional abilities that are ristrected:
+Some additional options that are limited per role:
 
 * **Read Only** roles can't save searches
 * **Read Only** and **User** roles can't create optimizers
 
-##### Access levels: Metrics
 
-| **Metrics**                                 | Read Only | User | Admin |
+##### Metrics
+
+| **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
 | View dashboards                         | ✓         | ✓    | ✓     |
 | Manage tokens                           |           |      | ✓     |
@@ -67,18 +75,28 @@ There are a few additional abilities that are ristrected:
 | View unified variables                  | ✓         | ✓    | ✓     |
 | Create unified variables                |           |      | ✓     |
 
-##### Access levels: Tracing
+###### Additional restrictions
 
-| **Tracing**                                 | Read Only | User | Admin |
+Metrics dashboards are visible and accisible to all roles, with some restrictions:
+
+* **Read Only** roles can view dashboards. They can't create or duplicate them, however, they can edit existing user-made dashboards.
+
+##### Tracing
+
+| **Main features**                                 | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
 | View dashboards                         | ✓         | ✓    | ✓     |
 | Manage tokens                           |           |      | ✓     |
 | Send your traces                        | ✓         | ✓    | ✓     |
 | Notification endpoints                  |           | ✓    | ✓     |
 
-##### Access levels: Cloud SIEM
+###### Additional restrictions
 
-| **Cloud SIEM**                              | Read Only | User | Admin |
+ha
+* ha
+##### Cloud SIEM
+
+| **Main features**                              | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
 | View summary                            | ✓         | ✓    | ✓     |
 | Event management                        | ✓         | ✓    | ✓     |
@@ -93,6 +111,32 @@ There are a few additional abilities that are ristrected:
 | Drilldowns                              |           |      | ✓     |
 | Lookups                                 |           | ✓    | ✓     |
 | Incident reports                        |           | ✓    | ✓     |
+
+###### Additional restrictions
+
+ha
+* ha
+
+##### General settings
+
+| **Main features**                       | Read Only | User | Admin |
+|-----------------------------------------|-----------|------|-------|
+| Change personal password                | ✓         | ✓    | ✓     |
+| Change dark/light theme                 | ✓         | ✓    | ✓     |
+| View token                              |           |      | ✓     |
+| Manage tokens                           |           |      | ✓     |
+| View region                             |           |      | ✓     |
+| Toggle support access                   |           |      | ✓     |
+| Refresh Kibana mapping                  |           | ✓    | ✓     |
+| View system status                      | ✓         | ✓    | ✓     |
+| Notification endpoints                  |           | ✓    | ✓     |
+| ELK apps                                |           | ✓    | ✓     |
+| View Unified variables                  | ✓         | ✓    | ✓     |
+| Edit Unified variables                  |           |      | ✓     |
+| Manage users                            |           |      | ✓     |
+| Audit trail                             |           |      | ✓     |
+| Manage accounts                         |           |      | ✓     |
+| Usage and billing                       |           |      | ✓     |
 
 
 #### User management

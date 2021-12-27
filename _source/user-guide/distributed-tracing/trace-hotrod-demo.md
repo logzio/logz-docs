@@ -15,9 +15,9 @@ contributors:
 
 Not ready to instrument and deploy components? We've got you covered with an app that can send demo traces to your Distributed Tracing.
 
-Using the **HotROD app** is so easy, and so fast, that you'll be searching for traces in Logz.io within a few minutes of setting up the app! 
+Using the **HotROD app** is so easy, and fast, that you'll be searching for traces in Logz.io within a few minutes of setting up the app! 
 
-In this guide you'll find:
+In this guide, you'll find:
 
 * [What's HotROD demo application?](/user-guide/distributed-tracing/trace-hotrod-demo#whats-hotrod-demo-application)
 * [How to set up HotROD demo traces](/user-guide/distributed-tracing/trace-hotrod-demo#set-up-hotrod-demo-traces)
@@ -28,7 +28,7 @@ In this guide you'll find:
 
 ## What's HotROD demo application? ##
 
-HotROD (Rides on Demand) is a demo application, created by Logz.io, that consists of several microservices that send requests to each other. The application is used to illustrate the use of the OpenTracing API. It can be run standalone, but requires a Jaeger backend to view the traces. 
+HotROD (Rides on Demand) is a demo application, created by Logz.io, that consists of several microservices that send requests to each other. The application illustrates the use of the OpenTracing API. It can be run standalone, but requires a Jaeger backend to view the traces. 
 
 The _HotROD (Rides on Demand)_ application generates a web page with four customer buttons to order a car to the customer's business to pick up passengers or merchandise for delivery to a desired location. 
 
@@ -38,7 +38,7 @@ Clicking a button sends a request to the backend, which generates a trace. The a
 
 ![HotROD interface animation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-hotrod-anim8.gif)
 
-A web client ID is displayed in the upper left corner:  This random session ID is assigned by the Javascript UI. A new session ID is created each time the page is reloaded.  
+You have a web client ID in the upper left corner: A random session ID assigned by the Javascript UI. Each time you reload the page, it generates a new session ID.
 
 In this example, the web client ID is 1465. All the ride requests generated in the session include this ID in a unique request ID. For each button click, you'll see the following information: 
 
@@ -79,14 +79,14 @@ The **.env** file might be hidden.
 1. Enter the correct 2-letter code for your region in the second line: `REGION_CODE=Enter your region code here`<br>
     Look up the 2-letter code for your region in the <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> 
    
-   You can find your the region code for your account in the General settings page, here: <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> >Settings > General**.
+   You can find the region code for your account in the General settings page, here: <a href="https://app.logz.io/#/dashboard/settings/general" target ="_blank"> **<i class="li li-gear"></i> >Settings > General**.
 
    ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traces-general-settings_oct21.png	)
 
 
 1. Save and close the updated **.env** file.
 
-1. in the terminal, run `docker network create dockercompose_testcluster` to create a Docker network.
+1. In the terminal, run `docker network create dockercompose_testcluster` to create a Docker network.
 
 
 Updating the **.env** file in the Logz.io tracing demo repo with your tracing account token and region code 
@@ -116,7 +116,7 @@ _To run the demo:_
 
 ## Viewing demo traces
 
-After you send traces with the tracing demo app, navigate to the [Distributed Tracing](https://app.logz.io/#/dashboard/jaeger/search?switchToAccountId=2977) tab in Logz.io, select a service and click **Find Traces** to view your generated trace data.    
+After sending traces with the tracing demo app, navigate to the [Distributed Tracing](https://app.logz.io/#/dashboard/jaeger/search?switchToAccountId=2977) tab in Logz.io, select a service and click **Find Traces** to view your generated trace data.    
 
 ## Additional resources
 

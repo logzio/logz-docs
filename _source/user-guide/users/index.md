@@ -71,9 +71,6 @@ Each Logz.io product has a different set of permission and access levels:
 | View dashboards                         | ✓         | ✓    | ✓     |
 | Manage tokens                           |           |      | ✓     |
 | Send your metrics                       | ✓         | ✓    | ✓     |
-| Notification endpoints                  |           | ✓    | ✓     |
-| View unified variables                  | ✓         | ✓    | ✓     |
-| Create unified variables                |           |      | ✓     |
 
 ###### Additional restrictions
 
@@ -86,7 +83,6 @@ Each Logz.io product has a different set of permission and access levels:
 | View dashboards                         | ✓         | ✓    | ✓     |
 | Manage tokens                           |           |      | ✓     |
 | Send your traces                        | ✓         | ✓    | ✓     |
-| Notification endpoints                  |           | ✓    | ✓     |
 
 ##### Cloud SIEM
 

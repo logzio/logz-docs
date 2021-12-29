@@ -60,8 +60,8 @@ Each Logz.io product has a different set of permission and access levels:
 
 ###### Additional restrictions
 
-* **Read Only** roles can't save searches
-* **Read Only** and **User** roles can't create optimizers
+* **Read Only** roles can't create, delete or update visualizations, dashboards, and save searches.
+* **Read Only** and **User** roles can't create optimizers.
 
 
 ##### Metrics
@@ -74,7 +74,7 @@ Each Logz.io product has a different set of permission and access levels:
 
 ###### Additional restrictions
 
-* **Read Only** roles can view dashboards. They can't create or duplicate them; however, they can edit existing user-made dashboards.
+* **Read Only** roles can only view dashboards. They can't create or duplicate them; however, they can edit existing user-made dashboards.
 
 ##### Tracing
 

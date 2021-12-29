@@ -37,7 +37,7 @@ We advise to use this integration with [the Logz.io Metrics backend](https://app
 ##### Install the SDK package
 
 ```shell
-npm install logzio-nodejs-metrics-sdk@0.1.0
+npm install logzio-nodejs-metrics-sdk@0.2.1
 ```
 
 ##### Initialize the exporter and meter provider
@@ -45,8 +45,8 @@ npm install logzio-nodejs-metrics-sdk@0.1.0
 Add the following code to your application:
   
 ```js
-const { MeterProvider } = require('@opentelemetry/metrics');
-const { RemoteWriteMetricExporter } =  require('logzio-nodejs-metrics-sdk');
+const MeterProvider = require('@opentelemetry/sdk-metrics-base');
+const sdk =  require('logzio-nodejs-metrics-sdk');
 
 const collectorOptions = {
     url: '<<LISTENER-HOST>>',
@@ -55,10 +55,10 @@ const collectorOptions = {
     }
 };
 // Initialize the exporter
-const metricExporter = new RemoteWriteMetricExporter(collectorOptions);
+const metricExporter = new sdk.RemoteWriteExporter(collectorOptions);
 
 // Initialize the meter provider
-const meter = new MeterProvider({
+const meter = new MeterProvider.MeterProvider({
     exporter: metricExporter,
     interval: 15000, // Push interval in seconds
 }).getMeter('example-exporter');
@@ -76,10 +76,8 @@ This integration allows you to use the following metrics:
 | ---- | ---------- |
 | Counter           | Metric value can only go up or be reset to 0, calculated per `counter.Add(context,value,labels)` request. |
 | UpDownCounter     | Metric value can arbitrarily increment or decrement, calculated per `updowncounter.Add(context,value,labels)` request. |
-| ValueRecorder     | Metric values captured by the `valuerecorder.Record(context,value,labels)` function, calculated per request. |
-| SumObserver       | Metric value can only go up or be reset to 0, calculated per push interval.|
-| UpDownSumObserver | Metric value can arbitrarily increment or decrement, calculated per push interval.|
-| ValueObserver     | Metric values captured by the callback function, calculated per push interval.|
+| Histogram         | Metric values captured by the `histogram.Record(context,value,labels)` function, calculated per request. |
+
   
 For more information on each of these metrics, see the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
 
@@ -117,99 +115,22 @@ upDownCounter.add(-1);
 // UpDownCounter{environment: 'prod'} 4.0
 ```
 
-###### ValueRecorder
-  
+###### Histogram:
 ```js
 // Create ValueRecorder metric
-const recorder = meter.createValueRecorder('test_value_recorder', {
-    description: 'Example of a ValueRecorder',
+const histogram = meter.createHistogram('test_histogram', {
+    description: 'Example of a histogram',
 });
 // Define some labels for your metrics
 const labels = { environment: 'prod' };
 // Record some values
-recorder.bind(labels);
-recorder.record(30);
-recorder.record(20);
+histogram.bind(labels);
+histogram.record(30);
+histogram.record(20);
 // In logzio you will see the following metrics:
-// test_value_recorder_sum{environment: 'prod'} 50.0
-// test_value_recorder_count{environment: 'prod'} 2.0
-// test_value_recorder_avg{environment: 'prod'} 25.0
-```
-
-###### SumObserver
-  
-```js
-// Create SumObserver metric
-meter.createSumObserver('SumObserver', {
-    description: 'Example of a sync sum observer with callback',
-}, (observerResult) => {
-    const value = getMetrics(); // Calculte your metric value
-    const labels = { environment: 'prod' }; // Define some labels
-    observerResult.observe(value, labels);
-});
-// In logzio you will see the following metrics:
-// SumObserver_total{environment: 'prod'}
-```
-
-###### UpDownSumObserver
-  
-```js
-// This function will calculate your metric value
-function getAsyncValue() {
-    return new Promise((resolve) => {
-        setTimeout(()=> {
-            resolve(Math.random());
-        }, 100);
-    });
-}
-// Create UpDownSumObserver metric
-meter.createUpDownSumObserver('UpDownSumObserver', {
-    description: 'Example of an async observer with callback',
-}, async (observerResult) => {
-    const value = await getAsyncValue(); // Calculte your metric value
-    const labels = { environment: 'prod' }; // Define some labels
-    observerResult.observe(value, labels);
-});
-// In logzio you will see the following metrics:
-// UpDownSumObserver{environment: 'prod'}
-```
-
-###### ValueObserver
-  
-```js
-// This function will calculate your metric value
-function getSomeAsyncMetrics() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve({
-                value1: Math.random(),
-                value2: Math.random(),
-            });
-        }, 100)
-    });
-}
-
-// Create ValueObserver metrics
-const valueObserver = meter.createValueObserver('value_observer', {
-    description: 'Example of a value observer metric',
-});
-const anotherValueObserver = meter.createValueObserver('another_value_observer', {
-    description: 'Example of a value observer metric',
-});
-
-meter.createBatchObserver((observerBatchResult) => {
-    getSomeAsyncMetrics().then(metrics => {
-        const labels = { environment: 'prod' }; // Define some labels
-        observerBatchResult.observe(labels, [
-            valueObserver.observation(metrics.value1),
-            anotherValueObserver.observation(metrics.value2),
-        ]);
-    });
-});
-
-// In logzio you will see the following metrics:
-// value_observer{environment: 'prod'}
-// another_value_observer{environment: 'prod'}
+// test_histogram_sum{environment: 'prod'} 50.0
+// test_histogram_count{environment: 'prod'} 2.0
+// test_histogram_avg{environment: 'prod'} 25.0
 ```
 
 ##### Run your application

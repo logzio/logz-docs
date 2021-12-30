@@ -16,7 +16,7 @@ contributors:
 
 When a log that includes specific issues is received, the log is flattened and ingested, the **`type`** field is changed to **`logzio-invalid-log`**,  and the **`tags`** field is added to the log to identify the issue.
 
-![Invalid log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log/invalid_log_dec2021.png)
+![Invalid log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/invalid_log_eg-dec2021.png)
 
 ## Invalid log tags
 

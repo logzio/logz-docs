@@ -20,7 +20,7 @@ When a log that includes specific issues is received, the log is flattened and i
 
 ## Invalid log tags
 
-The tags in the table below provide insights into why a log was labeled with the **`logzio-invalid-log`** field.
+The tags in the table below identify the character or field limitations that may result in a log being labeled with the **`logzio-invalid-log`** field.
 
 |Tag|Description|
 |---|---|

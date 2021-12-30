@@ -20,6 +20,8 @@ When a log that includes specific issues is received, the log is flattened and i
 
 ## Invalid log tags
 
+The tags in the table below provide insights into why a log was labeled with the **`logzio-invalid-log`** field.
+
 |Tag|Description|
 |---|---|
 | MAX_LOG_LINE_LENGTH | Exceeded the maximum of 500K characters per log|

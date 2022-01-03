@@ -2,6 +2,7 @@
 layout: article
 title: Share Kibana objects
 permalink: /user-guide/kibana/share-import-export
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Share Kibana dashboards, saved searches and visualizations between accounts by exporting and importing them.
 flags:
   logzio-plan: community
@@ -20,7 +21,6 @@ You can share Kibana dashboards, saved searches and visualizations between accou
 
 1. toc list
 {:toc}
-
 
 <div class="tasklist">
 
@@ -53,7 +53,31 @@ Assuming you've got a JSON with your exported objects, it's time to import them 
 2. Click **Import** and select the relevant JSON file.
 3. You can toggle the option to **Automatically overwrite all saved objects**. Enable it if you want the export to overwrite existing objects in case of conflict. Select the option that works for you.
 
-You're done! You are ready to use your newly imported Kibana dashboards, saved searches, and visualivations.
+You're done! You're all set  to use your newly imported Kibana dashboards, saved searches, and visualizations.
 
 If any visualization or dashboard did not import, the issue is most likely a field that is referenced in the visualization but not indexed in your Logz.io account. Check that the relevant logs are already in the account and refresh the Kibana mapping.
  {:.info-box.note}
+
+ </div>
+
+### Compatibility across versions for shared objects
+ 
+ Your saved and shared objects can only be imported into the following Kibana versions: 
+ 
+ * The same release version
+ * A newer minor version on the same major version
+ * The next major version
+
+Exported shared objects are not backwards compatible, and thus can't be imported into an older version of Kibana.
+
+##### Compatibility examples
+
+The following table provides some compatibility examples:
+
+|Exporting from version: | Importing to version:| Compatible? [Y/N]|
+|---|---|---|
+| 6.7.0 |6.8.1|Yes|
+| 6.8.1 |7.3.0|Yes|
+| 7.3.0 |7.11.1|Yes|
+| **7.11.1**| **7.6.0**| **No**|
+| **6.8.1** | **8.0.0**| **No**|

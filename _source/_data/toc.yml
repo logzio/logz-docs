@@ -54,6 +54,9 @@ firstLevel:
   - title: Reports
     url: /user-guide/reports/  
 
+  - title: Understanding invalid log errors
+    url: /user-guide/invalid_logs/
+  
   - title: Long term storage for select logs
     thirdLevel:
     - title: Optimizers

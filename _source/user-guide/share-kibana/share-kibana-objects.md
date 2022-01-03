@@ -60,7 +60,7 @@ If any visualization or dashboard did not import, the issue is most likely a fie
 
  </div>
 
-### Compatibility across versions for shared objects
+### Compatibility for shared objects across different versions
  
  Your saved and shared objects can only be imported into the following Kibana versions: 
  

@@ -199,16 +199,18 @@ If you'd like to disable the Prometheus input plugin, set the environment variab
 
 If you wish to exclude logs from certain namespaces, add the following to your Fluentd configuration:
 
-```xml
-<match kubernetes.var.log.containers.**_<<NAMESPACE>>_**>
+```shell
+<match kubernetes.var.log.containers.**_NAMESPACE_**>
   @type null
 </match>
 ```
 
-Replace `<<NAMESPACE>>` with the name of the namespace you need to exclude logs from. If you need to specify multiple namespaces, add another `kubernetes.var.log.containers.**_<<NAMESPACE>>_**` line to the above function as follows:
+Replace `NAMESPACE` with the name of the namespace you need to exclude logs from. 
+  
+If you need to specify multiple namespaces, add another `kubernetes.var.log.containers.**_NAMESPACE_**` line to the above function as follows:
 
-```xml
-<match kubernetes.var.log.containers.**_<<NAMESPACE1>>_** kubernetes.var.log.containers.**_<<NAMESPACE2>>_**>
+```shell
+<match kubernetes.var.log.containers.**_NAMESPACE1_** kubernetes.var.log.containers.**_NAMESPACE2_**>
   @type null
 </match>
 ```

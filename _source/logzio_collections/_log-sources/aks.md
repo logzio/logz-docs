@@ -233,7 +233,9 @@ If you wish to exclude logs from certain namespaces, add the following to your F
 </match>
 ```
 
-Replace `NAMESPACE` with the name of the namespace you need to exclude logs from. If you need to specify multiple namespaces, add another `kubernetes.var.log.containers.**_NAMESPACE_**` line to the above function as follows:
+Replace `NAMESPACE` with the name of the namespace you need to exclude logs from. 
+  
+If you need to specify multiple namespaces, add another `kubernetes.var.log.containers.**_NAMESPACE_**` line to the above function as follows:
 
 ```shell
 <match kubernetes.var.log.containers.**_NAMESPACE1_** kubernetes.var.log.containers.**_NAMESPACE2_**>

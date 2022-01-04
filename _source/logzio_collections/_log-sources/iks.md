@@ -195,7 +195,25 @@ To suppress Fluentd system messages, set the environment variable `FLUENTD_SYSTE
 By default, the latest images launch `prometheus` plugins to monitor Fluentd.
 If you'd like to disable the Prometheus input plugin, set the environment variable `FLUENTD_PROMETHEUS_CONF` to `disable` in your Kubernetes configuration.
 
+### Exclude logs from certain namespaces
 
+If you wish to exclude logs from certain namespaces, add the following to your Fluentd configuration:
+
+```shell
+<match kubernetes.var.log.containers.**_NAMESPACE_**>
+  @type null
+</match>
+```
+
+Replace `NAMESPACE` with the name of the namespace you need to exclude logs from. 
+  
+If you need to specify multiple namespaces, add another `kubernetes.var.log.containers.**_NAMESPACE_**` line to the above function as follows:
+
+```shell
+<match kubernetes.var.log.containers.**_NAMESPACE1_** kubernetes.var.log.containers.**_NAMESPACE2_**>
+  @type null
+</match>
+```
 
 </div>
 <!-- tab:end -->

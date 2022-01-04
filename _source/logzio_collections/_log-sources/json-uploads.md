@@ -142,6 +142,7 @@ Keep to these practices when shipping JSON logs over TCP:
 
 * Each log must be a single-line JSON object
 * Each log line must be 500,000 bytes or less
+* Each log line must be followed by a `\n` (even the last log)
 * Include your account token as a top-level property: `{ ... "token": "<<LOG-SHIPPING-TOKEN>>" , ... }`
 
 #### Send TLS/SSL streams over TCP

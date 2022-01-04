@@ -225,19 +225,21 @@ see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-
 To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
 
 ### Exclude logs from certain namespaces
-
+  
 If you wish to exclude logs from certain namespaces, add the following to your Fluentd configuration:
 
-```xml
-<match kubernetes.var.log.containers.**_<<NAMESPACE>>_**>
+```shell
+<match kubernetes.var.log.containers.**_NAMESPACE_**>
   @type null
 </match>
 ```
 
-Replace `<<NAMESPACE>>` with the name of the namespace you need to exclude logs from. If you need to specify multiple namespaces, add another `kubernetes.var.log.containers.**_<<NAMESPACE>>_**` line to the above function as follows:
+Replace `NAMESPACE` with the name of the namespace you need to exclude logs from. 
+  
+If you need to specify multiple namespaces, add another `kubernetes.var.log.containers.**_NAMESPACE_**` line to the above function as follows:
 
-```xml
-<match kubernetes.var.log.containers.**_<<NAMESPACE1>>_** kubernetes.var.log.containers.**_<<NAMESPACE2>>_**>
+```shell
+<match kubernetes.var.log.containers.**_NAMESPACE1_** kubernetes.var.log.containers.**_NAMESPACE2_**>
   @type null
 </match>
 ```

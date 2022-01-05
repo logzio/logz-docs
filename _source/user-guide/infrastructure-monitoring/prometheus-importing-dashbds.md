@@ -89,7 +89,7 @@ python3 main.py # If python 2 is your default version
 <div id="manual">
   
 For the dashboard import to work smoothly, you'll need to change the name of the data source in your JSON file to the name of your Logz.io Metrics account. 
-Your Metrics account information is located in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace. ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
+Your Metrics account information is located in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace. ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/metrics-account-settings.png)
 
 For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations ](/user-guide/infrastructure-monitoring/annotations/)for more information. 
 
@@ -107,7 +107,7 @@ Log into Logz.io and navigate to the **Metrics** tab.
 
 ##### Select the Import option.
 In the left navigation pane, click <i class="fas fa-plus"></i> and select **Import**.
-![Import dashboards to Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/metrics-prometheus/import-dash-prometheus.png)
+![Import dashboards to Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/metrics-import-navigation.png)
 
   - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload JSON file** and select the files to upload. 
     

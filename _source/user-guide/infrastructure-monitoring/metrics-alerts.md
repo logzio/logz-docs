@@ -46,7 +46,7 @@ Click the gear **<i class="li li-gear"></i>** in the top menu, then select **Sav
 If you don't rename the dashboard, it will have the same name as the original dashboard, with **Copy** appended at the end.
 
   <video autoplay loop>
-    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/copy-dashboard2.mp4" type="video/mp4" />
+    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/copy-existing-dashboard.mp4" type="video/mp4" />
   </video>
 
 ##### Edit your graph
@@ -55,7 +55,7 @@ Select the graph panel you'll be using for the alert. Only the graph panel is su
 
 Hover over the graph panel name, and click **Edit**.
 
-![Edit Grafana Graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/edit-graph.png)
+![Edit Grafana Graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-edit-graph.png)
 
 
 ##### Remove variables
@@ -69,22 +69,22 @@ Then click **<i class="far fa-eye-slash"></i>** to hide the query in the dashboa
 
 Remove any variables. Variables are indicated by a `$` sign, as seen in the example below. These will block you from saving your alert.
 
-![Remove variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-variables.png)
+![Remove variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-query-variable.png)
 
 Select a fixed source and erase the query or rewrite the query so it doesn't contain variables. You can also leave the query blank.
 
 
 ##### Add an alert
 
-Click the bell **<i class="fas fa-bell"></i>** in the left panel > **Create alert** to add an alert.
+Alerts are added and configured in the Alert tab of any dashboard graph panel, letting you build and visualize an alert using existing queries.
 
-Next, configure the alert.
+![Add an alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/create-alert-tab.png)
 
 * In the **Name** field, name your alert. Preferrably, use a name that will be clear to anyone on the team and future newcomers.
 * Set an **Evaluation interval** to decide how often the rule should be evaluated.
 * In the field **For**, set a time for the "silent alert". This is the time that the alert can go off before it sends a notification. For example, you could send an alert if the rule is breached for 5 minutes or longer. Use this to allow for some leeway, or "wiggle room".
 
-![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-alert.png)
+![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/create-alert-edit-screen.png)
 
 Next, set your alert conditions.
 
@@ -93,7 +93,7 @@ Next, set your alert conditions.
 * You can click the condition to decide whether to set it for values above/below a threshold, within/outside a range, or when it has no value.
 * You have the option to set up multiple conditions and queries for more advanced alerts.
 
-![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/alert-condition.png)
+![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/alert-conditions-set.png)
 
 **Metrics UI tags for alert Severity levels**
 

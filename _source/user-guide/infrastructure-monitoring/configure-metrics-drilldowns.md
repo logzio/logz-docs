@@ -13,9 +13,10 @@ contributors:
 ---
 
 Variables will allow you to apply filters on your dashboards and drilldown links.
-The Metrics interface variables are indicated with a `$`.
+The Metrics interface variables are indicated with a `$`. 
 
-![Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-variables.png)
+![Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-query-variable.png)
+
 
 #### Add dashboard variables {#set-up-dashboard-variables}
 
@@ -30,7 +31,7 @@ The Metrics interface variables are indicated with a `$`.
 * Click <i class="fas fa-cog"></i> in the dashboard toolbar (upper right corner).
 * Select **Variables** > **Add variable**.
 
-![Add Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/add-variable.png)
+![Add Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-variables.png)
 
 ##### Define the variable
 
@@ -41,7 +42,7 @@ Fill in the form, starting with the **General** section.
 * In the **Type** list, choose **Query**.
 * We recommend leaving **Hide** empty.
 
-![Variable general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/add-variable1.png)
+![Variable general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/new-variable-settings-.png)
 
 
 Next, fill in the query options.
@@ -51,7 +52,7 @@ Next, fill in the query options.
 * The **Query** field is where things get really fun. Your query object should start with `{"find": "terms"}`
   and contain a field from your Elasticsearch index.
 
-![Variable query options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variable-config--query-options.png)
+![Variable query options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-query-options.png)
 
   Your query can reference another Metrics interface variable.
   In this example, `$cluster` references another variable.
@@ -67,10 +68,9 @@ Next, fill in the query options.
 
 ##### Configure the remaining options and save
 
-The remaining options can be set
-to whatever makes the most sense for your metrics.
+You can set the remaining options to whatever makes the most sense for your metrics.
 
-When you're finished, scroll to the bottom of the page and click **Update**.
+When finished, scroll to the bottom of the page and click **Update**.
 
 
 You're now ready to use the variable in your new dashboard.

@@ -25,9 +25,7 @@ Investigate your logs to identify the root cause of any issues highlighted in yo
 
 In Logz.io, you can navigate seamlessly from your metrics to your logs and save time and hassle. Whenever your metrics visualizations highlight an issue, you can click the shortcut button **Explore in Kibana** to drill-down on the relevant logs in Kibana. The reason you can drill-down directly from your Metrics graphs to the corresponding logs, is that Logz.io stores both your metrics and logs in ElasticSearch.
 
-<video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/exploreinkibana.mp4" type="video/mp4" />
-</video>
+  <img source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/metrics-to-logs.gif" alt="metrics to logs"/>
 
 You'll see the link in many of the graph panels in your pre-configured dashboards provided by Logz.io. You can also add similar drill-down links to any of your own dashboards too. See [how]({{site.baseurl}}/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links).
 

@@ -124,7 +124,7 @@ Order matters. The arguments _must_ be configured in the order shown here. For e
 | Parameter | Description | Required/Default |
 |---|---|---|
 | token | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} | Required |
-| logzio_ype | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `python` |
+| logzio_type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `python` |
 | timeout | Time to wait between log draining attempts, in seconds. | `3` |
 | url | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
 | debug-flag | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. | `False` |

@@ -61,7 +61,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AA
 
 * For Windows:
 
-Download the [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) to `C:\ProgramData\ElkStack\logstash-<<YOUR-LOGSTASH-VERSION-NUMBER>>\configLogzio.crt` on your machine.
+Download the [Logz.io public certificate]({% include log-shipping/certificate-path.md %}) to `C:\ProgramData\ElkStack\logstash-<<YOUR-LOGSTASH-VERSION-NUMBER>>\COMODORSADomainValidationSecureServerCA.crt` on your machine.
 
 ##### Add Logz.io to your configuration file
 
@@ -109,7 +109,7 @@ output {
   lumberjack {
     hosts => ["<<LISTENER-HOST>>"]
     port => 5006
-    ssl_certificate => "/C:\ProgramData\ElkStack\logstash-<<YOUR-LOGSTASH-VERSION-NUMBER>>\configLogzio.crt"
+    ssl_certificate => "/C:\ProgramData\ElkStack\logstash-<<YOUR-LOGSTASH-VERSION-NUMBER>>\COMODORSADomainValidationSecureServerCA.crt"
     codec => "json_lines"
   }
 }

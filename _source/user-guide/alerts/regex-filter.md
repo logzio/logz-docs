@@ -20,6 +20,9 @@ There is no danger that a regex filter will disrupt the notification.
 
 ### Example for regex filters
 
+When creating a regex filter, you need to take into account **all of the characters** proceeding the one you're trying to filter.
+{:.info-box.note}
+
 The custom output will display the data that is matched in the capture group(s) of the regular expression.
 
 

@@ -64,3 +64,41 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+#### Configure Logz.io to archive logs from an S3 bucket
+
+**Before you begin, you'll need**:
+`s3:ListBucket`, `s3:PutObject` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
+
+<div class="tasklist">
+ 
+
+
+##### Enter your bucket information and S3 credentials
+
+{% include log-shipping/s3-bucket-snippet.html %}
+
+
+<!-- logzio-inject:aws:s3-buckets -->
+
+
+1. Click **+ Add a bucket**
+2. Select your preferred method of authentication - an IAM role or access keys.
+
+The configuration wizard will open.
+
+3. Select the hosting region from the dropdown list.
+4. Provide the **S3 bucket name**
+5. _Optional_ You have the option to add a prefix.
+6. **Save** your information.
+
+![S3 bucket IAM authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-iam_role_authentication1.png)
+![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-keyaccess_config1.png)
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</div>

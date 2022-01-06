@@ -22,7 +22,8 @@ order: 390
 <div class="branching-container">
 
 * [Overview](#overview)
-* [Standard configuration](#Standard-configuration)
+* [Standard configuration Linux](#Standard-configuration-linux)
+* [Standard configuration Windows](#Standard-configuration-windows)
 * [Customizing Helm chart parameters](#Customizing-helm-chart-parameters)
 * [Uninstalling the Chart](#Uninstalling-the-chart)
 {:.branching-tabs}
@@ -45,9 +46,9 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled`, `
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="Standard-configuration">
+<div id="Standard-configuration-linux">
 
-#### Standard configuration
+#### Standard configuration for Linux nodes
 
 <div class="tasklist">
   
@@ -77,6 +78,81 @@ To disable the dependency during installation, set `kubeStateMetrics.enabled`, `
    * {% include /log-shipping/listener-var.html %}
 
    * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
+
+2. Run the code.
+
+##### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours.
+
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["7BMEKdVrHKPQtt5IgaQ7Bw", "4knWrgcTsEj5kqNXJTES87", "NwO3pdosDJVRWo6i9QJEy", "6RFNnTgcwAmmFnuRropnGu", "5lqRpL1ADesghZbNCEPaZ9"] -->
+
+{% include metric-shipping/generic-dashboard.html %} 
+  
+</div>
+  
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Standard-configuration-windows">
+
+#### Standard configuration for Windows nodes
+
+<div class="tasklist">
+  
+##### Add logzio-helm repo to your helm repo list
+
+  ```shell
+  helm repo add logzio-helm https://logzio.github.io/logzio-helm
+  helm repo update
+  ```
+
+##### Install Windows Exporter service on the node
+
+To extract and scrape metrics from Windows nodes, you need to install a Windows Exporter service on the node host. To do this, you need to establish a SSH connection to the node by authenticating with username and password. The default username for Windows Node pool is: `azureuser`.
+
+If your Windows node pool does not share the same username and password across the nodes, you will need to run the `windows-exporter-installer` job for each node pool using the relevant credentials. You can change your Windows node pool password in AKS cluster with the following command:
+
+   ```
+   az aks update \
+   --resource-group $RESOURCE_GROUP \
+   --name $CLUSTER_NAME \
+   --windows-admin-password $NEW_PW
+   ```
+
+   * Replace `RESOURCE_GROUP` with the resource group name.
+   * Replace `CLUSTER_NAME` with the cluster name.
+   * Replace `NEW_PW` with the password selected for this pool.
+
+##### Deploy the Helm chart
+
+1. Configure the relevant parameters in the following code:
+
+   ```
+   helm install --namespace <<YOUR-NAMESPACE>>  \
+   --set secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
+   --set secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
+   --set secrets.p8s_logzio_name=<<ENV-TAG>> \
+   --set secrets.windowsNodeUsername=<<WINDOWS-NODE-USERNAME>> \
+   --set secrets.windowsNodePassword=<<WINDOWS-NODE-PASSWORD>> \
+   logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics
+   ```
+
+   * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
+
+   * {% include /metric-shipping/replace-metrics-token.html %}
+
+   * {% include /log-shipping/listener-var.html %}
+
+   * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
+
+   * Replace `<WINDOWS-NODE-USERNAME>>` with the username for the Node pool you want the Windows Exporter to be installed on.
+
+   * Replace `<<WINDOWS-NODE-PASSWORD>>` with the password for the Node pool you want the Windows exporter to be installed on.
 
 2. Run the code.
 

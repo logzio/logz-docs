@@ -86,6 +86,10 @@ Login to your Logz.io account and go to **Logs > Archive and restore**.
 
 ![Archive and restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/archive-restore.png)
 
+<!-- info-box-start:info -->
 Refer to our [User Guide](https://docs.logz.io/user-guide/archive-and-restore/configure-archiving.html) for more on archiving logs.
+{:.info-box.note}
+<!-- info-box-end -->
+  
 
 </div>

@@ -37,7 +37,7 @@ aws lambda update-function-configuration --function-name Function --layers arn:a
   
 ##### Activate function tracing
   
-```shelll
+```shell
 aws lambda update-function-configuration --function-name Function --tracing-config Mode=Active
 ```
   

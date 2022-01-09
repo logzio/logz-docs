@@ -15,12 +15,14 @@ contributors:
   - hidan
 ---
 
+User permissions are determined by their role and the account to which they belong.
+
 Account Admins can manage users and change user access permissions at any time.
 
 ![Manage users](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/manage-users-demo.png)
 
 You can get to this page
-by selecting [**<i class="li li-gear"></i> > Settings > User management**](https://app.logz.io/#/dashboard/settings/manage-users)
+by selecting [**<i class="li li-gear"></i> > Settings > Manage users**](https://app.logz.io/#/dashboard/settings/manage-users)
 in the top menu.
 
 Community plans have a maximum of 50 users.
@@ -38,25 +40,25 @@ Each Logz.io product has a different set of permission and access levels:
 * [Cloud SIEM](/user-guide/users/#cloud-siem)
 * [General settings](/user-guide/users/#general-settings)
 
-##### Logs
+##### User role permissions for Log Management
 
 
 | **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
-| View dashboards                         | ✓         | ✓    | ✓     |
-| View alerts                             | ✓         | ✓    | ✓     |
-| Create an alert                         |           | ✓    | ✓     |
-| View triggered alerts                   | ✓         | ✓    | ✓     |
-| Live tail                               | ✓         | ✓    | ✓     |
-| Optimizers                              |           | ✓    | ✓     |
-| Insights                                |           | ✓    | ✓     |
-| Reports                                 |           | ✓    | ✓     |
-| Send your logs                          | ✓         | ✓    | ✓     |
-| Data parsing                            |           | ✓    | ✓     |
-| Field mapping                           |           | ✓    | ✓     |
-| Archive and restore                     |           | ✓    | ✓     |
-| Drop filters                            |           | ✓    | ✓     |
-| Incident reports                        |           | ✓    | ✓     |
+| View dashboards                         | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| View alerts                             | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Create an alert                         |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| View triggered alerts                   | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Live tail                               | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Optimizers                              |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Insights                                |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Reports                                 |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Send your logs                          | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Data parsing                            |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Field mapping                           |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Archive and restore                     |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Drop filters                            |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Incident reports                        |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 
 ###### Additional restrictions
 
@@ -68,9 +70,9 @@ Each Logz.io product has a different set of permission and access levels:
 
 | **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
-| View dashboards                         | ✓         | ✓    | ✓     |
-| Manage tokens                           |           |      | ✓     |
-| Send your metrics                       | ✓         | ✓    | ✓     |
+| View dashboards                         | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Manage tokens                           |           |      | <i class="fas fa-check"></i>     |
+| Send your metrics                       | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 
 ###### Additional restrictions
 
@@ -80,50 +82,55 @@ Each Logz.io product has a different set of permission and access levels:
 
 | **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
-| View dashboards                         | ✓         | ✓    | ✓     |
-| Manage tokens                           |           |      | ✓     |
-| Send your traces                        | ✓         | ✓    | ✓     |
+| View dashboards                         | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Manage tokens                           |           |      | <i class="fas fa-check"></i>     |
+| Send your traces                        | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 
 ##### Cloud SIEM
 
 | **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
-| View summary                            | ✓         | ✓    | ✓     |
-| Event management                        | ✓         | ✓    | ✓     |
-| View rules                              | ✓         | ✓    | ✓     |
-| Create rules                            |           | ✓    | ✓     |
-| Dashboards                              | ✓         | ✓    | ✓     |
-| Threats overview                        | ✓         | ✓    | ✓     |
-| Threats intelligent field               | ✓         | ✓    | ✓     |
-| Kibana                                  | ✓         | ✓    | ✓     |
-| Reports                                 |           | ✓    | ✓     |
-| Send your data                          | ✓         | ✓    | ✓     |
-| Drilldowns                              |           |      | ✓     |
-| Lookups                                 |           | ✓    | ✓     |
-| Incident reports                        |           | ✓    | ✓     |
+| View summary                            | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Event management                        | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| View rules                              | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Create rules                            |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Dashboards                              | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Threats overview                        | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Threats intelligent field               | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Kibana                                  | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Reports                                 |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Send your data                          | <i class="fas fa-check"></i> |  |  |
+| Drilldowns                              |           |      | <i class="fas fa-check"></i>     |
+| Lookups                                 |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Incident reports                        |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 
 
 ##### General settings
 
 | **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
-| Change personal password                | ✓         | ✓    | ✓     |
-| Change dark/light theme                 | ✓         | ✓    | ✓     |
-| View token                              |           |      | ✓     |
-| Manage tokens                           |           |      | ✓     |
-| View region                             |           |      | ✓     |
-| Toggle support access                   |           |      | ✓     |
-| Refresh Kibana mapping                  |           | ✓    | ✓     |
-| View system status                      | ✓         | ✓    | ✓     |
-| Notification endpoints                  |           | ✓    | ✓     |
-| ELK apps                                |           | ✓    | ✓     |
-| View Unified variables                  | ✓         | ✓    | ✓     |
-| Edit Unified variables                  |           |      | ✓     |
-| Manage users                            |           |      | ✓     |
-| Audit trail                             |           |      | ✓     |
-| Manage accounts                         |           |      | ✓     |
-| Usage and billing                       |           |      | ✓     |
+| Change personal password                | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Change dark/light theme                 | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| View token                              |           |      | <i class="fas fa-check"></i>     |
+| Manage tokens                           |           |      | <i class="fas fa-check"></i>     |
+| View region                             |           |      | <i class="fas fa-check"></i>     |
+| Toggle support access                   |           |      | <i class="fas fa-check"></i>     |
+| Refresh Kibana mapping                  |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| View system status                      | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Notification endpoints                  |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| ELK apps                                |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| View Unified variables                  | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Edit Unified variables                  |           |      | <i class="fas fa-check"></i>     |
+| Manage users                            |           |      | <i class="fas fa-check"></i>     |
+| Audit trail                             |           |      | <i class="fas fa-check"></i>     |
+| Manage accounts                         |           |      | <i class="fas fa-check"></i>     |
+| Usage and billing                       |           |      | <i class="fas fa-check"></i>     |
 
+
+#### Sub account
+You can add users directly to a sub account and assign them either an Admin or User role.
+
+Users belonging to a sub account do not have access to any other accounts, unless explicitely added to them.
 
 #### User management
 

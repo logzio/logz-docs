@@ -114,6 +114,9 @@ Give your metrics some time to get from your system to ours.
 ##### Update your Windows node pool credentials (if needed)
   
 To extract and scrape metrics from Windows nodes, you need to install a Windows Exporter service on the node host. To do this, you need to establish a SSH connection to the node by authenticating with a username and password. The `windows-exporter-installer` job performs the installation on each Windows node using the provided Windows credentials. The default username for Windows node pool is `azureuser`.
+  
+If your Windows node pool does not share the same username and password across the nodes, you will need to run the `windows-exporter-installer` job for each node pool using the relevant credentials. You can change your Windows node pool password in AKS cluster with the following command:
+
 
    ```
    az aks update \

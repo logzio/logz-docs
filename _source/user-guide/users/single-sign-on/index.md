@@ -14,16 +14,16 @@ contributors:
   - hidan
 ---
 
-Single sign-on (SSO) allows you to manage access to your Logz.io account
+Single sign-on (SSO) lets you manage access to your Logz.io account
 from a single user and identity management tool.
 
 ## What is SSO?
 
 SSO is a way to authenticate and sign in to different services
 with the same credentials.
-With SSO, users won't need to remember
+With SSO, users don't need to remember
 different usernames and passwords for each service,
-and you can manage access to all your services from one service.
+and you can manage access to all your services from one source.
 Enabling SSO on your account is more convenient for your users
 and more secure for your company.
 
@@ -53,8 +53,8 @@ all users who authenticate with your identity provider
 will be able to access your Logz.io account.
 
 The first time a new user logs in,
-they're given **User** access.
-Existing admins can edit a user to change them to **Admin** or **Read only** access.
+they get **User** access.
+Existing admins can edit each user and change their access type to **Admin** or **Read only** access.
 
 Existing users will retain their current level of access.
 
@@ -63,19 +63,19 @@ Existing users will retain their current level of access.
 As soon as you configure your first group,
 only users who are part of that SSO group will be able to log in to this account.
 
-Each group can be given **Admin**, **User**, **Read only**, or **Configured per user** permissions.
+Each group can have **Admin**, **User**, **Read only**, or **Configured per user** permissions.
 
 Permissions are set at the group level
-unless a group is set to **Configured per user**.
-If a user is part of multiple groups,
+unless a group setting is **Configured per user**.
+If users are a part of   multiple groups,
 they will get the highest permissions set.
 
 For example:
 If someone is a member of both a **User** group and an **Admin** group,
 they'll receive **Admin** permissions.
 
-The same group can be used across multiple accounts, but it needs to be added to each account separately.
-Those who are members of the group will have access to the accounts for which the group is configured.
+Multiple accounts can use the same group, and the group needs to be added to each account separately.
+The group members will have access to all of the accounts connected to the group.
 
 ## Available identity providers
 

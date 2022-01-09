@@ -75,7 +75,11 @@ The **.env** file might be hidden.
 1. Use a **terminal** to grab the repo code using the git command:  `git clone https://github.com/logzio/tracing-demo.git` and change directories: `cd tracing-demo`.
 
 1. Open the `.env` file and update the parameters with your preferred text editor.
-1. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. {% include tracing-shipping/tracing-token.md %}
+1. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. You must have admin permissions for the Logz.io account to view the **Manage tokens** page. If you’re not an admin user for the account, consult with an account admin to get the Distributed Tracing token information.
+    
+    1. From the **Tracing** or <i class="li li-gear"></i> (**Settings**) menu, go to **[Manage tokens > Data shipping tokens > Tracing](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing)**
+    ![Distributed Tracing tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-token_sept2021.png)
+    1. Find the Distributed Tracing account you want to ship to in the table, and copy the token.
 1. Enter the correct 2-letter code for your region in the second line: `REGION_CODE=Enter your region code here`<br>
     Look up the 2-letter code for your region in the <a href="/user-guide/accounts/account-region.html#available-regions" target ="_blank"> Regions and Listener Hosts table.</a> 
    

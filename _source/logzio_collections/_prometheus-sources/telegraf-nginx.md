@@ -27,6 +27,37 @@ To send your Prometheus-format Nginx metrics to Logz.io, you need to add the **i
 
 <div class="tasklist">
 
+##### Configure Nginx server
+
+1. Enable `stub_status` module in the NGINX configuration file - nginx.conf(location- /etc/nginx/nginx.conf):
+
+```
+server {
+
+        listen       80;
+
+        server_name  localhost;
+
+ 
+
+ 
+
+        location / {
+
+        stub_status;
+
+        allow `<<YOUR-LOCALHOST-ADDRESS>>`;
+
+        deny all;
+
+        }
+
+}
+```
+
+2. Replace `<<YOUR-LOCALHOST-ADDRESS>>` with your localhost address.
+3. Restart Nginx. 
+
 ##### Set up Telegraf v1.17 or higher
 
 {% include metric-shipping/telegraf-setup.md %}

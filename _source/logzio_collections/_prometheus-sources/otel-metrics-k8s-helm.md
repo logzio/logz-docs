@@ -35,6 +35,7 @@ order: 390
 
 
 **logzio-otel-k8s-metrics** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+For AKS clusters, this chart also allows you to ship Windows node metrics.
 
 This chart is a fork of the [opentelemetry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. 
   

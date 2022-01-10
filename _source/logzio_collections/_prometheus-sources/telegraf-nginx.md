@@ -117,26 +117,9 @@ First you need to configure the input plug-in to enable Telegraf to scrape the N
   ## HTTP response timeout (default: 5s)
   response_timeout = "5s"
   
-[[inputs.disk]]
-[[inputs.net]]
-[[inputs.mem]]
-[[inputs.system]]
-[[inputs.cpu]]
-   ## Whether to report per-cpu stats or not
-   percpu = false
-   ## Whether to report total system cpu stats or not
-   totalcpu = true
-   ## If true, collect raw CPU time metrics.
-   collect_cpu_time = true
-   ## If true, compute and report the sum of all non-idle CPU states.
-   report_active = true
 ```
 
 
-<!-- info-box-start:info -->
-The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/nginx/README.md).
-{:.info-box.note}
-<!-- info-box-end -->
 
 ##### Add the outputs.http plug-in
 

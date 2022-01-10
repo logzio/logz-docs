@@ -32,15 +32,17 @@ Community plans have a maximum of 50 users.
 
 You can assign **Read Only**, **User**, or **Admin** roles. Each role has different access that helps you limit the data, visibility, and abilities shared with other users.
 
-Each Logz.io product has a different set of permission and access levels:
+Logz.io observability platform offers several features, each with its own set of permission and access levels:
 
-* [Logs](/user-guide/users/#logs)
-* [Metrics](/user-guide/users/#metrics)
-* [Tracing](/user-guide/users/#tracing)
-* [Cloud SIEM](/user-guide/users/#cloud-siem)
-* [General settings](/user-guide/users/#general-settings)
+* [View Log Management permissions and access levels](/user-guide/users/#user-role-permissions-for-log-management)
+* [View Metrics permissions and access levels](/user-guide/users/#user-role-permissions-for-metrics-instrastructe-monitoring)
+* [View Tracing permissions and access levels](/user-guide/users/#user-role-permissions-for-tracing)
+* [View Cloud SIEM permissions and access levels](/user-guide/users/#user-role-permissions-for-cloud-siem)
+* [View General settings permissions and access levels](/user-guide/users/#user-role-permissions-for-general-account-settings)
 
 ##### User role permissions for Log Management
+
+Log Management lets you search and query logs, create alerts, investigate issues, identify patterns, surface errors, and more. This table contains all Log Management features and which user roles can access and use them.
 
 
 | **Main features**                       | Read Only | User | Admin |
@@ -66,7 +68,10 @@ Each Logz.io product has a different set of permission and access levels:
 * **Read Only** and **User** roles can't create optimizers.
 
 
-##### Metrics
+##### User role permissions for Metrics (Instrastructe Monitoring)
+
+Use Infrastructure Monitoring to create and curate dashboards that monitor your system's health and status. This table contains Metrics features, and which user roles can access and use them.
+
 
 | **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
@@ -76,9 +81,12 @@ Each Logz.io product has a different set of permission and access levels:
 
 ###### Additional restrictions
 
-* **Read Only** roles can only view dashboards. They can't create or duplicate them; however, they can edit existing user-made dashboards.
+* **Read Only** roles can only view dashboards. They can't create or duplicate them. They can, however, edit existing user-made dashboards.
 
-##### Tracing
+##### User role permissions for Tracing
+
+Logz.io’s Tracing feature gives you the ability to look under the hood at how your microservices interact, and lets you access rich information to help improve performance, investigate, and troubleshoot issues. This table contains all Tracing features, and which user roles can access and use them.
+
 
 | **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
@@ -86,7 +94,10 @@ Each Logz.io product has a different set of permission and access levels:
 | Manage tokens                           |           |      | <i class="fas fa-check"></i>     |
 | Send your traces                        | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 
-##### Cloud SIEM
+##### User role permissions for Cloud SIEM
+
+Cloud SIEM (*Security Information and Event Management*) aggregates security logs and alerts across distributed environments to allow your team to investigate security incidents from a single observability platform. This table contains all Cloud SIEM features, and which user roles can access and use them.
+
 
 | **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
@@ -105,7 +116,9 @@ Each Logz.io product has a different set of permission and access levels:
 | Incident reports                        |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 
 
-##### General settings
+##### User role permissions for general account settings
+
+Logz.io general settings allow users to control elements relevant to their accounts, such as passwords, tokens, system status, unified variables, and more. This table contains all general settings, and which user roles can access and use them.
 
 | **Main features**                       | Read Only | User | Admin |
 |-----------------------------------------|-----------|------|-------|
@@ -130,7 +143,7 @@ Each Logz.io product has a different set of permission and access levels:
 #### Sub account
 You can add users directly to a sub account and assign them either an Admin or User role.
 
-Users belonging to a sub account do not have access to any other accounts, unless explicitely added to them.
+Users belonging to a sub account do not have access to any other accounts, unless explicitly added to them.
 
 #### User management
 
@@ -143,12 +156,11 @@ Users belonging to a sub account do not have access to any other accounts, unles
 
 ##### Suspend or unsuspend a user
 
-* To suspend or unsuspend a user, hover over the user,
-click the **Menu button <i class="li li-ellipsis-v"></i>**
-and then click **Suspend** or **Unsuspend**. The user's status will change.
+To suspend or unsuspend a user, hover over the user,
+click the **Menu button <i class="li li-ellipsis-v"></i>**, and click **Suspend** or **Unsuspend**. The user's status is changed.
 
 ##### Edit role or rename a user
 
-* To change the user's role (Admin/User)rename, hover over the user, click **edit** <i class="li li-pencil"></i>, make your changes, and click **Save**.
+* To change the user's role (Admin/User) rename, hover over the user, click **edit** <i class="li li-pencil"></i>, make your changes, and click **Save**.
 
 * To rename a user, hover over the user, click **edit** <i class="li li-pencil"></i>, make your changes, and click **Save**.

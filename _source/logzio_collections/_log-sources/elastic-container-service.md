@@ -106,6 +106,8 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 
 #### Automated CloudFormation deployment
 
+<div class="tasklist">
+  
 ##### Configure and create your stack
 
 Click the button that matches your AWS region, then follow the instructions below:
@@ -166,6 +168,7 @@ Scroll down and click on **Create stack**.
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
+</div>
 </div>
 <!-- tab:end -->
 

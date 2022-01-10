@@ -126,7 +126,7 @@ If your region is not on the list, let us know in the [repo's issues](https://gi
 
 Keep the defaults and click **Next**.
 
-![Screen_1](img/screen_01.png)
+![Screen_1](https://github.com/logzio/logzio-aws-ecs/blob/refactoring/img/screen_01.png)
 
 ###### In screen **Step 2 Specify stack details**:
 
@@ -138,7 +138,7 @@ Keep the defaults and click **Next**.
 
 4. Click **Next**.
 
-![Screen_2](img/screen_02.png)
+![Screen_2](https://github.com/logzio/logzio-aws-ecs/blob/refactoring/img/screen_02.png)
 
 ###### In screen **Step 3 Configure stack options** (Optional):
 

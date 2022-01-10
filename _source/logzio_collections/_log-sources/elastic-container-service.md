@@ -4,8 +4,8 @@ logo:
   logofile: aws-ecs.svg
   orientation: vertical
 open-source:
-  - title: docker-collector-logs
-    github-repo: docker-collector-logs
+  - title: logzio-aws-ecs
+    github-repo: logzio-aws-ecs
 data-source: Elastic Container Service
 data-for-product-source: Logs
 templates: ["docker"]
@@ -16,56 +16,161 @@ contributors:
   - idohalevi
   - mirii1994
   - shalper
+  - nshishkin
 shipping-tags:
   - aws
 order: 440
 ---
+<!-- tabContainer:start -->
+<div class="branching-container">
 
-This integration uses Filebeat in a Docker container to forward logs from Amazon Elastic Container Service (ECS) to Logz.io.
+* [Overview](#overview)
+* [Manual deployment (AWS Classic Console)](#manual-deployment)
+* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+{:.branching-tabs}
 
-To use docker-collector-logs, you'll set environment variables when you run the container.
-The Docker logs directory and docker.sock are mounted to the container, allowing Filebeat to collect the logs and metadata.
+<!-- tab:start -->
+<div id="overview">
 
-{% include log-shipping/docker-collector-logs.md %}
+This integration uses Fluentd in a Docker container to forward logs from your Amazon Elastic Container Service (ECS) cluster to Logz.io.
 
+<!-- info-box-start:info -->
+This integration refers to an EC2-based cluster. For Fargate-based cluster see [our Fargate documentation](https://docs.logz.io/shipping/log-sources/fargate.html).
+{:.info-box.note}
+<!-- info-box-end -->
 
-#### Deploy the Docker collector
+</div>
+<!-- tab:end -->
 
+<!-- tab:start -->
+<div id="manual-deployment">
+
+#### Manual deployment (AWS Classic Console)
 
 <div class="tasklist">
 
-##### Pull the Docker image
-
-Download the logzio/docker-collector-logs image.
+##### Download the task definition JSON
 
 ```shell
-docker pull logzio/docker-collector-logs
+wget https://raw.githubusercontent.com/logzio/logzio-aws-ecs/master/task-definition.json
 ```
 
-##### Run the Docker image
+##### Configure the task
 
-For a complete list of options, see the parameters below the code block. 👇
+In your prefered text editor, open the JSON you downloaded in the previous step and replace the following:
 
-```shell
-docker run -d --name=docker-collector-logs \
---env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
---env LOGZIO_URL="<<LISTENER-HOST>>:5015" \
--v /var/run/docker.sock:/var/run/docker.sock \
--v /var/lib/docker/containers:/var/lib/docker/containers \
-logzio/docker-collector-logs
-```
+| Paramater | Details |
+|---|---|
+| `<<LOG-SHIPPING-TOKEN>>` | **Required**. Your Logz.io account token. Replace with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. |
+| `<<LISTENER-HOST>>` | **Required**. Your Logz.io listener URL. Replace with your region's listener URL.|
 
-###### Parameters
 
-| Parameter | Description | Required/Default |
-|---|---|---|
-| LOGZIO_TOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} | Required |
-| LOGZIO_URL | Your Logz.io listener URL and port. {% include log-shipping/listener-var.html %}  | Required |
-| ignoreOlder |  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). | `3h` |
+##### Advanced settings (optional)
 
+Since the Docker image is based on Logz.io's [fluentd-docker-logs](https://github.com/logzio/fluentd-docker-logs) image, any of the environment variables mentioned [here](https://github.com/logzio/fluentd-docker-logs#parameters) can be added to the task definition JSON.
+
+
+##### Add your task definition
+
+1. In your [Amazon ECS Classic Console](https://console.aws.amazon.com/ecs/) menu, go to **Task Definitions** and click on **Create new Task Definition**.
+
+2. In the **Step 1: Select launch type compatibility** screen, choose **EC2** and click **Next step**.
+
+3. In the **Step 2: Configure task and container definitions** screen, scroll down and click on the **Configure via JSON** button.
+
+4. In the text-box, delete the existing text and paste your configured task definition JSON. Press **Save**, then press **Create**.
+
+##### Run the task
+
+1. After the task creation, click on the **Actions** button, then choose **Run Task**.
+
+2. In the **Run Task** screen, choose **EC2** as your **Launch type**.
+
+3. Choose the cluster you want to ship logs from.
+
+4. For **Placement Templates**, choose **One Task Per Host**.
+
+5. Click on **Run Task**.
 
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 </div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="automated-cloudformation-deployment">
+
+#### Automated CloudFormation deployment
+
+<div class="tasklist">
+  
+##### Configure and create your stack
+
+Click the button that matches your AWS region, then follow the instructions below:
+
+| AWS Region | Launch button |
+| --- | --- |
+| `us-east-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/logzio-aws-ecs/1.0.0/auto-deployment.json&stackName=logzio-aws-ecs-auto-deployment) |
+
+<!-- info-box-start:info -->
+If your region is not on the list, let us know in the [repo's issues](https://github.com/logzio/logzio-aws-ecs/issues), or reach out to Logz.io support team!
+{:.info-box.note}
+<!-- info-box-end -->
+
+
+###### In screen **Step 1 Specify template**:
+
+Keep the defaults and click **Next**.
+
+![Screen_1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ecs/screen_01.png)
+
+###### In screen **Step 2 Specify stack details**:
+
+1. For **Stack name** you can either keep the default, or change the stack name.
+
+2. For **LogzioListener** - choose your Logz.io listener from the list.
+
+3. For **LogzioToken** - insert your Logz.io logs shipping token.
+
+4. Click **Next**.
+
+![Screen_2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ecs/screen_02.png)
+
+###### In screen **Step 3 Configure stack options** (Optional):
+
+If you want to, you can add your custom tags, or not. Click on **Next**.
+
+###### In screen **Step 4 Review**:
+
+Scroll down and click on **Create stack**.
+
+##### Give your stack a few moments to launch.
+
+##### Run the task
+
+1. Go to your AWS ECS page, and on the left menu, click on **Task Definitions**, then choose the task you just created.
+
+2. Click on the **Actions** button, then choose **Run Task**.
+
+3. In the **Run Task** screen, choose **EC2** as your **Launch type**.
+
+4. Choose the cluster you want to ship logs from.
+
+5. For **Placement Templates** choose **One Task Per Host**.
+
+6. Click on **Run Task**.
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+</div>
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

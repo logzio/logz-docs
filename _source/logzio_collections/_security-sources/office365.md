@@ -66,47 +66,94 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
 
 ##### Configure Filebeat
 
-1. Paste the following into the inputs section of the Filebeat configuration file:
+1. Navigate to the `modules.d` directory and open the `o365.yml.disabled` file.
+2. Paste the following into the file:
 
    ```yaml
-   filebeat.inputs:
-   - type: o365audit
-     application_id: <application ID>
-     tenant_id: <tenant ID>
-     client_secret: <client Secret>
+   # Module: o365
+   # Docs: https://www.elastic.co/guide/en/beats/filebeat/7.x/filebeat-module-o365.html
+
+   - module: o365
+     audit:
+       enabled: true
+       # Set the application_id (also known as client ID):
+       var.application_id: <"Application ID">
+       # Configure the tenants to monitor:
+       # Use the tenant ID (also known as directory ID) and the domain name.
+       # var.tenants:
+       #  - id: "tenant_id_1"
+       #    name: "mydomain.onmicrosoft.com"
+       #  - id: "tenant_id_2"
+       #    name: "mycompany.com"
+       var.tenants:
+         - id: <"TenantID">
+           name: <"TenantName">
+       # List of content-types to fetch. By default all known content-types
+       # are retrieved:
+       # var.content_type:
+       #  - "Audit.AzureActiveDirectory"
+       #  - "Audit.Exchange"
+       #  - "Audit.SharePoint"
+       #  - "Audit.General"
+       #  - "DLP.All"
+       # Use the following settings to enable certificate-based authentication:
+       #var.certificate: "C:\ProgramData\filebeat1\COMODORSADomainValidationSecureServerCA.crt"
+       # var.key: "/path/to/private_key.pem"
+       # var.key_passphrase: "myPrivateKeyPassword"
+       # Client-secret based authentication:
+       # Comment the following line if using certificate authentication.
+       var.client_secret: <"Client Secret">
+       # Advanced settings, use with care:
+       # var.api:
+       #   # Settings for custom endpoints:
+       #   authentication_endpoint: "https://login.microsoftonline.us/"
+       #   resource: "https://manage.office365.us"
+       #
+       #   max_retention: 168h
+       #   max_requests_per_minute: 2000
+       #   poll_interval: 3m
+   ```
+3. Save the file as `o365.yml`.
+
+4. Paste the following into the inputs section of the Filebeat configuration file:
+
+   ```yaml
+   filebeat.config:
+     modules:
+       enabled: true
+       path: modules.d/*.yml
    fields:
      logzio_codec: plain
      token: <<LOG-SHIPPING-TOKEN>>
      type: o365
    fields_under_root: true
-   #For version 6.x and lower uncomment the line below and remove the line after it
-   #filebeat.registry_file: 'C:\ProgramData\Filebeat'
+   #For version 6.x and lower uncomment the line below and remove the line after it 
+   #filebeat.registry_file: 'C:\ProgramData\Filebeat' 
    filebeat.registry.path: 'C:\ProgramData\filebeat'
    #The following processors are to ensure compatibility with version 7
    processors:
-     - rename:
+   - rename:
        fields:
-     - from: "agent"
-       to: "beat_agent"
+       - from: "agent"
+         to: "beat_agent"
        ignore_missing: true
-     - rename:
+   - rename:
        fields:
-     - from: "log.file.path"
-       to: "source"
+       - from: "log.file.path"
+         to: "source"
        ignore_missing: true
-############################# Output ##########################################
+   ############################# Output ##########################################
    output:
      logstash:
        hosts: ["<<LISTENER-HOST>>:5015"]
-       ssl:  
-           certificate_authorities: ['C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt']
-           
+       ssl:
+         certificate_authorities: ['C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt']
    ```
   
    * {% include log-shipping/log-shipping-token.md %}
    * {% include log-shipping/listener-var.md %}
 
-2. Run Filebeat with the new configuration.
+5. Run Filebeat with the new configuration.
 
 ##### Check Logz.io for your logs
 

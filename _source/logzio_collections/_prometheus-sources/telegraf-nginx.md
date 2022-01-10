@@ -119,6 +119,20 @@ First you need to configure the input plug-in to enable Telegraf to scrape the N
 
   ## HTTP response timeout (default: 5s)
   response_timeout = "5s"
+  
+[[inputs.disk]]
+[[inputs.net]]
+[[inputs.mem]]
+[[inputs.system]]
+[[inputs.cpu]]
+   ## Whether to report per-cpu stats or not
+   percpu = false
+   ## Whether to report total system cpu stats or not
+   totalcpu = true
+   ## If true, collect raw CPU time metrics.
+   collect_cpu_time = true
+   ## If true, compute and report the sum of all non-idle CPU states.
+   report_active = true
 ```
 
 
@@ -133,8 +147,11 @@ The database name is only required for instantiating a connection with the serve
 {% include general-shipping/replace-placeholders-prometheus.html %}
 
 ##### Check Logz.io for your metrics
+  
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboards to enhance the observability of your metrics.
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+<!-- logzio-inject:install:grafana:dashboards ids=["3HKho6pQhCmEYmwMc4xCeY"] -->
 
+{% include metric-shipping/generic-dashboard.html %} 
 
 </div>

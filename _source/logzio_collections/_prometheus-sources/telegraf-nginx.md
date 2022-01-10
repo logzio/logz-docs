@@ -17,7 +17,7 @@ order: 800
 
 ## Overview
 
-Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx metrics, including Plus API, Plus, Stream STS, VTS. Deploy this integration to ship Nginx metrics, including Plus API, Plus, Stream STS, VTS.
+Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx metrics.
 
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 

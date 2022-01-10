@@ -25,7 +25,7 @@ order: 440
 <div class="branching-container">
 
 * [Overview](#overview)
-* [Manual deployment](#manual-deployment)
+* [Manual deployment (AWS Classic Console)](#manual-deployment)
 * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 {:.branching-tabs}
 
@@ -33,8 +33,6 @@ order: 440
 <div id="overview">
 
 This integration uses Fluentd in a Docker container to forward logs from your Amazon Elastic Container Service (ECS) cluster to Logz.io.
-
-Note that this repo refers to an EC2-based cluster. For Fargate-based cluster see this.
 
 <!-- info-box-start:info -->
 This integration refers to an EC2-based cluster. For Fargate-based cluster see [our Fargate documentation](https://docs.logz.io/shipping/log-sources/fargate.html).
@@ -47,7 +45,7 @@ This integration refers to an EC2-based cluster. For Fargate-based cluster see [
 <!-- tab:start -->
 <div id="manual-deployment">
 
-#### Manual deployment
+#### Manual deployment (AWS Classic Console)
 
 <div class="tasklist">
 

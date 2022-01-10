@@ -152,7 +152,7 @@ docker stop -t 30 logzio-api-fetcher
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
-and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type `azure_graph` to see the incoming Microsoft Graph logs.
 
 If you still don't see your logs,
 see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

@@ -79,43 +79,19 @@ First you need to configure the input plug-in to enable Telegraf to scrape the N
   ## HTTP response timeout (default: 5s)
   response_timeout = "5s"
   
-[[inputs.nginx_plus_api]]
-  ## An array of Nginx API URIs to gather stats.
-  urls = ["http://localhost/api"]
-  # Nginx API version, default: 3
-  # api_version = 3
-  
-[[inputs.nginx_plus]]
-  ## An array of Nginx status URIs to gather stats.
-  urls = ["http://localhost/status"]
-  
-[[inputs.nginx_sts]]
-  ## An array of ngx_http_status_module or status URI to gather stats.
-  urls = ["http://localhost/status"]
-
-  ## HTTP response timeout (default: 5s)
-  response_timeout = "5s"
-
-  ## Optional TLS Config
-  # tls_ca = "/etc/telegraf/ca.pem"
-  # tls_cert = "/etc/telegraf/cert.pem"
-  # tls_key = "/etc/telegraf/key.pem"
-  ## Use TLS but skip chain & host verification
-  # insecure_skip_verify = false
-  
-[[inputs.nginx_vts]]
-  ## An array of Nginx stub_status URI to gather stats.
-  urls = ["http://localhost/server_status"]
-
-  ## Optional TLS Config
-  # tls_ca = "/etc/telegraf/ca.pem"
-  # tls_cert = "/etc/telegraf/cert.pem"
-  # tls_key = "/etc/telegraf/key.pem"
-  ## Use TLS but skip chain & host verification
-  # insecure_skip_verify = false
-
-  ## HTTP response timeout (default: 5s)
-  response_timeout = "5s"
+[inputs.disk]]
+[[inputs.net]]
+[[inputs.mem]]
+[[inputs.system]]
+[[inputs.cpu]]
+   ## Whether to report per-cpu stats or not
+   percpu = false
+   ## Whether to report total system cpu stats or not
+   totalcpu = true
+   ## If true, collect raw CPU time metrics.
+   collect_cpu_time = true
+   ## If true, compute and report the sum of all non-idle CPU states.
+   report_active = true
   
 ```
 

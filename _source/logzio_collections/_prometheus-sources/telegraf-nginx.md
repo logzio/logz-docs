@@ -29,7 +29,7 @@ To send your Prometheus-format Nginx metrics to Logz.io, you need to add the **i
 
 ##### Configure Nginx server
 
-1. Enable `stub_status` module in the NGINX configuration file - nginx.conf, located at `/etc/nginx/nginx.conf`:
+1. Enable `stub_status` module in the NGINX configuration file - nginx.conf:
 
    ```
    server {

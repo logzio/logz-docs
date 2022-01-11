@@ -168,14 +168,20 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-sqs.html
     - title: AWS Cloudwatch - VPN
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-vpn.html
+    - title: Apache Tomcat
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/apache-tomcat.html
     - title: Apache Cassandra
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/apache-cassandra.html
     - title: etcd
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/etcd.html
+    - title: Jenkins
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/jenkins.html
     - title: MongoDB
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/mongodb.html
     - title: MySQL
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/mysql.html
+    - title: Nginx
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/nginx.html
     - title: PostgreSQL
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/postgresql.html
     - title: Redis

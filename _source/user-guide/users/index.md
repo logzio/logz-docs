@@ -56,10 +56,10 @@ Log Management lets you search and query logs, create alerts, investigate issues
 | Insights                                |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Reports                                 |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Send your logs                          | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
-| Data parsing                            |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
-| Field mapping                           |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
-| Archive and restore                     |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
-| Drop filters                            |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Data parsing                            |           |     | <i class="fas fa-check"></i>     |
+| Field mapping                           |           |     | <i class="fas fa-check"></i>     |
+| Archive and restore                     |           |     | <i class="fas fa-check"></i>     |
+| Drop filters                            |           |     | <i class="fas fa-check"></i>     |
 | Incident reports                        |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 
 ###### Additional restrictions

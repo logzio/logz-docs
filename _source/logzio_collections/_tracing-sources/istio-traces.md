@@ -56,7 +56,7 @@ Run `kubectl get services` and take a note of the IP address of the logzio-otel-
 Replace `<<logzio-otel-traces-service-IP>>` in the command below with the IP address obtained in the previous step and run the command.
 
 ```
-istioctl manifest apply --set meshConfig.defaultConfig.tracing.zipkin.address=<<logzio-otel-traces-service-IP>>:9411 --set values.pilot.traceSampling=100.0
+istioctl install --set meshConfig.defaultConfig.tracing.zipkin.address=<<logzio-otel-traces-service-IP>>:9411 --set values.pilot.traceSampling=100.0
 ```
 
 <!-- info-box-start:info -->

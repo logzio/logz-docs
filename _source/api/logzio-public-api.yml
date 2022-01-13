@@ -9137,7 +9137,7 @@ definitions:
           type: string
           example: "network"
         maxItems: 10
-        minItems: 1
+        minItems: 0
         description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
         
       output:

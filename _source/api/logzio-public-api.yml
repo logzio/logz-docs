@@ -9135,10 +9135,11 @@ definitions:
         type: array
         items:
           type: string
+          example: "network"
         maxItems: 10
-        minItems: 0
+        minItems: 1
         description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
-        example: network
+        
       output:
         $ref: '#/definitions/AlertOutput'
       searchTimeFrameMinutes:

@@ -41,7 +41,7 @@ To begin, you need to login to your AWS account.
 
 Select the button below to create a new stack dedicated to sending the AWS cost and usage reports to Logz.io.
 
-[![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://aws-cost-usage-auto-deployment.s3.amazonaws.com/auto-deployment.yaml&stackName=logzio-aws-cost-usage-auto-deployment)
+[![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/aws-cost-usage-auto-deployment/auto-deployment.yaml&stackName=logzio-aws-cost-usage-auto-deployment)
 
 ![Create stack](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/create_stack.png)
 

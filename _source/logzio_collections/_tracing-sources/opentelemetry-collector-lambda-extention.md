@@ -1,9 +1,9 @@
 ---
-title: Sending traces from AWS Lambda Extension layer with OpenTelemetry Collector
+title: Sending traces from your application (other than Node.js) on AWS Lambda using OpenTelemetry
 logo:
   logofile: AWS-Lambda.svg
   orientation: vertical
-data-source: AWS Lambda Extension
+data-source: Applications other than Node.js on AWS Lambda
 data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
@@ -14,36 +14,51 @@ shipping-tags:
 order: 1380
 ---
 
-The Logzio OpenTelemetry Collector Lambda Extension provides a mechanism to synchronously export traces from AWS Lambda applications. It does this by embedding a stripped-down version of [OpenTelemetry Collector Contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib) inside an [AWS Extension Layer](https://aws.amazon.com/blogs/compute/introducing-aws-lambda-extensions-in-preview/). This allows the Lambda applications to use the OpenTelemetry Collector Exporter to send traces and metrics to any configured backend, such as Logz.io.
+Deploy this integration to instrument your applications running on AWS Lambda and send the traces to your Logz.io account. This integration is for any application code other than Node.js. For Node.js application on AWS Lambda, see the [dedicated setup instructions](https://app.logz.io/#/dashboard/send-your-data?tag=new-instrumentation&collection=tracing-sources).
 
-**Supported AWS regions are: us-east-1, us-east-2, ca-central-1, ap-northeast-2, ap-northeast-1, eu-central-1, eu-west-2**
+This integration will add to your function a dedicated layer for OpenTelemetry collector, which you can configure using the environment variables.
 
-#### Install the OpenTelemetry Collector Lambda Extension to an existing Lambda function
+<!-- info-box-start:info -->
+This integration only works for the following AWS regions: us-east-1, us-east-2, ca-central-1, ap-northeast-2, ap-northeast-1, eu-central-1, eu-west-2.
+{:.info-box.note}
+<!-- info-box-end -->
+
+#### Setup instructions
 
 **Before you begin, you'll need**:
 
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 * Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-* [Tracing instrumentation](https://app.logz.io/#/dashboard/send-your-data?tag=new-instrumentation&collection=tracing-sources) enabled in your code 
 
 
 <div class="tasklist">
 
-##### Install the OpenTelemetry Collector Lambda Extension to an existing Lambda function using the AWS CLI
+##### Instrument the code of your application in the Lambda function
+
+Add required instrumentation to your application code in the AWS Lambda function. You can refer to [our tracing documentation](https://app.logz.io/#/dashboard/send-your-data?tag=new-instrumentation&collection=tracing-sources) for more on this.
+
+<!-- info-box-start:info -->
+If you would like to request a dedicated wrapper layer for your application code, contact [Logz.io support](support@logz.io).
+{:.info-box.note}
+<!-- info-box-end -->
+
+##### Add the OpenTelemetry collector layer to your Lambda function
+
+This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name Function --layers arn:aws:lambda:<<your-aws-region>>:486140753397:layer:logzio-opentelemetry-collector-layer:1	
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-layer:1
 ```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+
+Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+
+##### Create a configuration file for the OpenTelemetry collector
   
-##### Activate function tracing
-  
-```shell
-aws lambda update-function-configuration --function-name Function --tracing-config Mode=Active
-```
-  
-##### Configuration the function
-  
-By default, OpenTelemetry Collector Lambda Extension exports the telemetry data to the Lambda console. To customize the collector configuration, add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment file. Here is a sample configuration file:
+By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment variable.
+
+The `collector.yaml` file will have the following configuration:
   
 ```yaml
 receivers:
@@ -63,9 +78,27 @@ service:
 ```
   
 {% include /tracing-shipping/replace-tracing-token.html %}
-Once the file has been deployed with a Lambda, configuring the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` will tell the OpenTelemetry Collector Lambda Extension where to find the collector configuration:
+
+##### Direct the OpenTelemetry collector to the configuration file
+
+
+Add `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` variable to direct the OpenTelemetry collector to the configuration file:
+
 ```
-aws lambda update-function-configuration --function-name Function --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_FILE=/var/task/collector.yaml}
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_FILE=/var/task/collector.yaml}
 ```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+
+
+##### Activate tracing for your Lambda function
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --tracing-config Mode=Active
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+
+
 </div>
 

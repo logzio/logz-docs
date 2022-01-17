@@ -8551,13 +8551,10 @@ definitions:
         type: integer
         format: int32
         description: ID of the account attached to the user
-      roles:
-        type: array
-        items:
-          type: integer
-          format: int32
-        description: For user access, `2`. For admin access, `3`.
-        example: [2]
+      role:
+        type: string
+        description: User role. Can be `USER_ROLE_READONLY`, `USER_ROLE_REGULAR` or `USER_ROLE_ACCOUNT_ADMIN`.
+        example: USER_ROLE_READONLY
 
   # ::::: DROP FILTERS
   DropFiltersCreateRequest:

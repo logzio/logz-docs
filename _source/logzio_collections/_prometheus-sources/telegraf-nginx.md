@@ -80,7 +80,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the N
   ## HTTP response timeout (default: 5s)
   response_timeout = "5s"
   
-[inputs.disk]]
+[[inputs.disk]]
 [[inputs.net]]
 [[inputs.mem]]
 [[inputs.system]]

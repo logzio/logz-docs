@@ -8513,13 +8513,10 @@ definitions:
         format: int32
         description: Logz.io account ID.
         example: 55555
-      roles:
-        type: array
-        items:
-          type: integer
-          format: int32
-        description: For user access, `2`. For admin access, `3`.
-        example: [3]
+      role:
+        type: string
+        description: User role. Can be `USER_ROLE_READONLY`, `USER_ROLE_REGULAR` or `USER_ROLE_ACCOUNT_ADMIN`.
+        example: USER_ROLE_READONLY
       active:
         type: boolean
         description: If the user is active, `true`. If the user is suspended, `false`.

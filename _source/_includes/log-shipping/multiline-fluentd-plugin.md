@@ -4,10 +4,6 @@ Fluentd splits multiline logs by default. If your original logs span multiple li
 
 The Logz.io Docker image comes with a pre-built Fluentd filter plug-in that can be used to concatenate multiline logs. The plug-in is named `fluent-plugin-concat` and you can view the full list of configuration options in the [GitHub project](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
 
-<!-- info-box-start:info -->
-Fluentd will fetch all existing logs, as it is not able to ignore older logs.
-{:.info-box.note}
-<!-- info-box-end -->
 
 ###### Example
 

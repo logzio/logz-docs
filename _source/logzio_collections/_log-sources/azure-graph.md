@@ -66,34 +66,10 @@ oauth_apis:
       headers:
     json_paths:
       data_date: createdDateTime
-      next_url:
-      data:
     settings:
       time_interval: 1
       days_back_fetch: 30
-  - type: general
-    name: general_test
-    credentials:
-      id: aaaa-bbbb-cccc
-      key: abcabcabc
-    token_http_request:
-      url: https://login.microsoftonline.com/abcd-efgh-abcd-efgh/oauth2/v2.0/token
-      body: client_id=aaaa-bbbb-cccc
-            &scope=https://graph.microsoft.com/.default
-            &client_secret=abcabcabc
-            &grant_type=client_credentials
-      headers:
-      method: POST
-    data_http_request:
-      url: https://graph.microsoft.com/v1.0/auditLogs/directoryAudits
-      headers:
-    json_paths:
-      data_date: activityDateTime
-      data: value
-      next_url: '@odata.nextLink'
-    settings:
-      time_interval: 1
-    start_date_name: activityDateTime
+  
 ```
 
 | Parameter | Description | Required/Default |
@@ -112,14 +88,11 @@ oauth_apis:
 | token_http_request.url | The OAuth API token request  url. Make sure the url is without `?` at the end. | Required | 
 | token_http_request.headers | Pairs of key and value the represents the headers of the HTTP request. | Optional |
 | token_http_request.body | The body of the HTTP request. Will be added to HTTP POST requests only. | Optional | 
-| json_paths.next_url | The json path to the next url value inside the response of the OAuth API. | Required/Optional for Azure | 
-| json_paths.data | The json path to the data value inside the response of the OAuth API. | Required/Optional for Azure | 
 | json_paths.data_date | The json path to the data's date value inside the response of the OAuth API. | Required | 
 | settings.time_interval | The OAuth API time interval between runs. | Required | 
 | settings.days_back_fetch | The max days back to fetch from the OAuth API. | Optional. Default value is 14 days.| 
 | filters | Pairs of key and value of parameters that can be added to the OAuth API url. Make sure the keys and values are valid for the OAuth API. | Optional |
 | custom_fields | Pairs of key and value that will be added to each data and be sent to Logz.io. | Optional | 
-| start_date_name| The start date parameter name of the OAuth API url. (Same as json_paths.data_date in most cases)| Required | 
 
 ##### Create a Last Start Dates text file
 

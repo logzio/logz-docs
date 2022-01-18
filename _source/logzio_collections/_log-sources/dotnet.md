@@ -503,7 +503,7 @@ Update Startup.cs file in Configure method to include the Log4Net middleware as 
 
 In the Controller, add Data Member and Constructor, as in the code below.
 
-```C#
+```csharp
     private readonly ILoggerFactory _loggerFactory;
     
     public ExampleController(ILoggerFactory loggerFactory, ...)
@@ -516,7 +516,7 @@ In the Controller, add Data Member and Constructor, as in the code below.
 
 In the Controller methods:
 
-```C#
+```csharp
     [Route("<PUT_HERE_YOUR_ROUTE>")]
     public ActionResult ExampleMethod()
     {
@@ -537,7 +537,7 @@ In the Controller methods:
 
 ###### .NET Core Desktop Application
 
-```C#
+```csharp
     using System.IO;
     using System.Reflection;
     using log4net;

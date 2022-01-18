@@ -49,7 +49,7 @@ logzio:
   token: <<LOG-SHIPPING-TOKEN>>
 
 auth_apis:
-  - type: cisco_secure_x
+  - type: api_fetcher
     name: cisco
     credentials:
       id: <<API_CREDENTIALS_ID>>
@@ -63,24 +63,6 @@ auth_apis:
     custom_fields:
       type: cisco
       level: high
-  - type: general
-    name: cisco general
-    credentials:
-      id: <<API_CREDENTIALS_ID>>
-      key: <<API_CREDENTIALS_KEY>>
-    settings:
-      time_interval: 2
-      days_back_fetch: 5
-    start_date_name: start_date
-    http_request:
-      method: GET
-      url: https://api.amp.cisco.com/v1/events
-    json_paths:
-      next_url: metadata.links.next
-      data: data
-      data_date: date
-    filters:
-      event_type%5B%5D: '1090519054'
 ```
 
 | Parameter | Description | Required/Default |
@@ -95,14 +77,7 @@ auth_apis:
 | settings.days_back_fetch | The max days back to fetch from the Auth API. | Optional. Default value is 14 days. | 
 | filters | Pairs of key and value of parameters that can be added to the Auth API url. Make sure the keys and values are valid for the Auth API. | Optional | 
 | custom_fields | Pairs of key and value that will be added to each data and be sent to Logz.io. | Optional | 
-| start_date_name| The start date parameter name of the auth api url. | Required. General type only | 
-| http_request.method | The HTTP method. Can be GET or POST. | Required. General type only |
-| http_request.url | The Auth API url. Make sure the url is without `?` at the end. | Required. General type only | 
-| http_request.headers | Pairs of key and value the represents the headers of the HTTP request. | Optional. General type only | 
-| http_request.body | The body of the HTTP request. Will be added to HTTP POST requests only. | Optional. General type only |
-| json_paths.next_url | The json path to the next url value inside the response of the Auth API. | Required. General type only | 
-| json_paths.data | The json path to the data value inside the response of the Auth API. | Required. General type only | 
-| json_paths.data_date | The json path to the data's date value inside the response of the Auth API | Required. General type only | 
+
 
 ##### Create a Last Start Dates text file
 
@@ -135,7 +110,7 @@ docker stop -t 30 logzio-api-fetcher
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
-and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type `cisco_secure_x` to see the incoming Cisco SecureX logs.
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type `api_fetcher` to see the incoming Cisco SecureX logs.
 
 If you still don't see your logs,
 see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

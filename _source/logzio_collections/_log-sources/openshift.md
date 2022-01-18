@@ -60,6 +60,11 @@ oc create -f https://raw.githubusercontent.com/logzio/logzio-openshift/main/reso
 && oc delete pod -l k8s-app=fluentd-logzio
 ```
 
+<!-- info-box-start:info -->
+Fluentd will fetch all existing logs, as it is not able to ignore older logs.
+{:.info-box.note}
+<!-- info-box-end -->
+
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

@@ -39,6 +39,11 @@ This integration refers to an EC2-based cluster. For Fargate-based cluster see [
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+Fluentd will fetch all existing logs, as it is not able to ignore older logs.
+{:.info-box.note}
+<!-- info-box-end -->
+
 </div>
 <!-- tab:end -->
 

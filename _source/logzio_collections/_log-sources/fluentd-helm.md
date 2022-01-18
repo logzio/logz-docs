@@ -38,6 +38,11 @@ The chart defaults to configuration for Conatinerd CRI. If your cluster uses Doc
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+Fluentd will fetch all existing logs, as it is not able to ignore older logs.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 #### Deploying the Chart
 

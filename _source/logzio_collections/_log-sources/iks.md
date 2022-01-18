@@ -35,10 +35,13 @@ Fluentd is an open source data collector and a great option because of its flexi
 
 The image used in this integration comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs. If you prefer to customize your Fluentd configuration, you can edit it before it's deployed.
 
-
-
 <!-- info-box-start:info -->
 The latest version pulls the image from `logzio/logzio-fluentd`. Previous versions pulled the image from `logzio/logzio-k8s`.
+{:.info-box.note}
+<!-- info-box-end -->
+
+<!-- info-box-start:info -->
+Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 {:.info-box.note}
 <!-- info-box-end -->
 

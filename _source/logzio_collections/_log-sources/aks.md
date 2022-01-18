@@ -44,6 +44,11 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+Fluentd will fetch all existing logs, as it is not able to ignore older logs.
+{:.info-box.note}
+<!-- info-box-end -->
+
 ###### K8S version compatibility
 
 Your Kubernetes version may affect your options, as follows:

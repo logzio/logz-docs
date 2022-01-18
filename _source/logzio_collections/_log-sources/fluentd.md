@@ -17,6 +17,11 @@ order: 180
 
 Fluentd is a data collector, which unifies the data collection and consumption. This integration allows you to use Fluentd to send logs to your Logz.io account. 
 
+<!-- info-box-start:info -->
+Fluentd will fetch all existing logs, as it is not able to ignore older logs.
+{:.info-box.note}
+<!-- info-box-end -->
+
 #### Configure Fluentd
 
 **Before you begin, you'll need**:

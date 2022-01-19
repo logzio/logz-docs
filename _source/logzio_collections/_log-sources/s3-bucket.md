@@ -64,32 +64,3 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
-
-#### Configure Logz.io to archive logs to an S3 bucket
-
-**Before you begin, you'll need**:
-`s3:ListBucket`, `s3:PutObject` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
-
-<div class="tasklist">
- 
-
-
-##### Navigate to the Archive and Restore section
-
-Login to your Logz.io account and go to **Logs > Archive and restore**.
-  
-##### Enter your bucket information and S3 credentials
-
-1. Enter the name of the S3 bucket into the **S3 bucket name** field.
-2. Enter the Amazon Resource Name (ARN) of your IAM role into the **Role ARN** field.
-3. Click **Start archiving**.
-
-![Archive and restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/archive-restore.png)
-
-<!-- info-box-start:info -->
-Refer to our [User Guide](https://docs.logz.io/user-guide/archive-and-restore/configure-archiving.html) for more on archiving logs.
-{:.info-box.note}
-<!-- info-box-end -->
-  
-
-</div>

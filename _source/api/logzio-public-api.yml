@@ -293,7 +293,11 @@ x-tagGroups:
       - Connect to S3 Buckets
   - name: Metrics API Gateway
     tags:
-      - Metrics gateway
+      - Grafana alerting
+      - Grafana annotations
+      - Grafana dashboards
+      - Grafana dashboard search
+      - Grafana snapshots
     description: Metrics API Gateway to supported endpoints. 
     
 paths:
@@ -306,7 +310,7 @@ paths:
       description: >-
         Retrieves alerts as per parameters given. The parameters are used as querystring parameters. For example: `/api/alerts?dashboardId=1`.
       tags:
-        - Metrics gateway
+        - Grafana alerting
       parameters:
         - in: query
           name: dashboardId
@@ -424,7 +428,7 @@ paths:
         description: >-
           Retrieves alerts by Id.
         tags:
-          - Metrics gateway
+        - Grafana alerting
         parameters:
           - in: path
             name: id
@@ -513,7 +517,7 @@ paths:
         description: >-
           Pauses alerts by Id.
         tags:
-          - Metrics gateway
+        - Grafana alerting
         parameters:
           - in: path
             name: id
@@ -562,7 +566,7 @@ paths:
         description: >-
           Pauses all alerts.
         tags:
-          - Metrics gateway
+        - Grafana alerting
         parameters:
           - in: body
             name: body
@@ -611,7 +615,7 @@ paths:
         description: >-
           Searches for annotations in the Grafana database.
         tags:
-          - Metrics gateway
+          - Grafana annotations
         parameters:
           
           - in: query
@@ -735,7 +739,7 @@ paths:
         description: >-
           Creates an annotation in the Grafana database.
         tags:
-          - Metrics gateway
+          - Grafana annotations
         parameters:
           - in: body
             name: body
@@ -800,7 +804,7 @@ paths:
         description: >-
           Creates an annotation in the Grafana database by using Graphite-compatible event format.
         tags:
-          - Metrics gateway
+          - Grafana annotations
         parameters:
           - in: body
             name: body
@@ -860,7 +864,7 @@ paths:
         description: >-
           Updates an annotation in the Grafana database.
         tags:
-          - Metrics gateway
+          - Grafana annotations
         parameters:
           - in: path
             name: id
@@ -917,7 +921,7 @@ paths:
         description: >-
           Updates one or more properties of an annotation that matches the specified id. This operation currently supports updating of the text, tags, time and timeEnd properties.
         tags:
-          - Metrics gateway
+          - Grafana annotations
         parameters:
           - in: path
             name: id
@@ -967,7 +971,7 @@ paths:
         description: >-
           Deletes the annotation that matches the specified id.
         tags:
-          - Metrics gateway
+          - Grafana annotations
         parameters:
           - in: path
             name: id
@@ -1002,7 +1006,7 @@ paths:
         description: >-
           Searches for event tags in annotations in the Grafana database.
         tags:
-          - Metrics gateway
+          - Grafana annotations
         parameters:
           - in: query
             name: tag
@@ -1058,7 +1062,7 @@ paths:
         description: >-
           Creates or updates a new dashboard or updates an existing dashboard.
         tags:
-          - Metrics gateway
+          - Grafana dashboards
         parameters:
           - in: body
             type: object
@@ -1185,7 +1189,7 @@ paths:
         description: >-
           Will return the dashboard given the dashboard unique identifier (uid). Information about the unique identifier of a folder containing the requested dashboard might be found in the metadata.
         tags:
-          - Metrics gateway
+          - Grafana dashboards
         parameters:
           - in: path
             name: uid
@@ -1287,7 +1291,7 @@ paths:
         description: >-
           Will delete the dashboard given the specified unique identifier (uid).
         tags:
-          - Metrics gateway
+          - Grafana dashboards
         parameters:
           - in: path
             name: uid
@@ -1331,7 +1335,7 @@ paths:
         description: >-
           Will return the home dashboard.
         tags:
-          - Metrics gateway
+          - Grafana dashboards
         responses:
           200:
             description: success
@@ -1423,7 +1427,7 @@ paths:
         description: >-
           Will return all tags for all dashboard.
         tags:
-          - Metrics gateway
+          - Grafana dashboards
         x-code-samples:
         - lang: cURL
           source: >-
@@ -1455,7 +1459,7 @@ paths:
         description: >-
           Gets all existing dashboard versions for the dashboard with the given dashboardId.
         tags:
-          - Metrics gateway
+          - Grafana dashboards
         parameters:
           - in: path
             name: dashboardId
@@ -1540,7 +1544,7 @@ paths:
               description: >-
                 Version ID.
         tags:
-          - Metrics gateway
+          - Grafana dashboards
         x-code-samples:
         - lang: cURL
           source: >-
@@ -1728,7 +1732,7 @@ paths:
         description: >-
           Restores a dashboard to a given dashboard version.
         tags:
-          - Metrics gateway
+          - Grafana dashboards
         parameters:
           - in: body
             type: object
@@ -1779,7 +1783,7 @@ paths:
         description: >-
           Compares two dashboard versions by calculating the JSON diff of them.
         tags:
-          - Metrics gateway
+          - Grafana dashboards
         parameters:
           - in: body
             type: object
@@ -1841,7 +1845,7 @@ paths:
         description: >-
           Search folders and dashboards.
         tags:
-          - Metrics gateway
+          - Grafana dashboard search
         parameters:
           - in: query
             name: query
@@ -1944,7 +1948,7 @@ paths:
         description: >-
           Creates a snapshot.
         tags:
-          - Metrics gateway
+          - Grafana snapshots
         parameters:
           - in: body
             type: object
@@ -2045,7 +2049,7 @@ paths:
         description: >-
           Get list of Snapshots.
         tags:
-          - Metrics gateway
+          - Grafana snapshots
         parameters:
           - in: query
             name: query
@@ -2121,7 +2125,7 @@ paths:
         description: >-
           Gets Snapshot by Key.
         tags:
-          - Metrics gateway
+          - Grafana snapshots
         parameters:
           - in: path
             name: key
@@ -2232,7 +2236,7 @@ paths:
         description: >-
           Deletes snapshot by Key.
         tags:
-          - Metrics gateway
+          - Grafana snapshots
         parameters:
           - in: path
             name: key
@@ -2266,7 +2270,7 @@ paths:
         description: >-
           Delete snapshot by deleteKey.
         tags:
-          - Metrics gateway
+          - Grafana snapshots
         parameters:
           - in: path
             name: deleteKey

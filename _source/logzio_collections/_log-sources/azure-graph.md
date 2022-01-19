@@ -48,7 +48,7 @@ logzio:
   token: <<LOG-SHIPPING-TOKEN>>
 
 oauth_apis:
-  - type: azure_graph
+  - type: api_fetcher
     name: azure_test
     credentials:
       id: <<AZURE_AD_SECRET_ID>>
@@ -125,7 +125,7 @@ docker stop -t 30 logzio-api-fetcher
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
-and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type `azure_graph` to see the incoming Microsoft Graph logs.
+and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can filter for data of type `api_fetcher` to see the incoming Microsoft Graph logs.
 
 If you still don't see your logs,
 see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

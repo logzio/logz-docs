@@ -80,14 +80,14 @@ is "us-east-1", and the slug for Canada (Central) is "ca-central-1".
 ##### Run the container with environment variables
   
 ```shell
-docker run --name cloudwach-metrics \
+docker run --name cloudwatch-metrics \
 -e TOKEN=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
 -e LOGZIO_REGION=<<LOGZIO_REGION>> \
 -e AWS_REGION=<<AWS_REGION>> \
 -e AWS_ACCESS_KEY_ID=<<AWS_ACCESS_KEY_ID>> \
 -e AWS_SECRET_ACCESS_KEY=<<AWS_SECRET_ACCESS_KEY>> \
 -e AWS_NAMESPACES=<<AWS_NAMESPACES>> \
-logzio/cloudwach-metrics
+logzio/cloudwatch-metrics
 ```
 
 | Environment variable | Description |
@@ -124,13 +124,13 @@ You can monitor the container using opentelemetry extensions in the following po
 You can also publish the ports to your host network by using the `-p` flag:
   
 ```shell
-docker run --name cloudwach-metrics \
+docker run --name cloudwatch-metrics \
 -v <<path_to_config_file>>:config_files/config.yml \
 -p 8888:8888 \
 -p 55679:55679 \
 -p 13133:13133 \
 -p 1777:1777 \
-logzio/cloudwach-metrics
+logzio/cloudwatch-metrics
 ```
 </div>
 </div>
@@ -222,9 +222,9 @@ cloudwatch:
 ##### Mount the configuration file to your container
   
 ```shell
-docker run --name cloudwach-metrics \
+docker run --name cloudwatch-metrics \
 -v <<path_to_config_file>>:/config_files/config.yml \
-logzio/cloudwach-metrics
+logzio/cloudwatch-metrics
 ```
   
 ##### Publish extension ports
@@ -239,13 +239,13 @@ You can monitor the container using opentelemetry extensions in the following po
 You can also publish the ports to your host network by using the `-p` flag:
   
 ```shell
-docker run --name cloudwach-metrics \
+docker run --name cloudwatch-metrics \
 -v <<path_to_config_file>>:config_files/config.yml \
 -p 8888:8888 \
 -p 55679:55679 \
 -p 13133:13133 \
 -p 1777:1777 \
-logzio/cloudwach-metrics
+logzio/cloudwatch-metrics
 ```
 </div>
   
@@ -294,14 +294,14 @@ Create `cloudwatch.yml` file (for details refer to [prom/cloudwatch_exporter](ht
 and mount the configuration file to your container and set `CUSTOM_CONFIG` variable to `true`:
   
 ```shell
-docker run --name cloudwach-metrics \
+docker run --name cloudwatch-metrics \
 -e TOKEN=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
 -e LOGZIO_REGION=<<LOGZIO_REGION>> \
 -e AWS_ACCESS_KEY_ID=<<AWS_ACCESS_KEY_ID>> \
 -e CUSTOM_CONFIG=true \
 -e AWS_SECRET_ACCESS_KEY=<<AWS_SECRET_ACCESS_KEY>> \
 -v <<path_to_cloudwatch_config_file>>:/config_files/cloudwatch.yml \
-logzio/cloudwach-metrics
+logzio/cloudwatch-metrics
 ```
 
 {% include general-shipping/replace-placeholders-prometheus.html %}
@@ -317,13 +317,13 @@ You can monitor the container using opentelemetry extensions in the following po
 You can also publish the ports to your host network by using the `-p` flag:
   
 ```shell
-docker run --name cloudwach-metrics \
+docker run --name cloudwatch-metrics \
 -v <<path_to_config_file>>:config_files/config.yml \
 -p 8888:8888 \
 -p 55679:55679 \
 -p 13133:13133 \
 -p 1777:1777 \
-logzio/cloudwach-metrics
+logzio/cloudwatch-metrics
 ```
   
 </div>

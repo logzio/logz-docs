@@ -115,7 +115,8 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 | {{alert_severity}} | Severity of the triggered alert |
 | {{account_id}} | ID of the affected Logz.io account  |
 | {{account_name}} |  Name of the affected Logz.io account |
-| {{alert_samples}} | Prints a sample of the raw logs that caused the alert to trigger (JSON format, up to 10 logs) |
+| {{alert_samples}} | Prints a readable sample of the raw logs that caused the alert to trigger (String format, up to 10 logs). |
+| ["{{alert_samples_json}}"] | Prints a machine friendly sample of the raw logs that caused the alert to trigger (JSON format, up to 10 logs). |
 | {{alert_event_html}} | Returns a URL to an HTML file with the output table, as defined in the alert: Only relevant if the alert is configured to output data in tables |
 | {{alert_event_image}} | Returns a URL to an image file with the output table, as defined in the alert: Only relevant if the alert is configured to output data in tables |
 | {{alert_timeframe_start}} | Start time for the triggered alert event   |
@@ -125,7 +126,7 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 | {{alert_timeframe_end_epoch_millis}} |  End time for the triggered alert event in UNIX milliseconds |
 | {{alert_app_url}}| The domain to your Logz.io account that is used to build links: For example: `https://app.logz.io` |
 | {{alert_tags}}| A comma separated list of tags assigned to the alert: That is, `tag1, tag2, tag3` |
-| {{alert_tags_json}}| A comma separated list of string tags as would be used in a JSON array: That is, `"tag1", "tag2", "tag3"`|
+| ["{{alert_tags_json}}"]| A comma separated list of string tags as would be used in a JSON array: That is, `"tag1", "tag2", "tag3"`|
 
 
 Test your payload. Some parameters may not be supported by the service receiving the alerts from Logz.io.
@@ -162,6 +163,7 @@ The following list is provided for convenience, to make it easy to copy & paste 
 {{account_name}}
 {{account_id}}
 {{alert_samples}}
+{{alert_samples_json}}
 {{alert_event_html}}
 {{alert_event_image}} 
 {{alert_timeframe_start}}

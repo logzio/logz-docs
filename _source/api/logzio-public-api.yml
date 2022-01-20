@@ -252,6 +252,11 @@ tags:
       
       
       For this purpose, all of the values in a lookup list should be mapped to the same field in Kibana. [Learn more in the user guide](/user-guide/lookups/)
+  
+  - name: Grafana alerting
+    description: >-
+      To create an alert, use the Grafana dashboards API.
+
 
 x-tagGroups:
   - name: Log Monitoring

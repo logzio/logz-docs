@@ -115,8 +115,8 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 | {{alert_severity}} | Severity of the triggered alert |
 | {{account_id}} | ID of the affected Logz.io account  |
 | {{account_name}} |  Name of the affected Logz.io account |
-| {{alert_samples}} | Prints a sample of the raw logs that caused the alert to trigger (JSON format, up to 10 logs) |
-| ["{{alert_samples_json}}"] | Prints a machine friendly sample of the raw logs that caused the alert to trigger (JSON format, up to 10 logs). |
+| {{alert_samples}} | Prints a readable sample of the raw logs that caused the alert to trigger (String format, up to 10 logs) |
+| ["{{alert_samples_json}}"] | Prints a machine friendly sample of the raw logs that caused the alert to trigger (JSON format, up to 10 logs) |
 | {{alert_event_html}} | Returns a URL to an HTML file with the output table, as defined in the alert: Only relevant if the alert is configured to output data in tables |
 | {{alert_event_image}} | Returns a URL to an image file with the output table, as defined in the alert: Only relevant if the alert is configured to output data in tables |
 | {{alert_timeframe_start}} | Start time for the triggered alert event   |

@@ -18,19 +18,20 @@ contributors:
 
 ## Pricing and billing considerations for Log Management accounts
 
-Logz.io Log Management provides you with a hosted, open source solution for observability, based on the ELK stack.
+<!-- Logz.io Log Management provides you with a hosted, open source solution for observability, based on the ELK stack. 
+<!-- who cares? -->
+
+The conditions for the standard self-service account plans are summarized <a href ="/user-guide/billing/billing-log-plan-summaries" target="_blank">here </a>. Self-service is currently available for Trial, Community, and Pro plans.  
 
 
-
-### Standard self-service plans
-
-The conditions for the different account plans are summarized <a href ="/user-guide/billing/billing-log-plan-summaries" target="_blank">here </a>. Self-service is currently available for Trial, Community, and Pro plans.  
 
 If you need a  <a href ="user-guide/billing/billing-log-plan-summaries#enterprise-plans" target="_blank">customized Enterprise plan </a> to suit your log management needs, don't hesitate to contact us!
 
+
 ## Log Management usage metrics
 
-Product charges are determined according to the following parameters:
+Product charges are determined according to the parameters in the table below, and whether you have drop filters configured: Data that is ingested and then dropped with a drop filter is billed at a lower rate.
+
 
 |-------+----------------|
 |Parameter| Description|
@@ -43,7 +44,16 @@ Product charges are determined according to the following parameters:
 Want to learn more about account usage? See <a href ="/user-guide/accounts/manage-account-usage" target="_blank"> Manage account usage </a> in our docs. 
 
 ## Pricing calculations for Log Management 
-Your bill is calculated each month, based on the daily volume capacity for your active plan, the daily indexed volume of the data you send to Logz.io - after it has been processed for observability - and the additional charges that may be incurred if your data usage exceeds your plan. 
+
+
+Your bill is calculated each month, based on the ingested daily volume capacity for your active plan, including whatever smart-retention options and drop filters you have configured, and additional charges that may be incurred if your data usage exceeds your plan. 
+
+<!-- Ingested data is measured once it enters our data pipeline - after it’s been parsed, optimized, and processed by Logz.io’s drop filters - and before it’s indexed.
+
+With better visibility into the size and value of your logs, data ingestion makes it easier to:
+- Analyze and forecast usage patterns.
+- *Make better decisions* on which log types to send to Logz.io and which log types to drop *before* they’re ingested.. 
+-->
 
 At the end of each day, the data you sent to Logz.io is indexed, enriched, tagged, and compressed. You can typically see the data usage for a given day within 3 hours after the end of that day. Note that the daily indexing and billing is based on the UTC timezone.   <!--provide location Usage information page -->
 

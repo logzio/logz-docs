@@ -49,6 +49,26 @@ Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+ If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+
+```yaml
+tolerations:
+- key: 
+  operator: 
+  value: 
+  effect: 
+```
+
+To determine if a node uses taints as well as to display the taint keys, run:
+
+```
+kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
+```
+
+{:.info-box.note}
+<!-- info-box-end -->
+
 ###### K8S version compatibility
 
 Your Kubernetes version may affect your options, as follows:

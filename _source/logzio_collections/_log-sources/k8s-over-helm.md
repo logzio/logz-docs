@@ -46,6 +46,26 @@ Helm 2 reached [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+ If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+
+```yaml
+tolerations:
+- key: 
+  operator: 
+  value: 
+  effect: 
+```
+
+To determine if a node uses taints as well as to display the taint keys, run:
+
+```
+kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
+```
+
+{:.info-box.note}
+<!-- info-box-end -->
+
 </div>
 <!-- tab:end -->
 

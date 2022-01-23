@@ -20,6 +20,26 @@ Kubernetes events are a resource type that Kubernetes automatically creates when
 
 This guide uses the [kubernetes-event-exporter](https://github.com/opsgenie/kubernetes-event-exporter) tool to ship kubernetes events to Logz.io.
 
+<!-- info-box-start:info -->
+ If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+
+```yaml
+tolerations:
+- key: 
+  operator: 
+  value: 
+  effect: 
+```
+
+To determine if a node uses taints as well as to display the taint keys, run:
+
+```
+kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
+```
+
+{:.info-box.note}
+<!-- info-box-end -->
+
 <div class="tasklist">
 
 ##### Create monitoring namespace

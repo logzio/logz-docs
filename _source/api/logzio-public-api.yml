@@ -1079,12 +1079,269 @@ paths:
                   properties:
                     id:
                       type: integer
-                      description:  to create a new dashboard.
+                      description:  Nullable to create a new dashboard.
                       example: 1
                     uid:
                       type: integer
                       description: Optional unique identifier when creating a dashboard.  will generate a new uid.
                       example: 1
+                    panels:
+                      type: array
+                      items:
+                        type: object
+                        properties: 
+                          alert: 
+                            type: object
+                            properties: 
+                              alertRuleTags: 
+                                type: object
+                              conditions:
+                                type: array
+                                items: 
+                                  type: object
+                                  properties:
+                                    evaluator: 
+                                      type: object
+                                      properties: 
+                                        params:
+                                          type: array
+                                          items: 
+                                            type: integer
+                                            format: int32
+                                        type:
+                                          type: string
+                                    operator: 
+                                      type: object
+                                      properties: 
+                                        type: 
+                                          type: string
+                                    query: 
+                                      type: object
+                                      properties: 
+                                        params: 
+                                          type: array
+                                          items: 
+                                            type: string
+                                    reducer: 
+                                      type: object
+                                      properties: 
+                                        params: 
+                                          type: array
+                                          items: 
+                                        type: 
+                                          type: string
+                                    type: 
+                                      type: string
+                              executionErrorState: 
+                                type: string
+                              for: 
+                                type: string
+                              frequency: 
+                                type: string
+                              handler: 
+                                type: integer
+                                format: int32
+                              name: 
+                                type: string
+                              noDataState:
+                                type: string
+                              notifications: 
+                                type: array
+                                items:
+                          aliasColors: 
+                            type: object
+                            properties: 
+                          bars: 
+                            type: boolean
+                          dashLength:
+                            type: integer
+                            format: int32
+                          dashes: 
+                            type: boolean
+                          datasource: 
+                            type: string
+                            format: nullable
+                          fieldConfig: 
+                            type: object
+                            properties:
+                              defaults: 
+                                type: object
+                                properties: 
+                                  custom: 
+                                    type: object
+                                    properties: 
+                              overrides: 
+                                type: array
+                                items:
+                          fill: 
+                            type: integer
+                            format: int32
+                          fillGradient: 
+                            type: integer
+                            format: int32
+                          gridPos: 
+                            type: object
+                            properties: 
+                              h: 
+                                type: integer
+                                format: int32
+                              w: 
+                                type: integer
+                                format: int32
+                              x: 
+                                type: integer
+                                format: int32
+                              y: 
+                                type: integer
+                                format: int32
+                          hiddenSeries: 
+                            type: boolean
+                          id: 
+                            type: integer
+                            format: int32
+                          legend: 
+                            type: object
+                            properties: 
+                              avg: 
+                                type: boolean
+                              current: 
+                                type: boolean
+                              max: 
+                                type: boolean
+                              min:
+                                type: boolean
+                              show: 
+                                type: boolean
+                              total: 
+                                type: boolean
+                              values:
+                                type: boolean
+                          lines: 
+                            type: boolean
+                          linewidth:
+                            type: integer
+                            format: int32
+                          nullPointMode: 
+                            type: string
+                          options: 
+                            type: object
+                            properties: 
+                              dataLinks: 
+                                type: array
+                                items:
+                          percentage: 
+                            type: boolean
+                          pointradius: 
+                            type: integer
+                            format: int32
+                          points: 
+                            type: boolean
+                          renderer:
+                            type: string
+                          seriesOverrides: 
+                            type: array
+                            items:
+                          spaceLength: 
+                            type: integer
+                            format: int32
+                          stack:
+                            type: boolean
+                          steppedLine: 
+                            type: boolean
+                          targets: 
+                            type: array
+                            items: 
+                              type: object
+                              properties: 
+                                refId: 
+                                  type: string
+                                scenarioId:
+                                  type: string
+                          thresholds: 
+                            type: array
+                            items: 
+                              type: object
+                              properties: 
+                                colorMode: 
+                                  type: string
+                                fill: 
+                                  type: boolean
+                                line: 
+                                  type: boolean
+                                op: 
+                                  type: string
+                                value: 
+                                  type: integer
+                                  format: int32
+                          timeFrom: 
+                            type: string
+                            format: nullable
+                          timeRegions: 
+                            type: array
+                            items:
+                          timeShift: 
+                            type: string
+                            format: nullable
+                          title:
+                            type: string
+                          tooltip: 
+                            type: object
+                            properties: 
+                              shared: 
+                                type: boolean
+                              sort: 
+                                type: integer
+                                format: int32
+                              value_type: 
+                                type: string
+                          type: 
+                            type: string
+                          xaxis: 
+                            type: object
+                            properties: 
+                              buckets: 
+                                type: string
+                                format: nullable
+                              mode:
+                                type: string
+                              name: 
+                                type: string
+                                format: nullable
+                              show:
+                                type: boolean
+                              values:
+                                type: array
+                                items:
+                          yaxes:
+                            type: array
+                            items: 
+                              type: object
+                              properties: 
+                                format:
+                                  type: string
+                                label:
+                                  type: string
+                                  format: nullable
+                                logBase:
+                                  type: integer
+                                  format: int32
+                                max:
+                                  type: string
+                                  format: nullable
+                                min:
+                                  type: string
+                                  format: nullable
+                                show: 
+                                  type: boolean
+                          yaxis:
+                            type: object
+                            properties: 
+                              align: 
+                                type: boolean
+                              alignLevel: 
+                                type: string
+                                format: nullable
+
                     title:
                       type: string
                       example: Production Overview

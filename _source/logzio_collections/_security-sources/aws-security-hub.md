@@ -16,6 +16,17 @@ shipping-tags:
 order: 830
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#manual-lambda-configuration)
+* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+* [Manual CloudFormation deployment](#manual-cloudformation-deployment)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
 #### Overview
 
 This integration ships events from AWS Security Hub to Logz.io. It will automatically deploy [resources](#resources) to your AWS Account.
@@ -27,6 +38,14 @@ Your Lambda function needs to run within the AWS Lambda limits, such as memory a
 {:.info-box.important}
 <!-- info-box-end -->
 
+</div>
+
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="automated-cloudformation-deployment">
+
+#### Automated CloudFormation deployment
 
 <div class="tasklist">
 
@@ -74,6 +93,7 @@ Specify the **Key** and **Value** parameters for the **Tags** and select **Next*
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
 <div id="resources">
+
 ##### Deployed resources
 
 This deployment will automatically create the following resources:
@@ -89,3 +109,94 @@ If you still don't see your events, see [log shipping troubleshooting]({{site.ba
 
 </div>
 </div>
+
+<!-- tab:start -->
+<div id="manual-cloudformation-deployment">
+
+#### Manual CloudFormation deployment
+
+{% include log-shipping/note-lambda-test.md %}
+
+**Before you begin, you'll need**:
+
+* A CloudFormation stack
+* An S3 bucket to store the CloudFormation package
+
+<div class="tasklist">
+
+##### Select the Logz.io AWS Security Hub extension
+
+1. Navigate to **CloudFormation > Registry > Public extensions**.
+2. Set **Extension type > Modules** and **Publisher > Third party**.
+3. Select **logzio::awsSecurityHub::collector::MODULE**.
+
+
+##### Activate the Logz.io Kinesis extension
+
+1. On the **logzio::awsSecurityHub::collector::MODULE** select **Activate**.
+2. In the **Extension details** section, select **Use default**.
+3. In the **Automatic updates** section, select **On**.
+4. Select **Activate extension**.
+
+##### Copy the configuration template
+
+On the **logzio::awsSecurityHub::collector::MODULE** page, navigate to **Example template** and select **Copy template**.
+
+##### Add your stack values to the configuration template
+
+```yaml
+{
+    "Resources": {
+        "MyModule": {
+            "Type": "logzio::awsSecurityHub::collector::MODULE",
+            "Properties": {
+                "logzioOperationsToken": "logzioOperationsToken",
+                "logzioListener": "logzioListener",
+                "logzioLogLevel": "logzioLogLevel"
+            }
+        }
+    }
+}
+```
+
+Save the template as a yaml file and add the values of your stack to the as per the table below.
+
+| Parameter | Description |  
+|---|---|---|
+| logzioOperationsToken | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} |
+| logzioListener | {% include log-shipping/listener-var.html %} | 
+| logzioLogLevel | Required log level.  | 
+
+##### Add your stack values to the configuration template
+
+If you are creating a new stack:
+
+1. In step 1 of the **Create stack** process, select **Template is ready**.
+2. Select **Upload a template file**.
+
+If you are editing an existing stack:
+
+1. Select the stack.
+2. Select **Update**.
+3. Select **Edit template in designer**.
+4. Paste the contents of the yaml file into the **Resources** section of the template as follows:
+
+   ```yaml
+   "Resources": {
+        "MyModule": {
+            "Type": "logzio::awsSecurityHub::collector::MODULE",
+            "Properties": {
+                "logzioOperationsToken": "logzioOperationsToken",
+                "logzioListener": "logzioListener",
+                "logzioLogLevel": "logzioLogLevel"
+            }
+        }
+    }
+   ```
+5. If required, change the module name by editing the `"MyModule"` value.
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

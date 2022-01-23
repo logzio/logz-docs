@@ -25,6 +25,7 @@ order: 110
 
 * [Manual Lambda configuration](#manual-lambda-configuration)
 * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+* [Manual CloudFormation deployment](#manual-cloudformation-deployment)
 * [Terraform deployment](#terraform-deployment)
 {:.branching-tabs}
 
@@ -211,6 +212,110 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="manual-cloudformation-deployment">
+
+#### Manual CloudFormation deployment
+
+{% include log-shipping/note-lambda-test.md %}
+
+**Before you begin, you'll need**:
+
+* A CloudFormation stack
+* An S3 bucket to store the CloudFormation package
+
+<div class="tasklist">
+
+##### Select the Logz.io AWS Cloudwatch extension
+
+1. Navigate to **CloudFormation > Registry > Public extensions**.
+2. Set **Extension type > Modules** and **Publisher > Third party**.
+3. Select **logzio::autoDeploymentLogzio::CloudWatch::MODULE**.
+
+
+##### Activate the Logz.io AWS Cloudwatch extension
+
+1. On the **logzio::autoDeploymentLogzio::CloudWatch** select **Activate**.
+2. In the **Extension details** section, select **Use default**.
+3. In the **Automatic updates** section, select **On**.
+4. Select **Activate extension**.
+
+##### Copy the configuration template
+
+On the **logzio::autoDeploymentLogzio::CloudWatch** page, navigate to **Example template** and select **Copy template**.
+
+##### Add your stack values to the configuration template
+
+```yaml
+{
+    "Resources": {
+        "MyModule": {
+            "Type": "logzio::autoDeploymentLogzio::CloudWatch::MODULE",
+            "Properties": {
+                "LogzioListenerUrl": "LogzioListenerUrl",
+                "LogzioToken": "LogzioToken",
+                "LogzioType": "LogzioType",
+                "LogzioFormat": "LogzioFormat",
+                "LogzioCompress": "LogzioCompress",
+                "LogzioSendAll": "LogzioSendAll",
+                "LogzioEnrich": "LogzioEnrich",
+                "LogGroup": "LogGroup"
+            }
+        }
+    }
+}
+```
+
+Save the template as a yaml file and add the values of your stack to the as per the table below.
+
+
+| Parameter | Description | Required/Default |
+|---|---|---|
+| LogzioToken | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
+| LogzioListenerUrl |  {% include log-shipping/listener-var.md %}
+| LogzioType | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `logzio_cloudwatch_lambda` |
+| LogzioFormat | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
+| LogzioCompress | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| LogzioEnrich | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. | -- |
+
+##### Add your stack values to the configuration template
+
+If you are creating a new stack:
+
+1. In step 1 of the **Create stack** process, select **Template is ready**.
+2. Select **Upload a template file**.
+
+If you are editing an existing stack:
+
+1. Select the stack.
+2. Select **Update**.
+3. Select **Edit template in designer**.
+4. Paste the contents of the yaml file into the **Resources** section of the template as follows:
+
+   ```yaml
+   "MyModule": {
+            "Type": "logzio::autoDeploymentLogzio::CloudWatch::MODULE",
+            "Properties": {
+                "LogzioListenerUrl": "LogzioListenerUrl",
+                "LogzioToken": "LogzioToken",
+                "LogzioType": "LogzioType",
+                "LogzioFormat": "LogzioFormat",
+                "LogzioCompress": "LogzioCompress",
+                "LogzioSendAll": "LogzioSendAll",
+                "LogzioEnrich": "LogzioEnrich",
+                "LogGroup": "LogGroup"
+            }
+        }
+   ```
+5. If required, change the module name by editing the `"MyModule"` value.
+
+
+
+</div>
+
 </div>
 <!-- tab:end -->
 

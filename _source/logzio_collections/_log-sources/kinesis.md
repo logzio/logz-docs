@@ -246,13 +246,14 @@ Save the template as a yaml file and add the values of your stack to the as per 
 |---|---|---|
 | LogzioTOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %} | Required  |
 | KinesisStream | The name of the Kinesis stream where this function will listen for updates. | Required  |
-| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). Logz.io 2-letter region code. {% include log-shipping/listener-var.html %} | Required | 
-| LogzioURL (Deprecated) | Use LogzioREGION instead. | -- |
-| LogzioTYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `kinesis_lambda` |
+| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). Logz.io 2-letter region code. | Required | 
+| LogzioURL | {% include log-shipping/listener-var.html %} | -- |
+| LogzioTYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `logzio_kinesis_stream` |
 | LogzioFORMAT  | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
 | LogzioCOMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
 | KinesisStreamBatchSize | The largest number of records to read from your stream at one time. | `100` |
 | KinesisStreamStartingPosition | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. | `LATEST` |
+| LogzioMessagesArray | Set this variable to split the a record into multiple logs based on a field containing an array |  |
 
 ##### Add your stack values to the configuration template
 

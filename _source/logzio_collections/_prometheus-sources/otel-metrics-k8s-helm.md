@@ -165,7 +165,7 @@ Give your metrics some time to get from your system to ours.
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["7BMEKdVrHKPQtt5IgaQ7Bw", "4knWrgcTsEj5kqNXJTES87", "NwO3pdosDJVRWo6i9QJEy", "6RFNnTgcwAmmFnuRropnGu", "5lqRpL1ADesghZbNCEPaZ9"] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["7BMEKdVrHKPQtt5IgaQ7Bw", "4knWrgcTsEj5kqNXJTES87", "NwO3pdosDJVRWo6i9QJEy", "6RFNnTgcwAmmFnuRropnGu", "5lqRpL1ADesghZbNCEPaZ9", "5jMvBtrxQwMo0GuDO13kpb", "5BjRR3NuNQb3XHVPhn3HQ0", "2TRgFib4ICfKsrzS5oJwgC", "1EcVjdr5c6heqbxpd6Zs8X" ] -->
 
 {% include metric-shipping/generic-dashboard.html %} 
   

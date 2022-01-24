@@ -28,9 +28,10 @@ This chart is based on the [fluent-bit](https://github.com/fluent/helm-charts/tr
 {:.info-box.note}
 <!-- info-box-end -->
 
-<!-- info-box-start:info -->
- If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+###### Sending logs from nodes with taints
 
+If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+  
 ```yaml
 tolerations:
 - key: 
@@ -38,15 +39,12 @@ tolerations:
   value: 
   effect: 
 ```
-
+  
 To determine if a node uses taints as well as to display the taint keys, run:
-
+  
 ```
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
-
-{:.info-box.note}
-<!-- info-box-end -->
 
 #### Standard configuration
 

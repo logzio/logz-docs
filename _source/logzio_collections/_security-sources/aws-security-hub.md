@@ -108,6 +108,8 @@ Give the stack some time to deploy and the resources to get created. Once this i
 If you still don't see your events, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+</div>
 </div>
   
 <!-- tab:end -->

@@ -2,6 +2,8 @@
 layout: article
 title: Correlate logs and traces
 permalink: /user-guide/distributed-tracing/correlate-traces
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Correlate Kibana and Jaeger for more context and insights
 flags:
   logzio-plan: pro enterprise
 tags:

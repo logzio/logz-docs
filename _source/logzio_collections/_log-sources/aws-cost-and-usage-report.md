@@ -166,7 +166,6 @@ Save the template as a yaml file and add the values of your stack to the as per 
 
 | Parameter | Description |
 |---|---|
-| Stack name | logzio-cur-auto-deployment |
 | CloudWatchEventScheduleExpression | `Default: rate(10 hours)` The scheduling expression that determines when and how often the Lambda function runs. Logz.io recommends to start with 10 hours rate. |
 | LambdaMemorySize | `Default: 1024 (MB)` The amount of memory available to the function at runtime. Logz.io recommends to start with 1024 MB. |
 | LambdaTimeout | `Default: 300 (seconds)` The amount of time that Lambda allows a function to run before stopping it. Logz.io recommends to start with 300 seconds (5 minutes). |

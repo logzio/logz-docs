@@ -23,7 +23,7 @@ order: 830
 <div class="branching-container">
 
 * [Manual configuration](#manual-configuration)
-* [Automated CloudFormation deployment](#automated-cloudformation-deployment)
+* [Manual CloudFormation deployment](#manual-cloudformation-deployment)
 {:.branching-tabs}
 
 <!-- tab:start -->

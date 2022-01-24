@@ -109,6 +109,9 @@ If you still don't see your events, see [log shipping troubleshooting]({{site.ba
 
 </div>
 </div>
+  
+
+<!-- tab:end -->
 
 <!-- tab:start -->
 <div id="manual-cloudformation-deployment">

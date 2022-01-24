@@ -110,7 +110,6 @@ If you still don't see your events, see [log shipping troubleshooting]({{site.ba
 </div>
 </div>
   
-
 <!-- tab:end -->
 
 <!-- tab:start -->
@@ -197,6 +196,8 @@ If you are editing an existing stack:
     }
    ```
 5. If required, change the module name by editing the `"MyModule"` value.
+
+</div>
 
 </div>
 <!-- tab:end -->

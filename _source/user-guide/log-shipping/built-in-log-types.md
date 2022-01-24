@@ -72,6 +72,7 @@ This table shows the log types that Logz.io parses automatically.
 | Trend Micro                 | `trendmicro_deep`                    | ✔ |
 | Palo Alto Networks    | `paloalto`                                  | ✔ |
 | Performance-tab       | `performance-tab`                                  | ✔ |
+| pfSense       | `pfsense`                                  | ✔ |
 | Sonicwall                | `sonicwall`                                  | ✔ |
 | Sophos Intercept X       | `sophos-ep`                                  | ✖️ Auto-parsed as part of platform integration. |
 | Stormshield                | `stormshield`                              | ✔ |

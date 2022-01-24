@@ -19,7 +19,7 @@ order: 830
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Overview](#manual-lambda-configuration)
+* [Overview](#overview)
 * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 * [Manual CloudFormation deployment](#manual-cloudformation-deployment)
 {:.branching-tabs}

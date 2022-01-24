@@ -36,25 +36,25 @@ First you need to configure the input plug-in to enable Telegraf to scrape the s
 
 ``` ini
 [[inputs.cpu]]
-  # Whether to report per-cpu stats or not
+  ## Whether to report per-cpu stats or not
   percpu = false
-  
-  # Whether to report total system cpu stats or not
+  ## Whether to report total system cpu stats or not
   totalcpu = true
-  
-  # If true, collect raw CPU time metrics.
+  ## If true, collect raw CPU time metrics.
   collect_cpu_time = true
-  
-  # If true, compute and report the sum of all non-idle CPU states.
+  ## If true, compute and report the sum of all non-idle CPU states.
   report_active = true
-  
 [[inputs.mem]]
 [[inputs.system]]
+    namepass = ["system"]
 [[inputs.disk]]
   ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
 [[inputs.diskio]]
 [[inputs.net]]
 [[inputs.processes]]
+[[inputs.procstat]]
+    pattern = ".*"
+    fieldpass = ["cpu_usage", "memory_rss"] 
 ```
 
 <!-- info-box-start:info -->

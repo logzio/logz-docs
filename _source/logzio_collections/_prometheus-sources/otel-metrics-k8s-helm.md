@@ -43,6 +43,26 @@ It is also dependent on the [kube-state-metrics](https://github.com/kubernetes/k
   
 To disable the dependency during installation, set `kubeStateMetrics.enabled`, `nodeExporter.enabled` or `pushGateway.enabled` to `false`.
 
+###### Sending logs from nodes with taints
+
+If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+  
+```yaml
+tolerations:
+- key: 
+  operator: 
+  value: 
+  effect: 
+```
+  
+To determine if a node uses taints as well as to display the taint keys, run:
+  
+```
+kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
+```
+
+  
+
 </div>
 <!-- tab:end -->
 

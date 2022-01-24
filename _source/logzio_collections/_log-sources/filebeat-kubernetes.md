@@ -36,6 +36,24 @@ You have 3 options for deploying this Daemonset:
 
 If you are sending multiline logs, see the relevant tab for further details.
 
+###### Sending logs from nodes with taints
+
+If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+  
+```yaml
+tolerations:
+- key: 
+  operator: 
+  value: 
+  effect: 
+```
+  
+To determine if a node uses taints as well as to display the taint keys, run:
+  
+```
+kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
+```
+
 </div>
 <!-- tab:end -->
 <!-- tab:start -->

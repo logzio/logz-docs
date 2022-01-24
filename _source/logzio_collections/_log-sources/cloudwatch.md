@@ -274,13 +274,15 @@ Save the template as a yaml file and add the values of your stack to the as per 
 
 | Parameter | Description | Required/Default |
 |---|---|---|
+| LogzioListenerUrl |  {% include log-shipping/listener-var.md %} | |
 | LogzioToken | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
-| LogzioListenerUrl |  {% include log-shipping/listener-var.md %}
 | LogzioType | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `logzio_cloudwatch_lambda` |
 | LogzioFormat | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
 | LogzioCompress | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| LogzioSendAll | Set to `true` to send all logs |  |
 | LogzioEnrich | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. | -- |
-
+| LogGroup | CloudWatch log group. | -- |
+  
 ##### Add your stack values to the configuration template
 
 If you are creating a new stack:

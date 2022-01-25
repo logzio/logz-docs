@@ -3,7 +3,7 @@ title: Sending traces from your Node.js application on AWS Lambda using OpenTele
 logo:
   logofile: lambda-nodejs2.png
   orientation: vertical
-data-source: Automatic instrumentation for Node.js on AWS Lambda
+data-source: Automatic instrumentation for Node.js & Lambda
 data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:

@@ -21,19 +21,9 @@ order: 1380
 * Filebeat 7 installed on your machine
 * Root priveleges on your machines 
 
+#### Default configuration
+
 <div class="tasklist">
-
-
-##### Configure Avast Antivirus to generate report files for your scans
-
-1. Open Avast Antivirus.
-2. Navigate to **Menu > Settings > Protection > Virus Scans > Full Virus Scan**.
-3. Check the **Generate report file** checkbox.
-4. Navigate to **Targeted Scan**.
-5. Check the **Generate report file** checkbox.
-6. Navigate to **Explorer Scan**.
-7. Check the **Generate report file** checkbox.
-
 
 {% include log-shipping/certificate.md %}
 
@@ -135,5 +125,23 @@ order: 1380
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `avast` to see the incoming Axonius logs.
   
 If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+  
+</div>
+
+#### Optional configuration with report files
+
+<div class="tasklist">
+
+
+##### Configure Avast Antivirus to generate report files for your scans
+
+1. Open Avast Antivirus.
+2. Navigate to **Menu > Settings > Protection > Virus Scans > Full Virus Scan**.
+3. Check the **Generate report file** checkbox.
+4. Navigate to **Targeted Scan**.
+5. Check the **Generate report file** checkbox.
+6. Navigate to **Explorer Scan**.
+7. Check the **Generate report file** checkbox.
+
 
 </div>

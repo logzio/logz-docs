@@ -1,9 +1,9 @@
 ---
-title: Sending traces from AWS Lambda NodeJS Extension layer with OpenTelemetry Collector
+title: Sending traces from your Node.js application on AWS Lambda using OpenTelemetry
 logo:
-  logofile: AWS-Lambda.svg
+  logofile: lambda-nodejs2.png
   orientation: vertical
-data-source: AWS Lambda Extension NodeJS
+data-source: Automatic instrumentation for Node.js & Lambda
 data-for-product-source: Tracing
 templates: ["network-device-filebeat"]
 contributors:
@@ -13,52 +13,107 @@ shipping-tags:
   - new-instrumentation
 order: 1380
 ---
-  
-OpenTelemetry Lambda NodeJS is a layer for running NodeJS applications on AWS Lambda with OpenTelemetry. Adding the layer and pointing to it with
-the `AWS_LAMBDA_EXEC_WRAPPER` environment variable will initialize OpenTelemetry, enabling tracing with no code change.
 
-**Supported AWS regions are: us-east-1, us-east-2, ca-central-1, ap-northeast-2, ap-northeast-1, eu-central-1, eu-west-2** 
+Deploy this integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector, a dedicated layer for Node.js auto-instrumentation and configuring environment variables of these layers. This integration will require no change to your application code.
 
-To use it, you will need add the layer to your function configuration and then set `AWS_LAMBDA_EXEC_WRAPPER` to `/opt/otel-handler`.
+<!-- info-box-start:info -->
+This integration only works for the following AWS regions: us-east-1, us-east-2, ca-central-1, ap-northeast-2, ap-northeast-1, eu-central-1, eu-west-2.
+{:.info-box.note}
+<!-- info-box-end -->
 
-[AWS SDK v2 instrumentation](https://github.com/aspecto-io/opentelemetry-ext-js/tree/master/packages/instrumentation-aws-sdk) is also
-included and loaded automatically if you use the AWS SDK v2.
-
-  
-#### Install the OpenTelemetry Collector Lambda Extension to an existing Lambda function
+#### Setup instructions
 
 **Before you begin, you'll need**:
   
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 * Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+* A Lambda function with a Node.js application that is not yet instrumented.
+
+<!-- info-box-start:info -->
+Adding environmental variables using the AWS CLI commands below, will overwrite all existing variables for your Lambda function.
+{:.info-box.note}
+<!-- info-box-end -->
 
 <div class="tasklist">
 
-##### Install the OpenTelemetry Collector Lambda Extension to an existing Lambda function using the AWS CLI
+##### Add the OpenTelemetry collector layer to your Lambda function
+
+This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name Function --layers arn:aws:lambda:<<your-aws-region>>:486140753397:layer:logzio-opentelemetry-collector-layer:1
-```
-  
-##### Activate function tracing
-  
-```shell
-aws lambda update-function-configuration --function-name Function --tracing-config Mode=Active
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-layer:1
 ```
 
-##### Install the OpenTelemetry Collector NodeJS Lambda Extension to an existing Lambda function using the AWS CLI
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+
+Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+
+##### Create a configuration file for the OpenTelemetry collector
   
-```shell
-aws lambda update-function-configuration --function-name Function --layers arn:aws:lambda:<<your-aws-region>>:486140753397:layer:logzio-opentelemetry-nodejs-wrapper:1
+By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment variable.
+
+The `collector.yaml` file will have the following configuration:
+  
+```yaml
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+exporters:
+  logzio:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [logzio]
 ```
   
-##### Add environment variable
+{% include /tracing-shipping/replace-tracing-token.html %}
+
+##### Direct the OpenTelemetry collector to the configuration file
+
+
+Add `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` variable to direct the OpenTelemetry collector to the configuration file:
+
+```
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_FILE=/var/task/collector.yaml}
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+
+
+##### Activate tracing for your Lambda function
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --tracing-config Mode=Active
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+
+##### Add the OpenTelemetry Node.js wrapper layer to your Lambda function
+
+The OpenTelemetry Node.js wrapper layer automatically instruments the Node.js application in your Lambda function.
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-nodejs-wrapper:1
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+
+Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+  
+##### Add environment variable for the wrapper
   
 Add the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to point to the `otel-handler` executable:
 
 ```shell
-aws lambda update-function-configuration --function-name Function --environment Variables={AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-handler}
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-handler}
 ```
-  
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+
   
 </div>

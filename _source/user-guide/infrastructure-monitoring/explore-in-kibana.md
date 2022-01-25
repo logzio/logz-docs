@@ -2,6 +2,8 @@
 layout: article
 title: Explore in Kibana
 permalink: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Explore in Kibana drilldown overview
 flags:
   logzio-plan: community
 tags:
@@ -36,36 +38,36 @@ It's also a good idea to have [variables configured](/user-guide/infrastructure-
 
 ##### Add a new panel
 
-If you want to start fresh with a new dashboard, click <i class="fas fa-plus"></i> in the left menu to add it. Otherwise you can just add a new panel: Click the **Add panel** button in the toolbar (in the upper right corner).
+If you want to start fresh with a new dashboard, click <i class="fas fa-plus"></i> in the left menu to add it. Otherwise, you can add a new panel: Click the **Add panel** button in the toolbar (in the upper right corner).
 
-Click **Add Query**.
+Click **Add an empty panel**.
 
-![Grafana new panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/new-panel.png)
+![Grafana new panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-add-panel.png)
 
 ##### Configure the panel
 
-Select your Infrastructure Monitoring account from the list of datasources. (This is an Elasticsearch index).
+Select your Logs account from the list of datasources.
 
-Configure the Elasticsearch **Query**.
+Configure the **Query**.
 
-![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--datasource-list.png)
+![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-select-source.png)
 
 
 ##### Configure the visualization
 
-Click the _Visualization_ icon to the left to see visualization options.
+Click the _Time series_ title on the left to see visualization options.
 
 If you plan to add alerts to the visualization, note that only **Graph** is supported. (This is a Grafana limitation.)
 {:.info-box.tip}
 
-![Panel configuration, visualization  options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-config--query--visualization.png)
+![Panel configuration, visualization  options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-select-visualization.png)
 
 ##### Configure the drilldown link
 
-Click the _General_ icon to the left, and scroll to the **Panel links** section at the bottom. 
+Go to **Panel options** located at the right side of the screen, and click the **Panel links** section. 
 Click **+ Add link**.
 
-![Add panel link in Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/add-drilldown-url.png)
+![Add panel link in Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-edit-link.png)
 
 * Set the **Title** to **Explore in Kibana**, unless you want to name it something else.
 * Copy this endpoint to the **URL**:
@@ -79,13 +81,11 @@ Click **+ Add link**.
 
 ##### Query syntax and tips
 
-If you're using variables in your query, note that there is a small syntax difference depending on whether you've enabled multi-select or not. 
+If you're using variables in your query, note that there is a slight syntax difference depending on whether you've enabled multi-select or not. 
 
-Here's how to check your variable settings or change them:
+To check your variable settings or change them, navigate to **Dashboard settings > Variables**.
 
-<video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/grafana-variables.mp4" type="video/mp4" />
-</video>
+![Add panel link in Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-variables-settings.png)
 
 * If **Multi-value** or **Include All option** are toggled on, write the variable name as usual - for example `$node`.
 * If they are toggled off, write the variable name between double quotes - for example `“$node”`.
@@ -110,4 +110,4 @@ by hovering over <i class="fas fa-external-link-alt"></i>
 (upper left corner of the panel),
 and clicking **Explore in Kibana**.
 
-![Drilldown link](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/panel-drilldown-link.png)
+![Drilldown link](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-send-to-kibana.png)

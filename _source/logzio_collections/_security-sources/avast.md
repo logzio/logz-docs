@@ -134,6 +134,10 @@ If you still don’t see your data, see [log shipping troubleshooting](https://d
 
 
 ##### Configure Avast Antivirus to generate report files for your scans
+  
+If you want to send data from virus scans together with the logs, you need to enable Avast Antivirus to generate report files for these scans. You do not need to change antything in the Filebeat configuration as it already includes paths to these report files.
+  
+To enable this:
 
 1. Open Avast Antivirus.
 2. Navigate to **Menu > Settings > Protection > Virus Scans > Full Virus Scan**.

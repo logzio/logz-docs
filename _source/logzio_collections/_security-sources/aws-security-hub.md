@@ -21,7 +21,7 @@ order: 830
 
 * [Overview](#overview)
 * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
-* [Manual CloudFormation deployment](#manual-cloudformation-deployment)
+* [Deployment using a module](#module-deployment)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -115,9 +115,9 @@ If you still don't see your events, see [log shipping troubleshooting]({{site.ba
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="manual-cloudformation-deployment">
+<div id="module-deployment">
 
-#### Manual CloudFormation deployment
+#### Deployment using a module
 
 {% include log-shipping/note-lambda-test.md %}
 

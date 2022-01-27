@@ -135,7 +135,7 @@ If you still don't see your events, see [log shipping troubleshooting]({{site.ba
 3. Select **logzio::awsSecurityHub::collector::MODULE**.
 
 
-##### Activate the Logz.io Kinesis extension
+##### Activate the Logz.io AWS Security Hub extension
 
 1. On the **logzio::awsSecurityHub::collector::MODULE** select **Activate**.
 2. In the **Extension details** section, select **Use default**.

@@ -159,7 +159,7 @@ On the **Logzio::awsCostAndUsage::cur::MODULE** page, navigate to **Example temp
                 "ReportTimeUnit": "ReportTimeUnit",
                 "ReportAdditionalSchemaElements": "ReportAdditionalSchemaElements",
                 "LogzioURL": "LogzioURL",
-                "LogzioToken": "LogzioToken",
+                "LogzioToken": "<<LOG-SHIPPING-TOKEN>>",
                 "LambdaMemorySize": "LambdaMemorySize",
                 "LambdaTimeout": "LambdaTimeout",
                 "CloudWatchEventScheduleExpression": "CloudWatchEventScheduleExpression"
@@ -208,7 +208,7 @@ If you are editing an existing stack:
                 "ReportTimeUnit": "ReportTimeUnit",
                 "ReportAdditionalSchemaElements": "ReportAdditionalSchemaElements",
                 "LogzioURL": "LogzioURL",
-                "LogzioToken": "LogzioToken",
+                "LogzioToken": "<<LOG-SHIPPING-TOKEN>>",
                 "LambdaMemorySize": "LambdaMemorySize",
                 "LambdaTimeout": "LambdaTimeout",
                 "CloudWatchEventScheduleExpression": "CloudWatchEventScheduleExpression"

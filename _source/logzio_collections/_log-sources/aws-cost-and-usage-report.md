@@ -110,6 +110,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <div id="module-deployment">
 
 #### Deployment using a module
+  
+Deploy this integration to add a module for AWS cost and usage report to your existing stack. This integration uses Cloudwatch Public Registry.
 
 {% include log-shipping/note-lambda-test.md %}
 

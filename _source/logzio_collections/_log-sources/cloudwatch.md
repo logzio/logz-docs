@@ -138,8 +138,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 {% include log-shipping/note-lambda-test.md %}
 
 **Before you begin, you'll need**:
-AWS CLI,
-an S3 bucket to store the CloudFormation package
+  
+* AWS CLI
+* An S3 bucket to store the CloudFormation package
 
 <div class="tasklist">
 
@@ -232,7 +233,6 @@ Logz.io Public Registry extensions are currently only available on the AWS regio
 **Before you begin, you'll need**:
 
 * A CloudFormation stack
-* An S3 bucket to store the CloudFormation package
 
 <div class="tasklist">
 

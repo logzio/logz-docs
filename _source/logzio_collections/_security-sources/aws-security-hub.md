@@ -118,6 +118,9 @@ If you still don't see your events, see [log shipping troubleshooting]({{site.ba
 <div id="module-deployment">
 
 #### Deployment using a module
+  
+Deploy this integration to add a module for AWS security hub to your existing stack. This integration uses Cloudwatch Public Registry.
+
 
 {% include log-shipping/note-lambda-test.md %}
 

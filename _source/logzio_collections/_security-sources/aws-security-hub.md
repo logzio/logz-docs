@@ -160,7 +160,7 @@ On the **logzio::awsSecurityHub::collector::MODULE** page, navigate to **Example
         "MyModule": {
             "Type": "logzio::awsSecurityHub::collector::MODULE",
             "Properties": {
-                "logzioOperationsToken": "logzioOperationsToken",
+                "logzioOperationsToken": "<<LOG-SHIPPING-TOKEN>>",
                 "logzioListener": "logzioListener",
                 "logzioLogLevel": "logzioLogLevel"
             }
@@ -196,7 +196,7 @@ If you are editing an existing stack:
         "MyModule": {
             "Type": "logzio::awsSecurityHub::collector::MODULE",
             "Properties": {
-                "logzioOperationsToken": "logzioOperationsToken",
+                "logzioOperationsToken": "<<LOG-SHIPPING-TOKEN>>",
                 "logzioListener": "logzioListener",
                 "logzioLogLevel": "logzioLogLevel"
             }

@@ -230,7 +230,7 @@ On the **Logzio::KinesisShipper::KinesisShipper::MODULE** page, navigate to **Ex
         "MyModule": {
             "Type": "Logzio::KinesisShipper::KinesisShipper::MODULE",
             "Properties": {
-                "LogzioTOKEN": "LogzioTOKEN",
+                "LogzioTOKEN": "<<LOG-SHIPPING-TOKEN>>",
                 "LogzioFORMAT": "LogzioFORMAT",
                 "LogzioREGION": "LogzioREGION",
                 "LogzioCOMPRESS": "LogzioCOMPRESS",
@@ -279,7 +279,7 @@ If you are editing an existing stack:
    "MyModule": {
                "Type": "Logzio::KinesisShipper::KinesisShipper::MODULE",
                "Properties": {
-                   "LogzioTOKEN": "LogzioTOKEN",
+                   "LogzioTOKEN": "<<LOG-SHIPPING-TOKEN>>",
                    "LogzioFORMAT": "LogzioFORMAT",
                    "LogzioREGION": "LogzioREGION",
                    "LogzioCOMPRESS": "LogzioCOMPRESS",

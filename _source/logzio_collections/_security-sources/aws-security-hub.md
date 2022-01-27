@@ -121,6 +121,10 @@ If you still don't see your events, see [log shipping troubleshooting]({{site.ba
   
 Deploy this integration to add a module for AWS security hub to your existing stack. This integration uses Cloudwatch Public Registry.
 
+<!-- info-box-start:info -->
+Logz.io Public Registry extensions are currently only available on the AWS region `us-east-1`.
+{:.info-box.note}
+<!-- info-box-end -->
 
 {% include log-shipping/note-lambda-test.md %}
 

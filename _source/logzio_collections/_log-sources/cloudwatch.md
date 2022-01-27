@@ -221,7 +221,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Deployment using a module
 
-Deploy this integration to add a module for Cloudwatch to your existing stack. This integration uses Cloudwatch Public Registry.
+Deploy this integration to add a module for CloudWatch to your existing stack. This integration uses CloudWatch Public Registry.
   
 <!-- info-box-start:info -->
 Logz.io Public Registry extensions are currently only available on the AWS region `us-east-1`.

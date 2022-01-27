@@ -25,7 +25,7 @@ order: 110
 
 * [Manual Lambda configuration](#manual-lambda-configuration)
 * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
-* [Manual CloudFormation deployment](#manual-cloudformation-deployment)
+* [Deployment using a module](#module-deployment)
 * [Terraform deployment](#terraform-deployment)
 {:.branching-tabs}
 
@@ -216,7 +216,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="manual-cloudformation-deployment">
+<div id="module-deployment">
 
 #### Manual CloudFormation deployment
 

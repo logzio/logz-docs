@@ -109,7 +109,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:start -->
 <div id="module-deployment">
 
-#### Manual CloudFormation deployment
+#### Deployment using a module
 
 {% include log-shipping/note-lambda-test.md %}
 

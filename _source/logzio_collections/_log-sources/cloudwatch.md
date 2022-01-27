@@ -220,6 +220,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Deployment using a module
 
+Deploy this integration to add a module for Cloudwatch to your existing stack. This integration uses Cloudwatch Public Registry.
+
+
 {% include log-shipping/note-lambda-test.md %}
 
 **Before you begin, you'll need**:

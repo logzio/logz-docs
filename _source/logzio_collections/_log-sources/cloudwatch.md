@@ -263,7 +263,7 @@ On the **logzio::autoDeploymentLogzio::CloudWatch** page, navigate to **Example 
             "Type": "logzio::autoDeploymentLogzio::CloudWatch::MODULE",
             "Properties": {
                 "LogzioListenerUrl": "LogzioListenerUrl",
-                "LogzioToken": "LogzioToken",
+                "LogzioToken": "<<LOG-SHIPPING-TOKEN>>",
                 "LogzioType": "LogzioType",
                 "LogzioFormat": "LogzioFormat",
                 "LogzioCompress": "LogzioCompress",
@@ -309,7 +309,7 @@ If you are editing an existing stack:
             "Type": "logzio::autoDeploymentLogzio::CloudWatch::MODULE",
             "Properties": {
                 "LogzioListenerUrl": "LogzioListenerUrl",
-                "LogzioToken": "LogzioToken",
+                "LogzioToken": "<<LOG-SHIPPING-TOKEN>>",
                 "LogzioType": "LogzioType",
                 "LogzioFormat": "LogzioFormat",
                 "LogzioCompress": "LogzioCompress",

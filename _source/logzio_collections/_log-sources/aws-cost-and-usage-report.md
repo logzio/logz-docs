@@ -23,7 +23,7 @@ order: 830
 <div class="branching-container">
 
 * [Manual configuration](#manual-configuration)
-* [Manual CloudFormation deployment](#manual-cloudformation-deployment)
+* [Deployment using a module](#module-deployment)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -107,7 +107,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="manual-cloudformation-deployment">
+<div id="module-deployment">
 
 #### Manual CloudFormation deployment
 

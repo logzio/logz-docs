@@ -162,7 +162,7 @@ On the **logzio::awsSecurityHub::collector::MODULE** page, navigate to **Example
             "Properties": {
                 "logzioOperationsToken": "<<LOG-SHIPPING-TOKEN>>",
                 "logzioListener": "https://<<LISTENER-HOST>>:8071",
-                "logzioLogLevel": "logzioLogLevel"
+                "logzioLogLevel": "<<LOGZIO-LOG-LEVEL>>"
             }
         }
     }

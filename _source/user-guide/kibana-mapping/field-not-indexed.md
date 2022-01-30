@@ -25,7 +25,7 @@ If a field is not mapped in Kibana, there are a few actions you won't be able to
 1. You can't visualize it.
 2. You can't filter on it. It simply won’t appear in the drop-down filter list.
 
-
+{% include /arrays_in_kibana/array_note.md %}
 ### Add a field to Kibana's default mapping
 
 You can always add a field to Kibana's list of required fields.

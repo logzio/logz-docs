@@ -47,11 +47,15 @@ Type a **Name** and a detailed **Description**.
 
 ##### _(Optional)_ Edit the search settings
 
-If you need to, change your optimizer **Query** and the **Accounts** that the query will search.
+If you need to, change your optimizer **Query** and the **Accounts** that the query searches.
 
-If you use an invalid query, the optimizer will be automatically disabled.
-Run your query in Kibana so you can be sure you're getting the expected results.
+<!-- info-box-start:info -->
+If you use an invalid query, the optimizer will automatically be disabled.
+Run your query in Kibana so you can be sure you're getting the expected results. <br><br>
+The filter tags that are displayed in the Optimizer **Query** section indicate the filters you used for the query in **Discover**. 
+To update the filters, you'll need to add them to your search in **Discover**.
 {:.info-box.important}
+<!-- info-box-end -->
 
 ##### _(Optional)_ Edit group by settings
 

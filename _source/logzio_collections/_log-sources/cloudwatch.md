@@ -233,6 +233,7 @@ Logz.io Public Registry extensions are currently only available on the AWS regio
 **Before you begin, you'll need**:
 
 * A CloudFormation stack
+* An S3 bucket to store the CloudFormation package
 
 <div class="tasklist">
 

@@ -197,7 +197,7 @@ If you are editing an existing stack:
             "Type": "logzio::awsSecurityHub::collector::MODULE",
             "Properties": {
                 "logzioOperationsToken": "<<LOG-SHIPPING-TOKEN>>",
-                "logzioListener": "logzioListener",
+                "logzioListener": "https://<<LISTENER-HOST>>:8071",
                 "logzioLogLevel": "logzioLogLevel"
             }
         }

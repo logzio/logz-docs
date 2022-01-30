@@ -22,21 +22,29 @@ order: 830
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Manual configuration](#manual-configuration)
+* [Overview](#overview)
+* [Automated CloudFormation deployment](#auto-configuration)
 * [Deployment using a module](#module-deployment)
 {:.branching-tabs}
-
+  
 <!-- tab:start -->
-<div id="manual-configuration">
+<div id="overview">
+  
 
 AWS Cost and Usage Reports function tracks your AWS usage and provides estimated charges associated with your account. This integration allows you to ship logs from your AWS Cost and Usage Reports to your Logz.io account.
-
-#### Configuration
 
 <!-- info-box-start:info -->
 Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout. Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 {:.info-box.important}
 <!-- info-box-end -->
+  
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="auto-configuration">
+
+#### Automated CloudFormation deployment
 
 This deployment will automatically create the following resources:
 

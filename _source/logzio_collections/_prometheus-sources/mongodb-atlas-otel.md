@@ -3,15 +3,13 @@ title: Ship MongoDB Atlas metrics via OpenTelemetry
 logo:
   logofile: mongoatlas-logo.png
   orientation: vertical
-data-source: MongoDB 
+data-source: MongoDB Atlas
 data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
-  - daniel-tk
   - nshishkin
 shipping-tags:  
   - prometheus
-  - prebuilt-dashboards
 order: 800
 ---
 

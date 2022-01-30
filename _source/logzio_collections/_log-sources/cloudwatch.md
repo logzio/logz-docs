@@ -308,7 +308,7 @@ If you are editing an existing stack:
    "MyModule": {
             "Type": "logzio::autoDeploymentLogzio::CloudWatch::MODULE",
             "Properties": {
-                "LogzioListenerUrl": "LogzioListenerUrl",
+                "LogzioListenerUrl": "https://<<LISTENER-HOST>>:8071",
                 "LogzioToken": "<<LOG-SHIPPING-TOKEN>>",
                 "LogzioType": "LogzioType",
                 "LogzioFormat": "LogzioFormat",

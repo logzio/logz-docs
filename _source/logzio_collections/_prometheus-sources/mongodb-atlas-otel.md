@@ -1,5 +1,5 @@
 ---
-title: Ship MongoDB Atlas metrics via OpenTelemetry
+title: Ship MongoDB Atlas metrics
 logo:
   logofile: mongoatlas-logo.png
   orientation: vertical
@@ -15,7 +15,7 @@ order: 800
 
 MongoDB Atlas is a fully-managed cloud database that handles deploying, managing and healing deployments on its cloud service provider.  
 
-This integration uses OpenTelemetry with a dedicated MongoDB Atlas receiver and a Prometheus exporter to collect the MongoDB Atlas data from your hosts and send it to your Logz.io metrics account using a Logz.io exporter.
+Deploy this integration to send your MongoDB Atlas metric to your Logz.io account using OpenTelemetry collector.
 
 
 #### Deploying the integration

@@ -104,7 +104,7 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 
 Download the
 [Logz.io public certificate]({% include log-shipping/certificate-path.md %})
-to `C:\ProgramData\Filebeat\AAACertificateServices.crt`
+to `C:\ProgramData\Filebeat\Logzio.crt`
 on your machine.
 
 

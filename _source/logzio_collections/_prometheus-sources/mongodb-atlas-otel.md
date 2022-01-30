@@ -13,8 +13,6 @@ shipping-tags:
 order: 800
 ---
 
-## Overview
-
 MongoDB Atlas is a fully-managed cloud database that handles deploying, managing and healing deployments on its cloud service provider.  
 
 This integration uses OpenTelemetry with a dedicated MongoDB Atlas receiver and a Prometheus exporter to collect the MongoDB Atlas data from your hosts and send it to your Logz.io metrics account using a Logz.io exporter.
@@ -26,7 +24,7 @@ This integration uses OpenTelemetry with a dedicated MongoDB Atlas receiver and 
 
 * A MongoDB Atlas project
 * Private and public keys created for your MongoDB Atlas [organization](https://docs.atlas.mongodb.com/tutorial/configure-api-access/organization/create-one-api-key/) or the [project](https://docs.atlas.mongodb.com/tutorial/configure-api-access/project/create-one-api-key/) to send the data from.
-* An active accopunt with Logz.io
+* An active account with Logz.io
 
 <div class="tasklist">
 

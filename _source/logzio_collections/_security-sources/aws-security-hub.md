@@ -174,7 +174,7 @@ Save the template as a yaml file and add the values of your stack to the as per 
 | Parameter | Description |
 | --- | --- |
 | `<<LISTENER-HOST>>` | Your Logz.io [listener url](https://docs.logz.io/user-guide/accounts/account-region.html), followed by port `8070` or `8071`. For example, `https://listener.logz.io:8071` |
-| `logzioLogLevel` | Log level for the Lambda function. Defaults to `info`. Valid options are: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |
+| `<<LOGZIO-LOG-LEVEL>>` | Log level for the Lambda function. Defaults to `info`. Valid options are: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |
 | `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io [operations token](https://app.logz.io/#/dashboard/settings/general). |
 
 ##### Add your stack values to the configuration template

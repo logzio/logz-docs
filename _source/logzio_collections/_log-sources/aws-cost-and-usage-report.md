@@ -158,7 +158,7 @@ On the **Logzio::awsCostAndUsage::cur::MODULE** page, navigate to **Example temp
                 "ReportPrefix": "ReportPrefix",
                 "ReportTimeUnit": "ReportTimeUnit",
                 "ReportAdditionalSchemaElements": "ReportAdditionalSchemaElements",
-                "LogzioURL": "LogzioURL",
+                "LogzioURL": "https://<<LISTENER-HOST>>:8071",
                 "LogzioToken": "<<LOG-SHIPPING-TOKEN>>",
                 "LambdaMemorySize": "LambdaMemorySize",
                 "LambdaTimeout": "LambdaTimeout",

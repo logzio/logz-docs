@@ -198,7 +198,7 @@ If you are editing an existing stack:
             "Properties": {
                 "logzioOperationsToken": "<<LOG-SHIPPING-TOKEN>>",
                 "logzioListener": "https://<<LISTENER-HOST>>:8071",
-                "logzioLogLevel": "logzioLogLevel"
+                "logzioLogLevel": "<<LOGZIO-LOG-LEVEL>>"
             }
         }
     }

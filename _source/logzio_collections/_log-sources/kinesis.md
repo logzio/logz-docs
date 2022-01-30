@@ -286,7 +286,7 @@ If you are editing an existing stack:
                    "LogzioCOMPRESS": "LogzioCOMPRESS",
                    "LogzioMessagesArray": "LogzioMessagesArray",
                    "KinesisStreamBatchSize": "KinesisStreamBatchSize",
-                   "LogzioURL": "LogzioURL",
+                   "LogzioURL": "https://<<LISTENER-HOST>>:8071",
                    "KinesisStreamStartingPosition": "KinesisStreamStartingPosition",
                    "LogzioTYPE": "LogzioTYPE",
                    "KinesisStream": "KinesisStream"

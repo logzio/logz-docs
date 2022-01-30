@@ -236,7 +236,7 @@ On the **Logzio::KinesisShipper::KinesisShipper::MODULE** page, navigate to **Ex
                 "LogzioCOMPRESS": "LogzioCOMPRESS",
                 "LogzioMessagesArray": "LogzioMessagesArray",
                 "KinesisStreamBatchSize": "KinesisStreamBatchSize",
-                "LogzioURL": "LogzioURL",
+                "LogzioURL": "https://<<LISTENER-HOST>>:8071",
                 "KinesisStreamStartingPosition": "KinesisStreamStartingPosition",
                 "LogzioTYPE": "LogzioTYPE",
                 "KinesisStream": "KinesisStream"

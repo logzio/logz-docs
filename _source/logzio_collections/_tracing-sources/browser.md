@@ -1,7 +1,7 @@
 ---
 title: Sending traces from your browser using OpenTelemetry
 logo:
-  logofile: browser.png
+  logofile: browser-logo.png
   orientation: vertical
 data-source: Browser
 data-for-product-source: Tracing

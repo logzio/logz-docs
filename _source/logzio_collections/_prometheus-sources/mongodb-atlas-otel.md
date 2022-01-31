@@ -39,14 +39,6 @@ receivers:
   mongodbatlas:
     public_key: <<YOUR-MONGODB-ATLAS-PUBLIC-KEY>>
     private_key: <<YOUR-MONGODB-ATLAS-PRIVATE-KEY>>
-  prometheus:
-    config:
-      global:
-        external_labels:
-          p8s_logzio_name: <<METRICS-NAME>>
-      scrape_configs:
-      - job_name: <<JOB-NAME>>
-        scrape_interval: 15s
 
 exporters:
   logging:
@@ -77,8 +69,6 @@ service:
 {% include general-shipping/replace-placeholders-prometheus.html %}
 * Replace `<<YOUR-MONGODB-ATLAS-PUBLIC-KEY>>` with the public key to your MongoDB Atlas organization or project.
 * Replace `<<YOUR-MONGODB-ATLAS-PRIVATE-KEY>>` with the private key to your MongoDB Atlas organization or project.
-* Replace `<<METRICS-NAME>>` with the required name for your metrics.
-* Replace `<<JOB-NAME>>` with the required name for your Prometheus job.
 
 ##### Start the collector
 

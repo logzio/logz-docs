@@ -36,26 +36,6 @@ After downloading the collector, create a configuration file `config.yaml` with 
 
 ```yaml
 receivers:
-  jaeger:
-    protocols:
-      thrift_compact:
-        endpoint: "0.0.0.0:6831"
-      thrift_binary:
-        endpoint: "0.0.0.0:6832"
-      grpc:
-        endpoint: "0.0.0.0:14250"
-      thrift_http:
-        endpoint: "0.0.0.0:14268"
-  opencensus:
-    endpoint: "0.0.0.0:55678"
-  otlp:
-    protocols:
-      grpc:
-        endpoint:
-      http:
-        endpoint:
-  zipkin:
-    endpoint: "0.0.0.0:9411"
   mongodbatlas:
     public_key: <<YOUR-MONGODB-ATLAS-PUBLIC-KEY>>
     private_key: <<YOUR-MONGODB-ATLAS-PRIVATE-KEY>>
@@ -69,9 +49,6 @@ receivers:
         scrape_interval: 15s
 
 exporters:
-  logzio:
-    region:
-    account_token: <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
   logging:
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
@@ -91,10 +68,6 @@ extensions:
 service:
   extensions: [health_check, pprof, zpages]
   pipelines:
-    traces:
-      receivers: [opencensus, jaeger, zipkin, otlp]
-      processors: [batch]
-      exporters: [logging, logzio]
     metrics:
       receivers: [mongodbatlas]
       processors: [batch]

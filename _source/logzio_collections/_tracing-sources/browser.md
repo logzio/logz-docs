@@ -47,7 +47,6 @@ Deploy this integration to send traces from your browser to Logz.io via the Open
 In a dedicated directory, create a file called `tracer.js` and populate it with the following content:
 
 ```javascript
-
 import { WebTracerProvider } from '@opentelemetry/sdk-trace-web';
 import { getWebAutoInstrumentations } from '@opentelemetry/auto-instrumentations-web';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
@@ -89,15 +88,15 @@ registerInstrumentations({
    }),
  ],
 });
-
 ```
 
 * Replace `<<YOUR-SERVICE-NAME>>` with a required service name to identify your traces.
 
 ##### Download the required OpenTelemetry packages
 
+Run the following command from the directory of the tracer file:
+  
 ```shell
-
 npm install --save @opentelemetry/api
 npm install --save @opentelemetry/sdk-trace-web
 npm install --save @opentelemetry/auto-instrumentations-web
@@ -106,15 +105,14 @@ npm install --save @opentelemetry/sdk-trace-base
 npm install --save @opentelemetry/instrumentation
 npm install --save @opentelemetry/context-zone
 npm install --save @opentelemetry/instrumentation-document-load
-
 ```
 
 ##### Package the tracer file
+  
+Run the following command from the directory of the tracer file:
 
 ```shell
-
 npx parcel tracer.js
-
 ```
 
 ##### Declare the tracer file in your browser
@@ -133,7 +131,6 @@ Create a dedicated directory on your local host and download the **latest releas
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
 ```yaml
-
 receivers:
   otlp:
     protocols:
@@ -157,8 +154,6 @@ service:
      receivers: [otlp]
      processors: [batch]
      exporters: [logzio]
-
-
 ```
 {% include /tracing-shipping/replace-tracing-token.html %}
 
@@ -171,7 +166,6 @@ Run the following command:
 <path/to>/otelcol-contrib --config ./config.yaml
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
-
 
 
 

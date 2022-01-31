@@ -11,6 +11,11 @@ contributors:
 ---
 Change your configuration within Opsgenie to receive notifications for resolved Logz.io metrics alerts.
 
+<!-- info-box-start:info -->
+This feature is not available on free Opsgenie accounts.
+{:.info-box.note}
+<!-- info-box-end -->
+
 ### Define or modify a Logz.io integration in Opsgenie
 
 To define a new integration or modify an existing Logz.io integration in Opsgenie:

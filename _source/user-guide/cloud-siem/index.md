@@ -4,6 +4,7 @@ title: Getting started with Cloud SIEM
 permalink: /user-guide/cloud-siem/
 image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Cloud SIEM - security analytics in combination with Kibana for identifying, investigating, and remediating threats
+flags:
   logzio-plan: pro
 tags:
   - security-analytics

@@ -67,6 +67,13 @@ please contact <a class="intercom-launch" href="mailto:help@logz.io">the Support
   When restoring,
   always make sure that the logs you need are not filtered out using drop filters.
 
+* **Working with "dotted fields".** \\
+  Applying drop filters when your logs include dotted fields is a more complicated scenario: Dotted fields don't work in a drop field. To use a dotted field to trigger a drop filter, please contact the Logz.io Support team. 
+
+  **Example** 
+  In the image below, `"data.level"` is dotted, and not nested. The field`"data.level": "DEBUG"` can't be used to trigger a drop filter for the log.
+  ![Dotted fields and drop filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/dotted_fields-drop-filters.png)
+
 #### To set up a drop filter
 
 To get started,

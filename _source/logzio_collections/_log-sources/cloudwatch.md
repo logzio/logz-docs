@@ -536,7 +536,7 @@ bash <(curl -s https://raw.githubusercontent.com/logzio/logzio_aws_serverless/tr
 3. Select **New event**.
 4. In the **Template** field, select **CloudWatch Logs**.
 5. In the **Name** field, enter the required name for the test event.
-6. Populate the body field with the value of the test event generated in the previous step.
+6. Populate the body field with the JSON output of the test event generated in the previous step.
 7. Select **Format** to format the test event.
 8. Select **Save changes**.
 

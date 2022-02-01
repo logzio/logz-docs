@@ -20,6 +20,7 @@ For example:
 * If it’s a string, Kibana won’t allow you to run any mathematical queries on the field.
 * If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization or a `group by` rule.
 
+{% include /arrays_in_kibana/array_note.md %}
 
 ### How to identify when a field is not mapped in Kibana
 

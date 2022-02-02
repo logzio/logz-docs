@@ -74,6 +74,7 @@ please contact <a class="intercom-launch" href="mailto:help@logz.io">the Support
   In the image below, `"data.level"` is dotted, and not nested. The field`"data.level": "DEBUG"` can't be used to trigger a drop filter for the log.
   ![Dotted fields and drop filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/dotted_fields_feb2022.png)
 
+
 #### To set up a drop filter
 
 To get started,

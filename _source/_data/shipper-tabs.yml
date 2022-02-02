@@ -30,6 +30,8 @@ tabs:
         These projects are maintained by third parties and recommended by members of the Logz.io community.
         Always test and review the code of any community project before using it.
       </p>
+  - collection: synthetic-sources
+    templated: true  
   - collection: metrics-sources
     templated: true
     top-content: >-

@@ -84,6 +84,12 @@ collections:
     id: :slug
     in-shipping-manifest: true
     order: 4
+  synthetic-sources:
+    output: false
+    permalink: /shipping/synthetic-shippers/:slug.html
+    name: Synthetic Monitoring
+    id: :slug
+    in-shipping-manifest: false
   community-shippers:
     output: false
     permalink: /shipping/community-shippers/:slug.html

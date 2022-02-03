@@ -46,18 +46,18 @@ Click **Add an empty panel**.
 
 ##### Configure the panel
 
-Select your Logs account from the list of datasources.
+Select your Metrics account from the list of datasources.
 
 Configure the **Query**.
 
-![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-select-source.png)
+![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/drop-down-metrics.png)
 
 
 ##### Configure the visualization
 
-Click the _Time series_ title on the left to see visualization options.
+Click the _Time series_ title on the right to see all visualization options.
 
-If you plan to add alerts to the visualization, note that only **Graph** is supported. (This is a Grafana limitation.)
+If you plan to add alerts to the visualization, note that only **Time series** is supported. (This is a Grafana limitation.)
 {:.info-box.tip}
 
 ![Panel configuration, visualization  options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-select-visualization.png)

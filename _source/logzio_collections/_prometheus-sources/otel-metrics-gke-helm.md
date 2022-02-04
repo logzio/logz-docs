@@ -1,9 +1,9 @@
 ---
-title: Send Kubernetes metrics with Helm and the OpenTelemetry Collector
+title: Send GKE metrics with Helm and the OpenTelemetry Collector
 logo:
-  logofile: k8s-helm.svg
+  logofile: gke.svg
   orientation: horizontal
-data-source: Kubernetes over Helm with OpenTelemetry
+data-source: GKE over Helm with OpenTelemetry
 data-for-product-source: Metrics
 open-source:
   - title: Logzio-otel-k8s-metrics
@@ -107,7 +107,7 @@ Give your metrics some time to get from your system to ours.
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["7BMEKdVrHKPQtt5IgaQ7Bw", "4knWrgcTsEj5kqNXJTES87", "NwO3pdosDJVRWo6i9QJEy", "6RFNnTgcwAmmFnuRropnGu", "5lqRpL1ADesghZbNCEPaZ9"] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["6QjEUDKisk0OUW8KXsUizG", "4sSvbeAMUASACnq3icEm9I", "3zijX333NMPTtoWbZlyW8O", "4v4CNkbUxCsYu4MvMYqVod"] -->
 
 {% include metric-shipping/generic-dashboard.html %} 
   
@@ -115,6 +115,7 @@ Give your metrics some time to get from your system to ours.
   
 </div>
 <!-- tab:end -->
+
 
 <!-- tab:start -->
 <div id="Customizing-helm-chart-parameters">

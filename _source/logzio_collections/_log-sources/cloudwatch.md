@@ -546,7 +546,8 @@ You can generate test events using the Logz.io Lambda test events generator and 
 
 ##### Run the test event
 
-To run the test event, select **Test** in the **Test** tab. The Lambda function will run and generate two logs in your account.
+To run the test event, select **Test** in the **Test** tab. The Lambda function will run and generate the following two logs in your account:
+`[ERROR] Logz.io cloudwatch test log1` `[ERROR] Logz.io cloudwatch test log2`
 
 </div>
 

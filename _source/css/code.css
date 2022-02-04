@@ -166,3 +166,5 @@ pre.highlight {
   color: #5fb3b3; }
 .highlight .il {
   color: #5fb3b3; }
+.highlight {
+  word-break: break-all; }

@@ -27,14 +27,13 @@ order: 110
 * [Automated CloudFormation deployment](#automated-cloudformation-deployment)
 * [Deployment using a module](#module-deployment)
 * [Terraform deployment](#terraform-deployment)
+* [Test events](#test-events)
 {:.branching-tabs}
 
 <!-- tab:start -->
 <div id="manual-lambda-configuration">
 
 #### Manual configuration with a Lambda function
-
-{% include log-shipping/note-lambda-test.md %}
 
 <div class="tasklist">
 
@@ -135,8 +134,6 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Automated CloudFormation deployment
 
-{% include log-shipping/note-lambda-test.md %}
-
 **Before you begin, you'll need**:
   
 * AWS CLI
@@ -227,8 +224,6 @@ Deploy this integration to add a module for CloudWatch to your existing stack. T
 Logz.io Public Registry extensions are currently only available on the AWS region `us-east-1`.
 {:.info-box.note}
 <!-- info-box-end -->
-
-{% include log-shipping/note-lambda-test.md %}
 
 **Before you begin, you'll need**:
 
@@ -511,6 +506,50 @@ To destroy the resources, use the following:
 ```bash
 terraform destroy
 ```
+</div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="test-events">
+
+#### Working with test events
+
+You can generate test events using the Logz.io Lambda test events generator and add these events to your Lambda function. This functionality is currently only available on Linux & macOS.
+
+
+<div class="tasklist">
+
+##### Generate a test event
+
+1. In your terminal, run the following command:
+  
+   ```shell
+   bash <(curl -s https://raw.githubusercontent.com/logzio/logzio_aws_serverless/tree/master/python3/cloudwatch/test_events/test_event_generator.sh)      
+   ```
+               
+   This script generates a test event with a UTC timestamp of the moment you run the script.
+               
+2. Copy the output JSON.
+
+##### Add the generated test event to your Lambda function
+
+1. Select the Lambda function that you need to add the test event to.
+2. Open the **Test** tab.
+3. Select **New event**.
+4. In the **Template** field, select **CloudWatch Logs**.
+5. In the **Name** field, enter a name for the test event. No specific naming convention is required. 
+6. Populate the body field with the output JSON of the test event generated in the previous step.
+7. Select **Format** to format the test event.
+8. Select **Save changes**.
+
+##### Run the test event
+
+To run the test event, select **Test** in the **Test** tab. The Lambda function will run and generate the following two logs in your account:
+`[ERROR] Logz.io cloudwatch test log1` `[ERROR] Logz.io cloudwatch test log2`
+
+</div>
 
 </div>
 <!-- tab:end -->

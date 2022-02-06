@@ -9006,8 +9006,7 @@ definitions:
         description: The token itself.
         example: 6bLXmMA6FLibc7ySSqNcCfvbhtqT0rPS
       updatedAt:
-        type: integer
-        format: int64
+        type: string
         description: Unix timestamp of when this token was last updated.
         example: 414720000
       updatedBy:
@@ -9015,8 +9014,7 @@ definitions:
         description: Email address of the last user to update this token.
         example: shalom.the.mighty@gmail.com
       createdAt:
-        type: integer
-        format: int64
+        type: string
         description: Unix timestamp of when this token was created.
         example: 389836800
       createdBy:
@@ -9146,8 +9144,7 @@ definitions:
         description: Logz.io alert ID.
         example: 627816
       updatedAt:
-        type: integer
-        format: int64
+        type: string
         description: Date and time in UTC when the alert was last updated.
         example: 2020-04-02T18:58:16.000Z
       updatedBy:
@@ -9155,8 +9152,7 @@ definitions:
         description: Email of the user who last updated the alert.
         example: tomer@logz.io
       createdAt:
-        type: integer
-        format: int64
+        type: string
         description: Date and time in UTC when the alert was first created.
         example: 2020-02-02T18:58:16.000Z
       createdBy:
@@ -9562,8 +9558,7 @@ definitions:
         description: Logz.io rule ID.
         example: 627816
       updatedAt:
-        type: integer
-        format: int64
+        type: string
         description: Date and time in UTC when the rule was last updated.
         example: 2020-04-02T18:58:16.000Z
       updatedBy:
@@ -9571,8 +9566,7 @@ definitions:
         description: Email of the user who last updated the rule.
         example: tomer@logz.io
       createdAt:
-        type: integer
-        format: int64
+        type: string
         description: Date and time in UTC when the rule was first created.
         example: 2020-02-02T18:58:16.000Z
       createdBy:
@@ -9871,8 +9865,7 @@ definitions:
         description: Logz.io security rule ID.
         example: 627816
       updatedAt:
-        type: integer
-        format: int64
+        type: string
         description: Date and time in UTC when the rule was last updated.
         example: 2020-04-02T18:58:16.000Z
       updatedBy:
@@ -9880,8 +9873,7 @@ definitions:
         description: Email of the user who last updated the rule.
         example: tomer@logz.io
       createdAt:
-        type: integer
-        format: int64
+        type: string
         description: Date and time in UTC when the rule was first created updated.
         example: 2020-02-02T18:58:16.000Z
       createdBy:

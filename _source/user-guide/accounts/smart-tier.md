@@ -12,11 +12,13 @@ contributors:
   - shalper
 ---
 
-Retention is a major factor influencing the cost of your Log Management plan. If you are looking for ways to extend log retention and maximize cost savings, Logz.io Smart Tier may be a good solution for your needs.
+Retention is a major factor that impacts the cost of your Log Management plan. If you are looking for ways to extend log retention and maximize cost savings, Logz.io Smart Tier may be a good solution for your needs.
 
 Logz.io Smart Tier is a cost-effective data storage solution. Unlike Hot-Warm storage architectures, Smart Tier offers cost reduction _without_ increasing query latency or increasing retrieval times. Instead, Smart Tier reduces costs by using cheaper storage solutions for data replication. [Learn more in our blog 🔗 ](https://logz.io/blog/smart-tiering/)
 
 {% include page-info/early-access.md type="Beta" %}
+
+<!-- Data is stored on the same  cluster. Because it's present on the same cluster, you'll see the same performance, but there will be fewer real time replicas.  As with every hardware issue, your data might not be available for a few minutes until it's been fully restored from backup.   -->
 
 ### Logz.io Data Tiering
 

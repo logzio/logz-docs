@@ -19,9 +19,11 @@ contributors:
 
 Build, prepare, and test your security content in a single sub account, and then share it with your other SIEM accounts when you define a Security Repository account.
 
-The Repository account acts as a library resource for all your SIEM content. When you set up a shared Repository account, you can configure your other SIEM accounts to pull dashboards, visualizations, saved searches, and private security feeds from it. 
+The Repository account acts as a centralized resource for all your SIEM content. When you set up a shared Repository account, you can configure your other SIEM accounts to pull dashboards, visualizations, saved searches, and private security feeds from it. 
 
 All new SIEM accounts automatically pull from the shared Repository account: You can manually disable access to the shared Repository account for any SIEM account.
+
+When you change which account is defined as the Repository, by default, the change creates an automatic dependency for all the existing SIEM accounts. 
 
 If you don't have a Repository set, the Repository account status is greyed out, with a link to **Set repository account**. 
 

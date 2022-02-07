@@ -1,9 +1,9 @@
 ---
 title: Send EKS metrics with Helm and the OpenTelemetry Collector
 logo:
-  logofile: amazon-eks.png
+  logofile: eks-logo-new.png
   orientation: horizontal
-data-source: EKS over Helm with OpenTelemetry
+data-source: Amazon Kubernetes Service (EKS)
 data-for-product-source: Metrics
 open-source:
   - title: Logzio-otel-k8s-metrics

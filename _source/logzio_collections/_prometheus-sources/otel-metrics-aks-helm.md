@@ -1,9 +1,9 @@
 ---
 title: Send AKS metrics with Helm and the OpenTelemetry Collector
 logo:
-  logofile: aks-logo.svg
+  logofile: aks-logo-2.png
   orientation: horizontal
-data-source: AKS over Helm with OpenTelemetry
+data-source: Azure Kubernetes Service (AKS)
 data-for-product-source: Metrics
 open-source:
   - title: Logzio-otel-k8s-metrics

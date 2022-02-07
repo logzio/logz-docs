@@ -2,6 +2,8 @@
 layout: article
 title: Single sign-on (SSO) for Auth0
 permalink: /user-guide/users/single-sign-on/auth0-sso-guide.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Set a Single sign-on (SSO) connection for Auth0
 flags:
   admin: true
   logzio-plan: pro
@@ -67,7 +69,7 @@ Return to your Native app in Auth0 (**Applications > Applications**), click the 
 
 ![Auth0 toggle SAML app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/auth0/auth0-saml-web-app.png)
 
-Click on **Settings** and paste the Single Sign-in URL that Logz.io support Team has provided, and click **Enable** at the bottom of the page.
+Click on **Settings**, paste the Single Sign-in URL that Logz.io support Team has provided, and click **Enable** at the bottom of the page.
 
 ![Auth0 SAML url](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/auth0/auth0-saml-url.png)
 

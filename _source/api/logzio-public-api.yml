@@ -6063,7 +6063,7 @@ paths:
                 items:
                   type: integer
                 example: [ 88888, 55555 ]
-                description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty. **Note:** This parameter is deprecated and will soon be replaced by another field.
               email:
                 type: string
                 description: Email address of the account user.
@@ -6106,7 +6106,7 @@ paths:
                 items:
                   type: integer
                 example: [ 88888, 55555 ]
-                description: IDs of accounts that can access this account's data. The array is required, but can be empty. 
+                description: IDs of accounts that can access this account's data. The array is required, but can be empty. **Note:** This parameter is deprecated and will soon be replaced by another field.
               createdAt:
                 type: string
                 format: date-time
@@ -6890,7 +6890,7 @@ definitions:
           example:
             - [ 88888, 55555 ]
             - []
-        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty. **Note:** This parameter is deprecated and will soon be replaced by another field.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
@@ -6985,7 +6985,7 @@ definitions:
           example:
             - [ 88888, 55555 ]
             - []
-        description: IDs of accounts that can access this account's data. The array is required, but can be empty.
+        description: IDs of accounts that can access this account's data. The array is required, but can be empty. **Note:** This parameter is deprecated and will soon be replaced by another field.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
       utilizationSettings:
@@ -7115,7 +7115,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/SharingAccount'
-        description: Accounts that have permissions to access this account's Kibana objects.
+        description: Accounts that have permissions to access this account's Kibana objects. **Note:** This parameter is deprecated and will soon be replaced by another field.
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
   TimeBasedAccountCreationResponse:

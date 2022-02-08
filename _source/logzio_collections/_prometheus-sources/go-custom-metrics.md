@@ -36,7 +36,13 @@ Go 1.x or higher
 
 ##### Installation
 
+Run the following command:
+
 `go get -u go.opentelemetry.io/contrib/exporters/metric/cortex`
+
+If you encounter any issues with the command above, run the following command instead:
+
+`go get go.opentelemetry.io/contrib/exporters/metric/cortex@v0.25.0`
 
 ##### Add instruments to your application:
 

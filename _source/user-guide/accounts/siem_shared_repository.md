@@ -43,8 +43,12 @@ Select an existing account to be the shared Repository account.
 Configure the accounts that can pull SIEM content from the shared Repository and **Save** or **Cancel** your change. 
 ![Set a shared SIEM Repository ](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo_dependent_accts.png)
 
-After you set the Repository it's flagged with the Repository icon in the list of Security accounts, and the Repository status changes to display the Repository name.  
+After you set the Repository, it's flagged with the Repository icon <i class="li li-repository"></i> in the list of Security accounts, and the **Repository account** status changes to display the Repository name.  **<i class="li li-repository"></i>** <i class="li li-signal"></i>
+
 ![Configured account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo_all_set.png)
+
+<!--![repo icon](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo-icon.png) -->  
+
 
 
 

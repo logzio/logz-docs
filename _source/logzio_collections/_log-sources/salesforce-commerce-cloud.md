@@ -21,7 +21,6 @@ order: 470
 * [Overview](#overview)
 * [Default configuration](#default)
 * [Configuration by config file](#config)
-
 {:.branching-tabs}
 
 <!-- tab:start -->

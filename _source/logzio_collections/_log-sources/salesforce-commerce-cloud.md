@@ -1,7 +1,7 @@
 ---
 title: Ship Salesforce Commerce Cloud data to Logz.io
 logo:
-  logofile: securex-logo.png
+  logofile: salesforce-commerce-cloud-logo.png
   orientation: vertical
 data-source: Salesforce Commerce Cloud
 data-for-product-source: Logs

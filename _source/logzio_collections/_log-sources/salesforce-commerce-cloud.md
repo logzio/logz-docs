@@ -33,7 +33,7 @@ Salesforce Commerce Cloud is a scalable, cloud-based software-as-a-service (SaaS
 <!-- tab:end -->
 
 <!-- tab:start -->
-<div id="multiline">
+<div id="default">
 
 The default configuration uses a Docker container with environment variables.
 

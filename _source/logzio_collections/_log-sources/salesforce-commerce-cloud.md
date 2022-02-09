@@ -59,8 +59,8 @@ logzio/webdav-fetcher:latest
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| LOGZIO_SHIPPING_TOKEN | `<<LOG-SHIPPING-TOKEN>>` Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
-| LOGZIO_LISTENER_URL | {% include log-shipping/listener-var.md %} | Required |
+|  `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
+| `<<LOGZIO_LISTENER_URL>>` | {% include log-shipping/listener-var.md %} | Required |
 | SFCC_HOSTNAME         | Hostname from what host need to send logs (ex. `dev01-mysandbox.demandware.net`)                                                                                                                                                                                                                                                                |      Required |
 | SFCC_CLIENT_ID        | Client id related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                           |      Required |
 | SFCC_CLIENT_SECRET    | Client secret related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                       |      Required |

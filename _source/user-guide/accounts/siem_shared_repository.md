@@ -17,7 +17,7 @@ contributors:
 
 ## About the shared SIEM Repository 
 
-Build, prepare, and test your security content in a single SIEM account, set it as the  as the shared SIEM Repository, and share the content in the Repository with your other SIEM accounts.
+Build, prepare, and test your security content in a single SIEM account, set it as the shared SIEM Repository, and share the content in the Repository with your other SIEM accounts.
 
 The Repository acts as a centralized resource for all your SIEM content. When you set up a shared Repository, you can configure your other SIEM accounts to pull dashboards, visualizations, saved searches, and [private security feeds](/user-guide/cloud-siem/private-feeds) from it. 
 

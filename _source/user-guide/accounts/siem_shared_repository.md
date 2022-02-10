@@ -27,9 +27,11 @@ When you change which account is defined as the Repository, by default, the chan
 
 If you don't have a Repository set, the Repository status is grayed out, with a link to **Set repository account**. 
 
+![Setting a Repository, starting from 1 account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo-setup_start_from_1acct.gif)
+
 <!--WIP placeholder for shared Repository topic WIIFM  -->
 
-### Set a shared Repository account
+## Set a shared Repository account
 To define a Repository account, you must have at least two related Cloud SIEM accounts.
 
 To configure the shared Repository, in **Settings > Manage accounts**, navigate to your Cloud SIEM Plan, and **Set repository account**.
@@ -43,35 +45,27 @@ Select an existing account to be the shared Repository account.
 Configure the accounts that can pull SIEM content from the shared Repository and **Save** or **Cancel** your change. 
 ![Set a shared SIEM Repository ](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo_dependent_accts.png)
 
-After you set the Repository, it's flagged with the Repository icon <i class="li li-repository"></i> in the list of Security accounts, and the **Repository account** status changes to display the Repository name.  
-<!-- **<i class="li li-repository"></i>** -->
-
+After you set the Repository, it's flagged with the Repository icon <!--<i class="li li-repository"></i> -->in the list of Security accounts, and the **Repository account** status changes to display the Repository name.  
 ![Configured account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo_all_set.png)
 
-<!--![repo icon](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo-icon.png) -->  
 
+## Manage Repository dependencies
 
+### View which accounts are associated with the Repository
 
-
-### Check account dependencies
-
-Open the account details to check if the account is associated with a SIEM Repository. 
-
-
-### Reset and replace a Repository
-
-When you replace the SIEM Repository, you automatically create dependencies for all your other SIEM accounts: They will pull content from the new Repository unless you manually remove the dependency for the Repository.
-
+Do one of the following to check Repository dependencies: 
+- Open the account details to check if the account is associated with the SIEM Repository 
+- Open the **Repository account setup** screen to view which SIEM accounts pull from the Repository.
+    ![View the Repository's dependent accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo_view_dependant_accts.gif)
 
 ### Set dependent accounts
 
 [in progress ]
 
+### Reset and replace a Repository
 
+When you replace the SIEM Repository, you automatically create dependencies for all your other SIEM accounts: They will pull content from the new Repository unless you manually remove the dependency for the Repository.
 
-### Private feeds in the shared Security Repository
-
-Define a private feed once in your SIEM Repository and share it with the relevant Security accounts.
 
 
 ### Remove access to the Repository account
@@ -88,3 +82,8 @@ To change the status of a shared Repository to a regular Cloud SIEM account, use
 ### Delete a Repository 
 
 If your current Repository is set as the repository for other SIEM accounts, you must first reset it to remove the dependencies for the other SIEM accounts. Once the Repository status is removed, the account can be deleted.
+
+
+## Private feeds in the shared Security Repository
+
+Define a private feed once in your SIEM Repository and share it with the relevant Security accounts.

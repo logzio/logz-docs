@@ -27,17 +27,13 @@ Add a required HttpModule to the Web.Config file as follows:
 
 ##### Enable instrumentation in the code
 
-Add the following configuration to the beginning of the Global.asax.cs file:
+Add the following code to the Global.asax.cs file:
 
 ```cs
 using OpenTelemetry;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
-```
 
-Add the following configuration to the Startup class:
-
-```cs
 public class Global : HttpApplication
 {
     private TracerProvider tracerProvider;

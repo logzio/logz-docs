@@ -65,7 +65,7 @@ When you replace the SIEM Repository, you automatically create dependencies for 
 
 ### Set dependent accounts
 
-[placeholder text]
+[in progress ]
 
 
 
@@ -76,7 +76,7 @@ Define a private feed once in your SIEM Repository and share it with the relevan
 
 ### Remove access to the Repository account
 
-[placeholder ]
+[in progress ]
 
 
 ### Reset a Repository account

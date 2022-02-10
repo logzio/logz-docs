@@ -27,7 +27,7 @@ Service Performance Monitoring helps cut down the time to identify and resolve a
 
 The Service Performance Monitoring dashboard is part of your [Tracing account](https://app.logz.io/#/dashboard/jaeger/monitoring), located under the **Monitor** tab. You can generate a dashboard view for each of your services, and adjust the time span between 1 hour to 2 days ago.
 
-![Service Performance Monitoring](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-main-dashboard.png)
+![Service Performance Monitoring](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/jaeger-spm-dashboard.png)
 
 The dashboard includes the following data:
 
@@ -37,11 +37,11 @@ The dashboard includes the following data:
 
 In addition, the dashboard includes a breakdown of R.E.D data based on the operations running inside the chosen service. Each one has an impact score based on an average of R.E.D data points. To sort the data, click on the arrows next to the title of your preferred data point.
 
-![Operations metrics chart](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-chart-sort.png)
+![Operations metrics chart](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-error-rate-highlight.png)
 
-To get a deeper view into the traces of each operation, click on the **View traces** button located at the end of every row.
+To get a deeper view into the traces of each operation, click on the **View traces** button located at the end of every row. This will display all related traces, which you can investigate more thoroughly and get to the root cause of the issue. 
 
-![View all traces](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-view-traces-button.png)
+![View all traces](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-view-traces-highlight.png)
 
 ##### Additional Tracing resources: 
 

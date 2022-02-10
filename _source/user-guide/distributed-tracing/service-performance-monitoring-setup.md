@@ -120,9 +120,9 @@ Make sure to use version v0.44.0 and up of the collector
 
 Deploy the integration and send traces from your OpenTelemetry installation to Logz.io. You can choose from the following methods:
 
-* [Local host](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html#local-host)
-* [Docker](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html#docker)
-* [Kubernetes](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html#kubernetes)
+* [Local host](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html#start-the-collector)
+* [Docker](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html#run-the-container)
+* [Kubernetes](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html#deploy-the-helm-chart)
 
 ##### Run the application
 

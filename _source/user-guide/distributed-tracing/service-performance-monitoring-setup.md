@@ -115,12 +115,14 @@ spanmetrics:
 
 ##### Start the collector
 
+Make sure to use version v0.44.0 and up of the collector
+{:.info-box.note}
 
 Deploy the integration and send traces from your OpenTelemetry installation to Logz.io. You can choose from the following methods:
 
-* Local host
-* Docker 
-* Kubernetes
+* [Local host](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html#local-host)
+* [Docker](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html#docker)
+* [Kubernetes](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html#kubernetes)
 
 ##### Run the application
 

@@ -1,9 +1,9 @@
 ---
-title: Ship Google Kubernetes Engine metrics
+title: Ship Google Kubernetes Engine metrics over Telegraf
 logo:
   logofile: gcpkubernetes.png
   orientation: vertical
-data-source: Google Kubernetes Engine
+data-source: Google Kubernetes Engine over Telegraf
 data-for-product-source: Metrics
 templates: ["docker"]
 contributors:

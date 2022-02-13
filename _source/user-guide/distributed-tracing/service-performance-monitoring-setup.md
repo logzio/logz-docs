@@ -18,7 +18,7 @@ Logz.io Service Performance Monitoring dashboard provides an overview of your sy
 {% include page-info/early-access.md type="Beta" %}
 
 
-The following guide helps you configure the OpenTelemetry collector to extract metrics from spans generated from your application instrumentation, and send them to Logz.io. Once configured and deployed, the collector accepts the span and processes them through two pipelines:
+The following guide helps you configure the OpenTelemetry collector to extract metrics from spans generated from your application instrumentation, and send them to Logz.io. Once configured and deployed, the collector accepts the spans and processes them through two pipelines:
 
 The first pipeline sends the spans to the Logz.io backend, where you can analyze single traces and focus on slowness and bottlenecks. The second pipeline extracts the metrics from the same spans, aggregates them and sends them to Logz.io’s Prometheus-based account.
 

@@ -112,7 +112,7 @@ logzio/cloudwatch-metrics
 | RANGE_SECONDS | how far back to request data for. Useful for cases such as Billing metrics that are only set every few hours. Default = `300` |
 | DELAY_SECONDS | The newest data to request. Used to avoid collecting data that has not fully converged. Default = `300` |
 
-##### Publish extension ports
+##### Publish extension ports (optional)
   
 You can monitor the container using opentelemetry extensions in the following ports:
   
@@ -239,7 +239,7 @@ docker run --name cloudwatch-metrics \
 logzio/cloudwatch-metrics
 ```
   
-##### Publish extension ports
+##### Publish extension ports (optional)
   
 You can monitor the container using opentelemetry extensions in the following ports:
   
@@ -330,7 +330,7 @@ logzio/cloudwatch-metrics
 
 {% include general-shipping/replace-placeholders-prometheus.html %}
   
-##### Publish extension ports
+##### Publish extension ports (optional)
   
 You can monitor the container using opentelemetry extensions in the following ports:
 * 8888 - `opentelemetry metrics`

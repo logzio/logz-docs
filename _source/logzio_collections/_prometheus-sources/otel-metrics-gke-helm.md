@@ -3,7 +3,7 @@ title: Send GKE metrics with Helm and the OpenTelemetry Collector
 logo:
   logofile: google-gke2.png
   orientation: horizontal
-data-source: Google Kuberentes Engine (GKE)
+data-source: Google Kubernetes Engine over OpenTelemetry
 data-for-product-source: Metrics
 open-source:
   - title: Logzio-otel-k8s-metrics

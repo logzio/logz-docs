@@ -123,8 +123,6 @@ Deploy the integration and start sending traces from your OpenTelemetry installa
 Before deploying, make sure the collector you're using is version **v0.44.0** and up.
 
 * Deploy via **[Local host](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry?type=local-host)**
-* Deploy via **[Docker](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry?type=docker)**
-* Deploy via **[Kubernetes](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry?type=kubernetes)**
 
 
 ##### Run the application

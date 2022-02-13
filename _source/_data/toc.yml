@@ -250,6 +250,10 @@ firstLevel:
       url: /user-guide/distributed-tracing/compare-traces
     - title: Topology diagrams
       url: /user-guide/distributed-tracing/topology-system_architecture
+  #- title: Service Performance Monitoring
+  #  url: /user-guide/distributed-tracing/service-performance-monitoring
+  #- title: Set up your Service Performance Monitoring dashboard
+  #  url: /user-guide/distributed-tracing/service-performance-monitoring-setup
   - title: Correlate logs and traces
     url:  /user-guide/distributed-tracing/correlate-traces/
   - title: Visualize traces in Kibana

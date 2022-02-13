@@ -69,7 +69,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   project = "<<YOUR-PROJECT>>"
 
   metric_type_prefix_include = [
-    "container.googleapis.com",
+    "kubernetes.io",
   ]
 
   interval = "1m"
@@ -82,6 +82,7 @@ The full list of data scraping and configuring options can be found [here](https
 {:.info-box.note}
 <!-- info-box-end -->
 
+If you need to restrict the number of metrics you receive, adjust the `metric_type_prefix_include` URL to your scope, e.g. `kubernetes.io/anthos/APIService`. For more information on the metric types, see [GCP documentation](https://cloud.google.com/monitoring/api/metrics).
 ##### Add the outputs.http plug-in
   
 {% include metric-shipping/telegraf-outputs.md %}

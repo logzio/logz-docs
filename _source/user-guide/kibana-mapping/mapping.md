@@ -11,6 +11,10 @@ contributors:
   - shalper
 ---
 
+
+Field mapping value type **must be identical** across your account. To replace the field mapping type, contact [Logz.io support team]().
+{:.info-box.warning}
+
 Kibana mappings are important whenever you want to perform any sort of action on a field, such as visualize it, aggregate by it, or use it in an alert.
 
 Kibana maps each field by value type so it knows how to display it according to its capabilities.

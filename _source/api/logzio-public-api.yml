@@ -2931,7 +2931,7 @@ paths:
                   example: 2018-04-01T19:18:38Z
                 usingRepositoryAccount:
                   type: boolean
-                  description: Defines if the acoount is a repository account.
+                  description: Describes if the account needs to use the Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
 
 
 

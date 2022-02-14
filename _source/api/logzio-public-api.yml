@@ -2877,7 +2877,7 @@ paths:
       - lang: cURL
         source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
   
-  /v2/account-management/siem/accounts:
+  /v2/account-management/siem:
     post:
       summary: Retrieve SIEM account information
       description: Returns SIEM account configuration settings as a JSON object. 
@@ -2903,7 +2903,7 @@ paths:
                   description: Email address of the SIEM account.
                 usingRepositoryAccount:
                   type: boolean
-                  description: Defines if the acoount is a repository account.
+                  description: Describes if the account needs to use the Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
       responses:
           200:
             description: successful query

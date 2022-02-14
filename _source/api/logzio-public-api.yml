@@ -3081,7 +3081,7 @@ paths:
             }'
       responses:
         200:
-          description: successful query. `hits` are the total number of logs that match the query, which will always be in the 0-2 day range. `results` are the actual logs that are returned when using the query, which are not limited by the selected time range.
+          description: successful query. `hits` are the total number of logs that match the query, which will always be in the 0-2 day range. `total` are the actual logs that are returned when using the query, which are not limited by the selected time range.
           schema:
             type: object
             example: >-
@@ -3182,7 +3182,7 @@ paths:
             }'
       responses:
         200:
-          description: successful operation. `hits` are the total number of logs that match the query, which will always be in the 0-2 day range. `results` are the actual logs that are returned when using the query, which are not limited by the selected time range.
+          description: successful operation. `hits` are the total number of logs that match the query, which will always be in the 0-2 day range. `total` are the actual logs that are returned when using the query, which are not limited by the selected time range.
 
           schema:
             $ref: '#/definitions/ScrollResponse'

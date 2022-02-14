@@ -115,8 +115,9 @@ spanmetrics:
 
 ##### Start the collector
 
-To deploy via **Docker** or **Kubernetes**, contact [Logz.io Support team](window.Intercom(‘show’)).
+To deploy via **Docker** or **Kubernetes**, contact [Logz.io Support team](mailto:help@logz.io){:target="_blank"}.
 {:.info-box.note}
+
 
 Deploy the integration and start sending traces from your OpenTelemetry installation to Logz.io. 
 

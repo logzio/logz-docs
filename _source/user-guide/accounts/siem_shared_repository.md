@@ -84,4 +84,4 @@ To delete your current Repository, you must first reset it to remove the depende
 
 ## Private feeds in the shared Security Repository
 
-Define a private feed once in your SIEM Repository and share it with the relevant Security accounts.
+Define a [private feed](/user-guide/siem/ioc-types/) once in your SIEM Repository and share it with the relevant Security accounts. You can find more information on how to include private feeds in your Repository in [Adding a private feed](/user-guide/cloud-siem/private-feeds.html).

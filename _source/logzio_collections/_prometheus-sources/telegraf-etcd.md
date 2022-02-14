@@ -102,9 +102,9 @@ First you need to configure the input plug-in to enable Telegraf to scrape the e
   #   [[inputs.prometheus.consul.query]]
   #     name = "a service name"
   #     tag = "a service tag"
-  #     url = 'http://{{if ne .ServiceAddress ""}}{{.ServiceAddress}}{{else}}{{.Address}}{{end}}:{{.ServicePort}}/{{with .ServiceMeta.metrics_path}}{{.}}{{else}}metrics{{end}}'
+  #     url = 'http://\{\{if ne .ServiceAddress ""\}\}\{\{.ServiceAddress\}\}{{else}}\{\{.Address\}\}{{end}}:\{\{.ServicePort\}\}/{{with .ServiceMeta.metrics_path}}\{\{.\}\}{{else}}metrics{{end}}'
   #     [inputs.prometheus.consul.query.tags]
-  #       host = "{{.Node}}"
+  #       host = "\{\{.Node\}\}"
   
   ## Use bearer token for authorization. ('bearer_token' takes priority)
   # bearer_token = "/path/to/bearer/token"

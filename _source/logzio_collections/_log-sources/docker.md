@@ -178,7 +178,7 @@ For a complete list of options, see the configuration parameters below the code 
 | logzio-dir-path | Unsent logs are saved to this location on the disk. | Required |
 | logzio-source | Event source. | -- |
 | logzio-format | Log message format, either `json` or `text`. | `text` |
-| logzio-tag | Log tag for the Container ID. For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. | `{{.ID}}` |
+| logzio-tag | Log tag for the Container ID. For more information, see [Log tags for logging driver](https://docs.docker.com/v17.09/engine/admin/logging/log_tags/) from Docker. | `\{\{.ID\}\}` |
 | labels | Comma-separated list of labels to include in the log message. | -- |
 | env | Comma-separated list of environment variables to include in the log message. | -- |
 | env-regex | A regular expression to match logging-related environment variables. Used for advanced log tag options. If there is collision between the `label` and `env` keys, `env` wins. Both options add additional fields to the attributes of a logging message. | -- |

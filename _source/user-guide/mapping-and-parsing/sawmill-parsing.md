@@ -63,6 +63,18 @@ The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets 
 
 **Logz.io Data Parsing** is available [**here**](https://parsing.logz.io/).
 
+### Field mapping data types
+
+To change any of your data fields to a **date field**, contact [Logz.io Support team](mailto:help@logz.io).
+{:.info-box.note}
+
+Field data type determines how this field is indexed and shown in Kibana, and account admins can change the data types according to a predefined set of options:
+
+![Choose field data type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/field-mapping-data-type.png)
+
+Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
+
+
 #### Create a parsing rule set with Sawmill
 
 This process creates a parsing rule set for the specified log type. The log type is a field used to differentiate the source of each log. You need to select one of your existing log types (or create a new log type) for the parsing rules. When you submit a rule set to be applied on the backend, only the logs of the selected log type are processed.

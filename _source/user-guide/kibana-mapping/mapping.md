@@ -11,10 +11,6 @@ contributors:
   - shalper
 ---
 
-
-Field mapping value type **must be identical** across your account. To replace the field mapping type, contact [Logz.io support team]().
-{:.info-box.warning}
-
 Kibana mappings are important whenever you want to perform any sort of action on a field, such as visualize it, aggregate by it, or use it in an alert.
 
 Kibana maps each field by value type so it knows how to display it according to its capabilities.
@@ -25,6 +21,18 @@ For example:
 * If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization or a `group by` rule.
 
 {% include /arrays_in_kibana/array_note.md %}
+
+### Field mapping data types
+
+To change any of your data fields to a **date field**, contact [Logz.io Support team](mailto:help@logz.io).
+{:.info-box.note}
+
+Field data type determines how this field is indexed and shown in Kibana, and account admins can change the data types according to a predefined set of options:
+
+![Choose field data type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/field-mapping-data-type.png)
+
+Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
+
 
 ### How to identify when a field is not mapped in Kibana
 

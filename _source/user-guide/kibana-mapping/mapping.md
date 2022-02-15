@@ -24,15 +24,14 @@ For example:
 
 ### Field mapping data types
 
-To change any of your data fields to a **date field**, contact [Logz.io Support team](mailto:help@logz.io).
-{:.info-box.note}
+Field data type determines how each field is indexed and shown in Kibana. Account admins can change the data types according to a predefined set of options:
 
-Field data type determines how this field is indexed and shown in Kibana, and account admins can change the data types according to a predefined set of options:
-
-![Choose field data type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/field-mapping-data-type.png)
+![Choose field data type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/mapping-fields-main.png)
 
 Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
 
+**Date data fields** have additional restrictions; to avoid type conflict between the mapping of date fields, the data type **must** be identical across all indices. Therefore, to change the mapping of any field to a date field, you’ll need to contact [Logz.io Support team](mailto:help@logz.io).
+{:.info-box.note}
 
 ### How to identify when a field is not mapped in Kibana
 

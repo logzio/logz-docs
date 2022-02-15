@@ -208,7 +208,7 @@ public void ConfigureServices(IServiceCollection services)
                 .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("my-app"))
                 .AddOtlpExporter(options =>
                 {
-                    options.Endpoint = new Uri("http://logzio-otel-traces-service-name:4317");
+                    options.Endpoint = new Uri("http://<<logzio-otel-traces-service-name>>:4317");
              
                 })
             );

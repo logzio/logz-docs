@@ -4,6 +4,11 @@
 docker pull logzio/otel-collector-traces
 ```
 
+<!-- info-box-start:info -->
+This integration only works with an otel-contrib image. The logzio/otel-collector-traces image is based on otel-contrib.
+{:.info-box.important}
+<!-- info-box-end -->
+
 
 ##### Run the container
 

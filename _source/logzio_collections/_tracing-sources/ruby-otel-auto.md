@@ -185,6 +185,77 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
+##### Define the logzio-otel-traces service name
+
+Run `kubectl get services` and take a note of the logzio-otel-traces service name. It will appear as logzio-otel-traces.<<your-cluster-namespace>>.<<your-cluster-domain-name>>. The default value is `logzio-otel-traces.default.svc.cluster.local`.
+
+You can change the cluster namespace and domain name values, if required. If you need to lookup your cluster domain name, you can do it by running the following command:
+
+```shell
+kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
+sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+```
+
+This command will deploy a pod named `shell` that runs `nslookup`. You can remove this pod after it has returned the cluster domain name.
+
+##### Download instrumentation packages
+
+Run the following command from the application directory:
+
+```shell
+gem install opentelemetry-sdk
+gem install opentelemetry-exporter-otlp
+gem install opentelemetry-instrumentation-all
+```
+
+##### Enable instrumentation in the code
+
+Add the following configuration to the `Gemfile`:
+
+```ruby
+require 'opentelemetry/sdk'
+require 'opentelemetry/exporter/otlp'
+require 'rubygems'
+require 'bundler/setup'
+```
+
+Add the following configuration to the application file:
+
+```ruby
+Bundler.require
+
+OpenTelemetry::SDK.configure do |c|
+ c.service_name = '<YOUR-SERVICE-NAME>'
+ c.use_all
+end
+```
+
+Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
+
+
+##### Install the Bundler
+
+Run the following command:
+
+```shell
+
+bundle install
+
+```
+
+##### Configure data exporter
+
+Run the following command:
+
+```shell
+
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://<<logzio-otel-traces-service-name>>:55681
+
+```
+
+* Replace `<<logzio-otel-traces-service-name>>` with the service name obtained previously.
+
+
 ##### Run the Helm deployment code
 
 ```

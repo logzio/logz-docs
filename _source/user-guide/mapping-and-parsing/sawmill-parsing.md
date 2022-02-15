@@ -71,8 +71,18 @@ Field data type determines how each field is indexed and shown in Kibana. Accoun
 
 Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
 
-**Date data fields** have additional restrictions; to avoid type conflict between the mapping of date fields, the data type **must** be identical across all indices. Therefore, to change the mapping of any field to a date field, you’ll need to contact [Logz.io Support team](mailto:help@logz.io).
+#### Date data fields
+
+Before changing, editing, and sending date data fields, contact **[Logz.io Support team](mailto:help@logz.io)**.
 {:.info-box.note}
+
+There are additional restrictions for **date data field** types:
+
+* Automatic date detection is disabled by default in dynamic mapping, which detects values as `string` instead of `date`.
+* To avoid conflict between the mapping of date fields, the data type **must** be identical across all indices.
+
+Therefore, to change the mapping of any field to a date field, contact **[Logz.io Support team](mailto:help@logz.io)** before sending the fields.
+
 
 #### Create a parsing rule set with Sawmill
 

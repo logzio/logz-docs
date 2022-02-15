@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Field mapping
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Field mapping in Kibana
 permalink: /user-guide/kibana/mapping/
 flags:
   admin: true
@@ -31,7 +33,7 @@ Field data type determines how each field is indexed and shown in Kibana. Accoun
 Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
 
 
-#### Date data fields
+##### Date data fields
 
 Before changing, editing, and sending date data fields, contact **[Logz.io Support team](mailto:help@logz.io)**.
 {:.info-box.note}

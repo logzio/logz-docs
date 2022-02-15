@@ -2887,7 +2887,7 @@ paths:
         Searches your account data using the [Elasticsearch Search API DSL](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html) query language. 
         
         
-        **Maximum results:** This call returns up to 10,000 results per query for aggregated results, or 1,000 results for non-aggregated results. 
+        **total:** This call returns up to 1,000 results per query for aggregated results, or 10,000 results for non-aggregated results. 
 
 
         **Note:** To ensure speed and availability of your logs, we restrict some options from the Elasticsearch defaults that could hamper system performance. Restrictions are described with their respective elements below.
@@ -3081,7 +3081,7 @@ paths:
             }'
       responses:
         200:
-          description: successful query
+          description: successful query. `hits` are the total number of logs that match the query, which will always be in the 0-2 day range. `total` are the actual logs that are returned when using the query, which are not limited by the selected time range.
           schema:
             type: object
             example: >-
@@ -3107,6 +3107,8 @@ paths:
                   }
                 }
               }
+
+
 
   /v1/scroll:
     post:
@@ -3180,9 +3182,11 @@ paths:
             }'
       responses:
         200:
-          description: successful operation
+          description: successful operation. `hits` are the total number of logs that match the query, which will always be in the 0-2 day range. `total` are the actual logs that are returned when using the query, which are not limited by the selected time range.
+
           schema:
             $ref: '#/definitions/ScrollResponse'
+
 
   # ::::: Archive
   /v2/archive/settings:
@@ -8351,7 +8355,7 @@ definitions:
       hits:
         type: string
         readOnly: true
-        description: Query results in stringified JSON format
+        description: Query results in stringified JSON format. 'hits' are the total number of logs that match the query.
   ScrollRequest:
     type: object
     properties:

@@ -13,9 +13,8 @@ contributors:
 ---
 
 Variables will allow you to apply filters on your dashboards and drilldown links.
-The Metrics interface variables are indicated with a `$`. 
 
-![Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-query-variable.png)
+![Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-source-query.png)
 
 
 #### Add dashboard variables {#set-up-dashboard-variables}
@@ -42,19 +41,19 @@ Fill in the form, starting with the **General** section.
 * In the **Type** list, choose **Query**.
 * We recommend leaving **Hide** empty.
 
-![Variable general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/new-variable-settings-.png)
+![Variable general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variables-edit-general.png)
 
 
 Next, fill in the query options.
 
 * For the **Data source**, select your Metrics account. (You can look it up [here](https://app.logz.io/#/dashboard/settings/manage-accounts).)
 * We recommend setting **Refresh** to automatically occur **On Dashboard Load**.
-* The **Query** field is where things get really fun. Your query object should start with `{"find": "terms"}`
-  and contain a field from your Elasticsearch index.
+* The **Query** field is where things get really fun. Once you enter your query, you'll be able to see a preview of the values that match it.
 
-![Variable query options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-query-options.png)
+![Variable query options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variables-value-preview.png)
 
-  Your query can reference another Metrics interface variable.
+<!--
+   Your query can reference another Metrics interface variable.
   In this example, `$cluster` references another variable.
 
   ```json
@@ -65,6 +64,7 @@ Next, fill in the query options.
   ```json
   {"find": "terms", "field": "host.name"}
   ```
+-->
 
 ##### Configure the remaining options and save
 
@@ -72,6 +72,10 @@ You can set the remaining options to whatever makes the most sense for your metr
 
 When finished, scroll to the bottom of the page and click **Update**.
 
-
 You're now ready to use the variable in your new dashboard.
-If you're looking to configure **Explore in kibana** drilldown links, click [here](/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html).
+
+#### Additional resources
+
+* To learn more about Prometheus and PromQL, check out our [examples and best practices guide](https://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-promql-queries.html). 
+
+* If you're looking to configure **Explore in kibana** drilldown links, click [here](/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html).

@@ -1,5 +1,5 @@
 ---
-title: Ship .NET logs with Helm
+title: Ship .NET diagnostic metrics with Helm
 logo:
   logofile: dotnet-logo.png
   orientation: horizontal
@@ -18,9 +18,9 @@ order: 430
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. This integration allows you to collect and ship diagnostic metrics of your .NET application in Kubernetes to Logz.io, using dotnet-monitor and OpenTelemetry. logzio-dotnet-monitor runs as a sidecar in the same pod as the .NET application.
 
-###### Sending logs from nodes with taints
+###### Sending metrics from nodes with taints
 
-If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+If you want to ship metrics from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
   
 ```yaml
 tolerations:
@@ -50,7 +50,7 @@ To select a different namespace, run:
 kubectl create namespace <<NAMESPACE>>
 ```
 
-* Replace <<NAMESPACE>> with the name of your namespace.
+* Replace `<<NAMESPACE>>` with the name of your namespace.
 
 
 ##### Add `logzio-helm` repo
@@ -70,9 +70,10 @@ helm install -n <<NAMESPACE>> \
 --set-file dotnetAppContainers='<<DOTNET_APP_CONTAINERS_FILE>>' \
 logzio-dotnet-monitor logzio-helm/logzio-dotnet-monitor
 ```
-  
+
+* Replace `<<NAMESPACE>> with the namespace you selected for this integration. The default value is `default`.
 {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
-* Replace `<<DOTNET_APP_CONTAINERS_FILE>>` with your .NET application container file. Make sure your main .NET application container has the following volumeMount:
+* Replace `<<DOTNET_APP_CONTAINERS_FILE>>` with your .NET application containers file. Make sure your main .NET application container has the following volumeMount:
 
 ```yaml
 volumeMounts:
@@ -81,9 +82,9 @@ volumeMounts:
 ```
 
 
-##### Check Logz.io for your logs
+##### Check Logz.io for your metrics
 
-Give your logs some time to get from your system to ours, then open [Logz.io](https://app.logz.io/). You can filter for data of type `dotnet-monitor-collector` to see the incoming logs.
+Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/). You can search for your metrics in Logz.io by searching {job="dotnet-monitor-collector"}
 
 </div>
 
@@ -95,7 +96,7 @@ Give your logs some time to get from your system to ours, then open [Logz.io](ht
 
 You can use the following options to update the Helm chart parameters: 
 
-* Specify parameters using the `--set key=value[,key=value]` argument to `helm install`
+* Specify parameters using the `--set key=value[,key=value]` argument to `helm install` or `--set-file key=value[,key=value]`
 
 * Edit the `values.yaml`
 
@@ -127,6 +128,10 @@ You can use the following options to update the Helm chart parameters:
 | `secrets.logzioToken` | Secret with your Logz.io metrics shipping token. | `""` |
 | `configMap.dotnetMonitor` | The dotnet-monitor configuration. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/dotnet-monitor/values.yaml). |
 | `configMap.opentelemetry` | The opentelemetry configuration. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/dotnet-monitor/values.yaml). |
+
+
+* To get additional information about dotnet-monitor configuration, click [here](https://github.com/dotnet/dotnet-monitor/blob/main/documentation/configuration.md#metrics-configuration).
+* To see well-known providers and their counters, click [here](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/available-counters).
 
 #### Uninstalling the Chart
 

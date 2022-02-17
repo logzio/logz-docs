@@ -71,7 +71,7 @@ helm install -n <<NAMESPACE>> \
 logzio-dotnet-monitor logzio-helm/logzio-dotnet-monitor
 ```
 
-* Replace `<<NAMESPACE>> with the namespace you selected for this integration. The default value is `default`.
+* Replace `<<NAMESPACE>>` with the namespace you selected for this integration. The default value is `default`.
 {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %}
 * Replace `<<DOTNET_APP_CONTAINERS_FILE>>` with your .NET application containers file. Make sure your main .NET application container has the following volumeMount:
 

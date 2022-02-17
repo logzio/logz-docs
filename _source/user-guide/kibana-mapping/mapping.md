@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Field mapping
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Field mapping in Kibana
 permalink: /user-guide/kibana/mapping/
 flags:
   admin: true
@@ -21,6 +23,27 @@ For example:
 * If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization or a `group by` rule.
 
 {% include /arrays_in_kibana/array_note.md %}
+
+### Field mapping data types
+
+Field data type determines how each field is indexed and shown in Kibana. Account admins can change the data types according to a predefined set of options:
+
+![Choose field data type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/mapping-fields-main.png)
+
+Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
+
+
+##### Date data fields
+
+Before changing, editing, and sending date data fields, contact **[Logz.io Support team](mailto:help@logz.io)**.
+{:.info-box.note}
+
+There are additional restrictions for **date data field** types:
+
+* Automatic date detection is disabled by default in dynamic mapping, which detects values as `string` instead of `date`.
+* To avoid conflict between the mapping of date fields, the data type **must** be identical across all indices.
+
+Therefore, to change the mapping of any field to a date field, contact **[Logz.io Support team](mailto:help@logz.io)** before sending the fields.
 
 ### How to identify when a field is not mapped in Kibana
 

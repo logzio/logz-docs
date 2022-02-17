@@ -84,7 +84,7 @@ volumeMounts:
 
 ##### Check Logz.io for your metrics
 
-Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/). You can search for your metrics in Logz.io by searching {job="dotnet-monitor-collector"}
+Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/). You can search for your metrics in Logz.io by searching `{job="dotnet-monitor-collector"}`
 
 </div>
 

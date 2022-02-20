@@ -29,6 +29,9 @@ and more secure for your company.
 
 ### How is access managed with SSO? {#how-is-access-managed-with-sso}
 
+To use the 'Sign in with SSO' button on Logz.io's login page, **your initial login** should be done via the SSO identity service provider.
+{:.info-box.note}
+
 When you enable SSO on your account,
 you're configuring Logz.io to hand off authentication
 to your identity provider.

@@ -2903,7 +2903,7 @@ paths:
                   description: Email address of the SIEM account.
                 usingRepositoryAccount:
                   type: boolean
-                  description: Describes if the account needs to use the Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
+                  description: Describes if the account uses a Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
       responses:
           200:
             description: successful query
@@ -2931,7 +2931,7 @@ paths:
                   example: 2018-04-01T19:18:38Z
                 usingRepositoryAccount:
                   type: boolean
-                  description: Describes if the account needs to use the Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
+                  description: Describes if the uses a Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
 
 
 

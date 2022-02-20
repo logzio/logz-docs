@@ -29,6 +29,10 @@ and more secure for your company.
 
 ### How is access managed with SSO? {#how-is-access-managed-with-sso}
 
+
+To access Logz.io through your single sign-on account, **you'll first need to log in to your SSO identity provider**.
+{:.info-box.note}
+
 When you enable SSO on your account,
 you're configuring Logz.io to hand off authentication
 to your identity provider.

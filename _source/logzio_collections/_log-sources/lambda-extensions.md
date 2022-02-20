@@ -175,7 +175,17 @@ Your lambda logs will appear under the type `lambda-extension-logs`.
 This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list.
 {:.info-box.note}
 <!-- info-box-end -->
-  
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours.
+
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your logs.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
 
 #### Deleting the extension
 
@@ -226,6 +236,18 @@ Add the environment variables to the function, according to the [**Environment v
 
 Run the function. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
 Your lambda logs will appear under the type `lambda-extension-logs`.
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours.
+
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your logs.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
+
 
 </div>
 

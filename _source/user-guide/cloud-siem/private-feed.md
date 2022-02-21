@@ -14,6 +14,7 @@ contributors:
 
 You can enrich log threat detection by adding your own private feeds to those provided by Logz.io. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
 
+To share private feeds with your other SIEM accounts, include the feeds a shared SIEM Repository account. You can learn more about the SIEM Repository [here](/user-guide/accounts/shared_repository.html).
 
 #### Configure Logz.io to pull your private feed
 

@@ -329,6 +329,8 @@ firstLevel:
       url: /user-guide/accounts/manage-timeless-accounts.html
     - title: Security accounts
       url: /user-guide/accounts/manage-the-cloud-siem-account.html
+    - title: The shared SIEM Repository account
+      url: /user-guide/accounts/shared_repository.html
     - title: Metrics accounts
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
     - title: Tracing accounts

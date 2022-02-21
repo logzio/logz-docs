@@ -76,3 +76,9 @@
 
 - escape-sequence: \e938
   class:  li-visualization
+
+- escape-sequence: \e9d3
+  class: li-repository
+
+- escape-sequence: \ebd3
+  class: li-infinity

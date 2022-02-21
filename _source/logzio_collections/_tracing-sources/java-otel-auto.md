@@ -236,6 +236,41 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
+##### Define the logzio-otel-traces service name
+
+In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+  
+If you are not sure what your cluster domain name is, you can run the following command to look it up: 
+  
+```shell
+kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
+sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+```
+  
+It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
+
+##### Download Java agent
+
+Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar) to the host of your Java application.
+
+##### Attach the agent to the collector and run it
+
+Run the following command from the directory of your Java application:
+
+```shell
+java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
+     -Dotel.traces.exporter=otlp \
+     -Dotel.metrics.exporter=none \
+     -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
+     -Dotel.exporter.otlp.endpoint=http://<<logzio-otel-traces-service-name>>:4317 \
+     -jar target/*.jar
+```
+
+* Replace `<path/to>` with the path to the directory where you downloaded the agent.
+* Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
+* Replace `<<logzio-otel-traces-service-name>>` with the service name obtained previously.
+
+
 ##### Run the Helm deployment code
 
 ```

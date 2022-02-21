@@ -185,6 +185,78 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
+##### Define the logzio-otel-traces service name
+
+
+In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+  
+If you are not sure what your cluster domain name is, you can run the following command to look it up: 
+  
+```shell
+kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
+sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+```
+  
+It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
+
+##### Download instrumentation packages
+
+Run the following command from the application directory:
+
+```shell
+gem install opentelemetry-sdk
+gem install opentelemetry-exporter-otlp
+gem install opentelemetry-instrumentation-all
+```
+
+##### Enable instrumentation in the code
+
+Add the following configuration to the `Gemfile`:
+
+```ruby
+require 'opentelemetry/sdk'
+require 'opentelemetry/exporter/otlp'
+require 'rubygems'
+require 'bundler/setup'
+```
+
+Add the following configuration to the application file:
+
+```ruby
+Bundler.require
+
+OpenTelemetry::SDK.configure do |c|
+ c.service_name = '<YOUR-SERVICE-NAME>'
+ c.use_all
+end
+```
+
+Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
+
+
+##### Install the Bundler
+
+Run the following command:
+
+```shell
+
+bundle install
+
+```
+
+##### Configure data exporter
+
+Run the following command:
+
+```shell
+
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://<<logzio-otel-traces-service-name>>:55681
+
+```
+
+* Replace `<<logzio-otel-traces-service-name>>` with the service name obtained previously.
+
+
 ##### Run the Helm deployment code
 
 ```

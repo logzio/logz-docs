@@ -47,16 +47,26 @@ logzio-otel-traces logzio-helm/logzio-otel-traces
 {% include /tracing-shipping/replace-tracing-token.html %}
 
 
-##### Get the logzio-otel-traces service IP
+##### Define the logzio-otel-traces service name
 
-Run `kubectl get services` and take a note of the IP address of the logzio-otel-traces service.
+In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+  
+If you are not sure what your cluster domain name is, you can run the following command to look it up: 
+  
+```shell
+kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
+sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+```
+  
+It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
+  
 
 ##### Set Istio to send traces to Logz.io
 
-Replace `<<logzio-otel-traces-service-IP>>` in the command below with the IP address obtained in the previous step and run the command.
+Replace `<<logzio-otel-traces-service-name>>` in the command below with the service name obtained in the previous step and run the command.
 
 ```
-istioctl install --set meshConfig.defaultConfig.tracing.zipkin.address=<<logzio-otel-traces-service-IP>>:9411 --set values.pilot.traceSampling=100.0
+istioctl install --set meshConfig.defaultConfig.tracing.zipkin.address=<<logzio-otel-traces-service-name>>:9411 --set values.pilot.traceSampling=100.0
 ```
 
 <!-- info-box-start:info -->

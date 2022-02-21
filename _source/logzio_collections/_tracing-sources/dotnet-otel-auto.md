@@ -152,6 +152,7 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 
 <div class="tasklist">
 
+
 ##### Deploy the Helm chart
  
 Add `logzio-helm` repo as follows:
@@ -160,6 +161,64 @@ Add `logzio-helm` repo as follows:
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
+
+##### Define the logzio-otel-traces service name
+
+In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+  
+If you are not sure what your cluster domain name is, you can run the following command to look it up: 
+  
+```shell
+kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
+sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+```
+  
+It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
+  
+
+##### Download instrumentation packages
+
+Run the following command from the application directory:
+
+```shell
+dotnet add package OpenTelemetry
+dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
+dotnet add package OpenTelemetry.Instrumentation.AspNetCore
+dotnet add package OpenTelemetry.Extensions.Hosting
+```
+
+##### Enable instrumentation in the code
+
+Add the following configuration to the beginning of the Startup.cs file:
+
+```cs
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
+```
+
+Add the following configuration to the Startup class:
+
+```cs
+public void ConfigureServices(IServiceCollection services)
+        {
+
+            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+
+            services.AddOpenTelemetryTracing((builder) => builder
+                .AddAspNetCoreInstrumentation()
+                .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("my-app"))
+                .AddOtlpExporter(options =>
+                {
+                    options.Endpoint = new Uri("http://<<logzio-otel-traces-service-name>>:4317");
+             
+                })
+            );
+        }
+```
+
+* Replace `<<logzio-otel-traces-service-name>>` with the service name obtained previously.
+
+
 
 ##### Run the Helm deployment code
 

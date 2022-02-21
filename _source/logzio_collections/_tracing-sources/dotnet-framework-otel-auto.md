@@ -161,16 +161,16 @@ helm repo update
 
 ##### Define the logzio-otel-traces service name
 
-Run `kubectl get services` and take a note of the logzio-otel-traces service name. It will appear as logzio-otel-traces.<<your-cluster-namespace>>.<<your-cluster-domain-name>>. The default value is `logzio-otel-traces.default.svc.cluster.local`.
-
-You can change the cluster namespace and domain name values, if required. If you need to lookup your cluster domain name, you can do it by running the following command:
-
+In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+  
+If you are not sure what your cluster domain name is, you can run the following command to look it up: 
+  
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
 sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
 ```
-
-This command will deploy a pod named `shell` that runs `nslookup`. You can remove this pod after it has returned the cluster domain name.
+  
+It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
 
 
 ##### Download instrumentation packages

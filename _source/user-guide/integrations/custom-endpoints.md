@@ -129,6 +129,14 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 | ["{{alert_tags_json}}"]| A comma separated list of string tags as would be used in a JSON array: That is, `"tag1", "tag2", "tag3"`|
 
 
+**To print the samples for correlated alerts, use the following syntax:**
+
+`"samples_query_A": "{{#samples_jsons}}{{&alert_samples_0}}{{/samples_jsons}}"`
+
+`"samples_query_B": "{{#samples_jsons}}{{&alert_samples_1}}{{/samples_jsons}}"`
+
+Prints samples of raw logs, to be used instead of `alert_samples` when using a correlated alert.
+
 Test your payload. Some parameters may not be supported by the service receiving the alerts from Logz.io.
 {:.info-box.important}
 

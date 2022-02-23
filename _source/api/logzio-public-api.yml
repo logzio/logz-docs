@@ -211,7 +211,7 @@ tags:
 
   - name: Security account
     description: >-
-      A security account with SIEM allows you to use the SIEM platform. You can create a SIEM account uaing an API call.
+      A security account with SIEM allows you to use the SIEM platform. You can create a SIEM account using an API call.
 
   - name: Security events
     description: >-
@@ -278,7 +278,6 @@ x-tagGroups:
       - Authentication groups
       - Who am I
       - Manage time-based log accounts
-      - Manage SIEM accounts
       - Manage shared tokens
       - Manage API tokens
       - Manage notification endpoints
@@ -2877,62 +2876,7 @@ paths:
       - lang: cURL
         source: 'curl -X GET "https://api.logz.io/v1/account-management/time-based-accounts/detailed/99999" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
   
-  /v2/account-management/siem:
-    post:
-      summary: Create SIEM account
-      description: Creates a new SIEM account. Returns SIEM account configuration settings as a JSON object.
-      tags:
-        - Manage SIEM accounts
-      operationId: postSIEM
-      parameters:
-          - in: body
-            type: object
-            schema:
-              properties:
-                accountName:
-                  type: string
-                  required: true
-                  description: SIEM account name
-                accountsToScan:
-                  type: array
-                  description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
-                  items:
-                    type: integer
-                email:
-                  type: string
-                  description: Email address of the SIEM account.
-                usingRepositoryAccount:
-                  type: boolean
-                  description: Describes if the account uses a Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
-      responses:
-          200:
-            description: successful query
-            schema:
-              type: object
-              properties:
-                accountId:
-                  type: integer
-                  description: Account ID.
-                accountName:
-                  type: string
-                  required: true
-                  description: SIEM account name
-                accountsToScan:
-                  type: array
-                  description: Accounts included into the query
-                  items:
-                    type: integer
-                createdAt:
-                  type: string
-                  format: date-time
-                  description: >-
-                    Date this account was created.
-                    Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
-                  example: 2018-04-01T19:18:38Z
-                usingRepositoryAccount:
-                  type: boolean
-                  description: Describes if the account uses a Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
-
+  
 
 
 
@@ -6091,7 +6035,71 @@ paths:
           headers: {}
   
   # ::::: SECURITY ACCOUNT
-  
+  /v2/account-management/siem:
+    post:
+      summary: Create SIEM account
+      description: Creates a new SIEM account. Returns SIEM account configuration settings as a JSON object. Must be run with an API token from the main Logs account.
+      tags:
+        - Security account
+      operationId: postSIEM
+      parameters:
+          - in: body
+            name: body
+            required: false
+            schema:
+              type: object
+              required: 
+                - accountName
+                - email
+              properties:
+                accountName:
+                  type: string
+                  required: true
+                  description: SIEM account name
+                accountsToScan:
+                  type: array
+                  description: IDs of accounts that will be accessed for logs. The owner account will be the default account to scan.
+                  items:
+                    type: integer
+                email:
+                  type: string
+                  required: true
+                  description: Email address of the SIEM account.
+                usingRepositoryAccount:
+                  type: boolean
+                  description: Describes if the account uses a Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
+      responses:
+          200:
+            description: successful query
+            schema:
+              type: object
+              properties:
+                accountId:
+                  type: integer
+                  description: Account ID.
+                accountName:
+                  type: string
+                  required: true
+                  description: SIEM account name
+                accountsToScan:
+                  type: array
+                  description: Accounts included into the query
+                  items:
+                    type: integer
+                createdAt:
+                  type: string
+                  format: date-time
+                  description: >-
+                    Date this account was created.
+                    Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
+                  example: 2018-04-01T19:18:38Z
+                usingRepositoryAccount:
+                  type: boolean
+                  description: Describes if the account uses a Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
+
+
+
+
   /v2/security/rules/events/logs/search:
     post:
       summary: Fetch the logs that triggered a security event

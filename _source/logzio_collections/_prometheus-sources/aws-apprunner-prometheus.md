@@ -8,7 +8,7 @@ data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
   - title: CloudWatch metrics for Prometheus
-    github-repo: logzio-aws-metrics
+    github-repo: cloudwatch-metrics
 contributors:
   - doron-bargo
   - yberlinger

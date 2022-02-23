@@ -6065,7 +6065,7 @@ paths:
                   type: string
                   required: true
                   description: Email address of the SIEM account.
-                usingRepositoryAccount:
+                isUsingRepositoryAccount:
                   type: boolean
                   description: Describes if the account uses a Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
       responses:
@@ -6093,7 +6093,7 @@ paths:
                     Date this account was created.
                     Format: `{yyyy}-{mm}-{dd}T{hh}:{mm}:{ss}Z`
                   example: 2018-04-01T19:18:38Z
-                usingRepositoryAccount:
+                isUsingRepositoryAccount:
                   type: boolean
                   description: Describes if the account uses a Repository Account. For more information, see our [User Guide]( https://docs.logz.io/user-guide/accounts/shared_repository.html).
 

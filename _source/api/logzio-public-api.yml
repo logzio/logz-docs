@@ -6038,7 +6038,7 @@ paths:
   /v2/account-management/siem:
     post:
       summary: Create SIEM account
-      description: Creates a new SIEM account. Returns SIEM account configuration settings as a JSON object. Must be run with an API token from the your main Logs account: *Logs > Settings > Manage tokens > API tokens*.
+      description: Creates a new SIEM account. Returns SIEM account configuration settings as a JSON object. Must be run with an API token from the your main Logs account *Logs > Settings > Manage tokens > API tokens*.
       tags:
         - Security account
       operationId: postSIEM

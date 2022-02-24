@@ -28,7 +28,7 @@ You can send deployment logs by API to automatically correlate exceptions with s
 
 ##### Send deployment logs by API
 
-Use the [API endpoint](/beta-api/#operation/createMarkers) to create **Deployment markers**.
+Use the [API endpoint](/api/#operation/createMarkers) to create **Deployment markers**.
 
 Here's an example payload:
 

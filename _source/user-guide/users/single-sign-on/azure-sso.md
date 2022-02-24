@@ -80,6 +80,33 @@ Click **Save** (at the top of the page).
 
 ![groupMembershipClaims Editor](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-groupmembershipclaim.png)
 
+###### For users who are in over 150 groups
+
+Azure SSO users who are members in over 150 groups require additional configuration to Azure's API.
+
+In your Azure Portal, navigate to Active Directory > App Registrations, and click Logz.io's app you've created to sign in with SSO.
+
+Next, navigate to API Permissions, and "Add a permission". During this process we'll be adding 3 new permissions to your account.
+
+1. On the right side menu, select the APIs my organization uses tab, search for Windows Azure Active Directory, and click on it.
+
+  Select Application permissions > Directory.Read.All and add the permission.
+
+2. Click "Add a permission" again. Under Microsoft APIs select Microsoft Graph.
+
+  Select Application permissions, and search for Group. Select Group:ReadAll, and click Add permissions.
+
+3. Click "Add a permission" again, select Microsoft APIs tab and click on Microsoft Graph.
+
+  Select Application permissions, search for Application and select Application.Read.All, and click Add permissions. 
+
+Next, navigate to Certificates & secrets on the left side menu, and add a New client secret. Enter a description, set the experition date to the farthest option available, and click the Add button.
+
+Navigate to Overview, located on the left side menu, copy the Application ID and send it with the Secret you've created to Logz.io Support team.
+
+Once your connection has been updated, you should be able to log in to Logz.io via your SSO connection regardless of the number of groups you're in. 
+
+
 ##### _(Optional)_ Restrict access to Logz.io to specific user groups
 
 ![Add group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-manage-users-groups.png)

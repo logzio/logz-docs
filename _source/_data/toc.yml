@@ -292,7 +292,7 @@ firstLevel:
       url: /user-guide/cloud-siem/add-endpoints.html
     - title: Edit rules and protected rules
       url: /user-guide/cloud-siem/edit-rules.html
-    - title: Managing security events
+    - title: Manage security events
       url: /user-guide/cloud-siem/manage-security-events.html
     - title: Work with lookups
       url: /user-guide/cloud-siem/work-lookups.html

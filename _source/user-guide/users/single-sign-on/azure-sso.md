@@ -80,31 +80,42 @@ Click **Save** (at the top of the page).
 
 ![groupMembershipClaims Editor](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-groupmembershipclaim.png)
 
-###### For users who are in over 150 groups
+###### Additional configuration for users who are in over 150 groups
 
-Azure SSO users who are members in over 150 groups require additional configuration to Azure's API.
+Azure’s API requires additional configuration for members of 150 groups.
+{:.info-box.note}
 
-In your Azure Portal, navigate to Active Directory > App Registrations, and click Logz.io's app you've created to sign in with SSO.
+Azure has some limitations for users who are members in over 150 groups, and requires additional configuration to send the relevant data to Logz.io. To make sure data is appropriately sent, follow these steps:
 
-Next, navigate to API Permissions, and "Add a permission". During this process we'll be adding 3 new permissions to your account.
+In your Azure Portal, navigate to **[Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)** > **[App Registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)**, and open Logz.io's app you've created to sign in with SSO.
 
-1. On the right side menu, select the APIs my organization uses tab, search for Windows Azure Active Directory, and click on it.
+![Logz.io Azure app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/directory-app-main.png)
 
-  Select Application permissions > Directory.Read.All and add the permission.
+Next, navigate to **API Permissions**, and click **Add a permission**.
 
-2. Click "Add a permission" again. Under Microsoft APIs select Microsoft Graph.
+![Add permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/add-a-permission-main.png)
 
-  Select Application permissions, and search for Group. Select Group:ReadAll, and click Add permissions.
+Add the three following permissions to your account:
 
-3. Click "Add a permission" again, select Microsoft APIs tab and click on Microsoft Graph.
+  1. Select the **APIs my organization uses** tab on the right side menu, search for **Windows Azure Active Directory**, and click on it.
+  Choose **Application permissions** > **Directory.Read.All** and add the permission.
+  ![Add read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/directory-read-all.png)
+  
+  2. Click **Add a permission** again. Under **Microsoft APIs** select **Microsoft Graph**.
+  Choose **Application permissions**, and search for **Group**. Choose **Group:ReadAll**, and click Add permissions.
+  ![Add group read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/group-read-all.png)
+  
+  3. Click **Add a permission** again, select **Microsoft APIs** tab and click on **Microsoft Graph**.
+  Choose **Application permissions**, search for **Application**, choose **Application.Read.All**, and click Add permissions. 
+  ![Add application read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/application-read-all.png)
 
-  Select Application permissions, search for Application and select Application.Read.All, and click Add permissions. 
+Next, navigate to **Certificates & secrets** on the left side menu, and add a **New client secret**. Name the secret, for example, Logz.io Group Access, set the expiration date to the farthest option available, 24 months, and click the **Add** button.
 
-Next, navigate to Certificates & secrets on the left side menu, and add a New client secret. Enter a description, set the experition date to the farthest option available, and click the Add button.
+![Add client secret](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/new-client-secret.png)
 
-Navigate to Overview, located on the left side menu, copy the Application ID and send it with the Secret you've created to Logz.io Support team.
+Navigate to **Overview**, located on the left side menu, copy the Application ID and send it with the Secret you've created to **[Logz.io Support team](mailto:help@logz.io)**.
 
-Once your connection has been updated, you should be able to log in to Logz.io via your SSO connection regardless of the number of groups you're in. 
+Once your connection has been updated and approved by Logz.io Support team, you and your team should be able to log in to Logz.io via the SSO connection regardless of the number of members in a group.
 
 
 ##### _(Optional)_ Restrict access to Logz.io to specific user groups

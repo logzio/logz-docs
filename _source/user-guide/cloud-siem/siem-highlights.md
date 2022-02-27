@@ -9,6 +9,7 @@ tags:
   - siem
 contributors:
   - shalper
+  - yberlinger
 ---
 
 Logz.io Cloud SIEM will help you detect threats and investigate security incidents as soon as you start sending logs.
@@ -42,6 +43,17 @@ Cloud SIEM cross references incoming logs against industry-recommended threat fe
 
 Threats are tagged by their level of severity as indicated by the confidence of the source, to help reduce false-positives and to promote response to higher-risk threats.
 
+
+### Manage security events
+
+Monitor the triggered security events, assign event handlers, and track the resolution process in [Cloud SIEM Event Management](/user-guide/cloud-siem/siem-event-management.html).
+
+
+### Create a shared Repository for security content
+
+Build a dedicated security library of the most useful dashboards, visualizations, saved searches, and private security feeds to share with all your Cloud SIEM accounts.
+
+Learn more about creating your own SIEM Repository account in [Manage the shared SIEM Repository](/user-guide/accounts/shared_repository.html).
 
 ### Dedicated support from security experts
 

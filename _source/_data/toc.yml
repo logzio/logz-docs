@@ -276,6 +276,7 @@ firstLevel:
 
 
   - title: Cloud SIEM quick start guide
+    url: /user-guide/cloud-siem/quick-guide.html
     thirdLevel:
     - title: Create sub accounts as a Managed Security Service Provider (MSSP)
       url: /user-guide/cloud-siem/mssp-accounts.html

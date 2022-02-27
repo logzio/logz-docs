@@ -44,7 +44,7 @@ Cloud SIEM cross references incoming logs against industry-recommended threat fe
 Threats are tagged by their level of severity as indicated by the confidence of the source, to help reduce false-positives and to promote response to higher-risk threats.
 
 
-### Manage Security Events
+### Manage security events
 
 Monitor the triggered security events, assign event handlers, and track the resolution process in [Cloud SIEM Event Management](/user-guide/cloud-siem/siem-event-management.html).
 

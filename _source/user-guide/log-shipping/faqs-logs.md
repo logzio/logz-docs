@@ -25,6 +25,7 @@ contributors:
 
 * [Integrating with your 3rd-party application or service](#3rd-party)
 * [Integrating with your proprietary application or service](#proprietary)
+* [Integrating from the client-side](#client-side)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -49,6 +50,14 @@ This information is also available in the Logz.io Docs, via [**Ship data > Logs*
 </div>
 
 <!--tab:end -->
+
+<!-- tab:start -->
+<div id="client-side">
+
+You can try and ship data to Logz.io's bulk HTTP/S endpoint. However, we advise collecting the logs on a central server you control and using it to ship data to Logz.io. This is a more reliable method since it doesn't require the end-users to change their network setup to ensure the required ports (8070 for HTTP, 8071 for HTTPS) are open.
+
+</div>
+<!-- tab:end -->
 </div>
 
 
@@ -60,6 +69,7 @@ This information is also available in the Logz.io Docs, via [**Ship data > Logs*
 * [Logs written to a file](#file)
 * [Logs written to cloud storage](#cloud)
 * [Logs that are accessible via API](#api)
+* [Logs sent via client-side](#clientside)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -136,4 +146,17 @@ This method follows the same instructions as the one-time upload, but we recomme
 
 </div>
 <!-- tab:end -->
+
+<!-- tab:start -->
+<div id="clientside">
+
+Logz.io's best practice is using a a central server to ship your data, since shipping via a client-side solution is not as reliable or safe.
+
+Logz.io's listeners are accessible via non-standard ports that vary based on the shipping method and encryptions level. Therefore, the client in question will have to connect to a network that allows communication on said ports to successfully ship logs. However, collecting logs from an environment you can control lets you configure the outgoing connection and meet the listeners' requirements.
+
+Shipping from a centralized location has additional advantages: it simplifies the debugging process and reduces the risk of losing logs due to network setup issues. 
+
+</div>
+<!-- tab:end -->
+
 </div>

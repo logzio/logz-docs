@@ -80,8 +80,6 @@ To add a list of lookups from a CSV file:
 
 3. Select **Upload CSV file**.
 
-   ![Lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/lookup-8.png)
-
 
 4. Select the CSV file from your machine and confirm the selection.
 
@@ -95,14 +93,17 @@ To add a definition for a single lookup from a CSV file:
 
 1. Select **+ New lookup**.
 
-   ![Lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/lookup-9.png)
-
-
 2. Add a lookup name.
 
 3. If required, add a lookup description.
 
+   ![Lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/lookup-8.png)
+
+
 4. Select **Upload from CSV file**.
+
+   ![Lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/lookup-9.png)
+
 
 5. Add expiration time to the lookup.
 

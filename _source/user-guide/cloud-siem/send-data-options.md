@@ -18,11 +18,11 @@ To access this page:
 
 2. Go to **Logs > Send your logs**.
 
-![View_syd](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/view-syd-2.png)
+   ![View_syd](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/view-syd-2.png)
 
 3. Select the **Cloud SIEM** tab.
 
-![View_syd](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/view-syd-3.png)
+   ![View_syd](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/view-syd-3.png)
 
 4. Select your data source and perform the integration as per instructions.
 

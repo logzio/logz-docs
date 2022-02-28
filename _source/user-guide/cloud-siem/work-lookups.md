@@ -116,7 +116,7 @@ To add a definition for a single lookup from a CSV file:
 
 To refer to a lookup when creating a security rule:
 
-1. Navigate to the **Create a rule** window as described in **How to create a security rule**.
+1. Navigate to the **Create a rule** window as described in [**Create a security rule**](/user-guide/cloud-siem/create-rules.html).
 
 2. In the first step, select **Add a filter**.
 

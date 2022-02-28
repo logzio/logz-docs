@@ -70,8 +70,6 @@ The other way is creating a rule from an existing rule. In this case, the rule b
 
 4. Click the **Investigate** tab next to the event that you want to base the new rule on.
 
-   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-2.png)
-
 5. Select **Create rule**.
 
    ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-5.png)

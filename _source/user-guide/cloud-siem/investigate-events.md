@@ -20,4 +20,8 @@ To see and to investigate events displayed on the **Summary** dashboard:
 
 3. Scroll down to the **Events** section. 
 
+   ![Investigate_events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-1.png)
+
 4. Click the **Investigate** tab next to the event that you want to see more data on. It will build a kibana search showing the logs that have contributed to this event getting executed.
+
+   ![Investigate_events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-2.png)

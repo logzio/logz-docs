@@ -19,7 +19,12 @@ To do this:
 
 2. Go to **Settings > Manage accounts**.
 
+   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-1.png)
+
+
 3. In the **Plan Summary** section, select **Add sub account**.
+
+   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-3.png)
 
    * Give the new account a required name.
 
@@ -37,9 +42,15 @@ To do this:
 
 4. Select **Create**.
 
+   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-4.png)
+
 5. Scroll down to **Cloud SIEM plan**.
 
+   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-5.png)
+
 6. Select **Add security account**.
+
+   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-6.png)
 
    * Give the new account a required name
 
@@ -49,8 +60,12 @@ To do this:
 
 7. Select **Create**.
 
+   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-7.png)
+
 8. Go to **Cloud SIEM**.
 
 9. Click the account selection menu in the top right corner of the **Summary** screen.
+
+   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-8.png)
 
 10. Select the new account. It takes a few minutes to get the account set up.

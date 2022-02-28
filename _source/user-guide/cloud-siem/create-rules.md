@@ -22,7 +22,16 @@ The first way is creating a rule from scratch. To do this:
 
 2. Go to **SIEM > Rules**.
 
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-1.png)
+
 3. Select **+ New rule**.
+
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-2.png)
+
+4. Fill out the rule details as follows:
+
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-4.png)
+
 
    * Give the rule a required name.
    
@@ -56,9 +65,20 @@ The other way is creating a rule from an existing rule. In this case, the rule b
 
 3. Scroll down to the **Events** section. 
 
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-1.png)
+
+
 4. Click the **Investigate** tab next to the event that you want to base the new rule on.
 
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-2.png)
+
 5. Select **Create rule**.
+
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-5.png)
+
+6. Fill out the rule details as follows:
+
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-6.png)
 
    * Give the rule a required name.
    

@@ -18,6 +18,9 @@ To see and to investigate events displayed on the **Summary** dashboard:
 
 2. Go to **SIEM**.
 
+   ![Investigate_events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-3.png)
+
+
 3. Scroll down to the **Events** section. 
 
    ![Investigate_events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-1.png)

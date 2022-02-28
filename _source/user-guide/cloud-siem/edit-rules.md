@@ -27,8 +27,9 @@ To edit a rule:
 
 3. Select the three dots menu on the right side of a rule that you need to edit.
 
-4. Select **Edit**.
-
    ![Edit_rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/edit_rule.png)
+
+
+4. Select **Edit**.
 
 5. Edit the rule.

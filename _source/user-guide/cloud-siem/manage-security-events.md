@@ -34,7 +34,7 @@ To access the **Event Management** platform:
 To edit a rule for an event:
 
 
-1. Select the three dots menu on the right side of an event that you need to edit. It will open the editor for the event rules.
+1. Select the three dots menu on the right side of an event that you need to edit and then select **Edit**. It will open the editor for the event rules.
 
    ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/event_management-3.png)
 

@@ -25,7 +25,7 @@ For example:
 
 {% include /arrays_in_kibana/array_note.md %}
 
-## Field mappings
+## Managing field mappings
 
 To make your search engine queries and analytics more effective, each field in your parsed logs is mapped to a data type.
 

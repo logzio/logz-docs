@@ -12,9 +12,9 @@ contributors:
 
 ### Choosing a dashboard
 
-By default, when accessing your SIEM page, you will see the **Summary** dashboard. This dashboard shows you general information on your security events. You can request Logz.io to configure the default dashboard to your needs.
+By default, when accessing your Cloud SIEM page, you will see the **Summary** dashboard. This dashboard shows you general information on your security events. You can request Logz.io to configure the default dashboard to your needs.
 
-SIEM includes a number of dashboards dedicated specifically to a data source you may be using.
+Cloud SIEM includes a number of dashboards dedicated specifically to a data source you may be using.
 
 To access a dashboard:
 

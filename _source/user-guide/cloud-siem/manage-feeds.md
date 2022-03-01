@@ -26,8 +26,13 @@ To access the threat intelligence feeds table:
 
 2. Go to **SIEM > Threats overview > Threat intelligence feeds**.
 
+   ![Feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/feed-4.png)
+
 
 Here you can search for a feed using a search bar at the top of the list.
+
+   ![Feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/feed-1.png)
+
 
 
 ### Create a private feed
@@ -36,20 +41,25 @@ To create a private feed:
 
 1. Select **+ Add private feed**.
 
-2. Give the feed a name.
+   ![Feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/feed-2.png)
 
-3. Select the feed type from the **IOC type** menu. This is the data that the feed will contain.
 
-4. Select whether the feed will be a straight list of use STIX.
+   * Give the feed a name.
 
-5. Select the confidence level for the feed.
+   * Select the feed type from the **IOC type** menu. This is the data that the feed will contain.
 
-6. If required, add a description to the feed.
+     ![Feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/feed-3.png)
 
-7. Add the connection URL.
+   * Select whether the feed will be a straight list of use STIX.
 
-8. Add the connection method.
+   * Select the confidence level for the feed.
 
-9. If required, add the connection header.
+   * If required, add a description to the feed.
+
+   * Add the connection URL.
+
+   * Add the connection method.
+
+   * If required, add the connection header.
 
 10. Select **Save**.

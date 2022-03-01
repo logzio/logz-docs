@@ -22,7 +22,11 @@ To access a dashboard:
 
 2. Go to **SIEM > Dashboards**.
 
+   ![Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/dashboard-1.png)
+
 3. Search for the required dashboard.
+
+   ![Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/dashboard-2.png)
 
 4. Select the required dashboard from the list.
 

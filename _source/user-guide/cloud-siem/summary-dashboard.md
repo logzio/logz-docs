@@ -10,7 +10,7 @@ contributors:
   - nshishkin
 ---
 
-The **Summary** dashboard is the default screen that you can see when accessing your SIEM account. 
+The **Summary** dashboard is the default screen that you can see when accessing your Cloud SIEM account. 
 
 To check what events have occurred in the past 7 days on the **Summary** dashboard:
 

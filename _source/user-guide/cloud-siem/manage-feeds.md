@@ -48,7 +48,7 @@ To create a private feed:
 
    * Select the feed type from the **IOC type** menu. This is the data that the feed will contain.
 
-     ![Feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/feed-3.png)
+   ![Feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/feed-3.png)
 
    * Select whether the feed will be a straight list of use STIX.
 

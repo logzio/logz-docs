@@ -10,11 +10,11 @@ contributors:
   - nshishkin
 ---
 
-There are two types of threat feeds in SIEM:
+There are two types of threat feeds in Cloud SIEM:
 
 * Logz.io threat feed is a predefined threat feed that cannot be edited. It is included by default and cannot be edited. Logz.io threat feeds have a **Logz.io feed** tag.
 
-* Private threat feed is a feed that you can add to the SIEM. You can add, edit or delete a private feed. Private feeds have a **Private feed** tag.
+* Private threat feed is a feed that you can add to the Cloud SIEM. You can add, edit or delete a private feed. Private feeds have a **Private feed** tag.
 
 
 ### View threat intelligence feeds

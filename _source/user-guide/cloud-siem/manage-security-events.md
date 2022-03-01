@@ -10,7 +10,7 @@ contributors:
   - nshishkin
 ---
 
-SIEM has an integrated platform for security events management. Here you can view security events that have occured, edit them, assign a security rule to a team member. You can filter the list using the top menu filters and the search bar.
+Cloud SIEM has an integrated platform for security events management. Here you can view security events that have occured, edit them, assign a security rule to a team member. You can filter the list using the top menu filters and the search bar.
 
    ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/event_management-2.png)
 

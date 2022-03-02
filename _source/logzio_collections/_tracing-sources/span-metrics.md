@@ -24,7 +24,7 @@ order: 330
 <!-- tab:start -->
 <div id="overview">
 
-Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
+Deploy this integration to send metrics from your OpenTelemetry spans to Logz.io.
 
 ### Architecture overview
 
@@ -251,7 +251,7 @@ Give your metrics some time to get from your system to ours, and then open [Trac
 <div id="docker">
 
 
-### Set up your OpenTelemetry installation using containerized collector to send traces to Logz.io
+### Set up your OpenTelemetry installation using containerized collector to send metrics from your OpenTelemetry spans to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -261,8 +261,66 @@ Give your metrics some time to get from your system to ours, and then open [Trac
 
 <div class="tasklist">
 
+##### Pull the Docker image for the OpenTelemetry collector
+  
+In the same Docker network as your application:
 
+```shell
+docker pull logzio/otel-collector-spm
+```
+  
+<!-- info-box-start:info -->
+This integration only works with an otel-contrib image. The logzio/otel-collector-traces image is based on otel-contrib.
+{:.info-box.important}
+<!-- info-box-end -->
+  
+##### Run the container
+  
+When running on a Linux host, use the `--network host` flag to publish the collector ports:
 
+```shell
+docker run --name logzio-spm \
+-e LOGZIO_REGION=<<LOGZIO_REGION>> \
+-e LOGZIO_TRACES_TOKEN=<<LOGZIO_TRACES_TOKEN>> \
+-e LOGZIO_METRICS_TOKEN=<<LOGZIO_METRICS_TOKEN>> \
+--network host \
+logzio/otel-collector-spm
+```  
+
+When running on MacOS or Windows hosts, publish the ports using the `-p` flag:
+
+```shell
+docker run --name logzio-spm \
+-e LOGZIO_REGION=<<LOGZIO_REGION>> \
+-e LOGZIO_TRACES_TOKEN=<<LOGZIO_TRACES_TOKEN>> \
+-e LOGZIO_METRICS_TOKEN=<<LOGZIO_METRICS_TOKEN>> \
+-p 55678-55680:55678-55680 \
+-p 1777:1777 \
+-p 9411:9411 \
+-p 9943:9943 \
+-p 6831:6831 \
+-p 6832:6832 \
+-p 14250:14250 \
+-p 14268:14268 \
+-p 4317:4317 \
+-p 55681:55681 \
+logzio/otel-collector-spm
+```
+  
+{% include /tracing-shipping/replace-tracing-token.html %}
+
+###### Optional parameters
+
+If required, you can add the following optional parameters as environment variables when running the container:
+  
+| Parameter | Description | 
+|---|---|
+| LATENCY_HISTOGRAM_BUCKETS | Comma separated list of durations defining the latency histogram buckets. Default: `2ms`, `8ms`, `50ms`, `100ms`, `200ms`, `500ms`, `1s`, `5s`, `10s`   | 
+| SPAN_METRICS_DIMENSIONS | Each metric will have at least the following dimensions that are common across all spans: `Service name`, `Operation`, `Span kind`, `Status code`. The input is comma separated list of dimensions to add together with the default dimensions, for example: `region,http.url`. Each additional dimension is defined by a name from the span's collection of attributes or resource attributes. If the named attribute is missing in the span, this dimension will be omitted from the metric.   | 
+| SPAN_METRICS_DIMENSIONS_CACHE_SIZE | The maximum items number of `metric_key_to_dimensions_cache`. Default: `10000`. | 
+| AGGREGATION_TEMPORALITY | Defines the aggregation temporality of the generated metrics. One of either `cumulative` or `delta`. Default: `cumulative`. | 
+
+  
 ##### Run the application
 
 Run the application to generate traces.

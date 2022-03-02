@@ -341,9 +341,9 @@ Give your metrics some time to get from your system to ours, and then open [Trac
 
 ### Overview
 
-You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
+You can use a Helm chart to ship metrics from your OpenTelemetry spans to Logz.io. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
-**logzio-otel-traces** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+**logzio-otel-spm** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
 <!-- info-box-start:info -->
 This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart.
@@ -351,15 +351,53 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 <!-- info-box-end -->
 
 
+
 #### Standard configuration
 
 <div class="tasklist">
 
+##### Deploy the Helm chart
+ 
+Add `logzio-helm` repo as follows:
+ 
+```shell
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
+helm repo update
+```
+
+##### Define the logzio-otel-traces service name
 
 
-##### Check Logz.io for your metrics
+In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+  
+If you are not sure what your cluster domain name is, you can run the following command to look it up: 
+  
+```shell
+kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
+sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+```
+  
+It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
 
-Give your metrics some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger). Navigate to the **Monitor** tab to view the span metrics.
+
+##### Run the Helm deployment code
+
+```
+helm install  \
+--set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
+--set logzio.metrics_token=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
+logzio-otel-spm logzio-helm/logzio-otel-spm
+```
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+{% include /p8s-shipping/replace-prometheus-token.html %}
+
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is different than US East. https://docs.logz.io/user-guide/accounts/account-region.html#available-regions
+
+##### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
 </div>
 
@@ -374,12 +412,24 @@ You can use the following options to update the Helm chart parameters:
 * Edit the `values.yaml`.
 
 * Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+ 
 
 ###### Example
 
 ```
 helm install logzio-otel-traces logzio-helm/logzio-otel-traces -f my_values.yaml 
 ```
+  
+###### Optional parameters
+
+If required, you can add the following optional parameters as environment variables:
+  
+| Parameter | Description | 
+|---|---|
+| LATENCY_HISTOGRAM_BUCKETS | Comma separated list of durations defining the latency histogram buckets. Default: `2ms`, `8ms`, `50ms`, `100ms`, `200ms`, `500ms`, `1s`, `5s`, `10s`   | 
+| SPAN_METRICS_DIMENSIONS | Each metric will have at least the following dimensions that are common across all spans: `Service name`, `Operation`, `Span kind`, `Status code`. The input is comma separated list of dimensions to add together with the default dimensions, for example: `region,http.url`. Each additional dimension is defined by a name from the span's collection of attributes or resource attributes. If the named attribute is missing in the span, this dimension will be omitted from the metric.   | 
+| SPAN_METRICS_DIMENSIONS_CACHE_SIZE | The maximum items number of `metric_key_to_dimensions_cache`. Default: `10000`. | 
+| AGGREGATION_TEMPORALITY | Defines the aggregation temporality of the generated metrics. One of either `cumulative` or `delta`. Default: `cumulative`. | 
 
 #### Uninstalling the Chart
 
@@ -392,6 +442,7 @@ helm uninstall logzio-otel-traces
 ```
 
 </div>
+
 <!-- tab:end -->
 
 

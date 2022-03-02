@@ -13,6 +13,7 @@ tags:
 contributors:
   - shalper
   - schwin007
+  - hidan
 ---
 
 Logz.io offers a quick integration for SSO with Azure.
@@ -85,7 +86,7 @@ Click **Save** (at the top of the page).
 Azure’s API requires additional configuration for members of 150 groups.
 {:.info-box.note}
 
-Azure has some limitations for users who are members in over 150 groups, and requires additional configuration to send the relevant data to Logz.io. To make sure data is appropriately sent, follow these steps:
+Azure has some limitations for users who are members in over 150 groups, and requires additional configuration to send the relevant data to Logz.io. To make sure your groups are sent appropriately, follow these steps:
 
 In your Azure Portal, navigate to **[Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)** > **[App Registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)**, and open Logz.io's app you've created to sign in with SSO.
 

@@ -34,7 +34,7 @@ There are two types of endpoints.
   You'll need to specify authentication information,
   such as your API key, service key, or token.
 
-  Supported apps include Opsgenie (only if hosted by the US data center), BigPanda, PagerDuty, Slack, VictorOps, and Datadog.
+  Supported apps include Opsgenie (only if hosted by the US data center), BigPanda, PagerDuty, Slack, VictorOps, ServiceNow, and Microsoft Teams.
 
 * **Custom endpoints**:
   You'll need to specify the URL, method, and headers,

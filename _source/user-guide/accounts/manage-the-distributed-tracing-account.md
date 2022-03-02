@@ -2,6 +2,8 @@
 layout: article
 title: Manage a Distributed Tracing account
 permalink: /user-guide/accounts/manage-the-distributed-tracing-account.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage your Logz.io Distributed Tracing account
 flags:
   admin: true
   logzio-plan: pro
@@ -101,6 +103,8 @@ You can configure up to 5 tracing accounts for your Distributed Tracing plan. If
    If you don't have spans available to allocate to the new plan, you'll be prompted to reduce the allocation of another account.
    ![Reduce existing span allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/reduce-allocation.png)
 
+To help **protect your Tracing account against unexpected surges**, Logz.io provides a 4x daily ingest volume from your monthly span quota.
+{:.info-box.note}
    
 5. Click **Save** to apply your changes.
 

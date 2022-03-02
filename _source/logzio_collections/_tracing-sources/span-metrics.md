@@ -43,7 +43,7 @@ On deployment, your OpenTelemetry instrumentation captures span metrics from you
 
 
 
-### Set up your locally hosted OpenTelemetry installation to send traces to Logz.io
+### Set up your locally hosted OpenTelemetry installation to send metrics from your OpenTelemetry spans to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -280,9 +280,9 @@ When running on a Linux host, use the `--network host` flag to publish the colle
 
 ```shell
 docker run --name logzio-spm \
--e LOGZIO_REGION=<<LOGZIO_REGION>> \
--e LOGZIO_TRACES_TOKEN=<<LOGZIO_TRACES_TOKEN>> \
--e LOGZIO_METRICS_TOKEN=<<LOGZIO_METRICS_TOKEN>> \
+-e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+-e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
+-e LOGZIO_METRICS_TOKEN=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
 --network host \
 logzio/otel-collector-spm
 ```  
@@ -291,9 +291,9 @@ When running on MacOS or Windows hosts, publish the ports using the `-p` flag:
 
 ```shell
 docker run --name logzio-spm \
--e LOGZIO_REGION=<<LOGZIO_REGION>> \
--e LOGZIO_TRACES_TOKEN=<<LOGZIO_TRACES_TOKEN>> \
--e LOGZIO_METRICS_TOKEN=<<LOGZIO_METRICS_TOKEN>> \
+-e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+-e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
+-e LOGZIO_METRICS_TOKEN=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
 -p 55678-55680:55678-55680 \
 -p 1777:1777 \
 -p 9411:9411 \
@@ -308,6 +308,7 @@ logzio/otel-collector-spm
 ```
   
 {% include /tracing-shipping/replace-tracing-token.html %}
+{% include /p8s-shipping/replace-prometheus-token.html %}
 
 ###### Optional parameters
 

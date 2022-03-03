@@ -88,8 +88,8 @@ Run the following command:
 
 If you need to send the logs via a proxy server:
 
-   * Add ` -e LOGZIO_PROXY_URI=<YOUR-PROXY-URI>` to the above command and replace `<YOUR-PROXY-URI>` with your proxy URI.
-   * Add ` -e LOGZIO_PROXY_CERT=<YOUR-PROXY-CERTIFICATE>` to the above commad and replace `<YOUR-PROXY-CERTIFICATE>` with your proxy certificate value.
+   * Add `-e LOGZIO_PROXY_URI=<<YOUR-PROXY-URI>>` to the above command and replace `<<YOUR-PROXY-URI>>` with your proxy URI.
+   * Add `-e LOGZIO_PROXY_CERT=<<YOUR-PROXY-CERTIFICATE>>` to the above commad and replace `<<YOUR-PROXY-CERTIFICATE>>` with your proxy certificate value.
 
 ##### Check Logz.io for your logs
 
@@ -116,6 +116,7 @@ If you need to customize the default settings of the configuration parameters, a
 | `-e LOGZIO_RETRY_MAX_INTERVAL=<<LOGZIO_RETRY_MAX_INTERVAL>> \` | Specifies the maximum interval, in seconds, to wait between retries.  | `30s` |
 | `-e LOGZIO_FLUSH_THREAD_COUNT=<<LOGZIO_FLUSH_THREAD_COUNT>> \` | Specifies the number of threads to flush the buffer.  | `2` |
 | `-e LOGZIO_LOG_LEVEL=<<LOGZIO_LOG_LEVEL>> \` | Specifies the log level for this container.  | `info` |
+| `ADDITIONAL_FIELDS` | Include additional fields with every message sent, formatted as `fieldName1=fieldValue1,fieldName2=fieldValue2` | `nil` |
 
 </div>
 <!-- tab:end -->

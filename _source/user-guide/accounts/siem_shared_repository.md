@@ -2,6 +2,8 @@
 layout: article
 title: Manage the shared SIEM Repository
 permalink: /user-guide/accounts/shared_repository.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: A guide to managing the shared SIEM repository
 flags:
   admin: true
   logzio-plan: pro
@@ -73,7 +75,7 @@ In the **Repository account setup** screen, click **Reset**.
 
 To replace the Repository account, select a different SIEM account to set as the Repository, and **Save** or **Cancel** the change. 
 
-![Reset and replace the existing Repository account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo_reset.gif)
+<!-- ![Reset and replace the existing Repository account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/repo_reset.gif) -->
 
 
 ## Delete a Repository 

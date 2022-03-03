@@ -61,8 +61,14 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
 ![App permissions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/office365/permissions.png)
 
 
-{% include log-shipping/certificate.md %}
+##### Download the Logz.io public certificate to your credentials server
 
+For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
+
+
+```shell
+curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt
+```
 
 ##### Configure Filebeat
 
@@ -77,7 +83,7 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
      audit:
        enabled: true
        # Set the application_id (also known as client ID):
-       var.application_id: <"Application ID">
+       var.application_id: <<Application ID>>
        # Configure the tenants to monitor:
        # Use the tenant ID (also known as directory ID) and the domain name.
        # var.tenants:
@@ -86,8 +92,8 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
        #  - id: "tenant_id_2"
        #    name: "mycompany.com"
        var.tenants:
-         - id: <"TenantID">
-           name: <"TenantName">
+         - id: <<TenantID>>
+           name: <<TenantName>>
        # List of content-types to fetch. By default all known content-types
        # are retrieved:
        # var.content_type:
@@ -102,7 +108,7 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
        # var.key_passphrase: "myPrivateKeyPassword"
        # Client-secret based authentication:
        # Comment the following line if using certificate authentication.
-       var.client_secret: <"Client Secret">
+       var.client_secret: <<Client Secret>>
        # Advanced settings, use with care:
        # var.api:
        #   # Settings for custom endpoints:

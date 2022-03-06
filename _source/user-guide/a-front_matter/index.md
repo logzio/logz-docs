@@ -1,7 +1,7 @@
 ---
 layout: article
-title: Getting started
-permalink: /user-guide/_front_matter/logz-overview.html
+title: Finding your way around Logz.io
+permalink: /user-guide/a-front_matter/
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Finding your way around Logz.io
 flags:
@@ -11,7 +11,20 @@ contributors:
   - yberlinger
 ---
 
-This is a placeholder topic
+This is a placeholder topic to direct users on how to get started
+
+NOTE: Consider using branching tabs to help users navigate to overview sections - or single source
+
+1. Overview of Logz.io & the basics that must happen before you can send data -
+    a. Strategy: Single source the content or Switchboard link to existing parent/child topic
+    b. Logzio overview of each data domain (single source this to each Parent topic for Logs, Security, Metrics, Tracing.
+    c. Account and user setups
+1. SYD
+1. APIs
+1. Do stuff in each product data domain
+1. Admin zone
+1. Integrations
+
 
 ## Tabs
 

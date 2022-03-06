@@ -12,39 +12,48 @@ firstLevel:
   # ===== USER GUIDE =====
   # These docs are generally in the /user-guide folder
 
-    # ===== OVERVIEWS: Orientation and getting started =====
+    # ===== Front matter: Overviews, Orientation, and getting started =====
 - title: Jump in to Logz.io  #Overview of Logz.io & the basics that must happen before you can send data
-  icon: li-
+  icon: li-star-outline
+  secondLevel: 
+  - title: Finding your way around Logz.io
+    url: /user-guide/a-front_matter/
+  - title: Basic admin ~ Setting up accounts and users 
+    url: /user-guide/a-front_matter/new_admin_tasks.html
+  - title: Sending your data ~ Resource overview
+    url: /user-guide/a-front_matter/overview-syd.html
+ 
+  # ======Logz.io API RESOURCES ==========
 
-- escape-sequence: \e9d3
-  class: li-star-outline
-
-  second level: 
-  - title: Finding your way around
-    url:  /user-guide/_front_matter.html
-  - title: Logz.io data domains  # overview of each data domain - point to parent topic for Logs, Security, Metrics, Tracing
-    url: 
+- title: API Resources
+  icon: li-star-outline
+  secondLevel:
+  - title: The Logz.io API
+    url: /api/
+  - title: Terraform Logz.io Provider
+    url: /integrations/terraform/
+  - title: API cookbook
     thirdLevel:
-    - title:
-      url:
+    - title: API cookbook
+      url: /api/cookbook/
+    - title: Who am I?
+      url: /api/cookbook/who-am-i.html
+    - title: Managing sub account capacity
+      url: /api/cookbook/managing-sub-account-capacity.html
+    - title: Backing up Kibana objects to GitHub
+      url: /api/cookbook/backing-up-kibana-objects-to-github.html
+    - title: Using Inspect feature on Kibana UI
+      url: /api/cookbook/inspect.html
 
-  - title: Create an account
-    url: /user-guide/_front_matter/new_account.html
-  - title: Manage accounts
-    url: 
-  - title: Manage users
-    url: 
-  - title:
-    url: 
 
   # ===== SHIPPING AND PARSING =====
 - title: Send your data to Logz.io 
   icon: li-plane
   secondLevel:
-  - title: Overview of data domains in Logz.io
-    url: # doesn't exist yet - describes the data domains: Logs & security, Metrics, Tracing - use branching tabs
+  - title: Getting your data into your Logz.io accounts
+    url: /user-guide/a-front_matter/overview-syd.html # describes data domains: Logs & security, Metrics, Tracing - use branching tabs
   - title: Logz.io Agent  #doesn't exist yet
-    url:    
+    url: /user-guide/a-front_matter/logzio-agent-placeholder.html  
 
   secondLevel:
   - title: Logz.io Send Your Data (SYD) integrations
@@ -53,6 +62,7 @@ firstLevel:
 #    url: /user-guide/log-shipping-intro/
 
 - title: Log shipping resources
+  icon: li-star-outline
   secondLevel:
   - title: FAQs about sending logs
     url: /user-guide/log-shipping/faqs-logs/
@@ -64,18 +74,33 @@ firstLevel:
     url: /user-guide/log-shipping/listener-ip-addresses.html
   - title: Hosting regions
     url: /user-guide/accounts/account-region.html
-  - title: Log Parsing
-    thirdLevel:
-    - title: Default parsing
-      url: /user-guide/log-shipping/built-in-log-types.html
-    - title: Split an array
-      url: /user-guide/mapping-and-parsing/split-json-array.html
-    - title: Logz.io DIY Data Parsing
-      url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
-    - title: Parsing Wizard (deprecated)
-      url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
-#ggggg
+
+
+ # ============== LOG PARSING =============
+- title: Log parsing resources
+  icon: li-star-outline
+  secondLevel:
+  - title: Default parsing
+    url: /user-guide/log-shipping/built-in-log-types.html
+  - title: Split an array
+    url: /user-guide/mapping-and-parsing/split-json-array.html
+  - title: Logz.io DIY Data Parsing
+    url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
+  - title: Parsing Wizard (deprecated)
+    url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+
+# ============== Metrics resources??? ============= maybe combine in single topic??? 
+- title: Metrics shipping resources
+  icon: li-star-outline
+
+- title: Tracing shipping resources
+  icon: li-star-outline
+ 
+
+
+
+  # ===== Log Management =====
 
 - title: Log Management
   icon: li-bar-graph
@@ -311,18 +336,8 @@ firstLevel:
     - title: VMware
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/vmware.html
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+       
     
     
     
@@ -379,13 +394,16 @@ firstLevel:
   - title: Visualize traces in Kibana
     url: /user-guide/distributed-tracing/visualize-traces/
 
+  # ===== ADMIN ZONE =====
 
-
-
-  # ===== ADMIN =====
-- title: Admin
+- title: The Admin Zone
   icon: li-gear
   secondLevel:
+
+
+  - title: Admin tasks overview
+    url: /user-guide/_front_matter/new_admin_tasks.html
+
   - title: Logz.io Accounts
     thirdLevel:
     - title: Manage accounts
@@ -485,6 +503,8 @@ firstLevel:
     url: /user-guide/accounts/support-access.html
 
 
+
+
   # ===== INTEGRATIONS =====
 - title: Integrations
   icon: li-code
@@ -507,26 +527,7 @@ firstLevel:
       - title: StatusPage endpoint
         url: /user-guide/integrations/status-page.html
 
-    # ===== API Reference =====
-  - title: Logz.io API
-    thirdLevel:
-    - title: Logz.io API
-      url: /api/
-    - title: Terraform Logz.io Provider
-      url: /integrations/terraform/
-  - title: API cookbook
-    thirdLevel:
-    - title: API cookbook
-      url: /api/cookbook/
-    - title: Who am I?
-      url: /api/cookbook/who-am-i.html
-    - title: Managing sub account capacity
-      url: /api/cookbook/managing-sub-account-capacity.html
-    - title: Backing up Kibana objects to GitHub
-      url: /api/cookbook/backing-up-kibana-objects-to-github.html
-    - title: Using Inspect feature on Kibana UI
-      url: /api/cookbook/inspect.html
-
+ 
   - title: LightS - Light Synthetic Monitoring for AWS
     url: /integrations/lights/
 

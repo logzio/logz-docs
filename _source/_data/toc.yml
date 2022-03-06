@@ -77,7 +77,7 @@ firstLevel:
 
 
 
- # ============== LOG PARSING =============
+  # ============== LOG PARSING =============
 - title: Log parsing resources
   icon: li-star-outline
   secondLevel:
@@ -90,7 +90,7 @@ firstLevel:
   - title: Parsing Wizard (deprecated)
     url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
-# ============== Metrics resources??? ============= maybe combine in single topic??? 
+  # ============== Metrics resources??? ============= maybe combine in single topic??? 
 - title: Metrics shipping resources
   icon: li-star-outline
 

@@ -11,72 +11,6 @@ firstLevel:
 
   # ===== USER GUIDE =====
   # These docs are generally in the /user-guide folder
-
-    # ===== OVERVIEWS: Orientation and getting started =====
-- title: Jump in to Logz.io  #Overview of Logz.io & the basics that must happen before you can send data
-  icon: li-
-
-- escape-sequence: \e9d3
-  class: li-star-outline
-
-  second level: 
-  - title: Finding your way around
-    url:  /user-guide/_front_matter.html
-  - title: Logz.io data domains  # overview of each data domain - point to parent topic for Logs, Security, Metrics, Tracing
-    url: 
-    thirdLevel:
-    - title:
-      url:
-
-  - title: Create an account
-    url: /user-guide/_front_matter/new_account.html
-  - title: Manage accounts
-    url: 
-  - title: Manage users
-    url: 
-  - title:
-    url: 
-
-  # ===== SHIPPING AND PARSING =====
-- title: Send your data to Logz.io 
-  icon: li-plane
-  secondLevel:
-  - title: Overview of data domains in Logz.io
-    url: # doesn't exist yet - describes the data domains: Logs & security, Metrics, Tracing - use branching tabs
-  - title: Logz.io Agent  #doesn't exist yet
-    url:    
-
-  secondLevel:
-  - title: Logz.io Send Your Data (SYD) integrations
-    url: /shipping/
-#  - title: Log shipping intro
-#    url: /user-guide/log-shipping-intro/
-
-- title: Log shipping resources
-  secondLevel:
-  - title: FAQs about sending logs
-    url: /user-guide/log-shipping/faqs-logs/
-  - title: Log shipping troubleshooting
-    url: /user-guide/log-shipping/log-shipping-troubleshooting.html
-  - title: Troubleshooting Filebeat
-    url: /user-guide/log-shipping/filebeat-troubleshooting/
-  - title: Listener IP addresses
-    url: /user-guide/log-shipping/listener-ip-addresses.html
-  - title: Hosting regions
-    url: /user-guide/accounts/account-region.html
-  - title: Log Parsing
-    thirdLevel:
-    - title: Default parsing
-      url: /user-guide/log-shipping/built-in-log-types.html
-    - title: Split an array
-      url: /user-guide/mapping-and-parsing/split-json-array.html
-    - title: Logz.io DIY Data Parsing
-      url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
-    - title: Parsing Wizard (deprecated)
-      url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
-
-#ggggg
-
 - title: Log Management
   icon: li-bar-graph
 
@@ -153,60 +87,6 @@ firstLevel:
     url: /user-guide/live-tail/
   - title: Log usage measurement
     url: /user-guide/log-usage-measurement/
-
-
-  # ===== CLOUD SIEM =====
-- title: Cloud SIEM
-  icon: fas fa-shield-alt
-
-  secondLevel:
-  - title: About Logz.io Cloud SIEM
-    thirdLevel:
-    - title: Why Cloud SIEM?
-      url: /user-guide/siem/intro/
-    - title: Highlights
-      url: /user-guide/siem/highlights/
-  - title: Intro to Cloud SIEM workspace
-    url: /user-guide/cloud-siem/
-  - title: Investigate events
-    thirdLevel:
-    - title: Investigate security events
-      url: /user-guide/cloud-siem/security-events.html
-    - title: Research in Kibana
-      url: /user-guide/cloud-siem/understanding-your-security-logs.html
-    - title: Drilldown links
-      url: /user-guide/cloud-siem/drilldown-links/
-    - title: Cloud SIEM Event Management
-      url: /user-guide/cloud-siem/siem-event-management.html
-  - title: Threat Intelligence
-    thirdLevel:
-    - title: Threat Intelligence feeds
-      url: /user-guide/cloud-siem/threat-intelligence.html
-    - title: Add a private feed
-      url: /user-guide/cloud-siem/private-feeds.html
-    - title: Preparing a feed
-      url: /user-guide/siem/ioc-types/
-  - title: Investigate malicious IPs
-    url: /user-guide/cloud-siem/malicious-IPs.html
-
-  - title: Security Rules
-    thirdLevel:
-    - title: Configure a security rule
-      url: /user-guide/cloud-siem/manage-security-rules.html
-    - title: Correlated rules
-      url: /user-guide/siem/security-correlated-queries/
-    - title: Lookup lists
-      url: /user-guide/lookups/
-  - title: Dashboards & Reports
-    url: /user-guide/cloud-siem/dashboards/
-  - title: Integrations
-    thirdLevel:
-    - title: Supported Security Integrations
-      url: /user-guide/cloud-siem/integrations/
-    - title: Integrate with Siemplify
-      url: /user-guide/cloud-siem/integration/siemplify/
-    - title: Integrate with Cortex xSOAR
-      url: /user-guide/cloud-siem/xsoar-integration/
 
 
     # ===== METRICS INFRASTRUCTURE MONITORING =====
@@ -380,7 +260,58 @@ firstLevel:
     url: /user-guide/distributed-tracing/visualize-traces/
 
 
+  # ===== CLOUD SIEM =====
+- title: Cloud SIEM
+  icon: fas fa-shield-alt
 
+  secondLevel:
+  - title: About Logz.io Cloud SIEM
+    thirdLevel:
+    - title: Why Cloud SIEM?
+      url: /user-guide/siem/intro/
+    - title: Highlights
+      url: /user-guide/siem/highlights/
+  - title: Intro to Cloud SIEM workspace
+    url: /user-guide/cloud-siem/
+  - title: Investigate events
+    thirdLevel:
+    - title: Investigate security events
+      url: /user-guide/cloud-siem/security-events.html
+    - title: Research in Kibana
+      url: /user-guide/cloud-siem/understanding-your-security-logs.html
+    - title: Drilldown links
+      url: /user-guide/cloud-siem/drilldown-links/
+    - title: Cloud SIEM Event Management
+      url: /user-guide/cloud-siem/siem-event-management.html
+  - title: Threat Intelligence
+    thirdLevel:
+    - title: Threat Intelligence feeds
+      url: /user-guide/cloud-siem/threat-intelligence.html
+    - title: Add a private feed
+      url: /user-guide/cloud-siem/private-feeds.html
+    - title: Preparing a feed
+      url: /user-guide/siem/ioc-types/
+  - title: Investigate malicious IPs
+    url: /user-guide/cloud-siem/malicious-IPs.html
+
+  - title: Security Rules
+    thirdLevel:
+    - title: Configure a security rule
+      url: /user-guide/cloud-siem/manage-security-rules.html
+    - title: Correlated rules
+      url: /user-guide/siem/security-correlated-queries/
+    - title: Lookup lists
+      url: /user-guide/lookups/
+  - title: Dashboards & Reports
+    url: /user-guide/cloud-siem/dashboards/
+  - title: Integrations
+    thirdLevel:
+    - title: Supported Security Integrations
+      url: /user-guide/cloud-siem/integrations/
+    - title: Integrate with Siemplify
+      url: /user-guide/cloud-siem/integration/siemplify/
+    - title: Integrate with Cortex xSOAR
+      url: /user-guide/cloud-siem/xsoar-integration/
 
   # ===== ADMIN =====
 - title: Admin
@@ -484,6 +415,39 @@ firstLevel:
   - title: Granting access to Logz.io Support
     url: /user-guide/accounts/support-access.html
 
+  # ===== SHIPPING AND PARSING =====
+- title: Shipping & Parsing
+  icon: li-plane
+
+  secondLevel:
+  - title: Ship your data to Logz.io
+    url: /shipping/
+#  - title: Log shipping intro
+#    url: /user-guide/log-shipping/
+
+  - title: Resources, FAQs & Troubleshooting
+    thirdLevel:
+    - title: FAQs about sending logs
+      url: /user-guide/log-shipping/faqs-logs/
+    - title: Log shipping troubleshooting
+      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
+    - title: Troubleshooting Filebeat
+      url: /user-guide/log-shipping/filebeat-troubleshooting/
+    - title: Listener IP addresses
+      url: /user-guide/log-shipping/listener-ip-addresses.html
+    - title: Hosting regions
+      url: /user-guide/accounts/account-region.html
+
+  - title: Log Parsing
+    thirdLevel:
+    - title: Default parsing
+      url: /user-guide/log-shipping/built-in-log-types.html
+    - title: Split an array
+      url: /user-guide/mapping-and-parsing/split-json-array.html
+    - title: Logz.io DIY Data Parsing
+      url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
+    - title: Parsing Wizard (deprecated)
+      url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
   # ===== INTEGRATIONS =====
 - title: Integrations

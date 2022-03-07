@@ -150,8 +150,7 @@ aws logs put-subscription-filter \
 ```
    * Replace `<<LOG-GROUP-NAME>>` with the name of the log group you want to collect logs from.
    * Replace `<<SUBSCRIPTION-FILTER-NAME>>` with the name of the subscription filter you create.
-   * Replace `<<DESTINATION-ARN>>` with the ARN of the destination you created in the landing account. You can find the ARN in the main stack's **Outputs** tab. The destination will be in the same region as your log group. 
-
+   * Replace `<<DESTINATION-ARN>>` with the ARN of the destination that matches the region of the sending account that you want to ship logs from. For example, if the log stream is in `us-west-2`, then they should use the arn of the Destination that's in `us-west-2`. You can find the ARN in the main stack's **Outputs** tab. 
 
 ##### Check Logz.io for your logs
 

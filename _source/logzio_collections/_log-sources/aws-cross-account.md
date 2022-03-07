@@ -27,13 +27,20 @@ order: 110
 <!-- tab:start -->
 <div id="overview">
 
-Deploy this integration to simultaneously ship logs from multiple AWS accounts to Logz.io.
+Deploy this integration to simultaneously ship logs from multiple AWS accounts to Logz.io. 
 
-The integration consists of the following main steps:
+The integration creates the following resources:
+  
+##### In the landing account
 
-* Creating a **landing account**, which receives logs from your multiple AWS accounts and sends them to Logz.io.
-* Creating **destinations in the landing account** on each region you need to send logs from.
-* Creating **subscription filters** in your multiple AWS accounts to enable them to send logs from Cloudwatch to the **destinations in the landing account**.
+* Kinesis stream, which receives logs from multiple AWS accounts.
+* Destination, which encapsulates the stream and allows to send the logs to it.
+* Lambda function, which uses the Kinesis stream as a trigger, and sends the logs to Logz.io
+* Additional Destinations (if required) for each region you need to ship logs from.
+  
+##### In the sending accounts
+
+* Subscription filters, which send the logs from Cloudwatch to the Destination of the landing account.
 
 </div>
 <!-- tab:end -->

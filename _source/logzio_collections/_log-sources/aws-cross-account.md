@@ -157,6 +157,8 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <div id="update">
 
 #### Update the integration
+  
+If you need to add more accounts to an existing integration, you can update the deployed stacks as follows. 
 
 **Before you begin, you'll need**:
 

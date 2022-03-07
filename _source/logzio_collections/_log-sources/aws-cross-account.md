@@ -106,7 +106,7 @@ Specify the stack details as per the table below and select **Next**.
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `RoleArn`          | The ARN of the **Role** created in the main stack. You can find it in the main stack's **Outputs** tab, under **LogzioCrossAccountRole**                        |
 | `KinesisStreamArn` | The ARN of the **Kinesis Stream** created in the main stack. You can find it in the main stack's **Outputs** tab, under **LogzioCrossAccountKinesisStreamArn**. |
-| `SendingAccounts`        | Comma-delimited list (**no spaces**) of account numbers of the accounts you'd like to send logs froms. The numbers should be specified as follows: `"1234","5678","9012"` | 
+| `SendingAccounts`        | Comma-delimited list (**no spaces**) of account numbers of the accounts you'd like to send logs from. **Each account number should be wrapped in double-quotes.**  The numbers should be specified as follows: `"1234","5678","9012"` | 
 
 ##### Configure stack options
 

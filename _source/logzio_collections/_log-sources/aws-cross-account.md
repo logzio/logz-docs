@@ -33,7 +33,7 @@ The integration consists of the following main steps:
 
 * Creating a **landing account**, which receives logs from your multiple AWS accounts and sends them to Logz.io.
 * Creating **destinations in the landing account** on each region you need to send logs from.
-* Creating **subscription filters** in your multiple AWS accounts to enable them to send logs from Cloudwatch to the Destination of the landing account.
+* Creating **subscription filters** in your multiple AWS accounts to enable them to send logs from Cloudwatch to the **destinations in the landing account**.
 
 </div>
 <!-- tab:end -->

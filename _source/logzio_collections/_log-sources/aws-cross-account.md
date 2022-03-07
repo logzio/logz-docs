@@ -51,6 +51,8 @@ The integration consists of the following main steps:
 
 <div class="tasklist">
 
+#### Configure the landing account
+
 ##### Create a main stack to deploy the landing account
 
 Set the region of your AWS account to `us-east-1` and launch the stach by clicking the button below:
@@ -114,6 +116,7 @@ If required, specify the **Key** and **Value** parameters for the **Tags** and s
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources, IAM resources with custom names, may require `CAPABILITY_AUTO_EXPAND` and select **Create stack**.
 
+#### Configure the sending accounts
 
 ##### Create a subscription filter in your sending accounts
 

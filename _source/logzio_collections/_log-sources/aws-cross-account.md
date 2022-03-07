@@ -189,7 +189,7 @@ If required, specify the **Key** and **Value** parameters for the **Tags** and s
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources, IAM resources with custom names, may require `CAPABILITY_AUTO_EXPAND` and select **Create stack**.
 
-##### Select the stack to deploy destinations in the landing account on each region you need to send logs from
+##### In each Destination Stack you deployed
 
 In your AWS Console, go to **Cloudformation**, choose your destinations stack and select **Update**.
 

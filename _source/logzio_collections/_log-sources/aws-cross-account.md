@@ -28,6 +28,8 @@ order: 110
 <div id="overview">
 
 Deploy this integration to simultaneously ship logs from multiple AWS accounts to Logz.io. 
+  
+![Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws-cross-account/overview-aws.png)  
 
 The integration creates the following resources:
   

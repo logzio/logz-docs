@@ -20,7 +20,7 @@ order: 110
 <div class="branching-container">
 
 * [Overview](#overview)
-* [Deploy integration with AWS CLI](#deploy-aws)
+* [Deploy integration](#deploy-aws)
 * [Update deployed integration](#update)
 {:.branching-tabs}
 

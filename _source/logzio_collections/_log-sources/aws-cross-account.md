@@ -109,7 +109,7 @@ This procedure is only required if you need to send logs from regions that are d
 
 Set the region of your AWS account to `us-east-1` and launch the stach by clicking the button below:
 
-[![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=aws-cross-account-destination&templateURL=https://integrations-testing.s3.amazonaws.com/cross-accounts/0.0.1/sam-template-destination.yaml)
+[![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=aws-cross-account-destination&templateURL=https://integrations-testing.s3.amazonaws.com/aws-cross-accounts/0.0.1/sam-template-destination.yaml)
 
 
 ##### Specify the stack template

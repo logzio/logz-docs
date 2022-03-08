@@ -69,7 +69,7 @@ The integration creates the following resources:
 
 Set the region of your AWS account to `us-east-1` and launch the stach by clicking the button below:
 
-[![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=aws-cross-account-main&templateURL=https://integrations-testing.s3.amazonaws.com/cross-accounts/0.0.1/sam-template-main.yaml)
+[![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=aws-cross-account-main&templateURL=https://integrations-testing.s3.amazonaws.com/aws-cross-accounts/0.0.1/sam-template-main.yaml)
 
 ##### Specify the stack template
 

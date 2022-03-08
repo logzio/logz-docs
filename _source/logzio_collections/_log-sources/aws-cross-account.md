@@ -142,7 +142,9 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources,
 <!-- info-box-start:info -->
 You need to create a subscription filter in each sending account separately.
 {:.info-box.note}
-<!-- info-box-end -->
+<!-- info-box-end -->  
+  
+###### Create with AWS CLI
 
 1. Make sure your AWS CLI is connected to the account you want to send logs from.
 2. Make sure you have set the CLI to the region of the account that you need to send logs from.
@@ -159,6 +161,29 @@ aws logs put-subscription-filter \
    * Replace `<<SUBSCRIPTION-FILTER-NAME>>` with the name of the subscription filter you create.
    * Replace `<<DESTINATION-ARN>>` with the ARN of the destination that matches the region of the sending account that you want to ship logs from. For example, if the log stream is in `us-west-2`, then they should use the arn of the Destination that's in `us-west-2`. You can find the ARN in the main stack's **Outputs** tab. 
 
+###### Create with Terraform
+
+
+In your Terraform configuration, add the following:
+
+```tf
+resource "aws_cloudwatch_log_subscription_filter" "subscription_filter" {
+  name            = "<<SUBSCRIPTION-FILTER-NAME>>"
+  log_group_name  = "<<LOG-GROUP-NAME>>"
+  filter_pattern  = " "
+  destination_arn = "<<DESTINATION-ARN>>"
+}
+```
+
+   * Replace `<<LOG-GROUP-NAME>>` with the name of the log group you want to collect logs from.
+   * Replace `<<SUBSCRIPTION-FILTER-NAME>>` with the name of the subscription filter you create.
+   * Replace `<<DESTINATION-ARN>>` with the ARN of the destination that matches the region of the sending account that you want to ship logs from. For example, if the log stream is in `us-west-2`, then they should use the arn of the Destination that's in `us-west-2`. You can find the ARN in the main stack's **Outputs** tab.
+
+<!-- info-box-start:info -->
+If you create the log group and the subscription filter at the same time, add a `depends_on` field to the subscription filter and make it dependent on the log group, so that the log group will be created first.
+{:.info-box.note}
+<!-- info-box-end -->
+  
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

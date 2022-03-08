@@ -58,7 +58,7 @@ The integration creates the following resources:
 **Before you begin, you'll need**:
 
 * Your AWS service [publishes logs to Cloudwatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/aws-services-sending-logs.html). 
-* Your log group is in the format: `/<<AWS-PARTITION/<<SERVICE-NAME>>/<<LOG-GROUP-NAME>>`, for example: `/aws/lambda/my_function`.
+* Your log group is in the format: `/<<AWS-PARTITION>>/<<SERVICE-NAME>>/<<NAME>>`, for example: `/aws/lambda/my_function`.
 * AWS CLI
 
 <div class="tasklist">

@@ -178,7 +178,7 @@ exporters:
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
-      Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+      Authorization: Bearer <<SPM-METRICS-SHIPPING-TOKEN>>
   prometheus:
     endpoint: "localhost:8889"
   logging:
@@ -317,7 +317,7 @@ When running on MacOS or Windows hosts, publish the ports using the `-p` flag:
 docker run --name logzio-spm \
 -e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 -e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
--e LOGZIO_METRICS_TOKEN=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
+-e LOGZIO_METRICS_TOKEN=<<SPM-METRICS-SHIPPING-TOKEN>> \
 -p 55678-55680:55678-55680 \
 -p 1777:1777 \
 -p 9411:9411 \
@@ -424,7 +424,7 @@ In the instrumentation code of your application, point the exporter to the servi
 helm install  \
 --set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
---set logzio.metrics_token=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
+--set logzio.metrics_token=<<SPM-METRICS-SHIPPING-TOKEN>> \
 logzio-otel-spm logzio-helm/logzio-otel-spm
 ```
 

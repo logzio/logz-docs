@@ -57,6 +57,12 @@ On deployment, your OpenTelemetry instrumentation captures spans from your appli
 * An application instrumented with an OpenTelemetry instrumentation or any other supported instrumentations based on OpenTracing, Zipkin or Jaeger 
 * A metrics account [setup](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup#create-a-metrics-account)
 * An active account with Logz.io
+* A Logz.io span metrics account
+  
+<!-- info-box-start:info -->
+The span metrics account name should include your tracing account name. For example, if your tracing account name is "tracing", your metrics account could be named "tracing-metrics".
+{:.info-box.note}
+<!-- info-box-end -->  
 
 
 <div class="tasklist">
@@ -264,6 +270,12 @@ Give your metrics some time to get from your system to ours, and then open [Trac
 * An application instrumented with an OpenTelemetry instrumentation or any other supported instrumentations based on OpenTracing, Zipkin or Jaeger 
 * A metrics account [setup](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup#create-a-metrics-account)
 * An active account with Logz.io
+* A Logz.io span metrics account
+  
+<!-- info-box-start:info -->
+The span metrics account name should include your tracing account name. For example, if your tracing account name is "tracing", your metrics account could be named "tracing-metrics".
+{:.info-box.note}
+<!-- info-box-end -->  
 
 
 <div class="tasklist">

@@ -416,7 +416,7 @@ It will deploy a small pod that extracts your cluster domain name from your Kube
   
 ##### Point your traces exporter to logzio-otel-traces
 
-In the instrumentation code of your application, point the exporter to the service name defined in the previous step, for example `logzio-otel-traces.default.svc.cluster.local`.
+In the instrumentation code of your application, point the exporter to the service name defined in the previous step, for example `http://logzio-otel-traces.default.svc.cluster.local:4317`.
 
 ##### Run the Helm deployment code
 

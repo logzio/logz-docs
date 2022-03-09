@@ -2,6 +2,8 @@
 layout: article
 title: Live Tail
 permalink: /user-guide/live-tail/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Getting started with Logz.io's Live Tail 
 flags:
   logzio-plan: community
 tags:
@@ -69,3 +71,11 @@ When you first switch to parsed data view, you'll see the `@timestamp` and `mess
   and then click **Apply**.
   Click a filter to edit it,
   or click <i class="li li-x"></i> on that filter to remove it.
+
+#### Troubleshooting 
+
+In case you encounter the following error when trying to use Live Tail:
+
+`Error: The amount of logs you've asked to tail is too large, please refine your filter. [6429]`
+
+It indicates that the buffer is running at high speed, and the browser can't process and display the data. Refine your search using filters as shown in the previous section to resolve it. If you've added filters but still encounter an issue when running Live Tail, contact the [Logz.io Support team](mailto:help@logz.io) for additional help.

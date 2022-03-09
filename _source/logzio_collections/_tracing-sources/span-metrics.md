@@ -413,7 +413,10 @@ sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.defaul
 ```
   
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
+  
+##### Point your traces exporter to logzio-otel-traces
 
+In the instrumentation code of your application, point the exporter to the service name defined in the previous step, for example `logzio-otel-traces.default.svc.cluster.local`.
 
 ##### Run the Helm deployment code
 

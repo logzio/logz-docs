@@ -29,7 +29,8 @@ order: 330
 <!-- info-box-start:info -->
 This integration is currently only available as a Beta version. To enable it for your account, contact Logz.io first.
 {:.info-box.note}
-<!-- info-box-end -->  
+<!-- info-box-end -->
+
 
 ### Architecture overview
 
@@ -58,11 +59,11 @@ On deployment, your OpenTelemetry instrumentation captures spans from your appli
 * A metrics account [setup](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup#create-a-metrics-account)
 * An active account with Logz.io
 * A Logz.io span metrics account
-  
+
 <!-- info-box-start:info -->
 The span metrics account name should include your tracing account name. For example, if your tracing account name is "tracing", your metrics account could be named "tracing-metrics".
 {:.info-box.note}
-<!-- info-box-end -->  
+<!-- info-box-end -->
 
 
 <div class="tasklist">
@@ -272,33 +273,35 @@ Give your metrics some time to get from your system to ours, and then open [Trac
 * A metrics account [setup](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup#create-a-metrics-account)
 * An active account with Logz.io
 * A Logz.io span metrics account
-  
+
 <!-- info-box-start:info -->
 The span metrics account name should include your tracing account name. For example, if your tracing account name is "tracing", your metrics account could be named "tracing-metrics".
 {:.info-box.note}
-<!-- info-box-end -->  
+<!-- info-box-end -->
 
 
 <div class="tasklist">
 
 ##### Pull the Docker image for the OpenTelemetry collector
-  
+
 <!-- info-box-start:info -->
 If you are already running a Logz.io Docker image logzio/otel-collector-traces, the new image logzio/otel-collector-spm will replace it.
 {:.info-box.note}
 <!-- info-box-end -->
-  
+
 In the same Docker network as your application:
 
 ```shell
 docker pull logzio/otel-collector-spm
 ```
-  
+
+
 <!-- info-box-start:info -->
 This integration only works with an otel-contrib image. The logzio/otel-collector-traces image is based on otel-contrib.
 {:.info-box.important}
 <!-- info-box-end -->
-  
+
+
 ##### Run the container
   
 When running on a Linux host, use the `--network host` flag to publish the collector ports:

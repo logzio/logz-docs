@@ -12,22 +12,42 @@ contributors:
   - boofinka
   - ralongit
   - yberlinger
+  - hidan
 ---
 
 If you're interested in integrating our logs with a specific service or application, here are some FAQs to help troubleshoot the process:
 
 * [Can I integrate with a 3rd-party allocation or service?](/user-guide/log-shipping/faqs-logs-2#can-i-integrate-with-a-3rd-party-application-or-service)
-  * [Logs written to a file](/user-guide/log-shipping/faqs-logs-2#logs-written-to-a-file)
 * [Can I integrate with a proprietary application or service?](/user-guide/log-shipping/faqs-logs-2#can-i-integrate-with-a-proprietary-application-or-service)
+* [Can I integrate using a client-side solution?](/user-guide/log-shipping/faqs-logs-2#can-i-integrate-using-a-client-side-solution)
+* [How to integrate:](/user-guide/log-shipping/faqs-logs-2#logs-written-to-a-file)
+  * [Logs written to a file](/user-guide/log-shipping/faqs-logs-2#logs-written-to-a-file)
   * [Logs written to cloud storage](/user-guide/log-shipping/faqs-logs-2#logs-written-to-cloud-storage)
   * [Logs that are accessible via API](/user-guide/log-shipping/faqs-logs-2#logs-that-are-accessible-via-api)
-* [Can I integrate using a client-side solution?](/user-guide/log-shipping/faqs-logs-2#can-i-integrate-using-a-client-side-solution)
 
 #### Can I integrate with a 3rd-party application or service?
 
 - If the logs are only viewable within the 3rd-party service or application, the most likely answer is "no“, because there is no way to have the logs ingested and indexed on our clusters.
 
 - If the logs are accessible from outside your service or application, it's much more likely that you can ship those to Logz.io - depending on how that access is managed.
+
+
+
+#### Can I integrate with a proprietary application or service?
+
+We offer various [Send Your Data integrations](https://app.logz.io/#/dashboard/send-your-data?tag=from-your-code&collection=log-sources) to enable you to ship logs directly from your code, based on the language you're using.
+
+This information is also available in the Logz.io Docs, via [**Ship data > Logs**](https://docs.logz.io/shipping/#log-sources), when you select the **From your code** filter.
+
+#### Can I integrate using a client-side solution?
+
+You can try and ship data to Logz.io's bulk HTTP/S endpoint. However, we advise collecting the logs on a central server you control and using it to ship data to Logz.io. This is a more reliable method since it doesn't require the end-users to change their network setup to ensure the required ports (8070 for HTTP, 8071 for HTTPS) are open.
+
+Logz.io's best practice is using a central server to ship your data, since shipping via a client-side solution is not as reliable or safe.
+
+Logz.io's listeners are accessible via non-standard ports that vary based on the shipping method and encryptions level. Therefore, the client will have to connect to a network that allows communication on said ports to successfully ship logs. However, collecting logs from an environment you can control lets you configure the outgoing connection and meet the listeners' requirements.
+
+Shipping from a centralized location has additional advantages: it simplifies the debugging process and reduces the risk of losing logs due to network setup issues. 
 
 ##### Logs written to a file
 
@@ -61,12 +81,6 @@ Other options:
 This information is also available in the Logz.io Docs **Ship your data** section in the [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), [Logstash](https://docs.logz.io/shipping/log-sources/logstash.html), [Rsyslog over TLS](https://docs.logz.io/shipping/log-sources/rsyslog.html), and [Fluentd](https://docs.logz.io/shipping/log-sources/fluentd.html) topics.
 
 
-#### Can I integrate with a proprietary application or service?
-
-We offer various [Send Your Data integrations](https://app.logz.io/#/dashboard/send-your-data?tag=from-your-code&collection=log-sources) to enable you to ship logs directly from your code, based on the language you're using.
-
-This information is also available in the Logz.io Docs, via [**Ship data > Logs**](https://docs.logz.io/shipping/#log-sources), when you select the **From your code** filter.
-
 ##### Logs written to cloud storage
 
 We have existing integrations with both [S3](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket) and [Azure Blob](https://app.logz.io/#/dashboard/send-your-data/log-sources/azure-blob) storage.
@@ -93,13 +107,3 @@ This information is also available in the Logz.io Docs **Ship your data** sectio
 
 This method follows the same instructions as the one time upload, but we recommend that you script the process to save time and effort. 
 
-
-#### Can I integrate using a client-side solution?
-
-You can try and ship data to Logz.io's bulk HTTP/S endpoint. However, we advise collecting the logs on a central server you control and using it to ship data to Logz.io. This is a more reliable method since it doesn't require the end-users to change their network setup to ensure the required ports (8070 for HTTP, 8071 for HTTPS) are open.
-
-Logz.io's best practice is using a central server to ship your data, since shipping via a client-side solution is not as reliable or safe.
-
-Logz.io's listeners are accessible via non-standard ports that vary based on the shipping method and encryptions level. Therefore, the client will have to connect to a network that allows communication on said ports to successfully ship logs. However, collecting logs from an environment you can control lets you configure the outgoing connection and meet the listeners' requirements.
-
-Shipping from a centralized location has additional advantages: it simplifies the debugging process and reduces the risk of losing logs due to network setup issues. 

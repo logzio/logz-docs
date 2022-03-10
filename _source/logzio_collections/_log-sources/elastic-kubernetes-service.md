@@ -312,6 +312,7 @@ Find out on which node your Fluentd pod with the errors is running. To do so, us
 ```shell
 kubectl -n <<NAMESPACE>> get pod <<FLUENTD-POD-NAME>> -owide
 ```
+  
 ##### Connect to the node
 
 Connect to the node you found in the previous step (ssh, etc...).

@@ -338,7 +338,7 @@ Replace `<<MOUNT-PATH>>` with the directory path you found in step 3.
 ```yaml
 - name: logextramount
   hostPath:
-  	path: <<MOUNT-PATH>>
+    path: <<MOUNT-PATH>>
 ```
 
 Replace `<<MOUNT-PATH>>` with the directory path you found in step 3.

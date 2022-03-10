@@ -221,7 +221,7 @@ If you create the log group and the subscription filter at the same time, add a 
 {:.info-box.note}
 <!-- info-box-end -->
   
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

@@ -207,7 +207,7 @@ If you create the log group and the subscription filter at the same time, add a 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
+**Note:** If your log group is not under the required format, the logs will arrive under the default type `aws-cross-account`. Otherwise, the type will be the service you sent the logs from.
 </div>
 
 </div>

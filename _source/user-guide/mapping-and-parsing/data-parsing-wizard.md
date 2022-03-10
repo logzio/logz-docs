@@ -32,9 +32,7 @@ When you're logged into a Community account, you can find the data parsing wizar
 
 <!-- info-box-start:info -->
 **Deprecation notice**<br>
-With the release of [Logz.io Data Parsing](https://docs.logz.io/user-guide/mapping-and-parsing/sawmill-parsing.html), **the parsing wizard is deprecated for trial and paid accounts.** 
-<br>
-The parsing wizard is only available for Community (free) accounts.
+With the release of [Logz.io Data Parsing](https://docs.logz.io/user-guide/mapping-and-parsing/sawmill-parsing.html), **the parsing wizard is deprecated.** 
 {:.info-box.note}
 <!-- info-box-end -->
 

@@ -66,7 +66,7 @@ class MicrometerLogzio {
          }
          @Override
          public String uri() {
-            return "<<LISTENER-HOST>>";
+            return "<<LISTENER-HOST>>:<<PORT>>";
          }
 
          @Override
@@ -90,7 +90,7 @@ class MicrometerLogzio {
 ```
   
 {% include general-shipping/replace-placeholders-prometheus.html %}
-
+* Replace `<<PORT>>` with the applicable port for your traffic, which is 8052 for http or 8053 for https.
 
 ##### Add common tags to the registry
 

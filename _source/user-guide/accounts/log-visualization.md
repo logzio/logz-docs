@@ -12,6 +12,7 @@ contributors:
   - hidan
 ---
 
+
 Your account has a daily quota to help you manage and monitor your logs and usage. To better understand your logs and their volume, you can create a visualization based on your log size. Follow these steps to create your LogSize visualization:
 
 ##### Enabling LogSize

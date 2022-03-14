@@ -6,7 +6,7 @@ logo:
 data-source: Multiple AWS accounts simultaneously
 data-for-product-source: Logs
 short-description: Send logs from multiple AWS accounts to Logz.io.
-templates: ["lambda-cloudwatch", "cloudformation"]
+templates: ["lambda-cloudwatch"]
 open-source:
   - title: AWS cross account shipping
     github-repo: aws-cross-account

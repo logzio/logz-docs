@@ -13,7 +13,7 @@ contributors:
 ---
 
 
-Your account has a daily quota to help you manage and monitor your logs and usage. To better understand your logs and their volume, you can create a visualization based on your log size. Follow these steps to create your LogSize visualization:
+Your **Logs** account has a daily quota to help you manage and monitor your logs and usage. To better understand your logs and their volume, you can create a visualization based on your log size. Follow these steps to create your LogSize visualization:
 
 ##### Enabling LogSize
 
@@ -41,15 +41,29 @@ Navigate to **[Logs](https://app.logz.io/#/dashboard/kibana/) > [Visualize](http
 
 ![Create visualization start here](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/start-a-visualization.gif)
 
-Click on **Y-axis**, choose **Sum** as the aggregation, and **LogSize** as the field. 
+Click on **Y-axis**.
+
+1. Choose **Sum** as the aggregation
+2. Choose **LogSize** as the field. 
 
 ![Add y axis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/yaxis-visualize-focus.png)
 
-Click on Add under **Buckets** and choose **X-axis**. Select **Date Histogram** as the aggregation, and **@timestamp** as the field. You can change the minimum interval based on the output you'd like to view. In this example, we used the **Auto** interval. 
+Click on Add under **Buckets** and choose **X-axis**. 
+
+1. Select **Date Histogram** as the aggregation
+2. Select **@timestamp** as the field
+3. Change the minimum interval based on the output you'd like to view. In this example, we used the **Auto** interval. 
 
 ![Add x axis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/xaxis-updated-view.png)
 
-Click on Add, and choose **Split series**. Select **Terms** as the sub aggregation, and **type** as field. Change the size based on your preferences. In this example, we changed it to **100**.
+Click on Add, and choose **Split series**. 
+
+1. Select **Terms** as the sub aggregation
+2. Select **type** as field 
+3. Change the size based on your preferences. In this example, we changed it to **100**.
+
+You can modify the aggregations, intervals, and types based on the data suitable to your visualization needs. For example, if you’re using **Kubernetes**, you can view LogSize per service, container ID, etc.
+{:.info-box.note}
 
 ![Add split series](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/splitseries-visualization-focus.png)
 
@@ -57,10 +71,10 @@ Click **Apply changes** to generate  your visualization.
 
 ![Create a visualization button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/apply-changes-visualization-focus.png)
 
-Your LogSize visualization is ready. It includes the different logs and their sizes based on the date range you've chosen. You can edit the fields to investigate further, and **Save** or **Share** it with your teammates. 
+Your LogSize visualization is ready. It includes the different logs and their sizes based on the date range you've chosen. 
 
-You can modify the aggregations, intervals, and types based on the data suitable to your visualization needs. For example, if you’re using **Kubernetes**, you can view LogSize per service, container ID, etc.
-{:.info-box.note}
+You can edit the fields to investigate further, and **Save** or **Share** it with your teammates. 
+
 
 ![Create a visualization button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/logsize-output.png)
 

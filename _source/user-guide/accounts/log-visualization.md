@@ -10,6 +10,7 @@ tags:
   - accounts
 contributors:
   - hidan
+  - refaelmi
 ---
 
 
@@ -78,6 +79,9 @@ You can edit the fields to investigate further, and **Save** or **Share** it wit
 
 ![Create a visualization button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/logsize-output.png)
 
+##### Additional resources
+
+* [Kibana Basics – Creating a Visualization](https://logz.io/learn/kibana-basics-creating-a-visualization-2/)
 
 
 <!--

@@ -228,7 +228,9 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 
 
 
-#### Capture logs from Azure blob
+#### Troubleshooting Azure blob
+
+##### Capture logs from Azure blob
 
 
 To troubleshoot your Azure blob, you first need to view the logs in your Azure portal.
@@ -241,32 +243,36 @@ Next, click on **Functions** and choose the Logz.io blob you'd like to monitor.
 
 ![Functions menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/logzio-blob-select.png)
 
-Click on **Monitor** > **Logs** tab. Once the connection has been established, you'll see a Connected! message on the screen.
+Click on **Monitor** > **Logs** tab. Once the connection has been established, you'll see a **Connected!** message on the screen.
 
 ![Azure blob log screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/connected-screen.png)
 
-Once you run your Azure blob, the Monitor screen will show the relevant logs based on your filtering cretiria.
+Once you run your Azure blob, the Monitor screen will show the relevant logs based on your filtering criteria.
 
 ##### Common use cases and solutions
 
+###### Format error
 
-Format error
-There might be a configuration error. First, verify that the storage account exists and is named properly. Second, make sure the configuration file and format matchs. Third, double-check the token and listeners used. If you’re still encountering an issue, contact the Logz.io Support team.
+If you encounter a `format error`, you need to check your configuration. First, verify that the storage account exists and is named properly.
 
-StorageConnectionString
-There’s an issue with the connection to your storage account. This is caused due to an issue that’s blocking the function from triggering.
+After validating the account, check that the configuration file and format match.
 
-If you’re using a Datetime filter 
+In addition, check that you’re using the correct token and have configured the listeners to the relevant account.
+
+If you've gone through these steps but still see a `format error`, contact the [Logz.io Support team](mailto:help@logz.io) for further assistance. 
+
+###### StorageConnectionString error
+
+The `StorageConnectionString` error indicates an issue with the connection to your storage account, and something is blocking the function from triggering.
+
+If you're using a **Datetime** filter, check that it matches the Datetime format and Datetime finder.
+
+In addition, verify that the **regex** matches your logs. For example, if there are 3 lines of logs, your regex should also contain 3 lines.
+
+If the issue persists and you're still getting this error, contact the [Logz.io Support team](mailto:help@logz.io) for further assistance. 
 
 
-StorageConnectionString - The connection to the customer’s storage account in Azure - might indicate an issue in the file that’s causing the function to not trigger.
-
-If you’re using a Datetime filter you need to make sure it matches Datetime format and Datetime finder.
-
-Multiline regex - Verify that the regex fits your logs. If there are 3 lines of logs, the regex should also have 3 lines. 
-
-
-
+</div>
 <!-- tab:end -->
 
 

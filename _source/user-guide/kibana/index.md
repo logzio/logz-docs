@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Kibana Discover
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io intro to Logs
 permalink: /user-guide/kibana/
 flags:
   logzio-plan: community

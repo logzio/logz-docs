@@ -12,6 +12,7 @@ open-source:
 contributors:
   - savidov
   - nshishkin
+  - hidan
 shipping-tags:
   -  azure
 order: 460
@@ -23,6 +24,7 @@ order: 460
 * [Overview](#overview)
 * [Create a new blob storage account](#new-blob-config)
 * [Connect to existing blob storage account](#existing-blob-config)
+* [Troubleshooting Azure blob](#troubleshooting)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -219,6 +221,52 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 </div>
 
 </div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="troubleshooting">
+
+
+
+#### Capture logs from Azure blob
+
+
+To troubleshoot your Azure blob, you first need to view the logs in your Azure portal.
+
+Navigate to your **[Azure Portal](https://portal.azure.com/)** > **Function App** and choose the relevant record from the list:
+
+![Logz.io's Azure app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/function-app-main.png)
+
+Next, click on **Functions** and choose the Logz.io blob you'd like to monitor.
+
+![Functions menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/logzio-blob-select.png)
+
+Click on **Monitor** > **Logs** tab. Once the connection has been established, you'll see a Connected! message on the screen.
+
+![Azure blob log screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/connected-screen.png)
+
+Once you run your Azure blob, the Monitor screen will show the relevant logs based on your filtering cretiria.
+
+##### Common use cases and solutions
+
+
+Format error
+There might be a configuration error. First, verify that the storage account exists and is named properly. Second, make sure the configuration file and format matchs. Third, double-check the token and listeners used. If you’re still encountering an issue, contact the Logz.io Support team.
+
+StorageConnectionString
+There’s an issue with the connection to your storage account. This is caused due to an issue that’s blocking the function from triggering.
+
+If you’re using a Datetime filter 
+
+
+StorageConnectionString - The connection to the customer’s storage account in Azure - might indicate an issue in the file that’s causing the function to not trigger.
+
+If you’re using a Datetime filter you need to make sure it matches Datetime format and Datetime finder.
+
+Multiline regex - Verify that the regex fits your logs. If there are 3 lines of logs, the regex should also have 3 lines. 
+
+
+
 <!-- tab:end -->
 
 

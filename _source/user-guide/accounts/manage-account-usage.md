@@ -123,3 +123,19 @@ Dropped logs will never arrive at your Logz.io account,
 so they can't be searched or trigger alerts.
 Always confirm you're dropping the right logs when you apply a new filter.
 {:.info-box.important}
+
+### Calculating Infrastructure Monitoring usage
+
+Logz.io's Infrastructure Monitoring (Metrics) accounts usage is calculated based on the Unique Time Series (UTS).
+
+Each time series is uniquely identified by its name and a set of labels. For example, the following are distinct time series, each calculated individually:
+
+`node_cpu_seconds_total{host="host1",cpu="0",mode="user"}`
+`node_cpu_seconds_total{host="host1",cpu="1",mode="user"}`
+
+
+You can view your usage metrics in your Infrastructure Monitoring dashboard. Navigate to **[Metrics](https://app.logz.io/#/dashboard/metrics) > [Explore](https://app.logz.io/#/dashboard/metrics/explore) > Metrics browser**. 
+
+Enter the following PromQL query: `logzio_metrics_accepted_data_points_per_minute{}`. To easily find relevant metrics, type Logz in the metrics bar, and select the metric you'd like to view.
+
+![Data Volume Dashboard ELK app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/explore-cpu-usage.png)

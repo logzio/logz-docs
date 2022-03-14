@@ -46,7 +46,7 @@ Choose **Author from scratch**, and use this information:
 
 * **Name**: We suggest adding the log type to the name, but you can name this function whatever you want.
 * **Runtime**: Choose **Python 3.7**
-* **Role**: Click **Create new role from template(s)**. Then, from the **Policy Templates** list, select **Basic Edge Lambda permissions**.
+* **Role**: Click **Create new role from template(s)**. Then, from the **Policy Templates** list, select **Basic Lambda@Edge permissions (for Cloudfront trigger)**.
 
 Click **Create Function** (bottom right corner of the page). After a few moments, you'll see configuration options for your Lambda function.
 

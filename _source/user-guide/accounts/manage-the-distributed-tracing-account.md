@@ -103,9 +103,6 @@ You can configure up to 5 tracing accounts for your Distributed Tracing plan. If
    If you don't have spans available to allocate to the new plan, you'll be prompted to reduce the allocation of another account.
    ![Reduce existing span allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/reduce-allocation.png)
 
-To help **protect your Tracing account against unexpected surges**, Logz.io provides a 4x daily ingest volume from your monthly span quota.
-{:.info-box.note}
-   
 5. Click **Save** to apply your changes.
 
 ![Adding a new tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-new-tracingacct.gif)
@@ -132,6 +129,15 @@ In the example below, **New Tracing Account 2**  is not using its allocated span
 
 
 </div>
+
+##### Tracing usage limitation
+
+To help allocate your Distributed Tracing usage and avoid exhaustion, Logz.io provides a daily ingest volume based on your monthly span quota.
+
+Since it is determined by the amount of logs sent, the limitation is volume based, not span based. However, Logz.io's Tracing account identifies the traces in the logs, and the overall calculation of your daily quota is only of document type Jaeger spans. 
+
+If you require a temporary increase of your Tracing account volume, contact the [Logz.io Support team](mailto:help@logz.io).
+
 
 
 

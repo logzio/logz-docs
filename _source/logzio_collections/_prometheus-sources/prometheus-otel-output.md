@@ -34,19 +34,11 @@ After downloading the collector, create a configuration file `config.yaml`.
 
 ##### Configure the receivers
   
-Open the configuration file and make sure that it contains the receivers required for your source. For example, if you are sending otlp data, the receivers will be as follows:
-
-```yaml
-receivers:
-  otlp:
-    protocols:
-      grpc:
-      http:
-```
+Open the configuration file and make sure that it states the receivers required for your source.
 
 ##### Configure the exporters
 
-In the same configuration file, add the followinf to the `exporters` section:
+In the same configuration file, add the following to the `exporters` section:
   
 ```yaml  
 exporters:
@@ -67,10 +59,10 @@ In the `service` section of the configuration file, add the following configurat
 service:
   pipelines:
     metrics:
-      receivers: <<YOUR-RECEIVER>>
+      receivers: [<<YOUR-RECEIVER>>]
       exporters: [prometheusremotewrite]
 ```
-* Replace `<<YOUR_RECEIVER>>` with the name of your receiver, for example `[otlp]` for the otlp receiver.
+* Replace `<<YOUR_RECEIVER>>` with the name of your receiver.
 
 
 

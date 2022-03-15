@@ -21,16 +21,20 @@ This project lets you configure the OpenTelemetry collector to send your collect
 
 <div class="tasklist">
 
-##### Download and configure OpenTelemetry collector
+##### Download OpenTelemetry collector
+  
+<!-- info-box-start:info -->
+If you already have OpenTelemetry, proceed to the next step.
+{:.info-box.note}
+<!-- info-box-end -->
 
 Create a dedicated directory on your host and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/) that is relevant to the operating system of your host.
 
-After downloading the collector, create a configuration file `config.yaml` with the parameters below.
+After downloading the collector, create a configuration file `config.yaml`.
 
-<!-- info-box-start:info -->
-If you already have OpenTelemetry, just add the below parameters to your existing configuration file.
-{:.info-box.note}
-<!-- info-box-end -->
+##### Configure the receivers
+  
+Open the configuration file and make sure that it contains the receivers required for your source. For example, if you are sending otlp data, the receivers will be as follows:
 
 ```yaml
 receivers:
@@ -38,34 +42,36 @@ receivers:
     protocols:
       grpc:
       http:
+```
 
+##### Configure the exporters
+
+In the same configuration file, add the followinf to the `exporters` section:
+  
+```yaml  
 exporters:
   logging:
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+```
+  
+{% include general-shipping/replace-placeholders-prometheus.html %}
 
-processors:
-  batch:
-
-extensions:
-  pprof:
-    endpoint: :1777
-  zpages:
-    endpoint: :55679
-  health_check:
-
+##### Configure the service pipeline
+  
+In the `service` section of the configuration file, add the following configuration
+  
+```yaml
 service:
-  extensions: [health_check, pprof, zpages]
   pipelines:
     metrics:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [logging, prometheusremotewrite]
+      receivers: <<YOUR-RECEIVER>>
+      exporters: [prometheusremotewrite]
 ```
+* Replace `<<YOUR_RECEIVER>>` with the name of your receiver, for example `[otlp]` for the otlp receiver.
 
-{% include general-shipping/replace-placeholders-prometheus.html %}
 
 
 ##### Start the collector

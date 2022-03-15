@@ -127,17 +127,26 @@ To change how many spans are allocated to a tracing account, pick the relevant a
 In the example below, **New Tracing Account 2**  is not using its allocated spans: It would be reasonable to reduce it's monthly allocation and increase the allocation for the **Tracing** account. 
 ![juggle allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shiftspans-betweenaccts2.png)
 
+##### Tracing surge protection
+
+Your Distributed Tracing accounts are limited by a monthly quota of number of spans, representing your Distributed Tracing plan. 
+
+To avoid a situation in which your monthly quota runs out too fast because of unnoticed spikes, Logz.io introduced a **surge protection** mechanism into the Tracing accounts.
+
+The surge protection is volume-based (as opposed to the span number-based quota) to cover different scenarios in which your accounts run out of quota too fast.
+
+The calculation we apply is estimating your span size to be 2KB (it usually is less):
+
+* Monthly spans quota / 30 = Estimated number of daily spans.
+* 4 X Estimated number of daily spans X 2KB = Estimated daily spans volume.
+
+If your Tracing account overall daily size (volume) exceeds the **Estimated daily spans volume** - the Tracing account will stop ingesting spans for this day (ending midnight UTC). This means we allow you to send about 4 times of the average daily spans amount.
+
+[Contact support](mailto:help@logz.io) to investigate this issue further and temporarily increase the limit.
+
+When your account exceeds 80% of the allowed daily volume, account admins will receive an email alert indicating an unusual traffic event in your Tracing account, giving you extra time to examine the issue before the ingestion stops.
 
 </div>
-
-##### Tracing usage limitation
-
-To help allocate your Distributed Tracing usage and avoid exhaustion, Logz.io provides a daily ingest volume based on your monthly span quota.
-
-Since it is determined by the amount of logs sent, the limitation is volume based, not span based. However, Logz.io's Tracing account identifies the traces in the logs, and the overall calculation of your daily quota is only of document type Jaeger spans. 
-
-If you require a temporary increase of your Tracing account volume, contact the [Logz.io Support team](mailto:help@logz.io).
-
 
 
 

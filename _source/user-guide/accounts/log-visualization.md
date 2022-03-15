@@ -4,6 +4,8 @@ title: LogSize visualization guide
 permalink: /user-guide/accounts/log-visualization.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: The Logz.io guide to visualizing your LogSize
+search: false
+sitemap: false
 flags:
   logzio-plan: community
 tags:

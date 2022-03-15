@@ -25,6 +25,7 @@ order: 230
 * [log4net](#log4net-config)
 * [NLog](#nlog-config)
 * [LoggerFactory](#loggerfactory)
+* [Serilog](#serilog)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -613,6 +614,58 @@ For the example above, you'd use `MyAppLogzioAppender`.
 
 </div>
 <!-- tab:end -->
+
+<!-- tab:start -->
+<div id="serilog">
+
+Serilog is a structural logging library for Microsoft providing diagnostic logging to files, the console, and elsewhere.
+#### Configure Serilog
+
+**Before you begin, you'll need**:
+
+* log4net 2.0.8 or higher
+* .NET Core SDK version 2.0 or higher
+* .NET Framework version 4.6.1 or higher
+
+
+<div class="tasklist">
+
+##### Install the Logz.io Serilog sink
+
+Install `Serilog.Sinks.Logz.Io` by running the following command in the Package Manager Console:
+
+```shell
+PM> Install-Package Serilog.Sinks.Logz.Io
+```
+
+##### Configure the sink
+
+Add the following code to the configuration of `Serilog.Settings.Configuration`:
+
+```json
+{
+  "Serilog": {
+    "MinimumLevel": "Warning",
+    "WriteTo": [
+      {
+        "Name": "LogzIoDurableHttp",
+        "Args": {
+          "requestUri": "<<LISTENER-HOST>>:8071/?type=app&token=<<LOG-SHIPPING-TOKEN>>"
+        }
+      }
+    ]
+  }
+}
+```
+
+{% include log-shipping/log-shipping-token.html %}
+
+{% include log-shipping/listener-var.html %} 
+
+
+</div>
+<!-- tab:end -->
+
 
 </div>
 <!-- tabContainer:end -->

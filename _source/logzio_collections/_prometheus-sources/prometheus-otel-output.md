@@ -42,7 +42,6 @@ In the same configuration file, add the following to the `exporters` section:
   
 ```yaml  
 exporters:
-  logging:
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:

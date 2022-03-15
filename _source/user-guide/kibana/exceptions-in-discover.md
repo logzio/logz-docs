@@ -41,7 +41,7 @@ Logz.io tracks the recurrence of each exception over time, and retains its **Fir
 |Log types| A list of all the log types found to be affected by the exception |
 |# of occurrences| The number of times logs associated with this exception were spotted in the given time frame |
 |First occurrence| The earliest time the exception was identified |
-| Last seen | Most recent occurrence of the exception |
+| Last seen | Most recent occurrence of the exception, based on your browser's time zone |
 
 ### Sorting & Filtering options
 

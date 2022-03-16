@@ -6324,7 +6324,7 @@ paths:
         - name: searchQuery
           in: body
           type: object
-          description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists.
+          description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists. See `subComponents/queryDefinition` in [Alerts/createAlert](https://docs.logz.io/api/#operation/createAlert) for more details.
           properties: 
             query: 
               type: string

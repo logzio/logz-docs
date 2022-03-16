@@ -6325,31 +6325,43 @@ paths:
           in: body
           type: object
           description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists.
-          example:  >-
-            {
-                "query": "string",
-                "filters": { // filters are described in https://docs.logz.io/api/#tag/Alerts , subComponents/queryDefinition/filters
-                  "bool": {
-                    "must": [
-                      {}    
-                    ],
-                    "must_not": [
-                      {}
-                    ]
-                  }
-                },
-                "groupBy": [
-                  {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  }
-                ],
-                "shouldQueryOnAllAccounts": true,
-                "accountIdsToQueryOn": [
-                  0
-                ]
-              }
+          properties: 
+            query: 
+              type: string
+            filters: 
+              type: object
+              properties: 
+                bool: 
+                  type: object
+                  properties: 
+                    must: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+                    must_not: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+            groupBy: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  additionalProp1: 
+                    type: string
+                  additionalProp2: 
+                    type: string
+                  additionalProp3: 
+                    type: string
+            shouldQueryOnAllAccounts: 
+              type: boolean
+            accountIdsToQueryOn: 
+              type: array
+              items: 
+                type: integer
+                format: int32
         - name: resultsFieldToPickFrom
           in: body
           type: string
@@ -6419,31 +6431,44 @@ paths:
           in: body
           type: object
           description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists.
-          example: >-
-            {
-                "query": "string",
-                "filters": { // filters are described in https://docs.logz.io/api/#tag/Alerts , subComponents/queryDefinition/filters
-                  "bool": {
-                    "must": [
-                      {}    
-                    ],
-                    "must_not": [
-                      {}
-                    ]
-                  }
-                },
-                "groupBy": [
-                  {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  }
-                ],
-                "shouldQueryOnAllAccounts": true,
-                "accountIdsToQueryOn": [
-                  0
-                ]
-              }
+          properties: 
+            query: 
+              type: string
+            filters: 
+              type: object
+              properties: 
+                bool: 
+                  type: object
+                  properties: 
+                    must: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+                    must_not: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+            groupBy: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  additionalProp1: 
+                    type: string
+                  additionalProp2: 
+                    type: string
+                  additionalProp3: 
+                    type: string
+            shouldQueryOnAllAccounts: 
+              type: boolean
+            accountIdsToQueryOn: 
+              type: array
+              items: 
+                type: integer
+                format: int32
+
 
         - name: resultsFieldToPickFrom
           in: body
@@ -6731,31 +6756,43 @@ definitions:
       searchQuery:
         type: object
         description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists.
-        example:  >-
-            {
-                "query": "string",
-                "filters": { // filters are described in https://docs.logz.io/api/#tag/Alerts , subComponents/queryDefinition/filters
-                  "bool": {
-                    "must": [
-                      {}    
-                    ],
-                    "must_not": [
-                      {}
-                    ]
-                  }
-                },
-                "groupBy": [
-                  {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  }
-                ],
-                "shouldQueryOnAllAccounts": true,
-                "accountIdsToQueryOn": [
-                  0
-                ]
-              }
+        properties: 
+            query: 
+              type: string
+            filters: 
+              type: object
+              properties: 
+                bool: 
+                  type: object
+                  properties: 
+                    must: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+                    must_not: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+            groupBy: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  additionalProp1: 
+                    type: string
+                  additionalProp2: 
+                    type: string
+                  additionalProp3: 
+                    type: string
+            shouldQueryOnAllAccounts: 
+              type: boolean
+            accountIdsToQueryOn: 
+              type: array
+              items: 
+                type: integer
+                format: int32
       resultsFieldToPickFrom:
         type: string
         minLength: 0
@@ -6787,31 +6824,43 @@ definitions:
       searchQuery:
         type: object
         description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists.
-        example:  >-
-            {
-                "query": "string",
-                "filters": { // filters are described in https://docs.logz.io/api/#tag/Alerts , subComponents/queryDefinition/filters
-                  "bool": {
-                    "must": [
-                      {}    
-                    ],
-                    "must_not": [
-                      {}
-                    ]
-                  }
-                },
-                "groupBy": [
-                  {
-                    "additionalProp1": "string",
-                    "additionalProp2": "string",
-                    "additionalProp3": "string"
-                  }
-                ],
-                "shouldQueryOnAllAccounts": true,
-                "accountIdsToQueryOn": [
-                  0
-                ]
-              }
+        properties: 
+            query: 
+              type: string
+            filters: 
+              type: object
+              properties: 
+                bool: 
+                  type: object
+                  properties: 
+                    must: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+                    must_not: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+            groupBy: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  additionalProp1: 
+                    type: string
+                  additionalProp2: 
+                    type: string
+                  additionalProp3: 
+                    type: string
+            shouldQueryOnAllAccounts: 
+              type: boolean
+            accountIdsToQueryOn: 
+              type: array
+              items: 
+                type: integer
+                format: int32
       resultsFieldToPickFrom:
         type: string
         minLength: 0

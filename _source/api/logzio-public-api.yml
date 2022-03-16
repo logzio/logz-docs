@@ -6323,9 +6323,7 @@ paths:
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: searchQuery
           in: body
-          type: string
-          minLength: 0
-          maxLength: 4000
+          type: object
           description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists.
           example:  >-
             {
@@ -6419,9 +6417,7 @@ paths:
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: searchQuery
           in: body
-          type: string
-          minLength: 0
-          maxLength: 4000
+          type: object
           description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists.
           example: >-
             {
@@ -6733,9 +6729,7 @@ definitions:
         maxLength: 400
         description: Description of the lookup list.
       searchQuery:
-        type: string
-        minLength: 0
-        maxLength: 4000
+        type: object
         description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists.
         example:  >-
             {
@@ -6791,9 +6785,7 @@ definitions:
         maxLength: 400
         description: A place to add a free text description of the lookup list's purpose, uses and dependencies.
       searchQuery:
-        type: string
-        minLength: 0
-        maxLength: 4000
+        type: object
         description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists.
         example:  >-
             {

@@ -618,6 +618,8 @@ For the example above, you'd use `MyAppLogzioAppender`.
 <!-- tab:start -->
 <div id="serilog">
 
+#### Configure Serilog
+
 Serilog is a structural logging library for Microsoft providing diagnostic logging to files, the console, and elsewhere.
   
 <!-- info-box-start:info -->
@@ -625,8 +627,7 @@ This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.c
 {:.info-box.note}
 <!-- info-box-end -->
   
-#### Configure Serilog
-
+  
 **Before you begin, you'll need**:
 
 * log4net 2.0.8 or higher

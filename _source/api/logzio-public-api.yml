@@ -6323,11 +6323,10 @@ paths:
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: searchQuery
           in: body
-          required: true
           type: string
           minLength: 0
           maxLength: 4000
-          description: Query that gets the values of the dynamic lookup lists.
+          description: **For future use - don’t use this field.** Query that gets the values of the dynamic lookup lists.
           example:  >-
             {
                 "query": "string",
@@ -6358,17 +6357,17 @@ paths:
           type: string
           minLength: 0
           maxLength: 40
-          description: Name of the fields in the query results from which you need to select values for the dynamic lookup list.
+          description: **For future use - don’t use this field.** Name of the fields in the query results from which you need to select values for the dynamic lookup list.
         - name: timeframeToRunQueryOn
           in: body
           type: integer
-          description: Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
+          description: **For future use - don’t use this field.** Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
         - name: updateInterval
           in: body
           type: string
           minLength: 0
           maxLength: 20
-          description: Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
+          description: **For future use - don’t use this field.** Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
 
 
       responses:
@@ -6420,11 +6419,10 @@ paths:
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
         - name: searchQuery
           in: body
-          required: true
           type: string
           minLength: 0
           maxLength: 4000
-          description: Query that gets the values of the dynamic lookup lists.
+          description: **For future use - don’t use this field.** Query that gets the values of the dynamic lookup lists.
           example: >-
             {
                 "query": "string",
@@ -6456,17 +6454,17 @@ paths:
           type: string
           minLength: 0
           maxLength: 40
-          description: Name of the fields in the query results from which you need to select values for the dynamic lookup list.
+          description: **For future use - don’t use this field.** Name of the fields in the query results from which you need to select values for the dynamic lookup list.
         - name: timeframeToRunQueryOn
           in: body
           type: integer
-          description: Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
+          description: **For future use - don’t use this field.** Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
         - name: updateInterval
           in: body
           type: string
           minLength: 0
           maxLength: 20
-          description: Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
+          description: **For future use - don’t use this field.** Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
 
       responses:
         '200':
@@ -6719,9 +6717,6 @@ definitions:
   LookupList:
     type: object
     summary: General indentifiers for the lookup - its ID, name, and description.
-    required: 
-      - searchQuery
-      - resultsFieldToPickFrom
     properties:
       id:
         type: string
@@ -6741,7 +6736,7 @@ definitions:
         type: string
         minLength: 0
         maxLength: 4000
-        description: Query that gets the values of the dynamic lookup lists.
+        description: **For future use - don’t use this field.** Query that gets the values of the dynamic lookup lists.
         example:  >-
             {
                 "query": "string",
@@ -6771,21 +6766,18 @@ definitions:
         type: string
         minLength: 0
         maxLength: 40
-        description: Name of the fields in the query results from which you need to select values for the dynamic lookup list.
+        description: **For future use - don’t use this field.** Name of the fields in the query results from which you need to select values for the dynamic lookup list.
       timeframeToRunQueryOn:
         type: integer
-        description: Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
+        description: **For future use - don’t use this field.** Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
       updateInterval:
         type: string
         minLength: 0
         maxLength: 20
-        description: Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
+        description: **For future use - don’t use this field.** Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
 
   LookupListCreateRequest:
     type: object
-    required: 
-      - searchQuery
-      - resultsFieldToPickFrom
     properties:
       name:
         type: string
@@ -6802,7 +6794,7 @@ definitions:
         type: string
         minLength: 0
         maxLength: 4000
-        description: Query that gets the values of the dynamic lookup lists.
+        description: **For future use - don’t use this field.** Query that gets the values of the dynamic lookup lists.
         example:  >-
             {
                 "query": "string",
@@ -6832,15 +6824,15 @@ definitions:
         type: string
         minLength: 0
         maxLength: 40
-        description: Name of the fields in the query results from which you need to select values for the dynamic lookup list.
+        description: **For future use - don’t use this field.** Name of the fields in the query results from which you need to select values for the dynamic lookup list.
       timeframeToRunQueryOn:
         type: integer
-        description: Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
+        description: **For future use - don’t use this field.** Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
       updateInterval:
         type: string
         minLength: 0
         maxLength: 20
-        description: Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
+        description: **For future use - don’t use this field.** Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
 
   PagedSearchResponseLookupList:
     type: object

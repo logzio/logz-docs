@@ -55,7 +55,7 @@ You'll need this page later on, so keep it open.
 ##### Zip the source files
 
 Clone the CloudWatch Logs Shipper - Lambda project from GitHub to your computer,
-and zip the Python files in the `src/` folder.
+and zip the Python files by running the following command:
 
 ```shell
 git clone https://github.com/logzio/logzio_aws_serverless.git \
@@ -65,6 +65,11 @@ git clone https://github.com/logzio/logzio_aws_serverless.git \
 && cd dist/ \
 && zip logzio-cloudwatch lambda_function.py python3/shipper/*
 ```
+
+<!-- info-box-start:info -->
+You can alternatively zip the required files manually. To do this, zip folders `cloudwatch` and `shipper` in `python3` directory.
+{:.info-box.note}
+<!-- info-box-end -->
 
 You'll upload `logzio-cloudwatch.zip` in the next step.
 

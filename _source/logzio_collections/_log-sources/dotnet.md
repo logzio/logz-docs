@@ -619,6 +619,12 @@ For the example above, you'd use `MyAppLogzioAppender`.
 <div id="serilog">
 
 Serilog is a structural logging library for Microsoft providing diagnostic logging to files, the console, and elsewhere.
+  
+<!-- info-box-start:info -->
+This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.com/serilog-contrib/Serilog.Sinks.Logz.Io).
+{:.info-box.note}
+<!-- info-box-end -->
+  
 #### Configure Serilog
 
 **Before you begin, you'll need**:

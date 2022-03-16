@@ -6401,7 +6401,32 @@ paths:
           minLength: 0
           maxLength: 4000
           description: Query that gets the values of the dynamic lookup lists.
-          example: "{\"query\": \"string_to_search\", \"filters\":[],\"shouldQueryOnAllAccounts\": true }"
+          example: >-
+            {
+                "query": "string",
+                "filters": { // filters are described in https://docs.logz.io/api/#tag/Alerts , subComponents/queryDefinition/filters
+                  "bool": {
+                    "must": [
+                      {}    
+                    ],
+                    "must_not": [
+                      {}
+                    ]
+                  }
+                },
+                "groupBy": [
+                  {
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string"
+                  }
+                ],
+                "shouldQueryOnAllAccounts": true,
+                "accountIdsToQueryOn": [
+                  0
+                ]
+              }
+
         - name: resultsFieldToPickFrom
           in: body
           type: string

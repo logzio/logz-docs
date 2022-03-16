@@ -2,6 +2,8 @@
 layout: article
 title: Manage a Distributed Tracing account
 permalink: /user-guide/accounts/manage-the-distributed-tracing-account.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage your Logz.io Distributed Tracing account
 flags:
   admin: true
   logzio-plan: pro
@@ -101,7 +103,6 @@ You can configure up to 5 tracing accounts for your Distributed Tracing plan. If
    If you don't have spans available to allocate to the new plan, you'll be prompted to reduce the allocation of another account.
    ![Reduce existing span allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/reduce-allocation.png)
 
-   
 5. Click **Save** to apply your changes.
 
 ![Adding a new tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-new-tracingacct.gif)
@@ -126,6 +127,24 @@ To change how many spans are allocated to a tracing account, pick the relevant a
 In the example below, **New Tracing Account 2**  is not using its allocated spans: It would be reasonable to reduce it's monthly allocation and increase the allocation for the **Tracing** account. 
 ![juggle allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shiftspans-betweenaccts2.png)
 
+##### Tracing surge protection
+
+Your Distributed Tracing accounts are limited by a monthly quota of number of spans, representing your Distributed Tracing plan. 
+
+To avoid a situation in which your monthly quota runs out too fast because of unnoticed spikes, Logz.io introduced a **surge protection** mechanism into the Tracing accounts.
+
+The surge protection is volume-based (as opposed to the span number-based quota) to cover different scenarios in which your accounts run out of quota too fast.
+
+The calculation we apply is estimating your span size to be 2KB (it usually is less):
+
+* Monthly spans quota / 30 = Estimated number of daily spans.
+* 4 X Estimated number of daily spans X 2KB = Estimated daily spans volume.
+
+If your Tracing account overall daily size (volume) exceeds the **Estimated daily spans volume** - the Tracing account will stop ingesting spans for this day (ending midnight UTC). This means we allow you to send about 4 times of the average daily spans amount.
+
+[Contact support](mailto:help@logz.io) to investigate this issue further and temporarily increase the limit.
+
+When your account exceeds 80% of the allowed daily volume, account admins will receive an email alert indicating an unusual traffic event in your Tracing account, giving you extra time to examine the issue before the ingestion stops.
 
 </div>
 

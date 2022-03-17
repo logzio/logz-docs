@@ -177,7 +177,7 @@ exporters:
   logzio:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
-  /spm:
+  prometheusremotewrite/spm:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<SPM-METRICS-SHIPPING-TOKEN>>

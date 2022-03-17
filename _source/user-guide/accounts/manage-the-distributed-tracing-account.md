@@ -150,21 +150,21 @@ If your Tracing account exceeded its quota, the first thing you'll need to do is
 
 Navigate to **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** and scroll to find your **Distributed Tracing plan**. Here you'll see how many spans you currently have and their distribution across your account.
 
-![Tracing plan overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dt-account-plan.png)
+![Distributed Tracing account overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dt-account-plan-overview.png)
 
-In this example, the overall quota is 600M monthly spans, when only 50M are allocated to the "Sock Shop Tracing" account.
+In this example, the overall quota is 600M monthly spans, when only 50M are allocated to the **Sock Shop Tracing** account.
 
 You can add more spans from the overall quota to prevent your Tracing account from getting suspended, increasing both your monthly and daily limit for this account.
 
 If you have several Tracing accounts but don't have any available spans from your monthly quota, you can allocate spans between the different accounts.
 
-![Multiple Tracing accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dt-account-plan.png)
+![Distributed Tracing allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dt-account-allocation.png)
 
 In this example, all of the monthly spans quota is divided between 2 Tracing accounts. 
 
-By moving 100M monthly spans to the Sock Shop Tracing DEV account, you can prevent the account from getting suspended.
+By moving 100M monthly spans to the **Sock Shop Tracing DEV** account, you can prevent the dev account from getting suspended.
 
-![Allocating Tracing spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dt-account-plan.png)
+![Distributed Tracing reallocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dt-reallocation.png)
 
 If there are no available spans to allocate, you can contact [Logz.io Support team](mailto:help@logz.io) to temporarily increase the quota limit.
 

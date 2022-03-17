@@ -11,6 +11,7 @@ tags:
 contributors:
   - imnotashrimp
   - shalper
+  - hidan
 ---
 
 Kibana Discover is where you search and query your logs to figure out what happened. It is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
@@ -22,15 +23,6 @@ You can use the Discover page to filter logs, search for specific events, and cr
 #### Searching your logs
 
 Kibana Discover is designed to help you investigate massive volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selector are all designed to help you find the logs you want. Together, they are the _query criteria_ that determine which logs are returned from your Elasticsearch logging database.
-
-##### Regex
-
-To use Regex in a search query in Kibana, you'll need to use the following template: `fieldName:/.*value.*/`.
-
-For example, you have a field called `sentence` that holds the following line: "The quick brown fox jumps over the lazy dog".
-
-To search for the value `fox`, the query will be `sentence:/.*fox.*/`.
-
 
 <div class="tasklist">
 
@@ -52,6 +44,18 @@ Another advantage is that filters can be inverted, temporarily disabled, edited,
 ##### Search bar
 
 You can type a search query in Lucene syntax or KQL. It is an alternative to filtering that requires a little familiarity with the search syntax. Almost anything that can be defined in the Search bar can be accomplished using filters as well.
+
+###### Regex
+
+To use Regex in a search query in Kibana, you'll need to use the following template: 
+
+`fieldName:/.*value.*/`.
+
+For example, you have a field called `sentence` that holds the following line: "The quick brown fox jumps over the lazy dog".
+
+To find one of the values in the field, such as `fox`, you'll need to use the following query:
+
+`sentence:/.*fox.*/`.
 
 ##### Time frame and date picker
 

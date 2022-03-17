@@ -94,7 +94,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 * Under the `exporters` list:
 
 ```yaml
-  prometheusremotewrite:
+  prometheusremotewrite/spm:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<SPM-METRICS-SHIPPING-TOKEN>>
@@ -177,7 +177,7 @@ exporters:
   logzio:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
-  prometheusremotewrite:
+  prometheusremotewrite/spm:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<SPM-METRICS-SHIPPING-TOKEN>>
@@ -230,7 +230,7 @@ service:
       exporters: [prometheus]
     metrics:
       receivers: [otlp,prometheus]
-      exporters: [logging,prometheusremotewrite]      
+      exporters: [logging,prometheusremotewrite/spm]      
   telemetry:
     logs:
       level: "debug"

@@ -43,7 +43,7 @@ you'll need to wait until we fix the problem before you can ship your logs.
 
 ##### Check your shipper's connectivity
 
-Use telnet to make sure your log shipper can connect to Logz.io listeners.
+For macOS and Linux, use telnet to make sure your log shipper can connect to Logz.io listeners.
 
 As of macOS High Sierra (10.13),
 telnet is not installed by default.
@@ -56,6 +56,13 @@ Run this command from the environment you're shipping from, after adding the app
 ```shell
 telnet listener.logz.io {port-number}
 ```
+For Windows servers running Windows 8/Server 2012 and later, run the following command in PowerShell:
+
+
+```shell
+Test-NetConnection listener.logz.io -Port {port-number}
+```
+
 
 The port number depends on your shipping method.
 You can find the correct port for your shipping method in the table below.

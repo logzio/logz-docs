@@ -79,6 +79,12 @@ From the actual server on which you are running Filebeat, run the following comm
 telnet listener.logz.io 5015
 ```
 
+For Windows servers running Windows 8/Server 2012 and later, run the following command in PowerShell:
+
+```shell
+Test-NetConnection listener.logz.io -Port {port}
+```
+
 | Good response | Bad response |
 |---|---|
 | Connected to listener-group.logz.io Escape character is '^]' | trying xxx.xxx.xxx.xxx.... |

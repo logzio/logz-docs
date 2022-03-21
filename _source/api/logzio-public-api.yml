@@ -6376,7 +6376,7 @@ paths:
           type: string
           minLength: 0
           maxLength: 20
-          description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
+          description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '0 12 0 * * ?'.
 
 
       responses:
@@ -6484,7 +6484,7 @@ paths:
           type: string
           minLength: 0
           maxLength: 20
-          description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
+          description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '0 12 0 * * ?'.
 
       responses:
         '200':
@@ -6804,7 +6804,7 @@ definitions:
         type: string
         minLength: 0
         maxLength: 20
-        description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
+        description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '0 12 0 * * ?'.
 
   LookupListCreateRequest:
     type: object
@@ -6872,7 +6872,7 @@ definitions:
         type: string
         minLength: 0
         maxLength: 20
-        description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '12 0 * * *'.
+        description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '0 12 0 * * ?'.
 
   PagedSearchResponseLookupList:
     type: object

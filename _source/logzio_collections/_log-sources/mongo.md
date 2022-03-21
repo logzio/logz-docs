@@ -39,11 +39,68 @@ systemLog:
 ```
 
 * Replace `<<MONGODB-FILE-PATH>>` with the path to the log file, for example, `/var/log/mongodb/mongod.log`.
+  
 
-##### Create a log.pos file
+##### Allow Fluentd to read from the MongoDB log file
 
-In your preffered directory, create an empty file named `fluentd-mongodb.log.pos`. This file ensures that with the start of each log shipping session, new logs are sent from the point in time when the last log shipping session has finished.
+Allow Fluend to read from the MongoDB log file by setting the read access as follows:
 
+###### On macOS and Linux
+
+```shell
+sudo chmod 604 <<PATH-TO-LOG-FILE>>
+```
+
+* Replace `<<PATH-TO-LOG-FILE>>` with the path to the MongoDB log file.
+
+###### On Windows
+
+Enable the read access in the file properties.
+  
+
+##### Verify there is a log.pos file
+
+Check that you have `fluentd-mongodb.log.pos` file in your Fluentd logs directory. If not, create an empty file named `fluentd-mongodb.log.pos`. This file ensures that with the start of each log shipping session, new logs are sent from the point in time when the last log shipping session has finished.
+  
+##### Allow Fluentd to write to the log.pos file 
+
+Allow Fluend to write to `fluentd-mongodb.log.pos` file by setting the read access as follows:
+
+###### On macOS and Linux
+
+```shell
+sudo chmod 606 <<PATH-TO-LOG-POS-FILE>>
+```
+
+* Replace `<<PATH-TO-LOG-POS-FILE>>` with the path to the MongoDB log file.
+
+###### On Windows
+
+Enable the write access in the file properties.  
+
+
+
+##### Install Fluentd 
+
+
+```shell
+gem install fluentd
+```
+
+##### Set up Fluentd
+
+```shell
+fluentd --setup ./fluent
+```
+  
+This command creates a directory called `fluent` where we will create the configuration file and Gemfile.
+  
+##### Navigate to the Fluentd directory
+  
+```shell
+cd fluentd
+```
+  
 ##### Create a Gemfile for Fluentd
 
 In your preffered directory, create a Gemfile with the following content:
@@ -55,21 +112,7 @@ source "https://rubygems.org"
 gem "fluent-plugin-logzio", "0.0.21"
 gem "fluent-plugin-record-modifier"
 ```
-
-
-##### Install Fluentd and the Logz.io plugin
-
-
-```shell
-gem install fluentd fluent-plugin-logzio
-```
-
-##### Set up Fluentd
-
-```shell
-fluentd --setup ./fluent
-```
-
+  
 ##### Configure Fluentd with Logz.io output
 
 Add this code block to your Fluent configuration file (`fluent.conf` by default).
@@ -110,7 +153,7 @@ See the configuration parameters below the code block.👇
 # Sending logs to Logz.io
 <match logzio.mongodb.**>
   @type logzio_buffered
-  endpoint_url https://listener.logz.io:8071?token=<<LOGZIO-SHIPPING-TOKEN>>
+  endpoint_url https://<<LISTENER-HOST>>:8071?token=<<LOGZIO-SHIPPING-TOKEN>>
   output_include_time true
   output_include_tags true
   http_idle_timeout 10
@@ -128,6 +171,8 @@ See the configuration parameters below the code block.👇
 
 | Parameter | Description |
 |---|---|
+| `<<LOGZIO-SHIPPING-TOKEN>>` | {% include log-shipping/log-shipping-token.md %} |
+| `<<LISTENER-HOST>>` | {% include log-shipping/listener-var.html %}  |
 | `<<MONGODB-FILE-PATH>>` | Path to the log file of your MongoDB. |
 | endpoint_url | A url composed of your Logz.io region's listener URL, account token, and log type. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %} |
 | output_include_time | To add a timestamp to your logs when they're processed, `true` (recommended). Otherwise, `false`. |
@@ -137,32 +182,14 @@ See the configuration parameters below the code block.👇
 
 
 
-##### Allow Fluentd to read from the MongoDB log file
-
-Allow Fluend to read from the MongoDB log file by setting the read access as follows:
-
-###### On macOS and Linux
-
-```shell
-sudo chmod 604 <<PATH-TO-LOG-FILE>>
-```
-
-* Replace `<<PATH-TO-LOG-FILE>>` with the path to the MongoDB log file.
-
-
-###### On Windows
-
-Enable the read access in the file properties.
 
 
 
 ##### Run Fluentd
 
 ```shell
-fluentd -c ./fluent.conf --gemfile <<PATH-TO-GEMFILE>>/Gemfile
+fluentd -c ./fluent.conf --gemfile ./Gemfile
 ```
-
-* Replace `<<PATH-TO-GEMFILE>>` with the path to the Gemfile you created previously.
 
 
 

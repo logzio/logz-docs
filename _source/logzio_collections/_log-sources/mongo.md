@@ -20,7 +20,7 @@ MongoDB is a source-available cross-platform document-oriented database program.
 **Before you begin, you'll need**:
 
 * MongoDB installed on your host
-
+* Fluentd installed on your host
 <div class="tasklist">
 
 

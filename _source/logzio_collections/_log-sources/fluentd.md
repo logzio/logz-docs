@@ -48,6 +48,7 @@ Ruby and ruby-dev 2.1 or higher
 
 <div class="tasklist">
 
+	
 ##### Install Fluentd and the Logz.io plugin
 
 ```shell
@@ -59,6 +60,22 @@ gem install fluentd fluent-plugin-logzio
 ```shell
 fluentd --setup ./fluent
 ```
+
+##### Add an input plugin
+
+Add a required input plugin to the configuration file. You can find the list of available input plugins [here](https://docs.fluentd.org/input).
+	
+An example input plugin looks as follows:
+	
+```xml
+<source>
+  @type tail
+  path /var/log/httpd-access.log
+  pos_file /var/log/td-agent/httpd-access.log.pos
+  tag apache.access
+</source>
+```
+
 
 ##### Configure Fluentd with Logz.io output
 
@@ -122,7 +139,7 @@ Fluentd can receive and concatenate multiline logs. To do this, you need to add 
 ##### Add multiline parser to your input plugin
 
 <!-- info-box-start:info -->
-Multiline parsing only works with `in_tail` plugins.
+Multiline parsing only works with `in_tail` plugins. Refer to the [Fluentd documentation](https://docs.fluentd.org/parser/multiline) for more on this.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -152,16 +169,6 @@ The indentation of the parse plugin must be one level under the tail function as
 	</parse>
 </source>
 ```
-
-##### Enable fluent-plugin-concat plugin
-
-Enable `fluent-plugin-concat` plugin to concatenate multiline logs:
-
-```shell
-gem install fluent-plugin-concat
-```
-
-
 
 
 

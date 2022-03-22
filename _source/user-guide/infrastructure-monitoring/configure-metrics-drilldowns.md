@@ -45,7 +45,7 @@ Fill in the form, starting with the **General** section.
 * In the **Type** list, choose **Query**.
 * We recommend leaving **Hide** empty.
 
-![Variable general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variables-edit-general.png)
+![Variable general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variables-edit-containername.png)
 
 
 Next, fill in the query options.
@@ -56,11 +56,11 @@ We recommend setting **Refresh** to automatically occur **On Time Range change**
 
 The **Query** field is where things get really fun. There are several options here, we will be focusing on the main ones (you can see the full list in the [official documentation](https://grafana.com/docs/grafana/latest/datasources/prometheus/#query-variable)):
 
-* Getting a label name with no specified conditions. For example: `label_values(container)`.
-* Getting a label name specified to a metric. The metric will come first, then the label name, separated by a comma. For example: `label_values(container_cpu_usage_total,container)`.
-* Getting a label name specified to a metric and a previous variable. The metric will come first, followed by the previous variable in curly brackets, then the label name, separated by a comma. For example: `label_values(container_cpu_usage_total{cluster_name=~”$cluster”},container)`.
+* Getting a label value with no specified conditions. For example: `label_values(container)`.
+* Getting a label value specified to a metric. The metric will come first, then the label's value, separated by a comma. For example: `label_values(container_cpu_usage_total,container)`.
+* Getting a label value specified to a metric and a previous variable. The metric will come first, followed by the previous variable in curly brackets, then the label's value, separated by a comma. For example: `label_values(container_cpu_usage_total{cluster_name=~”$cluster”},container)`.
 
-![Query field preview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/preview-of-variables-metrics.png)
+![Query field preview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metricspreview-of-variables.png)
 
 
 ##### Configure the remaining options and save
@@ -74,4 +74,4 @@ You're now ready to use the variable in your new dashboard.
 ###### Additional resources
 
 * To learn more about Prometheus and PromQL, check out our [examples and best practices guide](https://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-promql-queries.html). 
-* If you're looking to configure **Explore in kibana** drilldown links, click [here](/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html).
+* Looking to configure **Explore in kibana** drilldown links? [Read our guide](/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html).

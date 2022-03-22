@@ -16,8 +16,7 @@ contributors:
 
 Variables will allow you to apply filters on your dashboards and drilldown links.
 
-![Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-updated-query.png)
-
+Follow these steps to add your dashboard variables: 
 
 #### Add dashboard variables {#set-up-dashboard-variables}
 
@@ -61,7 +60,7 @@ The **Query** field is where things get really fun. There are several options he
 * Getting a label name specified to a metric. The metric will come first, then the label name, separated by a comma. For example: `label_values(container_cpu_usage_total,container)`.
 * Getting a label name specified to a metric and a previous variable. The metric will come first, followed by the previous variable in curly brackets, then the label name, separated by a comma. For example: `label_values(container_cpu_usage_total{cluster_name=~”$cluster”},container)`.
 
-![Query field example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/variables-value-preview.png)
+![Query field preview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/preview-of-variables-metrics.png)
 
 
 ##### Configure the remaining options and save

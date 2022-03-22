@@ -56,9 +56,9 @@ We recommend setting **Refresh** to automatically occur **On Time Range change**
 
 The **Query** field is where things get really fun. There are several options here, we will be focusing on the main ones (you can see the full list in the [official documentation](https://grafana.com/docs/grafana/latest/datasources/prometheus/#query-variable)):
 
-* Getting a label value with no specified conditions. For example: `label_values(container)`.
-* Getting a label value specified to a metric. The metric will come first, then the label's value, separated by a comma. For example: `label_values(container_cpu_usage_total,container)`.
-* Getting a label value specified to a metric and a previous variable. The metric will come first, followed by the previous variable in curly brackets, then the label's value, separated by a comma. For example: `label_values(container_cpu_usage_total{cluster_name=~”$cluster”},container)`.
+* Getting label values with no specified conditions. For example: `label_values(container)`.
+* Getting label values specified to a metric. The metric will come first, then the label's name, separated by a comma. For example: `label_values(container_cpu_usage_total,container)`.
+* Getting label values specified to a metric and a previous variable. The metric will come first, followed by the previous variable in curly brackets, then the label's name, separated by a comma. For example: `label_values(container_cpu_usage_total{cluster_name=~”$cluster”},container)`.
 
 ![Query field preview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metricspreview-of-variables.png)
 

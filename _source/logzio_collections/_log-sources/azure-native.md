@@ -13,6 +13,16 @@ shipping-tags:
 order: 460
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Terraform](#terraform)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
 You can use Logz.io's Cloud-Native Observability Platform to monitor the health and performance of your Azure environment through the Azure portal.
 
 To learn more about this solution, refer to [Microsoft Azure documentation](https://docs.microsoft.com/en-us/azure/partner-solutions/logzio/overview).
@@ -33,3 +43,172 @@ To learn more about this, refer to [Microsoft Azure documentation](https://docs.
 ### Start your own Logz.io observability journey
 
 Start your journey with Logz.io in Azure [here](https://portal.azure.com/#create/logz.logzio_via_liftr/preview).
+
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="terraform">
+
+You can create a Logz.io account in Azure using Terraform.
+
+
+**Before you begin, you'll need**:
+
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* Azure subscription
+
+
+<div class="tasklist">
+
+##### Connect to your Azure account
+
+Login to Azure first:
+
+```shell
+az login
+```
+
+Then connect to your account subscription:
+
+
+```shell
+az account set --subscription="<<SUBSCRIPTION_ID>>"
+```
+
+* Replace `<<SUBSCRIPTION_ID>>` with the Subscription ID where you want to create your Logz.io resources.
+
+##### Configure Terraform to login to your Azure subscription
+
+Create a Terraform script with the following configuration:
+
+```
+# We strongly recommend using the required_providers block to set the
+# Azure Provider source and version being used
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
+  }
+}
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  features {}
+
+  subscription_id = "<<SUBSCRIPTION_ID>>"
+}
+```
+
+* Replace `<<SUBSCRIPTION_ID>>` with the Subscription ID where you want to create your Azure account.
+
+
+##### Configure Logz.io monitor
+
+Add the following code block to the same Terraform script:
+
+```
+resource "azurerm_resource_group" "<<RESOURCE-GROUP-NAME-TERRAFORM>>" {
+  name     = "<<RESOURCE-GROUP-NAME-AZURE>>"
+  location = "<<RESOURCE-GROUP-REGION>>"
+}
+
+resource "azurerm_logz_monitor" "<<RESOURCE-GROUP-NAME-TERRAFORM>>" {
+  name                = "<<MONITOR-NAME>>"
+  resource_group_name = azurerm_resource_group.<<RESOURCE-GROUP-NAME-TERRAFORM>>.name
+  location            = azurerm_resource_group.<<RESOURCE-GROUP-NAME-TERRAFORM>>.location
+  plan {
+    billing_cycle  = "<<BILLING-CYCLE>>"
+    effective_date = "<<EFFECTIVE-DATE>>"
+    plan_id        = "<<PLAN-ID>>"
+    usage_type     = "<<USAGE-TYPE>>"
+  }
+
+  user {
+    email        = "<<USER-EMAIL>>"
+    first_name   = "<<USER-FIRST-NAME>>"
+    last_name    = "<<USER-LAST-NAME>>"
+    phone_number = "<<USER-PHONE-NUMBER>>"
+  }
+}
+```
+
+Define the parameters as per the table below:
+
+| Parameter | Description |
+|---|---|
+| `<<RESOURCE-GROUP-NAME-TERRAFORM>>` | Name for your resource group inside Terraform. |
+| `<<RESOURCE-GROUP-NAME-AZURE>>` | Name for your resource group in Azure. |
+| `<<RESOURCE-GROUP-REGION>>` | Azure region for your resource group. |
+| `<<MONITOR-NAME>>` | Name for your Logz.io monitor in your Azure group. |
+| `<<BILLING-CYCLE>>` | Billing cycle for your Logz,io account plan. Possible values are `MONTHLY` or `WEEKLY` |
+| `<<EFFECTIVE-DATE>>` | Date in `yyyy-mm-ddThh:mm:ss.s+zzzzzz` format, when plan was applied. |
+| `<<PLAN-ID>>` | Plan id as published by Logz. |
+| `<<USAGE-TYPE>>` | Different usage types. Possible values are `PAYG` or `COMMITTED`. |
+| `<<USER-EMAIL>>` | Account user's email. |
+| `<<USER-FIRST-NAME>>` | Account user's first name |
+| `<<USER-LAST-NAME>>` | Account user's last name |
+| `<<USER-PHONE-NUMBER>>` | Account user's phone number |
+
+
+
+##### Configure the tag rule
+
+Add the following code block to the same Terraform script:
+
+```
+resource "azurerm_logz_tag_rule" "<<RESOURCE-GROUP-NAME-TERRAFORM>>" {
+  logz_monitor_id = azurerm_logz_monitor.<<RESOURCE-GROUP-NAME-TERRAFORM>>.id
+  tag_filter {
+    name   = "<<TAG-FILTER-NAME>>"
+    action = "<<TAG-FILTER-ACTION>>"
+    value  = "<<TAG-VALUE>>"
+  }
+
+  send_aad_logs          = true
+  send_activity_logs     = true
+  send_subscription_logs = true
+```
+
+Define the parameters as per the table below:
+
+| Parameter | Description |
+|---|---|
+| `<<RESOURCE-GROUP-NAME-TERRAFORM>>` | Name for your resource group inside Terraform. |
+| `<<TAG-FILTER-NAME>>` | Name for the tag filter. |
+| `<<TAG-FILTER-ACTION>>` | The action for a filtering tag. Possible values are `Include` and `Exclude`. `Exclude` takes priority over the `Include` |
+| `<<TAG-VALUE>>` | The value of the tag filter |
+
+
+##### Initialize a working directory
+
+Run the following command from the directory of your Terrafrom script:
+
+```shell
+terraform init
+```
+
+##### Create the Terraform execution plan
+
+```shell
+terraform plan -out terraform.plan
+```
+
+##### Execute the Terraform plan
+
+```shell
+terraform apply terraform.plan
+```
+
+
+</div>
+
+</div>
+<!-- tab:end -->
+
+
+</div>
+<!-- tabContainer:end -->

@@ -273,7 +273,7 @@ rules:
 
 ##### Start Zookeeper
 
-Start the Apache Kafka by running the Zookeeper as follows:
+Start the Zookeeper as follows:
 
 ```shell
 bin/zookeeper-server-start.sh config/zookeeper.properties

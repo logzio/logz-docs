@@ -27,12 +27,18 @@ The first pipeline sends the spans to the Logz.io backend, where you can analyze
 
 #### Prerequisite for Service Performance Monitoring dashboard
 
-To get started with your very own dashboard, you'll need the following:
+To get started with your very own dashboard, you'll need an active **[Metrics](https://app.logz.io/#/dashboard/metrics)** plan.
 
-* Admin permissions in an active Logz.io **Tracing** account
-* An active **Metrics** plan with Logz.io
-* An application instrumented with an OpenTelemetry installation
+If you don't have an active Metrics plan, a trial account will be automatically created for you, **free of charge**.
 
+If you already have an active Metrics account, Service Performance Monitoring requires a range of **1,000-5,000 Unique metrics available**. In case you don't have enough Unique metrics available, you'll need to **re-allocate** them or **add additional metrics** to your account. 
+
+You can check your current account plan and availability on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+
+You'll also need **Admin permissions** in an active Logz.io **Tracing** account, and an application instrumented with an OpenTelemetry installation.
+
+Your Metrics account trial will be available for 2 weeks. Afterward, you'll need to upgrade your Metrics plan to continue using your Service Performance Monitoring dashboard. 
+{:.info-box.note}
 
 ##### Ship your data through OpenTelemetry
 

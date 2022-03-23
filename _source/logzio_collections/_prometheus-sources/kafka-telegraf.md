@@ -29,7 +29,7 @@ To send your Prometheus-format Apache Kafka metrics to Logz.io, you need to add 
 
 ##### Download the JMX to Prometheus exporter
 
-Navigate to the kafka dirctory on your host and run the following command:
+Navigate to the Kafka directory on your host and run the following command:
 
 ```shell
 wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar
@@ -37,7 +37,7 @@ wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0
 
 ##### Create a configuration file for the JMX to Prometheus exporter
 
-Navigate to the kafka dirctory on your host, create a file named `kafka.yml` with the following content:
+Navigate to the Kafka directory on your host, create a file named `kafka.yml` with the following content:
 
 ```yaml
 lowercaseOutputName: true

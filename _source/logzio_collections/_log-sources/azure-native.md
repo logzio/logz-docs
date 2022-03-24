@@ -111,20 +111,20 @@ provider "azurerm" {
 Add the following code block to the same Terraform script:
 
 ```
-resource "azurerm_resource_group" "<<RESOURCE-GROUP-NAME-TERRAFORM>>" {
+resource "azurerm_resource_group" "logzio_resource_group" {
   name     = "<<RESOURCE-GROUP-NAME-AZURE>>"
   location = "<<RESOURCE-GROUP-REGION>>"
 }
 
-resource "azurerm_logz_monitor" "<<RESOURCE-GROUP-NAME-TERRAFORM>>" {
-  name                = "<<MONITOR-NAME>>"
-  resource_group_name = azurerm_resource_group.<<RESOURCE-GROUP-NAME-TERRAFORM>>.name
-  location            = azurerm_resource_group.<<RESOURCE-GROUP-NAME-TERRAFORM>>.location
+resource "azurerm_logz_monitor" "logzio_account" {
+  name                = "<<LOGZIO-RESOURCE-NAME>>"
+  resource_group_name = azurerm_resource_group.logzio_resource_group.name
+  location            = azurerm_resource_group.logzio_resource_group.location
   plan {
-    billing_cycle  = "<<BILLING-CYCLE>>"
+    billing_cycle  = "MONTHLY"
     effective_date = "<<EFFECTIVE-DATE>>"
-    plan_id        = "<<PLAN-ID>>"
-    usage_type     = "<<USAGE-TYPE>>"
+    plan_id        = "100gb14days"
+    usage_type     = "PAYG"
   }
 
   user {
@@ -140,18 +140,14 @@ Define the parameters as per the table below:
 
 | Parameter | Description |
 |---|---|
-| `<<RESOURCE-GROUP-NAME-TERRAFORM>>` | Name for your resource group inside Terraform. |
 | `<<RESOURCE-GROUP-NAME-AZURE>>` | Name for your resource group in Azure. |
 | `<<RESOURCE-GROUP-REGION>>` | Azure region for your resource group. |
-| `<<MONITOR-NAME>>` | Name for your Logz.io monitor in your Azure group. |
-| `<<BILLING-CYCLE>>` | Billing cycle for your Logz,io account plan. Possible values are `MONTHLY` or `WEEKLY` |
-| `<<EFFECTIVE-DATE>>` | Date in `yyyy-mm-ddThh:mm:ss.s+zzzzzz` format, when plan was applied. |
-| `<<PLAN-ID>>` | Plan id as published by Logz. |
-| `<<USAGE-TYPE>>` | Different usage types. Possible values are `PAYG` or `COMMITTED`. |
-| `<<USER-EMAIL>>` | Account user's email. |
-| `<<USER-FIRST-NAME>>` | Account user's first name |
-| `<<USER-LAST-NAME>>` | Account user's last name |
-| `<<USER-PHONE-NUMBER>>` | Account user's phone number |
+| `<<LOGZIO-RESOURCE-NAME>>` | Name for your Logz.io account and resource in your Azure resource group. |
+| `<<EFFECTIVE-DATE>>` | Current date in `yyyy-mm-ddThh:mm:ss.s+zzzzzz` format. |
+| `<<USER-EMAIL>>` | Email address attached to the Azure account where you need to create the Logz.io resource group. |
+| `<<USER-FIRST-NAME>>` | Account user's first name. |
+| `<<USER-LAST-NAME>>` | Account user's last name. |
+| `<<USER-PHONE-NUMBER>>` | Account user's phone number. |
 
 
 
@@ -160,28 +156,32 @@ Define the parameters as per the table below:
 Add the following code block to the same Terraform script:
 
 ```
-resource "azurerm_logz_tag_rule" "<<RESOURCE-GROUP-NAME-TERRAFORM>>" {
-  logz_monitor_id = azurerm_logz_monitor.<<RESOURCE-GROUP-NAME-TERRAFORM>>.id
+resource "azurerm_logz_tag_rule" "logzio_tags" {
+  logz_monitor_id = azurerm_logz_monitor.logzio_tags.id
   tag_filter {
     name   = "<<TAG-FILTER-NAME>>"
     action = "<<TAG-FILTER-ACTION>>"
     value  = "<<TAG-VALUE>>"
   }
 
-  send_aad_logs          = true
-  send_activity_logs     = true
-  send_subscription_logs = true
+  send_aad_logs          = <<boolean>>
+  send_activity_logs     = <<boolean>>
+  send_subscription_logs = <<boolean>>
 ```
 
 Define the parameters as per the table below:
 
 | Parameter | Description |
 |---|---|
-| `<<RESOURCE-GROUP-NAME-TERRAFORM>>` | Name for your resource group inside Terraform. |
 | `<<TAG-FILTER-NAME>>` | Name for the tag filter. |
-| `<<TAG-FILTER-ACTION>>` | The action for a filtering tag. Possible values are `Include` and `Exclude`. `Exclude` takes priority over the `Include` |
-| `<<TAG-VALUE>>` | The value of the tag filter |
+| `<<TAG-FILTER-ACTION>>` | The action for a filtering tag. Possible values are `Include` and `Exclude`. `Exclude` takes priority over the `Include`. |
+| `<<TAG-VALUE>>` | Optional. The value of the tag filter. |
+| send_aad_logs | (Optional) Whether AAD logs should be sent to the Monitor resource. |
+| send_activity_logs | (Optional) Whether activity logs from Azure resources should be sent to the Monitor resource. |
+| send_subscription_logs | (Optional) Whether subscription logs should be sent to the Monitor resource. |
 
+  
+  
 
 ##### Initialize a working directory
 

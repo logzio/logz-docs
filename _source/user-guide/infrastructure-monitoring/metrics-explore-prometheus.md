@@ -2,6 +2,8 @@
 layout: article
 title: Explore your Prometheus metrics
 permalink: /user-guide/infrastructure-monitoring/metrics-explore-prometheus/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Explore your Prometheus Metrics
 flags:
   #admin: true
   logzio-plan: pro
@@ -22,6 +24,11 @@ It's a bit like Kibana Discover, in that it is optimized for quickly searching t
 Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, the Metrics Explore mode is the best way to do it. It's also great if you're a long-time user and want to examine the structure of your metrics to create a new monitoring dashboard.
 
 To go to Metrics Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
+
+* [Exploring your metrics](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#exploring-your-metrics)
+* [Prometheus metrics metadata labels](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#prometheus-metrics-metadata-labels)
+* [Split and sync Explore screens](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#split-and-sync-explore-screens)
+* [Calculating Infrastructure Monitoring usage](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#calculating-infrastructure-monitoring-usage)
 
 <!-- Exposing the metrics in your system - discovering the associated metadata (tags, dimensions, or fields) sent by the services in your environment -->
 
@@ -77,3 +84,18 @@ If you want to sync both views so they both cover the same time range, click the
     <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore-split-sync.mp4" type="video/mp4" />
   </video>
 
+### Calculating Infrastructure Monitoring usage
+
+Logz.io's Infrastructure Monitoring (Metrics) accounts usage is calculated based on the Unique Time Series (UTS).
+
+Each time series is uniquely identified by its name and a set of labels. For example, the following are distinct time series, each calculated individually:
+
+`node_cpu_seconds_total{host="host1",cpu="0",mode="user"}`
+`node_cpu_seconds_total{host="host1",cpu="1",mode="user"}`
+
+
+You can view your usage metrics in your Infrastructure Monitoring dashboard. Navigate to **[Metrics](https://app.logz.io/#/dashboard/metrics) > [Explore](https://app.logz.io/#/dashboard/metrics/explore) > Metrics browser**. 
+
+Enter the following PromQL query: `logzio_metrics_accepted_data_points_per_minute{}`. To easily find relevant metrics, type Logz in the metrics bar, and select the metric you'd like to view.
+
+![Data Volume Dashboard ELK app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/explore-cpu-usage.png)

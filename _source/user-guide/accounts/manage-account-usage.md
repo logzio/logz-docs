@@ -2,6 +2,8 @@
 layout: article
 title: Manage account usage
 permalink: /user-guide/accounts/manage-account-usage.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage your account usage
 flags:
   admin: true
   logzio-plan: community

@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Kibana Discover
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io intro to Logs
 permalink: /user-guide/kibana/
 flags:
   logzio-plan: community
@@ -9,6 +11,7 @@ tags:
 contributors:
   - imnotashrimp
   - shalper
+  - hidan
 ---
 
 Kibana Discover is where you search and query your logs to figure out what happened. It is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
@@ -42,6 +45,18 @@ Another advantage is that filters can be inverted, temporarily disabled, edited,
 
 You can type a search query in Lucene syntax or KQL. It is an alternative to filtering that requires a little familiarity with the search syntax. Almost anything that can be defined in the Search bar can be accomplished using filters as well.
 
+###### Regex
+
+To use Regex in a search query in Kibana, you'll need to use the following template: 
+
+`fieldName:/.*value.*/`.
+
+For example, you have a field called `sentence` that holds the following line: "The quick brown fox jumps over the lazy dog".
+
+To find one of the values in the field, such as `fox`, you'll need to use the following query:
+
+`sentence:/.*fox.*/`.
+
 ##### Time frame and date picker
 
 The default time frame in Kibana Discover is always the last 15 minutes.
@@ -74,3 +89,7 @@ Once you've refined a query to the point that it returns exactly what you are lo
 * **Save** the search to display it in visualizations and dashboards or to load it in the future.
 * **Share** results with colleagues or external stakeholders.
 * **Export** results to a spreadsheet.
+
+###### Additional resources
+
+* [Read more](https://logz.io/blog/kibana-advanced/) about creating and running advanced searches in Kibana.

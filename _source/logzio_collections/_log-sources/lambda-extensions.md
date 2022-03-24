@@ -96,7 +96,7 @@ my_app: cool app
 my_message: The sky is so blue
 ```
 
-This project uses an external module for its Grok parsing. To learn more about it, see the [grok library repo](https://github.com/vjeantet/grok).
+This project uses an external module for its grok parsing. To learn more about it, see the [grok library repo](https://github.com/vjeantet/grok).
 
 ### Nested fields
 

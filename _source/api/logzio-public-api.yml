@@ -3489,9 +3489,38 @@ paths:
             type: object
             example:
               - errorCode: SAWMILL_SELF_PARSE/PIPELINE NOT FOUND
-                message": log type with name (logType) not found
+                message: log type with name (logType) not found
                 parameters:
                   - logTypeName: SampleLogType
+
+  /v1/sawmill/external-mapping/upload:
+    post:
+      operationId: postSawmillMappingFile
+      summary: Upload an external mapping file to Logz.io storage.
+      description: Uploads an external mapping file in `.properties` format to Logz.io storage. This file can be used later by Sawmill [ExternalMappingSourceParser](https://github.com/logzio/sawmill/wiki/External-Mapping-Source-Processor). This feature is not available by default. To enable it, contact Logz.io support. 10 files can be uploaded per account. The file size is limited to 50 MB.
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              externalMappingUrl:
+                type: string
+
   /v1/account/log-types:
     get:
       operationId: getLogTypes

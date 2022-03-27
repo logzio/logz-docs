@@ -9882,6 +9882,11 @@ definitions:
           type: string
         description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
         example: [network, aws]
+      mitreTags:
+        type: array
+        items:
+          type: string
+        description: Tags used for classifying, discussing, and interpreting security incidents. This feature is currently under development.
       output:
         $ref: '#/definitions/RuleOutput'
       searchTimeFrameMinutes:

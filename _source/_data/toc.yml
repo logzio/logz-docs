@@ -273,6 +273,36 @@ firstLevel:
       url: /user-guide/siem/highlights/
   - title: Intro to Cloud SIEM workspace
     url: /user-guide/cloud-siem/
+
+
+  - title: Cloud SIEM quick start guide
+    url: /user-guide/cloud-siem/quick-guide.html
+    thirdLevel:
+    - title: Create sub accounts as a Managed Security Service Provider (MSSP)
+      url: /user-guide/cloud-siem/mssp-accounts.html
+    - title: View the "Send your data" options
+      url: /user-guide/cloud-siem/send-data-options.html
+    - title: View the Summary dashboard
+      url: /user-guide/cloud-siem/summary-dashboard.html
+    - title: Investigate events
+      url: /user-guide/cloud-siem/investigate-events.html
+    - title: Create security rules
+      url: /user-guide/cloud-siem/create-rules.html
+    - title: Add notification and SOAR endpoints
+      url: /user-guide/cloud-siem/add-endpoints.html
+    - title: Edit rules and protected rules
+      url: /user-guide/cloud-siem/edit-rules.html
+    - title: Manage security events
+      url: /user-guide/cloud-siem/manage-security-events.html
+    - title: Work with lookups
+      url: /user-guide/cloud-siem/work-lookups.html
+    - title: Manage your threat feeds
+      url: /user-guide/cloud-siem/manage-feeds.html
+    - title: Select dashboards for your Cloud SIEM Summary page
+      url: /user-guide/cloud-siem/select-dashboards.html
+
+
+
   - title: Investigate events
     thirdLevel:
     - title: Investigate security events

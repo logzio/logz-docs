@@ -3513,13 +3513,15 @@ paths:
                     type: string
                     format: binary
       responses:
-        '200':
+        '201':
           description: successful operation
           schema:
             type: object
             properties:
-              externalMappingUrl:
+              result:
                 type: string
+                example: Successfully updated external mapping
+                description: Successfully updated external mapping
 
   /v1/account/log-types:
     get:

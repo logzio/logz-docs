@@ -9938,7 +9938,11 @@ definitions:
           timezone:
             type: string
             description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
-
+      mitreTags:
+        type: array
+        items:
+          type: string
+        description: Tags used for classifying, discussing, and interpreting security incidents. This feature is currently under development.
 
   # ::::: RESTORE FROM ARCHIVE DEFINITIONS
   RestoreAccountConfiguration:

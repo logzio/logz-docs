@@ -3497,7 +3497,7 @@ paths:
     post:
       operationId: postSawmillMappingFile
       summary: Upload an external mapping file to Logz.io storage.
-      description: Uploads an external mapping file in `.properties` format to Logz.io storage. This file can be used later by Sawmill [ExternalMappingSourceParser](https://github.com/logzio/sawmill/wiki/External-Mapping-Source-Processor). This feature is not available by default. To enable it, contact Logz.io support. 10 files can be uploaded per account. The file size is limited to 50 MB.
+      description: Uploads an external mapping file in `.properties` format to Logz.io storage. This file can be used later by Sawmill [ExternalMappingSourceProcessor](https://github.com/logzio/sawmill/wiki/External-Mapping-Source-Processor). This feature is not available by default. To enable it, contact Logz.io support. 10 files can be uploaded per account. The file size is limited to 50 MB.
       tags:
         - Parsing
       produces:

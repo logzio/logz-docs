@@ -3522,6 +3522,34 @@ paths:
                 type: string
                 example: Successfully updated external mapping
                 description: Successfully updated external mapping
+        '400':
+          description: bad request
+          schema:
+            type: object
+            properties:
+              errorCode: 
+                type: string
+                example: FILE_RESTRICTIONS/EXTERNAL_MAPPINGS_LIMIT_REACHED
+              message: 
+                type: string
+                example: Failed to upload external mapping. Exceeded allowed amount of mapping files per account: 10. Please Contact Support to delete old mappings.
+              requestId: 
+                type: string
+              parameters: 
+                type: object
+                properties: 
+                  currentLimit: 
+                    type: integer
+                    example: 10
+         '422':
+          description: validation error
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: Failed to update external mapping
+                description: Failed to update external mapping
 
   /v1/account/log-types:
     get:

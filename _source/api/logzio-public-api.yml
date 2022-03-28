@@ -3532,7 +3532,7 @@ paths:
                 example: FILE_RESTRICTIONS/EXTERNAL_MAPPINGS_LIMIT_REACHED
               message: 
                 type: string
-                example: Failed to upload external mapping. Exceeded allowed amount of mapping files per account: 10. Please Contact Support to delete old mappings.
+                example: Failed to upload external mapping. Exceeded allowed amount of mapping files per account - 10. Please Contact Support to delete old mappings.
               requestId: 
                 type: string
               parameters: 

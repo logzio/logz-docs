@@ -3541,15 +3541,15 @@ paths:
                   currentLimit: 
                     type: integer
                     example: 10
-         '422':
-          description: validation error
-          schema:
-            type: object
-            properties:
-              result:
-                type: string
-                example: Failed to update external mapping
-                description: Failed to update external mapping
+        '422':
+         description: validation error
+         schema:
+           type: object
+           properties:
+             result:
+               type: string
+               example: Failed to update external mapping
+               description: Failed to update external mapping
 
   /v1/account/log-types:
     get:

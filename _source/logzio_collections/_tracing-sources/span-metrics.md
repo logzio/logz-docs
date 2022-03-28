@@ -426,11 +426,12 @@ In the instrumentation code of your application, point the exporter to the servi
 
 ```
 helm install  \
---set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
+--set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
 --set logzio.metrics_token=<<SPM-METRICS-SHIPPING-TOKEN>> \
 logzio-otel-spm logzio-helm/logzio-otel-spm
 ```
+
 
 {% include /tracing-shipping/replace-tracing-token.html %}
 * Replace `<<SPM-METRICS-SHIPPING-TOKEN>>` with a [token](https://app.logz.io/#/dashboard/settings/manage-accounts) for the Metrics account that is dedicated to your Service Performance Monitoring feature.
@@ -468,10 +469,10 @@ If required, you can add the following optional parameters as environment variab
   
 | Parameter | Description | 
 |---|---|
-| LATENCY_HISTOGRAM_BUCKETS | Comma separated list of durations defining the latency histogram buckets. Default: `2ms`, `8ms`, `50ms`, `100ms`, `200ms`, `500ms`, `1s`, `5s`, `10s`   | 
-| SPAN_METRICS_DIMENSIONS | Each metric will have at least the following dimensions that are common across all spans: `Service name`, `Operation`, `Span kind`, `Status code`. The input is comma separated list of dimensions to add together with the default dimensions, for example: `region,http.url`. Each additional dimension is defined by a name from the span's collection of attributes or resource attributes. If the named attribute is missing in the span, this dimension will be omitted from the metric.   | 
-| SPAN_METRICS_DIMENSIONS_CACHE_SIZE | The maximum items number of `metric_key_to_dimensions_cache`. Default: `10000`. | 
-| AGGREGATION_TEMPORALITY | Defines the aggregation temporality of the generated metrics. One of either `cumulative` or `delta`. Default: `cumulative`. | 
+| config.processors.spanmetrics.latency_histogram_buckets | Comma separated list of durations defining the latency histogram buckets. Default: `2ms`, `8ms`, `50ms`, `100ms`, `200ms`, `500ms`, `1s`, `5s`, `10s`   | 
+| config.processors.spanmetrics.dimensions | Each metric will have at least the following dimensions that are common across all spans: `Service name`, `Operation`, `Span kind`, `Status code`. The input is comma separated list of dimensions to add together with the default dimensions, for example: `region,http.url`. Each additional dimension is defined by a name from the span's collection of attributes or resource attributes. If the named attribute is missing in the span, this dimension will be omitted from the metric.   | 
+| config.processors.spanmetrics.dimensions_cache_size | The maximum items number of `metric_key_to_dimensions_cache`. Default: `10000`. | 
+| config.processors.spanmetrics.aggregation_temporality | Defines the aggregation temporality of the generated metrics. One of either `cumulative` or `delta`. Default: `cumulative`. | 
 
 #### Uninstalling the Chart
 

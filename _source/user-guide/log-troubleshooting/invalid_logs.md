@@ -12,13 +12,21 @@ contributors:
   - yberlinger
 ---
 
-## What causes an invalid log? 
+Troubleshooting Log errors
+
+### Mapping errors
+
+
+
+### Invalid logs
+
+#### What causes an invalid log? 
 
 When a log that includes specific issues is received, the log is flattened and ingested, the **`type`** field is changed to **`logzio-invalid-log`**,  and the **`tags`** field is added to the log to identify the issue.
 
 ![Invalid log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/invalid_log_eg-dec2021.png)
 
-## Invalid log tags
+#### Invalid log tags
 
 The tags in the table below explain the character or field issues that may cause a log to be labeled with the **`logzio-invalid-log`** field.
 

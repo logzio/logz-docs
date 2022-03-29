@@ -12,7 +12,7 @@ contributors:
 
 There are two types of rules in Cloud SIEM:
 
-* A protected rule is a rule defined by Logz.io. These rules appear in the **Rule definitions** list with a **Logz.io rule** tag. You cannot edit the name or logic of a protected rule. You can, however, define what accounts to apply the rule to, edit the trigger conditions, tags and recipient endpoints of a protected rule.
+* A protected rule is a rule defined by Logz.io. These rules appear in the **Rule definitions** list with a **Logz.io rule** tag. You cannot edit the name or logic of a protected rule unless you duplicate the rule as described in this document. You can, however, define what accounts to apply the rule to, edit the trigger conditions, tags and recipient endpoints of a protected rule.
 
 * A regular rule is a rule defined by the user. These rules appear in the **Rule definitions** list without a tag. You can edit the name and logic of a regular rule, as well as define what accounts to apply the rule to, edit the trigger conditions, tags and recipient endpoints of the rule.
 

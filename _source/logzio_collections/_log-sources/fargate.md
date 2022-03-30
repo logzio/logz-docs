@@ -162,13 +162,13 @@ and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 </div>
 
-#### Adding keys to your log events
+#### Adding extra configuration to your Fluent Bit task
 
 <div class="tasklist">
 
 ##### Create an extra.conf file
 
-Create an `extra.conf` file with the following contents:
+Create an `extra.conf` file with the extra configuration. For example:
 
 ```conf
 [FILTER]
@@ -177,7 +177,7 @@ Create an `extra.conf` file with the following contents:
     Record app-version ${APP_VERSION}
 ```
 
-##### Upload the extra.conf file to S3
+##### Upload the extra.conf file to S3 (if your Fluent Bit is on EC2)
 
 Upload the `extra.conf` file to the S3 bucket.
 

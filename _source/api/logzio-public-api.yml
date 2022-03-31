@@ -3489,9 +3489,68 @@ paths:
             type: object
             example:
               - errorCode: SAWMILL_SELF_PARSE/PIPELINE NOT FOUND
-                message": log type with name (logType) not found
+                message: log type with name (logType) not found
                 parameters:
                   - logTypeName: SampleLogType
+
+  /v1/sawmill/external-mapping/upload:
+    post:
+      operationId: postSawmillMappingFile
+      summary: Upload an external mapping file to Logz.io storage.
+      description: Uploads an external mapping file in `.properties` format to Logz.io storage. This file can be used later by Sawmill [ExternalMappingSourceProcessor](https://github.com/logzio/sawmill/wiki/External-Mapping-Source-Processor). This feature is not available by default. To enable it, contact Logz.io support. 10 files can be uploaded per account. The file size is limited to 50 MB.
+      tags:
+        - Parsing
+      produces:
+        - application/json
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        '201':
+          description: successful operation
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: Successfully updated external mapping
+                description: Successfully updated external mapping
+        '400':
+          description: bad request
+          schema:
+            type: object
+            properties:
+              errorCode: 
+                type: string
+                example: FILE_RESTRICTIONS/EXTERNAL_MAPPINGS_LIMIT_REACHED
+              message: 
+                type: string
+                example: Failed to upload external mapping. Exceeded allowed amount of mapping files per account - 10. Please Contact Support to delete old mappings.
+              requestId: 
+                type: string
+              parameters: 
+                type: object
+                properties: 
+                  currentLimit: 
+                    type: integer
+                    example: 10
+        '422':
+         description: validation error
+         schema:
+           type: object
+           properties:
+             result:
+               type: string
+               example: Failed to update external mapping
+               description: Failed to update external mapping
+
   /v1/account/log-types:
     get:
       operationId: getLogTypes

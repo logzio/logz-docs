@@ -1,54 +1,85 @@
 ---
-title: Sending traces from instrumented Docker containers using OpenTelemetry
+title: Sending ping statistics metrics from web addresses
 logo:
   logofile: docker-logo.png
   orientation: vertical
-data-source: Docker
+data-source: Ping statistics
 data-for-product-source: Synthetic monitoring
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin
 shipping-tags:
+
 order: 1380
 ---
 
 ### Overview
 
-This integration enables you to send traces from your instrumented applications running in Docker. This is achieved by using a dedicated Logz.io OpenTelemetry collector deployed in the same Docker network as your application. This collector configuration can collect traces from:
+Deploy this integration to send metrics of ping statistics collected from your preferred web addresses and send them to Logz.io.
 
-* OpenTelemetry
-* Zipkin
-* Jaeger
-* OpenCensus 
+The integration is based on a Lambda function that will be auto-deployed deployed together with the layer [LogzioLambdaExtensionLogs](https://github.com/logzio/logzio-lambda-extensions/tree/main/logzio-lambda-extensions-logs). 
+
 
 
 <div id="local-host">
 
 
-**Before you begin, you'll need**:
-
-* An instrumented application running in a Docker network
-* An active account with Logz.io
-* A name defined for your tracing service
-
-
 <div class="tasklist">
 
-#### In the same Docker network as your application:
+#### Auto-deploy the Lambda function
 
-{% include /tracing-shipping/docker.md %}
+👇 To begin, click this button to start the automated deployment.
 
-{% include /tracing-shipping/replace-tracing-token.html %}
+[![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/ping-statistics-auto-deployment/auto-deployment.yaml&stackName=logzio-ping-statistics-auto-deployment)
 
 
-##### Run the application
+##### Specify the template
 
-Run the application to generate traces.
+Keep the defaults and click **Next**.
+
+![Specify stack template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Template.png)
+
+
+##### Specify the stack details
+
+![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_options.png)
+
+Specify the stack details as per the table below and select **Next**.
+
+
+| Parameter | Description | Required/Optional | Default |
+| --- | --- | --- | --- |
+| Addresses | The addresses to ping. You can add port for each address (default port for the address is 80). Addresses must be separated by comma. (Example addresses: `www.google.com`, `tcp://www.google.com`, `https://www.google.com`, `http://www.google.com`). | Required | - |
+| LogzioListener | The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {% include log-shipping/listener-var.html %} | Required | `https://listener.logz.io` |
+| LogzioLogsToken | Your Logz.io log shipping token:`<<LOG-SHIPPING-TOKEN>>` {% include log-shipping/log-shipping-token.html %} | Required | - |
+| LogzioMetricsToken | Your Logz.io metrics shipping token:`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Required | - |
+| PingCount | The number of pings for each address. | Required | `3` |
+| PingInterval | The time to wait (in seconds) between each ping. | Required | `1 (second)` |
+| PingTimeout | The timeout (in seconds) for each ping. | Required | `10 (seconds)` |
+| SchedulingInterval | The scheduling expression that determines when and how often the Lambda function runs. | Required | `rate(30 minutes)` |
+
+
+##### Specify the stack details
+
+![Specify stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_details.png)
+
+Specify the stack details as per the table below and select **Next**.
+
+##### Review the deployment
+
+Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
+
+
+##### Run the tests
+
+Run the ping statistics tests to generate metrics.
 
 
 ##### Check Logz.io for your traces
 
-Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+Give your metrics some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). All metrics that were sent from the Lambda function will have the prefix `ping_stats` in their name.
+
+
 
 </div>
 

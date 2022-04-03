@@ -22,6 +22,11 @@ Deploy this integration to send metrics of ping statistics collected from your p
 
 The integration is based on a Lambda function that will be auto-deployed deployed together with the layer [LogzioLambdaExtensionLogs](https://github.com/logzio/logzio-lambda-extensions/tree/main/logzio-lambda-extensions-logs). 
 
+<!-- info-box-start:info -->
+This integration is currently only available on `US-east1`.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 
 <div id="local-host">

@@ -1,7 +1,7 @@
 ---
 title: Sending ping statistics metrics from web addresses
 logo:
-  logofile: docker-logo.png
+  logofile: ping-logo.png
   orientation: vertical
 data-source: Ping statistics
 data-for-product-source: Synthetic monitoring
@@ -35,9 +35,9 @@ The integration is based on a Lambda function that will be auto-deployed deploye
 
 ##### Specify the template
 
-Keep the defaults and click **Next**.
-
 ![Specify stack template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Template.png)
+
+Keep the defaults and click **Next**.
 
 
 ##### Specify the stack details
@@ -61,7 +61,7 @@ Specify the stack details as per the table below and select **Next**.
 
 ##### Specify the stack details
 
-![Specify stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_options.png)
+![Specify stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_option.png)
 
 Specify the stack details as per the table below and select **Next**.
 

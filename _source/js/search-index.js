@@ -11,7 +11,7 @@ var documents = [
   {
     "id": {{ counter }},
     "url": "{{ site.url }}{{ p.url }}",
-    "title": "{{ p.title }}",
+    "title": "{{ p.title | replace: '"', ' ' }}",
     "body": "{{ p.content
       | replace: '.', '. '
       | replace: '</h2>', ': '

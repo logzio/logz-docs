@@ -5,6 +5,9 @@ logo:
   orientation: vertical
 data-source: Ping statistics
 data-for-product-source: Synthetic monitoring
+open-source:
+  - title: Logzio ping statistics
+    github-repo: logzio-ping-statistics
 templates: ["network-device-filebeat"]
 contributors:
   - nshishkin
@@ -28,7 +31,7 @@ The integration is based on a Lambda function that will be auto-deployed deploye
 
 ##### Auto-deploy the Lambda function
 
-👇 To begin, click this button to start the automated deployment.
+👇 To begin, click this button to start the automated deployment. You will need to deploy it in your environment.
 
 [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/ping-statistics-auto-deployment/auto-deployment.yaml&stackName=logzio-ping-statistics-auto-deployment)
 

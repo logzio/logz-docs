@@ -42,7 +42,7 @@ Keep the defaults and click **Next**.
 
 ##### Specify the stack details
 
-![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_details.png)
+![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_details1.png)
 
 Specify the stack details as per the table below and select **Next**.
 
@@ -59,7 +59,7 @@ Specify the stack details as per the table below and select **Next**.
 | SchedulingInterval | The scheduling expression that determines when and how often the Lambda function runs. | Required | `rate(30 minutes)` |
 
 
-##### Specify the stack details
+##### Configure the stack options
 
 ![Specify stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_option.png)
 

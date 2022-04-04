@@ -26,7 +26,9 @@
 *   `concat: <COLLECTION-NAME>`. Leave the default last.
 *         {%- endcomment -%}
 {%- assign shippingDataSources = site.log-sources
-  | concat: site.metrics-sources
+  | concat: site.prometheus-sources
+  | concat: site.tracing-sources
+  | concat: site.security-sources
   | default: shippingDataSources -%}
 {%- assign htmlPages = site.html_pages -%}
 

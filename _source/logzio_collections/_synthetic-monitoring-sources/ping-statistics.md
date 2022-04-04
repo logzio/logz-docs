@@ -22,10 +22,7 @@ Deploy this integration to send metrics of ping statistics collected from your p
 
 The integration is based on a Lambda function that will be auto-deployed deployed together with the layer [LogzioLambdaExtensionLogs](https://github.com/logzio/logzio-lambda-extensions/tree/main/logzio-lambda-extensions-logs). 
 
-<!-- info-box-start:info -->
-This integration is currently only available on `US-east1`.
-{:.info-box.note}
-<!-- info-box-end -->
+
 
 
 
@@ -83,7 +80,7 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources 
 Run the ping statistics tests to generate metrics.
 
 
-##### Check Logz.io for your traces
+##### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). All metrics that were sent from the Lambda function will have the prefix `ping_stats` in their name.
 

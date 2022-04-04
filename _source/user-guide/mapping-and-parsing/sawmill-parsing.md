@@ -222,6 +222,8 @@ In this example, for the log sample: `2021-06-21T20:19:40.45+01:00 DEBUG This sh
 }
 ```
 
+###### **Click here for additional [Grok pattern examples for log parsing](https://logz.io/blog/grok-pattern-examples-for-log-parsing/).**
+
 ### Example 2: Conditional parsing 
 
 Logz.io parsing lets you apply conditional logic, based on your original logs. 

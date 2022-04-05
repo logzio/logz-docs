@@ -40,6 +40,9 @@ but not add or remove users from within Logz.io.
 
 All authenticated users will have access to your account, and existing users will retain the permission levels they had before SSO was enabled, unless you configure groups.
 
+**Once a user logs via your portal they can use SSO to log to Logz.io using their email domain, even if their email hasn't been added to Logz.io's account.**
+
+
 ###### How SSO groups work
 
 SSO groups help you map, monitor, and edit access levels across multiple users in your organization. You can apply **User**, **Admin**, or **Read only** level permissions to all users in the group with a single set up, and change permission levels quickly and easily.

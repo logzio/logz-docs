@@ -46,6 +46,8 @@ Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team f
 Each traceID attribute functions as a drill down link that leads you to the correlated trace view in Jaeger. 
 ![traceID to Trace view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace5-new.png)
 
+The Trace ID identifies logs related to traces, and it should be a part of the log. If you're using OpenTelemetry as instrumentation, you can get the Trace ID in context from the OTEL library and attach it to the log on creation. 
+{:.info-box.note}
 
 ### From traceID to Kibana
 You can jump from a trace in Jaeger to view it in Kibana: 

@@ -11,7 +11,7 @@ community-info: false
 {%- assign tagData = site.data.shipper-tabs.tags -%}
 
 {%- comment -%} Outer container {%- endcomment -%}
-<div class="branching-container">
+<div class="branching-tabs-container">
 
   {%- comment -%} Tabs {%- endcomment -%}
   <ul class="branching-tabs">
@@ -19,6 +19,7 @@ community-info: false
     {%- for tab in tabData -%}
       {%- comment -%} Find the collection whose name matches this tab {%- endcomment -%}
       {%- assign thisCollection = site.collections | where: "label", tab.collection | first -%}
+      
       <li><a href="#{{tab.collection}}">{{thisCollection.name}}</a></li>
     {%- endfor -%}
   </ul>
@@ -34,7 +35,7 @@ community-info: false
 
     {%- comment -%} Get the docs in this collection {%- endcomment -%}
     {%- assign docs = thisCollection.docs | sort_natural: "data-source" -%}
-
+    
     {%- comment -%}
       Get the tags used in this collection.
       This will be used to generate the filter list at the top

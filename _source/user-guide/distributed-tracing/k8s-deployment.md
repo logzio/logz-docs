@@ -18,6 +18,8 @@ If you're working with Kubernetes, you can ship your traces to Logz.io using a H
 
 The following guide will walk you through how to get your Tracing account token and how to configure and send your Helm chart to Logz.io.
 
+The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
+
 #### _Send traces from Kubernetes_
 
 {:.no_toc}  

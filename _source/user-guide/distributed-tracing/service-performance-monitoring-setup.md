@@ -5,7 +5,6 @@ permalink: /user-guide/distributed-tracing/service-performance-monitoring-setup
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Setting up your Service Performance Monitoring dashboard
 flags:
-  beta: true
   logzio-plan: pro enterprise
 tags: 
   - distributed tracing
@@ -15,12 +14,14 @@ contributors:
 
 Logz.io Service Performance Monitoring dashboard provides an overview of your systems' health by aggregating **Request**, **Error**, and **Duration** (R.E.D) metrics from span data. The dashboard helps you to pinpoint and isolate incidents in your system quickly.
 
-{% include page-info/early-access.md type="Beta" %}
 
+The following guide helps you configure the OpenTelemetry collector to extract metrics from spans generated from your application instrumentation, and send them to Logz.io. 
 
-The following guide helps you configure the OpenTelemetry collector to extract metrics from spans generated from your application instrumentation, and send them to Logz.io. Once configured and deployed, the collector accepts the spans and processes them through two pipelines:
+Once configured and deployed, the collector accepts the spans and processes them through two pipelines:
 
-The first pipeline sends the spans to the Logz.io backend, where you can analyze single traces and focus on slowness and bottlenecks. The second pipeline extracts the metrics from the same spans, aggregates them, and sends them to Logz.io’s Prometheus-based account.
+The first pipeline sends the spans to the Logz.io backend, where you can analyze single traces and focus on slowness and bottlenecks. 
+
+The second pipeline extracts the metrics from the same spans, aggregates them, and sends them to Logz.io’s Prometheus-based account.
 
 <div class="tasklist">
 
@@ -36,22 +37,22 @@ Your Metrics account trial will be available for 2 weeks. Afterward, you'll need
 
 If you already have an active Metrics account, Service Performance Monitoring requires a range of **1,000-5,000 Unique Time Series (UTS) available**. 
 
-In case you don't have enough UTS available, you'll need to **re-allocate** or **add additional UTS** to your account, which can be done on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+If you don't have enough UTS available, you'll need to **re-allocate** or **add additional UTS** to your account, which you can do on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
 
-You'll also need **Admin permissions** in an active Logz.io **Tracing** account, and an application with OpenTelemetry instrumentation.
+<!-- You'll also need **Admin permissions** in an active Logz.io **Tracing** account, and an application with OpenTelemetry instrumentation. -->
 
 #### Configure and ship your data
 
-You'll need to configure your collector to extract metrics from your data. Log into your Logz.io account and follow these steps to [modify the OpenTelemetry collector](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics). 
+You'll need to configure your collector to extract metrics from your data. Log into your Logz.io account and follow these steps to **[modify the OpenTelemetry collector](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics)**. 
 
 You can configure the collector to ship data from a **[Local host](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics?type=local-host)**, **[Docker](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics?type=docker)**, or **[Kubernetes](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics?type=kubernetes)**.
 
 Before deploying, make sure the collector you're using is version **v0.44.0** and up.
 
-Restart the collector to apply to configuration changes. 
+Once everything is set, restart the collector to apply the configuration changes. 
 
 #### Check Logz.io for your metrics
 
-Give your metrics some time to get from your system to ours, then navigate to **[Tracing](https://app.logz.io/#/dashboard/jaeger/) > [Monitor](https://app.logz.io/#/dashboard/jaeger/monitor)** and view your aggregated metrics for your services and operations.
+Give your metrics some time reach and render from your system to Logz.io, then navigate to **[Tracing](https://app.logz.io/#/dashboard/jaeger/) > [Monitor](https://app.logz.io/#/dashboard/jaeger/monitor)** to view the aggregated metrics for your services and operations.
 
 </div>

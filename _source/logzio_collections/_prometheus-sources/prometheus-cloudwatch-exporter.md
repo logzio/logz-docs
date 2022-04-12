@@ -353,6 +353,7 @@ The `logzio/cloudwatch-metrics` container can be deployed directly to ECS using 
 ## Configuration
   
 In the Specify stack details screen, specify the parameters as per the table below:
+  
 | Parameter | Description |
 |---|---|
 | AwsRegion  | Your region's slug. You can find this in the AWS Console region menu (in the top menu, to the right).  **Note:** This is the region that you will collect metrics from. |

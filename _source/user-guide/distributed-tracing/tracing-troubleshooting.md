@@ -9,13 +9,14 @@ flags:
 tags:
   - distributed tracing
 contributors:
+  - afishler
   - hidan
 ---
 
 Setting up a Distributed Tracing account might require some additional help. In this doc, we'll walk through troubleshooting some common issues. 
 
 * [Jaeger is not showing any data](/user-guide/distributed-tracing/tracing-troubleshooting.html#jaeger-is-not-showing-any-data)
-* [Missing services or no services](/user-guide/distributed-tracing/tracing-troubleshooting.html#missing-services-or-no-services)
+* [Can't find traces in search fields](/user-guide/distributed-tracing/tracing-troubleshooting.html#cant-find-traces-in-search-fields)
 * [Service Performance Monitoring dashboard couldn't fetch data](/user-guide/distributed-tracing/tracing-troubleshooting.html#service-performance-monitoring-dashboard-couldnt-fetch-data)
 * [Service Performance Monitoring dashboard showing no data](/user-guide/distributed-tracing/tracing-troubleshooting.html#service-performance-monitoring-dashboard-showing-no-data)
 
@@ -23,11 +24,11 @@ Setting up a Distributed Tracing account might require some additional help. In 
 
 You've logged into your Jaeger dashboard, and you can't see any Tracing services.
 
-![Jaeger not showing data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/troubleshooting-jaeger.png)
+<!-- ![Jaeger not showing data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/troubleshooting-jaeger.png) -->
 
 This could happen due to a misconfiguration of the account's tokens.
 
-Navigate to [Logs](https://app.logz.io/#/dashboard/kibana/) > Choose your **Tracing account** and refresh. If you can see logs, it means the token is configurated correctly.
+Navigate to [Logs](https://app.logz.io/#/dashboard/kibana/) > Choose the **relevant Tracing account** and refresh. If you can see its logs, it means the token is configured correctly.
 
 ![Logs showing tracing data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traces-in-logs.png)
 
@@ -36,7 +37,7 @@ If don't see any logs, navigate to **[Manage tokens](https://app.logz.io/#/dashb
 If you still can't see data in your Tracing account, contact the [Logz.io Support team](mailto:help@logz.io) for additional help.
 
 
-#### Missing services or no services
+#### Can't find traces in search fields
 
 After setting up your Tracing account, you can't find traces in the search fields.
 
@@ -74,11 +75,11 @@ Your Service Performance Monitoring dashboard shows a **No Data** message across
 
 ![Query of Metrics account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-no-data-showing.png)
 
-This occurs when the Metrics account connected to your dashboard is not sending any data, or the collector configuration has not been updated.
+This occurs when no metrics are sent to the Metrics account that's attached to the tracing data, or the collector configuration has not been updated.
 
 First, you'll need to verify that metrics are configured and sent. Navigate to **[Metrics](https://app-uk.logz.io/#/dashboard/metrics) > [Explore](https://app.logz.io/#/dashboard/metrics/explore)** and choose the relevant data source connected to your Service Performance Monitoring dashboard from the dropdown list.
 
-To confirm that the data is available and accessible, type `calls_total` and tun the query.
+To confirm that the data is available and accessible, type `calls_total` and run the query.
 
 ![Query of calls total](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/calls-total-tracing.png)
 

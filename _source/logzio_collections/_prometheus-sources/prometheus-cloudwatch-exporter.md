@@ -336,6 +336,7 @@ logzio/cloudwatch-metrics
 <div id="ecs">
 
 The `logzio/cloudwatch-metrics` container can be deployed directly to ECS using cloudformation, the stack will deploy a new ecs cluster, ecs service and task definition.
+  
 | Region | Deployment link |
 |---|---|
 | us-east-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
@@ -350,6 +351,7 @@ The `logzio/cloudwatch-metrics` container can be deployed directly to ECS using 
 | ap-south-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
 
 ## Configuration
+  
 In the Specify stack details screen, specify the parameters as per the table below:
 | Parameter | Description |
 |---|---|
@@ -370,6 +372,8 @@ In the Specify stack details screen, specify the parameters as per the table bel
 | VPC |  The vpc to deploy the ecs resources|
 | ServiceName | Select name for the new ecs service |
 | Subnet | The subnet to deploy the ecs resources |
+  
+  
 </div>
 <!-- tab:end -->
 

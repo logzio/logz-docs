@@ -7260,6 +7260,20 @@ definitions:
           $ref: '#/definitions/TriggeredAlert'
       pagination:
         $ref: '#/definitions/Pagination'
+  PagedSearchResponseTriggeredResponse:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+        description: The total number of events returned by the rule search query. The total entities found after filtering and sorting. This number is fixed and not affected by pagination.
+        example: 500
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/TriggeredRule'
+      pagination:
+        $ref: '#/definitions/Pagination'
   TriggeredAlert:
     type: object
     properties:
@@ -7333,6 +7347,85 @@ definitions:
         type: boolean
         description: Describes whether a specific returned alert event is muted.
         example: true
+  TriggeredRule:
+    type: object
+    properties:
+      alertId:
+        type: integer
+        format: int32
+        description: Unique identifier of the security rule in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-definition-id`
+        example: 453345
+      name:
+        type: string
+        description: Name of the security rule in Logz.io Cloud SIEM
+        example: AWS EC2 - Brute force SSH login attempts
+      description:
+        type: string
+        description: Typically an explanation of the security rule's logic and suggested next steps
+        example: Suggested next steps...
+      alertSummary:
+        type: string
+        description: Equivalent to the `condition` field in the rule
+        example: Alert if query '*' results GREATER_THAN_OR_EQUALS 5.00 in 10 minutes. Count on Group By '[userIdentity.userName, sourceIPAddress]'
+      eventDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in seconds showing when the rule's conditions were met and the event was triggered
+        example: 1587860455
+      alertWindowStartDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in seconds of the earliest log that triggered the rule to log an event. It usually takes several logs under certain conditions to trigger a security rule.
+        example: 1587856855
+      alertWindowEndDate:
+        type: integer
+        format: int64
+        description: UNIX timestamp in seconds of the latest log that triggered the rule to log an event. It usually takes several logs under certain conditions to trigger a security rule.
+        example: 1587860455
+      severity:
+        type: string
+        enum:
+          - INFO
+          - LOW
+          - MEDIUM
+          - HIGH
+          - SEVERE
+        description: Severity of the security event as determined by the security rule's definition
+        example: SEVERE
+      alertEventId:
+        type: string
+        description: Unique identifier of the security event in Logz.io Cloud SIEM. Equivalent to the log field `logzio-alert-event-id`
+        example: 27cdcf45-ae12-581a-809e-17a6bbc9ae07
+      groupBy:
+        type: object
+        description: A map object. Array of field:value pairs (key-value pairs) used by the security rule to aggregate results. Security rules can apply `groupBy` conditions to aggregate results by up to 3 fields. The fields differ rule by rule.
+        example: {"source_ip": "122.17.45.15", "hostname":"hostname1234" }
+        #additionalProperties:
+         # type: map
+         # maximum: 3
+         # description: The fields differ by rule. There can be 1-3 fields.
+      tags:
+        type: array
+        description: Tags are labels used to organize security rules.
+        example: threat
+        items:
+          type: object
+          example: { network_threat, recon}
+      hits:
+        type: integer
+        format: int32
+        description: Hits represent the number of logs that triggered the security rule before being aggregated by the `groupBy` condition.
+        example: 30
+      isMuted:
+        type: boolean
+        description: Describes whether a specific returned alert event is muted.
+        example: true
+      mitreTags:
+        type: array
+        items:
+          type: string
+        description: Tags used for classifying, discussing, and interpreting security incidents. This feature is currently under development.
+
   AlertsEventsSearchRequest:
     type: object
     properties:

@@ -13,7 +13,7 @@ contributors:
   - hidan
 ---
 
-The following guide will help you understand and troubleshoot some of the common issues you might encounter.
+The following guide will help you understand and troubleshoot some of the common log related issues you might encounter.
 
 ### Mapping errors
 
@@ -22,6 +22,10 @@ Your logs are mapped daily, and each field is assigned a Dynamic or Explicit dat
 Dynamic mappings are automatically determined as logs are received, meaning the fields' data type is known. When a field is marked as Explicit, its data type is unclear.
 
 Mapping errors occur when different data types are sent to the same field. For example, if field `weather` receives the numeric value `35`, then gets the value `hot`, it'll result in a mapping error since the same field can't contain two different types of inputs.
+
+The **`type`** field is changed to **`logzio-index-failure`**,  and the **`tags`** field is added to the log to identify the issue.
+
+![Fail log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/logzio-index-fail.png)
 
 Here are some of the **common mapping errors** you might encounter and why they happen:
 

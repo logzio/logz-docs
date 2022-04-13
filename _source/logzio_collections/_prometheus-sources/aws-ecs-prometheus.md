@@ -25,6 +25,7 @@ order: 680
 * [Default configuration](#variables)
 * [Custom config](#config)
 * [Custom cloudwatch exporter](#cloudwatch)
+* [ECS deployment](#ecs)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -362,6 +363,73 @@ Give your metrics some time to get from your system to ours.
 {% include metric-shipping/generic-dashboard.html %} 
 
 </div>
+  
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="ecs">
+
+This integration deploys the `logzio/cloudwatch-metrics` container directly to ECS using a dedicated Cloudformation stack. It deploys a new ECS cluster, ECS service and task definition.
+  
+<div class="tasklist">
+  
+##### Auto-deploy the Lambda function
+  
+👇 To begin, click the start button corresponding to your region to start the automated deployment in your environment.
+
+  
+| Region | Deployment link |
+|---|---|
+| us-east-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+| us-east-2 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+| us-west-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+| us-west-2 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+| eu-central-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+| eu-west-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+| eu-west-2 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+| ap-east-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+| ap-southeast-3 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-3#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+| ap-south-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
+
+##### Specify the template
+  
+Keep the defaults and click **Next**.
+
+##### Specify the stack details
+  
+![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ecs/stack_details_ecs.png)
+
+Specify the stack details as per the table below and select **Next**.
+  
+| Parameter | Description |
+|---|---|
+| AwsRegion  | Your region's slug. You can find this in the AWS Console region menu (in the top menu, to the right).  **Note:** This is the region that you will collect metrics from. |
+| LogzioRegion | Your Logz.io region code. For example if your region is US, then your region code is `us`. You can find your region code here: https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls. |
+| Token | Your Logz.io metrics shipping token:`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` |
+| AwsNamespaces  | Comma-separated list of namespaces of the metrics you want to collect. You can find a complete list of namespaces at [_AWS Services That Publish CloudWatch Metrics_](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). |
+| ScrapeInterval | The time interval (in seconds) during which the Cloudwatch exporter retrieves metrics from Cloudwatch, and the Opentelemtry collector scrapes and sends the metrics to Logz.io. Default = `300`.   **Note:** This value must be a multiple of 60. |
+| P8sLogzioName | The value of the `p8s_logzio_name` external label. This variable identifies which Prometheus environment the metrics arriving at Logz.io come from. Default = `logzio-cloudwatch-metrics`. |
+| ScrapeTimeOut | Time to wait before throttling a scrape request to the Cloudwatch exporter. Default = `120`|
+| RemoteTimeOut | Time to wait before throttling remote write post request to Logz.io. Default = `120`|
+| AwsAccesskeyId | Your IAM user's access key ID. |
+| AwsSecretAccesskey | Your IAM user's secret key. |
+| SetTimestamp | Boolean for whether to set the Prometheus metric timestamp as the original Cloudwatch timestamp. Default = `false` |
+| PeriodSeconds | Period to request metrics for. Only the most recent data point is used. Default = `300` |
+| RangeSeconds | How far back to request data for. Useful for cases such as Billing metrics that are only set every few hours. Default = `300` |
+| DelaySeconds | The newest data to request. Used to avoid collecting data that has not fully converged. Default = `300` |
+| VPC |  The VPC to deploy the ECS resources. |
+| ServiceName | Select name for the new ECS service. |
+| Subnet | Subnet to deploy the ECS resources. |
+  
+##### Configure the stack options
+
+Keep the defaults and click **Next**.
+
+##### Review the deployment
+
+Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
+  
   
 </div>
 <!-- tab:end -->

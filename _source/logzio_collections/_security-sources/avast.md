@@ -114,6 +114,15 @@ order: 1380
          certificate_authorities: ['C:\ProgramData\Elastic\Beats\filebeat\Logzio.crt']
 
    ```
+
+   If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
+
+   ```yaml
+   filebeat.inputs:
+   - type: filestream
+     paths:
+       - /var/log/*.log
+   ```
   
    * {% include log-shipping/log-shipping-token.md %}
    * {% include log-shipping/listener-var.md %}

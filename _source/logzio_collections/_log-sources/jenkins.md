@@ -58,6 +58,16 @@ filebeat.inputs:
     match: after
 ```
 
+If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
+
+```yaml
+filebeat.inputs:
+- type: filestream
+  paths:
+    - /var/log/*.log
+```
+
+
 If you're running Filebeat 7, paste this code block.
 Otherwise, you can leave it out.
 

@@ -70,6 +70,15 @@ Paste the following into the inputs section of the Filebeat configuration file:
      ssl:
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
+
+   If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
+
+   ```yaml
+   filebeat.inputs:
+   - type: filestream
+     paths:
+       - /var/log/*.log
+   ```
   
    * Your Logz.io log shipping token directs the data securely to your Logz.io Log Management account. [Manage your tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared).
    * {% include log-shipping/listener-var.md %}

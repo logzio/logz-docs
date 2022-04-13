@@ -81,7 +81,11 @@ Run the ping statistics tests to generate metrics.
 
 Give your metrics some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). All metrics that were sent from the Lambda function will have the prefix `ping_stats` in their name.
 
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["1rNO8llFw8Cm9N8U3M3vCQ"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
 
 </div>
 

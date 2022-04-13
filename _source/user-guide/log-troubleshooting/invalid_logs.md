@@ -10,15 +10,41 @@ tags:
   - invalid-logs
 contributors:
   - yberlinger
+  - hidan
 ---
 
-## What causes an invalid log? 
+The following guide will help you understand and troubleshoot some of the common log related issues you might encounter.
+
+### Mapping errors
+
+Your logs are mapped daily, and each field is assigned a Dynamic or Explicit data type.
+
+Dynamic mappings are automatically determined as logs are received, meaning the fields' data type is known. When a field is marked as Explicit, its data type is unclear.
+
+Mapping errors occur when different data types are sent to the same field. For example, if field `weather` receives the numeric value `35`, then gets the value `hot`, it'll result in a mapping error since the same field can't contain two different types of inputs.
+
+The **`type`** field is changed to **`logzio-index-failure`**,  and the **`tags`** field is added to the log to identify the issue.
+
+![Fail log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/logzio-index-fail.png)
+
+Here are some of the **common mapping errors** you might encounter and why they happen:
+
+|**MPE**| **Description**|
+|object mapping for [FIELD_NAME] tried to parse field [FIELD_NAME] as object, but found a concrete value|Field is mapped as a JSON object but is being sent as a string (or is being stringified by other means)|
+|Can't get text on a START_OBJECT|Field is mapped as a string, but is sent as a JSON object|
+|failed to parse field [FIELD_NAME] of type [DATA_TYPE]|Field is being mapped as one data type but being sent as another|
+|Index -1 out of bounds for length 0|A field exists in the log with the name "."|
+|Numeric value (NUMBER) out of range of long (-9223372036854775808 - 9223372036854775807)|Field mapped as a number, but its value is outside the range of the "Long" data type|
+
+### Invalid logs
+
+#### What causes an invalid log? 
 
 When a log that includes specific issues is received, the log is flattened and ingested, the **`type`** field is changed to **`logzio-invalid-log`**,  and the **`tags`** field is added to the log to identify the issue.
 
 ![Invalid log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/invalid_log_eg-dec2021.png)
 
-## Invalid log tags
+#### Invalid log tags
 
 The tags in the table below explain the character or field issues that may cause a log to be labeled with the **`logzio-invalid-log`** field.
 

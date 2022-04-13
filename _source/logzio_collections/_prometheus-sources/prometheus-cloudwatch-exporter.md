@@ -335,7 +335,14 @@ logzio/cloudwatch-metrics
 <!-- tab:start -->
 <div id="ecs">
 
-The `logzio/cloudwatch-metrics` container can be deployed directly to ECS using cloudformation, the stack will deploy a new ecs cluster, ecs service and task definition.
+This integration deploys the `logzio/cloudwatch-metrics` container directly to ECS using a dedicated Cloudformation stack. It deploys a new ECS cluster, ECS service and task definition.
+  
+<div class="tasklist">
+  
+##### Auto-deploy the Lambda function
+  
+👇 To begin, click the start button corresponding to your region to start the automated deployment in your environment.
+
   
 | Region | Deployment link |
 |---|---|
@@ -350,29 +357,43 @@ The `logzio/cloudwatch-metrics` container can be deployed directly to ECS using 
 | ap-southeast-3 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-3#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
 | ap-south-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
 
-## Configuration
+##### Specify the template
   
-In the Specify stack details screen, specify the parameters as per the table below:
+Keep the defaults and click **Next**.
+
+##### Specify the stack details
+  
+![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ecs/stack_details_ecs.png)
+
+Specify the stack details as per the table below and select **Next**.
   
 | Parameter | Description |
 |---|---|
 | AwsRegion  | Your region's slug. You can find this in the AWS Console region menu (in the top menu, to the right).  **Note:** This is the region that you will collect metrics from. |
 | LogzioRegion | Your Logz.io region code. For example if your region is US, then your region code is `us`. You can find your region code here: https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls. |
-| Token| Token for shipping metrics to your Logz.io account. Find it under Settings > Manage accounts. [_How do I look up my Metrics account token?_](/user-guide/accounts/finding-your-metrics-account-token/) |
+| Token | Your Logz.io metrics shipping token:`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` |
 | AwsNamespaces  | Comma-separated list of namespaces of the metrics you want to collect. You can find a complete list of namespaces at [_AWS Services That Publish CloudWatch Metrics_](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). |
-| ScrapeInterval | The time interval (in seconds) during which the Cloudwatch exporter retrieves metrics from Cloudwatch, and the Opentelemtry collector scrapes and sends the metrics to Logz.io. Default = `300`.   **Note:** This value must be a multiple of 60.|
-| P8sLogzioName | The value of the `p8s_logzio_name` external label. This variable identifies which Prometheus environment the metrics arriving at Logz.io came from. Default = `logzio-cloudwatch-metrics`.  |
-| ScrapeTimeOut | The time to wait before throttling a scrape request to cloudwatch exporter, Default = `120`|
-| RemoteTimeOut | the time to wait before throttling remote write post request to logz.io, Default = `120`|
+| ScrapeInterval | The time interval (in seconds) during which the Cloudwatch exporter retrieves metrics from Cloudwatch, and the Opentelemtry collector scrapes and sends the metrics to Logz.io. Default = `300`.   **Note:** This value must be a multiple of 60. |
+| P8sLogzioName | The value of the `p8s_logzio_name` external label. This variable identifies which Prometheus environment the metrics arriving at Logz.io come from. Default = `logzio-cloudwatch-metrics`. |
+| ScrapeTimeOut | Time to wait before throttling a scrape request to the Cloudwatch exporter. Default = `120`|
+| RemoteTimeOut | Time to wait before throttling remote write post request to Logz.io. Default = `120`|
 | AwsAccesskeyId | Your IAM user's access key ID. |
 | AwsSecretAccesskey | Your IAM user's secret key. |
 | SetTimestamp | Boolean for whether to set the Prometheus metric timestamp as the original Cloudwatch timestamp. Default = `false` |
-| PeriodSeconds | period to request the metric for. Only the most recent data point is used. Default = `300` |
-| RangeSeconds | how far back to request data for. Useful for cases such as Billing metrics that are only set every few hours. Default = `300` |
+| PeriodSeconds | Period to request metrics for. Only the most recent data point is used. Default = `300` |
+| RangeSeconds | How far back to request data for. Useful for cases such as Billing metrics that are only set every few hours. Default = `300` |
 | DelaySeconds | The newest data to request. Used to avoid collecting data that has not fully converged. Default = `300` |
-| VPC |  The vpc to deploy the ecs resources|
-| ServiceName | Select name for the new ecs service |
-| Subnet | The subnet to deploy the ecs resources |
+| VPC |  The VPC to deploy the ECS resources. |
+| ServiceName | Select name for the new ECS service. |
+| Subnet | Subnet to deploy the ECS resources. |
+  
+##### Configure the stack options
+
+Keep the defaults and click **Next**.
+
+##### Review the deployment
+
+Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
   
   
 </div>

@@ -26,9 +26,6 @@ The integration is based on a Lambda function that will be auto-deployed deploye
 
 
 
-<div id="local-host">
-
-
 <div class="tasklist">
 
 ##### Auto-deploy the Lambda function
@@ -68,7 +65,7 @@ Specify the stack details as per the table below and select **Next**.
 
 ![Specify stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_option.png)
 
-Specify the stack details as per the table below and select **Next**.
+Keep the defaults and click **Next**.
 
 ##### Review the deployment
 

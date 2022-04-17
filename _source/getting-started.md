@@ -18,11 +18,11 @@ One unified SaaS platform to collect and analyze logs, metrics, and traces, comb
 
 **Table of contents**
 
-* [Send your data]()
-* [Meet Logz.io's Logs]()
-* [Meet Logz.io's Metrics]()
-* [Meet Logz.io's Traces]()
-* [Meet Logz.io's Cloud SIEM]()
+* [Send your data](/getting-started.html#send-your-data)
+* [Meet Logz.io's Logs](/getting-started.html#meet-logzios-logs)
+* [Meet Logz.io's Metrics](/getting-started.html#meet-logzios-metrics)
+* [Meet Logz.io's Traces](/getting-started.html#meet-logzios-tracing)
+* [Meet Logz.io's Cloud SIEM](/getting-started.html#meet-logzios-cloud-siem)
 
 #### Send your data
 

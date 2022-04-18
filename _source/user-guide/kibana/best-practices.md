@@ -26,7 +26,7 @@ Logs support a few query methods, including:
 
 The default query language in Logz.io is Lucene, and you can use it or KQL syntax to query your logs. However, it’s recommended to use Lucene while it enables using your query in an alert or optimizer.
 
-You can search for free text by typing the text string you want to find, for example, `error`.
+You can search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
 
 ![String search](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/kibana-string-search.png)
 
@@ -83,13 +83,13 @@ The default period to display results is 15 minutes. You can edit this time fram
 
 The calendar icon offers popular time frames for you to choose from and lets you select the refresh rate of your data.
 
-![Apply a filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/time-selection-popular.png)
+![Time frame options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/quick-time-edits.png)
 
 The **Show dates** option lets you set a start and end time. In the popup, select between the following options:
 
 * **Relative** - Set a start and end date to view your data
 * **Now** - Get real-time troubleshooting and monitoring of your logs
-* **Absolute** - Browse the calendar view and choose any timeframe to view your data
+* **Absolute** - Browse the calendar view and choose any time frame to view your data. In this option, you can type the time frame you want to view
 
 ![Choose time frame](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/time-settings-gif.gif)
 

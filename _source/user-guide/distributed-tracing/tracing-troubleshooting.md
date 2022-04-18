@@ -16,42 +16,43 @@ contributors:
 Setting up a Distributed Tracing account might require some additional help. In this doc, we'll walk through troubleshooting some common issues. 
 
 * [Jaeger is not showing any data](/user-guide/distributed-tracing/tracing-troubleshooting.html#jaeger-is-not-showing-any-data)
-* [Can't find traces in search fields](/user-guide/distributed-tracing/tracing-troubleshooting.html#cant-find-traces-in-search-fields)
+* [Troubleshooting the collector](/user-guide/distributed-tracing/tracing-troubleshooting.html#troubleshoot-the-collector)
 * [Service Performance Monitoring dashboard couldn't fetch data](/user-guide/distributed-tracing/tracing-troubleshooting.html#service-performance-monitoring-dashboard-couldnt-fetch-data)
 * [Service Performance Monitoring dashboard showing no data](/user-guide/distributed-tracing/tracing-troubleshooting.html#service-performance-monitoring-dashboard-showing-no-data)
 
 #### Jaeger is not showing any data
 
-You've logged into your Jaeger dashboard, and you can't see any Tracing services.
+You've logged into your Jaeger dashboard, and you can't see any data in Services and Operations list, or nothing comes up in the search.
 
 <!-- ![Jaeger not showing data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/troubleshooting-jaeger.png) -->
 
 This could happen due to a misconfiguration of the account's tokens.
 
-Navigate to [Logs](https://app.logz.io/#/dashboard/kibana/) > Choose the **relevant Tracing account** and refresh. If you can see its logs, it means the token is configured correctly.
+Navigate to [Logs](https://app.logz.io/#/dashboard/kibana/) > Choose the **Tracing account you're trying to troubleshoot** and refresh.
 
 ![Logs showing tracing data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traces-in-logs.png)
 
-If don't see any logs, navigate to **[Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) > [Data shipping tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) > [Tracing](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing)**, copy the token, and re-configure your collector.
+If don't see any logs, navigate to **[Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) > [Data shipping tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) > [Tracing](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing)**. Copy the token of the Tracing account you're troubleshooting, and re-configure your collector.
+
+If you can see logs in the Tracing account you're troubleshooting, you might need to restart your collector.
+
+To verify that the logs are of the Tracing account, make sure they contain `type:jaegerSpan`:
+
+![Type jaegerSpan](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/typejaegerspan.png)
+
+After restarting the collector, navigate back to **[Tracing](https://app.logz.io/#/dashboard/jaeger)** and see whether the traces are now visible.
+
+If you can see the logs, but **they do not contain `type:jaegerSpan`**, you'll need to troubleshoot the collector instrumentation:
+
+##### Troubleshoot the collector
+
+1. Check your collector's **logs**. They can point to what happened during the data shipping process.
+2. Check your collector's **metrics**. Check the count of spans received and sent. 
+3. If logs and metrics indicate that data is not being sent, check that the instrumentation is correctly pointing to the collector (ports), or that the correct receiver is configured in the collector.
 
 If you still can't see data in your Tracing account, contact the [Logz.io Support team](mailto:help@logz.io) for additional help.
 
-
-#### Can't find traces in search fields
-
-After setting up your Tracing account, you can't find traces in the search fields.
-
-Navigate to **[Logs](https://app.logz.io/#/dashboard/kibana)** and choose your Tracing account. This step is to make sure data is being sent correctly to Logz.io. If you can see your Tracing data in Logs, your collector requires a restart. 
-
-Tracing logs contain Jaeger-related fields:
-
-![Trace logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-fields-log.png)
-
-After restarting the collector, navigate back to your **[Tracing account](https://app.logz.io/#/dashboard/jaeger)** to see if the traces are now visible. 
-
-If the data isn't visible in your account, contact the [Logz.io Support team](mailto:help@logz.io) for additional help.
-
-
+<!-- ![Trace logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-fields-log.png) -->
 
 <!-- #### Service Performance Monitoring not showing data
 

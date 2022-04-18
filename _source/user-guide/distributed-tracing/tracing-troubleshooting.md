@@ -73,7 +73,7 @@ Your Service Performance Monitoring dashboard shows a **No Data** message across
 
 ![Query of Metrics account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-no-data-showing.png)
 
-This occurs when no metrics are sent to the Metrics account attached to the tracing data, or the collector configuration has not been updated.
+This occurs when the Metrics account attached to the Tracing data is not receiving any data, which indicates that the collector wasn't configured correctly or is not adjusted according to the relevant data. 
 
 First, you'll need to verify that metrics are configured and sent. Navigate to **[Metrics](https://app-uk.logz.io/#/dashboard/metrics) > [Explore](https://app.logz.io/#/dashboard/metrics/explore)** and choose the relevant data source connected to your Service Performance Monitoring dashboard from the dropdown list.
 

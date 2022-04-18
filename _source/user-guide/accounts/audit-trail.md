@@ -30,15 +30,31 @@ The Audit trail dashboard lets you focus on specific **actions** or **users** in
 
 The **User Name** dropdown menu includes all users connected to the account, and the **Actions** menu shows all of the actions done inside the account. These actions include:
 
-|**User related actions**|**Admin related actions**|
-|Saving/deleting an object (visualization/dashboard/search)|Adding/creating users|
-|Installing ELK apps|Editing user roles|
-|Creating/editing tokens|Managing access and permissions|
-|Creating/editing alerts|Creating/editing sub accounts|
-|Creating/editing endpoints|Enabling/disabling Logz.io support access permissions|
-|Creating/editing buckets||
-|Creating/editing S3 archives||
-|Creating/editing field mapping||
+**Admin actions**|**User actions**|
+Login info|User saved an object (visualization/dashboard/search)|
+Failed login info|User deleted an object|
+Changed password|User installed an ELK app|
+Reset password|User created a token|
+Logz.io Customer Success made authorized changes in the account|User updated a token|
+Added user|User deleted a token|
+Updated user role|User created a token filter|
+Deleted user|User updated a token filter|
+Admin changed permissions for Logz.io support access|User deleted a token filter|
+Admin created a sub account|User created an alert|
+Admin updated a sub account|User updated an alert|
+Admin deleted a sub account|User deleted an alert|
+|User created an endpoint|
+|User updated an endpoint|
+|User deleted an endpoint|
+|User created a bucket|
+|User updated a bucket|
+|User deleted a bucket|
+|User created S3 archiving|
+|User updated S3 archiving|
+|User deleted S3 archiving|
+|User created a sawmill configuration with Data Parsing|
+|User updated a sawmill configuration with Data Parsing|
+|User updated field mapping|
 
 <!-- * **User related actions:** Saving or deleting an object (visualization/dashboard/search), installing ELK app, creating/editing tokens, alerts, endpoints, buckets, S3 archiving, field mapping, etc.
 * **Admin related actions:** Adding/editing users and users' roles, access management, creating/editing sub accounts, enabling/disabling Logz.io support access permissions, etc. -->

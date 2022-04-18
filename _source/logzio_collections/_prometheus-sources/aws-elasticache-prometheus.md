@@ -355,7 +355,7 @@ This integration deploys the `logzio/cloudwatch-metrics` container directly to E
   
 <div class="tasklist">
   
-##### Auto-deploy the Lambda function
+##### Auto-deploy the Container
   
 👇 To begin, click the start button corresponding to your region to start the automated deployment in your environment.
 

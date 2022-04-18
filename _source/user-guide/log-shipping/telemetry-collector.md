@@ -15,7 +15,7 @@ contributors:
 Logz.io Telemetry Collector lets you quickly send your data based on the configuration that fits your needs. You can use it to send logs, metrics, and tracing data back to Logz.io’s observability platform. 
 
 
-Telemetry Collector is open to all regions except Japan and Asia Pacific. These regions can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=all)** to send data. 
+Telemetry Collector is currently available for Canada based users. If you're located in a different region, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=all)** to send your data.
 {:.info-box.note}
 
 #### Why should I use Telemetry Collector?
@@ -29,15 +29,15 @@ Configuring and running Logz.io’s Telemetry Collector gives you several advant
 
 Currently, Logz.io's Telemetry Collector supports **Kubernetes** for logs, metrics, and traces.
 
-Additional platforms that will soon be added to the Telemetry Collector include AWS, Docker, Filebeat, etc.
+Additional platforms that will soon be added to the Telemetry Collector include AWS, Azure, Linux, Windows, Mac, etc.
 
 If you're interested in sending your data through a different source, you can use Logz.io's **[Send your data](https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=all)** guide and choose from over 300 shipping methods.
 
 
 #### Configure your Telemetry Collector:
 
-Only account admins can configure and send data to Logz.io
-{:.info-box.note}
+<!--Only account admins can configure and send data to Logz.io
+{:.info-box.note} -->
 
 To start sending your data thorugh the Telemetry Collector, Log into your Logz.io account and click on **Start sending**.
 
@@ -78,4 +78,4 @@ TBD
 
 ##### Additional resources
 
-* [View Telemetry Collector on GitHub](https://raw.githubusercontent.com/logzio/logzio-agent-manifest/mac.bash)
+* [View Telemetry Collector on GitHub](https://github.com/logzio/logzio-agent-manifest)

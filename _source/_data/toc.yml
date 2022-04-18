@@ -19,6 +19,8 @@ firstLevel:
     thirdLevel:
     - title: Intro to Kibana Discover
       url: /user-guide/kibana/
+    - title: Kibana best practices
+      url: /user-guide/kibana/best-practices.html
     - title: Exceptions
       url: /user-guide/insights/exceptions/
     - title: Deployment markers

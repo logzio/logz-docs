@@ -14,11 +14,11 @@ contributors:
   - hidan
 ---
 
-Audit trail offers account admins an easy dashboard to monitor account activity. You can view various actions in the dashboard, including logging, saving a search, creating alerts, adding users, updating dashboards, and more.
+The Audit trail page offers account activity data tracking for account admins. You can view various actions in the table- including logging, saving a search, creating alerts, adding users, updating dashboards, and more.
 
 Each action includes information about the user who performed it, such as user ID, name, server IP, geolocation, and the time and date in which the action took place.
 
-![Audit trail dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/audit-trail-dashboard.png)
+![Audit trail screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/audit-trail-dashboard.png)
 
 To access the page, navigate to **Settings > [Audit trail](https://app.logz.io/#/dashboard/settings/general/audit-trail)**.
 
@@ -26,7 +26,7 @@ To access the page, navigate to **Settings > [Audit trail](https://app.logz.io/#
 
 ##### View and filter Audit trail
 
-The Audit trail dashboard lets you focus on specific **actions** or **users** in a certain timeframe. 
+The Audit trail table lets you focus on specific **actions** or **users** in a certain timeframe. 
 
 The **User Name** dropdown menu includes all users connected to the account, and the **Actions** menu shows all of the actions done inside the account. These actions include:
 

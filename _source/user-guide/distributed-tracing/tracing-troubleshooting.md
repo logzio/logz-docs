@@ -15,36 +15,33 @@ contributors:
 
 Setting up a Distributed Tracing account might require some additional help. In this doc, we'll walk through troubleshooting some common issues. 
 
-* [Jaeger is not showing any data](/user-guide/distributed-tracing/tracing-troubleshooting.html#jaeger-is-not-showing-any-data)
-* [Troubleshooting the collector](/user-guide/distributed-tracing/tracing-troubleshooting.html#troubleshoot-the-collector)
-* [Service Performance Monitoring dashboard couldn't fetch data](/user-guide/distributed-tracing/tracing-troubleshooting.html#service-performance-monitoring-dashboard-couldnt-fetch-data)
+* [Distributed Data is not showing data in Service/Operations dropdown lists](/user-guide/distributed-tracing/tracing-troubleshooting.html#distributed-data-is-not-showing-data-in-serviceoperations-dropdown-lists)
+* [Can't search data in the Distributed Tracing dashboard](/user-guide/distributed-tracing/tracing-troubleshooting.html#cant-search-data-in-the-distributed-tracing-dashboard)
 * [Service Performance Monitoring dashboard showing no data](/user-guide/distributed-tracing/tracing-troubleshooting.html#service-performance-monitoring-dashboard-showing-no-data)
 
-#### Jaeger is not showing any data
+#### Distributed Data is not showing data in Service/Operations dropdown lists
 
-You've logged into your Jaeger dashboard, and you can't see any data in Services and Operations list, or nothing comes up in the search.
-
-<!-- ![Jaeger not showing data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/troubleshooting-jaeger.png) -->
+You've logged into your Distributed Tracing search screen, and you can't see any data in Services and Operations list.
 
 This could happen due to a misconfiguration of the account's tokens.
 
-Navigate to [Logs](https://app.logz.io/#/dashboard/kibana/) > Choose the **Tracing account you're trying to troubleshoot** and refresh.
+Distributed Tracing spans are sent to Logz.io and can be viewed in [Kibana](https://app.logz.io/#/dashboard/kibana), since the Distributed Tracing account is indexing them.
 
-![Logs showing tracing data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traces-in-logs.png)
+The Distributed Tracing account should be documented and available in Kibana, just like your logs are.
 
-If don't see any logs, navigate to **[Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) > [Data shipping tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) > [Tracing](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing)**. Copy the token of the Tracing account you're troubleshooting, and re-configure your collector.
+To troubleshoot this issue, you first need to verify that the Tracing account has indexed the data.
 
-If you can see logs in the Tracing account you're troubleshooting, you might need to restart your collector.
+Navigate to [Logs](https://app.logz.io/#/dashboard/kibana/) > Choose the **Tracing account you're trying to troubleshoot** and hit the Refresh button on the right side of the screen.
 
-To verify that the logs are of the Tracing account, make sure they contain `type:jaegerSpan`:
+![Logs showing tracing data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-and-refresh-in-logs.png)
 
-![Type jaegerSpan](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/typejaegerspan.png)
+If you cannot see any logs, head over to **[Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) > [Data shipping tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) > [Tracing](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing)**. Copy the token of the Tracing account you're troubleshooting, and re-configure your collector.
 
-After restarting the collector, navigate back to **[Tracing](https://app.logz.io/#/dashboard/jaeger)** and see whether the traces are now visible.
+Once you see the logs in your Tracing account, it means data is flowing properly into the account. The dropdown lists are populated from specific data dedicated to building the Services and Operations lists. If you want to re-send this data to Logz.io, restart your collector.
 
-If you can see the logs, but **they do not contain `type:jaegerSpan`**, you'll need to troubleshoot the collector instrumentation:
+#### Can't search data in the Distributed Tracing dashboard 
 
-##### Troubleshoot the collector
+If your Distributed Tracing Search dashboard contains Services and Operators, but you can't find any traces, you'll need to troubleshoot the collector instrumentation:
 
 1. Check your collector's **logs**. They can point to what happened during the data shipping process.
 2. Check your collector's **metrics**. Check the count of spans received and sent. 
@@ -58,7 +55,7 @@ If you still can't see data in your Tracing account, contact the [Logz.io Suppor
 
 Setting up a Service Performance Monitoring dashboards requires creating a Metrics account to help connect between the data and its visuallization. -->
 
-#### Service Performance Monitoring dashboard couldn't fetch data
+<!-- #### Service Performance Monitoring dashboard couldn't fetch data
 
 
 After setting up a Service Performance Monitoring dashboard, you get a message saying **Couldn't fetch data** across all elements in your dashboard.
@@ -68,7 +65,7 @@ After setting up a Service Performance Monitoring dashboard, you get a message s
 
 To resolve this issue, follow the **[Set up your Service Performance Monitoring dashboard](/user-guide/distributed-tracing/service-performance-monitoring-setup)** guide to ensure your account is properly configured. 
 
-If the issue consists, contact the [Logz.io Support team](mailto:help@logz.io) for additional help.
+If the issue consists, contact the [Logz.io Support team](mailto:help@logz.io) for additional help. -->
 
 #### Service Performance Monitoring dashboard showing no data
 
@@ -76,7 +73,7 @@ Your Service Performance Monitoring dashboard shows a **No Data** message across
 
 ![Query of Metrics account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spm-no-data-showing.png)
 
-This occurs when no metrics are sent to the Metrics account that's attached to the tracing data, or the collector configuration has not been updated.
+This occurs when no metrics are sent to the Metrics account attached to the tracing data, or the collector configuration has not been updated.
 
 First, you'll need to verify that metrics are configured and sent. Navigate to **[Metrics](https://app-uk.logz.io/#/dashboard/metrics) > [Explore](https://app.logz.io/#/dashboard/metrics/explore)** and choose the relevant data source connected to your Service Performance Monitoring dashboard from the dropdown list.
 

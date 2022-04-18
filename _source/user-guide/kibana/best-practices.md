@@ -62,7 +62,9 @@ Depending on the optional operators enabled, some additional characters may also
 However, you can still use reserved characters by applying a backslash or double-quotes. For example:
 
 `\*` will render as a * sign.
+
 `\#` will render as a # sign.
+
 `\()` will render as brackets.
 
 #### Filter your log results

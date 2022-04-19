@@ -5674,7 +5674,7 @@ paths:
             $ref: '#/definitions/UserManagementUpsertRequest'
       x-code-samples:
         - lang: cURL
-          source: 'curl -X POST "https://api.logz.io/v1/user-management" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>" -d "{ \"username\": \"artvandelay@kramerica.com\",  \"fullName\": \"Art Vandelay\",  \"accountID\": 11111,  \"roles\": [ 2 ]}"'
+          source: 'curl -X POST "https://api.logz.io/v1/user-management" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>" -d "{ \"username\": \"artvandelay@kramerica.com\",  \"fullName\": \"Art Vandelay\",  \"accountID\": 11111,  \"role\": \"USER_ROLE_READONLY\"}"'
       responses:
         200:
           description: successful operation

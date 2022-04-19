@@ -142,7 +142,7 @@ Replave `<<PATH-TO-TRACER>>` with the path to your tracer file.
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your Node.js application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.33.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your NestJS application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.33.0) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
@@ -184,9 +184,9 @@ Give your traces some time to get from your system to ours, and then open [Traci
 <div id="docker">
 
 
-### Setup auto-instrumentation for your Node.js application using Docker and send traces to Logz.io
+### Setup auto-instrumentation for your NestJS application using Docker and send traces to Logz.io
 
-This integration enables you to auto-instrument your Node.js application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
+This integration enables you to auto-instrument your NestJS application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
 
 **Before you begin, you'll need**:
 
@@ -331,6 +331,7 @@ Add `logzio-helm` repo as follows:
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
+	
 ##### Run the Helm deployment code
 
 ```

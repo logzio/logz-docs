@@ -35,9 +35,11 @@ If you don't have an active Metrics plan, a trial account will be automatically 
 Your Metrics account trial will be available for 2 weeks. Afterward, you'll need to purchase a Metrics plan to continue using your Service Performance Monitoring dashboard. 
 {:.info-box.note}
 
-If you have an active Metrics plan, the Service Performance Monitoring dashboard will try to allocate data from your existing plan. It requires a minimum of 1,000 available UTS in your Metrics plan to run and will try and allocate up to 5,000 UTS. After completing the setup process, you can change this setting and re-adjust your data allocation by navigating to the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+If you have an active Metrics plan, the Service Performance Monitoring dashboard will try to allocate data from your existing plan. It requires a **minimum of 1,000 available UTS** in your Metrics plan to run and will try and allocate **up to 5,000 UTS**.
 
-If you don't have enough UTS available, you'll need to **re-allocate** or **add additional UTS** to your account, which you can do on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+Once setup is complete, you can change and re-adjust your data allocation by navigating to the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+
+If you don't have enough UTS available in your existing Metrics account, you'll need to **re-allocate** or **add additional UTS** to your account, which you can do on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
 
 #### Configure and ship your data
 

@@ -274,14 +274,14 @@ Add the following command to your Java application Dockerfile or equivalent:
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
      -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
-     -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
+     -Dotel.resource.attributes=service.name=<<YOUR-SERVICE-NAME>> \
      -Dotel.exporter.otlp.endpoint=http://<<logzio-otel-traces-service-dns>>:4317 \
      -jar target/*.jar
 ```
 
-* Replace `<path/to>` with the path to the directory where you downloaded the agent.
-* Replace `<YOUR-SERVICE-NAME>` with a name for your service (this will be the service name in jaeger).
-* Replace `<<logzio-otel-traces-service-name>>` with the opentelemetry collector service dns obtained previously (service ip is also allowed here).
+* Replace `<<path/to>>` with the path to the directory where you downloaded the agent.
+* Replace `<<YOUR-SERVICE-NAME>>` with a name for your service under which it will appear in Logz.io Jaeger UI.
+* Replace `<<logzio-otel-traces-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
 
 ##### Check Logz.io for your traces
 

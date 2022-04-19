@@ -236,6 +236,19 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
+##### Run the Helm deployment code
+
+```
+helm install  \
+--set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
+logzio-otel-traces logzio-helm/logzio-otel-traces
+```
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is different than US East. https://docs.logz.io/user-guide/accounts/account-region.html#available-regions
+
+
 ##### Define the logzio-otel-traces service name
 
 In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
@@ -253,35 +266,22 @@ It will deploy a small pod that extracts your cluster domain name from your Kube
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar) to the host of your Java application.
 
-##### Attach the agent to the collector and run it
+##### Attach the agent to your java application 
 
-Run the following command from the directory of your Java application:
+Add the following command to your Java application Dockerfile or equivalent:
 
 ```shell
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
      -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
-     -Dotel.exporter.otlp.endpoint=http://<<logzio-otel-traces-service-name>>:4317 \
+     -Dotel.exporter.otlp.endpoint=http://<<logzio-otel-traces-service-dns>>:4317 \
      -jar target/*.jar
 ```
 
 * Replace `<path/to>` with the path to the directory where you downloaded the agent.
-* Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
-* Replace `<<logzio-otel-traces-service-name>>` with the service name obtained previously.
-
-
-##### Run the Helm deployment code
-
-```
-helm install  \
---set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-otel-traces logzio-helm/logzio-otel-traces
-```
-
-{% include /tracing-shipping/replace-tracing-token.html %}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is different than US East. https://docs.logz.io/user-guide/accounts/account-region.html#available-regions
+* Replace `<YOUR-SERVICE-NAME>` with a name for your service (this will be the service name in jaeger).
+* Replace `<<logzio-otel-traces-service-name>>` with the opentelemetry collector service dns obtained previously (service ip is also allowed here).
 
 ##### Check Logz.io for your traces
 

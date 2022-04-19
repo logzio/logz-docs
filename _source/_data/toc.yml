@@ -258,6 +258,9 @@ firstLevel:
     url:  /user-guide/distributed-tracing/correlate-traces/
   - title: Visualize traces in Kibana
     url: /user-guide/distributed-tracing/visualize-traces/
+  - title: Distributed Tracing troubleshooting
+    url: /user-guide/distributed-tracing/tracing-troubleshooting.html
+
 
 
   # ===== CLOUD SIEM =====

@@ -3,7 +3,7 @@ layout: article
 title: Distributed Tracing troubleshooting
 permalink: /user-guide/distributed-tracing/tracing-troubleshooting.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Distributed Tracing troubleshooting and common questions
+description: Distributed Tracing troubleshooting
 flags:
   logzio-plan: community pro enterprise
 tags:

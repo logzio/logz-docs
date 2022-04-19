@@ -35,11 +35,9 @@ If you don't have an active Metrics plan, a trial account will be automatically 
 Your Metrics account trial will be available for 2 weeks. Afterward, you'll need to purchase a Metrics plan to continue using your Service Performance Monitoring dashboard. 
 {:.info-box.note}
 
-If you already have an active Metrics account, Service Performance Monitoring requires a range of **1,000-5,000 Unique Time Series (UTS) available**. 
+If you have an active Metrics plan, the Service Performance Monitoring dashboard will try to allocate data from your existing plan. It requires a minimum of 1,000 available UTS in your Metrics plan to run and will try and allocate up to 5,000 UTS. After completing the setup process, you can change this setting and re-adjust your data allocation by navigating to the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
 
 If you don't have enough UTS available, you'll need to **re-allocate** or **add additional UTS** to your account, which you can do on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
-
-<!-- You'll also need **Admin permissions** in an active Logz.io **Tracing** account, and an application with OpenTelemetry instrumentation. -->
 
 #### Configure and ship your data
 
@@ -53,6 +51,6 @@ Once everything is set, restart the collector to apply the configuration changes
 
 #### Check Logz.io for your metrics
 
-Give your metrics some time reach and render from your system to Logz.io, then navigate to **[Tracing](https://app.logz.io/#/dashboard/jaeger/) > [Monitor](https://app.logz.io/#/dashboard/jaeger/monitor)** to view the aggregated metrics for your services and operations.
+Give your metrics some time to reach and render from your system to Logz.io, then navigate to **[Tracing](https://app.logz.io/#/dashboard/jaeger/) > [Monitor](https://app.logz.io/#/dashboard/jaeger/monitor)** to view the aggregated metrics for your services and operations.
 
 </div>

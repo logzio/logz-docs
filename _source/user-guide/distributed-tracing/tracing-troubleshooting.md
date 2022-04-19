@@ -15,13 +15,13 @@ contributors:
 
 Setting up a Distributed Tracing account might require some additional help. In this doc, we'll walk through troubleshooting some common issues. 
 
-* [Distributed Data is not showing data in Service/Operations dropdown lists](/user-guide/distributed-tracing/tracing-troubleshooting.html#distributed-data-is-not-showing-data-in-serviceoperations-dropdown-lists)
+* [Distributed Tracing is not showing data in Service/Operations dropdown lists](/user-guide/distributed-tracing/tracing-troubleshooting.html#distributed-data-is-not-showing-data-in-serviceoperations-dropdown-lists)
   * [Account token misconfiguration in OTEL collector](/user-guide/distributed-tracing/tracing-troubleshooting.html#account-token-misconfiguration-in-otel-collector)
   * [Lost Service and Operation data](/user-guide/distributed-tracing/tracing-troubleshooting.html#lost-service-and-operation-data)
   * [Distributed Tracing Search screen not showing search results](/user-guide/distributed-tracing/tracing-troubleshooting.html#distributed-tracing-search-screen-not-showing-search-results)
 * [Service Performance Monitoring dashboard showing no data](/user-guide/distributed-tracing/tracing-troubleshooting.html#service-performance-monitoring-dashboard-showing-no-data)
 
-#### Distributed Data is not showing data in Service/Operations dropdown lists
+#### Distributed Tracing is not showing data in Service/Operations dropdown lists
 
 You’ve logged into your Distributed Tracing search screen, and you can’t see any data in Service and Operation lists.
 

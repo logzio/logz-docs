@@ -34,7 +34,11 @@ To search for a value in a specific field, use the following syntax:
 
 `status:200`
 
-You can use the boolean operators AND, OR, and NOT to create more complex searches. For example, to find a range of values. The following syntax will find all status codes between 400-499:
+You can use the boolean operators AND, OR, and NOT to create more complex searches. For example, to search for a specific status that doesn't contain a certain word:
+
+`status:406 NOT "error"`
+
+If you want to perform **range-related searches**, the fields must be mapped as numbers (long, float, double, etc.). Then, you can use the following syntax to find all status codes between 400-499:
 
 `status:[400 TO 499]`
 

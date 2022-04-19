@@ -365,6 +365,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
     - title: Tracing accounts
       url: /user-guide/accounts/manage-the-distributed-tracing-account.html
+    - title: Audit trail
+      url: /user-guide/accounts/audit-trail.html
       # - title: Usage and billing
   - title: Hosting Regions
     thirdLevel:

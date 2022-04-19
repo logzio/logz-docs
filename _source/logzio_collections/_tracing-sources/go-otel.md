@@ -196,7 +196,7 @@ func handleErr(err error, message string) {
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your Go application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.33.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your Go application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
@@ -438,7 +438,20 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-##### Define the logzio-otel-traces service name
+
+##### Run the Helm deployment code
+
+```
+helm install  \
+--set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
+logzio-otel-traces logzio-helm/logzio-otel-traces
+```
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+
+##### Define the logzio-otel-traces service dns
 
 In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
@@ -453,17 +466,6 @@ It will deploy a small pod that extracts your cluster domain name from your Kube
   
 
 
-##### Run the Helm deployment code
-
-```
-helm install  \
---set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-otel-traces logzio-helm/logzio-otel-traces
-```
-
-{% include /tracing-shipping/replace-tracing-token.html %}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is different than US East. https://docs.logz.io/user-guide/accounts/account-region.html#available-regions
 
 ##### Check Logz.io for your traces
 

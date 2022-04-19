@@ -404,7 +404,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/logzio-otel-spm
 helm repo update
 ```
 
-##### Define the logzio-otel-traces service name
+##### Define the logzio-otel-traces service dns
 
 
 In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.

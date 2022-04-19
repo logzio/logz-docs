@@ -39,7 +39,7 @@ If you have an active Metrics plan, the Service Performance Monitoring dashboard
 
 Once setup is complete, you can change and re-adjust your data allocation by navigating to the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
 
-If you don't have enough UTS available in your existing Metrics account, you'll need to **re-allocate** or **add additional UTS** to your account, which you can do on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+If you don't have enough UTS available in your existing Metrics account, you'll need to **re-allocate** or **purchase additional UTS** to your account, which you can do on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
 
 #### Configure and ship your data
 

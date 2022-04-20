@@ -17,7 +17,7 @@ Best of all, we'll share some logging and monitoring best practices.
 
 #### Scheduled meeting times
 
-If you’d like to join us, simply register using this [Calendly link](https://calendly.com/meet-logzio/logz-io-training-101).
+If you’d like to join us, simply register using this [Calendly link](https://calendly.com/stevemccabe-logz/logz-io-training-101).
 
 Sessions run on Mondays at 12:30 PM ET and Thursdays at 9:00 AM ET. 
 

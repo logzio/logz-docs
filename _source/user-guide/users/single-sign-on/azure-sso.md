@@ -116,7 +116,7 @@ Next, navigate to **Certificates & secrets** on the left side menu, and add a **
 
 Navigate to **Overview**, located on the left side menu, copy the Application ID and send it with the Secret you've created to **[Logz.io Support team](mailto:help@logz.io)**.
 
-Once your connection has been updated and approved by Logz.io Support team, you and your team should be able to log in to Logz.io via the SSO connection regardless of the number of members in a group.
+Once your connection has been updated and approved by Logz.io Support team, you and your team should be able to log in to Logz.io via the SSO connection (found in https://myapplications.microsoft.com/) regardless of the number of members in a group.
 
 
 ##### _(Optional)_ Restrict access to Logz.io to specific user groups

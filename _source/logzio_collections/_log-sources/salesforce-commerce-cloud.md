@@ -42,19 +42,19 @@ The default configuration uses a Docker container with environment variables.
 ##### Pull the Docker image of the Logz.io Salesforce Commerce Cloud data fetcher
 
 ```shell
-docker pull logzio/webdav-fetcher:latest
+docker pull logzio/sfcc-logs-fetcher:latest
 ```
 
 ##### Run the Docker container
 
 ```shell
-docker run --name webdav-fetcher
+docker run --name sfcc-logs-fetcher
 -e LOGZIO_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>>  \
 -e LOGZIO_LISTENER_URL=https://<<LISTENER-HOST>>:8071 \
 -e SFCC_HOSTNAME=<<your_sfcc_host>> \
 -e SFCC_CLIENT_ID=<<your_sfcc_client_id>> \
 -e SFCC_CLIENT_SECRET=<<your_sfcc_client_secret>> \
-logzio/webdav-fetcher:latest
+logzio/sfcc-logs-fetcher:latest
 ```
 
 | Parameter | Description | Required/Default |
@@ -90,8 +90,8 @@ The default configuration uses a Docker container with environment variables def
 You will need a dedicated directory to use it as mounted directory for the Docker container of the Logz.io Salesforce Commerce Cloud.
 
 ```shell
-mkdir lwebdav-fetcher
-cd webdav-fetcher
+mkdir sfcc-logs-fetcher
+cd sfcc-logs-fetcher
 ```
 
 ##### Create a configuration file
@@ -121,7 +121,7 @@ Replace the variable values as per the table below:
 ##### Run the Docker container with the configuration file
 
 ```shell
-docker run -d --env-file=variables.env logzio/webdav-fetcher:latest
+docker run -d --env-file=variables.env logzio/sfcc-logs-fetcher:latest
 ```
 
 

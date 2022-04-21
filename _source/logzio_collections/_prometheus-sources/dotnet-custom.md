@@ -5,6 +5,9 @@ logo:
   orientation: horizontal
 data-source: .NET Core application
 data-for-product-source: Metrics
+open-source:
+  - title: logzio-app-metrics
+    github-repo: logzio-app-metrics
 contributors:
   - nshishkin
 shipping-tags:
@@ -70,7 +73,7 @@ To create MetricsBuilder, copy and paste the following code into the function of
 
 ```csharp
 var metrics = new MetricsBuilder()
-                .Report.ToLogzioHttp("<<LISTENER-HOST>>", "<<METRICS-SHIPPING-TOKEN>>")
+                .Report.ToLogzioHttp("<<LISTENER-HOST>>:<<PORT>>", "<<METRICS-SHIPPING-TOKEN>>")
                 .Build();
 ```
 
@@ -483,7 +486,7 @@ You can configure MetricsBuilder to use ToLogzioHttp exporter, which allows you 
 var metrics = new MetricsBuilder()
                 .Report.ToLogzioHttp(options =>
                 {
-                    options.Logzio.EndpointUri = new Uri("<<LISTENER-HOST>>");
+                    options.Logzio.EndpointUri = new Uri("<<LISTENER-HOST>>:<<PORT>>");
                     options.Logzio.Token = "<<METRICS-SHIPPING-TOKEN>>";
                     options.FlushInterval = TimeSpan.FromSeconds(15);
                     options.Filter = new MetricsFilter().WhereType(MetricType.Counter);

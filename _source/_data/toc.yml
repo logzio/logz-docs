@@ -530,8 +530,8 @@ firstLevel:
     - title: Using Inspect feature on Kibana UI
       url: /api/cookbook/inspect.html
 
-  - title: LightS - Light Synthetic Monitoring for AWS
-    url: /integrations/lights/
+  ##- title: LightS - Light Synthetic Monitoring for AWS
+  ##  url: /integrations/lights/
 
 
   # ===== MORE =====

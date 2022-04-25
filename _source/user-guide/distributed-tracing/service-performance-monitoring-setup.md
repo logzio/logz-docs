@@ -25,6 +25,13 @@ The second pipeline extracts the metrics from the same spans, aggregates them, a
 
 <div class="tasklist">
 
+#### Activating your Sevirce Performance Monitoring dashboard
+
+To get started with your very own dashboard, you'll need to
+
+Navigate to Tracing > click on the Monitor tab.
+
+
 
 #### Prerequisite for Service Performance Monitoring dashboard
 

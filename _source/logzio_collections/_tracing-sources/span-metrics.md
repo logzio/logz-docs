@@ -140,6 +140,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 
 
 {% include /tracing-shipping/replace-tracing-token.html %}
+
 * Replace `<<SPM-METRICS-SHIPPING-TOKEN>>` with a [token](https://app.logz.io/#/dashboard/settings/manage-accounts) for the Metrics account that is dedicated to your Service Performance Monitoring feature.
 
 An example configuration file looks as follows:
@@ -336,6 +337,7 @@ logzio/otel-collector-spm
 ```
   
 {% include /tracing-shipping/replace-tracing-token.html %}
+
 * Replace `<<SPM-METRICS-SHIPPING-TOKEN>>` with a [token](https://app.logz.io/#/dashboard/settings/manage-accounts) for the Metrics account that is dedicated to your Service Performance Monitoring feature.
   
 ###### Optional parameters
@@ -433,6 +435,7 @@ logzio-otel-spm logzio-helm/logzio-otel-spm
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
+
 * Replace `<<SPM-METRICS-SHIPPING-TOKEN>>` with a [token](https://app.logz.io/#/dashboard/settings/manage-accounts) for the Metrics account that is dedicated to your Service Performance Monitoring feature.
 
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).

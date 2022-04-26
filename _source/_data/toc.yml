@@ -461,8 +461,8 @@ firstLevel:
   secondLevel:
   - title: Ship your data to Logz.io
     url: /shipping/
-  - title: Send data with the Telemetry Collector
-    url: /log-shipping/telemetry-collector.html
+  - title: Send your data with Telemetry Collector
+    url: /user-guide/log-shipping/telemetry-collector.html
 #  - title: Log shipping intro
 #    url: /user-guide/log-shipping/
 

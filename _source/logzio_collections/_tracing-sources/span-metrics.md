@@ -140,8 +140,10 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 
 
 {% include /tracing-shipping/replace-tracing-token.html %}
-* Replace `<<SPM-METRICS-SHIPPING-TOKEN>>` with a [token](https://app.logz.io/#/dashboard/settings/manage-accounts) for the Metrics account that is dedicated to your Service Performance Monitoring feature.
 
+{% include /tracing-shipping/replace-spm-token.html %}
+  
+  
 An example configuration file looks as follows:
 
 ```yaml
@@ -336,7 +338,9 @@ logzio/otel-collector-spm
 ```
   
 {% include /tracing-shipping/replace-tracing-token.html %}
-* Replace `<<SPM-METRICS-SHIPPING-TOKEN>>` with a [token](https://app.logz.io/#/dashboard/settings/manage-accounts) for the Metrics account that is dedicated to your Service Performance Monitoring feature.
+
+{% include /tracing-shipping/replace-spm-token.html %}
+  
   
 ###### Optional parameters
 
@@ -434,6 +438,7 @@ logzio-otel-spm logzio-helm/logzio-otel-spm
 
 
 {% include /tracing-shipping/replace-tracing-token.html %}
+  
 {% include /tracing-shipping/replace-spm-token.html %} 
 
 

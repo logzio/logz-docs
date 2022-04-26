@@ -31,6 +31,17 @@ To get started with your very own dashboard, you'll need to
 
 Navigate to Tracing > click on the Monitor tab.
 
+מגבלות - רק אדמין יכול להפעיל את השירות
+עוד מגבלה - מתוך סאב אקאונט אי אפשר לפתוח את ה
+SPM
+כי זה יצירה של חשבון ואי אפשר ליצור חשבון מתוך סאב אקאונטס
+
+להוסיף מסך בפיגמה ולהגיד להם שצריך לעשות את זה מהאקאונט הראשי
+כי האדמין צריך לעשות את זה
+
+through managed account
+
+גישה נדרשת רק לצורך הפתיחה של הפיצ'ר - מגבלה 
 
 
 #### Prerequisite for Service Performance Monitoring dashboard

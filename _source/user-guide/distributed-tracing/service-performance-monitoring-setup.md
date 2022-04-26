@@ -12,7 +12,7 @@ contributors:
   - hidan
 ---
 
-Logz.io Service Performance Monitoring dashboard provides an overview of your systems' health by aggregating **Request**, **Error**, and **Duration** (R.E.D) metrics from span data. The dashboard helps you to pinpoint and isolate incidents in your system quickly.
+Logz.io Service Performance Monitoring dashboard (SPM) provides an overview of your systems' health by aggregating **Request**, **Error**, and **Duration** (R.E.D) metrics from span data. The dashboard helps you to pinpoint and isolate incidents in your system quickly.
 
 
 The following guide helps you configure the OpenTelemetry collector to extract metrics from spans generated from your application instrumentation, and send them to Logz.io. 
@@ -26,6 +26,15 @@ The second pipeline extracts the metrics from the same spans, aggregates them, a
 <div class="tasklist">
 
 #### Activating your Sevirce Performance Monitoring dashboard
+
+Only account admins can activate the Service Performance Monitoring dashboard.
+{:.info-box.note}
+
+To get started with your SPM dashboard, you'll need to activate your account. Navigate to Tracing and click on the Monitor tab.
+
+
+
+
 
 To get started with your very own dashboard, you'll need to
 

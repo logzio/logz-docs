@@ -94,6 +94,9 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 * Under the `exporters` list:
 
 ```yaml
+  logzio:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
   prometheusremotewrite/spm:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
@@ -131,7 +134,12 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 * Under the `service: pipelines` list:
 
 ```yaml
-  metrics/spanmetrics:
+pipelines:
+    traces:
+      receivers: [jaeger]
+      processors: [spanmetrics,batch]
+      exporters: [logzio]
+    metrics/spanmetrics:
       # This receiver is just a dummy and never used.
       # Added to pass validation requiring at least one receiver in a pipeline.
       receivers: [otlp/spanmetrics]

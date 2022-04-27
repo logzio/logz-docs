@@ -10,6 +10,11 @@ cards:
     # url: "#" #/getting-started/overview/index.html
     # icon: blocks.svg
 
+  - title: Logz.io quick start guide
+    description: Learn how to make the most out of the Logz.io platform
+    url: /getting-started.htmlס
+    li-class: li-dashboard
+
   - title: Send your data
     description: All the different ways to send your data to Logz.io
     url: /shipping/
@@ -20,10 +25,10 @@ cards:
     url: /user-guide/kibana/
     li-class: li-bar-graph
 
-  - title: Exceptions
-    description: Logz.io AI helps you identify exceptions in your logs
-    url: /user-guide/insights/exceptions/
-    li-class: li-eye
+  #- title: Exceptions
+  #  description: Logz.io AI helps you identify exceptions in your logs
+  #  url: /user-guide/insights/exceptions/
+  #  li-class: li-eye
 
   - title: API
     description: Grow your own integration

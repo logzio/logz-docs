@@ -11,6 +11,7 @@ tags:
 contributors:
   - imnotashrimp
   - ayigal
+  - hidan
 ---
 
 While your main account and sub accounts
@@ -58,5 +59,37 @@ add the intended accounts to the **Read & write permissions** box.
 ##### Save your changes
 
 Click **Apply** to save your changes.
+
+</div>
+
+#### To clean a timeless account
+
+
+<div class="tasklist">
+
+##### Find your timeless account plan
+
+Log into your Logz.io account, navigate to **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)**, and find your timeless account plan.
+
+![Timeless account plan](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/timeless-account-manage.png)
+
+##### Choose the relevant account
+
+Click on the account you'd like to clean. Then, in the dropdown menu, you'll be able to review the account's data usage.
+
+![Timeless account plan expanded](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/timeless-account-in-use.png)
+
+##### Clean the data
+
+Click on the **Clean** button to open a popup with additional options. You can decide what log data to delete from your timeless account in this popup. Select the date range in which you'd like to clean the data. You can also select specific optimizers to clean. Next, click on **Continue**.
+
+![Clean timeless data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/timeless-date-and-optimizers-msg.png)
+
+##### Confirm the clean
+
+The final confirmation window summarizes how many log messages will be deleted in this process. This process might take a few minutes, depending on the number of log messages, and is irreversible. To confirm, click on the **Yes, please clean my account** button.
+
+![Timeless account plan expanded](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/timeless-confirmation-msg.png)
+
 
 </div>

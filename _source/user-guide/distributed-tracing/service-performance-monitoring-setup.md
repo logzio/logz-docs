@@ -23,50 +23,41 @@ The first pipeline sends the spans to the Logz.io backend, where you can analyze
 
 The second pipeline extracts the metrics from the same spans, aggregates them, and sends them to Logz.io’s Prometheus-based account.
 
-<div class="tasklist">
 
-#### Activating your Sevirce Performance Monitoring dashboard
+
+#### Activate the Service Performance Monitoring dashboard
 
 Only account admins can activate the Service Performance Monitoring dashboard.
 {:.info-box.note}
 
-To get started with your SPM dashboard, you'll need to activate your account. Navigate to Tracing and click on the Monitor tab.
+To get started with Service Performance Monitoring, you'll need to log into your **[Tracing](https://app.logz.io/#/dashboard/jaeger)**, switch to the Monitor tab located at the top of the screen, and click on the **Start now** button.
 
+![Get started screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/monitor-onboarding-screen.png)
 
+You'll then be given a heads up that SPM requires an active **[Metrics](https://app.logz.io/#/dashboard/metrics)** plan. If you don't have an active Metrics plan, a trial account will be automatically created for you, **free of charge**.
 
-
-
-To get started with your very own dashboard, you'll need to
-
-Navigate to Tracing > click on the Monitor tab.
-
-מגבלות - רק אדמין יכול להפעיל את השירות
-עוד מגבלה - מתוך סאב אקאונט אי אפשר לפתוח את ה
-SPM
-כי זה יצירה של חשבון ואי אפשר ליצור חשבון מתוך סאב אקאונטס
-
-להוסיף מסך בפיגמה ולהגיד להם שצריך לעשות את זה מהאקאונט הראשי
-כי האדמין צריך לעשות את זה
-
-through managed account
-
-גישה נדרשת רק לצורך הפתיחה של הפיצ'ר - מגבלה 
-
-
-#### Prerequisite for Service Performance Monitoring dashboard
-
-To get started with your very own dashboard, you'll need an active **[Metrics](https://app.logz.io/#/dashboard/metrics)** plan.
-
-If you don't have an active Metrics plan, a trial account will be automatically created for you, **free of charge**.
-
-Your Metrics account trial will be available for 2 weeks. Afterward, you'll need to purchase a Metrics plan to continue using your Service Performance Monitoring dashboard. 
-{:.info-box.note}
+> _The Metrics account trial will be available for **2 weeks**. Afterward, you'll need to **purchase a Metrics plan** to continue using your Service Performance Monitoring dashboard._
 
 If you have an active Metrics plan, the Service Performance Monitoring dashboard will try to allocate data from your existing plan. It requires a **minimum of 1,000 available UTS** in your Metrics plan to run and will try and allocate **up to 5,000 UTS**.
 
 Once setup is complete, you can change and re-adjust your data allocation by navigating to the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
 
 If you don't have enough UTS available in your existing Metrics account, you'll need to **re-allocate** or **purchase additional UTS** to your account, which you can do on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+
+
+##### Logz.io sub account users
+
+If you're using a Logz.io sub account, you'll need to ask your account admin to add data viewing permissions before activating the Service Performance Monitoring dashboard.
+
+The account's admin will need to log into Logz.io's main account > navigate to **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)**, and find the Distributed Tracing Account plan.
+
+![Manage account overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/account-plan-sock-shop.png)
+
+Click on the main tracing account, and add the sub account to allow it to view data from the main tracing source account.
+
+![Add permissions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/add-permissions-tracing.gif)
+
+This process is only needed to activate the SPM. Once activated, the admin can remove the sub account's permissions - as they are no longer necessary to use the Service Performance Monitoring dashboard. 
 
 #### Configure and ship your data
 
@@ -81,5 +72,3 @@ Once everything is set, restart the collector to apply the configuration changes
 #### Check Logz.io for your metrics
 
 Give your metrics some time to reach and render from your system to Logz.io, then navigate to **[Tracing](https://app.logz.io/#/dashboard/jaeger/) > [Monitor](https://app.logz.io/#/dashboard/jaeger/monitor)** to view the aggregated metrics for your services and operations.
-
-</div>

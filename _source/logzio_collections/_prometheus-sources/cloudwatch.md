@@ -15,15 +15,16 @@ order: 800
 
 ## Overview
 
-Deploy this integration to send metrics from your CloudWatch namespace to Logz.io.
+Deploy this integration to send metrics from your CloudWatch to Logz.io.
 
-This integration creates a Kinesis Data Firehose delivery stream that links to your CloudWatch namespace and then sends the metrics to your Logz.io account.
+This integration creates a Kinesis Data Firehose delivery stream that links to your CloudWatch metrics stream and then sends the metrics to your Logz.io account.
+
+This integration currently only available on Logz.io regions US-east-1 and EU-central-1.
 
 #### Setup
 
 **Before you begin, you'll need**:
 
-* A CloudWatch namespace
 * An active account with Logz.io
 
 <div class="tasklist">
@@ -36,7 +37,13 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 3. Give the delivery stream a name.
 
-4. In the **Destination settings** section, enter the **HTTP endpoint URL** for the CloudWatch namespace that you need to collect metrics from.
+4. In the **Destination settings** section, enter the **HTTP endpoint URL** depending on your region.
+
+  | Region | URL |
+  |---|---|
+  | US-East-1 | listener-aws-metrics-steam-us.logz.io |
+  | EU-central-1 | listener-aws-metrics-steam-eu.logz.io |
+  
 
 5. In the **Access key** section, enter your Logz.io metrics shipping token.
 
@@ -44,33 +51,28 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 7. Set the **Retry duration** to 60 seconds.
 
-8. In the **Parameters** section, select **Add parameter**.
+8. In the **Buffer hints** section, enter 4MB for buffer size, and 60 seconds for buffer interval.
 
-9. Add the following two parameters:
+9. If required, in the **Backup settings**, select **Failed data only** and select an S3 bucket you would like to use for backup.
 
-   | Key | Value |
-   |---|---|
-   | LISTENER_URL | <<LISTENER-HOST>>:8053 |
-   | LOGZIO_TOKEN | Your Logz.io metrics shipping token:`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` |
-
-10. In the **Buffer hints** section, enter 4MB for buffer size, and 60 seconds for buffer interval.
-
-11. If required, in the **Backup settings**, select **Failed data only** and select an S3 bucket you would like to use for backup.
-
-12. Select **Create delivery stream**.
+10. Select **Create delivery stream**.
 
 
 ##### Create a CloudWatch metric stream
+  
+1. Navigate to **CloudWatch > Metric streams > Create a metric stream**.
 
-1. In the **Configuration** section, select an existing Firehose as the configuration option.
+2. In the **Metrics to be streamed** section, select what namespaces you want to monitor (include/exclude or all namespaces).
+  
+3. In the **Configuration** section, select an existing Firehose as the configuration option.
 
-2. In the **Select your Kinesis Data** section, select the Kinesis Data Firehose delivery stream created in the previous step.
+4. In the **Select your Kinesis Data** section, select the Kinesis Data Firehose delivery stream created in the previous step.
 
-3. Select **OpenTelemetry 0.7** as the output format.
+5. Select **OpenTelemetry 0.7** as the output format.
 
-4. Give your metric stream a name.
+6. Give your metric stream a name.
 
-5. Select **Create metric stream**.
+7. Select **Create metric stream**.
 
   
 ##### Check Logz.io for your metrics

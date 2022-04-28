@@ -51,7 +51,7 @@ This integration currently only available on Logz.io regions US-east-1 and EU-ce
 
 7. Set the **Retry duration** to 60 seconds.
 
-8. In the **Buffer hints** section, enter 4MB for buffer size, and 60 seconds for buffer interval.
+8. In the **Buffer hints** section, enter 5MB for buffer size, and 60 seconds for buffer interval.
 
 9. If required, in the **Backup settings**, select **Failed data only** and select an S3 bucket you would like to use for backup.
 

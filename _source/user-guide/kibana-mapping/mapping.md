@@ -14,14 +14,26 @@ contributors:
   - yberlinger
 ---
 
-Kibana mappings are important whenever you want to perform any sort of action on a field, such as visualize it, aggregate by it, or use it in an alert.
+Kibana mappings are important whenever you want to perform any action on a field, such as visualize it, aggregate by it, or use it in an alert.
 
-Kibana maps each field by value type so it knows how to display it according to its capabilities.
+Kibana maps each field by value type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
+
+* **Dynamic** - This is the default mapping type, determined by the value of the log fields mapped at the beginning of each day.
+* **Explicit** - This is a forced mapping type, and when chosen, Kibana will always map this field as the same data type.
 
 For example:
 
-* If it’s a string, Kibana won’t allow you to run any mathematical queries on the field.
-* If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization or a `group by` rule.
+`"yourField":123` will be mapped as a number (Long). 
+
+`“yourField”:”abc”` will be mapped as a Keyword (String).
+
+`“yourField”:{“someField”:”someValue”}` will be mapped as an Object.
+
+`yourField.someField` will be mapped as Keyword (String).
+
+If a field is mapped as a string, Kibana won’t allow you to run any mathematical queries on the field.
+If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization, or a `group by` rule.
+
 
 {% include /arrays_in_kibana/array_note.md %}
 
@@ -122,3 +134,7 @@ There is (effectively) no limit on the number of active fields in your database.
 If for any reason, an error occurs, and Elasticsearch hits an error that there are too many fields, Logz.io Support will be immediately notified automatically.
 
 Kibana's field mapping has no bearing on your Elasticsearch index and won't prevent any logs from being analyzed and parsed.
+
+### Resolving mapping errors 
+
+If you encounter an issue or an error when mapping your fields, check out the **[common mapping errors and why they happen](https://docs.logz.io/user-guide/invalid_logs/#mapping-errors)**.

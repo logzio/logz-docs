@@ -33,7 +33,7 @@ This integration currently only available on Logz.io regions US-east-1 and EU-ce
   
 1. Login to your AWS account and navigate to **Amazon Kinesis > Delivery streams > Create delivery stream**.
   
-  ![Screen_1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/delivery_stream.png)
+    ![Screen_1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/delivery_stream.png)
 
 2. Choose **Direct PUT** as **Source** and **HTTP Endpoint** as **Destination**.
 
@@ -64,8 +64,8 @@ This integration currently only available on Logz.io regions US-east-1 and EU-ce
     
 1. Navigate to **CloudWatch > Metric streams > Create a metric stream**.
   
-  ![Screen_2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/metric-stream.png)
-
+   ![Screen_2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/metric-stream.png)
+ 
 2. In the **Metrics to be streamed** section, select what namespaces you want to monitor (include/exclude or all namespaces).
   
 3. In the **Configuration** section, select an existing Firehose as the configuration option.

@@ -14,16 +14,18 @@ contributors:
   - yberlinger
 ---
 
+Field mapping is the process of defining how a value and the fields it contains are stored and indexed. 
+
 Kibana mappings are important whenever you want to perform any action on a field, such as visualize it, aggregate by it, or use it in an alert.
 
-Kibana maps each field by value type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
+## Kibana's mapping fields:
+
+To make your search engine queries and analytics more effective, Kibana maps each field by a data type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
 
 * **Dynamic** - This is the default mapping type, determined by the value of the log fields mapped at the beginning of each day.
 * **Explicit** - This is a forced mapping type, and when chosen, Kibana will always map this field as the same data type.
 
-For example:
-
-`"yourField":123` will be mapped as a number (Long). 
+For example, if the value of the log's field is `"yourField":123`, Kibana will map it as a number (Long).
 
 `“yourField”:”abc”` will be mapped as a Keyword (String).
 
@@ -34,12 +36,7 @@ For example:
 If a field is mapped as a string, Kibana won’t allow you to run any mathematical queries on the field.
 If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization, or a `group by` rule.
 
-
-{% include /arrays_in_kibana/array_note.md %}
-
 ## Managing field mappings
-
-To make your search engine queries and analytics more effective, each field in your parsed logs is mapped to a data type.
 
 Use field mapping to override dynamic mapping and resolve mapping errors for your ingested logs.
 The changes you make on the **Field mappings** page won't affect the logs that are already ingested.
@@ -85,6 +82,10 @@ But they will not appear in filters and do not support 1-click visualizations.
 | Appears in filtering menu | <i class="fas fa-check"></i> | <i class="fas fa-times"></i> |
 | Can be visualized | <i class="fas fa-check"></i> | <i class="fas fa-times"></i> |
 | Searchable | <i class="fas fa-check"></i> | <i class="fas fa-check"></i> |
+
+
+
+{% include /arrays_in_kibana/array_note.md %}
 
 
 #### Manage your Kibana mapping

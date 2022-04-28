@@ -47,7 +47,7 @@ This integration currently only available on Logz.io regions US-east-1 and EU-ce
 
 5. In the **Access key** section, enter your Logz.io metrics shipping token.
 
-6. For **Content encoding**, select **GZIP**.
+6. For **Content encoding**, select **Disabled**.
 
 7. Set the **Retry duration** to 60 seconds.
 

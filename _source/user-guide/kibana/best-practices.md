@@ -1,8 +1,8 @@
 ---
 layout: article
-title: Best practices and popular features in Logs
+title: Best practices and popular features in Log Management
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Best practices and popular features in Logs
+description: Best practices and popular features in Log Management
 permalink: /user-guide/kibana/best-practices.html
 flags:
   logzio-plan: community
@@ -12,9 +12,17 @@ contributors:
   - hidan
 ---
 
-After setting up your Logz.io's Logs account, it's time to learn how to gain more out of your logs.
+After setting up your Logz.io's Log Management account, it's time to learn how to gain more out of your logs.
 
-The following guide includes some of the basics that will help you get started with Logs.
+The following guide includes some of the basics that will help you get started with Logs:
+
+* [Search your logs](/user-guide/kibana/best-practices.html#search-your-logs)
+  * [Use Lucene / Kibana Query Language (KQL)](/user-guide/kibana/best-practices.html#use-lucene--kibana-query-language-kql)
+  * [How to use Regex in Log Management](/user-guide/kibana/best-practices.html#how-to-use-regex-in-log-management)
+  * [Searching and filtering in Log Management](/user-guide/kibana/best-practices.html#searching-and-filtering-in-log-management)
+* [Filter your log results](/user-guide/kibana/best-practices.html#filter-your-log-results)
+* [Select the time frame for your logs](/user-guide/kibana/best-practices.html#select-the-time-frame-for-your-logs)
+* [Create Log Visualizations with Logz.io](/user-guide/kibana/best-practices.html#create-log-visualizations-with-logzio)
 
 #### Search your logs
 
@@ -51,7 +59,7 @@ Or, find status codes 400-499 with the extension php or html:
 `status:[400 TO 499] AND (extension:php OR extension:html)`
 
 
-##### How to use Regex in Logs
+##### How to use Regex in Log Management
 
 Logz.io uses Apache Lucene's regular expression engine to parse regex queries, supporting regexp and query_string.
 
@@ -70,6 +78,12 @@ However, you can still use reserved characters by applying a backslash or double
 `\#` will render as a # sign.
 
 `\()` will render as brackets.
+
+##### Searching and filtering in Log Management
+
+Learn how to search and filter your log data with Logz.io.
+
+<iframe class="vidyard_iframe" src="//play.vidyard.com/Lg6z1KaebTKSQJXaN7wQki.html?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
 
 #### Filter your log results
 

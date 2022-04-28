@@ -30,6 +30,8 @@ This integration currently only available on Logz.io regions US-east-1 and EU-ce
 <div class="tasklist">
 
 ##### Create a Kinesis Data Firehose delivery stream
+  
+![Screen_1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/delivery_stream.png)
 
 1. Login to your AWS account and navigate to **Amazon Kinesis > Delivery streams > Create delivery stream**.
 
@@ -59,6 +61,8 @@ This integration currently only available on Logz.io regions US-east-1 and EU-ce
 
 
 ##### Create a CloudWatch metric stream
+  
+![Screen_2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/metric-stream.png)
   
 1. Navigate to **CloudWatch > Metric streams > Create a metric stream**.
 

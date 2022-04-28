@@ -4,6 +4,7 @@ logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
 data-for-product-source: Metrics
+data-source: Amazon CloudWatch
 templates: ["docker"]
 contributors:
   - nshishkin

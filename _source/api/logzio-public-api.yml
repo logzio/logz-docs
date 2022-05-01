@@ -9254,6 +9254,8 @@ definitions:
 
           * If `NONE`, `fieldToAggregateOn` must be null, and `groupBy` field must not be empty (or null).
 
+          * If `PERCENTAGE`, `valueToAggregateOn` must be specified.
+
 
           * If any other operator type (other than `NONE` or `COUNT`), `fieldToAggregateOn` must not be null.
         enum:
@@ -9264,6 +9266,7 @@ definitions:
           - COUNT
           - UNIQUE_COUNT
           - NONE
+          - PERCENTAGE
       fieldToAggregateOn:
         type: string
         description: >-
@@ -9271,6 +9274,13 @@ definitions:
 
 
           * Cannot be a field already in use for `groupBy`.
+      valueToAggregateOn:
+        type: string
+        description: >-
+          Used by the `PERCENTAGE` aggregation to select the field’s value. This value is used to determine if its ratio out of the total amount of logs in the query satisfies the trigger condition.
+          
+          * Only relevant for the `PERCENTAGE` aggregation.
+
   AlertV2Response:
     type: object
     properties:

@@ -63,7 +63,7 @@ endpoint: ${LISTENER_URL}
 
 ```
 
-We can increase it to `20s`:
+You can increase it to `20s`:
 
 ```yaml
 endpoint: ${LISTENER_URL}
@@ -96,7 +96,7 @@ Insufficient memory allocated to the pod.
 
 In `values.yaml`, increase the memory of the `standaloneCollector` resources by approximately `100Mi`.
 
-For example, if we are using `512Mi`:
+For example, if you are using `512Mi`:
 
 ```yaml
 standaloneCollector:
@@ -111,7 +111,7 @@ standaloneCollector:
       memory: 512Mi
 ```
 
-We can increase it to `612Mi`:
+You can increase it to `612Mi`:
 
 ```yaml
 standaloneCollector:
@@ -126,7 +126,7 @@ standaloneCollector:
       memory: 612Mi
 ```
 
-In addition, we need to make sure that the `scrape_interval` and `scrape_timeout` are set to `30s`:
+You also need to make sure that the `scrape_interval` and `scrape_timeout` are set to `30s`:
 
 ```yaml
 scrape_interval: 30s

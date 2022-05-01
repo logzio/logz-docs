@@ -26,6 +26,7 @@ order: 390
 * [Standard configuration Windows](#Standard-configuration-windows)
 * [Customizing Helm chart parameters](#Customizing-helm-chart-parameters)
 * [Uninstalling the Chart](#Uninstalling-the-chart)
+* [Troubleshooting](#Troubleshooting)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -247,6 +248,13 @@ helm uninstall logzio-otel-k8s-metrics
 </div>
 <!-- tab:end -->
 
+<!-- tab:start -->
+<div id="Troubleshooting">
+
+{% include /p8s-shipping/k8s-troubleshooting.md %}
+
+</div>
+<!-- tab:end -->
 
 </div>
 <!-- tabContainer:end -->

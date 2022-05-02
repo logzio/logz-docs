@@ -12,8 +12,8 @@ cards:
 
   - title: Logz.io quick start guide
     description: Learn how to make the most out of the Logz.io platform
-    url: /getting-started.htmlס
-    li-class: li-dashboard
+    url: /getting-started.html
+    li-class: li-logz
 
   - title: Send your data
     description: All the different ways to send your data to Logz.io

@@ -27,7 +27,7 @@
 - escape-sequence: \e9ac
   class:  li-logz
   additional-css: |
-    font-size: 45px
+    font-size: 45px;
 - escape-sequence: \e906
   class: li-ellipsis-v
   additional-css: |

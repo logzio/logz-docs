@@ -144,6 +144,9 @@ pipelines:
       # Added to pass validation requiring at least one receiver in a pipeline.
       receivers: [otlp/spanmetrics]
       exporters: [prometheus]
+    metrics:
+      receivers: [prometheus]
+      exporters: [logging,prometheusremotewrite]  
 ```
 
 

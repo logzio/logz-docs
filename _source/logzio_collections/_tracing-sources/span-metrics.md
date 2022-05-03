@@ -154,7 +154,9 @@ pipelines:
 
 {% include /tracing-shipping/replace-spm-token.html %}
   
+{% include /log-shipping/listener-var.html %}
   
+
 An example configuration file looks as follows:
 
 ```yaml
@@ -249,6 +251,8 @@ service:
       level: "debug"
 
 ```
+
+
 
 ##### Start the collector
 

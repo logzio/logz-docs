@@ -117,4 +117,4 @@ If your CSV file includes elements that are already in the lookup list, the valu
 
 ##### Additional resources
 
-Learn how you can turn a qurty to a [Dynamic lookup list](/user-guide/lookups/dynamic-lookup.html).
+Learn how you can use a query to create a [Dynamic lookup list](/user-guide/lookups/dynamic-lookup.html).

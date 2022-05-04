@@ -9,6 +9,7 @@ flags:
 tags: 
   - distributed tracing
 contributors:
+  - afishler
   - hidan
 ---
 
@@ -47,7 +48,29 @@ If you don't have enough UTS available in your existing Metrics account, you'll 
 
 ##### Logz.io sub account users
 
-If you're using a Logz.io sub account, you'll need to ask your account admin to add data viewing permissions before activating the Service Performance Monitoring dashboard.
+You can only activate Service Performance Monitoring from your **main Logz.io account**.
+
+If you want to add Service Performance Monitoring to a Tracing account that's only visible from a sub account, you’ll need first to add visibility to the **main account**.
+
+For example, Sock Shop-Tracing DEV is only visible from the sub account Sock Shop DEV:
+
+![Sock shop DEV](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-dev-account-visibility.png)
+
+In this case, you only have visibility to Sock Shop-Tracing DEV from the sub account Sock Shop DEV, and **you won't be able to activate** Service Performance Monitoring for this Tracing account.
+
+To enable Service Performance Monitoring, you'll need to add Sock Shop (the main account) to the list of authorized accounts. 
+
+![Add sock shop](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-dev-add-account.png)
+
+After adding the main Sock Shop account to the list inside your Sock Shop-Tracing DEV settings, you'll have access to the DEV account from the main Sock Shop account, and you’ll be able to go through the activation process.
+
+![View all Tracing accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-dev-in-spm.png)
+
+This process is only required for the duration of the activation process. Once activation is complete, you can restore your original account settings and remove Sock Shop from the list of authorized accounts.
+
+
+
+<!-- If you're using a Logz.io sub account, you'll need to ask your account admin to add data viewing permissions before activating the Service Performance Monitoring dashboard.
 
 The account's admin will need to log into Logz.io's main account > navigate to **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)**, and find the Distributed Tracing Account plan.
 
@@ -57,7 +80,7 @@ Click on the main tracing account, and add the sub account to allow it to view d
 
 ![Add permissions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/add-permissions-tracing.gif)
 
-This process is only needed to activate the SPM. Once activated, the admin can remove the sub account's permissions - as they are no longer necessary to use the Service Performance Monitoring dashboard. 
+This process is only needed to activate the SPM. Once activated, the admin can remove the sub account's permissions - as they are no longer necessary to use the Service Performance Monitoring dashboard. -->
 
 #### Configure and ship your data
 

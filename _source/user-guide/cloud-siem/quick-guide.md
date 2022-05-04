@@ -2,6 +2,8 @@
 layout: article
 title: Cloud SIEM - Quick start guide
 permalink: /user-guide/cloud-siem/quick-guide.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io Cloud SIEM quick start guide
 flags:
   logzio-plan: pro
 tags:
@@ -20,6 +22,6 @@ This Quick start guide is intended to help you get quickly onboarded to Logz.io 
 * [Add notification and SOAR endpoints](/user-guide/cloud-siem/add-endpoints.html)
 * [Edit rules and protected rules](/user-guide/cloud-siem/edit-rules.html)
 * [Manage security events](/user-guide/cloud-siem/manage-security-events.html)
-* [Work with lookups](/user-guide/cloud-siem/work-lookups.html)
+* [Work with lookups](/user-guide/lookups/)
 * [Manage your threat feeds](/user-guide/cloud-siem/manage-feeds.html)
 * [Select dashboards for your Cloud SIEM Summary page](/user-guide/cloud-siem/select-dashboards.html)

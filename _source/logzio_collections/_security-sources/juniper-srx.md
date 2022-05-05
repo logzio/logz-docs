@@ -26,7 +26,7 @@ You can review the Juniper SRX resources in your Logz.io Cloud SIEM account, und
 **Before you begin, you'll need**:
 
 * Juniper SRX
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * Root access
 
 <div class="tasklist">

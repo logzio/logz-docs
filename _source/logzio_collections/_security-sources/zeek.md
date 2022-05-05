@@ -17,9 +17,10 @@ Zeek is a free and open-source software network analysis framework. This integra
 #### Guided configuration
 
 **Before you begin, you'll need**:
-Zeek or Bro,
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html),
-root access
+
+* Zeek or Bro
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* Root access
 
 <div class="tasklist">
 

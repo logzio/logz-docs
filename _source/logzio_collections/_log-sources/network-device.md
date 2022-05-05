@@ -19,8 +19,9 @@ This integration allows you to send logs from your network devices to your Logz.
 #### Guided configuration
 
 **Before you begin, you'll need**:
-[Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) or [Filebeat 6](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html),
-root access
+
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed
+* Root access
 
 <div class="tasklist">
 

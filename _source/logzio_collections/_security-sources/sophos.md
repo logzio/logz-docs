@@ -28,7 +28,7 @@ Sophos Endpoint is an endpoint protection product that combines antimalware, web
 
 * Sophos Intercept X Endpoint installed
 * Access to the [Sophos Central Cloud console](https://central.sophos.com/)
-* [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * Terminal access to the instance running Filebeat. It is recommended to run the Sophos API script from the same instance running your Filebeat.
 
 

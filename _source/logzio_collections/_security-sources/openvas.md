@@ -22,8 +22,8 @@ Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to rev
 
 **Before you begin, you'll need**:
 
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
-* root access
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* Root access
 * [OpenVAS](https://www.openvas.org/about.html)
 
 <div class="tasklist">

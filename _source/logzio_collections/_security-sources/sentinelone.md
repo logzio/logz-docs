@@ -18,6 +18,7 @@ SentinelOne platform delivers the defenses to prevent, detect, and undo—known 
 **Before you begin, you'll need**:
 
 * SentinelOne installed
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed
 * Root access
 
 

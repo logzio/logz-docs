@@ -25,7 +25,7 @@ Once your Falco logs are coming into your account, you can review the pre-config
 **Before you begin, you'll need**:
 
 * Falco installed on the host
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * Root access
 
 <div class="tasklist">

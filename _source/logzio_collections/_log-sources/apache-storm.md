@@ -19,7 +19,7 @@ Apache Storm is a free and open source distributed realtime computation system. 
 
 **Before you begin, you'll need**:
 
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed
 * Port 5015 open.
 * Root access
 

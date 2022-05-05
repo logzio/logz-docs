@@ -8943,7 +8943,7 @@ definitions:
         type: string
         pattern: >-
           ^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,})$
-        description: Email address used to sign in to Logz.io
+        description: Email address used to sign in to Logz.io. This property cannot be updated. A new user will need to be created for each email address.
         example: drvenkman@gbusters.com
       fullName:
         type: string

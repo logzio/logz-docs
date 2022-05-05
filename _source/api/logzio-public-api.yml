@@ -3011,10 +3011,10 @@ paths:
                 example: null
               docvalue_fields:
                 type: array
-                description: Powers inverted indexing. Allows queries to look up the search term in unique sorted list of terms, for faster access to the list of documents that contain the term. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-docvalue-fields.html) for details.
+                description: Powers inverted indexing. Allows queries to look up the search term in unique sorted list by @timestamp. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-docvalue-fields.html) for details.
                 items:
-                  type: object
-                example: []
+                  type: string
+                example: ["@timestamp"]
               version:
                 type: boolean
                 description: Returns a version for each result. See the [Elasticsearch guide](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search-request-version.html) for details.

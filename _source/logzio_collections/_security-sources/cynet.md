@@ -19,7 +19,7 @@ order: 1380
 * An active Cynet license
 * Cynet login credentials 
 * An active account with Logz.io
-* Filebeat 7 installed on a dedicated machine (acting as a syslog server)
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on a dedicated machine (acting as a syslog server)
 * Root priveleges on your machines 
 
 <div class="tasklist">

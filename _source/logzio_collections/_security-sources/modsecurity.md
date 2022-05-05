@@ -21,7 +21,7 @@ ModSecurity, sometimes called Modsec, is an open-source web application firewall
 * Apache2 Web Server and Terminal access to the instance running it
 * [ModSecurity module installed](https://github.com/SpiderLabs/ModSecurity) 
 * [OWASP ModSecurity Core Rule Set (CRS) imported](https://github.com/SpiderLabs/owasp-modsecurity-crs)
-* [Filebeat 7 installed](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 
 <div class="tasklist">
 

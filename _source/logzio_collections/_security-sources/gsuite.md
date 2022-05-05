@@ -15,7 +15,7 @@ order: 630
 G Suite a suite of web applications created by Google for businesses. You can ship G Suite logs to Logz.io using Filebeat and Google Reports API.
 
 
-**Before you begin, you'll need**: [Filebeat 7.9](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html) or higher installed
+**Before you begin, you'll need**: [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html) installed
 
 <!-- info-box-start:info -->
 The GSuite module was [deprecated as of Filebeat 7.12](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-gsuite.html#filebeat-module-gsuite) and has been replaced with the [Google Workspace module](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-google_workspace.html), to bring it in line with Google's current naming. The integration itself remains the same, requiring only that you replace "- module: gsuite" with "- module: google_workspace" in the modules block.

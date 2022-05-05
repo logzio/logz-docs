@@ -18,7 +18,7 @@ order: 1380
 
 * pfSense installed and configured on your machine
 * an active account with Logz.io
-* Filebeat 7 installed on your machine
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on your machine
 * Root priveleges on your machines 
 
 <div class="tasklist">

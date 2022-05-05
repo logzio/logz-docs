@@ -23,7 +23,7 @@ SonicWall firewalls allow you to identify and control all of the applications in
 These are the prerequisites you'll need before you can begin:
 
 * [SonicWall firewall](https://www.sonicwall.com/products/firewalls)
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * root access
 
 ##### Configure SonicWall Server logging

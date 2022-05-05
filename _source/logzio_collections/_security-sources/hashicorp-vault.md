@@ -19,7 +19,7 @@ HashiCorp Vault secures, stores, and tightly controls access to tokens, password
 
 **Before you begin, you'll need**:
 
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed
 * Root access
 
 <div class="tasklist">

@@ -5646,7 +5646,7 @@ paths:
   /v1/user-management:
     get:
       summary: Retrieve all users
-      description: Returns a list of users as an array of JSON objects.
+      description: Returns a list of users as an array of JSON objects. Must be run with an API token for the main account.
       tags:
         - Manage users
       operationId: listUsers
@@ -5876,6 +5876,88 @@ paths:
                 type: string
                 example: "Finished unsuspending user 11300 from accounts."
 
+  /v1/user-management/{account-id}:
+    post:
+      tags:
+        - Manage users
+      summary: Update user details on sub-account
+      description: Update existing user's details or permissions a on a sub account. Must be run with an API token for the main account.
+      operationId: updateExistingUser
+      parameters:
+        - name: account-id
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the account on which the action is run.
+        - in: body
+          name: body
+          schema:
+            type: object
+            properties:
+              userId:
+                type: integer
+                description: ID of the user who last updated this account.
+              username:
+                type: string
+                description: Email address used to sign in to Logz.io.
+              fullName:
+                type: string
+                description: First and last name of the users.
+              accountID:
+                type: integer
+                format: int32
+                description: Logz.io account ID.
+              role:
+                type: string
+                description: User role. Can be `USER_ROLE_READONLY`, `USER_ROLE_REGULAR` or `USER_ROLE_ACCOUNT_ADMIN`.
+      responses:
+        200:
+          description: successful operation
+
+  /v1/user-management/{userId}?=account-id:
+    delete:
+      tags:
+        - Manage users
+      summary: Delete a sub-account
+      description: Revoke a user's access to the sub-account. Must be run with an API token for the main account.
+      operationId: deleteUserSubaccount
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          format: int32
+          description: ID of the user
+        - name: account-id
+          in: query
+          required: false
+          type: integer
+          format: int32
+          description: Logz.io sub-account ID.
+      responses:
+        200:
+          description: successful operation
+
+  /v1/user-management?=account-id:
+    get:
+      tags:
+        - Manage users
+      summary: Retrieve all users for a specific account.
+      description: Retrieve all users for a specific account. Must be run with an API token for the main account.
+      operationId: getUserSubaccount
+      parameters:
+        - name: account-id
+          in: query
+          required: false
+          type: integer
+          format: int32
+          description: Logz.io sub-account ID.
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/User'
 
   # ::::: CLOUD SIEM RULES
   /v2/security/rules:

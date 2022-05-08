@@ -24,6 +24,10 @@
   class: li-left-arrow
 - escape-sequence: \e5c8
   class: li-right-arrow
+- escape-sequence: \e9ac
+  class:  li-logz
+  additional-css: |
+    font-size: 45px;
 - escape-sequence: \e906
   class: li-ellipsis-v
   additional-css: |
@@ -70,6 +74,9 @@
 
 - escape-sequence: \e955
   class:  li-donut_large
+
+- escape-sequence: \e966
+  class:  li-kibana
 
 - escape-sequence: \e93a
   class:  li-dashboard

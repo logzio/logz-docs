@@ -85,7 +85,7 @@ const {
     ConsoleSpanExporter,
     SimpleSpanProcessor,
 } = require("@opentelemetry/tracing");
-const { CollectorTraceExporter } = require("@opentelemetry/exporter-collector");
+const { OTLPTraceExporter } = require("@opentelemetry/exporter-trace-otlp-http");
 const { Resource } = require("@opentelemetry/resources");
 const {
     SemanticResourceAttributes,
@@ -97,7 +97,7 @@ const {
 } = require("@opentelemetry/auto-instrumentations-node");
 
 
-const exporter = new CollectorTraceExporter({
+const exporter = new OTLPTraceExporter({
     url: "http://localhost:4318/v1/traces"
 });
 
@@ -107,7 +107,7 @@ const provider = new BasicTracerProvider({
             "YOUR-SERVICE-NAME",
     }),
 });
-// export span to console (useful for debugging)
+// export spans to console (useful for debugging)
 provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
 // export spans to opentelemetry collector
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
@@ -132,7 +132,7 @@ process.on("SIGTERM", () => {
         .catch((error) => console.log("Error terminating tracing", error))
         .finally(() => process.exit(0));
 });
-
+	
 export default sdk;
 ```
 

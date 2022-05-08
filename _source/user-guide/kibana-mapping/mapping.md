@@ -18,36 +18,52 @@ Field mapping is the process of defining how a value and the fields it contains 
 
 Kibana mappings are important whenever you want to perform any action on a field, such as visualize it, aggregate by it, or use it in an alert.
 
-## Kibana's mapping fields:
+#### Managing and using field mapping
+{:.no_toc}
+
+- toc list
+{:toc}
+
+
+### Default Kibana mapping
+
+You might have noticed that the particular fields mapped by Kibana tend to vary. This is because your Kibana mapping is dynamic and responds to the particular dataset you've selected. The larger the dataset, the more likely it is for fields to be unmapped by Kibana.
+
+By default, Kibana maps only 1,000 fields to keep querying and filtering performance at top speed.
+
+Here's how Kibana does it. First, it finds every field that your account is actively using - in visualizations, dashboards, saved searches, alerts, and optimizers - and makes sure that those fields are mapped.
+
+Let's say you have 10k fields in your database index, but are actively using 300 fields. Then Kibana will first map your 300 required fields and then map another 700 random fields.
+
+Kibana will always make sure that all of your required fields are mapped by default. So even if you have more than 1,000 required fields, Kibana will cover them all and ensure that _all_ of them are mapped every time.
+
+
+### Kibana vs. Elasticsearch mapping
+
+Your log fields are determined by the parsing schema for your data. Depending on the complexity of your log data and the parsing it undergoes, your data set may include thousands of fields. Logz.io ensures that _all_ of your log fields are mapped in the database _at all times_.
+
+There is (effectively) no limit on the number of active fields in your database.
+If for any reason, an error occurs, and Elasticsearch hits an error that there are too many fields, Logz.io Support will be immediately notified automatically.
+
+Kibana's field mapping has no bearing on your Elasticsearch index and won't prevent any logs from being analyzed and parsed.
+
+### Field mapping types
 
 To make your search engine queries and analytics more effective, Kibana maps each field by a data type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
 
 * **Dynamic** - This is the default mapping type, determined by the value of the log fields mapped at the beginning of each day.
 * **Explicit** - This is a forced mapping type, and when chosen, Kibana will always map this field as the same data type.
 
-For example, if the value of the log's field is `"yourField":123`, Kibana will map it as a number (Long).
+For example, if the value of the log field is `"yourField":123`, Kibana will map it as a **number (Long)**.
 
-`“yourField”:”abc”` will be mapped as a Keyword (String).
+`“yourField”:”abc”` will be mapped as a **Keyword (String)**.
 
-`“yourField”:{“someField”:”someValue”}` will be mapped as an Object.
+`“yourField”:{“someField”:”someValue”}` will be mapped as an **Object**.
 
-`yourField.someField` will be mapped as Keyword (String).
+`yourField.someField` will be mapped as a **Keyword (String)**.
 
 If a field is mapped as a string, Kibana won’t allow you to run any mathematical queries on the field.
 If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization, or a `group by` rule.
-
-## Managing field mappings
-
-Use field mapping to override dynamic mapping and resolve mapping errors for your ingested logs.
-The changes you make on the **Field mappings** page won't affect the logs that are already ingested.
-
-You can make up to 5 mapping changes in a day, but be cautious. 
-Changing a field mapping may impact the components and integrations that use the field: Your dashboards, visualizations, searches, alerts, and optimizers may not perform as expected if you change field mappings. 
-
-If you’re not sure of the impact of changing a mapping, contact the **[Logz.io Support team](mailto:help@logz.io)** for advice.
-
-
-### Field mapping data types
 
 Field data type determines how each field is indexed and shown in Kibana. Account admins can change the data types according to a predefined set of options:
 
@@ -56,7 +72,18 @@ Field data type determines how each field is indexed and shown in Kibana. Accoun
 Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
 
 
-##### *Date* data fields
+### Managing field mappings
+
+Use field mapping to override dynamic mapping and resolve mapping errors for your ingested logs.
+The changes you make on the **Field mappings** page won't affect the logs that are already ingested.
+
+You can make **up to 5 mapping changes in a day**, but be cautious. 
+Changing a field mapping may impact the components and integrations that use the field: Your dashboards, visualizations, searches, alerts, and optimizers may not perform as expected if you change field mappings. 
+
+If you’re not sure of the impact of changing a mapping, contact the **[Logz.io Support team](mailto:help@logz.io)** for advice.
+
+
+#### *Date* data fields
 
 Before you change, edit, and send `date` data fields, contact the **[Logz.io Support team](mailto:help@logz.io)**.
 {:.info-box.note}
@@ -68,7 +95,7 @@ There are additional restrictions for `date` data field types:
 
 Therefore, to change the mapping of any field to a `date` field, contact **[Logz.io Support team](mailto:help@logz.io)** before sending the fields.
 
-### How to identify when a field is not mapped in Kibana
+#### How to identify when a field is not mapped in Kibana
 
 If you are trying to filter by a field but the field doesn't appear in the dropdown list, this is a good indication that the field is not mapped in Kibana. 
 
@@ -92,7 +119,7 @@ But they will not appear in filters and do not support 1-click visualizations.
 
 <div class="tasklist">
 
-##### Refresh Kibana mapping
+### Refresh Kibana mapping
 
 If you find that many of the fields you are interested in exploring aren't mapped, you can refresh your Kibana mapping.
 
@@ -100,11 +127,11 @@ To refresh your mapping, via the navigation menu,
 click [<i class="li li-gear"></i> Settings> General settings > Kibana mapping > Refresh mapping](https://app.logz.io/#/dashboard/settings/general).
 
 
-##### Add specific fields to your default Kibana mapping
+### Add specific fields to your default Kibana mapping
 
 Instead of refreshing the mapping in bulk, you can add specific fields to your default Kibana mapping. Click **Field not indexed** on an unmapped field. [Learn more](/user-guide/kibana/mapping/field-not-indexed/)
 
-##### Explicitly map a field 
+### Explicitly map a field 
 
 To manually edit a field mapping,
 Select [Logs > MANAGE DATA > Field mappings](https://app.logz.io/#/dashboard/tools/field-mapping)
@@ -114,27 +141,6 @@ To change the field mapping type, hover over the field, click **edit** <i class=
 
 </div>
 
-### Default Kibana mapping
-
-You might have noticed that the particular fields mapped by Kibana tend to vary. This is because your Kibana mapping is dynamic and responds to the particular dataset you've selected. The larger the dataset, the more likely it is for fields to be unmapped by Kibana.
-
-By default, Kibana maps only 1000 fields to keep querying and filtering performance at top speed.
-
-Here's how Kibana does it. First, it finds every field that your account is actively using - in visualizations, dashboards, saved searches, alerts, and optimizers - and makes sure that those fields are mapped.
-
-Let's say you have 10k fields in your database index, but are actively using 300 fields. Then Kibana will first map your 300 required fields and then map another 700 random fields.
-
-Kibana will always make sure that all of your required fields are mapped by default. So even if you have more than 1000 required fields, Kibana will cover them all and ensure that _all_ of them are mapped every time.
-
-
-### Kibana vs. Elasticsearch mapping
-
-Your log fields are determined by the parsing schema for your data. Depending on the complexity of your log data and the parsing it undergoes, your data set may include thousands of fields. Logz.io ensures that _all_ of your log fields are mapped in the database _at all times_.
-
-There is (effectively) no limit on the number of active fields in your database.
-If for any reason, an error occurs, and Elasticsearch hits an error that there are too many fields, Logz.io Support will be immediately notified automatically.
-
-Kibana's field mapping has no bearing on your Elasticsearch index and won't prevent any logs from being analyzed and parsed.
 
 ### Resolving mapping errors 
 

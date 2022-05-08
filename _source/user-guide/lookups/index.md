@@ -2,6 +2,8 @@
 layout: article
 title: Lookup lists
 permalink: /user-guide/lookups/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about Logz.io's lookup lists and how to use them
 flags:
   logzio-plan: pro
 tags:
@@ -91,6 +93,10 @@ By default, all new lookup lists are created without an expiration period. To se
 1. To delete an existing element, hover over the element in the table, click **delete** <i class="li li-trash"></i> , and **Confirm** or **Cancel** the action.    
 
 ##### Create or edit a lookup list via CSV file upload
+
+
+When uploading a CSV lookup list, make sure the file name **is no longer than 39 characters**. 
+{:.info-box.note}
 
 Create a large lookup list of up to 200 elements, or update the elements of an existing list with a CSV file. 
 

@@ -50,7 +50,7 @@ To set up your locally hosted OpenTelemetry installation to send traces to Logz.
 * Under the `receivers` list:
 
 ```yaml
-otlp/spanmetrics:
+  otlp/spanmetrics:
     protocols:
       grpc:
         endpoint: :12345
@@ -58,9 +58,9 @@ otlp/spanmetrics:
     config:
       global:
         external_labels:
-          p8s_logzio_name: <<CHOOSE-LABEL-NAME>>
+          p8s_logzio_name: spm-otel
       scrape_configs: 
-      - job_name: 'atm'
+      - job_name: 'spm'
         scrape_interval: 15s
         static_configs:
         - targets: [ "0.0.0.0:8889" ]
@@ -69,10 +69,13 @@ otlp/spanmetrics:
 * Under the `exporters` list:
 
 ```yaml
-prometheusremotewrite:
-    endpoint: https://<<LISTENER-HOST>>:8053 # Replace with the Logz.io Listener URL for your region, configured to use port 8052 for http traffic, or port 8053 for https traffic. https://docs.logz.io/user-guide/accounts/account-region.html#available-regions
+  logzio:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+  prometheusremotewrite/spm:
+    endpoint: https://<<LISTENER-HOST>>:8053
     headers:
-      Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>> # Replace with your Metrics token https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics
+      Authorization: Bearer <<SPM-METRICS-SHIPPING-TOKEN>>
   prometheus:
     endpoint: "localhost:8889"
 ```
@@ -80,9 +83,9 @@ prometheusremotewrite:
 * Under the `processors` list:
 
 ```yaml
-spanmetrics:
+  spanmetrics:
     metrics_exporter: prometheus
-    latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms] #These are suggested latency buckets. You can configure the latency bucket to fit your data
+    latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms]
     # Additional list of dimensions on top of:
     # - service.name
     # - operation
@@ -92,25 +95,33 @@ spanmetrics:
       # If the span is missing http.method, the processor will insert
       # the http.method dimension with value 'GET'.
       # For example, in the following scenario, http.method is not present in a span and so will be added as a dimension to the metric with value "GET":
-      # - promexample_calls{http_method="GET",operation="/Address",service_name="shippingservice", span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      # - promexample_calls{http_method="GET",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
       - name: http.method
         default: GET
       # If a default is not provided, the http.status_code dimension will be omitted
       # if the span does not contain http.status_code.
       # For example, consider a scenario with two spans, one span having http.status_code=200 and another missing http.status_code. Two metrics would result with this configuration, one with the http_status_code omitted and the other included:
-      # - promexample_calls{http_status_code="200",operation="/Address",service_name="shippingservice", span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
-      # - promexample_calls{operation="/Address",service_name="shippingservice", span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      # - promexample_calls{http_status_code="200",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      # - promexample_calls{operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
       - name: http.status_code
 ```
 
 * Under the `service: pipelines` list:
 
 ```yaml
-  metrics/spanmetrics:
+pipelines:
+    traces:
+      receivers: [jaeger]
+      processors: [spanmetrics,batch]
+      exporters: [logzio]
+    metrics/spanmetrics:
       # This receiver is just a dummy and never used.
       # Added to pass validation requiring at least one receiver in a pipeline.
       receivers: [otlp/spanmetrics]
       exporters: [prometheus]
+    metrics:
+      receivers: [prometheus]
+      exporters: [logging,prometheusremotewrite]  
 ```
 
 ##### Start the collector

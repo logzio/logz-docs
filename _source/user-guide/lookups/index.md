@@ -95,7 +95,7 @@ By default, all new lookup lists are created without an expiration period. To se
 ##### Create or edit a lookup list via CSV file upload
 
 
-When uploading a CSV lookup list, make sure the file's name **is no longer than 39 characters**. 
+When uploading a CSV lookup list, make sure the file name **is no longer than 39 characters**. 
 {:.info-box.note}
 
 Create a large lookup list of up to 200 elements, or update the elements of an existing list with a CSV file. 

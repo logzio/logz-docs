@@ -35,6 +35,7 @@ If you want to ship from multiple Okta tenants over the same docker, you'll need
 **Before you begin, you'll need**:
 
 * Okta administrator privileges
+* Port 5050 available - Logz.io Logstash endpoint receives logs from port 5050.
 
 <div class="tasklist">
 

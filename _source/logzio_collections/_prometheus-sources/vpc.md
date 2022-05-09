@@ -98,6 +98,6 @@ The full list of data scraping and configuring options can be found [here](https
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3eeYKOR0uk57GFhunVoOsO"] -->
 
-{% include metric-shipping/generic-dashboard.html %} 
+{% include metric-shipping/generic-dashboard.html %}
 
 </div>

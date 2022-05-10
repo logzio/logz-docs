@@ -1,9 +1,9 @@
 ---
-title: Ship Google Virtual Private Cloud (VPC) metrics
+title: Ship Google Cloud VPN metrics
 logo:
   logofile: vpc.png
   orientation: vertical
-data-source: Google Virtual Private Cloud (VPC)
+data-source: Google Cloud VPN
 data-for-product-source: Metrics
 templates: ["docker"]
 contributors:
@@ -17,9 +17,9 @@ order: 800
 
 ## Overview
 
-Google Virtual Private Cloud (VPC) provides networking functionality to Compute Engine virtual machine (VM) instances, Google Kubernetes Engine (GKE) clusters, and the App Engine flexible environment. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Cloud VPN provides networking functionality to Compute Engine virtual machine (VM) instances, Google Kubernetes Engine (GKE) clusters, and the App Engine flexible environment. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Google Virtual Private Cloud (VPC) metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Google Cloud VPN metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -69,7 +69,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   project = "<<YOUR-PROJECT>>"
 
   metric_type_prefix_include = [
-    "vpcaccess.googleapis.com"
+    "vpn.googleapis.com"
   ]
 
   interval = "1m"
@@ -95,7 +95,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboards to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["3eeYKOR0uk57GFhunVoOsO"] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["4gdYz2iIWFeIL3WDDcYRm"] -->
 
 {% include metric-shipping/generic-dashboard.html %}
 

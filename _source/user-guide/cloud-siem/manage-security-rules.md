@@ -2,6 +2,8 @@
 layout: article
 title: Configure a security rule
 permalink: /user-guide/cloud-siem/manage-security-rules.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure a security rule in Logz.io
 flags:
   logzio-plan: pro
 tags:
@@ -83,6 +85,21 @@ Set your threshold and severity levels.
 In the _Trigger if..._ section, click **Add a threshold** to set as many as 5 threshold conditions, each with its own severity tag.
 
 ![rule trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
+
+##### _(Optional)_ Add MITRE ATT&CK Tags
+
+**MITRE ATT&CK** is a curated knowledge base and model for cyber adversary behavior, reflecting the various phases of an adversary’s attack lifecycle and the platforms they are known to target. 
+
+You can add the predefined MITRE tags to your security rules and get an alert when a known cyber security threat is found in your systems.
+
+![Create Mitre Attack tag](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/mitre-attack-add.png)
+
+Click on **Add a Tag**. Then, choose the **Tactics** (Why) and **Technique** (How) you’d like to monitor. For some Techniques, you’ll be able to select a **Sub-technique** to get more in-depth monitoring of it.
+
+![Configure Mitre Attack tag](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/mitre-attack-tags.png)
+
+Click on your saved tags to view MITRE’s documentation and additional information for each one.
+
 
 ##### _(Optional)_ Set notification details
 

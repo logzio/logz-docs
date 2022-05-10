@@ -64,7 +64,7 @@ To enable Service Performance Monitoring, you'll need to add Sock Shop (the main
 
 After adding the main Sock Shop account to the list inside your Sock Shop-Tracing DEV settings, you'll have access to the Sock Shop-Tracing DEV account from the main Sock Shop account, and you’ll be able to go through the activation process.
 
-![View all Tracing accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-dev-in-spm.png)
+![View all Tracing accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/monitor-sub-account-start-now.png)
 
 This process is only required for the duration of the activation process. Once activation is complete, you can restore your original account settings and remove Sock Shop from the list of authorized accounts.
 

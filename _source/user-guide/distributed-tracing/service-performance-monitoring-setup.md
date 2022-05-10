@@ -31,9 +31,9 @@ The second pipeline extracts the metrics from the same spans, aggregates them, a
 Only account admins can activate the Service Performance Monitoring dashboard.
 {:.info-box.note}
 
-To get started with Service Performance Monitoring, you'll need to log into your **[Tracing](https://app.logz.io/#/dashboard/jaeger)**, switch to the Monitor tab located at the top of the screen, and click on the **Start now** button.
+To get started with Service Performance Monitoring, navigate to **[Tracing](https://app.logz.io/#/dashboard/jaeger)**, switch to the Monitor tab located at the top of the screen, and click on the **Start now** button.
 
-![Get started screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/monitor-onboarding-screen.png)
+![Get started screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/monitor-start-screen.png)
 
 You'll then be given a heads up that SPM requires an active **[Metrics](https://app.logz.io/#/dashboard/metrics)** plan. If you don't have an active Metrics plan, a trial account will be automatically created for you, **free of charge**.
 
@@ -43,7 +43,7 @@ If you have an active Metrics plan, the Service Performance Monitoring dashboard
 
 Once setup is complete, you can change and re-adjust your data allocation by navigating to the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
 
-If you don't have enough UTS available in your existing Metrics account, you'll need to **re-allocate** or **purchase additional UTS** to your account, which you can do on the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+If you don't have enough UTS available in your existing Metrics account, you'll need to **[re-allocate](https://app.logz.io/#/dashboard/settings/manage-accounts)** or **[purchase additional UTS](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan)** to your account.
 
 
 ##### Logz.io sub account users
@@ -62,7 +62,7 @@ To enable Service Performance Monitoring, you'll need to add Sock Shop (the main
 
 ![Add sock shop](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-dev-add-account.png)
 
-After adding the main Sock Shop account to the list inside your Sock Shop-Tracing DEV settings, you'll have access to the DEV account from the main Sock Shop account, and you’ll be able to go through the activation process.
+After adding the main Sock Shop account to the list inside your Sock Shop-Tracing DEV settings, you'll have access to the Sock Shop-Tracing DEV account from the main Sock Shop account, and you’ll be able to go through the activation process.
 
 ![View all Tracing accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-dev-in-spm.png)
 

@@ -63,7 +63,7 @@ On deployment, the ASP.NET or .NET Framework instrumentation automatically captu
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your ASP.NET or .NET Framework application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your ASP.NET or .NET Framework application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-releases) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:

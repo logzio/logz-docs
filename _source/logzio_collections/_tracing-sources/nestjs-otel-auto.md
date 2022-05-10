@@ -138,10 +138,10 @@ export default sdk;
 
 ##### Refer your application to the tracer file
 
-Add the following to the `import` section of your application code:
+Add the following to the function of your application code:
 
 ```javascript
-import sdk from '<<PATH-TO-TRACER>>/tracer';
+require('<<PATH-TO-TRACER>>/tracing')
 ```
 
 Replave `<<PATH-TO-TRACER>>` with the path to your tracer file.
@@ -149,7 +149,7 @@ Replave `<<PATH-TO-TRACER>>` with the path to your tracer file.
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your NestJS application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.33.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your NestJS application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-releases) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
@@ -278,10 +278,10 @@ export default sdk;
 
 ##### Refer your application to the tracer file
 
-Add the following to the `import` section of your application code:
+Add the following to the function of your application code:
 
 ```javascript
-import sdk from '<<PATH-TO-TRACER>>/tracer';
+require('<<PATH-TO-TRACER>>/tracing')
 ```
 
 Replave `<<PATH-TO-TRACER>>` with the path to your tracer file.
@@ -438,10 +438,10 @@ export default sdk;
 
 ##### Refer your application to the tracer file
 
-Add the following to the `import` section of your application code:
+Add the following to the function of your application code:
 
 ```javascript
-import sdk from '<<PATH-TO-TRACER>>/tracer';
+require('<<PATH-TO-TRACER>>/tracing')
 ```
 
 Replave `<<PATH-TO-TRACER>>` with the path to your tracer file.

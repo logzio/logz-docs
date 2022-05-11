@@ -134,6 +134,8 @@ This isn't required, though—triggered alerts are still logged and searchable i
 
 Choose the endpoints or email addresses to notify under _Who to send it to_.
 
+###### Add an email address as a recipient
+
 To use an **email** as your endpoint, you need to type the email in the Recipients table and click enter.
 
 ![Enter custom email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/add-custom-email.gif)

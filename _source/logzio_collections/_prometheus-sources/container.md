@@ -20,7 +20,6 @@ order: 800
 
 * [Overview](#overview)
 * [Setup](#Setup)
-* [Troubleshooting](#Troubleshooting)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -118,13 +117,6 @@ Give your data some time to get from your system to ours, then log in to your Lo
 </div>
 <!-- tab:end -->
 
-<!-- tab:start -->
-<div id="Troubleshooting">
-
-{% include /p8s-shipping/k8s-troubleshooting.md %}
-
-</div>
-<!-- tab:end -->
 
 </div>
 <!-- tabContainer:end -->

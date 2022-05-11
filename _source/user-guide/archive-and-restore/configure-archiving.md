@@ -22,7 +22,7 @@ contributors:
 
 You can archive logs to either an Amazon S3 bucket or a Microsoft Azure Storage container.
 
-The Logz.io archiver copies incoming all logs to your selected storage container. The data is archived in its "raw" state ~ pre-indexing and pre-mapping.
+The Logz.io archiver copies all incoming logs to your selected storage container. The data is archived in its "raw" state ~ pre-indexing and pre-mapping.
 
 ###### On this page
 {:.no_toc}

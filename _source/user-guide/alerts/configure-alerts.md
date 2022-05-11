@@ -2,6 +2,8 @@
 layout: article
 title: Configure an alert
 permalink: /user-guide/alerts/configure-an-alert.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure your Logz.io alerts
 flags:
   logzio-plan: community
 tags:
@@ -131,6 +133,12 @@ choose notification endpoints.
 This isn't required, though—triggered alerts are still logged and searchable in Kibana.
 
 Choose the endpoints or email addresses to notify under _Who to send it to_.
+
+To use an **email** as your endpoint, you need to type the email in the Recipients table and click enter.
+
+![Enter custom email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/add-custom-email.gif)
+
+
 If you need help adding a new endpoint,
 see [_Notification endpoints_]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 

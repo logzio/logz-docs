@@ -5650,6 +5650,13 @@ paths:
       tags:
         - Manage users
       operationId: listUsers
+      parameters:
+        - name: accountId
+        in: query
+        required: false
+        type: integer
+        format: int32
+        description: Logz.io sub-account ID.
       responses:
         200:
           description: successful operation
@@ -5694,12 +5701,6 @@ paths:
           type: integer
           format: int32
           description: ID of the user
-        - name: accountId
-          in: query
-          required: false
-          type: integer
-          format: int32
-          description: Logz.io sub-account ID.
       responses:
         200:
           description: successful operation

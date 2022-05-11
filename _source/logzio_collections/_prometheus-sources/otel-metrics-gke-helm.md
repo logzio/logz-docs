@@ -41,6 +41,12 @@ This chart is a fork of the [opentelemetry-collector](https://github.com/open-te
 It is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics), [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) and [prometheus-pushgateway](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-pushgateway) charts, which are installed by default. 
   
 To disable the dependency during installation, set `kubeStateMetrics.enabled`, `nodeExporter.enabled` or `pushGateway.enabled` to `false`.
+  
+For applications that run on Kubernetes, enable the Prometheus scrape feature:
+
+```yaml
+prometheus.io/scrape: true
+```
 
 ###### Sending logs from nodes with taints
 

@@ -6,13 +6,48 @@ The following error appears:
 
 ```shell
 Permanent error: Post \"https://<<LISTENER-HOST>>:8053\": context deadline exceeded
+meaning that the post request timeout.
 ```
 
-This means the post request timeout, which may be caused by:
+### Possible cause - Connectivity issue
 
-* A connectivity issue.
-* A service exposing the metrics needing more time to send the response to the OpenTelemetry collector.
+Connectivity issue may be causing this issue.
 
+#### Suggested remedy
+
+Check your shipper's connectivity as follows.
+
+For macOS and Linux, use telnet to make sure your log shipper can connect to Logz.io listeners.
+
+As of macOS High Sierra (10.13),
+telnet is not installed by default.
+You can install telnet with Homebrew
+by running `brew install telnet`.
+{:.info-box.note}
+
+Run this command from the environment you're shipping from, after adding the appropriate port number:
+
+```shell
+telnet listener.logz.io {port-number}
+```
+For Windows servers running Windows 8/Server 2012 and later, run the following command in PowerShell:
+
+
+```shell
+Test-NetConnection listener.logz.io -Port {port-number}
+```
+
+The port numbers are 8052 and 8053.
+
+### Possible cause - Service exposing the metrics need more time
+
+A service exposing the metrics may need more time to send the response to the OpenTelemetry collector.
+
+#### Suggested remedy
+
+Increase the OpenTelemetry collector timeout as follows.
+
+??????????
 
 ### Possible cause - Incorrect listener and/or token
 
@@ -20,8 +55,12 @@ You may be using incorrect listener and/or token.
 
 #### Suggested remedy
 
-Check that the listener and token of your account are correct. You can view them in the [manage accounts section](https://app.logz.io/#/dashboard/settings/manage-accounts).
+Check that the listener and token of your account are correct. You can view them in the [Manage tokens section](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics).
 
+
+## Problem: Windows nodes error
+
+???????????
 
 ### Possible cause - Incorrect username and/or password for Windows nodes
 
@@ -30,6 +69,8 @@ You may be using incorrect username and/or password for Windows nodes.
 #### Suggested remedy
 
 Ensure the username and password to Windows nodes are correct.
+
+## Problem: Invalid helm chart version
 
 ### Possible cause - The version of the helm chart is not up to date
 
@@ -43,7 +84,12 @@ Update the helm chart by running:
 helm repo update
 ```
 
-### Possible cause - The timeout in prometheusremotewrite exporter
+## Problem: The prometheusremotewrite exporter timeout
+
+?????
+
+
+### Possible cause - The timeout in prometheusremotewrite exporter too short
 
 The `timeout` setting in the `prometheusremotewrite` exporter is too short.
 
@@ -133,8 +179,3 @@ scrape_interval: 30s
 scrape_timeout: 30s
 ```
 
-In addition, for applications that run on Kubernetes, enable the Prometheus scrape feature:
-
-```yaml
-prometheus.io/scrape: true
-```

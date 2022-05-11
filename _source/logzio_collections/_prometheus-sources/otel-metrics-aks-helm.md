@@ -44,6 +44,12 @@ It is also dependent on the [kube-state-metrics](https://github.com/kubernetes/k
   
 To disable the dependency during installation, set `kubeStateMetrics.enabled`, `nodeExporter.enabled` or `pushGateway.enabled` to `false`.
 
+For applications that run on Kubernetes, enable the Prometheus scrape feature:
+
+```yaml
+prometheus.io/scrape: true
+```
+
 ###### Sending logs from nodes with taints
 
 If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:

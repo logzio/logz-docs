@@ -5646,10 +5646,17 @@ paths:
   /v1/user-management:
     get:
       summary: Retrieve all users
-      description: Returns a list of users as an array of JSON objects.
+      description: Returns a list of users as an array of JSON objects. If you run this endpoint without the accountID, then you will retrieve all users within the account the token of which you provide. If you run this endpoint with the accountID, then you will retrieve users only from the given accountID. In this case you must run it with the token of the main account that the accountID belongs to.
       tags:
         - Manage users
       operationId: listUsers
+      parameters:
+        - name: accountId
+        in: query
+        required: false
+        type: integer
+        format: int32
+        description: Logz.io sub-account ID.
       responses:
         200:
           description: successful operation
@@ -5662,7 +5669,7 @@ paths:
           source: 'curl -X GET "https://api.logz.io/v1/user-management" -H "accept: application/json" -H "content-type: application/json" -H "X-API-TOKEN: <token>"'
     post:
       summary: Create a user
-      description: Creates a new user with specified permissions to access your log data
+      description: Creates a new user with specified permissions to access your log data. If you run this endpoint with the token of the main account, then you can perform actions on the main account or any sub-account within the main account by providing the sub-account’s accountID. If you run this endpoint with the token of the sub-account, then you can perform actions only on the given sub-account. 
       tags:
         - Manage users
       operationId: createUser
@@ -5685,7 +5692,7 @@ paths:
       tags:
         - Manage users
       summary: Retrieve a user by ID
-      description: Returns user information and permissions as a JSON object
+      description: Returns user information and permissions as a JSON object.
       operationId: getUser
       parameters:
         - name: id
@@ -5706,7 +5713,7 @@ paths:
       tags:
         - Manage users
       summary: Update a user
-      description: Changes an existing user's details or permissions.
+      description: Changes an existing user's details or permissions. If you run this endpoint with the token of the main account, then you can perform actions on the main account or any sub-account within the main account by providing the sub-account’s accountID. If you run this endpoint with the token of the sub-account, then you can perform actions only on the given sub-account. 
       operationId: updateUser
       parameters:
         - in: body
@@ -5733,7 +5740,7 @@ paths:
       tags:
         - Manage users
       summary: Delete a user
-      description: Revokes a user's access to the account. The API token determines the account the user will be deleted from.
+      description: Revokes a user's access to the account. The API token determines the account the user will be deleted from. If you run this endpoint without the accountID, then you can perform actions on the account that belongs to the token you provided. If you run this endpoint with the accountID, then you will delete only the user from the given accountID. In this case you must run it with the token of the main account that the accountID belongs to.
       operationId: deleteUser
       parameters:
         - name: id
@@ -5743,6 +5750,12 @@ paths:
           format: int32
           description: ID of the user
           example: 11300
+        - name: accountId
+          in: query
+          required: false
+          type: integer
+          format: int32
+          description: Logz.io sub-account ID.
       x-code-samples:
         - lang: cURL
           source: 'curl -X DELETE "https://api.logz.io/v1/user-management/11300" -H "accept: application/json" -H "X-API-TOKEN: <token>"'

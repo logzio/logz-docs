@@ -17,13 +17,13 @@ contributors:
 
 If you're interested in integrating our logs with a specific service or application, here are some FAQs to help troubleshoot the process:
 
-* [Can I integrate with a 3rd-party allocation or service?](/user-guide/log-shipping/faqs-logs-2#can-i-integrate-with-a-3rd-party-application-or-service)
-* [Can I integrate with a proprietary application or service?](/user-guide/log-shipping/faqs-logs-2#can-i-integrate-with-a-proprietary-application-or-service)
-* [Can I integrate using a client-side solution?](/user-guide/log-shipping/faqs-logs-2#can-i-integrate-using-a-client-side-solution)
-* [How to integrate:](/user-guide/log-shipping/faqs-logs-2#logs-written-to-a-file)
-  * [Logs written to a file](/user-guide/log-shipping/faqs-logs-2#logs-written-to-a-file)
-  * [Logs written to cloud storage](/user-guide/log-shipping/faqs-logs-2#logs-written-to-cloud-storage)
-  * [Logs that are accessible via API](/user-guide/log-shipping/faqs-logs-2#logs-that-are-accessible-via-api)
+* [Can I integrate with a 3rd-party allocation or service?](/user-guide/log-shipping/faqs-logs#can-i-integrate-with-a-3rd-party-application-or-service)
+* [Can I integrate with a proprietary application or service?](/user-guide/log-shipping/faqs-logs#can-i-integrate-with-a-proprietary-application-or-service)
+* [Can I integrate using a client-side solution?](/user-guide/log-shipping/faqs-logs#can-i-integrate-using-a-client-side-solution)
+* [How to integrate:](/user-guide/log-shipping/faqs-logs#logs-written-to-a-file)
+  * [Logs written to a file](/user-guide/log-shipping/faqs-logs#logs-written-to-a-file)
+  * [Logs written to cloud storage](/user-guide/log-shipping/faqs-logs#logs-written-to-cloud-storage)
+  * [Logs that are accessible via API](/user-guide/log-shipping/faqs-logs#logs-that-are-accessible-via-api)
 
 #### Can I integrate with a 3rd-party application or service?
 

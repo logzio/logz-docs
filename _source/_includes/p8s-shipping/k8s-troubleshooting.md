@@ -1,4 +1,4 @@
-This section contains some guidelines for handling errors that you may encounter when trying to collect Kubermetes metrics.
+This section contains some guidelines for handling errors that you may encounter when trying to collect Kubernetes metrics.
 
 ## Problem: Permanent error - context deadline exceeded
 
@@ -47,11 +47,17 @@ A service exposing the metrics may need more time to send the response to the Op
 
 Increase the OpenTelemetry collector timeout as follows.
 
-??????????
+In values.yaml,under: `config: receivers: prometheus: config: global: scrape_timeout: <<timeout time>>`.
 
 ### Possible cause - Incorrect listener and/or token
 
 You may be using incorrect listener and/or token.
+
+You will need to look in the logs of a pod whose name contains `otel-collector`. 
+
+In the logs, for the token the error will be: `"error": "Permanent error: remote write returned HTTP status 401 Unauthorized; err = <nil>: Shipping token is not valid"`. 
+
+For the Url the error will be: `"error": "Permanent error: Post \"https://liener.logz.io:8053\": dial tcp: lookup <<provided listener>> on <<ip>>: no such host"`.
 
 #### Suggested remedy
 
@@ -60,11 +66,15 @@ Check that the listener and token of your account are correct. You can view them
 
 ## Problem: Windows nodes error
 
-???????????
 
 ### Possible cause - Incorrect username and/or password for Windows nodes
 
 You may be using incorrect username and/or password for Windows nodes.
+
+You will need to look in the logs of the `windows-exporter-installer` pod. The error will look like this: `INFO:paramiko.transport:Authentication (password) failed.`
+
+`ERROR:root:SSH connection to node aksnpwin000002 failed, please check username and password`.
+ 
 
 #### Suggested remedy
 
@@ -86,8 +96,8 @@ helm repo update
 
 ## Problem: The prometheusremotewrite exporter timeout
 
-?????
 
+When checking the Logz.io app you don't see any metrics, or you only see some of your metrics, but when checking your otel-collector pod for logs, you don't see any errors. This might indicate this issue.
 
 ### Possible cause - The timeout in prometheusremotewrite exporter too short
 

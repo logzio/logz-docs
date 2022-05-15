@@ -272,7 +272,6 @@ process.on("SIGTERM", () => {
 		.finally(() => process.exit(0));
 });
 
-export default sdk;
 ```
 
 ##### Refer your application to the tracer file
@@ -432,7 +431,6 @@ process.on("SIGTERM", () => {
 		.finally(() => process.exit(0));
 });
 
-export default sdk;
 ```
 
 ##### Refer your application to the tracer file

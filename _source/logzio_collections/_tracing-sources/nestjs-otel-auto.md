@@ -66,7 +66,7 @@ Run the following command from the application directory:
 npm install --save @opentelemetry/api
 npm install --save @opentelemetry/instrumentation
 npm install --save @opentelemetry/tracing
-npm install --save @opentelemetry/exporter-trace-otlp-http
+npm install --save @opentelemetry/exporter-collector
 npm install --save @opentelemetry/resources
 npm install --save @opentelemetry/semantic-conventions
 npm install --save @opentelemetry/auto-instrumentations-node
@@ -245,8 +245,8 @@ const exporter = new CollectorTraceExporter({});
 
 const provider = new BasicTracerProvider({
 	resource: new Resource({
-		[SemanticResourceAttributes.SERVICE_NAME]: //replace with the name of your service
-			"logzio-collector-exporter-node-app-a",
+		[SemanticResourceAttributes.SERVICE_NAME]:
+			"YOUR-SERVICE-NAME", // add the name of your service
 	}),
 });
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
@@ -405,7 +405,7 @@ const exporter = new CollectorTraceExporter({});
 const provider = new BasicTracerProvider({
 	resource: new Resource({
 		[SemanticResourceAttributes.SERVICE_NAME]:
-			"logzio-collector-exporter-node-app-a",
+			"YOUR-SERVICE-NAME", // add the name of your service
 	}),
 });
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));

@@ -104,7 +104,7 @@ const exporter = new OTLPTraceExporter({
 const provider = new BasicTracerProvider({
     resource: new Resource({
         [SemanticResourceAttributes.SERVICE_NAME]:
-            "YOUR-SERVICE-NAME",
+            "YOUR-SERVICE-NAME", // add the name of your service
     }),
 });
 // export spans to console (useful for debugging)
@@ -140,10 +140,10 @@ process.on("SIGTERM", () => {
 Add the following to the function of your application code:
 
 ```javascript
-require('<<PATH-TO-TRACER>>/tracing')
+require('<>/tracer.ts');
 ```
 
-Replave `<<PATH-TO-TRACER>>` with the path to your tracer file.
+<!-- Replace `<<PATH-TO-TRACER>>` with the path to your tracer file. -->
 
 
 ##### Download and configure OpenTelemetry collector
@@ -245,7 +245,7 @@ const exporter = new CollectorTraceExporter({});
 
 const provider = new BasicTracerProvider({
 	resource: new Resource({
-		[SemanticResourceAttributes.SERVICE_NAME]:
+		[SemanticResourceAttributes.SERVICE_NAME]: //replace with the name of your service
 			"logzio-collector-exporter-node-app-a",
 	}),
 });
@@ -279,10 +279,10 @@ process.on("SIGTERM", () => {
 Add the following to the function of your application code:
 
 ```javascript
-require('<<PATH-TO-TRACER>>/tracing')
+require('<>/tracer.ts');
 ```
 
-Replave `<<PATH-TO-TRACER>>` with the path to your tracer file.
+<!-- Replace `<<PATH-TO-TRACER>>` with the path to your tracer file. -->
 
 
 {% include tracing-shipping/docker.md %}
@@ -438,10 +438,10 @@ process.on("SIGTERM", () => {
 Add the following to the function of your application code:
 
 ```javascript
-require('<<PATH-TO-TRACER>>/tracing')
+require('<>/tracer.ts');
 ```
 
-Replave `<<PATH-TO-TRACER>>` with the path to your tracer file.
+<!-- Replace `<<PATH-TO-TRACER>>` with the path to your tracer file. -->
 
 
 

@@ -313,3 +313,21 @@
   to = "https://docs.logz.io"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/shipping/prometheus-sources/aws-amazonmq-p8s.html"
+  to = "https://docs.logz.io"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/prometheus-sources/aws-classic-elb-p8s.html"
+  to = "/shipping/prometheus-sources/aws-classic-elb-prometheus.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/prometheus-sources/aws-lambda-p8s.html"
+  to = "/shipping/prometheus-sources/aws-lambda-prometheus.html"
+  status = 301
+  force = true

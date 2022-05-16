@@ -49,11 +49,13 @@ Increase the OpenTelemetry collector timeout as follows.
 
 In values.yaml,under: `config: receivers: prometheus: config: global: scrape_timeout: <<timeout time>>`.
 
-### Possible cause - Incorrect listener and/or token
+## Problem: Incorrect listener and/or token
 
 You may be using incorrect listener and/or token.
 
 You will need to look in the logs of a pod whose name contains `otel-collector`. 
+
+### Possible cause - The token is not valid
 
 In the logs, for the token the error will be: `"error": "Permanent error: remote write returned HTTP status 401 Unauthorized; err = <nil>: Shipping token is not valid"`. 
 
@@ -167,7 +169,7 @@ standaloneCollector:
       memory: 512Mi
 ```
 
-You can increase it to `612Mi`:
+You can increase it as much as needed. In this example, it's increased to `612Mi`:
 
 ```yaml
 standaloneCollector:
@@ -182,7 +184,10 @@ standaloneCollector:
       memory: 612Mi
 ```
 
-You also need to make sure that the `scrape_interval` and `scrape_timeout` are set to `30s`:
+### When running apps on Kubernetes 
+
+
+You need to make sure that the `scrape_interval` and `scrape_timeout` are set to `30s`:
 
 ```yaml
 scrape_interval: 30s

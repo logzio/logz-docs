@@ -48,12 +48,12 @@ docker pull logzio/sfcc-logs-fetcher:latest
 ##### Run the Docker container
 
 ```shell
-docker run --name sfcc-logs-fetcher
--e LOGZIO_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>>  \
--e LOGZIO_LISTENER_URL=https://<<LISTENER-HOST>>:8071 \
--e SFCC_HOSTNAME=<<your_sfcc_host>> \
--e SFCC_CLIENT_ID=<<your_sfcc_client_id>> \
--e SFCC_CLIENT_SECRET=<<your_sfcc_client_secret>> \
+docker run -d -e LOGZIO_SHIPPING_TOKEN=<logzio_shipping_token>
+-e LOGZIO_LISTENER_URL=<logzio_listener_url> \
+-e SFCC_SERVER_NAME=<your_sfcc_host> \
+-e SFCC_CLIENT_ID=<your_sfcc_client_id> \
+-e SFCC_LOG_SOURCE=operational
+-e SFCC_CLIENT_SECRET=<your_sfcc_client_secret> \
 logzio/sfcc-logs-fetcher:latest
 ```
 
@@ -61,8 +61,9 @@ logzio/sfcc-logs-fetcher:latest
 |---|---|---|
 |  `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
 | `<<LOGZIO_LISTENER_URL>>` | {% include log-shipping/listener-var.md %} | Required |
-| SFCC_HOSTNAME         | Hostname from what host need to send logs (ex. `dev01-mysandbox.demandware.net`)                                                                                                                                                                                                                                                                |      Required |
+| SFCC_SERVER_NAME         | SFFC Server name from where you would like to collect logs.                                                                                                                                                                                                                                                                 |      Required |
 | SFCC_CLIENT_ID        | Client id related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                           |      Required |
+| SFCC_LOG_SOURCE    | Flag to represent which log types you would like to collect. `operational` for operational logs, `security` for security logs, `all` for both of them.                                                       |      Required |
 | SFCC_CLIENT_SECRET    | Client secret related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                       |      Required |
 
 ##### Check Logz.io for your logs
@@ -118,10 +119,10 @@ Replace the variable values as per the table below:
 | SFCC_CLIENT_ID        | Client id related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                           |      Required |
 | SFCC_CLIENT_SECRET    | Client secret related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                       |      Required |
 
-##### Run the Docker container with the configuration file
+##### Run the Docker container with the configuration file 2
 
 ```shell
-docker run -d --env-file=variables.env logzio/sfcc-logs-fetcher:latest
+docker run -d --env-file=variables.env logzio/webdav-fetcher:latest
 ```
 
 

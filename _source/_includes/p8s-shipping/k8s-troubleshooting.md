@@ -11,7 +11,7 @@ meaning that the post request timeout.
 
 ### Possible cause - Connectivity issue
 
-Connectivity issue may be causing this issue.
+A connectivity issue may be causing this error.
 
 #### Suggested remedy
 
@@ -51,7 +51,7 @@ In values.yaml,under: `config: receivers: prometheus: config: global: scrape_tim
 
 ## Problem: Incorrect listener and/or token
 
-You may be using incorrect listener and/or token.
+You may be using an incorrect listener and/or token.
 
 You will need to look in the logs of a pod whose name contains `otel-collector`. 
 
@@ -71,7 +71,7 @@ Check that the listener and token of your account are correct. You can view them
 
 ### Possible cause - Incorrect username and/or password for Windows nodes
 
-You may be using incorrect username and/or password for Windows nodes.
+You may be using an incorrect username and/or password for Windows nodes.
 
 You will need to look in the logs of the `windows-exporter-installer` pod. The error will look like this: `INFO:paramiko.transport:Authentication (password) failed.`
 
@@ -169,7 +169,7 @@ standaloneCollector:
       memory: 512Mi
 ```
 
-You can increase it as much as needed. In this example, it's increased to `612Mi`:
+You can increase it as much as needed. In this example, it's `612Mi`:
 
 ```yaml
 standaloneCollector:

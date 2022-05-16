@@ -299,8 +299,8 @@ firstLevel:
       url: /user-guide/cloud-siem/edit-rules.html
     - title: Manage security events
       url: /user-guide/cloud-siem/manage-security-events.html
-    - title: Work with lookups
-      url: /user-guide/cloud-siem/work-lookups.html
+    ##- title: Work with lookups
+    ##  url: /user-guide/cloud-siem/work-lookups.html
     - title: Manage your threat feeds
       url: /user-guide/cloud-siem/manage-feeds.html
     - title: Select dashboards for your Cloud SIEM Summary page
@@ -335,8 +335,14 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Correlated rules
       url: /user-guide/siem/security-correlated-queries/
-    - title: Lookup lists
+  - title: Lookup lists
+    thirdLevel:
+    - title: Lookup overview
       url: /user-guide/lookups/
+    - title: Static lookups
+      url: /user-guide/lookups/static-lookup.html
+    - title: Dynamic lookups
+      url: /user-guide/lookups/dynamic-lookup.html
   - title: Dashboards & Reports
     url: /user-guide/cloud-siem/dashboards/
   - title: Integrations

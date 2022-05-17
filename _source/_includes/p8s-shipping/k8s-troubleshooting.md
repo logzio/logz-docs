@@ -189,10 +189,9 @@ standaloneCollector:
 ### When running apps on Kubernetes 
 
 
-You need to make sure that the `scrape_interval` and `scrape_timeout` are set to `30s`:
+You need to make sure that the `prometheus.io/scrape` is set to `true`:
 
 ```yaml
-scrape_interval: 30s
-scrape_timeout: 30s
+prometheus.io/scrape: true
 ```
 

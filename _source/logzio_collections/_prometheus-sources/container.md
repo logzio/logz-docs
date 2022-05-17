@@ -15,11 +15,27 @@ shipping-tags:
 order: 800
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Setup](#Setup)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
 ## Overview
 
 Google Kubernetes Engine (GKE) is a managed, production-ready environment for running containerized applications. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Google Kubernetes Engine metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Setup">
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -97,5 +113,10 @@ If you need to restrict the number of metrics you receive, adjust the `metric_ty
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
+</div>
+</div>
+<!-- tab:end -->
+
 
 </div>
+<!-- tabContainer:end -->

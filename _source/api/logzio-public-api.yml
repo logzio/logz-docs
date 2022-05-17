@@ -7174,6 +7174,26 @@ definitions:
         description: Accounts that have permissions to access this account's Kibana objects.
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
+      isCapped:
+        type: boolean
+        default: false
+        description: is the account capped by GB (manage accounts page).
+        example: false
+      totalTimeBasedDailyGB:
+        type: number
+        format: float
+        description: Plan GB
+        example: 5
+      sharedGB:
+        type: number
+        format: float
+        description: shareable volume (totalTimeBasedDailyGB - sum(reserved)).
+        example: 5
+      isOwner:
+        type: boolean
+        default: false
+        description: Is the account an owner account.
+        example: false
   TimeBasedAccountCreationResponse:
     type: object
     properties:

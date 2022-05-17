@@ -7177,22 +7177,22 @@ definitions:
       isCapped:
         type: boolean
         default: false
-        description: is the account capped by GB (manage accounts page).
+        description: If the account is capped by GB, `true` (handled through the Manage accounts page). Otherwise, `false`.
         example: false
       totalTimeBasedDailyGB:
         type: number
         format: float
-        description: Plan GB
+        description: The size of the account in GB.
         example: 5
       sharedGB:
         type: number
         format: float
-        description: shareable volume (totalTimeBasedDailyGB - sum(reserved)).
+        description: Indicates the shareable volume (calculated by totalTimeBasedDailyGB - sum(reserved)).
         example: 5
       isOwner:
         type: boolean
         default: false
-        description: Is the account an owner account.
+        description: If the account is an owner account, `true`. Otherwise, `false`. 
         example: false
   TimeBasedAccountCreationResponse:
     type: object

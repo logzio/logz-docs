@@ -20,6 +20,7 @@ order: 800
 
 * [Overview](#overview)
 * [Setup](#Setup)
+* [Troubleshooting](#Troubleshooting)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -114,6 +115,14 @@ If you need to restrict the number of metrics you receive, adjust the `metric_ty
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 </div>
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Troubleshooting">
+
+{% include /p8s-shipping/k8s-troubleshooting.md %}
+
 </div>
 <!-- tab:end -->
 

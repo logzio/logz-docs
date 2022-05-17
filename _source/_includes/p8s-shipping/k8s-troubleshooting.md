@@ -59,6 +59,8 @@ You will need to look in the logs of a pod whose name contains `otel-collector`.
 
 In the logs, for the token the error will be: `"error": "Permanent error: remote write returned HTTP status 401 Unauthorized; err = <nil>: Shipping token is not valid"`. 
 
+### Possible cause - The listener is not valid
+
 For the Url the error will be: `"error": "Permanent error: Post \"https://liener.logz.io:8053\": dial tcp: lookup <<provided listener>> on <<ip>>: no such host"`.
 
 #### Suggested remedy

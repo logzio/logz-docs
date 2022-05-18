@@ -16,11 +16,14 @@ shipping-tags:
 ---
 
 <!-- tab:start -->
+
+With this integration, you can collect Logs from S3 bucket and forward them to Logz.io.
+
 <div class="tasklist">
 
 ##### Create new stack
 
-To deploy this project, click the button that matched the region you wish to deploy your Stack to:
+To deploy this project, click the button that matches the region you wish to deploy your Stack to:
 
 | Region | Deployment                                                                                                                                                                                                                                                                                                               |
 | --- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -83,7 +86,7 @@ Confirm the checkbox, and click **Add*.
 ##### Send logs
 
 That's it. Your function is configured.
-Once you'll upload new files to your bucket, it will trigger the function, and the logs will be sent to your Logz.io account.
+Once you upload new files to your bucket, it will trigger the function, and the logs will be sent to your Logz.io account.
 
 </div>
 <!-- tab:end -->

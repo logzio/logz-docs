@@ -115,23 +115,21 @@ But they will not appear in filters and do not support 1-click visualizations.
 {% include /arrays_in_kibana/array_note.md %}
 
 
-#### Manage your Kibana mapping
+### Manage your mapping
+
 
 <div class="tasklist">
 
-### Refresh Kibana mapping
+#### Refresh mapping
 
-If you find that many of the fields you are interested in exploring aren't mapped, you can refresh your Kibana mapping.
-
-To refresh your mapping, via the navigation menu, 
-click [<i class="li li-gear"></i> Settings> General settings > Kibana mapping > Refresh mapping](https://app.logz.io/#/dashboard/settings/general).
+If you find that many of the fields you are interested in exploring aren't mapped, you can refresh your mapping via the navigation menu. Click [<i class="li li-gear"></i> Settings> General settings > Kibana mapping > Refresh mapping](https://app.logz.io/#/dashboard/settings/general).
 
 
-### Add specific fields to your default Kibana mapping
+#### Add specific fields to your default mapping
 
-Instead of refreshing the mapping in bulk, you can add specific fields to your default Kibana mapping. Click **Field not indexed** on an unmapped field. [Learn more](/user-guide/kibana/mapping/field-not-indexed/)
+Instead of refreshing the mapping in bulk, you can add specific fields to your default mapping. Click **Field not indexed** on an unmapped field. [Learn more](/user-guide/kibana/mapping/field-not-indexed/)
 
-### Explicitly map a field 
+#### Explicitly map a field 
 
 To manually edit a field mapping,
 Select [Logs > MANAGE DATA > Field mappings](https://app.logz.io/#/dashboard/tools/field-mapping)

@@ -7190,7 +7190,7 @@ definitions:
           * If `isFlexible=false`, this field does not apply and will be `null`.
    
          
-          * If `isFlexible=true`, this determines the volume in GB reserved for the account.
+          * If `isFlexible=true`, this determines the account plan volume in GB.
         example: 5.0
       sharedGB:
         type: number

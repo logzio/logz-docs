@@ -7178,16 +7178,16 @@ definitions:
         type: boolean
         default: false
         description: >-
-          * If `isFlexible=false`, this field does not apply.
+          * If `isFlexible=false`, this field does not apply and will be `false`.
    
          
-          * If `isFlexible=true`, this field determines whether the account is capped  by GB. If the account is capped, `true`. Otherwise, `false`.
+          * If `isFlexible=true`, this field determines whether the account is capped  by GB. If the account is capped, `true`.
         example: false
       totalTimeBasedDailyGB:
         type: number
         format: float
         description: >-
-          * If `isFlexible=false`, this field does not apply.
+          * If `isFlexible=false`, this field does not apply and will be `null`.
    
          
           * If `isFlexible=true`, this determines the volume in GB reserved for the account.
@@ -7196,7 +7196,7 @@ definitions:
         type: number
         format: float
         description: >-
-          * If `isFlexible=false`, this field does not apply.
+          * If `isFlexible=false`, this field does not apply and will be `null`.
    
          
           * If `isFlexible=true`, this determines the shareable volume in GB.

@@ -26,6 +26,9 @@ You can share Kibana dashboards, saved searches and visualizations between accou
 
 ##### Export objects from Kibana 
 
+You can export data from up to 20 different accounts. To export data from more than 20 accounts, you'll need to add all of your available accounts to the search by clicking `Add all accounts`.
+{:.info-box.note}
+
 The first step is to export your existing dashboards, searches and visualizations out of your Kibana instance.
 
 1. In **Logs > Kibana**, click  **<i class="li li-gear"></i> (Settings) > Saved objects** 

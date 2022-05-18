@@ -7174,6 +7174,38 @@ definitions:
         description: Accounts that have permissions to access this account's Kibana objects.
       utilizationSettings:
         $ref: '#/definitions/AccountUtilizationSettings'
+      isCapped:
+        type: boolean
+        default: false
+        description: >-
+          * If `isFlexible=false`, this field does not apply and will be `false`.
+   
+         
+          * If `isFlexible=true`, this field determines whether the account is capped  by GB. If the account is capped, `true`.
+        example: false
+      totalTimeBasedDailyGB:
+        type: number
+        format: float
+        description: >-
+          * If `isFlexible=false`, this field does not apply and will be `null`.
+   
+         
+          * If `isFlexible=true`, this determines the account plan volume in GB.
+        example: 5.0
+      sharedGB:
+        type: number
+        format: float
+        description: >-
+          * If `isFlexible=false`, this field does not apply and will be `null`.
+   
+         
+          * If `isFlexible=true`, this determines the shareable volume in GB.
+        example: 5.0
+      isOwner:
+        type: boolean
+        default: false
+        description: If the account is an owner account, `true`. Otherwise, `false`. 
+        example: false
   TimeBasedAccountCreationResponse:
     type: object
     properties:

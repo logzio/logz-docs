@@ -7177,18 +7177,30 @@ definitions:
       isCapped:
         type: boolean
         default: false
-        description: If the account is capped by GB, `true` (handled through the Manage accounts page). Otherwise, `false`.
+        description: >-
+          * If `isFlexible=false`, this field does not apply.
+   
+         
+          * If `isFlexible=true`, this field determines whether the account is capped  by GB. If the account is capped, `true`. Otherwise, `false`.
         example: false
       totalTimeBasedDailyGB:
         type: number
         format: float
-        description: The size of the account in GB.
-        example: 5
+        description: >-
+          * If `isFlexible=false`, this field does not apply.
+   
+         
+          * If `isFlexible=true`, this determines the volume in GB reserved for the account.
+        example: 5.0
       sharedGB:
         type: number
         format: float
-        description: Indicates the shareable volume (calculated by totalTimeBasedDailyGB - sum(reserved)).
-        example: 5
+        description: >-
+          * If `isFlexible=false`, this field does not apply.
+   
+         
+          * If `isFlexible=true`, this determines the shareable volume in GB.
+        example: 5.0
       isOwner:
         type: boolean
         default: false

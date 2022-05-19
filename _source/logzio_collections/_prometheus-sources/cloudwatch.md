@@ -43,8 +43,7 @@ This integration currently only available on Logz.io regions US-east-1 and EU-ce
 
   | Region | URL |
   |---|---|
-  | US-East-1 | listener-aws-metrics-stream-us.logz.io |
-  | EU-central-1 | listener-aws-metrics-srteam-eu.logz.io |
+  | US-East-1 | https://listener-aws-metrics-stream-us.logz.io |
   
 
 5. In the **Access key** section, enter your Logz.io metrics shipping token.

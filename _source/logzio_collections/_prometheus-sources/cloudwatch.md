@@ -19,7 +19,7 @@ Deploy this integration to send metrics from your CloudWatch to Logz.io.
 
 This integration creates a Kinesis Data Firehose delivery stream that links to your CloudWatch metrics stream and then sends the metrics to your Logz.io account.
 
-This integration currently only available on Logz.io regions US-east-1 and EU-central-1.
+This integration currently only available on Logz.io regions US-east-1.
 
 #### Setup
 

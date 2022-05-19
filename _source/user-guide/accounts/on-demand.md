@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Accounts
+title: On Demand Pricing FAQ
 permalink: /user-guide/accounts/on-demand.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Logz.io's On Demand FAQ

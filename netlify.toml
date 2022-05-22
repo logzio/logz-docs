@@ -331,3 +331,9 @@
   to = "/shipping/prometheus-sources/aws-lambda-prometheus.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/shipping/prometheus-sources/cloudwatch.html"
+  to = "/shipping/prometheus-sources/aws-cloudwatch.html"
+  status = 301
+  force = true

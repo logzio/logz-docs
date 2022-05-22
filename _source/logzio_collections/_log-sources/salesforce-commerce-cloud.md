@@ -102,7 +102,7 @@ In the directory created in the previous step, create a file `variables.env` as 
 ```env
 # Environment file for Logz.io Logs for SalesForce Commerce Cloud
 LOGZIO_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>>
-SFCC_HOSTNAME=<<your_sfcc_host>>
+SFCC_SERVER_NAME=<<your_sfcc_host>>
 SFCC_CLIENT_ID=<<your_sfcc_client_id>>
 SFCC_CLIENT_SECRET=<<your_sfcc_client_secret>>
 CCTAIL_ARGS=sfcc
@@ -115,7 +115,7 @@ Replace the variable values as per the table below:
 |---|---|---|
 | LOGZIO_SHIPPING_TOKEN | `<<LOG-SHIPPING-TOKEN>>` Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
 | LOGZIO_LISTENER_URL | {% include log-shipping/listener-var.md %} | Required |
-| SFCC_HOSTNAME         | Hostname from what host need to send logs (ex. `dev01-mysandbox.demandware.net`)                                                                                                                                                                                                                                                                |      Required |
+| SFCC_SERVER_NAME         | Determines from what host need to send logs (ex. `dev01-mysandbox.demandware.net`)                                                                                                                                                                                                                                                                |      Required |
 | SFCC_CLIENT_ID        | Client id related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                           |      Required |
 | SFCC_CLIENT_SECRET    | Client secret related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                       |      Required |
 

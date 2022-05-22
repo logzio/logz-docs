@@ -24,6 +24,7 @@ With this integration, you can collect Logs from S3 bucket and forward them to L
 ##### Create new stack
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
+
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                         |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `us-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/s3-hook/0.0.1/sam-template.yaml&stackName=logzio-s3-hook)           | 

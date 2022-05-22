@@ -50,7 +50,7 @@ To deploy this project, click the button that matches the region you wish to dep
 
 Keep the default setting in the Create stack screen and select **Next**.
 
-![Step 1 screenshot](https://github.com/logzio/s3-hook/tree/master/img/01.png)
+![Step 1 screenshot](https://github.com/logzio/s3-hook/blob/master/img/01.png?raw=true)
 
 ##### Specify stack details
 
@@ -65,19 +65,19 @@ Specify the stack details as per the table below and select **Next**.
 | `logType`        | The log type you'll use with this Lambda. This is shown in your logs under the type field in Kibana. Logz.io applies parsing based on type.       | Default: `s3_hook` |
 
 
-![Step 2 screenshot](https://github.com/logzio/s3-hook/tree/master/img/02.png)
+![Step 2 screenshot](https://github.com/logzio/s3-hook/blob/master/img/02.png?raw=true)
 
 ##### Configure stack options
 
 Specify the Key and Value parameters for the Tags (optional) and select **Next**.
 
-![Step 3 screenshot](https://github.com/logzio/s3-hook/tree/master/img/03.png)
+![Step 3 screenshot](https://github.com/logzio/s3-hook/blob/master/img/03.png?raw=true)
 
 ##### Review
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
-![Step 4 screenshot](https://github.com/logzio/s3-hook/tree/master/img/04.png)
+![Step 4 screenshot](https://github.com/logzio/s3-hook/blob/master/img/04.png?raw=true)
 
 ##### Add trigger
 
@@ -87,7 +87,7 @@ Once your Lambda function is ready, you'll need to manually add a trigger. This 
 
 Go to the function's page, and click on **Add trigger**.
 
-![Step 5 screenshot](https://github.com/logzio/s3-hook/tree/master/img/05.png)
+![Step 5 screenshot](https://github.com/logzio/s3-hook/blob/master/img/05.png?raw=true)
 
 Then, choose **S3** as a trigger, and fill in:
 
@@ -97,7 +97,7 @@ Then, choose **S3** as a trigger, and fill in:
 
 Confirm the checkbox, and click **Add*.
 
-![Step 5 screenshot](https://github.com/logzio/s3-hook/tree/master/img/06.png)
+![Step 5 screenshot](https://github.com/logzio/s3-hook/blob/master/img/06.png?raw=true)
 
 ##### Send logs
 

@@ -50,7 +50,8 @@ To deploy this project, click the button that matches the region you wish to dep
 
 Keep the default setting in the Create stack screen and select **Next**.
 
-![Step 1 screenshot](https://github.com/logzio/s3-hook/blob/master/img/01.png?raw=true)
+![Step 1 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/create-stack.png)
+
 
 ##### Specify stack details
 
@@ -65,19 +66,19 @@ Specify the stack details as per the table below and select **Next**.
 | `logType`        | The log type you'll use with this Lambda. This is shown in your logs under the type field in Kibana. Logz.io applies parsing based on type.       | Default: `s3_hook` |
 
 
-![Step 2 screenshot](https://github.com/logzio/s3-hook/blob/master/img/02.png?raw=true)
+![Step 2 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/specify-stack.png)
 
 ##### Configure stack options
 
 Specify the Key and Value parameters for the Tags (optional) and select **Next**.
 
-![Step 3 screenshot](https://github.com/logzio/s3-hook/blob/master/img/03.png?raw=true)
+![Step 3 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/configure-stack.png)
 
 ##### Review
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
-![Step 4 screenshot](https://github.com/logzio/s3-hook/blob/master/img/04.png?raw=true)
+![Step 4 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/capabilities.png)
 
 ##### Add trigger
 
@@ -87,7 +88,7 @@ Once your Lambda function is ready, you'll need to manually add a trigger. This 
 
 Go to the function's page, and click on **Add trigger**.
 
-![Step 5 screenshot](https://github.com/logzio/s3-hook/blob/master/img/05.png?raw=true)
+![Step 5 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/function-overview.png)
 
 Then, choose **S3** as a trigger, and fill in:
 
@@ -97,7 +98,7 @@ Then, choose **S3** as a trigger, and fill in:
 
 Confirm the checkbox, and click **Add*.
 
-![Step 5 screenshot](https://github.com/logzio/s3-hook/blob/master/img/06.png?raw=true)
+![Step 6 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/add-trigger-.png)
 
 ##### Send logs
 

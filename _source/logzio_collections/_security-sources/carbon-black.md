@@ -1,7 +1,7 @@
 ---
 title: Ship logs from Carbon Black
 logo:
-  logofile: aws-s3.svg
+  logofile: carbon-black.png
   orientation: vertical
 data-source: Carbon Black
 data-for-product-source: Logs

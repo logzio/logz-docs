@@ -420,6 +420,8 @@ firstLevel:
       url: /user-guide/users/single-sign-on/onelogin-sso.html
     - title: Auth0 single sign-on
       url: /user-guide/users/single-sign-on/auth0-sso-guide.html
+    - title: Google Workspace single sign-on
+      url: /user-guide/users/single-sign-on/google-workspace-sso.html
   - title: Authentication Tokens
     thirdLevel:
     - title: Types of tokens

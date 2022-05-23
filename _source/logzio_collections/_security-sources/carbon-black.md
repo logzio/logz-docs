@@ -4,7 +4,7 @@ logo:
   logofile: carbon-black.png
   orientation: vertical
 data-source: Carbon Black
-data-for-product-source: Logs
+data-for-product-source: Cloud SIEM
 short-description: Send Carbon Black logs stored in S3 Bucket to Logz.io via a Lambda function
 open-source:
   - title: s3-hook

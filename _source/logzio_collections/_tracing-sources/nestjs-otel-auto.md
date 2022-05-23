@@ -143,7 +143,7 @@ Add the following to the function of your application code:
 require('<PATH TO YOUR FILE>/tracer.ts');
 ```
 
-<!-- Replace `<<PATH-TO-TRACER>>` with the path to your tracer file. -->
+<!-- Replace `<<PATH-TO-FILE>>` with the path to your tracer file. -->
 
 
 ##### Download and configure OpenTelemetry collector
@@ -282,7 +282,7 @@ Add the following to the function of your application code:
 require('<PATH TO YOUR FILE>/tracer.ts');
 ```
 
-<!-- Replace `<<PATH-TO-TRACER>>` with the path to your tracer file. -->
+<!-- Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file. -->
 
 
 {% include tracing-shipping/docker.md %}
@@ -441,7 +441,7 @@ Add the following to the function of your application code:
 require('<PATH TO YOUR FILE>/tracer.ts');
 ```
 
-<!-- Replace `<<PATH-TO-TRACER>>` with the path to your tracer file. -->
+<!-- Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file. -->
 
 
 

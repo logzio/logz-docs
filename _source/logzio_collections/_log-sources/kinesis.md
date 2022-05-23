@@ -76,7 +76,7 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 | URL (_Deprecated_) | Use REGION instead.  | -- |
 | TYPE | The log type you'll use with this Lambda. You should create a new Lambda for each log type you use. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. | `kinesis_lambda` |
 | FORMAT | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
-| COMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| COMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `true` |
 | MESSAGES_ARRAY (_Optional_) | Name the field containing a JSON array that will be used to split the log document. [Learn more]({{site.baseurl}}/user-guide/mapping-and-parsing/split-json-array.html). **Note**: This option only works if the `FORMAT` is set to `json`. | -- |
 
 
@@ -168,7 +168,7 @@ aws cloudformation deploy \
 | LogzioURL (Deprecated) | Use LogzioREGION instead. | -- |
 | LogzioTYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `kinesis_lambda` |
 | LogzioFORMAT  | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
-| LogzioCOMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| LogzioCOMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `true` |
 | KinesisStreamBatchSize | The largest number of records to read from your stream at one time. | `100` |
 | KinesisStreamStartingPosition | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. | `LATEST` |
 
@@ -257,7 +257,7 @@ Save the template as a yaml file and add the values of your stack to the as per 
 | LogzioURL | {% include log-shipping/listener-var.html %} | -- |
 | LogzioTYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `logzio_kinesis_stream` |
 | LogzioFORMAT  | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
-| LogzioCOMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
+| LogzioCOMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `true` |
 | KinesisStreamBatchSize | The largest number of records to read from your stream at one time. | `100` |
 | KinesisStreamStartingPosition | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. | `LATEST` |
 | LogzioMessagesArray | Set this variable to split the a record into multiple logs based on a field containing an array |  |

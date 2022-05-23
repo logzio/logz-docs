@@ -140,7 +140,7 @@ process.on("SIGTERM", () => {
 Add the following to the function of your application code:
 
 ```javascript
-require('<>/tracer.ts');
+require('<PATH TO YOUR FILE>/tracer.ts');
 ```
 
 <!-- Replace `<<PATH-TO-TRACER>>` with the path to your tracer file. -->
@@ -279,7 +279,7 @@ process.on("SIGTERM", () => {
 Add the following to the function of your application code:
 
 ```javascript
-require('<>/tracer.ts');
+require('<PATH TO YOUR FILE>/tracer.ts');
 ```
 
 <!-- Replace `<<PATH-TO-TRACER>>` with the path to your tracer file. -->
@@ -438,7 +438,7 @@ process.on("SIGTERM", () => {
 Add the following to the function of your application code:
 
 ```javascript
-require('<>/tracer.ts');
+require('<PATH TO YOUR FILE>/tracer.ts');
 ```
 
 <!-- Replace `<<PATH-TO-TRACER>>` with the path to your tracer file. -->

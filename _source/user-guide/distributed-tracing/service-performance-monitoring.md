@@ -5,7 +5,6 @@ permalink: /user-guide/distributed-tracing/service-performance-monitoring
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Getting started with Logz.io Service Performance Monitoring feature
 flags:
-  beta: true
   logzio-plan: pro enterprise
 tags: 
   - distributed tracing
@@ -20,8 +19,6 @@ However, most users have millions of traces at hand, and trying to find a bottle
 That’s where Service Performance Monitoring comes in. It's a high-level monitoring dashboard that offers a better way to monitor your services and operations, providing a bird’s eye view into your systems’ health.
 
 Service Performance Monitoring helps cut down the time to identify and resolve anomalies, spikes and issues. It does that by aggregating Request, Error and Duration (R.E.D) metrics from span data, pointing and isolating incidents in your systems.
-
-{% include page-info/early-access.md type="Beta" %}
 
 ##### Service Performance Monitoring dashboard
 

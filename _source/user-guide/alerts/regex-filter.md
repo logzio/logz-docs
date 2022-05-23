@@ -2,6 +2,8 @@
 layout: article
 title: Trim output with regex filters
 permalink: /user-guide/alerts/regex-filters.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Clean data in notification with regex filters
 flags:
   logzio-plan: community
 tags:
@@ -17,6 +19,8 @@ There is no danger that a regex filter will disrupt the notification.
 
 * If the regex matches the relevant data, you will see only the desired results.
 * If the regex _does not_ match, the filter will be disregarded and the alert output will include the full value, unaltered.
+* The regex needs to be anchored.
+
 
 ### Example for regex filters
 

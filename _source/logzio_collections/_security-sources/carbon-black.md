@@ -3,7 +3,7 @@ title: Ship logs from Carbon Black
 logo:
   logofile: aws-s3.svg
   orientation: vertical
-data-source: S3 Bucket with Lambda
+data-source: Carbon Black
 data-for-product-source: Logs
 short-description: Send Carbon Black logs stored in S3 Bucket to Logz.io via a Lambda function
 open-source:
@@ -67,7 +67,7 @@ Specify the stack details as per the table below and select **Next**.
 | `logzioListener` | The Logz.io listener URL fot your region. (For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) | **Required**       |
 | `logzioToken`    | Your Logz.io log shipping token.                                                                                                                  | **Required**       |
 | `logLevel`       | Log level for the Lambda function. Can be one of: `debug`, `info`, `warn`, `error`, `fatal`, `panic`.                                             | Default: `info`    |
-| `logType`        | The log type you'll use with this Lambda. This is shown in your logs under the type field in Kibana. Logz.io applies parsing based on type.       | Default: `s3_hook` |
+| `logType`        | Set it to `Carbon-Black`. The log type you'll use with this Lambda. This is shown in your logs under the type field in Kibana. Logz.io applies parsing based on type.       | Default: `s3_hook` |
 
 
 ![Step 2 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/specify-stack.png)

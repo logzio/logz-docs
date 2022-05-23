@@ -64,7 +64,7 @@ This integration currently only available on Logz.io regions US-east-1 and EU-ce
     
 1. Navigate to **CloudWatch > Metric streams > Create a metric stream**.
   
-   ![Screen_2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/metric-stream.png)
+   ![Screen_2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/metric-stream-update.png)
  
 2. In the **Metrics to be streamed** section, select what namespaces you want to monitor (include/exclude or all namespaces).
   

@@ -33,7 +33,7 @@ This integration currently only available on Logz.io regions US-east-1 and EU-ce
   
 1. Login to your AWS account and navigate to **Amazon Kinesis > Delivery streams > Create delivery stream**.
   
-    ![Screen_1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/delivery_stream.png)
+    ![Screen_1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/delivery-stream-update.png)
 
 2. Choose **Direct PUT** as **Source** and **HTTP Endpoint** as **Destination**.
 

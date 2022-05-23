@@ -140,10 +140,10 @@ process.on("SIGTERM", () => {
 Add the following to the function of your application code:
 
 ```javascript
-require('<PATH TO YOUR FILE>/tracer.ts');
+require('<<PATH-TO-YOUR-FILE>>/tracer.ts');
 ```
 
-<!-- Replace `<<PATH-TO-FILE>>` with the path to your tracer file. -->
+Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 
 
 ##### Download and configure OpenTelemetry collector
@@ -279,10 +279,10 @@ process.on("SIGTERM", () => {
 Add the following to the function of your application code:
 
 ```javascript
-require('<PATH TO YOUR FILE>/tracer.ts');
+require('<<PATH-TO-YOUR-FILE>>/tracer.ts');
 ```
 
-<!-- Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file. -->
+Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 
 
 {% include tracing-shipping/docker.md %}
@@ -438,10 +438,10 @@ process.on("SIGTERM", () => {
 Add the following to the function of your application code:
 
 ```javascript
-require('<PATH TO YOUR FILE>/tracer.ts');
+require('<<PATH-TO-YOUR-FILE>>/tracer.ts');
 ```
 
-<!-- Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file. -->
+Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 
 
 

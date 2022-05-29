@@ -15,21 +15,29 @@ order: 800
 
 ## Overview
 
-To simplify shipping metrics from one or many sources, we created Telegraf Docker Metrics Collector. Telegraf Docker Metrics Collector is a container that runs Telegraf collector.
+To simplify shipping metrics from one or many sources, we created the Telegraf Docker Metrics Collector. Telegraf Docker Metrics Collector is a container that runs Telegraf collector.
 
-#### Setup
-
-**Before you begin, you'll need**:
-
-* An active account with Logz.io
+#### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">
 
+##### Set up Telegraf v1.17 or higher:
+
+Follow the instructions on [Get started with Telegraf](https://docs.influxdata.com/telegraf/latest/introduction/getting-started/) to:
+
+1. Download and install Telegraf in the terminal.
+2. Create and configure the ‘telegraf.conf’ file.
+3. Start the Telegraf service.
+
 ##### Pull the Docker image
+
+After you create a config file for Telegraf, pull the Docker image:
 
 `docker pull logzio/telegraf-docker-collector-metrics:latest`
 
-##### Run the collector
+##### Start the collector
+
+Run the following command:
 
 ````yaml
 docker run --name telegraf-docker-collector-metrics \
@@ -39,13 +47,15 @@ docker run --name telegraf-docker-collector-metrics \
  logzio/telegraf-docker-collector-metrics:latest
 ````
 
-Replace <<METRICS-SHIPPING-TOKEN>> with your Metrics shipping token.
-Replace <<LOGZIO-LISTENER>> with your listener.
+* Replace `<<METRICS-SHIPPING-TOKEN>>` with your Metrics shipping token.
+* Replace `<<LOGZIO-LISTENER>>` with your listener.
 
 
 If you prefer to store these environment variables in an `.env` file, run the following command:
 
 `docker run -d --env-file=docker.env -v /var/run/docker.sock:/var/run/docker.sock logzio/telegraf-docker-collector-metrics:latest`
+
+**Environment variables:**
 
 |Name|Description|
 |---|---|
@@ -55,9 +65,9 @@ If you prefer to store these environment variables in an `.env` file, run the fo
 |TIMEOUT|Default: `5s`. The request timeout for any Docker Daemon query.|
 |EXCLUED_IMAGES|Default: `nil`. A list of strings, regexes, or globs whose referent container image names will not be among the queried containers. !-prefixed negations are possible for all item types to signify that only unmatched container image names should be monitored. For example: `imageNameToExclude1,imageNameToExclude2)`|
 
-##### Check Logz.io Metrics
+##### Check Logz.io metrics
 
-Give your metrics a few minutes to get from your system to ours, and then open Logz.io.
+Give your metrics a few minutes to get from your system to ours, and then open your Logz.io [Metrics](https://app.logz.io/#/dashboard/metrics) dashboard.
 
 </div>
 

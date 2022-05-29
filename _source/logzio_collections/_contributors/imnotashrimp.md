@@ -1,6 +1,6 @@
 ---
 title: Shalom Boroda
-website: https://keeperofthedocs.com/
+website: 
 linkedin: sboroda
 twitter: KeeperOfTheDocs
 github: imnotashrimp

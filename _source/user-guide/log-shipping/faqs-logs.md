@@ -85,7 +85,7 @@ This information is also available in the Logz.io Docs **Ship your data** sectio
 
 We have existing integrations with both [S3](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket) and [Azure Blob](https://app.logz.io/#/dashboard/send-your-data/log-sources/azure-blob) storage.
 
-This information is also available in the Logz.io Docs **Ship your data** section, in the [S3 Bucket](https://docs.logz.io/shipping/log-sources/s3-bucket.html) and [Azure Blob Storage](https://docs.logz.io/shipping/log-sources/azure-blob.html) topics.
+This information is also available in the Logz.io Docs **Ship your data** section, in the [S3 Bucket](https://docs.logz.io/shipping/log-sources/s3-bucket.html) and [Azure Blob Storage](https://docs.logz.io/shipping/log-sources/azure-blob-trigger.html) topics.
 
 #### Logs that are accessible via API
 

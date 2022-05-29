@@ -7,9 +7,6 @@ data-source: AppRunner
 data-for-product-source: Logs
 templates: ["lambda-apprunner", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/apprunner
-open-source:
-  - title: AppRunner Lambda Log Shipper
-    github-repo: logzio_aws_serverless/tree/master/python3/apprunner
 contributors:
   - yberlinger
   - doron-bargo

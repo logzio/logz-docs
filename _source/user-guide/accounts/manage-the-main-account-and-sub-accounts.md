@@ -44,7 +44,8 @@ The Log Management plan panel is located at the top of the **[Manage accounts](h
 * [View plan summary](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#view-log-management-plan-summary)
 * [View and edit account details](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#view-and-edit-account-details)
 * [Configure which accounts can access a Logs data source](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#configure-which-accounts-can-access-a-logs-data-source)
-* [Add a Log Management sub account to your plan](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-a-log-management-sub-account-to-your-plan)
+* [Main vs. sub account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#main-vs-sub-account)
+* [Add and manage a Log Management sub account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-and-manage-a-log-management-sub-account)
 * [Delete a sub account from your plan](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#delete-a-sub-account-from-your-plan)
 * [Change how many GB are reserved to each account within your plan](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#change-how-many-gb-are-reserved-for-each-account-within-your-plan)
 
@@ -93,7 +94,7 @@ Users that are logged in to the accounts you add here will be able to read the d
 ![Logs add account visibility](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-add-account.gif)
 
 
-### Main vs. sub account
+#### Main vs. sub account
 
 If you're on a Pro or Enterprise plan, you can create sub accounts to help manage user access to your data.
 
@@ -105,7 +106,7 @@ Sub accounts can also help you control access to sensitive data.
 
 By default, all users of your main account have permission to view the data in other logging sub accounts and timeless accounts. You can route different logs to different sub accounts to limit access to data.
 
-### Add and manage a Log Management sub account
+#### Add and manage a Log Management sub account
 
 Sub accounts share the same setting options as the main account (See the list above). In addition, sub accounts have settings used to control access to the data.
 

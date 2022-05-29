@@ -93,18 +93,43 @@ Users that are logged in to the accounts you add here will be able to read the d
 ![Logs add account visibility](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-add-account.gif)
 
 
-#### Add a Log Management sub account to your plan
+### Main vs. sub account
+
+If you're on a Pro or Enterprise plan, you can create sub accounts to help manage user access to your data.
+
+Sub accounts help you control data usage and manage user access to your logs.
+
+You can define data volumes and retention periods for independent environments by shipping different logs to different sub accounts.
+
+Sub accounts can also help you control access to sensitive data.
+
+By default, all users of your main account have permission to view the data in other logging sub accounts and timeless accounts. You can route different logs to different sub accounts to limit access to data.
+
+### Add and manage a Log Management sub account
+
+Sub accounts share the same setting options as the main account (See the list above). In addition, sub accounts have settings used to control access to the data.
+
+To add a sub account, navigate to the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page, and click the **Add sub account** button located in the upper left corner of the Log Management account plan panel.
+
+![Add sub account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-sub-account.png)
+
+Choose the sub account name, retention, and volume options if relevant. On the right hand side, you'll have additional options for this sub account, including:
 
 
-**To create a new sub account**
+| Settings | Description |
+|---|---|
+| **Enable main account users to access this account** | If enabled, all main account users will automatically have user-role permissions to the sub account. This means they can view the log data in the sub account. If disabled, users will need to be explicitly added to the sub account to have access to it. |
+| **Searchable from the main account** | If enabled, data stored in the sub account, can be searched directly from the main account in Kibana. |
+| **Save account utilization metrics** | Logs metrics on your account utilization, such as used and expected data volume at current indexing rate (GB). |
+| **Save log size** | Adds the logSizeEnabled field to each log, stating the log's size. |
+| **Use dashboards, visualizations, and saved searches from these accounts** | Choose the main account from which these elements will be visible on the sub account. Useful if you want to be able to access your main account's data from this sub account. |
+{:.paramlist}
 
-1. Click **Add sub account** in the upper left of the Log Management account plan panel.
-2. Name the new sub account.
-3. Choose the retention duration.
-4. Define reserved volume option (if relevant).
-5. Edit the relevant details: choose whether you want to enable main account users to access this account, if the data will be searchable from the main account, and whether you want to save the account's utilization metrics and log size.
-6. Set which accounts can use it as a data source.
-7. Click **Apply** to apply your changes.
+Click **Apply** to create the sub account.
+
+If you already have a sub account and you'd like to re-configure it, choose the relevant sub account from the list and click on **Advanced options** to access these settings.
+
+![Manage existing sub accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/manage-sub-account.gif)
 
 #### Delete a sub account from your plan
 

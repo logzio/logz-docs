@@ -9,7 +9,7 @@ logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/aws-c
 templates: ["lambda-cloudwatch"]
 open-source:
   - title: AWS Cost and Usage
-    github-repo: aws-cost-and-usage-auto-deployment
+    github-repo: aws-cost-and-usage
 contributors:
   - idohalevi
   - imnotashrimp

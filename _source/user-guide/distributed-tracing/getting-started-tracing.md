@@ -41,7 +41,7 @@ You must have admin permissions for the Logz.io account to view the **Manage tok
 
    *Related Links*
 
-   + For information about how to manage your tracing data sources, see the [Manage a Distributed Tracing account](https://docs.logz.i  user-guide/accounts/manage-the-distributed-tracing-account/) topic.
+   + For information about how to manage your tracing data sources, see the [Manage a Distributed Tracing account](https://docs.logz.io/user-guide/accounts/manage-the-distributed-tracing-account/) topic.
 
 <!-- {% include tracing-shipping/tracing-token.md %} the information was originally in an include. Needed to simplify the image, per comments-->
 
@@ -76,6 +76,6 @@ We recommend that you use the OpenTelemetry collector to gather trace transactio
 [This link takes you to the OpenTelemetry installation.](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry) 
 The information is also available in the **Logz.io Docs**, in [**Ship your data > OpenTelemetry installation**](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html).
 
-If you’re deploying distributed tracing on Kubernetes, we recommend the [Kubernetes deployment reference](https://docs.logz.io/user-guide/user-guide/distributed-tracing/k8s-deployment) topic.
+If you’re deploying distributed tracing on Kubernetes, we recommend the [Kubernetes deployment reference](https://docs.logz.io/shipping/tracing-sources/otel-traces-helm.html) topic.
 
 For additional insights, check out our [Guide to OpenTelemetry!](https://logz.io/learn/opentelemetry-guide/)

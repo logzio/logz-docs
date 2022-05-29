@@ -48,8 +48,8 @@ from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-a
 | **Account name** | Your account name. You can edit and update it at any time. |
 | **Total daily volume** | The maximum volume of logs you can ship per calendar day, in GB. The index resets every day at midnight (00:00 UTC). |
 | **Retention** | The number of days your logs are kept in storage and available in Kibana. |
-| **Save account utilization metrics** | You can enable this option to log [account utilization metrics](/user-guide/accounts/monitor-account-usage.html#what-are-account-utilization-metrics). Depending on the required granularity, metrics can be calculated every 10, 30, or 60 minutes. Utilization data is stored in a separate index as the log type: `logzio_account_utilization`. |
-| **Save log size** | Adds a [new field](/user-guide/accounts/monitor-account-usage.html#what-happens-when-i-save-log-size) to incoming logs. This new field is called `LogSize`, and it contains the log size in bytes. |
+| **Save account utilization metrics** | You can enable this option to log [account utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics). Depending on the required granularity, metrics can be calculated every 10, 30, or 60 minutes. Utilization data is stored in a separate index as the log type: `logzio_account_utilization`. |
+| **Save log size** | Adds a [new field](/user-guide/accounts/manage-account-usage.html#what-happens-when-i-save-log-size) to incoming logs. This new field is called `LogSize`, and it contains the log size in bytes. |
 | **Use objects from the selected accounts** | Gives the account access to Kibana objects (dashboards, visualizations, saved searches) that are stored in other accounts under the same plan. |
 {:.paramlist}
 

@@ -25,14 +25,13 @@ The events are displayed in a table: You can sort the events table by severity, 
 include descriptions for each field column in event table
  -->
 
-* [Filter events](user-guide/cloud-siem/siem-event-management.html#event-filtering) - Learn about the available filters to refine the list of triggered events.
+* [Filter events](/user-guide/cloud-siem/siem-event-management.html#event-filtering) - Learn about the available filters to refine the list of triggered events.
 * [Search events](/user-guide/cloud-siem/siem-event-management.html#searching-for-events) - Where to set your criteria to find specific events.
 * [Edit an event](/user-guide/cloud-siem/siem-event-management.html#editing-an-event) - Update who the event is assigned to or add comments with additional information and priority handling decisions. 
-* [Edit the triggering rule](/user-guide/cloud-siem/siem-event-management.html#editing-an-event-rule) - Fine tune your security rule to improve event management.
-* [View the event history](/user-guide/cloud-siem/siem-event-management.html#view-the-event-history) - View the actions for a specific event.
-* [Investigate an event](/user-guide/cloud-siem/siem-event-management.html#investigate-an-event) -  Harness Kibana to see the related event logs for more powerful insights.
-* [Assign an event](/user-guide/cloud-siem/siem-event-management.html#assigning-events) - What happens when you assign an event to a team member.
-* [Grouped events](user-guide/cloud-siem/siem-event-management.html#grouped-events) - What those event counts mean. 
+* [Edit the event rule](/user-guide/cloud-siem/siem-event-management.html#editing-an-event-rule) - Fine tune your security rule to improve event management.
+* [Investigate an event](/user-guide/cloud-siem/siem-event-management.html#investigating-an-event) -  Harness Kibana to see the related event logs for more powerful insights.
+* [Viewing the event history](/user-guide/cloud-siem/siem-event-management.html#viewing-the-event-history) - View the rule information for the triggered event.
+* [Viewing grouped events](/user-guide/cloud-siem/siem-event-management.html#viewing-grouped-events) - What those event counts mean. 
 
 
 

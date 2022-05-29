@@ -2,6 +2,8 @@
 layout: article
 title: Manage log accounts
 permalink: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to manage your Logz.io accounts
 flags:
   admin: true
   logzio-plan: pro
@@ -28,6 +30,34 @@ you can define data volumes and retention periods for independent environments.
 Sub accounts can also help you control access to sensitive data.
 By default, all users of your main account have permission to view the data in other logging sub accounts and timeless accounts. You can route different logs to different sub accounts to limit access to data.
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Log Management](#logs)
+* [Infrastructure Monitoring](#metrics)
+* [Distributed Tracing](#tracing)
+* [Cloud SIEM](#siem)
+{:.branching-tabs}
+
+<!--tab start bulk-->
+<div id="logs">
+</div>
+<!--tab end bulk -->
+
+<!-- tab:start -->
+<div id="metrics">
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="tracing">
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="siem">
+</div>
+<!-- tab:end -->
 
 ## Managing your accounts
 

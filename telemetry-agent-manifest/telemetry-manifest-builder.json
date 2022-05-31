@@ -1,5 +1,19 @@
+{%- case jekyll.environment -%}
+  {%- when "production" -%}
+    {%- assign branch = "/master" -%}
+  {%- else -%}
+    {%- assign branch = "/prom-fix" -%}
+
+{%- endcase -%}
+
+{%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs/telemetry-agent-manifest" | append: branch -%}
+
+{% capture json -%}
 [
   {% for config in site.configs %}
    {{ staff_member.content }},
   {% endfor %}
 ]
+{%- endcapture -%}
+
+{{ json | normalize_whitespace }}

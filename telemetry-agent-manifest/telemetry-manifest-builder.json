@@ -1,5 +1,5 @@
 [
   {% for config in site.configs %}
-   {{ staff_member.content }} ,
+   {{ staff_member.content }},
   {% endfor %}
-]]
+]

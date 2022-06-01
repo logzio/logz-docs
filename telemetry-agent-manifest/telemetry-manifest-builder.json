@@ -11,7 +11,7 @@
 {% capture json -%}
 [
   {% for config in site.configs %}
-   {{ staff_member.content }},
+   {{ config.content }},
   {% endfor %}
 ]
 {%- endcapture -%}

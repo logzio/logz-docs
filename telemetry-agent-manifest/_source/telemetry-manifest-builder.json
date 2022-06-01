@@ -12,7 +12,7 @@
 
 {% capture json -%}
 [
-  {% for config in site.configs %}
+  {% for config in site.data %}
    {{ config.content }},
   {% endfor %}
 ]

@@ -3,12 +3,9 @@ layout: json
 permalink: /data/telemetry-agent-manifest.json
 ---
 
-{% capture json -%}
 [
   {% for config in site.telemetry-agent-configs %}
    {{ config.content }},
   {% endfor %}
 ]
-{%- endcapture -%}
 
-{{ json | normalize_whitespace }}

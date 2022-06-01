@@ -124,6 +124,7 @@ collections:
     noindex: true
     tags: false
     community-info: false
+  telemetry-agent-configs
 
 # ===== FRONT MATTER DEFAULTS =====
 # Jekyll docs on front matter defaults:

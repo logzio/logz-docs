@@ -3,14 +3,11 @@ layout: json
 permalink: /data/telemetry-agent-manifest.json
 ---
 
-{% capture json -%}
 [
-  {% for config in site.data.telemetry-agent-configs %}
-  {% assign cocktail = config[1] %}
-   {{ cocktail }},
-   {{ config.logo }},
+  {% for file in site.data.telemetry-agent-configs %}
+  {% assign content = file[1] %}
+   {{ content | jsonify }},
   {% endfor %}
 ]
-{%- endcapture -%}
 
 {{ json | normalize_whitespace }}

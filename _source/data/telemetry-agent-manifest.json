@@ -8,7 +8,7 @@ permalink: /data/telemetry-agent-manifest.json
   {% for config in site.data.telemetry-agent-configs %}
   {% assign cocktail = config[1] %}
    {{ cocktail.name }},
-   {{ config.name }},
+   {{ config.logo }},
   {% endfor %}
 ]
 {%- endcapture -%}

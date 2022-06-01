@@ -4,7 +4,7 @@ permalink: /data/telemetry-agent-manifest.json
 ---
 
 [
-  {% for config in site.telemetry-agent-configs %}
+  {% for config in site.data.telemetry-agent-configs %}
    {{ config.content }},
   {% endfor %}
 ]

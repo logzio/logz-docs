@@ -1,6 +1,6 @@
 ---
 layout: json
-permalink: /data/telemetry-agent-manifest.json
+permalink: /data/telemetry-agent-configs.json
 ---
 
 {% capture json -%}

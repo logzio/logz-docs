@@ -3,7 +3,7 @@ layout: json
 permalink: /data/telemetry-agent-manifest.json
 ---
 
-[{% for file in site.telemetry-agent-configs -%}
+[{% for file in site.data.telemetry-agent-configs -%}
   {%- assign content = file[1] -%}
    {{- content | jsonify -}},
   {%- endfor %}]

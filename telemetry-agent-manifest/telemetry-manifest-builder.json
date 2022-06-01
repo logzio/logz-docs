@@ -1,3 +1,5 @@
+---
+---
 {%- case jekyll.environment -%}
   {%- when "production" -%}
     {%- assign branch = "/master" -%}

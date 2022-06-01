@@ -6,7 +6,8 @@ permalink: /data/telemetry-agent-manifest.json
 {% capture json -%}
 [
   {% for config in site.data.telemetry-agent-configs %}
-   {{ config.content }},
+  {% assign cocktail = config[1] %}
+   {{ cocktail.content }},
   {% endfor %}
 ]
 {%- endcapture -%}

@@ -15,6 +15,17 @@ contributors:
 order: 20
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Setup using IAM roles](#iam)
+* [Setup using access keys](#keys)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
 Some AWS services can be configured to ship their logs to an S3 bucket,
 where Logz.io can fetch those logs directly.
 
@@ -34,18 +45,139 @@ Please keep these notes in mind when configuring logging.
 * **The size of each log file should not exceed 50 MB** \\
   To guarantee successful file upload, make sure that the size of each log file does not exceed 50 MB.
 
-## Setup
+</div>
+<!-- tab:end -->
+<!-- tab:start -->
+<div id="iam">
+
 
 You can add your buckets directly from Logz.io by providing your S3 credentials and configuration.
 
 #### Configure Logz.io to fetch logs from an S3 bucket
 
-**Before you begin, you'll need**:
-`s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/) for the required S3 bucket
-
 <div class="tasklist">
  
+##### Enable Logz.io to access your S3 bucket
 
+Logz.io will need the following permissions to your S3 bucket:
+
+* **s3:ListBucket** - to know which files are in your bucket and to thereby keep track of which files have already been ingested
+* **s3:GetObject** - to download your files and ingest them to your account
+
+To do this, add the following to your IAM policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<BUCKET_NAME>"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<BUCKET_NAME>/*"
+            ]
+        }
+    ]
+}
+```
+
+* Replace `<BUCKET_NAME>` with the name of your S3 bucket.
+
+
+##### Create a Logz.io-AWS connector
+
+In your Logz.io app, go to **Send your data**.
+Select the relevant AWS resource from the left menu.
+
+Click **+ Add a bucket** and select the option to **Authenticate with a role**
+
+![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/configure-s3-bucket.png)
+
+Copy and paste the **Account ID** and **External ID** in your text editor.
+
+Fill in the form to create a new connector.
+
+Enter the **S3 bucket name** and, if needed,
+the **Prefix** where your logs are stored.
+
+Click **Get the role policy**.
+You can review the role policy to confirm the permissions that will be needed.
+Paste the policy in your text editor.
+
+Keep this information available so you can use it in AWS.
+
+##### Create the IAM Role in AWS
+
+Go to your [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page in your AWS admin console.
+
+Click **Create role**.
+You're taken to the _Create role_ wizard.
+
+![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam--create-role.png)
+
+Click **Another AWS account**.
+
+Paste the **Account ID** you copied from Logz.io.
+
+Select **Require external ID**,
+and then paste the **External ID** from step 1.
+
+Click **Next: Permissions** to continue.
+
+##### Create the policy
+
+In the  _Create role_ screen, click **Create policy**.
+The _Create policy_ page loads in a new tab.
+
+In the **JSON** tab,
+replace the default JSON with the policy you copied from Logz.io.
+
+Click **Review policy** to continue.
+
+Give the policy a **Name** and optional **Description**,
+and then click **Create policy**.
+
+Remember the policy's name—you'll need this in the next step.
+
+Close the tab to return to the _Create role_ page.
+
+##### Attach the policy to the role
+
+Click <i class="fas fa-sync-alt"></i> (refresh),
+and then type your new policy's name in the search box.
+
+Find your policy in the filtered list and select its check box.
+
+Click **Next: Tags**,
+and then click **Next: Review** to continue to the _Review_ screen.
+
+##### Finalize the role
+
+Give the role a **Name** and optional **Description**.
+We recommend beginning the name with "logzio-"
+so that it's clear you're using this role with Logz.io.
+
+Click **Create role** when you're done.
+
+##### Copy the ARN to Logz.io
+
+In the _IAM roles_ screen, type your new role's name in the search box.
+
+Find your role in the filtered list and click it to go to its summary page.
+
+Copy the role ARN (top of the page).
+In Logz.io, paste the ARN in the **Role ARN** field, and then click **Save**.
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
@@ -55,7 +187,23 @@ You can add your buckets directly from Logz.io by providing your S3 credentials 
 <!-- logzio-inject:aws:s3-buckets -->
 
 
-{% include log-shipping/add-s3-bucket.md %}
+1. Click **+ Add a bucket**
+2. Select IAM role as your method of authentication.
+
+The configuration wizard will open.
+
+3. Select the hosting region from the dropdown list.
+4. Provide the **S3 bucket name**
+5. _Optional_ You have the option to add a prefix.
+6. **Save** your information.
+
+![S3 bucket IAM authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-iam_role_authentication1.png)
+
+<!-- info-box-start:info -->
+Logz.io fetches logs that are generated after configuring an S3 bucket.
+Logz.io cannot fetch old logs retroactively.
+{:.info-box.important}
+<!-- info-box-end -->
 
 ##### Check Logz.io for your logs
 
@@ -64,3 +212,162 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+
+</div>
+<!-- tab:end -->
+<!-- tab:start -->
+<div id="keys">
+
+
+You can add your buckets directly from Logz.io by providing your S3 credentials and configuration.
+
+#### Configure Logz.io to fetch logs from an S3 bucket
+
+<div class="tasklist">
+ 
+##### Enable Logz.io to access your S3 bucket
+
+Logz.io will need the following permissions to your S3 bucket:
+
+* **s3:ListBucket** - to know which files are in your bucket and to thereby keep track of which files have already been ingested
+* **s3:GetObject** - to download your files and ingest them to your account
+
+To do this, add the following to your IAM policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<BUCKET_NAME>"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<BUCKET_NAME>/*"
+            ]
+        }
+    ]
+}
+```
+
+* Replace `<BUCKET_NAME>` with the name of your S3 bucket.
+
+##### Create the user
+
+Browse to the [IAM users](https://console.aws.amazon.com/iam/home#/users)
+and click **Add user**.
+You're taken to the _Add user_ wizard.
+
+![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam--add-user.png)
+
+Assign a **User name**.
+
+Under _Select AWS access type_, select **Programmatic access**.
+
+Click **Next: Permissions** to continue.
+
+##### Create the policy
+
+In the  _Set permissions_ section, click **Attach existing policies directly > Create policy**.
+The _Create policy_ page loads in a new tab.
+
+![Create policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/create-policy-visual-editor.png)
+
+Set these permissions:
+
+* **Service**:
+  Choose **S3**
+* **Actions**:
+  Select **List > ListBucket** and **Read > GetObject**
+* **Resources > bucket**:
+  Click **Add ARN** to open the _Add ARN_ dialog.
+  Type the intended **Bucket name**, and then click **Add**.
+* **Resources > object**:
+  Click **Add ARN** to open the _Add ARN(s)_ dialog.
+  Add the intended **Bucket name**,
+  then select **Object name > Any**.
+  Click **Add**.
+
+Click **Review policy** to continue.
+
+Give the policy a **Name** and optional **Description**, and then click **Create policy**.
+
+Remember the policy's name—you'll need this in the next step.
+
+Close the tab to return to the _Add user_ page.
+
+##### Attach the policy to the user
+
+Click <i class="fas fa-sync-alt"></i> (refresh),
+and then type your new policy's name in the search box.
+
+Find your policy in the filtered list and select its check box.
+
+Click **Next: Tags**,
+and then click **Next: Review** to continue to the _Review_ screen.
+
+##### Finalize the user
+
+Give the user a **Name** and optional **Description**,
+and then click **Create user**.
+
+You're taken to a success page.
+
+##### Add the bucket to Logz.io
+
+Add the **S3 bucket name** and **Prefix**
+
+Copy the _Access key ID_ and _Secret access key_, or click **Download .csv**.
+
+In Logz.io, paste the **Access key** and **Secret key**,
+and then click **Save**.
+
+##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+
+{% include log-shipping/s3-bucket-snippet.html %}
+
+
+<!-- logzio-inject:aws:s3-buckets -->
+
+
+1. Click **+ Add a bucket**
+2. Select **access keys** as the method of authentication.
+
+The configuration wizard will open.
+
+3. Select the hosting region from the dropdown list.
+4. Provide the **S3 bucket name**
+5. _Optional_ You have the option to add a prefix.
+6. **Save** your information.
+
+![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-keyaccess_config1.png)
+
+<!-- info-box-start:info -->
+Logz.io fetches logs that are generated after configuring an S3 bucket.
+Logz.io cannot fetch old logs retroactively.
+{:.info-box.important}
+<!-- info-box-end -->
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+
+</div>
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

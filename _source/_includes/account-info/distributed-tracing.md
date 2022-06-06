@@ -16,7 +16,7 @@ If you don't have a Distributed Tracing account yet, start a trial in the Distri
 * [Configure account access](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#configure-which-accounts-can-access-a-tracing-data-source)
 * [Add a Tracing account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-a-tracing-account-to-your-plan)
 * [Delete a Tracing account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#delete-a-tracing-account-from-your-plan)
-* [Edit and allocate spans](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#change-how-many-spans-are-allocated-to-each-distributed-tracing-account-within-your-plan)
+* [Edit and allocate spans](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#change-spans-allocation-across-distributed-tracing-accounts-within-your-plan)
 * [Tracing surge protection](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing-surge-protection)
 * [Troubleshooting](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#troubleshooting)
 
@@ -101,7 +101,7 @@ You can configure up to 5 tracing accounts for your Distributed Tracing plan. If
   ![Confirm delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/confirm-delete-tracingacct2.png)
 
 
-#### Change how many spans are allocated to each Distributed Tracing account within your plan
+#### Change spans allocation across Distributed Tracing accounts within your plan
 
 Juggle the allocated spans per month of your Distributed Tracing account plan between the different tracing accounts according to each account's current usage details. Each data source has its quota defined in the **Spans** column. 
 

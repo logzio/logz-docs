@@ -119,7 +119,7 @@ sudo service rsyslog restart
 
 Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana). 
 
-If you still don't see your logs, see our [rsyslog troubleshooting guide](https://support.logz.io/hc/en-us/articles/209486069-Troubleshooting-Rsyslog-Failed-to-install).
+If you still don't see your logs, see our [troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
 </div>
@@ -368,7 +368,7 @@ sudo service rsyslog restart
 
 Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see our [rsyslog troubleshooting guide](https://support.logz.io/hc/en-us/articles/209486069-Troubleshooting-Rsyslog-Failed-to-install).
+If you still don't see your logs, see our [troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
 </div>

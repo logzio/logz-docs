@@ -20,7 +20,7 @@ VPC Flow Logs is a feature that enables you to capture information about the IP 
 
 **Before you begin, you'll need**:
 
-* `s3:ListBucket` and `s3:GetObject` [permissions](https://support.logz.io/hc/en-us/articles/209486129-Troubleshooting-AWS-IAM-Configuration-for-retrieving-logs-from-a-S3-Bucket) for the required S3 bucket
+* `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/) for the required S3 bucket
 
 * {% include log-shipping/s3-bucket-file-order.md %}
 

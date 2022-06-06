@@ -121,6 +121,9 @@ This integration enables you to auto-instrument your ASP.NET Core application an
 
 ##### Run the application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
+
 Run the application to generate traces.
 
 

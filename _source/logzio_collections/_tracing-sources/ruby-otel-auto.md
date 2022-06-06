@@ -133,6 +133,9 @@ This integration enables you to auto-instrument your Ruby application and run a 
 
 ##### Run the application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
+
 Run the application:
 
 ```shell

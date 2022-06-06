@@ -394,6 +394,9 @@ func handleErr(err error, message string) {
 
 ##### Run the application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
+
 Run the application to generate traces:
 
 ```shell

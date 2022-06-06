@@ -8,8 +8,15 @@ tags:
   - insights
 contributors:
   - shalper
+  - hidan
 
 ---
+
+
+// The current doc does not give the customer any info on what will determine an exception\how our system catches exceptions and adds them
+
+// Yuval explains the difference between Cognitive and Application insights. We need to add this explanation in as well
+
 Logz.io Insights Engine automatically surfaces exceptions and highlights them in your log results.
 
 As you're troubleshooting in Kibana Discover, you can easily see the number of exceptions identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
@@ -17,6 +24,24 @@ As you're troubleshooting in Kibana Discover, you can easily see the number of e
 To review exceptions affecting your environments, switch to the **Exceptions** tab and expand the documents that interest you.
 
 ![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-in-discover-count_aug2021.png)
+
+
+# How an exception is determined
+
+How does Logz.io catch and add an exception?
+
+# Cognitive vs. application insights
+
+for each programming language we support -> there is different  exception pattern list that is configured here: https://github.com/logzio/configurations/blob/851495982bcd7e6519e6566731a6d44f7a332e8e/common/config.conf#L456-L650
+
+We have 2 types of insights:
+Cognitive Insight
+Application Insight (the new name is Exceptions)
+ The Cognitive Insight is when one of the account log contain special words which linked in our system to known issue so we provide some links and meta data related to this issue
+The Application Insight (Exceptions) Is when one of the logs contain words which implements that the user have errors in the code ( for example: Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5 )
+the Exceptions tab show only Application Insight so they won’t see the Cognitive insight that you shown in the picture (edited) 
+
+
 
 ### Exception count
 To help you stay focused, the list is capped and will always show the top 10 exceptions.

@@ -291,6 +291,9 @@ Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 
 ##### Run the application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
+
 Run the following command from the application directory to generate traces:
 
 ```shell

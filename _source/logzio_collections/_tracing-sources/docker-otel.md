@@ -44,6 +44,8 @@ This integration enables you to send traces from your instrumented applications 
 
 ##### Run the application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
 Run the application to generate traces.
 
 

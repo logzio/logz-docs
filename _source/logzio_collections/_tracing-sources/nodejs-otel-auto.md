@@ -129,6 +129,9 @@ This integration enables you to auto-instrument your Node.js application and run
 
 ##### Run the application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
+
 Run the application to generate traces:
 
 ```shell

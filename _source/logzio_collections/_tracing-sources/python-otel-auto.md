@@ -154,6 +154,9 @@ This integration enables you to auto-instrument your Python application and run 
 
 ##### Run the OpenTelemetry instrumentation in conjunction with your Python application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
+
 Run the following command from the directory of your Python application script:
 
 ```shell

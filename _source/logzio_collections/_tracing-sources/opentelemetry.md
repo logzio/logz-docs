@@ -159,6 +159,9 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 ##### Run the application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
+
 Run the application to generate traces.
 
 

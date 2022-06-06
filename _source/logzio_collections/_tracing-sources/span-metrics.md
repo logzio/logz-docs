@@ -371,6 +371,9 @@ If required, you can add the following optional parameters as environment variab
   
 ##### Run the application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
+
 Run the application to generate traces.
 
 

@@ -12,6 +12,11 @@ This integration only works with an otel-contrib image. The logzio/otel-collecto
 
 ##### Run the container
 
+<!-- info-box-start:info -->
+Make sure that all docker containers that send spans to the collector are sharing the same network and can access the relevant collector ports.
+{:.info-box.important}
+<!-- info-box-end -->
+ 
 When running on a Linux host, use the `--network host` flag to publish the collector ports:
 
 ```

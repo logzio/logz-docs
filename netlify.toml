@@ -337,3 +337,27 @@
   to = "/shipping/prometheus-sources/aws-cloudwatch.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/manage-timeless-accounts.html"
+  to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/manage-the-cloud-siem-account.html"
+  to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#siem"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/manage-the-infrastructure-monitoring-account.html"
+  to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#metrics"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/manage-the-distributed-tracing-account.html"
+  to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing"
+  status = 301
+  force = true

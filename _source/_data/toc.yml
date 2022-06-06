@@ -362,20 +362,20 @@ firstLevel:
     thirdLevel:
     - title: Manage accounts
       url: /user-guide/accounts/
-    - title: Time-based log accounts
+    - title: Manage Log, Metrics, Tracing, and SIEM accounts
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
     - title: Flexible volume log accounts
       url: /user-guide/accounts/flexible-volume.html
-    - title: Timeless log accounts
-      url: /user-guide/accounts/manage-timeless-accounts.html
-    - title: Security accounts
-      url: /user-guide/accounts/manage-the-cloud-siem-account.html
+    #- title: Timeless log accounts
+    #  url: /user-guide/accounts/manage-timeless-accounts.html
+    #- title: Security accounts
+    #  url: /user-guide/accounts/manage-the-cloud-siem-account.html
     - title: The shared SIEM Repository account
       url: /user-guide/accounts/shared_repository.html
-    - title: Metrics accounts
-      url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
-    - title: Tracing accounts
-      url: /user-guide/accounts/manage-the-distributed-tracing-account.html
+    #- title: Metrics accounts
+    #  url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
+    #- title: Tracing accounts
+    #  url: /user-guide/accounts/manage-the-distributed-tracing-account.html
     - title: Audit trail
       url: /user-guide/accounts/audit-trail.html
     - title: On Demand pricing FAQ

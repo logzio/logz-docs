@@ -33,6 +33,11 @@ In this guide:
   * [Archive and restore](/user-guide/accounts/#archive-and-restore-data)
 * [Your account dictionary](/user-guide/accounts/#your-account-dictionary)
 * [Manage your accounts](/user-guide/accounts/#manage-your-accounts)
+  * [Manage your **Log Management** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#logs)
+  * [Manage your **Cloud SIEM** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#siem)
+  * [Manage your **Infrastructure Monitoring** (Metrics) account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#metrics)
+  * [Manage your **Distributed Tracing** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing)
+  * [Manage your **Timeless** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless)
 
 
 ### Configuration options
@@ -79,4 +84,10 @@ Before searching archived data, you’ll need to restore it to its own temporary
 
 ### Manage your accounts
 
-Learn more about managing your **Log Management**, **Distributed Tracing**, **Infrastructure Monitoring**, and **Cloud SIEM** accounts, [here](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html). 
+Account admins have various options when it comes to managing the account. For further information, check out the following guides:
+
+* [Manage your **Log Management** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#logs)
+* [Manage your **Cloud SIEM** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#siem)
+* [Manage your **Infrastructure Monitoring** (Metrics) account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#metrics)
+* [Manage your **Distributed Tracing** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing)
+* [Manage your **Timeless** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless)

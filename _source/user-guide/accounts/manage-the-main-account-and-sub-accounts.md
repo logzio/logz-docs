@@ -6,7 +6,7 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 description: How to manage your Logz.io Log, Metrics, Tracing, and SIEM accounts
 flags:
   admin: true
-  logzio-plan: pro
+  logzio-plan: community
 tags:
   - accounts
   - main-account

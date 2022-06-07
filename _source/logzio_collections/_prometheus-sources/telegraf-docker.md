@@ -28,7 +28,9 @@ Deploy this integration to ship metrics from your Docker network using container
 
 ##### Pull the Docker image
 
-`docker pull logzio/telegraf-docker-collector-metrics:latest`
+```
+docker pull logzio/telegraf-docker-collector-metrics:latest
+```
 
 ##### Start the collector
 
@@ -51,7 +53,7 @@ If you prefer to keep these environment variables in an `.env` file, run the fol
 
 ###### Parameters
 
-Below is a list of all environment variables available with this integration. If required, add a varuable to the `docker run` command using the `--env` flag.
+Below is a list of all environment variables available with this integration. If required, add a variable to the `docker run` command using the `--env` flag.
 
 |Name|Description|Required/Default|
 |---|---|---|

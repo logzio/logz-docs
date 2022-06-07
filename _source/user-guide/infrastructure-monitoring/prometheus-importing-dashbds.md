@@ -59,7 +59,8 @@ Use the following command to switch to the repo directory:
 ```
 cd grafana-dashboard-migration-tool
 ```
-##### Install poetry, and install dependencies
+  
+##### Install poetry and dependencies
 
 ```bash
 pip install poetry
@@ -68,7 +69,8 @@ poetry install
 
 ##### Run the script and configure environment variables.
 
-Run the script, you will be asked to configure your enviroment variables, or you can export them :
+Run the script:
+  
 ```bash
 GRAFANA_TOKEN="XXXXXXXXXXXXXXXXX" \
 GRAFANA_PROTO="http" \
@@ -77,15 +79,21 @@ REGION_CODE="us" \
 LOGZIO_API_TOKEN="XXXXXXXXXXXXXXXXX" \
 poetry run python main.py
 ```
-- In your logz.io metrics account check your `Uploaded by script` folder to see all dashboards
-### Configuration:
+  
+Configure or export the enviroment variables as follows:
+ 
 | Enviroment variable | Description |
 |---|---|
-| GRAFANA_HOST | Your grafana host without protocol specification (e.g. localhost:3000). |
-| GRAFANA_TOKEN | Your grafana editor/admin API key, find or create one under Configuration -> API keys. |
-| LOGZIO_API_TOKEN | Your Logz.io account API token, find it under settings -> manage tokens -> API tokens. |
+| GRAFANA_HOST | Your Grafana host without protocol specification (for example, localhost:3000) |
+| GRAFANA_TOKEN | Your Grafana editor/admin API key: Find or create one under **Configuration > API keys** |
+| LOGZIO_API_TOKEN | Your Logz.io account API token: You can find the API token under **Settings > Manage tokens > API tokens.** |
+| REGION_CODE | Your Logz.io region code: You can look up your region code [here]( https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) <br> For example, if your region is US, then your region code is `us`|
 | GRAFANA_PROTO | Protocol to access your grafana instance. Defaults to `https`. |
-| REGION_CODE | Your Logz.io region code. For example if your region is US, then your region code is `us`. You can find your region code here: https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls for further information. |
+
+  
+##### View dashboards
+  
+In your Logz.io metrics account, check your `Uploaded by script` folder to see all dashboards.
 
 </div>
 

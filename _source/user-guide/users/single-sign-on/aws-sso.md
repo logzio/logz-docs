@@ -39,8 +39,8 @@ The Support team will respond with the connection information needed to set up y
 
 Log into your [AWS SSO dashboard](https://us-east-1.console.aws.amazon.com/singlesignon/identity/home).
 
+Click on **Applications** located on the left hand sidebade. Then, click on **Add a new application** > **Add a custom SAML application**.
 
-In the sidebar, navigate to **Applications** > **Add a new application** > **Add a custom SAML application**.
 
 ///![Create SAML app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/google-add-saml-app.png)
 

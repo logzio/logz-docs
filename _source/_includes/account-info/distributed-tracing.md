@@ -118,16 +118,16 @@ Your Distributed Tracing accounts are limited by a monthly quota of a number of 
 
 To avoid a situation in which your monthly quota runs out too fast because of unnoticed spikes, Logz.io introduced a **surge protection** mechanism for Tracing accounts.
 
-The surge protection is volume-based (as opposed to the span number-based quota), aimed to cover different scenarios in which your accounts run out of quota too fast.
+The surge protection is a span number-based quota, aimed to cover different scenarios in which your accounts run out of quota too fast.
 
 The calculation is estimating your span size to be 2KB (it usually is less):
 
 * Monthly spans quota / 30 = Estimated number of daily spans.
-* 4 X Estimated number of daily spans X 2KB = Estimated daily spans volume.
+<!-- * 4 X Estimated number of daily spans X 2KB = Estimated daily spans volume. -->
 
-If your Tracing account's overall daily size (volume) exceeds the **Estimated daily spans volume** - the Tracing account will stop ingesting spans for this day (ending midnight UTC). This means you can send about 4 times of the average daily spans amount.
+If your Tracing account's overall daily span number exceeds the **estimated daily spans limit** - the Tracing account will stop ingesting spans for this day (ending midnight UTC). This means you can send about 4 times of the average daily span amount.
 
-When an account exceeds 80% of the allowed daily volume, account admins will receive an email alert indicating an unusual traffic event in the Tracing account, providing extra time to examine the issue before the ingestion stops.
+When an account exceeds 80% of the allowed daily spans, account admins will receive an email alert indicating an unusual traffic event in the Tracing account, providing extra time to examine the issue before the ingestion stops.
 
 #### Troubleshooting
 

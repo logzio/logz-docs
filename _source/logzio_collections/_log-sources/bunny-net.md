@@ -36,7 +36,7 @@ order: 470
 ![Bunny](https://dytvr9ot2sszz.cloudfront.net/logz-docs/bunny-net/bunny-ui.png)
   
 <!-- info-box-start:info -->
-By default, syslog will be forwarded over port 514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
+By default, syslog will be forwarded over port 6514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
 {:.info-box.note}
 <!-- info-box-end -->
 

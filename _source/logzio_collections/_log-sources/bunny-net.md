@@ -33,11 +33,25 @@ order: 470
 5. Select **UDP** from the **Log Server Protocol** menu.
 6. Select **Plain text** from the **Log fFormat** menu.
 7. Select **Save Forwarding Configuration**.
+![Bunny](https://dytvr9ot2sszz.cloudfront.net/logz-docs/bunny-net/bunny-ui.png)
   
 <!-- info-box-start:info -->
 By default, syslog will be forwarded over port 514. Feel free to adjust this, based on your preference or availability, but be sure to note any change to this port in the Filebeat configuration.
 {:.info-box.note}
 <!-- info-box-end -->
+
+##### Install the bunny.net certificate on your Filebeat server
+
+ESET sends encrypted data,
+so you'll need to create a dedicated ESET certificate to decrypt the logs by the Filebeat server.
+
+```shell
+sudo mkdir /etc/filebeat/certificates
+sudo openssl req -newkey rsa:2048 -nodes \
+-keyout /etc/filebeat/certificates/BunnyNet.key -x509 \
+-days 365 \
+-out /etc/filebeat/certificates/BunnyNet.crt
+```
 
 {% include log-shipping/certificate.md %}
 
@@ -47,35 +61,45 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
    ```yaml
-   filebeat.inputs:
-   - type: udp
-     max_message_size: 10MiB
-     host: "<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>:514"
-     fields:
-       logzio_codec: plain
-       # Your Logz.io account token. You can find your token at
-       #  https://app.logz.io/#/dashboard/settings/manage-accounts
-       token: <<LOG-SHIPPING-TOKEN>>
-       type: bunny
-     fields_under_root: true
-     encoding: utf-8
-     ignore_older: 3h
-   filebeat.registry.path: /var/lib/filebeat
-   processors:
-   - rename:
-       fields:
-       - from: "agent"
-         to: "filebeat_agent"
-       ignore_missing: true
-   - rename:
-       fields:
-       - from: "log.file.path"
-         to: "source"
-       ignore_missing: true
-   output.logstash:
-     hosts: ["<<LISTENER-HOST>>:5015"]
-     ssl:
-       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+  
+# ...
+filebeat.inputs:
+- type: udp
+  max_message_size: 10MiB
+  host: "<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>:6514"
+  ssl.enabled: true
+  ssl.certificate: "/etc/filebeat/certificates/BunnyNet.crt"
+  ssl.key: "/etc/filebeat/certificates/BunnyNet.key"
+  ssl.verification_mode: none
+
+  fields:
+    logzio_codec: json
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: bunny-net
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+filebeat.registry.path: /var/lib/filebeat
+processors:
+- rename:
+    fields:
+    - from: "agent"
+      to: "filebeat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source"
+    ignore_missing: true
+
+# ...
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
   
    * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
@@ -86,7 +110,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `bunny` to see the incoming Axonius logs.
+Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `bunny-net` to see the incoming Axonius logs.
   
 If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

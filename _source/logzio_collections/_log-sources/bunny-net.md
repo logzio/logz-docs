@@ -60,45 +60,44 @@ sudo openssl req -newkey rsa:2048 -nodes \
 
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
-```yaml
-  
-filebeat.inputs:
-- type: udp
-  max_message_size: 10MiB
-  host: "<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>:6514"
-  ssl.enabled: true
-  ssl.certificate: "/etc/filebeat/certificates/BunnyNet.crt"
-  ssl.key: "/etc/filebeat/certificates/BunnyNet.key"
-  ssl.verification_mode: none
+   ```yaml  
+   filebeat.inputs:
+   - type: udp
+     max_message_size: 10MiB
+     host: "<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>:6514"
+     ssl.enabled: true
+     ssl.certificate: "/etc/filebeat/certificates/BunnyNet.crt"
+     ssl.key: "/etc/filebeat/certificates/BunnyNet.key"
+        ssl.verification_mode: none
 
-  fields:
-    logzio_codec: json
+     fields:
+       logzio_codec: json
 
-    # Your Logz.io account token. You can find your token at
-    #  https://app.logz.io/#/dashboard/settings/manage-accounts
-    token: <<LOG-SHIPPING-TOKEN>>
-    type: bunny-net
-  fields_under_root: true
-  encoding: utf-8
-  ignore_older: 3h
-filebeat.registry.path: /var/lib/filebeat
-processors:
-- rename:
-    fields:
-    - from: "agent"
-      to: "filebeat_agent"
-    ignore_missing: true
-- rename:
-    fields:
-    - from: "log.file.path"
-      to: "source"
-    ignore_missing: true
+       # Your Logz.io account token. You can find your token at
+       #  https://app.logz.io/#/dashboard/settings/manage-accounts
+       token: <<LOG-SHIPPING-TOKEN>>
+       type: bunny-net
+     fields_under_root: true
+     encoding: utf-8
+     ignore_older: 3h
+   filebeat.registry.path: /var/lib/filebeat
+   processors:
+   - rename:
+       fields:
+       - from: "agent"
+         to: "filebeat_agent"
+       ignore_missing: true
+   - rename:
+       fields:
+       - from: "log.file.path"
+         to: "source"
+       ignore_missing: true
 
-output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
-  ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-```
+   output.logstash:
+     hosts: ["<<LISTENER-HOST>>:5015"]
+     ssl:
+       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+   ```
   
    * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
    * {% include log-shipping/log-shipping-token.md %}

@@ -355,9 +355,3 @@
   to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#metrics"
   status = 301
   force = true
-
-[[redirects]]
-  from = "/user-guide/accounts/manage-the-distributed-tracing-account.html"
-  to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing"
-  status = 301
-  force = true

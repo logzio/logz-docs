@@ -564,6 +564,8 @@ and use the role ARN from step 3.
 
 For configurations in other Logz.io accounts,
 repeat this procedure from the beginning.
+  
+</div>
 
 ## Testing IAM Configuration  
 

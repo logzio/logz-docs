@@ -600,7 +600,6 @@ Run `s3cmd get s3://<BUCKET_NAME>/<BUCKET_PREFIX>/<OBJECT_NAME>`. Replace `<BUCK
 </div>
   
 </div>
-</div>
 <!-- tab:end -->
 
 

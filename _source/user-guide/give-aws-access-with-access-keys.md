@@ -18,6 +18,48 @@ while keeping your AWS account secure.
 
 <div class="tasklist">
 
+##### Enable Logz.io to access your S3 bucket
+
+Logz.io will need the following permissions to your S3 bucket:
+
+* **s3:ListBucket** - to know which files are in your bucket and to thereby keep track of which files have already been ingested
+* **s3:GetObject** - to download your files and ingest them to your account
+
+To do this, add the following to your IAM policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<BUCKET_NAME>"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<BUCKET_NAME>/*"
+            ]
+        }
+    ]
+}
+```
+
+* Replace `<BUCKET_NAME>` with the name of your S3 bucket.
+
+<!-- info-box-start:info -->
+Note that the ListBucket permission is set to the entire bucket and the GetObject permission ends with a /* suffix, so we can get files in subdirectories.
+{:.info-box.note}
+<!-- info-box-end -->  
+
 ##### Create the user
 
 Browse to the [IAM users](https://console.aws.amazon.com/iam/home#/users)

@@ -120,12 +120,15 @@ To avoid a situation in which your monthly quota runs out too fast because of un
 
 The surge protection is a span number-based quota, aimed to cover different scenarios in which your accounts run out of quota too fast.
 
-The calculation is estimating your span size to be 2KB (it usually is less):
+The calculation is estimating your span number:
 
 * Monthly spans quota / 30 = Estimated number of daily spans.
 <!-- * 4 X Estimated number of daily spans X 2KB = Estimated daily spans volume. -->
 
-If your Tracing account's overall daily span number exceeds the **estimated daily spans limit** - the Tracing account will stop ingesting spans for this day (ending midnight UTC). This means you can send about 4 times of the average daily span amount.
+
+You can configure your daily span amount and overhead allowed by navigating to your **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page, clicking on the relevant Tracing account, and adjusting your daily span.
+
+If your Tracing account's overall daily span number exceeds the **estimated daily spans limit** - the Tracing account will stop ingesting spans for this day (ending midnight UTC). 
 
 When an account exceeds 80% of the allowed daily spans, account admins will receive an email alert indicating an unusual traffic event in the Tracing account, providing extra time to examine the issue before the ingestion stops.
 

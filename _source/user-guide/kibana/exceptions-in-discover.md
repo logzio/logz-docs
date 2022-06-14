@@ -13,34 +13,40 @@ contributors:
 ---
 
 
-// The current doc does not give the customer any info on what will determine an exception\how our system catches exceptions and adds them
-
-// Yuval explains the difference between Cognitive and Application insights. We need to add this explanation in as well
-
 Logz.io Insights Engine automatically surfaces exceptions and highlights them in your log results.
 
-As you're troubleshooting in Kibana Discover, you can easily see the number of exceptions identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
+While troubleshooting in Kibana Discover, you can easily see the number of exceptions identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
 
 To review exceptions affecting your environments, switch to the **Exceptions** tab and expand the documents that interest you.
 
 ![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-in-discover-count_aug2021.png)
 
+### What's an exception?
 
-# How an exception is determined
+Logz.io Exceptions Engine scans your log to identify application errors and groups them into a logical unit. There's a different exception pattern for each language supported in the system, built according to standard libraries, known issues, and best practices.
 
-How does Logz.io catch and add an exception?
+Each exception is categorized as one of the following:
 
-# Cognitive vs. application insights
+* **Cognitive insight** - Exceptions are marked as Cognitive insights when a log contains particular words linked to known issues. For these exceptions, Logz.io provides additional relevant links and metadata related to the logged issue.
 
-for each programming language we support -> there is different  exception pattern list that is configured here: https://github.com/logzio/configurations/blob/851495982bcd7e6519e6566731a6d44f7a332e8e/common/config.conf#L456-L650
 
-We have 2 types of insights:
-Cognitive Insight
-Application Insight (the new name is Exceptions)
- The Cognitive Insight is when one of the account log contain special words which linked in our system to known issue so we provide some links and meta data related to this issue
-The Application Insight (Exceptions) Is when one of the logs contain words which implements that the user have errors in the code ( for example: Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5 )
-the Exceptions tab show only Application Insight so they won’t see the Cognitive insight that you shown in the picture (edited) 
+* **Application insight** - Application insight, also known as Exceptions inside Logz.io's dashboard, are for logs containing words implementing that users have errors in their code. For example, when an exception is identified in `thread "main" java.lang.ArrayIndexOutOfBoundsException: 5`, it's marked as an Application insight.
 
+
+Logz.io's Exceptions tab only includes **Application insight** exceptions. 
+{:.info-box.note}
+
+### Find all exceptions
+
+You can add the following filter to find all exceptions:
+
+`exists:_logzio_logceptions`
+
+![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-exception-filter.png)
+
+You can view the field value from the JSON tab.
+
+![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/find-in-json.png)
 
 
 ### Exception count

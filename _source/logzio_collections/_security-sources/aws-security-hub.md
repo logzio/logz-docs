@@ -13,6 +13,7 @@ contributors:
   - nshishkin
 shipping-tags:
   - endpoint-security
+  - aws
 order: 830
 ---
 

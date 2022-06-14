@@ -73,6 +73,9 @@ An example input plugin looks as follows:
   path /var/log/httpd-access.log
   pos_file /var/log/td-agent/httpd-access.log.pos
   tag apache.access
+  <parse>
+    @type apache2
+  </parse>
 </source>
 ```
 

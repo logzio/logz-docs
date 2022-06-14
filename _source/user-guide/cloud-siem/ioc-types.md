@@ -2,6 +2,8 @@
 layout: article
 title: Preparing a feed
 permalink: /user-guide/siem/ioc-types/
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Adding private feeds to Logz.io
 flags:
   logzio-plan: pro
 tags:
@@ -65,3 +67,8 @@ Supported IOC types include:
 | SHA256 | 64 characters |
 | USER-AGENT | max size 2 KB (string)  |
 | CUSTOM | max size 64 characters (string)  |
+
+
+### Allowlist IPs per region
+
+{% include /general-shipping/allowed-ips.md %}

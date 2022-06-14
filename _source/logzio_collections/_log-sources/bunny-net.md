@@ -31,7 +31,7 @@ order: 470
 3. In the **Syslog Endpoint** section, enter the IP address of your remote syslog server into the **Hostname** field. This is the server where you run Filebeat.
 4. Enter the port number into the **Port** field.
 5. Select **UDP** from the **Log Server Protocol** menu.
-6. Select **Plain text** from the **Log fFormat** menu.
+6. Select **Plain text** from the **Log Format** menu.
 7. Select **Save Forwarding Configuration**.
 ![Bunny](https://dytvr9ot2sszz.cloudfront.net/logz-docs/bunny-net/bunny-ui.png)
   
@@ -42,8 +42,8 @@ By default, syslog will be forwarded over port 6514. Feel free to adjust this, b
 
 ##### Install the bunny.net certificate on your Filebeat server
 
-ESET sends encrypted data,
-so you'll need to create a dedicated ESET certificate to decrypt the logs by the Filebeat server.
+Bunny.net sends encrypted data,
+so you'll need to create a dedicated bunny.net certificate to decrypt the logs by the Filebeat server.
 
 ```shell
 sudo mkdir /etc/filebeat/certificates

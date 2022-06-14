@@ -15,14 +15,10 @@ shipping-tags:
   - aws
 ---
 
-<!-- tab:start -->
-
-With this integration, you can collect Logs from S3 bucket and forward them to Logz.io.
+With this integration, you can collect logs from an S3 bucket and forward them to Logz.io.
 
 <div class="tasklist">
 
 {% include log-shipping/stack.md %}
 
 
-</div>
-<!-- tab:end -->

@@ -2,6 +2,8 @@
 layout: article
 title: Exceptions
 permalink: /user-guide/insights/exceptions/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Insight Engine and Exceptions in Logz.io
 flags:
   logzio-plan: pro
 tags:

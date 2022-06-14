@@ -9618,7 +9618,7 @@ definitions:
         $ref: '#/definitions/SubAlertCorrelation'
       schedule:
         type: object
-        description: Defines the intervals in which an alert will be evaluated.
+        description: Defines the frequency and the time frame in which an alert will be evaluated.
         properties:
           cronExpression:
             type: string

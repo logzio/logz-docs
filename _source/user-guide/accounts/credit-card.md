@@ -29,4 +29,14 @@ Navigate to [Plan and usage](https://app.logz.io/#/dashboard/settings/plan-and-b
 
 You'll be taken to Stripe's portal, where you can add a new payment method, updating billing information, and view your invoice history. 
 
+What can a customer do in the portal?
+
+Change/Add Credit Card
+
+Change their email
+
+Change the shipping address
+
+Download invoices
+
 //Only accounts that self-purchased can do that.

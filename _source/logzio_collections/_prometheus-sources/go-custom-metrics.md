@@ -56,16 +56,6 @@ config := metricsExporter.Config {
 }
 ```
 
-After that, add the `Config` struct definition:
-
-```go
-type Config struct {
-	LogzioMetricsListener string
-	LogzioMetricsToken    string
-	RemoteTimeout         time.Duration
-	PushInterval          time.Duration
-}
-```
 
 Replace the placeholders in the code to match your specifics.
 

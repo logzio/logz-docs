@@ -50,7 +50,7 @@ import (
 
 config := metricsExporter.Config {
 	LogzioMetricsListener: "<<LISTENER-HOST>>",
-	LogzioMetricsToken:    "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
+	LogzioMetricsToken:    "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>",
 	RemoteTimeout:         30 * time.Second,
 	PushInterval:          5 * time.Second,
 }
@@ -64,8 +64,6 @@ type Config struct {
 	LogzioMetricsToken    string
 	RemoteTimeout         time.Duration
 	PushInterval          time.Duration
-	Quantiles             []float64
-	HistogramBoundaries   []float64
 }
 ```
 
@@ -93,7 +91,7 @@ cont, err := metricsExporter.InstallNewPipeline(
     controller.WithResource(
         resource.NewWithAttributes(
             semconv.SchemaURL,
-            attribute.String("LABEL_KEY", "LABEL_VALUE"),
+            attribute.<<TYPE>>("<<LABEL_KEY>>", "<<LABEL_VALUE>>"),
         ),
     ),
 )
@@ -104,12 +102,32 @@ if err != nil {
 
 Replace the placeholders in the code to match your specifics.
 
-| Parameter | Description | Required | Default|
-|---|---|---|---|
-| `<<COLLECT_PERIOD>>` | The collect period time in seconds. | - | - |
-| `<<TYPE>>` | The available label value types according to the `<<LABEL_VALUE>>`. | - | - |
-| `<<LABEL_KEY>>` | The label key. | - | - |
-| `<<LABEL_VALUE>>` | The label value. | - | - |
+| Parameter | Description | 
+|---|---|
+| `<<COLLECT_PERIOD>>` | The collect period time in seconds. |
+| `<<TYPE>>` | The available label value types according to the `<<LABEL_VALUE>>`. |
+| `<<LABEL_KEY>>` | The label key. |
+| `<<LABEL_VALUE>>` | The label value. | 
+	
+
+##### Set up the Metric Instruments Creator
+	
+Create `Meter` to create metric instruments:
+	
+```go
+// Use `cont` instance from last step.
+
+ctx := context.Background()
+defer func() {
+    handleErr(cont.Stop(ctx))
+}()
+
+meter := cont.Meter("<<INSTRUMENTATION_NAME>>")
+```
+
+Replace <<INSTRUMENTATION_NAME>> with your instrumentation name.
+
+
 
 ##### Add metric instruments
 

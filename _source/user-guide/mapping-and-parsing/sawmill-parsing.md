@@ -24,6 +24,19 @@ Parsing is not necessary for all types of logs,
 but if you use a custom or uncommon log type,
 parsing can be an invaluable tool.
 
+* toc list
+{:toc}
+
+
+## Video: Parsing your data with Logz.io
+
+The following video will walk you through Logz.io's parsing capabilities, focusing on Parsing-as-a-service and self-service data parsing wizard:
+
+<video autoplay>
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/parsing-your-data-with-logzio.mp4" type="video/mp4" />
+  </video>
+
+
 ## Customize your log parsing with Logz.io Data Parsing
 
 Create your own parsing rule sets for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule sets will be applied to your Logz.io account to transform your logs. 
@@ -63,6 +76,7 @@ The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets 
 
 **Logz.io Data Parsing** is available [**here**](https://parsing.logz.io/).
 
+
 ### Field mapping data types
 
 Field data type determines how each field is indexed and shown in Kibana. Account admins can change the data types according to a predefined set of options:
@@ -72,6 +86,7 @@ Field data type determines how each field is indexed and shown in Kibana. Accoun
 Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
 
 ##### Date data fields
+{:.no_toc}
 
 Before changing, editing, and sending date data fields, contact **[Logz.io Support team](mailto:help@logz.io)**.
 {:.info-box.note}
@@ -85,12 +100,14 @@ Therefore, to change the mapping of any field to a date field, contact **[Logz.i
 
 
 #### Create a parsing rule set with Sawmill
+{:.no_toc}
 
 This process creates a parsing rule set for the specified log type. The log type is a field used to differentiate the source of each log. You need to select one of your existing log types (or create a new log type) for the parsing rules. When you submit a rule set to be applied on the backend, only the logs of the selected log type are processed.
 
 <div class="tasklist">
 
 ##### Prerequisites
+{:.no_toc}
 
 To use the Data Parsing Editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
 
@@ -102,6 +119,7 @@ To use the Data Parsing Editor you need a Logz.io API token. To get an API token
 
 
 ##### Set up the Data parsing editor
+{:.no_toc}
 
 In the [Data parsing editor](https://parsing.logz.io), click **Editor setup**.  
 
@@ -111,6 +129,7 @@ The **Editor setup** screen opens.
 ![credentials and log info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_cred-sept2021.png)
 
 ##### Set up your credentials and sample log information
+{:.no_toc}
 
 In the **Editor setup** screen:
 
@@ -133,6 +152,7 @@ In the **Editor setup** screen:
 
 
 #####  Write parsing rules
+{:.no_toc}
 
 You create your Sawmill rule set in the left panel of the editor screen, either by writing a new rule set or by editing a predefined rule set loaded to the panel. The created rule set must be a valid JSON file.
 
@@ -146,6 +166,7 @@ Use **Auto re-format** to clean up your indentations.
 
 
 ##### Validate your rule set
+{:.no_toc}
 
 Once you're satisfied with your draft rule set, click **Validate your rules** to execute your rule set against the log sample you provided. 
 
@@ -155,10 +176,13 @@ The Logz.io backend has a sequence of rule sets that run on your logs: Some of t
 <!-- info-box-end -->
 
 ##### Test parsing rules
+{:.no_toc}
+
 The right panel is where you view and modify your log sample, and test how your rules are applied. 
 ![Testing parsing rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/test_parsing-sept2021.gif)
    
 ##### Submit your rule set for review
+{:.no_toc}
 
 To ensure that your parsing works properly, our Support team reviews your rule set for consistency and then either applies the rule set or contacts you if there are issues that need to be addressed.
 
@@ -176,6 +200,7 @@ The goal of log parsing is to transform your log text into useable data fields s
 
 
 ### Example 1: Grok transformation
+{:.no_toc}
 
 Grok parsing leverages regular expressions to enable you to name existing patterns or combine them into more complex patterns, or both.
 
@@ -184,6 +209,7 @@ In this example, for the log sample: `2021-06-21T20:19:40.45+01:00 DEBUG This sh
 
 
 ###### Log sample
+{:.no_toc}
 
 ```js
 2021-06-21T20:19:40.45+01:00 DEBUG This should be a log sample
@@ -191,6 +217,7 @@ In this example, for the log sample: `2021-06-21T20:19:40.45+01:00 DEBUG This sh
 ```
 
 ###### Applied parsing rules
+{:.no_toc}
 
 ```json
 {
@@ -210,6 +237,7 @@ In this example, for the log sample: `2021-06-21T20:19:40.45+01:00 DEBUG This sh
 ```
  
 ###### Parsed sample
+{:.no_toc}
 
 ```json
 {
@@ -223,8 +251,10 @@ In this example, for the log sample: `2021-06-21T20:19:40.45+01:00 DEBUG This sh
 ```
 
 ###### **Click here for additional [Grok pattern examples for log parsing](https://logz.io/blog/grok-pattern-examples-for-log-parsing/).**
+{:.no_toc}
 
 ### Example 2: Conditional parsing 
+{:.no_toc}
 
 Logz.io parsing lets you apply conditional logic, based on your original logs. 
 
@@ -232,6 +262,7 @@ In this example, the field is renamed based on the result of the _IF_ statment u
 The resulting transformation is:  ![Conditional parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/conditional-parse-example_sept2021.gif)
 
 ###### Log sample
+{:.no_toc}
 
 ``` java
 {
@@ -249,6 +280,7 @@ The resulting transformation is:  ![Conditional parsing example](https://dytvr9o
 ```
 
 ###### Applied parsing rules
+{:.no_toc}
 
 ```json
 {
@@ -278,6 +310,7 @@ The resulting transformation is:  ![Conditional parsing example](https://dytvr9o
 ```
 
 ###### Parsed sample
+{:.no_toc}
 
 ```json
 {
@@ -297,6 +330,7 @@ The resulting transformation is:  ![Conditional parsing example](https://dytvr9o
 
 
 ### Example 3: Template parsing
+{:.no_toc}
 
 In Logz.io parsing, templating lets you include your original field values with various transformations, wherever you decide it's relevant. 
 
@@ -304,6 +338,8 @@ You can also use the templating option to consolidate or transform separate fiel
 In this example, the resulting transformation consolidates several fields and timestamps: ![Template parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/template-parse-example_oct2021.gif)
 
 ###### Log sample 
+{:.no_toc}
+
 ```java
 {
 "the_date": "20/6/2021",
@@ -312,6 +348,7 @@ In this example, the resulting transformation consolidates several fields and ti
 ```
 
 ###### Applied parsing rule 
+{:.no_toc}
 
 ```json
 {
@@ -330,6 +367,7 @@ In this example, the resulting transformation consolidates several fields and ti
 
 
 ###### Parsed example 
+{:.no_toc}
 
 ```json
 {

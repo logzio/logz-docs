@@ -51,7 +51,7 @@ Ruby and ruby-dev 2.1 or higher
 	
 ##### Install Fluentd td-agent
 
-Navigate to the [downloads](https://td-agent-package-browser.herokuapp.com/4/windows) page of td-agent and download the latest version of the installer. After that, run the installer and follow the wizard instructions.
+Navigate to the [downloads](https://docs.fluentd.org/installation/install-by-msi) page of td-agent and download the latest version of the installer. After that, run the installer and follow the wizard instructions.
 
 ##### Install the Logz.io plugin
 

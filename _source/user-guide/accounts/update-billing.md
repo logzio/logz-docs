@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Update your Logz.io billing details
+title: Update your Logz.io billing info
 permalink: /user-guide/accounts/update-billing.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Manage and update your Logz.io billing info

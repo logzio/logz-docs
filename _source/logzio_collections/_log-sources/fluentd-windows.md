@@ -80,7 +80,7 @@ Open C:/opt/td-agent/etc/td-agent/td-agent.conf and replace its contents with th
 
 <match **>
   @type logzio_buffered
-  endpoint_url <<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<<LOG-TYPE>>
+  endpoint_url https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<<LOG-TYPE>>
   output_include_time true
   output_include_tags true
   http_idle_timeout 10
@@ -99,11 +99,11 @@ Open C:/opt/td-agent/etc/td-agent/td-agent.conf and replace its contents with th
 | Parameter | Description |
 |---|---|
 | endpoint_url | A url composed of your Logz.io region's listener URL, account token, and log type. {% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %} |
+| type | Log type. If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit` |
 | output_include_time | To add a timestamp to your logs when they're processed, `true` (recommended). Otherwise, `false`. |
 | output_include_tags | To add the `fluentd` tag to logs, `true`. Otherwise, `false`. If `true`, use in combination with `output_tags_fieldname`. |
 | output_tags_fieldname | If `output_include_tags` is `true`, sets output tag's field name. The default is `fluentd_tag` |
 | http_idle_timeout | Time, in seconds, that the HTTP connection will stay open without traffic before timing out. |
-| type | Log type. If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit` |
 
 
 

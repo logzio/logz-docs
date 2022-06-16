@@ -378,6 +378,8 @@ firstLevel:
     #  url: /user-guide/accounts/manage-the-distributed-tracing-account.html
     - title: Audit trail
       url: /user-guide/accounts/audit-trail.html
+    - title: Update billing info
+      url: /user-guide/accounts/update-billing.html
     - title: On Demand pricing FAQ
       url: /user-guide/accounts/on-demand.html
       # - title: Usage and billing

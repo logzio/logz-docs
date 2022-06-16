@@ -321,6 +321,33 @@ See the [Logback documentation](https://logback.qos.ch/manual/configuration.html
 </configuration>
 ```
 
+If you want to output `debug` messages, include the `debug` parameter into the code as follows:
+
+
+```xml
+<configuration>
+  <!-- Closes gracefully and finishes the log drain -->
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+  <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+    <!-- Replace these parameters with your configuration -->
+    <token><<LOG-SHIPPING-TOKEN>></token>
+    <logzioUrl>https://<<LISTENER-HOST>>:8071</logzioUrl>
+    <logzioType>myType</logzioType>
+	<debug>true</debug>
+
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>INFO</level>
+    </filter>
+  </appender>
+
+  <root level="debug">
+    <!-- IMPORTANT: This line is required -->
+    <appender-ref ref="LogzioLogbackAppender"/>
+  </root>
+</configuration>
+```
+
 ###### Parameters
 
 | Parameter | Description | Required/Default |

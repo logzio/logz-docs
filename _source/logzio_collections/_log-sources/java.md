@@ -104,10 +104,10 @@ appenders=logzioAppender
 
 # Logz.io configuration
 appender.logzioAppender.type = logzioAppender
-appender.logzioAppender.name = logzioAppender
-appender.logzioAppender.LogzioToken = token
-appender.logzioAppender.LogzioType = type
-appender.logzioAppender.LogzioUrl = https://listener.logz.io:8071
+appender.logzioAppender.name = Logzio
+appender.logzioAppender.LogzioToken = <<LOG-SHIPPING-TOKEN>>
+appender.logzioAppender.LogzioType = myAwesomeType
+appender.logzioAppender.LogzioUrl = https://<<LISTENER-HOST>>:8071
 
 # Root logger level
 rootLogger.level = debug

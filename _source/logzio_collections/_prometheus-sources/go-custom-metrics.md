@@ -113,9 +113,25 @@ defer func() {
 }()
 
 meter := cont.Meter("<<INSTRUMENTATION_NAME>>")
-```
 
+func handleErr(err error) {
+    if err != nil {
+        panic(fmt.Errorf("encountered error: %v", err))
+    }
+}	
+```	
+	
 Replace `<<INSTRUMENTATION_NAME>>` with your instrumentation name.
+	
+Additionally, add the error handler:
+	
+```go
+func handleErr(err error) {
+    if err != nil {
+        panic(fmt.Errorf("encountered error: %v", err))
+    }
+}
+```
 
 
 

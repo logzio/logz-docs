@@ -115,7 +115,7 @@ defer func() {
 meter := cont.Meter("<<INSTRUMENTATION_NAME>>")
 ```
 
-Replace <<INSTRUMENTATION_NAME>> with your instrumentation name.
+Replace `<<INSTRUMENTATION_NAME>>` with your instrumentation name.
 
 
 

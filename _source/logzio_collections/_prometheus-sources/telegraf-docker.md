@@ -4,7 +4,7 @@ logo:
   logofile: docker-logo.png
   orientation: vertical
 open-source:
-  - title: Telegraf Docker Metrics Collector
+  - title: Docker Metrics Collector
     github-repo: telegraf-docker-collector-metrics
 data-for-product-source: Metrics
 data-source: Docker metrics
@@ -29,7 +29,7 @@ Deploy this integration to ship metrics from your Docker network using container
 ##### Pull the Docker image
 
 ```
-docker pull logzio/telegraf-docker-collector-metrics:latest
+docker pull logzio/docker-metrics-collector:latest
 ```
 
 ##### Start the collector
@@ -41,7 +41,7 @@ docker run --name telegraf-docker-collector-metrics \
  --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKENN>>" \
  --env LOGZIO_LISTENER="<<LISTENER-HOST>>" \
  -v /var/run/docker.sock:/var/run/docker.sock \
- logzio/telegraf-docker-collector-metrics:latest
+ logzio/docker-metrics-collector:latest
 ```
 
 {% include general-shipping/replace-placeholders-prometheus.html %}
@@ -49,7 +49,7 @@ docker run --name telegraf-docker-collector-metrics \
 
 If you prefer to keep these environment variables in an `.env` file, run the following command:
 
-`docker run -d --env-file=docker.env -v /var/run/docker.sock:/var/run/docker.sock logzio/telegraf-docker-collector-metrics:latest`
+`docker run -d --env-file=docker.env -v /var/run/docker.sock:/var/run/docker.sock logzio/docker-metrics-collector:latest`
 
 ###### Parameters
 

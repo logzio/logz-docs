@@ -32,11 +32,7 @@ parsing can be an invaluable tool.
 
 The following video will walk you through Logz.io's parsing capabilities, focusing on Parsing-as-a-service and self-service data parsing wizard:
 
-<iframe width="640" height="480" src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/parsing-your-data-with-logzio.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external="1"></iframe>
-
-//
-
-<video src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/create_alert_aug2021.mp4" controls>
+<video src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/parsing-your-data-with-logzio.mp4" controls>
   </video>
 
 

@@ -391,8 +391,6 @@ firstLevel:
     thirdLevel:
     - title: Managing account usage
       url: /user-guide/accounts/manage-account-usage.html
-    #- title: LogSize visualization
-    #  url: /user-guide/accounts/log-visualization.html
     - title: Smart Tier
       url: /user-guide/accounts/smart-tier/
     - title: Drop filters

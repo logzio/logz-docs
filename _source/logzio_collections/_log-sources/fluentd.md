@@ -112,7 +112,13 @@ See the configuration parameters below the code block.👇
 | output_include_tags | To add the `fluentd` tag to logs, `true`. Otherwise, `false`. If `true`, use in combination with `output_tags_fieldname`. |
 | output_tags_fieldname | If `output_include_tags` is `true`, sets output tag's field name. The default is `fluentd_tag` |
 | http_idle_timeout | Time, in seconds, that the HTTP connection will stay open without traffic before timing out. |
-
+| retry_count | Counter of the times to resend failed bulks. The default is `4`. |
+| retry_sleep | Interval in seconds to sleep initially between retries, exponential step-off. The default is `2s`. |
+| bulk_limit | Limit to the size of the Logz.io upload bulk. Defaults to 1000000 bytes, leaving about 24kB for overhead. |
+| bulk_limit_warning_limit | Limit to the size of the Logz.io warning message when a record exceeds bulk_limit to prevent a recursion when Fluent warnings are sent to the Logz.io output. The default is `nil` (no truncation). |
+| proxy_uri | Your proxy uri. The default is `nil`. For example: "my.ip:12345". |
+| proxy_cert | Your proxy cert. The default is `nil`. |
+| gzip | Defines if the plugin needs to ship the logs in gzip compression. The default is `false`. |
 
 ##### Run Fluentd
 

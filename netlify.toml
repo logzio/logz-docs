@@ -361,3 +361,9 @@
   to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/log-visualization.html"
+  to = "https://docs.logz.io"
+  status = 301
+  force = true

@@ -1,4 +1,4 @@
-To make your search engine queries and analytics more effective, Kibana maps each field by a data type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
+To make your search engine queries and analytics are more effective, Kibana maps each field by a data type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
 
 * **Dynamic** - This is the default mapping type, determined by the value of the log fields mapped at the beginning of each day.
 * **Explicit** - This is a forced mapping type, and when chosen, Kibana will always map this field as the same data type.

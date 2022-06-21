@@ -28,6 +28,7 @@ order: 10
 * [Filebeat for Linux](#linux)
 * [Filebeat for Windows](#windows)
 * [Modules](#modules)
+* [Troubleshooting](#troubleshooting)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -163,5 +164,158 @@ Beat shippers make use of modules to ship data from various sources. Refer to th
 
 </div>
 <!-- tab:end -->
+
+<!-- tab:start -->
+<div id="troubleshooting">
+
+This section contains some guidelines for handling errors you may encounter when trying to run a version a Filebeat 7 and below/ previous to 8.
+
+## Problem: Zero metrics in the last 30 seconds
+
+Your logs show a `Non-zero metrics in the last 30s` INFO message:
+
+```shell
+2022-05-13T07:16:27.805Z    INFO    [monitoring]    log/log.go:184    Non-zero metrics in the last 30s    
+{"monitoring": {"metrics": {"beat":{"cpu":{"system":{"ticks":300,"time":{"ms":304}},"total":{"ticks":480,"time":{"ms":489},"value":0},"user":{"ticks":180,"time":{"ms":185}}},"handles":{"limit":{"hard":1048576,"soft":1024},"open":11},"info":{"ephemeral_id":"e778ccbc-94e5-467e-8e34-b1443402c50e","uptime":{"ms":30085},"version":"7.17.3"},"memstats":{"gc_next":19787632,"memory_alloc":11823552,"memory_sys":37831688,"memory_total":58462392,"rss":125288448},"runtime":{"goroutines":38}},"filebeat":{"events":{"added":105,"done":105},"harvester":{"open_files":1,"running":1,"started":1}},"libbeat":{"config":{"module":{"running":0}},"output":{"events":{"acked":103,"active":0,"batches":1,"total":103},"read":{"bytes":6268},"type":"logstash","write":{"bytes":8781}},"pipeline":{"clients":1,"events":{"active":0,"filtered":2,"published":103,"retry":103,"total":105},"queue":{"acked":103,"max_events":4096}}},"registrar":{"states":{"current":1,"update":105},"writes":{"success":2,"total":2}},"system":{"cpu":{"cores":6},"load":{"1":0.01,"15":0,"5":0,"norm":{"1":0.0017,"15":0,"5":0}}}}}}
+```
+
+### Possible cause
+
+Filebeat couldn't find any files or events. To verify this:
+
+<div class="tasklist">
+
+##### Check if files are monitored
+
+From your harvester component, go to `harvester > open_files`. You should be able to see how many files are being monitored in the chosen path.
+
+If the result is 0, Filebeat was unable to find the specific file or failed to find any files in the specific folder.
+
+##### Check how many files are being monitored
+
+Go to your output file, `output > events`. If it shows 0, the output didn't recognize new data.
+
+If it contains any objects, you'll be able to see `writes->success` and the total number of files sent. However, if the `success` total number is 0, Filebeat couldn not send any data.
+
+</div>
+
+### Suggested remedy
+
+Re-configure your Filebeat to send files. 
+
+## Problem: Path is locked
+
+You have an error saying another beat locks the data path:
+
+```shell
+2022-01-01T10:10:10.711Z ERROR instance/beat.go:956 Exiting: data path already locked by another beat. Please make sure that multiple beats are not sharing the same data path (path.data).
+```
+
+### Possible cause
+
+
+This error means that your data path (`/var/lib/filebeats`) is locked by a different Filebeat instance. 
+
+### Suggested remedy
+
+You need to kill the process. To do so, run:
+
+``` shell
+ps aux | grep filebeat
+kill -9 <pid>
+```
+
+
+## Problem: Old logs are not visible
+
+You can view logs that are 3 hours old (or older).
+
+### Possible cause
+
+Your `ignore_older` setting is enabled, and set to 3 hours. When enabled, this option ignores any file that has not been updated since the selected time.
+
+
+### Suggested remedy
+
+Disable or clean the `ignore_older` setting.
+
+To disable it, set the ignore_older to 0:
+
+`ignore_older: 0`
+
+For existing logs, you can run `clean_*` to clean up state entries in the registry file, or `clean_inactive` to remove the state of previously harvested files from the registry file.
+
+Note that running one of the clean commands might result in data loss. 
+
+
+## Problem: Invalid yaml
+
+Invalid config in your yaml file.
+
+``` yaml
+ERROR instance/beat.go:802 Exiting: 1 error: error loading config file: invalid config: yaml: line 9: could not find expected ':'
+```
+
+### Possible cause
+
+Filebeat configuration yaml files require a particular syntax to run, and your file doesn't match the requirements. 
+
+### Suggested remedy
+
+Test your configuration file and verify its structure. You can use a yaml validator, such as [YAML Lint](http://www.yamllint.com/). 
+
+
+## Problem: Elasticsearch.output issue
+
+??
+
+## Possible cause
+
+You have `elasticsearch.output` configured in addition to the Logz.io output.
+
+## Suggested remedy
+
+Filebeat doesn't know how to send data to 2 different outputs. So you'll have to re-configure your settings to have Logz.io as your default output.
+
+
+## Problem: Not outputs defined
+
+You see a `no outputs are defined` error:
+
+```shell
+2022/01/01 11:11:00.404226 publish.go:269: INFO No outputs are defined. Please define one under the output section.
+```
+
+## Possible cause
+
+Your output is not configured correctly.
+
+## Suggested remedy
+
+You need to ensure that you're using `output.logstasg`, and that it's appropriately configured. In some cases, you'll need to indent your code.
+
+Instead of this:
+
+```shell
+output.logstash:
+  hosts: ["listenerlogz.io:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
+
+The code should look like this:
+
+```shell
+output:
+  logstash:
+    hosts: ["listener.logz.io:5015"]  
+    ssl:
+      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
+
+
+</div>
+<!-- tab:end -->
+
 
 

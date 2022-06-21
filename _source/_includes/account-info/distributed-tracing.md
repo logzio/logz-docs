@@ -126,7 +126,7 @@ The calculation is estimating your span number:
 <!-- * 4 X Estimated number of daily spans X 2KB = Estimated daily spans volume. -->
 
 
-You can configure your daily span amount and overhead allowed by navigating to your **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page, clicking on the relevant Tracing account, and adjusting your daily span.
+Your account's overhead spans can be configured by changing the daily span multiplier. To configure the daily span multiplier, navigate to the **[Manage account](https://app.logz.io/#/dashboard/settings/manage-accounts)** page, select the relevant Tracing account, and apply the daily span multiplier.
 
 If your Tracing account's overall daily span number exceeds the **estimated daily spans limit** - the Tracing account will stop ingesting spans for this day (ending midnight UTC). 
 

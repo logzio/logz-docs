@@ -267,8 +267,9 @@ To do this, add the following to your IAM policy:
 
 * Replace `<BUCKET_NAME>` with the name of your S3 bucket.
 
+
 <!-- info-box-start:info -->
-Note that the ListBucket permission is set to the entire bucket and the GetObject permission ends with a /* suffix, so we can get files in subdirectories.
+Note that the ListBucket permission is set to the entire bucket and the GetObject permission ends with a `/*` suffix, so we can get files in subdirectories.
 {:.info-box.note}
 <!-- info-box-end -->
 

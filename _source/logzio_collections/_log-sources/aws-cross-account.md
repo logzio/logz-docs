@@ -224,10 +224,8 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
   
-<!-- info-box-start:info -->
+
 If your log group is not in the required format, the logs will arrive under the default type `aws-cross-account`. Otherwise, the type will be the service you sent the logs from.
-{:.info-box.note}
-<!-- info-box-end -->  
 
 </div>
 

@@ -39,7 +39,7 @@ You'll then be given a heads up that SPM requires an active **[Metrics](https://
 
 > _The Metrics account trial will be available for **2 weeks**. Afterward, you'll need to **purchase a Metrics plan** to continue using your Service Performance Monitoring dashboard._
 
-If you have an active Metrics plan, the Service Performance Monitoring dashboard will try to allocate data from your existing plan. It requires a **minimum of 1,000 available UTS** in your Metrics plan to run and will try and allocate **up to 5,000 UTS**.
+If you have an active Metrics plan, the Service Performance Monitoring dashboard will try to allocate data from your existing plan. To run, you need between **1,000-5,000 UTS** in your Metric plan **that are not assigned to any account**.
 
 Once setup is complete, you can change and re-adjust your data allocation by navigating to the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
 

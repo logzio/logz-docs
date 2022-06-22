@@ -60,29 +60,49 @@ For a complete list of options, see the configuration parameters below the code 
 ###### Option 1: In a configuration file
 
 ```xml
-<log4net>
-  <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
-
-    <!-- Replace these parameters with your configuration -->
-    <token><<LOG-SHIPPING-TOKEN>></token>
-    <type>log4net</type>
-    <listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
-    <bufferSize>100</bufferSize>
-    <bufferTimeout>00:00:05</bufferTimeout>
-    <retriesMaxAttempts>3</retriesMaxAttempts>
-    <retriesInterval>00:00:02</retriesInterval>
-    <gzip>true</gzip>
-    <debug>false</debug>
-    <jsonKeysCamelCase>false</jsonKeysCamelCase>
-    <!--<parseJsonMessage>true</parseJsonMessage>-->
+    <log4net>
+    	<appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
+    		<!-- 
+				Required fields 
+			-->
+			<!-- Your Logz.io API token -->
+			<token><<LOG-SHIPPING-TOKEN>></token>
+			
+			<!-- 
+				Optional fields (with their default values) 
+			-->
+			<!-- The type field will be added to each log message, making it 
+			easier for you to differ between different types of logs. -->
+    		        <type>log4net</type>
+			<!-- The URL of the Lgz.io listener -->
+    		        <listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
+                        <!--Optional proxy server address:
+                        proxyAddress = "http://your.proxy.com:port" -->
+			<!-- The maximum number of log lines to send in each bulk -->
+    		        <bufferSize>100</bufferSize>
+			<!-- The maximum time to wait for more log lines, in a hh:mm:ss.fff format -->
+    		        <bufferTimeout>00:00:05</bufferTimeout>
+			<!-- If connection to Logz.io API fails, how many times to retry -->
+    	         	<retriesMaxAttempts>3</retriesMaxAttempts>
+    		        <!-- Time to wait between retries, in a hh:mm:ss.fff format -->
+			<retriesInterval>00:00:02</retriesInterval>
+			<!-- Set the appender to compress the message before sending it -->
+		        <gzip>true</gzip>
+			<!-- Uncomment this to enable sending logs in Json format -->
+				<!--<parseJsonMessage>true</parseJsonMessage>-->
+			<!-- Enable the appender's internal debug logger (sent to the console output and trace log) -->
+			<debug>false</debug>
+			<!-- If you have custom fields keys that start with capital letter and want to see the fields 
+			with capital letter in Logz.io, set this field to true. The default is false 
+			(first letter will be small letter). -->
+			<jsonKeysCamelCase>false</jsonKeysCamelCase>
+    	</appender>
     
-  </appender>
-
-  <root>
-    <level value="INFO" />
-    <appender-ref ref="LogzioAppender" />
-  </root>
-</log4net>
+    	<root>
+    		<level value="INFO" />
+    		<appender-ref ref="LogzioAppender" />
+    	</root>
+    </log4net>
 ```
 
 Add a reference to the configuration file in your code, as shown in the example [here](https://github.com/logzio/logzio-dotnet/blob/master/sample-applications/LogzioLog4netSampleApplication/Program.cs).
@@ -90,26 +110,45 @@ Add a reference to the configuration file in your code, as shown in the example 
 ###### Option 2: In the code
 
 ```csharp
-var hierarchy = (Hierarchy)LogManager.GetRepository();
-var logzioAppender = new LogzioAppender();
+using log4net;
+using log4net.Core;
+using log4net.Repository.Hierarchy;
+using Logzio.DotNet.Log4net;
 
-// Replace these parameters with your configuration
-logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
-logzioAppender.AddType("log4net");
-logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-logzioAppender.AddBufferSize(100);
-logzioAppender.AddBufferTimeout(TimeSpan.FromSeconds(5));
-logzioAppender.AddRetriesMaxAttempts(3);
-logzioAppender.AddRetriesInterval(TimeSpan.FromSeconds(2));
-logzioAppender.AddDebug(false);
-logzioAppender.AddGzip(true);
-logzioAppender.JsonKeysCamelCase(false);
-// <-- Uncomment and edit this line to enable proxy routing: --> 
-// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// <-- Uncomment this to parse messages as JSON -->  
-// logzioAppender.ParseJsonMessage(true);
-hierarchy.Root.AddAppender(logzioAppender);
-hierarchy.Configured = true;
+namespace ConsoleApp9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var hierarchy = (Hierarchy)LogManager.GetRepository();
+            var logger = LogManager.GetLogger(typeof(Program));
+            var logzioAppender = new LogzioAppender();
+            
+            logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+            logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
+            // <-- Uncomment and edit this line to enable proxy routing: --> 
+            // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
+            // <-- Uncomment this to enable sending logs in Json format -->  
+            // logzioAppender.ParseJsonMessage(true);
+            // <-- Uncomment these lines to enable gzip compression --> 
+            // logzioAppender.AddGzip(true);
+            // logzioAppender.ActivateOptions();
+            // logzioAppender.JsonKeysCamelCase(false)
+            logzioAppender.ActivateOptions();
+            
+            hierarchy.Root.AddAppender(logzioAppender);
+            hierarchy.Configured = true;
+            hierarchy.Root.Level = Level.All;
+
+            logger.Info("Now I don't blame him 'cause he run and hid");
+            logger.Info("But the meanest thing he ever did");
+            logger.Info("Before he left was he went and named me Sue");
+
+            LogManager.Shutdown();
+        }
+    }
+}
 ```
 
 ###### Parameters
@@ -450,26 +489,20 @@ For a complete list of options, see the configuration parameters below the code 
 ###### Option 2: In the code
 
 ```csharp
-var hierarchy = (Hierarchy)LogManager.GetRepository();
-var logzioAppender = new LogzioAppender();
-
-// Replace these parameters with your configuration
-logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
-logzioAppender.AddType("log4net");
-logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-logzioAppender.AddBufferSize("100");
-logzioAppender.AddBufferTimeout("00:00:05");
-logzioAppender.AddRetriesMaxAttempts("3");
-logzioAppender.AddRetriesInterval("00:00:02");
-logzioAppender.AddDebug(false);
-logzioAppender.AddGzip(true);
-logzioAppender.JsonKeysCamelCase(false);
-// <-- Uncomment and edit this line to enable proxy routing: --> 
-// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// <-- Uncomment this to prase messages as Json -->  
-// logzioAppender.ParseJsonMessage(true);
-hierarchy.Root.AddAppender(logzioAppender);
-hierarchy.Configured = true;
+	var hierarchy = (Hierarchy)LogManager.GetRepository();
+	var logzioAppender = new LogzioAppender();
+	logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+	logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
+         // Uncomment and edit this line to enable proxy routing: 
+         // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
+	 // Uncomment these lines to enable gzip compression 
+	 // logzioAppender.AddGzip(true);
+         // logzioAppender.ActivateOptions();
+         // logzioAppender.JsonKeysCamelCase(false)
+	logzioAppender.ActiveOptions();
+	hierarchy.Root.AddAppender(logzioAppender);
+	hierarchy.Root.Level = Level.All;
+	hierarchy.Configured = true;
 ```
 
 ###### Parameters

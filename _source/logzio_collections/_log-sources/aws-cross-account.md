@@ -176,11 +176,13 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources,
 
 ##### Create a subscription filter in your sending accounts
 
+
 <!-- info-box-start:info -->
 You need to create a subscription filter in each sending account separately, for each service that you want to send logs from.
 {:.info-box.note}
-<!-- info-box-end -->  
-  
+<!-- info-box-end -->
+
+
 ###### Create with AWS CLI
 
 1. Make sure your AWS CLI is connected to the account you want to send logs from.

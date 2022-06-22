@@ -119,12 +119,10 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources,
 
 
 ##### Create a stack to deploy destinations in the landing account on each region you need to send logs from
-  
-<!-- info-box-start:info -->
+
+
 This procedure is only required if you need to send logs from regions that are different to the region that the main stack is deployed in.
-{:.info-box.note}
-<!-- info-box-end -->
-  
+
 
 
 Click the button that matches the region you'd like to deploy your destination stack to:

@@ -97,7 +97,7 @@ To do this, add the following to your IAM policy:
 <!-- info-box-start:info -->
 Note that the ListBucket permission is set to the entire bucket and the GetObject permission ends with a /* suffix, so we can get files in subdirectories.
 {:.info-box.note}
-<!-- info-box-end -->  
+<!-- info-box-end -->
 
 
 ##### Create a Logz.io-AWS connector
@@ -159,7 +159,7 @@ Close the tab to return to the _Create role_ page.
 
 ##### Attach the policy to the role
 
-Click <i class="fas fa-sync-alt"></i> (refresh),
+Refresh the page,
 and then type your new policy's name in the search box.
 
 Find your policy in the filtered list and select its check box.
@@ -266,11 +266,11 @@ To do this, add the following to your IAM policy:
 ```
 
 * Replace `<BUCKET_NAME>` with the name of your S3 bucket.
-  
+
 <!-- info-box-start:info -->
 Note that the ListBucket permission is set to the entire bucket and the GetObject permission ends with a /* suffix, so we can get files in subdirectories.
 {:.info-box.note}
-<!-- info-box-end -->  
+<!-- info-box-end -->
 
 ##### Create the user
 
@@ -318,7 +318,7 @@ Close the tab to return to the _Add user_ page.
 
 ##### Attach the policy to the user
 
-Click <i class="fas fa-sync-alt"></i> (refresh),
+Refresh the page,
 and then type your new policy's name in the search box.
 
 Find your policy in the filtered list and select its check box.

@@ -141,45 +141,22 @@ namespace dotnet_log4net
 ###### Option 2: In the code
 
 ```csharp
-using log4net;
-using log4net.Core;
-using log4net.Repository.Hierarchy;
-using Logzio.DotNet.Log4net;
-
-namespace ConsoleApp9
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var hierarchy = (Hierarchy)LogManager.GetRepository();
-            var logger = LogManager.GetLogger(typeof(Program));
-            var logzioAppender = new LogzioAppender();
-            
-            logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
-            logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            // <-- Uncomment and edit this line to enable proxy routing: --> 
-            // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-            // <-- Uncomment this to enable sending logs in Json format -->  
-            // logzioAppender.ParseJsonMessage(true);
-            // <-- Uncomment these lines to enable gzip compression --> 
-            // logzioAppender.AddGzip(true);
-            // logzioAppender.ActivateOptions();
-            // logzioAppender.JsonKeysCamelCase(false)
-            logzioAppender.ActivateOptions();
-            
-            hierarchy.Root.AddAppender(logzioAppender);
-            hierarchy.Configured = true;
-            hierarchy.Root.Level = Level.All;
-
-            logger.Info("Now I don't blame him 'cause he run and hid");
-            logger.Info("But the meanest thing he ever did");
-            logger.Info("Before he left was he went and named me Sue");
-
-            LogManager.Shutdown();
-        }
-    }
-}
+var hierarchy = (Hierarchy)LogManager.GetRepository();
+var logzioAppender = new LogzioAppender();
+logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
+// <-- Uncomment and edit this line to enable proxy routing: --> 
+// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
+// <-- Uncomment this to enable sending logs in Json format -->  
+// logzioAppender.ParseJsonMessage(true);
+// <-- Uncomment these lines to enable gzip compression --> 
+// logzioAppender.AddGzip(true);
+// logzioAppender.ActivateOptions();
+// logzioAppender.JsonKeysCamelCase(false)
+logzioAppender.ActiveOptions();
+hierarchy.Root.AddAppender(logzioAppender);
+hierarchy.Root.Level = Level.All;
+hierarchy.Configured = true;
 ```
 	
 

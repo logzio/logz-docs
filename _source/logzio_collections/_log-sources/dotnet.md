@@ -160,23 +160,6 @@ hierarchy.Configured = true;
 ```
 	
 
-###### Parameters
-
-| Parameter | Description | Default/Required |
-|---|---|---|
-| token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
-| listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
-| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
-| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
-| bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
-| retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
-| retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
-| gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
-| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
-| parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
-| proxyAddress | Proxy address to route your logs through. | `None` |
-| jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
-
 ###### Code sample
 
 ```csharp
@@ -220,6 +203,23 @@ namespace dotnet_log4net
     }
 }
 ```
+
+###### Parameters
+
+| Parameter | Description | Default/Required |
+|---|---|---|
+| token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
+| listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
+| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
+| retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
+| retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
+| gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
+| parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
+| proxyAddress | Proxy address to route your logs through. | `None` |
+| jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
 
 </div>
 

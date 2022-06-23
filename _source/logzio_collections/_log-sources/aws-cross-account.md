@@ -216,7 +216,7 @@ resource "aws_cloudwatch_log_subscription_filter" "subscription_filter" {
 If you create the log group and the subscription filter at the same time, add a `depends_on` field to the subscription filter and make it dependent on the log group, so that the log group will be created first.
 
 
-#### Check Logz.io for your logs
+###### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

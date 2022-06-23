@@ -141,64 +141,24 @@ namespace dotnet_log4net
 ###### Option 2: In the code
 
 ```csharp
-using log4net;
-using log4net.Core;
-using log4net.Repository.Hierarchy;
-using Logzio.DotNet.Log4net;
-
-namespace ConsoleApp9
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var hierarchy = (Hierarchy)LogManager.GetRepository();
-            var logger = LogManager.GetLogger(typeof(Program));
-            var logzioAppender = new LogzioAppender();
-            
-            logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
-            logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            // <-- Uncomment and edit this line to enable proxy routing: --> 
-            // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-            // <-- Uncomment this to enable sending logs in Json format -->  
-            // logzioAppender.ParseJsonMessage(true);
-            // <-- Uncomment these lines to enable gzip compression --> 
-            // logzioAppender.AddGzip(true);
-            // logzioAppender.ActivateOptions();
-            // logzioAppender.JsonKeysCamelCase(false)
-            logzioAppender.ActivateOptions();
-            
-            hierarchy.Root.AddAppender(logzioAppender);
-            hierarchy.Configured = true;
-            hierarchy.Root.Level = Level.All;
-
-            logger.Info("Now I don't blame him 'cause he run and hid");
-            logger.Info("But the meanest thing he ever did");
-            logger.Info("Before he left was he went and named me Sue");
-
-            LogManager.Shutdown();
-        }
-    }
-}
+var hierarchy = (Hierarchy)LogManager.GetRepository();
+var logzioAppender = new LogzioAppender();
+logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
+// <-- Uncomment and edit this line to enable proxy routing: --> 
+// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
+// <-- Uncomment this to enable sending logs in Json format -->  
+// logzioAppender.ParseJsonMessage(true);
+// <-- Uncomment these lines to enable gzip compression --> 
+// logzioAppender.AddGzip(true);
+// logzioAppender.ActivateOptions();
+// logzioAppender.JsonKeysCamelCase(false)
+logzioAppender.ActiveOptions();
+hierarchy.Root.AddAppender(logzioAppender);
+hierarchy.Root.Level = Level.All;
+hierarchy.Configured = true;
 ```
 	
-
-###### Parameters
-
-| Parameter | Description | Default/Required |
-|---|---|---|
-| token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
-| listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
-| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
-| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
-| bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
-| retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
-| retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
-| gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
-| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
-| parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
-| proxyAddress | Proxy address to route your logs through. | `None` |
-| jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
 
 ###### Code sample
 
@@ -243,6 +203,23 @@ namespace dotnet_log4net
     }
 }
 ```
+
+###### Parameters
+
+| Parameter | Description | Default/Required |
+|---|---|---|
+| token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
+| listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
+| bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
+| retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
+| retriesInterval | Time to wait between retries, as _hh:mm:ss.fff_. | `00:00:02` |
+| gzip | To compress the data before shipping, `true`. Otherwise, `false`. | `false` |
+| debug | To print debug messages to the console and trace log, `true`. Otherwise, `false`. | `false`
+| parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
+| proxyAddress | Proxy address to route your logs through. | `None` |
+| jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
 
 </div>
 

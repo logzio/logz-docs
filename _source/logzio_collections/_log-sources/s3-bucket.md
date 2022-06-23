@@ -56,7 +56,33 @@ You can add your buckets directly from Logz.io by providing your S3 credentials 
 #### Configure Logz.io to fetch logs from an S3 bucket
 
 <div class="tasklist">
- 
+
+##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+
+{% include log-shipping/s3-bucket-snippet.html %}
+
+
+<!-- logzio-inject:aws:s3-buckets -->
+
+
+1. Click **+ Add a bucket**
+2. Select IAM role as your method of authentication.
+
+The configuration wizard will open.
+
+3. Select the hosting region from the dropdown list.
+4. Provide the **S3 bucket name**
+5. _Optional_ You have the option to add a prefix.
+6. **Save** your information.
+
+![S3 bucket IAM authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-iam_role_authentication1.png)
+
+<!-- info-box-start:info -->
+Logz.io fetches logs that are generated after configuring an S3 bucket.
+Logz.io cannot fetch old logs retroactively.
+{:.info-box.important}
+<!-- info-box-end -->
+
 ##### Enable Logz.io to access your S3 bucket
 
 Logz.io will need the following permissions to your S3 bucket:
@@ -184,31 +210,6 @@ Find your role in the filtered list and click it to go to its summary page.
 Copy the role ARN (top of the page).
 In Logz.io, paste the ARN in the **Role ARN** field, and then click **Save**.
 
-##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
-
-{% include log-shipping/s3-bucket-snippet.html %}
-
-
-<!-- logzio-inject:aws:s3-buckets -->
-
-
-1. Click **+ Add a bucket**
-2. Select IAM role as your method of authentication.
-
-The configuration wizard will open.
-
-3. Select the hosting region from the dropdown list.
-4. Provide the **S3 bucket name**
-5. _Optional_ You have the option to add a prefix.
-6. **Save** your information.
-
-![S3 bucket IAM authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-iam_role_authentication1.png)
-
-<!-- info-box-start:info -->
-Logz.io fetches logs that are generated after configuring an S3 bucket.
-Logz.io cannot fetch old logs retroactively.
-{:.info-box.important}
-<!-- info-box-end -->
 
 ##### Check Logz.io for your logs
 
@@ -229,7 +230,33 @@ You can add your buckets directly from Logz.io by providing your S3 credentials 
 #### Configure Logz.io to fetch logs from an S3 bucket
 
 <div class="tasklist">
- 
+
+##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+
+{% include log-shipping/s3-bucket-snippet.html %}
+
+
+<!-- logzio-inject:aws:s3-buckets -->
+
+
+1. Click **+ Add a bucket**
+2. Select **access keys** as the method of authentication.
+
+The configuration wizard will open.
+
+3. Select the hosting region from the dropdown list.
+4. Provide the **S3 bucket name**
+5. _Optional_ You have the option to add a prefix.
+6. **Save** your information.
+
+![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-keyaccess_config1.png)
+
+<!-- info-box-start:info -->
+Logz.io fetches logs that are generated after configuring an S3 bucket.
+Logz.io cannot fetch old logs retroactively.
+{:.info-box.important}
+<!-- info-box-end -->
+
 ##### Enable Logz.io to access your S3 bucket
 
 Logz.io will need the following permissions to your S3 bucket:
@@ -343,31 +370,6 @@ Copy the _Access key ID_ and _Secret access key_, or click **Download .csv**.
 In Logz.io, paste the **Access key** and **Secret key**,
 and then click **Save**.
 
-##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
-
-{% include log-shipping/s3-bucket-snippet.html %}
-
-
-<!-- logzio-inject:aws:s3-buckets -->
-
-
-1. Click **+ Add a bucket**
-2. Select **access keys** as the method of authentication.
-
-The configuration wizard will open.
-
-3. Select the hosting region from the dropdown list.
-4. Provide the **S3 bucket name**
-5. _Optional_ You have the option to add a prefix.
-6. **Save** your information.
-
-![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-keyaccess_config1.png)
-
-<!-- info-box-start:info -->
-Logz.io fetches logs that are generated after configuring an S3 bucket.
-Logz.io cannot fetch old logs retroactively.
-{:.info-box.important}
-<!-- info-box-end -->
 
 ##### Check Logz.io for your logs
 

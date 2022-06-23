@@ -55,7 +55,6 @@ Log Management lets you search and query logs, create alerts, investigate issues
 | Optimizers                              |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Insights                                |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Reports                                 |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
-| Send your logs                          | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Data parsing                            |           |     | <i class="fas fa-check"></i>     |
 | Field mapping                           |           |     | <i class="fas fa-check"></i>     |
 | Archive and restore                     |           |     | <i class="fas fa-check"></i>     |
@@ -77,7 +76,6 @@ Use Infrastructure Monitoring to create and curate dashboards that monitor your 
 |-----------------------------------------|-----------|------|-------|
 | View dashboards                         | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Manage tokens                           |           |      | <i class="fas fa-check"></i>     |
-| Send your metrics                       | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 
 ###### Additional restrictions
 
@@ -92,7 +90,6 @@ Logz.io’s Tracing feature gives you the ability to look under the hood at how 
 |-----------------------------------------|-----------|------|-------|
 | View dashboards                         | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Manage tokens                           |           |      | <i class="fas fa-check"></i>     |
-| Send your traces                        | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 
 ##### User role permissions for Cloud SIEM
 
@@ -110,7 +107,6 @@ Cloud SIEM (*Security Information and Event Management*) aggregates security log
 | Threats intelligent field               | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Kibana                                  | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Reports                                 |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
-| Send your data                          | <i class="fas fa-check"></i> |  |  |
 | Drilldowns                              |           |      | <i class="fas fa-check"></i>     |
 | Lookups                                 |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Incident reports                        |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |

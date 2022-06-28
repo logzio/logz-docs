@@ -575,6 +575,7 @@ No metrics are observed in your Logz.io account.
 ### Possible cause - Incorrect token and/or listener URL
 
 Your Logz.io token and/or listener URL may be incorrect.
+
 #### Suggested remedy
 
 1. Navigate to  **[Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) > [Data shipping tokens - Metrics](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics)** and verify your account's metrics token and listener URL.

@@ -632,9 +632,9 @@ Verify connectivity of your Logz.io listener as follows.
 
 * For Windows servers running Windows 8/Server 2012 and later, use the following command in PowerShell:
 
-```shell
-Test-NetConnection listener.logz.io -Port <<PORT>>
-```
+  ```shell
+  Test-NetConnection listener.logz.io -Port <<PORT>>
+  ```
 
 Replace `<<PORT>>` with the appropriate port nummber. For HTTPS communication use port 8053. For HTTP communication use port 8052.
 

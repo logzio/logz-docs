@@ -583,11 +583,12 @@ Your Logz.io token and/or listener URL may be incorrect.
 
 ### Possible cause - Shipper connectivity failure
 
-Your Logz.io listener may not be connected to the network.
+Your host/server may not be connected to your Logz.io listener.
+
 
 #### Suggested remedy
 
-Verify connectivity of your Logz.io listener as follows.
+Verify connectivity of your host/server as follows.
 
 * For Linux and Mac servers, use `telnet`:
 

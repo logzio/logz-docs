@@ -40,22 +40,22 @@ Logz.io's Exceptions tab only includes **Application insight** exceptions.
 
 ### Find all exceptions
 
-You can add the following filter to find all exceptions:
+You can find and view all exceptions by using the following query:
 
-`exists:_logzio_logceptions`
+`_exists_: _logzio_logceptions`
 
-![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-exception-filter.png)
+![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/all-exceptions-query.png)
 
-You can view the field value from the JSON tab.
+Each exception is grouped into logical units, which you can view under the **Exceptions** tab:
 
-![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/find-in-json.png)
+![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-all-tab.png)
 
 
 ### Exception count
 To help you stay focused, the list is capped and will always show the top 10 exceptions.
 If there are more exceptions than can be shown, you can fetch the **Most frequent** or **Most recent** exceptions.
 
-* **Most frequent** - Most number of occurrences in the given time frame.
+* **Most frequent** - Most frequent number of occurrences in the given time frame.
 * **Most recent** - Most recently occurred within your selected time frame.
 
 ![Filter exceptions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/top-exceptions_aug2021.png)

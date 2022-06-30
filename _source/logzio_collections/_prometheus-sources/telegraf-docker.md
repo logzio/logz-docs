@@ -38,7 +38,7 @@ Run the following command:
 
 ```
 docker run --name telegraf-docker-collector-metrics \
- --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKENN>>" \
+ --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
  --env LOGZIO_LISTENER="<<LISTENER-HOST>>" \
  -v /var/run/docker.sock:/var/run/docker.sock \
  logzio/docker-metrics-collector:latest
@@ -61,7 +61,7 @@ Below is a list of all environment variables available with this integration. If
 |LOGZIO_LISTENER|Your Logz.io listener address followed by port `8053`.|Required/Default: `https://listener.logz.io:8053`.|
 |DOCKER_ENDPOINT|Address to reach the required Docker Daemon.|Default: `unix:///var/run/docker.sock`.|
 |TIMEOUT|The request timeout for any Docker Daemon query.|Default: `5s`.|
-|EXCLUED_IMAGES|A list of strings, regexes, or globs, the container image names of which, will not be among the queried containers. !-prefixed negations are possible for all item types to signify that only unmatched container image names should be monitored. For example: `imageNameToExclude1,imageNameToExclude2)`|Default: `nil`.|
+|EXCLUDED_IMAGES|A list of strings, regexes, or globs, the container image names of which, will not be among the queried containers. !-prefixed negations are possible for all item types to signify that only unmatched container image names should be monitored. For example: `imageNameToExclude1,imageNameToExclude2)`|Default: `nil`.|
 
 ##### Check Logz.io metrics
 

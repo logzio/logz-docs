@@ -160,7 +160,6 @@ To uninstall the `dotnet-monitor-collector` deployment, use the following comman
 helm uninstall dotnet-monitor-collector
 ```
 
-</div>
 
 
 </div>

@@ -39,7 +39,7 @@ Run the following command:
 ```
 docker run --name telegraf-docker-collector-metrics \
  --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
- --env LOGZIO_LISTENER="<<LISTENER-HOST>>" \
+ --env LOGZIO_LISTENER="https://<<LISTENER-HOST>>" \
  -v /var/run/docker.sock:/var/run/docker.sock \
  logzio/docker-metrics-collector:latest
 ```

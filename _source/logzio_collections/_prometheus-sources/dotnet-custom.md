@@ -589,7 +589,7 @@ Your host/server may not be connected to your Logz.io listener.
 
 #### Suggested remedy
 
-Verify connectivity of your host/server as follows.
+Verify connectivity of your Logz.io listener as follows.
 
 * For Linux and Mac servers, use `telnet`:
 
@@ -617,26 +617,6 @@ Change the endpoint of your listener from `https://<<LISTENER-HOST>>:<<PORT>>` t
 
 
 {% include log-shipping/listener-var.html %} 
-
-
-#### Suggested remedy
-
-Verify connectivity of your Logz.io listener as follows.
-
-* For Linux and Mac servers, use `telnet`:
-
-  ```shell
-  telnet listener.logz.io <<PORT>>
-  ```
-
-
-* For Windows servers running Windows 8/Server 2012 and later, use the following command in PowerShell:
-
-  ```shell
-  Test-NetConnection listener.logz.io -Port <<PORT>>
-  ```
-
-Replace `<<PORT>>` with the appropriate port nummber. For HTTPS communication use port 8053. For HTTP communication use port 8052.
 
 
 ### Possible cause - Kubernetes environment - prometheus.io/scrape is not set

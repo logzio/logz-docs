@@ -287,7 +287,7 @@ Make sure you have the timeout setting increased as follows:
 ```yaml
 network-timeout:20
 timeout:10
- logs_drain_timeout:10
+logs_drain_timeout:10
 ```
 
 

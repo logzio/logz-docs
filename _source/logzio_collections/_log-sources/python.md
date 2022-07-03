@@ -259,7 +259,7 @@ Verify connectivity of your host/server as follows.
   Replace `<<PORT>>` with the appropriate port nummber. For HTTPS communication use port 8053. For HTTP communication use port 8052.
 
 
-If you see `Connected to listener-group.logz-data.com` the shipper can connect to the Logz.io listener. Enter `ctrl`+`]` and type `quit` to exit Telnet.
+If you see `Connected to listener-group.logz-data.com` the shipper can connect to the Logz.io listener. Enter `ctrl`+`c` and type `quit` to exit Telnet.
 
 If you see `Trying xxx.xxx.xxx.xxx...` for more than 10 seconds, your machine is having trouble connecting to the Logz.io listener.
 

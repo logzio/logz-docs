@@ -11,7 +11,7 @@ open-source:
     github-repo: logzio-helm
 contributors:
   - nshishkin
-  - RefaelMi
+  - refaelmi
 shipping-tags:
   - container
 order: 430

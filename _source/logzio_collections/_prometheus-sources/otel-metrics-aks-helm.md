@@ -12,6 +12,7 @@ templates: ["k8s-daemonset"]
 contributors:
   - yotamloe
   - yberlinger
+  - refaelmi
 shipping-tags:
   - container
   - popular

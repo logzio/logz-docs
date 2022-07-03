@@ -10,10 +10,10 @@ open-source:
     github-repo: logzio-app-metrics
 contributors:
   - nshishkin
+  - refaelmi
 shipping-tags:
   - popular
   - custom-metrics
-  - RefaelMi
 order: 280
 ---
 

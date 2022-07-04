@@ -392,6 +392,7 @@ helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs
 | `filebeatWindowsDaemonset.tolerations` | Set [tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) for all DaemonSet pods. (Windows based Filebeat)| `{}` |
 | `filebeatWindowsDaemonset.volumes` | Templatable string of additional `volumes` to be passed to the DaemonSet. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) (Windows based Filebeat)|
 | `filebeatWindowsDaemonset.volumeMounts` | Templatable string of additional `volumeMounts` to be passed to the DaemonSet. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/filebeat/values.yaml) (Windows based Filebeat)|
+| `secrets.create` | Boolean to toggle secrets creation. Set to false to disable secrets generation.| `true` |
 | `secrets.logzioShippingToken`| Secret with your [logzio shipping token](https://app.logz.io/#/dashboard/settings/general). | `""` |
 | `secrets.logzioRegion`| Secret with your [logzio region](https://docs.logz.io/user-guide/accounts/account-region.html). Defaults to US East. | `" "` |
 | `secrets.clusterName`| Secret with your cluster name. | `""` |

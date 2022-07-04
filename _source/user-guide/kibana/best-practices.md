@@ -9,6 +9,7 @@ flags:
 tags:
   - kibana
 contributors:
+  - refaelmi
   - hidan
 ---
 

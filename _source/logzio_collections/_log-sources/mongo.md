@@ -41,43 +41,19 @@ systemLog:
 * Replace `<<MONGODB-FILE-PATH>>` with the path to the log file, for example, `/var/log/mongodb/mongod.log`.
   
 
-##### Allow Fluentd to read from the MongoDB log file
-
 Allow Fluend to read from the MongoDB log file by setting the read access as follows:
 
 ###### On macOS and Linux
 
 ```shell
-sudo chmod 604 <<PATH-TO-LOG-FILE>>
+sudo chmod 604 <<MONGODB-FILE-PATH>>
 ```
 
-* Replace `<<PATH-TO-LOG-FILE>>` with the path to the MongoDB log file.
+* Replace `<<MONGODB-FILE-PATH>>` with the path to the MongoDB log file.
 
 ###### On Windows
 
 Enable the read access in the file properties.
-  
-
-##### Verify there is a log.pos file
-
-Check that you have `fluentd-mongodb.log.pos` file in your Fluentd logs directory. If not, create an empty file named `fluentd-mongodb.log.pos`. This file ensures that with the start of each log shipping session, new logs are sent from the point in time when the last log shipping session has finished.
-  
-##### Allow Fluentd to write to the log.pos file 
-
-Allow Fluend to write to `fluentd-mongodb.log.pos` file by setting the read access as follows:
-
-###### On macOS and Linux
-
-```shell
-sudo chmod 606 <<PATH-TO-LOG-POS-FILE>>
-```
-
-* Replace `<<PATH-TO-LOG-POS-FILE>>` with the path to the MongoDB log file.
-
-###### On Windows
-
-Enable the write access in the file properties.  
-
 
 
 ##### Install Fluentd 
@@ -87,19 +63,13 @@ Enable the write access in the file properties.
 gem install fluentd
 ```
 
-##### Set up Fluentd
-
 ```shell
 fluentd --setup ./fluent
 ```
   
 This command creates a directory called `fluent` where we will create the configuration file and Gemfile.
+
   
-##### Navigate to the Fluentd directory
-  
-```shell
-cd fluentd
-```
   
 ##### Create a Gemfile for Fluentd
 

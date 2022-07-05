@@ -41,7 +41,7 @@ systemLog:
 * Replace `<<MONGODB-FILE-PATH>>` with the path to the log file, for example, `/var/log/mongodb/mongod.log`.
   
 
-Allow Fluend to read from the MongoDB log file by setting the read access as follows:
+Make sure Fluend can read from the MongoDB log file. You can set this as follows:
 
 ###### On macOS and Linux
 

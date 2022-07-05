@@ -90,6 +90,13 @@ collections:
     name: Community shippers
     id: :slug
     in-shipping-manifest: false
+  synthetic-monitoring-sources:
+    output: true
+    permalink: /shipping/synthetic-monitoring-sources/:slug.html
+    name: Synthetic monitoring
+    id: :slug
+    in-shipping-manifest: true
+    order: 5
   metrics-sources:
     output: true
     permalink: /shipping/metrics-sources/:slug.html

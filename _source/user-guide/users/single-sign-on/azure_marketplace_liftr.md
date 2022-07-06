@@ -1,9 +1,9 @@
 ---
 layout: article
-title: Single sign-on (SSO) for the Logz.io-Azure Portal integration
+title: Single sign-on (SSO) for Azure pay-as-you-go Portal integration
 permalink: /user-guide/users/single-sign-on/azure_marketplace_liftr.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Guidance for admins to set up SSO for the Logz.io-Azure Portal integration
+description: Guidance for Azure pay-as-you-go SSO setup with Logz.io
 flags:
   admin: true
   logzio-plan: pro
@@ -17,6 +17,10 @@ contributors:
 
 Logz.io offers an integration with Azure Marketplace. 
 This topic provides guidance for admins to set up SSO for the Logz.io-Azure Portal integration, which enables an SSO link for users who access Logz.io resources via Microsoft Azure Marketplace.
+
+
+This guide is for customers using **Azure pay-as-you-go plan**. If you have a different Azure plan, use our [SSO with Azure](https://docs.logz.io/user-guide/users/single-sign-on/azure-sso.html) guide.
+{:.info-box.note}
 
 ### Benefits
 The advantages of providing your users access to the Logz.io Azure resource via SSO: 

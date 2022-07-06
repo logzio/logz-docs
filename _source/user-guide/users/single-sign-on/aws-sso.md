@@ -49,18 +49,22 @@ Name your application and give it a short description. Then, download the **AWS 
 
 Under **Application properties**, enter the **Application start URL** given to you by Logz.io, and set the **Session duration** to 12 hours. 
 
-![Download certificate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/start-url.png)
+![Download certificate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/application-properties-aws.png)
 
 Next, in **Application metadata**, click on the link located underneath the browse button. Enter the ACS URL and Application SAML audience given to you by Logz.io support.
 
 ![Set entity ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/application-metadata.gif)
 
+Click on **Save changes** to create your app.
+
 ##### Send your SAML details to Logz.io
 
 Draft a new email to Support, and include these items:
 
-* Your zipped SAML Signing Certificate (from the previous step).
-* Your SAML SIGN-IN URL.
+* Your zipped SAML Signing Certificate.
+* Your AWS SSO sign-in URL.
+
+![SAML details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/aws-sso-metadata.png)
 
 When Support has received the information and created your AWS + Logz.io connection, you'll receive confirmation that your AWS SSO is ready to go, and you can start logging in to Logz.io through your AWS account.
 
@@ -68,6 +72,9 @@ When Support has received the information and created your AWS + Logz.io connect
 
 In your main SAML application you've just created, navigate to the **Assigned users** tab and click on **Assign users**. Here you can choose and add all relevant users from your organization who can use your new SSO connection.
 
-Note that all users must also have accounts in Logz.io to use the new SSO access.
+Users must also have a Logz.io account to use the new SSO feature.
+{:.info-box.note}
+
+![Assign users](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/assign-users.png)
 
 </div>

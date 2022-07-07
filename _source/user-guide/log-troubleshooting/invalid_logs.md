@@ -15,6 +15,12 @@ contributors:
 
 The following guide will help you understand and troubleshoot some of the common log related issues you might encounter.
 
+
+
+### Field mapping types
+
+{% include rules-alerts/field-mapping-types.md %}
+
 ### Mapping errors
 
 Your logs are mapped daily, and each field is assigned a Dynamic or Explicit data type.

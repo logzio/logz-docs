@@ -58,7 +58,7 @@ The configuration wizard will open.
 
 ###### Getting the information from your CloudTrail AWS path
 
-When creating a bucket, you'll only need to fill in 2 parameters which you can get from your CloudTrail AWS path. The AWS path structure for CloudTrail looks like this:
+You may need to fill in 2 parameters when creating the bucket - {BUCKET_NAME} and {PREFIX}. You can find them in your CloudTrail AWS path. The AWS path structure for CloudTrail looks like the examle below:
 
 ```
 {BUCKET_NAME}/{PREFIX_IF_EXISTS}/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/
@@ -66,8 +66,9 @@ When creating a bucket, you'll only need to fill in 2 parameters which you can g
 
 * {BUCKET_NAME} is your **S3 bucket name**.
 
-* {PREFIX} is your CloudTrail path. You may or may not have a prefix.
-   If you don't have a prefix, put down:
+* {PREFIX} is your CloudTrail path. You may or may not have a prefix. 
+
+  If you don't have a prefix, put down:
 
   ```
   /cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/

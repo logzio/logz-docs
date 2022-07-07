@@ -378,6 +378,8 @@ firstLevel:
     #  url: /user-guide/accounts/manage-the-distributed-tracing-account.html
     - title: Audit trail
       url: /user-guide/accounts/audit-trail.html
+    - title: Update billing info
+      url: /user-guide/accounts/update-billing.html
     - title: On Demand pricing FAQ
       url: /user-guide/accounts/on-demand.html
       # - title: Usage and billing
@@ -391,8 +393,6 @@ firstLevel:
     thirdLevel:
     - title: Managing account usage
       url: /user-guide/accounts/manage-account-usage.html
-    #- title: LogSize visualization
-    #  url: /user-guide/accounts/log-visualization.html
     - title: Smart Tier
       url: /user-guide/accounts/smart-tier/
     - title: Drop filters
@@ -412,7 +412,7 @@ firstLevel:
       url: /user-guide/users/single-sign-on/
     - title: Azure single sign-on
       url: /user-guide/users/single-sign-on/azure-sso.html
-    - title: Logz.io-Azure Portal integration single sign-on
+    - title: Azure pay-as-you-go Portal single sign-on
       url: /user-guide/users/single-sign-on/azure_marketplace_liftr.html      
     - title: Okta single sign-on
       url: /user-guide/users/single-sign-on/okta-sso.html
@@ -422,6 +422,8 @@ firstLevel:
       url: /user-guide/users/single-sign-on/auth0-sso-guide.html
     - title: Google Workspace single sign-on
       url: /user-guide/users/single-sign-on/google-workspace-sso.html
+    - title: AWS single sign-on
+      url: user-guide/users/single-sign-on/aws-sso.html
   - title: Authentication Tokens
     thirdLevel:
     - title: Types of tokens

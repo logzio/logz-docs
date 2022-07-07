@@ -23,6 +23,8 @@ tabs:
     templated: true
   - collection: security-sources
     templated: true
+  - collection: synthetic-monitoring-sources
+    templated: true
   - collection: community-shippers
     top-content: >-
       <p class="info-box important no-title">

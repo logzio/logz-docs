@@ -55,6 +55,11 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
     <artifactId>logzio-log4j2-appender</artifactId>
     <version>1.0.15</version>
   </dependency>
+  <dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-slf4j-impl</artifactId>
+    <version>2.17.0</version>
+  </dependency>
 </dependencies>
 ```
 The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
@@ -65,6 +70,7 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
+XML example:
 
 ```xml
 <Appenders>
@@ -84,6 +90,31 @@ For a complete list of options, see the configuration parameters below the code 
   </Root>
 </Loggers>
 ```
+
+log4j2.properties example:
+
+```java
+# Extra logging related to initialization of Log4j
+# Set to debug or trace if log4j initialization is failing
+status = debug
+# Name of the configuration
+name = io.logz.log4j2
+
+appenders=logzioAppender
+
+# Logz.io configuration
+appender.logzioAppender.type = logzioAppender
+appender.logzioAppender.name = Logzio
+appender.logzioAppender.LogzioToken = <<LOG-SHIPPING-TOKEN>>
+appender.logzioAppender.LogzioType = myAwesomeType
+appender.logzioAppender.LogzioUrl = https://<<LISTENER-HOST>>:8071
+
+# Root logger level
+rootLogger.level = debug
+# Root logger referring to logzio appender
+rootLogger.appenderRef.logzioAppender.ref = logzioAppender
+```
+
 
 <!-- info-box-start:info -->
 See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
@@ -277,6 +308,33 @@ See the [Logback documentation](https://logback.qos.ch/manual/configuration.html
     <token><<LOG-SHIPPING-TOKEN>></token>
     <logzioUrl>https://<<LISTENER-HOST>>:8071</logzioUrl>
     <logzioType>myType</logzioType>
+
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>INFO</level>
+    </filter>
+  </appender>
+
+  <root level="debug">
+    <!-- IMPORTANT: This line is required -->
+    <appender-ref ref="LogzioLogbackAppender"/>
+  </root>
+</configuration>
+```
+
+If you want to output `debug` messages, include the `debug` parameter into the code as follows:
+
+
+```xml
+<configuration>
+  <!-- Closes gracefully and finishes the log drain -->
+  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+  <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+    <!-- Replace these parameters with your configuration -->
+    <token><<LOG-SHIPPING-TOKEN>></token>
+    <logzioUrl>https://<<LISTENER-HOST>>:8071</logzioUrl>
+    <logzioType>myType</logzioType>
+	<debug>true</debug>
 
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
       <level>INFO</level>

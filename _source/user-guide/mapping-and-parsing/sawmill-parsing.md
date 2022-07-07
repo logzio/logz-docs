@@ -12,6 +12,7 @@ tags:
   - parsing
 contributors:
   - yberlinger
+  - refaelmi
 ---
 
 Parsing is the process of breaking down your log message into smaller chunks of data,

@@ -114,6 +114,7 @@ LOGGING = {
             'level': 'INFO',
             'formatter': 'logzioFormat',
             'token': '<<LOG-SHIPPING-TOKEN>>',
+            'logzio_type': 'python-handler',
             'logzio_type': '<<LOG-TYPE>>',
             'logs_drain_timeout': 5,
             'url': 'https://<<LISTENER-HOST>>:8071'
@@ -201,6 +202,48 @@ such as `lineno` or `thread`.
 ```python
 logger.info('Warning', extra={'extra_key':'extra_value'})
 ```
+
+## Trace context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context.
+That way, your logs will have traces data in it, such as service name, span id and trace id.
+To enable this feature, set the `add_context` param in your handler configuration to `True`, like in this example:
+
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'logzioFormat': {
+            'format': '{"additional_field": "value"}',
+            'validate': False
+        }
+    },
+    'handlers': {
+        'logzio': {
+            'class': 'logzio.handler.LogzioHandler',
+            'level': 'INFO',
+            'formatter': 'logzioFormat',
+            'token': '<<LOGZIO-TOKEN>>',
+            'logzio_type': 'python-handler',
+            'logs_drain_timeout': 5,
+            'url': 'https://<<LOGZIO-URL>>:8071',
+            'retries_no': 4,
+            'retry_timeout': 2,
+            'add_context': True
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['logzio'],
+            'propagate': True
+        }
+    }
+}
+```
+
+Note that this feature is available from version 4.0.0.
 
 </div>
 

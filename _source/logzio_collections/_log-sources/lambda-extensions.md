@@ -1,4 +1,3 @@
-
 ---
 title: Lambda extensions
 logo:

@@ -243,7 +243,7 @@ LOGGING = {
 }
 ```
 
-Note that this feature is available from version 4.0.0.
+Note that this feature is only available from version 4.0.0.
 
 </div>
 

@@ -149,6 +149,7 @@ Order matters. The arguments _must_ be configured in the order shown here. For e
 | backup-logs | If set to False, disables the local backup of logs in case of failure. | `True` |
 | network-timeout | Timeout in seconds, int or float, for connecting to Logz.io. | `10` |
 | logs_drain_timeout | Timeout in seconds, int or float, for sending the logs to Logz.io. | `5` |
+| add_context | Set to `True` if you're using OpenTelemetry instrumentation and wish to inject trace context into your logs. For more info, see the **Trace context** section. | `False` |
 
 
 
@@ -201,6 +202,51 @@ such as `lineno` or `thread`.
 ```python
 logger.info('Warning', extra={'extra_key':'extra_value'})
 ```
+
+#### Trace context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context.
+In this way, your logs will have traces data in it, such as service name, span id and trace id.
+To enable this feature, set the `add_context` param in your handler configuration to `True`, like in this example:
+
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'logzioFormat': {
+            'format': '{"additional_field": "value"}',
+            'validate': False
+        }
+    },
+    'handlers': {
+        'logzio': {
+            'class': 'logzio.handler.LogzioHandler',
+            'level': 'INFO',
+            'formatter': 'logzioFormat',
+            'token': '<<LOG-SHIPPING-TOKEN>>',
+            'logzio_type': 'python-handler',
+            'logs_drain_timeout': 5,
+            'url': 'https://<<LISTENER-HOST>>:8071',
+            'retries_no': 4,
+            'retry_timeout': 2,
+            'add_context': True
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['logzio'],
+            'propagate': True
+        }
+    }
+}
+```
+
+{% include /general-shipping/replace-placeholders.html %}
+
+
+Note that this feature is only available from version 4.0.0.
 
 </div>
 

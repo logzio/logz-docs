@@ -114,7 +114,6 @@ LOGGING = {
             'level': 'INFO',
             'formatter': 'logzioFormat',
             'token': '<<LOG-SHIPPING-TOKEN>>',
-            'logzio_type': 'python-handler',
             'logzio_type': '<<LOG-TYPE>>',
             'logs_drain_timeout': 5,
             'url': 'https://<<LISTENER-HOST>>:8071'
@@ -150,6 +149,7 @@ Order matters. The arguments _must_ be configured in the order shown here. For e
 | backup-logs | If set to False, disables the local backup of logs in case of failure. | `True` |
 | network-timeout | Timeout in seconds, int or float, for connecting to Logz.io. | `10` |
 | logs_drain_timeout | Timeout in seconds, int or float, for sending the logs to Logz.io. | `5` |
+| add_context | Set to `True` if you're using Opentelemetry instrumentation and wish to inject trace context to your logs. For more info see the Trace context section. | `False` |
 
 
 
@@ -203,7 +203,7 @@ such as `lineno` or `thread`.
 logger.info('Warning', extra={'extra_key':'extra_value'})
 ```
 
-## Trace context
+#### Trace context
 
 If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context.
 That way, your logs will have traces data in it, such as service name, span id and trace id.

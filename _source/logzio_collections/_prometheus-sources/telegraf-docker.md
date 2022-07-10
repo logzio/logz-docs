@@ -65,6 +65,10 @@ Below is a list of all environment variables available with this integration. If
 
 ##### Check Logz.io metrics
 
-Give your metrics a few minutes to get from your system to ours, and then open your Logz.io [Metrics](https://app.logz.io/#/dashboard/metrics) dashboard.
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboards to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["5Wbud46hwzhpFeokC69j0Z"] -->
+
+{% include metric-shipping/generic-dashboard.html %} 
 
 </div>

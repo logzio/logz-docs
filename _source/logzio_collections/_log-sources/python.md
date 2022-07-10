@@ -224,10 +224,10 @@ LOGGING = {
             'class': 'logzio.handler.LogzioHandler',
             'level': 'INFO',
             'formatter': 'logzioFormat',
-            'token': '<<LOGZIO-TOKEN>>',
+            'token': '<<LOG-SHIPPING-TOKEN>>',
             'logzio_type': 'python-handler',
             'logs_drain_timeout': 5,
-            'url': 'https://<<LOGZIO-URL>>:8071',
+            'url': 'https://<<LISTENER-HOST>>:8071',
             'retries_no': 4,
             'retry_timeout': 2,
             'add_context': True
@@ -242,6 +242,9 @@ LOGGING = {
     }
 }
 ```
+
+{% include /general-shipping/replace-placeholders.html %}
+
 
 Note that this feature is only available from version 4.0.0.
 

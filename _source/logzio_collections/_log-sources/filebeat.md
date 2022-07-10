@@ -305,7 +305,7 @@ Your output is not configured correctly.
 
 ### Suggested remedy
 
-You need to ensure that you're using `output.logstasg`, and that it's appropriately configured. In some cases, you'll need to indent your code.
+You need to ensure that you're using `output.logstash`, and that it's appropriately configured. In some cases, you'll need to indent your code.
 
 Instead of this:
 

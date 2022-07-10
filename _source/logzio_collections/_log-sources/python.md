@@ -149,7 +149,7 @@ Order matters. The arguments _must_ be configured in the order shown here. For e
 | backup-logs | If set to False, disables the local backup of logs in case of failure. | `True` |
 | network-timeout | Timeout in seconds, int or float, for connecting to Logz.io. | `10` |
 | logs_drain_timeout | Timeout in seconds, int or float, for sending the logs to Logz.io. | `5` |
-| add_context | Set to `True` if you're using Opentelemetry instrumentation and wish to inject trace context to your logs. For more info see the Trace context section. | `False` |
+| add_context | Set to `True` if you're using OpenTelemetry instrumentation and wish to inject trace context into your logs. For more info, see the **Trace context** section. | `False` |
 
 
 

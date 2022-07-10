@@ -13,7 +13,7 @@ contributors:
 Logz.io's Telemetry Collector lets you quickly send your data based on the configuration that fits your needs. You can use it to send logs, metrics, and tracing data back to Logz.io’s observability platform. 
 
 
-Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=all)** to send your data.
+Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
 {:.info-box.note}
 
 #### Why should you use Telemetry Collector?
@@ -29,7 +29,7 @@ Logz.io’s Telemetry Collector currently supports **Kubernetes** for logs, metr
 
 The Telemetry Collector will soon support additional platforms, including **AWS**, **Azure**, **Linux**, **Windows**, **Mac**, and more.
 
-If you're interested in sending your data through a different source, you can use Logz.io's **[Send your data](https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=all)** guide, which includes over 300 shipping methods.
+If you're interested in sending your data through a different source, you can use Logz.io's **[Send your data](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** guide, which includes over 300 shipping methods.
 
 
 #### Configure your Telemetry Collector:

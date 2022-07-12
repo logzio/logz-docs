@@ -83,7 +83,7 @@ receivers:
 exporters:
   logzio:
     account_token: <<TRACING-SHIPPING-TOKEN>>
-    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>" # Your Logz.io account region code. [available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
     
 processors:
   batch:

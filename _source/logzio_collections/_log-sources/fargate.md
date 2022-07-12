@@ -1,9 +1,9 @@
 ---
-title: Ship Fargate logs
+title: Ship ECS Fargate logs
 logo:
   logofile: aws-fargate.svg
   orientation: vertical
-data-source: Fargate
+data-source: ECS Fargate
 data-for-product-source: Logs
 templates: ["no-template"]
 contributors:
@@ -15,7 +15,7 @@ shipping-tags:
 order: 610
 ---
 
-AWS Fargate is a serverless compute engine for building applications without managing servers. This integration will create a new container that will run your image to send your AWS Fargate logs to Logz.io using FireLens. The integration will automatically create the replica.
+AWS Fargate is a serverless compute engine for building applications without managing servers. This integration will create a new container that will run your image to send your AWS ECS Fargate logs to Logz.io using FireLens. The integration will automatically create the replica.
  
 #### Configuration
 

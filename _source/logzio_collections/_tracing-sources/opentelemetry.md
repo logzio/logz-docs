@@ -65,7 +65,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 ```yaml
   logzio:
     account_token: <<TRACING-SHIPPING-TOKEN>>
-    #region: "<<LOGZIO_ACCOUNT_REGION_CODE>>" - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
 ```
 
 * Under the `service` list:
@@ -93,7 +93,7 @@ receivers:
 exporters:
   logzio:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    #region: "<<LOGZIO_ACCOUNT_REGION_CODE>>" - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
 processors:
   batch:
@@ -212,7 +212,7 @@ logzio-otel-traces logzio-helm/logzio-otel-traces
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 ##### Check Logz.io for your traces
 

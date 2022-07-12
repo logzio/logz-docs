@@ -78,7 +78,7 @@ receivers:
 exporters:
   logzio:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>" # Your logz.io account region code. [available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
 processors:
   batch:
@@ -212,7 +212,7 @@ logzio-otel-traces logzio-helm/logzio-otel-traces
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` Your logz.io account region code. [available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 ##### Define the logzio-otel-traces service dns
 

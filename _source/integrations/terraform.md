@@ -38,6 +38,7 @@ The following Logz.io API endpoints are supported by this provider:
 * [Archive logs](https://docs.logz.io/api/#tag/Archive-logs)
 * [Restore logs](https://docs.logz.io/api/#tag/Restore-logs)
 * [Authentication groups](https://docs.logz.io/api/#tag/Authentication-groups)
+* [Kibana objects](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
 * [Log-based alerts v1](https://github.com/logzio/public-api/tree/master/alerts) (deprecated)
 
 #### Working with Terraform

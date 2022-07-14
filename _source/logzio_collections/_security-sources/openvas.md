@@ -41,6 +41,56 @@ This code block adds OpenVAS as an input and sets Logz.io as the output.
 # ...
 filebeat.inputs:
 
+- type: filestream
+  paths:
+    - <<FILEPATH-TO-OPENVAS-REPORTS>>/*.csv
+  fields:
+    logzio_codec: plain
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: openvas
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+  multiline:
+    pattern: '^(?:[0-9]{1,3}\.){3}[0-9]{1,3}'
+    negate: true
+    match: after
+
+#For version 6.x and lower
+#filebeat.registry_file: /var/lib/filebeat/registry
+
+#For version 7 and higher
+filebeat.registry.path: /var/lib/filebeat
+
+#The following processors are to ensure compatibility with version 7
+processors:
+- rename:
+    fields:
+     - from: "agent"
+       to: "beat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+     - from: "log.file.path"
+       to: "source"
+    ignore_missing: true
+
+#...
+output:
+  logstash:
+    hosts: ["<<LISTENER-HOST>>:5015"]
+    ssl:
+      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
+
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+# ...
+filebeat.inputs:
+
 - type: log
   paths:
     - <<FILEPATH-TO-OPENVAS-REPORTS>>/*.csv
@@ -83,14 +133,6 @@ output:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
-
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 
 {% include /general-shipping/replace-placeholders.html %}
@@ -133,4 +175,3 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
-

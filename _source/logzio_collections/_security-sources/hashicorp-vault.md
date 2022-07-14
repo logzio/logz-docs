@@ -58,6 +58,56 @@ to keep Vault logs compatible with Logz.io.
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+
+  paths:
+  - /var/log/vault_audit.log
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<LOG-SHIPPING-TOKEN>>
+    logzio_type: vault
+  fields_under_root: true
+  json.keys_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+filebeat.registry.path: /var/lib/filebeat
+processors:
+- rename:
+    fields:
+    - from: "agent"
+      to: "filebeat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source"
+    ignore_missing: true
+- rename:
+  fields:
+  - from: "type"
+    to: "hashi_type"
+  ignore_missing: true
+- rename:
+  fields:
+  - from: "logzio_type"
+    to: "type"
+  ignore_missing: true
+
+# ...
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
 
   paths:
@@ -102,14 +152,7 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
 
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 ##### Start Filebeat
 

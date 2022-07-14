@@ -72,6 +72,62 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to th
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+  paths:
+    - /var/log/mysql/mysql.log
+
+  fields:
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    # https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: mysql
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+- type: log
+  paths:
+    - /var/log/mysql/mysql-slow.log
+
+  fields:
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    # https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: mysql_slow_query
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+  multiline:
+    pattern: '^# Time:'
+    negate: true
+    match: after
+
+- type: log
+  paths:
+    - /var/log/mysql/error.log
+
+  fields:
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    # https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: mysql_error
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
   paths:
     - /var/log/mysql/mysql.log
@@ -122,14 +178,6 @@ filebeat.inputs:
   ignore_older: 3h
   ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
-
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 If you're running Filebeat 7, paste this code block.
 Otherwise, you can leave it out.

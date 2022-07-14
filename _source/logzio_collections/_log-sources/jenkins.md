@@ -38,6 +38,32 @@ Replace <<JENKINS-HOME>> with home location of your Jenkins installation
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+  paths:
+  - /var/log/jenkins/jenkins.log
+  - /var/<<JENKINS-HOME>>/jobs/*/builds/lastFailedBuild/log
+  fields:
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    # https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: jenkins
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+  multiline:
+    pattern: '^[A-Z]{1}[a-z]{2} {1,2}[0-9]{1,2}, [0-9]{4} {1,2}[0-9]{1,2}:[0-9]{2}:[0-9]{2}'
+    negate: true
+    match: after
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
   paths:
   - /var/log/jenkins/jenkins.log
@@ -58,14 +84,6 @@ filebeat.inputs:
     match: after
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
-
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 
 If you're running Filebeat 7, paste this code block.
@@ -123,4 +141,3 @@ output.logstash:
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search for `type:jenkins` to filter for your Jenkins logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-

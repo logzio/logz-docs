@@ -43,6 +43,56 @@ We recommend configuring Puppet to output JSON logs. See [Advanced Logging Confi
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+  paths:
+
+  # If you configured Puppet to output JSON logs, replace the filename with
+  #  `puppetserver.log.json`
+  - /var/log/puppetlabs/puppetserver/puppetserver.log
+
+  fields:
+
+    # If you configured Puppet to output JSON logs, set logzio_codec to
+    #  `json`
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    # https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: puppetserver
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+- type: log
+  paths:
+
+  # If you configured Puppet to output JSON logs, replace the filename with
+  #  `puppetserver-access.log.json`
+  - /var/log/puppetlabs/puppetserver/puppetserver-access.log
+
+  fields:
+
+    # If you configured Puppet to output JSON logs, set logzio_codec to
+    #  `json`
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    # https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: puppetserver-access
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
   paths:
 
@@ -86,14 +136,6 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
-
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 If you're running Filebeat 7, paste this code block.
 Otherwise, you can leave it out.

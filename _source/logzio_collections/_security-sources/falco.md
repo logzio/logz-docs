@@ -199,6 +199,45 @@ This code block adds Falco as an input and sets Logz.io as the output.
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+  paths:
+  -  <<filepath-to-falco-events.txt>>
+  fields:
+    logzio_codec: json
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: falco
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+filebeat.registry.path: /var/lib/filebeat
+
+#The following processors are to ensure compatibility with version 7
+processors:
+- rename:
+    fields:
+     - from: "agent"
+       to: "beat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+     - from: "log.file.path"
+       to: "source"
+    ignore_missing: true
+
+# ...
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
   paths:
   -  <<filepath-to-falco-events.txt>>
@@ -232,14 +271,6 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
-
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 
 {% include /general-shipping/replace-placeholders.html %}

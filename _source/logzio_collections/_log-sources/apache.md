@@ -44,6 +44,50 @@ The default log locations for:
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+
+  paths:
+  # Ubuntu, Debian: `/var/log/apache2/access.log`
+  #  RHEL, CentOS, Fedora: `/var/log/httpd/access_log`
+  - /var/log/apache2/access.log
+
+  fields:
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: apache_access
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+- type: log
+
+  paths:
+  # Ubuntu, Debian: `/var/log/apache2/error.log`
+  #  RHEL, CentOS, Fedora: `/var/log/httpd/error_log`
+  - /var/log/apache2/error.log
+
+  fields:
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: apache_error
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
 
   paths:
@@ -81,14 +125,6 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
-
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 If you're running Filebeat 7, paste this code block.
 Otherwise, you can leave it out.

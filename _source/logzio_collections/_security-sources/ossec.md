@@ -55,6 +55,29 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add OSSEC to th
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+
+  paths:
+  - /var/ossec/logs/alerts/alerts.json
+
+  fields:
+    logzio_codec: json
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: ossec
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
 
   paths:
@@ -72,14 +95,6 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
-
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 If you're running Filebeat 7, paste this code block.
 Otherwise, you can leave it out.

@@ -52,6 +52,52 @@ Copy and paste the code block below, overwriting the previous contents, to repla
 ```yaml
 #... Filebeat
 filebeat.inputs:
+- type: filestream
+  paths:
+    - <<FILE_PATH>>
+  fields:
+    token: <<LOG-SHIPPING-TOKEN>>
+  fields_under_root: true
+  json.keys_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+#For version 7 and higher
+filebeat.registry.path: /var/lib/filebeat
+#The following processors are to ensure compatibility with version 7
+processors:
+- rename:
+    fields:
+     - from: "type"
+       to: "event_type"
+    ignore_missing: true
+- add_fields:
+    target: ''
+    fields:
+      type: "sophos-ep"
+- rename:
+    fields:
+     - from: "log.file.path"
+       to: "source"
+    ignore_missing: true
+- drop_event:
+    when:
+      regexp:
+        message: "^\\s*$"
+#... Output
+output:
+  logstash:
+    hosts: ["<<LISTENER-HOST>>"]
+    ssl:
+      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+#... Filebeat
+filebeat.inputs:
 - type: log
   paths:
     - <<FILE_PATH>>
@@ -92,14 +138,8 @@ output:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
 
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
+
 
 {% include log-shipping/listener-var.html %} 
 

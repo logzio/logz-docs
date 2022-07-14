@@ -38,6 +38,43 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add nginx to th
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+  paths:
+  - /var/log/nginx/access.log
+
+  fields:
+    logzio_codec: plain
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: nginx_access
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+- type: log
+  paths:
+  - /var/log/nginx/error.log
+
+  fields:
+    logzio_codec: plain
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: nginx_error
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
   paths:
   - /var/log/nginx/access.log
@@ -69,14 +106,7 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
 
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 If you're running Filebeat 7, paste this code block.
 Otherwise, you can leave it out.

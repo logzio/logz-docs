@@ -54,6 +54,52 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Zeek to the
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+
+  # The path to your logs can change depending on your version and configuration.
+  # To find it, run zeekctl config
+  # sudo ./zeekctl config | grep logdir
+  paths:
+  - /var/log/bro/current/conn.log
+  - /var/log/bro/current/ssh.log
+  - /var/log/bro/current/rdp.log
+  - /var/log/bro/current/ssl.log
+  - /var/log/bro/current/smb.log
+  - /var/log/bro/current/dpd.log
+  - /var/log/bro/current/dns.log
+  - /var/log/bro/current/http.log
+
+  fields:
+    logzio_codec: json
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: zeek
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+- type: log
+  paths:
+    - /var/log/bro/current/notice.log
+  fields:
+    logzio_codec: json
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: zeek_alert
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
 
   # The path to your logs can change depending on your version and configuration.
@@ -94,14 +140,7 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
 
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 If you're running Filebeat 7, paste this code block.
 Otherwise, you can leave it out.

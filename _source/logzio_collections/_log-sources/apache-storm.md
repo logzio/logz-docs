@@ -44,6 +44,34 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to t
 
 {% include log-shipping/log-shipping-token.html %} Replace `<<LOGS_DIRECTORY>>` with the path to your Apache Storm logs directory mentioned in the step above. 
 
+
+```yaml
+# ...
+filebeat.inputs:
+- type: filestream
+
+  paths:
+    - <<LOGS_DIRECTORY>>/*.log
+    - <<LOGS_DIRECTORY>>/workers-artifacts/*/*/*.log*
+
+  exclude_files: ['.gz$']
+
+  fields:
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: apache_storm
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
 ```yaml
 # ...
 filebeat.inputs:
@@ -68,6 +96,7 @@ filebeat.inputs:
 
 ```
 
+
 If you're running Filebeat 7, paste this code block.
 Otherwise, you can leave it out.
 
@@ -88,14 +117,7 @@ processors:
     ignore_missing: true
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
 
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 ##### Set Logz.io as the output
 

@@ -39,6 +39,70 @@ We recommend reading [Log system](https://docs.gitlab.com/ee/administration/logs
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+  paths:
+  - /var/log/gitlab/gitlab-rails/production_json.log
+  fields:
+    logzio_codec: json
+
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: gitlab-production-json
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+- type: log
+  paths:
+  - /var/log/gitlab/gitlab-rails/production.log
+  fields:
+    logzio_codec: plain
+
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: gitlab-production
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+- type: log
+  paths:
+  - /var/log/gitlab/gitlab-rails/api_json.log
+  fields:
+    logzio_codec: json
+
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: gitlab-api-json
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+- type: log
+  paths:
+  - /var/log/gitlab/gitlab-rails/application.log
+  fields:
+    logzio_codec: json
+
+    # You can manage your tokens at
+    #  https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: gitlab-application
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+```
+
+If you're running Filebeat 7 to 8.1, paste this code block.
+Otherwise, you can leave it out.
+
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
   paths:
   - /var/log/gitlab/gitlab-rails/production_json.log
@@ -96,14 +160,6 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
-
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 
 If you're running Filebeat 7, paste this code block.

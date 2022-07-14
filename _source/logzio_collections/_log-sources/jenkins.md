@@ -131,7 +131,7 @@ output.logstash:
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
-
+ 
 ##### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.

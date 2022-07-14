@@ -156,4 +156,4 @@ You can search for `type:ossec` to filter for your logs. Your logs should be alr
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-</div>
+</div> 

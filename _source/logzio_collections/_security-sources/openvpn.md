@@ -128,4 +128,4 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
   
 If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-</div>
+</div> 

@@ -117,6 +117,22 @@ Include this line at the end of the run if you're using logzio-nodejs in a sever
   logger.sendAndClose();
   ```
 
+###### Custom tags
+
+You can add custom tags to your logs using the following format: `{ tags : ['tag1']}`, for example:
+
+```js
+var obj = {
+
+    message: 'Your log message',
+
+    tags : ['tag1']
+
+};
+
+logger.log(obj);
+```
+
 </div>
 
 </div>
@@ -258,6 +274,22 @@ For a complete list of your options, see the configuration parameters below.👇
   winston.add(logzioWinstonTransport, loggerOptions);
   ```
 
+###### Custom tags
+
+You can add custom tags to your logs using the following format: `{ tags : ['tag1']}`, for example:
+
+```js
+var obj = {
+
+    message: 'Your log message',
+
+    tags : ['tag1']
+
+};
+
+logger.log(obj);
+```
+
 
 
 </div>
@@ -338,13 +370,35 @@ logger.close()
 
 To fix errors related to `esModuleInterop` flag make sure you run the relevant `tsconfig` file.
 These might help:
+
 ```
 tsc <file-name>.ts --esModuleInterop
 ```
+
 or
+
 ```
 tsc --project tsconfig.json  
 ```
+
+
+###### Custom tags
+
+You can add custom tags to your logs using the following format: `{ tags : ['tag1']}`, for example:
+
+```js
+var obj = {
+
+    message: 'Your log message',
+
+    tags : ['tag1']
+
+};
+
+logger.log(obj);
+```
+
+
 </div>
 </div>
 <!-- tab:end -->

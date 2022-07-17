@@ -212,28 +212,13 @@ filebeat.inputs:
 
 filebeat.registry.path: /var/lib/filebeat
 
-#The following processors are to ensure compatibility with version 7
-processors:
-- rename:
-    fields:
-     - from: "agent"
-       to: "beat_agent"
-    ignore_missing: true
-- rename:
-    fields:
-     - from: "log.file.path"
-       to: "source"
-    ignore_missing: true
-
-# ...
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 ```yaml
 # ...

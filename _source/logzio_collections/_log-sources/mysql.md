@@ -87,7 +87,7 @@ filebeat.inputs:
   encoding: utf-8
   ignore_older: 3h
 
-- type: log
+- type: filestream
   paths:
     - /var/log/mysql/mysql-slow.log
 
@@ -106,7 +106,7 @@ filebeat.inputs:
     negate: true
     match: after
 
-- type: log
+- type: filestream
   paths:
     - /var/log/mysql/error.log
 
@@ -122,8 +122,7 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 ```yaml
 # ...
@@ -179,8 +178,7 @@ filebeat.inputs:
   ```
 
 
-If you're running Filebeat 7, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7, paste the code block below instead:
 
 ```yaml
 # ... For Filebeat 7 only ...
@@ -198,7 +196,7 @@ processors:
     ignore_missing: true
 ```
 
-If you're running Filebeat 6, paste this code block.
+If you're running Filebeat 6, change `filebeat.registry.path` with `registry_file` as follows:
 
 ```yaml
 # ... For Filebeat 6 only ...

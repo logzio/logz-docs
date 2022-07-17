@@ -62,28 +62,6 @@ filebeat.inputs:
   encoding: utf-8
   ignore_older: 3h
 
-#For version 7 and higher
-filebeat.registry.path: /var/lib/filebeat
-#The following processors are to ensure compatibility with version 7
-processors:
-- rename:
-    fields:
-     - from: "type"
-       to: "event_type"
-    ignore_missing: true
-- add_fields:
-    target: ''
-    fields:
-      type: "sophos-ep"
-- rename:
-    fields:
-     - from: "log.file.path"
-       to: "source"
-    ignore_missing: true
-- drop_event:
-    when:
-      regexp:
-        message: "^\\s*$"
 #... Output
 output:
   logstash:
@@ -92,8 +70,7 @@ output:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 ```yaml
 #... Filebeat

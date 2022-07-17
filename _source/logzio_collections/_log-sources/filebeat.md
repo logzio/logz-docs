@@ -225,7 +225,7 @@ To verify that Filebeat was unable to find any files or events:
 
 ##### Check if any files are monitored
 
-From your harvester component, go to `harvester > open_files`. You should be able to see how many files are being monitored in the chosen path.
+For each log that Filebeat locates, it starts a harvester. Locate the relevant harvester component, and go to `harvester > open_files`. You should be able to see how many files are being monitored in the chosen path.
 
 If the result is 0, Filebeat was unable to find the specific file or failed to find any files in the specific folder.
 

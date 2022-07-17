@@ -35,6 +35,10 @@ firstLevel:
       url: /user-guide/kibana/mapping/
     - title: Field not indexed
       url: /user-guide/kibana/mapping/field-not-indexed/
+  - title: Troubleshooting
+    thirdLevel:
+    - title: Troubleshooting Fluentd for Kubernetes logs
+      url: /user-guide/kubernetes-troubleshooting/
 
   - title: Log Alerts
     thirdLevel:

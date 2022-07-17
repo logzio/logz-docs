@@ -176,7 +176,8 @@ This section contains some guidelines for handling errors you may encounter when
 * [Problem: Invalid yaml](/shipping/log-sources/filebeat.html#problem-invalid-yaml)
 * [Problem: Elasticsearch.output issue](/shipping/log-sources/filebeat.html#problem-elasticsearchoutput-issue)
 * [Problem: Not outputs defined](/shipping/log-sources/filebeat.html#problem-not-outputs-defined)
-* [Linux & other Operating Systems]()
+* [Problem: Connection issues](/shipping/log-sources/filebeat.html#problem-connection-error)
+* [Linux & other operating systems](/shipping/log-sources/filebeat.html#linux--other-operating-systems)
 
 ## Problem: Zero metrics in the last 30 seconds
 
@@ -189,7 +190,16 @@ Your logs show a `Non-zero metrics in the last 30s` INFO message:
 
 ### Possible cause
 
-Filebeat couldn't find any files or events. To verify this:
+Filebeat couldn't find any files or events. To view the output of your logs and view the INFO message, use the following configuration:
+
+```yaml
+logging.level: debug
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+```
+
+To verify that Filebeat was unable to find any files or events:
 
 <div class="tasklist">
 
@@ -209,7 +219,7 @@ If it contains any objects, you'll be able to see `writes->success` and the tota
 
 ### Suggested remedy
 
-Re-configure your Filebeat to send files. 
+Re-configure your Filebeat to make sure files are sent properly.
 
 ## Problem: Path is locked
 
@@ -326,7 +336,46 @@ output:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-## Linux & other Operating Systems
+## Problem: Connection error
+
+When you're trying to connect to Filebeat, you get the following error:
+
+```shell
+Permanent error: Post \"https://<<LISTENER-HOST>>:8053\": context deadline exceeded
+meaning that the post request timeout.
+```
+
+### Possible cause - Connectivity issue
+
+A connectivity issue may be causing this error.
+
+#### Suggested remedy
+
+Check your shipper's connectivity as follows.
+
+For macOS and Linux, use telnet to ensure your log shipper can connect to Logz.io listeners.
+
+As of macOS High Sierra (10.13),
+telnet is not installed by default.
+You can install telnet with Homebrew
+by running `brew install telnet`.
+{:.info-box.note}
+
+Run this command from the environment you're shipping from, **after adding the appropriate port number**:
+
+```shell
+telnet listener.logz.io {port-number}
+```
+For Windows servers running Windows 8/Server 2012 and later, run the following command in PowerShell:
+
+
+```shell
+Test-NetConnection listener.logz.io -Port {port-number}
+```
+
+**The port number is 5015.**
+
+## Linux & other operating systems
 
 Filebeat can be installed on various operating systems. This troubleshooting guide is designed for Linux installations of Filebeat but can be adapted to other operating systems.
 

@@ -69,8 +69,7 @@ filebeat.inputs:
 
 ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 ```yaml
 # ...
@@ -97,8 +96,7 @@ filebeat.inputs:
 ```
 
 
-If you're running Filebeat 7, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7, paste the code block below instead:
 
 ```yaml
 # For Filebeat 7 and higher

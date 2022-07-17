@@ -62,7 +62,7 @@ filebeat.inputs:
   encoding: utf-8
   ignore_older: 3h
 
-- type: log
+- type: filestream
 
   paths:
   # Ubuntu, Debian: `/var/log/apache2/error.log`

@@ -177,7 +177,6 @@ This section contains some guidelines for handling errors you may encounter when
 * [Problem: Elasticsearch.output issue](/shipping/log-sources/filebeat.html#problem-elasticsearchoutput-issue)
 * [Problem: Not outputs defined](/shipping/log-sources/filebeat.html#problem-not-outputs-defined)
 * [Problem: Connection issues](/shipping/log-sources/filebeat.html#problem-connection-error)
-* [Linux & other operating systems](/shipping/log-sources/filebeat.html#linux--other-operating-systems)
 
 ## Problem: Zero metrics in the last 30 seconds
 
@@ -190,7 +189,9 @@ Your logs show a `Non-zero metrics in the last 30s` INFO message:
 
 ### Possible cause
 
-Filebeat couldn't find any files or events. To view the output of your logs and view the INFO message, use the following configuration:
+Filebeat couldn't find any files or events.
+
+You can view and manage your logging output by opening the `filebeat.yml` config file and navigating to the logging section inside it:
 
 ```yaml
 logging.level: debug
@@ -198,6 +199,25 @@ logging.to_files: true
 logging.files:
   path: /var/log/filebeat
 ```
+
+For example, you can use the -e command line flag to redirect the output to standard error instead:
+
+```yaml
+filebeat -e
+```
+
+Change the default configuration file from filebeat.yml to a custom file of your choice. To use a different configuration file, use the -c flag:
+
+```yaml
+filebeat -e -c customfilebeatconfig.yml
+```
+
+Filebeat's default log level is INFO. To get all debugging output you can use *:
+
+```yaml
+filebeat -e -d "*"
+```
+
 
 To verify that Filebeat was unable to find any files or events:
 
@@ -347,11 +367,15 @@ meaning that the post request timeout.
 
 ### Possible cause - Connectivity issue
 
-A connectivity issue may be causing this error.
+This error can occur due to a connectivity issue, an issue with your TLS, or the server's inability to access Logz.io's listener. 
 
 #### Suggested remedy
 
-Check your shipper's connectivity as follows.
+<div class="tasklist">
+
+##### Check connection and ports 
+
+First, check your shipper's connectivity as follows:
 
 For macOS and Linux, use telnet to ensure your log shipper can connect to Logz.io listeners.
 
@@ -375,55 +399,7 @@ Test-NetConnection listener.logz.io -Port {port-number}
 
 **The port number is 5015.**
 
-## Linux & other operating systems
-
-Filebeat can be installed on various operating systems. This troubleshooting guide is designed for Linux installations of Filebeat but can be adapted to other operating systems.
-
-
-#### Troubleshooting log shipping with Filebeat
-
-
-<div class="tasklist">
-
-##### Check your Filebeat yaml file for syntax errors
-
-Restart Filebeat again to make sure that your recent changes have already taken effect. Run:
-
-```
-$ sudo service filebeat restart
-```
-
-If you get an error with your Filebeat.yml file, check for the most common problems:
-
-Indentation errors, especially indenting with tabs instead of spaces, are very common.
-
-You can use an online YAML validator [yamllint.com is a popular choice](http://www.yamllint.com/) to check if your yaml file is valid. The same tool can also help you clean up extra characters, if it finds any.
-
-##### Check the path to the registry file
-
-Even if your YAML file is valid, this does not necessarily mean that the configuration is valid.
-
-Filebeat uses a registry file to track log file locations in files that have already been sent between restarts of Filebeat. Here's what you should check:
-
-* Make sure that the path to the registry file exists.
-* Check that the registry file is populated with values.
-
-You can find the path of your registry file by looking at the filebeat.yml file and searching for the field `registry_file`.
-
-Our standard configuration has it in the following location: `registry_file: /var/lib/filebeat/registry`
-
-If the registry file does not exist or only contains empty curly braces "{}", it means that Filebeat is not running or cannot find any logs to process.
-
-##### Verify that the path to your logs is correct
-
-Make sure that the path to the logs is correct.
-
-If the log file already contains new log lines, the path is ok.
-If there are no new log lines, you can either force the system to generate new logs or manually add a few log lines to the log file.
-
-##### Check that the TLS certificate is in the correct location
-
-Our Filebeat endpoint requires TLS encryption.
+##### Verify TLS encryption
 
 Confirm that you have downloaded and placed the correct certificate in the correct location.
 
@@ -467,10 +443,7 @@ Manually put something in the shipped log file to see if it is sent:
 echo hello >> /var/log/my_log_file.log
 ```
 
-##### Enable debugging and check the logs
-
-If you still encounter issues, enable debugging in Filebeat and check the logs for errors. See the official [Elastic guide](https://www.elastic.co/guide/en/beats/filebeat/current/enable-filebeat-debugging.html) for details.
-
+</div>
 
 </div>
 <!-- tab:end -->

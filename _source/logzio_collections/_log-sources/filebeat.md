@@ -362,7 +362,7 @@ Test-NetConnection listener.logz.io -Port {port}
 |---|---|
 | Connected to listener-group.logz.io Escape character is '^]' | trying xxx.xxx.xxx.xxx.... |
 
-To exit the screen, type `Ctrl+]` and type in `quit`.
+To exit the screen, type `Ctrl+:` and type in `quit`.
 
 If you cannot telnet to listener.logz.io on port 5015, please adjust your network settings to allow this communication. For a complete list of IPs used by the Logz.io listener, click [here](/user-guide/log-shipping/listener-ip-addresses.html).
 

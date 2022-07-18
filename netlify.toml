@@ -367,3 +367,9 @@
   to = "https://docs.logz.io"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/log-shipping/filebeat-troubleshooting/"
+  to = "/shipping/log-sources/filebeat.html#troubleshooting"
+  status = 301
+  force = true

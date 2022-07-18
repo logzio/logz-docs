@@ -54,7 +54,6 @@ filebeat.inputs:
     - <<LOGS_DIRECTORY>>/*.log
     - <<LOGS_DIRECTORY>>/workers-artifacts/*/*/*.log*
 
-  exclude_files: ['.gz$']
 
   fields:
     logzio_codec: plain
@@ -80,7 +79,6 @@ filebeat.inputs:
     - <<LOGS_DIRECTORY>>/*.log
     - <<LOGS_DIRECTORY>>/workers-artifacts/*/*/*.log*
 
-  exclude_files: ['.gz$']
 
   fields:
     logzio_codec: plain

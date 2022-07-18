@@ -16,6 +16,7 @@ contributors:
   - imnotashrimp
   - amosd92
   - shalper
+  - refaelmi
 shipping-tags:
   - agents
   - popular
@@ -170,76 +171,13 @@ Beat shippers make use of modules to ship data from various sources. Refer to th
 
 This section contains some guidelines for handling errors you may encounter when running Filebeat (version 7 or older).
 
-* [Problem: Zero metrics in the last 30 seconds](/shipping/log-sources/filebeat.html#problem-zero-metrics-in-the-last-30-seconds)
 * [Problem: Path is locked](/shipping/log-sources/filebeat.html#problem-path-is-locked)
 * [Problem: Old logs are not visible](/shipping/log-sources/filebeat.html#problem-old-logs-are-not-visible)
 * [Problem: Invalid yaml](/shipping/log-sources/filebeat.html#problem-invalid-yaml)
 * [Problem: Elasticsearch.output issue](/shipping/log-sources/filebeat.html#problem-elasticsearchoutput-issue)
 * [Problem: Not outputs defined](/shipping/log-sources/filebeat.html#problem-not-outputs-defined)
 * [Problem: Connection issues](/shipping/log-sources/filebeat.html#problem-connection-error)
-
-## Problem: Zero metrics in the last 30 seconds
-
-Your logs show a `Non-zero metrics in the last 30s` INFO message:
-
-```shell
-2022-05-13T07:16:27.805Z    INFO    [monitoring]    log/log.go:184    Non-zero metrics in the last 30s    
-{"monitoring": {"metrics": {"beat":{"cpu":{"system":{"ticks":300,"time":{"ms":304}},"total":{"ticks":480,"time":{"ms":489},"value":0},"user":{"ticks":180,"time":{"ms":185}}},"handles":{"limit":{"hard":1048576,"soft":1024},"open":11},"info":{"ephemeral_id":"e778ccbc-94e5-467e-8e34-b1443402c50e","uptime":{"ms":30085},"version":"7.17.3"},"memstats":{"gc_next":19787632,"memory_alloc":11823552,"memory_sys":37831688,"memory_total":58462392,"rss":125288448},"runtime":{"goroutines":38}},"filebeat":{"events":{"added":105,"done":105},"harvester":{"open_files":1,"running":1,"started":1}},"libbeat":{"config":{"module":{"running":0}},"output":{"events":{"acked":103,"active":0,"batches":1,"total":103},"read":{"bytes":6268},"type":"logstash","write":{"bytes":8781}},"pipeline":{"clients":1,"events":{"active":0,"filtered":2,"published":103,"retry":103,"total":105},"queue":{"acked":103,"max_events":4096}}},"registrar":{"states":{"current":1,"update":105},"writes":{"success":2,"total":2}},"system":{"cpu":{"cores":6},"load":{"1":0.01,"15":0,"5":0,"norm":{"1":0.0017,"15":0,"5":0}}}}}}
-```
-
-### Possible cause
-
-Filebeat couldn't find any files or events.
-
-You can view and manage your logging output by opening the `filebeat.yml` config file and navigating to the logging section inside it:
-
-```yaml
-logging.level: debug
-logging.to_files: true
-logging.files:
-  path: /var/log/filebeat
-```
-
-For example, you can use the -e command line flag to redirect the output to standard error instead:
-
-```yaml
-filebeat -e
-```
-
-Change the default configuration file from filebeat.yml to a custom file of your choice. To use a different configuration file, use the -c flag:
-
-```yaml
-filebeat -e -c customfilebeatconfig.yml
-```
-
-Filebeat's default log level is INFO. To get all debugging output you can use *:
-
-```yaml
-filebeat -e -d "*"
-```
-
-
-To verify that Filebeat was unable to find any files or events:
-
-<div class="tasklist">
-
-##### Check if any files are monitored
-
-For each log that Filebeat locates, it starts a harvester. Locate the relevant harvester component, and go to `harvester > open_files`. You should be able to see how many files are being monitored in the chosen path.
-
-If the result is 0, Filebeat was unable to find the specific file or failed to find any files in the specific folder.
-
-##### Check how many files are being monitored
-
-Go to your output file, `output > events`. If it shows 0, the output didn't recognize new data.
-
-If it contains any objects, you'll be able to see `writes->success` and the total number of files sent. However, if the `success` total number is 0, Filebeat could not send any data.
-
-</div>
-
-### Suggested remedy
-
-Re-configure your Filebeat to make sure files are sent properly.
+* [Zero metrics in the last 30 seconds](/shipping/log-sources/filebeat.html#zero-metrics-in-the-last-30-seconds)
 
 ## Problem: Path is locked
 
@@ -444,6 +382,72 @@ echo hello >> /var/log/my_log_file.log
 ```
 
 </div>
+
+## Zero metrics in the last 30 seconds
+
+Your logs show a `Non-zero metrics in the last 30s` INFO message:
+
+```shell
+2022-05-13T07:16:27.805Z    INFO    [monitoring]    log/log.go:184    Non-zero metrics in the last 30s    
+{"monitoring": {"metrics": {"beat":{"cpu":{"system":{"ticks":300,"time":{"ms":304}},"total":{"ticks":480,"time":{"ms":489},"value":0},"user":{"ticks":180,"time":{"ms":185}}},"handles":{"limit":{"hard":1048576,"soft":1024},"open":11},"info":{"ephemeral_id":"e778ccbc-94e5-467e-8e34-b1443402c50e","uptime":{"ms":30085},"version":"7.17.3"},"memstats":{"gc_next":19787632,"memory_alloc":11823552,"memory_sys":37831688,"memory_total":58462392,"rss":125288448},"runtime":{"goroutines":38}},"filebeat":{"events":{"added":105,"done":105},"harvester":{"open_files":1,"running":1,"started":1}},"libbeat":{"config":{"module":{"running":0}},"output":{"events":{"acked":103,"active":0,"batches":1,"total":103},"read":{"bytes":6268},"type":"logstash","write":{"bytes":8781}},"pipeline":{"clients":1,"events":{"active":0,"filtered":2,"published":103,"retry":103,"total":105},"queue":{"acked":103,"max_events":4096}}},"registrar":{"states":{"current":1,"update":105},"writes":{"success":2,"total":2}},"system":{"cpu":{"cores":6},"load":{"1":0.01,"15":0,"5":0,"norm":{"1":0.0017,"15":0,"5":0}}}}}}
+```
+
+### Possible cause
+
+Filebeat couldn't find any files or events.
+
+You can view and manage your logging output by opening the `filebeat.yml` config file and navigating to the logging section inside it:
+
+```yaml
+logging.level: debug
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+```
+
+For example, you can use the -e command line flag to redirect the output to standard error instead:
+
+```yaml
+filebeat -e
+```
+
+Change the default configuration file from filebeat.yml to a custom file of your choice. To use a different configuration file, use the -c flag:
+
+```yaml
+filebeat -e -c customfilebeatconfig.yml
+```
+
+Filebeat's default log level is INFO. To get all debugging output you can use *:
+
+```yaml
+filebeat -e -d "*"
+```
+
+
+To verify that Filebeat was unable to find any files or events:
+
+<div class="tasklist">
+
+##### Check if any files are monitored
+
+For each log that Filebeat locates, it starts a harvester. A harvester is a key inside the JSON.
+
+Locate the relevant `harvester.open_files` key. Inside it you should be able to see how many files are being monitored in the chosen path.
+
+If the result is 0, Filebeat was unable to find the specific file or failed to find any files in the specific folder.
+
+##### Check how many files are being monitored
+
+Locate the `output.events` key, also located inside the JSON. If it shows 0, the output didn't recognize any new data.
+
+If it contains any objects, you'll be able to see `write > success` and the total number of files sent. However, if the `success` total number is 0, Filebeat could not send any data.
+
+</div>
+
+### Suggested remedy
+
+Re-configure your Filebeat to make sure files are sent properly.
+
 
 </div>
 <!-- tab:end -->

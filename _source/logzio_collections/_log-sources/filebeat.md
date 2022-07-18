@@ -326,13 +326,13 @@ by running `brew install telnet`.
 Run this command from the environment you're shipping from, **after adding the appropriate port number**:
 
 ```shell
-telnet listener.logz.io {port-number}
+telnet listener.logz.io 5015
 ```
 For Windows servers running Windows 8/Server 2012 and later, run the following command in PowerShell:
 
 
 ```shell
-Test-NetConnection listener.logz.io -Port {port-number}
+Test-NetConnection listener.logz.io -Port 5015
 ```
 
 **The port number is 5015.**
@@ -355,7 +355,7 @@ telnet listener.logz.io 5015
 For Windows servers running Windows 8/Server 2012 and later, run the following command in PowerShell:
 
 ```shell
-Test-NetConnection listener.logz.io -Port {port}
+Test-NetConnection listener.logz.io -Port 5015
 ```
 
 | Good response | Bad response |

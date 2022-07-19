@@ -197,7 +197,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
-| setUserAgent | Set to false to send logs without the user-agent field in the request header. Default:true. If you want to send data from Firefox browser, set that option to false. | -- |
+| setUserAgent | Set to false to send logs without the user-agent field in the request header. If you want to send data from Firefox browser, set that option to false. | `true` |
 
 ##### Additional configuration options
 

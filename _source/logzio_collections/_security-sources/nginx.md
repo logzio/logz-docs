@@ -142,6 +142,6 @@ You can search for `type:nginx OR nginx_access OR nginx-access OR nginx-error` t
 
 
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
 </div> 

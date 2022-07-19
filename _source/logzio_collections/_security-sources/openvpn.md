@@ -71,8 +71,7 @@ Paste the following into the inputs section of the Filebeat configuration file:
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
    ```yaml
    filebeat.inputs:
@@ -126,6 +125,6 @@ service filebeat restart
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `openvpn` to see the incoming OpenVPN logs.
   
-If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
-</div>
+</div> 

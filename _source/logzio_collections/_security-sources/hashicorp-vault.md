@@ -102,8 +102,7 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 ```yaml
 # ...
@@ -165,3 +164,4 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 </div>
+ 

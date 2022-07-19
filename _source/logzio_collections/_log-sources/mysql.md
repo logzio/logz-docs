@@ -87,7 +87,7 @@ filebeat.inputs:
   encoding: utf-8
   ignore_older: 3h
 
-- type: log
+- type: filestream
   paths:
     - /var/log/mysql/mysql-slow.log
 
@@ -106,7 +106,7 @@ filebeat.inputs:
     negate: true
     match: after
 
-- type: log
+- type: filestream
   paths:
     - /var/log/mysql/error.log
 
@@ -122,8 +122,7 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 ```yaml
 # ...
@@ -176,34 +175,9 @@ filebeat.inputs:
   fields_under_root: true
   encoding: utf-8
   ignore_older: 3h
-  ```
-
-
-If you're running Filebeat 7, paste this code block.
-Otherwise, you can leave it out.
-
-```yaml
-# ... For Filebeat 7 only ...
-filebeat.registry.path: /var/lib/filebeat
-processors:
-- rename:
-    fields:
-    - from: "agent"
-      to: "filebeat_agent"
-    ignore_missing: true
-- rename:
-    fields:
-    - from: "log.file.path"
-      to: "source"
-    ignore_missing: true
 ```
 
-If you're running Filebeat 6, paste this code block.
 
-```yaml
-# ... For Filebeat 6 only ...
-registry_file: /var/lib/filebeat/registry
-```
 
 ###### Preconfigured log types
 
@@ -292,7 +266,7 @@ logzio/mysql-logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
 </div>
 
@@ -300,4 +274,4 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:end -->
 
 </div>
-<!-- tabContainer:end -->
+<!-- tabContainer:end --> 

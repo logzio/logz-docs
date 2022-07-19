@@ -58,8 +58,7 @@ filebeat.inputs:
     match: after
 ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 ```yaml
 # ...
@@ -86,32 +85,6 @@ filebeat.inputs:
 
 
 
-If you're running Filebeat 7, paste this code block.
-Otherwise, you can leave it out.
-
-```yaml
-# ... For Filebeat 7 only ...
-filebeat.registry.path: /var/lib/filebeat
-processors:
-- rename:
-    fields:
-    - from: "agent"
-      to: "filebeat_agent"
-    ignore_missing: true
-- rename:
-    fields:
-    - from: "log.file.path"
-      to: "source"
-    ignore_missing: true
-```
-
-If you're running Filebeat 6, paste this code block.
-
-```yaml
-# ... For Filebeat 6 only ...
-registry_file: /var/lib/filebeat/registry
-```
-
 The above configuration assumes the following defaults:
 
 * Log location - `/var/log/jenkins/jenkins.log`
@@ -131,7 +104,7 @@ output.logstash:
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
-
+ 
 ##### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
@@ -140,4 +113,4 @@ output.logstash:
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search for `type:jenkins` to filter for your Jenkins logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).

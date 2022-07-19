@@ -54,7 +54,6 @@ filebeat.inputs:
     - <<LOGS_DIRECTORY>>/*.log
     - <<LOGS_DIRECTORY>>/workers-artifacts/*/*/*.log*
 
-  exclude_files: ['.gz$']
 
   fields:
     logzio_codec: plain
@@ -69,8 +68,7 @@ filebeat.inputs:
 
 ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 ```yaml
 # ...
@@ -81,7 +79,6 @@ filebeat.inputs:
     - <<LOGS_DIRECTORY>>/*.log
     - <<LOGS_DIRECTORY>>/workers-artifacts/*/*/*.log*
 
-  exclude_files: ['.gz$']
 
   fields:
     logzio_codec: plain
@@ -94,27 +91,6 @@ filebeat.inputs:
   encoding: utf-8
   ignore_older: 3h
 
-```
-
-
-If you're running Filebeat 7, paste this code block.
-Otherwise, you can leave it out.
-
-```yaml
-# For Filebeat 7 and higher
-filebeat.registry.path: /var/lib/filebeat
-# The following processors are to ensure compatibility with version 7
-processors:
-- rename:
-    fields:
-    - from: "agent"
-      to: "beat_agent"
-    ignore_missing: true
-- rename:
-    fields:
-    - from: "log.file.path"
-      to: "source"
-    ignore_missing: true
 ```
 
 
@@ -142,6 +118,6 @@ output.logstash:
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search for `type:apache_storm` to filter for your Apache Storm logs. 
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
-</div>
+</div> 

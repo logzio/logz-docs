@@ -72,8 +72,7 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-If you're running Filebeat 7 to 8.1, paste this code block.
-Otherwise, you can leave it out.
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 ```yaml
 # ...
@@ -95,32 +94,6 @@ filebeat.inputs:
   ignore_older: 3h
 ```
 
-
-If you're running Filebeat 7, paste this code block.
-Otherwise, you can leave it out.
-
-```yaml
-# ... For Filebeat 7 only ...
-filebeat.registry.path: /var/lib/filebeat
-processors:
-- rename:
-    fields:
-    - from: "agent"
-      to: "filebeat_agent"
-    ignore_missing: true
-- rename:
-    fields:
-    - from: "log.file.path"
-      to: "source"
-    ignore_missing: true
-```
-
-If you're running Filebeat 6, paste this code block.
-
-```yaml
-# ... For Filebeat 6 only ...
-registry_file: /var/lib/filebeat/registry
-```
 
 The above assumes the following defaults:
 
@@ -154,6 +127,6 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 You can search for `type:ossec` to filter for your logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
-</div>
+</div> 

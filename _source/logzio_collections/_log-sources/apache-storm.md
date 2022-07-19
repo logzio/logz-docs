@@ -94,26 +94,6 @@ filebeat.inputs:
 ```
 
 
-If you're running Filebeat 7, paste the code block below instead:
-
-```yaml
-# For Filebeat 7 and higher
-filebeat.registry.path: /var/lib/filebeat
-# The following processors are to ensure compatibility with version 7
-processors:
-- rename:
-    fields:
-    - from: "agent"
-      to: "beat_agent"
-    ignore_missing: true
-- rename:
-    fields:
-    - from: "log.file.path"
-      to: "source"
-    ignore_missing: true
-```
-
-
 
 ##### Set Logz.io as the output
 

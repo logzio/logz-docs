@@ -257,6 +257,10 @@ tags:
     description: >-
       To create an alert, use the Grafana dashboards API.
 
+  - name: Authentication groups
+    description: >-
+      Before you can use Authentication Groups API, Logz.io support will need to enable [SSO](https://docs.logz.io/user-guide/users/single-sign-on/) for your account. 
+
 
 x-tagGroups:
   - name: Log Monitoring

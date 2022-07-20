@@ -3831,7 +3831,7 @@ paths:
             $ref: '#/definitions/CreateMarkersRequest'
       responses:
         default:
-          description: successful operation
+          description: 204 No Content
 
 
   # ::::: Log Insights

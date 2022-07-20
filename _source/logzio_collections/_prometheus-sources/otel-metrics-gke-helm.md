@@ -67,6 +67,12 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["6QjEUDKisk0OUW8KXsUizG", "4sSvbeAMUASACnq3icEm9I", "3zijX333NMPTtoWbZlyW8O", "4v4CNkbUxCsYu4MvMYqVod"] -->
+
+{% include metric-shipping/generic-dashboard.html %} 
+
   
 
 </div>

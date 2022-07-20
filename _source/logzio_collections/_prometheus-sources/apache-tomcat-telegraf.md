@@ -22,6 +22,8 @@ Telegraf is a plug-in driven server agent for collecting and sending metrics and
 
 To send your Prometheus-format Apache Tomcat metrics to Logz.io, you need to add the **inputs.tomcat** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["1QIverGwIdtlC5ZbKohyvj", "6J2RujMalRK3oC4y0r88ax"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">

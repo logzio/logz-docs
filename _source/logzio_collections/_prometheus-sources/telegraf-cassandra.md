@@ -23,6 +23,8 @@ Telegraf is a plug-in driven server agent for collecting and sending metrics and
 
 To send your JMX-format Apache Cassandra metrics to Logz.io, you need to add the **inputs.jolokia2_agent** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["5oCUt52hGJu6LmVGHPOktr", "6J2RujMalRK3oC4y0r88ax"] --> 
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">

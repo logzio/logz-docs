@@ -22,6 +22,8 @@ etcd is an open source, distributed, consistent key-value store for shared confi
 
 To send your Prometheus-format etcd metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["3Vr8IYt2XR2LEKP6PeVV0r"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">

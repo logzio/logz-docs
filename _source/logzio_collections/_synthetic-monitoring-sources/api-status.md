@@ -23,6 +23,9 @@ Deploy this integration to collect API status metrics of user API and send them 
 The integration is based on a Lambda function that will be auto-deployed together with the layer [LogzioLambdaExtensionLogs](https://github.com/logzio/logzio-lambda-extensions/tree/main/logzio-lambda-extensions-logs). 
 
 
+<!-- logzio-inject:install:grafana:dashboards ids=["1RCzCjjByhyz0bJ4Hmau0y"] --> 
+
+
 
 
 

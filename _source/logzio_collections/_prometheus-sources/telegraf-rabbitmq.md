@@ -21,6 +21,8 @@ RabbitMQ is an open-source message-broker software that originally implemented t
 
 To send your Prometheus-format RabbitMQ metrics to Logz.io, you need to add the **inputs.rabbitmq** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["77P29wgQwu1pqCaZFMcwnC"] --> 
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">

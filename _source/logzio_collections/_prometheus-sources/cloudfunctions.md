@@ -21,6 +21,8 @@ Google Cloud Functions is a serverless execution environment for building and co
 
 To send your Prometheus-format Google Cloud Functions metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["78mU6GZUeRLhMtExlMvshT"] --> 
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:

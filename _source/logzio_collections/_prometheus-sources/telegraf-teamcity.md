@@ -21,6 +21,8 @@ TeamCity is a general-purpose CI/CD solution that allows the most flexibility fo
 
 To send your Prometheus-format TeamCity metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["1mdHqslZMi4gXaNCLZo9G1"] --> 
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">

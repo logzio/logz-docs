@@ -21,6 +21,9 @@ Google Cloud Load Balancing is a fully distributed, software-defined, managed se
 
 To send your Prometheus-format Google Cloud Load Balancing metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2qF8pBXlwH0Pw6noOMfzRk", "48vnzAEl0x6hh3DWKIWkpx", "7s5HblMf4IVimoRSwnCRJ6"] --> 
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:

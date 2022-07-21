@@ -21,6 +21,8 @@ Google Compute Engine is the Infrastructure as a Service component of Google Clo
 
 To send your Prometheus-format Google Compute Engine metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["2UHWhKZvymlkGU7yy4jKIK"] --> 
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:

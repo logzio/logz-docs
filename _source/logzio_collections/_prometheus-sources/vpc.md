@@ -21,6 +21,8 @@ Google Virtual Private Cloud (VPC) provides networking functionality to Compute 
 
 To send your Prometheus-format Google Virtual Private Cloud (VPC) metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["3eeYKOR0uk57GFhunVoOsO"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:

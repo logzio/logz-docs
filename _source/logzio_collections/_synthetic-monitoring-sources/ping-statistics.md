@@ -23,7 +23,7 @@ Deploy this integration to collect metrics of ping statistics collected from you
 The integration is based on a Lambda function that will be auto-deployed together with the layer [LogzioLambdaExtensionLogs](https://github.com/logzio/logzio-lambda-extensions/tree/main/logzio-lambda-extensions-logs). 
 
 
-
+<!-- logzio-inject:install:grafana:dashboards ids=["1rNO8llFw8Cm9N8U3M3vCQ"] --> 
 
 
 <div class="tasklist">

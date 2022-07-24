@@ -21,6 +21,8 @@ Google Cloud Bigtable is a high performance NoSQL database service for large ana
 
 To send your Prometheus-format Google Cloud Bigtable metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["z2VVwfx5bq2xD5zhQUzk6"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:

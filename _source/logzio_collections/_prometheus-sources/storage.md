@@ -21,6 +21,8 @@ Google Cloud Storage is a RESTful online file storage web service for storing an
 
 To send your Prometheus-format Google Cloud Storage metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["4LAZ8Zep644MzbT1x089GG"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:

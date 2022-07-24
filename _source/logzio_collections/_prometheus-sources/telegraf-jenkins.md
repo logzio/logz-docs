@@ -22,6 +22,8 @@ Jenkins is an automation server for building, testing, and deploying software. T
 
 To send your Prometheus-format Jenkins metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["7bmikAb2xNPTy7PESlBqXY"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">

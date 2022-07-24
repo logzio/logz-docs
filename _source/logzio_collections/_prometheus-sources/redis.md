@@ -21,6 +21,8 @@ Google Memorystore for Redis a fully managed Redis service for the Google Cloud.
 
 To send your Prometheus-format Google Memorystore for Redis metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["771vgmjMzFBHHma1Jov3bG"] --> 
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:

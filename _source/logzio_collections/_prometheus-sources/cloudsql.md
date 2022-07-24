@@ -32,6 +32,13 @@ Google Cloud SQL is a fully-managed database service that is used to set up, mai
 
 To send your Prometheus-format Google Cloud SQL metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["4KUp9D8EhuMuCuLLhIZBEP"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
+
+
 </div>
 <!-- tab:end -->
 

@@ -41,6 +41,14 @@ With this integration, you can collect Cloudwatch metrics and forward them to Lo
 
 * For more information about the prom/cloudwatch-exporter cost, refer to the relevant [Prometheus documentation](https://github.com/prometheus/cloudwatch_exporter#cost) and to the [AWS cloudwatch API pricing page](https://aws.amazon.com/cloudwatch/pricing/).
 
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["3unbYe50lDdHkJ4q8zpV7A"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
+
+
 </div>
 <!-- tab:end -->
 

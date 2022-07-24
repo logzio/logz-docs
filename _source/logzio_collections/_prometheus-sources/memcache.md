@@ -21,6 +21,8 @@ Google Memorystore for Memcached is a fully managed Memcached service for Google
 
 To send your Prometheus-format Google Memorystore for Memcached metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["6V6DBzsX8cRZXCSvuSkHiA"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:

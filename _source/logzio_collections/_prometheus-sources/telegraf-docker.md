@@ -21,6 +21,9 @@ order: 800
 
 Deploy this integration to ship metrics from your Docker network using containerized Telegraf agent.
 
+
+<!-- logzio-inject:install:grafana:dashboards ids=["5Wbud46hwzhpFeokC69j0Z"] -->
+
 #### Setup
 
 <div class="tasklist">

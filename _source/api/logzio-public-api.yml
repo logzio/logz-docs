@@ -2908,6 +2908,8 @@ paths:
               Slide the 2-day search time range by _x_ days.
               For example, if set to `5`, search returns results from 5 days ago and 4 days ago, UTC.
 
+              The `dayOffset` parameter will go back to the last index in the set value and send back the results of that index +1.
+
 
               Maximum is your account's retention period.
 

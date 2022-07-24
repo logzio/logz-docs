@@ -37,8 +37,12 @@ firstLevel:
       url: /user-guide/kibana/mapping/field-not-indexed/
   - title: Troubleshooting
     thirdLevel:
+    - title: Log shipping troubleshooting
+      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
     - title: Troubleshooting Fluentd for Kubernetes logs
       url: /user-guide/kubernetes-troubleshooting/
+    - title: Troubleshooting Filebeat
+      url: /user-guide/log-troubleshooting/filebeat-troubleshooting.html
 
   - title: Log Alerts
     thirdLevel:
@@ -482,14 +486,14 @@ firstLevel:
 #  - title: Log shipping intro
 #    url: /user-guide/log-shipping/
 
-  - title: Resources, FAQs & Troubleshooting
+  - title: Resources & FAQs #& Troubleshooting
     thirdLevel:
     - title: FAQs about sending logs
       url: /user-guide/log-shipping/faqs-logs/
-    - title: Log shipping troubleshooting
-      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
-    - title: Troubleshooting Filebeat
-      url: /user-guide/log-shipping/filebeat-troubleshooting/
+    #- title: Log shipping troubleshooting
+    #  url: /user-guide/log-shipping/log-shipping-troubleshooting.html
+    #- title: Troubleshooting Filebeat
+    #  url: /user-guide/log-shipping/filebeat-troubleshooting/
     - title: Listener IP addresses
       url: /user-guide/log-shipping/listener-ip-addresses.html
     - title: Hosting regions

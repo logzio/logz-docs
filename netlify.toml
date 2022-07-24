@@ -370,6 +370,6 @@
 
 [[redirects]]
   from = "/user-guide/log-shipping/filebeat-troubleshooting/"
-  to = "/shipping/log-sources/filebeat.html#troubleshooting"
+  to = "/user-guide/log-troubleshooting/filebeat-troubleshooting.html"
   status = 301
   force = true

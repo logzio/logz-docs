@@ -4,7 +4,7 @@ short-description: If you want to ship logs from your code but don't have a libr
 logo:
   logofile: json.svg
   orientation: vertical
-data-source: JSON uploads
+data-source: JSON via HTTP/HTTPS/TCP
 data-for-product-source: Logs
 templates: ["no-template"]
 contributors:

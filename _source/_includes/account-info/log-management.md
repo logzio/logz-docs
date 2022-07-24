@@ -85,7 +85,7 @@ Choose the sub account name, retention, and volume options if relevant. On the r
 | Settings | Description |
 |---|---|
 | **Enable main account users to access this account** | If enabled, all main account users will automatically have user-role permissions to the sub account. This means they can view the log data in the sub account. If disabled, users will need to be explicitly added to the sub account to have access to it. |
-| **Searchable from the main account** | If enabled, data stored in the sub account, can be searched directly from the main account in Kibana. |
+| **Searchable from the main account** | If enabled, data stored in the sub account, can be searched directly from the main account in OpenSearch Dashboards. |
 | **Save account utilization metrics** | Logs metrics on your account utilization, such as used and expected data volume at current indexing rate (GB). |
 | **Save log size** | Adds the logSizeEnabled field to each log, stating the log's size. |
 | **Use dashboards, visualizations, and saved searches from these accounts** | Choose the main account from which these elements will be visible on the sub account. Useful if you want to be able to access your main account's data from this sub account. |

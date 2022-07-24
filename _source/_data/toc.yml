@@ -15,11 +15,11 @@ firstLevel:
   icon: li-bar-graph
 
   secondLevel:
-  - title: Kibana Discover
+  - title: OpenSearch Dashboards
     thirdLevel:
-    - title: Intro to Kibana Discover
+    - title: Intro to OpenSearch Dashboards
       url: /user-guide/kibana/
-    - title: Kibana best practices
+    - title: OpenSearch Dashboards best practices
       url: /user-guide/kibana/best-practices.html
     - title: Exceptions
       url: /user-guide/insights/exceptions/
@@ -133,7 +133,7 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/metrics-correlations/ ##url
     - title: Annotations
       url: /user-guide/infrastructure-monitoring/annotations/
-    - title: Explore in Kibana
+    - title: Explore in OpenSearch Dashboards
       url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
   - title: Pre-built metrics dashboards
     url: /user-guide/infrastructure-monitoring/metrics-dashboards
@@ -266,7 +266,7 @@ firstLevel:
     url: /user-guide/distributed-tracing/service-performance-monitoring-setup
   - title: Correlate logs and traces
     url:  /user-guide/distributed-tracing/correlate-traces/
-  - title: Visualize traces in Kibana
+  - title: Visualize traces in OpenSearch Dashboards
     url: /user-guide/distributed-tracing/visualize-traces/
   - title: Distributed Tracing troubleshooting
     url: /user-guide/distributed-tracing/tracing-troubleshooting.html
@@ -320,7 +320,7 @@ firstLevel:
     thirdLevel:
     - title: Investigate security events
       url: /user-guide/cloud-siem/security-events.html
-    - title: Research in Kibana
+    - title: Research in OpenSearch Dashboards
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
     - title: Drilldown links
       url: /user-guide/cloud-siem/drilldown-links/
@@ -547,9 +547,9 @@ firstLevel:
       url: /api/cookbook/who-am-i.html
     - title: Managing sub account capacity
       url: /api/cookbook/managing-sub-account-capacity.html
-    - title: Backing up Kibana objects to GitHub
+    - title: Backing up OpenSearch Dashboards objects to GitHub
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
-    - title: Using Inspect feature on Kibana UI
+    - title: Using Inspect feature on OpenSearch Dashboards UI
       url: /api/cookbook/inspect.html
 
   ##- title: LightS - Light Synthetic Monitoring for AWS

@@ -25,5 +25,5 @@ To make the request, <a class="intercom-launch" href="mailto:help@logz.io">conta
 
 * [Who am I?](/api/cookbook/who-am-i.html)
 * [Managing sub account capacity](/api/cookbook/managing-sub-account-capacity.html)
-* [Backing up Kibana objects to GitHub](/api/cookbook/backing-up-kibana-objects-to-github.html)
-* [Using Inspect feature on Kibana UI](/api/cookbook/inspect.html)
+* [Backing up OpenSearch Dashboards objects to GitHub](/api/cookbook/backing-up-kibana-objects-to-github.html)
+* [Using Inspect feature on OpenSearch Dashboards UI](/api/cookbook/inspect.html)

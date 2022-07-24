@@ -38,7 +38,7 @@ The following criteria are similar for both the single-query and multi-query {{i
 * If you are only using filters, leave a wildcard **asterisk (*)** in the free search box.
 * You have the option to aggregate results for as many as 3 fields. Select **group by** fields from the dropdown list.
 * Select the **Accounts to search**.
-* You can preview the results in Kibana Discover for each query independently. Click **Preview in Kibana** to open the results for the past 24 hours in another tab.
+* You can preview the results in OpenSearch Dashboards for each query independently. Click **Preview in OpenSearch Dashboards** to open the results for the past 24 hours in another tab.
 * If you change your mind, you can delete either of the queries. Click **X Delete query** to return to a single-query form.
 
 ![empty alert form with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/query1and2.png)

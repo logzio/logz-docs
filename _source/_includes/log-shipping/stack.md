@@ -39,7 +39,7 @@ Specify the stack details as per the table below and select **Next**.
 | `logzioListener` | The Logz.io listener URL fot your region. (For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) | **Required**       |
 | `logzioToken`    | Your Logz.io log shipping token.                                                                                                                  | **Required**       |
 | `logLevel`       | Log level for the Lambda function. Can be one of: `debug`, `info`, `warn`, `error`, `fatal`, `panic`.                                             | Default: `info`    |
-| `logType`        | The log type you'll use with this Lambda. This is shown in your logs under the type field in Kibana. Logz.io applies parsing based on type.       | Default: `s3_hook` |
+| `logType`        | The log type you'll use with this Lambda. This is shown in your logs under the type field in OpenSearch Dashboards. Logz.io applies parsing based on type.       | Default: `s3_hook` |
 
 
 ![Step 2 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/specify-stack.png)
@@ -83,6 +83,6 @@ Once you upload new files to your bucket, it will trigger the function, and the 
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours, and then open [OpenSearch Dashboards](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).

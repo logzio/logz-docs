@@ -1,9 +1,9 @@
-To make your search engine queries and analytics are more effective, Kibana maps each field by a data type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
+To make your search engine queries and analytics are more effective, OpenSearch Dashboards maps each field by a data type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
 
 * **Dynamic** - This is the default mapping type, determined by the value of the log fields mapped at the beginning of each day.
-* **Explicit** - This is a forced mapping type, and when chosen, Kibana will always map this field as the same data type.
+* **Explicit** - This is a forced mapping type, and when chosen, OpenSearch Dashboards will always map this field as the same data type.
 
-For example, if the value of the log field is `"yourField":123`, Kibana will map it as a **number (Long)**.
+For example, if the value of the log field is `"yourField":123`, OpenSearch Dashboards will map it as a **number (Long)**.
 
 `“yourField”:”abc”` will be mapped as a **Keyword (String)**.
 
@@ -11,10 +11,10 @@ For example, if the value of the log field is `"yourField":123`, Kibana will map
 
 `yourField.someField` will be mapped as a **Keyword (String)**.
 
-If a field is mapped as a string, Kibana won’t allow you to run any mathematical queries on the field.
-If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, Kibana won't let you use it in an alert, a visualization, or a `group by` rule.
+If a field is mapped as a string, OpenSearch Dashboards won’t allow you to run any mathematical queries on the field.
+If it's an analyzed field, such as `message`, `tags`, or `geoip_location`, OpenSearch Dashboards won't let you use it in an alert, a visualization, or a `group by` rule.
 
-Field data type determines how each field is indexed and shown in Kibana. Account admins can change the data types according to a predefined set of options:
+Field data type determines how each field is indexed and shown in OpenSearch Dashboards. Account admins can change the data types according to a predefined set of options:
 
 ![Choose field data type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/mapping-fields-main.png)
 

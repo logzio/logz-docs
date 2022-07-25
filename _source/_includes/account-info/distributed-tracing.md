@@ -109,6 +109,12 @@ Juggle the allocated spans per month of your Distributed Tracing account plan be
 
 To change how many spans are allocated to a tracing account, pick the relevant account, increase or decrease the **Total monthly spans** and click **Save** to apply your changes.
 
+
+You can ensure incidents and issues won't consume all of your monthly spans by setting a **daily span limit**. The number represents a multiplier of your estimated daily span account, ranging between x2 and x30. 
+
+
+![daily span limit](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/daily-span-limit.png)
+
 In the example below, **New Tracing Account 2**  is not using its allocated spans: It would be reasonable to reduce its monthly allocation and increase the allocation for the **Tracing** account. 
 ![juggle allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shiftspans-betweenaccts2.png)
 

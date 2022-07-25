@@ -11,10 +11,15 @@ contributors:
   - yberlinger
 ---
 
-To create a new optimizer, start in Kibana so you can test the query you want to use. After that, continue to the **Create an optimizer** page, where you can configure the optimizer settings.
+To create a new optimizer, start in Kibana so you can test the query you want to use. 
 
-  Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
-  {:.info-box.note}
+Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
+
+After you've created your account, navigate back to **Kibana** > **Create an optimizer**, where you can configure the optimizer settings.
+
+
+There's a 2 hours delay between logs arriving to Logz.io and when they're added to your timeless account.
+{:.info-box.note}
 
 If you want help updating an existing optimizer, you can [skip the first part of this page](#to-configure-an-optimizer).
 

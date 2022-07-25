@@ -2,6 +2,8 @@
 layout: article
 title: Configure optimizers
 permalink: /user-guide/optimizers/configure-optimizers.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to create and configure optimizers
 flags:
   logzio-plan: pro
 tags:
@@ -17,9 +19,9 @@ Before creating an optimizer, you'll need a timeless account to send the data to
 
 After you've created your account, navigate back to **Kibana** > **Create an optimizer**, where you can configure the optimizer settings.
 
-
-There's a 2 hours delay between logs arriving to Logz.io and when they're added to your timeless account.
+Once a log is pulled to your Logz.io account, it takes up to **2 hours** until it appears in your timeless account.
 {:.info-box.note}
+
 
 If you want help updating an existing optimizer, you can [skip the first part of this page](#to-configure-an-optimizer).
 

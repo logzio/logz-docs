@@ -3,7 +3,7 @@ layout: article
 title: Troubleshooting Filebeat
 permalink: /user-guide/log-troubleshooting/filebeat-troubleshooting.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Learn about most common errors and remedies when running when running Filebeat
+description: Learn about most common errors and remedies when running Filebeat
 flags:
   logzio-plan: community
 contributors:

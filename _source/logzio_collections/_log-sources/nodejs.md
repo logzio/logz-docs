@@ -170,7 +170,7 @@ const logger = winston.createLogger({
 logger.log('warn', 'Just a test message');
 ```
 
-If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `await logger.info(“API Called”)` and `logger.close()` at the end of the run.
+If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `await logger.info(“API Called”)` and `logger.close()` at the end of the run, every time you are using the logger.
 
 {% include /general-shipping/replace-placeholders.html %}
 
@@ -326,7 +326,7 @@ const logger = winston.createLogger({
 logger.log('warn', 'Just a test message');
 ```
 
-If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block.
+If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block, every time you are using the logger.
 
 ```js
 await logger.info(“API Called”)

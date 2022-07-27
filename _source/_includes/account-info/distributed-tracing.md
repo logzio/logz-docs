@@ -28,13 +28,13 @@ Your Tracing account is based on spans: a building block of a trace, a named, ti
 
 You can view your monthly available spans, your plan's data retention time, and a breakdown of each account's current month's allocations and usage percentages.
 
-![Tracing account summary](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/seetracingaccounts1.png)
+![Tracing account summary](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/main-tracing-account-jul.png)
 
 #### View details and options for a specific account
 
 To see the detailed information and the configurable options for each account, click the account name in the table or pie chart. 
 
-![View account details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/seeaccount-details.png)
+![View account details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-deep-dive-jul.png)
 
 You can view the following details:
 
@@ -53,7 +53,7 @@ And change the following account options:
 
 Enter a new **Tracing account name** and **Save** to update your changes, or **Cancel** to discard them.
 
-![Rename a tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/newtracingname.png)
+![Rename a tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-new-name-jul.png)
 
 #### Configure which accounts can access a tracing data source
 
@@ -67,7 +67,7 @@ they can choose the tracing account as a data source in the Jaeger interface of 
 **To grant access to the data in a tracing account**
 
   1. Click the account name to open its account details. 
-  ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-manage-tracing-subaccts4.png)
+  ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-account-choose-jul.png)
 
 
   2. To enable access to a Distributed Tracing data source for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant accounts. 
@@ -110,8 +110,7 @@ Juggle the allocated spans per month of your Distributed Tracing account plan be
 To change how many spans are allocated to a tracing account, pick the relevant account, increase or decrease the **Total monthly spans** and click **Save** to apply your changes.
 
 
-You can ensure incidents and issues won't consume all of your monthly spans by setting a **daily span limit**. The number represents a multiplier of your estimated daily span account, ranging between x2 and x30. 
-
+By **setting a daily limit**, you can ensure incidents and issues won't consume all of your monthly spans. The number represents a multiplier of your estimated daily span account, ranging between x2 and x30. 
 
 ![daily span limit](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/daily-span-limit.png)
 

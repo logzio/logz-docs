@@ -21,7 +21,7 @@ order: 280
 
 * [Overview](#overview)
 * [RDS host](#rds)
-* [Kubernetes](#troubleshooting)
+* [Kubernetes](#kubernetes)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -101,6 +101,7 @@ Give your logs some time to get from your system to ours, and then open [Kibana]
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
+</div>
 
 
 </div>

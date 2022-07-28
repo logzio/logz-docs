@@ -28,13 +28,13 @@ Your Tracing account is based on spans: a building block of a trace, a named, ti
 
 You can view your monthly available spans, your plan's data retention time, and a breakdown of each account's current month's allocations and usage percentages.
 
-![Tracing account summary](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/seetracingaccounts1.png)
+![Tracing account summary](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/main-tracing-account-jul.png)
 
 #### View details and options for a specific account
 
 To see the detailed information and the configurable options for each account, click the account name in the table or pie chart. 
 
-![View account details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/seeaccount-details.png)
+![View account details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-deep-dive-jul.png)
 
 You can view the following details:
 
@@ -53,7 +53,7 @@ And change the following account options:
 
 Enter a new **Tracing account name** and **Save** to update your changes, or **Cancel** to discard them.
 
-![Rename a tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/newtracingname.png)
+![Rename a tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-new-name-jul.png)
 
 #### Configure which accounts can access a tracing data source
 
@@ -67,11 +67,11 @@ they can choose the tracing account as a data source in the Jaeger interface of 
 **To grant access to the data in a tracing account**
 
   1. Click the account name to open its account details. 
-  ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-manage-tracing-subaccts4.png)
+  ![Manage tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/click-on-jul.png)
 
 
   2. To enable access to a Distributed Tracing data source for other accounts, in the field below the **Tracing account name**, click **Add an account**, and select the relevant accounts. 
-  ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts-access-4tracing-subaccts3.gif)
+  ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-sub-account.gif)
 
 
 #### Add a tracing account to your plan
@@ -86,16 +86,16 @@ You can configure up to 5 tracing accounts for your Distributed Tracing plan. If
 3. Set which accounts can use it as a data source in the Tracing tab. 
 4. Configure the **Total monthly spans** to allocate to the new account. 
    If you don't have spans available to allocate to the new plan, you'll be prompted to reduce the allocation of another account.
-   ![Reduce existing span allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/reduce-allocation.png)
+   ![Reduce existing span allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/new-tracing-account-no-spans-jul.png)
 
 5. Click **Save** to apply your changes.
 
-![Adding a new tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-new-tracingacct.gif)
+![Adding a new tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/new-tracing-account-flow-jul.gif)
 
 #### Delete a tracing account from your plan
  
 1. In the account details, click the **Delete** icon next to the account name.
-  ![delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/delete-tracing1.png)   
+  ![delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/delete-tracing-account-jul.png)   
 
 2. Confirm (or **Cancel**) the action. 
   ![Confirm delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/confirm-delete-tracingacct2.png)
@@ -105,18 +105,17 @@ You can configure up to 5 tracing accounts for your Distributed Tracing plan. If
 
 Juggle the allocated spans per month of your Distributed Tracing account plan between the different tracing accounts according to each account's current usage details. Each data source has its quota defined in the **Spans** column. 
 
-![overview of allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/spanscolumn.png)
+![overview of allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/span-allocation-jul.png)
 
 To change how many spans are allocated to a tracing account, pick the relevant account, increase or decrease the **Total monthly spans** and click **Save** to apply your changes.
 
 
-You can ensure incidents and issues won't consume all of your monthly spans by setting a **daily span limit**. The number represents a multiplier of your estimated daily span account, ranging between x2 and x30. 
-
+By **setting a daily limit**, you can ensure incidents and issues won't consume all of your monthly spans. The number represents a multiplier of your estimated daily span account, ranging between x2 and x30. 
 
 ![daily span limit](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/daily-span-limit.png)
 
 In the example below, **New Tracing Account 2**  is not using its allocated spans: It would be reasonable to reduce its monthly allocation and increase the allocation for the **Tracing** account. 
-![juggle allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shiftspans-betweenaccts2.png)
+![juggle allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shiftspans-betweenaccts-jul.png)
 
 #### Tracing surge protection
 
@@ -144,21 +143,21 @@ If your Tracing account exceeded its quota, the first thing you'll need to do is
 
 Navigate to **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** and scroll to find your **Distributed Tracing plan**. You'll see how many spans you currently have and their distribution across your account.
 
-![Distributed Tracing account overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dt-account-plan-overview.png)
+![Distributed Tracing account overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/span-usage-2-jul.png)
 
-In this example, the overall quota is 600M monthly spans, when only 50M are allocated to the **Sock Shop Tracing** account.
+In this example, the overall quota is 600M monthly spans, when only 450M are allocated to the **Sock Shop Tracing** account.
 
 You can add more spans from the overall quota to prevent your Tracing account from getting suspended, increasing both your monthly and daily limit for this account.
 
 If you have several Tracing accounts but don't have any available spans from your monthly quota, you can allocate spans between the different accounts.
 
-![Distributed Tracing allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dt-account-allocation.png)
+![Distributed Tracing allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-allocating-spans-jul.png)
 
 In this example, all of the monthly spans quota is divided between 2 Tracing accounts. 
 
-By moving 100M monthly spans to the **Sock Shop Tracing DEV** account, you can prevent the dev account from getting suspended.
+By moving 50M monthly spans to the **Sock Shop Tracing DEV** account, you can prevent the dev account from getting suspended.
 
-![Distributed Tracing reallocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dt-reallocation.png)
+![Distributed Tracing reallocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/reallocate-spans-jul.png)
 
 If there are no available spans to allocate, you can contact [Logz.io Support team](mailto:help@logz.io) to temporarily increase the quota limit.
 

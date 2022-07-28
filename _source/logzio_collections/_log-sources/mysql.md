@@ -242,12 +242,10 @@ docker pull logzio/mysql-logs
 For a complete list of options, see the parameters below the code block.👇
 
 ```shell
-docker run -d --name logzio-mysql-logs \
--e LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
--e LOGZIO_LISTENER_HOST="<<LISTENER-HOST>>" \
--v /var/log/logzio:/var/log/logzio \
--v /var/log/mysql:/var/log/mysql \
-logzio/mysql-logs
+docker run -d --name logzio-mysql-logs -e LOGZIO_TOKEN=<<LOG-SHIPPING-TOKEN>> [-e LOGZIO_LISTENER=<<LISTENER-HOST>>] \
+          [-e MYSQL_ERROR_LOG_FILE=<<PATH-TO-ERROR-LOG-FILE>>] [-e MYSQL_SLOW_LOG_FILE=<<PATH-TO-SLOW-LOG-FILE>>] [-e MYSQL_LOG_FILE=<<PATH-TO-LOG-FILE>>] \
+          -v path_to_directory:/var/log/logzio -v path_to_directory:/var/log/mysql \
+          logzio/mysql-logs:latest
 ```
 
 ###### Parameters
@@ -255,11 +253,23 @@ logzio/mysql-logs
 | Parameter | Description | Required/Default |
 |---|---|---|
 | LOGZIO_TOKEN |{% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
-| LOGZIO_LISTENER_HOST | Listener URL and port.    {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
-| MYSQL_ERROR_LOG_FILE  | Path to the MySQL error log. | `/var/log/mysql/error.log` |
-| MYSQL_SLOW_LOG_FILE  | Path to the MySQL slow query log. | `/var/log/mysql/mysql-slow.log` |
-| MYSQL_LOG_FILE  | Path to the MySQL general log. | `/var/log/mysql/mysql.log` |
+| LOGZIO_LISTENER | Listener URL and port.    {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| MYSQL_ERROR_LOG_FILE | The path to MySQL error log. | Optional. `/var/log/mysql/error.log` |
+| MYSQL_SLOW_LOG_FILE | The path to MySQL slow query log. | Optional. `/var/log/mysql/mysql-slow.log` |
+| MYSQL_LOG_FILE | The path to MySQL general log. | Optional. `/var/log/mysql/mysql.log` |
 
+
+Below is an example configuration for running the Docker container:
+
+```bash
+docker run -d \
+  --name logzio-mysql-logs \
+  -e LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
+  -v /path/to/directory/logzio:/var/log/logzio \
+  -v /path/to/directory/mysql:/var/log/mysql \
+  --restart=always \
+  logzio/mysql-logs:latest
+```
 
 
 ##### Check Logz.io for your logs

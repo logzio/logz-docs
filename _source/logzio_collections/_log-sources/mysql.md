@@ -253,7 +253,7 @@ docker run -d --name logzio-mysql-logs -e LOGZIO_TOKEN=<<LOG-SHIPPING-TOKEN>> [-
 | Parameter | Description | Required/Default |
 |---|---|---|
 | LOGZIO_TOKEN |{% include log-shipping/log-shipping-token.md %}  {% include log-shipping/log-shipping-token.html %} | Required |
-| LOGZIO_LISTENER | Listener URL and port.    {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| LOGZIO_LISTENER | Listener URL.    {% include log-shipping/listener-var.html %}  | `listener.logz.io` |
 | MYSQL_ERROR_LOG_FILE | The path to MySQL error log. | Optional. `/var/log/mysql/error.log` |
 | MYSQL_SLOW_LOG_FILE | The path to MySQL slow query log. | Optional. `/var/log/mysql/mysql-slow.log` |
 | MYSQL_LOG_FILE | The path to MySQL general log. | Optional. `/var/log/mysql/mysql.log` |

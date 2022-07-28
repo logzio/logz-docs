@@ -373,3 +373,15 @@
   to = "/user-guide/log-troubleshooting/filebeat-troubleshooting.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/shipping/metrics-sources/custom-metrics.html"
+  to = "/shipping/#prometheus-sources"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/metrics-sources/system.html"
+  to = "/shipping/#prometheus-sources"
+  status = 301
+  force = true

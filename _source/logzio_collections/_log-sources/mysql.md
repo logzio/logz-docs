@@ -241,11 +241,25 @@ docker pull logzio/mysql-logs
 
 For a complete list of options, see the parameters below the code block.👇
 
+<!--
 ```shell
-docker run -d --name logzio-mysql-logs -e LOGZIO_TOKEN=<<LOG-SHIPPING-TOKEN>> [-e LOGZIO_LISTENER=<<LISTENER-HOST>>] \
-          [-e MYSQL_ERROR_LOG_FILE=<<PATH-TO-ERROR-LOG-FILE>>] [-e MYSQL_SLOW_LOG_FILE=<<PATH-TO-SLOW-LOG-FILE>>] [-e MYSQL_LOG_FILE=<<PATH-TO-LOG-FILE>>] \
-          -v path_to_directory:/var/log/logzio -v path_to_directory:/var/log/mysql \
-          logzio/mysql-logs:latest
+docker run -d 
+  --name logzio-mysql-logs 
+  -e LOGZIO_TOKEN=<<LOG-SHIPPING-TOKEN>> [-e LOGZIO_LISTENER=<<LISTENER-HOST>>] \
+  [-e MYSQL_ERROR_LOG_FILE=<<PATH-TO-ERROR-LOG-FILE>>] [-e MYSQL_SLOW_LOG_FILE=<<PATH-TO-SLOW-LOG-FILE>>] [-e MYSQL_LOG_FILE=<<PATH-TO-LOG-FILE>>] \
+  -v path_to_directory:/var/log/logzio -v path_to_directory:/var/log/mysql \
+  logzio/mysql-logs:latest
+```
+--
+-->
+
+```shell
+docker run -d --name logzio-mysql-logs \
+-e LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
+-e LOGZIO_LISTENER_HOST="<<LISTENER-HOST>>" \
+-v /var/log/logzio:/var/log/logzio \
+-v /var/log/mysql:/var/log/mysql \
+logzio/mysql-logs:latest
 ```
 
 ###### Parameters

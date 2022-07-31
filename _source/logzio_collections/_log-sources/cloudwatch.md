@@ -350,8 +350,8 @@ git clone https://github.com/logzio/logzio_aws_serverless.git \
 && cp src/lambda_function.py dist \
 && cd dist/ \
 && zip logzio-cloudwatch lambda_function.py python3/shipper/* \
-&& mv logzio-cloudwatch.zip ..... \
-&& cd ..... \
+&& mv logzio-cloudwatch.zip ../../../.. \
+&& cd ../../../.. \
 && rm -rf logzio_aws_serverless
 ```
 

@@ -55,12 +55,23 @@ docker pull logzio/mysql-logs
 
 ##### Run the container
 
+<!--
 ```
 docker run -d --name logzio-mysql-logs -e LOGZIO_TOKEN=<<LOG-SHIPPING-TOKEN>> [-e LOGZIO_LISTENER=<<LISTENER-HOST>>] \
           -e RDS_IDENTIFIER=<<YOUR_DB_IDENTIFIER>> [-e AWS_ACCESS_KEY=<<YOUR_ACCESS_KEY>>] [-e AWS_SECRET_KEY=<<YOUR_SECRET_KEY>>] [-e AWS_REGION=<<YOUR_REGION>>] \
           [-e RDS_ERROR_LOG_FILE=<<PATH-TO-ERROR-LOG-FILE>>] [-e RDS_SLOW_LOG_FILE=<<PATH-TO-SLOW-LOG-FILE>>] [-e RDS_LOG_FILE=<<PATH-TO-LOG-FILE>>] \
           -v path_to_directory:/var/log/logzio -v path_to_directory:/var/log/mysql \
           logzio/mysql-logs:latest
+```
+-->
+
+```shell
+docker run -d --name logzio-mysql-logs \
+-e LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
+-e LOGZIO_LISTENER_HOST="<<LISTENER-HOST>>" \
+-v /var/log/logzio:/var/log/logzio \
+-v /var/log/mysql:/var/log/mysql \
+logzio/mysql-logs:latest
 ```
 
 ###### Parameters

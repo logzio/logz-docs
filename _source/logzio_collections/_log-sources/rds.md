@@ -19,7 +19,7 @@ order: 280
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [RDS on Docker](#rds)
+* [Docker](#rds)
 * [Kubernetes](#kubernetes)
 {:.branching-tabs}
 

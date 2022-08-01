@@ -110,7 +110,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:start -->
 <div id="kubernetes">
 
-#### Deploying logzio-mysql-logs directly via Docker
+#### Deploying logzio-mysql-logs directly via Kubernetes
 
 **Before you begin, you'll need**:
 

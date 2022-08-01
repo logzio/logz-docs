@@ -25,7 +25,12 @@ Metrics alert manager is fully compatible with the Prometheus Alert Manager, mak
 
 
 
+###### Create an alert
+
+There are 2 main ways for you to create a metric alert:
+
 ### Create an alert from an existing panel
+{:.no_toc}
 
 Navigate to your **[Metrics account](https://app.logz.io/#/dashboard/metrics/)**, open your dashboard and choose the panel you'd like to use for your alert.
 
@@ -36,6 +41,7 @@ Click on the name of the panel and choose **Edit**.
 Then, navigate to the **Alert** tab and click on the **Create alert rule from this panel** button. This will automatically pull the query and variables to the Create alert rule page.
 
 ![Create alert flow](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/create-an-alert-flow.gif)
+
 
 <div class="tasklist">
 
@@ -54,6 +60,7 @@ Next, review and edit the queries pulled from the panel you chose:
 
 ![Review query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-review-query.png)
 
+
 To create a multi-dimensional rule, you can generate a separate alert for each series using Math, Reduce, or Resample expressions.
 
 Click on the **Operation** dropdown menu and choose the condition you'd like to apply. In this example, choose **Reduce** to reduce the time series to one data point (this is required for the alert to run).
@@ -62,13 +69,13 @@ Then, choose **Last** to get the most relevant data point. Since the threshold i
 
 ![Set multi rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-reduce-expr.png)
 
+You can also use the **Math** operation to create time series or number data formulas. Math operations take numbers and time series as input and change them to different numbers and time series. For example, `$B > X`, $B being the Reduce expression, and X the series you want to compare it to.
+
 
 ##### Define alert conditions
 {:.no_toc}
 
 Next, define the alert's condition. In the **Condition** dropdown, select the query or expression to trigger the alert rule.
-
-For **Evaluate**, you'll need to specify the frequency of evaluation. This value must be a multiple of 10 seconds. For example, 1m, 30s, and so on. 
 
 In Evaluate **for**, specify the pending duration value, after which the alert will fire again. This prevents the alert from triggering if the query briefly crosses the alerting threshold.
 
@@ -85,9 +92,26 @@ You can add additional details to the alert to provide context when and if it tr
 
 Click **Save** or **Save and exit**, located at the top right corner of the screen, to save your alert. You'll be redirected back to the panel view.
 
-![Metric alert details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-details-alert.png)
+![Metric alert details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-add-details.png)
 
 </div>
+
+
+### Create an alert manually 
+{:.no_toc}
+
+This process is similar to creating an alert from an existing panel, but it requires you to build your own query.
+
+To get started, navigate to the **[Alerting](https://app.logz.io/#/dashboard/metrics/alerting/)** screen located on the left navigation menu, and click on **New alert rule**.
+
+Name your alert rule and choose its folder.
+
+In the second step, you'll need to build the query for this alert. You can use the Metrics browser to easily view and choose your metrics, labels, and values.
+
+![Metric browser](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-browser-alert.png)
+
+Complete the alert by following the steps to [define your alert condition](/user-guide/infrastructure-monitoring/alerts.html#define-alert-conditions), and [add details to your alert](/user-guide/infrastructure-monitoring/alerts.html#add-details-for-your-alert). 
+
 
 ### Contact Points – define your notification endpoint
 

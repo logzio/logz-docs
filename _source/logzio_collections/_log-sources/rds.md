@@ -19,20 +19,9 @@ order: 280
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Overview](#overview)
-* [RDS host](#rds)
+* [Docker](#rds)
 * [Kubernetes](#kubernetes)
 {:.branching-tabs}
-
-<!-- tab:start -->
-<div id="overview">
-
-
-Deploy this integration to ship logs from your MySQL database hosted on Amazon RDS to Logz.io using Docker.
-
-
-</div>
-<!-- tab:end -->
 
 <!-- tab:start -->
 <div id="rds">

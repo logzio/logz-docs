@@ -69,7 +69,7 @@ Then, choose **Last** to get the most relevant data point. Since the threshold i
 
 ![Set multi rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-reduce-expr.png)
 
-You can also use the **Math** operation to create time series or number data formulas. Math operations take numbers and time series as input and change them to different numbers and time series. For example, `$B > X`, $B being the Reduce expression, and X the series you want to compare it to.
+You can also use the **Math** operation to create time series or number data formulas. Math operations take numbers and time series as input and change them to different numbers and time series. For example, `$D > X`, $D being the Reduce expression, and X the series you want to compare it to.
 
 
 ##### Define alert conditions

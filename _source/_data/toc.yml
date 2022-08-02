@@ -123,7 +123,7 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
     - title: Explore Prometheus metrics 
       url: /user-guide/infrastructure-monitoring/metrics-explore-prometheus ##url
-  - title: Alerts
+  - title: Metrics alert manager
     url: /user-guide/infrastructure-monitoring/alerts.html
   - title: Variables
     url: /user-guide/infrastructure-monitoring/configure-metrics-drilldown-links.html ##url

@@ -113,7 +113,7 @@ In the second step, you'll need to build the query for this alert. You can use t
 Complete the alert by following the steps to [define your alert condition](/user-guide/infrastructure-monitoring/alerts.html#define-alert-conditions), and [add details to your alert](/user-guide/infrastructure-monitoring/alerts.html#add-details-for-your-alert). 
 
 
-### Contact Points – define your notification endpoint
+### Contact points – define your notification endpoint
 
 Once the alert is running, it's time to define your notifications endpoint. You can choose between common alerting endpoints, including Slack, PagerDuty, Gmail, OpsGenie, and more. 
 

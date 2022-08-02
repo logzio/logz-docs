@@ -51,7 +51,7 @@ On deployment, the Go instrumentation automatically captures spans from your app
 
 * A Go application without instrumentation
 * An active account with Logz.io
-* Port `55681` available on your host system
+* Port `4318` available on your host system
 * A name defined for your tracing service
 
 
@@ -138,7 +138,7 @@ func initProvider() func() {
 
 	traceExporter, err := otlptracehttp.New(ctx,
 		otlptracehttp.WithInsecure(),
-		otlptracehttp.WithEndpoint("localhost:55681"),
+		otlptracehttp.WithEndpoint("localhost:4318"),
 	)
 	handleErr(err, "failed to create trace exporter")
 
@@ -333,7 +333,7 @@ func initProvider() func() {
 
 	traceExporter, err := otlptracehttp.New(ctx,
 		otlptracehttp.WithInsecure(),
-		otlptracehttp.WithEndpoint("localhost:55681"),
+		otlptracehttp.WithEndpoint("localhost:4318"),
 	)
 	handleErr(err, "failed to create trace exporter")
 

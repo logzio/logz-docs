@@ -49,6 +49,6 @@ Run the following command:
 
 ```shell
 
-export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:55681
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
 
 ```

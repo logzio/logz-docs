@@ -18,7 +18,7 @@ order: 800
 
 ## Overview
 
-Deploy this integration to ship metrics from your Docker Swar network using containerized Telegraf agent.
+Deploy this integration to ship metrics from your Docker Swarm network using containerized Telegraf agent.
 
 
 #### Setup

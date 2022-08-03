@@ -52,7 +52,7 @@ Each exception is grouped into logical units, which you can view under the **Exc
 
 You can also view all exceptions by navigating to **[Log Management](https://app.logz.io/#/dashboard/kibana)** > **[Insights](https://app.logz.io/#/dashboard/insights)**. There you can view a summary of your exceptions and filter them according to status, log types, tags, assignees, and date. 
 
-![Log management insights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/log-mngmnt-insights.png)
+![Log management insights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/insights-in-logs.gif)
 
 
 ### Exception count

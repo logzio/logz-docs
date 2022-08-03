@@ -79,6 +79,7 @@ To send information to Logz.io properly in a SELinux environment, it is necessar
 ### Possible cause - issue not related to SELinux
 
 The issue may not be caused by SELinux.
+
 #### Suggested remedy
 
 Disable SELinux temporarily and see if that solves the problem.
@@ -123,6 +124,7 @@ SELINUX=permissive
 ### Possible cause - need exceptions to SELinux for Logz.io
 
 You may need to add exception to SELinux configuration to enable Logz.io.
+
 #### Suggested remedy
 
 <div class="tasklist">

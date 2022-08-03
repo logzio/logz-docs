@@ -1,1 +1,3 @@
-* [Filebeat 7](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html#installation) installed
+* [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed
+* Port 5015 open
+* Root access

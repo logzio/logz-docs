@@ -35,6 +35,14 @@ firstLevel:
       url: /user-guide/kibana/mapping/
     - title: Field not indexed
       url: /user-guide/kibana/mapping/field-not-indexed/
+  - title: Troubleshooting
+    thirdLevel:
+    - title: Log shipping troubleshooting
+      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
+    - title: Troubleshooting Fluentd for Kubernetes logs
+      url: /user-guide/kubernetes-troubleshooting/
+    - title: Troubleshooting Filebeat
+      url: /user-guide/log-troubleshooting/filebeat-troubleshooting.html
 
   - title: Log Alerts
     thirdLevel:
@@ -115,7 +123,7 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
     - title: Explore Prometheus metrics 
       url: /user-guide/infrastructure-monitoring/metrics-explore-prometheus ##url
-  - title: Alerts
+  - title: Metrics alert manager
     url: /user-guide/infrastructure-monitoring/alerts.html
   - title: Variables
     url: /user-guide/infrastructure-monitoring/configure-metrics-drilldown-links.html ##url
@@ -362,22 +370,24 @@ firstLevel:
     thirdLevel:
     - title: Manage accounts
       url: /user-guide/accounts/
-    - title: Time-based log accounts
+    - title: Manage Log, Metrics, Tracing, and SIEM accounts
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
     - title: Flexible volume log accounts
       url: /user-guide/accounts/flexible-volume.html
-    - title: Timeless log accounts
-      url: /user-guide/accounts/manage-timeless-accounts.html
-    - title: Security accounts
-      url: /user-guide/accounts/manage-the-cloud-siem-account.html
+    #- title: Timeless log accounts
+    #  url: /user-guide/accounts/manage-timeless-accounts.html
+    #- title: Security accounts
+    #  url: /user-guide/accounts/manage-the-cloud-siem-account.html
     - title: The shared SIEM Repository account
       url: /user-guide/accounts/shared_repository.html
-    - title: Metrics accounts
-      url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
-    - title: Tracing accounts
-      url: /user-guide/accounts/manage-the-distributed-tracing-account.html
+    #- title: Metrics accounts
+    #  url: /user-guide/accounts/manage-the-infrastructure-monitoring-account.html
+    #- title: Tracing accounts
+    #  url: /user-guide/accounts/manage-the-distributed-tracing-account.html
     - title: Audit trail
       url: /user-guide/accounts/audit-trail.html
+    - title: Update billing info
+      url: /user-guide/accounts/update-billing.html
     - title: On Demand pricing FAQ
       url: /user-guide/accounts/on-demand.html
       # - title: Usage and billing
@@ -391,8 +401,6 @@ firstLevel:
     thirdLevel:
     - title: Managing account usage
       url: /user-guide/accounts/manage-account-usage.html
-    #- title: LogSize visualization
-    #  url: /user-guide/accounts/log-visualization.html
     - title: Smart Tier
       url: /user-guide/accounts/smart-tier/
     - title: Drop filters
@@ -412,7 +420,7 @@ firstLevel:
       url: /user-guide/users/single-sign-on/
     - title: Azure single sign-on
       url: /user-guide/users/single-sign-on/azure-sso.html
-    - title: Logz.io-Azure Portal integration single sign-on
+    - title: Azure pay-as-you-go Portal single sign-on
       url: /user-guide/users/single-sign-on/azure_marketplace_liftr.html      
     - title: Okta single sign-on
       url: /user-guide/users/single-sign-on/okta-sso.html
@@ -422,6 +430,8 @@ firstLevel:
       url: /user-guide/users/single-sign-on/auth0-sso-guide.html
     - title: Google Workspace single sign-on
       url: /user-guide/users/single-sign-on/google-workspace-sso.html
+    - title: AWS single sign-on
+      url: user-guide/users/single-sign-on/aws-sso.html
   - title: Authentication Tokens
     thirdLevel:
     - title: Types of tokens
@@ -476,14 +486,14 @@ firstLevel:
 #  - title: Log shipping intro
 #    url: /user-guide/log-shipping/
 
-  - title: Resources, FAQs & Troubleshooting
+  - title: Resources & FAQs #& Troubleshooting
     thirdLevel:
     - title: FAQs about sending logs
       url: /user-guide/log-shipping/faqs-logs/
-    - title: Log shipping troubleshooting
-      url: /user-guide/log-shipping/log-shipping-troubleshooting.html
-    - title: Troubleshooting Filebeat
-      url: /user-guide/log-shipping/filebeat-troubleshooting/
+    #- title: Log shipping troubleshooting
+    #  url: /user-guide/log-shipping/log-shipping-troubleshooting.html
+    #- title: Troubleshooting Filebeat
+    #  url: /user-guide/log-shipping/filebeat-troubleshooting/
     - title: Listener IP addresses
       url: /user-guide/log-shipping/listener-ip-addresses.html
     - title: Hosting regions

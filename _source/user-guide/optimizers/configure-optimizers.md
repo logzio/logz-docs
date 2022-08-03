@@ -2,6 +2,8 @@
 layout: article
 title: Configure optimizers
 permalink: /user-guide/optimizers/configure-optimizers.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to create and configure optimizers
 flags:
   logzio-plan: pro
 tags:
@@ -11,10 +13,15 @@ contributors:
   - yberlinger
 ---
 
-To create a new optimizer, start in Kibana so you can test the query you want to use. After that, continue to the **Create an optimizer** page, where you can configure the optimizer settings.
+To create a new optimizer, start in Kibana so you can test the query you want to use. 
 
-  Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
-  {:.info-box.note}
+Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
+
+After you've created your account, navigate back to **Kibana** > **Create an optimizer**, where you can configure the optimizer settings.
+
+Once a log is pulled to your Logz.io account, it takes up to **2 hours** until it appears in your timeless account.
+{:.info-box.note}
+
 
 If you want help updating an existing optimizer, you can [skip the first part of this page](#to-configure-an-optimizer).
 

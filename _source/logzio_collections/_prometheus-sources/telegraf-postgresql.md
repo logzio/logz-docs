@@ -21,6 +21,9 @@ PostgreSQL is a free and open-source relational database management system empha
 
 To send your Prometheus-format PostgreSQL metrics to Logz.io, you need to add the **inputs.postgresql** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+
+<!-- logzio-inject:install:grafana:dashboards ids=["3L7cjHptO2CFcrvpqGCNI0"] --> 
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">

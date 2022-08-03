@@ -54,7 +54,6 @@ You can also view all exceptions by navigating to **[Log Management](https://app
 
 ![Log management insights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/logs-insights-exceptions.gif)
 
-
 ### Exception count
 To help you stay focused, the list is capped and will always show the top 10 exceptions.
 If there are more exceptions than can be shown, you can fetch the **Most frequent** or **Most recent** exceptions.

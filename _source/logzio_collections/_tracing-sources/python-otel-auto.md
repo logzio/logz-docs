@@ -37,6 +37,51 @@ This integration includes:
 
 On deployment, the Python instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
+#### Trace context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context.
+In this way, your logs will have traces data in it, such as service name, span id and trace id.
+To enable this feature, set the `add_context` param in your handler configuration to `True`, like in this example:
+
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'logzioFormat': {
+            'format': '{"additional_field": "value"}',
+            'validate': False
+        }
+    },
+    'handlers': {
+        'logzio': {
+            'class': 'logzio.handler.LogzioHandler',
+            'level': 'INFO',
+            'formatter': 'logzioFormat',
+            'token': '<<LOG-SHIPPING-TOKEN>>',
+            'logzio_type': 'python-handler',
+            'logs_drain_timeout': 5,
+            'url': 'https://<<LISTENER-HOST>>:8071',
+            'retries_no': 4,
+            'retry_timeout': 2,
+            'add_context': True
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['logzio'],
+            'propagate': True
+        }
+    }
+}
+```
+
+{% include /general-shipping/replace-placeholders.html %}
+
+
+Note that this feature is only available from version 4.0.0.
+
 </div>
 <!-- tab:end -->
 
@@ -78,7 +123,7 @@ receivers:
 exporters:
   logzio:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    #region: "<<LOGZIO_ACCOUNT_REGION_CODE>>" - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
 processors:
   batch:
@@ -154,6 +199,9 @@ This integration enables you to auto-instrument your Python application and run 
 
 ##### Run the OpenTelemetry instrumentation in conjunction with your Python application
 
+{% include /tracing-shipping/collector-run-note.md %}
+
+
 Run the following command from the directory of your Python application script:
 
 ```shell
@@ -209,7 +257,7 @@ logzio-otel-traces logzio-helm/logzio-otel-traces
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 ##### Define the logzio-otel-traces service dns
 

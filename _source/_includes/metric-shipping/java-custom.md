@@ -1,12 +1,7 @@
 Deploy this integration to send custom metrics from your Java application to Logz.io using [Micrometer](https://micrometer.io/). The dedicated Logz.io Micrometer metrics registry sends custom metrics from your Java application to your Logz.io account.
 
 **Before you begin, you'll need**:
-Java 11 or higher 
-
-<!-- info-box-start:info -->
-This integration currently works with Java 11 or higher. Support for earlier versions is in development and is expected later this year.
-{:.info-box.important}
-<!-- info-box-end -->
+Java 8 or higher
 
 
 #### Configuring your Java applicatin to send custom metrics to Logz.io
@@ -23,16 +18,24 @@ If you use Maven, add the dependency to your project configuration file (for ins
 <dependency>
     <groupId>io.logz.micrometer</groupId>
     <artifactId>micrometer-registry-logzio</artifactId>
-    <version>1.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
-###### Via Gradle
+###### Via Gradle Groovy
   
-If you use Gradle, add the dependency to your project as follows:
+If you use Gradle Groovy, add the dependency to your project as follows:
 
 ```java
-implementation 'io.logz.micrometer:micrometer-registry-logzio:1.0'
+implementation 'io.logz.micrometer:micrometer-registry-logzio:1.0.2'
+```
+
+###### Via Gradle Kotlin
+  
+If you use Gradle kotlin, add the dependency to your project as follows:
+
+```java
+implementation("io.logz.micrometer:micrometer-registry-logzio:1.0.2")
 ```
 
 ###### Import in your package
@@ -66,9 +69,11 @@ class MicrometerLogzio {
          }
          @Override
          public String uri() {
-            return "<<LISTENER-HOST>>:<<PORT>>";
+           return "<<LISTENER-HOST>>:<<PORT>>";
+           // example:
+           // return "https://listener.logz.io:8053"; 
          }
-
+         
          @Override
          public String token() {
             return "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>";
@@ -76,15 +81,33 @@ class MicrometerLogzio {
 
          @Override
          public Duration step() {
-            return Duration.ofSeconds(<<interval>>);
+           return Duration.ofSeconds(<<interval>>);
+           // example:
+           // return Duration.ofSeconds(30);                    
          }
+         @Override
+         public Hashtable<String, String> includeLabels() {
+             return new Hashtable<>();
+         }
+         @Override
+         public Hashtable<String, String> excludeLabels() {
+             return new Hashtable<>();
       };
       // Initialize registry
-      LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
-      // Define tags (labels)
-      ArrayList<Tag> tags = new ArrayList<>();
-      tags.add(Tag.of("env","dev"));
+       LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
+       // Define tags (labels)
+       ArrayList<Tag> tags = new ArrayList<>();
+       tags.add(Tag.of("env","dev-micrometer"));
 
+      // Create counter
+      Counter counter = Counter
+              .builder("counter_example")
+              .description("a description of what this counter does") // optional
+              .tags(tags) // optional
+              .register(registry);
+      // Increment your counter
+      counter.increment(); 
+      counter.increment(2); 
    }
 }
 ```
@@ -102,6 +125,44 @@ LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTE
 // Define tags (labels)
 registry.config().commonTags("key", "value");
 ```
+
+##### Filter labels
+
+You can use the `includeLabels` or `excludeLabels` functions to filter your metrics by labels.
+
+###### Include
+
+Add the following to your `LogzioConfig()` constructor:
+
+```java
+@Override
+public Hashtable<String, String> includeLabels() {
+    Hashtable<String, String> includeLabels = new Hashtable<>();
+    includeLabels.put("__name__", "my_counter_abc_total|my_second_counter_abc_total");
+    includeLabels.put("k1", "v1");
+    return includeLabels;
+}
+```
+
+In this example, the registry will keep only metrics with the label `__name__` matching the regex `my_counter_abc_total|my_second_counter_abc_total`, and with the label `k1` matching the regex `v1`. Adjust the labels as required.
+
+
+###### Exclude
+
+Add the following to your `LogzioConfig()` constructor:
+
+```java
+@Override
+public Hashtable<String, String> excludeLabels() {
+    Hashtable<String, String> excludeLabels = new Hashtable<>();
+    excludeLabels.put("__name__", "my_counter_abc_total|my_second_counter_abc_total");
+    excludeLabels.put("k1", "v1");
+    return excludeLabels;
+}
+```
+
+The registry will drop all metrics with the label `__name__` matching the regex `my_counter_abc_total|my_second_counter_abc_total`, and with the label `k1` matching the regex `v1`. Adjust the labels as required.
+
 
 ##### Add required meter binders
   
@@ -131,6 +192,7 @@ new UptimeMetrics(tags).bindTo(registry);
 new LogbackMetrics().bindTo(registry);
 new Log4j2Metrics().bindTo(registry);
 ```
+
 For the full list of available meter binders, refer to the [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) Github repo.
 
 ##### Add required metrics

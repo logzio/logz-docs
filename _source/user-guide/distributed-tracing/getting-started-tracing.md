@@ -11,7 +11,7 @@ contributors:
 ---
 Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in Logz.io.
 
-If you already use Distributed Tracing, refer to our [guides on how to get connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data?tag=existing-instrumentation&collection=tracing-sources). <br>
+If you already use Distributed Tracing, refer to our [guides on how to get connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data/collection?tag=existing-instrumentation&collection=tracing-sources). <br>
 This information is also available in the [**Logz.io Docs**](https://docs.logz.io/shipping/#tracing-sources), via the **My code is instrumented** filter.
 
 #### To set up Distributed Tracing: 
@@ -62,7 +62,7 @@ But instrumentation doesn't *have* to be a huge all-or-nothing effort. It's not 
 
 If you hit a wall, we’ll do our best to provide support to help you solve your instrumentation issues. 
 
-To determine the best instrumentation strategy for your system, start with [**Tracing > Send your traces**](https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=tracing-sources&accountIds=true), and then select the relevant filter in the **Tracing** tab, depending on whether or not your code is already instrumented: Either **My code is instrumented** or **My code is not instrumented**.  
+To determine the best instrumentation strategy for your system, start with [**Tracing > Send your traces**](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources&accountIds=true), and then select the relevant filter in the **Tracing** tab, depending on whether or not your code is already instrumented: Either **My code is instrumented** or **My code is not instrumented**.  
 
 This information is also available in the **Logz.io Docs**, in [**Send your data > Tracing**](https://docs.logz.io/shipping/#tracing-sources).
 

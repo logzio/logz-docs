@@ -16,6 +16,7 @@ contributors:
   - imnotashrimp
   - amosd92
   - shalper
+  - refaelmi
 shipping-tags:
   - agents
   - popular
@@ -72,7 +73,7 @@ Move your configuration file to `/etc/filebeat/filebeat.yml`.
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat's troubleshooting guide](/user-guide/log-troubleshooting/filebeat-troubleshooting.html).
 
 </div>
 
@@ -135,7 +136,7 @@ PS C:\Program Files\Filebeat> Restart-Service filebeat
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat's troubleshooting guide](/user-guide/log-troubleshooting/filebeat-troubleshooting.html).
 
 </div>
 
@@ -163,5 +164,7 @@ Beat shippers make use of modules to ship data from various sources. Refer to th
 
 </div>
 <!-- tab:end -->
+
+
 
 

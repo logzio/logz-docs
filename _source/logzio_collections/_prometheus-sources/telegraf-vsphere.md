@@ -21,6 +21,8 @@ VMware vSphere is VMware's cloud computing virtualization platform. Telegraf is 
 
 To send your Prometheus-format Vmware Vsphere metrics to Logz.io, you need to add the **inputs.vsphere** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["VpeHVDlhfo1mF22Lc0UKf", "6CpW1YzdonmTQ8uIXAN5OL", "3AvORCMPVJd8948i9oKaBO"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">

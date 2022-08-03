@@ -87,7 +87,7 @@ var logger = require('logzio-nodejs').createLogger({
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
-
+| setUserAgent | Set to false to send logs without the user-agent field in the request header.  | `true` |
 
 ###### Code sample
 
@@ -116,6 +116,22 @@ Include this line at the end of the run if you're using logzio-nodejs in a sever
   ```js
   logger.sendAndClose();
   ```
+
+###### Custom tags
+
+You can add custom tags to your logs using the following format: `{ tags : ['tag1']}`, for example:
+
+```js
+var obj = {
+
+    message: 'Your log message',
+
+    tags : ['tag1']
+
+};
+
+logger.log(obj);
+```
 
 </div>
 
@@ -170,7 +186,7 @@ const logger = winston.createLogger({
 logger.log('warn', 'Just a test message');
 ```
 
-If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `logger.close()` at the end of the run.
+If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `await logger.info(“API Called”)` and `logger.close()` at the end of the run, every time you are using the logger.
 
 {% include /general-shipping/replace-placeholders.html %}
 
@@ -197,7 +213,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
-
+| setUserAgent | Set to false to send logs without the user-agent field in the request header. If you want to send data from Firefox browser, set that option to false. | `true` |
 
 ##### Additional configuration options
 
@@ -257,6 +273,22 @@ For a complete list of your options, see the configuration parameters below.👇
 
   winston.add(logzioWinstonTransport, loggerOptions);
   ```
+
+###### Custom tags
+
+You can add custom tags to your logs using the following format: `{ tags : ['tag1']}`, for example:
+
+```js
+var obj = {
+
+    message: 'Your log message',
+
+    tags : ['tag1']
+
+};
+
+logger.log(obj);
+```
 
 
 
@@ -326,9 +358,11 @@ const logger = winston.createLogger({
 logger.log('warn', 'Just a test message');
 ```
 
-If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block.
+If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block, every time you are using the logger.
 
 ```js
+await logger.info(“API Called”)
+
 logger.close()
 ```
 
@@ -338,13 +372,35 @@ logger.close()
 
 To fix errors related to `esModuleInterop` flag make sure you run the relevant `tsconfig` file.
 These might help:
+
 ```
 tsc <file-name>.ts --esModuleInterop
 ```
+
 or
+
 ```
 tsc --project tsconfig.json  
 ```
+
+
+###### Custom tags
+
+You can add custom tags to your logs using the following format: `{ tags : ['tag1']}`, for example:
+
+```js
+var obj = {
+
+    message: 'Your log message',
+
+    tags : ['tag1']
+
+};
+
+logger.log(obj);
+```
+
+
 </div>
 </div>
 <!-- tab:end -->

@@ -52,6 +52,29 @@ Copy and paste the code block below, overwriting the previous contents, to repla
 ```yaml
 #... Filebeat
 filebeat.inputs:
+- type: filestream
+  paths:
+    - <<FILE_PATH>>
+  fields:
+    token: <<LOG-SHIPPING-TOKEN>>
+  fields_under_root: true
+  json.keys_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+#... Output
+output:
+  logstash:
+    hosts: ["<<LISTENER-HOST>>"]
+    ssl:
+      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
+
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
+
+```yaml
+#... Filebeat
+filebeat.inputs:
 - type: log
   paths:
     - <<FILE_PATH>>
@@ -92,14 +115,8 @@ output:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
 
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
+
 
 {% include log-shipping/listener-var.html %} 
 
@@ -234,7 +251,7 @@ Start or restart Filebeat for the changes to take effect.
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search or filter for Sophos logs, under `type:sophos-ep`.
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
 ##### Contact support to request custom parsing assistance
 
@@ -249,4 +266,4 @@ The logs will require customized parsing so they can be effectively mapped in Ki
 <!-- tab:end -->
 
 </div>
-<!-- tabContainer:end -->
+<!-- tabContainer:end --> 

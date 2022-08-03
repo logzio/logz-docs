@@ -119,12 +119,10 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources,
 
 
 ##### Create a stack to deploy destinations in the landing account on each region you need to send logs from
-  
-<!-- info-box-start:info -->
+
+
 This procedure is only required if you need to send logs from regions that are different to the region that the main stack is deployed in.
-{:.info-box.note}
-<!-- info-box-end -->
-  
+
 
 
 Click the button that matches the region you'd like to deploy your destination stack to:
@@ -176,11 +174,9 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources,
 
 ##### Create a subscription filter in your sending accounts
 
-<!-- info-box-start:info -->
 You need to create a subscription filter in each sending account separately, for each service that you want to send logs from.
-{:.info-box.note}
-<!-- info-box-end -->  
-  
+
+
 ###### Create with AWS CLI
 
 1. Make sure your AWS CLI is connected to the account you want to send logs from.
@@ -216,21 +212,18 @@ resource "aws_cloudwatch_log_subscription_filter" "subscription_filter" {
    * Replace `<<SUBSCRIPTION-FILTER-NAME>>` with the name of the subscription filter you create.
    * Replace `<<DESTINATION-ARN>>` with the ARN of the destination that matches the region of the sending account that you want to ship logs from. For example, if the log stream is in `us-west-2`, then they should use the arn of the Destination that's in `us-west-2`. You can find the ARN in the main stack's **Outputs** tab.
 
-<!-- info-box-start:info -->
+
 If you create the log group and the subscription filter at the same time, add a `depends_on` field to the subscription filter and make it dependent on the log group, so that the log group will be created first.
-{:.info-box.note}
-<!-- info-box-end -->
-  
-#### Check Logz.io for your logs
+
+
+###### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
   
-<!-- info-box-start:info -->
+
 If your log group is not in the required format, the logs will arrive under the default type `aws-cross-account`. Otherwise, the type will be the service you sent the logs from.
-{:.info-box.note}
-<!-- info-box-end -->  
 
 </div>
 

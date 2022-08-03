@@ -23,6 +23,8 @@ This project lets you configure a Telegraf agent to send your collected Promethe
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems, and IoT sensors.
 
 To send your Prometheus-format metrics to Logz.io, you add the **outputs.http** plug-in to your Telegraf configuration file.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["6EZtcMqH5Qa36IQw6qLbhY"] --> 
   
 #### Configuring Telegraf to send your metrics data to Logz.io
 

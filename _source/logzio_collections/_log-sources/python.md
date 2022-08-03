@@ -14,10 +14,22 @@ contributors:
   - mirii1994
   - shalper
   - imnotashrimp
+  - refaelmi
 shipping-tags:
   - from-your-code
 order: 170
 ---
+
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Setup](#setup)
+* [Troubleshooting](#troubleshooting)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
 
 Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.
 Logs are grouped into bulks based on their size.
@@ -26,6 +38,12 @@ If the main thread quits,
 the handler tries to consume the remaining logs and then exits.
 If the handler can't send the remaining logs,
 they're written to the local file system for later retrieval.
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="setup">
 
 #### Set up Logz.io Python Handler
 
@@ -127,10 +145,11 @@ Order matters. The arguments _must_ be configured in the order shown here. For e
 | logzio_type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `python` |
 | timeout | Time to wait between log draining attempts, in seconds. | `3` |
 | url | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
-| debug-flag | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. | `False` |
+| debug | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. | `False` |
 | backup-logs | If set to False, disables the local backup of logs in case of failure. | `True` |
 | network-timeout | Timeout in seconds, int or float, for connecting to Logz.io. | `10` |
 | logs_drain_timeout | Timeout in seconds, int or float, for sending the logs to Logz.io. | `5` |
+| add_context | Set to `True` if you're using OpenTelemetry instrumentation and wish to inject trace context into your logs. For more info, see the **Trace context** section. | `False` |
 
 
 
@@ -184,4 +203,146 @@ such as `lineno` or `thread`.
 logger.info('Warning', extra={'extra_key':'extra_value'})
 ```
 
+#### Trace context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context.
+In this way, your logs will have traces data in it, such as service name, span id and trace id.
+To enable this feature, set the `add_context` param in your handler configuration to `True`, like in this example:
+
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'logzioFormat': {
+            'format': '{"additional_field": "value"}',
+            'validate': False
+        }
+    },
+    'handlers': {
+        'logzio': {
+            'class': 'logzio.handler.LogzioHandler',
+            'level': 'INFO',
+            'formatter': 'logzioFormat',
+            'token': '<<LOG-SHIPPING-TOKEN>>',
+            'logzio_type': 'python-handler',
+            'logs_drain_timeout': 5,
+            'url': 'https://<<LISTENER-HOST>>:8071',
+            'retries_no': 4,
+            'retry_timeout': 2,
+            'add_context': True
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['logzio'],
+            'propagate': True
+        }
+    }
+}
+```
+
+{% include /general-shipping/replace-placeholders.html %}
+
+
+Note that this feature is only available from version 4.0.0.
+
 </div>
+
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="troubleshooting">
+
+This section contains some guidelines for handling errors that you may encounter when trying to collect Python logs.
+
+## Problem: No logs received
+
+No logs are observed in your Logz.io account.
+
+### Possible cause - Incorrect token and/or listener URL
+
+Your Logz.io token and/or listener URL may be incorrect.
+
+#### Suggested remedy
+
+1. Navigate to  **[Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) > [Data shipping tokens - Logs](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs)** and verify your account's log shipping token and listener URL.
+
+2. Check in the integration code whether the token and listener URL are specified correctly.
+
+
+## Problem: Exception while sending logs to Logz.io
+
+The following error message appears:
+
+```shell
+Got exception while sending logs to Logz.io, Try (1/4). Message: HTTPSConnectionPool(host='listener.logz.io', port=8071): Max retries exceeded with url: /?token=<<LOG-SHIPPING-TOKEN>> (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017839B4FD30>: Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions.
+```
+
+### Possible cause - Shipper connectivity failure
+
+Your host/server may not be connected to your Logz.io listener.
+
+
+#### Suggested remedy
+
+Verify connectivity of your host/server as follows.
+
+* For Linux and Mac servers, use `telnet`:
+
+  ```shell
+  telnet listener.logz.io <<PORT>>
+  ```
+
+
+* For Windows servers running Windows 8/Server 2012 and later, use the following command in PowerShell:
+
+  ```shell
+  Test-NetConnection listener.logz.io -Port <<PORT>>
+  ```
+
+  Replace `<<PORT>>` with the appropriate port nummber. For HTTPS communication use port 8053. For HTTP communication use port 8052.
+
+
+If you see `Connected to listener-group.logz-data.com` the shipper can connect to the Logz.io listener. Enter `ctrl`+`c` and type `quit` to exit Telnet.
+
+If you see `Trying xxx.xxx.xxx.xxx...` for more than 10 seconds, your machine is having trouble connecting to the Logz.io listener.
+
+
+
+### Possible cause - Cannot connect to Logz.io listener
+
+Your host/server cannot connect to Logz.io listener and you see `Trying xxx.xxx.xxx.xxx...` for more than 10 seconds, when testing the connection.
+
+#### Suggested remedy
+
+Confirm that your firewall and network settings allow communication with the correct outbound port and the Logz.io listener IP addresses for your region.
+
+
+
+### Possible cause - Timeout parameter is too short
+
+
+You can connect to Logz.io listener, but still see no logs.
+
+#### Suggested remedy
+
+Make sure you have the timeout setting increased as follows:
+
+```yaml
+network-timeout:20
+timeout:10
+logs_drain_timeout:10
+```
+
+
+
+
+</div>
+<!-- tab:end -->
+
+
+</div>
+<!-- tabContainer:end -->

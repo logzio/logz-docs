@@ -21,6 +21,8 @@ MySQL is an open-source relational database management system. Telegraf is a plu
 
 To send your Prometheus-format MySQL metrics to Logz.io, you need to add the **inputs.mysql** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] --> 
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 <div class="tasklist">

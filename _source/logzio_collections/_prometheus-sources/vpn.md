@@ -21,6 +21,9 @@ Google Cloud VPN provides networking functionality to Compute Engine virtual mac
 
 To send your Prometheus-format Google Cloud VPN metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
+
+<!-- logzio-inject:install:grafana:dashboards ids=["4gdYz2iIWFeIL3WDDcYRm"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:

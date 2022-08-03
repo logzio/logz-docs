@@ -68,6 +68,7 @@ This table shows the log types that Logz.io parses automatically.
 | NGINX access          | `nginx`, `nginx_access`, `nginx-access`    | ✔ |
 | NGINX error           | `nginx-error`                              | ✔ |
 | OpenVAS                 | `openvas`                                    | ✔ |
+| OpenVPN                 | `openvpn`                                    | ✔ |
 | OSSEC                 | `ossec`                                    | ✔ |
 | Trend Micro                 | `trendmicro_deep`                    | ✔ |
 | Palo Alto Networks    | `paloalto`                                  | ✔ |

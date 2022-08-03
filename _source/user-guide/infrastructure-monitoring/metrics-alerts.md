@@ -1,141 +1,201 @@
 ---
 layout: article
-title: Alerts
+title: Metrics alert manager
 permalink: /user-guide/infrastructure-monitoring/alerts.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io's Metrics alert manager
 flags:
   logzio-plan: community
 tags:
   - alerts
 contributors:
-  - shalper
-  - imnotashrimp
-  - yberlinger
+  - amosd92
+  - hidan
 ---
 
-Add alerts to graphs in your Metrics dashboards to be notified when values are outside of their acceptable range. 
+Metrics alerts help you monitor your services and operations and notify team members as soon as there's an issue. You can set alerts to detect memory spikes, 3xx-4xx errors, and more. 
 
-Alerts can be configured to send notifications via your preferred [channels]({{site.baseurl}}/user-guide/integrations/endpoints.html) and email.
-You can also add a condition so an alert holds off for a certain time before it sends out notifications. During this time, the alert will appear on the graph in your dashboard as orange, before it switches to red. This will prevent triggering alerts for short-lived issues that are resolved on their own and help reduce alert fatigue.
-
-If you're running multiple servers for load balancing purposes, you'll be happy to know that Logz.io Metrics won't send duplicte alerts. A deduplication mechanism protects against that.
+Metrics alert manager is fully compatible with the Prometheus Alert Manager, making it fast and easy to migrate existing Prometheus alerts to Logz.io - offering you an enhanced Prometheus-based monitoring experience.
 
 ###### On this page
 {:.no_toc}
 
-1. toc list
+* toc list
 {:toc}
 
 
-### Adding Alerts
-Navigate to the Logz.io Infrastructure Monitoring **Metrics** tab.
 
-#### To add an alert
+###### Create an alert
+
+There are 2 main ways for you to create a metric alert:
+
+### Create an alert from an existing panel
 {:.no_toc}
+
+Navigate to your **[Metrics account](https://app.logz.io/#/dashboard/metrics/)**, open your dashboard and choose the panel you'd like to use for your alert.
+
+Click on the name of the panel and choose **Edit**. 
+
+![Edit a panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-alert-edit.png)
+
+Then, navigate to the **Alert** tab and click on the **Create alert rule from this panel** button. This will automatically pull the query and variables to the Create alert rule page.
+
+![Create alert flow](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/create-an-alert-flow.gif)
 
 
 <div class="tasklist">
 
-##### Pick your dashboard
+##### Rule type
+{:.no_toc}
 
-Before you begin, you'll need to make sure you have permissions to edit the dashboard.
+Name your alert and choose the folder you’d like to associate it with. By entering a group name, you can also choose whether to add the alert to a group inside the folder.
 
-If you are using any of the pre-configured dashboards provided by Logz.io, you'll need to duplicate it first.
-(They are read-only, by default.)
-
-Click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save** .
-If you don't rename the dashboard, it will have the same name as the original dashboard, with **Copy** appended at the end.
-
-  <video autoplay loop>
-    <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/copy-existing-dashboard.mp4" type="video/mp4" />
-  </video>
-
-##### Edit your graph
-
-Select the graph panel you'll be using for the alert. Only the graph panel is supported at this point.
-
-Hover over the graph panel name, and click **Edit**.
-
-![Edit Grafana Graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-edit-graph.png)
+![Name your alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-rule-type.png)
 
 
-##### Remove variables
+##### Create a query to be alerted on
+{:.no_toc}
 
-Alerts can't run if you have any variables in your graph, so you'll need to remove them first.
+Next, review and edit the queries pulled from the panel you chose:
 
-One option, is to duplicate the query and remove the variables from it. That way you can add alerts to the same graph you use to monitor your dashboard.
-
-Click the copy icon **<i class="far fa-copy"></i>** to duplicate the query.
-Then click **<i class="far fa-eye-slash"></i>** to hide the query in the dashboard. You'll only be using it for the alert, and don't want it to appear on the graph.
-
-Remove any variables. Variables are indicated by a `$` sign, as seen in the example below. These will block you from saving your alert.
-
-![Remove variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/grafana-query-variable.png)
-
-Select a fixed source and erase the query or rewrite the query so it doesn't contain variables. You can also leave the query blank.
+![Review query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-review-query.png)
 
 
-##### Add an alert
+To create a multi-dimensional rule, you can generate a separate alert for each series using Math, Reduce, or Resample expressions.
 
-Alerts are added and configured in the Alert tab of any dashboard graph panel, letting you build and visualize an alert using existing queries.
+Click on the **Operation** dropdown menu and choose the condition you'd like to apply. In this example, choose **Reduce** to reduce the time series to one data point (this is required for the alert to run).
 
-![Add an alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/create-alert-tab.png)
+Then, choose **Last** to get the most relevant data point. Since the threshold is defined in the previous section, this function will only affect what will be presented in the notification rather than an actual condition.
 
-* In the **Name** field, name your alert. Preferrably, use a name that will be clear to anyone on the team and future newcomers.
-* Set an **Evaluation interval** to decide how often the rule should be evaluated.
-* In the field **For**, set a time for the "silent alert". This is the time that the alert can go off before it sends a notification. For example, you could send an alert if the rule is breached for 5 minutes or longer. Use this to allow for some leeway, or "wiggle room".
+![Set multi rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-reduce-expr.png)
 
-![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/create-alert-edit-screen.png)
-
-Next, set your alert conditions.
-
-* First, make sure the condition points to the right query. That's the one that doesn't contain variables.
-* Define the rule's condition. You can type in the value or drag the heart **<i class="fas fa-heart"></i>** directly on the graph to make your selection.
-* You can click the condition to decide whether to set it for values above/below a threshold, within/outside a range, or when it has no value.
-* You have the option to set up multiple conditions and queries for more advanced alerts.
-
-![Add Grafana alert to graph panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/alert-conditions-set.png)
-
-**Metrics UI tags for alert Severity levels**
-
-Use Metrics tags as a Severity field for your alerts when integrating the Metrics UI with PagerDuty as an alert notification endpoint.
-Follow the link for more information on <a href="https://grafana.com/docs/grafana/latest/alerting/notifications/#pagerduty" target="_blank"> the syntax for setting up Metrics UI tags for PagerDuty.  <i class="fas fa-external-link-alt"></i> </a>
-
-<!-- OpsGenie integration is coming too: Use tags as Priority fields for alerts when integrating Grafana withOpsGenie aas an alert notification endpoint.     Follow the link for more information on <a href="https:/grafana.com/docs/grafana/latest/alerting/notifications/" target="_blank"> the syntax for setting up Grafanatags for OpsGenie <i class="fas fa-external-link-alt"></i> </a> -->   
-
-##### Add notifications
-
-If you want to send notifications or emails when the alert is triggered,
-choose notification endpoints.
-
-Endpoints can be Slack channels, email addresses, or other places your team communicates.
-
-To limit how often recipients are notified - you'll need to scroll up to the **Evaluation interval > For** rule above. (See the instructions above).
-
-When notifications are suppressed,
-your Metrics dashboard will show the orange marker on the graph, indicating that an alert is triggered, but not yet reached its notification threshold.
-{:.info-box.note}
-
-**Additional alert notifications**
-
-+ _**Resolved alerts**_
-
-    For better alerts management and to help you focus only on active alerts, when a tracked metric returns to its    accepted values (below the current alert threshold), you'll get notified automatically that the triggered alert   was resolved. 
-
-    Resolved alert notifications are available for Slack, PagerDuty, Opsgenie, and email notification endpoints.
-
-    See [Opsgenie notifications for resolved metrics alerts]({{site.baseurl}}/user-guide/integrations/resolved-metrics-alerts.html) for more information.
-
-+ _**Acknowledged alerts**_
-
-    To help you reduce the noise associated with receiving notifications for multiple instances of the same alert, you can use the Acknowledge status to assign the alert to a team member or to yourself, as well as manage alerts that are already under investigation (as determined by the ACK policy you manage in your notification software).
-
-    When you receive an alert with the same alert ID, if the alert has the Acknowledge status, your notification endpoint will not repeat the notification.
-
-    The Acknowledge status is available for the PagerDuty notification endpoint.
- 
+You can also use the **Math** operation to create time series or number data formulas. Math operations take numbers and time series as input and change them to different numbers and time series. For example, `$D > X`, $D being the Reduce expression, and X the series you want to compare it to.
 
 
-##### Save it!
+##### Define alert conditions
+{:.no_toc}
 
-Click **Save <i class="far fa-save"></i>** in the top-right panel to save your dashboard (and the alert).
-If the thresholds are passed and the alert is triggered, you'll see the markers on your dashboard and receive your notifications.
+Next, define the alert's condition. In the **Condition** dropdown, select the query or expression to trigger the alert rule.
+
+In Evaluate **for**, specify the pending duration value, after which the alert will fire again. This prevents the alert from triggering if the query briefly crosses the alerting threshold.
+
+Click on **Configure no data and error handling** to configure a notification trigger if no data or errors appear. This lets you fix any issues that can prevent the alert from operating correctly.
+
+At this point, you can preview the alert and verify it's successfully monitoring your data. When clicking the **Preview alerts** button, Logz.io runs the query and provides the relevant results. 
+
+![Preview alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-define-alert-condition.png)
+
+##### Add details for your alert
+{:.no_toc}
+
+You can add additional details to the alert to provide context when and if it triggers. For example, adding `{{$labels.path}}` and `{{$values.D}}` to the summary will automatically populate information from the relevant services. 
+
+Click **Save** or **Save and exit**, located at the top right corner of the screen, to save your alert. You'll be redirected back to the panel view.
+
+![Metric alert details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-add-details.png)
+
+</div>
+
+
+### Create an alert manually 
+{:.no_toc}
+
+This process is similar to creating an alert from an existing panel, but it requires you to build your own query.
+
+To get started, navigate to the **[Alerting](https://app.logz.io/#/dashboard/metrics/alerting/)** screen located on the left navigation menu, and click on **New alert rule**.
+
+Name your alert rule and choose its folder.
+
+In the second step, you'll need to build the query for this alert. You can use the Metrics browser to easily view and choose your metrics, labels, and values.
+
+![Metric browser](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-browser-alert.png)
+
+Complete the alert by following the steps to [define your alert condition](/user-guide/infrastructure-monitoring/alerts.html#define-alert-conditions), and [add details to your alert](/user-guide/infrastructure-monitoring/alerts.html#add-details-for-your-alert). 
+
+
+### Contact points – define your notification endpoint
+
+Once the alert is running, it's time to define your notifications endpoint. You can choose between common alerting endpoints, including Slack, PagerDuty, Gmail, OpsGenie, and more. 
+
+To set up your endpoint, navigate to the **[Alerting](https://app.logz.io/#/dashboard/metrics/alerting/)** screen located on the left navigation menu. Switch to the **Contact points** tab and click on the **New contact point** button.
+
+![Alert contact tab](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/alert-to-contact.png)
+
+Choose a name for your new contact point, and select a type from the dropdown list. Each selection offers a variety of options, including adding emails, channels, API keys, and so on.
+
+For example, Slack requires a channel/group/IM, token, and webhook URL.
+
+![Slack contact point](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-alert-contact-point.png)
+
+You can test your endpoint to make sure it's working correctly.
+
+Once you're done, click **Save contact point**. 
+
+
+### Notification policies – configure your alerting notifications
+
+Your alert and contact points are ready, and now it's time to determine how alerts are routed to contact points. Notification policies are built in a tree structure, where each policy can have one or more child policies.
+
+To set your notification policy, navigate to the main **[Alerting page](https://app.logz.io/#/dashboard/metrics/alerting/)** and click on the **Notification policies** tab. 
+
+Click on **New policy** to create your policy, and click on the **Add matcher** option. 
+
+Enter the relevant **label** name. It must exactly match the label name.
+
+Choose the **operator** to match the label. The available operators are:
+
+* `=:` Select labels that are exactly equal to the provided string.
+* `!=:` Select labels that are not equal to the provided string.
+* `=~:` Select labels that regex-match the provided string.
+* `!~:` Select labels that do not regex-match the provided string.
+
+The **value** is based on the operator chosen.
+
+Choose the relevant **Contact point** from the dropdown menu.
+
+Next, the **Continue matching subsequent sibling nodes** option is disabled by default. When you enable this option, the alert will continue matching nested policies even after the alert matches the parent policy, which can result in getting more than one notification per alert. This can be used to send a notification to a catch-all contact point and one or more specific contact points handled by nested policies.
+
+**Override grouping** lets you group all firing alerts under the label chosen in the next **Group by** section, ensuring you're not getting duplicated alerts.
+
+You can also mute notifications by enabling the **Override general timings**. This can help prevent alerts from firing on weekends or during maintenance hours. 
+
+**Mute timing** is a recurring interval of time when no new notifications for a policy are generated or sent. You can create and apply these to prevent alerts from firing during a specific and reoccurring period, such as holidays, upgrades, and more. 
+
+Click on **Save policy** to create the new policy. 
+
+![Alert notification policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-alert-notification-policy.png)
+
+
+### Silences – temporarily mute notifications
+
+Your system can trigger many alerts, creating noise that might distract team members from focusing on critical issues. To prevent this, you can use Silences to mute alerts during a certain time frame.
+
+To create Silences, navigate to **[Alerting page](https://app.logz.io/#/dashboard/metrics/alerting/)** > **Silences**, and click on **New silence**.
+
+Choose the Silences' start and end date. Or, use Duration to specify how long you want the silence option to be active. 
+
+Enter the relevant **label** name. It must exactly match the label name. 
+
+Choose the **operator** to match the label:
+
+* `=:` Select labels that are exactly equal to the provided string.
+* `!=:` Select labels that are not equal to the provided string.
+* `=~:` Select labels that regex-match the provided string.
+* `!~:` Select labels that do not regex-match the provided string.
+
+And enter the relevant **value** based on the operator chosen.
+
+The comment section includes the time and date when this silence was created, and you can edit it or add any additional info.
+
+Click on **Submit** to save your silence. 
+
+![Silence alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/silence-alert-metric.png)
+
+
+### Mute timings vs. Silences
+
+Similar to Silences, Mute timings do not prevent alert rules from being evaluated nor stop alert instances from being shown in the user interface. They only prevent notifications from being created.
+
+Mute timings must be created by the user and only then can be added to the notification policies, and it uses time interval definitions that can reoccur.
+
+Silences use labels to match against an alert to determine whether to silence or not and has a fixed start and end time.

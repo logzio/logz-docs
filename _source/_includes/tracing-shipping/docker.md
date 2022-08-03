@@ -37,6 +37,7 @@ docker run \
 -p 14250:14250 \
 -p 14268:14268 \
 -p 4317:4317 \
+-p 4318:4318 \
 -p 55681:55681 \
 logzio/otel-collector-traces
 ```

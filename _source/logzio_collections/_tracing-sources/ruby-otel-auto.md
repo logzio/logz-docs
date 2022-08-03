@@ -51,7 +51,7 @@ On deployment, the Ruby instrumentation automatically captures spans from your a
 
 * A Ruby application without instrumentation
 * An active account with Logz.io
-* Port `55681` available on your host system
+* Port `4318` available on your host system
 * A name defined for your tracing service
 
 
@@ -120,7 +120,7 @@ This integration enables you to auto-instrument your Ruby application and run a 
 
 * A Ruby application without instrumentation
 * An active account with Logz.io
-* Port `55681` available on your host system
+* Port `4318` available on your host system
 * A name defined for your tracing service
 
 
@@ -132,6 +132,9 @@ This integration enables you to auto-instrument your Ruby application and run a 
 {% include /tracing-shipping/replace-tracing-token.html %}
 
 ##### Run the application
+
+{% include /tracing-shipping/collector-run-note.md %}
+
 
 Run the application:
 
@@ -194,7 +197,7 @@ logzio-otel-traces logzio-helm/logzio-otel-traces
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 
 ##### Define the logzio-otel-traces service dns
@@ -262,7 +265,7 @@ Run the following command:
 
 ```shell
 
-export OTEL_EXPORTER_OTLP_ENDPOINT=http://<<logzio-otel-traces-service-dns>>:55681
+export OTEL_EXPORTER_OTLP_ENDPOINT=http://<<logzio-otel-traces-service-dns>>:4318
 
 ```
 

@@ -55,7 +55,16 @@ Continue to the final screen. Edit the Google Directory attributes to **Basic In
 
 ![Set entity ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/attribute-mapping.png)
 
-Click on Finish to add the custom SAML app. You can now log into your Logz.io account through your Google Workspace account.
+Click on Finish to add the custom SAML app.
+
+##### Send your SAML details to Logz.io
+
+Draft a new [email to Support](mailto:help@logz.io), and include these items:
+
+* Your zipped SAML Signing Certificate (from the previous step).
+* Your SAML SIGN-IN URL.
+
+When Support has received the information and created your Google Workspace + Logz.io connection, you’re done! You can start logging in to Logz.io through your Google Workspace account.
 
 
 </div>

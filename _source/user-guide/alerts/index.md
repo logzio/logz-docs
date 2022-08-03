@@ -2,6 +2,8 @@
 layout: article
 title: Alerts
 permalink: /user-guide/alerts/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how Logz.io's alerts ensure you're notified of critical events
 flags:
   logzio-plan: community
 tags:
@@ -9,7 +11,9 @@ tags:
 contributors:
   - shalper
   - imnotashrimp
+  - hidan
 ---
+
 
 Log alerts can ensure that you're notified of critical events. Configuring the right alerts is the foundation of any proactive development, DevOps, and validation practice.
 

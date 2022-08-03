@@ -36,6 +36,45 @@ Paste the following into the inputs section of the Filebeat configuration file:
 
    ```yaml
    filebeat.inputs:
+   - type: filestream
+     paths:
+       - /var/log/openvpnas.log
+       - /var/log/openvpnas.log.*
+     fields:
+       logzio_codec: json
+       # Your Logz.io account token. You can find your token at
+       #  https://app.logz.io/#/dashboard/settings/manage-accounts
+       token: <<LOG-SHIPPING-TOKEN>>
+       type: openvpn
+     fields_under_root: true
+     encoding: utf-8
+     ignore_older: 3h
+     multiline.type: pattern
+     multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\+[0-9]{4} \[\S+\]( {2,}| \})'
+     multiline.negate: false
+     multiline.match: after
+   filebeat.registry.path: /var/lib/filebeat
+   processors:
+   - rename:
+       fields:
+       - from: "agent"
+         to: "beat_agent"
+       ignore_missing: true
+   - rename:
+       fields:
+       - from: "log.file.path"
+         to: "source"
+       ignore_missing: true
+   output.logstash:
+     hosts: ["<<LISTENER-HOST>>:5015"]
+     ssl:
+       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+   ```
+
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
+
+   ```yaml
+   filebeat.inputs:
    - type: log
      paths:
        - /var/log/openvpnas.log
@@ -71,14 +110,7 @@ Paste the following into the inputs section of the Filebeat configuration file:
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
 
-   If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
 
-   ```yaml
-   filebeat.inputs:
-   - type: filestream
-     paths:
-       - /var/log/*.log
-   ```
   
    * Your Logz.io log shipping token directs the data securely to your Logz.io Log Management account. [Manage your tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared).
    * {% include log-shipping/listener-var.md %}
@@ -93,6 +125,6 @@ service filebeat restart
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `openvpn` to see the incoming OpenVPN logs.
   
-If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
-</div>
+</div> 

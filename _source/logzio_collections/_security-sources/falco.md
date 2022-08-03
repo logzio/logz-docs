@@ -199,6 +199,30 @@ This code block adds Falco as an input and sets Logz.io as the output.
 ```yaml
 # ...
 filebeat.inputs:
+- type: filestream
+  paths:
+  -  <<filepath-to-falco-events.txt>>
+  fields:
+    logzio_codec: json
+    token: <<LOG-SHIPPING-TOKEN>>
+    type: falco
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+filebeat.registry.path: /var/lib/filebeat
+
+output.logstash:
+  hosts: ["<<LISTENER-HOST>>:5015"]
+  ssl:
+    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+```
+
+If you're running Filebeat 7 to 8.1, paste the code block below instead:
+
+```yaml
+# ...
+filebeat.inputs:
 - type: log
   paths:
   -  <<filepath-to-falco-events.txt>>
@@ -232,14 +256,6 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-If you're running Filebeat 8.1+, the `type` of the `filebeat.inputs` is `filestream` instead of `logs`:
-
-```yaml
-filebeat.inputs:
-- type: filestream
-  paths:
-    - /var/log/*.log
-```
 
 
 {% include /general-shipping/replace-placeholders.html %}
@@ -263,6 +279,6 @@ If the file has other outputs, remove them.
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
-</div>
+</div> 

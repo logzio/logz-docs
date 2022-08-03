@@ -23,6 +23,8 @@ tabs:
     templated: true
   - collection: security-sources
     templated: true
+  - collection: synthetic-monitoring-sources
+    templated: true
   - collection: community-shippers
     top-content: >-
       <p class="info-box important no-title">
@@ -34,7 +36,7 @@ tabs:
     templated: true
     top-content: >-
       <p class="info-box important no-title">
-        <span class="bold"> These are the Metricbeat integrations.<br> If you started using Logz.io metrics in March 2021 or later, select the relevant data shipping option from the <a href="https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=prometheus-sources"> Metrics </a> tab.
+        <span class="bold"> These are the Metricbeat integrations.<br> If you started using Logz.io metrics in March 2021 or later, select the relevant data shipping option from the <a href="https://app.logz.io/#/dashboard/send-your-data/collection?tag=prometheus&collection=all"> Metrics </a> tab.
         <br> </br>
         Contact your Logz.io Customer Success Manager for assistance with selecting the best Metrics data shipping options for your environments. 
       </p>

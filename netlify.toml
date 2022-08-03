@@ -337,3 +337,51 @@
   to = "/shipping/prometheus-sources/aws-cloudwatch.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/manage-timeless-accounts.html"
+  to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/manage-the-cloud-siem-account.html"
+  to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#siem"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/manage-the-infrastructure-monitoring-account.html"
+  to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#metrics"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/manage-the-distributed-tracing-account.html"
+  to = "/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/log-visualization.html"
+  to = "https://docs.logz.io"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/log-shipping/filebeat-troubleshooting/"
+  to = "/user-guide/log-troubleshooting/filebeat-troubleshooting.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/metrics-sources/custom-metrics.html"
+  to = "/shipping/#prometheus-sources"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/metrics-sources/system.html"
+  to = "/shipping/#prometheus-sources"
+  status = 301
+  force = true

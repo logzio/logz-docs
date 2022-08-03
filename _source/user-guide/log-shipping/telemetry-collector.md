@@ -4,8 +4,6 @@ title: Getting started with Logz.io's Telemetry Collector
 permalink: /user-guide/log-shipping/telemetry-collector.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Meet Logz.io's Telemetry Collector
-search: false
-sitemap: false
 tags:
   - log-shipping
 contributors:
@@ -15,7 +13,7 @@ contributors:
 Logz.io's Telemetry Collector lets you quickly send your data based on the configuration that fits your needs. You can use it to send logs, metrics, and tracing data back to Logz.io’s observability platform. 
 
 
-Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=all)** to send your data.
+Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
 {:.info-box.note}
 
 #### Why should you use Telemetry Collector?
@@ -27,11 +25,11 @@ Configuring and running Logz.io’s Telemetry Collector provides several advanta
 
 ##### Supported platforms
 
-Currently, Logz.io's Telemetry Collector supports **Kubernetes** for logs, metrics, and traces.
+Logz.io’s Telemetry Collector currently supports **Kubernetes** for logs, metrics, and traces.
 
 The Telemetry Collector will soon support additional platforms, including **AWS**, **Azure**, **Linux**, **Windows**, **Mac**, and more.
 
-If you're interested in sending your data through a different source, you can use Logz.io's **[Send your data](https://app.logz.io/#/dashboard/send-your-data?tag=all&collection=all)** guide which includes over 300 shipping methods.
+If you're interested in sending your data through a different source, you can use Logz.io's **[Send your data](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** guide, which includes over 300 shipping methods.
 
 
 #### Configure your Telemetry Collector:
@@ -42,31 +40,35 @@ If you're interested in sending your data through a different source, you can us
 To start sending your data through the Telemetry Collector, Log into your Logz.io account, navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.
 
 
-![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/start-collecting-focus.png)
+![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/send-data-collector.png)
 
 
 Select the platform through which you’d like to ship your data. Then, if required, select the relevant sub-type.
 
-![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/select-platform.png)
+![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-step-1.png)
 
 Next, select the data sources. Hover over each source to see the type of data it collects and processes.
 
-![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/select-data-source-hover.png)
+*You'll have to manually [define auto-instrumentation](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation) to collect your Distributed Tracing through Logz.io’s Telemetry Collector.*
 
-Add a name and description to help identify the collector. Under **Accounts**, you can review the Logs, Metrics, and Tracing accounts to which the Telemetry Collector will send the data. If you don't have an existing account, you'll be able to review the account's name that will be created.
+![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-step-2.png)
+
+In the next step, you'll need to add a name and description to help identify the collector. 
+
+Under **Accounts**, you can review the Logs, Metrics, and Tracing accounts to which the Telemetry Collector will send the data. If you don't have an existing account, you'll be able to review the account's name that will be created.
 
 Click **Generate snippet** to continue.
 
-![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/define-details.png)
+![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-step-3.png)
 
-Next, review your collector. The Summary, located on the left side of the screen, includes all of the data contained in the collector.
+Next, review your collector. The Summary, located on the left side of the screen, includes all of the data in the collector.
 
 Choose the platform on which you want to run the Telemetry Collector. You can choose between **Mac**, **Windows**, or **Linux**. Copy the code and run it on your end.
 
-Some platforms might require additional details to complete the installation, such as admin privileges or passwords. These details are not sent to or stored by Logz.io.
+Some platforms might require additional details, such as admin privileges or passwords, to complete the installation. These details are not sent to or stored by Logz.io.
 {:.info-box.note}
 
-![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/review-collector.png)
+![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-snippet-last-step.png)
 
 That’s it! It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs, metrics, or traces and get full observability into your system.
 
@@ -78,7 +80,7 @@ You can uninstall your Telemetry Collector from Kubernetes by running the follow
 
 `helm uninstall -n monitoring logzio-monitoring`
 
-This snippet removes the collector from Logz.io and stops sending your data. You can always create a new collector or use Logz.io's **[Send your data](https://app.logz.io/#/dashboard/send-your-data)** to ship your data.
+This snippet removes the collector from Logz.io and stops sending your data. Of course, you can always create a new collector or use Logz.io's **[Send your data](https://app.logz.io/#/dashboard/send-your-data)** to ship your data.
 
 If you are unsuccessful in removing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
 

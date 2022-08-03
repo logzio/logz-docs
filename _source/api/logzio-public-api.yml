@@ -257,6 +257,10 @@ tags:
     description: >-
       To create an alert, use the Grafana dashboards API.
 
+  - name: Authentication groups
+    description: >-
+      Before you can use Authentication Groups API, Logz.io support will need to enable [SSO](https://docs.logz.io/user-guide/users/single-sign-on/) for your account. 
+
 
 x-tagGroups:
   - name: Log Monitoring
@@ -2904,6 +2908,8 @@ paths:
               Slide the 2-day search time range by _x_ days.
               For example, if set to `5`, search returns results from 5 days ago and 4 days ago, UTC.
 
+              The `dayOffset` parameter will go back to the last index in the set value and send back the results of that index +1.
+
 
               Maximum is your account's retention period.
 
@@ -3129,7 +3135,7 @@ paths:
         First, send a request to establish the `scrollID`. This initial request contains the query object and additional parameters, similar to the `v1/search` endpoint, with the exception that `dayOffset` and `accountIds` are not supported. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
 
 
-        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results.
+        Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results. Note that 'scrollID' expires after 20 minutes.
         
         
         Every time you send the request with the same `scroll_id`, the next batch of results is returned.
@@ -3145,7 +3151,7 @@ paths:
 
         * Send the field `scroll_id` in requests (snake_case).
 
-        * Receive the field `scrollID` in your responses (camelCase).
+        * Receive the field `scrollID` in your responses (camelCase). It expires after 20 minutes.
       operationId: scroll
       parameters:
         - in: body
@@ -3827,7 +3833,7 @@ paths:
             $ref: '#/definitions/CreateMarkersRequest'
       responses:
         default:
-          description: successful operation
+          description: 204 No Content
 
 
   # ::::: Log Insights
@@ -8527,7 +8533,7 @@ definitions:
       scrollId:
         type: string
         readOnly: true
-        description: Keep passing this ID in the request until you've retrieved all of the results. Copy this ID and pass it as the field `scroll_id` in a request to the same endpoint to retrieve the next page of results. (Remember to first clear the request body of all other parameters.)
+        description: Keep passing this ID in the request until you've retrieved all of the results. Copy this ID and pass it as the field `scroll_id` in a request to the same endpoint to retrieve the next page of results. (Remember to first clear the request body of all other parameters. The `scrollId` is valid for 20 minutes.)
         example: DnF1ZXJ5VGhlbkZldGNoCQAAAAAWXRbqFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFp6B-xZTTVFrMGt4eVFnZXhQZV9YbVRrU3NnAAAAABakA8QWNjY1RUZtdWZRS1NZZWt1ZERTNHNaQQAAAAAWXRbrFlNpSWRrTUtXUUR1N1pJbG9uSkJINncAAAAAFl0W7BZTaUlka01LV1FEdTdaSWxvbkpCSDZ3AAAAABQ1nb4WVjRyRlUxZWRUU0dzbTV5VVVqYkhxdwAAAAAUdHVqFlF0b3Znei1ZUXgtZEkyZkR3M0pMbGcAAAAAFvGs6hZKVklxaXIyZ1NOQzF5NHg1cmhtVDV3AAAAABR0dWkWUXRvdmd6LVlReC1kSTJmRHczSkxsZw==
       hits:
         type: string
@@ -9299,6 +9305,8 @@ definitions:
 
           * If `NONE`, `fieldToAggregateOn` must be null, and `groupBy` field must not be empty (or null).
 
+          * If `PERCENTAGE`, `valueToAggregateOn` must be specified.
+
 
           * If any other operator type (other than `NONE` or `COUNT`), `fieldToAggregateOn` must not be null.
         enum:
@@ -9309,6 +9317,7 @@ definitions:
           - COUNT
           - UNIQUE_COUNT
           - NONE
+          - PERCENTAGE
       fieldToAggregateOn:
         type: string
         description: >-
@@ -9316,6 +9325,13 @@ definitions:
 
 
           * Cannot be a field already in use for `groupBy`.
+      valueToAggregateOn:
+        type: string
+        description: >-
+          Used by the `PERCENTAGE` aggregation to select the field’s value. This value is used to determine if its ratio out of the total amount of logs in the query satisfies the trigger condition.
+          
+          * Only relevant for the `PERCENTAGE` aggregation.
+
   AlertV2Response:
     type: object
     properties:
@@ -9606,6 +9622,18 @@ definitions:
           $ref: '#/definitions/SubAlert'
       correlations:
         $ref: '#/definitions/SubAlertCorrelation'
+      schedule:
+        type: object
+        description: Defines the frequency and the time frame in which an alert will be evaluated.
+        properties:
+          cronExpression:
+            type: string
+            description: Cron job for the intervals schedule.
+            example: "0 0/60 9-17 ? * * *"
+          timezone:
+            type: string
+            description: Time zone for the cron job. If no time zone is selected, UTC will be used by default.
+            example: "America/Sao_Paulo"
       enabled:
         type: boolean
         description: If `true`, the alert is enabled and active. Default value is `true`.

@@ -344,6 +344,7 @@ helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs
 | `winglogbeatImageTag` | The winlogbeat docker image tag. | `0.0.1` |
 | `nameOverride` | Overrides the Chart name for resources. | `""` |
 | `fullnameOverride` | Overrides the full name of the resources. | `filebeat` |
+| `namespaceOverride` | Overrides the namespace of the resources. | `""` |
 | `apiVersions.configMap` | ConfigMap API version. | `v1` |
 | `apiVersions.daemonset` | Daemonset API version. | `apps/v1` |
 | `apiVersions.clusterRoleBinding` | ClusterRoleBinding API version. | `rbac.authorization.k8s.io/v1` |

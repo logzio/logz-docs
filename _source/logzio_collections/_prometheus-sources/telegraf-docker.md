@@ -65,6 +65,7 @@ Below is a list of all environment variables available with this integration. If
 |DOCKER_ENDPOINT|Address to reach the required Docker Daemon.|Default: `unix:///var/run/docker.sock`.|
 |TIMEOUT|The request timeout for any Docker Daemon query.|Default: `5s`.|
 |EXCLUDED_IMAGES|A list of strings, regexes, or globs, the container image names of which, will not be among the queried containers. !-prefixed negations are possible for all item types to signify that only unmatched container image names should be monitored. For example: `imageNameToExclude1,imageNameToExclude2)`|Default: `nil`.|
+|GLOBAL_TAGS| A comma separated list of key-value pairs that will be added to every metric. For example - `key1=value1,key2=value2`| Default: `nil`. |
 
 ##### Check Logz.io metrics
 

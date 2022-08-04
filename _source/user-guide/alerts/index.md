@@ -52,6 +52,9 @@ If you have more than 25 alerts you'd like to edit, you can select all of the re
 ![Alert bulk actions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/select-all-alerts.png)
 
 
+There is a limit of 1,000 alerts that you can act on simultaneously.
+{:.info-box.note}
+
 #### Managing individual alerts
 
 

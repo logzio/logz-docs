@@ -67,6 +67,15 @@ Next, you can use filters to control and limit which data you'd like to restore 
 
 To add a filter, click on **Add a filter** and choose the relevant field, operator, and value.
 
+You can choose between the following operators:
+
+* **is** - Pull logs that match the exact value
+* **is not** - Pull logs that don't contain the exact value
+* **is one of** - Pull logs that contain one or more of the values
+* **is not one of** - Pull logs that don't contain one or more of the values
+* **exists** - Pull all logs that contain the selected field
+* **does not exist** - Pull all logs that don't contain the selected field
+
 Note that you can add **up to 7 filters** per restore process. 
 
 ![Add filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/add-a-filter.png)

@@ -43,6 +43,8 @@ firstLevel:
       url: /user-guide/kubernetes-troubleshooting/
     - title: Troubleshooting Filebeat
       url: /user-guide/log-troubleshooting/filebeat-troubleshooting.html
+    - title: Troubleshooting Rsyslog - SELinux
+      url: /user-guide/log-shipping/rsyslog-selinux-troubleshooting.html
 
   - title: Log Alerts
     thirdLevel:

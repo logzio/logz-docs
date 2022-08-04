@@ -57,7 +57,7 @@ There are a few things you need to check before you begin the process.
 ##### Restore your archives
 
 
-Your existing drop filters **will not apply** when restoring data. Instead, use the optional filters option to control which data to restore.
+Your existing drop filters **will not apply** when restoring data. Instead, use the optional filters to control which data to restore.
 {:.info-box.note}
 
 

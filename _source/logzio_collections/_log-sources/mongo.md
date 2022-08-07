@@ -20,7 +20,7 @@ MongoDB is a source-available cross-platform document-oriented database program.
 **Before you begin, you'll need**:
 
 * MongoDB installed on your host
-* Fluentd installed on your host
+* Ruby 2.4+ and Ruby-dev
 <div class="tasklist">
 
 

@@ -2,6 +2,8 @@
 layout: article
 title: Support access
 permalink: /user-guide/accounts/support-access.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to enable access for Logz.io Support team
 flags:
   admin: true
   logzio-plan: community
@@ -15,7 +17,7 @@ If you need help in your account that we can't resolve over chat or email, the L
 
 You can control support access from [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the top menu.
 
-![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/general--account-settings.png)
+![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/enable-support.gif)
 
 To enable support access, set the switch to **Enabled**, choose an expiration period, and click **Update**.
 

@@ -25,6 +25,7 @@ The following guide includes some of the basics that will help you get started w
 * [Filter your log results](/user-guide/kibana/best-practices.html#filter-your-log-results)
 * [Select the time frame for your logs](/user-guide/kibana/best-practices.html#select-the-time-frame-for-your-logs)
 * [Create Log Visualizations with Logz.io](/user-guide/kibana/best-practices.html#create-log-visualizations-with-logzio)
+* [Share, import, and export Kibana objects](/user-guide/kibana/share-import-export)
 
 #### Search your logs
 

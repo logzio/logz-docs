@@ -6643,9 +6643,7 @@ definitions:
         items:
           type: integer
           format: int32
-          example:
-            - [ 88888, 55555 ]
-            - []
+          example: 88888
         description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
@@ -6738,9 +6736,7 @@ definitions:
         items:
           type: integer
           format: int32
-          example:
-            - [ 88888, 55555 ]
-            - []
+          example: 88888
         description: IDs of accounts that can access this account's data. The array is required, but can be empty.
       docSizeSetting:
         $ref: '#/definitions/DocSizeSetting'
@@ -6839,8 +6835,7 @@ definitions:
         description: >-
           * If `isFlexible=false`, this field does not apply and will be null.
 
-          * If `isFlexible=true`, this determines the daily volume in GBs that is reserved for the account.
-        example: 3
+          * If `isFlexible=true`, this determines the daily volume in GBs that is reserved for the account, given as an integer.
       maxDailyGB:
         type: number
         format: float

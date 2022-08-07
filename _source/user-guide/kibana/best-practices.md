@@ -21,6 +21,7 @@ The following guide includes some of the basics that will help you get started w
   * [Use Lucene / Kibana Query Language (KQL)](/user-guide/kibana/best-practices.html#use-lucene--kibana-query-language-kql)
   * [How to use Regex in Log Management](/user-guide/kibana/best-practices.html#how-to-use-regex-in-log-management)
   * [Searching and filtering in Log Management](/user-guide/kibana/best-practices.html#searching-and-filtering-in-log-management)
+  * [Add more columns to your view results](/user-guide/kibana/best-practices.html#add-more-columns-to-your-view-results)
 * [Filter your log results](/user-guide/kibana/best-practices.html#filter-your-log-results)
 * [Select the time frame for your logs](/user-guide/kibana/best-practices.html#select-the-time-frame-for-your-logs)
 * [Create Log Visualizations with Logz.io](/user-guide/kibana/best-practices.html#create-log-visualizations-with-logzio)
@@ -85,6 +86,23 @@ However, you can still use reserved characters by applying a backslash or double
 Learn how to search and filter your log data with Logz.io.
 
 <iframe class="vidyard_iframe" src="//play.vidyard.com/Lg6z1KaebTKSQJXaN7wQki.html?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
+
+
+##### Add more columns to your view results
+
+You can add additional columns to your logs field view.
+
+Find the field you'd like to add, hover over it and click on the **+** button. 
+
+![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-discover.png)
+
+Once the field is added, you can move or remove it using its inner menu. 
+
+![Edit field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-overview.gif)
+
+Finally, you can save your search and its view by clicking on the **Save** option, at the top navigation bar. 
+
+![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/save-your-fields.png)
 
 #### Filter your log results
 

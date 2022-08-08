@@ -26,7 +26,6 @@ order: 390
 * [Standard configuration Linux](#Standard-configuration-linux)
 * [Customizing Helm chart parameters](#Customizing-helm-chart-parameters)
 * [Uninstalling the Chart](#Uninstalling-the-chart)
-* [Troubleshooting](#Troubleshooting)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -126,6 +125,8 @@ Give your metrics some time to get from your system to ours.
 {% include metric-shipping/generic-dashboard.html %} 
   
 </div>
+
+For troubleshooting this solution, see our [GKE troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/gke-helm-opentelemetry-troubleshooting.html).
   
 </div>
 <!-- tab:end -->
@@ -165,6 +166,8 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 
 </div>
 
+For troubleshooting this solution, see our [GKE troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/gke-helm-opentelemetry-troubleshooting.html).
+
 </div>
 <!-- tab:end -->
 
@@ -183,15 +186,6 @@ helm uninstall logzio-otel-k8s-metrics
 
 </div>
 <!-- tab:end -->
-
-<!-- tab:start -->
-<div id="Troubleshooting">
-
-{% include /p8s-shipping/k8s-troubleshooting.md %}
-
-</div>
-<!-- tab:end -->
-
 
 </div>
 <!-- tabContainer:end -->

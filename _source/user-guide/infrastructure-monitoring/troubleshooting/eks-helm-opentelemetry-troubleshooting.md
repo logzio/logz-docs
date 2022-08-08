@@ -1,9 +1,9 @@
 ---
 layout: article
-title: EKS metrics with Helm and the OpenTelemetry Collector troubleshooting
+title: Troubleshooting EKS metrics with Helm and the OpenTelemetry Collector
 permalink: /user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: EKS metrics with Helm and OpenTelemetry troubleshooting
+description: Troubleshooting EKS metrics with Helm and the OpenTelemetry Collector
 flags:
   logzio-plan: pro
 tags:

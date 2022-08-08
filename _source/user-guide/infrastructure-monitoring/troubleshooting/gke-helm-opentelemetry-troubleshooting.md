@@ -1,9 +1,9 @@
 ---
 layout: article
-title: GKE metrics with Helm and the OpenTelemetry Collector troubleshooting
+title: Troubleshooting GKE metrics with Helm and the OpenTelemetry Collector
 permalink: /user-guide/infrastructure-monitoring/troubleshooting/gke-helm-opentelemetry-troubleshooting.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: GKE metrics with Helm and OpenTelemetry troubleshooting
+description: Troubleshooting GKE metrics with Helm and the OpenTelemetry Collector
 flags:
   logzio-plan: pro
 tags:

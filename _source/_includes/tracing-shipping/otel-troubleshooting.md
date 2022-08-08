@@ -58,7 +58,9 @@ If the collector is installed and the endpoints are properly configured, the ins
 
 1. Check if the instrumentation can output traces to a console exporter.
 2. Use a web-hook to check if the traces are going to the output.
-3. Use the metrics endpoint of the collector (http://localhost:8888/metrics) to see the number of spans received per receiver and the number of spans sent to the Logz.io exporter.
+3. Use the metrics endpoint of the collector (http://<<COLLECTOR-HOST>>:8888/metrics) to see the number of spans received per receiver and the number of spans sent to the Logz.io exporter.
+
+* Replace `<<COLLECTOR-HOST>>` with the address of your collector host, e.g. `localhost`, if the collector is hosted locally.
 
 If the above steps do not work, refer to our [tracing documentation](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources) and re-instrument the application.
 
@@ -66,6 +68,28 @@ If the above steps do not work, refer to our [tracing documentation](https://app
 ### Possible cause - Wrong exporter/protocol/endpoint
 
 If traces are generated but not send, the collector may be using incorrect exporter, protocol and/or endpoint.
+
+The correct endpoints are:
+
+*jaeger-protocols:*
+
+* thrift_compact: "collector-url:6831"
+* thrift_binary: "collector-url:6832"
+* grpc: "collector-url:14250"
+* thrift_http: "collector-url:14268/api/traces"
+
+*opencensus:*
+
+* "collector-url:55678"
+
+*otlp-protocols:*
+
+* grpc: "collector-url:4317"
+* http: "collector-url:4318/v1/traces"
+
+*zipkin:*
+
+* "collector-url:9411/api/v2/spans"
 
 #### Suggested remedy
 
@@ -78,16 +102,11 @@ If traces are generated but not send, the collector may be using incorrect expor
          level: "debug"
    ```
 
-If you don't see this log (true for opentelemetry-collector version v0.52.0):
+Debug logs indicate the status code of the http/https post request.
 
-```shell
-2022-05-02T13:21:27.973Z	debug	logzioexporter@v0.48.0/y trces logger.go:54	logziosender.go: Sending bulk of 496 bytes
-	{"kind": "exporter", "name": "logzio"}
-```
+If the post request is not successful, check if the collector is configured to use the correct exporter, protocol, and/or endpoint.
 
-The exporter didn't get traces and you need to check if the collector is configured to use the correct exporter, protocol, and/or endpoint.
-
-This log indicates that the exporter is attempting to send data. If the post request is successful, there will be an additional log with the status code 200. If the post request failed for some reason, there would be another log with the reason for the failure.
+If the post request is successful, there will be an additional log with the status code 200. If the post request failed for some reason, there would be another log with the reason for the failure.
 
 
 ### Possible cause - Collector failure

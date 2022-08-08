@@ -289,9 +289,8 @@ firstLevel:
   - title: Intro to Cloud SIEM workspace
     url: /user-guide/cloud-siem/
 
-
   - title: Cloud SIEM quick start guide
-    url: /user-guide/cloud-siem/quick-guide.html
+    url:
     thirdLevel:
     - title: Create sub accounts as a Managed Security Service Provider (MSSP)
       url: /user-guide/cloud-siem/mssp-accounts.html
@@ -341,6 +340,8 @@ firstLevel:
 
   - title: Security Rules
     thirdLevel:
+    - title: Intro to security rules
+      url: /user-guide/cloud-siem/intro-security-rules.html
     - title: Configure a security rule
       url: /user-guide/cloud-siem/manage-security-rules.html
     - title: Correlated rules

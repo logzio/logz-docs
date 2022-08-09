@@ -8,6 +8,7 @@ flags:
   logzio-plan: community
 tags:
   - kibana
+  - opensearchdashboards
 contributors:
   - refaelmi
   - hidan
@@ -18,14 +19,14 @@ After setting up your Logz.io's Log Management account, it's time to learn how t
 The following guide includes some of the basics that will help you get started with Logs:
 
 * [Search your logs](/user-guide/kibana/best-practices.html#search-your-logs)
-  * [Use Lucene / Kibana Query Language (KQL)](/user-guide/kibana/best-practices.html#use-lucene--kibana-query-language-kql)
+  * [Use Lucene / OpenSearch Dashboards Query Language (DQL)](/user-guide/kibana/best-practices.html#use-lucene--kibana-query-language-kql)
   * [How to use Regex in Log Management](/user-guide/kibana/best-practices.html#how-to-use-regex-in-log-management)
   * [Searching and filtering in Log Management](/user-guide/kibana/best-practices.html#searching-and-filtering-in-log-management)
   * [Add more columns to your view results](/user-guide/kibana/best-practices.html#add-more-columns-to-your-view-results)
 * [Filter your log results](/user-guide/kibana/best-practices.html#filter-your-log-results)
 * [Select the time frame for your logs](/user-guide/kibana/best-practices.html#select-the-time-frame-for-your-logs)
 * [Create Log Visualizations with Logz.io](/user-guide/kibana/best-practices.html#create-log-visualizations-with-logzio)
-* [Share, import, and export Kibana objects](/user-guide/kibana/share-import-export)
+* [Share, import, and export OpenSearch objects](/user-guide/kibana/share-import-export)
 
 #### Search your logs
 
@@ -33,13 +34,13 @@ Once you've sent your data to Logz.io, you can search and query your logs to deb
 
 Logs support a few query methods, including:
 
-##### Use Lucene / Kibana Query Language (KQL)
+##### Use Lucene / OpenSearch Dashboards Query Language (DQL)
 
-The default query language in Logz.io is Lucene, and you can use it or KQL syntax to query your logs. However, it’s recommended to use Lucene while it enables using your query in an alert or optimizer.
+The default query language in Logz.io is Lucene, and you can use it or DQL syntax to query your logs. However, it’s recommended to use Lucene while it enables using your query in an alert or optimizer.
 
 You can search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
 
-![String search](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/kibana-string-search.png)
+![String search](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/search-in-osd.png)
 
 To search for a value in a specific field, use the following syntax:
 

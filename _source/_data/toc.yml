@@ -19,7 +19,7 @@ firstLevel:
     thirdLevel:
     - title: Intro to OpenSearch Dashboards
       url: /user-guide/kibana/
-    - title: Kibana best practices
+    - title: OpenSearch best practices
       url: /user-guide/kibana/best-practices.html
     - title: Exceptions
       url: /user-guide/insights/exceptions/

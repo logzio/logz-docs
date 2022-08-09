@@ -7,6 +7,7 @@ flags:
 tags:
   - distributed tracing
 contributors:
+  - refaelmi
   - nshishkin
 ---
 {% include /tracing-shipping/otel-troubleshooting.md %}

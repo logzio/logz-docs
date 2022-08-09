@@ -1,28 +1,29 @@
 ---
 layout: article
-title: Kibana Discover
+title: OpenSearch Dashboards
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Logz.io intro to Logs
+description: Logz.io intro to Log Management
 permalink: /user-guide/kibana/
 flags:
   logzio-plan: community
 tags:
   - kibana
+  - opensearchdashboards
 contributors:
   - imnotashrimp
   - shalper
   - hidan
 ---
 
-Kibana Discover is where you search and query your logs to figure out what happened. It is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
+OpenSearch Dashboards (OSD) is where you search and query your logs to figure out what happened. It is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
 
 You can use the Discover page to filter logs, search for specific events, and create alerts based on your search queries.
 
-![Kibana Discover Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/kibana-discover-intro-annotated_aug2021.png)
+![OSD Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/osd-main-screen.png)
 
 #### Searching your logs
 
-Kibana Discover is designed to help you investigate massive volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selector are all designed to help you find the logs you want. Together, they are the _query criteria_ that determine which logs are returned from your Elasticsearch logging database.
+OpenSearch Dashboards is designed to help you investigate massive volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selector are all designed to help you find the logs you want. Together, they are the _query criteria_ that determine which logs are returned from your Elasticsearch logging database.
 
 <div class="tasklist">
 
@@ -32,22 +33,26 @@ First, decide which accounts you want to search. Managing your accounts is the f
 
 ##### Filters
 
-Kibana Filters offer the most convenient, powerful, and flexible method for querying logs.
+OpenSearch Dashboards filters offer the most convenient, powerful, and flexible method for querying logs.
 
-Filters can be used on any mapped fields and can take any number of forms: filter for field exists or does not exist, filter for a field with an exact value match or a field that contains a value among the results, and more. [Learn more about Kibana mapping]({{site.baseurl}}/user-guide/kibana/mapping/)
+Filters can be used on any mapped fields and can take any number of forms: filter for field exists or does not exist, filter for a field with an exact value match or a field that contains a value among the results, and more. [Learn more about OSD mapping]({{site.baseurl}}/user-guide/kibana/mapping/)
 
-One advantage of Kibana filters is that they provide guidance that is specific to your dataset.
-When Kibana maps your data to fields, it also determines which filtering options are relevant. When you add filters, only relevant options appear in the dropdown menus.
+One advantage of OpenSearch filters is that they provide guidance that is specific to your dataset.
+When OpenSearch maps your data to fields, it also determines which filtering options are relevant. When you add filters, only relevant options appear in the dropdown menus.
 
 Another advantage is that filters can be inverted, temporarily disabled, edited, and more using the filter menu.
 
 ##### Search bar
 
-You can type a search query in Lucene syntax or KQL. It is an alternative to filtering that requires a little familiarity with the search syntax. Almost anything that can be defined in the Search bar can be accomplished using filters as well.
+You can type a search query in Lucene syntax or DQL. It is an alternative to filtering that requires a little familiarity with the search syntax. Almost anything that can be defined in the Search bar can be accomplished using filters as well.
+
+You can also save your search query in case you want to use them again in the future. Save or load search queries by clicking on the **Save** icon located next to the search bar. 
+
+![Save search query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/save-search-query.png)
 
 ###### Regex
 
-To use Regex in a search query in Kibana, you'll need to use the following template: 
+To use Regex in a search query in OpenSearch, you'll need to use the following template: 
 
 `fieldName:/.*value.*/`.
 
@@ -59,7 +64,7 @@ To find one of the values in the field, such as `fox`, you'll need to use the fo
 
 ##### Time frame and date picker
 
-The default time frame in Kibana Discover is always the last 15 minutes.
+The default time frame in OpenSearch Dashboards is always the last 15 minutes.
 
 You can select the time frame in any number of ways, including relative times such as the last hour, today so far, or the day before yesterday, or use absolute times by calendar dates and timestamps.
 
@@ -81,7 +86,7 @@ The logs returned by your search are your results - aka "hits". Depending on the
 
 The number of hits shows you the number of results returned by your query. This is the count of the total number of log documents that answer the query criteria.
 
-If you click the **Inspect** function, you can view the query as sent to Elasticsearch. This is useful if you are using the [Logz.io API]({{site.baseurl}}/api/), for example.
+If you click the **Inspect** function, you can view the query as sent to OpenSearch. This is useful if you are using the [Logz.io API]({{site.baseurl}}/api/), for example.
 
 Once you've refined a query to the point that it returns exactly what you are looking for, you can be proactive in any number of ways:
 
@@ -90,6 +95,7 @@ Once you've refined a query to the point that it returns exactly what you are lo
 * **Share** results with colleagues or external stakeholders.
 * **Export** results to a spreadsheet.
 
+
 ###### Additional resources
 
-* [Read more](https://logz.io/blog/kibana-advanced/) about creating and running advanced searches in Kibana.
+* [Read more](https://logz.io/blog/kibana-advanced/) about creating and running advanced searches in OpenSearch Dashboards.

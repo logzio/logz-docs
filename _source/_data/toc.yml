@@ -17,7 +17,7 @@ firstLevel:
   secondLevel:
   - title: Kibana Discover
     thirdLevel:
-    - title: Intro to Kibana Discover
+    - title: Intro to OpenSearch Dashboards
       url: /user-guide/kibana/
     - title: Kibana best practices
       url: /user-guide/kibana/best-practices.html

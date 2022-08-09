@@ -71,25 +71,29 @@ If traces are generated but not send, the collector may be using incorrect expor
 
 The correct endpoints are:
 
-*jaeger-protocols:*
-
-* thrift_compact: "collector-url:6831"
-* thrift_binary: "collector-url:6832"
-* grpc: "collector-url:14250"
-* thrift_http: "collector-url:14268/api/traces"
-
-*opencensus:*
-
-* "collector-url:55678"
-
-*otlp-protocols:*
-
-* grpc: "collector-url:4317"
-* http: "collector-url:4318/v1/traces"
-
-*zipkin:*
-
-* "collector-url:9411/api/v2/spans"
+```yaml
+   receivers:
+     jaeger:
+       protocols:
+         thrift_compact:
+           endpoint: "<<COLLECTOR-URL>>:6831"
+         thrift_binary:
+           endpoint: "<<COLLECTOR-URL>>:6832"
+         grpc:
+           endpoint: "<<COLLECTOR-URL>>:14250"
+         thrift_http:
+           endpoint: "<<COLLECTOR-URL>>:14268"
+     opencensus:
+       endpoint: "<<COLLECTOR-URL>>:55678"
+     otlp:
+       protocols:
+         grpc:
+           endpoint: "<<COLLECTOR-URL>>:4317"
+         http:
+           endpoint: "<<COLLECTOR-URL>>:4318/v1/traces"
+     zipkin:
+       endpoint: "<<COLLECTOR-URL>>:9411/api/v2/spans"
+```
 
 #### Suggested remedy
 

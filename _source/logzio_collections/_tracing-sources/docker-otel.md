@@ -13,6 +13,17 @@ shipping-tags:
 order: 1380
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Overview](#overview)
+* [Setup](#setup)
+* [Troubleshooting](#troubleshooting)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="overview">
+
 ### Overview
 
 This integration enables you to send traces from your instrumented applications running in Docker. This is achieved by using a dedicated Logz.io OpenTelemetry collector deployed in the same Docker network as your application. This collector configuration can collect traces from:
@@ -23,7 +34,12 @@ This integration enables you to send traces from your instrumented applications 
 * OpenCensus 
 
 
-<div id="local-host">
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="setup">
 
 
 **Before you begin, you'll need**:
@@ -55,3 +71,16 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 </div>
 
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="troubleshooting">
+
+{% include /tracing-shipping/otel-troubleshooting.md %}
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

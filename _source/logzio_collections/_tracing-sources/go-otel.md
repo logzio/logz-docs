@@ -20,6 +20,7 @@ order: 1380
 * [Local host](#local-host)
 * [Docker](#docker)
 * [Kubernetes](#kubernetes)
+* [Troubleshooting](#troubleshooting)
 {:.branching-tabs} 
 
 <!-- tab:start -->
@@ -503,6 +504,15 @@ To uninstall the `logzio-otel-traces` deployment, use the following command:
 ```shell
 helm uninstall logzio-otel-traces
 ```
+
+</div>
+<!-- tab:end -->
+
+
+<!-- tab:start -->
+<div id="troubleshooting">
+
+{% include /tracing-shipping/otel-troubleshooting.md %}
 
 </div>
 <!-- tab:end -->

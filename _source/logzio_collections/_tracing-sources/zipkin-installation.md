@@ -20,6 +20,7 @@ order: 330
 
 * [Overview](#overview)
 * [Local host](#local-host)
+* [Troubleshooting](#troubleshooting)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -120,6 +121,13 @@ Give your traces some time to get from your system to ours, and then open [Traci
 </div>
 <!-- tab:end -->
 
+<!-- tab:start -->
+<div id="troubleshooting">
+
+{% include /tracing-shipping/otel-troubleshooting.md %}
+
+</div>
+<!-- tab:end -->
+
 </div>
 <!-- tabContainer:end -->
-

@@ -45,7 +45,7 @@ Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 {:.info-box.note}
 <!-- info-box-end -->
 
-For troubleshooting this solution, see our [user guide](docs.logz.io/user-guide/kubernetes-troubleshooting/).
+For troubleshooting this solution, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
 
 ###### Sending logs from nodes with taints

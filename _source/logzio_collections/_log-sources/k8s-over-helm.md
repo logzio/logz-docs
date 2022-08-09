@@ -46,7 +46,7 @@ Helm 2 reached [EOL on November 2020](https://helm.sh/blog/2019-10-22-helm-2150-
 {:.info-box.note}
 <!-- info-box-end -->
 
-For troubleshooting this solution, see our [user guide](docs.logz.io/user-guide/kubernetes-troubleshooting/).
+For troubleshooting this solution, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
 
 ###### Sending logs from nodes with taints

@@ -60,7 +60,7 @@ const metricExporter = new sdk.RemoteWriteExporter(collectorOptions);
 // Initialize the meter provider
 const meter = new MeterProvider.MeterProvider({
     exporter: metricExporter,
-    interval: 15000, // Push interval in seconds
+    interval: 15000, // Push interval in milliseconds
 }).getMeter('example-exporter');
 
 

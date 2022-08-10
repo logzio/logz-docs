@@ -20,7 +20,7 @@ As you’re troubleshooting in OpenSearch Dashboards, you can easily see the num
 
 Patterns can help you isolate unusual events from a mass of repetitive events, identify frequent errors, and spot bulky uninteresting logs that can be dropped.
 
-![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-patterns/patterns-in-discover.png)
+![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/patterns-in-discover.png)
 
 To review your log results clustered into Patterns, switch to the **Patterns** tab in OpenSearch Dashboards and filter Patterns in/out of your results.
 

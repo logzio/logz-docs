@@ -17,11 +17,11 @@ contributors:
 
 Logz.io Insights Engine automatically surfaces exceptions and highlights them in your log results.
 
-While troubleshooting in Kibana Discover, you can easily see the number of exceptions identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
+While troubleshooting in OpenSearch Dashboards, you can easily see the number of exceptions identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
 
 To review exceptions affecting your environments, switch to the **Exceptions** tab and expand the documents that interest you.
 
-![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-in-discover-count_aug2021.png)
+![Exceptions count in OpenSearch Dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exceptions-tab.png)
 
 ### What's an exception?
 
@@ -44,11 +44,9 @@ You can find and view all exceptions by using the following query:
 
 `_exists_: _logzio_logceptions`
 
-![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/all-exceptions-query.png)
+Each exception is grouped into logical units, which you can view under the **Exceptions** tab.
 
-Each exception is grouped into logical units, which you can view under the **Exceptions** tab:
-
-![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-all-tab.png)
+![Exceptions count](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/all-exceptions-query.png)
 
 You can also view all exceptions by navigating to **[Log Management](https://app.logz.io/#/dashboard/kibana)** > **[Insights](https://app.logz.io/#/dashboard/insights)**. There you can view a summary of your exceptions and filter them according to status, log types, tags, assignees, and date. 
 
@@ -61,7 +59,7 @@ If there are more exceptions than can be shown, you can fetch the **Most frequen
 * **Most frequent** - Most frequent number of occurrences in the given time frame.
 * **Most recent** - Most recently occurred within your selected time frame.
 
-![Filter exceptions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/top-exceptions_aug2021.png)
+![Filter exceptions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/top-exceptions_aug2022.png)
 
 ### Investigating an exception
 
@@ -69,7 +67,7 @@ The same exception may recur in different log lines, with slight variations. Som
 
 Logz.io tracks the recurrence of each exception over time, and retains its **First occurrence**, that is the earliest time the exception was identified. The history of exceptions can date back up to 6 months.
 
-![Expand an exception for more details directly in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exceptions-in-discover-drilldown_aug2021.png)
+![Expand an exception for more details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exception-overview.png)
 
 |---|---|
 |Exception| Concise title auto-detected by Logz.io based on the contents of the logs |
@@ -91,4 +89,4 @@ To reorder exceptions by **# of occurrences**, **First occurrence**, or **Last s
 
 Exceptions that occurred for the first time within the search time frame are tagged as **New** exceptions.
 
-![Expand an exception for more details directly in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/new-exceptions_aug2021.png)
+![Exception timeframe](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/first-seen-exception.png)

@@ -2,6 +2,8 @@
 layout: article
 title: Log patterns
 permalink: /user-guide/kibana/log-patterns.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about Logz.io's log patterns
 flags:
   logzio-plan: pro
 tags:
@@ -14,13 +16,13 @@ contributors:
 
 The Logz.io Patterns Engine runs advanced clustering algorithms to automatically group logs with similar message fields by their frequency of occurrence.
 
-As you’re troubleshooting in Kibana Discover, you can easily see the number of Patterns identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
+As you’re troubleshooting in OpenSearch Dashboards, you can easily see the number of Patterns identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
 
 Patterns can help you isolate unusual events from a mass of repetitive events, identify frequent errors, and spot bulky uninteresting logs that can be dropped.
 
-![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-patterns/patterns-in-discover-count_aug2021.png)
+![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-patterns/patterns-in-discover.png)
 
-To review your log results clustered into Patterns, switch to the **Patterns** tab in Kibana Discover and filter Patterns in/out of your results.
+To review your log results clustered into Patterns, switch to the **Patterns** tab in OpenSearch Dashboards and filter Patterns in/out of your results.
 
 ## Understanding log patterns
 

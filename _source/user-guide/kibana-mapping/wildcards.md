@@ -2,6 +2,8 @@
 layout: article
 title: Wildcard searches
 permalink: /kibana/wildcards/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to use wildcards
 flags:
   logzio-plan: community
 tags:
@@ -12,7 +14,7 @@ contributors:
 
 Wildcards can be useful when you need to run a search on an indefinite term or a partial string.
 
-When using the Lucene query syntax in Kibana:
+When using the Lucene query syntax in OpenSearch Dashboards:
 
 * Use a question mark **<i class="fas fa-question"></i>** to replace a single character. It's like a Joker in a card game.
 * Use an asterisk **<i class="fas fa-asterisk"></i>** to replace an indefinite number of characters (even 0).

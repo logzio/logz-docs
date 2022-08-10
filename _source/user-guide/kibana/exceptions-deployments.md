@@ -1,7 +1,9 @@
 ---
 layout: article
 title: Deployment markers
-permalink: /user-guide/kibana/exceptions-deployments.html   
+permalink: /user-guide/kibana/exceptions-deployments.html  
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to use deployment markers
 flags:
   logzio-plan: pro
   beta: false
@@ -15,7 +17,7 @@ contributors:
 ---
 
 
-![Exceptions count in Kibana Discover](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/deployments.png)
+![Exceptions count](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/deployments.png)
 
 #### Adding Deployment markers to Exception graphs
 
@@ -56,7 +58,7 @@ Open the Deployments menu to view all markers that appear in your search time fr
 
 
 
-##### View the markers in the Exceptions tab in Kibana Discover
+##### View the markers in the Exceptions tab
 
 Hover over the markers in your Exception graphs to view their title and time stamp.
 

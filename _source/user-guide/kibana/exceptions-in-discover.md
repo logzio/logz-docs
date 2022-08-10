@@ -89,4 +89,4 @@ To reorder exceptions by **# of occurrences**, **First occurrence**, or **Last s
 
 Exceptions that occurred for the first time within the search time frame are tagged as **New** exceptions.
 
-![Exception timeframe](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/first-seen-exception.png)
+![Exception timeframe](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/first-seen-exception.png)

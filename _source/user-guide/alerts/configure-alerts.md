@@ -50,13 +50,13 @@ You can use any combination of filters and a search query. Note the following:
 
 * Use a Lucene search query.
   * You have the option to use wildcards.
-  * Kibana Query Language (KQL) is not supported.
+  * OpenSearch Dashboards Query Language (DQL) is not supported.
 
 * All filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
 
 
 Once you're done refining your search query and filters, you can
-click **Preview in Kibana** to open Kibana Discover in another tab. It can help to review the returned logs and make sure you get the expected results.
+click **Preview** to open OpenSearch Dashboards in another tab. It can help to review the returned logs and make sure you get the expected results.
 
 ###### Group-by (order matters!)
 
@@ -130,7 +130,7 @@ The **Tags** are useful for filtering. They can be used to create filtered visua
 
 If you want to send notifications or emails when the alert is triggered,
 choose notification endpoints.
-This isn't required, though—triggered alerts are still logged and searchable in Kibana.
+This isn't required, though—triggered alerts are still logged and searchable in OpenSearch Dashboards.
 
 Choose the endpoints or email addresses to notify under _Who to send it to_.
 

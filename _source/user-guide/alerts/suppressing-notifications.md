@@ -2,6 +2,8 @@
 layout: article
 title: Wait between notifications
 permalink: /user-guide/alerts/suppress-notifications/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about waiting between notifications
 flags:
   logzio-plan: community
 tags:
@@ -28,7 +30,7 @@ If you have several thresholds with different severities configured for an alert
 
 If an alert includes group-by fields, it will be evaluated independently per set of results.
 
-When you group results by a field, you are taking the log results and dividing them into groups (i.e. "buckets" in Kibana terminology) by the values returned for that field. That is, _each value or set of values_ is considered a separate event.
+When you group results by a field, you are taking the log results and dividing them into groups (i.e. "buckets" in OpenSearch Dashboards terminology) by the values returned for that field. That is, _each value or set of values_ is considered a separate event.
 
 If the same alert triggers multiple times within the waiting period but for _different values_, the notifications will be sent out without delay. In other words, the waiting period will only affect notifications for the exact same set of group by results.
 

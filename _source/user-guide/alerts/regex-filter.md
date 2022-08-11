@@ -2,6 +2,8 @@
 layout: article
 title: Trim output with regex filters
 permalink: /user-guide/alerts/regex-filters.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Trim output with regex filters
 flags:
   logzio-plan: community
 tags:

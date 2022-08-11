@@ -145,11 +145,11 @@ Click the button that matches your AWS region and authentication form, then foll
 | `eu-west-3`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/logzio-mysql-logs/1.0.0/ecs/fargate/sam-template-keys.yaml&stackName=logzio-mysql-logs)           | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/logzio-mysql-logs/1.0.0/ecs/fargate/sam-template-iam.yaml&stackName=logzio-mysql-logs)           |
 | `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/logzio-mysql-logs/1.0.0/ecs/fargate/sam-template-keys.yaml&stackName=logzio-mysql-logs)           | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/logzio-mysql-logs/1.0.0/ecs/fargate/sam-template-iam.yaml&stackName=logzio-mysql-logs)           |
 
-#### In screen **Step 1 Specify template**:
+###### In screen **Step 1 Specify template**:
 
 Keep the defaults and click **Next**.
 
-#### In screen **Step 2 Specify stack details**:
+###### In screen **Step 2 Specify stack details**:
 
 1. For **Stack name** you can either keep the default, or change the stack name.
 
@@ -158,11 +158,11 @@ Keep the defaults and click **Next**.
 3. Click **Next**.
 
 
-#### In screen **Step 3 Configure stack options** (Optional):
+###### In screen **Step 3 Configure stack options** (Optional):
 
 If you want to, you can add your custom tags, or not. Click on **Next**.
 
-#### In screen **Step 4 Review**:
+###### In screen **Step 4 Review**:
 
 Scroll down and click on **Create stack**.
 

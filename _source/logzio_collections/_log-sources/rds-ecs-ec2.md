@@ -25,7 +25,7 @@ order: 280
 {:.branching-tabs}
 
 <!-- tab:start -->
-<div id="rds">
+<div id="manual">
 
 #### Deploying logzio-mysql-logs via Docker on ECS manually
 
@@ -84,7 +84,7 @@ In your prefered text editor, open the JSON file that you downloaded in the prev
 
 4. In the text-box, delete the existing text and paste your configured task definition JSON. Press **Save**, then press **Create**.
 
-### 5. Run the task
+##### Run the task
 
 1. Once the task has been created, click on the **Actions** button, then choose **Run Task**.
 

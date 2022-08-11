@@ -2,7 +2,7 @@
 layout: article
 title: Field mapping
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Field mapping in Kibana
+description: Field mapping in OpenSearch Dashboards
 permalink: /user-guide/kibana/mapping/
 flags:
   admin: true
@@ -16,7 +16,7 @@ contributors:
 
 Field mapping is the process of defining how a value and the fields it contains are stored and indexed. 
 
-Kibana mappings are important whenever you want to perform any action on a field, such as visualize it, aggregate by it, or use it in an alert.
+OpenSearch mappings are important whenever you want to perform any action on a field, such as visualize it, aggregate by it, or use it in an alert.
 
 #### Managing and using field mapping
 {:.no_toc}
@@ -25,19 +25,20 @@ Kibana mappings are important whenever you want to perform any action on a field
 {:toc}
 
 
-### Default Kibana mapping
+### Default mapping
 
-You might have noticed that the particular fields mapped by Kibana tend to vary. This is because your Kibana mapping is dynamic and responds to the particular dataset you've selected. The larger the dataset, the more likely it is for fields to be unmapped by Kibana.
+You might have noticed that the particular fields mapped by OpenSearch Dashboards tend to vary. This is because mapping is dynamic and responds to the particular dataset you've selected. The larger the dataset, the more likely it is for fields to be unmapped by OpenSearch Dashboards.
 
-By default, Kibana maps only 1,000 fields to keep querying and filtering performance at top speed.
+By default, OpenSearch Dashboards maps only 1,000 fields to keep querying and filtering performance at top speed.
 
-Here's how Kibana does it. First, it finds every field that your account is actively using - in visualizations, dashboards, saved searches, alerts, and optimizers - and makes sure that those fields are mapped.
+Here's how OpenSearch Dashboards does it. First, it finds every field that your account is actively using - in visualizations, dashboards, saved searches, alerts, and optimizers - and makes sure that those fields are mapped.
 
-Let's say you have 10k fields in your database index, but are actively using 300 fields. Then Kibana will first map your 300 required fields and then map another 700 random fields.
+Let's say you have 10k fields in your database index, but are actively using 300 fields. Then OpenSearch Dashboards will first map your 300 required fields and then map another 700 random fields.
 
-Kibana will always make sure that all of your required fields are mapped by default. So even if you have more than 1,000 required fields, Kibana will cover them all and ensure that _all_ of them are mapped every time.
+OpenSearch Dashboards will always make sure that all of your required fields are mapped by default. So even if you have more than 1,000 required fields, OpenSearch Dashboards will cover them all and ensure that _all_ of them are mapped every time.
 
 
+<!-- 
 ### Kibana vs. Elasticsearch mapping
 
 Your log fields are determined by the parsing schema for your data. Depending on the complexity of your log data and the parsing it undergoes, your data set may include thousands of fields. Logz.io ensures that _all_ of your log fields are mapped in the database _at all times_.
@@ -46,6 +47,8 @@ There is (effectively) no limit on the number of active fields in your database.
 If for any reason, an error occurs, and Elasticsearch hits an error that there are too many fields, Logz.io Support will be immediately notified automatically.
 
 Kibana's field mapping has no bearing on your Elasticsearch index and won't prevent any logs from being analyzed and parsed.
+
+-->
 
 ### Field mapping types
 
@@ -74,12 +77,12 @@ There are additional restrictions for `date` data field types:
 
 Therefore, to change the mapping of any field to a `date` field, contact **[Logz.io Support team](mailto:help@logz.io)** before sending the fields.
 
-#### How to identify when a field is not mapped in Kibana
+#### How to identify when a field is not mapped
 
-If you are trying to filter by a field but the field doesn't appear in the dropdown list, this is a good indication that the field is not mapped in Kibana. 
+If you are trying to filter by a field but the field doesn't appear in the dropdown list, this is a good indication that the field is not mapped in OpenSearch Dashboards. 
 
-Kibana's capabilities are most powerful for mapped fields. <br>
-Fields that aren't mapped in Kibana can be searched and queried. 
+OpenSearch's capabilities are most powerful for mapped fields. <br>
+Fields that aren't mapped can be searched and queried. 
 But they will not appear in filters and do not support 1-click visualizations.
 
 | Action | Mapped field | Unmapped field |
@@ -101,7 +104,7 @@ But they will not appear in filters and do not support 1-click visualizations.
 
 #### Refresh mapping
 
-If you find that many of the fields you are interested in exploring aren't mapped, you can refresh your mapping via the navigation menu. Click [<i class="li li-gear"></i> Settings> General settings > Kibana mapping > Refresh mapping](https://app.logz.io/#/dashboard/settings/general).
+If you find that many of the fields you are interested in exploring aren't mapped, you can refresh your mapping via the navigation menu. Click [<i class="li li-gear"></i> Settings> General settings > Refresh mapping](https://app.logz.io/#/dashboard/settings/general).
 
 
 #### Add specific fields to your default mapping

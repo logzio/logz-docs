@@ -91,7 +91,7 @@ Specify the stack details as per the table below and select **Next**.
 
 | Parameter | Description |
 | --- | --- |
-| `logzioListener` | Your Logz.io [listener url](https://docs.logz.io/user-guide/accounts/account-region.html), followed by port `8070` or `8071`. For example, `https://listener.logz.io:8071` |
+| `logzioListener` | Your Logz.io [listener url](https://docs.logz.io/user-guide/accounts/account-region.html), followed by port `8070` or `8071`. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071. For example, `https://listener.logz.io:8071` |
 | `logzioLogLevel` | Log level for the Lambda function. Defaults to `info`. Valid options are: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |
 | `logzioOperationsToken` | Your Logz.io [operations token](https://app.logz.io/#/dashboard/settings/general). |
 

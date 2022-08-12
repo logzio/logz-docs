@@ -10,7 +10,7 @@ contributors:
   - nshishkin
 ---
 
-You can configure the notification endpoint to create a JIRA ticket in your preferred board, every time there is a new altert.
+You can configure the notification endpoint to create a JIRA ticket in your preferred board, every time there is a new alert.
 
 ### Pre-requisites
 
@@ -21,9 +21,9 @@ You can configure the notification endpoint to create a JIRA ticket in your pref
 * Convert the API token using the following command:
 
   ```shell
-  echo -n {{your-email}}:{{jira-token}} | base64
+  echo -n <YOUR-EMAIL>:<YOUR-ATLASSIAN-API-TOKEN> | base64
   ```
-
+  Replace `<YOUR-EMAIL>` with the email for your attlassian account and `<YOUR-ATLASSIAN-API-TOKEN>` with the API token for your Atlassian account.
 
 ### Add a JIRA notification endpoint
 
@@ -49,7 +49,7 @@ To add a pre-configured notification endpoint:
 
    * If required, add a description for the endpoint.
 
-   * Provide the URL to your JIRA board as follows: https://<tenantname>.atlassian.net/rest/api/3/issue. Replace `<tenantname>` with the name of your JIRA domain.
+   * Provide the URL to your JIRA board as follows: https://<tenantname>.atlassian.net/rest/api/3/issue. Replace `<tenantname>` with the name of your JIRA domain stated before `.atlassian`.
 
    * Select **POST** from the **Method** menu.
 
@@ -61,11 +61,11 @@ To add a pre-configured notification endpoint:
    {
        "fields": {
            "project": {
-               "key": "SECTAR"
+               "key": <project board key>
            },
-           "summary": "{{alert_title}}",
+           "summary": "",
            "issuetype": {
-               "name": "Alert"
+               "name": <board specific issue type>
            },
            "description": {
                "type": "doc",
@@ -76,7 +76,7 @@ To add a pre-configured notification endpoint:
                        "content": [
                            {
                                "type": "text",
-                               "text": "{{alert_description}}"
+                               "text": ""
                            }
                        ]
                    }
@@ -85,6 +85,9 @@ To add a pre-configured notification endpoint:
        }
    }
    ```
+   
+   Replace `<project board key>` with the key of your JIRA project board.
+   Replace `<board specific issue type>` with the issue type specific to your project board.
 
 4. Select **Add endpoint**.
 

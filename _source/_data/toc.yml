@@ -307,6 +307,8 @@ firstLevel:
       url: /user-guide/cloud-siem/create-rules.html
     - title: Add notification and SOAR endpoints
       url: /user-guide/cloud-siem/add-endpoints.html
+    - title: Configure SIEM to automatically create JIRA tickets by alert
+      url: /user-guide/cloud-siem/create-jira-ticket-alert.html
     - title: Edit rules and protected rules
       url: /user-guide/cloud-siem/edit-rules.html
     - title: Manage security events

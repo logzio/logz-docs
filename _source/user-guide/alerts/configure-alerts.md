@@ -73,7 +73,7 @@ it will likely generate unintended results.
 
 ###### Accounts to search
 
-Next, select the **Accounts to search**. An account is the equivalent of an Elasticsearch index.
+Next, select the **Accounts to search**. <!--An account is the equivalent of an Elasticsearch index.-->
 
 * If you select **All accounts**, the alert will query the logs in all the accounts it has access to. It will automatically include any accounts added in the future.
 
@@ -109,7 +109,7 @@ For example, you can apply the following schedule to your alerts:
 | 0 * 8-17 ? * MON,TUE,WED,THU,FRI *  | Every minute between 8 am to 5 pm, Monday through Friday |
 | 0 5 0 ? * * *                           | Every day at exactly 12:05 am |
 
-By default, trigger conditions run approximately every minute. If there's a lag, the alert is not checked until all data reaches Elastic. In addition, once an alert has met its condition and is triggered, it won't be checked again for the remainder of the alert trigger condition time range.
+By default, trigger conditions run approximately every minute. If there's a lag, the alert is not checked until all data is received. In addition, once an alert has met its condition and is triggered, it won't be checked again for the remainder of the alert trigger condition time range.
 
 ##### _(Optional)_ Set notification details
 

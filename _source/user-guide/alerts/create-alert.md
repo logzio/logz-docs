@@ -2,6 +2,8 @@
 layout: article
 title: Alert shortcuts
 permalink: /user-guide/alerts/new-alert.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about alert shortcuts
 flags:
   logzio-plan: community
 tags:
@@ -16,9 +18,9 @@ Sometimes, you may want to take shortcuts when creating an alert. You have sever
 {:toc}
 
 
-### Create an alert from Kibana Discover
+### Create an alert from OpenSearch Dashboards
 
-Your easiest option is to first test out filters and a search query directly in **Kibana Discover** or reuse a saved search. When the search captures the right logs, click the button **Create alert** to copy over the search criteria and begin configuring an alert.
+Your easiest option is to first test out filters and a search query directly in **OpenSearch Dashboards** or reuse a saved search. When the search captures the right logs, click the button **Create alert** to copy over the search criteria and begin configuring an alert.
 
   <video autoplay loop>
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/create_alert_aug2021.mp4" type="video/mp4" />

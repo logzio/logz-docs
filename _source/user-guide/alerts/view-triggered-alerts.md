@@ -2,6 +2,8 @@
 layout: article
 title: Review triggered alerts
 permalink: /user-guide/alerts/view-triggered-alerts.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Review triggered alerts
 flags:
   logzio-plan: community
 tags:
@@ -22,9 +24,9 @@ To view the **Triggered alerts** page,
 select [**Logs > Triggered alerts**](https://app.logz.io/#/dashboard/triggers/triggered-alerts)
 from the top menu.
 
-* To view the raw logs for a particular event, click the button **View in Kibana**.
+* To view the raw logs for a particular event, click the button **View in OpenSearch Dashboards**.
 
-  You'll be taken to Kibana Discover, with the logs filtered to return the exact logs that caused the alert to trigger. Using Kibana, you can explore your logs and get a better idea of the conditions that led to the triggered alert.
+  You'll be taken to OpenSearch Dashboards, with the logs filtered to return the exact logs that caused the alert to trigger. Using OpenSearch Dashboards, you can explore your logs and get a better idea of the conditions that led to the triggered alert.
 
   This is the same link that appears in the alert notification.
 

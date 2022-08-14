@@ -15,11 +15,11 @@ firstLevel:
   icon: li-bar-graph
 
   secondLevel:
-  - title: Kibana Discover
+  - title: OpenSearch Dashboards
     thirdLevel:
     - title: Intro to OpenSearch Dashboards
       url: /user-guide/kibana/
-    - title: OpenSearch best practices
+    - title: OpenSearch Dashboards best practices
       url: /user-guide/kibana/best-practices.html
     - title: Exceptions
       url: /user-guide/insights/exceptions/

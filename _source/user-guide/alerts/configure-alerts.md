@@ -50,13 +50,13 @@ You can use any combination of filters and a search query. Note the following:
 
 * Use a Lucene search query.
   * You have the option to use wildcards.
-  * Kibana Query Language (KQL) is not supported.
+  * OpenSearch Dashboards Query Language (DQL) is not supported.
 
 * All filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
 
 
 Once you're done refining your search query and filters, you can
-click **Preview in Kibana** to open Kibana Discover in another tab. It can help to review the returned logs and make sure you get the expected results.
+click **Preview** to open OpenSearch Dashboards in another tab. It can help to review the returned logs and make sure you get the expected results.
 
 ###### Group-by (order matters!)
 
@@ -73,7 +73,7 @@ it will likely generate unintended results.
 
 ###### Accounts to search
 
-Next, select the **Accounts to search**. An account is the equivalent of an Elasticsearch index.
+Next, select the **Accounts to search**. <!--An account is the equivalent of an Elasticsearch index.-->
 
 * If you select **All accounts**, the alert will query the logs in all the accounts it has access to. It will automatically include any accounts added in the future.
 
@@ -109,7 +109,7 @@ For example, you can apply the following schedule to your alerts:
 | 0 * 8-17 ? * MON,TUE,WED,THU,FRI *  | Every minute between 8 am to 5 pm, Monday through Friday |
 | 0 5 0 ? * * *                           | Every day at exactly 12:05 am |
 
-By default, trigger conditions run approximately every minute. If there's a lag, the alert is not checked until all data reaches Elastic. In addition, once an alert has met its condition and is triggered, it won't be checked again for the remainder of the alert trigger condition time range.
+By default, trigger conditions run approximately every minute. If there's a lag, the alert is not checked until all data is received. In addition, once an alert has met its condition and is triggered, it won't be checked again for the remainder of the alert trigger condition time range.
 
 ##### _(Optional)_ Set notification details
 
@@ -130,7 +130,7 @@ The **Tags** are useful for filtering. They can be used to create filtered visua
 
 If you want to send notifications or emails when the alert is triggered,
 choose notification endpoints.
-This isn't required, though—triggered alerts are still logged and searchable in Kibana.
+This isn't required, though—triggered alerts are still logged and searchable in OpenSearch Dashboards.
 
 Choose the endpoints or email addresses to notify under _Who to send it to_.
 

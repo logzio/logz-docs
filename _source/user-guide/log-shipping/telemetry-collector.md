@@ -15,6 +15,11 @@ Logz.io’s Telemetry Collector lets you quickly send your data based on the con
 Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
 {:.info-box.note}
 
+* [Send Kubernetes data with Telemetry Collector](/user-guide/log-shipping/telemetry-collector.html#configure-your-telemetry-collector-with-kubernetes)
+* [Send Localhost data with Telemetry Collector](/user-guide/log-shipping/telemetry-collector.html#configure-your-telemetry-collector-with-localhost)
+* [Remove a Telemetry Collector](/user-guide/log-shipping/telemetry-collector.html#how-to-remove-a-telemetry-collector)
+
+
 #### Why should you use Telemetry Collector?
 
 Configuring and running Logz.io’s Telemetry Collector provides several advantages, including:
@@ -29,10 +34,6 @@ Logz.io’s Telemetry Collector currently supports **Kubernetes** for logs, metr
 The Telemetry Collector will soon support additional platforms, including **AWS**, **Azure**, **Linux**, **Windows**, **Mac**, and more.
 
 If you're interested in sending your data through a different source, you can use Logz.io's **[Send your data](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** guide, which includes over 300 shipping methods.
-
-* [Configure with Kubernetes](/user-guide/log-shipping/telemetry-collector.html#configure-your-telemetry-collector-with-kubernetes)
-* [Configure with Localhost](/user-guide/log-shipping/telemetry-collector.html#configure-your-telemetry-collector-with-localhost)
-* [Remove a Telemetry Collector](/user-guide/log-shipping/telemetry-collector.html#how-to-remove-a-telemetry-collector)
 
 
 #### Configure your Telemetry Collector with Kubernetes:

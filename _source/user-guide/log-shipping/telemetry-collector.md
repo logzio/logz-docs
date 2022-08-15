@@ -109,9 +109,9 @@ Select the Localhost platform and the relevant sub-type through which you want t
 
 ##### Select data sources
 
-Enter the folder location of your logs. You can add multiple folders by clicking on the **Add a folder** option.
+Enter the full path location of your log folders from your machine. You can add multiple log folders to monitor by clicking on the **Add a folder** option.
 
-You can also collect metrics data from your logs.
+The Telemetry Collector can also collect metrics data from your logs.
 
 ![Select folder collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/log-location.png)
 

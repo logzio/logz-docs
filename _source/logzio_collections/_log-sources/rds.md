@@ -13,6 +13,7 @@ contributors:
   - nshishkin
 shipping-tags:
   - database
+  - aws
 order: 280
 ---
 

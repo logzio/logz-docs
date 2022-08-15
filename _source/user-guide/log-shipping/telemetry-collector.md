@@ -111,7 +111,9 @@ Select the Localhost platform and the relevant sub-type through which you want t
 
 Enter the folder location of your logs. You can add multiple folders by clicking on the **Add a folder** option.
 
-Telemetry Collector can also collect metrics as well as logs.
+You can also collect metrics data from your logs.
+
+![Select folder collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/log-location.png)
 
 ##### Define your collector
 

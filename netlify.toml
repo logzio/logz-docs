@@ -385,3 +385,15 @@
   to = "/shipping/#prometheus-sources"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/shipping/metrics-sources/consul.html"
+  to = "/shipping/#prometheus-sources"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shipping/metrics-sources/envoy.html"
+  to = "/shipping/#prometheus-sources"
+  status = 301
+  force = true

@@ -62,7 +62,7 @@ click **Preview** to open OpenSearch Dashboards in another tab. It can help revi
 
 You can apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.
 
-The order of the group-by fields matter. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from Left-To-Right.)
+The order in which you add group-by fields matter. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from Left-To-Right.)
 
 For example, the following will group results by continent, then country, then city:
 

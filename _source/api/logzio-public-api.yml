@@ -9971,6 +9971,10 @@ definitions:
         type: string
         description: Name of the restored account
         example: My account name
+      username:
+        type: string
+        description: Username of the account. Effectively, the user's email address.
+        example: user@organization.com
       startTime:
         type: integer
         format: int64

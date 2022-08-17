@@ -9969,11 +9969,11 @@ definitions:
     properties:
       accountName:
         type: string
-        description: Name of the restored account
+        description: Name of the restored account.
         example: My account name
       username:
         type: string
-        description: Username of the account. Effectively, the user's email address.
+        description: Owner of the restored account. Effectively, the user's email address.
         example: user@organization.com
       startTime:
         type: integer

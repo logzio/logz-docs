@@ -1003,155 +1003,155 @@ paths:
               description: >-
                 Alert rule UID.
           - in: body
-          name: body
-          schema:
-            type: object
-            properties:
-              annotations: 
-                type: object
-                properties: 
-                  runbook_url: 
-                    type: string
-                    example: https://supercoolrunbook.com/page/13
-              condition: 
-                type: string
-                example: A
-              data: 
-                type: array
-                items: 
+            name: body
+            schema:
+              type: object
+              properties:
+                annotations: 
                   type: object
                   properties: 
-                    datasourceUid: 
+                    runbook_url: 
                       type: string
-                      example: -100
-                    model: 
-                      type: object
-                      properties: 
-                        conditions: 
-                          type: array
-                          items: 
+                      example: https://supercoolrunbook.com/page/13
+                condition: 
+                  type: string
+                  example: A
+                data: 
+                  type: array
+                  items: 
+                    type: object
+                    properties: 
+                      datasourceUid: 
+                        type: string
+                        example: -100
+                      model: 
+                        type: object
+                        properties: 
+                          conditions: 
+                            type: array
+                            items: 
+                              type: object
+                              properties: 
+                                evaluator: 
+                                  type: object
+                                  properties: 
+                                    params: 
+                                      type: array
+                                      items: 
+                                        type: integer
+                                        format: int32
+                                        example: 0
+                                    type: 
+                                      type: string
+                                      example: gt
+                                operator: 
+                                  type: object
+                                  properties: 
+                                    type: 
+                                      type: string
+                                      example: and
+                                query: 
+                                  type: object
+                                  properties: 
+                                    params: 
+                                      type: array
+                                      items: 
+                                reducer: 
+                                  type: object
+                                  properties: 
+                                    params: 
+                                      type: array
+                                      items: 
+                                    type: 
+                                      type: string
+                                      example: avg
+                                type: 
+                                  type: string
+                                  example: query
+                          datasource: 
                             type: object
                             properties: 
-                              evaluator: 
-                                type: object
-                                properties: 
-                                  params: 
-                                    type: array
-                                    items: 
-                                      type: integer
-                                      format: int32
-                                      example: 0
-                                  type: 
-                                    type: string
-                                    example: gt
-                              operator: 
-                                type: object
-                                properties: 
-                                  type: 
-                                    type: string
-                                    example: and
-                              query: 
-                                type: object
-                                properties: 
-                                  params: 
-                                    type: array
-                                    items: 
-                              reducer: 
-                                type: object
-                                properties: 
-                                  params: 
-                                    type: array
-                                    items: 
-                                  type: 
-                                    type: string
-                                    example: avg
                               type: 
                                 type: string
-                                example: query
-                        datasource: 
-                          type: object
-                          properties: 
-                            type: 
-                              type: string
-                              example: __expr__
-                            uid: 
-                              type: string
-                              example: __expr__
-                        expression: 
-                          type: string
-                          example: 1 == 1
-                        hide: 
-                          type: boolean
-                        intervalMs: 
-                          type: integer
-                          format: int32
-                          example: 1000
-                        maxDataPoints: 
-                          type: integer
-                          format: int32
-                          example: 43200
-                        refId: 
-                          type: string
-                          example: A
-                        type: 
-                          type: string
-                          example: math
-                    queryType: 
+                                example: __expr__
+                              uid: 
+                                type: string
+                                example: __expr__
+                          expression: 
+                            type: string
+                            example: 1 == 1
+                          hide: 
+                            type: boolean
+                          intervalMs: 
+                            type: integer
+                            format: int32
+                            example: 1000
+                          maxDataPoints: 
+                            type: integer
+                            format: int32
+                            example: 43200
+                          refId: 
+                            type: string
+                            example: A
+                          type: 
+                            type: string
+                            example: math
+                      queryType: 
+                        type: string
+                        example: 
+                      refId: 
+                        type: string
+                        example: A
+                      relativeTimeRange: 
+                        type: object
+                        properties: 
+                          from: 
+                            type: integer
+                            format: int32
+                            example: 0
+                          to: 
+                            type: integer
+                            format: int32
+                            example: 0
+                execErrState: 
+                  type: string
+                  example: Alerting
+                folderUID: 
+                  type: string
+                  example: project_x
+                for: 
+                  type: integer
+                  format: int32
+                  example: 0
+                id: 
+                  type: integer
+                  format: int32
+                  example: 0
+                labels: 
+                  type: object
+                  properties: 
+                    team: 
                       type: string
-                      example: 
-                    refId: 
-                      type: string
-                      example: A
-                    relativeTimeRange: 
-                      type: object
-                      properties: 
-                        from: 
-                          type: integer
-                          format: int32
-                          example: 0
-                        to: 
-                          type: integer
-                          format: int32
-                          example: 0
-              execErrState: 
-                type: string
-                example: Alerting
-              folderUID: 
-                type: string
-                example: project_x
-              for: 
-                type: integer
-                format: int32
-                example: 0
-              id: 
-                type: integer
-                format: int32
-                example: 0
-              labels: 
-                type: object
-                properties: 
-                  team: 
-                    type: string
-                    example: sre-team-1
-              noDataState: 
-                type: string
-                example: Alerting
-              orgID: 
-                type: integer
-                format: int32
-                example: 0
-              provenance: 
-                type: string
-                example: string
-              ruleGroup: 
-                type: string
-                example: eval_group_1
-              title: 
-                type: string
-                example: Always firing
-              uid: 
-                type: string
-                example: string
+                      example: sre-team-1
+                noDataState: 
+                  type: string
+                  example: Alerting
+                orgID: 
+                  type: integer
+                  format: int32
+                  example: 0
+                provenance: 
+                  type: string
+                  example: string
+                ruleGroup: 
+                  type: string
+                  example: eval_group_1
+                title: 
+                  type: string
+                  example: Always firing
+                uid: 
+                  type: string
+                  example: string
             
         responses:
           200:

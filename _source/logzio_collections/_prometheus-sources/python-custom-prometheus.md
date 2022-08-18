@@ -379,6 +379,7 @@ For more information, see the OpenTelemetry [documentation](https://github.com/o
 | Histogram         | Metric values captured by the `histogram.Record(context,value,labels)` function, calculated per request. |
 
 ### More examples
+
 #### Counter
 
 ```python
@@ -391,7 +392,9 @@ For more information, see the OpenTelemetry [documentation](https://github.com/o
     counter.add(5,labels)
     counter.add(25, labels)
 ```
+
 #### Up down counter
+
 
 ```python
     # create an up down counter metric and provide the first data points

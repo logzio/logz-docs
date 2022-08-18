@@ -39,6 +39,7 @@ This page contains instructions on how to send custom metrics to Logz.io from yo
 
 #### Quick start
 
+
 <div class="tasklist">
 
 ##### Install the snappy c-library
@@ -246,7 +247,7 @@ This integration is currently only supported in the following AWS regions: **us-
 {:.info-box.note}
 <!-- info-box-end -->
 
-### Quick start
+#### Quick start
 
 
 <div class="tasklist">

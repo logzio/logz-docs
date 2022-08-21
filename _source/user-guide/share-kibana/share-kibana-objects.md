@@ -14,8 +14,7 @@ contributors:
   - hidan
 ---
 
-By exporting and importing, you can share OpenSearch dashboards, saved searches, and visualizations between accounts. This is helpful if you have multiple main accounts or accounts in multiple regions. You can also use this process to keep a local backup copy.
-
+Exporting and importing allow you to share OpenSearch dashboards, saved searches, and visualizations between accounts. This is helpful if you have multiple main accounts or accounts in multiple regions. You can also use this process to keep a local backup copy.
 
 ###### On this page
 {:.no_toc}
@@ -45,7 +44,7 @@ The first step is to export your existing dashboards, searches, and visualizatio
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-videos/export_kibana_objects1.mp4" type="video/mp4" />
 </video> -->
 
-The full export is highly recommended. That way you can be sure that you'll have everything, irrespective of any inter-dependencies. For example, if you export a single object that happens to be dependent on another object, the export can fail.
+The full export is highly recommended. That way, you can be sure that you'll have everything, irrespective of any inter-dependencies. For example, if you export a single object that happens to be dependent on another object, the export can fail.
  {:.info-box.note}
 
 

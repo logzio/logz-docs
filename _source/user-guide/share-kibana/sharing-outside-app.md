@@ -16,8 +16,7 @@ contributors:
 You can use shared tokens to share OpenSearch dashboards and visualizations with
 stakeholders who don't have access to your Logz.io account.
 
-This can be useful for communicating with clients outside your organization
-or internally, to communicate with other teams in your organization.
+This can be useful for communicating with clients outside your organization or internally with other teams in your organization.
 
 #### Sharing dashboards
 
@@ -34,7 +33,7 @@ When you share a dashboard, you can decide whether to share the dashboard with a
 
 * **Saved object** - Shares the dashboard with a relative time selection.
 
-  The permalink will load the dashboard with its default time selection and filters. So if the dashboard is set for the last 15 minutes, this is what it will do for your recipients as well.
+  The permalink will load the dashboard with its default time selection and filters. For example, if the dashboard is set for the last 15 minutes, this is the time frame your recipients will also review.
 
   This option means the sharing link will automatically be updated to reflect any changes made to the dashboard in the future. So if someone saves changes to the dashboard after the sharing link was sent out, your recipients will see the updated version without you having to resend them a new link.
 
@@ -49,7 +48,7 @@ When you share a dashboard, you can decide whether to share the dashboard with a
 
 Your recipients will receive a link to the dashboard you've shared with them. The dashboard will appear without the top and side navigation bars, and without the OpenSearch Dashboards time filtering options.
 
-Note that your recipients will not see the time frame selected for the dashboard. You will need to communicate it to them in another way.
+Note that your recipients will not see the time frame selected for the dashboard. Instead, you will need to communicate it to them in another way.
 {:.info-box.note}
 
 ##### Testing your permalink

@@ -14,11 +14,12 @@ contributors:
   - quintessence
 ---
 
-To help you understand the context surrounding your insights, you can add markers. Markers reflect significant events that could be potential catalysts for issues, such as [new deployments](/user-guide/insights/exceptions/deployments.html), rollbacks, and specific alerts that may have been triggered.
+
+You can add markers to help you understand the context surrounding your insights. Markers reflect significant events that could be potential catalysts for issues, such as [new deployments](/user-guide/insights/exceptions/deployments.html), rollbacks, and specific alerts that may have been triggered.
 
 ![Insights marker on the chart](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/insights--marker-on-chart.png)
 
-Markers are based on actual log messages coming in to Logz.io. When the conditions of a marker's search query are met, a marker is added to your insights.
+Markers are based on actual log messages coming into Logz.io. When a marker’s search query conditions are met, a marker is added to your insights.
 
 #### To add a marker
 

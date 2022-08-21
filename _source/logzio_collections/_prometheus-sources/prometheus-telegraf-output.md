@@ -32,12 +32,40 @@ To send your Prometheus-format metrics to Logz.io, you add the **outputs.http** 
 
 ##### Set up Telegraf v1.17 or higher:
 
-Follow the instructions on [Get started with Telegraf](https://docs.influxdata.com/telegraf/latest/introduction/getting-started/) to: 
+**Ubuntu & Debian**
 
-1. Download and install Telegraf in the terminal. 
-2. Create and configure the 'telegraf.conf' file.
-3. Start the Telegraf service.
+```shell
+sudo apt-get update && sudo apt-get install telegraf
+```
 
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**RedHat and CentOS**
+
+```shell
+sudo yum install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**SLES & openSUSE**
+
+```shell
+# add go repository
+zypper ar -f obs://devel:languages:go/ go
+# install latest telegraf
+zypper in telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
+
+**FreeBSD/PC-BSD**
+
+```shell
+sudo pkg install telegraf
+```
+
+The configuration file is located at `/etc/telegraf/telegraf.conf`.
 ##### Add the outputs.http plug-in
 
 After you create a config file for Telegraf, configure the output plug-in to enable your data to be sent to Logz.io in Prometheus-format and add the following code to the configuration file:

@@ -2,6 +2,8 @@
 layout: article
 title: Highlights of Logz.io Metrics
 permalink: /user-guide/infrastructure-monitoring/metrics-logzio
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about Logz.io's Infrastructure Monitoring highlights
 flags:
   logzio-plan: community
 tags:
@@ -14,7 +16,7 @@ contributors:
 Logz.io Metrics will help you monitor the health of your systems and catch issues BEFORE your customers notice.
 Here's how Logz.io Metrics will get you there.
 
-Logz.io Metrics is a Prometheus-based infrastructure monitoring platform that integrates seamlessly with the Kibana-based logging platform. Prometheus is the leading open-source tool for visualizing numerical data at scale, with powerful graphing capabilities of trends, changes over time, derivatives, and inflection curves.
+Logz.io Metrics is a Prometheus-based infrastructure monitoring platform that integrates seamlessly with the OpenSearch Dashboards-based logging platform. Prometheus is the leading open-source tool for visualizing numerical data at scale, with powerful graphing capabilities of trends, changes over time, derivatives, and inflection curves.
 
 The Logz.io’s Metrics UI, the front-end for Infrastructure Monitoring, is a forked version of the Grafana open-source software, created by Logz.io. Read more [here.](https://logz.io/about-us/forked-statement/)
 
@@ -23,7 +25,7 @@ The Logz.io’s Metrics UI, the front-end for Infrastructure Monitoring, is a fo
 
 Investigate your logs to identify the root cause of any issues highlighted in your Metrics.
 
-In Logz.io, you can navigate seamlessly from your metrics to your logs and save time and hassle. Whenever your metrics visualizations highlight an issue, you can click the shortcut button **Explore in Kibana** to drill-down on the relevant logs in Kibana. The reason you can drill-down directly from your Metrics graphs to the corresponding logs, is that Logz.io stores both your metrics and logs in ElasticSearch.
+In Logz.io, you can navigate seamlessly from your metrics to your logs and save time and hassle. Whenever your metrics visualizations highlight an issue, you can click the shortcut button **Explore in OpenSearch Dashboards** to drill-down on the relevant logs in OpenSearch Dashboards. The reason you can drill-down directly from your Metrics graphs to the corresponding logs, is that Logz.io stores both your metrics and logs.
 
   <img source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/metrics-to-logs.gif" alt="metrics to logs"/>
 

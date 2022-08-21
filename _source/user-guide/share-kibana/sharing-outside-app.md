@@ -2,6 +2,8 @@
 layout: article
 title: Sharing links
 permalink: /user-guide/tokens/sharing-links.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to use shared tokens to share dashboards and visualizations
 flags:
   logzio-plan: community
 tags:
@@ -11,7 +13,7 @@ contributors:
   - shalper
 ---
 
-You can use shared tokens to share Kibana dashboards and visualizations with
+You can use shared tokens to share OpenSearch dashboards and visualizations with
 stakeholders who don't have access to your Logz.io account.
 
 This can be useful for communicating with clients outside your organization
@@ -36,14 +38,16 @@ When you share a dashboard, you can decide whether to share the dashboard with a
 
   This option means the sharing link will automatically be updated to reflect any changes made to the dashboard in the future. So if someone saves changes to the dashboard after the sharing link was sent out, your recipients will see the updated version without you having to resend them a new link.
 
-<video autoplay loop>
+<!-- <video autoplay loop>
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/share-permalink_aug2021.mp4" type="video/mp4" />
-</video>
+</video> -->
+
+![Share your dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/dashboard-to-share.gif)
 
 
 ##### What your recipients will see
 
-Your recipients will receive a link to the dashboard you've shared with them. The dashboard will appear without the top and side navigation bars, and without the Kibana time filtering options.
+Your recipients will receive a link to the dashboard you've shared with them. The dashboard will appear without the top and side navigation bars, and without the OpenSearch Dashboards time filtering options.
 
 Note that your recipients will not see the time frame selected for the dashboard. You will need to communicate it to them in another way.
 {:.info-box.note}

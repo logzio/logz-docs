@@ -45,6 +45,10 @@ firstLevel:
       url: /user-guide/log-troubleshooting/filebeat-troubleshooting.html
     - title: Troubleshooting Rsyslog - SELinux
       url: /user-guide/log-shipping/rsyslog-selinux-troubleshooting.html
+    - title: Troubleshooting Python code logs
+      url: /user-guide/log-shipping/python-troubleshooting.html
+    - title: Troubleshooting S3 bucket logs
+      url: /user-guide/log-shipping/s3-troubleshooting.html
 
   - title: Log Alerts
     thirdLevel:
@@ -202,8 +206,15 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/sysmetrics.html
     - title: VMware
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/vmware.html
-    
-    
+  - title: Troubleshooting
+    url: /user-guide/infrastructure-monitoring/troubleshooting
+    thirdLevel:
+    - title: Kubernetes metrics troubleshooting
+      url: /user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting.html
+    - title: .NET custom metrics troubleshooting
+      url: /user-guide/infrastructure-monitoring/troubleshooting/dotnet-troubleshooting.html
+    - title: .NET metrics over Helm troubleshooting
+      url: /user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting.html
     
     
     

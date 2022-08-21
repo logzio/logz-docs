@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Amazon Auto Scaling
+title: Kubernetes metrics troubleshooting
 permalink: /user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting.html 
 flags:
   logzio-plan: pro

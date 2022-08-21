@@ -27,7 +27,6 @@ order: 390
 * [Standard configuration Windows](#Standard-configuration-windows)
 * [Customizing Helm chart parameters](#Customizing-helm-chart-parameters)
 * [Uninstalling the Chart](#Uninstalling-the-chart)
-* [Troubleshooting](#Troubleshooting)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -127,6 +126,8 @@ Give your metrics some time to get from your system to ours.
 {% include metric-shipping/generic-dashboard.html %} 
   
 </div>
+
+For troubleshooting this solution, see our [AKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/aks-helm-opentelemetry-troubleshooting.html).
   
 </div>
 <!-- tab:end -->
@@ -203,6 +204,8 @@ Give your metrics some time to get from your system to ours.
 {% include metric-shipping/generic-dashboard.html %} 
   
 </div>
+
+For troubleshooting this solution, see our [AKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/aks-helm-opentelemetry-troubleshooting.html).
   
 </div>
 <!-- tab:end -->
@@ -241,6 +244,8 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 
 </div>
 
+For troubleshooting this solution, see our [AKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/aks-helm-opentelemetry-troubleshooting.html).
+
 </div>
 <!-- tab:end -->
 
@@ -256,14 +261,6 @@ To uninstall the `logzio-otel-k8s-metrics` deployment, use the following command
 ```shell
 helm uninstall logzio-otel-k8s-metrics
 ```
-
-</div>
-<!-- tab:end -->
-
-<!-- tab:start -->
-<div id="Troubleshooting">
-
-{% include /p8s-shipping/k8s-troubleshooting.md %}
 
 </div>
 <!-- tab:end -->

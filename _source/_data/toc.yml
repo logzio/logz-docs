@@ -45,6 +45,8 @@ firstLevel:
       url: /user-guide/log-troubleshooting/filebeat-troubleshooting.html
     - title: Troubleshooting Rsyslog - SELinux
       url: /user-guide/log-shipping/rsyslog-selinux-troubleshooting.html
+    - title: Troubleshooting Python logs
+      url: /user-guide/log-troubleshooting/python-troubleshooting.html
 
   - title: Log Alerts
     thirdLevel:
@@ -138,7 +140,6 @@ firstLevel:
     - title: Explore in Kibana
       url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
   - title: Pre-built metrics dashboards
-    url: /user-guide/infrastructure-monitoring/metrics-dashboards
     thirdLevel:
     - title: AWS Cloudwatch - Amazon MQ
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-mq.html
@@ -220,6 +221,22 @@ firstLevel:
     
   - title: Elastic-based Metrics information #deprecated topics
     url: /user-guide/infrastructure-monitoring/elastic-metrics
+  - title: Troubleshooting
+    thirdLevel:
+    - title: Kubernetes with Helm
+      url: /user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html
+    - title: AKS with Helm
+      url: /user-guide/infrastructure-monitoring/troubleshooting/aks-helm-opentelemetry-troubleshooting.html
+    - title: EKS with Helm
+      url: /user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html
+    - title: GKE with Helm
+      url: /user-guide/infrastructure-monitoring/troubleshooting/gke-helm-opentelemetry-troubleshooting.html
+    - title: .NET diagnostic with Helm
+      url: /user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting.html
+    - title: .NET core metrics
+      url: /user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html
+
+
 
 
     # ===== DISTRIBUTED TRACING =====

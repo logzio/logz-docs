@@ -220,6 +220,23 @@ firstLevel:
     
   - title: Elastic-based Metrics information #deprecated topics
     url: /user-guide/infrastructure-monitoring/elastic-metrics
+    #thirdLevel:
+    #- title: Getting started
+    #  url: /user-guide/infrastructure-monitoring/elastic-metrics
+    #- title: OOTB dashboards
+    #  url: /user-guide/infrastructure-monitoring/metrics-dashboards
+    #- title: Managing your Logz.io Metrics data sources
+    #  url: /user-guide/metrics/data-sources.html
+    #- title: Data rollups
+    #  url: /user-guide/infrastructure-monitoring/data-rollups.html
+    #- title: Explore your metrics
+    #  url: /user-guide/infrastructure-monitoring/metrics-explore/
+    
+
+
+    
+
+    
 
 
     # ===== DISTRIBUTED TRACING =====
@@ -409,7 +426,7 @@ firstLevel:
     thirdLevel:
     - title: Managing account usage
       url: /user-guide/accounts/manage-account-usage.html
-    - title: Smart Tier
+    - title: Smart tier
       url: /user-guide/accounts/smart-tier/
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/

@@ -87,7 +87,7 @@ externalLabels:
 
   2. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane. <br>
     An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 
-    ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8smetrics_arriving.png)
+    ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/select-metric-query.png)
 
 ##### Open Metrics Explore
 

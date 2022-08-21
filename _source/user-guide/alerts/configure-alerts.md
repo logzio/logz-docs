@@ -71,7 +71,9 @@ For example, the following will group results by continent, then country, then c
 
 If we reverse the order (city, then country, then continent), it will likely generate unintended results.
 
-You can also use the group-by and create a visualization of your triggered alerts. For example, if you set an alert to:
+You can use the group-by to create a visualization of your triggered alerts. The visualization will show the logs caught by the alert, letting you see which group-by values existed when the alert was triggered and which group-by values matched the condition. 
+
+For example, if you set an alert to:
 
 * Look at the last 15 minutes
 * Trigger if there are more than 3 logs

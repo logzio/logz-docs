@@ -397,3 +397,9 @@
   to = "/shipping/#prometheus-sources"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/metrics/integrations.html"
+  to = "/user-guide/infrastructure-monitoring/metrics-dashboards"
+  status = 301
+  force = true

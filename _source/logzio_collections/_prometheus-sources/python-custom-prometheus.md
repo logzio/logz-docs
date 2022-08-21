@@ -254,7 +254,7 @@ This integration is currently only supported in the following AWS regions: **us-
 
 ##### Create Lambda function
 
-Create a new Lambda function in your AWS account (with Python version >= 3.7) or use our example [deployment package](https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/aws-otel-lambda-python/logzio-lambda-python-metrics-deployment.zip) including the code sample.
+Create a new Lambda function in your AWS account (with Python version >= 3.8) or use our example [deployment package](https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/aws-otel-lambda-python/logzio-python-lambda-custom-metrics-deployment.zip) including the code sample.
 
 
 ##### Add OpenTelemetry collector config variable
@@ -280,7 +280,7 @@ exporters:
     resource_to_telemetry_conversion:
       enabled: true # Convert resource attributes to metric labels
     headers:
-      Authorization: "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
+      Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
 service:
   pipelines:
     metrics:

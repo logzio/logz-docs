@@ -11,9 +11,11 @@ tags:
 contributors:
   - shalper
   - boofinka
+  - refaelmi
+  - hidan
 ---
 
-You can share Kibana dashboards, saved searches and visualizations between accounts by exporting and importing them. This is helpful if you have multiple main accounts or accounts on multiple regions. You can also use this process to keep a local backup copy.
+You can share Kibana dashboards, saved searches and visualizations between accounts by exporting and importing them. This is helpful if you have multiple main accounts or accounts on multiple regions. You can also use this process to keep a local backup copy. 
 
 
 ###### On this page

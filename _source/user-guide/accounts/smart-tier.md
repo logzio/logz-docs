@@ -40,7 +40,7 @@ The only time the difference might become noticeable is on the rare occasion whe
 
 Smart tier does not compromise data integrity.
 
-Replicas ensure no data is lost to the same standard as the Real-time tier. The only consequence is that Smart tier _data replicas_ are not as highly available for immediate querying in OpenSearch Dashboards.
+Replicas ensure no data is lost to the same standard as the Real-time tier. The only consequence is that Smart tier _data replicas_ are not as highly available for immediate querying in Kibana.
 
 Since data replicas are only queried when a primary data center is temporarily down, the effects are likely to be minimal. Most of the time, replicas are a fail-safe precautionary measure that you as a user do not interact with.
 
@@ -49,4 +49,4 @@ Since data replicas are only queried when a primary data center is temporarily d
 Smart tier does not increase query latency and will not slow your workflow.
 Unlike other hot-warm architectures, Logz.io Smart tier cuts costs by maintaining **replicas** on warm storage.
 
-OpenSearch Dashboards search and query performance will be the same as you are used to from the top, Hot tier experience.
+Kibana search and query performance will be the same as you are used to from the top, Hot tier experience.

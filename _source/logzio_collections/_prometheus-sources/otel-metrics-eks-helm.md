@@ -78,7 +78,6 @@ affinity:
                 operator: DoesNotExist
 ```
 
-Otherwise, if you do not have nodes, you can disable the node exporter deployment by setting the parameter `nodeExporter.enabled=false`. 
 
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.

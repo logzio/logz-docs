@@ -100,6 +100,10 @@ Note that this feature is only available from version 4.0.0.
 * Port `4317` available on your host system
 * A name defined for your tracing service
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
 
 <div class="tasklist">
 
@@ -110,10 +114,6 @@ Note that this feature is only available from version 4.0.0.
 
 Create a dedicated directory on the host of your Python application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) that is relevant to the operating system of your host.
 
-<!-- info-box-start:info -->
-This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
-{:.info-box.note}
-<!-- info-box-end -->
 
 After downloading the collector, create a configuration file `config.yaml` with the parameters below.
 

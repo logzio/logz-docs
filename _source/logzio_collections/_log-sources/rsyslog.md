@@ -119,7 +119,7 @@ sudo service rsyslog restart
 
 Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana). 
 
-If you still don't see your logs, see our [troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
 
 </div>
 </div>
@@ -225,7 +225,7 @@ $ sudo semanage port -m -t syslogd_port_t -p tcp 5000
 
 Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see our [troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
+If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
 
 </div>
 </div>
@@ -368,8 +368,7 @@ sudo service rsyslog restart
 
 Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see our [troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
+If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
 
 </div>
 </div>

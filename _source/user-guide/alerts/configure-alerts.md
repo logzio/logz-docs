@@ -99,7 +99,7 @@ Set your threshold and severity levels.
 
 In the _Trigger if..._ section, click **+ Add a threshold** to set up to 5 threshold conditions, each with its own severity tag.
 
-You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io's API](https://docs.logz.io/api/#operation/createAlert) to create your alert.
+You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://docs.logz.io/api/#operation/createAlert) to create your alert.
 {:.info-box.note}
 
 

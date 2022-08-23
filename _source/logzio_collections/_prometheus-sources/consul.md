@@ -44,6 +44,8 @@ This project lets you configure the OpenTelemetry collector to send your Prometh
 
 ##### Check the Consul server’s metrics format
 
+Check that the Consul server’s metrics are in Prometheus format at this endpoint:
+
 ```
 http://127.0.0.1:8500/v1/agent/metrics?format=prometheus
 ```
@@ -146,7 +148,11 @@ Run the following command:
 
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["4E7r0H6dqvzzCDsbhO4Yi4", "4iO9XKgTZZhzy2tU9Z84Pj", "7pbQAcavNuZXhT3ab9DxIs"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
 
 
 </div>

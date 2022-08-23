@@ -66,25 +66,39 @@ Open the configuration file and make sure that it states the receivers required 
 
 ```yaml
 receivers:
-    prometheus:
-      config:
-        scrape_configs:
+  prometheus:
+    config:
+      scrape_configs:
         - job_name: 'consul-metrics'
           scrape_interval: 15s
+          metrics_path: "/v1/agent/metrics"
           static_configs:
             - targets: ['localhost:8500']
-            # metrics_path: '/v1/agent/metrics'
-    hostmetrics:
-      collection_interval: 1m
-      scrapers:
-        cpu: ##All execpt Mac
-        disk: ##All execpt Mac
-        load:
-        filesystem:
-        memory:
-        network:
-        # process: ##Linux & Windows
+  hostmetrics:
+    collection_interval: 1m
+    scrapers:
+      cpu: ##All execpt Mac
+      disk: ##All execpt Mac
+      load:
+      filesystem:
+      memory:
+      network:
+      process: ##Linux & Windows
 ```
+
+##### Configure the processors
+
+
+In the same configuration file, add the following to the `processors` section:
+
+```yaml
+processors:
+  resourcedetection/system:
+    detectors: ["system"]
+    system:
+      hostname_sources: ["os"]
+```
+
 
 ##### Configure the exporters
 
@@ -108,8 +122,13 @@ In the `service` section of the configuration file, add the following configurat
 service:
   pipelines:
     metrics:
-      receivers: [<<YOUR-RECEIVER>>]
-      exporters: [prometheusremotewrite]
+      receivers: [prometheus,hostmetrics]
+      processors: [resourcedetection/system]
+      exporters:
+        - prometheusremotewrite
+  telemetry:
+    logs:
+      level: "debug"
 ```
 * Replace `<<YOUR_RECEIVER>>` with the name of your receiver.
 

@@ -34,6 +34,7 @@ There are 2 main ways for you to create a metric alert:
 
 Navigate to your **[Metrics account](https://app.logz.io/#/dashboard/metrics/)**, open your dashboard and choose the panel you'd like to use for your alert.
 
+
 You can't create an alert from a gauge type visualization.
 {:.info-box.note}
 

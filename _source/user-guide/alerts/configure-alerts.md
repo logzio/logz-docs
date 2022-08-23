@@ -12,11 +12,12 @@ contributors:
   - shalper
   - imnotashrimp
   - yberlinger
+  - hidan
 ---
 
 You can set up Logz.io log alerts to automatically get notified about issues that demand attention.
 
-Community plans have a limit on the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
+Community plans limit the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
 {:.info-box.note}
 
 #### Configuring an alert
@@ -31,7 +32,7 @@ Give your alert a meaningful name. When your alert triggers, its name is used as
 
 Next, set the search components. This determines which logs to look for and in which accounts.
 
-If you intend to create a correlated alert with 2 queries, see the [this guide](/user-guide/alerts/correlated-alert/).
+If you intend to create a correlated alert with 2 queries, see [this guide](/user-guide/alerts/correlated-alert/).
 
 
 ![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-search-component_aug2021.gif)
@@ -56,20 +57,33 @@ You can use any combination of filters and a search query. Note the following:
 
 
 Once you're done refining your search query and filters, you can
-click **Preview** to open OpenSearch Dashboards in another tab. It can help to review the returned logs and make sure you get the expected results.
+click **Preview** to open OpenSearch Dashboards in another tab. It can help review the returned logs and ensure you get the expected results.
 
 ###### Group-by (order matters!)
 
-You have the option to apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.
+You can apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.
 
-The order of group-by fields matters. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from Left-To-Right.)
+The order in which you add group-by fields matters. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from Left-To-Right.)
 
 For example, the following will group results by continent, then country, then city:
 
 ![Ordered group by field functions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/ordered-group-by_aug2021.png)
 
-If we reverse the order (city, then country, then continent),
-it will likely generate unintended results.
+If we reverse the order (city, then country, then continent), it will likely generate unintended results.
+
+You can use the group-by to create a visualization of your triggered alerts. The visualization will show the logs caught by the alert, letting you see which group-by values existed when the alert was triggered and which group-by values matched the condition. 
+
+For example, if you set an alert to:
+
+* Look at the last 15 minutes
+* Trigger if there are more than 3 logs
+* Group the results by account_name
+
+You’ll be able to use these fields to create the following chart:
+
+![Alerts to visualization](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/group-by-visualize.png)
+
+
 
 ###### Accounts to search
 
@@ -84,7 +98,6 @@ Next, select the **Accounts to search**. <!--An account is the equivalent of an 
 Set your threshold and severity levels.
 
 In the _Trigger if..._ section, click **+ Add a threshold** to set up to 5 threshold conditions, each with its own severity tag.
-
 
 You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://docs.logz.io/api/#operation/createAlert) to create your alert.
 {:.info-box.note}
@@ -122,20 +135,17 @@ By default, trigger conditions run approximately every minute. If there's a lag,
 
 ![Alert description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags_aug2021.png)
 
-The **Description** is visible on the _Alert definitions_ page.
-It's also included with emails and Slack messages when the alert is triggered.
-We recommend making your description helpful to recipients,
-like telling them how to fix the issues that led to the alert.
+The **Description** is visible on the _Alert definitions_ page, and it's part of the emails and Slack messages sent when the alert is triggered. 
 
-The **Tags** are useful for filtering. They can be used to create filtered visualizations and dashboards or to filter the _Alert definitions_ page.
+We recommend making your description helpful to recipients, like telling them how to fix the issues that led to the alert.
+
+The **Tags** are useful for filtering. For example, they can be used to create filtered visualizations and dashboards or to filter the _Alert definitions_ page.
 
 ###### Who to send it to
 
 ![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-wait_aug2021.png)
 
-If you want to send notifications or emails when the alert is triggered,
-choose notification endpoints.
-This isn't required, though—triggered alerts are still logged and searchable in OpenSearch Dashboards.
+Choose notification endpoints if you want to send notifications or emails when the alert is triggered. This isn't required, though—triggered alerts are still logged and searchable in OpenSearch Dashboards.
 
 Choose the endpoints or email addresses to notify under _Who to send it to_.
 
@@ -149,7 +159,7 @@ To use an **email** as your endpoint, you need to type the email in the Recipien
 If you need help adding a new endpoint,
 see [_Notification endpoints_]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 
-Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you will be able to [review triggered alerts](/user-guide/alerts/view-triggered-alerts.html) directly from the Logz.io platform at any time.
+Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you can [review triggered alerts](/user-guide/alerts/view-triggered-alerts.html) directly from the Logz.io platform at any time.
 
 The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 15 minutes and the wait time is 1 hour, the system will snooze notifications for 1 hour before triggering them again.
 {:.info-box.note}

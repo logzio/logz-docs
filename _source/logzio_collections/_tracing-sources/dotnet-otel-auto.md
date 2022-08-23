@@ -66,6 +66,10 @@ On deployment, the ASP.NET Core instrumentation automatically captures spans fro
 
 Create a dedicated directory on the host of your ASP.NET Core application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) that is relevant to the operating system of your host.
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 

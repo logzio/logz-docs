@@ -52,6 +52,11 @@ Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1
   
 By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment variable.
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
+
 The `collector.yaml` file will have the following configuration:
   
 ```yaml

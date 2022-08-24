@@ -17,7 +17,7 @@ contributors:
 
 You can set a custom landing page to view whenever you log into your Logz.io account.
 
-The landing page can be any dashboard, service, and object from your Logs, Metrics, or Tracing accounts.
+The landing page can be any screen, dashboard, and visualization from your Logs, Metrics, or Tracing accounts.
 
 #### Set up your landing page
 
@@ -33,9 +33,9 @@ To change it, open the drop-down list to view all the available pages you can ch
 
 Each item on the list includes:
 
-* An **icon** representing what the item is or where it's located. It can be an alert, or a page inside Logs, Metrics, Tracing, or your settings.
-* The **name** of the page or object.
-* A **short description** to provide more information about the page or object.
+* An **icon** representing what the item is or where it's located. It can be a page inside Logs, Metrics, or Tracing.
+* The **name** of the page or item.
+* A **short description** to provide more information about the page or item.
 
 ##### Icon dictionary
 
@@ -43,8 +43,6 @@ Each item on the list includes:
 |![logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/logs.svg)|Logs|
 |![metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/metrics.svg)|Metrics|
 |![tracing](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/tracing.svg)|Tracing|
-|![alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/alert.svg)|Alerts|
-|![settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/cog.svg)|Settings|
 
 For example, **api-gateway** has the Tracing logo and a short description, stating it's part of the Tracing environment.
 

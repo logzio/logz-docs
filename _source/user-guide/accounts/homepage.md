@@ -5,7 +5,6 @@ permalink: /user-guide/accounts/homepage.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Choose your main Logz.io landing page
 flags:
-  admin: true
   logzio-plan: community
 tags:
   - accounts
@@ -16,82 +15,49 @@ contributors:
   - hidan
 ---
 
-To help you focus on the things that are critical to you, you can choose a custom landing page to view whenever you log into Logz.io. Your landing page can be any dashboard, service, object, or any other element - from either Logs, Metrics, or Tracing.
+You can set a custom landing page to view whenever you log into your Logz.io account.
 
-To set your custom landing page, navigate to **Settings > General settings**. The default setting 
+The landing page can be any dashboard, service, and object from your Logs, Metrics, or Tracing accounts.
 
-This will be the default page when you sign in or press the Logz.io symbol on the top left of the navigation bar.
+#### Set up your landing page
 
+Log into your Logz.io account and navigate to **[Settings > General Settings](https://app.logz.io/#/dashboard/settings/general)**. 
 
-Each Logz.io plan starts with a main account, and you can expand your account to send additional logs, data, metrics, and so on.
+Your default landing page is the [Logs Discover](https://app.logz.io/#/dashboard/kibana) page. 
 
-The following guide will help you get familiarized with your Logz.io account, understand how to use it, and provide some additional tips and tricks.
+![Main landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/main-landing-page.png)
 
-In this guide:
+To change it, open the drop-down list to view all the available pages you can choose from. You can either scroll through the various options or use the text box to search for a specific page or elements.
 
+![Search for landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/choose-landing-page.png)
 
-* [Configuration options](/user-guide/accounts/#configuration-options)
-  * [Access control](/user-guide/accounts/#access-control-pro-and-enterprise-plans)
-  * [Flexible volume](/user-guide/accounts/#flexible-volume)
-  * [Long-term storage](/user-guide/accounts/#long-term-storage)
-  * [Archive and restore](/user-guide/accounts/#archive-and-restore-data)
-* [Your account dictionary](/user-guide/accounts/#your-account-dictionary)
-* [Manage your accounts](/user-guide/accounts/#manage-your-accounts)
-  * [Manage your **Log Management** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#logs)
-  * [Manage your **Cloud SIEM** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#siem)
-  * [Manage your **Infrastructure Monitoring** (Metrics) account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#metrics)
-  * [Manage your **Distributed Tracing** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing)
-  * [Manage your **Timeless** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless)
+Each item on the list includes:
 
+* An **icon** representing what the item is or where it's located. It can be an alert, or a page inside Logs, Metrics, Tracing, or your settings.
+* The **name** of the page or object.
+* A **short description** to provide more information about the page or object.
 
-### Configuration options
+##### Icon dictionary
 
-There are several different configurations you can apply to your account, including:
+|**Icon**|**Location**|
+|![logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/logs.png)|Logs|
+|![metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/metrics.png)|Metrics|
+|![tracing](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/tracing.svg)|Tracing|
+|<i class="li li-bell"></i>|Alerts|
+|<i class="li li-gear"></i>|Settings|
 
-##### **Access control** (Pro and Enterprise plans)
+For example, **api-gateway** has the Tracing logo and a short description, stating it's part of the Tracing environment.
 
-You can control access to different sets of data by shipping your logs to sub accounts, each with its own set of users. You can also use account default permissions to determine who can access and read the data. [Manage sub accounts](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html).
+![Landing page info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/api-gateway.png)
 
-##### **Flexible volume**
+Once you choose a new landing page, a popup will appear asking you to approve the change. Clicking on **Set landing page** will confirm the change.
 
-You can make the most of your plan’s indexing capacity by switching to flexible volume. Flexible volume makes it easier to ensure that accounts don’t max out their indexing capacity. [Explore flexible volume options](https://docs.logz.io/user-guide/accounts/flexible-volume.html).
+![Popup confirmation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/set-page-popup.png)
 
+That's it! Your new landing page will appear whenever you log into Logz.io, or when you click on the Logz.io icon at the top left corner of the screen.
 
-You can include up to 200 sub accounts when flexible volume is enabled. To add more sub accounts, you’ll have to disable the flexible volume option.
-{:.info-box.note}
+#### Reset your landing page
 
-##### **Long-term storage**
+If you want to reset your chosen Landing page, navigate to **[Settings > General Settings](https://app.logz.io/#/dashboard/settings/general)**. Clicking on the **Reset to default** option next to the landing page will open a popup asking you to confirm the change. Once confirmed, your landing page will be the [Logs Discover](https://app.logz.io/#/dashboard/kibana) page.
 
-Optimizers are great for analyzing long-term patterns and trends on aggregated data.
-
-You can use [data optimizers](https://docs.logz.io/user-guide/optimizers/configure-optimizers.html) to copy select data from your logs and store them long-term in a timeless account. Data stored in timeless accounts is easily searched and continuously available without requiring additional steps to restore the data. [Explore timeless accounts](https://docs.logz.io/user-guide/accounts/manage-timeless-accounts.html).
-
-##### **Archive and restore data**
-
-You can connect your Logz.io accounts to an S3 bucket or Azure Blob Storage to archive your logs. [Explore archiving options](https://docs.logz.io/user-guide/archive-and-restore/).
-
-Before searching archived data, you’ll need to restore it to its own temporary account. [Explore data restoring options](https://docs.logz.io/user-guide/archive-and-restore/restore-archived-logs.html).
-
-### Your account dictionary
-
-
-| Settings | Description |
-|---|---|
-| **Token** | The default [token](/user-guide/tokens/) for the account. Each account has a set of different tokens which you can use to configure shippers, send data to your account, allow access, and more. Keep these tokens secure. |
-| **Account name** | Your account name. You can edit and update it at any time. |
-| **Total daily volume** | The maximum volume of logs/data you can ship per calendar day. The index resets every day at midnight (00:00 UTC). |
-| **Retention** | The number of days your data is kept in storage. |
-| **Save account utilization metrics** | You can enable this option to log [account utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics). Depending on the required granularity, metrics can be calculated every 10, 30, or 60 minutes. Utilization data is stored in a separate index as the log type: `logzio_account_utilization`. |
-| **Save log size** | Adds a [new field](/user-guide/accounts/manage-account-usage.html#what-happens-when-i-save-log-size) to incoming logs. This new field is called `LogSize`, and it contains the log size in bytes. |
-| **Use objects from the selected accounts** | Gives the account access to Kibana objects (dashboards, visualizations, saved searches) stored in other accounts under the same plan. |
-{:.paramlist}
-
-### Manage your accounts
-
-Account admins have various options when it comes to managing the account. For further information, check out the following guides:
-
-* [Manage your **Log Management** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#logs)
-* [Manage your **Cloud SIEM** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#siem)
-* [Manage your **Infrastructure Monitoring** (Metrics) account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#metrics)
-* [Manage your **Distributed Tracing** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing)
-* [Manage your **Timeless** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless)
+![Reset landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/restore-to-default.png)

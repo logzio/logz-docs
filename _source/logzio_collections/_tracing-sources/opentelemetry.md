@@ -54,6 +54,11 @@ On deployment, your OpenTelemetry instrumentation captures spans from your appli
 * An application instrumented with an OpenTelemetry installation
 * An active account with Logz.io
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 <div class="tasklist">
 

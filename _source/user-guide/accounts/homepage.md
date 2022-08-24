@@ -40,11 +40,11 @@ Each item on the list includes:
 ##### Icon dictionary
 
 |**Icon**|**Location**|
-|![logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/logs.png)|Logs|
-|![metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/metrics.png)|Metrics|
+|![logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/logs.svg)|Logs|
+|![metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/metrics.svg)|Metrics|
 |![tracing](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/tracing.svg)|Tracing|
-|<i class="li li-bell"></i>|Alerts|
-|<i class="li li-gear"></i>|Settings|
+|![alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/alert.svg)|Alerts|
+|![settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/cog.svg)|Settings|
 
 For example, **api-gateway** has the Tracing logo and a short description, stating it's part of the Tracing environment.
 

@@ -133,7 +133,10 @@ Next, review your collector. The Summary, located on the left side of the screen
 
 ##### Run the Telemetry Collector
 
-Open your terminal and paste the code shown on the screen.
+Copy the code snippet and run it on your end:
+
+* **Mac** users - Run the snippet it in your terminal.
+* **Windows** users - Run the snippet in your PowerShell x64 (Note that PowerShell x86 and PowerShell ISE are currently not supported).
 
 Some platforms might require additional details, such as admin privileges or passwords, to complete the installation. These details are not sent to or stored by Logz.io.
 

@@ -49,6 +49,7 @@ To send your Prometheus-format Google Cloud SQL metrics to Logz.io, you need to 
 
 **Before you begin, you'll need**:
  GCP project
+ [Stackdriver monitoring API](https://cloud.google.com/monitoring/api/enable-api#console) enabled for the GCP project.
 
 <div class="tasklist">
 
@@ -90,7 +91,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
 ``` ini
 [[inputs.stackdriver]]
 
-  project = "<<YOUR-PROJECT>>"
+  project = "<<YOUR-PROJECT-ID>>"
 
   metric_type_prefix_include = [
     "cloudsql.googleapis.com",
@@ -99,7 +100,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   interval = "1m"
 ```
 
-* Replace `<<YOUR-PROJECT>>` with the name of your GCP project.
+* Replace `<<YOUR-PROJECT-ID>>` with the ID of your GCP project.
 
 <!-- info-box-start:info -->
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/stackdriver/README.md)

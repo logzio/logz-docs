@@ -53,7 +53,7 @@ On deployment, your Jaeger instrumentation captures spans from your application 
 
 **Before you begin, you'll need**:
 
-* An application instrumented with a Jaeger installation
+* An application instrumented with Jaeger
 * An active account with Logz.io
 
 

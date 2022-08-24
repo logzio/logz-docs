@@ -46,7 +46,7 @@ This integration enables you to send traces from your instrumented applications 
 
 * An instrumented application running in a Docker network
 * An active account with Logz.io
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 
 <div class="tasklist">

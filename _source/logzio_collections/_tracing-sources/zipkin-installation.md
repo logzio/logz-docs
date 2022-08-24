@@ -51,7 +51,7 @@ On deployment, your Zipkin instrumentation captures spans from your application 
 
 **Before you begin, you'll need**:
 
-* An application instrumented with a Zipkin installation
+* An application instrumented with Zipkin
 * An active account with Logz.io
 
 <!-- info-box-start:info -->

@@ -78,9 +78,15 @@ Next, review your collector. The Summary, located on the left side of the screen
 
 ##### Choose a platform and run the Telemetry Collector
 
-Choose the platform on which you want to run the Telemetry Collector. You can choose between **Mac**, **Windows**, or **Linux**. Copy the code and run it on your end.
+Choose the platform on which you want to run the Telemetry Collector. You can choose between **Mac**, **Windows**, or **Linux**. 
 
-Some platforms might require additional details, such as admin privileges or passwords, to complete the installation. These details are not sent to or stored by Logz.io.
+Copy the code and run it:
+
+* **Mac** users - Copy and run the snippet in your terminal.
+* **Windows** users - Copy and run the snippet in your PowerShell x64 (Note that PowerShell x86 and PowerShell ISE are currently not supported).
+* **Linux** users - Copy and run the snippet in your command line.
+
+Some platforms might require additional details, such as admin privileges or passwords to complete the installation. These details are not sent to or stored by Logz.io.
 {:.info-box.note}
 
 ![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-snippet-last-step.png)

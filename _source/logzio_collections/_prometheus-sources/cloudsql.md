@@ -48,8 +48,8 @@ To send your Prometheus-format Google Cloud SQL metrics to Logz.io, you need to 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
- GCP project
- [Stackdriver monitoring API](https://cloud.google.com/monitoring/api/enable-api#console) enabled for the GCP project.
+* GCP project
+* [Stackdriver monitoring API](https://cloud.google.com/monitoring/api/enable-api#console) enabled for the GCP project.
 
 <div class="tasklist">
 

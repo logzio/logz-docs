@@ -25,9 +25,12 @@ Community plans have a limit on the number of alerts that may be enabled. See th
 
 ##### Name the alert
 
-Give your alert a meaningful name. The name can contain letters, numbers, spaces, and special characters. Adding any other elements to your alert name, such as an emoji, will cause the alert to fail.
+Give your alert a meaningful name. When your alert triggers, its name is used as the email subject or notification heading.
 
-When your alert triggers, its name is used as the email subject or notification heading.
+Your alert name can contain letters, numbers, spaces, and special characters. It **can't** contain emojis or any other elements. These will cause the alert to fail.
+{:.info-box.note}
+
+
 
 ##### Search components
 

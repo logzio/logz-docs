@@ -28,6 +28,11 @@ Community plans limit the number of alerts that may be enabled. See the official
 
 Give your alert a meaningful name. When your alert triggers, its name is used as the email subject or notification heading.
 
+Your alert name can contain letters, numbers, spaces, and special characters. It **can't** contain emojis or any other elements.
+{:.info-box.note}
+
+
+
 ##### Search components
 
 Next, set the search components. This determines which logs to look for and in which accounts.

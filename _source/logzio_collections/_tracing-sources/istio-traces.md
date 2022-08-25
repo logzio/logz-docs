@@ -21,6 +21,10 @@ Deploy this integration to send traces from your Istio service mesh layers to Lo
 * [Istioctl](https://istio.io/latest/docs/reference/commands/istioctl/) installed on your machine
 * An active account with Logz.io
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
 
 #### Configuration instructions
 

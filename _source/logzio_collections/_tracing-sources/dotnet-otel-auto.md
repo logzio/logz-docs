@@ -53,7 +53,7 @@ On deployment, the ASP.NET Core instrumentation automatically captures spans fro
 * An ASP.NET Core application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 <!-- info-box-start:info -->
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
@@ -155,6 +155,10 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
 
 #### Standard configuration
 

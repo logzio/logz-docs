@@ -38,6 +38,11 @@ The integration includes:
 
 On deployment, your OpenTelemetry instrumentation captures spans from your application and forwards them to the collector, which exports the spans and span metrics data to your Logz.io account.
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
+
 </div>
 <!-- tab:end -->
 

@@ -98,7 +98,7 @@ Note that this feature is only available from version 4.0.0.
 * A Python application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 <!-- info-box-start:info -->
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
@@ -193,7 +193,7 @@ This integration enables you to auto-instrument your Python application and run 
 * A Python application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 
 <div class="tasklist">
@@ -239,6 +239,10 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
 
 #### Standard configuration
 

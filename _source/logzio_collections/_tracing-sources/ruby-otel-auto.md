@@ -53,7 +53,7 @@ On deployment, the Ruby instrumentation automatically captures spans from your a
 * A Ruby application without instrumentation
 * An active account with Logz.io
 * Port `4318` available on your host system
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 <!-- info-box-start:info -->
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
@@ -126,7 +126,7 @@ This integration enables you to auto-instrument your Ruby application and run a 
 * A Ruby application without instrumentation
 * An active account with Logz.io
 * Port `4318` available on your host system
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 
 <div class="tasklist">
@@ -176,6 +176,11 @@ You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collect
 
 <!-- info-box-start:info -->
 This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
+{:.info-box.note}
+<!-- info-box-end -->
+
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 {:.info-box.note}
 <!-- info-box-end -->
 

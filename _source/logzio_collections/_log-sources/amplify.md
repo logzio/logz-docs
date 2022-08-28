@@ -15,17 +15,18 @@ shipping-tags:
   - aws 
 order: 255
 ---
-# Amplify Access Logs Shipper - Lambda
+
+## Amplify Access Logs Shipper - Lambda
 
 This is an AWS Lambda function that collects Amplify access logs and sends them to Logz.io in bulk over HTTP.
 
 <div id="manual-lambda-configuration">
 
-## Configuration with a Lambda function
+### Configuration with a Lambda function
 
 <div class="tasklist">
   
-##### Create a new Lambda functåion
+##### Create a new Lambda function
 
 1. Open the AWS Lambda Console, and click **Create function**.
 2. Choose **Author from scratch**.

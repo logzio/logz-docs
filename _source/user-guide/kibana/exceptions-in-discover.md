@@ -67,7 +67,7 @@ The same exception may recur in different log lines, with slight variations. Som
 
 Logz.io tracks the recurrence of each exception over time, and retains its **First occurrence**, that is the earliest time the exception was identified. The history of exceptions can date back up to 6 months.
 
-![Expand an exception for more details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exception-overview.png)
+![Expand an exception for more details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exception-overview.png)
 
 |---|---|
 |Exception| Concise title auto-detected by Logz.io based on the contents of the logs |

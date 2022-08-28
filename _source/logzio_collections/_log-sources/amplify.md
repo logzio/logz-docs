@@ -105,7 +105,7 @@ git clone https://github.com/logzio/logzio_aws_serverless.git \
 * Replace `XXX66029XXXX` with your AWS Account ID.
 * Replace `XXXXdn0mprXXXX` with the AWS Amplify App ID.
 
-#### 6. Check Logz.io for your logs
+##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 

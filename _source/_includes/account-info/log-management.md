@@ -105,8 +105,6 @@ You or your team see a small number of logs ingested with a high usage quota.
 
 This happens when you apply the **Today** time frame to view logs and is the result of shipping logs with a date different from today’s date (Also known as sending Back/Future logs).
 
-<img source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/today-time-frame.png" height="500" alt="today time frame"/>
-
 
 If you encounter this issue, you can adjust the time frame settings or contact **[Logz.io's Support team](mailto:help@logz.io)** for additional info and assistance.
 

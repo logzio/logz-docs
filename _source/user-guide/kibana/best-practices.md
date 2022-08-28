@@ -89,12 +89,6 @@ Learn how to search and filter your log data with Logz.io.
 
 <iframe class="vidyard_iframe" src="//play.vidyard.com/Lg6z1KaebTKSQJXaN7wQki.html?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
 
-
-###### No correlation between the your logs and usage quota
-
-When you apply the **Today** time frame to view your logs, you might not see too many results but still have a high quota usage. This is a result of sending logs with a date different than today. If you encounter this issue, **[contact Logz.io's Support team](mailto:help@logz.io)** to resolve it.
-
-
 ##### Add more columns to your view results
 
 You can add additional columns to your logs field view.

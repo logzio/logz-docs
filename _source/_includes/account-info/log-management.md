@@ -11,6 +11,7 @@ The Log Management plan panel is located at the top of the **[Manage accounts](h
 * [Configure which accounts can access a Logs data source](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#configure-which-accounts-can-access-a-logs-data-source)
 * [Main vs. sub account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#main-vs-sub-account)
 * [Add and manage a Log Management sub account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-and-manage-a-log-management-sub-account)
+* [No correlation between logs and usage quota](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#no-correlation-between-your-logs-and-usage-quota)
 * [Delete a sub account from your plan](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#delete-a-sub-account-from-your-plan)
 * [Change how many GB are reserved to each account within your plan](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#change-how-many-gb-are-reserved-for-each-account-within-your-plan)
 
@@ -96,6 +97,18 @@ Click **Apply** to create the sub account.
 If you already have a sub account and you'd like to re-configure it, choose the relevant sub account from the list and click on **Advanced options** to access these settings.
 
 ![Manage existing sub accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/manage-sub-accounts.gif)
+
+
+#### No correlation between your logs and usage quota
+
+You or your team see a small number of logs ingested with a high usage quota. 
+
+This happens when you apply the **Today** time frame to view logs and is the result of shipping logs with a date different from today’s date (Also known as sending Back/Future logs).
+
+<img source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/today-time-frame.png" height="500" alt="today time frame"/>
+
+
+If you encounter this issue, you can adjust the time frame settings or contact **[Logz.io's Support team](mailto:help@logz.io)** for additional info and assistance.
 
 #### Delete a sub account from your plan
 

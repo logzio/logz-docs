@@ -78,6 +78,7 @@ For example, if someone is a member of both a **User** group and an **Admin** gr
 they'll receive **Admin** permissions.
 
 Multiple accounts can use the same group, but **the group needs to be added to each account separately**. So, for example, if you have created a group on your main account, you'll need to re-create it on your sub accounts to provide its users the relevant permissions.
+{:.info-box.note}
 
 ## Available identity providers
 

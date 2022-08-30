@@ -619,8 +619,6 @@ For the example above, you'd use `MyAppLogzioAppender`.
 <div id="serilog">
 
 #### Configure Serilog
-
-Serilog is a structural logging library for Microsoft providing diagnostic logging to files, the console, and elsewhere.
   
 <!-- info-box-start:info -->
 This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.com/serilog-contrib/Serilog.Sinks.Logz.Io).
@@ -630,7 +628,6 @@ This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.c
   
 **Before you begin, you'll need**:
 
-* log4net 2.0.8 or higher
 * .NET Core SDK version 2.0 or higher
 * .NET Framework version 4.6.1 or higher
 
@@ -644,7 +641,7 @@ Install `Serilog.Sinks.Logz.Io` by running the following command in the Package 
 ```shell
 PM> Install-Package Serilog.Sinks.Logz.Io
 ```
-or by using Nuget
+
 ##### Configure the sink
 
 Add the following code to the configuration of `Serilog.Settings.Configuration`:

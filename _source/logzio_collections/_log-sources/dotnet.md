@@ -644,7 +644,7 @@ Install `Serilog.Sinks.Logz.Io` by running the following command in the Package 
 ```shell
 PM> Install-Package Serilog.Sinks.Logz.Io
 ```
-
+or by using Nuget
 ##### Configure the sink
 
 Add the following code to the configuration of `Serilog.Settings.Configuration`:

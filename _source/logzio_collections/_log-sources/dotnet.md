@@ -666,7 +666,34 @@ Add the following code to the configuration of `Serilog.Settings.Configuration`:
 
 {% include log-shipping/listener-var.html %} 
 
+Add the following code to use the configuration and create logs:
+* Using Serilog.Settings.Configuration and Microsoft.Extensions.Configuration.Json packages
 
+using System.IO;
+using System.Threading;
+using Microsoft.Extensions.Configuration;
+using Serilog;
+
+namespace Example
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            var logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .CreateLogger();
+
+            logger.Information("Hello. Is it me you looking for?");
+            Thread.Sleep(5000);     // gives the log enough time to be sent to Logz.io
+        }
+    }
+}
 </div>
 <!-- tab:end -->
 

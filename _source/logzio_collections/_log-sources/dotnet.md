@@ -654,7 +654,7 @@ Add the following code to the configuration of `Serilog.Settings.Configuration`:
       {
         "Name": "LogzIoDurableHttp",
         "Args": {
-          "requestUri": "<<LISTENER-HOST>>:8071/?type=app&token=<<LOG-SHIPPING-TOKEN>>"
+          "requestUri": "https://<<LISTENER-HOST>>:8071/?type=<<TYPE>>&token=<<LOG-SHIPPING-TOKEN>>"
         }
       }
     ]

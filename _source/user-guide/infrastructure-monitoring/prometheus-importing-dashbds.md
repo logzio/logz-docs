@@ -151,16 +151,12 @@ The tool functions in two ways:
 2. Search and replace metrics names.
 
 
-The conversion process is comprised of the two steps:
-
-1. Converting the “templating” element of the dashboard, which contains an array of template variables with their saved values along with some other metadata.
-2. Creating the InfluxQL query string and converting it to PromQL.
-
-
 #### Convert Grafana Dashboards from InfluxQL to PromQL
 
 **Before you begin, you'll need**:
- InfluxQL metrics
+
+* InfluxQL metrics
+* Logz.io account
 
 <div class="tasklist">
 
@@ -180,7 +176,7 @@ pip install -r requirements.txt
 
 ##### Configure the requirements
 
-Open the `requirements.txt` and add the following content to it:
+Open the config.yaml, and edit the configuration as in the example below. For further examples, refer to the [GitHub repository](https://github.com/logzio/influxql-to-promql-converter/tree/main/examples) of this project.
 
 ```yaml
 log_level: # optional default is INFO
@@ -260,9 +256,9 @@ Configure the parmeters as per the table below and save the changes.
 pip install -r requirements.txt && python3 main.py
 ```
   
-##### Check Logz.io for your metrics
+##### Check Logz.io for your dashboards
 
-Once the conversion has been completed, log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+Once the conversion has been completed, log in to your Logz.io Metrics account, and open [the Logz.io Dashboards tab](https://app.logz.io/#/dashboard/).
 
 
 </div>

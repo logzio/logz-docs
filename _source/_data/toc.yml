@@ -219,8 +219,8 @@ firstLevel:
     
     
     
-  - title: Elastic-based Metrics information #deprecated topics
-    url: /user-guide/infrastructure-monitoring/elastic-metrics
+  #- title: Elastic-based Metrics information #deprecated topics
+  #  url: /user-guide/infrastructure-monitoring/elastic-metrics
   - title: Troubleshooting
     thirdLevel:
     - title: Kubernetes with Helm

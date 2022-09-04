@@ -679,6 +679,7 @@ Add the following code to use the configuration and create logs:
 
 * Using Serilog.Settings.Configuration and Microsoft.Extensions.Configuration.Json packages
 
+```json
 using System.IO;
 using System.Threading;
 using Microsoft.Extensions.Configuration;
@@ -704,7 +705,36 @@ namespace Example
         }
     }
 }
+```
+
+
+###### In the code
+
+
+```dotnet
+    configuration
+        .WriteTo.LogzIoDurableHttp(
+            "https://l<<LISTENER-HOST>>:8071/?type=<<TYPE>>&token=<<LOG-SHIPPING-TOKEN>>",
+            logzioTextFormatterOptions: new LogzioTextFormatterOptions
+            {
+                BoostProperties = true,
+                LowercaseLevel = true,
+                IncludeMessageTemplate = true,
+                FieldNaming = LogzIoTextFormatterFieldNaming.CamelCase,
+                EventSizeLimitBytes = 261120,
+            })
+        .MinimumLevel.Verbose();
+ ```
 </div>
+
+{% include log-shipping/log-shipping-token.html %}
+
+{% include log-shipping/listener-var.html %} 
+
+* Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+
+
+
 <!-- tab:end -->
 
 

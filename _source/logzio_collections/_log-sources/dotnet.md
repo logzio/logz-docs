@@ -644,7 +644,14 @@ PM> Install-Package Serilog.Sinks.Logz.Io
 
 ##### Configure the sink
 
-Add the following code to the configuration of `Serilog.Settings.Configuration`:
+There are 2 ways to use Serilog:
+
+1. Using a configuration file
+2. In the code
+
+###### Using a configuration file
+
+Create `appsettings.json` file and copy the following configuration:
 
 ```json
 {
@@ -666,7 +673,10 @@ Add the following code to the configuration of `Serilog.Settings.Configuration`:
 
 {% include log-shipping/listener-var.html %} 
 
+* Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+
 Add the following code to use the configuration and create logs:
+
 * Using Serilog.Settings.Configuration and Microsoft.Extensions.Configuration.Json packages
 
 using System.IO;

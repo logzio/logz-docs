@@ -111,7 +111,7 @@ affinity:
 
    ```
    helm install --namespace <<YOUR-NAMESPACE>>  \
-   --set traces.enabled=true \
+   --set metrics.enabled=true \
    --set secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
    --set secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
    --set secrets.p8s_logzio_name=<<ENV-TAG>> \

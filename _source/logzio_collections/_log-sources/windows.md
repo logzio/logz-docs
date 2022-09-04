@@ -111,6 +111,11 @@ Open PowerShell as an admin and run this command:
 Restart-Service winlogbeat
 ```
 
+<!-- info-box-start:info -->
+If you're starting Winlogbeat, and haven't configured it as a service yet, refer to [Winlogbeat documentation](https://www.elastic.co/guide/en/beats/winlogbeat/current/configuring-howto-winlogbeat.html).
+{:.info-box.note}
+<!-- info-box-end -->
+
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

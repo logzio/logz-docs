@@ -34,9 +34,9 @@ If you're interested in sending your data through a different source, you can us
 ##### Getting started with the Telemetry Collector:
 
 
-* [Send Kubernetes data with Telemetry Collector](/user-guide/log-shipping/telemetry-collector-k8s.html)
+* [Send **Kubernetes** data with Telemetry Collector](/user-guide/log-shipping/telemetry-collector-k8s.html)
   * [Manage a Kubernetes Telemetry Collector](/user-guide/log-shipping/telemetry-collector-k8s.html#how-to-remove-a-telemetry-collector)
-* [Send Localhost data with Telemetry Collector](/user-guide/log-shipping/telemetry-collector-localhost.html)
+* [Send **Localhost** data with Telemetry Collector](/user-guide/log-shipping/telemetry-collector-localhost.html)
   * [Manage a Localhost Telemetry Collector](/user-guide/log-shipping/telemetry-collector-localhost.html#manage-and-remove-a-telemetry-collector)
 
 

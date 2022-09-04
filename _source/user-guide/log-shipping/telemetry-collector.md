@@ -24,7 +24,7 @@ Configuring and running Logz.io’s Telemetry Collector provides several advanta
 
 ##### Supported platforms
 
-Logz.io’s Telemetry Collector currently supports **Kubernetes** for logs, metrics, and traces. You can also use the Telemetry Collector to send **Localhost** files via your Mac. 
+Logz.io’s Telemetry Collector currently supports **Kubernetes** for logs, metrics, and traces. You can also use the Telemetry Collector to send **Localhost** files via your Mac or Windows machines. 
 
 The Telemetry Collector will soon support additional platforms, including **AWS**, **Azure**, **Linux**, **Windows**, **Mac**, and more.
 

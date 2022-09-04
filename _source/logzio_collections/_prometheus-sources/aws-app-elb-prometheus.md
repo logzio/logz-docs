@@ -483,7 +483,7 @@ Keep the defaults and click **Next**.
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
   
-  
+</div>
 </div>
 <!-- tab:end -->
 
@@ -579,6 +579,8 @@ Give your metrics some time to get from your system to ours.
 <!-- logzio-inject:install:grafana:dashboards ids=["5BZ6El3juQkCKCIuGm1oyC"] --> 
 
 {% include metric-shipping/generic-dashboard.html %} 
+
+</div>
 
 </div>
 <!-- tab:end -->

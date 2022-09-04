@@ -295,7 +295,7 @@ If you are editing an existing stack:
    ```
 5. If required, change the module name by editing the `"MyModule"` value.
 
-
+[test](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/s3-hook/0.0.2/sam-template.yaml&stackName=logzio-s3-hook&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071&param_bucketName=Hello-world)
 
 </div>
 

@@ -1,7 +1,7 @@
 ---
 title: Ship Salesforce sObjects data to Logz.io
 logo:
-  logofile: salesforce-commerce-cloud-logo.png.png
+  logofile: salesforce-commerce-cloud-logo.png
   orientation: vertical
 data-source: Salesforce
 data-for-product-source: Logs

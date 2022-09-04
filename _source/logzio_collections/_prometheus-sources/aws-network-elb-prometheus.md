@@ -558,7 +558,7 @@ We simplify the data export and collection of your metrics. You tell us the desi
   
    ![Screen_2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/metric-stream-update.png)
  
-2. In the **Metrics to be streamed** section, select what namespaces you want to monitor (include/exclude or all namespaces).
+2. In the **Metrics to be streamed** section, select AWS/NetworkELB and, if required, other namespaces you want to monitor (include/exclude or all namespaces).
   
 3. In the **Configuration** section, select an existing Firehose as the configuration option.
 

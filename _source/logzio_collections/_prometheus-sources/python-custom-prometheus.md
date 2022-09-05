@@ -254,8 +254,12 @@ This integration is currently only supported in the following AWS regions: **us-
 
 ##### Create Lambda function
 
-Create a new Lambda function in your AWS account (with Python version >= 3.8) or use our example [deployment package](https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/aws-otel-lambda-python/logzio-python-lambda-custom-metrics-deployment.zip) including the code sample.
+Create a new Lambda function in your AWS account (with Python version >= 3.8).
 
+After creating your new Lambda function, you can use our example [deployment package](https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/aws-otel-lambda-python/logzio-python-lambda-custom-metrics-deployment.zip) that includes the code sample. Upload the .zip file to the **code source** section inside your newly created Lambda function.
+
+
+![Upload deployment package](https://dytvr9ot2sszz.cloudfront.net/log-shipping/upload-from-zip.png)
 
 ##### Add OpenTelemetry collector config variable
 

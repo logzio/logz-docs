@@ -508,6 +508,11 @@ firstLevel:
     url: /shipping/
   - title: Send your data with Telemetry Collector
     url: /user-guide/log-shipping/telemetry-collector.html
+    thirdLevel:
+    - title: Send Kubernetes data with Telemetry Collector
+      url: /user-guide/log-shipping/telemetry-collector-k8s.html
+    - title: Send Localhost data with Telemetry Collector
+      url: /user-guide/log-shipping/telemetry-collector-localhost.html
 #  - title: Log shipping intro
 #    url: /user-guide/log-shipping/
 

@@ -132,7 +132,6 @@ service:
     logs:
       level: "debug"
 ```
-* Replace `<<YOUR_RECEIVER>>` with the name of your receiver.
 
 
 

@@ -1,9 +1,9 @@
 ---
-title: Ship Elastic Block Store metrics
+title: Ship MSK metrics
 logo:
-  logofile: aws-ebs.svg
+  logofile: aws-msk.png
   orientation: vertical
-data-source: Amazon EBS
+data-source: Amazon MSK
 data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
@@ -15,10 +15,8 @@ contributors:
   - yberlinger
 shipping-tags:
   - aws
-  - prebuilt-dashboards
-order: 1110
+order: 1220
 ---
-
 <!-- tabContainer:start -->
 <div class="branching-container">
 
@@ -28,7 +26,6 @@ order: 1110
 * [ECS deployment](#ecs)
 * [Firehose deployment](#firehose)
 {:.branching-tabs}
-
 
 <!-- tab:start -->
 <div id="variables">
@@ -48,7 +45,7 @@ We simplify the data export and collection of your metrics. You tell us the desi
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["6WqwxluZ76GXXPut0GHGKH"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["2EGM4H9wch68bVy1vm4oxb"] --> 
 
 {% include metric-shipping/generic-dashboard.html %} 
   
@@ -142,12 +139,6 @@ logzio/cloudwatch-metrics
 Give your metrics some time to get from your system to ours.
 
 
-{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["6WqwxluZ76GXXPut0GHGKH"] --> 
-
-{% include metric-shipping/generic-dashboard.html %} 
-
 </div>
 </div>
 <!-- tab:end -->
@@ -170,7 +161,7 @@ We simplify the data export and collection of your metrics. You tell us the desi
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["6WqwxluZ76GXXPut0GHGKH"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["2EGM4H9wch68bVy1vm4oxb"] --> 
 
 {% include metric-shipping/generic-dashboard.html %} 
 
@@ -286,12 +277,6 @@ logzio/cloudwatch-metrics
 Give your metrics some time to get from your system to ours.
 
 
-{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["6WqwxluZ76GXXPut0GHGKH"] --> 
-
-{% include metric-shipping/generic-dashboard.html %} 
-
 </div>
   
 </div>
@@ -315,10 +300,9 @@ We simplify the data export and collection of your metrics. You tell us the desi
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["6WqwxluZ76GXXPut0GHGKH"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["2EGM4H9wch68bVy1vm4oxb"] --> 
 
 {% include metric-shipping/generic-dashboard.html %} 
-
   
 <div class="tasklist">
 
@@ -393,12 +377,6 @@ logzio/cloudwatch-metrics
 Give your metrics some time to get from your system to ours.
 
 
-{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["6WqwxluZ76GXXPut0GHGKH"] --> 
-
-{% include metric-shipping/generic-dashboard.html %} 
-
 </div>
   
 </div>
@@ -422,7 +400,7 @@ We simplify the data export and collection of your metrics. You tell us the desi
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["6WqwxluZ76GXXPut0GHGKH"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["2EGM4H9wch68bVy1vm4oxb"] --> 
 
 {% include metric-shipping/generic-dashboard.html %} 
   
@@ -509,7 +487,7 @@ We simplify the data export and collection of your metrics. You tell us the desi
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["6WqwxluZ76GXXPut0GHGKH"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["2EGM4H9wch68bVy1vm4oxb"] --> 
 
 {% include metric-shipping/generic-dashboard.html %} 
 
@@ -558,7 +536,7 @@ We simplify the data export and collection of your metrics. You tell us the desi
   
    ![Screen_2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cloudwatch/metric-stream-update.png)
  
-2. In the **Metrics to be streamed** section, select AWS/EBS and, if required, other namespaces you want to monitor (include/exclude or all namespaces).
+2. In the **Metrics to be streamed** section, select AWS/Kafka and, if required, other namespaces you want to monitor (include/exclude or all namespaces).
   
 3. In the **Configuration** section, select an existing Firehose as the configuration option.
 
@@ -578,7 +556,7 @@ Give your metrics some time to get from your system to ours.
 
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["6WqwxluZ76GXXPut0GHGKH"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["2EGM4H9wch68bVy1vm4oxb"] --> 
 
 {% include metric-shipping/generic-dashboard.html %} 
 
@@ -589,6 +567,4 @@ Give your metrics some time to get from your system to ours.
 
 </div>
 <!-- tabContainer:end -->
-
-
 

@@ -201,7 +201,7 @@ func handleErr(err error, message string) {
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your Go application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your Go application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
 
 
 

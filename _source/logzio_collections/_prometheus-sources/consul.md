@@ -58,7 +58,7 @@ If you already have OpenTelemetry, proceed to the next step.
 {:.info-box.note}
 <!-- info-box-end -->
 
-Create a dedicated directory on your host and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/) that is relevant to the operating system of your host.
+Create a dedicated directory on your host and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml`.
 

@@ -74,7 +74,7 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [logzio]
+      exporters: [logzio/traces]
 ```
   
 {% include /tracing-shipping/replace-tracing-token.html %}

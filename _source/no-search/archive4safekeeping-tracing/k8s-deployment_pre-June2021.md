@@ -166,7 +166,7 @@ data:
       traces:
         receivers: [opencensus, jaeger, zipkin]
         processors: [batch, queued_retry]
-        exporters: [logzio]
+        exporters: [logzio/traces]
 ---
 apiVersion: apps/v1
 kind: DaemonSet

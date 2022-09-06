@@ -61,7 +61,7 @@ On deployment, your Jaeger instrumentation captures spans from your application 
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
 
 <!-- info-box-start:info -->
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
@@ -106,7 +106,7 @@ service:
     traces:
       receivers: [jaeger]
       processors: [batch]
-      exporters: [logzio]
+      exporters: [logzio/traces]
 
 ```
 

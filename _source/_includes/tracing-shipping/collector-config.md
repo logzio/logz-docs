@@ -45,5 +45,5 @@ service:
     traces:
       receivers: [opencensus, jaeger, zipkin, otlp]
       processors: [batch]
-      exporters: [logging, logzio]
+      exporters: [logging, logzio/traces]
 ```

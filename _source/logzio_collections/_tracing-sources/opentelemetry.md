@@ -114,7 +114,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
 * Under the `exporters` list
 
 ```yaml
-  logzio:
+  logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
 ```

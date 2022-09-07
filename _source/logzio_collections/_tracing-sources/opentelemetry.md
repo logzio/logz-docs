@@ -28,6 +28,9 @@ order: 330
 <!-- tab:start -->
 <div id="overview">
 
+{% include /general-shipping/agent-note.md %}
+
+
 Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
 
 ### Architecture overview

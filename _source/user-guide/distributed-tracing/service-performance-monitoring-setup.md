@@ -24,6 +24,7 @@ The first pipeline sends the spans to the Logz.io backend, where you can analyze
 
 The second pipeline extracts the metrics from the same spans, aggregates them, and sends them to Logz.io’s Prometheus-based account.
 
+{% include /general-shipping/agent-note.md %}
 
 
 #### Activate the Service Performance Monitoring dashboard

@@ -19,6 +19,9 @@ contributors:
 
 Metrics Explore is where you can research the data available in your Prometheus metrics account and discover the metadata (tags, dimensions, or fields) associated with each metric from the services in your environment.
 
+{% include /general-shipping/agent-note.md %}
+
+
 It's a bit like Kibana Discover, in that it is optimized for quickly searching the data in preparation for creating dashboards.
 
 Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, the Metrics Explore mode is the best way to do it. It's also great if you're a long-time user and want to examine the structure of your metrics to create a new monitoring dashboard.

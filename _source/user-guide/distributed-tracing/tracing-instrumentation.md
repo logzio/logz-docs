@@ -15,6 +15,9 @@ contributors:
 
 To collect your Distributed Tracing through Logz.io's **[Telemetry Collector](/user-guide/log-shipping/telemetry-collector.html)**, you’ll have to define auto-instrumentation on your Kubernetes pods manually.
 
+{% include /general-shipping/agent-note.md %}
+
+
 Following the relevant step-by-step auto-instrumentation guide will help you through the process:
 
 

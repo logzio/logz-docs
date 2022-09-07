@@ -35,6 +35,9 @@ order: 140
 <!-- tab:start -->
 <div id="overview">
 
+{% include /general-shipping/agent-note.md %}
+
+
 Fluentd is an open source data collector and a great option because of its flexibility. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
 
 

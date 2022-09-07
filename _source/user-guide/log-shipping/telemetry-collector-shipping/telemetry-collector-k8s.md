@@ -13,6 +13,9 @@ contributors:
 Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
 {:.info-box.note}
 
+{% include /general-shipping/agent-note.md %}
+
+
 To start sending your Kubernetes data through the Telemetry Collector, Log into your Logz.io account, navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.
 
 

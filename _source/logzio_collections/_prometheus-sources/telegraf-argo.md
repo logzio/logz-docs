@@ -18,6 +18,9 @@ order: 800
 
 ## Overview
 
+{% include /general-shipping/agent-note.md %}
+
+
 Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Argo CD metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.

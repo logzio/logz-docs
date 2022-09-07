@@ -34,6 +34,8 @@ order: 390
 
 ####  Overview
 
+{% include /general-shipping/agent-note.md %}
+
 
 **logzio-k8s-telemetry** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 For AKS clusters, this chart also allows you to ship Windows node metrics.

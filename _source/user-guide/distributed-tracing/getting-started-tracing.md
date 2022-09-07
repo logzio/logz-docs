@@ -14,6 +14,8 @@ Get set and get ready: This section describes what you have to do to get set up 
 If you already use Distributed Tracing, refer to our [guides on how to get connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data/collection?tag=existing-instrumentation&collection=tracing-sources). <br>
 This information is also available in the [**Logz.io Docs**](https://docs.logz.io/shipping/#tracing-sources), via the **My code is instrumented** filter.
 
+{% include /general-shipping/agent-note.md %}
+
 #### To set up Distributed Tracing: 
 {:.no_toc}  
 

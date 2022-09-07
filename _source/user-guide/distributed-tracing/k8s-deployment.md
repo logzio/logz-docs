@@ -20,6 +20,9 @@ The following guide will walk you through how to get your Tracing account token 
 
 The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
 
+{% include /general-shipping/agent-note.md %}
+
+
 #### _Send traces from Kubernetes_
 
 {:.no_toc}  

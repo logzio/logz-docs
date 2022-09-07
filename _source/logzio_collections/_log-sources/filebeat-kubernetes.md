@@ -25,6 +25,8 @@ order: 310
 <!-- tab:start -->
 <div id="overview">
 
+{% include /general-shipping/agent-note.md %}
+
 
 This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your cluster and ship them to Logz.io.
 

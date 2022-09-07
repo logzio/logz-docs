@@ -81,4 +81,7 @@ While you can always refer to the <a href="https://www.jaegertracing.io/docs/lat
 
 ## Kubernetes deployment reference
 
+{% include /general-shipping/agent-note.md %}
+
+
 If you’re working with Kubernetes, use [this yaml file](/user-guide/distributed-tracing/k8s-deployment) as a reference to deploy the collector/agent, and use the output of `kubectl explain deployment` as your **apiVersion** value.

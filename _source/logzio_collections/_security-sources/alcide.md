@@ -18,6 +18,9 @@ identifying abnormal administrative activity and compromised Kubernetes resource
 
 You can review Alcide kAudit findings in your Logz.io security account, including a pre-configured [Alcide dashboard in Logz.io](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
+{% include /general-shipping/agent-note.md %}
+
+
 #### Configuration
 
 You can configure an Alcide kAudit integration that uses the Logz.io HTTPS API. The integration can be configured from the kAudit app or kAudit Kubernetes ConfigMap.

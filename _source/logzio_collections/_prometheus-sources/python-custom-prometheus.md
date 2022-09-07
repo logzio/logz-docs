@@ -7,7 +7,6 @@ data-source: Python custom metrics
 data-for-product-source: Metrics
 flags:
   logzio-plan:  
-  beta: true
 templates: ["docker"]
 contributors:
   - yotamloe

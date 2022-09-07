@@ -731,7 +731,7 @@ namespace Example
 
 {% include log-shipping/listener-var.html %} 
 
-* Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
 
 
 

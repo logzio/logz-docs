@@ -621,7 +621,7 @@ For the example above, you'd use `MyAppLogzioAppender`.
 #### Configure Serilog
   
 <!-- info-box-start:info -->
-This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.com/serilog-contrib/Serilog.Sinks.Logz.Io).
+This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.com/serilog-contrib/Serilog.Sinks.Logz.Io). Refer to this repo for further usage and settings information.
 {:.info-box.note}
 <!-- info-box-end -->
   

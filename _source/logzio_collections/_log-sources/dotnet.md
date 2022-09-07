@@ -673,7 +673,7 @@ Create `appsettings.json` file and copy the following configuration:
 
 {% include log-shipping/listener-var.html %} 
 
-* Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
 
 Add the following code to use the configuration and create logs:
 

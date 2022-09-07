@@ -11,7 +11,6 @@ data-source: Java custom metrics
 data-for-product-source: Metrics
 flags:
   logzio-plan:  
-  beta: false
 templates: ["docker"]
 contributors:
   - yotamloe

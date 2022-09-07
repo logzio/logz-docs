@@ -7,7 +7,6 @@ data-source: Remote write for Prometheus
 data-for-product-source: Metrics
 flags:
   logzio-plan:  
-  beta: false
 templates: ["docker"]
 contributors:
   - yberlinger

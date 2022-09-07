@@ -712,21 +712,6 @@ namespace Example
 
 
 ```csharp
-    configuration
-        .WriteTo.LogzIoDurableHttp(
-            "https://l<<LISTENER-HOST>>:8071/?type=<<TYPE>>&token=<<LOG-SHIPPING-TOKEN>>",
-            logzioTextFormatterOptions: new LogzioTextFormatterOptions
-            {
-                BoostProperties = true,
-                LowercaseLevel = true,
-                IncludeMessageTemplate = true,
-                FieldNaming = LogzIoTextFormatterFieldNaming.CamelCase,
-                EventSizeLimitBytes = 261120,
-            })
-        .MinimumLevel.Verbose();
- ```
- 
-```csharp
 using System.Threading;
 using Serilog;
 using Serilog.Sinks.Logz.Io;

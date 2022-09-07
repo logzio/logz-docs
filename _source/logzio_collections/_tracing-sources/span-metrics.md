@@ -100,7 +100,7 @@ receivers:
         - targets: [ "0.0.0.0:8889" ]
 
 exporters:
-  logzio:
+  logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
   prometheusremotewrite/spm:
@@ -197,7 +197,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 * Under the `exporters` list:
 
 ```yaml
-  logzio:
+  logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
   prometheusremotewrite/spm:
@@ -292,7 +292,7 @@ receivers:
         - targets: [ "0.0.0.0:8889" ]
 
 exporters:
-  logzio:
+  logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
   prometheusremotewrite/spm:

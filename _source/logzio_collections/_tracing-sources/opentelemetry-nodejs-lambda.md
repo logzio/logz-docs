@@ -67,7 +67,7 @@ receivers:
       grpc:
       http:
 exporters:
-  logzio:
+  logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
 service:

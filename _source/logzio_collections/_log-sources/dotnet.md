@@ -726,7 +726,35 @@ namespace Example
         .MinimumLevel.Verbose();
  ```
 </div>
+using System.Threading;
+using Serilog;
+using Serilog.Sinks.Logz.Io;
 
+namespace Example
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ILogger logger = new LoggerConfiguration()
+                .WriteTo.LogzIoDurableHttp(
+                    "https://<<LISTENER-HOST>>:8071/?type=<<TYPE>>&token=<<LOG-SHIPPING-TOKEN>>",
+                    logzioTextFormatterOptions: new LogzioTextFormatterOptions
+                    {
+                        BoostProperties = true,
+                        LowercaseLevel = true,
+                        IncludeMessageTemplate = true,
+                        FieldNaming = LogzIoTextFormatterFieldNaming.CamelCase,
+                        EventSizeLimitBytes = 261120,
+                    })
+                .MinimumLevel.Verbose()
+                .CreateLogger();
+
+            logger.Information("Hello. Is it me you looking for?");
+            Thread.Sleep(5000);     // gives the log enough time to be sent to Logz.io
+        }
+    }
+}
 {% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/listener-var.html %} 

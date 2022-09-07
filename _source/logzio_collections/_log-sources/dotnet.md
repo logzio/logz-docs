@@ -636,12 +636,12 @@ This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.c
 
 ##### Install the Logz.io Serilog sink
 
-Install `Serilog.Sinks.Logz.Io` by running the following command in the Package Manager Console:
+Install `Serilog.Sinks.Logz.Io` using Nuget or by running the following command in the Package Manager Console:
 
 ```shell
 PM> Install-Package Serilog.Sinks.Logz.Io
 ```
-or by using Nuget
+
 ##### Configure the sink
 
 There are 2 ways to use Serilog:
@@ -679,7 +679,7 @@ Add the following code to use the configuration and create logs:
 
 * Using Serilog.Settings.Configuration and Microsoft.Extensions.Configuration.Json packages
 
-```dotnet
+```csharp
 using System.IO;
 using System.Threading;
 using Microsoft.Extensions.Configuration;
@@ -711,7 +711,7 @@ namespace Example
 ###### In the code
 
 
-```dotnet
+```csharp
     configuration
         .WriteTo.LogzIoDurableHttp(
             "https://l<<LISTENER-HOST>>:8071/?type=<<TYPE>>&token=<<LOG-SHIPPING-TOKEN>>",
@@ -725,7 +725,8 @@ namespace Example
             })
         .MinimumLevel.Verbose();
  ```
-</div>
+ 
+```csharp
 using System.Threading;
 using Serilog;
 using Serilog.Sinks.Logz.Io;
@@ -755,6 +756,8 @@ namespace Example
         }
     }
 }
+```
+
 {% include log-shipping/log-shipping-token.html %}
 
 {% include log-shipping/listener-var.html %} 

@@ -679,7 +679,7 @@ Add the following code to use the configuration and create logs:
 
 * Using Serilog.Settings.Configuration and Microsoft.Extensions.Configuration.Json packages
 
-```json
+```dotnet
 using System.IO;
 using System.Threading;
 using Microsoft.Extensions.Configuration;

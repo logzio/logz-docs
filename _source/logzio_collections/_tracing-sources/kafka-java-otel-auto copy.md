@@ -79,6 +79,11 @@ Download the latest version of the [OpenTelemetry Java agent](https://github.com
 
 Run the following command from the directory of your Java application:
 
+<!-- info-box-start:info -->
+If you produce and consume Kafka topics/messages from different applications, the Java agent command must be used with both applications in order to provide a full trace.
+{:.info-box.note}
+<!-- info-box-end -->
+
 ```shell
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
      -Dotel.traces.exporter=otlp \
@@ -187,6 +192,11 @@ It will deploy a small pod that extracts your cluster domain name from your Kube
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
 ##### Attach the agent to your java application 
+
+<!-- info-box-start:info -->
+If you produce and consume Kafka topics/messages from different applications, the Java agent command must be used with both applications in order to provide a full trace.
+{:.info-box.note}
+<!-- info-box-end -->
 
 Add the following command to your Java application Dockerfile or equivalent:
 

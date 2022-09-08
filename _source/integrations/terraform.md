@@ -115,13 +115,14 @@ provider "logzio" {
 resource "logzio_endpoint" "my_endpoint" {
   title = "my_endpoint"
   description = "my slack endpoint"
-  endpoint_type = "Slack"
+  endpoint_type = "slack"
   slack {
     url = "${var.slack_url}"
   }
 }
 
 resource "logzio_alert" "my_alert" {
+  depends_on = [logzio_endpoint.my_endpoint]
   title = "my_other_title"
   query_string = "loglevel:ERROR"
   operation = "GREATER_THAN"
@@ -131,7 +132,7 @@ resource "logzio_alert" "my_alert" {
   alert_notification_endpoints = ["${logzio_endpoint.my_endpoint.id}"]
   suppress_notifications_minutes = 30
   severity_threshold_tiers {
-      severity = "HIGH",
+      severity = "HIGH"
       threshold = 10
   }
 }

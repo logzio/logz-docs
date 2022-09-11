@@ -196,6 +196,9 @@ Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your pref
 
 This code block adds Falco as an input and sets Logz.io as the output.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 # ...
 filebeat.inputs:

@@ -50,6 +50,9 @@ This document describes the way to get logs from your system to Logz.io using an
 
 ##### Configure your Beats shipper using the configuration file.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 1. Open the configuration file for your Beats shipper.
 2. Add the following to the inputs section:
 
@@ -115,6 +118,9 @@ This document describes the way to get logs from your system to Logz.io using an
 <div class="tasklist">
 
 ##### Download the Logz.io public certificate
+
+{% include log-shipping/filebeat-input-extension.md %}
+
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 

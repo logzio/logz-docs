@@ -38,6 +38,9 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the 
 
 {% include log-shipping/log-shipping-token.html %}
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 # ...
 filebeat.inputs:

@@ -47,6 +47,9 @@ The procedure involves using the Sophos API. Make sure that the `config.ini` use
 
 Open the Filebeat configuration file (`/etc/filebeat/filebeat.yml`) with your preferred text editor.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:
 
 ```yaml
@@ -186,6 +189,9 @@ on your machine.
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (`C:\Program Files\Filebeat\filebeat.yml`) with your preferred text editor.
+
+{% include log-shipping/filebeat-input-extension.md %}
+
 
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:
 

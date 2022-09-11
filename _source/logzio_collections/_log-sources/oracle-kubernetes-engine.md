@@ -98,6 +98,9 @@ Apply your custom configuration to the parameters under `filebeat.yml` and only 
 
 Note that the parameter `token: ${LOGZIO_LOGS_SHIPPING_TOKEN}` under `fields` determines the token used to verify your Logz.io account. It is required.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```
 filebeat.yml: |-
 

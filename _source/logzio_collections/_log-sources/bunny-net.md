@@ -58,6 +58,9 @@ sudo openssl req -newkey rsa:2048 -nodes \
 
 ##### Configure Filebeat
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
    ```yaml  

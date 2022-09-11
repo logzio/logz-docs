@@ -46,6 +46,9 @@ Copy and paste the code block below, overwriting the previous contents. (You wan
 
 This code block adds ESET as an input and sets Logz.io as the output.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 # ...
 filebeat.inputs:

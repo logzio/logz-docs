@@ -51,6 +51,9 @@ Copy and paste the code block below, overwriting the previous contents. (You wan
 
 This code block adds Juniper SRX as an input sent over UDP traffic.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 # ...
 filebeat.inputs:

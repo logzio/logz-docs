@@ -172,6 +172,9 @@ logzio-k8s-logs logzio-helm/logzio-k8s-logs
 
 If you're using a custom config, please make sure that you're using a `.yaml` file with the following structure:
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```
 filebeat.yml: |-
   filebeat.autodiscover:

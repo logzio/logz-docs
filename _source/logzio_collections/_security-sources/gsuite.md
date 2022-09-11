@@ -53,6 +53,9 @@ Follow the official G Suite [tutorial](https://support.google.com/gsuitemigrate/
 Open the Filebeat configuration file (the default path `/etc/filebeat/filebeat.yml`) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous contents.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 ### Filebeat
 

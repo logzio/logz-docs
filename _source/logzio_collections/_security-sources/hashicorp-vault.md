@@ -55,6 +55,9 @@ to keep Vault logs compatible with Logz.io.
 
 {% include log-shipping/listener-var.html %} 
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 # ...
 filebeat.inputs:

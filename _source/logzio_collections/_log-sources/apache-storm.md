@@ -44,6 +44,7 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to t
 
 {% include log-shipping/log-shipping-token.html %} Replace `<<LOGS_DIRECTORY>>` with the path to your Apache Storm logs directory mentioned in the step above. 
 
+{% include log-shipping/filebeat-input-extension.md %}
 
 ```yaml
 # ...

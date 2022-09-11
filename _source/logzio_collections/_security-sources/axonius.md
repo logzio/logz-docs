@@ -46,6 +46,9 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
    ```yaml
    filebeat.inputs:
    - type: udp

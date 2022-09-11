@@ -72,6 +72,9 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
 
 ##### Configure Filebeat
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 1. Navigate to the `modules.d` directory and open the `o365.yml.disabled` file.
 2. Paste the following into the file:
 

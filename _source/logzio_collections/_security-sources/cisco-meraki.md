@@ -46,6 +46,9 @@ on configuring your Syslog Server.
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml) add UDP traffic as an input
 and Logz.io as an output.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 # ...
 filebeat.inputs:

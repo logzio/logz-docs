@@ -43,7 +43,10 @@ sudo openssl req -newkey rsa:2048 -nodes \
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
-Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
+Copy and paste the code block below, overwriting the previous contents.
+
+{% include log-shipping/filebeat-input-extension.md %}
+
 
 This code block adds SentinelOne as an input and sets Logz.io as the output.
 

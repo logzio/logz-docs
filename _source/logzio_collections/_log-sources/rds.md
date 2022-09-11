@@ -113,6 +113,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Deploying logzio-mysql-logs directly via Kubernetes
 
+{% include /general-shipping/agent-note.md %}
+
+
 **Before you begin, you'll need**:
 
 * MySQL database hosted on Amazon RDS

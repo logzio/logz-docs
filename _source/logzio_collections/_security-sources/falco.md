@@ -13,6 +13,9 @@ shipping-tags:
 order: 880
 ---
 
+{% include /general-shipping/agent-note.md %}
+
+
 Falco is a [CNCF-approved](https://www.cncf.io/blog/2020/01/08/toc-votes-to-move-falco-into-cncf-incubator/) container security and Kubernetes threat detection engine that logs illegal container activity at runtime.
 
 Shipping your Falco logs to your Cloud SIEM can help you monitor your Kubernetes workloads for potentially malicious behavior. This can help you catch attempts to remove logging data from a container, to run recon tools inside a container, or add potentially malicious repositories to a container. [Learn more in our blog 🔗](https://logz.io/blog/k8s-security-with-falco-and-cloud-siem/)

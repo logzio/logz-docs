@@ -20,6 +20,8 @@ A few dashboards provided out-of-the-box by Logz.io come with **Explore in Kiban
 
 Drilldown links help you go straight to the related logs whenever you identify an issue in your Metrics graphs and see a need to investigate it further. They are a powerful observability tool that gives you context and visibility into the logs that coincided with the Metrics events.
 
+{% include /general-shipping/agent-note.md %}
+
 
 ##### Overview
 {:.no_toc}

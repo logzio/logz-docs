@@ -27,7 +27,11 @@ order: 180
 
 <!-- tab:start -->
 <div id="overview">
+
 ### Logzio-fluentd
+
+{% include /general-shipping/agent-note.md %}
+
 
 [Helm](https://helm.sh/) is a tool for managing packages of pre-configured Kubernetes resources using Charts.
 Logzio-fluentd allows you to ship logs from your Kubernetes cluster to Logz.io, using Fluentd.

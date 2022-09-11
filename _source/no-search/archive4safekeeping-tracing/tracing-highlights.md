@@ -12,6 +12,9 @@ contributors:
 ---
 ### Oh, the Traces You'll Go! 
 
+{% include /general-shipping/agent-note.md %}
+
+
 This section includes the following topics: 
 
 * [Why Distributed Tracing?](/user-guide/distributed-tracing/tracing-overview): An overview of Logz.io's Jaeger-powered tracing solution

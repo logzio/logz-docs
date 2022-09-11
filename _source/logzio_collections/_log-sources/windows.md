@@ -27,6 +27,9 @@ order: 100
 
 #### Configure Winlogbeat
 
+{% include /general-shipping/agent-note.md %}
+
+
 **Before you begin, you'll need**:
 [Winlogbeat 7](https://www.elastic.co/guide/en/beats/winlogbeat/7.x/winlogbeat-installation-configuration.html#installation) or
 [Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html)

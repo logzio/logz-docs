@@ -16,6 +16,9 @@ order: 160
 
 #### Shipping Kubernetes events
 
+{% include /general-shipping/agent-note.md %}
+
+
 Kubernetes events are a resource type that Kubernetes automatically creates when other resources get state changes, errors, or other messages that should be shared across the system.
 
 This guide uses the [kubernetes-event-exporter](https://github.com/opsgenie/kubernetes-event-exporter) tool to ship kubernetes events to Logz.io.

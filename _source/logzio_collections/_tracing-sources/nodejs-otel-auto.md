@@ -26,6 +26,9 @@ order: 1380
 <!-- tab:start -->
 <div id="overview">
 
+{% include /general-shipping/agent-note.md %}
+
+
 Deploy this integration to enable automatic instrumentation of your Node.js application using OpenTelemetry. 
 
 ### Architecture overview

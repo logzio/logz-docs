@@ -15,6 +15,7 @@ Annotations can mark events on your Metrics dashboards based on data from a logg
 
 Annotations offer another way to correlate your metrics with your logs, to help you figure out _why_ things are happening. Annotations are similar to using [Markers]({{site.baseurl}}/user-guide/insights/markers.html) in your logging [Insights]({{site.baseurl}}/user-guide/insights/exploring-insights.html).
 
+{% include /general-shipping/agent-note.md %}
 
 
 #### Configure an annotation

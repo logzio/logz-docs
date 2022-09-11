@@ -25,6 +25,9 @@ order: 330
 <!-- tab:start -->
 <div id="overview">
 
+{% include /general-shipping/agent-note.md %}
+
+
 [Service Performance Monitoring](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring) is a high-level monitoring dashboard within Logz.io that enables you to monitor your tracing services and operations. This integration allows you to configure Service Performance Monitoring with OpenTelemetry collector and send spans and span metrics from your OpenTelemetry installation to Logz.io. 
 
 

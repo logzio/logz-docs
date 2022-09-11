@@ -33,6 +33,9 @@ order: 430
 
 ###### Overview
 
+{% include /general-shipping/agent-note.md %}
+
+
 You can use a Helm chart to ship k8s logs to Logz.io via Filebeat from Linux and Windows nodes.
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts.

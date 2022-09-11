@@ -17,6 +17,9 @@ order: 800
 
 ## Overview
 
+{% include /general-shipping/agent-note.md %}
+
+
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format System metrics to Logz.io, you need to add multiple system-related inputs and **outputs.http** plug-ins to your Telegraf configuration file.

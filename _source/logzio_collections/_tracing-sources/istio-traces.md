@@ -13,6 +13,9 @@ shipping-tags:
 order: 1380
 ---
 
+{% include /general-shipping/agent-note.md %}
+
+
 Deploy this integration to send traces from your Istio service mesh layers to Logz.io via the OpenTelemetry collector using **logzio-otel-traces** Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
 
 **Before you begin, you'll need**:

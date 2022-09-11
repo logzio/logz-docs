@@ -22,6 +22,11 @@ contributors:
 Lookup lists are custom lists that you can use for simpler, easier query filtering in Kibana. 
 Instead of adding a long list of elements to your query, you can create lookup lists and use them to filter results by adding the operator `in lookups` or `not in lookups`. For example, you can create lookup lists of allowlisted or blocklisted usernames, IP addresses, regions, or domains. 
 
+<!-- info-box-start:info -->
+Lookup list values are only string-based and do not support ranges. Kibana, however, supports range-based searches, such as IP: [127.0.0.0 TO 127.*].
+{:.info-box.note}
+<!-- info-box-end -->
+
 Each list you create is added to the main Lookup lists library: Because the lookup lists are centrally managed, any list can be easily updated and changed without requiring manually updating multiple dashboards, saved searches, security rules, and so on.
 
 To view and create lookup lists, from the **Cloud SIEM** menu, go to [**More Options > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup).

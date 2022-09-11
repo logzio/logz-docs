@@ -21,6 +21,11 @@ contributors:
 
 Static lookup lists include values you define, used as a reference to search and match elements across your code. For example, you can create lookup lists of allowlisted or blocklisted usernames, IP addresses, regions, or domains.
 
+<!-- info-box-start:info -->
+Lookup list values are only string-based and do not support ranges. Kibana, however, supports range-based searches, such as IP: [127.0.0.0 TO 127.*].
+{:.info-box.note}
+<!-- info-box-end -->
+
 You can reference lookup tables in a security filter. 
 
 In **Static lookups**, you define fields and values that do not change during the task run.

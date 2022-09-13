@@ -88,7 +88,7 @@ If you want to sync both views so they both cover the same time range, click the
 
 Logz.io's Infrastructure Monitoring (Metrics) accounts usage is calculated based on the Unique Time Series (UTS).
 
-A time series is a collection of pairs, each one including a timestamp and value. Each time series is uniquely identified by its name and a set of labels. 
+A time series is a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its name and a set of labels. 
 
 For example, these are all seperate time series:
 

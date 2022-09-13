@@ -88,7 +88,9 @@ If you want to sync both views so they both cover the same time range, click the
 
 Logz.io's Infrastructure Monitoring (Metrics) accounts usage is calculated based on the Unique Time Series (UTS).
 
-Each time series is uniquely identified by its name and a set of labels. For example, these are all distinct time series:
+A time series is a collection of pairs, each one including a timestamp and value. Each time series is uniquely identified by its name and a set of labels. 
+
+For example, these are all seperate time series:
 
 `temperature{city=”NY”}`
 
@@ -97,6 +99,7 @@ Each time series is uniquely identified by its name and a set of labels. For exa
 `temperature{city=”SF”, unit=”Celsius”}`
 
 `temperature`
+
 
 You can view your usage metrics in your Infrastructure Monitoring dashboard. Navigate to **[Metrics](https://app.logz.io/#/dashboard/metrics) > [Explore](https://app.logz.io/#/dashboard/metrics/explore) > Metrics browser** and enter the following PromQL query: `logzio_metrics_accepted_data_points_per_minute{}`. 
 

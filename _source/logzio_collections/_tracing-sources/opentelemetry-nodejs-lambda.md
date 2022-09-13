@@ -41,7 +41,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 <div class="tasklist">
 
-##### Add the OpenTelemetry collector layer to your Lambda function
+##### Add the OpenTelemetry collector layer to your Lambda function 
 
 This layer contains the OpenTelemetry collector that will capture data from your application.
 

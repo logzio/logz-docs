@@ -36,7 +36,7 @@ Adding environmental variables using the AWS CLI commands below, will overwrite 
 
 <!-- info-box-start:info -->
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
-{:.info-box.note}
+{:.info-box.important}
 <!-- info-box-end -->
 
 <div class="tasklist">

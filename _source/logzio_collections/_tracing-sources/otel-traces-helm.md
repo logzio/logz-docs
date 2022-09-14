@@ -26,7 +26,7 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 
 <!-- info-box-start:info -->
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
-{:.info-box.note}
+{:.info-box.important}
 <!-- info-box-end -->
 
 ###### Sending logs from nodes with taints

@@ -90,7 +90,7 @@ Logz.io's Infrastructure Monitoring (Metrics) accounts usage is calculated based
 
 A time series is a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
 
-For example, these are all seperate time series:
+For example, these are all distinct time series:
 
 `temperature{city=”NY”}`
 

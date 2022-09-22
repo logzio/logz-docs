@@ -89,16 +89,16 @@ Confirm the checkbox, and click **Add*.
 
 ![Step 5 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/control-tower/s3-hook-stack-06.png)
 
-####### Advanced settings
+###### Advanced settings
 
-###### Filtering files
+**Filtering files**
 
 If there are specific paths within the bucket that you want to pull logs from, you can use the `pathsRegex` variable.
 This variable should hold a comma-seperated list of regexes that match the paths you wish to extract logs from.
 **Note**: This will still trigger your Lambda function every time a new object is added to your bucket. However, if the key does not match the regexes, the function will quit and won't send the logs.
 
 
-###### Adding object path as logs field
+**Adding object path as logs field**
 
 In case you want to use your objects' path as extra fields in your logs, you can do so by using `pathToFields`.
 

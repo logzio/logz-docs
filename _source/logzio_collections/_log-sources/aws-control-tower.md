@@ -22,9 +22,7 @@ This integration is currently released as a beta version.
 <!-- info-box-end -->
 
 
-AWS Control Tower is a tool to control a top-level summary of policies applied to the AWS environment to ensure that the deployed resourced conform the policies of the AWS environment.
-
-This integration sends logs from S3 buckets that the AWS Control Tower automatically creates in your AWS environment.
+AWS Control Tower is a tool to control a top-level summary of policies applied to the AWS environment. This integration sends logs from S3 buckets that the AWS Control Tower automatically creates in your AWS environment.
 
 
 #### Configuration

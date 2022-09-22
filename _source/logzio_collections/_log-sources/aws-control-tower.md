@@ -15,6 +15,16 @@ shipping-tags:
   - aws
 order: 630
 ---
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Setup](#setup)
+* [Advanced settings](#Advanced)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="setup">
+
 
 <!-- info-box-start:info -->
 This integration is currently released as a beta version.
@@ -89,39 +99,6 @@ Confirm the checkbox, and click **Add*.
 
 ![Step 5 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/control-tower/s3-hook-stack-06.png)
 
-###### Advanced settings
-
-**Filtering files**
-
-If there are specific paths within the bucket that you want to pull logs from, you can use the `pathsRegex` variable.
-This variable should hold a comma-seperated list of regexes that match the paths you wish to extract logs from.
-**Note**: This will still trigger your Lambda function every time a new object is added to your bucket. However, if the key does not match the regexes, the function will quit and won't send the logs.
-
-
-**Adding object path as logs field**
-
-In case you want to use your objects' path as extra fields in your logs, you can do so by using `pathToFields`.
-
-For example, if your objects are under the path: `oi-3rfEFA4/AWSLogs/2378194514/file.log`, where `oi-3rfEFA4` is org id, `AWSLogs` is aws type, and `2378194514` is account id. 
-
-Setting `pathToFields` with the value: `org-id/aws-type/account-id` will add to logs the following fields:
-`org-id`: `oi-3rfEFA4`, `aws-type`: `AWSLogs`, `account-id`: `2378194514`.
-
-<!-- info-box-start:info -->
-If you use `pathToFields`, you need to add a value for each subfolder in the path. Otherwise there will be a mismatch and the logs will be sent without fields.
-{:.info-box.note}
-<!-- info-box-end -->
-
-<!-- info-box-start:info -->
-This will override a field with the same key, if it exists.
-{:.info-box.note}
-<!-- info-box-end -->
-
-<!-- info-box-start:info -->
-In order for the feature to work, you need to set `pathToFields` from the root of the bucket.
-{:.info-box.note}
-<!-- info-box-end -->
-
 
 ##### Deploy the Control Tower stack
 
@@ -180,4 +157,49 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 
 </div>
+</div>
+<!-- tab:end -->
+
+<!-- tab:start -->
+<div id="Advanced">
+
+
+###### Advanced settings
+
+##### Filtering files
+
+If there are specific paths within the bucket that you want to pull logs from, you can use the `pathsRegex` variable.
+This variable should hold a comma-seperated list of regexes that match the paths you wish to extract logs from.
+**Note**: This will still trigger your Lambda function every time a new object is added to your bucket. However, if the key does not match the regexes, the function will quit and won't send the logs.
+
+
+##### Adding object path as logs field
+
+In case you want to use your objects' path as extra fields in your logs, you can do so by using `pathToFields`.
+
+For example, if your objects are under the path: `oi-3rfEFA4/AWSLogs/2378194514/file.log`, where `oi-3rfEFA4` is org id, `AWSLogs` is aws type, and `2378194514` is account id. 
+
+Setting `pathToFields` with the value: `org-id/aws-type/account-id` will add to logs the following fields:
+`org-id`: `oi-3rfEFA4`, `aws-type`: `AWSLogs`, `account-id`: `2378194514`.
+
+<!-- info-box-start:info -->
+If you use `pathToFields`, you need to add a value for each subfolder in the path. Otherwise there will be a mismatch and the logs will be sent without fields.
+{:.info-box.note}
+<!-- info-box-end -->
+
+<!-- info-box-start:info -->
+This will override a field with the same key, if it exists.
+{:.info-box.note}
+<!-- info-box-end -->
+
+<!-- info-box-start:info -->
+In order for the feature to work, you need to set `pathToFields` from the root of the bucket.
+{:.info-box.note}
+<!-- info-box-end -->
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->
 

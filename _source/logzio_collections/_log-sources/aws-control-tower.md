@@ -163,8 +163,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:start -->
 <div id="Advanced">
 
-
-###### Advanced settings
+#### Advanced settings
 
 ##### Filtering files
 

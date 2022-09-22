@@ -40,6 +40,8 @@ Specify the stack details as per the table below and select **Next**.
 | `logzioToken`    | Your Logz.io log shipping token.                                                                                                                  | **Required**       |
 | `logLevel`       | Log level for the Lambda function. Can be one of: `debug`, `info`, `warn`, `error`, `fatal`, `panic`.                                             | Default: `info`    |
 | `logType`        | The log type you'll use with this Lambda. This is shown in your logs under the type field in Kibana. Logz.io applies parsing based on type.       | Default: `s3_hook` |
+| `pathsRegexes`   | Comma-seperated list of regexes that match the paths you'd like to pull logs from.                                                                                                                                                                                  | -                  |
+| `pathToFields`   | Fields from the path to your logs directory that you want to add to the logs. For example, `org-id/aws-type/account-id` will add each of the fields `ord-id`, `aws-type` and `account-id` to the logs that are fetched from the directory that this path refers to. See [Advanced settings](#Advanced) for more on this. | -                  |
 
 
 ![Step 2 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/specify-stack.png)

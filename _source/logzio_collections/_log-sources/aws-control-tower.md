@@ -179,7 +179,7 @@ In case you want to use your objects' path as extra fields in your logs, you can
 For example, if your objects are under the path: `oi-3rfEFA4/AWSLogs/2378194514/file.log`, where `oi-3rfEFA4` is org id, `AWSLogs` is aws type, and `2378194514` is account id. 
 
 Setting `pathToFields` with the value: `org-id/aws-type/account-id` will add to logs the following fields:
-`org-id`: `oi-3rfEFA4`, `aws-type`: `AWSLogs`, `account-id`: `2378194514`.
+`org-id: oi-3rfEFA4`, `aws-type: AWSLogs`, `account-id: 2378194514`.
 
 <!-- info-box-start:info -->
 If you use `pathToFields`, you need to add a value for each subfolder in the path. Otherwise there will be a mismatch and the logs will be sent without fields.

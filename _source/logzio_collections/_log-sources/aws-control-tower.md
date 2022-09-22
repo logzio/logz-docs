@@ -16,6 +16,12 @@ shipping-tags:
 order: 630
 ---
 
+<!-- info-box-start:info -->
+This integration is currently released as a beta version.
+{:.info-box.note}
+<!-- info-box-end -->
+
+
 AWS Control Tower is a tool to control a top-level summary of policies applied to the AWS environment to ensure that the deployed resourced conform the policies of the AWS environment.
 
 This integration sends logs from S3 buckets that the AWS Control Tower automatically creates in your AWS environment.
@@ -27,7 +33,7 @@ This integration sends logs from S3 buckets that the AWS Control Tower automatic
 
 ##### Deploy an S3 Hook Lambda function
 
-Click the button that matches the region you wish to deploy your Stack to:
+This stack sends logs as they get added to the bucket. To start, click the button that matches the region you wish to deploy your Stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                       |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -85,15 +91,16 @@ Confirm the checkbox, and click **Add*.
 
 ![Step 5 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/control-tower/s3-hook-stack-06.png)
 
+####### Advanced settings
 
-##### Filtering files
+###### Filtering files
 
 If there are specific paths within the bucket that you want to pull logs from, you can use the `pathsRegex` variable.
 This variable should hold a comma-seperated list of regexes that match the paths you wish to extract logs from.
 **Note**: This will still trigger your Lambda function every time a new object is added to your bucket. However, if the key does not match the regexes, the function will quit and won't send the logs.
 
 
-##### Adding object path as logs field
+###### Adding object path as logs field
 
 In case you want to use your objects' path as extra fields in your logs, you can do so by using `pathToFields`.
 
@@ -107,10 +114,15 @@ If you use `pathToFields`, you need to add a value for each subfolder in the pat
 {:.info-box.note}
 <!-- info-box-end -->
 
-**Important notes about `pathToFields`**:
+<!-- info-box-start:info -->
+This will override a field with the same key, if it exists.
+{:.info-box.note}
+<!-- info-box-end -->
 
-1. This will override a field with the same key, if it exists.
-2. In order for the feature to work, you need to set `pathToFields` from the root of the bucket.
+<!-- info-box-start:info -->
+In order for the feature to work, you need to set `pathToFields` from the root of the bucket.
+{:.info-box.note}
+<!-- info-box-end -->
 
 
 ##### Deploy the Control Tower stack

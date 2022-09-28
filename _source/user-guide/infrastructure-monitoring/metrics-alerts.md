@@ -171,6 +171,9 @@ Click on **Save policy** to create the new policy.
 ![Alert notification policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-alert-notification-policy.png)
 
 
+You can't create a notification that has more than 1 trigger tag or label. This causes the alert manager to use the AND operator (instead of OR), and your notification will not trigger. To solve this, you can create multiple notification policies that has the same label.
+{:.info-box.note}
+
 ### Silences – temporarily mute notifications
 
 Your system can trigger many alerts, creating noise that might distract team members from focusing on critical issues. To prevent this, you can use Silences to mute alerts during a certain time frame.

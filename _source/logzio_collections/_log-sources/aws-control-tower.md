@@ -41,6 +41,11 @@ AWS Control Tower is a tool to control a top-level summary of policies applied t
 
 ##### Deploy an S3 Hook Lambda function
 
+<!-- info-box-start:info -->
+The stacks must be deployed in the same region as the S3 buckets.
+{:.info-box.note}
+<!-- info-box-end -->
+
 This stack sends logs as they get added to the bucket. To start, click the button that matches the region you wish to deploy your Stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                       |
@@ -103,6 +108,13 @@ Confirm the checkbox, and click **Add*.
 ##### Deploy the Control Tower stack
 
 This stack creates a Lambda function, an EventBridge rule and IAM roles to automatically add triggers to the S3 Hook Lambda function as the Control Tower is creating new buckets. 
+
+
+
+<!-- info-box-start:info -->
+The stacks must be deployed in the same region as the S3 buckets.
+{:.info-box.note}
+<!-- info-box-end -->
 
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:

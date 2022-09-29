@@ -17,4 +17,4 @@ If you’ve encountered a vulnerability, perceived security issue or potential e
 
 We respectfully request that you adhere to ethical disclosure practices and avoid reporting the issue publicly until we have had an opportunity to evaluate it.
 
-Thank you, we greatly appreciate your cooperation.
+Thank you, we greatly appreciate your cooperation. 

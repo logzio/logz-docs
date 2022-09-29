@@ -34,6 +34,7 @@ order: 330
 {% include metric-shipping/generic-dashboard.html %} 
 
 
+
 ### Architecture overview
 
 This integration is based on OpenTelemetry. It works as an add-on to existing OpenTelemetry installations. If you need to set up OpenTelemetry first, refer to our documentation on [OpenTelemetry](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry).

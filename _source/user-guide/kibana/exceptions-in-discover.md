@@ -77,13 +77,22 @@ Logz.io tracks the recurrence of each exception over time, and retains its **Fir
 |First occurrence| The earliest time the exception was identified |
 | Last seen | Most recent occurrence of the exception, based on your browser's time zone |
 
+
+### Email your exceptions' insights
+
+You can get a daily email that includes your exceptions' insights.
+
+To do so, [configure an alert](/user-guide/alerts/configure-an-alert.html) with the following query:
+
+`_exists_:"_logzio_insights"`.
+
+And adding your [email address as a notification endpoint](/user-guide/alerts/configure-an-alert.html#add-an-email-address-as-a-recipient).
+
 ### Sorting & Filtering options
 
 By default, exceptions are sorted by their frequency (that is, their number of occurrences).
 
 To reorder exceptions by **# of occurrences**, **First occurrence**, or **Last seen**, click the column header to sort the data in ascending/descending order. (An arrow indicates the sorting method.)
-
-
 
 ### New exceptions
 

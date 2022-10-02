@@ -78,15 +78,15 @@ Logz.io tracks the recurrence of each exception over time, and retains its **Fir
 | Last seen | Most recent occurrence of the exception, based on your browser's time zone |
 
 
-### Email your exceptions' insights
+### Get your exceptions' insights
 
-You can get a daily email that includes your exceptions' insights.
+You can set an alert to get a digest, including your exceptions insights.
 
-To do so, [configure an alert](/user-guide/alerts/configure-an-alert.html) with the following query:
+To do so, you'll need to [**configure an alert**](/user-guide/alerts/configure-an-alert.html) with the following query:
 
 `_exists_:"_logzio_insights"`.
 
-And adding your [email address as a notification endpoint](/user-guide/alerts/configure-an-alert.html#add-an-email-address-as-a-recipient).
+And choose the notification endpoint you prefer. You can receive insights to your endpoint of choice, such as an email, Slack channel, logs, and more.
 
 ### Sorting & Filtering options
 

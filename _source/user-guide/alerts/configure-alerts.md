@@ -156,6 +156,11 @@ Choose the endpoints or email addresses to notify under _Who to send it to_.
 
 ###### Add an email address as a recipient
 
+<!-- info-box-start:info -->
+Notification emails include up to 10 sample events. If your alert triggers more than 10 events, you can view the complete list in your logs.
+{:.info-box.note}
+<!-- info-box-end -->
+
 To use an **email** as your endpoint, you need to type the email in the Recipients table and click enter.
 
 ![Enter custom email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/add-custom-email.gif)

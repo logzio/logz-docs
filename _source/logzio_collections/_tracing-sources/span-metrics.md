@@ -27,6 +27,12 @@ order: 330
 
 [Service Performance Monitoring](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring) is a high-level monitoring dashboard within Logz.io that enables you to monitor your tracing services and operations. This integration allows you to configure Service Performance Monitoring with OpenTelemetry collector and send spans and span metrics from your OpenTelemetry installation to Logz.io. 
 
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["40ZpsSfzfGhbguMYoxwOqm, 5PFq9YHx2iQkwVMLCMOmjJ"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
+
 
 ### Architecture overview
 

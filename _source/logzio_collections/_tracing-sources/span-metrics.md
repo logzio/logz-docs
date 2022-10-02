@@ -31,7 +31,7 @@ order: 330
 
 <!-- logzio-inject:install:grafana:dashboards ids=["40ZpsSfzfGhbguMYoxwOqm, 5PFq9YHx2iQkwVMLCMOmjJ"] --> 
 
-{% include metric-shipping/generic-dashboard.html %} 
+{% include metric-shipping/generic-dashboard.html %}   
 
 
 ### Architecture overview

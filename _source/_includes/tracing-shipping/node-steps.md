@@ -5,7 +5,7 @@ Run the following command from the application directory:
 ```shell
 npm install --save @opentelemetry/api
 npm install --save @opentelemetry/instrumentation
-npm install --save @opentelemetry/tracing
+npm install --save @opentelemetry/sdk-trace-base
 npm install --save @opentelemetry/exporter-trace-otlp-http
 npm install --save @opentelemetry/resources
 npm install --save @opentelemetry/semantic-conventions
@@ -24,7 +24,7 @@ const {
     BasicTracerProvider,
     ConsoleSpanExporter,
     SimpleSpanProcessor,
-} = require("@opentelemetry/tracing");
+} = require("@opentelemetry/sdk-trace-base");
 const { OTLPTraceExporter } = require("@opentelemetry/exporter-trace-otlp-http");
 const { Resource } = require("@opentelemetry/resources");
 const {

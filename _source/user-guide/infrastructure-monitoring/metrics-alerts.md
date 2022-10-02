@@ -141,6 +141,10 @@ Once you're done, click **Save contact point**.
 
 Your alert and contact points are ready, and now it's time to determine how alerts are routed to contact points. Notification policies are built in a tree structure, where each policy can have one or more child policies.
 
+
+You can't create a notification with more than 1 trigger tag or label since it causes the alert uses the AND operator (instead of OR), resulting in your notification not triggering. To solve this, you can create multiple notification policies that use the same label. 
+{:.info-box.note}
+
 To set your notification policy, navigate to the main **[Alerting page](https://app.logz.io/#/dashboard/metrics/alerting/)** and click on the **Notification policies** tab. 
 
 Click on **New policy** to create your policy, and click on the **Add matcher** option. 

@@ -63,7 +63,7 @@ Confirm the checkbox, and click **Add*.
 That's it. Your function is configured.
 Once you upload new files to your bucket, it will trigger the function, and the logs will be sent to your Logz.io account.
 
-##### Parsing
+###### Parsing
 
 S3 Hook will automatically parse logs in the following cases:
 

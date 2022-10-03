@@ -177,6 +177,12 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Advanced settings
 
+##### Automatic parsing
+
+S3 Hook will automatically parse logs in the following cases:
+
+- The object's path contains the phrase `cloudtrail` (case insensitive).
+
 ##### Filtering files
 
 If there are specific paths within the bucket that you want to pull logs from, you can use the `pathsRegex` variable.

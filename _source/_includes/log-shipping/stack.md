@@ -63,6 +63,12 @@ Confirm the checkbox, and click **Add*.
 That's it. Your function is configured.
 Once you upload new files to your bucket, it will trigger the function, and the logs will be sent to your Logz.io account.
 
+##### Parsing
+
+S3 Hook will automatically parse logs in the following cases:
+
+- The object's path contains the phrase `cloudtrail` (case insensitive).
+
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).

@@ -42,7 +42,7 @@ Logz.io's Exceptions tab only includes **Application insight** exceptions.
 
 You can find and view all exceptions by using the following query:
 
-`_exists_: _logzio_logceptions`
+`_exists_: _logzio_logceptions OR _exists_:"_logzio_insights"`
 
 Each exception is grouped into logical units, which you can view under the **Exceptions** tab.
 
@@ -84,7 +84,7 @@ You can set an alert to get a digest, including your exceptions insights.
 
 To do so, you'll need to [**configure an alert**](/user-guide/alerts/configure-an-alert.html) with the following query:
 
-`_exists_: _logzio_logceptions OR _exists_:"_logzio_insights"`.
+`_exists_: _logzio_logceptions OR _exists_:"_logzio_insights"`
 
 And choose the notification endpoint you prefer. You can receive insights to your endpoint of choice, such as an email, Slack channel, logs, and more.
 

@@ -28,29 +28,30 @@ Select the Localhost platform and the relevant sub-type through which you want t
 
 ##### Select data sources
 
-Enter the full path location of your log folders from your machine. You can add multiple log folders to monitor by clicking on the **Add a folder** option.
+
+Enter the full path location of your log folders from your machine. You can add multiple log folders or files by clicking on the **Add a folder**/**Add a file** option.
 
 The Telemetry Collector can also collect metrics data from your logs.
 
 ![Select folder collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/log-location.png)
 
+If you're running on a **Windows** machine, you'll be able to choose whether you want to collect application, security, and system logs.
+
 ##### Define your collector
 
 Choose a name and write a description to help identify the collector. 
 
-Under **Accounts**, you can review the Logs and Metrics accounts to which the Telemetry Collector will send the data. If you don’t have an existing account, one will be created for you.
+Under **Accounts**, you can review the Logs and Metrics accounts to which the Telemetry Collector will send the data. If you don’t have an existing account, one will be created for you and you'll be able to review its name before continuing. 
 
 Click **Generate snippet** to continue.
 
 ![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/define-collector-localhost.png)
 
-Next, review your collector. The Summary, located on the left side of the screen, includes all of the data in the collector.
-
 ##### Run the Telemetry Collector
 
 Copy the code snippet and run it on your end:
 
-* **Mac** users - Run the snippet in your terminal.
+* **Mac** and **Linux** users - Run the snippet in your terminal.
 * **Windows** users - Run the snippet in your PowerShell x64 **as Administrator** (Note that PowerShell x86 and PowerShell ISE are currently not supported).
 
 Some platforms might require additional details, such as admin privileges or passwords, to complete the installation. These details are not sent to or stored by Logz.io.
@@ -68,7 +69,7 @@ If you encounter issues in installing or running your Telemetry Collector, [cont
 
 #### Manage and remove a Telemetry Collector:
 
-To manage a Localhost Telemetry Collector on your **Mac** machine, you can use the following commands:
+To manage a Localhost Telemetry Collector on your **Mac** or **Linux** machine, you can use the following commands:
 
 | **Collector Binary:** || `/opt/logzio-otel-collector/otelcol-logzio-darwin_amd64` |
 | **Collector Config:** || `/opt/logzio-otel-collector/otel_config.yaml` |

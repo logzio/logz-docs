@@ -27,7 +27,7 @@ The following guide will help you understand how to do just that through Logz.io
 * [Optimize metrics data](/user-guide/accounts/data-optimization.html#optimize-metrics-data)
 * [Utilize data analytics with:](/user-guide/accounts/data-optimization.html#data-analytics---find-the-needle-in-the-haystack)
   * [Alerts](/user-guide/accounts/data-optimization.html#alerting)
-  * [Pattern engine](/user-guide/accounts/data-optimization.html#patterns-engine)
+  * [Patterns engine](/user-guide/accounts/data-optimization.html#patterns-engine)
   * [Usage calculation](/user-guide/accounts/data-optimization.html#usage-calculation)
 
 #### Manage your workspaces - Divide and conquer your quota

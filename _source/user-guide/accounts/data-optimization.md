@@ -5,7 +5,6 @@ permalink: /user-guide/accounts/data-optimization.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Optimize your Logz.io data; the complete guide
 flags:
-  admin: true
   logzio-plan: community
 tags:
   - accounts
@@ -17,7 +16,7 @@ contributors:
   - hidan
 ---
 
-![Data Volume Dashboard ELK app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--elk-apps-data-volume-dashboard.png)
+<!-- ![Data Volume Dashboard ELK app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--elk-apps-data-volume-dashboard.png) -->
 
 After setting up your account and having your data flowing into Logz.io, it’s time to utilize features and strategies to filter out the noise and analyze the data that is most valuable to you.
 

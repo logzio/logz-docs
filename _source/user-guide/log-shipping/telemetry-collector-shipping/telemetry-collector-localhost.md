@@ -41,7 +41,7 @@ If you're running on a **Windows** machine, you'll be able to choose whether you
 
 Choose a name and write a description to help identify the collector. 
 
-Under **Accounts**, you can review the Logs and Metrics accounts to which the Telemetry Collector will send the data. If you don’t have an existing account, one will be created for you and you'll be able to review its name before continuing. 
+Under **Accounts**, you can review the Logs and Metrics accounts to which the Telemetry Collector will send the data. If you don’t have an existing account, one will be created for you, and you’ll be able to review its name before continuing.
 
 Click **Generate snippet** to continue.
 

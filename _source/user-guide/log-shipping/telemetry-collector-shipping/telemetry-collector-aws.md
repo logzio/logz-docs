@@ -39,7 +39,7 @@ Logz.io uses OpenTelemetry to monitor your EC2.
 
 Choose a name and write a description to help identify the collector. 
 
-Under **Accounts**, you can review the Logs and Metrics accounts to which the Telemetry Collector will send the data. If you don't have an existing account, one will be generate for you and you'll be able to review its name before continuing.
+Under **Accounts**, you can review the Logs and Metrics accounts to which the Telemetry Collector will send the data. If you don't have an existing account, one will be generated for you, and you’ll be able to review its name before continuing.
 
 Click **Generate snippet** to continue.
 

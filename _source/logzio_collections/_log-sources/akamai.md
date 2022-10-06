@@ -44,11 +44,12 @@ In the **Destination** section, set the parameters as follows:
 1. In the **Destination** dropdown, select **Custom Https**.
 2. In the **Display name** field, enter the name for the destination that will be shown in Akamai.
 3. In the **Authentication** dropdown, select **NONE**.
-4. In the **Endpoint URL** section, enter:
-   `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=<<LOG-TYPE>>`
-     * {% include log-shipping/listener-var.html %}
-     * {% include /log-shipping/log-shipping-token.html %}
-     * Replace `<<LOG-TYPE>>` with the tag that you want to use to identify the logs in Logz.io.
+4. In the **Endpoint URL** section, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=<<LOG-TYPE>>`
+
+   * {% include log-shipping/listener-var.html %}
+   * {% include /log-shipping/log-shipping-token.html %}
+   * Replace `<<LOG-TYPE>>` with the tag that you want to use to identify the logs in Logz.io.
+   
 5. Click **Validate & Save**.
 
 ##### Enable the data stream for each selected property

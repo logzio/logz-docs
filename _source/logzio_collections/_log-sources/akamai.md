@@ -1,7 +1,7 @@
 ---
 title: Akamai logs
 logo:
-  logofile: akamai-logo.png
+  logofile: akamai-logo2.png
   orientation: vertical
 data-source: Akamai
 data-for-product-source: Logs

@@ -5742,6 +5742,234 @@ paths:
           description: successful operation
 
 
+  /v2/security/rules/bulk/update:
+    post:
+      tags:
+        - Security rules
+      operationId: bulkUpdateSecurityRule
+      summary: Bulk update security rules
+      description: Update security rules in bulk
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              filters:
+                type: object
+                properties:
+                  search:
+                    type: string
+                    description: Search string
+                    example: string
+                  severities:
+                    type: array
+                    description: Filter by the severities of the security rules. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+                    items:
+                      type: string
+                      example: SEVERE
+                      enum:
+                        - INFO
+                        - LOW
+                        - MEDIUM
+                        - HIGH
+                        - SEVERE
+                  updatedBy:
+                    type: array
+                    description: Email addresses of the last users to update the rules
+                    items:
+                      type: string
+                      example: user@company.com
+                  createdBy:
+                    type: array
+                    description: Email addresses of the users to create the rules
+                    items:
+                      type: string
+                      example: user@company.com
+                  enabledState:
+                    type: list of booleans
+                    description: true to include enabled rules, false to include disabled rules. An empty list defaults to both enabled and disabled rules.
+                  emailNotifications:
+                    type: array
+                    description: List of email addresses on the recipients list to receive notifications when the rules trigger.
+                    items:
+                      type: string
+                      example: string
+                  notificationsEndpointIds:
+                    type: array
+                    description: Notification endpoints
+                    items:
+                      type: integer
+                      format: int32
+                      example: 0
+                  tags:
+                    type: array
+                    description: Tags are labels used to organize security rules.
+                    example: threat
+                    items:
+                      type: object
+                      example: { network_threat, recon}
+                  ruleIds:
+                    type: array
+                    items:
+                      type: integer
+                      format: int32
+                      example: 0
+              fields:
+                type: object
+                properties:
+                  enabled:
+                    description: Whether felds are enabled.
+                    type: boolean
+                  recipients:
+                    type: object
+                    description: Recepients.
+                    properties:
+                      recipientsOperation:
+                        description: Recepients operation.
+                        type: string
+                        example: ADD
+                      recipients:
+                        type: object
+                        description: Recepients.
+                        properties:
+                          emails:
+                            type: array
+                            description: Email addresses of the recepients.
+                            items:
+                              type: string
+                              example: string
+                          notificationEndpointIds:
+                            type: array
+                            description: Notification endpoints.
+                            items:
+                              type: integer
+                              format: int32
+                              example: 0
+              all:
+                type: boolean
+
+      responses:
+        default:
+          description: successful operation
+
+  /v2/security/rules/bulk/delete:
+    post:
+      tags:
+        - Security rules
+      operationId: bulkDeleteSecurityRule
+      summary: Bulk delete security rules
+      description: Delete security rules in bulk
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              filters:
+                type: object
+                properties:
+                  search:
+                    type: string
+                    description: Search string
+                    example: string
+                  severities:
+                    type: array
+                    description: Filter by the severities of the security rules. You can manually test your results in the [UI](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC).
+                    items:
+                      type: string
+                      example: SEVERE
+                      enum:
+                        - INFO
+                        - LOW
+                        - MEDIUM
+                        - HIGH
+                        - SEVERE
+                  updatedBy:
+                    type: array
+                    description: Email addresses of the last users to update the rules
+                    items:
+                      type: string
+                      example: user@company.com
+                  createdBy:
+                    type: array
+                    description: Email addresses of the users to create the rules
+                    items:
+                      type: string
+                      example: user@company.com
+                  enabledState:
+                    type: list of booleans
+                    description: true to include enabled rules, false to include disabled rules. An empty list defaults to both enabled and disabled rules.
+                  emailNotifications:
+                    type: array
+                    description: List of email addresses on the recipients list to receive notifications when the rules trigger.
+                    items:
+                      type: string
+                      example: string
+                  notificationsEndpointIds:
+                    type: array
+                    description: Notification endpoints
+                    items:
+                      type: integer
+                      format: int32
+                      example: 0
+                  tags:
+                    type: array
+                    description: Tags are labels used to organize security rules.
+                    example: threat
+                    items:
+                      type: object
+                      example: { network_threat, recon}
+                  ruleIds:
+                    type: array
+                    items:
+                      type: integer
+                      format: int32
+                      example: 0
+              fields:
+                type: object
+                properties:
+                  enabled:
+                    description: Whether felds are enabled.
+                    type: boolean
+                  recipients:
+                    type: object
+                    description: Recepients.
+                    properties:
+                      recipientsOperation:
+                        description: Recepients operation.
+                        type: string
+                        example: ADD
+                      recipients:
+                        type: object
+                        description: Recepients.
+                        properties:
+                          emails:
+                            type: array
+                            description: Email addresses of the recepients.
+                            items:
+                              type: string
+                              example: string
+                          notificationEndpointIds:
+                            type: array
+                            description: Notification endpoints.
+                            items:
+                              type: integer
+                              format: int32
+                              example: 0
+              all:
+                type: boolean
+
+      responses:
+        default:
+          description: successful operation
+
 
   # ::::: SECURITY EVENTS
   /v2/security/rules/events/search:

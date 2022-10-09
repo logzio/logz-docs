@@ -9992,7 +9992,14 @@ definitions:
           properties:
             operatorType:
               type: string
-              description: Enum value of the operator used to define the filter. Possible values are `IS`, `IS_NOT`, `ONE_OF`, `NOT_ONE_OF`, `EXISTS`, `NOT_EXISTS`
+              enum:
+                - IS
+                - IS_NOT
+                - ONE_OF
+                - NOT_ONE_OF
+                - EXISTS
+                - NOT_EXISTS
+              description: Enum value of the operator used to define the filter.
               example: IS
             fieldName:
               type: string
@@ -10000,11 +10007,10 @@ definitions:
               example: type
             fieldValues:
               type: array
-              description: Enum value of the operator used to define the filter. Possible values are `IS`, `IS_NOT`, `ONE_OF`, `NOT_ONE_OF`, `EXISTS`, `NOT_EXISTS`
+              description: Values of the field to filter on.
               items:
                 type: object
                 properties:
-                  type: string
 
 
   RestoreRequest:

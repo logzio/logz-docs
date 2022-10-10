@@ -9985,6 +9985,33 @@ definitions:
         format: int64
         description: UNIX timestamp in milliseconds specifying the latest logs to be restored.
         example: 1589954400.000000000
+      filters:
+        type: array
+        items:
+          type: object
+          properties:
+            operatorType:
+              type: string
+              enum:
+                - IS
+                - IS_NOT
+                - ONE_OF
+                - NOT_ONE_OF
+                - EXISTS
+                - NOT_EXISTS
+              description: Enum value of the operator used to define the filter.
+              example: IS
+            fieldName:
+              type: string
+              description: Name of the field to filter on.
+              example: type
+            fieldValues:
+              type: array
+              description: Values of the field to filter on.
+              items:
+                type: object
+                properties:
+
 
   RestoreRequest:
     type: object

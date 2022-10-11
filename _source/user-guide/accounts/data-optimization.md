@@ -74,6 +74,8 @@ Use the following query to view the top cardinality contributors:
 
 If you have a flexible account, apply **[Utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics)** to optimize it. This lets you save utilization metrics on a set schedule (every 10, 30, or 60 mins). These metrics include the used data volume for the account and the expected data volume for the current indexing rate.
 
+#### Import data volume dashboard
+
 Use these metrics to create an alert when a certain threshold is exceeded, create a dashboard monitoring your data volumes, and more. For example, import and use our [pre-built dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-volume-dashboard.ndjson) to monitor your metric data volume.
 
 To import the dashboard to your account, navigate to [Logs](https://app.logz.io/#/dashboard/kibana/discover/) > [Stack Management > Saved objects](https://app.logz.io/#/dashboard/kibana/visualize/) and click on the Import button. Next, import the [data-volume-dashboard.ndjson](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-volume-dashboard.ndjson) file you've downloaded.
@@ -128,6 +130,7 @@ Navigate to your Logz.io [account > Settings > Plan and Usage](https://app.logz.
 The dashboard is a visual representation of your account, divided into the different products you use. These dashboards include your account’s daily data plan, how much you’ve used, and your overall usage pattern.
 
 Suppose you want to share the usage data with teammates who do not have the proper permissions to view the usage info, or you want to create alerts and monitor your usage data closely. In that case, you can build a similar visualization showing your log usage across all your accounts and services, allowing you to quickly identify the logs that can be optimized.
+
 ###### Build your log usage visualization:
 
 Navigate to **[Logs > Visualize > Create visualization](https://app.logz.io/#/dashboard/kibana/visualize/)** and choose the **Line** option from the list. Next, select **logzioCustomerIndex** as your source. This will open a blank visualization page on which you'll build your dashboard.

@@ -18,9 +18,9 @@ Drop filters offer a great way to filter out logs from an account to help manage
 
 Drop filters evaluate logs for field:value exact matches. Incoming logs that match your account's active drop filters will not be indexed and will not appear in your OpenSearch Dashboards account. Dropped logs are not searchable, cannot trigger alerts, and will not appear in dashboards, reports, or anything else. However, dropped logs will be archived if you are archiving logs.
 
-The following diagram helps explain how Drop filters work:
+The following diagram explains how Drop filters are applied when sending data to Logz.io:
 
-![Drop filters overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filter-overview.png)
+![Drop filters overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filter-flow.png)
 
 You can turn drop filters on and off, as often as you like, making them ideal for logs that are only needed sometimes.
 

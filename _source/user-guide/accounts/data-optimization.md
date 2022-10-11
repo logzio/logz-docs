@@ -72,7 +72,11 @@ Use the following query to view the top cardinality contributors:
 
 `topk(10, count by (__name__) ({__name__ != ""}))`
 
-If you have a flexible account, apply **[Utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics)** to optimize it. This lets you save utilization metrics on a set schedule (every 10, 30, or 60 mins). These metrics include the used data volume for the account and the expected data volume for the current indexing rate.
+If you have a flexible account, apply **[Utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics)** to optimize it. You'll need to apply Utilization metrics per account, by clicking on Settings > [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) > choosing the relevant account and checking the **Save access utilization metrics** option.
+
+![Utilization metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--save-account-utilization-metrics.png)
+
+Enabling this option lets you save utilization metrics on a set schedule (every 10, 30, or 60 mins). These metrics include the used data volume for the account and the expected data volume for the current indexing rate.
 
 #### Import data volume dashboard
 

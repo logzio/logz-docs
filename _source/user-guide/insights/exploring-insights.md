@@ -2,6 +2,8 @@
 layout: article
 title: Exploring insights
 permalink: /user-guide/insights/exploring-insights.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to explore Logz.io insights
 flags:
   logzio-plan: community
 tags:
@@ -47,4 +49,4 @@ When you click on an entry in the insight list, it will expand to show you detai
 * To edit an insight's title, description, or reference links,
   select **Edit** from the insight's menu (<i class="li li-ellipsis-v"></i>).
 * To see the log entries that triggered the insight,
-  click **View in Kibana**.
+  click **View in OpenSearch Dashboards**.

@@ -20,6 +20,7 @@ This section contains some guidelines for handling errors you may encounter when
 * [Problem: Elasticsearch.output issue](/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-elasticsearchoutput-issue)
 * [Problem: Not outputs defined](/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-not-outputs-defined)
 * [Problem: Connection issues](/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-connection-error)
+* [Problem: Operation not permitted](/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-operation-not-permitted)
 * [Zero metrics in the last 30 seconds](/user-guide/log-troubleshooting/filebeat-troubleshooting.html#zero-metrics-in-the-last-30-seconds)
 
 ## Problem: Path is locked
@@ -225,6 +226,29 @@ echo hello >> /var/log/my_log_file.log
 ```
 
 </div>
+
+## Problem: Operation not permitted
+
+You get the following error message when trying to access or change your yml file:
+
+``` yaml
+filebeat.yml: Operation not permitted
+```
+
+
+### Possible cause - insufficient permissions
+
+This error occurs when the user doesn't have the proper permission to access or edit the file.
+
+
+#### Suggested remedy
+
+You need to update the write permissions to the file. To do so, run the following command:
+
+``` yaml
+chmod go-w /etc/filebeat/filebeat.yml
+```
+
 
 ## Zero metrics in the last 30 seconds
 

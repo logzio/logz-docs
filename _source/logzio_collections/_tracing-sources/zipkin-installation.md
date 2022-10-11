@@ -51,15 +51,19 @@ On deployment, your Zipkin instrumentation captures spans from your application 
 
 **Before you begin, you'll need**:
 
-* An application instrumented with a Zipkin installation
+* An application instrumented with Zipkin
 * An active account with Logz.io
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
 
 <div class="tasklist">
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
@@ -71,7 +75,7 @@ receivers:
 
 
 exporters:
-  logzio:
+  logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
     region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
@@ -91,7 +95,7 @@ service:
     traces:
       receivers: [zipkin]
       processors: [batch]
-      exporters: [logzio]
+      exporters: [logzio/traces]
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}

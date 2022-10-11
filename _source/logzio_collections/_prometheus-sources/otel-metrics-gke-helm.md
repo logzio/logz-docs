@@ -6,8 +6,8 @@ logo:
 data-source: Google Kubernetes Engine over OpenTelemetry
 data-for-product-source: Metrics
 open-source:
-  - title: Logzio-otel-k8s-metrics
-    github-repo: logzio-helm/tree/master/charts/opentelemetry
+  - title: Logzio-telemetry
+    github-repo: logzio-helm/tree/master/charts/logzio-telemetry
 templates: ["k8s-daemonset"]
 contributors:
   - yotamloe
@@ -26,7 +26,6 @@ order: 390
 * [Standard configuration Linux](#Standard-configuration-linux)
 * [Customizing Helm chart parameters](#Customizing-helm-chart-parameters)
 * [Uninstalling the Chart](#Uninstalling-the-chart)
-* [Troubleshooting](#Troubleshooting)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -35,7 +34,7 @@ order: 390
 ####  Overview
 
 
-**logzio-otel-k8s-metrics** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+**logzio-k8s-telemetry** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
 This chart is a fork of the [opentelemetry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
   
@@ -98,10 +97,11 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 
    ```
    helm install --namespace <<YOUR-NAMESPACE>>  \
+   --set metrics.enabled=true \
    --set secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
    --set secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
    --set secrets.p8s_logzio_name=<<ENV-TAG>> \
-   logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics
+   logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
    ```
 
    * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
@@ -126,6 +126,8 @@ Give your metrics some time to get from your system to ours.
 {% include metric-shipping/generic-dashboard.html %} 
   
 </div>
+
+For troubleshooting this solution, see our [GKE troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/gke-helm-opentelemetry-troubleshooting.html).
   
 </div>
 <!-- tab:end -->
@@ -151,7 +153,7 @@ You can use the following options to update the Helm chart parameters:
 ###### Example:
 
 ```
-helm install logzio-otel-k8s-metrics logzio-helm/logzio-otel-k8s-metrics -f my_values.yaml 
+helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f my_values.yaml 
 ```
 
 ##### Customize the metrics collected by the Helm chart 
@@ -165,6 +167,8 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 
 </div>
 
+For troubleshooting this solution, see our [GKE troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/gke-helm-opentelemetry-troubleshooting.html).
+
 </div>
 <!-- tab:end -->
 
@@ -175,23 +179,14 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 
 The `uninstall` command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-To uninstall the `logzio-otel-k8s-metrics` deployment, use the following command:
+To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 
 ```shell
-helm uninstall logzio-otel-k8s-metrics
+helm uninstall logzio-k8s-telemetry
 ```
 
 </div>
 <!-- tab:end -->
-
-<!-- tab:start -->
-<div id="Troubleshooting">
-
-{% include /p8s-shipping/k8s-troubleshooting.md %}
-
-</div>
-<!-- tab:end -->
-
 
 </div>
 <!-- tabContainer:end -->

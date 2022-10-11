@@ -2,6 +2,8 @@
 layout: article
 title: Pre-built metrics dashboards
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Available pre-built Metrics dashboards for Logz.io
 flags:
   logzio-plan: community
 tags:

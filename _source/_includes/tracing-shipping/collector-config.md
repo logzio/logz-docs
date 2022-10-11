@@ -23,7 +23,7 @@ receivers:
 
 
 exporters:
-  logzio:
+  logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
     region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
@@ -45,5 +45,5 @@ service:
     traces:
       receivers: [opencensus, jaeger, zipkin, otlp]
       processors: [batch]
-      exporters: [logging, logzio]
+      exporters: [logging, logzio/traces]
 ```

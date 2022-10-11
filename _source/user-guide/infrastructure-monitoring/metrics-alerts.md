@@ -34,6 +34,11 @@ There are 2 main ways for you to create a metric alert:
 
 Navigate to your **[Metrics account](https://app.logz.io/#/dashboard/metrics/)**, open your dashboard and choose the panel you'd like to use for your alert.
 
+
+You can't create an alert from a Gauge type visualization.
+{:.info-box.note}
+
+
 Click on the name of the panel and choose **Edit**. 
 
 ![Edit a panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-alert-edit.png)
@@ -135,6 +140,10 @@ Once you're done, click **Save contact point**.
 ### Notification policies – configure your alerting notifications
 
 Your alert and contact points are ready, and now it's time to determine how alerts are routed to contact points. Notification policies are built in a tree structure, where each policy can have one or more child policies.
+
+
+You can't create a notification with more than 1 trigger tag or label since it causes the alert uses the AND operator (instead of OR), resulting in your notification not triggering. To solve this, you can create multiple notification policies that use the same label. 
+{:.info-box.note}
 
 To set your notification policy, navigate to the main **[Alerting page](https://app.logz.io/#/dashboard/metrics/alerting/)** and click on the **Notification policies** tab. 
 

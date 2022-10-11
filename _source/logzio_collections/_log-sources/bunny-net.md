@@ -58,6 +58,9 @@ sudo openssl req -newkey rsa:2048 -nodes \
 
 ##### Configure Filebeat
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
    ```yaml  
@@ -109,6 +112,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `bunny-net` to see the incoming Axonius logs.
   
-If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+
 
 </div>

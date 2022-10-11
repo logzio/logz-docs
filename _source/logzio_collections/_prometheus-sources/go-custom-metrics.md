@@ -10,7 +10,6 @@ data-source: GO code
 data-for-product-source: Metrics
 flags:
   logzio-plan:  
-  beta: true
 templates: ["docker"]
 contributors:
   - yotamloe

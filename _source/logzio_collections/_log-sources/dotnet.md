@@ -25,6 +25,7 @@ order: 230
 * [log4net](#log4net-config)
 * [NLog](#nlog-config)
 * [LoggerFactory](#loggerfactory)
+* [Serilog](#serilog)
 {:.branching-tabs}
 
 <!-- tab:start -->
@@ -669,6 +670,145 @@ For the example above, you'd use `MyAppLogzioAppender`.
 
 </div>
 <!-- tab:end -->
+
+<!-- tab:start -->
+<div id="serilog">
+
+#### Configure Serilog
+  
+<!-- info-box-start:info -->
+This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.com/serilog-contrib/Serilog.Sinks.Logz.Io). Refer to this repo for further usage and settings information.
+{:.info-box.note}
+<!-- info-box-end -->
+  
+  
+**Before you begin, you'll need**:
+
+* .NET Core SDK version 2.0 or higher
+* .NET Framework version 4.6.1 or higher
+
+
+<div class="tasklist">
+
+##### Install the Logz.io Serilog sink
+
+Install `Serilog.Sinks.Logz.Io` using Nuget or by running the following command in the Package Manager Console:
+
+```shell
+PM> Install-Package Serilog.Sinks.Logz.Io
+```
+
+##### Configure the sink
+
+There are 2 ways to use Serilog:
+
+1. Using a configuration file
+2. In the code
+
+###### Using a configuration file
+
+Create `appsettings.json` file and copy the following configuration:
+
+```json
+{
+  "Serilog": {
+    "MinimumLevel": "Warning",
+    "WriteTo": [
+      {
+        "Name": "LogzIoDurableHttp",
+        "Args": {
+          "requestUri": "https://<<LISTENER-HOST>>:8071/?type=<<TYPE>>&token=<<LOG-SHIPPING-TOKEN>>"
+        }
+      }
+    ]
+  }
+}
+```
+
+{% include log-shipping/log-shipping-token.html %}
+
+{% include log-shipping/listener-var.html %} 
+
+Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+
+Add the following code to use the configuration and create logs:
+
+* Using Serilog.Settings.Configuration and Microsoft.Extensions.Configuration.Json packages
+
+```csharp
+using System.IO;
+using System.Threading;
+using Microsoft.Extensions.Configuration;
+using Serilog;
+
+namespace Example
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            var logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .CreateLogger();
+
+            logger.Information("Hello. Is it me you looking for?");
+            Thread.Sleep(5000);     // gives the log enough time to be sent to Logz.io
+        }
+    }
+}
+```
+
+
+###### In the code
+
+
+```csharp
+using System.Threading;
+using Serilog;
+using Serilog.Sinks.Logz.Io;
+
+namespace Example
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ILogger logger = new LoggerConfiguration()
+                .WriteTo.LogzIoDurableHttp(
+                    "https://<<LISTENER-HOST>>:8071/?type=<<TYPE>>&token=<<LOG-SHIPPING-TOKEN>>",
+                    logzioTextFormatterOptions: new LogzioTextFormatterOptions
+                    {
+                        BoostProperties = true,
+                        LowercaseLevel = true,
+                        IncludeMessageTemplate = true,
+                        FieldNaming = LogzIoTextFormatterFieldNaming.CamelCase,
+                        EventSizeLimitBytes = 261120,
+                    })
+                .MinimumLevel.Verbose()
+                .CreateLogger();
+
+            logger.Information("Hello. Is it me you looking for?");
+            Thread.Sleep(5000);     // gives the log enough time to be sent to Logz.io
+        }
+    }
+}
+```
+
+{% include log-shipping/log-shipping-token.html %}
+
+{% include log-shipping/listener-var.html %} 
+
+Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+
+
+
+<!-- tab:end -->
+
 
 </div>
 <!-- tabContainer:end -->

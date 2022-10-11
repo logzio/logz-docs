@@ -33,7 +33,11 @@ Jenkins is an automation server for building, testing, and deploying software. T
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
 
 {% include log-shipping/log-shipping-token.html %}
+
 Replace <<JENKINS-HOME>> with home location of your Jenkins installation
+
+{% include log-shipping/filebeat-input-extension.md %}
+
 
 ```yaml
 # ...

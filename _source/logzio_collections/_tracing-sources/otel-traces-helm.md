@@ -24,6 +24,11 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.important}
+<!-- info-box-end -->
+
 ###### Sending logs from nodes with taints
 
 If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:

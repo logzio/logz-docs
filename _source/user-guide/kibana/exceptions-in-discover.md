@@ -42,7 +42,7 @@ Logz.io's Exceptions tab only includes **Application insight** exceptions.
 
 You can find and view all exceptions by using the following query:
 
-`_exists_: _logzio_logceptions`
+`_exists_: _logzio_logceptions OR _exists_:"_logzio_insights"`
 
 Each exception is grouped into logical units, which you can view under the **Exceptions** tab.
 
@@ -67,7 +67,7 @@ The same exception may recur in different log lines, with slight variations. Som
 
 Logz.io tracks the recurrence of each exception over time, and retains its **First occurrence**, that is the earliest time the exception was identified. The history of exceptions can date back up to 6 months.
 
-![Expand an exception for more details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/exception-overview.png)
+![Expand an exception for more details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exception-overview.png)
 
 |---|---|
 |Exception| Concise title auto-detected by Logz.io based on the contents of the logs |
@@ -77,13 +77,22 @@ Logz.io tracks the recurrence of each exception over time, and retains its **Fir
 |First occurrence| The earliest time the exception was identified |
 | Last seen | Most recent occurrence of the exception, based on your browser's time zone |
 
+
+### Get your exceptions' insights
+
+You can set an alert to get a digest, including your exceptions insights.
+
+To do so, you'll need to [**configure an alert**](/user-guide/alerts/configure-an-alert.html) with the following query:
+
+`_exists_: _logzio_logceptions OR _exists_:"_logzio_insights"`
+
+And choose the notification endpoint you prefer. You can receive insights to your endpoint of choice, such as an email, Slack channel, logs, and more.
+
 ### Sorting & Filtering options
 
 By default, exceptions are sorted by their frequency (that is, their number of occurrences).
 
 To reorder exceptions by **# of occurrences**, **First occurrence**, or **Last seen**, click the column header to sort the data in ascending/descending order. (An arrow indicates the sorting method.)
-
-
 
 ### New exceptions
 

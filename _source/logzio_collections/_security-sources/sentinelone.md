@@ -43,7 +43,10 @@ sudo openssl req -newkey rsa:2048 -nodes \
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
-Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
+Copy and paste the code block below, overwriting the previous contents.
+
+{% include log-shipping/filebeat-input-extension.md %}
+
 
 This code block adds SentinelOne as an input and sets Logz.io as the output.
 
@@ -131,6 +134,6 @@ We recommend enabling all notification options to send Syslog logs. Still, it is
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
 </div>

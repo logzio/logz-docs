@@ -144,7 +144,7 @@ data:
         grpc:
 
   exporters:
-    logzio:
+    logzio/traces:
       account_token: "${LOGZIO_TRACES_TOKEN}"
       region: "us"    # Replace with the 2-letter code for your region from the Logz.io Regions and Listener hosts table or from your Account settings page - as in step 3 above. 
     logging:
@@ -166,7 +166,7 @@ data:
       traces:
         receivers: [opencensus, jaeger, zipkin]
         processors: [batch, queued_retry]
-        exporters: [logzio]
+        exporters: [logzio/traces]
 ---
 apiVersion: apps/v1
 kind: DaemonSet

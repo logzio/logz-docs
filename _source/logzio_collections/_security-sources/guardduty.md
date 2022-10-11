@@ -159,72 +159,63 @@ an S3 bucket to store the CloudFormation package
 
 If you're not already sending your GuardDuty logs through a Kinesis data stream, create one using the [Kinesis console](https://console.aws.amazon.com/kinesis).
 
-Save the name of the data stream. You'll need this in the next step.
+Select the button below according to the region where you need to deploy the stack.
 
-##### Configure CloudWatch Events
+| REGION           | DEPLOYMENT                                                                                                                                                                                                                                                                                                                                       |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `us-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)           |
+| `us-east-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)           |
+| `us-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-west-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)           |
+| `us-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-west-2.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)           |
+| `eu-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-central-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)     |
+| `eu-north-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-north-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)         |
+| `eu-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-west-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)           |
+| `eu-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-west-2.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)           |
+| `eu-west-3`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)           |
+| `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)           |
+| `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)         |
+| `ap-northeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-northeast-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>) |
+| `ap-northeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-northeast-2.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>) |
+| `ap-northeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-northeast-3.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>) |
+| `ap-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-south-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>)         |
+| `ap-southeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-southeast-1.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>) |
+| `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/aws-kinesis/0.0.2/auto-deployment.yaml&stackName=guardduty-log-shipper&param_LogzioTOKEN=<<LOG-SHIPPING-TOKEN>>) |
 
-In the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/) left menu, click **Events > Rules**, and then click **Create rule**.
+![Create stack](https://dytvr9ot2sszz.cloudfront.net/logz-docs/guardduty/first.png)
 
-In the Event Source panel (on the left), set these options:
+Keep the default setting in the **Create stack** screen and select **Next**.
 
-* Choose **Event Pattern**.
-* In the **Build event pattern** section, choose **GuardDuty** from the **Service Name** list.
-  You can choose any **Event Type** that you need.
+##### Specify the stack details
 
-In the Targets panel (on the right), click **Add target**, and choose **Kinesis stream**.
-Choose the Kinesis data stream from step 1 from the **Stream** list.
-
-Click **Configure details** (lower right corner).
+![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/guardduty/second.png)
 
 
-##### Download the Kinesis stream shipper
+Specify the stack details as per the table below and select **Next**.
 
-Download the latest Kinesis stream shipper zip file from the [Logz.io GitHub page](https://github.com/logzio/logzio_aws_serverless/releases).
 
-By default, the zip file will be named `logzio-kinesis-0.0.2.zip`.
+| Parameter                     | Description                                                                                                                                                                                                                                                                                        | Required/Default           |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| LogzioTOKEN                   | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}                                                                                                                                                                                                                     | Required                   |
+| KinesisStream                 | The name of the Kinesis stream where this function will listen for updates.                                                                                                                                                                                                                        | Required                   |
+| LogzioREGION                  | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. | Default: _blank_ (US East) |
+| LogzioURL (Deprecated)        | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). {% include log-shipping/listener-var.html %}                                                                                                                                          | Required                   |
+| LogzioTYPE                    | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. You should create a new Lambda for each log type you use.                                                                     | `guardduty`                |
+| LogzioFORMAT                  | `"json"` or `"text"`. If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields.                                                                                                                                         | `"text"`                   |
+| LogzioCOMPRESS                | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs.                                                                                                                                                                                                      | `false`                    |
+| KinesisStreamBatchSize        | The largest number of records to read from your stream at one time.                                                                                                                                                                                                                                | `100`                      |
+| KinesisStreamStartingPosition | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference.                                                                            | `"LATEST"`                 |
 
-##### Create the CloudFormation package and upload to S3
+##### Configure the stack options
 
-Create the CloudFormation package using the AWS CLI.
-Replace `<<YOUR-S3-BUCKET>>` with the S3 bucket name where you'll be uploading this package.
+![Configure stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/guardduty/third.png)
 
-```shell
-curl -o sam-template.yaml https://raw.githubusercontent.com/logzio/logzio_aws_serverless/master/python3/kinesis/sam-template.yaml
-aws cloudformation package \
-  --template sam-template.yaml \
-  --output-template-file cloudformation-template.output.yaml \
-  --s3-bucket <<YOUR-S3-BUCKET>>
-```
+Specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 
-##### Deploy the CloudFormation package
+##### Review the deployment
 
-Deploy the CloudFormation package using AWS CLI.
+![Review deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/guardduty/fourth.png)
 
-For a complete list of options, see the configuration parameters below the code block. 👇
-
-```shell
-aws cloudformation deploy \
---template-file $(pwd)/cloudformation-template.output.yaml \
---stack-name logzio-guardduty-logs-lambda-stack \
---parameter-overrides \
-  LogzioTOKEN='<<LOG-SHIPPING-TOKEN>>' \
-  KinesisStream='<<KINESIS-STREAM-NAME>>' \
---capabilities "CAPABILITY_IAM"
-```
-
-###### Parameters
-
-| Parameter | Description | Required/Default |
-|---|---|---|
-| LogzioTOKEN | Your Logz.io account token.  {% include log-shipping/log-shipping-token.html %}   | Required |
-| KinesisStream | The name of the Kinesis stream where this function will listen for updates. | Required |
-| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. | Default: *blank* (US East)|
-| LogzioURL  (Deprecated)| Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). {% include log-shipping/listener-var.html %}  | Required |
-| LogzioTYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `guardduty` |
-| LogzioFORMAT | `"json"` or `"text"`. If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `"text"` |
-| LogzioCOMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
-| KinesisStreamBatchSize  | The largest number of records to read from your stream at one time. | `100` |
-| KinesisStreamStartingPosition | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. | `"LATEST"` |
+Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
 
 ##### Check Logz.io for your logs

@@ -72,6 +72,9 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
 
 ##### Configure Filebeat
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 1. Navigate to the `modules.d` directory and open the `o365.yml.disabled` file.
 2. Paste the following into the file:
 
@@ -165,6 +168,7 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `o365` to see the incoming Microsoft 365 logs.
   
-If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+
 
 </div>

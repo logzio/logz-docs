@@ -136,7 +136,7 @@ Docker Community Edition (Docker CE) 18.03 or later
 ##### Install the plugin from the Docker store
 
 ```shell
-docker plugin install store/logzio/logzio-logging-plugin:1.0.2 \
+docker plugin install logzio/logzio-logging-plugin:1.0.2 \
 --alias logzio/logzio-logging-plugin
 ```
 

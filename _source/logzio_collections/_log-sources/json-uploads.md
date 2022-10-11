@@ -155,9 +155,9 @@ Keep to these practices when shipping JSON logs over TCP:
 ##### Send the logs
 
   Using the certificate you just downloaded,
-send the logs to TCP port 5052 at
-<!-- logzio-inject:listener-url -->
-{% include log-shipping/replace-vars.html listener='noReplace' isMidSentence=true %}
+
+send the logs to TCP port 5052 on your region’s listener host. For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+
 
 ##### Check Logz.io for your logs
 

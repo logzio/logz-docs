@@ -28,6 +28,9 @@ Filebeat can be installed on various operating systems. This troubleshooting gui
 
 ##### Check your Filebeat yaml file for syntax errors
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 Restart Filebeat again to make sure that your recent changes have already taken effect. Run:
 
 ```

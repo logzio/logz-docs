@@ -88,14 +88,21 @@ If you want to sync both views so they both cover the same time range, click the
 
 Logz.io's Infrastructure Monitoring (Metrics) accounts usage is calculated based on the Unique Time Series (UTS).
 
-Each time series is uniquely identified by its name and a set of labels. For example, the following are distinct time series, each calculated individually:
+A time series is a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
 
-`node_cpu_seconds_total{host="host1",cpu="0",mode="user"}`
-`node_cpu_seconds_total{host="host1",cpu="1",mode="user"}`
+For example, these are all distinct time series:
+
+`temperature{city=”NY”}`
+
+`temperature{city=”SF”}`
+
+`temperature{city=”SF”, unit=”Celsius”}`
+
+`temperature`
 
 
-You can view your usage metrics in your Infrastructure Monitoring dashboard. Navigate to **[Metrics](https://app.logz.io/#/dashboard/metrics) > [Explore](https://app.logz.io/#/dashboard/metrics/explore) > Metrics browser**. 
+You can view your usage metrics in your Infrastructure Monitoring dashboard. Navigate to **[Metrics](https://app.logz.io/#/dashboard/metrics) > [Explore](https://app.logz.io/#/dashboard/metrics/explore) > Metrics browser** and enter the following PromQL query: `logzio_metrics_accepted_data_points_per_minute{}`. 
 
-Enter the following PromQL query: `logzio_metrics_accepted_data_points_per_minute{}`. To easily find relevant metrics, type Logz in the metrics bar, and select the metric you'd like to view.
+To easily find relevant metrics, type Logz in the metrics bar, and select the metric you want to view.
 
 ![Data Volume Dashboard ELK app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/explore-cpu-usage.png)

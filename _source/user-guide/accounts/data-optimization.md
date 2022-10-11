@@ -129,29 +129,5 @@ Navigate to your Logz.io [account > Settings > Plan and Usage](https://app.logz.
 
 The dashboard is a visual representation of your account, divided into the different products you use. These dashboards include your account’s daily data plan, how much you’ve used, and your overall usage pattern.
 
-Suppose you want to share the usage data with teammates who do not have the proper permissions to view the usage info, or you want to create alerts and monitor your usage data closely. In that case, you can build a similar visualization showing your log usage across all your accounts and services, allowing you to quickly identify the logs that can be optimized.
-
-###### Build your log usage visualization:
-
-Navigate to **[Logs > Visualize > Create visualization](https://app.logz.io/#/dashboard/kibana/visualize/)** and choose the **Line** option from the list. Next, select **logzioCustomerIndex** as your source. This will open a blank visualization page on which you'll build your dashboard.
-
-Click on the **Y-axis** option. Select **Sum** as the aggregation and **LogSize** as the field. 
-
-![Y axis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/yaxis.png)
-
-Click on the second **Add** button inside the **Buckets** menu to add an X-axis. Next, select **Date Histogram** as the aggregation, **@timestamp** as the field, and set the **Minimum Interval** to **Auto**. 
-
-![First x axis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/xaxis-1.png)
-
-Click on **Add** again to add a **Split Series**. Select **Terms** as the aggregation, set the Field to **type**, and **Order by Metric: Sum of LogSize**. Set the order to **descending**, and set the size to **20**.
-
-![Second x axis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/splitseries.png)
-
-Click on the **Update** button to save your settings and visualize the data.
-
-![Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/dashboard-usage.png)
-
-You’ll receive a visual representation of data usage across your accounts, separated by the different services running. You can now use the data to create alerts and triggers based on usage info and better understand which services are heavy-duty and can be optimized. 
-
 ###### If you have additional questions about optimizing your Logz.io data, [contact the Support team](mailto:help@logz.io).
 

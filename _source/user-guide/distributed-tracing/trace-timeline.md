@@ -2,12 +2,15 @@
 layout: article
 title: What can I do in the Trace Timeline?
 permalink: /user-guide/distributed-tracing/trace-timeline
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Trace timeline overview and abilities
 flags:
   logzio-plan: pro enterprise
 tags:
   - distributed tracing
 contributors:
   - yberlinger
+  - hidan
 ---
 Start here and dig in: 
 ![basic timeline](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/timeline1.png)
@@ -43,3 +46,17 @@ Patterns to look out for:
 
 - When all the spans end at the same time, there may be a connectivity issue that is causing timeouts or errors. ![spans end at same time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/spans_end_together.png)
 
+
+### Trace Flamegraph
+
+A Trace Flamegraph is a visualization of a distributed request trace that can help identify issues and bottlenecks at a glance. Each horizontal bar represents a service, color-coded and time-stamped according to how long it took to complete the operation.
+
+![Flamegraph overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/flamegraph-overview.png)
+
+Unlike the Trace Timeline, which presents the services in the order of when each one ran, **Trace Flamegraph** bundles services together to provide a high-level summary of how long it took them to execute.
+
+When applying the Trace Flamegraph view, you get an overview of the relationships between service calls, errors, and latency data inside the different services. As a result, you can pinpoint, analyze and attend to services that require your attention.
+
+To apply the Trace Flamegraph view for your traces, open a trace and select the relevant view on the top right menu:
+
+![Apply flamegraph view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-flamegraph.png)

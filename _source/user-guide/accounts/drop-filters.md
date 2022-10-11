@@ -2,6 +2,8 @@
 layout: article
 title: Drop filters
 permalink: /user-guide/accounts/drop-filters/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Use Drop filters to manage your account volume
 flags:
   admin: true
   logzio-plan: pro
@@ -14,18 +16,20 @@ contributors:
 
 Drop filters offer a great way to filter out logs from an account to help manage your account volume and lower costs.
 
-Drop filters evaluate logs for field:value exact matches. Incoming logs that match your account's active drop filters will not be indexed and will not appear in your Kibana account. Dropped logs are not searchable, cannot trigger alerts, and will not appear in dashboards, reports, or anything else. However, dropped logs will be archived if you are archiving logs.
+Drop filters evaluate logs for field:value exact matches. Incoming logs that match your account's active drop filters will not be indexed and will not appear in your OpenSearch Dashboards account. Dropped logs are not searchable, cannot trigger alerts, and will not appear in dashboards, reports, or anything else. However, dropped logs will be archived if you are archiving logs.
+
+The following diagram helps explain how Drop filters work:
+
+![Drop filters overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filter-overview.png)
 
 You can turn drop filters on and off, as often as you like, making them ideal for logs that are only needed sometimes.
 
 In general, drop filters are recommended for logs that are needed infrequently, while logs that are never needed should not be shipped at all.
 
 
-![Drop filters list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filters-list.png)
+<!-- ![Drop filters list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filters.png) -->
 
-To get to drop filters,
-select [**Logs > Manage Data > Drop filters**](https://app.logz.io/#/dashboard/tools/drop-filters)
-from the navigation menu.
+To set up your Drop filters, select [**Logs > Manage Data > Drop filters**](https://app.logz.io/#/dashboard/tools/drop-filters) from the navigation menu.
 
 
 
@@ -50,7 +54,7 @@ please contact <a class="intercom-launch" href="mailto:help@logz.io">the Support
 
 ## Some important notes on drop filtering {#some-important-notes}
 
-* **Dropped logs can't be searched in Kibana and they can't trigger alerts.** \\
+* **Dropped logs can't be searched in OpenSearch Dashboards and they can't trigger alerts.** \\
   All incoming logs are compared to your drop filters.
   Logs that meet your filter criteria are dropped,
   meaning they won't be parsed and indexed.
@@ -59,11 +63,11 @@ please contact <a class="intercom-launch" href="mailto:help@logz.io">the Support
   If you have [archiving]({{site.baseurl}}/user-guide/archive-and-restore/configure-archiving.html) enabled,
   your logs will be archived before they're dropped.
   This means that you can restore from your archives,
-  even if the logs didn't originally make it to Kibana.
+  even if the logs didn't originally make it to OpenSearch Dashboards.
 
 * **Restored logs pass through drop filters.** \\
   If you're restoring logs from an archive,
-  turn off drop filters if you want them to be indexed in your Kibana account.
+  turn off drop filters if you want them to be indexed in your OpenSearch Dashboards account.
   When restoring,
   always make sure that the logs you need are not filtered out using drop filters.
 

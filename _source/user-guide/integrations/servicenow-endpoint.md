@@ -2,6 +2,8 @@
 layout: article
 title: Configure an endpoint for ServiceNow
 permalink: /user-guide/integrations/servicenow.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: ServiceNow endpoint configuration guide
 tags:
   - alerts
   - endpoints
@@ -72,7 +74,7 @@ The double-brackets indicate variables that will be auto-populated by Logz.io wi
 "correlation_id": "logzio_{{alert_definition_id}}",
 "state": "1",
 "description": "Severity: {{alert_severity}}\nAlert Description: {{alert_description}}\n\nURL to investigate the alert:\n{{alert_app_url}}/#/view-triggered-alert?&from={{alert_timeframe_start_epoch_millis}}&to={{alert_timeframe_end_epoch_millis}}&definitionId={{alert_definition_id}}&switchToAccountId={{account_id}}\n\nLog samples:\n{{alert_samples}}"
-"work_notes":"Investigate the alert:\n[code]<a href="{{alert_app_url}}/#/view-triggered-alert?&from={{alert_timeframe_start_epoch_millis}}&to={{alert_timeframe_end_epoch_millis}}&definitionId={{alert_definition_id}}&switchToAccountId={{account_id}}">View in Kibana</a>[/code]"
+"work_notes":"Investigate the alert:\n[code]<a href="{{alert_app_url}}/#/view-triggered-alert?&from={{alert_timeframe_start_epoch_millis}}&to={{alert_timeframe_end_epoch_millis}}&definitionId={{alert_definition_id}}&switchToAccountId={{account_id}}">View in OpenSearch Dashboards</a>[/code]"
 }
 ```
 {% endraw %}

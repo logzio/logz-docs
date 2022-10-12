@@ -52,6 +52,9 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add OSSEC to th
 
 {% include log-shipping/log-shipping-token.html %}
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 # ...
 filebeat.inputs:

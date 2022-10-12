@@ -71,17 +71,15 @@ only users who are part of that SSO group will be able to log in to this account
 
 Each group can have **Admin**, **User**, **Read only**, or **Configured per user** permissions.
 
-Permissions are set at the group level
-unless a group setting is **Configured per user**.
-If users are a part of   multiple groups,
-they will get the highest permissions set.
+Permissions are set at the group level unless a group setting is **Configured per user**.
+Users who are part of multiple groups will get the highest permissions set.
 
-For example:
-If someone is a member of both a **User** group and an **Admin** group,
+For example, if someone is a member of both a **User** group and an **Admin** group,
 they'll receive **Admin** permissions.
 
-Multiple accounts can use the same group, and the group needs to be added to each account separately.
-The group members will have access to all of the accounts connected to the group.
+Multiple accounts can use the same group, but **the group needs to be added to each account separately**. <br> So, for example, if you have created a group on your main account, you'll need to re-create it on your sub accounts to provide its users the relevant permissions. <br>
+**Otherwise, you won't be able to switch between the accounts.**
+{:.info-box.note}
 
 ## Available identity providers
 

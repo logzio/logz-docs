@@ -98,6 +98,9 @@ Apply your custom configuration to the parameters under `filebeat.yml` and only 
 
 Note that the parameter `token: ${LOGZIO_LOGS_SHIPPING_TOKEN}` under `fields` determines the token used to verify your Logz.io account. It is required.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```
 filebeat.yml: |-
 
@@ -145,7 +148,7 @@ Give your logs some time to get from your system to ours,
 and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs,
-see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
 
 </div>
 

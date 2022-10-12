@@ -2,6 +2,8 @@
 layout: article
 title: Reports
 permalink: /user-guide/reports/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to use Logz.io reports
 flags:
   logzio-plan: community
 tags:
@@ -17,10 +19,11 @@ To schedule your report:
 
 * Open a dashboard, and click **Create report** from the dashboard menu.
 
-  ![Create a report from a Dashboard](https://dytvr9ot2sszz.cloudfront.net/whats-new-announcements/1-click-report1.png)
+  ![Create a report from a Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/create-report-osd.png)
 
 * From **Logs > Reports** in the navigation menu, click the yellow <i class="fas fa-plus"></i> icon to open the **Create a report** page. 
 
+![Create a report from navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/reports-side-menu.png)
 
 #### Configuring a report
 
@@ -62,7 +65,7 @@ Custom logo
 
   When the report is sent over email, the custom logo will be included in the email body and PDF header. Admins can upload and update a custom logo from the [General Settings](https://app.logz.io/#/dashboard/settings/general) page.
 
-View in Kibana link
+View in OpenSearch Dashboards link
 : You can enable the option to **Include a link to the live dashboard in the message**.
 
   If enabled, the report will include a direct link to the dashboard in Logz.io. Your recipients will need to log in to Logz.io to see it.

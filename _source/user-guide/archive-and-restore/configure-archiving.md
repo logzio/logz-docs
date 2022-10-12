@@ -47,7 +47,7 @@ You may also be interested in the API methods included in [**Archive logs**](htt
 
 
 <!--info-box-start:info -->
-Archiving with AWS S3 is only available for accounts in the following AWS regions: US East (Northern Virginia), Asia Pacific (Sydney), Canada (Central), Europe (Frankfort), Europe (London)
+Archiving with AWS S3 is only available for accounts in the following AWS regions: US East (Northern Virginia), Asia Pacific (Sydney), Canada (Central), Europe (Frankfurt), Europe (London)
 {:.info-box.note}
 <!--info-box-end -->
 

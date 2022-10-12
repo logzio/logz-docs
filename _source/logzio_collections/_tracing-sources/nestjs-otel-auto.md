@@ -53,7 +53,12 @@ On deployment, the NestJS instrumentation automatically captures spans from your
 * A NestJS application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
+
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
 
 
 <div class="tasklist">
@@ -149,7 +154,7 @@ Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your NestJS application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-releases) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your NestJS application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
@@ -200,7 +205,7 @@ This integration enables you to auto-instrument your NestJS application and run 
 * A NestJS application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 <div class="tasklist">
 
@@ -327,6 +332,10 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.important}
+<!-- info-box-end -->
 
 #### Standard configuration
 

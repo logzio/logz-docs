@@ -38,6 +38,9 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the 
 
 {% include log-shipping/log-shipping-token.html %}
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 # ...
 filebeat.inputs:
@@ -77,13 +80,6 @@ output.logstash:
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
-
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
-</div>[Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
 ##### Check Logz.io for your logs
 

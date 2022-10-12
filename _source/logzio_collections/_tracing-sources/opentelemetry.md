@@ -51,20 +51,70 @@ On deployment, your OpenTelemetry instrumentation captures spans from your appli
 
 **Before you begin, you'll need**:
 
-* An application instrumented with an OpenTelemetry installation
 * An active account with Logz.io
+
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
 
 
 <div class="tasklist">
 
-##### Add Logz.io exporter to your OpenTelemetry collector
+##### Download and configure OpenTelemetry collector
 
-Add the following parameters to the configuration file of your OpenTelemetry collector:
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
+
+After downloading the collector, create a configuration file `config.yaml` with the following parameters:
+
+```yaml
+receivers:
+  jaeger:
+    protocols:
+      thrift_compact:
+        endpoint: "0.0.0.0:6831"
+      thrift_binary:
+        endpoint: "0.0.0.0:6832"
+      grpc:
+        endpoint: "0.0.0.0:14250"
+      thrift_http:
+        endpoint: "0.0.0.0:14268"
+
+
+
+exporters:
+  logzio/traces:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    
+processors:
+  batch:
+
+extensions:
+  pprof:
+    endpoint: :1777
+  zpages:
+    endpoint: :55679
+  health_check:
+
+service:
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [jaeger]
+      processors: [batch]
+      exporters: [logzio/traces]
+
+```
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+
+If you already have an OpenTelemetry installation, add the following parameters to the configuration file of your existing OpenTelemetry collector:
 
 * Under the `exporters` list
 
 ```yaml
-  logzio:
+  logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
 ```
@@ -77,7 +127,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logzio]
+      exporters: [logzio/traces]
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
@@ -92,7 +142,7 @@ receivers:
       http:
 
 exporters:
-  logzio:
+  logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
     region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
@@ -112,8 +162,13 @@ service:
     traces:
       receivers: [otlp]
       processors: [batch]
-      exporters: [logzio]
+      exporters: [logzio/traces]
 ```
+
+##### Instrument the application
+
+If your application is not yet instrumented, instrument the code as described in our [tracing documents](https://docs.logz.io/shipping/#tracing-sources).
+
 
 ##### Start the collector
 
@@ -147,11 +202,14 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 **Before you begin, you'll need**:
 
-* An application instrumented with an OpenTelemetry installation
 * An active account with Logz.io
 
 
 <div class="tasklist">
+
+##### Instrument the application
+
+If your application is not yet instrumented, instrument the code as described in our [tracing documents](https://docs.logz.io/shipping/#tracing-sources).
 
 
 {% include /tracing-shipping/docker.md %}
@@ -189,6 +247,10 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.important}
+<!-- info-box-end -->
 
 #### Standard configuration
 

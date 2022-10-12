@@ -46,6 +46,9 @@ Copy and paste the code block below, overwriting the previous contents. (You wan
 
 This code block adds ESET as an input and sets Logz.io as the output.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```yaml
 # ...
 filebeat.inputs:
@@ -129,6 +132,6 @@ In the **LOGGING** section, enable the option to **Export logs to Syslog**. Fill
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
 </div>

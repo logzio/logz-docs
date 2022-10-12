@@ -2,6 +2,8 @@
 layout: article
 title: Distributed Tracing
 permalink: /user-guide/distributed-tracing/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Intro to Logz.io's Distributed Tracing
 flags:
   logzio-plan: pro enterprise
 tags:
@@ -16,7 +18,7 @@ contributors:
 * [Search for traces](/user-guide/distributed-tracing/tracing-tour): Log in and get on the trace 
 * [View the trace timeline](/user-guide/distributed-tracing/trace-timeline): Dig into the details of each span
 * [Compare traces](/user-guide/distributed-tracing/compare-traces): See where traces differ from each other by comparing node blocks
-* [Correlate logs and traces](/user-guide/distributed-tracing/correlate-traces): Harness Kibana and Jaeger together for more powerful insights.
+* [Correlate logs and traces](/user-guide/distributed-tracing/correlate-traces): Harness OpenSearch Dashboards and Jaeger together for more powerful insights.
 
 ### Logz.io Distributed Tracing - Why go it alone?
 

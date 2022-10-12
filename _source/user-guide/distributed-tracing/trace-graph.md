@@ -2,6 +2,8 @@
 layout: article
 title: What can I do in the Trace Graph?
 permalink: /user-guide/distributed-tracing/trace-graph
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about Logz.io's Trace Graph
 flags:
   logzio-plan: pro enterprise
 tags:

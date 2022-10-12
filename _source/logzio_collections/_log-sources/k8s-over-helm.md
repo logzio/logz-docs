@@ -172,6 +172,9 @@ logzio-k8s-logs logzio-helm/logzio-k8s-logs
 
 If you're using a custom config, please make sure that you're using a `.yaml` file with the following structure:
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 ```
 filebeat.yml: |-
   filebeat.autodiscover:
@@ -200,7 +203,7 @@ Give your logs some time to get from your system to ours,
 and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs,
-see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
 
 </div>
 
@@ -301,7 +304,7 @@ Give your logs some time to get from your system to ours,
 and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 If you still don't see your logs,
-see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
 
 </div>
 

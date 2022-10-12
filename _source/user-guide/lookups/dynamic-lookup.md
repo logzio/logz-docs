@@ -18,6 +18,11 @@ contributors:
 
 Lookup lists let you upload a list that includes elements and use it as a reference to look for matches across your code. For example, you can create lookup lists of allowlisted or blocklisted usernames, IP addresses, regions, or domains.
 
+<!-- info-box-start:info -->
+Lookup list values are only string-based and do not support ranges. Kibana, however, supports range-based searches, such as IP: [127.0.0.0 TO 127.*].
+{:.info-box.note}
+<!-- info-box-end -->
+
 **Dynamic lookups** are an extension of lookup lists, but unlike the latter, they actively and continuously search for matches across your logs. 
 
 You can create Dynamic lookups based on your Kibana query and initiate a rule for your list. The list will automatically retrieve the data on a timely basis and populate a list of values based on a specific field from the query result, which you can [use when creating a security rule](/user-guide/lookups/#add-a-lookup-list-filter-to-a-security-rule). 

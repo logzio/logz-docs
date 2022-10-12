@@ -29,6 +29,9 @@ Stormshield provides cyber-security solutions. This integration allows you to se
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:
 
 ```yaml
@@ -90,6 +93,6 @@ If the file has other outputs, remove them.
 
 Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
 </div>

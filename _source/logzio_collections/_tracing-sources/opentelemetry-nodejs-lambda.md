@@ -34,9 +34,14 @@ Adding environmental variables using the AWS CLI commands below, will overwrite 
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.important}
+<!-- info-box-end -->
+
 <div class="tasklist">
 
-##### Add the OpenTelemetry collector layer to your Lambda function
+##### Add the OpenTelemetry collector layer to your Lambda function 
 
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
@@ -52,6 +57,7 @@ Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1
   
 By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment variable.
 
+
 The `collector.yaml` file will have the following configuration:
   
 ```yaml
@@ -61,14 +67,14 @@ receivers:
       grpc:
       http:
 exporters:
-  logzio:
+  logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
 service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [logzio]
+      exporters: [logzio/traces]
 ```
   
 {% include /tracing-shipping/replace-tracing-token.html %}

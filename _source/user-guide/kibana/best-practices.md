@@ -89,7 +89,6 @@ Learn how to search and filter your log data with Logz.io.
 
 <iframe class="vidyard_iframe" src="//play.vidyard.com/Lg6z1KaebTKSQJXaN7wQki.html?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
 
-
 ##### Add more columns to your view results
 
 You can add additional columns to your logs field view.

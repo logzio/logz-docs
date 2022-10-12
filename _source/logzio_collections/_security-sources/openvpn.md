@@ -32,6 +32,9 @@ These instructions only apply to Linux and MacOS systems.
 
 ##### Configure Filebeat
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 Paste the following into the inputs section of the Filebeat configuration file:
 
    ```yaml

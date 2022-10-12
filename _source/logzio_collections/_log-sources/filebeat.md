@@ -50,6 +50,9 @@ Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.
 
 ##### Configure Filebeat using the dedicated Logz.io configuration wizard
 
+{% include log-shipping/filebeat-input-extension.md %}
+
+
 {% include log-shipping/filebeat-wizard.html %}
 
 <!-- logzio-inject:filebeat-wizard:os-linux -->
@@ -110,6 +113,9 @@ on your machine.
 
 
 ##### Configure Filebeat using the dedicated Logz.io configuration wizard
+
+{% include log-shipping/filebeat-input-extension.md %}
+
 
 {% include log-shipping/filebeat-wizard.html %}
 

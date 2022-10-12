@@ -53,8 +53,12 @@ On deployment, the Java agent automatically captures spans from your application
 * A Java application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.note}
+<!-- info-box-end -->
 
 <div class="tasklist">
 
@@ -65,7 +69,8 @@ Download the latest version of the [OpenTelemetry Java agent](https://github.com
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your Java application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-releases) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your Java application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
+
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
@@ -144,7 +149,7 @@ This integration enables you to auto-instrument your Java application and run a 
 * A Java application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
-* A name defined for your tracing service
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 
 <div class="tasklist">
@@ -226,6 +231,10 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+{:.info-box.important}
+<!-- info-box-end -->
 
 #### Standard configuration
 

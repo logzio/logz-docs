@@ -13,11 +13,11 @@ contributors:
   - yberlinger
 ---
 
-To create a new optimizer, start in Kibana so you can test the query you want to use. 
+To create a new optimizer, start in OpenSearch Dashboards so you can test the query you want to use.
 
 Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
 
-After you've created your account, navigate back to **Kibana** > **Create an optimizer**, where you can configure the optimizer settings.
+After you've created your account, navigate back to **OpenSearch Dashboards** > **Create an optimizer**, where you can configure the optimizer settings.
 
 Once a log is pulled to your Logz.io account, it takes up to **2 hours** until it appears in your timeless account.
 {:.info-box.note}
@@ -27,13 +27,13 @@ If you want help updating an existing optimizer, you can [skip the first part of
 
 #### To create an optimizer
 
-##### Set your query in Kibana
+##### Set your query in OpenSearch Dashboards
 
-In Kibana, type a query in the query bar
+In OpenSearch Dashboards, type a query in the query bar
 and press **Enter**.
 
 
-![Kibana query bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/kibana--query-bar_aug2021.png)
+![OSD query bar](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/query-to-optimizer.png)
 
 Review the results in the histogram and the document table,
 and make sure your query returned the expected results.
@@ -58,7 +58,7 @@ If you need to, change your optimizer **Query** and the **Accounts** that the qu
 
 <!-- info-box-start:info -->
 If you use an invalid query, the optimizer will automatically be disabled.
-Run your query in Kibana so you can be sure you're getting the expected results. <br><br>
+Run your query in OpenSearch Dashboards so you can be sure you're getting the expected results. <br><br>
 The filter tags that are displayed in the Optimizer **Query** section indicate which filters you used for the query in **Discover**. 
 To update the filters, you'll need to add them to your search in **Discover**.
 {:.info-box.important}

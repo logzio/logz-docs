@@ -47,7 +47,7 @@ Click **Generate snippet** to continue.
 
 ##### Install the Telemetry Collector
 
-Follow the instructions to install your AWS Telemetry Collector. 
+Copy the code snippit and **run it in your EC2** to install the AWS Telemetry Collector.
 
 Some platforms might require additional details, such as admin privileges or passwords to complete the installation. These details are not sent to or stored by Logz.io.
 {:.info-box.note}
@@ -60,26 +60,16 @@ That’s it! It might take a while for the Telemetry Collector to get up and run
 
 </div>
 
-#### How to remove a Telemetry Collector:
+#### Manage your Telemetry Collector:
 
-To manage an AWS Telemetry Collector on your **Mac** machine, you can use the following commands:
+To manage an AWS Telemetry Collector on your **Linux** machine, you can use the following commands:
 
-| **Collector Binary:** || `/opt/logzio-otel-collector/otelcol-logzio-darwin_amd64` |
+| **Collector Binary:** || `/opt/logzio-otel-collector/otelcol-logzio-linux_amd64` |
 | **Collector Config:** || `/opt/logzio-otel-collector/otel_config.yaml` |
-| **Start Service Command:** || `sudo launchctl load /Library/LaunchDaemons/com.logzio.OTELCollector.plist` |
-| **Stop Service Command:** || `sudo launchctl unload /Library/LaunchDaemons/com.logzio.OTELCollector.plist` |
-| **Show Service Command:** || `sudo launchctl list | grep com.logzio.OTELCollector` |
-| **Show Logs Command:** || `sudo tail -F /opt/logzio-otel-collector/logzio_otel_collector.log` |
-
-To manage an AWS Telemetry Collector on your **Windows** machine, you can use the following commands:
-
-| **Collector Binary:** | `C:\Users\LEKO\AppData\Roaming\LogzioOTELCollector\otelcol-logzio-windows_amd64.exe` |
-| **Collector Config:** | `C:\Users\LEKO\AppData\Roaming\LogzioOTELCollector\otel_config.yaml` |
-| **Start Service Command:** | `Start-Service -Name LogzioOTELCollector` |
-| **Stop Service Command:** | `Stop-Service -Name LogzioOTELCollector` |
-| **Show Service Command:** | `Get-Service -Name LogzioOTELCollector` |
-| **Show Logs Command:** | `eventvwr.msc ('Windows Logs'->'Application' all logs with source 'LogzioOTELCollector')` |
-| **Kill Service Command** | `sc.exe DELETE LogzioOTELCollector` |
+| **Start Service Command:** || `sudo systemctl start logzioOTELCollector` |
+| **Stop Service Command:** || `sudo systemctl stop logzioOTELCollector` |
+| **Show Service Command:** || `sudo systemctl | grep logzioOTELCollector` |
+| **Show Logs Command:** || `sudo systemctl status -l logzioOTELCollector` |
 
 
 If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).

@@ -29,7 +29,7 @@ If you use Slack for office communication and workflows,
 Alice will fit right in.
 
 Alice is a chatbot that lets you query your Logz.io data from Slack.
-This gives you a mobile-friendly way to work with Kibana
+This gives you a mobile-friendly way to work with OpenSearch Dashboards
 and to share information without leaving your team's chat.
 
 For example, you can send a `search` or `snapshot` command

@@ -238,7 +238,6 @@ firstLevel:
 
 
 
-
     # ===== DISTRIBUTED TRACING =====
     # remove topics from Getting started: 22.sept.2021
     # 1- title: Transitioning to Logz.io Distributed Tracing from a local Jaeger (url: /user-guide/distributed-tracing/local-jaeger_transition)
@@ -426,7 +425,7 @@ firstLevel:
     thirdLevel:
     - title: Managing account usage
       url: /user-guide/accounts/manage-account-usage.html
-    - title: Smart Tier
+    - title: Smart tier
       url: /user-guide/accounts/smart-tier/
     - title: Drop filters
       url: /user-guide/accounts/drop-filters/

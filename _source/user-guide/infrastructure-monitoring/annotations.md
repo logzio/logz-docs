@@ -2,6 +2,8 @@
 layout: article
 title: Annotations
 permalink: /user-guide/infrastructure-monitoring/annotations/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Mark events on your Metrics dashboards with annotations
 flags:
   logzio-plan: community
 tags:
@@ -35,7 +37,7 @@ Go to the dashboard's settings:
 * Select **Annotations** > **New**.
 * The annotation form will appear. Fill in the form, starting with the **General** section.
   1. Select an informative **Name**. The name should describe the significance of the event.
-  2. Select a **Data source** from your logging accounts. This is the relevant Kibana account you want to correlate with your metrics.
+  2. Select a **Data source** from your logging accounts. This is the relevant OpenSearch Dashboards account you want to correlate with your metrics.
 
 <video autoplay loop>
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/metrics-annotations.mp4" type="video/mp4" />
@@ -43,10 +45,10 @@ Go to the dashboard's settings:
 
 ##### Decide which logs should trigger the annotation
 
-You'll be using a Kibana search query to select the logs you want to mark on your dashboard. They will appear as vertical markers on the dashboard's timeline to indicate when they were sent.
+You'll be using a OpenSearch Dashboards search query to select the logs you want to mark on your dashboard. They will appear as vertical markers on the dashboard's timeline to indicate when they were sent.
 
-Type in a _Kibana_ query in Lucene syntax.
-It's best if you double-check your query results in [Kibana Discover](/user-guide/kibana/) to make sure it is specific enough.
+Type in an _OpenSearch Dashboards_ query in Lucene syntax.
+It's best if you double-check your query results in [OpenSearch Dashboards](/user-guide/kibana/) to make sure it is specific enough.
 
 You can use Metrics interface variables, on condition that the value of the variable actually appears in the target log. For example, the query `logtype:configuration AND pod.name:$pod` would work assuming the fields `logtype` and `pod.name` exist in the log.
 

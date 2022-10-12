@@ -2,6 +2,8 @@
 layout: article
 title: Explore your metrics
 permalink: /user-guide/infrastructure-monitoring/metrics-explore/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Explore your Metrics
 flags:
   #admin: true
   logzio-plan: community
@@ -13,7 +15,7 @@ contributors:
 ---
 
 **Explore** is where you can explore the data available in your Metrics account.
-It's a bit like Kibana Discover, in that it is optimized for quickly searching the data in preparation for creating dashboards.
+It's a bit like OpenSearch Dashboards Discover, in that it is optimized for quickly searching the data in preparation for creating dashboards.
 
 Whether you just started sending metrics for the first time, or you want to check that your metrics arrived as expected, Explore mode is the best way to do it.
 It's also great if you're a long-time user and want to examine the structure of your metrics documents in order to create a new monitoring dashboard.

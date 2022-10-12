@@ -61,9 +61,9 @@ Retrieve all sub-accounts and re-create them in your new account. You can do so 
 
 
 
-##### Export & Import your Kibana objects
+##### Export & Import your OpenSearch Dashboards objects
 
-Export any and all Kibana objects you want to keep and import them into your new account. These include saved searches, visualizations, and dashboards.
+Export any and all OpenSearch Dashboards objects you want to keep and import them into your new account. These include saved searches, visualizations, and dashboards.
 
 The process can be performed by API or manually. Export & import guides:
 

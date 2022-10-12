@@ -8,7 +8,6 @@ tags:
   - log-shipping
 contributors:
   - hidan
-  - shiranavidov
 ---
 
 Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.

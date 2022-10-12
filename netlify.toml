@@ -427,3 +427,9 @@
   to = "/user-guide/infrastructure-monitoring/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/permissions/"
+  to = "/user-guide/users/"
+  status = 301
+  force = true

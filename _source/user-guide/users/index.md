@@ -105,7 +105,7 @@ Cloud SIEM (*Security Information and Event Management*) aggregates security log
 | Dashboards                              | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Threats overview                        | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Threats intelligent field               | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
-| Kibana                                  | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| OpenSearch Dashboards                                  | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Reports                                 |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Drilldowns                              |           |      | <i class="fas fa-check"></i>     |
 | Lookups                                 |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
@@ -124,7 +124,7 @@ Logz.io general settings allow users to control elements relevant to their accou
 | Manage tokens                           |           |      | <i class="fas fa-check"></i>     |
 | View region                             |           |      | <i class="fas fa-check"></i>     |
 | Toggle support access                   |           |      | <i class="fas fa-check"></i>     |
-| Refresh Kibana mapping                  |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| Refresh OpenSearch Dashboards mapping                  |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | View system status                      | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Notification endpoints                  |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | ELK apps                                |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |

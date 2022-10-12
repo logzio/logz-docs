@@ -30,7 +30,7 @@ and drop filters (which allow you to stop ingestion of some logs).
 Account utilization metrics capture a snapshot
 of your account usage in regular increments—every 10, 30, or 60 minutes—depending on your settings.
 Logz.io starts logging your usage after your account reaches 10 MB in size.
-You can find these logs in Kibana
+You can find these logs in OpenSearch Dashboards
 when you filter for the `logzio_account_utilization` log type.
 
 | Field name | Description |
@@ -70,8 +70,8 @@ a new field is added to incoming logs.
 This new field is called `LogSize`,
 and it contains the size of the log line in bytes, taken as a single string.
 
-Kibana doesn't recognize `LogSize` as a number right away.
-You can fix this by clicking <i class="fas fa-sync-alt"></i> (refresh mapping) for `LogSize` in Kibana.
+OpenSearch Dashboards doesn't recognize `LogSize` as a number right away.
+You can fix this by clicking <i class="fas fa-sync-alt"></i> (refresh mapping) for `LogSize` in OpenSearch Dashboards.
 You'll need to do this for each account where you enabled `LogSize`.
 
 ### Enabling account utilization metrics and log size
@@ -102,7 +102,7 @@ by searching for "data volume dashboard".
 
 If you recently enabled account utilization metrics,
 you may need to wait up to 60 minutes
-before this data shows up in Kibana.
+before this data shows up in OpenSearch Dashboards.
 
 ## Managing ingestion with drop filters
 

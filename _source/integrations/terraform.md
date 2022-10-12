@@ -38,7 +38,7 @@ The following Logz.io API endpoints are supported by this provider:
 * [Archive logs](https://docs.logz.io/api/#tag/Archive-logs)
 * [Restore logs](https://docs.logz.io/api/#tag/Restore-logs)
 * [Authentication groups](https://docs.logz.io/api/#tag/Authentication-groups)
-* [Kibana objects](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
+* [OpenSearch Dashboards objects](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
 * [Log-based alerts v1](https://github.com/logzio/public-api/tree/master/alerts) (deprecated)
 
 #### Working with Terraform
@@ -94,7 +94,7 @@ provider "logzio" {
 
 Here's a great example demonstrating how easy it is to get up and running quickly with the Terraform Logz.io Provider.
 
-This example adds a new Slack notification channel and creates a new alert in Kibana that will send notifications to the newly-created Slack channel.
+This example adds a new Slack notification channel and creates a new alert in OpenSearch Dashboards that will send notifications to the newly-created Slack channel.
 
 The alert in this example will trigger whenever Logz.io records 10 loglevel:ERROR messages in 10 minutes.
 

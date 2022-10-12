@@ -79,7 +79,7 @@ Before searching archived data, you’ll need to restore it to its own temporary
 | **Retention** | The number of days your data is kept in storage. _Note that retention is measured in days, not hours. Retention of 2 days allows you to view logs from yesterday to today, and it's not the equivalent of 48 hours._  |
 | **Save account utilization metrics** | You can enable this option to log [account utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics). Depending on the required granularity, metrics can be calculated every 10, 30, or 60 minutes. Utilization data is stored in a separate index as the log type: `logzio_account_utilization`. |
 | **Save log size** | Adds a [new field](/user-guide/accounts/manage-account-usage.html#what-happens-when-i-save-log-size) to incoming logs. This new field is called `LogSize`, and it contains the log size in bytes. |
-| **Use objects from the selected accounts** | Gives the account access to Kibana objects (dashboards, visualizations, saved searches) stored in other accounts under the same plan. |
+| **Use objects from the selected accounts** | Gives the account access to OpenSearch Dashboards objects (dashboards, visualizations, saved searches) stored in other accounts under the same plan. |
 {:.paramlist}
 
 ### Manage your accounts

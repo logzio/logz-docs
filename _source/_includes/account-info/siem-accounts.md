@@ -47,7 +47,7 @@ Fill in the form:
 
   ![Shared security objects](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add_new-account.gif)
 
-  The security account you're configuring will automatically be able to access the Kibana dashboards, visualizations, and saved searches from the source accounts you add to this list, but will *not* have access to the data in these accounts.  
+  The security account you're configuring will automatically be able to access the OpenSearch dashboards, visualizations, and saved searches from the source accounts you add to this list, but will *not* have access to the data in these accounts.  
   
   This is helpful if you have multiple main accounts. 
   

@@ -81,7 +81,7 @@ Some endpoints require a particular attribute/payload. For example, [Microsoft T
 
 You can enhance your alert notifications with data pulled from the triggered alert.
 
-For example, you can add a **View in Kibana** drilldown link to a notification using the following:
+For example, you can add a **View in OpenSearch Dashboards** drilldown link to a notification using the following:
 
 ```
 "alert_view_link": "{{&alert_app_url}}#/view-triggered-alert?from={{&alert_timeframe_start_epoch_millis}}&to={{&alert_timeframe_end_epoch_millis}}&definitionId={{&alert_definition_id}}&switchToAccountId={{&account_id}}"

@@ -2,6 +2,8 @@
 layout: article
 title: Manage shared tokens
 permalink: /user-guide/tokens/shared-tokens.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage your Logz.io shared tokens
 flags:
   admin: true
   logzio-plan: community
@@ -15,13 +17,13 @@ contributors:
   - yberlinger
 ---
 
-Shared tokens give you the option to share Kibana dashboards and visualizations with stakeholders who don't have access to your Logz.io account.
+Shared tokens give you the option to share OpenSearch Dashboards objects and visualizations with stakeholders who don't have access to your Logz.io account.
 
 Note that also non-admin users of your account will be able to use the account's shared tokens.
 
 ## Best-practice recommendations
 
-A shared token has access to all of its account logs. When using a shared token, it is better not to rely on the Kibana filters applied to the dashboard or visualizations being shared. Instead, it is best to limit access at the token level using token filters.
+A shared token has access to all of its account logs. When using a shared token, it is better not to rely on the OpenSearch Dashboards filters applied to the dashboard or visualizations being shared. Instead, it is best to limit access at the token level using token filters.
 
 These best-practice recommendations will help you keep your data secure when using shared tokens:
 
@@ -94,7 +96,7 @@ You can open an incognito browser window to test your sharing links.
 
 For example, if you're trying to share a dashboard, you can add or remove token filters and refresh the view in your browser window to see how the filters affect what your recipients will see.
 
-Remember, the Kibana filters at the dashboard or visualization level affect what your recipients will see. However - from a security point of view - they don't control access tightly enough. Make sure to apply the token filters you need to keep your data secure.
+Remember, the OpenSearch Dashboards filters at the dashboard or visualization level affect what your recipients will see. However - from a security point of view - they don't control access tightly enough. Make sure to apply the token filters you need to keep your data secure.
 {:.info-box.warning}
 
 </div>

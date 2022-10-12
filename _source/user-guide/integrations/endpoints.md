@@ -2,6 +2,8 @@
 layout: article
 title: Notification endpoints
 permalink: /user-guide/integrations/endpoints.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to configure notification endpoints
 tags:
   - alerts
   - endpoints
@@ -14,7 +16,7 @@ contributors:
 
 Configure Logz.io to send notifications to your preferred endpoints.
 Notifications are typically sent when alerts are triggered,
-when a user shares a Kibana object,
+when a user shares an OpenSearch Dashboards object,
 or when Logz.io
 [Insights]({{site.baseurl}}/user-guide/insights/exploring-insights.html)
 identifies new exceptions in your logs.

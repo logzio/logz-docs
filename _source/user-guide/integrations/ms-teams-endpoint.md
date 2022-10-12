@@ -2,6 +2,8 @@
 layout: article
 title: Configure an endpoint for Microsoft Teams
 permalink: /user-guide/integrations/ms-teams.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Microsoft Teams endpoint configuration guide
 tags:
   - alerts
   - endpoints
@@ -59,7 +61,7 @@ To use this example in your own endpoint, copy the payload. Note that double-bra
     "potentialAction": [
         {
             "@type": "OpenUri",
-            "name": "View in Kibana",
+            "name": "View in OpenSearch Dashboards",
             "targets": [
                 {
                     "os": "default",

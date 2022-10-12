@@ -20,7 +20,7 @@ cards:
     url: /shipping/
     li-class: li-plane
 
-  - title: Kibana
+  - title: OpenSearch Dashboards
     description: Stay on top of your logs with rich visualizations
     url: /user-guide/kibana/
     li-class: li-bar-graph

@@ -436,8 +436,8 @@ firstLevel:
       url: /user-guide/users/
     - title: Multi-factor authentication
       url: /user-guide/users/multi-factor-authentication.html
-    - title: Permission levels
-      url: /user-guide/accounts/permissions/
+    #- title: Permission levels
+    #  url: /user-guide/accounts/permissions/
   - title: SSO
     thirdLevel:
     - title: Single sign-on

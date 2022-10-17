@@ -475,28 +475,28 @@ paths:
                 uid: 
                   type: string
                   example: my_external_reference
-        responses:
-          202:
-              description: Not Found
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: The contact point was deleted successfully.
-          204:
-              description: Acknowledged
-              schema:
-                type: object
-                properties:
-          400:
-              description: Not Found
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Validator error.
+      responses:
+        202:
+            description: Not Found
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: The contact point was deleted successfully.
+        204:
+            description: Acknowledged
+            schema:
+              type: object
+              properties:
+        400:
+            description: Not Found
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Validator error.
 
 
   v1/provisioning/contact-points/{UID}:

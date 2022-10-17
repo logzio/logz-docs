@@ -420,27 +420,27 @@ paths:
     delete:
       operationId: RouteDeleteContactpoints
       summary: Delete a contact point
-        description: >-
-           Delete a contact point.
-        tags:
-            - Grafana contact points
-        parameters:
-            - in: path
-              name: UID
-              type: string
-              required: true
-              schema:
-                description: >-
-                  Contact point unique identifier.
-        responses:
-          204:
-              description: Not Found
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: The contact point was deleted successfully.
+      description: >-
+         Delete a contact point.
+      tags:
+          - Grafana contact points
+      parameters:
+          - in: path
+            name: UID
+            type: string
+            required: true
+            schema:
+              description: >-
+                Contact point unique identifier.
+      responses:
+        204:
+            description: Not Found
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: The contact point was deleted successfully.
     put:
       operationId: RouteUpdateContactpoints
       summary: Update a contact point

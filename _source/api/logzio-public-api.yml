@@ -749,29 +749,29 @@ paths:
               description: successful query
               schema:
                 type: array
-                  items: 
-                    type: object
-                    properties: 
-                      id: 
-                        type: integer
-                        example: 123
-                        description: Data source Id
-                      uid: 
-                        type: string
-                        example: DCFaFyDnk
-                        description: Data source UID
-                      name: 
-                        type: string
-                        example: cluster6_metrics
-                        description: Data source name
-                      type: 
-                        type: string
-                        example: prometheus
-                        description: Enum for the data source type. Can be eithern prometheus or elasticsearch.
-                      database: 
-                        type: string
-                        example: 123456
-                        description: Metrics account ID
+                items: 
+                  type: object
+                  properties: 
+                    id: 
+                      type: integer
+                      example: 123
+                      description: Data source Id
+                    uid: 
+                      type: string
+                      example: DCFaFyDnk
+                      description: Data source UID
+                    name: 
+                      type: string
+                      example: cluster6_metrics
+                      description: Data source name
+                    type: 
+                      type: string
+                      example: prometheus
+                      description: Enum for the data source type. Can be eithern prometheus or elasticsearch.
+                    database: 
+                      type: string
+                      example: 123456
+                      description: Metrics account ID
 
             404:
               description: Not Found

@@ -334,26 +334,26 @@ paths:
           description: ContactPoints
           schema:
                 type: array
-                  items: 
-                    type: object
-                    properties: 
-                      disableResolveMessage: 
-                        type: boolean
-                      name: 
-                        type: string
-                        example: webhook_1
-                      provenance: 
-                        type: string
-                        example: string
-                      settings: 
-                        type: object
-                        properties:  
-                      type: 
-                        type: string
-                        example: webhook
-                      uid: 
-                        type: string
-                        example: my_external_reference
+                items: 
+                  type: object
+                  properties: 
+                    disableResolveMessage: 
+                      type: boolean
+                    name: 
+                      type: string
+                      example: webhook_1
+                    provenance: 
+                      type: string
+                      example: string
+                    settings: 
+                      type: object
+                      properties:  
+                    type: 
+                      type: string
+                      example: webhook
+                    uid: 
+                      type: string
+                      example: my_external_reference
 
       post:
         operationId: RoutePostContactpoints

@@ -341,19 +341,15 @@ paths:
                       type: boolean
                     name: 
                       type: string
-                      example: webhook_1
                     provenance: 
                       type: string
-                      example: string
                     settings: 
                       type: object
                       properties:  
                     type: 
                       type: string
-                      example: webhook
                     uid: 
                       type: string
-                      example: my_external_reference
 
       post:
         operationId: RoutePostContactpoints
@@ -372,16 +368,13 @@ paths:
                   type: boolean
                 name: 
                   type: string
-                  example: webhook_1
                 settings: 
                   type: object
                   properties:  
                 type: 
                   type: string
-                  example: webhook
                 uid: 
                   type: string
-                  example: my_external_reference
         responses:
           202:
           description: ContactPoints
@@ -394,19 +387,15 @@ paths:
                       type: boolean
                     name: 
                       type: string
-                      example: webhook_1
                     provenance: 
                       type: string
-                      example: string
                     settings: 
                       type: object
                       properties:  
                     type: 
                       type: string
-                      example: webhook
                     uid: 
                       type: string
-                      example: my_external_reference
           400:
               description: Not Found
               schema:
@@ -466,16 +455,13 @@ paths:
                   type: boolean
                 name: 
                   type: string
-                  example: webhook_1
                 settings: 
                   type: object
                 properties:  
                   type: 
                     type: string
-                    example: webhook
                   uid: 
                     type: string
-                    example: my_external_reference
       responses:
         202:
             description: Not Found
@@ -536,25 +522,19 @@ paths:
                   type: array
                   items: 
                     type: string
-                    example: string
                 group_interval: 
                   type: string
-                  example: string
                 group_wait: 
                   type: string
-                  example: string
                 match: 
                   type: object
                   properties: 
                     additionalProp1: 
                       type: string
-                      example: string
                     additionalProp2: 
                       type: string
-                      example: string
                     additionalProp3: 
                       type: string
-                      example: string
                 match_re: 
                   type: object
                   properties: 
@@ -574,19 +554,15 @@ paths:
                     properties: 
                       Name: 
                         type: string
-                        example: string
                       Type: 
                         type: integer
                         format: int32
-                        example: 0
                       Value: 
                         type: string
-                        example: string
                 mute_time_intervals: 
                   type: array
                   items: 
                     type: string
-                    example: string
                 object_matchers: 
                   type: array
                   items: 
@@ -594,28 +570,21 @@ paths:
                     properties: 
                       Name: 
                         type: string
-                        example: string
                       Type: 
                         type: integer
                         format: int32
-                        example: 0
                       Value: 
                         type: string
-                        example: string
                 provenance: 
                   type: string
-                  example: string
                 receiver: 
                   type: string
-                  example: string
                 repeat_interval: 
                   type: string
-                  example: string
                 routes: 
                   type: array
                   items: 
                     type: string
-                    example: string
 
     put:
       operationId: RouteGetPolicyTree
@@ -636,25 +605,19 @@ paths:
                   type: array
                   items: 
                     type: string
-                    example: string
                 group_interval: 
                   type: string
-                  example: string
                 group_wait: 
                   type: string
-                  example: string
                 match: 
                   type: object
                   properties: 
                     additionalProp1: 
                       type: string
-                      example: string
                     additionalProp2: 
                       type: string
-                      example: string
                     additionalProp3: 
                       type: string
-                      example: string
                 match_re: 
                   type: object
                   properties: 
@@ -674,19 +637,15 @@ paths:
                     properties: 
                       Name: 
                         type: string
-                        example: string
                       Type: 
                         type: integer
                         format: int32
-                        example: 0
                       Value: 
                         type: string
-                        example: string
                 mute_time_intervals: 
                   type: array
                   items: 
                     type: string
-                    example: string
                 object_matchers: 
                   type: array
                   items: 
@@ -694,28 +653,21 @@ paths:
                     properties: 
                       Name: 
                         type: string
-                        example: string
                       Type: 
                         type: integer
                         format: int32
-                        example: 0
                       Value: 
                         type: string
-                        example: string
                 provenance: 
                   type: string
-                  example: string
                 receiver: 
                   type: string
-                  example: string
                 repeat_interval: 
                   type: string
-                  example: string
                 routes: 
                   type: array
                   items: 
                     type: string
-                    example: string
 
       responses:
         202:

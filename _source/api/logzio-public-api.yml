@@ -338,27 +338,21 @@ paths:
                   type: object
                   properties: 
                     disableResolveMessage:
-                      description: When selected, this option disables the resolve message that is sent when the alerting state returns to false.
                       type: boolean
                     name: 
                       type: string
-                      description: Contact point name.
                       example: webhook_1
                     provenance: 
                       type: string
-                      description: Provenance
                       example: string
                     settings: 
                       type: object
-                      description: Contact point settings.
                       properties:  
                     type: 
                       type: string
-                      description: Contact point type.
                       example: webhook
                     uid: 
                       type: string
-                      description: Unique identifier of the contact point.
                       example: my_external_reference
 
       post:
@@ -376,23 +370,18 @@ paths:
               properties:
                 disableResolveMessage:
                   type: boolean
-                  description: When selected, this option disables the resolve message that is sent when the alerting state returns to false.
                 name: 
                   type: string
-                  description: Contact point name.
                   example: webhook_1
                 settings: 
                   type: object
-                  description: Contact point settings.
                   properties:  
                 type: 
                   type: string
                   example: webhook
-                  description: Contact point type.
                 uid: 
                   type: string
                   example: my_external_reference
-                  description: Unique identifier of the contact point.
         responses:
           202:
           description: ContactPoints
@@ -405,23 +394,18 @@ paths:
                       type: boolean
                     name: 
                       type: string
-                      description: Contact point name.
                       example: webhook_1
                     provenance: 
                       type: string
-                      description: Provenance
                       example: string
                     settings: 
                       type: object
-                      description: Contact point settings.
                       properties:  
                     type: 
                       type: string
-                      description: Contact point type.
                       example: webhook
                     uid: 
                       type: string
-                      description: Unique identifier of the contact point.
                       example: my_external_reference
           400:
               description: Not Found
@@ -479,23 +463,18 @@ paths:
               type: object
               properties:
                 disableResolveMessage:
-                  description: When selected, this option disables the resolve message that is sent when the alerting state returns to false.
                   type: boolean
                 name: 
                   type: string
-                  description: Contact point name.
                   example: webhook_1
                 settings: 
                   type: object
-                  description: Contact point settings.
                 properties:  
                   type: 
                     type: string
-                    description: Contact point type.
                     example: webhook
                   uid: 
                     type: string
-                    description: Unique identifier of the contact point.
                     example: my_external_reference
       responses:
         202:

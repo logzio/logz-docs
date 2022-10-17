@@ -716,23 +716,23 @@ paths:
                     type: string
                     example: string
 
-        responses:
-          202:
-              description: Not Found
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: The contact point was deleted successfully.
-          400:
-              description: Not Found
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Validator error.
+      responses:
+        202:
+            description: Not Found
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: The contact point was deleted successfully.
+        400:
+            description: Not Found
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Validator error.
 
 
 

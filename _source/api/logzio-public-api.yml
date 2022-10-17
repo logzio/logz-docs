@@ -324,11 +324,11 @@ paths:
             - Grafana contact points
         parameters:
           - in: query
-              name: name
-              type: string
-              schema:
-                description: >-
-                  Name to filter by.
+            name: name
+            type: string
+            schema:
+              description: >-
+                Name to filter by.
         responses:
           200:
           description: ContactPoints

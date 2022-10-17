@@ -444,19 +444,19 @@ paths:
     put:
       operationId: RouteUpdateContactpoints
       summary: Update a contact point
-        description: >-
-           Update a contact point.
-        tags:
-            - Grafana contact points
-        parameters:
-            - in: path
-              name: UID
-              type: string
-              required: true
-              schema:
-                description: >-
-                  Contact point unique identifier.
-            - in: body
+      description: >-
+         Update a contact point.
+      tags:
+          - Grafana contact points
+      parameters:
+          - in: path
+            name: UID
+            type: string
+            required: true
+            schema:
+            description: >-
+              Contact point unique identifier.
+          - in: body
             name: body
             schema:
               type: object

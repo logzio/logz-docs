@@ -499,7 +499,7 @@ paths:
                   example: Validator error.
 
 
-  v1/provisioning/contact-points/{UID}:
+  v1/provisioning/policies:
     delete:
       operationId: RouteResetPolicyTree
       summary: Clears the notification policy tree

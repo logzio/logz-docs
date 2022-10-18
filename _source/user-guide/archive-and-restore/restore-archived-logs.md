@@ -3,7 +3,7 @@ layout: article
 title: Restore archived logs
 permalink: /user-guide/archive-and-restore/restore-archived-logs.html
 image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Restore and search your archived logs to a temporary account
+description: Restore and search your archived logs
 flags:
   admin: true
   logzio-plan: pro
@@ -37,7 +37,17 @@ so you can investigate events in OpenSearch Dashboards that are older than your 
 [Archiving enabled](https://app.logz.io/#/dashboard/tools/archive-and-restore),
 archived logs in your S3 bucket
 
+Your existing drop filters **will not apply** when restoring data. Instead, use the optional filters or **Power search** to control which data to restore.
+{:.info-box.note}
+
+
 <div class="tasklist">
+
+##### Name your restored account and set the desired time range
+
+In the _Restore data_ tab, give your restored account a **Name**, and choose the **Time range** of up to 24 hours.
+
+
 
 <!-- ##### Make your preparations
 
@@ -54,16 +64,11 @@ There are a few things you need to check before you begin the process.
     It's best to restore data for the smallest time frame, to ensure that the volume of data to be restored will not approach the max limit.
     {:.info-box.important} -->
 
-##### Restore your archives
+##### Choose the data you'd like to restore
 
+###### Apply filters
 
-Your existing drop filters **will not apply** when restoring data. Instead, use the optional filters to control which data to restore.
-{:.info-box.note}
-
-
-In the _Restore data_ tab, give your restored account a **Name**, and choose a **Time range** of up to 24 hours.
-
-Next, you can use filters to control and limit which data you'd like to restore by applying filters. Your restored logs will only include data that matches all of your filters.
+You can control and limit which data you'd like to restore by applying **filters**, or by using **Power search**. Your restored logs will only include data that matches all of your filters or your exact search term.
 
 To add a filter, click on **Add a filter** and choose the relevant field, operator, and value.
 
@@ -83,6 +88,24 @@ Note that you can add **up to 7 filters** per restore process.
 If you want to remove one of the filters you've created, click on the **X** next to its name.
 
 ![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/delete-filter.png)
+
+###### Apply Power search
+
+Power search has an additional fee. You'll be able to review and approve the additional cost before restoring your data.
+{:.info-box.note}
+
+Power search lets you apply text search directly on your archived data. This process allows you to focus on restoring what's critical to you, while dramatically speeding up your restore time.
+
+To start using Power search, you'll need to apply the following permissions 
+
+
+
+Use “, AND, OR, () operators. You can’t use nested brackets (()).
+(“blue sky” OR clouds) AND rain OR “thunder storms”
+
+
+
+##### Restore your data
 
 Click on **Restore** to begin the restoring process. It might take a while to restore your archived data, according to the number of logs and size. For example, an hour's worth of data might take a few minutes, while a day's worth of data could take up to a few hours.
 

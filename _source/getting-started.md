@@ -63,7 +63,7 @@ If you prefer to parse the logs yourself, you can use our [DIY Data Parsing Edit
 
 ###### Additional resources
 
-Learn more about sending data to Logz.io:
+Learn more about sending data to Logz.io: 
 
 * [Use Logz.io API](https://docs.logz.io/api/)
 * [Log shipping FAQ](https://docs.logz.io/user-guide/log-shipping/faqs-logs/)
